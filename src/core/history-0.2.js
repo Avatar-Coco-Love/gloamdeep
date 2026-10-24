@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.98', date: '2026-10-24', title: 'Trees to chop', lines: [
+    "Every tree inside a woods room can now be chopped; the ring of trees around its edge stays as its wall. Walk into one to bump it, a turn each: \"You hack at the tree.\", \"Chips fly from the trunk.\", \"The tree groans.\"",
+    "The fourth bump fells it and puts 3 Wood in the bag, with a line that changes each time, such as \"The tree falls. You take wood.\" It leaves a stump in one of three looks: a clean cut with a pale ring, a splintered one, or a low mossy one with roots. You can walk over a stump, and your light passes over it.",
+    "With room for fewer than 3 Wood, the tree still falls, and the rest lies as sticks on the stump and the tiles nearest it; those sticks never grow back. With 3 Wood carried, the fourth bump says \"You can't carry more wood.\", free, and the tree stands. A stump grows back into a tree after 3 days, 900 turns, out of sight, if nothing lies on it and the room stays joined.",
+    "Decisions: D-317, D-318 (D-310 to D-316 archived).",
+  ] },
   { v: '0.2.97', date: '2026-10-24', title: 'Fallen branches', lines: [
     "Each woods room now has one fallen branch, in one of three looks: a bough with two twigs, a shorter one with leaves at its end, or a snapped bough with a pale ring and moss. It blocks your way like a tree, but your light passes over it, and the map outlines it.",
     "Walk into it to bump it, a turn each. The first bump says \"The branch creaks.\"; the second breaks it, leaving grass, and puts 2 Wood in the bag in the branch's look, with a line that changes each time, such as \"The branch snaps. You take wood.\"",

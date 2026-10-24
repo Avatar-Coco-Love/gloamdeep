@@ -83,7 +83,7 @@ export function step(state, dir) {
     const out = walkOff(note(passTurn(state), 'step'), dir);
     return out ? endTurn(state, out) : state;
   }
-  if (tileAt(state.room, x, y).solid) return tileAt(state.room, x, y).mine ? mine(state, x, y) : lightTorch(state, x, y);
+  if (tileAt(state.room, x, y).solid) return minable(state.room, x, y) ? mine(state, x, y) : lightTorch(state, x, y);
   const foe = enemyAt(state, x, y);
   if (foe) return attack(state, foe);
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
@@ -265,30 +265,50 @@ function lightTorch(state, x, y) {
 
 // § mine: walking into a deposit bumps it, a turn each, like a hit, with its
 // `chips` line in turn (O2). The room keeps each one's bumps in `chips`, by
-// tile. The last bump breaks it to floor and its `n` (one unless said) drops go
-// into the bag with its `breaks` line, in the tile's look when it has `forms`;
+// tile. The last bump breaks it to floor, or to what it `leaves` (a tree, a
+// stump, W3), and its `n` (one unless said) drops go into the bag with its
+// `breaks` line, in the tile's look when it has `forms` (else what it leaves);
 // with no room for one, its `full` line is said, free, and it holds. With room
-// for fewer than `n`, the rest lies on its tile, never to grow back (W2, D-316).
+// for fewer than `n`, the rest lies on its tile and the nearest open ones, never
+// to grow back (W2, D-316; W3, D-317).
 // Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
 // cracks, before that, stay until it breaks.
 // Each bump is a `chip` event, and the drops a `take`.
 function mine(state, x, y) {
-  const tile = tileAt(state.room, x, y), { hits, chips, drops, n: count = 1, breaks, full } = tile.mine;
+  const tile = tileAt(state.room, x, y), { hits, chips, drops, n: count = 1, breaks, full, leaves = 'floor' } = tile.mine;
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
   if (n < hits) {
     const room = { ...state.room, chips: { ...rest, [key]: n } };
     return endTurn(state, say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), chips[n - 1]));
   }
-  const form = tile.forms ? formOf(tile, x, y) : undefined;
+  const after = get(leaves), looks = tile.forms ? tile : after.forms ? after : null;
+  const form = looks ? formOf(looks, x, y) : undefined;
   let bag = state.bag, taken = 0;
   for (let more; taken < count && (more = bagAdd(bag, drops, form)); taken++) bag = more;
   if (!taken) return say(state, full || get(drops).full);
-  const left = Array.from({ length: count - taken }, () => ({ id: drops, x, y, ...(form === undefined ? {} : { form }), once: true }));
-  const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
+  const room = { ...withTile(state.room, x, y, after), chips: rest };
+  const left = spread({ ...state, room }, x, y, count - taken)
+    .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
   const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n }), 'take', { id: drops });
   return endTurn(state, say(next, breaks));
+}
+
+// Whether the solid tile at x, y can be mined: it has `mine`, and one only `inner`
+// (a tree, W3) is off the room's edge, which stays its wall
+function minable(room, x, y) {
+  const m = tileAt(room, x, y).mine;
+  return !!m && !(m.inner && (x === 0 || y === 0 || x === room.cols - 1 || y === room.rows - 1));
+}
+
+// k tiles for what didn't fit: x, y first, then the nearest open ones around it with
+// nothing on them and no hero, sides before corners; x, y again when none is left
+function spread(state, x, y, k) {
+  const around = [[0, 0], [0, 1], [-1, 0], [1, 0], [0, -1], [-1, 1], [1, 1], [-1, -1], [1, -1]].map(([dx, dy]) => ({ x: x + dx, y: y + dy }));
+  const open = around.filter((t) => (t.x === x && t.y === y) || (!tileAt(state.room, t.x, t.y).solid
+    && !(t.x === state.hero.x && t.y === state.hero.y) && !state.items.some((o) => o.x === t.x && o.y === t.y)));
+  return Array.from({ length: k }, (_, i) => open[i] || { x, y });
 }
 
 // § pour: a flask from bag slot i into the lantern, never above full, even

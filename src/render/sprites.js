@@ -95,6 +95,20 @@ const BRANCHES = [
     '.kaakkkkkWkkkk..', 'kaOakWWWgWWWWNk.', 'kaaakNNgGNNNNnk.', '.kakkNnnnnnnnnk.', '..k..kkkkkkkkk..'] },
 ];
 
+// § stump: three looks, one per felled tree as its tile picks (W3, D-317): a clean
+// cut with a pale ring, a splintered one, a low mossy one with roots, in the trunk's browns
+const STUMPS = [
+  { mirror: false, rows: [
+    '', '', '', '', '', '.....kkkkkk.....', '....kNWWWWNk....', '...kWaaaaaaNk...', '...kWaOOOOaNk...', '...kWOaaaaONk...',
+    '...kNaOOOOaNk...', '...kWNNNNNNnk...', '...kWNnNNnNnk...', '..kWWNnNNnNnnk..', '..kkkkkkkkkkkk..'] },
+  { mirror: false, rows: [
+    '', '', '', '.....k....k.....', '....kak..kak....', '...kWaak.kaNk...', '...kWaaakaaNk...', '...kWNaaaaNnk...', '...kWNNaaNNnk...',
+    '...kWNnNNnNnk...', '...kWNnNNnNnk...', '...kWNNNnNNnk...', '..kWWNnNNnNnnk..', '..kkkkkkkkkkkk..'] },
+  { mirror: false, rows: [
+    '', '', '', '', '', '', '.....kkkkkk.....', '....kgGWWWNk....', '...kggaaaaaNk...', '...kGgaOOaaNk...', '...kWaaaaaaNk...',
+    '...kWNNnNNnnk...', '.kkWWNnNNnNnnkk.', 'kWNnkNnNNnNnkNnk', '.kk.kkkkkkkkk.kk'] },
+];
+
 // § potion: a round red bottle under a cork, a pale glass neck and a light
 // gleam on its left (D-309, look A of three)
 const POTION = { mirror: true, rows: [
@@ -153,7 +167,7 @@ function shifted(hex, hue, light) {
   return `hsl(${(h * 60 + hue + 360) % 360} ${sat * 100}% ${Math.max(0, Math.min(100, l * 100 + light))}%)`;
 }
 const TONED = {};
-const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)), branch: BRANCHES.map((def) => spriteCanvas(def)) };
+const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)), branch: BRANCHES.map((def) => spriteCanvas(def)), stump: STUMPS.map((def) => spriteCanvas(def)) };
 // An item's or a bag slot's sprite: in its form (D-314) or tone (D-305), when it has one
 export function spriteOf(it) {
   if (FORMS[it.id]) return FORMS[it.id][it.form] || FORMS[it.id][0];
@@ -214,6 +228,13 @@ export function drawBranch(c, tx, ty, form) {
   const x = tx * 16, y = ty * 16;
   drawShadow(c, x, y - 1, 14);
   c.drawImage(FORMS.branch[form] || FORMS.branch[0], x, y);
+}
+
+// § stump: drawn flat on its tile in its look, on a soft shadow (W3, D-317)
+export function drawStump(c, tx, ty, form) {
+  const x = tx * 16, y = ty * 16;
+  drawShadow(c, x, y - 1, 12);
+  c.drawImage(FORMS.stump[form] || FORMS.stump[0], x, y);
 }
 
 const LYING_DROP = 3; // pixels the fallen hero sits lower, on the floor

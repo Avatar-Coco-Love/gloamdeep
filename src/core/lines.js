@@ -44,6 +44,10 @@ export const LINES = {
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)
   branchTake: { texts: ['The branch snaps. You take wood.', 'It breaks apart. Wood for the bag.', 'Crack. You gather the wood.'], warn: false }, // the second
   woodFull: { text: "You can't carry more wood.", warn: false }, // the second bump, a full stack: the branch holds
+  treeHack: { text: 'You hack at the tree.', warn: false }, // bumps 1 to 3 (W3, D-317)
+  treeChips: { text: 'Chips fly from the trunk.', warn: false },
+  treeGroan: { text: 'The tree groans.', warn: false },
+  treeTake: { texts: ['The tree falls. You take wood.', 'It crashes down. Wood for the bag.', 'Timber! You gather the wood.'], warn: false }, // the fourth
   woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };

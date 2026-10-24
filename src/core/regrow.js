@@ -8,6 +8,8 @@
 // deposit, O3) comes back the same way, as that tile on the room's map, but on a
 // floor tile within `near` steps of where it stood (diagonals count), or its own
 // again, picked by the seed: off the edge, never cutting the room in two (D-313).
+// A tree comes back only on its own stump (`on`, W3, D-317), and waits while
+// that would cut the room.
 // Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
@@ -39,13 +41,13 @@ export function regrow(state, came = false) {
   return now.taken.length === taken.length ? state : now;
 }
 
-// A floor tile within the kind's `near` steps of t, off the edge, free, out of
+// A floor tile (or the kind's `on` tile) within the kind's `near` steps of t, off the edge, free, out of
 // sight and not cutting the room in two, picked by the seed; null when none is
 function spotNear(state, t, entry, came) {
   const { room } = state, near = entry.near ?? 0, spots = [];
   for (let y = t.y - near; y <= t.y + near; y++) for (let x = t.x - near; x <= t.x + near; x++) {
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2) continue;
-    if (tileAt(room, x, y).id !== 'floor' || !free(state, { x, y }, came)) continue;
+    if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came)) continue;
     if (joined(withTile(room, x, y, entry))) spots.push({ x, y });
   }
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;

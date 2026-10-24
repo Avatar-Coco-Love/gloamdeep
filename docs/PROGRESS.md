@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.97 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.98 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-W3 Trees to chop for Wood (D-314). Propose how first.
+A workbench, made in the bag, set down on the surface (D-314). Propose how first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -80,7 +80,7 @@ The first ore deposit, then the stash chest, then a light-seeking creature (D-31
 Wood, then the chest (D-314; order may change)
 - [x] W1 Sticks: 3 in each woods room, three looks, into the bag as Wood, 0.2.96 (D-315)
 - [x] W2 Fallen branches: 1 a woods room, two bumps for 2 Wood, 0.2.97 (D-316)
-- [ ] W3 Trees to chop
+- [x] W3 Trees to chop: 4 bumps for 3 Wood, a stump that grows back, 0.2.98 (D-317)
 - [ ] A workbench, made in the bag, set down on the surface
 - [ ] The stash chest, made at the workbench
 - [ ] A creature drawn to light
@@ -93,10 +93,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
-  its room's taken list and comes back within 2 tiles of where it stood
-  after 900 turns, out of sight, never cutting the room; cracks stay; old
-  saves' broken ones stay gone (D-313). [Playtest](https://claude.ai/artifact/144iL1Jny6d7o2EqN6gyqX).
 - **2026-10-24, 0.2.96, sticks in the woods.** Wood comes before the
   chest: sticks, branches, trees; small things made in the bag, big ones at
   a workbench set down on the surface (D-314). Each woods room holds 3
@@ -105,3 +101,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   looks by its tile; it blocks like a tree, light passes over. Two bumps break
   it for 2 Wood; with room for 1 the other lies as a stick that never grows
   back; it grows back in 900 turns (D-316). [Playtest](https://claude.ai/artifact/V3xVMw9e9XTEvWcc1Zi8Vm).
+- **2026-10-24, 0.2.98, trees to chop.** Every tree but the edge ring falls
+  in 4 bumps for 3 Wood, with lines, leaving a stump in three looks that you
+  walk over; extra Wood lies as sticks nearby; the stump grows back into a
+  tree in 900 turns if the room stays joined (D-317). D-310 to D-316
+  archived (D-318). [Playtest](https://claude.ai/artifact/MmZABKk3ztGLyJ5b8Q88M1).
