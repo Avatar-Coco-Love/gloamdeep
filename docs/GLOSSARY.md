@@ -41,6 +41,8 @@ this page and a decision disagree, the decision wins.
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
 - **Stone:** a small grey pebble from a deposit, for later crafts (D-312).
+- **Wood:** sticks, branches and trees all give it, for crafts and building;
+  sticks lie in the woods in three looks (D-314, D-315).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).

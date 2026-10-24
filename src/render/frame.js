@@ -3,7 +3,7 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, H } from './screen.js';
 import { drawRoom } from './tiles.js';
-import { drawHero, drawItems, drawEnemies, SPRITES, wearLook, heroIn } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
@@ -158,7 +158,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());
     else if (app.screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
-    else if (app.screen === 'bag') drawBag(ctx, state.bag, app.chosen, SPRITES, app.bagOnTop, state.held, state.health >= maxHealth(state));
+    else if (app.screen === 'bag') drawBag(ctx, state.bag, app.chosen, spriteOf, app.bagOnTop, state.held, state.health >= maxHealth(state));
     else dev.draw(ctx, state, cam);
   }
 

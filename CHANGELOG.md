@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.96 (2026-10-24)
+- Each woods room now has 3 sticks lying on the grass, each in one of three looks: a straight stick, a forked twig with a leaf, or a crooked branch. Walk onto one to put it in the bag as Wood, in stacks of 3, with a line that changes each time, such as "You pick up a stick." The bag shows the look of the last one you picked.
+- Choosing Wood in the bag gives a line such as "Dry wood, for crafting later." With 3 carried, a stick stays where it lies. Picked sticks grow back after a day, like mushrooms.
+- Decisions: D-314, D-315.
+
 ## 0.2.95 (2026-10-24)
 - A broken deposit now grows back after 3 days, 900 turns, as picked mushrooms and flasks do, but not always on the same tile: it comes back within 2 steps of where it stood, or on its old tile again, so a room never looks quite the same. It only comes back out of your light, on free floor off the room's edge, never cutting the room in two; walk into a room after long enough away and it is already there.
 - A boulder you have only chipped or cracked keeps its cracks until you break it. Boulders broken in a save from before this version stay gone.

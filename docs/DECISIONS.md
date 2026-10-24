@@ -138,3 +138,27 @@ walked into. It comes back on a floor tile within 2 steps of where it stood
 never cutting the room in two (changed before merging, the owner's wish:
 its own tile → within 2). A chipped or cracked boulder keeps its bumps
 until it breaks. Deposits broken in an old save stay gone.
+
+**D-314 · 2026-10-24 · Wood before the stash chest** (the owner's wish and
+picks; builds D-282, D-296) Before the stash chest comes wood. For now it is
+one item, Wood, from three sources, each its own step: sticks lying in the
+woods (W1, first), fallen branches to bump (W2), and trees to chop (W3).
+A separate Stick, and Planks crafted for bigger builds, may come later.
+Where things are made: small things you carry and use up (flasks, potions)
+are made in the bag; big things you set down or build, such as the chest,
+need a workbench, which is itself made in the bag and can be set down
+anywhere on the surface. Wood comes first, then the chest, then the
+light-seeking creature (D-311).
+
+**D-315 · 2026-10-24 · Sticks in the woods** (step W1 of D-314, the
+owner's picks, all recommended but the look) Each woods room holds 3
+sticks on open tiles, picked after the trees so the rest of each seed's room
+stays as it was. Each lies in one of three looks from the mock-up
+(https://claude.ai/artifact/AofptSBiPXEbMUwgQPZjhc), picked by the seed: a
+straight stick, a forked twig with a leaf, a crooked branch (the owner's
+wish: all three, for variety). Walked onto, it goes into the bag as Wood, in
+stacks of 3, the slot showing the look of the last one picked, saying in
+turn "You pick up a stick.", "A dry branch. You keep it.", "You gather some
+wood." Choosing it says in turn "Dry wood, for crafting later.", "It snaps
+if you bend it.", "Good for building." Over a full stack it stays, with no
+line. Sticks grow back after a day, 300 turns, as mushrooms do (D-306).

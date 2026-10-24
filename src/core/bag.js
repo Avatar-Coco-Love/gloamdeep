@@ -6,11 +6,12 @@ export const BAG_SLOTS = 6;
 export const STACK_MAX = 3; // a stack holds at most 3; one more stays on the floor (D-250)
 
 // The bag with one more of item `id`: on its stack, else in a new slot; null
-// when it has no room, or its stack is full (it never spills to a new slot)
-export function bagAdd(bag, id) {
-  const i = bag.findIndex((s) => s.id === id);
-  if (i >= 0) return bag[i].n < STACK_MAX ? bag.map((s, j) => (j === i ? { ...s, n: s.n + 1 } : s)) : null;
-  return bag.length < BAG_SLOTS ? [...bag, { id, n: 1 }] : null;
+// when it has no room, or its stack is full (it never spills to a new slot).
+// `form`, when given, is the look the stack shows from now on (D-314).
+export function bagAdd(bag, id, form) {
+  const i = bag.findIndex((s) => s.id === id), shown = form === undefined ? {} : { form };
+  if (i >= 0) return bag[i].n < STACK_MAX ? bag.map((s, j) => (j === i ? { ...s, n: s.n + 1, ...shown } : s)) : null;
+  return bag.length < BAG_SLOTS ? [...bag, { id, n: 1, ...shown }] : null;
 }
 
 // Whether item `id`'s stack is at the limit

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.93, the first ore deposit.** Ideas picked: a deposit,
+  the stash chest, a light-seeking creature. Each Cave room, depths 2 to 4,
+  holds 3 boulder deposits: solid, light passes over, the map outlines
+  them (D-311). D-299 to D-309 archived (D-310). [Playtest](https://claude.ai/artifact/7m9zAvmXPaEmfey1gzjkFK).
 - **2026-10-24, 0.2.92, ideas: enemies and bosses.** In `RESEARCH.md`:
   enemies mixed from a few building blocks, and bosses in phases that test
   what you know, with balancing notes; nothing in the game changes.

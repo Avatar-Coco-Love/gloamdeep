@@ -53,21 +53,21 @@ function frame(c, x, y, w, h, colour) {
   c.fillRect(x, y, 1, h); c.fillRect(x + w - 1, y, 1, h);
 }
 
-// bag: [{ id, n }]; chosen: the slot picked; sprites: the item sprites, keyed by id; top: see panelOnTop;
+// bag: [{ id, n, form? }]; chosen: the slot picked; spriteOf: a slot's or item's sprite (sprites.js); top: see panelOnTop;
 // held: the weapon in hand's id, or null; full: whether the hero is at full health
-export function drawBag(c, bag, chosen, sprites, top = false, held = null, full = false) {
+export function drawBag(c, bag, chosen, spriteOf, top = false, held = null, full = false) {
   const { x, w, h } = PANEL, { y, held: hy, row, foot } = rows(top);
   c.fillStyle = K; c.fillRect(x, y, w, h);
   frame(c, x, y, w, h, LINE);
   drawText(c, 'BAG', Math.floor((W - textWidth('BAG')) / 2), y + 4, EMBER);
   drawText(c, HELD, HELD_X - 5 - textWidth(HELD), hy + 8, GREY);
   frame(c, HELD_X, hy, SLOT, SLOT, LINE);
-  if (held) c.drawImage(sprites[held], HELD_X + 3, hy + 3);
+  if (held) c.drawImage(spriteOf({ id: held }), HELD_X + 3, hy + 3);
   for (let i = 0; i < BAG_SLOTS; i++) {
     const sx = slotX(i), s = bag[i];
     frame(c, sx, row, SLOT, SLOT, i === chosen ? GOLD : LINE);
     if (!s) continue;
-    c.drawImage(sprites[s.id], sx + 3, row + 3);
+    c.drawImage(spriteOf(s), sx + 3, row + 3);
     if (s.n > 1) {
       const n = String(s.n), nw = textWidth(n);
       c.fillStyle = K; c.fillRect(sx + SLOT - 3 - nw, row + SLOT - 10, nw + 2, 8);
