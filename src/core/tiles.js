@@ -1,5 +1,7 @@
 // § tiles: every tile kind, keyed by id (D-040, D-048). `letter` is how a
 // room map writes it. registry.js gathers this table with the other kinds.
+import { DAY_TURNS } from './daytime.js';
+
 // The stairs' glow: the art's stairs violet (#a58ce0), faint (D-134), and since
 // D-194 half as bright, reaching 1 tile: the stairs and a touch beside them.
 const GLOW = { reach: 1, cr: 0.325, cg: 0.275, cb: 0.44 };
@@ -15,8 +17,9 @@ export const TILES = {
   outcrop: { id: 'outcrop', kind: 'tile', letter: 'R', name: 'Rock', solid: true, blocksLight: true },
   // A round boulder on a cave floor (D-282, D-311): solid, but light passes over it.
   // Bumped `mine.hits` times, a turn each, with its `chips` lines, it breaks to floor and
-  // `drops` goes into the bag with its `breaks` line (turn.js, O2).
-  deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false,
+  // `drops` goes into the bag with its `breaks` line (turn.js, O2). Broken, it grows
+  // back on its own tile after 3 days, out of sight, as things picked do (regrow.js, O3).
+  deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS,
     mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' } },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },

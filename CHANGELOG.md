@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.95 (2026-10-24)
+- A broken deposit now grows back after 3 days, 900 turns, on the very tile where it stood, as picked mushrooms and flasks do. It only comes back out of your light, with no one and nothing on its tile; walk into a room after long enough away and it is already there.
+- A boulder you have only chipped or cracked keeps its cracks until you break it. Boulders broken in a save from before this version stay gone.
+- Decisions: D-313.
+
 ## 0.2.94 (2026-10-24)
 - Walking into a deposit now mines it, a turn each bump. The first says "You chip at the boulder.", the second "The boulder cracks.", and the third breaks it, leaving floor where it stood, with a line that changes each time, such as "The boulder breaks. You take a stone."
 - The stone, a small round grey pebble, goes into the bag in stacks of 3. Choosing it gives a line such as "A plain stone, for crafting later." It is for crafts that come later. With 3 stones carried, the third bump says "You can't carry more stones." and the boulder holds, costing no turn.

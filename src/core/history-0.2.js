@@ -2,6 +2,11 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.95', date: '2026-10-24', title: 'A deposit grows back', lines: [
+    "A broken deposit now grows back after 3 days, 900 turns, on the very tile where it stood, as picked mushrooms and flasks do. It only comes back out of your light, with no one and nothing on its tile; walk into a room after long enough away and it is already there.",
+    "A boulder you have only chipped or cracked keeps its cracks until you break it. Boulders broken in a save from before this version stay gone.",
+    "Decisions: D-313.",
+  ] },
   { v: '0.2.94', date: '2026-10-24', title: 'Mining a deposit', lines: [
     "Walking into a deposit now mines it, a turn each bump. The first says \"You chip at the boulder.\", the second \"The boulder cracks.\", and the third breaks it, leaving floor where it stood, with a line that changes each time, such as \"The boulder breaks. You take a stone.\"",
     "The stone, a small round grey pebble, goes into the bag in stacks of 3. Choosing it gives a line such as \"A plain stone, for crafting later.\" It is for crafts that come later. With 3 stones carried, the third bump says \"You can't carry more stones.\" and the boulder holds, costing no turn.",

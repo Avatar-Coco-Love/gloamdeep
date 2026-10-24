@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.94 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.95 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-O3: a broken deposit grows back after 3 days, 900 turns (D-311), out of
-sight, as things picked do (D-306). Propose how first.
+The stash chest, the second of D-311's three picks; it comes with the home
+base (see the build plan). Propose how first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -77,7 +77,7 @@ The heartcap (D-303, D-304, D-306; order approved)
 The first ore deposit, then the stash chest, then a light-seeking creature (D-311)
 - [x] O1 Deposits: 3 boulders in each Cave room, 0.2.93
 - [x] O2 Three bumps break one; a stone into the bag, 0.2.94 (D-312)
-- [ ] O3 A broken deposit grows back after 900 turns
+- [x] O3 A broken deposit grows back after 900 turns, 0.2.95 (D-313)
 - [ ] The stash chest
 - [ ] A creature drawn to light
 
@@ -89,9 +89,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.92, ideas: enemies and bosses.** In `RESEARCH.md`:
-  enemies mixed from a few building blocks, and bosses in phases that test
-  what you know, with balancing notes; nothing in the game changes.
 - **2026-10-24, 0.2.93, the first ore deposit.** Ideas picked: a deposit,
   the stash chest, a light-seeking creature. Each Cave room, depths 2 to 4,
   holds 3 boulder deposits: solid, light passes over, the map outlines
@@ -100,3 +97,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   chip, crack and break a deposit to floor; a Stone, a round grey pebble,
   goes into the bag with lines in turn. With 3 carried the boulder holds,
   free (D-312). [Playtest](https://claude.ai/artifact/7TGcwxePXkMLGQaqmUAJ4p).
+- **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
+  its room's taken list and comes back on its own tile after 900 turns,
+  out of sight, as things picked do; cracks stay until it breaks; old
+  saves' broken ones stay gone (D-313). [Playtest](https://claude.ai/artifact/144iL1Jny6d7o2EqN6gyqX).

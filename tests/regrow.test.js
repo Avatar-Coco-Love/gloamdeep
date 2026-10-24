@@ -111,3 +111,51 @@ test('taking the stairs into a room, what is due there is already back', () => {
   assert.equal(itemAt(n, 3, 3)?.id, 'flask');
   assert.deepEqual(n.taken, []);
 });
+
+// § deposits: a broken deposit grows back on its own tile after 3 days (O3)
+import { withTile, tileAt } from '../src/core/room.js';
+import { get } from '../src/core/registry.js';
+import { readJourney, journeyText } from '../src/core/save.js';
+const breakAndStepBack = () => {
+  const s = makeState(withTile(room, 5, 10, get('deposit')));
+  return step(step(step(step(s, 'up'), 'up'), 'up'), 'up'); // three bumps break it, then onto the floor it left
+};
+
+test('a broken deposit goes on the taken list with its turn', () => {
+  const s = breakAndStepBack();
+  assert.deepEqual(s.taken, [{ id: 'deposit', x: 5, y: 10, at: 3 }]);
+  assert.deepEqual(s.room.chips, {});
+});
+
+test('it grows back on its own tile after three days, not a turn sooner, out of sight', () => {
+  const s = step(breakAndStepBack(), 'down');
+  assert.equal(tileAt(waitTill(s, 3 * DAY_TURNS - 1).room, 5, 10).id, 'floor');
+  const n = waitTill(s, 3 * DAY_TURNS);
+  assert.equal(tileAt(n.room, 5, 10).id, 'deposit');
+  assert.deepEqual(n.taken, []);
+  assert.deepEqual(n.items, []);
+  const lit = wait({ ...s, lit: true, turn: s.taken[0].at + 3 * DAY_TURNS - 1 });
+  assert.equal(tileAt(lit.room, 5, 10).id, 'floor', 'the lantern shows the tile');
+});
+
+test('it waits while the hero, a creature or an item is on its tile', () => {
+  const s = breakAndStepBack(), on = { ...s, lit: false, turn: s.taken[0].at + 3 * DAY_TURNS };
+  assert.equal(tileAt(regrow(on).room, 5, 10).id, 'floor', 'the hero stands there');
+  const off = { ...on, hero: { x: 5, y: 11 } };
+  assert.equal(regrow({ ...off, enemies: [{ id: 'rat', x: 5, y: 10 }] }).taken.length, 1, 'a rat');
+  assert.equal(regrow({ ...off, items: [{ id: 'flask', x: 5, y: 10 }] }).taken.length, 1, 'an item');
+  assert.equal(tileAt(regrow(off).room, 5, 10).id, 'deposit');
+});
+
+test('a saved journey keeps a broken deposit\'s clock', () => {
+  const s = breakAndStepBack();
+  assert.deepEqual(readJourney(journeyText(s)).state.taken, s.taken);
+});
+
+test('coming into a room, a deposit that grew back while the hero was away is there', () => {
+  const w = makeWorld('first', 4127);
+  const there = { ...w.elsewhere.second, taken: [{ id: 'deposit', x: 3, y: 3, at: 0 }] };
+  const n = regrow(arrive({ ...w, turn: 3 * DAY_TURNS }, 'second', there, { x: 1, y: 1 }), true);
+  assert.equal(tileAt(n.room, 3, 3).id, 'deposit');
+  assert.deepEqual(n.taken, []);
+});

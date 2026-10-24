@@ -4,10 +4,12 @@
 // turns later, each on its own clock; one without (the knife) never does. It
 // comes back only out of the hero's sight, on a tile nothing stands or lies on,
 // so nothing appears before their eyes; in a room the hero has just come into,
-// what grew while they were away is already there. Plain data, no drawing.
+// what grew while they were away is already there. A tile on the list (a broken
+// deposit, O3) comes back the same way, as that tile on the room's map, where the
+// floor it left is. Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
-import { tileAt } from './room.js';
+import { tileAt, withTile } from './room.js';
 
 // (state, item) → the state with the item on its room's taken list, when its kind grows back
 export function noteTaken(state, item) {
@@ -23,7 +25,10 @@ export function regrow(state, came = false) {
   const back = [], wait = [];
   for (const t of taken) (ready(state, t, back, came) ? back : wait).push(t);
   if (!back.length) return state;
-  return { ...state, items: [...state.items, ...back.map(({ at, ...item }) => item)], taken: wait };
+  const tiles = back.filter((t) => get(t.id).kind === 'tile');
+  const room = tiles.reduce((r, t) => withTile(r, t.x, t.y, get(t.id)), state.room);
+  const items = back.filter((t) => !tiles.includes(t)).map(({ at, ...item }) => item);
+  return { ...state, room, items: [...state.items, ...items], taken: wait };
 }
 
 // Its clock has run out, and its tile is free and out of sight
