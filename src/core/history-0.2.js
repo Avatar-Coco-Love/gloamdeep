@@ -2,6 +2,11 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.94', date: '2026-10-24', title: 'Mining a deposit', lines: [
+    "Walking into a deposit now mines it, a turn each bump. The first says \"You chip at the boulder.\", the second \"The boulder cracks.\", and the third breaks it, leaving floor where it stood, with a line that changes each time, such as \"The boulder breaks. You take a stone.\"",
+    "The stone, a small round grey pebble, goes into the bag in stacks of 3. Choosing it gives a line such as \"A plain stone, for crafting later.\" It is for crafts that come later. With 3 stones carried, the third bump says \"You can't carry more stones.\" and the boulder holds, costing no turn.",
+    "Decisions: D-312.",
+  ] },
   { v: '0.2.93', date: '2026-10-24', title: 'The first ore deposit', lines: [
     "Each room of the Cave area, depths 2 to 4, now holds 3 deposits: round boulders of grey rock, each with one seam. They block your way like a wall, but your light passes over them, and the map outlines them.",
     "Deposits never cut a room in two, and they stay off the room's edges and clear of anything lying or standing there. Bumping one does nothing yet; mining comes next.",

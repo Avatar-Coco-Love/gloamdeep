@@ -113,3 +113,17 @@ new kind of tile, solid, but light passes over it, and the map outlines it
 as wall. Later steps: three bumps break it, a turn each, and it drops a
 plain stone for later crafts (O2); a broken deposit grows back after 3
 days, 900 turns (O3). Step O1 only places and draws them.
+
+**D-312 · 2026-10-24 · Mining a deposit** (the owner's picks, all
+recommended; step O2 of D-311) Walking into a deposit bumps it, a turn
+each. Bump 1 says "You chip at the boulder.", bump 2 "The boulder cracks.";
+bump 3 breaks it to floor and a Stone goes into the bag, saying in turn
+"The boulder breaks. You take a stone.", "The rock splits. A stone comes
+free.", "The rock crumbles. You keep a stone." (the second and third
+shortened from set 1 to fit the strip). The stone is look A of three, a
+small round pebble in the deposit's greys; it stacks to 3, and choosing it
+says in turn "A plain stone, for crafting later.", "It is heavy and grey.",
+"Cold and rough in your hand." With 3 carried, bump 3 says "You can't carry
+more stones.", free, and the boulder holds. The lines are the same whatever
+the hero holds for now; each tool, and each kind of thing to mine, will get
+its own lines, decided as they come.

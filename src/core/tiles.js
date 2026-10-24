@@ -13,8 +13,11 @@ export const TILES = {
   // off the edge from the mouth goes into the cave, as through any opening (D-197).
   caveMouth: { id: 'caveMouth', kind: 'tile', letter: 'M', name: 'Cave mouth', solid: false, blocksLight: false },
   outcrop: { id: 'outcrop', kind: 'tile', letter: 'R', name: 'Rock', solid: true, blocksLight: true },
-  // A round boulder on a cave floor, to mine later (D-282, D-311): solid, but light passes over it.
-  deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false },
+  // A round boulder on a cave floor (D-282, D-311): solid, but light passes over it.
+  // Bumped `mine.hits` times, a turn each, with its `chips` lines, it breaks to floor and
+  // `drops` goes into the bag with its `breaks` line (turn.js, O2).
+  deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false,
+    mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' } },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },

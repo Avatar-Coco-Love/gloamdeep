@@ -1,6 +1,6 @@
 // § turn: the game state and the turn rules, as plain data (TECH.md,
 // "Turn rules are pure functions"). Nothing moves until the player acts (D-016).
-import { tileAt, beginPlace, isGenerated, PLACES } from './room.js';
+import { tileAt, beginPlace, isGenerated, PLACES, withTile } from './room.js';
 import { nextSeed, rng, seedFor } from './rng.js';
 import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
@@ -82,7 +82,7 @@ export function step(state, dir) {
     const out = walkOff(note(passTurn(state), 'step'), dir);
     return out ? endTurn(state, out) : state;
   }
-  if (tileAt(state.room, x, y).solid) return lightTorch(state, x, y);
+  if (tileAt(state.room, x, y).solid) return tileAt(state.room, x, y).mine ? mine(state, x, y) : lightTorch(state, x, y);
   const foe = enemyAt(state, x, y);
   if (foe) return attack(state, foe);
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
@@ -260,6 +260,26 @@ function lightTorch(state, x, y) {
   if (!state.lit) return say(state, 'lanternDark');
   const lights = state.lights.map((l) => (l === torch ? { ...l, id: entry.lightsTo } : l));
   return endTurn(state, note(say(passTurn({ ...state, lights }), 'torchLit'), 'torch'));
+}
+
+// § mine: walking into a deposit bumps it, a turn each, like a hit, with its
+// `chips` line in turn (O2). The room keeps each one's bumps in `chips`, by
+// tile. The last bump breaks it to floor and its stone goes into the bag with its
+// `breaks` line; with that stack full its `full` line is said, free, and it holds.
+// Each bump is a `chip` event, and the stone a `take`.
+function mine(state, x, y) {
+  const tile = tileAt(state.room, x, y), { hits, chips, drops, breaks } = tile.mine;
+  const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
+  const { [key]: was, ...rest } = state.room.chips ?? {};
+  if (n < hits) {
+    const room = { ...state.room, chips: { ...rest, [key]: n } };
+    return endTurn(state, say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), chips[n - 1]));
+  }
+  const bag = bagAdd(state.bag, drops);
+  if (!bag) return say(state, get(drops).full);
+  const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
+  const next = note(note(passTurn({ ...state, room, bag }), 'chip', { id: tile.id, n }), 'take', { id: drops });
+  return endTurn(state, say(next, breaks));
 }
 
 // § pour: a flask from bag slot i into the lantern, never above full, even
