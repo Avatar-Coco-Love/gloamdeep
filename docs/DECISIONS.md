@@ -162,3 +162,21 @@ turn "You pick up a stick.", "A dry branch. You keep it.", "You gather some
 wood." Choosing it says in turn "Dry wood, for crafting later.", "It snaps
 if you bend it.", "Good for building." Over a full stack it stays, with no
 line. Sticks grow back after a day, 300 turns, as mushrooms do (D-306).
+
+**D-316 · 2026-10-24 · Fallen branches** (step W2 of D-314, the owner's
+picks, all recommended but the look) Each woods room holds 1 fallen branch,
+a tile picked after the sticks so the rest of each seed's room stays as it
+was, never on the start, the mouth's front or a stick, and never cutting the
+room in two. It blocks the way like a tree, but light passes over it, as over
+a deposit. It lies in one of three looks from the mock-up
+(https://claude.ai/artifact/Jfyt3b3ZmcPoJqvPZ2QWzV), picked by its tile: a
+bough with two twigs, a leafy end, a snapped bough (the owner's wish: all
+three, for variety, as the sticks). Two bumps, a turn each: the first says
+"The branch creaks."; the second breaks it to floor and puts 2 Wood in the
+bag, in the branch's look, saying in turn "The branch snaps. You take
+wood.", "It breaks apart. Wood for the bag.", "Crack. You gather the wood."
+With room for only 1 it still breaks, and the other lies on its tile as a
+stick in the same look, which never grows back. With 3 Wood carried, the
+second bump says "You can't carry more wood.", free, and the branch holds.
+A broken branch grows back after 3 days, 900 turns, within 2 steps, by the
+deposit's rules (D-313).

@@ -14,9 +14,10 @@ import { litAt } from './sight.js';
 import { tileAt, withTile } from './room.js';
 import { rng, pick, seedFor } from './rng.js';
 
-// (state, item) → the state with the item on its room's taken list, when its kind grows back
+// (state, item) → the state with the item on its room's taken list, when its kind grows
+// back and it isn't one left over, `once` (W2, D-316)
 export function noteTaken(state, item) {
-  if (!get(item.id)?.regrow) return state;
+  if (!get(item.id)?.regrow || item.once) return state;
   return { ...state, taken: [...(state.taken || []), { ...item, at: state.turn }] };
 }
 

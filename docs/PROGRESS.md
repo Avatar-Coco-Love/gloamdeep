@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.96 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.97 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-W2 Fallen branches in the woods, bumped for Wood (D-314). Propose how first.
+W3 Trees to chop for Wood (D-314). Propose how first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -79,7 +79,8 @@ The first ore deposit, then the stash chest, then a light-seeking creature (D-31
 - [x] O3 A broken deposit grows back after 900 turns, 0.2.95 (D-313)
 Wood, then the chest (D-314; order may change)
 - [x] W1 Sticks: 3 in each woods room, three looks, into the bag as Wood, 0.2.96 (D-315)
-- [ ] W2 Fallen branches to bump · W3 Trees to chop
+- [x] W2 Fallen branches: 1 a woods room, two bumps for 2 Wood, 0.2.97 (D-316)
+- [ ] W3 Trees to chop
 - [ ] A workbench, made in the bag, set down on the surface
 - [ ] The stash chest, made at the workbench
 - [ ] A creature drawn to light
@@ -92,10 +93,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.94, mining a deposit.** Three bumps, a turn each,
-  chip, crack and break a deposit to floor; a Stone, a round grey pebble,
-  goes into the bag with lines in turn. With 3 carried the boulder holds,
-  free (D-312). [Playtest](https://claude.ai/artifact/7TGcwxePXkMLGQaqmUAJ4p).
 - **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
   its room's taken list and comes back within 2 tiles of where it stood
   after 900 turns, out of sight, never cutting the room; cracks stay; old
@@ -104,3 +101,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   chest: sticks, branches, trees; small things made in the bag, big ones at
   a workbench set down on the surface (D-314). Each woods room holds 3
   sticks in three looks, into the bag as Wood (D-315). [Playtest](https://claude.ai/artifact/WLQTcoPJ9CURUvf8A2byKe).
+- **2026-10-24, 0.2.97, fallen branches.** One in each woods room, in three
+  looks by its tile; it blocks like a tree, light passes over. Two bumps break
+  it for 2 Wood; with room for 1 the other lies as a stick that never grows
+  back; it grows back in 900 turns (D-316). [Playtest](https://claude.ai/artifact/V3xVMw9e9XTEvWcc1Zi8Vm).

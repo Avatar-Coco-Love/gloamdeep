@@ -14,11 +14,14 @@ const TRIES = 200;
 
 // § sticks: how many lie in each woods room, as Wood (W1, D-314)
 const STICKS = 3;
+// § branch: how many fallen branches lie in each, as tiles (W2, D-316)
+const BRANCHES = 1;
 
 // (seed, mouth) → { map, start, lights, enemies, items }. Nothing lives in the
 // woods yet (starting-region.md, "Creatures and finds"); 3 sticks lie on open
 // tiles, picked after the trees so the rest of each seed's room stays as it
-// was, each one of Wood's looks, its `form` (D-314). The hero starts in
+// was, each one of Wood's looks, its `form` (D-314); then one fallen branch,
+// picked after the sticks for the same reason (D-316). The hero starts in
 // the middle. `mouth` (mouth.js), when given, opens the cave mouth in its
 // edge with a rock either side, the two tiles in front of it open and
 // joined to the start (D-211).
@@ -31,7 +34,40 @@ export function generateWoods(seed, mouth = null) {
     const { tile: t, dir } = mouth, [ax, ay] = dir === 'up' || dir === 'down' ? [1, 0] : [0, 1];
     g[t.y][t.x] = 'M'; g[t.y - ay][t.x - ax] = 'R'; g[t.y + ay][t.x + ax] = 'R';
   }
-  return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items: sticks(r, g, [start, ...front]) };
+  const items = sticks(r, g, [start, ...front]);
+  branches(r, g, start, [start, ...front, ...items]);
+  return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items };
+}
+
+// BRANCHES fallen branches on open tiles, none on `keep` (the start, the mouth's
+// front, the sticks), each leaving every open tile joined to the start
+function branches(r, g, start, keep) {
+  const open = [];
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++)
+    if (g[y][x] === '.' && !keep.some((t) => t.x === x && t.y === y)) open.push({ x, y });
+  for (let placed = 0; placed < BRANCHES && open.length;) {
+    const at = open.splice(Math.floor(r() * open.length), 1)[0];
+    g[at.y][at.x] = 'F';
+    if (joinedFrom(g, start)) placed++;
+    else g[at.y][at.x] = '.';
+  }
+}
+
+// Whether every open tile of g, the cave mouth too, can be walked to from `start`
+function joinedFrom(g, start) {
+  const walk = (x, y) => g[y]?.[x] === '.' || g[y]?.[x] === 'M';
+  let all = 0;
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (walk(x, y)) all++;
+  const seen = new Set([start.y * COLS + start.x]), queue = [start];
+  while (queue.length) {
+    const t = queue.shift();
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const x = t.x + dx, y = t.y + dy;
+      if (!walk(x, y) || seen.has(y * COLS + x)) continue;
+      seen.add(y * COLS + x); queue.push({ x, y });
+    }
+  }
+  return seen.size === all;
 }
 
 // STICKS wood items on open tiles, none on `keep` (the start, the mouth's front)
