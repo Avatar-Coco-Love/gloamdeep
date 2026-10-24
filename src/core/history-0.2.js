@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.97', date: '2026-10-24', title: 'Fallen branches', lines: [
+    "Each woods room now has one fallen branch, in one of three looks: a bough with two twigs, a shorter one with leaves at its end, or a snapped bough with a pale ring and moss. It blocks your way like a tree, but your light passes over it, and the map outlines it.",
+    "Walk into it to bump it, a turn each. The first bump says \"The branch creaks.\"; the second breaks it, leaving grass, and puts 2 Wood in the bag in the branch's look, with a line that changes each time, such as \"The branch snaps. You take wood.\"",
+    "With room for only 1 Wood, it still breaks, and the other piece lies there as a stick to pick up later; that stick never grows back. With 3 Wood carried, the second bump says \"You can't carry more wood.\", free, and the branch holds. A broken branch grows back after 3 days, 900 turns, within 2 steps of where it lay, as a deposit does.",
+    "Decisions: D-316.",
+  ] },
   { v: '0.2.96', date: '2026-10-24', title: 'Sticks in the woods', lines: [
     "Each woods room now has 3 sticks lying on the grass, each in one of three looks: a straight stick, a forked twig with a leaf, or a crooked branch. Walk onto one to put it in the bag as Wood, in stacks of 3, with a line that changes each time, such as \"You pick up a stick.\" The bag shows the look of the last one you picked.",
     "Choosing Wood in the bag gives a line such as \"Dry wood, for crafting later.\" With 3 carried, a stick stays where it lies. Picked sticks grow back after a day, like mushrooms.",

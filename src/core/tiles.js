@@ -1,6 +1,7 @@
 // § tiles: every tile kind, keyed by id (D-040, D-048). `letter` is how a
 // room map writes it. registry.js gathers this table with the other kinds.
 import { DAY_TURNS } from './daytime.js';
+import { hash } from './noise.js';
 
 // The stairs' glow: the art's stairs violet (#a58ce0), faint (D-134), and since
 // D-194 half as bright, reaching 1 tile: the stairs and a touch beside them.
@@ -22,10 +23,19 @@ export const TILES = {
   // it stood (regrow.js, O3, D-313).
   deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2,
     mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' } },
+  // A fallen branch on the woods floor (W2, D-316): mined as a deposit is, but 2 bumps
+  // give `n` Wood. It lies in one of `forms` looks, picked by its tile (formOf), and the
+  // Wood it gives takes that look. With room for fewer than `n`, the rest lies on its
+  // tile as a stick that never grows back (`once`); with none, its `full` line, free.
+  branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
+    mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' } },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },
 };
+
+// A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one
+export const formOf = (tile, x, y) => Math.floor(hash(x, y, 31) * (tile.forms || 1));
 
 // Anything outside the map counts as wall, so rooms are always closed in.
 export const OUTSIDE = '#';

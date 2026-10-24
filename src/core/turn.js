@@ -1,6 +1,7 @@
 // § turn: the game state and the turn rules, as plain data (TECH.md,
 // "Turn rules are pure functions"). Nothing moves until the player acts (D-016).
 import { tileAt, beginPlace, isGenerated, PLACES, withTile } from './room.js';
+import { formOf } from './tiles.js';
 import { nextSeed, rng, seedFor } from './rng.js';
 import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
@@ -264,23 +265,28 @@ function lightTorch(state, x, y) {
 
 // § mine: walking into a deposit bumps it, a turn each, like a hit, with its
 // `chips` line in turn (O2). The room keeps each one's bumps in `chips`, by
-// tile. The last bump breaks it to floor and its stone goes into the bag with its
-// `breaks` line; with that stack full its `full` line is said, free, and it holds.
+// tile. The last bump breaks it to floor and its `n` (one unless said) drops go
+// into the bag with its `breaks` line, in the tile's look when it has `forms`;
+// with no room for one, its `full` line is said, free, and it holds. With room
+// for fewer than `n`, the rest lies on its tile, never to grow back (W2, D-316).
 // Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
 // cracks, before that, stay until it breaks.
-// Each bump is a `chip` event, and the stone a `take`.
+// Each bump is a `chip` event, and the drops a `take`.
 function mine(state, x, y) {
-  const tile = tileAt(state.room, x, y), { hits, chips, drops, breaks } = tile.mine;
+  const tile = tileAt(state.room, x, y), { hits, chips, drops, n: count = 1, breaks, full } = tile.mine;
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
   if (n < hits) {
     const room = { ...state.room, chips: { ...rest, [key]: n } };
     return endTurn(state, say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), chips[n - 1]));
   }
-  const bag = bagAdd(state.bag, drops);
-  if (!bag) return say(state, get(drops).full);
+  const form = tile.forms ? formOf(tile, x, y) : undefined;
+  let bag = state.bag, taken = 0;
+  for (let more; taken < count && (more = bagAdd(bag, drops, form)); taken++) bag = more;
+  if (!taken) return say(state, full || get(drops).full);
+  const left = Array.from({ length: count - taken }, () => ({ id: drops, x, y, ...(form === undefined ? {} : { form }), once: true }));
   const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
-  const passed = passTurn({ ...state, room, bag });
+  const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
   const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n }), 'take', { id: drops });
   return endTurn(state, say(next, breaks));
 }

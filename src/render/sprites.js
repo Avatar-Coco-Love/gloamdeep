@@ -80,6 +80,21 @@ const WOODS = [
     '........kkkkk...'] },
 ];
 
+// § branch: three looks, one per fallen branch as it lies (W2, D-316): a bough
+// with two twigs up, a shorter one with leaves at its end, a snapped bough with
+// a pale ring and a patch of moss, in the sticks' browns
+const BRANCHES = [
+  { mirror: false, rows: [
+    '', '', '', '', '...........kk...', '....kk....kWNk..', '...kWNk...kNnk..', '....kNnk.kNnk...', '.....kNnkWNk....',
+    '..kkkkkWWWNkkkk.', '.kWWWWWWWWWWWWNk', 'kWNNNNNNNNNNNNnk', 'kNnnnnnnnnnnnnk.', '.kkkkkkkkkkkkk..'] },
+  { mirror: false, rows: [
+    '', '', '', '..........kkk...', '.........kgggk..', '.......kkgGggGk.', '......kgGgkGggk.', '......kGgkWkGGk.', '.......kkWNkkk..',
+    '..kkkkkWWNk.....', '.kWWWWWWNNk.....', 'kWNNNNNNnnk.....', 'kNnnnnnnnk......', '.kkkkkkkk.......'] },
+  { mirror: false, rows: [
+    '', '', '', '', '', '', '...........kk...', '..........kWk...', '..kk.....kNk....',
+    '.kaakkkkkWkkkk..', 'kaOakWWWgWWWWNk.', 'kaaakNNgGNNNNnk.', '.kakkNnnnnnnnnk.', '..k..kkkkkkkkk..'] },
+];
+
 // § potion: a round red bottle under a cork, a pale glass neck and a light
 // gleam on its left (D-309, look A of three)
 const POTION = { mirror: true, rows: [
@@ -138,7 +153,7 @@ function shifted(hex, hue, light) {
   return `hsl(${(h * 60 + hue + 360) % 360} ${sat * 100}% ${Math.max(0, Math.min(100, l * 100 + light))}%)`;
 }
 const TONED = {};
-const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)) };
+const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)), branch: BRANCHES.map((def) => spriteCanvas(def)) };
 // An item's or a bag slot's sprite: in its form (D-314) or tone (D-305), when it has one
 export function spriteOf(it) {
   if (FORMS[it.id]) return FORMS[it.id][it.form] || FORMS[it.id][0];
@@ -192,6 +207,13 @@ export function drawDeposit(c, tx, ty) {
   const x = tx * 16, y = ty * 16 - 2;
   drawShadow(c, x, y, 12);
   c.drawImage(SPRITES.deposit, x, y);
+}
+
+// § branch: drawn flat on its tile in its look, on a shadow as wide as it (D-316)
+export function drawBranch(c, tx, ty, form) {
+  const x = tx * 16, y = ty * 16;
+  drawShadow(c, x, y - 1, 14);
+  c.drawImage(FORMS.branch[form] || FORMS.branch[0], x, y);
 }
 
 const LYING_DROP = 3; // pixels the fallen hero sits lower, on the floor

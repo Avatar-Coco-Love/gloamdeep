@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.94, mining a deposit.** Three bumps, a turn each,
+  chip, crack and break a deposit to floor; a Stone, a round grey pebble,
+  goes into the bag with lines in turn. With 3 carried the boulder holds,
+  free (D-312). [Playtest](https://claude.ai/artifact/7TGcwxePXkMLGQaqmUAJ4p).
 - **2026-10-24, 0.2.93, the first ore deposit.** Ideas picked: a deposit,
   the stash chest, a light-seeking creature. Each Cave room, depths 2 to 4,
   holds 3 boulder deposits: solid, light passes over, the map outlines

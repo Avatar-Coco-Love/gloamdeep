@@ -6,7 +6,9 @@ import { stairsFacing } from '../core/stairs.js';
 import { TILE as T } from './screen.js';
 import { drawRock } from './rock.js';
 import { drawWoods, drawTree } from './woods.js';
-import { drawDeposit } from './sprites.js';
+import { drawDeposit, drawBranch } from './sprites.js';
+import { formOf } from '../core/tiles.js';
+import { get } from '../core/registry.js';
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
 // The dungeon (D-228) is the crypt drawn deeper and bluer: each colour's red,
@@ -119,6 +121,8 @@ const DRAW = {
   caveMouth: (c, room, x, y) => { c.fillStyle = '#0c0b12'; c.fillRect(x * T, y * T, T, T); },
   // On the rock's own floor in a cave (D-310); a deposit spawned elsewhere stands on that room's floor
   deposit: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y); },
+  // On the woods' grass; a branch spawned elsewhere lies on that room's floor (D-316)
+  branch: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBranch(c, x, y, formOf(get('branch'), x, y)); },
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

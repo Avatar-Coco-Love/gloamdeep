@@ -41,6 +41,9 @@ export const LINES = {
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, a full stack: the boulder holds (O2)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
+  branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)
+  branchTake: { texts: ['The branch snaps. You take wood.', 'It breaks apart. Wood for the bag.', 'Crack. You gather the wood.'], warn: false }, // the second
+  woodFull: { text: "You can't carry more wood.", warn: false }, // the second bump, a full stack: the branch holds
   woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };
