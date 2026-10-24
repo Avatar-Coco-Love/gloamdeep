@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
+  its room's taken list and comes back within 2 tiles of where it stood
+  after 900 turns, out of sight, never cutting the room; cracks stay; old
+  saves' broken ones stay gone (D-313). [Playtest](https://claude.ai/artifact/144iL1Jny6d7o2EqN6gyqX).
 - **2026-10-24, 0.2.94, mining a deposit.** Three bumps, a turn each,
   chip, crack and break a deposit to floor; a Stone, a round grey pebble,
   goes into the bag with lines in turn. With 3 carried the boulder holds,

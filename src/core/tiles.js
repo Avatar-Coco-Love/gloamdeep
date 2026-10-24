@@ -11,7 +11,14 @@ export const TILES = {
   wall: { id: 'wall', kind: 'tile', letter: '#', name: 'Wall', solid: true, blocksLight: true },
   floor: { id: 'floor', kind: 'tile', letter: '.', name: 'Floor', solid: false, blocksLight: false },
   // One round tree a tile, in the woods (D-209): solid, and the view stops at it.
-  tree: { id: 'tree', kind: 'tile', letter: 'T', name: 'Tree', solid: true, blocksLight: true },
+  // Chopped as a deposit is mined (W3, D-317): 4 bumps fell it for 3 Wood, but never
+  // on the room's edge (`inner`), and it `leaves` a stump, in the stump's look. It
+  // grows back on that stump (`on`), its own tile, after 3 days, out of sight.
+  tree: { id: 'tree', kind: 'tile', letter: 'T', name: 'Tree', solid: true, blocksLight: true, regrow: 3 * DAY_TURNS, near: 0, on: 'stump',
+    mine: { hits: 4, chips: ['treeHack', 'treeChips', 'treeGroan'], drops: 'wood', n: 3, breaks: 'treeTake', full: 'woodFull', leaves: 'stump', inner: true } },
+  // What a felled tree leaves (W3, D-317): walked over, light passes over it; one of
+  // `forms` looks, picked by its tile (a clean cut, splintered, mossy with roots).
+  stump: { id: 'stump', kind: 'tile', letter: 'S', name: 'Stump', solid: false, blocksLight: false, forms: 3 },
   // The first cave's mouth on a woods edge, with a rock either side (D-211). Walking
   // off the edge from the mouth goes into the cave, as through any opening (D-197).
   caveMouth: { id: 'caveMouth', kind: 'tile', letter: 'M', name: 'Cave mouth', solid: false, blocksLight: false },

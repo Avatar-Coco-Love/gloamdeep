@@ -45,6 +45,8 @@ this page and a decision disagree, the decision wins.
   sticks lie in the woods in three looks (D-314, D-315).
 - **Fallen branch:** one in each woods room, blocking a tile; two bumps
   break it for 2 Wood (D-316).
+- **Stump:** what a chopped tree leaves; four bumps fell a tree for 3 Wood,
+  and the stump grows back into it (D-317).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
