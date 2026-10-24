@@ -8,6 +8,9 @@ import { get } from '../src/core/registry.js';
 import { makeState, step } from '../src/core/turn.js';
 import { clearLine } from '../src/core/sight.js';
 import { markAt } from '../src/core/map.js';
+import { look } from '../src/core/turn.js';
+import { LINES } from '../src/core/lines.js';
+import { readJourney, journeyText } from '../src/core/save.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const deposits = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === 'O' ? [{ x, y }] : [])));
@@ -51,7 +54,7 @@ test('the same seed gives the same deposits', () => {
   assert.deepEqual(placeFor('depth3', 4127).map, placeFor('depth3', 4127).map);
 });
 
-test('a deposit is a solid tile the hero bumps against, free, and light passes over it', () => {
+test('a deposit is a solid tile the hero bumps against, staying put, and light passes over it', () => {
   const entry = get('deposit');
   assert.equal(entry.kind, 'tile');
   assert.equal(entry.solid, true);
@@ -60,11 +63,58 @@ test('a deposit is a solid tile the hero bumps against, free, and light passes o
   const room = withTile(makeRoom(FIRST_ROOM), 5, 10, entry), s = { ...makeState(room), hero: { x: 5, y: 11 } };
   const n = step(s, 'up');
   assert.deepEqual(n.hero, { x: 5, y: 11 });
-  assert.equal(n.turn, s.turn);
+  assert.equal(n.turn, s.turn + 1); // a bump mines it, a turn (O2)
   assert.ok(clearLine(room, { x: 5, y: 11 }, { x: 5, y: 9 }));
 });
 
 test('the map outlines a deposit, as it does a wall', () => {
   const room = withTile(makeRoom(FIRST_ROOM), 5, 10, get('deposit'));
   assert.equal(markAt(room, null, 5, 10), 'wall');
+});
+
+// § mining: three bumps break a deposit, a turn each, and a stone goes into the bag (O2)
+const beside = (bag = []) => {
+  const room = withTile(makeRoom(FIRST_ROOM), 5, 10, get('deposit'));
+  return { ...makeState(room), hero: { x: 5, y: 11 }, bag };
+};
+const shown = (s) => (LINES[s.line.id].texts ? LINES[s.line.id].texts[s.line.i] : LINES[s.line.id].text);
+
+test('the first two bumps chip and crack it, a turn each, and it stands', () => {
+  const one = step(beside(), 'up'), two = step(one, 'up');
+  assert.equal(one.turn, 1); assert.equal(two.turn, 2);
+  assert.equal(shown(one), 'You chip at the boulder.');
+  assert.equal(shown(two), 'The boulder cracks.');
+  assert.equal(tileAt(two.room, 5, 10).id, 'deposit');
+  assert.deepEqual(two.hero, { x: 5, y: 11 });
+  assert.deepEqual(two.events.filter((e) => e.type === 'chip'), [{ type: 'chip', id: 'deposit', n: 2 }]);
+});
+
+test('the third bump breaks it to floor and a stone goes into the bag, with its lines in turn', () => {
+  let s = beside();
+  for (let i = 0; i < 3; i++) s = step(s, 'up');
+  assert.equal(s.turn, 3);
+  assert.equal(tileAt(s.room, 5, 10).id, 'floor');
+  assert.deepEqual(s.bag, [{ id: 'stone', n: 1 }]);
+  assert.equal(shown(s), 'The boulder breaks. You take a stone.');
+  assert.ok(s.events.some((e) => e.type === 'take' && e.id === 'stone'));
+  assert.deepEqual(s.room.chips, {});
+  assert.equal(get('stone').name, 'Stone');
+  assert.equal(shown(look(s, 0)), 'A plain stone, for crafting later.');
+});
+
+test('with 3 stones carried, the third bump holds, free, with its line', () => {
+  let s = beside([{ id: 'stone', n: 3 }]);
+  for (let i = 0; i < 3; i++) s = step(s, 'up');
+  assert.equal(s.turn, 2);
+  assert.equal(tileAt(s.room, 5, 10).id, 'deposit');
+  assert.equal(shown(s), "You can't carry more stones.");
+  assert.deepEqual(s.bag, [{ id: 'stone', n: 3 }]);
+});
+
+test('each deposit keeps its own bumps, and a saved journey keeps them', () => {
+  const room = withTile(withTile(makeRoom(FIRST_ROOM), 5, 10, get('deposit')), 6, 11, get('deposit'));
+  let s = { ...makeState(room), hero: { x: 5, y: 11 } };
+  s = step(step(s, 'up'), 'right');
+  assert.deepEqual(s.room.chips, { '5,10': 1, '6,11': 1 });
+  assert.deepEqual(readJourney(journeyText(s)).state.room.chips, s.room.chips);
 });

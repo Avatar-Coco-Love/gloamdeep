@@ -18,6 +18,7 @@
 //   eat { id }           a herb was eaten, or a heartcap or potion from the bag (D-308, D-309)
 //   pour { id, by }      a flask was poured, by 'hand' or by 'self' (D-249)
 //   torch                a torch was lit (D-121)
+//   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2)
 
 // (state, type, details) → the state with that event added to this turn's list
 export const note = (state, type, details) => ({ ...state, events: [...state.events, { type, ...details }] });

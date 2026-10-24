@@ -38,8 +38,9 @@ this page and a decision disagree, the decision wins.
   bag, heals 4 hearts (D-309).
 - **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
-- **Deposit:** a round grey boulder, 3 in each Cave room, to mine later
-  for stone (D-311).
+- **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
+  break it for a stone (D-311, D-312).
+- **Stone:** a small grey pebble from a deposit, for later crafts (D-312).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).

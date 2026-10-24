@@ -35,4 +35,7 @@ export const ITEMS = {
   // Made from heartcaps, never found (D-309). Drunk from the bag the heartcap's
   // way, its button saying `verb`, it heals 4 hearts, never above full.
   potion: { id: 'potion', kind: 'item', name: 'Healing potion', bag: true, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
+  // A plain stone from a broken deposit, never found lying (D-311, O2), for crafts
+  // later. Into the bag in stacks of 3; choosing it says one of its `look` lines.
+  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, look: 'stoneLook', full: 'stoneFull' },
 };

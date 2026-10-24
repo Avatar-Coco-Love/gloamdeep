@@ -35,6 +35,11 @@ export const LINES = {
   potionDrink: { texts: ['You drink a healing potion.', 'The potion warms you through.', 'Your wounds close.'], warn: false }, // drunk from the bag (D-309)
   notHurt: { text: "You aren't hurt.", warn: false }, // Eat at full health (D-308)
   heartcapLook: { texts: ['It might mend a wound.', 'Its red cap is spotted white.', 'It feels faintly warm.'], warn: false },
+  depositChip: { text: 'You chip at the boulder.', warn: false }, // the first bump (O2)
+  depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
+  stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
+  stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
+  stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, a full stack: the boulder holds (O2)
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)

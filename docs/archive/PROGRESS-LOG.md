@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.91, the healing potion.** Make, beside Eat (or C),
+  turns 3 heartcaps into a round red potion, a turn; Drink heals 4 hearts,
+  never above full, with lines that take turns (D-309). [Playtest](https://claude.ai/artifact/U8nSWct6uQo79HQDNah1fe).
 - **2026-10-24, 0.2.90, eating a heartcap.** Eat, in the bag, eats a
   heartcap: 1 heart, a turn, the bag stays open, lines that take turns;
   dim at full health, "You aren't hurt." (D-308). [Playtest](https://claude.ai/artifact/K6kCv4tKpJcHZgyVBvVnGp).
