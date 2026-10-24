@@ -60,7 +60,8 @@ test('Go outside: the hero stands in the woods, every tile lit; trees block a st
   assert.equal(tileAt(s.room, s.hero.x, s.hero.y).id, 'floor');
   assert.ok(litAt(s, 1, 1));
   const tree = { ...s, hero: { x: 1, y: 1 } };
-  assert.equal(step(tree, 'up'), tree); // the edge row is all trees: no turn passes
+  const bumped = step(tree, 'up'); // the edge row is all trees: no step, no turn, only their line (D-321)
+  assert.deepEqual([bumped.hero, bumped.turn, bumped.line.id], [tree.hero, tree.turn, 'treeEdge']);
 });
 
 test('daylight remembers the whole room, and the map shows it as the surface', () => {

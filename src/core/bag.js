@@ -2,20 +2,23 @@
 // kind of item, as a stack with its count: [{ id, n }]. Items with `bag` in
 // the registry go into it when walked onto. The weapon in hand is apart from
 // it, in `state.held`: an item id, or null (D-252). Plain data, no drawing.
+import { get } from './registry.js';
+
 export const BAG_SLOTS = 6;
 export const STACK_MAX = 3; // a stack holds at most 3; one more stays on the floor (D-250)
+const most = (id) => get(id)?.max ?? STACK_MAX; // fewer for an item with `max`, the workbench's 1 (D-320)
 
 // The bag with one more of item `id`: on its stack, else in a new slot; null
 // when it has no room, or its stack is full (it never spills to a new slot).
 // `form`, when given, is the look the stack shows from now on (D-314).
 export function bagAdd(bag, id, form) {
   const i = bag.findIndex((s) => s.id === id), shown = form === undefined ? {} : { form };
-  if (i >= 0) return bag[i].n < STACK_MAX ? bag.map((s, j) => (j === i ? { ...s, n: s.n + 1, ...shown } : s)) : null;
+  if (i >= 0) return bag[i].n < most(id) ? bag.map((s, j) => (j === i ? { ...s, n: s.n + 1, ...shown } : s)) : null;
   return bag.length < BAG_SLOTS ? [...bag, { id, n: 1, ...shown }] : null;
 }
 
-// Whether item `id`'s stack is at the limit
-export const stackFull = (bag, id) => bag.some((s) => s.id === id && s.n >= STACK_MAX);
+// Whether item `id`'s stack is at its limit
+export const stackFull = (bag, id) => bag.some((s) => s.id === id && s.n >= most(id));
 
 // The bag with n (one unless said) taken from slot i; an emptied slot is
 // gone, and the ones after it move up

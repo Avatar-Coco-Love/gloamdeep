@@ -35,7 +35,7 @@ test('taking one lowers the count; the last empties the slot and the rest move u
 });
 
 test('the flask and the mushrooms go in the bag', () => {
-  assert.deepEqual(byKind('item').filter((e) => e.bag).map((e) => e.id), ['flask', 'oilcap', 'heartcap', 'potion', 'stone', 'wood']); // (D-296, D-303, D-309, O2, D-314)
+  assert.deepEqual(byKind('item').filter((e) => e.bag).map((e) => e.id), ['flask', 'oilcap', 'heartcap', 'potion', 'stone', 'wood', 'workbench']); // (D-296, D-303, D-309, O2, D-314, D-320)
 });
 
 test('the bag is kept in the save, and an older save gets an empty one', () => {

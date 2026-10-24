@@ -48,6 +48,10 @@ export const LINES = {
   treeChips: { text: 'Chips fly from the trunk.', warn: false },
   treeGroan: { text: 'The tree groans.', warn: false },
   treeTake: { texts: ['The tree falls. You take wood.', 'It crashes down. Wood for the bag.', 'Timber! You gather the wood.'], warn: false }, // the fourth
+  treeEdge: { texts: ['The forest will not yield.', 'These trees are too old to fell.'], warn: false }, // an edge tree bumped, free (D-321)
+  benchMake: { text: 'You make a workbench.', warn: false }, // 3 Wood crafted (WB1, D-320)
+  benchFull: { text: 'You already carry a workbench.', warn: false }, // only 1 is carried
+  benchLook: { texts: ['A workbench, folded small.', 'Set it down on the surface.', 'Bigger things are made at it.'], warn: false },
   woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };
