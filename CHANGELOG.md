@@ -22,7 +22,7 @@ Entry format:
 ```
 
 ## 0.2.95 (2026-10-24)
-- A broken deposit now grows back after 3 days, 900 turns, on the very tile where it stood, as picked mushrooms and flasks do. It only comes back out of your light, with no one and nothing on its tile; walk into a room after long enough away and it is already there.
+- A broken deposit now grows back after 3 days, 900 turns, as picked mushrooms and flasks do, but not always on the same tile: it comes back within 2 steps of where it stood, or on its old tile again, so a room never looks quite the same. It only comes back out of your light, on free floor off the room's edge, never cutting the room in two; walk into a room after long enough away and it is already there.
 - A boulder you have only chipped or cracked keeps its cracks until you break it. Boulders broken in a save from before this version stay gone.
 - Decisions: D-313.
 

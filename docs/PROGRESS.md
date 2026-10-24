@@ -98,6 +98,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   goes into the bag with lines in turn. With 3 carried the boulder holds,
   free (D-312). [Playtest](https://claude.ai/artifact/7TGcwxePXkMLGQaqmUAJ4p).
 - **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
-  its room's taken list and comes back on its own tile after 900 turns,
-  out of sight, as things picked do; cracks stay until it breaks; old
+  its room's taken list and comes back within 2 tiles of where it stood
+  after 900 turns, out of sight, never cutting the room; cracks stay; old
   saves' broken ones stay gone (D-313). [Playtest](https://claude.ai/artifact/144iL1Jny6d7o2EqN6gyqX).
