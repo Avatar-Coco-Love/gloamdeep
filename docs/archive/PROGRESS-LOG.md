@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.92, ideas: enemies and bosses.** In `RESEARCH.md`:
+  enemies mixed from a few building blocks, and bosses in phases that test
+  what you know, with balancing notes; nothing in the game changes.
 - **2026-10-24, 0.2.91, the healing potion.** Make, beside Eat (or C),
   turns 3 heartcaps into a round red potion, a turn; Drink heals 4 hearts,
   never above full, with lines that take turns (D-309). [Playtest](https://claude.ai/artifact/U8nSWct6uQo79HQDNah1fe).

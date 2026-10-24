@@ -127,3 +127,14 @@ says in turn "A plain stone, for crafting later.", "It is heavy and grey.",
 more stones.", free, and the boulder holds. The lines are the same whatever
 the hero holds for now; each tool, and each kind of thing to mine, will get
 its own lines, decided as they come.
+
+**D-313 · 2026-10-24 · A deposit grows back** (the owner's picks, all
+recommended; step O3 of D-311, builds D-307) A broken deposit goes on its
+room's taken list, as a tile, and comes back as a boulder after 3 days, 900
+turns, by the same rules as things picked: only out of the hero's light,
+with no hero, creature or item on it, and already there in a room just
+walked into. It comes back on a floor tile within 2 steps of where it stood
+(diagonals count), or its own again, picked by the seed, off the edge and
+never cutting the room in two (changed before merging, the owner's wish:
+its own tile → within 2). A chipped or cracked boulder keeps its bumps
+until it breaks. Deposits broken in an old save stay gone.

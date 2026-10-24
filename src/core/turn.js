@@ -266,6 +266,8 @@ function lightTorch(state, x, y) {
 // `chips` line in turn (O2). The room keeps each one's bumps in `chips`, by
 // tile. The last bump breaks it to floor and its stone goes into the bag with its
 // `breaks` line; with that stack full its `full` line is said, free, and it holds.
+// Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
+// cracks, before that, stay until it breaks.
 // Each bump is a `chip` event, and the stone a `take`.
 function mine(state, x, y) {
   const tile = tileAt(state.room, x, y), { hits, chips, drops, breaks } = tile.mine;
@@ -278,7 +280,8 @@ function mine(state, x, y) {
   const bag = bagAdd(state.bag, drops);
   if (!bag) return say(state, get(drops).full);
   const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
-  const next = note(note(passTurn({ ...state, room, bag }), 'chip', { id: tile.id, n }), 'take', { id: drops });
+  const passed = passTurn({ ...state, room, bag });
+  const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n }), 'take', { id: drops });
   return endTurn(state, say(next, breaks));
 }
 
