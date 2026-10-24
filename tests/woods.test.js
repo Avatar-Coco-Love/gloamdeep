@@ -44,13 +44,14 @@ test('woods: the same seed gives the same room, and seeds differ', () => {
   assert.notDeepEqual(generateWoods(42).map, generateWoods(43).map);
 });
 
-test('woods: depth 0, in daylight, with nothing in it yet', () => {
+test('woods: depth 0, in daylight, with no lights or creatures, and only sticks lying', () => {
   assert.equal(placeAt(0), 'first'); // the crypt is depth 0 too, and the stairs lead there (D-212)
   assert.equal(depthOf('woods'), 0);
   const p = beginPlace('woods', 7);
   assert.equal(p.room.look, 'woods');
   assert.ok(p.room.dark.sky);
-  assert.deepEqual([p.lights, p.enemies, p.items], [[], [], []]);
+  assert.deepEqual([p.lights, p.enemies], [[], []]);
+  assert.ok(p.items.every((it) => it.id === 'wood')); // (D-314)
 });
 
 test('Go outside: the hero stands in the woods, every tile lit; trees block a step', () => {

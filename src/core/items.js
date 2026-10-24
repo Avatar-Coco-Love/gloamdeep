@@ -38,4 +38,9 @@ export const ITEMS = {
   // A plain stone from a broken deposit, never found lying (D-311, O2), for crafts
   // later. Into the bag in stacks of 3; choosing it says one of its `look` lines.
   stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, look: 'stoneLook', full: 'stoneFull' },
+  // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
+  // bag the oilcap's way in stacks of 3, with lines in turn. Each one lies in
+  // one of `forms` looks (a straight stick, a forked twig, a crooked branch);
+  // the bag shows the last one picked. Over a full stack it stays, no line.
+  wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, says: 'woodTake', look: 'woodLook', forms: 3, regrow: DAY_TURNS },
 };

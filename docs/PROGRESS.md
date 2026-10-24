@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.95 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.96 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The stash chest, the second of D-311's three picks; it comes with the home
-base (see the build plan). Propose how first.
+W2 Fallen branches in the woods, bumped for Wood (D-314). Propose how first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -78,7 +77,11 @@ The first ore deposit, then the stash chest, then a light-seeking creature (D-31
 - [x] O1 Deposits: 3 boulders in each Cave room, 0.2.93
 - [x] O2 Three bumps break one; a stone into the bag, 0.2.94 (D-312)
 - [x] O3 A broken deposit grows back after 900 turns, 0.2.95 (D-313)
-- [ ] The stash chest
+Wood, then the chest (D-314; order may change)
+- [x] W1 Sticks: 3 in each woods room, three looks, into the bag as Wood, 0.2.96 (D-315)
+- [ ] W2 Fallen branches to bump · W3 Trees to chop
+- [ ] A workbench, made in the bag, set down on the surface
+- [ ] The stash chest, made at the workbench
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -89,10 +92,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.93, the first ore deposit.** Ideas picked: a deposit,
-  the stash chest, a light-seeking creature. Each Cave room, depths 2 to 4,
-  holds 3 boulder deposits: solid, light passes over, the map outlines
-  them (D-311). D-299 to D-309 archived (D-310). [Playtest](https://claude.ai/artifact/7m9zAvmXPaEmfey1gzjkFK).
 - **2026-10-24, 0.2.94, mining a deposit.** Three bumps, a turn each,
   chip, crack and break a deposit to floor; a Stone, a round grey pebble,
   goes into the bag with lines in turn. With 3 carried the boulder holds,
@@ -101,3 +100,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   its room's taken list and comes back within 2 tiles of where it stood
   after 900 turns, out of sight, never cutting the room; cracks stay; old
   saves' broken ones stay gone (D-313). [Playtest](https://claude.ai/artifact/144iL1Jny6d7o2EqN6gyqX).
+- **2026-10-24, 0.2.96, sticks in the woods.** Wood comes before the
+  chest: sticks, branches, trees; small things made in the bag, big ones at
+  a workbench set down on the surface (D-314). Each woods room holds 3
+  sticks in three looks, into the bag as Wood (D-315). [Playtest](https://claude.ai/artifact/WLQTcoPJ9CURUvf8A2byKe).

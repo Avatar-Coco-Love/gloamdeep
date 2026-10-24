@@ -40,6 +40,8 @@ export const LINES = {
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, a full stack: the boulder holds (O2)
+  woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
+  woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)

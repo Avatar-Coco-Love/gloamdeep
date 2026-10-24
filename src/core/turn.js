@@ -103,9 +103,9 @@ function pickUp(state, found) {
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
   if (entry.hold) return state.held ? state : note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
   if (entry.bag) {
-    const bag = bagAdd(state.bag, id);
+    const bag = bagAdd(state.bag, id, found.form);
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
-    return stackFull(state.bag, id) ? say(state, entry.full) : state;
+    return stackFull(state.bag, id) && entry.full ? say(state, entry.full) : state;
   }
   if (entry.heal && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.says), 'eat', { id });
   return state;

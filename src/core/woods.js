@@ -3,6 +3,7 @@
 // the edges and thinner inside; every open tile is joined to the start.
 import { rng } from './rng.js';
 import { COLS, ROWS } from './cave.js';
+import { get } from './registry.js';
 
 // § trees: the chance a tile holds a tree, by how many tiles in from the edge
 // it is: the edge itself is always trees; deeper in than the list, the last one
@@ -11,8 +12,13 @@ const TREES = [1, 0.6, 0.35, 0.15];
 const MIN_OPEN = 107;
 const TRIES = 200;
 
+// § sticks: how many lie in each woods room, as Wood (W1, D-314)
+const STICKS = 3;
+
 // (seed, mouth) → { map, start, lights, enemies, items }. Nothing lives in the
-// woods yet (starting-region.md, "Creatures and finds"). The hero starts in
+// woods yet (starting-region.md, "Creatures and finds"); 3 sticks lie on open
+// tiles, picked after the trees so the rest of each seed's room stays as it
+// was, each one of Wood's looks, its `form` (D-314). The hero starts in
 // the middle. `mouth` (mouth.js), when given, opens the cave mouth in its
 // edge with a rock either side, the two tiles in front of it open and
 // joined to the start (D-211).
@@ -25,7 +31,20 @@ export function generateWoods(seed, mouth = null) {
     const { tile: t, dir } = mouth, [ax, ay] = dir === 'up' || dir === 'down' ? [1, 0] : [0, 1];
     g[t.y][t.x] = 'M'; g[t.y - ay][t.x - ax] = 'R'; g[t.y + ay][t.x + ax] = 'R';
   }
-  return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items: [] };
+  return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items: sticks(r, g, [start, ...front]) };
+}
+
+// STICKS wood items on open tiles, none on `keep` (the start, the mouth's front)
+function sticks(r, g, keep) {
+  const open = [];
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++)
+    if (g[y][x] === '.' && !keep.some((t) => t.x === x && t.y === y)) open.push({ x, y });
+  const items = [];
+  while (items.length < STICKS && open.length) {
+    const at = open.splice(Math.floor(r() * open.length), 1)[0];
+    items.push({ id: 'wood', x: at.x, y: at.y, form: Math.floor(r() * get('wood').forms) });
+  }
+  return items;
 }
 
 // The two tiles in front of the mouth, nearest first

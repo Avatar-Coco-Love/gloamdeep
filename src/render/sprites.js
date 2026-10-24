@@ -11,6 +11,7 @@ const PAL = {
   T: '#e8d5a0', t: '#a8642c', // the lantern's trim, cap and base (P5)
   g: '#6fb04e', G: '#3c6e3a', // moss (ART-DIRECTION.md palette)
   r: '#d8483c', R: '#8c2430', // the heartcap's bright red, light and shade (D-303)
+  W: '#9a7350', N: '#6a4c36', n: '#3e2c20', // wood, light to dark, the trunk's browns (D-314)
   H: '#6a7489', L: '#555e73', M: '#4b5468', D: '#434b5d', x: '#262a35', // grey rock's face, lit top to seam (D-311)
 };
 
@@ -65,6 +66,20 @@ const STONE = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '......kkkk......', '.....kHHLLk.....', '....kHLLLMMk....', '....kLLLMMDk....', '....kMMMMDDk....',
   '.....kDDDDk.....', '......kkkk......'] };
 
+// § wood: three looks, one per stick as it lies (W1, D-314): a straight stick,
+// a forked twig with a leaf, a crooked branch, in the trees' trunk browns
+const WOODS = [
+  { mirror: false, rows: [
+    '', '', '', '', '...........kk...', '..........kWNk..', '.........kWNnk..', '........kWNnk...', '.......kWNnk....',
+    '......kWNnk.....', '.....kWNnk......', '....kWNnk.......', '...kWNnk........', '..kNnnk.........', '...kkk..........'] },
+  { mirror: false, rows: [
+    '', '', '', '...kk......kk...', '..kggk....kWNk..', '..kgGk...kWNnk..', '...kGNk.kWNnk...', '....kWNkWNnk....', '.....kWNNnk.....',
+    '.....kWNnk......', '....kWNnk.......', '...kWNnk........', '..kNnnk.........', '...kkk..........'] },
+  { mirror: false, rows: [
+    '', '', '', '', '', '', '', '', '..kkk...........', '.kWWNkkk....kk..', '.kNNnWWNkkkkWNk.', '..kknNnnWWWNNnk.', '....kkkknnnnnk..',
+    '........kkkkk...'] },
+];
+
 // § potion: a round red bottle under a cork, a pale glass neck and a light
 // gleam on its left (D-309, look A of three)
 const POTION = { mirror: true, rows: [
@@ -111,7 +126,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -123,7 +138,10 @@ function shifted(hex, hue, light) {
   return `hsl(${(h * 60 + hue + 360) % 360} ${sat * 100}% ${Math.max(0, Math.min(100, l * 100 + light))}%)`;
 }
 const TONED = {};
-function spriteOf(it) {
+const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)) };
+// An item's or a bag slot's sprite: in its form (D-314) or tone (D-305), when it has one
+export function spriteOf(it) {
+  if (FORMS[it.id]) return FORMS[it.id][it.form] || FORMS[it.id][0];
   const def = DEFS[it.id];
   if (!it.tone || !def?.toned) return SPRITES[it.id];
   const key = `${it.id}/${it.tone.hue}/${it.tone.light}`;
