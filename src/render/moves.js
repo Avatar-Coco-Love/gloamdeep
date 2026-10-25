@@ -31,7 +31,7 @@ function make() {
   for (const [dx, dy] of WAYS) { ARROWS[key(dx, dy)] = shape(turned(ARROW, dx, dy)); BITES[key(dx, dy)] = shape(dy === -1 ? [...FANGS].reverse() : FANGS); }
 }
 
-// `moves` from nextMoves (core/turn.js); `at(e)` is where creature e is shown, in tiles
+// `moves` from nextMoves (core/creatureturn.js); `at(e)` is where creature e is shown, in tiles
 export function drawMoves(c, moves, at, t, still) {
   if (!moves.length) return;
   if (!ARROWS) make();

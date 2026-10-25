@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.120, the creature list's row.** Four picks, all
+  recommended: the row under the text line, sideways under the boxes in
+  the strip's column; a lampmoth at the lit lantern counts; one that waits
+  keeps its plaque, no icon; newest last, "+N" past 7 (D-358).
+  [Playtest](https://claude.ai/artifact/MjqCWWCFLkzETSKcBiGjgY).
 - **2026-10-25, 0.2.119, the creature list, decided.** Two rounds of
   on-field marks didn't land; the owner's idea, mocked up: a row of plaques
   under the room, face and next-move icon, for creatures that noticed the
@@ -512,7 +517,7 @@ Entries moved out of `docs/PROGRESS.md`, newest first.
   rat faces the way it walks (D-155 to D-158). Playtest:
   https://claude.ai/artifact/JXppcTSyx9XAw76kF1wTSG
 
-## Build plan: stage 0.3, the world (ticked steps up to 0.2.108)
+## Build plan: stage 0.3, the world (ticked steps up to 0.2.121)
 
 Moved from `PROGRESS.md` at 0.2.109, the first regular audit (D-336).
 
@@ -581,6 +586,21 @@ Wood, then the chest (D-314; order may change)
 - [x] CH3 Bumping it opens its panel: 12 slots, the bag under them, 0.2.106 (D-330)
 - [x] CH4 Put in and take out: a picked stack moves, free, 0.2.107 (D-331)
 - [x] A fall leaves the world as it was, 0.2.108 (D-332; modes and stacks settled, D-333 to D-335)
+
+Moved from `PROGRESS.md` at 0.2.123, the second audit (D-362):
+
+The stash chest, the modes (D-324, D-333 to D-335; order may change)
+- [x] Bigger stacks by kind, several of a kind (D-333), 0.2.110
+- [x] CH5 The stash chest taken down (D-340), 0.2.111
+- The modes: Gentle, Normal, Hardcore (D-334), in four steps (D-341)
+  - [x] MO1 New journey asks the way to play (D-342), 0.2.112
+  - [x] MO2 Hardcore: a fall starts the world over (D-344), 0.2.113
+  - [x] MO3 Normal: the bag waits where you fell (D-345), 0.2.114
+  - [x] MO4 Changing the mode, only toward easier (D-346), 0.2.115
+- [x] A creature drawn to light, the lampmoth (D-356), 0.2.118
+- Creatures show their next move, to try (D-349): the creature list (D-357)
+  - [x] CL1 The row of plaques, faces and action icons (D-358), 0.2.120
+  - [x] CL2 Tapping a plaque frames its creature (D-359), 0.2.121
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

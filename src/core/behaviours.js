@@ -1,7 +1,7 @@
 // § behaviours: the ways a creature can act, keyed by id (D-263, D-269).
 // A creature's entry in enemies.js names its ways in `ways`, and a new
 // creature mixes them by name. Each way is plain data that the turn rules
-// in turn.js read through `traits`; a later way in the list wins.
+// in creatureturn.js read through `traits`; a later way in the list wins.
 export const BEHAVIOURS = {
   // It comes for the hero a tile a turn once it notices them (D-126 to D-129):
   // from a lit tile along a clear line (D-226), or on a bite or a hit (D-157).

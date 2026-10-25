@@ -1,5 +1,5 @@
 // § creature list (D-357, CL1): a plaque for each creature that has noticed
-// the hero, from creatureList (core/turn.js), as in the round 3 mock-up: its
+// the hero, from creatureList (core/creatureturn.js), as in the round 3 mock-up: its
 // face, and its next move in the hostile pink (fangs for a bite, an arrow the
 // way it steps; nothing while it waits). Upright, a row under the text line;
 // sideways, a column under the boxes in the strip's column. Newest last; past

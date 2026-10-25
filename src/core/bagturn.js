@@ -1,0 +1,133 @@
+// § bag turn: what the bag's buttons and the panels do: pour, make, eat, set down,
+// take down and look (split from turn.js, D-362)
+import { tileAt, withTile } from './room.js';
+import { get } from './registry.js';
+import { say } from './lines.js';
+import { enemyAt } from './enemies.js';
+import { offEdge } from './openings.js';
+import { bagAdd, bagTake, bagHas, bagPay } from './bag.js';
+import { note } from './events.js';
+import { joined } from './regrow.js';
+import { stashAt, withoutStash } from './chest.js';
+import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
+import { endTurn } from './endturn.js';
+
+// § pour: a flask from bag slot i into the lantern, never above full, even
+// into a full one (D-078). It passes a turn like a wait, so the oil burns first
+// and the enemies act (D-247). An empty slot changes nothing. A `pour` event, by hand.
+export function pour(state, i) {
+  const entry = state.bag[i] && get(state.bag[i].id);
+  if (!entry?.oil) return state;
+  const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand' });
+  return endTurn(state, { ...next, bag: bagTake(state.bag, i), oil: Math.min(1, next.oil + entry.oil) });
+}
+
+// § craft: Make on bag slot i turns its item's `craft.of` into one
+// `craft.into`, which goes on its stack or in a slot at the end, and passes a
+// turn, like a pour, with its line (D-299). With too few, nothing happens;
+// with no room for what it makes, its `full` line is said, free, and the bag
+// stays as it was.
+export function craft(state, i) {
+  const s = state.bag[i], recipe = s && get(s.id).craft;
+  if (!recipe || s.n < recipe.of) return state;
+  const bag = bagAdd(bagTake(state.bag, i, recipe.of), recipe.into);
+  if (!bag) return say(state, get(recipe.into).full);
+  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+}
+
+// § make at the bench: a line on the workbench's panel takes item `id`'s `bench.of`
+// from the bag and puts one `id` in it, passing a turn, with its line (CH1, D-326).
+// With too few, its `short` line; with one already carried, its `full` line (or
+// "Your bag is full."); all free, and the bag stays as it was.
+export function makeAt(state, id) {
+  const recipe = get(id)?.bench;
+  if (!recipe) return state;
+  if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
+  const paid = bagPay(state.bag, recipe.of);
+  const bag = bagAdd(paid, id);
+  if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
+  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+}
+
+// § eat: Eat on bag slot i eats one of its item, healing its `heal` hearts,
+// never above full, with its `eats` line; a turn passes, like a pour (D-308).
+// A potion is drunk this way, for 4 hearts (D-309).
+// At full health it stays, "You aren't hurt." is said, free. An `eat` event.
+export function eat(state, i) {
+  const entry = state.bag[i] && get(state.bag[i].id);
+  if (!entry?.eats) return state;
+  if (state.health >= maxHealth(state)) return say(state, 'notHurt');
+  const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
+  return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + entry.heal) });
+}
+
+// § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's
+// bench) beside the hero on side `dir`, takes it from the bag and passes a turn,
+// with its line (WB2, D-322). Only under the sky; elsewhere "Only on the surface."
+// is said, free. It goes only on plain floor off the room's edge, with nothing on
+// it, and only when the room stays joined; toward any other side (or none),
+// "There is no room there.", free. A `set` event.
+export function setDown(state, i, dir) {
+  const entry = state.bag[i] && get(state.bag[i].id), sets = entry?.sets;
+  if (!sets) return state;
+  if (!state.room.dark?.sky) return say(state, 'notSurface');
+  if (!setSides(state, i).includes(dir)) return say(state, 'noRoom');
+  const [dx, dy] = DIRS[dir], room = withTile(state.room, state.hero.x + dx, state.hero.y + dy, get(sets.tile));
+  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'set', { id: sets.tile });
+  return endTurn(state, say(next, sets.says));
+}
+
+// § take down: Deconstruct on the panel of the tile at x, y (the bench or a stash
+// chest) puts it back in the bag whole as its `takes` item, floor left where it stood,
+// and passes a turn, with its line (WB3, D-323; CH5). A chest holding anything says
+// its `empty` line instead. With one already carried, that item's `full` line; with
+// every slot taken, "Your bag is full."; all free, and it stays. A `take` event.
+export function takeDown(state, x, y) {
+  const takes = tileAt(state.room, x, y).takes;
+  if (!takes) return state;
+  if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
+  const bag = bagAdd(state.bag, takes.item);
+  if (!bag) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
+  const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
+  const next = note(passTurn({ ...state, room, bag, ...(stashes && { stashes }) }), 'take', { id: takes.item });
+  return endTurn(state, say(next, takes.says));
+}
+
+// The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null
+export function panelBeside(state, dir) {
+  const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1];
+  return !offEdge(state.room, x, y) && tileAt(state.room, x, y).panel ? { x, y } : null;
+}
+
+// The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface
+export function setSides(state, i) {
+  const sets = state.bag[i] && get(state.bag[i].id).sets, { room, hero } = state;
+  if (!sets || !room.dark?.sky) return [];
+  return Object.keys(DIRS).filter((dir) => {
+    const x = hero.x + DIRS[dir][0], y = hero.y + DIRS[dir][1];
+    if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2 || tileAt(room, x, y).id !== 'floor') return false;
+    if (itemAt(state, x, y) || enemyAt(state, x, y)) return false;
+    return joined(withTile(room, x, y, get(sets.tile)));
+  });
+}
+
+// § look: choosing bag slot i says its item's `look` line, the next in turn
+// (D-297). Free: no turn passes. An item with none changes nothing.
+export function look(state, i) {
+  const entry = state.bag[i] && get(state.bag[i].id);
+  return entry?.look ? say(state, entry.look) : state;
+}
+
+// § pour by itself: with Flasks set to By itself (D-249), after a turn has
+// passed, the first flask in the bag pours once none of it would be wasted
+// (at 55% oil or lower, D-248). It is free: no turn passes. "You pour a
+// flask." is said, unless another line was said this turn (an oil line aside).
+// It adds a `pour` event, by itself, to the turn's.
+export function pourByItself(before, after) {
+  if (after.turn === before.turn || after.fell !== before.fell) return after;
+  const i = after.bag.findIndex((s) => get(s.id)?.oil && after.oil + get(s.id).oil <= 1 + 1e-9);
+  if (i < 0) return after;
+  const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + get(after.bag[i].id).oil) }, 'pour', { id: after.bag[i].id, by: 'self' });
+  const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);
+  return other ? poured : say(poured, 'flaskPour');
+}

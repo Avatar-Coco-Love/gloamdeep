@@ -54,6 +54,10 @@ src/input/screens.js  the title, menus, map and Seed Explorer (D-235)
 src/render/frame.js   draws each frame from the shared `app` (D-235)
 src/core/           rules, state, rng, registry, noise (no DOM);
                     one file per content kind, gathered by registry.js (D-048)
+src/core/turn.js    the turn rules' front door: the hero's step, hit, torch
+                    and mining, and every other turn rule passed on from
+                    state.js, endturn.js, creatureturn.js, fall.js and
+                    bagturn.js (D-362)
 src/render/         drawing, lighting, sprites, and sound (D-255)
 src/input/          tap, mouse, keyboard
 src/dev/            dev mode (see DEV-TOOLS.md)
@@ -64,6 +68,28 @@ tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 ```
 ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.
+
+## Adding content (D-363)
+Content is registry data first. A new row goes in `docs/CONTENT.md`, its
+word in `GLOSSARY.md`, and its numbers in `DECISIONS.md`. The dev spawn
+tool, the creature list, saves and the bag read the registry by
+themselves. Each kind also touches:
+
+- **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
+  line ids); its lines in `src/core/lines.js`; its sprite in
+  `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
+  flash); where it lives in `src/core/room.js` (like `lampmothRooms`) or
+  `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
+  the sound board). Only a new way touches `src/core/behaviours.js` and
+  `src/core/creatureturn.js`, and a new way is its own step.
+- **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,
+  what it does); its lines in `lines.js`; its sprite in `sprites.js`;
+  where it lies in `cave.js` (`finds`), `woods.js` or `room.js`.
+- **A tile:** its entry in `src/core/tiles.js` with a new `letter`; its
+  drawing in `src/render/tiles.js` (and `sprites.js`); where it stands in
+  `cave.js`, `woods.js` or `room.js`; a `mine` tile's lines in `lines.js`.
+- **Every kind:** a test, `tests/<id>.test.js`; and the counts in
+  `tests/registry.test.js` and the room tests, where they change.
 
 ## Versioning in code
 Once code exists, `src/core/version.js` exports `VERSION`, and it must match

@@ -2,7 +2,8 @@
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.121 (D-360), when it
 passed 12 KB: every next move shown, the lampmoth, and the creature list's
-first step CL1. These are still in force unless marked superseded. Grep
+first step CL1. D-359 and D-361, framing a creature, followed unchanged at
+the 0.2.123 audit (D-362). These are still in force unless marked superseded. Grep
 for an ID or topic; never read this whole.
 
 ---
@@ -50,3 +51,18 @@ sideways, the plaques stack under the boxes in the strip's column. A
 lampmoth flying at the lit lantern counts as having noticed the hero; one
 that noticed but has no move keeps its plaque, with no icon. New plaques
 join at the end; past the room (7 upright), the last spot says "+N".
+
+**D-359 · 2026-10-25 · Tapping a plaque frames its creature** (the owner's
+picks, all recommended; builds D-357, D-358) Look A of the CL2 mock-up: the
+plaque gets an amber edge, and on the field amber corners mark the
+creature's tile, a small dark tag above it gives its name and hearts (below
+it at the room's top), and its next-move arrow shows. Tapping the same
+plaque again lets it go; tapping another moves the frame. It stays through
+turns and goes when the creature leaves the list. Tab frames the first
+plaque, then the next, then none. Framing takes no turn. The "+N" spot
+frames nothing.
+
+**D-361 · 2026-10-25 · How to play shows framing** (the owner's picks, both
+recommended; answers Q-060; builds D-359) The Touch, Mouse and Keyboard pages
+get a fifth row, Frame: "Tap a creature's plaque", "Click a creature's
+plaque" and "Tab". One line each; letting go isn't spelled out.
