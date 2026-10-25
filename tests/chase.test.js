@@ -81,12 +81,12 @@ test('a rat waits behind another one', () => {
   assert.deepEqual(rats(wait(t)), [[2, 10], [4, 10]], 'list order: the back one goes first and is blocked');
 });
 
-test('a hit rat keeps chasing, and a fall puts it back as it began', () => {
+test('a hit rat keeps chasing, and stays where it was after a fall (D-332)', () => {
   const s = with_({ x: 3, y: 10 }, [{ id: 'rat', x: 2, y: 10, chasing: true }]);
   assert.equal(step(s, 'left').enemies[0].chasing, true);
   const f = wait({ ...s, health: 1 });
   assert.equal(f.line.id, 'fall');
-  assert.deepEqual(f.enemies, FIRST_ENEMIES);
+  assert.deepEqual([f.enemies[0].x, f.enemies[0].y], [2, 10]);
 });
 
 test('bumping a wall passes no turn, so no rat moves', () => {

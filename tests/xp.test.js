@@ -39,12 +39,12 @@ test('a dev jump gives nothing', () => {
   assert.equal(goToDepth(makeWorld('first', 5), 3).xp, 0);
 });
 
-test('a fall keeps the experience and the hand-made rooms found, not the generated ones', () => {
+test('a fall keeps the experience and every room found (D-332)', () => {
   const s = { ...toSouth(), xp: 7, found: ['first', 'south', 'depth3'], health: 1, enemies: [{ id: 'rat', x: 5, y: 1 }] };
   const n = wait(s);
   assert.ok(n.fell);
   assert.equal(n.xp, 7);
-  assert.deepEqual(n.found, ['first', 'south']);
+  assert.deepEqual(n.found, ['first', 'south', 'depth3']);
 });
 
 test('experience is kept with the journey', () => {

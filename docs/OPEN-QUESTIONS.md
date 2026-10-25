@@ -106,7 +106,3 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 achievement, D-284) Which records get a set, the numbers of each tier,
 what a reward is (perhaps the play-earned currency, Q-055, or a look)
 and where achievements show (a Journal tab, a note on reaching one).
-
-**Q-058 · Things set down, after a fall** (from CH4, D-331) A fall begins
-every room again, so a set-down workbench or stash chest is gone, and what
-the chest held. Should they stay through a fall, with what the chest keeps?

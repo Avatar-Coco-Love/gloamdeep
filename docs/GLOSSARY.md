@@ -11,7 +11,10 @@ this page and a decision disagree, the decision wins.
 - **Seed:** the number that sets a world's randomness; the same seed
   makes the same world (D-019, D-148).
 - **Fall:** what happens at 0 hearts: the hero lies down and wakes at
-  the start, keeping their level (D-234, D-246).
+  the start, keeping their level; the world stays as it was outside
+  Hardcore (D-234, D-246, D-332).
+- **Gentle, Normal, Hardcore:** the three ways to play, by what a fall
+  costs: the bag kept, the bag left where you fell, or one life (D-334).
 - **Record:** the deepest depth walked to, kept for good (D-232, D-260).
 
 ## The world (more in `WORLD.md`)

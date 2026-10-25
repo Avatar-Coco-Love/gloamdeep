@@ -2,14 +2,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { tileAt, makeRoom, placeFor, SECOND_LIGHTS } from '../src/core/room.js';
-import { nextSeed } from '../src/core/rng.js';
 import { stairsFacing, glowsIn } from '../src/core/stairs.js';
 import { makeWorld, step, wait, switchLantern, FIRST_START, HERO_HEALTH } from '../src/core/turn.js';
 import { OIL, burnOil } from '../src/core/oil.js';
 import { shownLine } from '../src/core/lines.js';
 import { litAt } from '../src/core/sight.js';
 import { spawn } from '../src/core/spawn.js';
-import { enemyAt } from '../src/core/enemies.js';
 import { roomCode, readRoomCode } from '../src/core/roomcode.js';
 
 // The stairs down are at 1,1 in the first room; 2,1 is the tile beside them.
@@ -77,7 +75,7 @@ test('rats in the room the hero arrives in take their turn', () => {
   assert.equal(shownLine(n).text, 'The rat bites you.');
 });
 
-test('falling in the second room wakes the hero at the first room\'s start, every room begun afresh with the new seed', () => {
+test('falling in the second room wakes the hero at the first room\'s start, every room as it was (D-332)', () => {
   let s = down();
   s = spawn(s, 'wall', 3, 3);
   s = { ...s, seen: s.seen.map(() => 1), health: 1, enemies: [{ id: 'rat', x: 1, y: 2 }] };
@@ -86,14 +84,12 @@ test('falling in the second room wakes the hero at the first room\'s start, ever
   assert.equal(n.place, 'first');
   assert.deepEqual(n.hero, FIRST_START);
   assert.equal(n.health, HERO_HEALTH);
-  const seed = nextSeed(s.seed), first = placeFor('first', seed), again = placeFor('second', seed);
-  assert.ok(enemyAt(n, first.enemies[0].x, first.enemies[0].y));
-  assert.deepEqual(n.items, first.items);
+  assert.equal(n.seed, s.seed);
   const second = n.elsewhere.second;
-  assert.equal(tileAt(second.room, 3, 3).id, 'floor');
-  assert.deepEqual(second.enemies, again.enemies);
-  assert.deepEqual(second.items, again.items);
-  assert.deepEqual(n.home.places.second.items, again.items); // a later fall or reset starts from these
+  assert.equal(second.room, s.room); // the wall spawned at 3,3 stays
+  assert.equal(tileAt(second.room, 3, 3).id, 'wall');
+  assert.equal(second.items, s.items);
+  assert.equal(n.home.places, s.home.places); // a reset still starts from the rooms as they began
   assert.ok(second.seen.every((v) => v === 1)); // the map stays remembered
 });
 

@@ -73,7 +73,7 @@ test('two rats next to the hero both bite', () => {
   assert.equal(wait(spawn(at(3, 10), 'rat', 4, 10)).health, 3);
 });
 
-test('at 0 health the hero falls and wakes at the start, with the room as it began', () => {
+test('at 0 health the hero falls and wakes at the start; the room stays as it was (D-332)', () => {
   let s = spawn(at(3, 10), 'flask', 6, 6);
   s = { ...s, health: 1, oil: 0.1, enemies: [{ id: 'rat', x: 2, y: 10 }, { id: 'rat', x: 6, y: 8 }] };
   s = { ...s, seen: s.seen.map(() => 1) };
@@ -81,8 +81,8 @@ test('at 0 health the hero falls and wakes at the start, with the room as it beg
   assert.deepEqual(n.hero, FIRST_START);
   assert.equal(n.health, 5);
   assert.equal(n.oil, OIL.start);
-  assert.deepEqual(n.enemies, FIRST_ENEMIES, 'the starting rat is back, spawned ones are gone');
-  assert.deepEqual(n.items, []);
+  assert.deepEqual(n.enemies.map((e) => [e.x, e.y]), [[2, 10], [6, 8]], 'the rats stay where they were');
+  assert.deepEqual(n.items, s.items, 'a spawned flask stays');
   assert.equal(n.seen, s.seen, 'the map stays remembered');
   assert.equal(n.turn, s.turn + 1);
   assert.equal(shownLine(n).text, 'You fall, and wake again.');
@@ -93,9 +93,11 @@ test('a fall keeps the bag, for now (D-247)', () => {
   assert.deepEqual(wait(s).bag, [{ id: 'flask', n: 2 }]);
 });
 
-test('a fall loses what stash chests kept, as their rooms begin again (D-331)', () => {
-  const s = { ...at(3, 10), health: 1, stashes: { 'woods:3,2': [{ id: 'wood', n: 3 }] }, enemies: [{ id: 'rat', x: 2, y: 10 }] };
-  assert.deepEqual(wait(s).stashes, {});
+test('a fall keeps what stash chests keep, and the seed (D-332)', () => {
+  const stashes = { 'woods:3,2': [{ id: 'wood', n: 3 }] };
+  const s = { ...at(3, 10), health: 1, stashes, enemies: [{ id: 'rat', x: 2, y: 10 }] }, n = wait(s);
+  assert.equal(n.stashes, stashes);
+  assert.equal(n.seed, s.seed);
 });
 
 test('a fall keeps the room as the hero fell in it, to be shown before they wake (D-234)', () => {

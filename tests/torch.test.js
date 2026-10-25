@@ -49,10 +49,11 @@ test('a side torch lights from the open tile beside it', () => {
   assert.equal(lightAt(step(s, 'left'), 0, 5).id, 'torch');
 });
 
-test('lit torches go dark again after a fall and after a reset', () => {
+test('lit torches stay lit after a fall, and go dark again after a reset (D-332)', () => {
   const lit = step(at(7, 10), 'up');
   const fell = wait({ ...lit, hero: { x: 3, y: 10 }, health: 1 }); // the rat at 2,10 bites
   assert.equal(fell.line.id, 'fall');
-  assert.equal(lightAt(fell, 7, 9).id, 'unlitTorch');
+  assert.equal(lightAt(fell, 7, 9).id, lightAt(lit, 7, 9).id);
+  assert.notEqual(lightAt(lit, 7, 9).id, 'unlitTorch');
   assert.equal(lightAt(resetRoom(lit, room, FIRST_START, FIRST_LIGHTS), 7, 9).id, 'unlitTorch');
 });

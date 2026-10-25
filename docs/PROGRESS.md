@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.107 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.108 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH5 Taking the stash chest down (D-325): back into the bag only when empty;
-with anything inside it says so, free, and stays. Propose its line and words.
+Bigger stacks by kind, several stacks of a kind in the bag and a chest
+(D-333): propose the details first (the full-stack lines, the slot's count).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -21,7 +21,6 @@ with anything inside it says so, free, and stays. Propose its line and words.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
 - A bestiary: is there one, and does how to fight live there (Q-047)?
-- Should set-down things and a chest's keep last through a fall (Q-058)?
 - Add the 0.2.1 PR's setup script line to the cloud environment.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -92,7 +91,10 @@ Wood, then the chest (D-314; order may change)
 - [x] CH2 The stash chest set down on the surface, the bench's way, 0.2.105 (D-329)
 - [x] CH3 Bumping it opens its panel: 12 slots, the bag under them, 0.2.106 (D-330)
 - [x] CH4 Put in and take out: a picked stack moves, free, 0.2.107 (D-331)
+- [x] A fall leaves the world as it was, 0.2.108 (D-332; modes and stacks settled, D-333 to D-335)
+- [ ] Bigger stacks by kind, several of a kind (D-333)
 - [ ] CH5 The stash chest taken down
+- [ ] The modes: Gentle, Normal, Hardcore (D-334), in steps
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -103,11 +105,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-25, 0.2.105, the stash chest set down.** Set down in the bag
-  marks the free sides, as for the bench; an arrow, a swipe or a tap on a
-  mark sets it there, a turn, "You set down the stash chest." Solid, light
-  passes over, a bump does nothing until CH3 (D-329).
-  [Playtest](https://claude.ai/artifact/TLPxa4so57Jqcm2yykxfPR).
 - **2026-10-25, 0.2.106, the stash chest opened.** Bumping a set-down chest,
   or a tap on one beside the hero, opens its panel, free, no line: look B,
   STASH CHEST, 12 empty slots in two rows, the bag's 6 under them, Close.
@@ -119,3 +116,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   "The chest is full." when it can't all go. A fall loses a set-down chest
   and what it held (Q-058) (D-331).
   [Playtest](https://claude.ai/artifact/U8NguYyB6HRZn9E3KMXejJ).
+- **2026-10-25, 0.2.108, a fall keeps the world.** Outside Hardcore a fall
+  changes nothing in the world: the same seed, rooms as left, set-down
+  things and chests kept; the hero wakes at the start (D-332, answers
+  Q-058). Settled: stacks by kind (D-333), Gentle, Normal and Hardcore
+  (D-334), and the order (D-335).
+  [Playtest](https://claude.ai/artifact/49o9uLUNzDeHKfqz7ZQfpS).

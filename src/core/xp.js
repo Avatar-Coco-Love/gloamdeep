@@ -1,7 +1,6 @@
 // § experience: what the hero earns by fighting and finding (D-038, D-245).
 // Plain data, no drawing. `state.xp` is the total; `state.found` lists the
 // rooms (place ids) the hero has stood in, so a room pays only once.
-import { isGenerated } from './room.js';
 
 export const XP_FOE = 1; // a creature beaten
 export const XP_ROOM = 1; // a room never stood in before
@@ -25,10 +24,6 @@ export function discover(before, after) {
   if (after.place === before.place || after.found.includes(after.place)) return after;
   return gain({ ...after, found: [...after.found, after.place] }, XP_ROOM);
 }
-
-// After a fall the generated depths are new rooms, as their maps are
-// forgotten (D-148); the hand-made rooms stay found (D-021).
-export const foundAfterFall = (found) => found.filter((id) => !isGenerated(id));
 
 // For a journey saved before experience: the rooms already remembered on the
 // map count as found, and each pays now, as it would have when found; the

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.105, the stash chest set down.** Set down in the bag
+  marks the free sides, as for the bench; an arrow, a swipe or a tap on a
+  mark sets it there, a turn, "You set down the stash chest." Solid, light
+  passes over, a bump does nothing until CH3 (D-329).
+  [Playtest](https://claude.ai/artifact/TLPxa4so57Jqcm2yykxfPR).
 - **2026-10-25, 0.2.104, what Wood makes.** The owner found crafting with
   wood wasn't plain. Wood's first look line is now "Three make a
   workbench.", and How to play gains a Crafting page after Keyboard (D-328).
