@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.111 (2026-10-25)
+- On a stash chest's panel, a new line sits between the bag's row and Close: Deconstruct chest. Down from the bag's row reaches it, then Close.
+- Picking it on an empty chest puts the chest back in your bag, whole, and the ground is clear again. A turn passes and the line says "You take down the stash chest."
+- With anything still inside it says "Empty the chest first."; with a stash chest already in the bag "You already carry a stash chest."; and with every slot taken "Your bag is full." Then it stays, and no turn passes.
+- Decisions: D-340; this ends the stash chest's steps (D-325).
+
 ## 0.2.110 (2026-10-25)
 - Stacks are bigger: up to 20 Wood, Stone, oilcaps or heartcaps, and up to 5 flasks or potions. The workbench and stash chest are still 1 each, and you still carry only one of each.
 - When a stack is full, the next one starts in a free slot, so one kind can fill several slots. Only when every stack of it is full and no slot is free does it stay behind, with the same lines as before.

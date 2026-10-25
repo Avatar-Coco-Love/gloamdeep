@@ -154,7 +154,7 @@ function tryStep(dir) {
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
   else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
-  else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench back into the bag, one turn (WB3, D-323)
+  else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
   else if (panelBeside(before, dir)) { screens.openPanel(panelBeside(before, dir)); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3)
   else {
     const next = step(app.state, dir);

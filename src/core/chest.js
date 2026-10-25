@@ -1,26 +1,29 @@
 // § chest: the stash chest's panel (CH3, D-325, D-330). Its 12 slots are two rows
 // of the bag's 6 (D-324); `chosen` is a chest slot, 0 to 11, a bag slot, 12 to 17
-// (CHEST_BAG + i), or CHEST_CLOSE for its Close line. Plain data, no drawing.
+// (CHEST_BAG + i), CHEST_TAKE for its Deconstruct chest line (CH5) or CHEST_CLOSE
+// for its Close line. Plain data, no drawing.
 import { BAG_SLOTS, bagAdd } from './bag.js';
 import { say } from './lines.js';
 
 export const CHEST_SLOTS = 2 * BAG_SLOTS;
 export const CHEST_BAG = CHEST_SLOTS; // the bag's first slot on the panel (CH4, D-331)
-export const CHEST_CLOSE = CHEST_BAG + BAG_SLOTS;
+export const CHEST_TAKE = CHEST_BAG + BAG_SLOTS; // Deconstruct chest, above Close (CH5)
+export const CHEST_CLOSE = CHEST_TAKE + 1;
 
 // What a screen reader hears as the panel opens
-export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag below. Close.`;
+export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag below. Deconstruct chest, or Close.`;
 
 // Where an arrow moves the gold frame: Left and Right along a row, Down to the
-// second row, the bag's row and then Close, Up back the same way; Up from Close
-// reaches the bag's first slot (CH4, D-331)
+// second row, the bag's row, Deconstruct chest and then Close, Up back the same way;
+// Up from Deconstruct chest reaches the bag's first slot (CH4, D-331; CH5)
 export function moveChest(i, dir) {
-  if (i === CHEST_CLOSE) return dir === 'up' ? CHEST_BAG : i;
+  if (i === CHEST_CLOSE) return dir === 'up' ? CHEST_TAKE : i;
+  if (i === CHEST_TAKE) return dir === 'up' ? CHEST_BAG : dir === 'down' ? CHEST_CLOSE : i;
   const col = i % BAG_SLOTS, row = Math.floor(i / BAG_SLOTS);
   if (dir === 'left') return col > 0 ? i - 1 : i;
   if (dir === 'right') return col < BAG_SLOTS - 1 ? i + 1 : i;
   if (dir === 'up') return row > 0 ? i - BAG_SLOTS : i;
-  if (dir === 'down') return row < 2 ? i + BAG_SLOTS : CHEST_CLOSE;
+  if (dir === 'down') return row < 2 ? i + BAG_SLOTS : CHEST_TAKE;
   return i;
 }
 
@@ -28,6 +31,13 @@ export function moveChest(i, dir) {
 // ("woods:3,2"), each a list of stacks as the bag's, [{ id, n, form? }] (CH4, D-331)
 const keyOf = (state, x, y) => `${state.place}:${x},${y}`;
 export const stashAt = (state, x, y) => state.stashes?.[keyOf(state, x, y)] || [];
+// The stashes without the chest at x, y once it is taken down (CH5), or null when none was kept
+export function withoutStash(state, x, y) {
+  const key = keyOf(state, x, y);
+  if (!state.stashes || !(key in state.stashes)) return null;
+  const { [key]: _gone, ...rest } = state.stashes;
+  return rest;
+}
 
 // The list `to` with as much of stack `s` as fits, one at a time: topping up its
 // kind's stacks, then in free slots (D-333); and how many of `s` are left over

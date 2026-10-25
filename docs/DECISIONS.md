@@ -190,3 +190,13 @@ chest's panel a picked stack moves what fits, topping up its kind and then
 taking free slots; the rest stays, with "Your bag is full." or "The chest
 is full.". A slot's count stays in its corner, its dark box as wide as the
 number.
+
+**D-340 · 2026-10-25 · Taking the chest down** (step CH5 of D-325, the
+owner's picks, all recommended) The chest's panel gains "Deconstruct chest",
+its own line between the bag's row and Close, in the bench's style; Down
+from the bag's row reaches it, then Close. Picking it works the bench's way
+(D-323): an empty chest goes into the bag whole, saying "You take down the
+stash chest.", a turn, and the panel closes. With anything inside it says
+"Empty the chest first.", free; with a chest carried "You already carry a
+stash chest.", and with every slot taken "Your bag is full.", both free; the
+chest stays each time.

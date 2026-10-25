@@ -26,7 +26,8 @@
 // free (CH3, D-330): arrows or a tap move the gold frame over its 12 slots, Down past them
 // to Close; Close, Esc, P or a tap outside the box close it. Down from the chest's
 // second row reaches the bag's row, then Close; Enter, Space, a click or a tap on a
-// filled slot moves its whole stack to the other side, free (CH4, D-331).
+// filled slot moves its whole stack to the other side, free (CH4, D-331). Deconstruct
+// chest, above Close, takes it down the bench's way, only when empty (CH5).
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
@@ -76,7 +77,7 @@ import { journalAt } from '../render/journal.js';
 import { bagAt, panelOnTop, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { chestAt } from '../render/chestpanel.js';
-import { CHEST_BAG, CHEST_CLOSE, chestWords, moveChest, stashAt } from '../core/chest.js';
+import { CHEST_BAG, CHEST_TAKE, CHEST_CLOSE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE } from '../render/screen.js';
 
 const WORDS = {
@@ -390,7 +391,7 @@ export function createScreens(app, ui) {
   }
 
   // § bench panel (WB3, D-323): `app.bench` is the bench's tile. Deconstruct closes the
-  // panel whatever happens, so its line shows, taken down or not. A stash chest's tile
+  // panel whatever happens, so its line shows, taken down or not; the chest's too (CH5). A stash chest's tile
   // opens the chest's panel instead, on its first slot (CH3, D-330).
   function openPanel(at) { app.queued = null; app.bench = at; show(tileAt(app.state.room, at.x, at.y).panel); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
@@ -398,6 +399,7 @@ export function createScreens(app, ui) {
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {
     if (i === CHEST_CLOSE) return 'Close';
+    if (i === CHEST_TAKE) return 'Deconstruct chest';
     const out = i < CHEST_BAG, s = out ? stashAt(app.state, app.bench.x, app.bench.y)[i] : app.state.bag[i - CHEST_BAG];
     return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
   };
@@ -519,7 +521,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
-    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
+    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
@@ -596,6 +598,7 @@ export function createScreens(app, ui) {
       if (held) return;
       const at = chestAt(px, py);
       if (at === 'out' || at === CHEST_CLOSE) show('play');
+      else if (at === CHEST_TAKE) choose(at);
       else if (at) choose(at.slot);
       return;
     }

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.110 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.111 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH5, the stash chest taken down (D-324): propose the details first (what
-happens to what it holds).
+The modes: Gentle, Normal, Hardcore (D-334), in steps: propose the steps
+and the first one's details first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -28,7 +28,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The stash chest, the modes (D-324, D-333 to D-335; order may change)
 - [x] Bigger stacks by kind, several of a kind (D-333), 0.2.110
-- [ ] CH5 The stash chest taken down
+- [x] CH5 The stash chest taken down (D-340), 0.2.111
 - [ ] The modes: Gentle, Normal, Hardcore (D-334), in steps
 - [ ] A creature drawn to light
 
@@ -40,6 +40,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.111, the chest taken down.** The chest's panel gains
+  Deconstruct chest above Close: an empty chest goes into the bag, a turn,
+  "You take down the stash chest."; with anything inside "Empty the chest
+  first.", free; carried or bag full as the bench (D-340).
+  [Playtest](https://claude.ai/artifact/Q84TPd3b4GTaduoXTXTscF).
 - **2026-10-25, 0.2.110, bigger stacks.** Stacks hold 20 small finds, 5
   flasks or potions; a full stack goes on in a free slot. Still 1 workbench
   or chest carried; full lines as before; a chest moves what fits, the rest
@@ -50,9 +55,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's
   cap. An audit every 20 versions, each also splitting one big code file
   (D-336, D-337); audits lose nothing (D-338). No playtest: nothing to play.
-- **2026-10-25, 0.2.108, a fall keeps the world.** Outside Hardcore a fall
-  changes nothing in the world: the same seed, rooms as left, set-down
-  things and chests kept; the hero wakes at the start (D-332, answers
-  Q-058). Settled: stacks by kind (D-333), Gentle, Normal and Hardcore
-  (D-334), and the order (D-335).
-  [Playtest](https://claude.ai/artifact/49o9uLUNzDeHKfqz7ZQfpS).

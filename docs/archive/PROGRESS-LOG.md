@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.108, a fall keeps the world.** Outside Hardcore a fall
+  changes nothing in the world: the same seed, rooms as left, set-down
+  things and chests kept; the hero wakes at the start (D-332, answers
+  Q-058). Settled: stacks by kind (D-333), Gentle, Normal and Hardcore
+  (D-334), and the order (D-335).
+  [Playtest](https://claude.ai/artifact/49o9uLUNzDeHKfqz7ZQfpS).
 - **2026-10-25, 0.2.107, the stash chest filled.** On its panel the gold
   frame reaches the bag's row; Enter, Space, a click or a tap on a filled
   slot moves the whole stack across, free, no line; "Your bag is full." or

@@ -1,28 +1,31 @@
 // § chest panel (CH3, D-330, look B of the mock-up): bumping a set-down stash chest
 // dims the room behind the pause menu's veil, with a box in the middle of the
 // picture: "STASH CHEST" in ember, its 12 slots in two rows of 6, "BAG" and the
-// bag's 6 slots under them, then Close. The chosen slot, the chest's or the bag's
-// (CH4, D-331), is framed in gold; on Close, Close is gold with the menus' flame.
+// bag's 6 slots under them, then Deconstruct chest (CH5) and Close. The chosen slot,
+// the chest's or the bag's (CH4, D-331), is framed in gold; on a line, it is gold
+// with the menus' flame.
 import { W, SCREEN_H } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { veil, drawMarker } from './menu.js';
 import { BAG_SLOTS } from '../core/bag.js';
-import { CHEST_SLOTS, CHEST_BAG, CHEST_CLOSE } from '../core/chest.js';
+import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, CHEST_CLOSE } from '../core/chest.js';
 
 const K = '#0e0c16', LINE = '#2a2636', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6';
-const SLOT = 22, SLOT_GAP = 3, PAD = 6, TAP_PAD = 4; // TAP_PAD: game pixels around Close that still pick it
+const SLOT = 22, SLOT_GAP = 3, PAD = 6, TAP_PAD = 4, LINE_GAP = 3; // TAP_PAD: game pixels above the lines that still pick the first
 const ROW_W = BAG_SLOTS * SLOT + (BAG_SLOTS - 1) * SLOT_GAP;
-const BOX = { w: ROW_W + 2 * PAD, h: 6 + 14 + 2 * SLOT + SLOT_GAP + 8 + 14 + SLOT + 8 + FONT_H + 3 };
+const BOX = { w: ROW_W + 2 * PAD, h: 6 + 14 + 2 * SLOT + SLOT_GAP + 8 + 14 + SLOT + 8 + 2 * FONT_H + LINE_GAP + 3 };
 BOX.x = Math.floor((W - BOX.w) / 2); BOX.y = Math.floor((SCREEN_H - BOX.h) / 2);
 const ROW_X = BOX.x + PAD, CHEST_Y = BOX.y + 20, BAG_HEAD = CHEST_Y + 2 * SLOT + SLOT_GAP + 8, BAG_Y = BAG_HEAD + 14;
-const CLOSE = 'Close', CLOSE_X = Math.floor((W - textWidth(CLOSE)) / 2), CLOSE_Y = BAG_Y + SLOT + 8;
+const TAKE_Y = BAG_Y + SLOT + 8, CLOSE_Y = TAKE_Y + FONT_H + LINE_GAP;
+const LINES = [[CHEST_TAKE, 'Deconstruct chest', TAKE_Y], [CHEST_CLOSE, 'Close', CLOSE_Y]];
 const slotX = (col) => ROW_X + col * (SLOT + SLOT_GAP);
 
 // What a tap at x, y picks: { slot: i } for a chest slot (0 to 11) or a bag slot
-// (CHEST_BAG + i), CHEST_CLOSE, null inside the box off them, or 'out'
+// (CHEST_BAG + i), CHEST_TAKE, CHEST_CLOSE, null inside the box off them, or 'out'
 export function chestAt(x, y) {
   if (x < BOX.x || x >= BOX.x + BOX.w || y < BOX.y || y >= BOX.y + BOX.h) return 'out';
-  if (y >= CLOSE_Y - TAP_PAD) return CHEST_CLOSE;
+  if (y >= CLOSE_Y - LINE_GAP) return CHEST_CLOSE;
+  if (y >= TAKE_Y - TAP_PAD) return CHEST_TAKE;
   const col = Math.floor((x - ROW_X + SLOT_GAP / 2) / (SLOT + SLOT_GAP));
   if (col < 0 || col >= BAG_SLOTS) return null;
   if (y >= BAG_Y - SLOT_GAP && y < BAG_Y + SLOT + SLOT_GAP) return { slot: CHEST_BAG + col };
@@ -59,7 +62,9 @@ export function drawChestPanel(c, stash, bag, chosen, spriteOf, t, still) {
   for (let i = 0; i < CHEST_SLOTS; i++) slot(c, slotX(i % BAG_SLOTS), CHEST_Y + Math.floor(i / BAG_SLOTS) * (SLOT + SLOT_GAP), stash[i], i === chosen, spriteOf);
   heading(c, 'BAG', BAG_HEAD);
   for (let i = 0; i < BAG_SLOTS; i++) slot(c, slotX(i), BAG_Y, bag[i], CHEST_BAG + i === chosen, spriteOf);
-  const on = chosen === CHEST_CLOSE;
-  drawText(c, CLOSE, CLOSE_X, CLOSE_Y, on ? GOLD : GREY);
-  if (on) drawMarker(c, CLOSE_X - 7, CLOSE_Y + 1, t, still);
+  for (const [at, text, y] of LINES) {
+    const on = chosen === at, x = Math.floor((W - textWidth(text)) / 2);
+    drawText(c, text, x, y, on ? GOLD : GREY);
+    if (on) drawMarker(c, x - 7, y + 1, t, still);
+  }
 }
