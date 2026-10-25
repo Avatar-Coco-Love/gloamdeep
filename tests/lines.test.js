@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, step, wait, pour, switchLantern } from '../src/core/turn.js';
 import { setOil, OIL } from '../src/core/oil.js';
-import { LINES, LINE_TURNS, shownLine, oilLine } from '../src/core/lines.js';
+import { LINES, LINE_TURNS, shownLine, oilLine, say } from '../src/core/lines.js';
+import { ENEMIES } from '../src/core/enemies.js';
 import { hasGlyph, textWidth } from '../src/render/font.js'; // plain data, no DOM
 import { W } from '../src/render/screen.js';
 
@@ -57,4 +58,16 @@ test('every line can be drawn and fits the strip', () => {
     assert.ok([...text].every(hasGlyph), text);
     assert.ok(textWidth(text) <= W - 4, text);
   }
+});
+
+test('every line a creature names is there to say (D-369)', () => {
+  for (const e of Object.values(ENEMIES)) {
+    for (const k of ['hurt', 'stands', 'die', 'bites', 'wakes', 'settles']) if (e[k]) assert.ok(LINES[e[k]], `${e.id}.${k}`);
+  }
+});
+
+test('a line that is not there is not said, and an old save holding one shows nothing (D-369)', () => {
+  const s = say(makeState(room), 'oilLow');
+  assert.equal(say(s, undefined), s);
+  assert.equal(shownLine({ ...s, line: { turn: s.turn } }), null);
 });

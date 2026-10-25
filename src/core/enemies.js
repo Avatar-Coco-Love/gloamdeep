@@ -18,8 +18,8 @@ export const ENEMIES = {
   // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
   // `looksLike` and hidden from the creature list; a bump wakes it, with no
   // harm, and it chases for `awakeTurns` turns, then settles back down where
-  // it stands (D-366, D-368). Its bite clinks of glass (D-367).
-  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: ['chases'], looksLike: 'flask', awakeTurns: 6, wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
+  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
 };
 
 // § lookups: the enemy on tile x, y, or undefined

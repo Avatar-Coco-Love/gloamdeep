@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.125 (2026-10-25)
+- Fixed: hitting a flask mimic without killing it froze the game, and a saved game froze again when loaded.
+- Hurt, the flask mimic now says "The flask mimic cracks." Its bite on the same turn still says more.
+- A creature with no line for something now says nothing new instead of freezing, and a test checks every creature's lines are there.
+- Decisions: D-369.
+
 ## 0.2.124 (2026-10-25)
 - A new creature, the flask mimic. It looks just like an oil flask, and it doesn't show on the creature list.
 - Bump it and it opens its eyes, with no harm done, and wakes. It does nothing that turn, so you have a step's start to run.

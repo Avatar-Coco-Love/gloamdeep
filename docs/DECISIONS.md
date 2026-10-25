@@ -146,3 +146,10 @@ turn in which it only stirs, so the hero can run. Awake, it shows its own
 look and chases (the Chases way) for 6 turns, then settles back down asleep
 where it stands; leaving the room settles it too. Its lines: "The flask
 opens its eyes!" and "The flask mimic settles down."
+
+**D-369 · 2026-10-25 · The flask mimic's hurt line, and no freeze
+without one** (the owner's picks, both recommended but the line, which
+was one of three) Hurt, the flask mimic says "The flask mimic cracks."
+A line a creature doesn't have is never said, so the line already
+showing stays, and a line that isn't there, as an old save may hold,
+shows nothing. A test checks that every line a creature names exists.
