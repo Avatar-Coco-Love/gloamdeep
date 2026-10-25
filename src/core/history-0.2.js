@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.118', date: '2026-10-25', title: 'The lampmoth', lines: [
+    "A new creature, the lampmoth: a pale moth with cream wings and an amber spot like a flame. It is drawn to light. While your lantern is lit it flies at you from anywhere in the room and bites for 1; switch the lantern off and it heads for the nearest lit torch instead, and waits there. With no light at all it stays where it is.",
+    "One hit of anything kills it.",
+    "On each floor from depth 2 to depth 4, one room holds a lampmoth in place of its rat.",
+    "Its bite is silent for now.",
+    "Decisions: D-356.",
+  ] },
   { v: '0.2.117', date: '2026-10-25', title: 'Four answers', lines: [
     "No change to play: four of the owner's answers written down.",
     "Decided for the next step: the creature drawn to light walks toward the nearest light. While your lantern is lit, that is you, and it bites like a rat; with the lantern off it heads for a lit torch instead. Its look comes as a mock-up.",

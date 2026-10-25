@@ -151,23 +151,34 @@ function enemiesAct(state) {
 // a lit tile; caught in light, it backs away, into the dark if it can.
 // One fleeing steps away from the hero instead (D-292), for its `flees`
 // turns; then it stops and has to notice them again (D-301).
+// One that seeks light (D-351) needs no noticing: it steps toward the hero
+// while the lantern is lit, else toward the nearest lit torch, and stays by it.
 function enemiesMove(state) {
   let enemies = state.enemies;
   for (const e of state.enemies) {
     const t = traits(get(e.id)), lit = litAt(state, e.x, e.y);
+    const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
     const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit);
-    const chasing = e.chasing || (sees && clearLine(state.room, e, state.hero));
+    const chasing = !seeks && (e.chasing || (sees && clearLine(state.room, e, state.hero)));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
-    if (!(chasing && t.moves) && !flees && !runs) continue;
-    const near = Math.abs(e.x - state.hero.x) + Math.abs(e.y - state.hero.y) === 1;
+    if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
+    const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
     const now = { ...state, enemies };
-    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : chaseStep(now, e)) || e;
+    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
     const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }) };
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
   return enemies === state.enemies ? state : { ...state, enemies };
+}
+
+// Where one that seeks light heads (D-351): the hero while the lantern is lit,
+// else the lit torch nearest it in steps, the first listed on a tie, else null
+function lightGoal(state, e) {
+  if (state.lit) return state.hero;
+  const steps = (l) => Math.abs(l.x - e.x) + Math.abs(l.y - e.y);
+  return state.lights.filter((l) => get(l.id).reach).reduce((best, l) => (!best || steps(l) < steps(best) ? l : best), null);
 }
 
 // Whether enemy e may step onto tile x, y: nothing solid, no item, no other
@@ -207,8 +218,9 @@ const fleeStep = (state, e) => chaseStep(state, e, -1);
 
 // The tile enemy e steps onto, or null when both ways toward the hero are
 // blocked (see `free`). With `sign` -1 it steps away from them instead.
-function chaseStep(state, e, sign = 1) {
-  const dx = sign * (state.hero.x - e.x), dy = sign * (state.hero.y - e.y);
+// `to` is where it heads, the hero unless it seeks a torch (D-351).
+function chaseStep(state, e, sign = 1, to = state.hero) {
+  const dx = sign * (to.x - e.x), dy = sign * (to.y - e.y);
   const across = dx ? [Math.sign(dx), 0] : null, down = dy ? [0, Math.sign(dy)] : null;
   const ways = Math.abs(dx) >= Math.abs(dy) ? [across, down] : [down, across];
   for (const w of ways) {

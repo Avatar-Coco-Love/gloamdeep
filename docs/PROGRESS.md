@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.117 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.118 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-A creature drawn to light (D-311): it walks toward the nearest light
-(D-351). Propose its look, name and numbers first, with a mock-up.
+Creatures show their next move, to try (D-349): every creature the hero
+can see, none in the dark. Propose the mark's look first, with a mock-up.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -30,7 +30,7 @@ The stash chest, the modes (D-324, D-333 to D-335; order may change)
   - [x] MO2 Hardcore: a fall starts the world over (D-344), 0.2.113
   - [x] MO3 Normal: the bag waits where you fell (D-345), 0.2.114
   - [x] MO4 Changing the mode, only toward easier (D-346), 0.2.115
-- [ ] A creature drawn to light
+- [x] A creature drawn to light, the lampmoth (D-356), 0.2.118
 - [ ] Creatures show their next move, to try (D-349)
 
 **Next audit: 0.2.129** (D-337).
@@ -41,6 +41,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.118, the lampmoth.** Mock-up of three looks, A picked:
+  a pale moth, the Lampmoth, health 1, bite 1. It flies at the hero while the
+  lantern is lit, from anywhere in the room, else to the nearest lit torch;
+  one room a floor on depths 2 to 4 holds one in place of its rat (D-356).
+  [Playtest](https://claude.ai/artifact/UDspyAGRUHVXQmYVmH97WU).
 - **2026-10-25, 0.2.117, four answers.** Open questions with picks; the
   owner took every recommendation: the creature walks toward the nearest
   light (D-351); Bestiary pages open at meet, 1 beaten, 3 beaten (D-352);
@@ -51,8 +56,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   region is Hearthwood (D-348); every seen creature shows its next move, to
   try, none in the dark (D-349); the Bestiary shows more the more you meet
   a creature (D-350, opens Q-058). Battery lights kept for later.
-- **2026-10-25, 0.2.115, an easier way.** Settings from the pause menu has
-  "Way to play: Normal" under the seed; the ways show, harder ones grey
-  ("Only an easier way can be picked."); an easier one asks "Play Gentle?",
-  "There is no going back.", No picked; old bags stay to fetch (D-346).
-  [Playtest](https://claude.ai/artifact/6QkHin6HVPrEL5PVajroWH).

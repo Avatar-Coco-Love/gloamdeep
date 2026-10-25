@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.115, an easier way.** Settings from the pause menu has
+  "Way to play: Normal" under the seed; the ways show, harder ones grey
+  ("Only an easier way can be picked."); an easier one asks "Play Gentle?",
+  "There is no going back.", No picked; old bags stay to fetch (D-346).
+  [Playtest](https://claude.ai/artifact/6QkHin6HVPrEL5PVajroWH).
 - **2026-10-25, 0.2.114, the bag where you fell.** Mock-up of three looks,
   A picked. A Normal fall leaves the bag, a tied pouch, where the hero fell;
   walking onto it puts back what fits ("You take back your bag." or "Your

@@ -13,6 +13,10 @@ export const BEHAVIOURS = {
   // 4 turns, biting only when it can't step away (D-292), then stops and has to
   // notice them again; else it stands its ground and keeps coming (D-301).
   fleesHurt: { id: 'fleesHurt', name: 'Flees when hurt', whenHurt: 'flee', fleeChance: 0.5, fleeTurns: 4 },
+  // It walks a tile a turn toward the nearest light, never needing to notice:
+  // the hero while the lantern is lit, else the nearest lit torch; with none it
+  // stays (D-351, D-356).
+  seeksLight: { id: 'seeksLight', name: 'Seeks light', moves: 'toLight' },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

@@ -151,6 +151,12 @@ const GLOAMLING = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.....kkkkkk.....', '....kbdddddbk...', '...kbdddddddbk..', '..kbddpkddpkdbk.',
   '..kbbddddddddbk.', '..kbbbbbbbbbbbk.', '...kkbkkbkkbkk..', '..kbk.kbkkb.kbk.', '..k....k..k...k.'] };
 
+// § lampmoth: a pale moth seen from above, cream wings with an amber spot like a
+// flame, a dark body and the pink hostile eyes (D-356)
+const LAMPMOTH = { mirror: true, rows: [
+  '', '', '', '.....k..', '......k.', '.kkk..kk', 'kwaak.kp', 'kaaoakkd', 'kaoYakkd',
+  'kaaaaakd', '.kkaaakd', '..kaSakd', '..kaaak.', '...kkk..'] };
+
 function build(rows, mirror) {
   return Array.from({ length: 16 }, (_, i) => {
     let r = rows[i] || '';
@@ -173,7 +179,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -199,7 +205,7 @@ export function spriteOf(it) {
   }
   return TONED[key];
 }
-const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff') };
+const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff') };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');

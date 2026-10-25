@@ -12,6 +12,8 @@ export const ENEMIES = {
   rat: { id: 'rat', kind: 'enemy', name: 'Rat', health: 2, bite: 1, ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
   // It chases, and shuns light (D-240).
   gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
+  // It seeks light (D-351); one hit of anything kills it (D-356).
+  lampmoth: { id: 'lampmoth', kind: 'enemy', name: 'Lampmoth', health: 1, bite: 1, ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
 };
 
 // § lookups: the enemy on tile x, y, or undefined
@@ -33,7 +35,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // § bite sound: (events) → the sound of this turn's bite, or undefined (D-259), read
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
-// A creature without a `sound` bites silently, for now the gloamling.
+// A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

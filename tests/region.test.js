@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { layoutAt } from '../src/core/region.js';
 import { seedFor } from '../src/core/rng.js';
-import { placeFor, placeBeside, tileAt, depthOf, gloamlingRooms } from '../src/core/room.js';
+import { placeFor, placeBeside, tileAt, depthOf, gloamlingRooms, lampmothRooms } from '../src/core/room.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth } from '../src/core/stairs.js';
 
@@ -92,14 +92,14 @@ test('every opening is open on both sides, at the same spot', () => {
   }
 });
 
-test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat and a herb', () => {
+test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat (or the lampmoth, D-356) and a herb', () => {
   for (const seed of SEEDS) for (const c of layoutAt(seed, 2).cells) {
     const p = placeFor(c.id, seed), all = p.map.join('');
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
     assert.equal(p.lights.length, c.up ? 1 : 0);
     assert.deepEqual(p.items.map((it) => it.id).filter((id) => id !== 'heartcap'), c.up ? ['flask', 'herb', 'knife', 'oilcap'] : ['flask', 'herb', 'oilcap']); // an oilcap in each (D-296) // the knife by the stairs up (D-252)
-    assert.deepEqual(p.enemies.map((e) => e.id), ['rat']);
+    assert.deepEqual(p.enemies.map((e) => e.id), [lampmothRooms(seed, 2).includes(c.id) ? 'lampmoth' : 'rat']);
   }
 });
 
