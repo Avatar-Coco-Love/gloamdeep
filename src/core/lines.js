@@ -52,6 +52,9 @@ export const LINES = {
   benchMake: { text: 'You make a workbench.', warn: false }, // 3 Wood crafted (WB1, D-320)
   benchFull: { text: 'You already carry a workbench.', warn: false }, // only 1 is carried
   benchLook: { texts: ['A workbench, folded small.', 'Set it down on the surface.', 'Bigger things are made at it.'], warn: false },
+  benchSet: { text: 'You set down the workbench.', warn: false }, // a turn (WB2, D-322)
+  notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
+  noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };

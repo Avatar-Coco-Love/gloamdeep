@@ -53,8 +53,8 @@ function spotNear(state, t, entry, came) {
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
 }
 
-// Every open tile of the room reachable from every other
-function joined(room) {
+// Every open tile of the room reachable from every other (a bench set down, too, turn.js)
+export function joined(room) {
   const open = [];
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid) open.push(`${x},${y}`);
   const seen = new Set(open.slice(0, 1)), queue = open.slice(0, 1);

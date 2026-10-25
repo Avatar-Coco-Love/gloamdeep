@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.99 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.100 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-WB2: set the workbench down on the surface, on the side the player picks by swipe or arrow (D-319). Propose how a mouse places it first.
+WB3: bump a set-down workbench for its small panel, with "Deconstruct workbench", which puts it back in the bag whole (D-319). Propose the panel's look and where it sits first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -82,7 +82,7 @@ Wood, then the chest (D-314; order may change)
 - [x] W2 Fallen branches: 1 a woods room, two bumps for 2 Wood, 0.2.97 (D-316)
 - [x] W3 Trees to chop: 4 bumps for 3 Wood, a stump that grows back, 0.2.98 (D-317)
 - [x] WB1 A workbench from 3 Wood, made in the bag; edge trees say their lines, 0.2.99 (D-319 to D-321)
-- [ ] WB2 Set it down on the surface, on the side the player picks
+- [x] WB2 Set it down on the surface, on the side picked; a click or tap on a marked tile too, 0.2.100 (D-322)
 - [ ] WB3 Bump it for its panel: Deconstruct workbench
 - [ ] The stash chest, made at the workbench
 - [ ] A creature drawn to light
@@ -95,10 +95,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.97, fallen branches.** One in each woods room, in three
-  looks by its tile; it blocks like a tree, light passes over. Two bumps break
-  it for 2 Wood; with room for 1 the other lies as a stick that never grows
-  back; it grows back in 900 turns (D-316). [Playtest](https://claude.ai/artifact/V3xVMw9e9XTEvWcc1Zi8Vm).
 - **2026-10-24, 0.2.98, trees to chop.** Every tree but the edge ring falls
   in 4 bumps for 3 Wood, with lines, leaving a stump in three looks that you
   walk over; extra Wood lies as sticks nearby; the stump grows back into a
@@ -109,3 +105,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-319). Make on 3 Wood makes one, a turn; only 1 is carried; look B, a
   vise and a shelf (D-320). Edge trees say "The forest will not yield." and
   another line, free (D-321). [Playtest](https://claude.ai/artifact/XDUaaUStWRpaocUJMBWC44).
+- **2026-10-25, 0.2.100, the workbench set down.** Set down in the bag marks
+  the free sides; an arrow, a swipe, or a click or tap on a mark sets it
+  there, a turn. Only on the surface, on empty ground off the edge, the room
+  kept joined; solid, light passes over; any number may stand (D-322).
+  [Playtest](https://claude.ai/artifact/Y85Wddb76UFzgXsZwLQegV).

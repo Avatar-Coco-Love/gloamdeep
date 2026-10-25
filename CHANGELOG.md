@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.100 (2026-10-25)
+- Choose the workbench in the bag and press Set down, or Enter or Space: the bag closes and the free tiles beside you are marked. Press an arrow, swipe, or click or tap a marked tile to set it there. A turn passes and the line says "You set down the workbench." Esc, or a tap anywhere else, keeps it in the bag.
+- It goes only on the surface, on empty ground: never on the room's edge, a doorway, a cave mouth or stairs, never where something lies, and never where it would cut the room in two. Below ground, Set down says "Only on the surface."; toward a side it can't go on, "There is no room there." Neither takes a turn.
+- Set down, it blocks the way like a tree, and light passes over it. The bag is free again, so you can make another. Bumping it does nothing yet: its panel comes next.
+- Decisions: D-322.
+
 ## 0.2.99 (2026-10-24)
 - Make now turns 3 Wood into a workbench: choose Wood in the bag and press Make, or Enter or Space. A turn passes, the line says "You make a workbench.", and the bag stays open on it. Its look is a plank table on four legs, with a grey vise on one corner and a shelf between the legs.
 - You carry only 1 workbench. With one already in the bag, Make says "You already carry a workbench.", free, and the Wood stays. Choosing it says one of its lines in turn, such as "A workbench, folded small." Setting it down on the surface comes next.

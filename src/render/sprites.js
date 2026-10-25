@@ -236,6 +236,13 @@ export function drawBranch(c, tx, ty, form) {
   c.drawImage(FORMS.branch[form] || FORMS.branch[0], x, y);
 }
 
+// § bench: the workbench set down, drawn on its tile 2 pixels up, on a wide shadow, as a deposit is (WB2, D-322)
+export function drawBench(c, tx, ty) {
+  const x = tx * 16, y = ty * 16 - 2;
+  drawShadow(c, x, y, 14);
+  c.drawImage(SPRITES.workbench, x, y);
+}
+
 // § stump: drawn flat on its tile in its look, on a soft shadow (W3, D-317)
 export function drawStump(c, tx, ty, form) {
   const x = tx * 16, y = ty * 16;

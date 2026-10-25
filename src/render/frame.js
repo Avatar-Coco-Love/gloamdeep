@@ -23,7 +23,7 @@ import { drawMark, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { reach } from '../core/oil.js';
-import { maxHealth } from '../core/turn.js';
+import { maxHealth, DIRS } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
 import { depthOf } from '../core/room.js';
 import { shownLine } from '../core/lines.js';
@@ -127,6 +127,7 @@ export function createFrame(app, ui) {
       if (s.lit && !lying) { ctx.fillStyle = '#fff5d6'; ctx.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
       drawDoors(ctx, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
       if (walk && !walk.stopped && !travel) drawMark(ctx, walk.tx, walk.ty, t, still());
+      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(ctx, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench can go (WB2)
       if (t < app.alertUntil) drawAlert(ctx, sx + nx, sy + ny);
       else if (app.gain && !fall) drawGain(ctx, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
     });
@@ -146,7 +147,7 @@ export function createFrame(app, ui) {
     }
     // § strip: the hearts, depth and oil above the room or beside it, covering none of it (D-198, D-199)
     drawStatus(hudCtx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
-    if (app.screen !== 'play' && app.screen !== 'bag') veil(hudCtx); // dimmed with the room under a menu; the bag leaves both in view (D-247)
+    if (!['play', 'bag', 'place'].includes(app.screen)) veil(hudCtx); // dimmed with the room under a menu; the bag and setting down leave both in view (D-247)
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     textLine.draw(ctx, line, t, still());
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
