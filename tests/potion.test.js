@@ -22,9 +22,9 @@ test('under 3 heartcaps nothing is made', () => {
   assert.equal(craft(s, 0), s);
 });
 
-test('with 3 potions carried the heartcaps stay and no turn passes', () => {
-  const bag = [{ id: 'potion', n: 3 }, { id: 'heartcap', n: 3 }];
-  const n = craft(carrying(bag, 2), 1);
+test('with 5 full stacks of potions and no slot free the heartcaps stay and no turn passes', () => {
+  const bag = [...Array.from({ length: 5 }, () => ({ id: 'potion', n: 5 })), { id: 'heartcap', n: 4 }];
+  const n = craft(carrying(bag, 2), 5);
   assert.equal(n.bag, bag);
   assert.equal(n.turn, 0);
   assert.equal(shownLine(n).text, "You can't carry more potions.");

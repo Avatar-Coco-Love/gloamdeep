@@ -33,9 +33,10 @@ test('the pick-up lines take turns, then start again', () => {
   assert.deepEqual(said, [...TAKE, TAKE[0]]);
 });
 
-test('over a full stack the oilcap stays, with its full line', () => {
-  const n = step(withCap({ ...makeState(room), bag: [{ id: 'oilcap', n: 3 }] }), 'up');
-  assert.deepEqual(n.bag, [{ id: 'oilcap', n: 3 }]);
+test('with every slot a full stack the oilcap stays, with its full line', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'oilcap', n: 20 }));
+  const n = step(withCap({ ...makeState(room), bag: full }), 'up');
+  assert.deepEqual(n.bag, full);
   assert.equal(itemAt(n, 5, 10).id, 'oilcap');
   assert.equal(shownLine(n).text, "You can't carry more oilcaps.");
 });

@@ -147,8 +147,8 @@ test('a stack joins one of its kind when it all fits there, its look going with 
   assert.deepEqual(moveStack(s, 3, 2, 0).bag, [{ id: 'wood', n: 3, form: 0 }]);
 });
 
-test('when it can\'t all go it says so, free, and nothing moves', () => {
-  const full = atChest([{ id: 'wood', n: 2 }], [{ id: 'wood', n: 2 }]);
+test('when none of it can go it says so, free, and nothing moves', () => {
+  const full = atChest([{ id: 'workbench', n: 1 }], [{ id: 'workbench', n: 1 }]);
   for (const [i, text] of [[0, 'Your bag is full.'], [CHEST_BAG, 'The chest is full.']]) {
     const n = moveStack(full, 3, 2, i);
     assert.equal(n.bag, full.bag);
@@ -176,4 +176,18 @@ test('an older save keeps nothing in chests; one already kept is left as it is',
   assert.deepEqual(withStashes({ bag: [] }).stashes, {});
   const kept = { stashes: { 'first:3,2': [{ id: 'wood', n: 1 }] } };
   assert.equal(withStashes(kept), kept);
+});
+
+test('a stack tops up its kind and takes free slots; what can\'t go stays, with the line (D-333)', () => {
+  const five = Array.from({ length: 5 }, () => ({ id: 'stone', n: 20 }));
+  const s = atChest([{ id: 'wood', n: 15 }, ...five], [{ id: 'wood', n: 20 }]);
+  const n = moveStack(s, 3, 2, 0);
+  assert.deepEqual(n.bag, [{ id: 'wood', n: 20 }, ...five]);
+  assert.deepEqual(stashAt(n, 3, 2), [{ id: 'wood', n: 15 }]);
+  assert.equal(n.turn, s.turn);
+  assert.equal(shownLine(n).text, 'Your bag is full.');
+  const all = moveStack(atChest([{ id: 'wood', n: 15 }], [{ id: 'wood', n: 20 }]), 3, 2, 0);
+  assert.deepEqual(all.bag, [{ id: 'wood', n: 20 }, { id: 'wood', n: 15 }]);
+  assert.deepEqual(stashAt(all, 3, 2), []);
+  assert.equal(shownLine(all).text, 'You set down the stash chest.'); // no line of its own
 });

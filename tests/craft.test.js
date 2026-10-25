@@ -29,9 +29,9 @@ test('fewer than 3 oilcaps make nothing', () => {
   assert.equal(craft(s, 0), s);
 });
 
-test('with 3 flasks carried the oilcaps stay, the line says so and no turn passes', () => {
-  const bag = [{ id: 'flask', n: 3 }, { id: 'oilcap', n: 3 }];
-  const n = craft(carrying(bag), 1);
+test('with 5 full stacks of flasks and no slot free the oilcaps stay, the line says so and no turn passes', () => {
+  const bag = [...Array.from({ length: 5 }, () => ({ id: 'flask', n: 5 })), { id: 'oilcap', n: 4 }];
+  const n = craft(carrying(bag), 5);
   assert.equal(n.bag, bag);
   assert.equal(n.turn, 0);
   assert.equal(shownLine(n).text, "You can't carry more flasks.");

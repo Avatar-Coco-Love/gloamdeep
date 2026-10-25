@@ -26,9 +26,10 @@ test('walking onto a heartcap puts it in the bag, with its lines in turn', () =>
   assert.equal(shownLine(s).text, TAKE[0]); // then the first again
 });
 
-test('over a full stack the heartcap stays, with its full line', () => {
-  const n = step(withCap({ ...makeState(room), bag: [{ id: 'heartcap', n: 3 }] }), 'up');
-  assert.deepEqual(n.bag, [{ id: 'heartcap', n: 3 }]);
+test('with every slot a full stack the heartcap stays, with its full line', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'heartcap', n: 20 }));
+  const n = step(withCap({ ...makeState(room), bag: full }), 'up');
+  assert.deepEqual(n.bag, full);
   assert.equal(itemAt(n, 5, 10).id, 'heartcap');
   assert.equal(shownLine(n).text, "You can't carry more heartcaps.");
 });

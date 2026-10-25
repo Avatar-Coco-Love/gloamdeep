@@ -93,9 +93,10 @@ test('the second breaks it to floor, 2 Wood in its look into the bag, lines in t
 });
 
 test('with room for 1 Wood it still breaks, and the other lies there as a stick that never grows back', () => {
-  let s = step(step(beside([{ id: 'wood', n: 2, form: 0 }]), 'up'), 'up');
+  const five = Array.from({ length: 5 }, () => ({ id: 'wood', n: 20 }));
+  let s = step(step(beside([...five, { id: 'wood', n: 19, form: 0 }]), 'up'), 'up');
   assert.equal(tileAt(s.room, 5, 10).id, 'floor');
-  assert.deepEqual(s.bag, [{ id: 'wood', n: 3, form }]);
+  assert.deepEqual(s.bag, [...five, { id: 'wood', n: 20, form }]);
   const left = s.items.find((it) => it.x === 5 && it.y === 10);
   assert.deepEqual(left, { id: 'wood', x: 5, y: 10, form, once: true });
   s = step({ ...s, bag: [] }, 'up'); // picked up
@@ -103,12 +104,13 @@ test('with room for 1 Wood it still breaks, and the other lies there as a stick 
   assert.ok(!s.taken.some((t) => t.id === 'wood'));
 });
 
-test('with 3 Wood carried, the second bump holds, free, with its line', () => {
-  const s = step(step(beside([{ id: 'wood', n: 3 }]), 'up'), 'up');
+test('with 6 full stacks of Wood carried, the second bump holds, free, with its line', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'wood', n: 20 }));
+  const s = step(step(beside(full), 'up'), 'up');
   assert.equal(s.turn, 1);
   assert.equal(tileAt(s.room, 5, 10).id, 'branch');
   assert.equal(shown(s), "You can't carry more wood.");
-  assert.deepEqual(s.bag, [{ id: 'wood', n: 3 }]);
+  assert.deepEqual(s.bag, full);
 });
 
 test('a broken branch grows back within 2 steps after 900 turns', () => {
