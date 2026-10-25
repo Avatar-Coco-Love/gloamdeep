@@ -1,8 +1,13 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.107)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.108)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115 and 0.2.107 at 0.2.117 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115 and 0.2.107 at 0.2.117 and 0.2.108 at 0.2.119 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.108 (2026-10-25)
+- A fall now leaves the world as it was. You still wake at the first room's start with full hearts and the starting oil, but every room stays as you left it: the same seed and layouts, rats where they were, torches still lit, your set-down workbench and stash chest in place with what the chest holds, and the map of every room you found.
+- Settled for later: stacks by kind (20 of Wood, Stone, oilcaps and heartcaps, 5 of flasks and potions), several stacks of a kind in the bag and in a chest, and three ways to play: Gentle keeps your bag after a fall, Normal leaves it where you fell, and Hardcore is one life. Until the modes come, a fall keeps your bag.
+- Decisions: D-332 to D-335. Questions closed: Q-058.
 
 ## 0.2.107 (2026-10-25)
 - On a stash chest's panel, the gold frame now reaches the bag's row too: Down from the chest's second row goes to the bag, and Down again to Close.

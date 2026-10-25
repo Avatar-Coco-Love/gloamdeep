@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.116, a check-in.** An assessment, then the owner's
+  answers: the knife stays in hand through a fall (D-347); the starting
+  region is Hearthwood (D-348); every seen creature shows its next move, to
+  try, none in the dark (D-349); the Bestiary shows more the more you meet
+  a creature (D-350, opens Q-058). Battery lights kept for later.
 - **2026-10-25, 0.2.115, an easier way.** Settings from the pause menu has
   "Way to play: Normal" under the seed; the ways show, harder ones grey
   ("Only an easier way can be picked."); an easier one asks "Play Gentle?",

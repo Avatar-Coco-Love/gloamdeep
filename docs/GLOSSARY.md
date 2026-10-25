@@ -71,6 +71,8 @@ this page and a decision disagree, the decision wins.
 - **Gloamling:** chases, and shuns light (D-240).
 - **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
+- **Next move:** what a seen creature does if the hero waits, shown by a
+  small pink arrow or fangs (D-349, D-357).
 
 ## Menus and tools
 - **Journal:** one book with tabs: Records first, then Growth, later
