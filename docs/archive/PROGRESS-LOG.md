@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.99, a workbench in the bag.** The workbench comes in
+  three steps: make, set down by a picked side, a panel with Deconstruct
+  (D-319). Make on 3 Wood makes one, a turn; only 1 is carried; look B, a
+  vise and a shelf (D-320). Edge trees say "The forest will not yield." and
+  another line, free (D-321). [Playtest](https://claude.ai/artifact/XDUaaUStWRpaocUJMBWC44).
 - **2026-10-24, 0.2.98, trees to chop.** Every tree but the edge ring falls
   in 4 bumps for 3 Wood, with lines, leaving a stump in three looks that you
   walk over; extra Wood lies as sticks nearby; the stump grows back into a

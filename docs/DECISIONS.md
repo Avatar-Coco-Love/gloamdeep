@@ -171,3 +171,20 @@ carry a workbench.", and with every slot taken "Your bag is full.", both
 free, the bench staying. Crafting lives in this panel too: each thing made
 at the bench is one line above Deconstruct with its cost, dim with too few;
 those lines come with the chest.
+
+**D-324 · 2026-10-25 · The stash chest** (the owner's picks, all
+recommended; builds D-021, D-248, D-314; mock-up https://claude.ai/artifact/7u2cu9yA79DCAzGawN9KuJ)
+The stash chest is made at the workbench, its line on the bench panel above
+Deconstruct, for 3 Wood and 3 Stone, stone's first use. Its look is B of the
+mock-up: a rounded wooden lid, grey stone at its corners, a gold latch. One
+chest holds 12 slots, two rows of the bag's 6, in stacks of 3 as in the bag.
+Any number may stand, each keeping its own things; only 1 is carried, as for
+the bench (D-320). Until a home base exists it goes on the surface, the
+bench's way (D-322).
+
+**D-325 · 2026-10-25 · The chest in five steps** (the owner's picks, both
+recommended; builds D-324) CH1: the chest's line on the bench panel makes
+one into the bag. CH2: set it down, the bench's way. CH3: bumping it opens
+its panel, 12 empty slots. CH4: putting things in and taking them out. CH5:
+taking it down, back into the bag, only when empty; with anything inside it
+says so, free, and stays.
