@@ -22,6 +22,9 @@
 // free (WB3, D-323): Up and Down choose, Enter, Space or a tap picks; Deconstruct workbench
 // takes it down, a turn, and closes it; Close, Esc, P or a tap outside the box close it.
 // Stash chest, above it, makes one into the bag, a turn, and the panel stays open (CH1, D-326).
+// Bumping a set-down stash chest, or a click or tap on one, opens its panel the same way,
+// free (CH3, D-330): arrows or a tap move the gold frame over its 12 slots, Down past them
+// to Close; Close, Esc, P or a tap outside the box close it. The bag's row only shows.
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
@@ -42,7 +45,7 @@
 // Look, then a box, changes them later (P3 to P6). Arrows, swipes or a tap pick one, OK goes on,
 // and Back goes back a screen; Esc or P after the cloak leave a profile's old look as it was.
 // Split from main.js (D-235): `app` holds what the screens share with play and drawing.
-import { depthOf, areaAt } from '../core/room.js';
+import { depthOf, areaAt, tileAt } from '../core/room.js';
 import { lineAt, pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
 import { keyAt } from '../render/seedpad.js';
@@ -70,6 +73,8 @@ import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { bagAt, panelOnTop, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
+import { chestAt } from '../render/chestpanel.js';
+import { CHEST_CLOSE, CHEST_WORDS, moveChest } from '../core/chest.js';
 import { TILE } from '../render/screen.js';
 
 const WORDS = {
@@ -93,7 +98,7 @@ export function createScreens(app, ui) {
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU
     : settingsMenu(app.settings, reduceMotion.matches, app.pageFrom === 'paused' ? app.journeySeed : null));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
   function show(next, at = 0) {
@@ -109,7 +114,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? CHEST_WORDS : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
@@ -383,8 +388,9 @@ export function createScreens(app, ui) {
   }
 
   // § bench panel (WB3, D-323): `app.bench` is the bench's tile. Deconstruct closes the
-  // panel whatever happens, so its line shows, taken down or not.
-  function openBench(at) { app.queued = null; app.bench = at; show('bench'); }
+  // panel whatever happens, so its line shows, taken down or not. A stash chest's tile
+  // opens the chest's panel instead, on its first slot (CH3, D-330).
+  function openPanel(at) { app.queued = null; app.bench = at; show(tileAt(app.state.room, at.x, at.y).panel); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   const benchWords = () => `Workbench. ${benchMenu(app.state.bag).filter((l) => l.cost).map((l) => `${l.text}, ${l.cost.replace(' · ', ' and ')}${l.dim ? ', too few' : ''}. `).join('')}Deconstruct workbench, or Close.`;
@@ -410,7 +416,7 @@ export function createScreens(app, ui) {
     else if (id === 'type') openPad('explore');
   }
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench') show('play');
+    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -504,6 +510,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
+    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); return; } // a slot does nothing until CH4
     if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
@@ -534,6 +541,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'trim') { moveToTrim(moveTrim(app.chosen, dir)); return; }
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
+    if (app.screen === 'chest') { app.chosen = moveChest(app.chosen, dir); return; }
     if (app.screen === 'bag') { if (dir === 'left' || dir === 'right') pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + (dir === 'left' ? -1 : 1)))); return; }
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
     if (app.screen === 'journal') {
@@ -575,6 +583,13 @@ export function createScreens(app, ui) {
       else if (at >= 0) { app.chosen = at; choose(at); }
       return;
     }
+    if (app.screen === 'chest') {
+      if (held) return;
+      const at = chestAt(px, py);
+      if (at === 'out' || at === CHEST_CLOSE) show('play');
+      else if (at) app.chosen = at.slot;
+      return;
+    }
     if (app.screen === 'bag') {
       if (held) return;
       const s = app.state.bag[app.chosen], at = bagAt(px, py, app.bagOnTop, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
@@ -614,5 +629,5 @@ export function createScreens(app, ui) {
   };
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
-  return { show, openSlots, openBench, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
+  return { show, openSlots, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
 }

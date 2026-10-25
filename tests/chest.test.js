@@ -8,6 +8,8 @@ import { makeState, makeAt, setDown, setSides, step, panelBeside } from '../src/
 import { benchMenu } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
+import { CHEST_SLOTS, CHEST_CLOSE, CHEST_WORDS, moveChest } from '../src/core/chest.js';
+import { chestAt } from '../src/render/chestpanel.js';
 
 const withBag = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 const PAID = [{ id: 'wood', n: 3 }, { id: 'oilcap', n: 2 }, { id: 'stone', n: 3 }];
@@ -48,7 +50,7 @@ test('in the bag it is one of a kind, with its lines in turn', () => {
 });
 
 // § set down: the stash chest goes down the bench's way, a turn, with its line;
-// solid, light passing over it, and bumping it does nothing yet (CH2, D-329)
+// solid, light passing over it, and bumping it opens its panel (CH2, D-329; CH3, D-330)
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = () => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag: [{ id: 'chest', n: 1 }] });
 
@@ -60,11 +62,13 @@ test('it is set down on the side picked, from the bag, passing a turn', () => {
   assert.equal(shownLine(n).text, 'You set down the stash chest.');
 });
 
-test('set down, it blocks the way, light passes over it, and a bump does nothing, free', () => {
+test('set down, it blocks the way, light passes over it, and a bump opens its panel, free', () => {
   const n = setDown(outside(), 0, 'right'), bump = step(n, 'right');
   assert.deepEqual(bump.hero, { x: 2, y: 2 });
   assert.equal(bump.turn, n.turn);
-  assert.equal(panelBeside(n, 'right'), null);
+  assert.deepEqual(panelBeside(n, 'right'), { x: 3, y: 2 });
+  assert.equal(get('stash').panel, 'chest');
+  assert.equal(get('bench').panel, 'bench');
   assert.ok(get('stash').solid && !get('stash').blocksLight);
 });
 
@@ -78,4 +82,37 @@ test('it keeps the bench\'s rules: only on the surface, only where there is room
 test('a set-down chest frees the bag, so another can be made', () => {
   const n = setDown({ ...outside(), bag: [{ id: 'chest', n: 1 }, ...PAID] }, 0, 'right');
   assert.deepEqual(makeAt(n, 'chest').bag.at(-1), { id: 'chest', n: 1 });
+});
+
+// § panel (CH3, D-330): 12 slots in two rows of 6, a gold frame moved by the arrows, then Close
+test('its panel has 12 slots, two rows of the bag\'s 6, and Close after them', () => {
+  assert.equal(CHEST_SLOTS, 12);
+  assert.equal(CHEST_CLOSE, 12);
+  assert.equal(CHEST_WORDS, 'Stash chest. 12 slots, all empty. Close.');
+});
+
+test('Left and Right move along a row and stop at its ends', () => {
+  assert.equal(moveChest(0, 'right'), 1);
+  assert.equal(moveChest(0, 'left'), 0);
+  assert.equal(moveChest(5, 'right'), 5);
+  assert.equal(moveChest(6, 'left'), 6);
+  assert.equal(moveChest(11, 'left'), 10);
+});
+
+test('Down goes to the second row, then Close; Up comes back to the second row\'s first slot', () => {
+  assert.equal(moveChest(2, 'down'), 8);
+  assert.equal(moveChest(8, 'down'), CHEST_CLOSE);
+  assert.equal(moveChest(CHEST_CLOSE, 'down'), CHEST_CLOSE);
+  assert.equal(moveChest(CHEST_CLOSE, 'left'), CHEST_CLOSE);
+  assert.equal(moveChest(CHEST_CLOSE, 'up'), 6);
+  assert.equal(moveChest(8, 'up'), 2);
+  assert.equal(moveChest(2, 'up'), 2);
+});
+
+test('a tap picks a chest slot or Close; the bag\'s row does nothing yet; outside the box closes', () => {
+  assert.deepEqual(chestAt(20, 70), { slot: 0 });
+  assert.deepEqual(chestAt(45, 95), { slot: 7 });
+  assert.equal(chestAt(88, 166), CHEST_CLOSE);
+  assert.equal(chestAt(20, 140), null);
+  assert.equal(chestAt(2, 2), 'out');
 });

@@ -145,3 +145,14 @@ owner's picks, both recommended) The stash chest is set down the bench's way
 (D-322): the same Set down, marked sides and rules, saying "You set down the
 stash chest.", a turn. Set down, it is solid like a tree and light passes
 over it; bumping it does nothing until CH3.
+
+**D-330 · 2026-10-25 · Opening the chest** (step CH3 of D-325, the owner's
+picks, all recommended; mock-up https://claude.ai/artifact/JFkncSwPNDzp91vrWEUqPU)
+Bumping a set-down stash chest, or a click or tap on one beside the hero,
+opens its panel, free, with no line: look B, the room dimmed behind the
+pause veil and a box in the middle headed STASH CHEST in ember, its 12
+slots in two rows of 6, BAG in ember with the bag's 6 slots under them,
+then Close. Arrows or a tap move a gold frame over the chest's slots, the
+bag's way; Down from the second row reaches Close, Up from Close the second
+row's first slot. Close, Esc, P or a tap outside the box close it, the
+bench's way (D-323). The bag's row only shows until CH4.
