@@ -21,6 +21,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.117 (2026-10-25)
+- No change to play: four of the owner's answers written down.
+- Decided for the next step: the creature drawn to light walks toward the nearest light. While your lantern is lit, that is you, and it bites like a rat; with the lantern off it heads for a lit torch instead. Its look comes as a mock-up.
+- Decided for later: a Bestiary page shows the creature's drawing, name and counts when you first meet it, how it acts once you beat one, and how to fight it once you beat three.
+- Held sideways, the screen keeps showing the same room, only bigger when that fits, as it does now.
+- The first cave keeps its warrens and dungeon below depth 5; where it ends, and its portal, wait for the portal step.
+- Behind the scenes: the modes' decisions moved to their own archive file, and the Bestiary question is renamed Q-059, since Q-058 was already used.
+- Decisions: D-351 to D-355. Questions closed: Q-046, Q-048, Q-059.
+
 ## 0.2.116 (2026-10-25)
 - No change to play: a check-in on the project, and the owner's answers written down.
 - In Normal, the knife in your hand stays with you through a fall, for now, so you can go after your bag armed.
@@ -77,9 +86,3 @@ Entry format:
 - A fall now leaves the world as it was. You still wake at the first room's start with full hearts and the starting oil, but every room stays as you left it: the same seed and layouts, rats where they were, torches still lit, your set-down workbench and stash chest in place with what the chest holds, and the map of every room you found.
 - Settled for later: stacks by kind (20 of Wood, Stone, oilcaps and heartcaps, 5 of flasks and potions), several stacks of a kind in the bag and in a chest, and three ways to play: Gentle keeps your bag after a fall, Normal leaves it where you fell, and Hardcore is one life. Until the modes come, a fall keeps your bag.
 - Decisions: D-332 to D-335. Questions closed: Q-058.
-
-## 0.2.107 (2026-10-25)
-- On a stash chest's panel, the gold frame now reaches the bag's row too: Down from the chest's second row goes to the bag, and Down again to Close.
-- Press Enter or Space, or click or tap, on a filled slot and its whole stack moves to the other side: from the bag into the chest, or out of the chest into the bag. It joins a stack of its kind when all of it fits there, or takes the next empty slot. It takes no turn and says nothing.
-- When it can't all go, the line says "Your bag is full." or "The chest is full.", and nothing moves. Each chest keeps its own things, kept in your save. A fall loses a chest set down, and what it held, as its room begins again.
-- Decisions: D-331. A question for the owner: Q-058.

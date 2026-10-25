@@ -30,7 +30,6 @@ follow the time of day, cast from where the sun (or the moon, see Q-027)
 is in the sky. Which weather, what does it change, and do shadows move
 with the hour?
 
-
 **Q-037 · How regions are generated and joined** (stage 0.3)
 Proposed in `WORLD.md`: two passes, the region's layout first, then each
 room made to fit its ways in, each room with its own seed. Built for
@@ -58,16 +57,6 @@ The cave mouth is settled (D-218). Still open: daylight down stairs from
 outside, how weather dims it, and how strong the glow from an unfound
 lit room is (D-173).
 
-**Q-048 · Should the room fill the screen sideways?** (after the 0.2.17 playtest)
-The owner is weighing it. Sideways, the camera could show more tiles to
-the left and right of the hero, or zoom in and scroll more. Either way a
-player would see more, or differently, held sideways than upright.
-
-**Q-046 · Where do the earth burrows go?** (when the first cave gets its bottom)
-D-165 makes depths from 6 down earth burrows, but the first cave now
-ends at depth 5 (D-185). Do burrows move behind the portal, become the
-bottom depths of the first cave, or wait for a later cave?
-
 **Q-052 · Play data: kept on the device, or sent?** (near 1.0)
 Telemetry sends how people play (falls, depths, journey length) to a
 small service, with an opt-in switch in Settings and a privacy note.
@@ -91,8 +80,3 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 achievement, D-284) Which records get a set, the numbers of each tier,
 what a reward is (perhaps the play-earned currency, Q-055, or a look)
 and where achievements show (a Journal tab, a note on reaching one).
-
-**Q-058 · What a Bestiary page shows, and when** (when the Bestiary is
-built, D-350) More of a page shows the more you meet and fight that
-creature. Which parts (drawing, name, counts, how it acts, how to fight
-it) show first, and after how many meetings or kills does the rest?

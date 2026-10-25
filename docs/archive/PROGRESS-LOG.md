@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.114, the bag where you fell.** Mock-up of three looks,
+  A picked. A Normal fall leaves the bag, a tied pouch, where the hero fell;
+  walking onto it puts back what fits ("You take back your bag." or "Your
+  bag is full."); each fall its own; a brown dot on the map (D-345).
+  [Playtest](https://claude.ai/artifact/LdFi8DPFP38forjcc257at).
 - **2026-10-25, 0.2.113, Hardcore.** A Hardcore fall plays, then "Your
   journey ends.": Same world or New world. The whole journey starts over
   (bag, level, map, time), saved at once; Records stay; "The world begins
