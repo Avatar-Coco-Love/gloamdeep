@@ -80,7 +80,3 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 achievement, D-284) Which records get a set, the numbers of each tier,
 what a reward is (perhaps the play-earned currency, Q-055, or a look)
 and where achievements show (a Journal tab, a note on reaching one).
-
-**Q-060 · How to play and the creature list** (any time)
-How to play lists only Walk, Wait, Lantern and Pause. Should it show
-framing a creature (tap a plaque, or Tab, D-359), and under what word?

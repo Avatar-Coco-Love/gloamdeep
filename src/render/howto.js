@@ -9,9 +9,9 @@ import { howtoRows, pageName } from '../core/howto.js';
 
 const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6';
 const ROW_H = 11; // from one row line's top to the next
-const MOST_LINES = 5; // the tallest page's row lines (Touch and Mouse)
+const MOST_LINES = 6; // the tallest page's row lines (Touch and Mouse)
 const WAYS_X = 38; // the ways' left edge; the actions start at LEFT
-const LEFT = Math.floor((W - WAYS_X - textWidth('Drag, or hold the button')) / 2);
+const LEFT = Math.floor((W - WAYS_X - textWidth("Click a creature's plaque")) / 2);
 const TAP_PAD = 8; // game pixels above and below a line that still pick it
 // The page line's top; the heading one line above, the rows below, then Back
 const HEIGHT = LINE_GAP + 6 + MOST_LINES * ROW_H + 10 + FONT_H;

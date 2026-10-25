@@ -176,3 +176,8 @@ frames nothing.
 D-355, by the 12 KB rule in `CLAUDE.md`) D-349, D-351, D-356, D-357 and
 D-358 moved unchanged to `archive/DECISIONS-CREATURES.md` as this file
 passed 12 KB. They stay in force.
+
+**D-361 · 2026-10-25 · How to play shows framing** (the owner's picks, both
+recommended; answers Q-060; builds D-359) The Touch, Mouse and Keyboard pages
+get a fifth row, Frame: "Tap a creature's plaque", "Click a creature's
+plaque" and "Tab". One line each; letting go isn't spelled out.
