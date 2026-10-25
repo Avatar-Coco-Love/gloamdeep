@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.102 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.103 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH1 The stash chest's line on the bench panel, 3 Wood and 3 Stone, makes one into the bag, only 1 carried, look B (D-324, D-325).
+CH2 Set the stash chest down on the surface, the bench's way (D-322, D-325).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -85,7 +85,8 @@ Wood, then the chest (D-314; order may change)
 - [x] WB2 Set it down on the surface, on the side picked; a click or tap on a marked tile too, 0.2.100 (D-322)
 - [x] WB3 Bump it for its panel: Deconstruct workbench, 0.2.101 (D-323)
 - [x] The chest planned: cost, look, 12 slots, five steps, 0.2.102 (D-324, D-325)
-- [ ] CH1 to CH5 The stash chest: make, set down, open, put in and take out, take down
+- [x] CH1 The stash chest made on the bench panel, 0.2.103 (D-326)
+- [ ] CH2 to CH5 The stash chest: set down, open, put in and take out, take down
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -96,11 +97,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-25, 0.2.100, the workbench set down.** Set down in the bag marks
-  the free sides; an arrow, a swipe, or a click or tap on a mark sets it
-  there, a turn. Only on the surface, on empty ground off the edge, the room
-  kept joined; solid, light passes over; any number may stand (D-322).
-  [Playtest](https://claude.ai/artifact/Y85Wddb76UFzgXsZwLQegV).
 - **2026-10-25, 0.2.101, the workbench panel.** Bumping a set-down bench,
   or a tap on one beside the hero, opens its panel, free: the room dimmed,
   a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts
@@ -110,3 +106,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   for 3 Wood and 3 Stone; look B, stone corners and a gold latch; 12 slots in
   stacks of 3; any number stand, each its own, 1 carried (D-324). Five steps,
   taken down only when empty (D-325). [Mock-up](https://claude.ai/artifact/7u2cu9yA79DCAzGawN9KuJ).
+- **2026-10-25, 0.2.103, the stash chest made.** The bench panel's top
+  line, Stash chest with 3 Wood · 3 Stone on its right, makes one into the
+  bag, a turn, the panel kept open; dim with too few, saying the cost, free;
+  only 1 carried; three bag lines; look B (D-326).
+  [Playtest](https://claude.ai/artifact/74LdswwP5QPkTksUD1wbJM).

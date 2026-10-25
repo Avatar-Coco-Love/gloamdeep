@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.100, the workbench set down.** Set down in the bag marks
+  the free sides; an arrow, a swipe, or a click or tap on a mark sets it
+  there, a turn. Only on the surface, on empty ground off the edge, the room
+  kept joined; solid, light passes over; any number may stand (D-322).
+  [Playtest](https://claude.ai/artifact/Y85Wddb76UFzgXsZwLQegV).
 - **2026-10-24, 0.2.99, a workbench in the bag.** The workbench comes in
   three steps: make, set down by a picked side, a panel with Deconstruct
   (D-319). Make on 3 Wood makes one, a turn; only 1 is carried; look B, a

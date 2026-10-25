@@ -16,7 +16,7 @@ import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
 import { offEdge, walkOff } from './openings.js';
 import { XP_FOE, gain, discover, foundAfterFall, levelOf } from './xp.js';
-import { bagAdd, bagTake, stackFull } from './bag.js';
+import { bagAdd, bagTake, bagHas, stackFull } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken, regrow, joined } from './regrow.js';
 
@@ -335,6 +335,20 @@ export function craft(state, i) {
   if (!recipe || s.n < recipe.of) return state;
   const bag = bagAdd(bagTake(state.bag, i, recipe.of), recipe.into);
   if (!bag) return say(state, get(recipe.into).full);
+  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+}
+
+// § make at the bench: a line on the workbench's panel takes item `id`'s `bench.of`
+// from the bag and puts one `id` in it, passing a turn, with its line (CH1, D-326).
+// With too few, its `short` line; with one already carried, its `full` line (or
+// "Your bag is full."); all free, and the bag stays as it was.
+export function makeAt(state, id) {
+  const recipe = get(id)?.bench;
+  if (!recipe) return state;
+  if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
+  const paid = Object.entries(recipe.of).reduce((b, [what, n]) => bagTake(b, b.findIndex((s) => s.id === what), n), state.bag);
+  const bag = bagAdd(paid, id);
+  if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
 }
 
