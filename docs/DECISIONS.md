@@ -198,3 +198,10 @@ on a lit tile: its face, and an icon for its next move if the hero waits
 the hero and shrinks as they die. Tapping a plaque frames that creature on
 the field with its name and hearts, and its small next-move arrow; no other
 marks go on the field. Built in two steps, the row first, then the tap.
+
+**D-358 · 2026-10-25 · The creature list's row** (the owner's picks, all
+recommended; builds D-357) Upright, the row sits under the text line; held
+sideways, the plaques stack under the boxes in the strip's column. A
+lampmoth flying at the lit lantern counts as having noticed the hero; one
+that noticed but has no move keeps its plaque, with no icon. New plaques
+join at the end; past the room (7 upright), the last spot says "+N".

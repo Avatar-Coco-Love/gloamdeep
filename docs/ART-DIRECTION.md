@@ -127,6 +127,8 @@ The study's lighting code is at lines 309–338, plus the light setup inside
   walking bob.
 - Creature list (D-357): plaques under the room, a creature's face and a
   small action icon in the hostile pink; the tapped one gets an amber edge.
+  A plaque is 22 × 13 with a 1 px edge (#3a3448 on #1b1824), 2 apart; the
+  face's middle 12 columns, the icon centred 17 in (`render/creatures.js`).
 
 ## Small life (keep it subtle)
 Swaying torch flames with rising embers. Dust motes that only show where

@@ -147,13 +147,24 @@ const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...
 // or 'step' one tile. None for one that stays, or that stands on an unlit tile.
 // It reads the enemies' own turn rules, after the wait's oil burns.
 export function nextMoves(state) {
+  return ahead(state).flatMap(({ move }) => (move ? [move] : []));
+}
+// § creature list (D-357, CL1): the creatures on lit tiles that have noticed
+// the hero, or that one drawn to light flies at while the lantern is lit,
+// as { e, move }: `move` as nextMoves gives it, or null for one that waits.
+export function creatureList(state) {
+  return ahead(state).filter((a) => a.noticed);
+}
+// Each creature on a lit tile, with its next move and whether it has noticed the hero
+function ahead(state) {
   const next = passTurn(state), bites = biting(next);
   const moved = enemiesMove({ ...next, enemies: chased(next.enemies, bites) }).enemies;
   return state.enemies.flatMap((e, i) => {
     if (!litAt(state, e.x, e.y)) return [];
-    if (bites.includes(next.enemies[i])) return [{ e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y }];
+    const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight');
+    if (bites.includes(next.enemies[i])) return [{ e, noticed, move: { e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y } }];
     const to = moved[i];
-    return to.x === e.x && to.y === e.y ? [] : [{ e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y }];
+    return [{ e, noticed, move: to.x === e.x && to.y === e.y ? null : { e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y } }];
   });
 }
 

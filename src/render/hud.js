@@ -7,19 +7,21 @@ import { drawText, textWidth } from './font.js';
 // depth middle, oil right; or stacked in the column at the room's left when
 // the strip is that narrow one (D-199): hearts, depth, oil, then the level
 // from the top, 2 pixels apart (D-246), all lower by a second row of hearts.
+// In the column it gives the y under the boxes, where the creature list goes (D-357).
 export function drawStatus(c, { oil, health, max, depth, level }) {
   if (c.canvas.width === W) {
     drawHearts(c, health, max, 2, BOX_Y);
     drawBox(c, `LV ${level}`, 2 + heartsW(max) + 2, BOX_Y);
     drawDepth(c, depth, null, BOX_Y);
     drawOilBar(c, oil, W - BOX_W - 2, BOX_Y);
-  } else {
-    const below = heartsH(max) - heartsH(ROW_HEARTS); // a second row of hearts pushes the rest down
-    drawHearts(c, health, max, 2, 2);
-    drawDepth(c, depth, 2, 12 + below);
-    drawOilBar(c, oil, 2, 25 + below);
-    drawBox(c, `LV ${level}`, 2, 35 + below);
+    return null;
   }
+  const below = heartsH(max) - heartsH(ROW_HEARTS); // a second row of hearts pushes the rest down
+  drawHearts(c, health, max, 2, 2);
+  drawDepth(c, depth, 2, 12 + below);
+  drawOilBar(c, oil, 2, 25 + below);
+  drawBox(c, `LV ${level}`, 2, 35 + below);
+  return 35 + below + 11;
 }
 
 // § oil bar: style study 1's 10 amber segments (study lines 37–40, 522), drawn

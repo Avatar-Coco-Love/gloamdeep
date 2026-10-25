@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.120 (2026-10-25)
+- A new row under the room lists the creatures that have noticed you and stand in light. Each has a small plaque with its face and what it does next if you wait: fangs for a bite, an arrow for a step. One that has noticed you but can't move shows just its face.
+- A lampmoth flying at your lit lantern gets a plaque too.
+- New plaques join at the end of the row, and one goes when its creature dies or leaves the light. If more than 7 are listed, the last spot says how many more ("+2").
+- Held sideways, the plaques stack under the hearts, depth, oil and level.
+- Decisions: D-358.
+
 ## 0.2.119 (2026-10-25)
 - No change to play: how creatures will show their next move is decided, after three rounds of mock-ups.
 - A row under the room will hold a small plaque for each creature that has noticed you and stands in light: its face, and an icon for what it does next if you wait (fangs for a bite, an arrow for a step). The row grows as more notice you and shrinks as they die. Nothing shows for a creature in the dark.
@@ -84,14 +91,3 @@ Entry format:
 - Picking it on an empty chest puts the chest back in your bag, whole, and the ground is clear again. A turn passes and the line says "You take down the stash chest."
 - With anything still inside it says "Empty the chest first."; with a stash chest already in the bag "You already carry a stash chest."; and with every slot taken "Your bag is full." Then it stays, and no turn passes.
 - Decisions: D-340; this ends the stash chest's steps (D-325).
-
-## 0.2.110 (2026-10-25)
-- Stacks are bigger: up to 20 Wood, Stone, oilcaps or heartcaps, and up to 5 flasks or potions. The workbench and stash chest are still 1 each, and you still carry only one of each.
-- When a stack is full, the next one starts in a free slot, so one kind can fill several slots. Only when every stack of it is full and no slot is free does it stay behind, with the same lines as before.
-- In a stash chest, picking a stack moves as much as fits: it tops up a stack of its kind, then takes free slots. What can't go stays where it was, with "Your bag is full." or "The chest is full."
-- Decisions: D-339; this builds D-333.
-
-## 0.2.109 (2026-10-25)
-- Tidying, with nothing in the game changed: the notes Claude reads at the start of each conversation are shorter, and older changelog entries and finished build steps moved to the archive. This Version history still holds every version.
-- A check now fails when a notes file grows past its size limit, and an audit like this one comes every 20 versions. The next is at 0.2.129.
-- Decisions: D-336, D-337, D-338.

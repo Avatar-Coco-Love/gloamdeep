@@ -34,8 +34,8 @@ import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 
-const canvas = document.getElementById('game'), hud = document.getElementById('hud');
-const { ctx, hudCtx } = createScreen(canvas, hud);
+const canvas = document.getElementById('game'), hud = document.getElementById('hud'), list = document.getElementById('list');
+const { ctx, hudCtx, listCtx } = createScreen(canvas, hud, list);
 document.getElementById('version').textContent = VERSION;
 
 // The only Math.random: a new seed for each journey (D-148, D-187), unless a
@@ -207,6 +207,7 @@ function beginAgain(other) {
 // `foeShown` holds where each enemy is drawn; one it doesn't know yet (a spawn,
 // a reset, a fall) shows on its tile at once. A turn keeps the enemies in order,
 // less any the hit killed, so the new list pairs with the old one by place.
+// The creature list keeps each one's place in its row there too (frame.js, D-357).
 let foeShown = new Map();
 function followFoes(was, now) {
   const alive = now.length < was.length ? was.filter((e) => e !== app.hit?.enemy) : was;
@@ -217,7 +218,8 @@ function followFoes(was, now) {
 }
 function foeAt(e) {
   let p = foeShown.get(e);
-  if (!p || still()) { p = { x: e.x, y: e.y }; foeShown.set(e, p); }
+  if (!p) { p = { x: e.x, y: e.y }; foeShown.set(e, p); }
+  else if (still()) { p.x = e.x; p.y = e.y; }
   return p;
 }
 function nudgeToward(dir) {
@@ -343,7 +345,7 @@ const dev = createDev(stage, canvas, { // on for everyone (D-086)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
 }, hud);
-const frame = createFrame(app, { ctx, hudCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, hudCtx, listCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

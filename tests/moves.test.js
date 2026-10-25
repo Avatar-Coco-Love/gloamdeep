@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, FIRST_ENEMIES } from '../src/core/room.js';
-import { makeState, wait, switchLantern, nextMoves, FIRST_START } from '../src/core/turn.js';
+import { makeState, wait, switchLantern, nextMoves, creatureList, FIRST_START } from '../src/core/turn.js';
 
 const room = makeRoom(FIRST_ROOM);
 const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES);
@@ -40,4 +40,33 @@ test('showing the moves changes nothing', () => {
   const s = start(), before = JSON.stringify(s.enemies);
   nextMoves(s);
   assert.equal(JSON.stringify(s.enemies), before);
+});
+
+// § creature list (D-357, CL1): who gets a plaque, and what it shows
+const listed = (s) => creatureList(s).map(({ e, move }) => [e.id, move && move.kind]);
+
+test('a rat that sees the hero in light has a plaque with its step', () => {
+  assert.deepEqual(listed(start()), [['rat', 'step']]);
+});
+
+test('one that has noticed the hero but waits keeps its plaque, with no move', () => {
+  const s = with_({ x: 5, y: 11 }, [{ id: 'rat', x: 5, y: 9, chasing: true }, { id: 'rat', x: 5, y: 10, chasing: true }]); // the far one waits behind
+  assert.deepEqual(listed(s), [['rat', null], ['rat', 'bite']]);
+});
+
+test('one that has not noticed the hero has no plaque', () => {
+  const s = switchLantern(with_({ x: 9, y: 11 }, [{ id: 'rat', x: 4, y: 5 }]));
+  assert.deepEqual(listed(s), []);
+});
+
+test('a lampmoth in light counts while the lantern is lit, not when it heads for a torch', () => {
+  const s = with_({ x: 5, y: 11 }, [{ id: 'lampmoth', x: 5, y: 8 }]);
+  assert.deepEqual(listed(s), [['lampmoth', 'step']]);
+  const dark = switchLantern({ ...with_({ x: 5, y: 11 }, [{ id: 'lampmoth', x: 4, y: 6 }]), lights: FIRST_LIGHTS.filter((l) => l.x === 4 && l.y === 4) });
+  assert.deepEqual(listed(dark), []);
+});
+
+test('nothing for a creature on an unlit tile, though it has noticed the hero', () => {
+  const s = { ...with_({ x: 5, y: 11 }, [{ id: 'rat', x: 9, y: 1, chasing: true }]), lights: [] };
+  assert.deepEqual(listed(s), []);
 });
