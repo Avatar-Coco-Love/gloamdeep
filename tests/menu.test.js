@@ -57,3 +57,18 @@ test('a tap picks the line under it, near it, or none', () => {
   assert.equal(lineAt(top + LINE_GAP + 2, 2, top), 1);
   assert.equal(lineAt(0, 2, top), -1);
 });
+
+test('in play, Settings has the way to play under the seed; only an easier one changes it (MO4, D-346)', async () => {
+  const { modeText, easier, easeMenu, easeMode, HARDER_NOTE, EASE_NOTE, easeHeading } = await import('../src/core/menu.js');
+  assert.deepEqual(settingsMenu({ seed: null }, false, 7, 'normal').map((l) => l.id).slice(2, 4), ['seed', 'mode']);
+  assert.ok(!settingsMenu({ seed: null }).some((l) => l.id === 'mode'));
+  for (const id of ['gentle', 'normal', 'hardcore']) assert.ok(textWidth(modeText(id)) + 2 * 8 <= W, id);
+  assert.equal(modeText('hardcore'), 'Way to play: Hardcore');
+  assert.ok(easier('hardcore', 'normal') && easier('normal', 'gentle') && easier('hardcore', 'gentle'));
+  assert.ok(!easier('gentle', 'normal') && !easier('normal', 'normal') && !easier('normal', 'hardcore'));
+  assert.deepEqual(easeMenu('normal').map((l) => !!l.dim), [false, false, true]);
+  assert.deepEqual(easeMenu('gentle').map((l) => !!l.dim), [false, true, true]);
+  assert.equal(easeMode({ mode: 'hardcore' }, 'gentle').mode, 'gentle');
+  assert.equal(easeMode({ mode: 'gentle' }, 'hardcore').mode, 'gentle');
+  for (const words of [HARDER_NOTE, EASE_NOTE, easeHeading('gentle'), easeHeading('normal')]) assert.ok(textWidth(words) <= W, words);
+});

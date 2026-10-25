@@ -1,7 +1,24 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.103)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.106)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336). Newest first. Grep for a version; never read this whole.
+(D-336), and 0.2.104 to 0.2.106 at 0.2.115 (the 8 KB cap). Newest first.
+Grep for a version; never read this whole.
+
+## 0.2.106 (2026-10-25)
+- Walk into a stash chest you set down, or click or tap it from beside it, to open it. The room dims behind a box headed STASH CHEST, with its 12 empty slots in two rows, the bag's 6 slots under them, and Close. Opening it takes no turn.
+- Arrows or a tap move a gold frame over the chest's slots; Down past the second row reaches Close. Close, Esc, P or a tap outside the box closes it. The slots are empty for now: putting things in and taking them out comes next.
+- Decisions: D-330.
+
+## 0.2.105 (2026-10-25)
+- Choose the stash chest in the bag and press Set down, and it goes down the workbench's way: the free sides beside you are marked, and an arrow, a swipe, or a click or tap on a mark sets it there. A turn passes and the line says "You set down the stash chest."
+- It goes only on the surface, on empty ground away from the room's edge, and never where it would cut the room in two. Set down, you can't walk through it, but light passes over it. Walking into it does nothing yet; opening it comes next.
+- Decisions: none new; this builds D-329.
+
+## 0.2.104 (2026-10-25)
+- Wood's first line in the bag now says "Three make a workbench.", so it is plain that 3 Wood make something, as oilcaps say they make a flask.
+- How to play has a fourth page, Crafting, after Keyboard: choose a stack in the bag and press Make; 3 oilcaps make an oil flask, 3 Wood a workbench, and you walk into a workbench to make more there.
+- Setting the stash chest down is settled for next time: the workbench's way. Older decisions move to an archive file.
+- Decisions: D-327, D-328, D-329.
 
 ## 0.2.103 (2026-10-25)
 - The workbench panel has a new top line: Stash chest, with its cost, 3 Wood · 3 Stone, on the right. Picking it uses them up and puts a stash chest in the bag. A turn passes, the line says "You make a stash chest.", and the panel stays open. The panel's lines now sit at its left.

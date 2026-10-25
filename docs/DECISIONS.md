@@ -162,3 +162,13 @@ its weapon (Claude's call, to confirm). Walking onto it puts back what fits,
 kinds topping up first: all back, "You take back your bag."; else the rest
 stays in it, "Your bag is full." Each fall leaves its own bag. The map marks
 each with a leather brown dot until it is taken back. The wake line stays.
+
+**D-346 · 2026-10-25 · Changing the way to play** (step MO4 of D-341, the
+owner's picks, all recommended; builds D-334) Settings opened from the pause
+menu has "Way to play: Normal" under the seed; from the title it isn't
+there. Picking it shows the three ways, the one played picked; the harder
+ones are grey, their note "Only an easier way can be picked.", and can't be
+picked. An easier one asks first, drawn like Start over: "Play Gentle?",
+"There is no going back.", Yes or No, No picked. Yes changes it, saved with
+the journey; No goes back to the ways (Claude's call). Bags left by Normal
+falls stay to fetch after a change to Gentle.

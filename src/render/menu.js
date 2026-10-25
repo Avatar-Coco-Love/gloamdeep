@@ -1,9 +1,10 @@
 // § menu lines: a menu's lines centred in the pixel font, the chosen one gold with
 // a small flame beside it (D-181). Shared by the title screen and the pause menu (D-187).
-import { W, SCREEN_H } from './screen.js';
+import { W, H, SCREEN_H } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 
 const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', CORE = '#fff5d6', GREY = '#9790a4';
+const DIM = '#5c566a', DIM_GOLD = '#a08548'; // a line that can't be picked, as on the bench's panel (D-326)
 export const LINE_GAP = 16; // from one line's top to the next
 const TAP_PAD = 8; // game pixels above and below a line that still pick it
 const VEIL = 0.7; // how dark the pause menu's veil over the room is (D-187)
@@ -29,11 +30,11 @@ export function drawMarker(c, x, y, t, still) {
   c.fillStyle = CORE; c.fillRect(x + 1, y + 3, 1, 1);
 }
 
-// menu: [{ text }]; chosen: its index; top: the first line's top; still: prefers-reduced-motion
+// menu: [{ text, dim }]; chosen: its index; top: the first line's top; still: prefers-reduced-motion
 export function drawLines(c, menu, chosen, top, t, still) {
   menu.forEach((line, i) => {
     const w = textWidth(line.text), x = Math.floor((W - w) / 2), y = top + i * LINE_GAP;
-    drawText(c, line.text, x, y, i === chosen ? GOLD : GREY);
+    drawText(c, line.text, x, y, i === chosen ? (line.dim ? DIM_GOLD : GOLD) : line.dim ? DIM : GREY);
     if (i === chosen) drawMarker(c, x - 7, y + 1, t, still);
   });
 }
@@ -44,13 +45,14 @@ export function drawHeading(c, text, linesTop) {
 }
 
 // § pause: the room darkened behind a veil, the lines in the middle of the picture (D-187);
-// with a heading, the heading and lines together are in the middle
+// with a heading, the heading and lines together are in the middle; a note, grey, takes the text line's place
 export const pauseTop = (count, heading = false) =>
   Math.floor((SCREEN_H - (count - (heading ? 0 : 1)) * LINE_GAP - FONT_H) / 2) + (heading ? LINE_GAP : 0);
 export function veil(c) { c.globalAlpha = VEIL; c.fillStyle = K; c.fillRect(0, 0, W, SCREEN_H); c.globalAlpha = 1; }
-export function drawPause(c, menu, chosen, t, still, heading = null) {
+export function drawPause(c, menu, chosen, t, still, heading = null, note = null) {
   veil(c);
   const top = pauseTop(menu.length, !!heading);
   if (heading) drawHeading(c, heading, top);
   drawLines(c, menu, chosen, top, t, still);
+  if (note) { c.fillStyle = K; c.fillRect(0, H, W, SCREEN_H - H); drawText(c, note, Math.floor((W - textWidth(note)) / 2), H + 2, GREY); }
 }

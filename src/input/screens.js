@@ -63,7 +63,7 @@ import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMenu, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMenu, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, HARDER_NOTE, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
@@ -103,13 +103,14 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion } = ui;
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
-    : settingsMenu(app.settings, reduceMotion.matches, app.pageFrom === 'paused' ? app.journeySeed : null));
+    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU
+    : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
-  const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
+  const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, ['settings', 'ways', 'easier'].includes(app.screen)));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
   function show(next, at = 0) {
-    if ((next === 'settings' && app.screen !== 'seed' && app.screen !== 'history') || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
+    if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
     app.screen = next; app.chosen = at;
     const playing = next === 'play';
     lanternButton.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
@@ -120,6 +121,7 @@ export function createScreens(app, ui) {
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
+      : next === 'ways' ? waysWords() : next === 'easier' ? `${easeHeading(app.easier)} ${EASE_NOTE} Yes or No.`
       : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
   }
@@ -436,6 +438,8 @@ export function createScreens(app, ui) {
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
     else if (app.screen === 'settings') closeSettings();
+    else if (app.screen === 'ways') closeWays();
+    else if (app.screen === 'easier') closeEasier(false);
     else if (app.screen === 'seed') closePad();
     else if (app.screen === 'howto') closeHowTo();
     else if (app.screen === 'history') closeHistory();
@@ -461,6 +465,21 @@ export function createScreens(app, ui) {
   const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
   const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
   const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
+
+  // § ways (MO4, D-346): Settings' Way to play line opens the ways, the one played picked; a harder
+  // one can't be picked, the one played goes back, an easier one asks first (No picked)
+  const waysWords = () => `${MODE_HEADING}. ${easeMenu(app.state.mode).map((l) => `${l.text}: ${l.dim ? HARDER_NOTE : l.note}`).join(' ')}`;
+  const openWays = (at = app.state.mode) => show('ways', modeAt(at));
+  const closeWays = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'mode'));
+  function pickWay(id) {
+    if (easier(app.state.mode, id)) { app.easier = id; show('easier', SURE_MENU.findIndex((l) => l.id === 'no')); }
+    else if (id === app.state.mode) closeWays();
+  }
+  function closeEasier(yes) {
+    if (!yes) { openWays(app.easier); return; }
+    ui.ease(app.easier); closeWays();
+    spoken.textContent = modeText(app.state.mode);
+  }
 
   // § seed pad (D-191): OK keeps the typed seed, or Random when none is typed; Random
   // keeps Random. Either starts the next New journey; this one goes on as it is.
@@ -527,6 +546,8 @@ export function createScreens(app, ui) {
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
     if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
+    if (app.screen === 'ways') { pickWay(id); return; }
+    if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
@@ -543,6 +564,7 @@ export function createScreens(app, ui) {
     else if (id === 'controls') changeControls();
     else if (id === 'motion') changeMotion();
     else if (id === 'seed') openPad();
+    else if (id === 'mode') openWays();
     else if (id === 'lantern') changeLantern();
     else if (id === 'flasks') changeFlasks();
     else if (id === 'sound') changeSound();
