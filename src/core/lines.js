@@ -58,6 +58,8 @@ export const LINES = {
   chestFull: { text: 'You already carry a stash chest.', warn: false }, // only 1 is carried, free
   chestShort: { text: 'You need 3 Wood and 3 Stone.', warn: false }, // too few, free
   chestSet: { text: 'You set down the stash chest.', warn: false }, // a turn (CH2, D-329)
+  chestTake: { text: 'You take down the stash chest.', warn: false }, // Deconstruct chest, a turn (CH5)
+  chestNotEmpty: { text: 'Empty the chest first.', warn: false }, // Deconstruct chest with anything inside, free (CH5)
   chestLook: { texts: ['A stash chest, empty.', 'Set it down on the surface.', "It keeps what the bag can't."], warn: false },
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331)
   stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)

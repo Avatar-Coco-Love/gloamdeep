@@ -19,6 +19,7 @@ import { XP_FOE, gain, discover, levelOf } from './xp.js';
 import { bagAdd, bagTake, bagHas, bagPay } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken, regrow, joined } from './regrow.js';
+import { stashAt, withoutStash } from './chest.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -372,17 +373,19 @@ export function setDown(state, i, dir) {
   return endTurn(state, say(next, sets.says));
 }
 
-// § take down: Deconstruct on the panel of the tile at x, y (the bench) puts it back
-// in the bag whole as its `takes` item, floor left where it stood, and passes a turn,
-// with its line (WB3, D-323). With one already carried, that item's `full` line; with
-// every slot taken, "Your bag is full."; both free, and it stays. A `take` event.
+// § take down: Deconstruct on the panel of the tile at x, y (the bench or a stash
+// chest) puts it back in the bag whole as its `takes` item, floor left where it stood,
+// and passes a turn, with its line (WB3, D-323; CH5). A chest holding anything says
+// its `empty` line instead. With one already carried, that item's `full` line; with
+// every slot taken, "Your bag is full."; all free, and it stays. A `take` event.
 export function takeDown(state, x, y) {
   const takes = tileAt(state.room, x, y).takes;
   if (!takes) return state;
+  if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
   const bag = bagAdd(state.bag, takes.item);
   if (!bag) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
-  const room = withTile(state.room, x, y, get('floor'));
-  const next = note(passTurn({ ...state, room, bag }), 'take', { id: takes.item });
+  const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
+  const next = note(passTurn({ ...state, room, bag, ...(stashes && { stashes }) }), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
 
