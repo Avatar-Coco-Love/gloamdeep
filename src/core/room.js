@@ -2,7 +2,7 @@
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
 import { byLetter } from './registry.js';
-import { generateRoom } from './cave.js';
+import { generateRoom, withMimic } from './cave.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -132,6 +132,14 @@ export function lampmothRooms(seed, depth) {
   return out;
 }
 const asMoth = (room) => room && { ...room, enemies: room.enemies.map((e) => (e.id === 'rat' ? { ...e, id: 'lampmoth' } : e)) };
+// § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
+// a flask mimic as well as all it holds (D-366)
+const MIMIC_ODDS = 0.25, MIMIC_FROM = 3, MIMIC_TO = 5;
+export function mimicRooms(seed, depth) {
+  if (depth < MIMIC_FROM || depth > MIMIC_TO) return [];
+  const r = rng(seedAt(seed, depth) ^ 0x9b05688c);
+  return layoutAt(seed, depth).cells.map((c) => c.id).filter(() => r() < MIMIC_ODDS);
+}
 // § knife: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252)
 export const KNIFE_DEPTH = 2;
@@ -145,7 +153,9 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', knife: id === placeAt(KNIFE_DEPTH), deposits });
-  return { ...((lampmothRooms(seed, depth).includes(id) ? asMoth(made) : made) || PLACES[DEEPER]), depth, look, sides: cell?.sides || {} };
+  const moth = lampmothRooms(seed, depth).includes(id) ? asMoth(made) : made;
+  const room = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
+  return { ...(room || PLACES[DEEPER]), depth, look, sides: cell?.sides || {} };
 }
 
 // The room beyond each edge of a place with openings, by direction (D-197,

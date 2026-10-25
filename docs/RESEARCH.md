@@ -107,6 +107,17 @@ town only decoration: a home base should do something.
 - A small bag that grows with add-on pouches.
 - Pushing creatures into hazards (water, pits).
 
+## Creatures shown, not picked (2026-10-25, D-365)
+Each built only from the ways creatures have
+([mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh)):
+- **Snapcap:** a heartcap look-alike with pink eyes; no ways, so it never
+  moves and bites whoever stands next to it. 2 hearts, bite 1, depths 2 to 4.
+- **Mole:** chases and never flees. 4 hearts, bite 1, the Warren.
+- **Bat:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
+- **Scorpion:** chases. 1 heart, bite 2, depths 3 and 4.
+- **Cave spider:** shuns light only, so it waits in the dark, backs out of
+  light and bites when the lantern is off. 2 hearts, bite 1, depths 2 to 4.
+
 ## Sources
 - AV Club review of Hoplite: https://www.avclub.com/mobile-review-of-the-week-hoplite-iosandroid
 - MobyGames, Hoplite: https://www.mobygames.com/game/77779/hoplite/

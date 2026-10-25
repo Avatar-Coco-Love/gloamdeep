@@ -70,6 +70,7 @@ this page and a decision disagree, the decision wins.
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
 - **Gloamling:** chases, and shuns light (D-240).
 - **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
+- **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the row of plaques under the room, one for each

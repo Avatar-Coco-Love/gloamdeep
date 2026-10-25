@@ -193,29 +193,54 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
 // after everything else, so the rest of a seed's room stays as it was.
 function withDeposits(r, room, count) {
   const g = room.map.map((row) => [...row]), things = [room.start, ...room.items, ...room.enemies];
-  const walkable = (t) => g[t.y]?.[t.x] !== undefined && g[t.y][t.x] !== '#' && g[t.y][t.x] !== 'O';
-  const all = tilesWhere(g, (x, y) => walkable({ x, y }));
-  const joined = () => {
-    const open = all.filter(walkable), seen = new Set([key(open[0])]), queue = [open[0]];
-    while (queue.length) {
-      const t = queue.shift();
-      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-        const n = { x: t.x + dx, y: t.y + dy };
-        if (walkable(n) && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
-      }
-    }
-    return seen.size === open.length;
-  };
+  const all = tilesWhere(g, (x, y) => walkable(g, { x, y }));
   for (let i = 0; i < count; i++) {
     const spots = all.filter((t) => g[t.y][t.x] === '.' && !onEdge(t) && !things.some((o) => same(o, t)));
     while (spots.length) {
       const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
       g[at.y][at.x] = 'O';
-      if (joined()) break;
+      if (joined(g)) break;
       g[at.y][at.x] = '.';
     }
   }
   return g.map((row) => row.join(''));
+}
+// Whether every tile of g that can be walked joins up with the rest, a deposit ('O') counting as solid
+const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && g[t.y][t.x] !== '#' && g[t.y][t.x] !== 'O';
+function joined(g) {
+  const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
+  while (queue.length) {
+    const t = queue.shift();
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      const n = { x: t.x + dx, y: t.y + dy };
+      if (walkable(g, n) && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
+    }
+  }
+  return seen.size === open.length;
+}
+
+// § flask mimic: (seed, room) → the room with a flask mimic asleep where a flask
+// could lie (D-366, D-368): on open floor off the edge, at least 5 steps from the way in,
+// where nothing lies, stands or starts, not beside the stairs or an opening, and
+// never cutting the room in two, since it never moves. Placed after everything
+// else, from its own seed, so the rest of a seed's room stays as it was; the room
+// as it was when no tile fits.
+export function withMimic(seed, room) {
+  const r = rng(seed ^ 0x510e527f), g = room.map.map((row) => [...row]), far = reach(g, room.start);
+  const things = [room.start, ...room.items, ...room.enemies];
+  const beside = (t) => [[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dy]) => {
+    const n = { x: t.x + dx, y: t.y + dy }, ch = g[n.y]?.[n.x];
+    return ch === '<' || ch === '>' || (ch === '.' && onEdge(n));
+  });
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(t) && far.get(key(t)) >= 5 && !beside(t) && !things.some((o) => same(o, t)));
+  while (spots.length) {
+    const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
+    g[at.y][at.x] = 'O';
+    const ok = joined(g);
+    g[at.y][at.x] = '.';
+    if (ok) return { ...room, enemies: [...room.enemies, { id: 'flaskMimic', x: at.x, y: at.y, asleep: true }] };
+  }
+  return room;
 }
 
 // § chambers: 5 to 10 roundish chambers, their middles well apart (D-162)

@@ -1,7 +1,7 @@
 // § sprites: 16 × 16 pixel maps written as strings, one letter per palette
 // colour; symmetric ones store the left half and mirror it (style study 1,
 // lines 121–176, ART-DIRECTION.md "Sprites").
-import { CLOAKS, EYES, TRIMS } from '../core/registry.js';
+import { CLOAKS, EYES, TRIMS, get } from '../core/registry.js';
 import { DEFAULT_CLOTHES } from '../core/looks.js';
 
 const PAL = {
@@ -157,6 +157,12 @@ const LAMPMOTH = { mirror: true, rows: [
   '', '', '', '.....k..', '......k.', '.kkk..kk', 'kwaak.kp', 'kaaoakkd', 'kaoYakkd',
   'kaaaaakd', '.kkaaakd', '..kaSakd', '..kaaak.', '...kkk..'] };
 
+// § flask mimic: the flask (D-077) with pink hostile eyes in its oil and a row of pale
+// teeth where its shoulder would be (D-366)
+const FLASK_MIMIC = { mirror: true, rows: [
+  '', '', '......kk', '.....kaa', '......kk', '......ko', '.....koo', '....kooo', '...kwpoo', '...kwooo',
+  '...kkwkw', '...kOkkk', '....kOOO', '.....kkk'] };
+
 function build(rows, mirror) {
   return Array.from({ length: 16 }, (_, i) => {
     let r = rows[i] || '';
@@ -179,7 +185,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -205,7 +211,7 @@ export function spriteOf(it) {
   }
   return TONED[key];
 }
-const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff') };
+const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff') };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');
@@ -310,6 +316,7 @@ export function drawEnemies(c, enemies, t, still, hit, at = (e) => e) {
 }
 function drawEnemy(c, e, p, t, still, flash) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);
+  if (e.asleep && !flash) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
   const bob = still ? 0 : Math.floor(t / 520 + e.x) % 2;
   drawShadow(c, x, y, 8);
   const left = e.facing === 'left';

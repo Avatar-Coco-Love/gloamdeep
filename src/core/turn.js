@@ -89,10 +89,19 @@ function pickUp(state, found) {
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => (state.held && get(state.held)?.hit) || LANTERN_HIT;
 function attack(state, foe) {
+  if (foe.asleep) return wake(state, foe);
   const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, heroHit(state));
   const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
   const next = note(passTurn({ ...state, enemies }), 'hit', { id: foe.id, held: state.held });
   return endTurn(state, say(dead ? note(gain(next, XP_FOE), 'beat', { id: foe.id }) : next, dead ? entry.die : stands ? entry.stands : entry.hurt));
+}
+
+// § wake: bumping a creature asleep in disguise wakes it, with no harm and no
+// sound. It passes a turn like a step; the creature stirs and does nothing that
+// turn, so the hero has a step's start (D-368). It is a `wake` event.
+function wake(state, foe) {
+  const { asleep, ...woken } = foe, enemies = state.enemies.map((e) => (e === foe ? { ...woken, stirs: true } : e));
+  return endTurn(state, say(note(passTurn({ ...state, enemies }), 'wake', { id: foe.id }), get(foe.id).wakes));
 }
 
 // § light a torch: walking into the wall of an unlit torch, from the tile it

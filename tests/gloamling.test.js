@@ -91,7 +91,7 @@ test('three rooms on each floor from depth 5 down hold one, in place of their se
       const ids = gloamlingRooms(seed, depth);
       assert.equal(new Set(ids).size, 3);
       for (const c of layoutAt(seed, depth).cells) {
-        const kinds = placeFor(c.id, seed).enemies.map((e) => e.id);
+        const kinds = placeFor(c.id, seed).enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic'); // a flask mimic stands as well (D-366)
         assert.deepEqual(kinds, ['rat', ids.includes(c.id) ? 'gloamling' : 'rat'], `seed ${seed} ${c.id}`);
       }
     }

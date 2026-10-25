@@ -12,7 +12,7 @@ const where = (map, ch) => map.flatMap((row, y) => [...row].map((c, x) => (c ===
 test('one rat a room at depths 2 to 4, two from depth 5', () => {
   assert.deepEqual([2, 3, 4, 5, 7, 8, 12].map(ratsAt), [1, 1, 1, 2, 2, 2, 2]);
   for (const seed of SEEDS.slice(0, 10)) for (const depth of [2, 4, 5, 8]) for (const c of layoutAt(seed, depth).cells) {
-    assert.equal(placeFor(c.id, seed).enemies.length, ratsAt(depth), `seed ${seed} ${c.id}`);
+    assert.equal(placeFor(c.id, seed).enemies.filter((e) => e.id !== 'flaskMimic').length, ratsAt(depth), `seed ${seed} ${c.id}`); // a flask mimic stands as well (D-366)
   }
 });
 
