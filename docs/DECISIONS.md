@@ -144,3 +144,16 @@ four legs, a grey vise on a corner, a shelf between the legs.
 Bumping a tree of a woods room's edge ring, which is never chopped (D-317),
 says in turn "The forest will not yield." and "These trees are too old to
 fell.", free.
+
+**D-322 · 2026-10-25 · Setting the workbench down** (step WB2 of D-319, the
+owner's picks, all recommended) Choosing the Workbench in the bag shows Set
+down (Enter or Space too); the bag closes and the free sides beside the hero
+are marked. An arrow, a swipe, or a click or tap on a marked tile sets it
+there; Esc, P, I or a tap elsewhere keep it in the bag. It goes only on the
+surface, on a plain floor tile off the room's edge (never a doorway, a cave
+mouth or stairs), with nothing on it, and only if the room stays joined, as
+for stumps (D-317). It says "You set down the workbench.", a turn; below
+ground Set down says "Only on the surface.", and toward a side it can't go
+on "There is no room there.", both free. Set down, it is solid like a tree
+and light passes over it. Any number may stand: only 1 is carried (D-320),
+so each set down frees the bag for the next.

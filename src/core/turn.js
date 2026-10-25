@@ -18,7 +18,7 @@ import { offEdge, walkOff } from './openings.js';
 import { XP_FOE, gain, discover, foundAfterFall, levelOf } from './xp.js';
 import { bagAdd, bagTake, stackFull } from './bag.js';
 import { note, fresh } from './events.js';
-import { noteTaken, regrow } from './regrow.js';
+import { noteTaken, regrow, joined } from './regrow.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -348,6 +348,34 @@ export function eat(state, i) {
   if (state.health >= maxHealth(state)) return say(state, 'notHurt');
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
   return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + entry.heal) });
+}
+
+// § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's
+// bench) beside the hero on side `dir`, takes it from the bag and passes a turn,
+// with its line (WB2, D-322). Only under the sky; elsewhere "Only on the surface."
+// is said, free. It goes only on plain floor off the room's edge, with nothing on
+// it, and only when the room stays joined; toward any other side (or none),
+// "There is no room there.", free. A `set` event.
+export function setDown(state, i, dir) {
+  const entry = state.bag[i] && get(state.bag[i].id), sets = entry?.sets;
+  if (!sets) return state;
+  if (!state.room.dark?.sky) return say(state, 'notSurface');
+  if (!setSides(state, i).includes(dir)) return say(state, 'noRoom');
+  const [dx, dy] = DIRS[dir], room = withTile(state.room, state.hero.x + dx, state.hero.y + dy, get(sets.tile));
+  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'set', { id: sets.tile });
+  return endTurn(state, say(next, sets.says));
+}
+
+// The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface
+export function setSides(state, i) {
+  const sets = state.bag[i] && get(state.bag[i].id).sets, { room, hero } = state;
+  if (!sets || !room.dark?.sky) return [];
+  return Object.keys(DIRS).filter((dir) => {
+    const x = hero.x + DIRS[dir][0], y = hero.y + DIRS[dir][1];
+    if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2 || tileAt(room, x, y).id !== 'floor') return false;
+    if (itemAt(state, x, y) || enemyAt(state, x, y)) return false;
+    return joined(withTile(room, x, y, get(sets.tile)));
+  });
 }
 
 // § look: choosing bag slot i says its item's `look` line, the next in turn

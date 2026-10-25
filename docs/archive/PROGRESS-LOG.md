@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.97, fallen branches.** One in each woods room, in three
+  looks by its tile; it blocks like a tree, light passes over. Two bumps break
+  it for 2 Wood; with room for 1 the other lies as a stick that never grows
+  back; it grows back in 900 turns (D-316). [Playtest](https://claude.ai/artifact/V3xVMw9e9XTEvWcc1Zi8Vm).
 - **2026-10-24, 0.2.96, sticks in the woods.** Wood comes before the
   chest: sticks, branches, trees; small things made in the bag, big ones at
   a workbench set down on the surface (D-314). Each woods room holds 3

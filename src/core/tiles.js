@@ -37,6 +37,9 @@ export const TILES = {
   // tile as a stick that never grows back (`once`); with none, its `full` line, free.
   branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
     mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' } },
+  // A workbench set down on the surface (WB2, D-322): solid like a tree, but light
+  // passes over it, as over a deposit. Bumping it does nothing yet (WB3).
+  bench: { id: 'bench', kind: 'tile', letter: 'W', name: 'Workbench', solid: true, blocksLight: false },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },

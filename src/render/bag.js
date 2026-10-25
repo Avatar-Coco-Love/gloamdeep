@@ -6,7 +6,8 @@
 // slot framed in gold. Under them the chosen item's name, and on the right
 // Pour for one that pours, Make for one that crafts, dim with too few
 // (D-299), or Eat (Drink for a potion) for one that heals, dim at full health
-// (D-308); heartcaps both make and heal, so Make sits left of Eat (D-309). No veil: the room shows above it.
+// (D-308); heartcaps both make and heal, so Make sits left of Eat (D-309). The workbench
+// has Set down, wider, at the same right end (WB2, D-322). No veil: the room shows above it.
 import { W, H } from './screen.js';
 import { drawText, textWidth } from './font.js';
 import { BAG_SLOTS } from '../core/bag.js';
@@ -24,7 +25,8 @@ const ROW_X = Math.floor((W - (BAG_SLOTS * SLOT + (BAG_SLOTS - 1) * SLOT_GAP)) /
 const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK')) + 6, h: 11 };
 BUTTON.x = PANEL.x + PANEL.w - 4 - BUTTON.w;
 const MAKE_X = BUTTON.x - 4 - BUTTON.w;
-const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : null);
+const SET = 'SET DOWN', SET_W = textWidth(SET) + 6, SET_X = BUTTON.x + BUTTON.w - SET_W; // Set down's own width
+const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : null);
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
 // The panel's rows from its top: the held slot's, the slots' row, and the name's line under it
@@ -33,16 +35,16 @@ const HELD_X = Math.floor((W - SLOT) / 2), HELD = 'HELD';
 const slotX = (i) => ROW_X + i * (SLOT + SLOT_GAP);
 const TAP_PAD = 4; // game pixels around a slot or the button that still pick it
 
-// What a tap at x, y picks: { slot: i }, 'act' (Pour, Make, Eat or Drink), 'make' (Make beside
-// Eat, when `two`), or null; outside the panel, 'out'
-export function bagAt(x, y, top = false, two = false) {
+// What a tap at x, y picks: { slot: i }, 'act' (Pour, Make, Eat, Drink, or Set down, when
+// `wide`), 'make' (Make beside Eat, when `two`), or null; outside the panel, 'out'
+export function bagAt(x, y, top = false, two = false, wide = false) {
   const p = rows(top);
   if (x < PANEL.x || x >= PANEL.x + PANEL.w || y < p.y || y >= p.y + PANEL.h) return 'out';
   if (y >= p.row - TAP_PAD && y < p.row + SLOT + TAP_PAD) {
     const i = Math.floor((x - ROW_X + SLOT_GAP / 2) / (SLOT + SLOT_GAP));
     return i >= 0 && i < BAG_SLOTS ? { slot: i } : null;
   }
-  if (y >= p.foot - 2 - TAP_PAD && x >= BUTTON.x - (two ? 2 : TAP_PAD)) return 'act';
+  if (y >= p.foot - 2 - TAP_PAD && x >= (wide ? SET_X : BUTTON.x) - (two ? 2 : TAP_PAD)) return 'act';
   if (two && y >= p.foot - 2 - TAP_PAD && x >= MAKE_X - TAP_PAD) return 'make';
   return null;
 }
@@ -80,12 +82,13 @@ export function drawBag(c, bag, chosen, spriteOf, top = false, held = null, full
   const text = buttonText(entry);
   if (!text) return;
   const few = entry.craft && bag[chosen].n < entry.craft.of;
+  if (text === SET) { button(c, SET_X, foot, text, false, SET_W); return; }
   button(c, BUTTON.x, foot, text, entry.eats ? full : few);
   if (twoButtons(entry)) button(c, MAKE_X, foot, 'MAKE', few);
 }
 
-function button(c, bx, foot, text, dim) {
-  c.fillStyle = K; c.fillRect(bx, foot - 2, BUTTON.w, BUTTON.h);
-  frame(c, bx, foot - 2, BUTTON.w, BUTTON.h, dim ? LINE : EMBER);
-  drawText(c, text, bx + Math.floor((BUTTON.w - textWidth(text)) / 2), foot, dim ? GREY : GOLD);
+function button(c, bx, foot, text, dim, w = BUTTON.w) {
+  c.fillStyle = K; c.fillRect(bx, foot - 2, w, BUTTON.h);
+  frame(c, bx, foot - 2, w, BUTTON.h, dim ? LINE : EMBER);
+  drawText(c, text, bx + Math.floor((w - textWidth(text)) / 2), foot, dim ? GREY : GOLD);
 }

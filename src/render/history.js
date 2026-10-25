@@ -15,7 +15,7 @@ export const LIST_H = 16 * ROW_H; // the window shows 16 rows
 export const BACK_Y = LIST_Y + LIST_H + 8;
 const TAP_PAD = 8; // game pixels above and below Back that still pick it
 const NUM_X = 14; // the numbers' left edge, with the flame before it
-const TITLE_X = NUM_X + Math.max(...HISTORY.map((e) => textWidth(e.v))) + 5;
+const TITLE_X = NUM_X + Math.max(...HISTORY.map((e) => textWidth(e.v))) + 4; // 4 since 0.2.100, so every title still fits
 const SIGN_X = W - 9; // the + or -, 3 wide
 export const TITLE_W = SIGN_X - 4 - TITLE_X; // the widest a title may be
 const DOT_X = 15, BODY_X = 19; // a line's dot, and its words

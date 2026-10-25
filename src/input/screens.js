@@ -15,6 +15,9 @@
 // On oilcaps, Enter, Space or Make crafts a flask, a turn, and the bag stays open on it (D-299).
 // On heartcaps, Enter, Space or Eat eats one, a turn, and the bag stays open (D-308); C or
 // Make beside it makes a healing potion from 3, and Drink, on one, drinks it (D-309).
+// On the workbench, Enter, Space or Set down closes it and marks the sides it can go on;
+// an arrow, a swipe or a tap on a marked tile sets it there, a turn; Esc, P, I or a tap
+// elsewhere leave it in the bag (WB2, D-322).
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
@@ -54,6 +57,7 @@ import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floors
 import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
 import { BAG_SLOTS } from '../core/bag.js';
+import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, askTop } from '../render/slots.js';
@@ -77,13 +81,13 @@ const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)` and `lookAt(slot)` from main.js.
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `setDown(slot, dir)` and `lookAt(slot)` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion } = ui;
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU
     : settingsMenu(app.settings, reduceMotion.matches, app.pageFrom === 'paused' ? app.journeySeed : null));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
   function show(next, at = 0) {
@@ -99,7 +103,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
@@ -322,7 +326,7 @@ export function createScreens(app, ui) {
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
   const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. Left and Right choose, Enter pours, makes, eats or drinks, C makes, I or Esc closes.`;
   function toggleBag() {
-    if (app.screen === 'bag') show('play');
+    if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; app.bagOnTop = panelOnTop(app.state.hero.y * TILE - app.cam.y); show('bag'); }
   }
   function pickSlot(i) { app.chosen = i; spoken.textContent = slotWords(i); ui.lookAt(i); } // choosing says an item's look line (D-297)
@@ -333,6 +337,7 @@ export function createScreens(app, ui) {
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
     if (make && !entry?.craft) return;
     if (entry?.oil) { show('play'); ui.pour(app.chosen); return; }
+    if (entry?.sets && !make) { startSetting(); return; }
     if (entry?.eats && !make) {
       ui.eat(app.chosen);
       if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
@@ -347,6 +352,28 @@ export function createScreens(app, ui) {
     if (app.state.turn === turn) return; // no room for the flask: its line, and the oilcaps stay
     app.chosen = app.state.bag.findIndex((o) => o.id === entry.craft.into);
     spoken.textContent = slotWords(app.chosen);
+  }
+
+  // § set down (WB2, D-322): the bag closes and the sides the workbench can go on are
+  // marked (`app.setting.sides`); off the surface, or with no side free, its line, free,
+  // and the bag stays open. A side not marked says "There is no room there.", free.
+  const placeWords = () => { const s = app.setting.sides.map((d) => d[0].toUpperCase() + d.slice(1)); return `Set down the workbench: ${s.length > 1 ? `${s.slice(0, -1).join(', ')} or ${s.at(-1)}` : s[0]}. Press an arrow, swipe, or tap a marked tile. Esc keeps it in the bag.`; };
+  function startSetting() {
+    const sides = setSides(app.state, app.chosen);
+    if (!sides.length) { ui.setDown(app.chosen, null); return; }
+    app.setting = { slot: app.chosen, sides };
+    show('place');
+  }
+  function setToward(dir) {
+    const turn = app.state.turn;
+    ui.setDown(app.setting.slot, dir);
+    if (app.state.turn !== turn || app.fall) show('play');
+  }
+  // A tap or click on a marked tile sets it there; anywhere else leaves it in the bag
+  function tapSide(px, py) {
+    const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
+    const dir = app.setting.sides.find((d) => h.x + DIRS[d][0] === tx && h.y + DIRS[d][1] === ty);
+    if (dir) setToward(dir); else show('play');
   }
 
   // § explorer (D-214): opens on the Settings seed, else a random one, on the surface;
@@ -370,7 +397,7 @@ export function createScreens(app, ui) {
     else if (id === 'type') openPad('explore');
   }
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag') show('play');
+    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -450,6 +477,7 @@ export function createScreens(app, ui) {
   // § choosing: a menu line picked; New journey starts in a new world (D-187), asking first
   // while one is saved; Continue and Back to title keep the journey (D-238)
   function choose(i = app.chosen) {
+    if (app.screen === 'place') return; // Enter and Space don't pick a side
     const id = menuOf(app.screen)[i]?.id;
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
@@ -491,6 +519,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'eyes') { moveToEyes(moveEyes(app.chosen, dir)); return; }
     if (app.screen === 'trim') { moveToTrim(moveTrim(app.chosen, dir)); return; }
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
+    if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'bag') { if (dir === 'left' || dir === 'right') pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + (dir === 'left' ? -1 : 1)))); return; }
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
     if (app.screen === 'journal') {
@@ -524,9 +553,10 @@ export function createScreens(app, ui) {
       else if (app.screen === 'map' || py < win().y + win().h) tapStairs(px, py); // not through the Explorer's bar
       return;
     }
+    if (app.screen === 'place') { if (!held) tapSide(px, py); return; }
     if (app.screen === 'bag') {
       if (held) return;
-      const s = app.state.bag[app.chosen], at = bagAt(px, py, app.bagOnTop, twoButtons(s && get(s.id)));
+      const s = app.state.bag[app.chosen], at = bagAt(px, py, app.bagOnTop, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
       if (at === 'out') show('play');
       else if (at === 'act' || at === 'make') useChosen(at === 'make');
       else if (at) pickSlot(at.slot);

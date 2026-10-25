@@ -46,6 +46,8 @@ export const ITEMS = {
   wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, says: 'woodTake', look: 'woodLook', forms: 3, regrow: DAY_TURNS,
     craft: { into: 'workbench', of: 3, says: 'benchMake' } },
   // Made from 3 Wood in the bag, never found (WB1, D-320). Only `max` 1 is carried;
-  // choosing it says one of its `look` lines. Set down on the surface in WB2.
-  workbench: { id: 'workbench', kind: 'item', name: 'Workbench', bag: true, max: 1, look: 'benchLook', full: 'benchFull' },
+  // choosing it says one of its `look` lines. Set down, it `sets` the bench tile on
+  // the side picked, on the surface, with its line (WB2, D-322; turn.js).
+  workbench: { id: 'workbench', kind: 'item', name: 'Workbench', bag: true, max: 1, look: 'benchLook', full: 'benchFull',
+    sets: { tile: 'bench', says: 'benchSet' } },
 };
