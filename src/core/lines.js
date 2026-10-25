@@ -15,6 +15,8 @@ export const LINES = {
   gloamlingBite: { text: 'The gloamling bites you.', warn: false }, // (D-240)
   lampmothDie: { text: 'The lampmoth flutters and falls.', warn: false }, // (D-356)
   lampmothBite: { text: 'The lampmoth bites you.', warn: false }, // (D-356)
+  flaskMimicWakes: { text: 'The flask opens its eyes!', warn: false }, // (D-368)
+  flaskMimicSettles: { text: 'The flask mimic settles down.', warn: false }, // (D-368)
   flaskMimicDie: { text: 'The flask mimic cracks and falls still.', warn: false }, // (D-366)
   flaskMimicBite: { text: 'The flask mimic bites you.', warn: false }, // (D-366)
   fall: { text: 'You fall, and wake again.', warn: false }, // (D-119)

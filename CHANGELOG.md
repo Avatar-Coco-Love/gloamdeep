@@ -22,10 +22,12 @@ Entry format:
 ```
 
 ## 0.2.124 (2026-10-25)
-- A new creature, the flask mimic: an oil flask with pink eyes and a row of teeth. It never moves, and bites whoever stands next to it.
-- It has 3 hearts and bites for 1. About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.
+- A new creature, the flask mimic. It looks just like an oil flask, and it doesn't show on the creature list.
+- Bump it and it opens its eyes, with no harm done, and wakes. It does nothing that turn, so you have a step's start to run.
+- Awake, it has pink eyes and a row of teeth, 3 hearts and a bite of 1, and it chases you. After 6 turns it settles back down as a flask where it stands.
+- About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.
 - Its bite clinks of glass, then snaps.
-- Decisions: D-365, D-366, D-367.
+- Decisions: D-365, D-366, D-367, D-368. Questions closed: Q-062.
 
 ## 0.2.123 (2026-10-25)
 - The second tidy-up, seven versions early. Nothing in the game changes.

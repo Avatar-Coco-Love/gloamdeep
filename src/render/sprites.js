@@ -1,7 +1,7 @@
 // § sprites: 16 × 16 pixel maps written as strings, one letter per palette
 // colour; symmetric ones store the left half and mirror it (style study 1,
 // lines 121–176, ART-DIRECTION.md "Sprites").
-import { CLOAKS, EYES, TRIMS } from '../core/registry.js';
+import { CLOAKS, EYES, TRIMS, get } from '../core/registry.js';
 import { DEFAULT_CLOTHES } from '../core/looks.js';
 
 const PAL = {
@@ -316,6 +316,7 @@ export function drawEnemies(c, enemies, t, still, hit, at = (e) => e) {
 }
 function drawEnemy(c, e, p, t, still, flash) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);
+  if (e.asleep && !flash) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
   const bob = still ? 0 : Math.floor(t / 520 + e.x) % 2;
   drawShadow(c, x, y, 8);
   const left = e.facing === 'left';

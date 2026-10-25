@@ -84,9 +84,3 @@ and where achievements show (a Journal tab, a note on reaching one).
 **Q-061 · Creatures that leave things behind** (before the first, D-366)
 Whether a beaten creature may leave a find, perhaps the flask mimic a
 real flask; which creatures, what and how often. A new mechanic, its own step.
-
-**Q-062 · Hiding a creature from the creature list** (any time, D-366)
-The creature list under the room shows a flask mimic's plaque as soon as
-it is in the light, which gives it away. Options: keep it (its eyes give
-it away anyway); hide it until it bites or is hit; or hide it until
-framed. Hiding is a new rule, its own step.

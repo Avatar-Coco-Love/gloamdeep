@@ -219,8 +219,8 @@ function joined(g) {
   return seen.size === open.length;
 }
 
-// § flask mimic: (seed, room) → the room with a flask mimic standing where a flask
-// could lie (D-366): on open floor off the edge, at least 5 steps from the way in,
+// § flask mimic: (seed, room) → the room with a flask mimic asleep where a flask
+// could lie (D-366, D-368): on open floor off the edge, at least 5 steps from the way in,
 // where nothing lies, stands or starts, not beside the stairs or an opening, and
 // never cutting the room in two, since it never moves. Placed after everything
 // else, from its own seed, so the rest of a seed's room stays as it was; the room
@@ -238,7 +238,7 @@ export function withMimic(seed, room) {
     g[at.y][at.x] = 'O';
     const ok = joined(g);
     g[at.y][at.x] = '.';
-    if (ok) return { ...room, enemies: [...room.enemies, { id: 'flaskMimic', x: at.x, y: at.y }] };
+    if (ok) return { ...room, enemies: [...room.enemies, { id: 'flaskMimic', x: at.x, y: at.y, asleep: true }] };
   }
   return room;
 }

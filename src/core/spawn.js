@@ -26,7 +26,7 @@ export function spawn(state, id, x, y) {
     const onHero = state.hero.x === x && state.hero.y === y;
     if (onHero || tileAt(room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y)) return state;
     const list = entry.kind === 'item' ? 'items' : 'enemies';
-    return { ...state, [list]: [...state[list], { id, x, y }] };
+    return { ...state, [list]: [...state[list], { id, x, y, ...(entry.looksLike && { asleep: true }) }] }; // one in disguise starts asleep (D-368)
   }
   if (entry.kind === 'light') { // where it can sit, one per tile (D-100)
     if (!mountAt(room, x, y) || lightAt(state, x, y)) return state;

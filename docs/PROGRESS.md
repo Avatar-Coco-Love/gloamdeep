@@ -19,7 +19,6 @@ and `TECH.md`'s "Adding content", with a mock-up and a recommendation.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
 - Creatures leaving things behind (Q-061), before the first.
-- Hiding the flask mimic from the creature list (Q-062), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -35,8 +34,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-10-25, 0.2.124, the flask mimic.** Six creatures in a
   [mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh); the owner
-  and their girlfriend picked the flask mimic: 3 hearts, bite 1, no ways,
-  about 1 room in 4 on depths 3 to 5, a glassy bite (D-365 to D-367).
+  and their girlfriend picked the flask mimic: 3 hearts, bite 1, about 1
+  room in 4 on depths 3 to 5, a glassy bite (D-365 to D-367). Then the
+  owner's idea: it sleeps as a flask; a bump wakes it, it chases 6 turns
+  and settles (D-368).
   [Playtest](https://claude.ai/artifact/NpXtDfeH3xzeBR4DgJr99t),
   [sounds](https://claude.ai/artifact/QB1y2ehNz5YnsZ17rYnapj).
 - **2026-10-25, 0.2.123, the second audit.** Nothing in the game changed;

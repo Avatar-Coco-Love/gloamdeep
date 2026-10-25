@@ -20,6 +20,9 @@ import { fall } from './fall.js';
 // Then the others come one tile closer (D-126 to D-129).
 // Each bite is a `bite` event, in the order they bite.
 export function enemiesAct(state) {
+  return settle(act(state));
+}
+function act(state) {
   const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
   const health = Math.max(0, state.health - bites.reduce((sum, e) => sum + get(e.id).bite, 0));
@@ -29,8 +32,26 @@ export function enemiesAct(state) {
   for (const e of bites) bitten = note(bitten, 'bite', { id: e.id, hurt: get(e.id).bite });
   return health > 0 ? enemiesMove(bitten) : fall(bitten);
 }
+// § settle: after the creatures' turn, one that stirred is awake and chasing for its
+// `awakeTurns`; one awake counts a turn down, and at the last settles back
+// down asleep where it stands, with its line (D-368)
+function settle(state) {
+  if (!state.enemies.some((e) => e.stirs || e.awake)) return state;
+  let settled = null;
+  const enemies = state.enemies.map((e) => {
+    if (e.stirs) { const { stirs, ...rest } = e; return { ...rest, awake: get(e.id).awakeTurns, chasing: true }; }
+    if (!e.awake) return e;
+    if (e.awake > 1) return { ...e, awake: e.awake - 1 };
+    const { awake, chasing, ...rest } = e;
+    settled = settled || e;
+    return { ...rest, asleep: true };
+  });
+  return settled ? say({ ...state, enemies }, get(settled.id).settles) : { ...state, enemies };
+}
+// One asleep, or stirring as it wakes, does nothing (D-368)
+const still = (e) => e.asleep || e.stirs;
 // The enemies that bite this turn, and the enemies with those marked as having noticed the hero
-const biting = (state) => biters(state.enemies, state.hero)
+const biting = (state) => biters(state.enemies, state.hero).filter((e) => !still(e))
   .filter((e) => traits(get(e.id)).bitesLit || !litAt(state, e.x, e.y))
   .filter((e) => !fleeing(e) || !fleeStep(state, e));
 const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
@@ -53,7 +74,7 @@ function ahead(state) {
   const next = passTurn(state), bites = biting(next);
   const moved = enemiesMove({ ...next, enemies: chased(next.enemies, bites) }).enemies;
   return state.enemies.flatMap((e, i) => {
-    if (!litAt(state, e.x, e.y)) return [];
+    if (e.asleep || !litAt(state, e.x, e.y)) return []; // one asleep in disguise is hidden (D-368)
     const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight');
     if (bites.includes(next.enemies[i])) return [{ e, noticed, move: { e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y } }];
     const to = moved[i];
@@ -78,6 +99,7 @@ function ahead(state) {
 function enemiesMove(state) {
   let enemies = state.enemies;
   for (const e of state.enemies) {
+    if (still(e)) continue;
     const t = traits(get(e.id)), lit = litAt(state, e.x, e.y);
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
     const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit);

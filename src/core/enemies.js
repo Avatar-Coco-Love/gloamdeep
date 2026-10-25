@@ -2,7 +2,8 @@
 // tiles, one per tile, in `state.enemies`. registry.js gathers this table.
 // An enemy in the state is { id, x, y }, plus `health` once it has been hit,
 // `chasing` once it has noticed the hero (D-127, D-157), `flees`, the turns
-// of fleeing it has left (D-301), and `facing` ('left'
+// of fleeing it has left (D-301), `asleep` for one in disguise, `stirs` on the
+// turn it wakes and `awake`, the turns it has left to chase (D-368), and `facing` ('left'
 // or 'right', drawn facing right until it walks, D-158). `ways` names how it
 // acts, from behaviours.js (D-269).
 export const ENEMIES = {
@@ -14,9 +15,11 @@ export const ENEMIES = {
   gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
   // It seeks light (D-351); one hit of anything kills it (D-356).
   lampmoth: { id: 'lampmoth', kind: 'enemy', name: 'Lampmoth', health: 1, bite: 1, ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
-  // An oil flask with eyes and teeth: with no ways it never moves, and it bites
-  // whoever stands next to it (D-366). Its bite clinks of glass (D-367).
-  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: [], die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
+  // `looksLike` and hidden from the creature list; a bump wakes it, with no
+  // harm, and it chases for `awakeTurns` turns, then settles back down where
+  // it stands (D-366, D-368). Its bite clinks of glass (D-367).
+  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: ['chases'], looksLike: 'flask', awakeTurns: 6, wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
 };
 
 // § lookups: the enemy on tile x, y, or undefined
