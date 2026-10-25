@@ -128,7 +128,7 @@ export function createFrame(app, ui) {
       if (s.lit && !lying) { ctx.fillStyle = '#fff5d6'; ctx.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
       drawDoors(ctx, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
       if (walk && !walk.stopped && !travel) drawMark(ctx, walk.tx, walk.ty, t, still());
-      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(ctx, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench can go (WB2)
+      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(ctx, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
       if (t < app.alertUntil) drawAlert(ctx, sx + nx, sy + ny);
       else if (app.gain && !fall) drawGain(ctx, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
     });

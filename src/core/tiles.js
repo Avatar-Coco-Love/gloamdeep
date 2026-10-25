@@ -41,6 +41,9 @@ export const TILES = {
   // passes over it, as over a deposit. Bumping it opens its panel (WB3, D-323), where
   // Deconstruct `takes` it back into the bag as the item `workbench`.
   bench: { id: 'bench', kind: 'tile', letter: 'W', name: 'Workbench', solid: true, blocksLight: false, panel: true, takes: { item: 'workbench', says: 'benchTake' } },
+  // A stash chest set down on the surface, the bench's way (CH2, D-329): solid like a
+  // tree, light passing over it; bumping it does nothing yet (its panel is CH3).
+  stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash chest', solid: true, blocksLight: false },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },

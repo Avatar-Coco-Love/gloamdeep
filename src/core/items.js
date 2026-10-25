@@ -54,5 +54,6 @@ export const ITEMS = {
   // `bench.of` is its cost, taken from the bag, with its `says` line; with too few, its
   // `short` line. Only `max` 1 is carried; choosing it says one of its `look` lines.
   chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
-    bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' } },
+    bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
+    sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
 };

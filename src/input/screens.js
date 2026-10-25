@@ -363,7 +363,7 @@ export function createScreens(app, ui) {
   // § set down (WB2, D-322): the bag closes and the sides the workbench can go on are
   // marked (`app.setting.sides`); off the surface, or with no side free, its line, free,
   // and the bag stays open. A side not marked says "There is no room there.", free.
-  const placeWords = () => { const s = app.setting.sides.map((d) => d[0].toUpperCase() + d.slice(1)); return `Set down the workbench: ${s.length > 1 ? `${s.slice(0, -1).join(', ')} or ${s.at(-1)}` : s[0]}. Press an arrow, swipe, or tap a marked tile. Esc keeps it in the bag.`; };
+  const placeWords = () => { const s = app.setting.sides.map((d) => d[0].toUpperCase() + d.slice(1)); return `Set down the ${get(app.state.bag[app.setting.slot].id).name.toLowerCase()}: ${s.length > 1 ? `${s.slice(0, -1).join(', ')} or ${s.at(-1)}` : s[0]}. Press an arrow, swipe, or tap a marked tile. Esc keeps it in the bag.`; };
   function startSetting() {
     const sides = setSides(app.state, app.chosen);
     if (!sides.length) { ui.setDown(app.chosen, null); return; }

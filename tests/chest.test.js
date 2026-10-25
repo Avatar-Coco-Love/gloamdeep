@@ -3,8 +3,8 @@
 // the cost, free; only 1 carried (CH1, D-324, D-326)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { makeState, makeAt } from '../src/core/turn.js';
+import { makeRoom, FIRST_ROOM, SKY, tileAt } from '../src/core/room.js';
+import { makeState, makeAt, setDown, setSides, step, panelBeside } from '../src/core/turn.js';
 import { benchMenu } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
@@ -45,4 +45,37 @@ test('in the bag it is one of a kind, with its lines in turn', () => {
   assert.equal(get('chest').max, 1);
   assert.ok(get('chest').bag);
   assert.equal(get('chest').look, 'chestLook');
+});
+
+// § set down: the stash chest goes down the bench's way, a turn, with its line;
+// solid, light passing over it, and bumping it does nothing yet (CH2, D-329)
+const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
+const outside = () => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag: [{ id: 'chest', n: 1 }] });
+
+test('it is set down on the side picked, from the bag, passing a turn', () => {
+  const n = setDown(outside(), 0, 'right');
+  assert.equal(tileAt(n.room, 3, 2).id, 'stash');
+  assert.deepEqual(n.bag, []);
+  assert.equal(n.turn, 1);
+  assert.equal(shownLine(n).text, 'You set down the stash chest.');
+});
+
+test('set down, it blocks the way, light passes over it, and a bump does nothing, free', () => {
+  const n = setDown(outside(), 0, 'right'), bump = step(n, 'right');
+  assert.deepEqual(bump.hero, { x: 2, y: 2 });
+  assert.equal(bump.turn, n.turn);
+  assert.equal(panelBeside(n, 'right'), null);
+  assert.ok(get('stash').solid && !get('stash').blocksLight);
+});
+
+test('it keeps the bench\'s rules: only on the surface, only where there is room', () => {
+  const below = { ...makeState(makeRoom(FIRST_ROOM)), bag: [{ id: 'chest', n: 1 }] };
+  assert.equal(shownLine(setDown(below, 0, 'right')).text, 'Only on the surface.');
+  assert.deepEqual(setSides(outside(), 0), setSides({ ...outside(), bag: [{ id: 'workbench', n: 1 }] }, 0));
+  assert.equal(shownLine(setDown({ ...outside(), hero: { x: 3, y: 1 } }, 0, 'right')).text, 'There is no room there.'); // a tree at 4,1
+});
+
+test('a set-down chest frees the bag, so another can be made', () => {
+  const n = setDown({ ...outside(), bag: [{ id: 'chest', n: 1 }, ...PAID] }, 0, 'right');
+  assert.deepEqual(makeAt(n, 'chest').bag.at(-1), { id: 'chest', n: 1 });
 });
