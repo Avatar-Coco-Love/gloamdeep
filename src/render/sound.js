@@ -1,7 +1,7 @@
 // § sound: the game's sounds, made in code with Web Audio (TECH.md), no audio files.
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
-// a rat's bite, of teeth (D-259).
+// a rat's bite, of teeth (D-259), and the flask mimic's, of glass (D-367).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -25,6 +25,13 @@ const TEETH = {
   snap: { freq: 700, ring: 3, gain: 0.07, attack: 0.002, end: 0.018, from: 0.35 }, snaps: [0, 0.04],
   breath: { freq: 600, sweepTo: 250, gain: 0.03, attack: 0.008, end: 0.08, from: 0.7 }, breathAt: 0.06,
   afterHit: 0.18,
+};
+// A bite of glass: a bright ringing clink, then one dry snap of teeth, the flask
+// mimic's. Each varies a little, like the hit (hertz, seconds)
+const GLASS = {
+  clink: { freq: 3400, ring: 18, gain: 0.08, attack: 0.002, end: 0.22, from: 0.5 },
+  ping: { from: 2600, to: 2500, gain: 0.025, attack: 0.002, end: 0.25 },
+  snapAt: 0.07,
 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
@@ -112,5 +119,15 @@ export function createSound(isOn) {
     for (const d of TEETH.snaps) slice(t + d, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud, from: snap.from + d });
     slice(t + TEETH.breathAt, { type: 'lowpass', ...breath, freq: breath.freq * p, sweepTo: breath.sweepTo * p, gain: breath.gain * loud });
   }
-  return { footstep, lantern, hit, teeth };
+  // § glass: the flask mimic's bite, a clink and a snap; `afterHit` as for teeth
+  function glass(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { clink, ping } = GLASS, { snap } = TEETH;
+    slice(t, { type: 'bandpass', ...clink, freq: clink.freq * p, gain: clink.gain * loud });
+    tone(t, { ...ping, from: ping.from * p, to: ping.to * p, gain: ping.gain * loud });
+    slice(t + GLASS.snapAt, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud });
+  }
+  return { footstep, lantern, hit, teeth, glass };
 }

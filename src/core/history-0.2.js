@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.124', date: '2026-10-25', title: 'The flask mimic', lines: [
+    "A new creature, the flask mimic: an oil flask with pink eyes and a row of teeth. It never moves, and bites whoever stands next to it.",
+    "It has 3 hearts and bites for 1. About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.",
+    "Its bite clinks of glass, then snaps.",
+    "Decisions: D-365, D-366, D-367.",
+  ] },
   { v: '0.2.123', date: '2026-10-25', title: 'The second tidy-up', lines: [
     "The second tidy-up, seven versions early. Nothing in the game changes.",
     "The turn rules' biggest file is split into six smaller ones (the creatures' turn, a fall, the bag's buttons, and more), so new creatures and finds are quicker to add.",

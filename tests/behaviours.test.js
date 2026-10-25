@@ -4,9 +4,10 @@ import assert from 'node:assert/strict';
 import { BEHAVIOURS, traits } from '../src/core/behaviours.js';
 import { byKind, get } from '../src/core/registry.js';
 
+// A creature may have no way at all, as the flask mimic, which never moves (D-366)
 test('every creature names its ways, and every way exists', () => {
   for (const e of byKind('enemy')) {
-    assert.ok(e.ways?.length, e.id);
+    assert.ok(Array.isArray(e.ways), e.id);
     for (const w of e.ways) assert.ok(BEHAVIOURS[w], `${e.id}: ${w}`);
   }
 });

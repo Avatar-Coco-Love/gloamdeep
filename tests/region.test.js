@@ -61,7 +61,7 @@ test('every warren room is made, not the fallback, with its stairs and contents'
     assert.equal(p.map.length, 20, `seed ${seed} ${c.id}`);
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
-    assert.deepEqual(p.enemies.map((e) => e.id), ['rat', gloamlingRooms(seed, depth).includes(c.id) ? 'gloamling' : 'rat']);
+    assert.deepEqual(p.enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic'), ['rat', gloamlingRooms(seed, depth).includes(c.id) ? 'gloamling' : 'rat']);
   }
 });
 

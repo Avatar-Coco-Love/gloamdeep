@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.121, framing a creature.** Mock-up of three looks from
+  the real game, A picked: amber plaque edge, corners on the tile, a tag
+  with name and hearts above it, the next-move arrow. Tap again to let go;
+  it stays through turns; Tab cycles; no turn taken (D-359). D-349 to D-358's
+  creature decisions archived (D-360);
+  [mock-up](https://claude.ai/artifact/25X7FbB3pgKt9JHjZ4scR1). [Playtest](https://claude.ai/artifact/Uq9VdckYxbmQU4DFxQncaR).
 - **2026-10-25, 0.2.120, the creature list's row.** Four picks, all
   recommended: the row under the text line, sideways under the boxes in
   the strip's column; a lampmoth at the lit lantern counts; one that waits

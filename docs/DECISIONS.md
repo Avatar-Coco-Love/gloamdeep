@@ -112,3 +112,26 @@ content updates both.
 recommended) After the audit, the next content is more creatures for the
 region we have, built on the creatures' ways and the creature list. Each
 is designed with the owner before it is built.
+
+**D-365 · 2026-10-25 · Six creature ideas, the flask mimic picked** (the
+owner's pick, with their girlfriend; not the recommended Snapcap) A
+mock-up showed six creatures built only from the ways creatures have:
+Snapcap, Mole, Bat, Scorpion, Cave spider and Flask mimic. The flask
+mimic comes first; the other five are kept in `RESEARCH.md`.
+
+**D-366 · 2026-10-25 · The flask mimic** (the owner's picks: the name
+Flask mimic over the recommended Mimic, about 1 room in 4 over the
+recommended 1 room a floor, and the recommended no reward) An oil flask
+with pink eyes and teeth: 3 hearts, a bite of 1 and no ways, so it never
+moves and bites whoever stands next to it, lit or not. On depths 3 to 5,
+each generated room has a 1 in 4 chance, from the seed, of one as well as
+all the room holds. It stands where a flask could lie: at least 5 steps
+from the way in, not beside the stairs or an opening, and never cutting
+the room in two. Beating it gives the usual XP only; things left behind
+are Q-061. Its lines: "The flask mimic cracks and falls still." and "The
+flask mimic bites you."
+
+**D-367 · 2026-10-25 · A bite of glass** (the owner's pick, not the
+recommended silence) The flask mimic's bite is a bright ringing clink
+with a faint high ping, then one dry snap of the rat's teeth. It is on
+the sound board.
