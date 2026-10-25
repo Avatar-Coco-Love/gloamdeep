@@ -53,6 +53,8 @@ export const LINES = {
   benchFull: { text: 'You already carry a workbench.', warn: false }, // only 1 is carried
   benchLook: { texts: ['A workbench, folded small.', 'Set it down on the surface.', 'Bigger things are made at it.'], warn: false },
   benchSet: { text: 'You set down the workbench.', warn: false }, // a turn (WB2, D-322)
+  benchTake: { text: 'You take down the workbench.', warn: false }, // Deconstruct workbench, a turn (WB3, D-323)
+  bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },

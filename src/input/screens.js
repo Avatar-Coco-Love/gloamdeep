@@ -18,6 +18,9 @@
 // On the workbench, Enter, Space or Set down closes it and marks the sides it can go on;
 // an arrow, a swipe or a tap on a marked tile sets it there, a turn; Esc, P, I or a tap
 // elsewhere leave it in the bag (WB2, D-322).
+// Bumping a set-down workbench, or a click or tap on one beside the hero, opens its panel,
+// free (WB3, D-323): Up and Down choose, Enter, Space or a tap picks; Deconstruct workbench
+// takes it down, a turn, and closes it; Close, Esc, P or a tap outside the box close it.
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
@@ -51,7 +54,7 @@ import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, BENCH_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
@@ -65,6 +68,7 @@ import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { bagAt, panelOnTop, twoButtons } from '../render/bag.js';
+import { benchAt } from '../render/benchpanel.js';
 import { TILE } from '../render/screen.js';
 
 const WORDS = {
@@ -75,19 +79,21 @@ const WORDS = {
   play: '',
 };
 const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Back.`;
+const BENCH_WORDS = 'Workbench. Deconstruct workbench, or Close.';
 const SEED_WORDS = 'Seed. Type up to 5 digits, then OK. Random gives a new world each journey. Esc leaves it unchanged.';
 const EXPLORE_PAD_WORDS = 'Seed. Type up to 5 digits, then OK to see that seed. Random shows a random one. Esc leaves it unchanged.';
 const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `setDown(slot, dir)` and `lookAt(slot)` from main.js.
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `setDown(slot, dir)`,
+// `takeDown(x, y)` and `lookAt(slot)` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion } = ui;
-  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU
+  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? BENCH_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU
     : settingsMenu(app.settings, reduceMotion.matches, app.pageFrom === 'paused' ? app.journeySeed : null));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
   function show(next, at = 0) {
@@ -103,7 +109,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? BENCH_WORDS : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
@@ -376,6 +382,11 @@ export function createScreens(app, ui) {
     if (dir) setToward(dir); else show('play');
   }
 
+  // § bench panel (WB3, D-323): `app.bench` is the bench's tile. Deconstruct closes the
+  // panel whatever happens, so its line shows, taken down or not.
+  function openBench(at) { app.queued = null; app.bench = at; show('bench'); }
+  function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
+
   // § explorer (D-214): opens on the Settings seed, else a random one, on the surface;
   // Reseed, a typed seed and Back keep the floor shown, fitted whole. Settings never changes.
   function openExplorer() {
@@ -397,7 +408,7 @@ export function createScreens(app, ui) {
     else if (id === 'type') openPad('explore');
   }
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place') show('play');
+    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -491,6 +502,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
+    if (app.screen === 'bench') { if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
     else if (id === 'new' || id === 'yes') { ui.newJourney(); show('play'); }
@@ -554,6 +566,13 @@ export function createScreens(app, ui) {
       return;
     }
     if (app.screen === 'place') { if (!held) tapSide(px, py); return; }
+    if (app.screen === 'bench') {
+      if (held) return;
+      const at = benchAt(BENCH_MENU, px, py);
+      if (at === 'out') show('play');
+      else if (at >= 0) { app.chosen = at; choose(at); }
+      return;
+    }
     if (app.screen === 'bag') {
       if (held) return;
       const s = app.state.bag[app.chosen], at = bagAt(px, py, app.bagOnTop, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
@@ -593,5 +612,5 @@ export function createScreens(app, ui) {
   };
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
-  return { show, openSlots, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
+  return { show, openSlots, openBench, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
 }
