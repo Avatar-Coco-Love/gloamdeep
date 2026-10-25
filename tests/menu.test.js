@@ -1,7 +1,7 @@
 // § menu: the title screen's and pause menu's lines, and moving between them
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, settingsMenu, moveChoice } from '../src/core/menu.js';
+import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, settingsMenu, moveChoice } from '../src/core/menu.js';
 import { CONTROLS } from '../src/core/settings.js';
 import { lineAt, pauseTop, LINE_GAP } from '../src/render/menu.js';
 import { SCREEN_H, W } from '../src/render/screen.js';
@@ -19,6 +19,12 @@ test('Continue shows, first, only while a journey is saved (D-178, D-238)', () =
 test('Start over? asks Yes or No, and its words fit the picture (D-238)', () => {
   assert.deepEqual(SURE_MENU.map((l) => l.id), ['yes', 'no']);
   for (const words of [SURE_HEADING, SURE_NOTE]) assert.ok(textWidth(words) <= W);
+});
+
+test('New journey asks the way to play: Gentle, Normal picked, Hardcore, each with a note that fits (D-334, MO1)', () => {
+  assert.deepEqual(MODE_MENU.map((l) => l.id), ['gentle', 'normal', 'hardcore']);
+  assert.equal(MODE_MENU[MODE_FIRST].id, 'normal');
+  for (const words of [MODE_HEADING, ...MODE_MENU.map((l) => l.note)]) assert.ok(textWidth(words) <= W, words);
 });
 
 test('Up and Down move the choice and stop at the ends', () => {

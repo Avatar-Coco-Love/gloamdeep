@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.111 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.112 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The modes: Gentle, Normal, Hardcore (D-334), in steps: propose the steps
-and the first one's details first.
+MO2 Hardcore: a fall starts the world over (D-334, D-341). Propose its
+details first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -29,7 +29,11 @@ when merged, with its version, and move ticked steps there at each audit.
 The stash chest, the modes (D-324, D-333 to D-335; order may change)
 - [x] Bigger stacks by kind, several of a kind (D-333), 0.2.110
 - [x] CH5 The stash chest taken down (D-340), 0.2.111
-- [ ] The modes: Gentle, Normal, Hardcore (D-334), in steps
+- The modes: Gentle, Normal, Hardcore (D-334), in four steps (D-341)
+  - [x] MO1 New journey asks the way to play (D-342), 0.2.112
+  - [ ] MO2 Hardcore: a fall starts the world over
+  - [ ] MO3 Normal: the bag waits where you fell (a mock-up first)
+  - [ ] MO4 Changing the mode, only toward easier
 - [ ] A creature drawn to light
 
 **Next audit: 0.2.129** (D-337).
@@ -40,6 +44,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.112, the way to play.** The modes in four steps (D-341).
+  MO1: after New journey (and Start over? Yes) a page asks Gentle, Normal
+  or Hardcore, Normal picked, the picked one's note under it; saved with the
+  journey, every fall still Gentle; old saves are Gentle (D-342). The chest's
+  decisions archived (D-343).
+  [Playtest](https://claude.ai/artifact/9LjBXRFT1yJMneLGmKSPov).
 - **2026-10-25, 0.2.111, the chest taken down.** The chest's panel gains
   Deconstruct chest above Close: an empty chest goes into the bag, a turn,
   "You take down the stash chest."; with anything inside "Empty the chest
@@ -50,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   or chest carried; full lines as before; a chest moves what fits, the rest
   stays with its line; the count's box widens (D-333, D-339).
   [Playtest](https://claude.ai/artifact/SApq31qzZj2JxjKjsTnSCe).
-- **2026-10-25, 0.2.109, the first audit.** Nothing in the game changed.
-  `CLAUDE.md` 10 → 7.9 KB, `PROGRESS.md` 8 → 3 KB, `CHANGELOG.md`
-  52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's
-  cap. An audit every 20 versions, each also splitting one big code file
-  (D-336, D-337); audits lose nothing (D-338). No playtest: nothing to play.

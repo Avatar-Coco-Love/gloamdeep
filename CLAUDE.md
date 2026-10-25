@@ -45,7 +45,7 @@ Read the smallest file that answers the question.
 | File | What it holds | When to read it |
 | --- | --- | --- |
 | `docs/PROGRESS.md` | status, Next up, the last 3 log entries | every conversation |
-| `docs/DECISIONS.md` | D-168 to D-176, and D-324 on | grep for an ID or topic |
+| `docs/DECISIONS.md` | D-168 to D-176, and D-332 on | grep for an ID or topic |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
 | `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, similar games, ideas kept | when proposing a feature |

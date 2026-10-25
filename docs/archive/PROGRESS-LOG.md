@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.109, the first audit.** Nothing in the game changed.
+  `CLAUDE.md` 10 → 7.9 KB, `PROGRESS.md` 8 → 3 KB, `CHANGELOG.md`
+  52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's
+  cap. An audit every 20 versions, each also splitting one big code file
+  (D-336, D-337); audits lose nothing (D-338). No playtest: nothing to play.
 - **2026-10-25, 0.2.108, a fall keeps the world.** Outside Hardcore a fall
   changes nothing in the world: the same seed, rooms as left, set-down
   things and chests kept; the hero wakes at the start (D-332, answers

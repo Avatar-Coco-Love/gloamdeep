@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { makeState, step, toward } from '../src/core/turn.js';
+import { makeState, makeWorld, step, toward } from '../src/core/turn.js';
 
 test('the hero starts on the study tile, on floor', () => {
   const s = makeState(makeRoom(FIRST_ROOM));
@@ -28,4 +28,9 @@ test('a tap points along the farther side', () => {
   assert.equal(toward(5, 5, 9, 6), 'right');
   assert.equal(toward(5, 5, 4, 1), 'up');
   assert.equal(toward(5, 5, 5, 5), null);
+});
+
+test('a world keeps the way to play it was begun in, Normal unless picked (D-334, MO1)', () => {
+  assert.equal(makeWorld('first', 4).mode, 'normal');
+  assert.equal(makeWorld('first', 4, 'hardcore').mode, 'hardcore');
 });
