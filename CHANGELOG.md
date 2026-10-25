@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.102 (2026-10-25)
+- The stash chest is settled: it is made at the workbench for 3 Wood and 3 Stone, the first use for stone. It has a rounded wooden lid, grey stone at its corners and a gold latch.
+- One chest holds 12 slots, two rows like the bag's, in stacks of 3. You can set down as many as you like, and each keeps its own things; you carry only 1.
+- It comes in five steps: make it, set it down, open it, put things in and take them out, and take it down, only when it is empty. Nothing changes in the game yet.
+- Decisions: D-324, D-325.
+
 ## 0.2.101 (2026-10-25)
 - Walk into a workbench you set down, or click or tap it from beside it, to open its panel. The room dims behind a box headed WORKBENCH, with Deconstruct workbench and Close. Up and Down choose, Enter, Space or a tap picks; Close, Esc, P or a tap outside the box closes it. Opening it takes no turn.
 - Deconstruct workbench puts it back in the bag, whole, and the ground is clear again. A turn passes and the line says "You take down the workbench." With a workbench already in the bag it says "You already carry a workbench.", and with every slot taken "Your bag is full."; then it stays, and no turn passes.

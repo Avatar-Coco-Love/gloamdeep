@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.101 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.102 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The stash chest, made at the workbench: its line on the bench panel, above Deconstruct (D-323). Propose its cost, look and what it holds first (D-314).
+CH1 The stash chest's line on the bench panel, 3 Wood and 3 Stone, makes one into the bag, only 1 carried, look B (D-324, D-325).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -84,7 +84,8 @@ Wood, then the chest (D-314; order may change)
 - [x] WB1 A workbench from 3 Wood, made in the bag; edge trees say their lines, 0.2.99 (D-319 to D-321)
 - [x] WB2 Set it down on the surface, on the side picked; a click or tap on a marked tile too, 0.2.100 (D-322)
 - [x] WB3 Bump it for its panel: Deconstruct workbench, 0.2.101 (D-323)
-- [ ] The stash chest, made at the workbench
+- [x] The chest planned: cost, look, 12 slots, five steps, 0.2.102 (D-324, D-325)
+- [ ] CH1 to CH5 The stash chest: make, set down, open, put in and take out, take down
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -95,11 +96,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.99, a workbench in the bag.** The workbench comes in
-  three steps: make, set down by a picked side, a panel with Deconstruct
-  (D-319). Make on 3 Wood makes one, a turn; only 1 is carried; look B, a
-  vise and a shelf (D-320). Edge trees say "The forest will not yield." and
-  another line, free (D-321). [Playtest](https://claude.ai/artifact/XDUaaUStWRpaocUJMBWC44).
 - **2026-10-25, 0.2.100, the workbench set down.** Set down in the bag marks
   the free sides; an arrow, a swipe, or a click or tap on a mark sets it
   there, a turn. Only on the surface, on empty ground off the edge, the room
@@ -110,3 +106,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts
   it back in the bag, a turn; carried already or a full bag, its line, free.
   Things made at it come as lines above Deconstruct (D-323). [Mock-up](https://claude.ai/artifact/VfKuStt4ym66WaxdqohiKJ), [playtest](https://claude.ai/artifact/HSyKWapzZhrL2jJhpd66rj).
+- **2026-10-25, 0.2.102, the stash chest planned.** Made at the workbench
+  for 3 Wood and 3 Stone; look B, stone corners and a gold latch; 12 slots in
+  stacks of 3; any number stand, each its own, 1 carried (D-324). Five steps,
+  taken down only when empty (D-325). [Mock-up](https://claude.ai/artifact/7u2cu9yA79DCAzGawN9KuJ).
