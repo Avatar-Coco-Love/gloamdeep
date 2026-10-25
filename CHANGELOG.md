@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.119 (2026-10-25)
+- No change to play: how creatures will show their next move is decided, after three rounds of mock-ups.
+- A row under the room will hold a small plaque for each creature that has noticed you and stands in light: its face, and an icon for what it does next if you wait (fangs for a bite, an arrow for a step). The row grows as more notice you and shrinks as they die. Nothing shows for a creature in the dark.
+- Tapping a plaque will frame that creature on the field, with its name, its hearts and a small arrow for its next step. No other marks go on the field.
+- Behind the scenes: the game can now work out what each creature you can see would do if you waited.
+- Decisions: D-357.
+
 ## 0.2.118 (2026-10-25)
 - A new creature, the lampmoth: a pale moth with cream wings and an amber spot like a flame. It is drawn to light. While your lantern is lit it flies at you from anywhere in the room and bites for 1; switch the lantern off and it heads for the nearest lit torch instead, and waits there. With no light at all it stays where it is.
 - One hit of anything kills it.
@@ -88,8 +95,3 @@ Entry format:
 - Tidying, with nothing in the game changed: the notes Claude reads at the start of each conversation are shorter, and older changelog entries and finished build steps moved to the archive. This Version history still holds every version.
 - A check now fails when a notes file grows past its size limit, and an audit like this one comes every 20 versions. The next is at 0.2.129.
 - Decisions: D-336, D-337, D-338.
-
-## 0.2.108 (2026-10-25)
-- A fall now leaves the world as it was. You still wake at the first room's start with full hearts and the starting oil, but every room stays as you left it: the same seed and layouts, rats where they were, torches still lit, your set-down workbench and stash chest in place with what the chest holds, and the map of every room you found.
-- Settled for later: stacks by kind (20 of Wood, Stone, oilcaps and heartcaps, 5 of flasks and potions), several stacks of a kind in the bag and in a chest, and three ways to play: Gentle keeps your bag after a fall, Normal leaves it where you fell, and Hardcore is one life. Until the modes come, a fall keeps your bag.
-- Decisions: D-332 to D-335. Questions closed: Q-058.

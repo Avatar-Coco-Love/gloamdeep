@@ -127,16 +127,34 @@ function pickUp(state, found) {
 // Then the others come one tile closer (D-126 to D-129).
 // Each bite is a `bite` event, in the order they bite.
 function enemiesAct(state) {
-  const bites = biters(state.enemies, state.hero)
-    .filter((e) => traits(get(e.id)).bitesLit || !litAt(state, e.x, e.y))
-    .filter((e) => !fleeing(e) || !fleeStep(state, e));
+  const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
   const health = Math.max(0, state.health - bites.reduce((sum, e) => sum + get(e.id).bite, 0));
-  const enemies = state.enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
+  const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
   let bitten = stood ? { ...state, health, enemies } : say({ ...state, health, enemies }, get(bites[0].id).bites);
   for (const e of bites) bitten = note(bitten, 'bite', { id: e.id, hurt: get(e.id).bite });
   return health > 0 ? enemiesMove(bitten) : fall(bitten);
+}
+// The enemies that bite this turn, and the enemies with those marked as having noticed the hero
+const biting = (state) => biters(state.enemies, state.hero)
+  .filter((e) => traits(get(e.id)).bitesLit || !litAt(state, e.x, e.y))
+  .filter((e) => !fleeing(e) || !fleeStep(state, e));
+const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
+
+// § next moves: what each creature the hero can see does if the hero waits a
+// turn (D-349), as { e, kind, dx, dy }: `kind` 'bite' toward the hero
+// or 'step' one tile. None for one that stays, or that stands on an unlit tile.
+// It reads the enemies' own turn rules, after the wait's oil burns.
+export function nextMoves(state) {
+  const next = passTurn(state), bites = biting(next);
+  const moved = enemiesMove({ ...next, enemies: chased(next.enemies, bites) }).enemies;
+  return state.enemies.flatMap((e, i) => {
+    if (!litAt(state, e.x, e.y)) return [];
+    if (bites.includes(next.enemies[i])) return [{ e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y }];
+    const to = moved[i];
+    return to.x === e.x && to.y === e.y ? [] : [{ e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y }];
+  });
 }
 
 // § enemies move: an enemy on a lit tile with a clear line to the hero, no

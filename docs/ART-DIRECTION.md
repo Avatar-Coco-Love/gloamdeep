@@ -125,6 +125,8 @@ The study's lighting code is at lines 309–338, plus the light setup inside
 - Each sprite has a white silhouette copy for the hit flash.
 - Idle life: 2-frame bob (monsters about 0.4–0.5 s, the hero 0.6 s), and a
   walking bob.
+- Creature list (D-357): plaques under the room, a creature's face and a
+  small action icon in the hostile pink; the tapped one gets an amber edge.
 
 ## Small life (keep it subtle)
 Swaying torch flames with rising embers. Dust motes that only show where
