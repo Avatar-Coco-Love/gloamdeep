@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.102, the stash chest planned.** Made at the workbench
+  for 3 Wood and 3 Stone; look B, stone corners and a gold latch; 12 slots in
+  stacks of 3; any number stand, each its own, 1 carried (D-324). Five steps,
+  taken down only when empty (D-325). [Mock-up](https://claude.ai/artifact/7u2cu9yA79DCAzGawN9KuJ).
 - **2026-10-25, 0.2.101, the workbench panel.** Bumping a set-down bench,
   or a tap on one beside the hero, opens its panel, free: the room dimmed,
   a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts

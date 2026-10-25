@@ -2,6 +2,11 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.105', date: '2026-10-25', title: 'The stash chest, set down', lines: [
+    "Choose the stash chest in the bag and press Set down, and it goes down the workbench's way: the free sides beside you are marked, and an arrow, a swipe, or a click or tap on a mark sets it there. A turn passes and the line says \"You set down the stash chest.\"",
+    "It goes only on the surface, on empty ground away from the room's edge, and never where it would cut the room in two. Set down, you can't walk through it, but light passes over it. Walking into it does nothing yet; opening it comes next.",
+    "Decisions: none new; this builds D-329.",
+  ] },
   { v: '0.2.104', date: '2026-10-25', title: 'Showing what Wood makes', lines: [
     "Wood's first line in the bag now says \"Three make a workbench.\", so it is plain that 3 Wood make something, as oilcaps say they make a flask.",
     "How to play has a fourth page, Crafting, after Keyboard: choose a stack in the bag and press Make; 3 oilcaps make an oil flask, 3 Wood a workbench, and you walk into a workbench to make more there.",
