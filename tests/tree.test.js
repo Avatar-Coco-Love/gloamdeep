@@ -81,6 +81,15 @@ test('a tree on the room\'s edge is never chopped', () => {
   assert.equal(tileAt(s.room, 5, 12).id, 'tree');
 });
 
+test('bumping an edge tree says its two lines in turn, free (D-321)', () => {
+  const room = withTile(makeRoom(FIRST_ROOM), 5, 12, get('tree'));
+  let s = { ...makeState(room), hero: { x: 5, y: 11 } };
+  const said = [];
+  for (let i = 0; i < 3; i++) { s = step(s, 'down'); said.push(shown(s)); }
+  assert.deepEqual(said, ['The forest will not yield.', 'These trees are too old to fell.', 'The forest will not yield.']);
+  assert.equal(s.turn, 0);
+});
+
 test('a stump grows back into a tree on its own tile after 900 turns, out of sight', () => {
   const s = bumps(beside(), 4), was = s.taken[0], away = { ...s, hero: { x: 2, y: 2 } };
   assert.equal(regrow({ ...away, turn: was.at + 899 }, true).taken.length, 1);

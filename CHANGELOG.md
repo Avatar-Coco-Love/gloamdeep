@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.99 (2026-10-24)
+- Make now turns 3 Wood into a workbench: choose Wood in the bag and press Make, or Enter or Space. A turn passes, the line says "You make a workbench.", and the bag stays open on it. Its look is a plank table on four legs, with a grey vise on one corner and a shelf between the legs.
+- You carry only 1 workbench. With one already in the bag, Make says "You already carry a workbench.", free, and the Wood stays. Choosing it says one of its lines in turn, such as "A workbench, folded small." Setting it down on the surface comes next.
+- Walking into one of the trees around a woods room's edge now says "The forest will not yield." or "These trees are too old to fell.", in turn. No turn passes.
+- Decisions: D-319, D-320, D-321.
+
 ## 0.2.98 (2026-10-24)
 - Every tree inside a woods room can now be chopped; the ring of trees around its edge stays as its wall. Walk into one to bump it, a turn each: "You hack at the tree.", "Chips fly from the trunk.", "The tree groans."
 - The fourth bump fells it and puts 3 Wood in the bag, with a line that changes each time, such as "The tree falls. You take wood." It leaves a stump in one of three looks: a clean cut with a pale ring, a splintered one, or a low mossy one with roots. You can walk over a stump, and your light passes over it.

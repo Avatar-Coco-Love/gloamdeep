@@ -120,3 +120,27 @@ nothing on it, and only if that leaves the room joined.
 D-310, by the 12 KB rule in `CLAUDE.md`) D-310 to D-316 moved unchanged to
 `archive/DECISIONS-GROWING-5.md` as this file passed 12 KB. They stay in
 force.
+
+**D-319 · 2026-10-24 · The workbench, in three steps** (the owner's picks;
+builds D-314) The workbench costs 3 Wood, made with Make on the Wood stack
+in the bag. It comes in three steps: WB1 makes it, WB2 sets it down, WB3
+takes it down. Setting it down: the player picks the side, by a swipe on a
+phone or an arrow key (other ways may come later as a setting, and how a
+mouse does it is settled in WB2). Bumping a set-down bench opens a small
+panel by it, where things are made at it later (the chest first); one of its
+choices is "Deconstruct workbench", which puts the bench back in the bag,
+whole.
+
+**D-320 · 2026-10-24 · A workbench in the bag** (step WB1 of D-319, the
+owner's picks, all recommended) Make on 3 Wood makes 1 Workbench, a turn,
+saying "You make a workbench."; the bag stays open on it. Only 1 is carried:
+with one in the bag, Make says "You already carry a workbench.", free, and
+the Wood stays. Choosing it says in turn "A workbench, folded small.", "Set
+it down on the surface.", "Bigger things are made at it." Its look is B of
+the mock-up (https://claude.ai/artifact/9BYJDePdQfDhgtHuVV6fpR): planks on
+four legs, a grey vise on a corner, a shelf between the legs.
+
+**D-321 · 2026-10-24 · The forest will not yield** (the owner's wish)
+Bumping a tree of a woods room's edge ring, which is never chopped (D-317),
+says in turn "The forest will not yield." and "These trees are too old to
+fell.", free.

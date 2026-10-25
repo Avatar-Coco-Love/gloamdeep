@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.96, sticks in the woods.** Wood comes before the
+  chest: sticks, branches, trees; small things made in the bag, big ones at
+  a workbench set down on the surface (D-314). Each woods room holds 3
+  sticks in three looks, into the bag as Wood (D-315). [Playtest](https://claude.ai/artifact/WLQTcoPJ9CURUvf8A2byKe).
 - **2026-10-24, 0.2.95, a deposit grows back.** A broken deposit goes on
   its room's taken list and comes back within 2 tiles of where it stood
   after 900 turns, out of sight, never cutting the room; cracks stay; old

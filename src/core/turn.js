@@ -83,7 +83,11 @@ export function step(state, dir) {
     const out = walkOff(note(passTurn(state), 'step'), dir);
     return out ? endTurn(state, out) : state;
   }
-  if (tileAt(state.room, x, y).solid) return minable(state.room, x, y) ? mine(state, x, y) : lightTorch(state, x, y);
+  const tile = tileAt(state.room, x, y);
+  if (tile.solid) {
+    if (minable(state.room, x, y)) return mine(state, x, y);
+    return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
+  }
   const foe = enemyAt(state, x, y);
   if (foe) return attack(state, foe);
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');

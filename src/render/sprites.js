@@ -109,6 +109,12 @@ const STUMPS = [
     '...kWNNnNNnnk...', '.kkWWNnNNnNnnkk.', 'kWNnkNnNNnNnkNnk', '.kk.kkkkkkkkk.kk'] },
 ];
 
+// § workbench: planks on four legs, a grey vise on its top left corner and a
+// shelf between the legs, in the trunk's browns (WB1, D-320, look B of three)
+const WORKBENCH = { mirror: false, rows: [
+  '', '', '..kkkk..........', '.kSSSskkkkkkkkk.', '.kdssdkaaaaaaak.', '.kWkkWWNWWWWNWk.', '.kWWWWWNWWWWNWk.', '.kWWWWWNWWWWNWk.',
+  '.kNNNNNNNNNNNNk.', '.knnnnnnnnnnnnk.', '..kNk......kNk..', '..kNkkkkkkkkNk..', '..kNkNNNNNNkNk..', '..knknnnnnnknk..', '..kkkkkkkkkkkk..'] };
+
 // § potion: a round red bottle under a cork, a pale glass neck and a light
 // gleam on its left (D-309, look A of three)
 const POTION = { mirror: true, rows: [
@@ -155,7 +161,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
