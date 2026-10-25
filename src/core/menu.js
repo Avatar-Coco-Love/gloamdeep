@@ -30,4 +30,6 @@ export const settingsMenu = (s, deviceReduced = false, journey = null) => [
 ];
 
 // § move: Up and Down walk the lines and stop at the ends
+// The workbench's panel (WB3, D-323): things to make at it come above Deconstruct later
+export const BENCH_MENU = [{ id: 'deconstruct', text: 'Deconstruct workbench' }, { id: 'close', text: 'Close' }];
 export const moveChoice = (i, dir, count) => Math.max(0, Math.min(count - 1, i + (dir === 'up' ? -1 : dir === 'down' ? 1 : 0)));

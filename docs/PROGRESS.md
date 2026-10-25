@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.100 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.101 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-WB3: bump a set-down workbench for its small panel, with "Deconstruct workbench", which puts it back in the bag whole (D-319). Propose the panel's look and where it sits first.
+The stash chest, made at the workbench: its line on the bench panel, above Deconstruct (D-323). Propose its cost, look and what it holds first (D-314).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -83,7 +83,7 @@ Wood, then the chest (D-314; order may change)
 - [x] W3 Trees to chop: 4 bumps for 3 Wood, a stump that grows back, 0.2.98 (D-317)
 - [x] WB1 A workbench from 3 Wood, made in the bag; edge trees say their lines, 0.2.99 (D-319 to D-321)
 - [x] WB2 Set it down on the surface, on the side picked; a click or tap on a marked tile too, 0.2.100 (D-322)
-- [ ] WB3 Bump it for its panel: Deconstruct workbench
+- [x] WB3 Bump it for its panel: Deconstruct workbench, 0.2.101 (D-323)
 - [ ] The stash chest, made at the workbench
 - [ ] A creature drawn to light
 
@@ -95,11 +95,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-24, 0.2.98, trees to chop.** Every tree but the edge ring falls
-  in 4 bumps for 3 Wood, with lines, leaving a stump in three looks that you
-  walk over; extra Wood lies as sticks nearby; the stump grows back into a
-  tree in 900 turns if the room stays joined (D-317). D-310 to D-316
-  archived (D-318). [Playtest](https://claude.ai/artifact/MmZABKk3ztGLyJ5b8Q88M1).
 - **2026-10-24, 0.2.99, a workbench in the bag.** The workbench comes in
   three steps: make, set down by a picked side, a panel with Deconstruct
   (D-319). Make on 3 Wood makes one, a turn; only 1 is carried; look B, a
@@ -110,3 +105,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   there, a turn. Only on the surface, on empty ground off the edge, the room
   kept joined; solid, light passes over; any number may stand (D-322).
   [Playtest](https://claude.ai/artifact/Y85Wddb76UFzgXsZwLQegV).
+- **2026-10-25, 0.2.101, the workbench panel.** Bumping a set-down bench,
+  or a tap on one beside the hero, opens its panel, free: the room dimmed,
+  a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts
+  it back in the bag, a turn; carried already or a full bag, its line, free.
+  Things made at it come as lines above Deconstruct (D-323). [Mock-up](https://claude.ai/artifact/VfKuStt4ym66WaxdqohiKJ), [playtest](https://claude.ai/artifact/HSyKWapzZhrL2jJhpd66rj).

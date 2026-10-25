@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-24, 0.2.98, trees to chop.** Every tree but the edge ring falls
+  in 4 bumps for 3 Wood, with lines, leaving a stump in three looks that you
+  walk over; extra Wood lies as sticks nearby; the stump grows back into a
+  tree in 900 turns if the room stays joined (D-317). D-310 to D-316
+  archived (D-318). [Playtest](https://claude.ai/artifact/MmZABKk3ztGLyJ5b8Q88M1).
 - **2026-10-24, 0.2.97, fallen branches.** One in each woods room, in three
   looks by its tile; it blocks like a tree, light passes over. Two bumps break
   it for 2 Wood; with room for 1 the other lies as a stick that never grows

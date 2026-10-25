@@ -366,6 +366,26 @@ export function setDown(state, i, dir) {
   return endTurn(state, say(next, sets.says));
 }
 
+// § take down: Deconstruct on the panel of the tile at x, y (the bench) puts it back
+// in the bag whole as its `takes` item, floor left where it stood, and passes a turn,
+// with its line (WB3, D-323). With one already carried, that item's `full` line; with
+// every slot taken, "Your bag is full."; both free, and it stays. A `take` event.
+export function takeDown(state, x, y) {
+  const takes = tileAt(state.room, x, y).takes;
+  if (!takes) return state;
+  const bag = bagAdd(state.bag, takes.item);
+  if (!bag) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
+  const room = withTile(state.room, x, y, get('floor'));
+  const next = note(passTurn({ ...state, room, bag }), 'take', { id: takes.item });
+  return endTurn(state, say(next, takes.says));
+}
+
+// The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null
+export function panelBeside(state, dir) {
+  const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1];
+  return !offEdge(state.room, x, y) && tileAt(state.room, x, y).panel ? { x, y } : null;
+}
+
 // The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface
 export function setSides(state, i) {
   const sets = state.bag[i] && get(state.bag[i].id).sets, { room, hero } = state;

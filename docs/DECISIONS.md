@@ -157,3 +157,17 @@ ground Set down says "Only on the surface.", and toward a side it can't go
 on "There is no room there.", both free. Set down, it is solid like a tree
 and light passes over it. Any number may stand: only 1 is carried (D-320),
 so each set down frees the bag for the next.
+
+**D-323 · 2026-10-25 · The workbench panel** (step WB3 of D-319, the
+owner's picks; mock-up https://claude.ai/artifact/VfKuStt4ym66WaxdqohiKJ)
+Bumping a set-down workbench, or a click or tap on one beside the hero,
+opens its panel, free: look C, the room dimmed behind the pause veil and a
+box in the middle headed WORKBENCH in ember, its lines in the menus' style
+with the flame, Deconstruct workbench then Close. Up and Down choose; Enter,
+Space or a tap picks; Close, Esc, P or a tap outside the box close it.
+Deconstruct says "You take down the workbench.", a turn, puts it in the bag
+whole and closes the panel; with one already carried it says "You already
+carry a workbench.", and with every slot taken "Your bag is full.", both
+free, the bench staying. Crafting lives in this panel too: each thing made
+at the bench is one line above Deconstruct with its cost, dim with too few;
+those lines come with the chest.

@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.101 (2026-10-25)
+- Walk into a workbench you set down, or click or tap it from beside it, to open its panel. The room dims behind a box headed WORKBENCH, with Deconstruct workbench and Close. Up and Down choose, Enter, Space or a tap picks; Close, Esc, P or a tap outside the box closes it. Opening it takes no turn.
+- Deconstruct workbench puts it back in the bag, whole, and the ground is clear again. A turn passes and the line says "You take down the workbench." With a workbench already in the bag it says "You already carry a workbench.", and with every slot taken "Your bag is full."; then it stays, and no turn passes.
+- Things made at the workbench, the stash chest first, will go in this panel, one line each, above Deconstruct.
+- Decisions: D-323.
+
 ## 0.2.100 (2026-10-25)
 - Choose the workbench in the bag and press Set down, or Enter or Space: the bag closes and the free tiles beside you are marked. Press an arrow, swipe, or click or tap a marked tile to set it there. A turn passes and the line says "You set down the workbench." Esc, or a tap anywhere else, keeps it in the bag.
 - It goes only on the surface, on empty ground: never on the room's edge, a doorway, a cave mouth or stairs, never where something lies, and never where it would cut the room in two. Below ground, Set down says "Only on the surface."; toward a side it can't go on, "There is no room there." Neither takes a turn.

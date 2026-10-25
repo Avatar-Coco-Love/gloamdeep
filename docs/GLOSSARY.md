@@ -48,7 +48,8 @@ this page and a decision disagree, the decision wins.
 - **Stump:** what a chopped tree leaves; four bumps fell a tree for 3 Wood,
   and the stump grows back into it (D-317).
 - **Workbench:** made in the bag from 3 Wood, set down on the surface;
-  bigger things are made at it (D-314, D-319, D-320, D-322).
+  bigger things are made at it, on its panel, where Deconstruct workbench
+  puts it back in the bag (D-314, D-319, D-320, D-322, D-323).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
