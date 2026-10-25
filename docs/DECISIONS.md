@@ -177,3 +177,12 @@ the endless depths, are decided at the portal step.
 to D-346 moved unchanged to `archive/DECISIONS-MODES.md` as this file neared
 12 KB. They stay in force. The Bestiary question opened at 0.2.116 as Q-058
 is Q-059, since Q-058 was already used (D-332).
+
+**D-356 · 2026-10-25 · The lampmoth** (the owner's picks, all recommended;
+builds D-351) The creature drawn to light is a pale moth, the Lampmoth: cream
+wings with an amber spot like a flame, a dark body and the pink hostile eyes
+(look A of the mock-up). Health 1, so any hit kills it; a bite of 1. Its way,
+Seeks light, needs no noticing: it walks toward the hero while the lantern is
+lit, from anywhere in the room, else toward the nearest lit torch, and stays
+by it; with neither it stays. On each floor of depths 2 to 4 one room the
+seed picks holds a lampmoth in place of its rat. It bites silently for now.

@@ -13,6 +13,8 @@ export const LINES = {
   gloamlingHurt: { text: 'The gloamling hisses at you.', warn: false }, // (D-240)
   gloamlingDie: { text: 'The gloamling hisses and fades.', warn: false }, // (D-240)
   gloamlingBite: { text: 'The gloamling bites you.', warn: false }, // (D-240)
+  lampmothDie: { text: 'The lampmoth flutters and falls.', warn: false }, // (D-356)
+  lampmothBite: { text: 'The lampmoth bites you.', warn: false }, // (D-356)
   fall: { text: 'You fall, and wake again.', warn: false }, // (D-119)
   anew: { text: 'The world begins again.', warn: false }, // a Hardcore fall (D-344)
   torchLit: { text: 'You light the torch.', warn: false }, // (D-124)

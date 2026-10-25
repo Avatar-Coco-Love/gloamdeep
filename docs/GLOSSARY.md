@@ -69,7 +69,8 @@ this page and a decision disagree, the decision wins.
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
 - **Gloamling:** chases, and shuns light (D-240).
-- **Chases, Shuns light:** the ways creatures have so far (D-269).
+- **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
+- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 
 ## Menus and tools
 - **Journal:** one book with tabs: Records first, then Growth, later

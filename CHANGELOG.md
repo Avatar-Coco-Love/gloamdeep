@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.118 (2026-10-25)
+- A new creature, the lampmoth: a pale moth with cream wings and an amber spot like a flame. It is drawn to light. While your lantern is lit it flies at you from anywhere in the room and bites for 1; switch the lantern off and it heads for the nearest lit torch instead, and waits there. With no light at all it stays where it is.
+- One hit of anything kills it.
+- On each floor from depth 2 to depth 4, one room holds a lampmoth in place of its rat.
+- Its bite is silent for now.
+- Decisions: D-356.
+
 ## 0.2.117 (2026-10-25)
 - No change to play: four of the owner's answers written down.
 - Decided for the next step: the creature drawn to light walks toward the nearest light. While your lantern is lit, that is you, and it bites like a rat; with the lantern off it heads for a lit torch instead. Its look comes as a mock-up.
