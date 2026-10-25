@@ -19,6 +19,7 @@ import { drawCloaks, drawEyes, drawTrims, drawClothes } from './cloak.js';
 import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
+import { drawChestPanel } from './chestpanel.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
@@ -161,6 +162,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
     else if (app.screen === 'bench') drawBenchPanel(ctx, benchMenu(state.bag), app.chosen, t, still());
+    else if (app.screen === 'chest') drawChestPanel(ctx, state.bag, app.chosen, spriteOf, t, still());
     else if (app.screen === 'bag') drawBag(ctx, state.bag, app.chosen, spriteOf, app.bagOnTop, state.held, state.health >= maxHealth(state));
     else dev.draw(ctx, state, cam);
   }

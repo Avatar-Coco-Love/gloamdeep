@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.106 (2026-10-25)
+- Walk into a stash chest you set down, or click or tap it from beside it, to open it. The room dims behind a box headed STASH CHEST, with its 12 empty slots in two rows, the bag's 6 slots under them, and Close. Opening it takes no turn.
+- Arrows or a tap move a gold frame over the chest's slots; Down past the second row reaches Close. Close, Esc, P or a tap outside the box closes it. The slots are empty for now: putting things in and taking them out comes next.
+- Decisions: D-330.
+
 ## 0.2.105 (2026-10-25)
 - Choose the stash chest in the bag and press Set down, and it goes down the workbench's way: the free sides beside you are marked, and an arrow, a swipe, or a click or tap on a mark sets it there. A turn passes and the line says "You set down the stash chest."
 - It goes only on the surface, on empty ground away from the room's edge, and never where it would cut the room in two. Set down, you can't walk through it, but light passes over it. Walking into it does nothing yet; opening it comes next.

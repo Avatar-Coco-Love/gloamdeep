@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.105 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.106 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH3 Bumping a set-down stash chest opens its panel, 12 empty slots (D-325):
-propose its look first.
+CH4 Putting things in the stash chest and taking them out (D-325): propose
+how first (which keys and taps move a stack, and whether it takes a turn).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -89,7 +89,8 @@ Wood, then the chest (D-314; order may change)
 - [x] CH1 The stash chest made on the bench panel, 0.2.103 (D-326)
 - [x] Showing what Wood makes: its look line, a Crafting page, 0.2.104 (D-328, the owner's find)
 - [x] CH2 The stash chest set down on the surface, the bench's way, 0.2.105 (D-329)
-- [ ] CH3 to CH5 The stash chest: open, put in and take out, take down
+- [x] CH3 Bumping it opens its panel: 12 slots, the bag under them, 0.2.106 (D-330)
+- [ ] CH4, CH5 The stash chest: put in and take out, take down
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -100,11 +101,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-25, 0.2.103, the stash chest made.** The bench panel's top
-  line, Stash chest with 3 Wood · 3 Stone on its right, makes one into the
-  bag, a turn, the panel kept open; dim with too few, saying the cost, free;
-  only 1 carried; three bag lines; look B (D-326).
-  [Playtest](https://claude.ai/artifact/74LdswwP5QPkTksUD1wbJM).
 - **2026-10-25, 0.2.104, what Wood makes.** The owner found crafting with
   wood wasn't plain. Wood's first look line is now "Three make a
   workbench.", and How to play gains a Crafting page after Keyboard (D-328).
@@ -115,3 +111,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   mark sets it there, a turn, "You set down the stash chest." Solid, light
   passes over, a bump does nothing until CH3 (D-329).
   [Playtest](https://claude.ai/artifact/TLPxa4so57Jqcm2yykxfPR).
+- **2026-10-25, 0.2.106, the stash chest opened.** Bumping a set-down chest,
+  or a tap on one beside the hero, opens its panel, free, no line: look B,
+  STASH CHEST, 12 empty slots in two rows, the bag's 6 under them, Close.
+  A gold frame moves over the slots; closes the bench's way (D-330).
+  [Playtest](https://claude.ai/artifact/YH66yvXxsT3K2zA3tvgD1E).

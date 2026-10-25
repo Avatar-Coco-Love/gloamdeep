@@ -45,7 +45,7 @@ const app = {
   // Who plays: the profiles on this device (D-268), the one in use picked on the slot screen (D-271)
   profiles: loadProfiles(),
   jumped: false, // a dev jump stops this journey counting towards the deepest depth (D-232)
-  // screen: 'slots', 'name', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'explore', 'history' or 'journal'
+  // screen: 'slots', 'name', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'explore', 'history' or 'journal'
   screen: 'slots', chosen: 0,
   picking: null, dropping: 0, slotsBack: false, // the slot screen: Rename or Delete picked (D-273), the slot asked about, Back shown (D-271)
   pageFrom: 'title', // the menu Settings or How to play was opened from
@@ -58,7 +58,7 @@ const app = {
   plan: null, view: null, floors: [], // the map shown, its view, and the floors it turns to
   spokenLine: null,
   cam: { x: 0, y: 0 }, // the room pixel at the screen's top-left (src/core/camera.js)
-  bench: null, // the tile of the workbench whose panel is open (WB3, D-323)
+  bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
   bagOnTop: false, // the bag's panel over the room's top, so it doesn't hide the hero (D-247)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
 };
@@ -154,7 +154,7 @@ function tryStep(dir) {
   else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench back into the bag, one turn (WB3, D-323)
-  else if (panelBeside(before, dir)) { screens.openBench(panelBeside(before, dir)); return; } // bumping the bench opens its panel, free (WB3)
+  else if (panelBeside(before, dir)) { screens.openPanel(panelBeside(before, dir)); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3)
   else {
     const next = step(app.state, dir);
     const [dx, dy] = DIRS[dir], foe = enemyAt(app.state, app.state.hero.x + dx, app.state.hero.y + dy);
@@ -217,7 +217,7 @@ const stepToward = (px, py, held = false) => {
   const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
   const dir = toward(h.x, h.y, tx, ty);
-  // A click or tap on a bench beside the hero opens its panel, whatever the Controls (WB3, D-323)
+  // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the Controls (WB3, CH3)
   const bench = dir && panelBeside(app.state, dir);
   if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }
   if (dir) { if (tapsWalk(app.settings.controls)) tryStep(dir); }

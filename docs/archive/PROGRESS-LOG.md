@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.103, the stash chest made.** The bench panel's top
+  line, Stash chest with 3 Wood · 3 Stone on its right, makes one into the
+  bag, a turn, the panel kept open; dim with too few, saying the cost, free;
+  only 1 carried; three bag lines; look B (D-326).
+  [Playtest](https://claude.ai/artifact/74LdswwP5QPkTksUD1wbJM).
 - **2026-10-25, 0.2.102, the stash chest planned.** Made at the workbench
   for 3 Wood and 3 Stone; look B, stone corners and a gold latch; 12 slots in
   stacks of 3; any number stand, each its own, 1 carried (D-324). Five steps,
