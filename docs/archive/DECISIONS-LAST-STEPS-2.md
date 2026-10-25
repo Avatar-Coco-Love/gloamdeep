@@ -35,7 +35,7 @@ one flask from the bag pours, free, and the line says "You pour a
 flask.", unless another line (an oil line aside) was said that turn. On
 the title, a 6-line page lifts the hero and light one tile.
 
-**D-250 · 2026-10-22 · A stack limit of 3** (step 41a3, owner's picks;
+**D-250 · 2026-10-22 · A stack limit of 3** *Superseded by D-333 (2026-10-25), once built.* (step 41a3, owner's picks;
 builds D-248) A stack in the bag holds at most 3 flasks. Walking onto a
 flask over a full stack still takes the step, but the flask stays on the
 floor: it never starts a second stack in a free slot. The line says

@@ -44,7 +44,7 @@ stay. Instant with reduced motion. The line says "You go down the
 stairs." or "You go up the stairs."; an oil or bite line on the same
 turn replaces it (D-112, D-117).
 
-**D-136 · 2026-10-18 · Falling in another room** (step 25, owner's pick,
+**D-136 · 2026-10-18 · Falling in another room** *Partly superseded by D-332 (2026-10-25): every room stays as it was.* (step 25, owner's pick,
 extends D-119) A fall anywhere wakes the hero at the first room's start,
 with every room back as it began. The map of every room stays
 remembered (D-021). The dev "Reset room" resets only the room the hero
@@ -114,7 +114,7 @@ least 45 open tiles (the second room has 67), stairs at least 8 steps apart.
 *The caves' shape (boxes, straight gaps) is superseded by D-162
 (2026-10-19); the size, open tiles, reach and stairs rules stay.*
 
-**D-148 · 2026-10-18 · One seed, new on each fall** (step 28, owner's
+**D-148 · 2026-10-18 · One seed, new on each fall** *Partly superseded by D-332 (2026-10-25): a fall keeps the seed.* (step 28, owner's
 pick, supersedes D-144's remembered maps for these depths, D-020) The
 game has one seed, a number that sets every generated room, picked
 afresh each time the page opens. A depth stays the same while you go up

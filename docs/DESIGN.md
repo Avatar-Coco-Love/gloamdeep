@@ -74,7 +74,9 @@ uncovering lore and secrets.
   and lose that dive's finds. [D-020]
 - Always kept: levels, unlocks, lore and discoveries, the home base and
   its stash, opened shortcuts, the explored map, and your deepest depth.
-  [D-021]
+  [D-021] The world stays as it was, unless in Hardcore. [D-332]
+- Three ways to play: Gentle keeps the bag, Normal leaves it where you
+  fell, Hardcore is one life. [D-334]
 
 ## Company
 You start alone. In the first cave you rescue a **faery**, and it stays

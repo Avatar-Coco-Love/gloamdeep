@@ -157,7 +157,7 @@ bag's way; Down from the second row reaches Close, Up from Close the second
 row's first slot. Close, Esc, P or a tap outside the box close it, the
 bench's way (D-323). The bag's row only shows until CH4.
 
-**D-331 · 2026-10-25 · Putting things in the chest and taking them out**
+**D-331 · 2026-10-25 · Putting things in the chest and taking them out** *Its last sentence superseded by D-332 (2026-10-25).*
 (step CH4 of D-325, the owner's picks, all recommended; builds D-330) On the
 chest's panel, Down from its second row reaches the bag's row, then Close;
 Up comes back the same way. Enter, Space, a click or a tap on a filled slot
@@ -167,3 +167,28 @@ after it moving up, the bag's way. When it can't all go, "Your bag is full."
 or "The chest is full.", free, and nothing moves. Each chest keeps its own
 things in the save. A fall begins every room again, so a chest set down goes,
 and what it held with it (as the bench already did); Q-058 asks about this.
+
+**D-332 · 2026-10-25 · A fall leaves the world as it was** (the owner's
+call, answers Q-058; supersedes the rooms beginning again in D-119 and D-136,
+the new seed of D-148 and D-331's last sentence) Outside Hardcore (D-334), a
+fall changes nothing in the world: the same seed, every room as left, with
+what was set down, what chests keep, what was found and what grows back on
+its own time. The hero still wakes at the first room's start with full
+health and the starting oil.
+
+**D-333 · 2026-10-25 · Bigger stacks, by kind** (the owner's picks, both
+recommended; supersedes D-250 once built) Stacks hold 20 of small finds
+(Wood, Stone, oilcaps, heartcaps), 5 of flasks and potions, and 1 workbench
+or stash chest. In the bag and in a chest, a full stack goes on in the next
+free slot, so a kind can fill several slots.
+
+**D-334 · 2026-10-25 · Three ways to play** (the owner's picks, all
+recommended) Gentle: a fall keeps the bag. Normal: the bag waits where you
+fell, to fetch (D-020); picked already at New journey. Hardcore: one life; a
+fall starts the world over, from the same seed unless the player changes it,
+and the profile's Records stay. A journey's mode can change only toward
+easier. Until modes are built, a fall plays as Gentle.
+
+**D-335 · 2026-10-25 · What comes next** (the owner's pick, recommended)
+First a fall keeping the world (D-332, 0.2.108), then bigger stacks
+(D-333), then CH5, then the modes (D-334) as their own steps.

@@ -3,7 +3,6 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { tileAt, depthOf, placeAt, placeBeside, placeFor } from '../src/core/room.js';
 import { makeWorld, step, wait, FIRST_START, DIRS } from '../src/core/turn.js';
-import { nextSeed } from '../src/core/rng.js';
 import { downPlaceIn } from '../src/core/region.js';
 import { arrive, fresh } from '../src/core/stairs.js';
 import { shownLine } from '../src/core/lines.js';
@@ -89,7 +88,7 @@ function deeperUp(s) {
   throw new Error('stuck on the stairs');
 }
 
-test('a fall at depth 2 wakes the hero in the first room with a new seed; depth 2 is new and unmapped', () => {
+test('a fall at depth 2 wakes the hero in the first room; the seed, depth 2 and its map stay (D-332)', () => {
   let s = down({ ...second(), enemies: [] });
   const seed = s.seed;
   s = { ...s, seen: s.seen.map(() => 1), health: 1, items: [], enemies: [] };
@@ -97,12 +96,9 @@ test('a fall at depth 2 wakes the hero in the first room with a new seed; depth 
   const n = wait({ ...s, enemies: [{ id: 'rat', ...spot }] });
   assert.equal(n.place, 'first');
   assert.deepEqual(n.hero, FIRST_START);
-  assert.notEqual(n.seed, seed);
-  assert.equal(n.seed, nextSeed(seed));
-  assert.equal(n.elsewhere.depth2, undefined); // it begins again when reached
-  const again = down({ ...step(at(n, 2, 1), 'left'), enemies: [] });
-  assert.ok(again.seen.every((v) => v === 0));
-  assert.deepEqual(again.room.map, placeFor('depth2', n.seed).map);
+  assert.equal(n.seed, seed);
+  assert.equal(n.elsewhere.depth2.room, s.room);
+  assert.ok(n.elsewhere.depth2.seen.every((v) => v === 1));
 });
 
 test('the first two rooms\' maps stay remembered after a fall', () => {

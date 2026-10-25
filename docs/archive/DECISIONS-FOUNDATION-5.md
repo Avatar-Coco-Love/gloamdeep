@@ -34,7 +34,7 @@ hearts and oil bar still show the rest.
 hostile red for 0.14 s and the room shakes a pixel for 0.12 s (none with
 reduced motion), as a hit does.
 
-**D-119 · 2026-10-18 · Falling** (step 22, answers Q-030, a stand-in for
+**D-119 · 2026-10-18 · Falling** *Partly superseded by D-332 (2026-10-25): the room stays as it was.* (step 22, answers Q-030, a stand-in for
 D-020 until a home base exists) At 0 health the hero falls and wakes on
 the room's starting tile, at once, with no slide. The room is as it
 began (the starting rat back, spawned things gone), health is full and

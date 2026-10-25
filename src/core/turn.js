@@ -1,8 +1,8 @@
 // § turn: the game state and the turn rules, as plain data (TECH.md,
 // "Turn rules are pure functions"). Nothing moves until the player acts (D-016).
-import { tileAt, beginPlace, isGenerated, PLACES, withTile } from './room.js';
+import { tileAt, beginPlace, PLACES, withTile } from './room.js';
 import { formOf } from './tiles.js';
-import { nextSeed, rng, seedFor } from './rng.js';
+import { rng, seedFor } from './rng.js';
 import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
 import { get } from './registry.js';
@@ -13,9 +13,9 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { litAt, clearLine } from './sight.js';
 import { inDaylight } from './daytime.js';
-import { takeStairs } from './stairs.js';
+import { takeStairs, arrive, fresh as freshPlace } from './stairs.js';
 import { offEdge, walkOff } from './openings.js';
-import { XP_FOE, gain, discover, foundAfterFall, levelOf } from './xp.js';
+import { XP_FOE, gain, discover, levelOf } from './xp.js';
 import { bagAdd, bagTake, bagHas, stackFull } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken, regrow, joined } from './regrow.js';
@@ -217,26 +217,17 @@ function chaseStep(state, e, sign = 1) {
   return null;
 }
 
-// § fall: back to the start of the first room, every room as it began, with
-// full health and the starting oil. The map stays remembered (D-119, D-136,
-// D-021), but the depths below the second room get a new seed and new
-// layouts, and their maps are forgotten (D-148). The new seed places the
-// hand-made rooms' items and rats afresh (D-192). `fell` keeps the room
-// as the hero fell in it, for the fall to be shown before they wake (D-234).
-// A chest set down goes with its room, so what chests kept goes too (D-331).
+// § fall: back to the start of the first room, with full health and the starting
+// oil (D-119, D-136). The world stays as it was: the same seed, every room as left,
+// with what was set down, what chests keep and what grows back (D-332). `fell` keeps
+// the room as the hero fell in it, for the fall to be shown before they wake (D-234).
 // It is a `fall` event.
 function fall(state) {
-  const seed = nextSeed(state.seed), { place, hero } = state.home;
-  const begun = state.home.places ? beginAll(seed) : { [place]: state.home };
-  const seen = { [state.place]: state.seen };
-  for (const [id, p] of Object.entries(state.elsewhere)) seen[id] = p.seen;
-  for (const id of Object.keys(seen)) if (isGenerated(id)) delete seen[id];
-  const { room, lights, enemies, items = [] } = begun[place];
-  const woke = { room, hero, lights, enemies, items, taken: [], seen: seen[place] || blankMemory(room), place, elsewhere: away(begun, place, seen) };
-  const home = state.home.places ? { ...state.home, ...begun[place], hero, places: begun } : state.home;
+  const { place, hero } = state.home;
+  const woke = place === state.place ? { ...state, hero } : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
   const { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn } = state;
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
-  return note(say({ ...state, ...woke, home, seed, fell, stashes: {}, health: maxHealth(state), oil: OIL.start, found: foundAfterFall(state.found) }, 'fall'), 'fall');
+  return note(say({ ...woke, fell, health: maxHealth(state), oil: OIL.start }, 'fall'), 'fall');
 }
 
 // § attack: the hero swings the lantern at the foe and stays put (D-109),
