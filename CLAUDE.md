@@ -17,9 +17,8 @@ CSS and JavaScript, with everything drawn and synthesized in code.
   the owner's choice. This applies to design, art, code structure and bug
   fixes.
 - Never invent mechanics, story, names or numbers that are not in
-  `docs/DECISIONS.md` or its archive files (D-041, D-083, D-103, D-120, D-137, D-151, D-161, D-188, D-196, D-208, D-213, D-221, D-236, D-251, D-265, D-274, D-279, D-300, D-310, D-318, D-327). If something
-  is missing, add it to
-  `docs/OPEN-QUESTIONS.md` and ask.
+  `docs/DECISIONS.md` or its archive files (`docs/archive/README.md`).
+  If something is missing, add it to `docs/OPEN-QUESTIONS.md` and ask.
 - Ask questions as **multiple choice** (the AskUserQuestion tool when it
   exists): 2 to 4 options, the recommended one first, more than one pick
   allowed when options can combine, and the owner can always add their own
@@ -29,14 +28,11 @@ CSS and JavaScript, with everything drawn and synthesized in code.
 
 ## Start of every conversation
 
-1. Pull the latest `main` first (`git fetch origin main`); the starting
-   copy can be old (D-070). A start-up hook does this already when it
-   runs (D-092); there is no need to tell the owner about it. In cloud
-   conversations Claude can start one folder above the repo, on an old
-   copy, and then the hook doesn't run: `cd` into the repo, fetch, and
-   check out `origin/main` by hand. The environment's setup script fixes
-   this for good (see the 0.2.1 PR). If any PR is still open, tell the owner and ask
-   whether to merge it, update it or close it. If this conversation's
+1. Pull the latest `main` first; the starting copy can be old (D-070).
+   A start-up hook does this (D-092), silently. If it didn't run (Claude
+   started one folder above the repo), `cd` in, fetch and check out
+   `origin/main` by hand. If any PR is still open, ask the owner whether
+   to merge it, update it or close it. If this conversation's
    branch had a PR merged, restart the branch from `origin/main`.
 2. Read `docs/PROGRESS.md` on the fresh `main`. It says where things
    stand, what is "Next up" and what is waiting on the owner.
@@ -50,27 +46,6 @@ Read the smallest file that answers the question.
 | --- | --- | --- |
 | `docs/PROGRESS.md` | status, Next up, the last 3 log entries | every conversation |
 | `docs/DECISIONS.md` | D-168 to D-176, and D-324 on | grep for an ID or topic |
-| `docs/archive/DECISIONS-PREPRODUCTION.md` | D-001 to D-038, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-1.md` | D-039 to D-052, D-070 to D-076, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-2.md` | D-053 to D-069, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-3.md` | D-077 to D-093, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-4.md` | D-094 to D-113, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-5.md` | D-114 to D-129, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-FOUNDATION-6.md` | D-130 to D-158, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-STAGE-0.2-1.md` | D-159 to D-167, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-MENU.md` | D-177 to D-193, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GETTING-AROUND.md` | D-194 to D-200, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-REGION.md` | D-201 to D-208, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-SURFACE.md` | D-209 to D-218, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-DEEPER.md` | D-219 to D-233, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-LAST-STEPS-1.md` | D-234 to D-246, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-LAST-STEPS-2.md` | D-247 to D-260, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-1.md` | D-261 to D-269, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-2.md` | D-270 to D-278, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-3.md` | D-279 to D-298, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-4.md` | D-299 to D-309, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-5.md` | D-310 to D-316, still in force | grep only, never read whole |
-| `docs/archive/DECISIONS-GROWING-6.md` | D-317 to D-323, still in force | grep only, never read whole |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
 | `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, similar games, ideas kept | when proposing a feature |
@@ -82,7 +57,7 @@ Read the smallest file that answers the question.
 | `docs/TECH.md` | architecture and code rules | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tool list | when touching dev mode |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
-| `docs/archive/` | old log entries, superseded decisions | grep only, never read whole |
+| `docs/archive/` | old decisions (in force), changelog, log; index in its `README.md` | grep only (`grep -n "D-123" docs/archive/DECISIONS-*.md`) |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (see `reference/README.md`) |
 
 ## Keeping track: every PR does all of these
@@ -112,14 +87,24 @@ Read the smallest file that answers the question.
   one ("supersedes D-005"), and mark the old one
   `Superseded by D-0xx (date)`. When `DECISIONS.md` passes 12 KB, move the
   superseded entries to `docs/archive/DECISIONS-SUPERSEDED.md`, and the
-  rest of a finished stage to its own archive file (as D-041 did).
+  rest of a finished stage to its own archive file (as D-041 did), and
+  add the new file's line to `docs/archive/README.md`.
 - Once code exists, the `VERSION` constant in the code must match the top
   `CHANGELOG.md` entry.
 
 ## Keeping context small
 
-- No doc over 8 KB, except `docs/DECISIONS.md` (12 KB) and the grep-only
-  files in `docs/archive/`. Archive or split when a doc gets close. Nothing is deleted. Old material moves to `docs/archive/`.
+- No doc over 8 KB, except `docs/DECISIONS.md` (12 KB), `docs/PROGRESS.md`
+  (4 KB) and the grep-only files in `docs/archive/`; `npm test` checks this
+  (`tests/docs.test.js`, D-336). Archive or split when a doc gets close.
+  Nothing is deleted. Old material moves to `docs/archive/`, and
+  `CHANGELOG.md` keeps only its newest entries the same way.
+- **An audit every 20 versions** (D-337): when the version in
+  `docs/PROGRESS.md`'s "Next audit" line comes, the audit is Next up. It
+  measures what a conversation reads at its start, archives, trims, and
+  splits one big code file, nothing visible changed, then sets the next.
+  Nothing useful is lost (D-338): moved text stays word for word, and the
+  PR lists every line reworded or dropped (check with `git diff -U0`).
 - Keep code files small. Mark sections with `// § name` so a file can be
   read by line range (`grep -n "§"`).
 - Test output: one line per test or check, never full logs or page dumps.

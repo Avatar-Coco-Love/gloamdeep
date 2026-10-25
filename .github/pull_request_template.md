@@ -16,7 +16,7 @@
 - [ ] `CHANGELOG.md` has a new top entry (the version bump)
 - [ ] `docs/PROGRESS.md`: log entry added, named by version (oldest moved to the archive), Next up and "Waiting on the owner" updated (no merges listed)
 - [ ] `docs/DECISIONS.md` / `docs/OPEN-QUESTIONS.md` updated for anything settled or newly open
-- [ ] Every doc is under its size cap (8 KB; `DECISIONS.md` 12 KB)
+- [ ] Every doc is under its size cap (`npm test` checks it, D-336)
 - [ ] Tests pass (once code exists), and `VERSION` matches `CHANGELOG.md`
 - [ ] Playtest built with `tools/playtest.js` and republished after the last push (if visible)
 - [ ] This body matches the last push (D-076)
