@@ -5,8 +5,8 @@ template in `WORLD.md`. Where this sheet and a decision disagree, the
 decision wins.
 
 ## Name and place
-- **Name:** not chosen yet (Q-045). "Gloamwood" was liked, but may suit
-  a later place better.
+- **Name:** Hearthwood (D-348). "Gloamwood" stays free for a darker
+  woods later.
 - **Place:** the surface, where every journey starts (D-022).
 - **Biome:** woods and mountains (D-028).
 

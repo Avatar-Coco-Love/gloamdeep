@@ -75,9 +75,12 @@ and helpful NPCs, and pets that join you. A reviewer found Sproggiwood's
 town only decoration: a home base should do something.
 
 ## Ideas the owner wants kept for later
-- **Creatures show their next move** (Hoplite, Into the Breach). When and
-  where it shows is to be discussed: some situations may use it, some not
-  (Q-049).
+- **Creatures show their next move** (Hoplite, Into the Breach). To try:
+  every move of every creature the hero can see (D-349).
+- **Lights that run on batteries** (the owner, 2026-10-25, much later): a
+  flashlight and an electric lamp. Their light stays at full reach however
+  low the charge, unlike oil (D-014). Batteries are crafted and charged at a
+  charging station that must be joined to some power.
 - **Light-shy creatures**: some fear or are hurt by light, so the lantern
   is a tool in a fight (Golden Krone Hotel).
 - **Crafting and a home town**: craft from things you find (mushrooms,
@@ -95,7 +98,7 @@ town only decoration: a home base should do something.
   lantern off, or pushing a foe into water. For example, a boss that feeds
   on light: hidden until lit, then healing from lit braziers and draining
   oil, then rising water that snuffs light. Each phase can be beaten more
-  than one way. To balance: show its moves (Q-049); count turns per phase
+  than one way. To balance: show its moves (D-349); count turns per phase
   against damage and oil; give it fixed rules, using the seeded RNG; test
   phases with the dev tools, perhaps a script that plays them many times.
 

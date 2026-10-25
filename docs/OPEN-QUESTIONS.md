@@ -63,25 +63,10 @@ The owner is weighing it. Sideways, the camera could show more tiles to
 the left and right of the hero, or zoom in and scroll more. Either way a
 player would see more, or differently, held sideways than upright.
 
-**Q-045 · The starting region's name** (any time)
-The owner liked "Gloamwood" but felt it may suit a later place. Other
-ideas shown: Thornmere, The Greyhold. The owner may name it.
-
-**Q-047 · A bestiary** (any time)
-The owner wondered whether how to fight (walk into a rat to hit it,
-D-109) belongs in a "Bestiary" rather than How to play (D-193). Is
-there one, what is it called, where does it open, and what does it
-show?
-
 **Q-046 · Where do the earth burrows go?** (when the first cave gets its bottom)
 D-165 makes depths from 6 down earth burrows, but the first cave now
 ends at depth 5 (D-185). Do burrows move behind the portal, become the
 bottom depths of the first cave, or wait for a later cave?
-
-**Q-049 · When do creatures show their next move?** (with the second creature or later)
-The owner liked creatures showing what they will do next, as in Hoplite
-and Into the Breach (`RESEARCH.md`), but some situations may use it and
-some won't. When and where does it show, and how does it look?
 
 **Q-052 · Play data: kept on the device, or sent?** (near 1.0)
 Telemetry sends how people play (falls, depths, journey length) to a
@@ -106,3 +91,8 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 achievement, D-284) Which records get a set, the numbers of each tier,
 what a reward is (perhaps the play-earned currency, Q-055, or a look)
 and where achievements show (a Journal tab, a note on reaching one).
+
+**Q-058 · What a Bestiary page shows, and when** (when the Bestiary is
+built, D-350) More of a page shows the more you meet and fight that
+creature. Which parts (drawing, name, counts, how it acts, how to fight
+it) show first, and after how many meetings or kills does the rest?

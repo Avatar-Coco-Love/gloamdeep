@@ -158,7 +158,7 @@ Settings' seed, or a random one. The hero wakes as the light opens, with
 the owner's picks, all recommended; builds D-334, D-020) A Normal fall leaves
 the bag where the hero fell: a pouch tied at the neck, leather browns and a
 pale cord (look A of three); an empty bag leaves nothing, and the hand keeps
-its weapon (Claude's call, to confirm). Walking onto it puts back what fits,
+its weapon (Claude's call, confirmed by D-347). Walking onto it puts back what fits,
 kinds topping up first: all back, "You take back your bag."; else the rest
 stays in it, "Your bag is full." Each fall leaves its own bag. The map marks
 each with a leather brown dot until it is taken back. The wake line stays.
@@ -172,3 +172,27 @@ picked. An easier one asks first, drawn like Start over: "Play Gentle?",
 "There is no going back.", Yes or No, No picked. Yes changes it, saved with
 the journey; No goes back to the ways (Claude's call). Bags left by Normal
 falls stay to fetch after a change to Gentle.
+
+**D-347 · 2026-10-25 · The knife stays in hand through a fall** (the owner's
+call; confirms D-345's "the hand keeps its weapon") A Normal fall leaves the
+bag but not the weapon in hand, for now: until the home base can make and
+store weapons, the hero needs a way to suit up before going after the bag.
+
+**D-348 · 2026-10-25 · Hearthwood** (the owner's pick, recommended; answers
+Q-045) The starting region is called Hearthwood: the home's woods, warm
+before the dark. "Gloamwood" stays free for a darker woods later.
+
+**D-349 · 2026-10-25 · Creatures show every next move, to try** (the owner's
+pick; answers Q-049) For now every creature the hero can see shows its next
+move, always, as in Into the Breach; the owner wants to try it and may try
+the other ways (only in light, only big wind-up moves) after a playtest. No
+mark shows for a creature in the dark that the hero can't see: nothing gives
+away that something moves there. A build step after the creature drawn to
+light; its look is proposed then.
+
+**D-350 · 2026-10-25 · The Bestiary** (the owner's picks; answers Q-047;
+builds D-262) The Journal's Bestiary tab gets a page for a creature only
+once it is met. A page counts how many were met and beaten, and says how
+the creature acts and how to fight it, so How to play keeps the controls.
+A page doesn't show everything at once: more of it shows the more the hero
+has met and fought that creature. What shows when is Q-058.

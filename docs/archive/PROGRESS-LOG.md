@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.113, Hardcore.** A Hardcore fall plays, then "Your
+  journey ends.": Same world or New world. The whole journey starts over
+  (bag, level, map, time), saved at once; Records stay; "The world begins
+  again." (D-344). [Playtest](https://claude.ai/artifact/Bza8SCcPw3VDJRvGUMGQb1).
 - **2026-10-25, 0.2.112, the way to play.** The modes in four steps (D-341).
   MO1: after New journey (and Start over? Yes) a page asks Gentle, Normal
   or Hardcore, Normal picked, the picked one's note under it; saved with the
