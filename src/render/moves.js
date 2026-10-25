@@ -1,7 +1,8 @@
 // § next-move marks: a small arrow just past a creature's tile, in the tile it
 // steps onto next, and small fangs in the gap toward the hero when it bites
-// (D-349, D-357, look D of the mock-up). In the hostile marks' pink, outlined
-// in the deepest dark, pulsing like the walk mark; steady with reduced motion.
+// (look D of the 0.2.119 mock-up). In the hostile marks' pink, outlined in the
+// deepest dark, pulsing like the walk mark; steady with reduced motion.
+// Not drawn yet: it is for the tapped creature, the list's second step (D-357).
 const PINK = '#e8786a', DARK = '#0e0c16';
 const ARROW = ['oo...', 'o#o..', 'o##o.', 'o###o', 'o##o.', 'o#o..', 'oo...']; // pointing right
 const FANGS = ['ooooooo', 'o#####o', 'o#o.o#o', 'ooo.ooo']; // pointing down

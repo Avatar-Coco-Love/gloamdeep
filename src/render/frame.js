@@ -24,10 +24,9 @@ import { stashAt } from '../core/chest.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
-import { drawMoves } from './moves.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { reach } from '../core/oil.js';
-import { maxHealth, DIRS, nextMoves } from '../core/turn.js';
+import { maxHealth, DIRS } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
 import { depthOf } from '../core/room.js';
 import { shownLine } from '../core/lines.js';
@@ -55,7 +54,6 @@ export function createFrame(app, ui) {
   const base = document.createElement('canvas');
   let drawnRoom = null, doors = []; // the room drawn into `base`, and its doorways (D-225)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
-  let movesOf = null, moves = []; // the next moves, worked out again only when the state changes (D-357)
 
   // Draws in room pixels, moved by the camera and kept off the text strip below the room
   function inRoom(draw) {
@@ -133,10 +131,6 @@ export function createFrame(app, ui) {
       drawFlames(ctx, s.room, s.lights, t, still());
       if (s.lit && !lying) { ctx.fillStyle = '#fff5d6'; ctx.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
       drawDoors(ctx, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
-      if (app.screen === 'play' && !travel && !fall) { // each seen creature's next move (D-349, D-357)
-        if (movesOf !== state) { movesOf = state; moves = nextMoves(state); }
-        drawMoves(ctx, moves, foeAt, t, still());
-      }
       if (walk && !walk.stopped && !travel) drawMark(ctx, walk.tx, walk.ty, t, still());
       if (app.screen === 'place') for (const d of app.setting.sides) drawMark(ctx, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
       if (t < app.alertUntil) drawAlert(ctx, sx + nx, sy + ny);

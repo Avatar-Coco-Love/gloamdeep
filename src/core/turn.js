@@ -143,7 +143,7 @@ const biting = (state) => biters(state.enemies, state.hero)
 const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
 
 // § next moves: what each creature the hero can see does if the hero waits a
-// turn (D-349, D-357), as { e, kind, dx, dy }: `kind` 'bite' toward the hero
+// turn (D-349), as { e, kind, dx, dy }: `kind` 'bite' toward the hero
 // or 'step' one tile. None for one that stays, or that stands on an unlit tile.
 // It reads the enemies' own turn rules, after the wait's oil burns.
 export function nextMoves(state) {

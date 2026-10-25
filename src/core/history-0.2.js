@@ -2,10 +2,11 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
-  { v: '0.2.119', date: '2026-10-25', title: 'Next moves', lines: [
-    "Every creature you can see now shows its next move, the one it makes if you wait: a small pink arrow just past its tile, pointing where it will step, or small pink fangs between it and you when it is about to bite. The marks pulse gently, and stay still with reduced motion.",
-    "A creature hidden in the dark shows nothing, and neither does one that won't move, such as a rat that hasn't noticed you.",
-    "This is a try-out: after playing, the marks can change, or show only in light, or only for big moves.",
+  { v: '0.2.119', date: '2026-10-25', title: 'The creature list, decided', lines: [
+    "No change to play: how creatures will show their next move is decided, after three rounds of mock-ups.",
+    "A row under the room will hold a small plaque for each creature that has noticed you and stands in light: its face, and an icon for what it does next if you wait (fangs for a bite, an arrow for a step). The row grows as more notice you and shrinks as they die. Nothing shows for a creature in the dark.",
+    "Tapping a plaque will frame that creature on the field, with its name, its hearts and a small arrow for its next step. No other marks go on the field.",
+    "Behind the scenes: the game can now work out what each creature you can see would do if you waited.",
     "Decisions: D-357.",
   ] },
   { v: '0.2.118', date: '2026-10-25', title: 'The lampmoth', lines: [
