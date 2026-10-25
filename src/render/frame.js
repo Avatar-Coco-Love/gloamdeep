@@ -7,6 +7,7 @@ import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
+import { drawCreatureList } from './creatures.js';
 import { drawTitle } from './title.js';
 import { drawPause, veil } from './menu.js';
 import { drawSeedPad } from './seedpad.js';
@@ -26,7 +27,7 @@ import { drawMark, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { reach } from '../core/oil.js';
-import { maxHealth, DIRS } from '../core/turn.js';
+import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
 import { depthOf } from '../core/room.js';
 import { shownLine } from '../core/lines.js';
@@ -45,15 +46,26 @@ export const FADE_MS = 200; // each way, taking stairs (D-135)
 // 0 before a, 1 after b, and evenly between; a jump at a when b is not after it
 const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (t - a) / (b - a))));
 
-// `ui`: the canvases, the text line, the spoken line, the lantern button, the dev
+// `ui`: the canvases (the room's, the strip's and the creature list's), the text line, the spoken line, the lantern button, the dev
 // tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, hudCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
+  const { ctx, hudCtx, listCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
   let drawnRoom = null, doors = []; // the room drawn into `base`, and its doorways (D-225)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
+  let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
+
+  // § creature list's order: newest last (D-357). Each creature keeps the place it
+  // got when it joined, on its shown spot (main.js); one that leaves the list loses it.
+  function creaturesListed(s) {
+    if (s !== listFor) { listFor = s; listed = creatureList(s); }
+    const on = new Set(listed.map((a) => a.e));
+    for (const e of s.enemies) if (!on.has(e)) delete foeAt(e).joined;
+    for (const a of listed) { const p = foeAt(a.e); if (p.joined === undefined) p.joined = joined++; }
+    return listed.slice().sort((a, b) => foeAt(a.e).joined - foeAt(b.e).joined);
+  }
 
   // Draws in room pixels, moved by the camera and kept off the text strip below the room
   function inRoom(draw) {
@@ -86,6 +98,7 @@ export function createFrame(app, ui) {
 
   function draw(t) {
     hudCtx.fillStyle = '#0e0c16'; hudCtx.fillRect(0, 0, hud.width, hud.height); // the strip stays empty on the title
+    listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // and the list's row
     const p = playing(app.profiles);
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
     if (screens.onTitle()) { onTitleScreens(t); return; }
@@ -151,8 +164,14 @@ export function createFrame(app, ui) {
       ctx.globalAlpha = 1;
     }
     // § strip: the hearts, depth and oil above the room or beside it, covering none of it (D-198, D-199)
-    drawStatus(hudCtx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
-    if (!['play', 'bag', 'place'].includes(app.screen)) veil(hudCtx); // dimmed with the room under a menu; the bag and setting down leave both in view (D-247)
+    const foot = drawStatus(hudCtx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    // § creature list: under the text line, or under the boxes in the column (D-357); none while taking stairs or falling
+    if (!travel && !fall) {
+      const list = creaturesListed(s);
+      if (foot === null) drawCreatureList(listCtx, list, 2, 2, true, W - 2);
+      else drawCreatureList(hudCtx, list, 2, foot + 4, false, hud.height - 2);
+    }
+    if (!['play', 'bag', 'place'].includes(app.screen)) { veil(hudCtx); veil(listCtx); } // dimmed with the room under a menu; the bag and setting down leave both in view (D-247)
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     textLine.draw(ctx, line, t, still());
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }

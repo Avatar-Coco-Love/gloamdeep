@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.117, four answers.** Open questions with picks; the
+  owner took every recommendation: the creature walks toward the nearest
+  light (D-351); Bestiary pages open at meet, 1 beaten, 3 beaten (D-352);
+  sideways stays as is (D-353); the cave goes on below depth 5 (D-354).
+  Modes archived; the Bestiary question is Q-059, Q-058 was taken (D-355).
 - **2026-10-25, 0.2.116, a check-in.** An assessment, then the owner's
   answers: the knife stays in hand through a fall (D-347); the starting
   region is Hearthwood (D-348); every seen creature shows its next move, to

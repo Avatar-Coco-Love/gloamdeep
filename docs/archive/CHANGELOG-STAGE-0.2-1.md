@@ -1,8 +1,19 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.108)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.110)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115 and 0.2.107 at 0.2.117 and 0.2.108 at 0.2.119 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, and 0.2.109 and 0.2.110 at 0.2.120 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.110 (2026-10-25)
+- Stacks are bigger: up to 20 Wood, Stone, oilcaps or heartcaps, and up to 5 flasks or potions. The workbench and stash chest are still 1 each, and you still carry only one of each.
+- When a stack is full, the next one starts in a free slot, so one kind can fill several slots. Only when every stack of it is full and no slot is free does it stay behind, with the same lines as before.
+- In a stash chest, picking a stack moves as much as fits: it tops up a stack of its kind, then takes free slots. What can't go stays where it was, with "Your bag is full." or "The chest is full."
+- Decisions: D-339; this builds D-333.
+
+## 0.2.109 (2026-10-25)
+- Tidying, with nothing in the game changed: the notes Claude reads at the start of each conversation are shorter, and older changelog entries and finished build steps moved to the archive. This Version history still holds every version.
+- A check now fails when a notes file grows past its size limit, and an audit like this one comes every 20 versions. The next is at 0.2.129.
+- Decisions: D-336, D-337, D-338.
 
 ## 0.2.108 (2026-10-25)
 - A fall now leaves the world as it was. You still wake at the first room's start with full hearts and the starting oil, but every room stays as you left it: the same seed and layouts, rats where they were, torches still lit, your set-down workbench and stash chest in place with what the chest holds, and the map of every room you found.

@@ -302,6 +302,8 @@ export function drawItems(c, items, t, still) {
 // killed it still flashes it once, then it is gone (D-113).
 // `at`: (enemy) → the tile it is shown on, part way along while it slides (D-128).
 // One that walked left is drawn mirrored (D-158).
+// A creature's sprite, facing the way it faces, for its plaque (D-357)
+export const faceOf = (e) => (e.facing === 'left' ? LEFT : SPRITES)[e.id];
 export function drawEnemies(c, enemies, t, still, hit, at = (e) => e) {
   for (const e of enemies) drawEnemy(c, e, at(e), t, still, hit && e.x === hit.x && e.y === hit.y);
   if (hit && !enemies.some((e) => e.x === hit.x && e.y === hit.y)) drawEnemy(c, hit, hit, t, still, true);
