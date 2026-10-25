@@ -15,8 +15,14 @@ test('Touch, Mouse, Keyboard and Crafting each have a page, and Left and Right f
   assert.equal(nextPage('touch', true), 'crafting');
 });
 
-test('every controls page lists Walk, Wait, Lantern and Pause, and nothing else', () => {
-  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, 'both').map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause']);
+test('every controls page lists Walk, Wait, Lantern, Pause and Frame, and nothing else', () => {
+  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, 'both').map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame']);
+});
+
+test('Frame says how to frame a creature on each way of playing (D-361)', () => {
+  assert.deepEqual(howtoRows('touch', 'swipe')[4].ways, ["Tap a creature's plaque"]);
+  assert.deepEqual(howtoRows('mouse', 'tap')[4].ways, ["Click a creature's plaque"]);
+  assert.deepEqual(howtoRows('keyboard', 'both')[4].ways, ['Tab']);
 });
 
 test('walking by touch follows the Controls switch; a tap on the hero still waits', () => {
@@ -31,7 +37,7 @@ test('walking by touch follows the Controls switch; a tap on the hero still wait
 test('every way fits the picture beside its action, and the page fits its height', () => {
   for (const p of HOWTO_PAGES) for (const c of CONTROLS) {
     const rows = howtoRows(p, c.id);
-    assert.ok(rows.reduce((n, r) => n + r.ways.length, 0) <= 5);
+    assert.ok(rows.reduce((n, r) => n + r.ways.length, 0) <= 6);
     for (const r of rows) for (const w of r.ways) assert.ok(textWidth(w) + 38 + 2 * 8 <= W, w);
   }
   assert.ok(PAGE_Y - 16 >= 0 && howtoAt(W / 2, SCREEN_H - 1) === null);

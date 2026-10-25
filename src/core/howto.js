@@ -1,7 +1,8 @@
 // § how to play: the controls, one page per way of playing (D-179, D-193).
 // Touch, Mouse and Keyboard, then Crafting; Left and Right flip between them.
 // Walking by touch or mouse follows the Controls switch, so only what works is
-// shown (D-189). Crafting says how Make works, the same for every way (D-328).
+// shown (D-189). Frame says how to frame a creature (D-359, D-361). Crafting
+// says how Make works, the same for every way (D-328).
 // Plain data, no drawing.
 import { swipesWalk, tapsWalk } from './settings.js';
 
@@ -39,6 +40,7 @@ export function howtoRows(page, controls) {
       { action: 'Wait', ways: ['Space'] },
       { action: 'Lantern', ways: ['L'] },
       { action: 'Pause', ways: ['Esc or P'] },
+      { action: 'Frame', ways: ['Tab'] },
     ];
   }
   const touch = page === 'touch';
@@ -47,6 +49,7 @@ export function howtoRows(page, controls) {
     { action: 'Wait', ways: [touch ? 'Tap the hero' : 'Click the hero'] },
     { action: 'Lantern', ways: ['The lantern button'] },
     { action: 'Pause', ways: ['The pause button'] },
+    { action: 'Frame', ways: [touch ? "Tap a creature's plaque" : "Click a creature's plaque"] },
   ];
 }
 

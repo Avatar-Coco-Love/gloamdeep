@@ -2,6 +2,10 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.122', date: '2026-10-25', title: 'How to play: Frame', lines: [
+    "How to play's Touch, Mouse and Keyboard pages have a new row, Frame: tap (or click) a creature's plaque, or press Tab.",
+    "Decisions: D-361. Questions closed: Q-060.",
+  ] },
   { v: '0.2.121', date: '2026-10-25', title: 'Framing a creature', lines: [
     "Tap a creature's plaque in the row under the room to frame it: the plaque gets an amber edge, amber corners mark the creature on the field, a small tag above it shows its name and hearts, and an arrow shows its next step.",
     "The frame stays as you play. Tap the same plaque to let it go, or another to frame that one instead. It goes when the creature dies or leaves the light.",

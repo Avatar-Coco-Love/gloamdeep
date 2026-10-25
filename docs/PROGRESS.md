@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.121 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.122 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -18,7 +18,6 @@ listed steps are done. Offer 2 or 3 from "Ideas for later" and
 - The play-earned currency (Q-055), before the first unlock.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
-- How to play and framing a creature (Q-060), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.108 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -45,6 +44,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.122, How to play: Frame.** Two picks, both
+  recommended: a fifth row, Frame, on the Touch, Mouse and Keyboard pages:
+  tap or click a creature's plaque, or Tab (D-361, answers Q-060).
+  [Playtest](https://claude.ai/artifact/VNP6Xba7pYhK3BpWXzqhVx).
 - **2026-10-25, 0.2.121, framing a creature.** Mock-up of three looks from
   the real game, A picked: amber plaque edge, corners on the tile, a tag
   with name and hearts above it, the next-move arrow. Tap again to let go;
@@ -56,9 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   the strip's column; a lampmoth at the lit lantern counts; one that waits
   keeps its plaque, no icon; newest last, "+N" past 7 (D-358).
   [Playtest](https://claude.ai/artifact/MjqCWWCFLkzETSKcBiGjgY).
-- **2026-10-25, 0.2.119, the creature list, decided.** Two rounds of
-  on-field marks didn't land; the owner's idea, mocked up: a row of plaques
-  under the room, face and next-move icon, for creatures that noticed the
-  hero in light; a tap frames one with name, hearts, arrow (D-357). The
-  first build's field arrows came out; `nextMoves` stays. 3 lampmoths a
-  journey, one on each of depths 2 to 4.

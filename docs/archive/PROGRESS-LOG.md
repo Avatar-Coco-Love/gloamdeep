@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.119, the creature list, decided.** Two rounds of
+  on-field marks didn't land; the owner's idea, mocked up: a row of plaques
+  under the room, face and next-move icon, for creatures that noticed the
+  hero in light; a tap frames one with name, hearts, arrow (D-357). The
+  first build's field arrows came out; `nextMoves` stays. 3 lampmoths a
+  journey, one on each of depths 2 to 4.
 - **2026-10-25, 0.2.118, the lampmoth.** Mock-up of three looks, A picked:
   a pale moth, the Lampmoth, health 1, bite 1. It flies at the hero while the
   lantern is lit, from anywhere in the room, else to the nearest lit torch;
