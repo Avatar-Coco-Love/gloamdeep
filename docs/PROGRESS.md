@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.106 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.107 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH4 Putting things in the stash chest and taking them out (D-325): propose
-how first (which keys and taps move a stack, and whether it takes a turn).
+CH5 Taking the stash chest down (D-325): back into the bag only when empty;
+with anything inside it says so, free, and stays. Propose its line and words.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -21,6 +21,7 @@ how first (which keys and taps move a stack, and whether it takes a turn).
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
 - A bestiary: is there one, and does how to fight live there (Q-047)?
+- Should set-down things and a chest's keep last through a fall (Q-058)?
 - Add the 0.2.1 PR's setup script line to the cloud environment.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -90,7 +91,8 @@ Wood, then the chest (D-314; order may change)
 - [x] Showing what Wood makes: its look line, a Crafting page, 0.2.104 (D-328, the owner's find)
 - [x] CH2 The stash chest set down on the surface, the bench's way, 0.2.105 (D-329)
 - [x] CH3 Bumping it opens its panel: 12 slots, the bag under them, 0.2.106 (D-330)
-- [ ] CH4, CH5 The stash chest: put in and take out, take down
+- [x] CH4 Put in and take out: a picked stack moves, free, 0.2.107 (D-331)
+- [ ] CH5 The stash chest taken down
 - [ ] A creature drawn to light
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
@@ -101,11 +103,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-25, 0.2.104, what Wood makes.** The owner found crafting with
-  wood wasn't plain. Wood's first look line is now "Three make a
-  workbench.", and How to play gains a Crafting page after Keyboard (D-328).
-  CH2's picks are settled (D-329); D-317 to D-323 archived (D-327).
-  [Playtest](https://claude.ai/artifact/8LTXJpnfQK78mqi5UfZrv9).
 - **2026-10-25, 0.2.105, the stash chest set down.** Set down in the bag
   marks the free sides, as for the bench; an arrow, a swipe or a tap on a
   mark sets it there, a turn, "You set down the stash chest." Solid, light
@@ -116,3 +113,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   STASH CHEST, 12 empty slots in two rows, the bag's 6 under them, Close.
   A gold frame moves over the slots; closes the bench's way (D-330).
   [Playtest](https://claude.ai/artifact/YH66yvXxsT3K2zA3tvgD1E).
+- **2026-10-25, 0.2.107, the stash chest filled.** On its panel the gold
+  frame reaches the bag's row; Enter, Space, a click or a tap on a filled
+  slot moves the whole stack across, free, no line; "Your bag is full." or
+  "The chest is full." when it can't all go. A fall loses a set-down chest
+  and what it held (Q-058) (D-331).
+  [Playtest](https://claude.ai/artifact/U8NguYyB6HRZn9E3KMXejJ).

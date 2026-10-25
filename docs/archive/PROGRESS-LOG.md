@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.104, what Wood makes.** The owner found crafting with
+  wood wasn't plain. Wood's first look line is now "Three make a
+  workbench.", and How to play gains a Crafting page after Keyboard (D-328).
+  CH2's picks are settled (D-329); D-317 to D-323 archived (D-327).
+  [Playtest](https://claude.ai/artifact/8LTXJpnfQK78mqi5UfZrv9).
 - **2026-10-25, 0.2.103, the stash chest made.** The bench panel's top
   line, Stash chest with 3 Wood · 3 Stone on its right, makes one into the
   bag, a turn, the panel kept open; dim with too few, saying the cost, free;

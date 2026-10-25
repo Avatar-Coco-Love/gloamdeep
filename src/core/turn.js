@@ -36,7 +36,7 @@ export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0);
 // `seed` sets every generated depth (D-148).
 export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1) {
   const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items };
-  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {} };
+  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {}, stashes: {} };
 }
 
 // § world: every place, the hero in the first one. The others wait in
@@ -223,6 +223,7 @@ function chaseStep(state, e, sign = 1) {
 // layouts, and their maps are forgotten (D-148). The new seed places the
 // hand-made rooms' items and rats afresh (D-192). `fell` keeps the room
 // as the hero fell in it, for the fall to be shown before they wake (D-234).
+// A chest set down goes with its room, so what chests kept goes too (D-331).
 // It is a `fall` event.
 function fall(state) {
   const seed = nextSeed(state.seed), { place, hero } = state.home;
@@ -235,7 +236,7 @@ function fall(state) {
   const home = state.home.places ? { ...state.home, ...begun[place], hero, places: begun } : state.home;
   const { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn } = state;
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
-  return note(say({ ...state, ...woke, home, seed, fell, health: maxHealth(state), oil: OIL.start, found: foundAfterFall(state.found) }, 'fall'), 'fall');
+  return note(say({ ...state, ...woke, home, seed, fell, stashes: {}, health: maxHealth(state), oil: OIL.start, found: foundAfterFall(state.found) }, 'fall'), 'fall');
 }
 
 // § attack: the hero swings the lantern at the foe and stays put (D-109),
