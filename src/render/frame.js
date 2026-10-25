@@ -37,7 +37,7 @@ import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
-import { PAUSE_MENU, benchMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
+import { PAUSE_MENU, benchMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING, HARDER_NOTE, EASE_NOTE, easeHeading } from '../core/menu.js';
 import { doorways } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
@@ -159,6 +159,8 @@ export function createFrame(app, ui) {
     lanternButton.show(state.lit);
     if (app.screen === 'paused') drawPause(ctx, PAUSE_MENU, app.chosen, t, still());
     else if (app.screen === 'settings') drawPause(ctx, screens.menuOf(app.screen), app.chosen, t, still(), 'Settings');
+    else if (app.screen === 'ways') { const l = screens.menuOf('ways')[app.chosen]; drawPause(ctx, screens.menuOf('ways'), app.chosen, t, still(), MODE_HEADING, l.dim ? HARDER_NOTE : l.note); } // MO4, D-346
+    else if (app.screen === 'easier') drawPause(ctx, SURE_MENU, app.chosen, t, still(), easeHeading(app.easier), EASE_NOTE);
     else if (app.screen === 'seed') drawSeedPad(ctx, app.entry, app.chosen, t, still());
     else if (app.screen === 'howto') drawHowTo(ctx, app.page, app.settings.controls, app.chosen, t, still());
     else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());

@@ -15,6 +15,7 @@ this page and a decision disagree, the decision wins.
   Hardcore (D-234, D-246, D-332).
 - **Gentle, Normal, Hardcore:** the three ways to play, by what a fall
   costs: the bag kept, the bag left where you fell, or one life (D-334).
+  Changed in Settings during a journey, only toward easier (D-346).
 - **The bag where you fell:** Normal's fallen bag, lying on the floor to
   fetch by walking onto it, marked on the map (D-345).
 - **Record:** the deepest depth walked to, kept for good (D-232, D-260).

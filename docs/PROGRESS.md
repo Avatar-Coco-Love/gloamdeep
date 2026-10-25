@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.114 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.115 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-MO4: changing the mode during a journey, only toward easier (D-334,
-D-341). Propose where it is changed first.
+A creature drawn to light, next after the stash chest (D-311).
+Propose what it is first: nothing about it is decided yet.
 
 ## Waiting on the owner
 - Normal's fall: should the knife in hand stay with the bag (D-345)?
@@ -34,7 +34,7 @@ The stash chest, the modes (D-324, D-333 to D-335; order may change)
   - [x] MO1 New journey asks the way to play (D-342), 0.2.112
   - [x] MO2 Hardcore: a fall starts the world over (D-344), 0.2.113
   - [x] MO3 Normal: the bag waits where you fell (D-345), 0.2.114
-  - [ ] MO4 Changing the mode, only toward easier
+  - [x] MO4 Changing the mode, only toward easier (D-346), 0.2.115
 - [ ] A creature drawn to light
 
 **Next audit: 0.2.129** (D-337).
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.115, an easier way.** Settings from the pause menu has
+  "Way to play: Normal" under the seed; the ways show, harder ones grey
+  ("Only an easier way can be picked."); an easier one asks "Play Gentle?",
+  "There is no going back.", No picked; old bags stay to fetch (D-346).
+  [Playtest](https://claude.ai/artifact/6QkHin6HVPrEL5PVajroWH).
 - **2026-10-25, 0.2.114, the bag where you fell.** Mock-up of three looks,
   A picked. A Normal fall leaves the bag, a tied pouch, where the hero fell;
   walking onto it puts back what fits ("You take back your bag." or "Your
@@ -54,9 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   journey ends.": Same world or New world. The whole journey starts over
   (bag, level, map, time), saved at once; Records stay; "The world begins
   again." (D-344). [Playtest](https://claude.ai/artifact/Bza8SCcPw3VDJRvGUMGQb1).
-- **2026-10-25, 0.2.112, the way to play.** The modes in four steps (D-341).
-  MO1: after New journey (and Start over? Yes) a page asks Gentle, Normal
-  or Hardcore, Normal picked, the picked one's note under it; saved with the
-  journey, every fall still Gentle; old saves are Gentle (D-342). The chest's
-  decisions archived (D-343).
-  [Playtest](https://claude.ai/artifact/9LjBXRFT1yJMneLGmKSPov).

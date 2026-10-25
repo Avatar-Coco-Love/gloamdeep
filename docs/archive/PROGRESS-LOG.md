@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.112, the way to play.** The modes in four steps (D-341).
+  MO1: after New journey (and Start over? Yes) a page asks Gentle, Normal
+  or Hardcore, Normal picked, the picked one's note under it; saved with the
+  journey, every fall still Gentle; old saves are Gentle (D-342). The chest's
+  decisions archived (D-343).
+  [Playtest](https://claude.ai/artifact/9LjBXRFT1yJMneLGmKSPov).
 - **2026-10-25, 0.2.111, the chest taken down.** The chest's panel gains
   Deconstruct chest above Close: an empty chest goes into the bag, a turn,
   "You take down the stash chest."; with anything inside "Empty the chest

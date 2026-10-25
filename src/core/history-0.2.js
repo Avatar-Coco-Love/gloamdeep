@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.115', date: '2026-10-25', title: 'An easier way', lines: [
+    "Settings, opened from the pause menu, now has a line under the seed: \"Way to play: Normal\" (or Gentle, or Hardcore). From the title, where no journey is open, it isn't there.",
+    "Picking it shows the three ways with the one you play picked. The harder ones are grey; landing on one says \"Only an easier way can be picked.\"",
+    "Picking an easier way asks first, \"Play Gentle?\" with \"There is no going back.\", No picked. Yes changes it and saves it with the journey; No goes back. Esc or P go back a page.",
+    "From Normal to Gentle, bags already left where you fell stay there to fetch; only falls from then on keep the bag.",
+    "Decisions: D-346.",
+  ] },
   { v: '0.2.114', date: '2026-10-25', title: 'The bag where you fell', lines: [
     "In Normal, a fall now leaves your bag where you fell: a small leather pouch tied at the neck, lying on the floor with everything that was in it. You wake with an empty bag; the knife stays in your hand.",
     "Walk onto it to take everything back, with \"You take back your bag.\" Stacks top up first. What doesn't fit stays in it, with \"Your bag is full.\", for later.",

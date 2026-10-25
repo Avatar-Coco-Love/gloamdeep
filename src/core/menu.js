@@ -22,6 +22,17 @@ export const MODE_MENU = [
 ];
 export const MODE_HEADING = 'Choose a way to play';
 export const MODE_FIRST = MODE_MENU.findIndex((l) => l.id === 'normal');
+// § changing the way: from Settings in play, only toward easier (MO4, D-334, D-346). The page shows
+// all three, the one played picked, the harder ones grey with their own note; an easier one asks first.
+export const modeAt = (id) => Math.max(0, MODE_MENU.findIndex((l) => l.id === id));
+export const modeText = (id) => 'Way to play: ' + MODE_MENU[modeAt(id)].text;
+export const easier = (from, to) => modeAt(to) < modeAt(from);
+export const easeMenu = (from) => MODE_MENU.map((l, i) => ({ ...l, dim: i > modeAt(from) }));
+export const HARDER_NOTE = 'Only an easier way can be picked.';
+export const easeHeading = (to) => `Play ${MODE_MENU[modeAt(to)].text}?`;
+export const EASE_NOTE = 'There is no going back.';
+// A journey's way made easier; never harder (D-334)
+export const easeMode = (state, to) => (easier(state.mode, to) ? { ...state, mode: to } : state);
 // § journey ends: after a Hardcore fall, the world begun again from the same seed or a new one (MO2, D-344)
 export const ENDED_MENU = [{ id: 'same', text: 'Same world' }, { id: 'other', text: 'New world' }];
 export const ENDED_HEADING = 'Your journey ends.';
@@ -30,11 +41,13 @@ export const PAUSE_MENU = [{ id: 'resume', text: 'Resume' }, { id: 'journal', te
 // Settings, from the title or the pause menu (D-189, D-190, D-210, D-255): picking a switch moves it to the next choice.
 // Version history, above Back, opens the page of every version (D-254).
 // deviceReduced: the device's own reduced-motion setting, which Motion follows until picked;
-// journey: this journey's seed, named from the pause menu (D-191), else null
-export const settingsMenu = (s, deviceReduced = false, journey = null) => [
+// journey: this journey's seed, named from the pause menu (D-191), else null;
+// mode: this journey's way to play, its line under the seed from the pause menu (MO4, D-346)
+export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null) => [
   { id: 'controls', text: controlsText(s.controls) },
   { id: 'motion', text: motionText(s.motion, deviceReduced) },
   { id: 'seed', text: seedText(s.seed, journey) },
+  ...(mode ? [{ id: 'mode', text: modeText(mode) }] : []),
   { id: 'lantern', text: lanternText(s.lantern) },
   { id: 'flasks', text: flasksText(s.flasks) },
   { id: 'sound', text: soundText(s.sound) },
