@@ -34,10 +34,11 @@ test('flasks stack in one slot', () => {
   assert.deepEqual(n.bag, [{ id: 'flask', n: 3 }]);
 });
 
-test('over a full stack of 3 the flask stays on the floor, with its line', () => {
-  const n = step({ ...withFlask(), bag: [{ id: 'flask', n: 3 }] }, 'up');
+test('with every slot a full stack of 5 flasks the flask stays on the floor, with its line', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'flask', n: 5 }));
+  const n = step({ ...withFlask(), bag: full }, 'up');
   assert.equal(itemAt(n, 5, 10).id, 'flask');
-  assert.deepEqual(n.bag, [{ id: 'flask', n: 3 }], 'no new slot is started');
+  assert.deepEqual(n.bag, full);
   assert.equal(n.turn, 1, 'the step still passes a turn');
   assert.equal(shownLine(n).text, "You can't carry more flasks.");
 });

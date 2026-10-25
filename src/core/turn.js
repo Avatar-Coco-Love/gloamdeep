@@ -16,7 +16,7 @@ import { inDaylight } from './daytime.js';
 import { takeStairs, arrive, fresh as freshPlace } from './stairs.js';
 import { offEdge, walkOff } from './openings.js';
 import { XP_FOE, gain, discover, levelOf } from './xp.js';
-import { bagAdd, bagTake, bagHas, stackFull } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken, regrow, joined } from './regrow.js';
 
@@ -97,7 +97,7 @@ export function step(state, dir) {
 }
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag
-// has no room (D-247), or with its full line when its stack is full (D-250);
+// has no room (D-247), or with its full line when it holds some (D-250, D-333);
 // an oilcap the same, saying one of its lines as it goes in (D-296, D-297). A herb heals, never above full, and is gone with its
 // line; at full health it stays on the floor (D-155, D-156). A weapon goes
 // into an empty hand with its line (D-252); with one held it stays for now,
@@ -110,7 +110,7 @@ function pickUp(state, found) {
   if (entry.bag) {
     const bag = bagAdd(state.bag, id, found.form);
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
-    return stackFull(state.bag, id) && entry.full ? say(state, entry.full) : state;
+    return state.bag.some((s) => s.id === id) && entry.full ? say(state, entry.full) : state;
   }
   if (entry.heal && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.says), 'eat', { id });
   return state;
@@ -338,7 +338,7 @@ export function makeAt(state, id) {
   const recipe = get(id)?.bench;
   if (!recipe) return state;
   if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
-  const paid = Object.entries(recipe.of).reduce((b, [what, n]) => bagTake(b, b.findIndex((s) => s.id === what), n), state.bag);
+  const paid = bagPay(state.bag, recipe.of);
   const bag = bagAdd(paid, id);
   if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));

@@ -181,3 +181,12 @@ important, useful, educational or insightful is lost in a cleanup. Text is
 moved word for word, never cut; only pointers, indexes and rules may be
 reworded. Each audit compares every removed line with the whole repo and
 lists, in its PR, each line not found word for word, with why.
+
+**D-339 · 2026-10-25 · Bigger stacks, the details** (the owner's picks, all
+recommended; builds D-333) With every stack of a kind full and no slot free,
+the lines stay as today: the kind's own line when the bag holds some, else
+as before. Only 1 workbench or stash chest is still carried (D-320). On a
+chest's panel a picked stack moves what fits, topping up its kind and then
+taking free slots; the rest stays, with "Your bag is full." or "The chest
+is full.". A slot's count stays in its corner, its dark box as wide as the
+number.

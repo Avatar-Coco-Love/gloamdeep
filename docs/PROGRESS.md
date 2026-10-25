@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.109 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.110 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Bigger stacks by kind, several stacks of a kind in the bag and a chest
-(D-333): propose the details first (the full-stack lines, the slot's count).
+CH5, the stash chest taken down (D-324): propose the details first (what
+happens to what it holds).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -27,7 +27,7 @@ Ticked steps up to 0.2.108 are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The stash chest, the modes (D-324, D-333 to D-335; order may change)
-- [ ] Bigger stacks by kind, several of a kind (D-333)
+- [x] Bigger stacks by kind, several of a kind (D-333), 0.2.110
 - [ ] CH5 The stash chest taken down
 - [ ] The modes: Gentle, Normal, Hardcore (D-334), in steps
 - [ ] A creature drawn to light
@@ -40,6 +40,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.110, bigger stacks.** Stacks hold 20 small finds, 5
+  flasks or potions; a full stack goes on in a free slot. Still 1 workbench
+  or chest carried; full lines as before; a chest moves what fits, the rest
+  stays with its line; the count's box widens (D-333, D-339).
+  [Playtest](https://claude.ai/artifact/SApq31qzZj2JxjKjsTnSCe).
 - **2026-10-25, 0.2.109, the first audit.** Nothing in the game changed.
   `CLAUDE.md` 10 → 7.9 KB, `PROGRESS.md` 8 → 3 KB, `CHANGELOG.md`
   52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's

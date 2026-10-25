@@ -7,9 +7,9 @@ import { DAY_TURNS } from './daytime.js';
 const MUSHROOM_TONE = { hue: 12, light: 7 };
 export const ITEMS = {
   // Walking onto it puts it in the bag; poured from there into the lantern,
-  // never above full (D-078, D-247). Over a full stack it stays, with its
-  // `full` line (D-250).
-  flask: { id: 'flask', kind: 'item', name: 'Oil flask', oil: 0.45, bag: true, full: 'flaskFull', regrow: 3 * DAY_TURNS },
+  // never above full (D-078, D-247). With every flask stack full and no slot free
+  // it stays, with its `full` line (D-250, D-333).
+  flask: { id: 'flask', kind: 'item', name: 'Oil flask', oil: 0.45, bag: true, max: 5, full: 'flaskFull', regrow: 3 * DAY_TURNS },
   // Walking onto it heals 2 hearts, never above full; at full health it is
   // left on the floor for later (D-155, D-156).
   // The first weapon (D-252): walking onto it puts it in the hero's hand, in the
@@ -24,26 +24,26 @@ export const ITEMS = {
   // in the bag, turns `of` of them into one `into`, with its `says` line (D-299).
   // Each one a room lays out shifts its cap's colour by up to `tone`: degrees of
   // hue and points of lightness, either way (tones.js, D-305).
-  oilcap: { id: 'oilcap', kind: 'item', name: 'Oilcap', bag: true, says: 'oilcapTake', look: 'oilcapLook', full: 'oilcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
+  oilcap: { id: 'oilcap', kind: 'item', name: 'Oilcap', bag: true, max: 20, says: 'oilcapTake', look: 'oilcapLook', full: 'oilcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
     craft: { into: 'flask', of: 3, says: 'flaskMake' } },
   // A bright red mushroom in about half the rooms (D-303), into the bag the
   // oilcap's way, with its own lines and its own tones. Eat, in the bag, heals
   // `heal` hearts with its `eats` line, never above full (D-308). Make turns
   // 3 into a healing potion (D-309).
-  heartcap: { id: 'heartcap', kind: 'item', name: 'Heartcap', bag: true, says: 'heartcapTake', look: 'heartcapLook', full: 'heartcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
+  heartcap: { id: 'heartcap', kind: 'item', name: 'Heartcap', bag: true, max: 20, says: 'heartcapTake', look: 'heartcapLook', full: 'heartcapFull', tone: MUSHROOM_TONE, regrow: DAY_TURNS,
     heal: 1, eats: 'heartcapEat', craft: { into: 'potion', of: 3, says: 'potionMake' } },
   // Made from heartcaps, never found (D-309). Drunk from the bag the heartcap's
   // way, its button saying `verb`, it heals 4 hearts, never above full.
-  potion: { id: 'potion', kind: 'item', name: 'Healing potion', bag: true, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
+  potion: { id: 'potion', kind: 'item', name: 'Healing potion', bag: true, max: 5, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
   // A plain stone from a broken deposit, never found lying (D-311, O2), for crafts
-  // later. Into the bag in stacks of 3; choosing it says one of its `look` lines.
-  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, look: 'stoneLook', full: 'stoneFull' },
+  // later. Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
+  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, look: 'stoneLook', full: 'stoneFull' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
-  // bag the oilcap's way in stacks of 3, with lines in turn. Each one lies in
+  // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);
-  // the bag shows the last one picked. Over a full stack it stays, no line.
+  // the bag shows the last one picked. With no room it stays, no line.
   // Make turns 3 into a workbench (WB1, D-320).
-  wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, says: 'woodTake', look: 'woodLook', forms: 3, regrow: DAY_TURNS,
+  wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, max: 20, says: 'woodTake', look: 'woodLook', forms: 3, regrow: DAY_TURNS,
     craft: { into: 'workbench', of: 3, says: 'benchMake' } },
   // Made from 3 Wood in the bag, never found (WB1, D-320). Only `max` 1 is carried;
   // choosing it says one of its `look` lines. Set down, it `sets` the bench tile on

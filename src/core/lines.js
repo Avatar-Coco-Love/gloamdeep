@@ -20,18 +20,18 @@ export const LINES = {
   stairsUp: { text: 'You go up the stairs.', warn: false }, // (D-135)
   herbEat: { text: 'You eat the herb and feel better.', warn: false }, // (D-156)
   flaskPour: { text: 'You pour a flask.', warn: false }, // poured by itself (D-249)
-  flaskFull: { text: "You can't carry more flasks.", warn: false }, // a full stack (D-250)
+  flaskFull: { text: "You can't carry more flasks.", warn: false }, // every stack full, no slot free (D-250, D-333)
   knifeTake: { text: 'You take the knife.', warn: false }, // into the held slot (D-252)
   flaskMake: { text: 'You make an oil flask.', warn: false }, // 3 oilcaps crafted (D-299)
-  oilcapFull: { text: "You can't carry more oilcaps.", warn: false }, // a full stack (D-250, D-296)
-  heartcapFull: { text: "You can't carry more heartcaps.", warn: false }, // a full stack (D-250, D-303)
+  oilcapFull: { text: "You can't carry more oilcaps.", warn: false }, // every stack full, no slot free (D-250, D-296, D-333)
+  heartcapFull: { text: "You can't carry more heartcaps.", warn: false }, // every stack full, no slot free (D-250, D-303, D-333)
   // Lines with `texts` take turns: each saying the next, then back to the first (D-297)
   oilcapTake: { texts: ['You grab the oilcap.', 'You pluck an oilcap from the floor.', 'The oilcap comes up with a soft pop.'], warn: false },
   oilcapLook: { texts: ['Three make an oil flask.', 'It smells faintly of lamp oil.', 'Its amber cap is slick with oil.'], warn: false },
   heartcapTake: { texts: ['You pick a heartcap.', 'The heartcap comes up whole.', 'A heartcap, warm in your hand.'], warn: false }, // (D-303)
   heartcapEat: { texts: ['You eat a heartcap.', 'The heartcap tastes of earth.', 'Warmth spreads through you.'], warn: false }, // eaten from the bag (D-308)
   potionMake: { text: 'You make a healing potion.', warn: false }, // 3 heartcaps crafted (D-309)
-  potionFull: { text: "You can't carry more potions.", warn: false }, // a full stack (D-309)
+  potionFull: { text: "You can't carry more potions.", warn: false }, // every stack full, no slot free (D-309, D-333)
   potionDrink: { texts: ['You drink a healing potion.', 'The potion warms you through.', 'Your wounds close.'], warn: false }, // drunk from the bag (D-309)
   notHurt: { text: "You aren't hurt.", warn: false }, // Eat at full health (D-308)
   heartcapLook: { texts: ['It might mend a wound.', 'Its red cap is spotted white.', 'It feels faintly warm.'], warn: false },
@@ -39,11 +39,11 @@ export const LINES = {
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
-  stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, a full stack: the boulder holds (O2)
+  stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)
   branchTake: { texts: ['The branch snaps. You take wood.', 'It breaks apart. Wood for the bag.', 'Crack. You gather the wood.'], warn: false }, // the second
-  woodFull: { text: "You can't carry more wood.", warn: false }, // the second bump, a full stack: the branch holds
+  woodFull: { text: "You can't carry more wood.", warn: false }, // the second bump, every stack full: the branch holds
   treeHack: { text: 'You hack at the tree.', warn: false }, // bumps 1 to 3 (W3, D-317)
   treeChips: { text: 'Chips fly from the trunk.', warn: false },
   treeGroan: { text: 'The tree groans.', warn: false },

@@ -56,9 +56,10 @@ test('the stump is walked over, the view passes it, the map shows it open', () =
 });
 
 test('with room for 1, it still falls, and 2 sticks lie on the stump and the nearest open tile', () => {
-  const s = bumps(beside([{ id: 'wood', n: 2, form: 0 }]), 4);
+  const five = Array.from({ length: 5 }, () => ({ id: 'wood', n: 20 }));
+  const s = bumps(beside([...five, { id: 'wood', n: 19, form: 0 }]), 4);
   assert.equal(tileAt(s.room, 5, 10).id, 'stump');
-  assert.deepEqual(s.bag, [{ id: 'wood', n: 3, form }]);
+  assert.deepEqual(s.bag, [...five, { id: 'wood', n: 20, form }]);
   const left = s.items.filter((it) => it.id === 'wood');
   assert.equal(left.length, 2);
   assert.ok(left.every((it) => it.once && it.form === form && !tileAt(s.room, it.x, it.y).solid));
@@ -67,8 +68,8 @@ test('with room for 1, it still falls, and 2 sticks lie on the stump and the nea
   assert.equal(new Set(left.map((it) => `${it.x},${it.y}`)).size, 2);
 });
 
-test('with 3 Wood carried, the fourth bump holds, free, with its line', () => {
-  const s = bumps(beside([{ id: 'wood', n: 3 }]), 4);
+test('with 6 full stacks of Wood carried, the fourth bump holds, free, with its line', () => {
+  const s = bumps(beside(Array.from({ length: 6 }, () => ({ id: 'wood', n: 20 }))), 4);
   assert.equal(s.turn, 3);
   assert.equal(tileAt(s.room, 5, 10).id, 'tree');
   assert.equal(shown(s), "You can't carry more wood.");

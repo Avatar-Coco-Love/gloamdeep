@@ -32,7 +32,7 @@ this page and a decision disagree, the decision wins.
 - **Experience:** 1 per creature beaten and per new room (D-245).
 - **Lantern, oil:** the light the hero carries and what it burns.
 - **Flask:** oil to pour into the lantern, from the bag (D-247, D-249).
-- **Bag:** what the hero carries, in stacks of up to 3 (D-247, D-250).
+- **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339).
 - **Oilcap:** an amber mushroom, the first resource, one in every
   generated room; 3 make an oil flask (D-296, D-299).
 - **Heartcap:** a bright red mushroom in about half the rooms; Eat, in the

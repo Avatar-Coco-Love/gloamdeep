@@ -102,13 +102,14 @@ test('the third bump breaks it to floor and a stone goes into the bag, with its 
   assert.equal(shown(look(s, 0)), 'A plain stone, for crafting later.');
 });
 
-test('with 3 stones carried, the third bump holds, free, with its line', () => {
-  let s = beside([{ id: 'stone', n: 3 }]);
+test('with 6 full stacks of stones carried, the third bump holds, free, with its line', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 }));
+  let s = beside(full);
   for (let i = 0; i < 3; i++) s = step(s, 'up');
   assert.equal(s.turn, 2);
   assert.equal(tileAt(s.room, 5, 10).id, 'deposit');
   assert.equal(shown(s), "You can't carry more stones.");
-  assert.deepEqual(s.bag, [{ id: 'stone', n: 3 }]);
+  assert.deepEqual(s.bag, full);
 });
 
 test('each deposit keeps its own bumps, and a saved journey keeps them', () => {
