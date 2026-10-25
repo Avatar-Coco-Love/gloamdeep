@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -132,7 +132,7 @@ Object.assign(app, {
   jab: null, // { dx, dy, start } after a hit with a weapon held (D-253)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
-  fall: null, // { from, lieAt, darkAt, mid, end } after a fall, until the hero wakes (D-234)
+  fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
 });
 const ALERT_MS = 900;
 const HIT_FLASH_MS = 140, SHAKE_MS = 120; // the study's (study line 470)
@@ -189,6 +189,17 @@ function fallDown(from) {
   if (app.walk) app.walk.stopped = true;
   if (still()) { snap(from.hero); app.fall = { from, lieAt: now, darkAt: now, mid: now + FALL_STILL_MS, end: now + FALL_STILL_MS }; }
   else app.fall = { from, lieAt: now + FALL.lie, darkAt: now + FALL.dark, mid: now + FALL.wake, end: now + FALL.end };
+  // A Hardcore fall began the world again, saved at once; a dev jump no longer stops the Records (MO2, D-344)
+  if (app.state.mode === 'hardcore') { app.fall.ends = true; app.jumped = false; }
+}
+// § start over (MO2, D-344): "Your journey ends." shows at the fall's deepest dark. Same world
+// keeps the world begun again from the same seed; New world begins one from Settings' seed, or a
+// random one. Then the light opens on the hero awake, at once with reduced motion.
+function beginAgain(other) {
+  if (other) { app.journeySeed = app.settings.seed || randomSeed(); app.state = startOver(app.journeySeed); }
+  freshView();
+  const now = performance.now();
+  if (!still()) app.fall = { from: null, lieAt: now, darkAt: now, mid: now, end: now + FALL.end - FALL.wake };
 }
 
 // § enemies sliding: a rat slides to its new tile like the hero (D-128).
@@ -290,7 +301,7 @@ function dropSlot(i) {
 }
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion, newJourney, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
@@ -363,7 +374,7 @@ function update(t) {
   if (travel && t >= travel.mid && travel.from) { travel.from = null; snap(app.state.hero); foeShown = new Map(); }
   if (travel && t >= travel.end) app.travel = null;
   // A fall shows where the hero fell until the dark is deepest, then where they wake (D-234)
-  if (fall && t >= fall.mid && fall.from) { fall.from = null; snap(app.state.hero); foeShown = new Map(); }
+  if (fall && t >= fall.mid && fall.from) { fall.from = null; snap(app.state.hero); foeShown = new Map(); if (fall.ends) { screens.endJourney(); return; } }
   if (fall && t >= fall.end) app.fall = null;
   const s = app.travel?.from || app.fall?.from || app.state;
   shown.x = approach(shown.x, s.hero.x, dt);

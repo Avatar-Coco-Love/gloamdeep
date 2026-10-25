@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.113 (2026-10-25)
+- In Hardcore, a fall now ends the journey. The fall plays as before, then at its darkest a page says "Your journey ends." with Same world (picked) and New world.
+- The world starts over as on day one: every room, the bag, the level, the map and the time of day. The profile's Records stay, and the fall counts in them. The new world is saved at once, so closing the game can't bring the old one back.
+- Same world begins again from the same seed; New world from the seed typed in Settings, or a random one. The hero wakes with the line "The world begins again." Esc or P go to the title instead, where Continue goes on in the world begun again.
+- Gentle and Normal falls play as before, for now (Normal comes next).
+- Decisions: D-344.
+
 ## 0.2.112 (2026-10-25)
 - New journey now asks how you want to play: Gentle, Normal or Hardcore, with Normal picked to begin with. It comes after "Start over?" Yes too, and Esc or P go back to the title with the saved journey kept.
 - The picked way shows its note under the menu: "A fall keeps the bag.", "The bag waits where you fall." or "One life. A fall starts the world over."

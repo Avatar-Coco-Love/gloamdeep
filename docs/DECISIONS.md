@@ -143,3 +143,13 @@ saved before the modes plays as Gentle, as it has so far.
 D-327, by the 12 KB rule in `CLAUDE.md`) D-324 to D-331 and D-340 moved
 unchanged to `archive/DECISIONS-CHEST.md` as this file neared 12 KB. They
 stay in force.
+
+**D-344 · 2026-10-25 · Hardcore, a fall ends the journey** (step MO2 of
+D-341, the owner's picks, all recommended; builds D-334) The fall plays as
+D-234, then at the deepest dark a page drawn like Start over says "Your
+journey ends.": Same world (picked) or New world. The whole journey starts
+over as on day one (every room, the bag, the level, the map found, the time
+of day); the profile's Records and look stay, the fall counted, and the mode
+stays Hardcore. It is saved at once, from the same seed. New world takes
+Settings' seed, or a random one. The hero wakes as the light opens, with
+"The world begins again." Esc or P go to the title, Continue there.

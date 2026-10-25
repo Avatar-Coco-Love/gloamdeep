@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.112 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.113 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-MO2 Hardcore: a fall starts the world over (D-334, D-341). Propose its
-details first.
+MO3 Normal: the bag waits where you fell (D-334, D-341). Mock up its
+look first.
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -31,7 +31,7 @@ The stash chest, the modes (D-324, D-333 to D-335; order may change)
 - [x] CH5 The stash chest taken down (D-340), 0.2.111
 - The modes: Gentle, Normal, Hardcore (D-334), in four steps (D-341)
   - [x] MO1 New journey asks the way to play (D-342), 0.2.112
-  - [ ] MO2 Hardcore: a fall starts the world over
+  - [x] MO2 Hardcore: a fall starts the world over (D-344), 0.2.113
   - [ ] MO3 Normal: the bag waits where you fell (a mock-up first)
   - [ ] MO4 Changing the mode, only toward easier
 - [ ] A creature drawn to light
@@ -44,6 +44,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.113, Hardcore.** A Hardcore fall plays, then "Your
+  journey ends.": Same world or New world. The whole journey starts over
+  (bag, level, map, time), saved at once; Records stay; "The world begins
+  again." (D-344). [Playtest](https://claude.ai/artifact/Bza8SCcPw3VDJRvGUMGQb1).
 - **2026-10-25, 0.2.112, the way to play.** The modes in four steps (D-341).
   MO1: after New journey (and Start over? Yes) a page asks Gentle, Normal
   or Hardcore, Normal picked, the picked one's note under it; saved with the
@@ -55,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   "You take down the stash chest."; with anything inside "Empty the chest
   first.", free; carried or bag full as the bench (D-340).
   [Playtest](https://claude.ai/artifact/Q84TPd3b4GTaduoXTXTscF).
-- **2026-10-25, 0.2.110, bigger stacks.** Stacks hold 20 small finds, 5
-  flasks or potions; a full stack goes on in a free slot. Still 1 workbench
-  or chest carried; full lines as before; a chest moves what fits, the rest
-  stays with its line; the count's box widens (D-333, D-339).
-  [Playtest](https://claude.ai/artifact/SApq31qzZj2JxjKjsTnSCe).
