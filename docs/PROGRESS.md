@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.120 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.121 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CL2 Tapping a plaque frames its creature (D-357), in a new conversation:
-the amber edge on the plaque, the creature framed on the field with its
-name, hearts and next-move arrow (`render/moves.js`).
+Pick the next step with the owner, in a new conversation: the build plan's
+listed steps are done. Offer 2 or 3 from "Ideas for later" and
+`RESEARCH.md`, with a recommendation.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -18,6 +18,7 @@ name, hearts and next-move arrow (`render/moves.js`).
 - The play-earned currency (Q-055), before the first unlock.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
+- How to play and framing a creature (Q-060), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.108 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -34,7 +35,7 @@ The stash chest, the modes (D-324, D-333 to D-335; order may change)
 - [x] A creature drawn to light, the lampmoth (D-356), 0.2.118
 - Creatures show their next move, to try (D-349): the creature list (D-357)
   - [x] CL1 The row of plaques, faces and action icons (D-358), 0.2.120
-  - [ ] CL2 Tapping a plaque frames its creature
+  - [x] CL2 Tapping a plaque frames its creature (D-359), 0.2.121
 
 **Next audit: 0.2.129** (D-337).
 
@@ -44,6 +45,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-25, 0.2.121, framing a creature.** Mock-up of three looks from
+  the real game, A picked: amber plaque edge, corners on the tile, a tag
+  with name and hearts above it, the next-move arrow. Tap again to let go;
+  it stays through turns; Tab cycles; no turn taken (D-359). D-349 to D-358's
+  creature decisions archived (D-360);
+  [mock-up](https://claude.ai/artifact/25X7FbB3pgKt9JHjZ4scR1). [Playtest](https://claude.ai/artifact/Uq9VdckYxbmQU4DFxQncaR).
 - **2026-10-25, 0.2.120, the creature list's row.** Four picks, all
   recommended: the row under the text line, sideways under the boxes in
   the strip's column; a lampmoth at the lit lantern counts; one that waits
@@ -55,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   hero in light; a tap frames one with name, hearts, arrow (D-357). The
   first build's field arrows came out; `nextMoves` stays. 3 lampmoths a
   journey, one on each of depths 2 to 4.
-- **2026-10-25, 0.2.118, the lampmoth.** Mock-up of three looks, A picked:
-  a pale moth, the Lampmoth, health 1, bite 1. It flies at the hero while the
-  lantern is lit, from anywhere in the room, else to the nearest lit torch;
-  one room a floor on depths 2 to 4 holds one in place of its rat (D-356).
-  [Playtest](https://claude.ai/artifact/UDspyAGRUHVXQmYVmH97WU).

@@ -3,13 +3,14 @@
 // face, and its next move in the hostile pink (fangs for a bite, an arrow the
 // way it steps; nothing while it waits). Upright, a row under the text line;
 // sideways, a column under the boxes in the strip's column. Newest last; past
-// the room left, the last spot says how many more ("+2").
+// the room left, the last spot says how many more ("+2"). The framed one's
+// plaque has an amber edge (CL2).
 import { drawText, textWidth } from './font.js';
 import { faceOf } from './sprites.js';
 
 export const PLAQUE_W = 22, PLAQUE_H = 13;
 const GAP = 2, FACE_W = 12; // the face sits 2 in, the icon centred 17 in
-const PINK = '#e8786a', EDGE = '#3a3448', FILL = '#1b1824', GREY = '#9790a4';
+const PINK = '#e8786a', AMBER = '#ffc65c', EDGE = '#3a3448', FILL = '#1b1824', GREY = '#9790a4';
 const ARROW = ['#..', '##.', '###', '##.', '#..']; // pointing right
 const FANGS = ['#####', '.#.#.', '.#.#.'];
 
@@ -51,12 +52,12 @@ function boxOf(img) {
   return box;
 }
 
-function drawPlaque(c, x, y) {
-  c.fillStyle = EDGE; c.fillRect(x, y, PLAQUE_W, PLAQUE_H);
+function drawPlaque(c, x, y, framed = false) {
+  c.fillStyle = framed ? AMBER : EDGE; c.fillRect(x, y, PLAQUE_W, PLAQUE_H);
   c.fillStyle = FILL; c.fillRect(x + 1, y + 1, PLAQUE_W - 2, PLAQUE_H - 2);
 }
-function drawEntry(c, { e, move }, x, y) {
-  drawPlaque(c, x, y);
+function drawEntry(c, { e, move }, x, y, framed) {
+  drawPlaque(c, x, y, framed);
   // A face wider than its spot keeps its middle (the lampmoth's wingtips go), a taller one its top
   const img = faceOf(e), b = boxOf(img), w = Math.min(b.w, FACE_W), h = Math.min(b.h, PLAQUE_H - 2);
   c.drawImage(img, b.x + ((b.w - w) >> 1), b.y, w, h, x + 2, y + 1 + ((PLAQUE_H - 2 - h) >> 1), w, h);
@@ -70,13 +71,30 @@ function drawMore(c, n, x, y) {
   drawText(c, text, x + ((PLAQUE_W - textWidth(text)) >> 1), y + 3, GREY);
 }
 
-// `list` in order, newest last; drawn from x, y across (upright) or down (sideways),
-// as many as fit before `end` (the row's right edge, or the column's foot)
-export function drawCreatureList(c, list, x, y, across, end) {
+// Where the plaques go for n creatures, from x, y across (upright) or down (sideways),
+// as many as fit before `end` (the row's right edge, or the column's foot):
+// `shown` plaques, then "+N" in the next spot when `more`
+function layout(n, x, y, across, end) {
   const step = (across ? PLAQUE_W : PLAQUE_H) + GAP, start = across ? x : y;
   const fit = Math.max(0, Math.floor((end - start + GAP) / step));
-  const more = list.length > fit, n = more ? fit - 1 : list.length;
-  const at = (i) => (across ? [x + i * step, y] : [x, y + i * step]);
-  for (let i = 0; i < n; i++) drawEntry(c, list[i], ...at(i));
-  if (more && fit > 0) drawMore(c, list.length - n, ...at(n));
+  const more = n > fit && fit > 0, shown = n > fit ? Math.max(0, fit - 1) : n;
+  return { shown, more, at: (i) => (across ? [x + i * step, y] : [x, y + i * step]) };
+}
+
+// `list` in order, newest last; `framed(e)` whether e's plaque has the amber edge
+export function drawCreatureList(c, list, x, y, across, end, framed = () => false) {
+  const { shown, more, at } = layout(list.length, x, y, across, end);
+  for (let i = 0; i < shown; i++) drawEntry(c, list[i], ...at(i), framed(list[i].e));
+  if (more) drawMore(c, list.length - shown, ...at(shown));
+}
+// How many plaques show, the "+N" left out
+export const plaquesShown = (n, x, y, across, end) => layout(n, x, y, across, end).shown;
+// The index of the shown plaque under px, py (in the list's own pixels), or -1; "+N" is none
+export function plaqueAt(n, x, y, across, end, px, py) {
+  const { shown, at } = layout(n, x, y, across, end);
+  for (let i = 0; i < shown; i++) {
+    const [qx, qy] = at(i);
+    if (px >= qx && px < qx + PLAQUE_W && py >= qy && py < qy + PLAQUE_H) return i;
+  }
+  return -1;
 }

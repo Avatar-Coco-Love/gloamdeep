@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.121', date: '2026-10-25', title: 'Framing a creature', lines: [
+    "Tap a creature's plaque in the row under the room to frame it: the plaque gets an amber edge, amber corners mark the creature on the field, a small tag above it shows its name and hearts, and an arrow shows its next step.",
+    "The frame stays as you play. Tap the same plaque to let it go, or another to frame that one instead. It goes when the creature dies or leaves the light.",
+    "On a keyboard, Tab frames the first plaque, then the next, then none.",
+    "Framing takes no turn.",
+    "Decisions: D-359, D-360.",
+  ] },
   { v: '0.2.120', date: '2026-10-25', title: 'The creature list', lines: [
     "A new row under the room lists the creatures that have noticed you and stand in light. Each has a small plaque with its face and what it does next if you wait: fangs for a bite, an arrow for a step. One that has noticed you but can't move shows just its face.",
     "A lampmoth flying at your lit lantern gets a plaque too.",

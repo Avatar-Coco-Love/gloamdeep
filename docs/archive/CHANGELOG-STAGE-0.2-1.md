@@ -1,8 +1,14 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.110)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.111)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, and 0.2.109 and 0.2.110 at 0.2.120 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, and 0.2.111 at 0.2.121 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.111 (2026-10-25)
+- On a stash chest's panel, a new line sits between the bag's row and Close: Deconstruct chest. Down from the bag's row reaches it, then Close.
+- Picking it on an empty chest puts the chest back in your bag, whole, and the ground is clear again. A turn passes and the line says "You take down the stash chest."
+- With anything still inside it says "Empty the chest first."; with a stash chest already in the bag "You already carry a stash chest."; and with every slot taken "Your bag is full." Then it stays, and no turn passes.
+- Decisions: D-340; this ends the stash chest's steps (D-325).
 
 ## 0.2.110 (2026-10-25)
 - Stacks are bigger: up to 20 Wood, Stone, oilcaps or heartcaps, and up to 5 flasks or potions. The workbench and stash chest are still 1 each, and you still carry only one of each.

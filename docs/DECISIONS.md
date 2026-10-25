@@ -130,14 +130,6 @@ store weapons, the hero needs a way to suit up before going after the bag.
 Q-045) The starting region is called Hearthwood: the home's woods, warm
 before the dark. "Gloamwood" stays free for a darker woods later.
 
-**D-349 · 2026-10-25 · Creatures show every next move, to try** (the owner's
-pick; answers Q-049) For now every creature the hero can see shows its next
-move, always, as in Into the Breach; the owner wants to try it and may try
-the other ways (only in light, only big wind-up moves) after a playtest. No
-mark shows for a creature in the dark that the hero can't see: nothing gives
-away that something moves there. A build step after the creature drawn to
-light; its look is proposed then.
-
 **D-350 · 2026-10-25 · The Bestiary** (the owner's picks; answers Q-047;
 builds D-262) The Journal's Bestiary tab gets a page for a creature only
 once it is met. A page counts how many were met and beaten, and says how
@@ -146,14 +138,6 @@ A page doesn't show everything at once: more of it shows the more the hero
 has met and fought that creature. What shows when is Q-058.
 *Q-058 here is Q-059 (2026-10-25, D-355): Q-058 was already used by
 D-332's question, and IDs are never reused. Answered by D-352.*
-
-**D-351 · 2026-10-25 · The creature drawn to light, how it acts** (the
-owner's pick, recommended; builds D-026, D-311) It has one new way, Seeks
-light: it walks toward the nearest light. While the lantern is lit that is
-the hero, and it bites like a rat; with the lantern off it heads for the
-nearest lit torch instead. Drinking oil was kept for a later step, so this
-step adds no other mechanic. Its look, name and numbers are proposed, with
-a mock-up, when it is built.
 
 **D-352 · 2026-10-25 · What a Bestiary page shows, and when** (the owner's
 pick, recommended; answers Q-059; builds D-350) On first meeting a creature:
@@ -178,30 +162,17 @@ to D-346 moved unchanged to `archive/DECISIONS-MODES.md` as this file neared
 12 KB. They stay in force. The Bestiary question opened at 0.2.116 as Q-058
 is Q-059, since Q-058 was already used (D-332).
 
-**D-356 · 2026-10-25 · The lampmoth** (the owner's picks, all recommended;
-builds D-351) The creature drawn to light is a pale moth, the Lampmoth: cream
-wings with an amber spot like a flame, a dark body and the pink hostile eyes
-(look A of the mock-up). Health 1, so any hit kills it; a bite of 1. Its way,
-Seeks light, needs no noticing: it walks toward the hero while the lantern is
-lit, from anywhere in the room, else toward the nearest lit torch, and stays
-by it; with neither it stays. On each floor of depths 2 to 4 one room the
-seed picks holds a lampmoth in place of its rat. It bites silently for now.
+**D-359 · 2026-10-25 · Tapping a plaque frames its creature** (the owner's
+picks, all recommended; builds D-357, D-358) Look A of the CL2 mock-up: the
+plaque gets an amber edge, and on the field amber corners mark the
+creature's tile, a small dark tag above it gives its name and hearts (below
+it at the room's top), and its next-move arrow shows. Tapping the same
+plaque again lets it go; tapping another moves the frame. It stays through
+turns and goes when the creature leaves the list. Tab frames the first
+plaque, then the next, then none. Framing takes no turn. The "+N" spot
+frames nothing.
 
-**D-357 · 2026-10-25 · The creature list** (the owner's idea and picks,
-all recommended; builds D-349) After two rounds of on-field marks (an arrow,
-corners, a tag; then smaller ones) the owner proposed a list instead
-(changed before merging: the first build drew small arrows on the field).
-A row under the room, covering none of it (held sideways, a column beside
-it), holds a plaque for each creature that has noticed the hero and stands
-on a lit tile: its face, and an icon for its next move if the hero waits
-(fangs for a bite, an arrow for a step). The row grows as creatures notice
-the hero and shrinks as they die. Tapping a plaque frames that creature on
-the field with its name and hearts, and its small next-move arrow; no other
-marks go on the field. Built in two steps, the row first, then the tap.
-
-**D-358 · 2026-10-25 · The creature list's row** (the owner's picks, all
-recommended; builds D-357) Upright, the row sits under the text line; held
-sideways, the plaques stack under the boxes in the strip's column. A
-lampmoth flying at the lit lantern counts as having noticed the hero; one
-that noticed but has no move keeps its plaque, with no icon. New plaques
-join at the end; past the room (7 upright), the last spot says "+N".
+**D-360 · 2026-10-25 · The creature list's decisions are archived** (as
+D-355, by the 12 KB rule in `CLAUDE.md`) D-349, D-351, D-356, D-357 and
+D-358 moved unchanged to `archive/DECISIONS-CREATURES.md` as this file
+passed 12 KB. They stay in force.

@@ -34,6 +34,7 @@ header says when it moved and why.
 | `DECISIONS-GROWING-6.md` | D-317 to D-323 | trees to chop, the workbench | D-327 |
 | `DECISIONS-CHEST.md` | D-324 to D-331, D-340 | the stash chest, CH1 to CH5 | D-343 |
 | `DECISIONS-MODES.md` | D-334, D-341, D-342, D-344 to D-346 | the three ways to play, MO1 to MO4 | D-355 |
+| `DECISIONS-CREATURES.md` | D-349, D-351, D-356 to D-358 | every next move, the lampmoth, the creature list | D-360 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -44,7 +45,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-1.md` | 0.1.0 to 0.1.12 |
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
-| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.110 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119 and at 0.2.120) |
+| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.111 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120 and at 0.2.121) |
 
 ## Progress
 

@@ -61,6 +61,7 @@ const app = {
   spokenLine: null,
   cam: { x: 0, y: 0 }, // the room pixel at the screen's top-left (src/core/camera.js)
   bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
+  framed: null, // the shown spot (foeAt) of the creature whose plaque was tapped (CL2, D-357)
   bagOnTop: false, // the bag's panel over the room's top, so it doesn't hide the hero (D-247)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
 };
@@ -229,6 +230,8 @@ function nudgeToward(dir) {
 // A tap on the hero waits a turn; a finger held on the hero does nothing (D-085).
 // With Swipe only, taps toward a side and held fingers don't walk; a tap on the hero still waits (D-189).
 const stepToward = (px, py, held = false) => {
+  const spot = frame.plaqueSpot(px, py); // a plaque frames its creature, or lets it go; no turn passes (CL2)
+  if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
   const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
   const dir = toward(h.x, h.y, tx, ty);
@@ -319,9 +322,16 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => { if (app.screen === 'play') stepToward(px, py, held); else screens.onPoint(px, py, held); };
 const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
+// Tab frames the first plaque, then the next, then none (CL2)
+const onTab = () => {
+  if (app.screen !== 'play') return false;
+  const spots = frame.plaqueSpots(), i = spots.indexOf(app.framed);
+  app.framed = spots[i + 1] || null;
+  return spots.length > 0;
+};
 const onChoose = () => { if (app.screen !== 'play' && !screens.onMapScreen()) screens.choose(); };
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType,
+  onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
 });
 const mapMoves = createMapMoves(stage, canvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap });
 const dev = createDev(stage, canvas, { // on for everyone (D-086)
