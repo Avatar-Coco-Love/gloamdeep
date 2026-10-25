@@ -8,7 +8,8 @@
 //
 // Each module becomes a function that returns its exports, in dependency
 // order. It handles only the forms the code uses: `import { a, b as c } from
-// './x.js'`, `export const` and `export function`. Anything else stops it.
+// './x.js'`, `export const`, `export function` and, for a file split into
+// several, `export { a, b } from './x.js'` (D-362). Anything else stops it.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -18,7 +19,7 @@ const ENTRY = 'src/main.js';
 const TAG = `<script type="module" src="${ENTRY}"></script>`;
 
 // § modules: read each file once, deps before the files that use them
-const IMPORT = /^import\s*\{([^}]*)\}\s*from\s*'([^']+)';?[ \t]*$/gm;
+const IMPORT = /^(import|export)\s*\{([^}]*)\}\s*from\s*'([^']+)';?[ \t]*$/gm;
 const order = [];
 const seen = new Set();
 function visit(file, path = []) {
@@ -26,8 +27,8 @@ function visit(file, path = []) {
   if (seen.has(file)) return;
   seen.add(file);
   const text = readFileSync(join(ROOT, file), 'utf8');
-  const imports = [...text.matchAll(IMPORT)].map(([line, names, from]) => ({
-    line, names, file: normalize(join(dirname(file), from)).split('\\').join('/'),
+  const imports = [...text.matchAll(IMPORT)].map(([line, kind, names, from]) => ({
+    line, kind, names, file: normalize(join(dirname(file), from)).split('\\').join('/'),
   }));
   for (const dep of imports) visit(dep.file, [...path, file]);
   order.push({ file, text, imports });
@@ -39,15 +40,17 @@ function visit(file, path = []) {
 const exportsOf = {};
 function wrap({ file, text, imports }) {
   let body = text;
-  for (const { line, names, file: dep } of imports) {
+  const exported = [], bound = new Set();
+  for (const { kind, names } of imports) if (kind === 'import') names.split(',').forEach((n) => bound.add(n.trim().split(/\s+/).pop()));
+  for (const { line, kind, names, file: dep } of imports) {
     for (const n of names.split(',').map((n) => n.trim().split(/\s+/)[0]).filter(Boolean)) {
       if (!exportsOf[dep].includes(n)) throw new Error(`${file}: imports ${n}, which the packer found no export of in ${dep}`);
     }
-    const fields = names.split(',').map((n) => n.trim()).filter(Boolean)
-      .map((n) => n.replace(/^(\w+)\s+as\s+(\w+)$/, '$1: $2')).join(', ');
-    body = body.replace(line, `const { ${fields} } = __gd['${dep}'];`);
+    const list = names.split(',').map((n) => n.trim()).filter(Boolean);
+    const fields = list.filter((n) => kind === 'import' || !bound.has(n)).map((n) => n.replace(/^(\w+)\s+as\s+(\w+)$/, '$1: $2'));
+    body = body.replace(line, fields.length ? `const { ${fields.join(', ')} } = __gd['${dep}'];` : '');
+    if (kind === 'export') exported.push(...list); // passed on; a name also imported is bound once
   }
-  const exported = [];
   body = body.replace(/^export\s+(const|function)\s+(\w+)/gm, (_, kind, name) => {
     exported.push(name);
     return `${kind} ${name}`;

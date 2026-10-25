@@ -1,4 +1,4 @@
-// § wait: standing still for one turn (src/core/turn.js, D-084)
+// § wait: standing still for one turn (src/core/endturn.js, D-084)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';

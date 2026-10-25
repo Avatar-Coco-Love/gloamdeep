@@ -45,8 +45,9 @@ Read the smallest file that answers the question.
 | File | What it holds | When to read it |
 | --- | --- | --- |
 | `docs/PROGRESS.md` | status, Next up, the last 3 log entries | every conversation |
-| `docs/DECISIONS.md` | D-168 to D-176, and D-332 on | grep for an ID or topic |
+| `docs/DECISIONS.md` | D-168 to D-176, D-336 to D-338, D-362 on | grep for an ID or topic |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
+| `docs/CONTENT.md` | every creature, find, tile and place, with numbers (D-363) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, similar games, ideas kept | when proposing a feature |
 | `docs/DESIGN.md` | the one-page design brief | before proposing any feature |
@@ -54,10 +55,10 @@ Read the smallest file that answers the question.
 | `docs/regions/` | one rule sheet per region, once designed | only the region a step touches |
 | `docs/VISION.md` | the pitch, inspirations, the pillars | when proposing a design |
 | `docs/ART-DIRECTION.md` | the visual rules taken from the style study | before any drawing code |
-| `docs/TECH.md` | architecture and code rules | before writing code |
+| `docs/TECH.md` | architecture, code rules, adding content | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tool list | when touching dev mode |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
-| `docs/archive/` | old decisions (in force), changelog, log; index in its `README.md` | grep only (`grep -n "D-123" docs/archive/DECISIONS-*.md`) |
+| `docs/archive/` | old decisions (in force), changelog, log; index in its `README.md` | grep only, as its `README.md` shows |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (see `reference/README.md`) |
 
 ## Keeping track: every PR does all of these

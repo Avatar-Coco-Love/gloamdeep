@@ -11,7 +11,6 @@ Format: `D-xxx · date · title`, then the decision and, where useful, why.
 
 ---
 
-
 **D-168 · 2026-10-19 · Stage 0.3: the world, next** (owner's pick) The
 world, made of regions, comes next as stage 0.3, starting with the
 starting region. Stage 0.2's steps not yet built (34 to 41) wait and are
@@ -68,24 +67,6 @@ builds on D-021) Players uncover the map as they explore. Dev tools get
 a switch that reveals the whole map, and a map mode, which may be the
 same map players see. Details are Q-042.
 
-**D-332 · 2026-10-25 · A fall leaves the world as it was** (the owner's
-call, answers Q-058; supersedes the rooms beginning again in D-119 and D-136,
-the new seed of D-148 and D-331's last sentence) Outside Hardcore (D-334), a
-fall changes nothing in the world: the same seed, every room as left, with
-what was set down, what chests keep, what was found and what grows back on
-its own time. The hero still wakes at the first room's start with full
-health and the starting oil.
-
-**D-333 · 2026-10-25 · Bigger stacks, by kind** (the owner's picks, both
-recommended; supersedes D-250 once built) Stacks hold 20 of small finds
-(Wood, Stone, oilcaps, heartcaps), 5 of flasks and potions, and 1 workbench
-or stash chest. In the bag and in a chest, a full stack goes on in the next
-free slot, so a kind can fill several slots.
-
-**D-335 · 2026-10-25 · What comes next** (the owner's pick, recommended)
-First a fall keeping the world (D-332, 0.2.108), then bigger stacks
-(D-333), then CH5, then the modes (D-334) as their own steps.
-
 **D-336 · 2026-10-25 · The first regular audit** (the owner's picks, all
 recommended) A conversation given to tidying, with nothing visible changed:
 `CLAUDE.md` loses its list of archive files, now one index in
@@ -100,6 +81,8 @@ recommended) `PROGRESS.md` names the next audit's version; when it comes,
 the audit is Next up. Each audit also splits one big code file into
 smaller ones, nothing visible changed (order may change: `history-0.2.js`,
 `screens.js`, `turn.js`, `main.js`). The next audit is at 0.2.129.
+*Partly superseded by D-362 (2026-10-25): that audit came at 0.2.123, and
+the next is at 0.2.143.*
 
 **D-338 · 2026-10-25 · Audits lose nothing** (the owner's wish) Nothing
 important, useful, educational or insightful is lost in a cleanup. Text is
@@ -107,77 +90,25 @@ moved word for word, never cut; only pointers, indexes and rules may be
 reworded. Each audit compares every removed line with the whole repo and
 lists, in its PR, each line not found word for word, with why.
 
-**D-339 · 2026-10-25 · Bigger stacks, the details** (the owner's picks, all
-recommended; builds D-333) With every stack of a kind full and no slot free,
-the lines stay as today: the kind's own line when the bag holds some, else
-as before. Only 1 workbench or stash chest is still carried (D-320). On a
-chest's panel a picked stack moves what fits, topping up its kind and then
-taking free slots; the rest stays, with "Your bag is full." or "The chest
-is full.". A slot's count stays in its corner, its dark box as wide as the
-number.
+**D-362 · 2026-10-25 · The second audit, early, turn.js split first** (the
+owner's picks, recommended; supersedes D-337's 0.2.129) The audit comes now, at 0.2.123,
+seven versions early, so things can go on being added cleanly and quickly;
+the next is at 0.2.143. Its split is `turn.js`, before the other big files:
+into `state.js`, `endturn.js`, `creatureturn.js`, `fall.js` and
+`bagturn.js`, with `turn.js` passing their rules on, so the rest of the
+game imports from it as before (the playtest packer learns that form).
+`history-0.2.js`, `screens.js` and `main.js` follow at later audits. The
+finished decisions D-332 to D-361 (but D-336 to D-338) moved unchanged to
+`archive/DECISIONS-GROWING-7.md` and `archive/DECISIONS-CREATURES.md`.
 
-**D-343 · 2026-10-25 · The stash chest's decisions are archived** (as
-D-327, by the 12 KB rule in `CLAUDE.md`) D-324 to D-331 and D-340 moved
-unchanged to `archive/DECISIONS-CHEST.md` as this file neared 12 KB. They
-stay in force.
+**D-363 · 2026-10-25 · A content index and an adding checklist** (the
+owner's picks, both recommended) `docs/CONTENT.md` lists every creature,
+find, tile, light and place with its numbers, where it turns up and its
+decisions, so proposals build on what exists. `TECH.md`'s "Adding content"
+lists the files each kind of content touches. A PR that adds or changes
+content updates both.
 
-**D-347 · 2026-10-25 · The knife stays in hand through a fall** (the owner's
-call; confirms D-345's "the hand keeps its weapon") A Normal fall leaves the
-bag but not the weapon in hand, for now: until the home base can make and
-store weapons, the hero needs a way to suit up before going after the bag.
-
-**D-348 · 2026-10-25 · Hearthwood** (the owner's pick, recommended; answers
-Q-045) The starting region is called Hearthwood: the home's woods, warm
-before the dark. "Gloamwood" stays free for a darker woods later.
-
-**D-350 · 2026-10-25 · The Bestiary** (the owner's picks; answers Q-047;
-builds D-262) The Journal's Bestiary tab gets a page for a creature only
-once it is met. A page counts how many were met and beaten, and says how
-the creature acts and how to fight it, so How to play keeps the controls.
-A page doesn't show everything at once: more of it shows the more the hero
-has met and fought that creature. What shows when is Q-058.
-*Q-058 here is Q-059 (2026-10-25, D-355): Q-058 was already used by
-D-332's question, and IDs are never reused. Answered by D-352.*
-
-**D-352 · 2026-10-25 · What a Bestiary page shows, and when** (the owner's
-pick, recommended; answers Q-059; builds D-350) On first meeting a creature:
-its drawing, its name, and how many were met and beaten. After the first one
-is beaten: how it acts. After 3 are beaten: how to fight it.
-
-**D-353 · 2026-10-25 · Sideways keeps the same view** (the owner's pick,
-recommended; answers Q-048) Held sideways, the screen shows the same room as
-upright, only drawn bigger when that fits (D-199); the room doesn't fill the
-screen, since past its walls is only dark. Asked again if wide outside
-places come.
-
-**D-354 · 2026-10-25 · The first cave goes on below depth 5** (the owner's
-pick, recommended; answers Q-046; partly supersedes D-185) The earth warrens
-(depths 5 to 7, D-227) and the dungeon (from depth 8, D-228) stay the first
-cave's deeper floors, as built. Where the first cave ends, and its portal to
-the endless depths, are decided at the portal step.
-
-**D-355 · 2026-10-25 · The modes' decisions are archived, a question renamed**
-(as D-343, by the 12 KB rule in `CLAUDE.md`) D-334, D-341, D-342 and D-344
-to D-346 moved unchanged to `archive/DECISIONS-MODES.md` as this file neared
-12 KB. They stay in force. The Bestiary question opened at 0.2.116 as Q-058
-is Q-059, since Q-058 was already used (D-332).
-
-**D-359 · 2026-10-25 · Tapping a plaque frames its creature** (the owner's
-picks, all recommended; builds D-357, D-358) Look A of the CL2 mock-up: the
-plaque gets an amber edge, and on the field amber corners mark the
-creature's tile, a small dark tag above it gives its name and hearts (below
-it at the room's top), and its next-move arrow shows. Tapping the same
-plaque again lets it go; tapping another moves the frame. It stays through
-turns and goes when the creature leaves the list. Tab frames the first
-plaque, then the next, then none. Framing takes no turn. The "+N" spot
-frames nothing.
-
-**D-360 · 2026-10-25 · The creature list's decisions are archived** (as
-D-355, by the 12 KB rule in `CLAUDE.md`) D-349, D-351, D-356, D-357 and
-D-358 moved unchanged to `archive/DECISIONS-CREATURES.md` as this file
-passed 12 KB. They stay in force.
-
-**D-361 · 2026-10-25 · How to play shows framing** (the owner's picks, both
-recommended; answers Q-060; builds D-359) The Touch, Mouse and Keyboard pages
-get a fifth row, Frame: "Tap a creature's plaque", "Click a creature's
-plaque" and "Tab". One line each; letting go isn't spelled out.
+**D-364 · 2026-10-25 · More creatures next** (the owner's pick,
+recommended) After the audit, the next content is more creatures for the
+region we have, built on the creatures' ways and the creature list. Each
+is designed with the owner before it is built.
