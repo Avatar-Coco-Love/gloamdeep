@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.112 (2026-10-25)
+- New journey now asks how you want to play: Gentle, Normal or Hardcore, with Normal picked to begin with. It comes after "Start over?" Yes too, and Esc or P go back to the title with the saved journey kept.
+- The picked way shows its note under the menu: "A fall keeps the bag.", "The bag waits where you fall." or "One life. A fall starts the world over."
+- The way you pick is saved with the journey, but for now every fall still plays as Gentle; Hardcore and Normal come in the next steps. A journey saved before this plays as Gentle.
+- Decisions: D-341, D-342; D-343 moved the stash chest's decisions to the archive.
+
 ## 0.2.111 (2026-10-25)
 - On a stash chest's panel, a new line sits between the bag's row and Close: Deconstruct chest. Down from the bag's row reaches it, then Close.
 - Picking it on an empty chest puts the chest back in your bag, whole, and the ground is clear again. A turn passes and the line says "You take down the stash chest."

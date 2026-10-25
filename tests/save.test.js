@@ -38,23 +38,30 @@ test('every older format has a step up to the next (D-266)', () => {
 });
 
 test('a format 1 save, from before experience and the bag, is upgraded, not dropped', () => {
-  const { xp, found, bag, held, ...old } = makeWorld('first', 9);
+  const { xp, found, bag, held, mode, ...old } = makeWorld('first', 9);
   const back = unpackJourney({ format: 1, jumped: true, state: old });
   assert.equal(back.jumped, true);
   assert.deepEqual(back.state.found, ['first']);
   assert.equal(back.state.xp, 0);
   assert.deepEqual(back.state.bag, []);
   assert.equal(back.state.held, null);
-  assert.deepEqual(back.state, makeWorld('first', 9));
+  assert.deepEqual(back.state, makeWorld('first', 9, 'gentle'));
   const now = unpackJourney(packJourney(back.state));
   assert.deepEqual(now.state, back.state);
 });
 
 test('a format 2 save, from before the events, is upgraded with none (D-267)', () => {
-  const { events, ...old } = makeWorld('first', 9);
+  const { events, mode, ...old } = makeWorld('first', 9);
   const back = unpackJourney({ format: 2, state: old });
   assert.deepEqual(back.state.events, []);
-  assert.deepEqual(back.state, makeWorld('first', 9));
+  assert.deepEqual(back.state, makeWorld('first', 9, 'gentle'));
+});
+
+test('a format 6 save, from before the modes, plays as Gentle, as a fall has so far (D-334, MO1)', () => {
+  const { mode, ...old } = makeWorld('first', 9);
+  const back = unpackJourney({ format: 6, state: old });
+  assert.equal(back.state.mode, 'gentle');
+  assert.deepEqual(back.state, makeWorld('first', 9, 'gentle'));
 });
 
 test('saving and loading go through localStorage, and work without it', () => {

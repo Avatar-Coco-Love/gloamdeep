@@ -63,9 +63,9 @@ const app = {
   bagOnTop: false, // the bag's panel over the room's top, so it doesn't hide the hero (D-247)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
 };
-const newWorld = () => {
+const newWorld = (mode) => {
   app.journeySeed = app.settings.seed || randomSeed();
-  return makeWorld('first', app.journeySeed);
+  return makeWorld('first', app.journeySeed, mode);
 };
 // The profile's saved journey comes back as it was, ready for Continue (D-238); with none
 // in use, or none saved, a new world waits unsaved
@@ -266,9 +266,9 @@ function freshView() {
   app.queued = app.nudge = app.hit = app.jab = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
-// § journey: New journey starts in a new world (D-187)
-function newJourney() {
-  app.state = newWorld(); app.jumped = false;
+// § journey: New journey starts in a new world (D-187), in the way to play picked (D-334)
+function newJourney(mode) {
+  app.state = newWorld(mode); app.jumped = false;
   freshView();
   savedState = null; keepJourney(); // saved at once, so Continue is there before a first turn
 }

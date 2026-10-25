@@ -61,7 +61,7 @@ import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMenu, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMenu, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
@@ -84,6 +84,7 @@ const WORDS = {
   title: 'Gloamdeep. New journey, Journal, How to play, Settings, Profiles or Seed Explorer: press Enter, or tap one.',
   saved: 'Gloamdeep. Continue, New journey, Journal, How to play, Settings, Profiles or Seed Explorer: press Enter, or tap one.',
   sure: `${SURE_HEADING} ${SURE_NOTE} Yes or No.`,
+  mode: `${MODE_HEADING}. ${MODE_MENU.map((l) => `${l.text}: ${l.note}`).join(' ')}`,
   paused: 'Paused. Resume, Journal, Settings, How to play, or Back to title.',
   play: '',
 };
@@ -98,10 +99,10 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // `takeDown(x, y)`, `make(item)` and `lookAt(slot)` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion } = ui;
-  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU
+  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU
     : settingsMenu(app.settings, reduceMotion.matches, app.pageFrom === 'paused' ? app.journeySeed : null));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
   function show(next, at = 0) {
@@ -436,7 +437,7 @@ export function createScreens(app, ui) {
     else if (app.screen === 'howto') closeHowTo();
     else if (app.screen === 'history') closeHistory();
     else if (app.screen === 'journal') closeJournal();
-    else if (app.screen === 'sure') titleAt('new');
+    else if (app.screen === 'sure' || app.screen === 'mode') titleAt('new');
     else if (app.screen === 'drop') closeDrop(false);
     else if (app.screen === 'name') closeName();
     else if (app.screen === 'cloak') closeCloak();
@@ -521,11 +522,12 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
+    if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
     if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
-    else if (id === 'new' || id === 'yes') { ui.newJourney(); show('play'); }
+    else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)
     else if (id === 'no') titleAt('new');
     else if (id === 'resume' || id === 'continue') show('play');
     else if (id === 'title') show('title');

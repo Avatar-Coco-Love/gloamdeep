@@ -43,11 +43,12 @@ export function makeState(room, start = FIRST_START, lights = [], enemies = [], 
 // § world: every place, the hero in the first one. The others wait in
 // `elsewhere` as they begin (stairs.js); `home.places` keeps them all as
 // they began, for a fall (D-136) and the dev reset. Generated depths begin
-// only when first reached (stairs.js, D-147).
-export function makeWorld(first = 'first', seed = 1) {
+// only when first reached (stairs.js, D-147). `mode` is the way to play picked
+// at New journey (D-334): gentle, normal or hardcore.
+export function makeWorld(first = 'first', seed = 1, mode = 'normal') {
   const begun = beginAll(seed);
   const here = begun[first], state = makeState(here.room, here.start, here.lights, here.enemies, here.items, seed);
-  return { ...state, place: first, found: [first], elsewhere: away(begun, first, {}), home: { ...state.home, place: first, places: begun } };
+  return { ...state, mode, place: first, found: [first], elsewhere: away(begun, first, {}), home: { ...state.home, place: first, places: begun } };
 }
 
 // Every hand-made place as it begins with this seed
