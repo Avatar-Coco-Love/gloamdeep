@@ -40,7 +40,8 @@ may leave cells empty).
   a third south of the first through a doorway (D-197), then generated
   depths 3 to 5. Depth 5 is its bottom, 5 levels in all.
 - A portal at the bottom leads to the endless depths, renewed on each
-  visit (D-019, D-032). Where the earth burrows (D-165) go now: Q-046.
+  visit (D-019, D-032). The earth warrens and the dungeon stay below depth 5 for
+  now; the bottom and its portal wait for the portal step (D-354).
 - The first cave gets its own rule sheet when it is built.
 
 ## NPC houses (D-184)

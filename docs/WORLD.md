@@ -98,8 +98,9 @@ whole floor (`src/core/map.js`). Next it turns between floors (D-206).
 ## Where today's game goes (D-175)
 The crypt rooms (two, and a third beside the first since D-197) and the
 generated depths below them become the first cave under the starting region, reached by a cave entrance on the
-surface. It ends at 5 levels; the endless depths move behind a portal at
-its bottom (D-185).
+surface. It goes on below depth 5 as built, warrens then the dungeon;
+where it ends, and its portal to the endless depths, wait for the portal
+step (D-185, D-354).
 
 ## The first outside room (D-209)
 A woods room, 17 × 20, made from the seed (`src/core/woods.js`): one

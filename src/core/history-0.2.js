@@ -2,6 +2,15 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.117', date: '2026-10-25', title: 'Four answers', lines: [
+    "No change to play: four of the owner's answers written down.",
+    "Decided for the next step: the creature drawn to light walks toward the nearest light. While your lantern is lit, that is you, and it bites like a rat; with the lantern off it heads for a lit torch instead. Its look comes as a mock-up.",
+    "Decided for later: a Bestiary page shows the creature's drawing, name and counts when you first meet it, how it acts once you beat one, and how to fight it once you beat three.",
+    "Held sideways, the screen keeps showing the same room, only bigger when that fits, as it does now.",
+    "The first cave keeps its warrens and dungeon below depth 5; where it ends, and its portal, wait for the portal step.",
+    "Behind the scenes: the modes' decisions moved to their own archive file, and the Bestiary question is renamed Q-059, since Q-058 was already used.",
+    "Decisions: D-351 to D-355. Questions closed: Q-046, Q-048, Q-059.",
+  ] },
   { v: '0.2.116', date: '2026-10-25', title: 'A check-in', lines: [
     "No change to play: a check-in on the project, and the owner's answers written down.",
     "In Normal, the knife in your hand stays with you through a fall, for now, so you can go after your bag armed.",

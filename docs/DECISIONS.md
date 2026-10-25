@@ -82,13 +82,6 @@ recommended; supersedes D-250 once built) Stacks hold 20 of small finds
 or stash chest. In the bag and in a chest, a full stack goes on in the next
 free slot, so a kind can fill several slots.
 
-**D-334 · 2026-10-25 · Three ways to play** (the owner's picks, all
-recommended) Gentle: a fall keeps the bag. Normal: the bag waits where you
-fell, to fetch (D-020); picked already at New journey. Hardcore: one life; a
-fall starts the world over, from the same seed unless the player changes it,
-and the profile's Records stay. A journey's mode can change only toward
-easier. Until modes are built, a fall plays as Gentle.
-
 **D-335 · 2026-10-25 · What comes next** (the owner's pick, recommended)
 First a fall keeping the world (D-332, 0.2.108), then bigger stacks
 (D-333), then CH5, then the modes (D-334) as their own steps.
@@ -123,55 +116,10 @@ taking free slots; the rest stays, with "Your bag is full." or "The chest
 is full.". A slot's count stays in its corner, its dark box as wide as the
 number.
 
-**D-341 · 2026-10-25 · The modes in four steps** (the owner's pick,
-recommended; builds D-334) MO1: New journey asks the way to play, saved
-with the journey; every fall still plays as Gentle. MO2: Hardcore, a fall
-starts the world over. MO3: Normal, the bag waits where you fell, its look
-mocked up first. MO4: changing the mode during a journey, only toward
-easier.
-
-**D-342 · 2026-10-25 · The way to play, picked** (step MO1 of D-341, the
-owner's picks, all recommended) After New journey, and after "Start over?"
-Yes, a page drawn like Start over asks "Choose a way to play": Gentle,
-Normal, Hardcore, Normal picked to begin with. The picked line's note shows
-grey under the menu: "A fall keeps the bag.", "The bag waits where you
-fall.", "One life. A fall starts the world over." Picking one starts the
-journey; Esc or P go back to the title, the saved journey kept. A journey
-saved before the modes plays as Gentle, as it has so far.
-
 **D-343 · 2026-10-25 · The stash chest's decisions are archived** (as
 D-327, by the 12 KB rule in `CLAUDE.md`) D-324 to D-331 and D-340 moved
 unchanged to `archive/DECISIONS-CHEST.md` as this file neared 12 KB. They
 stay in force.
-
-**D-344 · 2026-10-25 · Hardcore, a fall ends the journey** (step MO2 of
-D-341, the owner's picks, all recommended; builds D-334) The fall plays as
-D-234, then at the deepest dark a page drawn like Start over says "Your
-journey ends.": Same world (picked) or New world. The whole journey starts
-over as on day one (every room, the bag, the level, the map found, the time
-of day); the profile's Records and look stay, the fall counted, and the mode
-stays Hardcore. It is saved at once, from the same seed. New world takes
-Settings' seed, or a random one. The hero wakes as the light opens, with
-"The world begins again." Esc or P go to the title, Continue there.
-
-**D-345 · 2026-10-25 · Normal, the bag where you fell** (step MO3 of D-341,
-the owner's picks, all recommended; builds D-334, D-020) A Normal fall leaves
-the bag where the hero fell: a pouch tied at the neck, leather browns and a
-pale cord (look A of three); an empty bag leaves nothing, and the hand keeps
-its weapon (Claude's call, confirmed by D-347). Walking onto it puts back what fits,
-kinds topping up first: all back, "You take back your bag."; else the rest
-stays in it, "Your bag is full." Each fall leaves its own bag. The map marks
-each with a leather brown dot until it is taken back. The wake line stays.
-
-**D-346 · 2026-10-25 · Changing the way to play** (step MO4 of D-341, the
-owner's picks, all recommended; builds D-334) Settings opened from the pause
-menu has "Way to play: Normal" under the seed; from the title it isn't
-there. Picking it shows the three ways, the one played picked; the harder
-ones are grey, their note "Only an easier way can be picked.", and can't be
-picked. An easier one asks first, drawn like Start over: "Play Gentle?",
-"There is no going back.", Yes or No, No picked. Yes changes it, saved with
-the journey; No goes back to the ways (Claude's call). Bags left by Normal
-falls stay to fetch after a change to Gentle.
 
 **D-347 · 2026-10-25 · The knife stays in hand through a fall** (the owner's
 call; confirms D-345's "the hand keeps its weapon") A Normal fall leaves the
@@ -196,3 +144,36 @@ once it is met. A page counts how many were met and beaten, and says how
 the creature acts and how to fight it, so How to play keeps the controls.
 A page doesn't show everything at once: more of it shows the more the hero
 has met and fought that creature. What shows when is Q-058.
+*Q-058 here is Q-059 (2026-10-25, D-355): Q-058 was already used by
+D-332's question, and IDs are never reused. Answered by D-352.*
+
+**D-351 · 2026-10-25 · The creature drawn to light, how it acts** (the
+owner's pick, recommended; builds D-026, D-311) It has one new way, Seeks
+light: it walks toward the nearest light. While the lantern is lit that is
+the hero, and it bites like a rat; with the lantern off it heads for the
+nearest lit torch instead. Drinking oil was kept for a later step, so this
+step adds no other mechanic. Its look, name and numbers are proposed, with
+a mock-up, when it is built.
+
+**D-352 · 2026-10-25 · What a Bestiary page shows, and when** (the owner's
+pick, recommended; answers Q-059; builds D-350) On first meeting a creature:
+its drawing, its name, and how many were met and beaten. After the first one
+is beaten: how it acts. After 3 are beaten: how to fight it.
+
+**D-353 · 2026-10-25 · Sideways keeps the same view** (the owner's pick,
+recommended; answers Q-048) Held sideways, the screen shows the same room as
+upright, only drawn bigger when that fits (D-199); the room doesn't fill the
+screen, since past its walls is only dark. Asked again if wide outside
+places come.
+
+**D-354 · 2026-10-25 · The first cave goes on below depth 5** (the owner's
+pick, recommended; answers Q-046; partly supersedes D-185) The earth warrens
+(depths 5 to 7, D-227) and the dungeon (from depth 8, D-228) stay the first
+cave's deeper floors, as built. Where the first cave ends, and its portal to
+the endless depths, are decided at the portal step.
+
+**D-355 · 2026-10-25 · The modes' decisions are archived, a question renamed**
+(as D-343, by the 12 KB rule in `CLAUDE.md`) D-334, D-341, D-342 and D-344
+to D-346 moved unchanged to `archive/DECISIONS-MODES.md` as this file neared
+12 KB. They stay in force. The Bestiary question opened at 0.2.116 as Q-058
+is Q-059, since Q-058 was already used (D-332).

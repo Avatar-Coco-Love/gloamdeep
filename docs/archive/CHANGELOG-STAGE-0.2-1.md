@@ -1,8 +1,14 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.106)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.107)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), and 0.2.104 to 0.2.106 at 0.2.115 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115 and 0.2.107 at 0.2.117 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.107 (2026-10-25)
+- On a stash chest's panel, the gold frame now reaches the bag's row too: Down from the chest's second row goes to the bag, and Down again to Close.
+- Press Enter or Space, or click or tap, on a filled slot and its whole stack moves to the other side: from the bag into the chest, or out of the chest into the bag. It joins a stack of its kind when all of it fits there, or takes the next empty slot. It takes no turn and says nothing.
+- When it can't all go, the line says "Your bag is full." or "The chest is full.", and nothing moves. Each chest keeps its own things, kept in your save. A fall loses a chest set down, and what it held, as its room begins again.
+- Decisions: D-331. A question for the owner: Q-058.
 
 ## 0.2.106 (2026-10-25)
 - Walk into a stash chest you set down, or click or tap it from beside it, to open it. The room dims behind a box headed STASH CHEST, with its 12 empty slots in two rows, the bag's 6 slots under them, and Close. Opening it takes no turn.
