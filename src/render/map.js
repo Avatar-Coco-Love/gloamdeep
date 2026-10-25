@@ -4,7 +4,8 @@
 // else greyed (D-206). Each room is
 // drawn small from the tiles remembered: floors in the floor's grey, walls
 // beside them in the brick's top edge, found stairs in their violet, the
-// hero a blinking gold dot on their own floor (still with reduced motion).
+// hero a blinking gold dot on their own floor (still with reduced motion), each
+// bag where you fell a leather brown dot (MO3, D-345).
 // Rooms sit a tile apart, a dark seam between them, and a pale blue line
 // bridges each doorway found (D-224). It scrolls and zooms
 // in its window (the view, core/map.js); a tap outside the box closes it (main.js).
@@ -22,6 +23,7 @@ const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0' }; // ART-D
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green
 const TONE = { crypt: '#69748b', rock: '#7a8396', earth: '#8e7a62', dungeon: '#4c5a84', woods: '#4f8a3f' };
 const wallOf = (room) => TONE[room.look] || SHOWN.wall;
+const BAG = '#9a7350'; // the bag where you fell, in its leather brown (MO3, D-345)
 const DOOR = '#a6e0e4'; // the cloak's pale blue, not the stairs' violet or the lantern's amber
 // The box, 8 pixels in from the picture's edges, and the map's window inside it, under the heading
 export const BOX = { x: 8, y: 8, w: W - 16, h: SCREEN_H - 16 };
@@ -108,6 +110,8 @@ export function drawMap(c, view, t, still, turns, bar = null) {
   c.beginPath(); c.rect(win.x, win.y, win.w, win.h); c.clip();
   const mx = win.x - view.x, my = win.y - view.y;
   c.drawImage(drawn, mx, my);
+  c.fillStyle = BAG;
+  for (const b of plan.bags || []) c.fillRect(mx + b.x * k, my + b.y * k, k, k);
   if (plan.hero && (still || Math.floor(t / 400) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(mx + plan.hero.x * k, my + plan.hero.y * k, k, k); }
   c.restore();
 }

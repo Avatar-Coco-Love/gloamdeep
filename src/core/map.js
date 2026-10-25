@@ -14,7 +14,7 @@ import { fresh } from './stairs.js';
 
 const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 
-// (state, reveal, depth) → { depth, cols, rows, rooms: [{ id, x, y, room, seen }], hero, doors }.
+// (state, reveal, depth) → { depth, cols, rows, rooms: [{ id, x, y, room, seen }], hero, doors, bags }.
 // A room's x, y is its top-left tile on the whole floor; cols, rows the floor's
 // size in tiles, seams included. `doors` are the seam tiles a found doorway
 // bridges, [{ x, y }]. `seen` is null when everything shows (reveal). `hero` is the
@@ -23,11 +23,19 @@ const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 // opens on the part its stairs lead to, if seen, else on a part that is.
 export function floorPlan(state, reveal = false, depth = depthOf(state.place)) {
   const both = depth === 0 && joinedSurface(state, reveal);
-  if (both) return withDoors(both);
+  if (both) return withBags(state, withDoors(both));
   const seen = (id) => reveal || state.elsewhere[id]?.seen.some(Boolean);
   const start = depth === depthOf(state.place) ? state.place
     : [placeAt(depth), ...Object.keys(state.elsewhere)].find((id) => depthOf(id) === depth && seen(id)) || placeAt(depth);
-  return withDoors(partPlan(state, reveal, depth, start));
+  return withBags(state, withDoors(partPlan(state, reveal, depth, start)));
+}
+
+// The plan with its `bags`: each bag where you fell on the floor's tiles, [{ x, y }],
+// until it is taken back (MO3, D-345)
+function withBags(state, plan) {
+  const items = (id) => (id === state.place ? state.items : state.elsewhere[id]?.items) || [];
+  const bags = plan.rooms.flatMap(({ id, x, y }) => items(id).filter((it) => it.id === 'lostbag').map((it) => ({ x: x + it.x, y: y + it.y })));
+  return { ...plan, bags };
 }
 
 // The part of floor `depth` that holds room `start`, laid out on its grid,

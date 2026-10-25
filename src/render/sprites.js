@@ -121,6 +121,12 @@ const CHEST = { mirror: false, rows: [
   '', '', '', '....kkkkkkkk....', '..kkWWWWWWWWkk..', '.kHWWWWWWWWWWHk.', '.kLNNNNNNNNNNLk.', '.kkkkkkkkkkkkkk.', '.kHWWWkyykWWWHk.', '.kLWWWWkkWWWWLk.',
   '.kLNNNNNNNNNNLk.', '.kMNNNNNNNNNNMk.', '.kDnnnnnnnnnnDk.', '.kkkkkkkkkkkkkk.'] };
 
+// § lost bag: the bag where you fell, a pouch tied at the neck with a pale cord, the
+// bag button's shape in the trunk's browns (MO3, D-345, look A of three)
+const LOSTBAG = { mirror: true, rows: [
+  '', '', '.....k.k', '......ka', '.....kkN', '......kN', '.....kWN', '....kWWW', '...kWaWW', '..kWaWWW',
+  '..kWWWWW', '..kNWWWW', '..kNNWWW', '...knNNN', '....kkkk'] };
+
 // § potion: a round red bottle under a cork, a pale glass neck and a light
 // gleam on its left (D-309, look A of three)
 const POTION = { mirror: true, rows: [
@@ -167,7 +173,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.

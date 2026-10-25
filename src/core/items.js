@@ -56,4 +56,8 @@ export const ITEMS = {
   chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
     bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
     sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
+  // Normal's fall leaves the bag where the hero fell, `holds` its stacks (MO3, D-334, D-345).
+  // Walking onto it puts back what fits, with its `says` line; the rest stays in it,
+  // with its `full` line. Each fall leaves its own. It never grows back.
+  lostbag: { id: 'lostbag', kind: 'item', name: 'Your bag', fetch: true, says: 'bagBack', full: 'bagFull' },
 };

@@ -153,3 +153,12 @@ of day); the profile's Records and look stay, the fall counted, and the mode
 stays Hardcore. It is saved at once, from the same seed. New world takes
 Settings' seed, or a random one. The hero wakes as the light opens, with
 "The world begins again." Esc or P go to the title, Continue there.
+
+**D-345 · 2026-10-25 · Normal, the bag where you fell** (step MO3 of D-341,
+the owner's picks, all recommended; builds D-334, D-020) A Normal fall leaves
+the bag where the hero fell: a pouch tied at the neck, leather browns and a
+pale cord (look A of three); an empty bag leaves nothing, and the hand keeps
+its weapon (Claude's call, to confirm). Walking onto it puts back what fits,
+kinds topping up first: all back, "You take back your bag."; else the rest
+stays in it, "Your bag is full." Each fall leaves its own bag. The map marks
+each with a leather brown dot until it is taken back. The wake line stays.

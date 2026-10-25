@@ -43,10 +43,10 @@ test('the fall is still shown where it happened (D-234)', () => {
   assert.equal(n.fell.health, 0);
 });
 
-test('Gentle and Normal falls keep the world (D-332)', () => {
+test('Gentle and Normal falls keep the world (D-332); Normal leaves the bag (D-345)', () => {
   for (const mode of ['gentle', 'normal']) {
     const { s, n } = fallen(mode);
-    assert.deepEqual(n.bag, s.bag);
+    assert.deepEqual(n.bag, mode === 'gentle' ? s.bag : []);
     assert.equal(n.xp, s.xp);
     assert.equal(shownLine(n).text, 'You fall, and wake again.');
   }
