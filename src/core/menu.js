@@ -1,5 +1,7 @@
 // § menu: the title screen's lines (D-177). Only what works is listed (D-178):
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
+import { get } from './registry.js';
+import { bagHas } from './bag.js';
 import { controlsText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
 
 // The Seed Explorer, a dev tool, is its last line (D-214)
@@ -30,6 +32,12 @@ export const settingsMenu = (s, deviceReduced = false, journey = null) => [
 ];
 
 // § move: Up and Down walk the lines and stop at the ends
-// The workbench's panel (WB3, D-323): things to make at it come above Deconstruct later
-export const BENCH_MENU = [{ id: 'deconstruct', text: 'Deconstruct workbench' }, { id: 'close', text: 'Close' }];
+// The workbench's panel (WB3, D-323): each thing made at it is a line above Deconstruct,
+// its cost on the right, dim with too few in the bag (the stash chest, CH1, D-326)
+export const BENCH_MAKES = ['chest'];
+const costText = (of) => Object.entries(of).map(([id, n]) => `${n} ${get(id).name}`).join(' · ');
+export const benchMenu = (bag) => [
+  ...BENCH_MAKES.map((id) => ({ id: 'make', item: id, text: get(id).name, cost: costText(get(id).bench.of), dim: !bagHas(bag, get(id).bench.of) })),
+  { id: 'deconstruct', text: 'Deconstruct workbench' }, { id: 'close', text: 'Close' },
+];
 export const moveChoice = (i, dir, count) => Math.max(0, Math.min(count - 1, i + (dir === 'up' ? -1 : dir === 'down' ? 1 : 0)));

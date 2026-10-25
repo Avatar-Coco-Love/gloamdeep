@@ -54,6 +54,10 @@ export const LINES = {
   benchLook: { texts: ['A workbench, folded small.', 'Set it down on the surface.', 'Bigger things are made at it.'], warn: false },
   benchSet: { text: 'You set down the workbench.', warn: false }, // a turn (WB2, D-322)
   benchTake: { text: 'You take down the workbench.', warn: false }, // Deconstruct workbench, a turn (WB3, D-323)
+  chestMake: { text: 'You make a stash chest.', warn: false }, // its line on the bench panel, a turn (CH1, D-326)
+  chestFull: { text: 'You already carry a stash chest.', warn: false }, // only 1 is carried, free
+  chestShort: { text: 'You need 3 Wood and 3 Stone.', warn: false }, // too few, free
+  chestLook: { texts: ['A stash chest, empty.', 'Set it down on the surface.', "It keeps what the bag can't."], warn: false },
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free

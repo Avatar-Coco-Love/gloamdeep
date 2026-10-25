@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.103 (2026-10-25)
+- The workbench panel has a new top line: Stash chest, with its cost, 3 Wood · 3 Stone, on the right. Picking it uses them up and puts a stash chest in the bag. A turn passes, the line says "You make a stash chest.", and the panel stays open. The panel's lines now sit at its left.
+- With too few, the line shows dim and says "You need 3 Wood and 3 Stone."; with a chest already in the bag, "You already carry a stash chest." Neither takes a turn. You carry only 1.
+- Choosing the chest in the bag says one of its lines in turn, such as "A stash chest, empty." Its look is a rounded wooden lid, grey stone at its corners and a gold latch. Setting it down comes next.
+- Decisions: D-326.
+
 ## 0.2.102 (2026-10-25)
 - The stash chest is settled: it is made at the workbench for 3 Wood and 3 Stone, the first use for stone. It has a rounded wooden lid, grey stone at its corners and a gold latch.
 - One chest holds 12 slots, two rows like the bag's, in stacks of 3. You can set down as many as you like, and each keeps its own things; you carry only 1.

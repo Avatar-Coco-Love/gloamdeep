@@ -188,3 +188,13 @@ one into the bag. CH2: set it down, the bench's way. CH3: bumping it opens
 its panel, 12 empty slots. CH4: putting things in and taking them out. CH5:
 taking it down, back into the bag, only when empty; with anything inside it
 says so, free, and stays.
+
+**D-326 · 2026-10-25 · The stash chest made** (step CH1 of D-325, the
+owner's picks, all recommended) The bench panel's top line is "Stash chest",
+"3 Wood · 3 Stone" dim on its right, as in the D-324 mock-up, so the panel's
+lines now sit at its left. Picking it takes the Wood and Stone and puts 1
+stash chest in the bag, a turn, saying "You make a stash chest."; the panel
+stays open. With too few the line is dim and says "You need 3 Wood and 3
+Stone.", free; with one carried, "You already carry a stash chest.", free.
+Choosing it in the bag says in turn "A stash chest, empty.", "Set it down on
+the surface.", "It keeps what the bag can't."

@@ -51,7 +51,7 @@ this page and a decision disagree, the decision wins.
   bigger things are made at it, on its panel, where Deconstruct workbench
   puts it back in the bag (D-314, D-319, D-320, D-322, D-323).
 - **Stash chest:** made at the workbench from 3 Wood and 3 Stone, set down
-  on the surface; each one keeps 12 slots of its own (D-021, D-324, D-325).
+  on the surface; each one keeps 12 slots of its own (D-021, D-324, D-325, D-326).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).

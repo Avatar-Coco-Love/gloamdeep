@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, eat, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -151,6 +151,7 @@ function tryStep(dir) {
   else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn (D-247)
   else if (dir.craft !== undefined) app.state = craft(app.state, dir.craft); // a flask from 3 oilcaps, one turn (D-299)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
+  else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench back into the bag, one turn (WB3, D-323)
   else if (panelBeside(before, dir)) { screens.openBench(panelBeside(before, dir)); return; } // bumping the bench opens its panel, free (WB3)
@@ -290,7 +291,7 @@ const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion, newJourney, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }),
-  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }),
+  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
 });

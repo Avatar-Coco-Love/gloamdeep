@@ -20,6 +20,9 @@ export function bagAdd(bag, id, form) {
 // Whether item `id`'s stack is at its limit
 export const stackFull = (bag, id) => bag.some((s) => s.id === id && s.n >= most(id));
 
+// Whether the bag holds at least `of`'s counts, { itemId: n } (a bench craft's cost, CH1)
+export const bagHas = (bag, of) => Object.entries(of).every(([id, n]) => bag.filter((s) => s.id === id).reduce((a, s) => a + s.n, 0) >= n);
+
 // The bag with n (one unless said) taken from slot i; an emptied slot is
 // gone, and the ones after it move up
 export function bagTake(bag, i, n = 1) {

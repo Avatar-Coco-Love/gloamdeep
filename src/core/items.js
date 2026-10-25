@@ -50,4 +50,9 @@ export const ITEMS = {
   // the side picked, on the surface, with its line (WB2, D-322; turn.js).
   workbench: { id: 'workbench', kind: 'item', name: 'Workbench', bag: true, max: 1, look: 'benchLook', full: 'benchFull',
     sets: { tile: 'bench', says: 'benchSet' } },
+  // Made at the workbench, its line on the bench panel, never found (CH1, D-324, D-326):
+  // `bench.of` is its cost, taken from the bag, with its `says` line; with too few, its
+  // `short` line. Only `max` 1 is carried; choosing it says one of its `look` lines.
+  chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
+    bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' } },
 };
