@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 
 const KB = 1024;
-const CAPS = { 'docs/DECISIONS.md': 12 * KB, 'docs/PROGRESS.md': 5 * KB };
+const CAPS = { 'docs/DECISIONS.md': 12 * KB, 'docs/PROGRESS.md': 4 * KB };
 
 // Every .md file but the archive's, from the repo's top folder down
 function docs(dir = '.') {
@@ -15,7 +15,7 @@ function docs(dir = '.') {
   });
 }
 
-test('every doc is under its cap: 8 KB, DECISIONS.md 12 KB, PROGRESS.md 5 KB', () => {
+test('every doc is under its cap: 8 KB, DECISIONS.md 12 KB, PROGRESS.md 4 KB', () => {
   const files = docs();
   assert.ok(files.includes('CLAUDE.md') && files.includes('CHANGELOG.md'));
   for (const f of files) {

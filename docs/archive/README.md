@@ -3,7 +3,8 @@
 Older material moves here instead of being deleted. Search these files with
 grep (`grep -n "D-123" docs/archive/DECISIONS-*.md`). Never read them whole.
 The 8 KB cap doesn't apply here. This page is the one index of the archive
-(D-336): when a file is added here, add its line below.
+(D-336): when a file is added here, add its line below. Each file's own
+header says when it moved and why.
 
 ## Decisions (all still in force unless marked superseded)
 
@@ -22,7 +23,7 @@ The 8 KB cap doesn't apply here. This page is the one index of the archive
 | `DECISIONS-GETTING-AROUND.md` | D-194 to D-200 | steps 43 to 45, U1, U2 | D-208 |
 | `DECISIONS-REGION.md` | D-201 to D-208 | a region and its map, 46 to 47b | D-213 |
 | `DECISIONS-SURFACE.md` | D-209 to D-218 | the surface, 48 to 51, the Seed Explorer | D-221 |
-| `DECISIONS-DEEPER.md` | D-219 to D-233 | the held walk, deeper floors | D-236 |
+| `DECISIONS-DEEPER.md` | D-219 to D-233 | the held walk, deeper floors, 51b to 59c, 34, 35, M1 | D-236 |
 | `DECISIONS-LAST-STEPS-1.md` | D-234 to D-246 | steps 36 to 40 | D-251 |
 | `DECISIONS-LAST-STEPS-2.md` | D-247 to D-260 | the bag, the knife, Version history, sounds | D-265 |
 | `DECISIONS-GROWING-1.md` | D-261 to D-269 | built to grow, G1 to G4 | D-274 |

@@ -1,6 +1,6 @@
 # Progress
 
-**Start every conversation here.** Keep this file under 5 KB: "Next up"
+**Start every conversation here.** Keep this file under 4 KB: "Next up"
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
@@ -44,7 +44,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   `CLAUDE.md` 10 → 7.9 KB, `PROGRESS.md` 8 → 3 KB, `CHANGELOG.md`
   52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's
   cap. An audit every 20 versions, each also splitting one big code file
-  (D-336, D-337). No playtest: nothing to play.
+  (D-336, D-337); audits lose nothing (D-338). No playtest: nothing to play.
 - **2026-10-25, 0.2.108, a fall keeps the world.** Outside Hardcore a fall
   changes nothing in the world: the same seed, rooms as left, set-down
   things and chests kept; the hero wakes at the start (D-332, answers

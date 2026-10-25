@@ -95,7 +95,7 @@ Read the smallest file that answers the question.
 ## Keeping context small
 
 - No doc over 8 KB, except `docs/DECISIONS.md` (12 KB), `docs/PROGRESS.md`
-  (5 KB) and the grep-only files in `docs/archive/`; `npm test` checks this
+  (4 KB) and the grep-only files in `docs/archive/`; `npm test` checks this
   (`tests/docs.test.js`, D-336). Archive or split when a doc gets close.
   Nothing is deleted. Old material moves to `docs/archive/`, and
   `CHANGELOG.md` keeps only its newest entries the same way.
@@ -103,6 +103,8 @@ Read the smallest file that answers the question.
   `docs/PROGRESS.md`'s "Next audit" line comes, the audit is Next up. It
   measures what a conversation reads at its start, archives, trims, and
   splits one big code file, nothing visible changed, then sets the next.
+  Nothing useful is lost (D-338): moved text stays word for word, and the
+  PR lists every line reworded or dropped (check with `git diff -U0`).
 - Keep code files small. Mark sections with `// § name` so a file can be
   read by line range (`grep -n "§"`).
 - Test output: one line per test or check, never full logs or page dumps.

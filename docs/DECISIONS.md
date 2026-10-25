@@ -167,7 +167,7 @@ recommended) A conversation given to tidying, with nothing visible changed:
 `archive/README.md`; `PROGRESS.md`'s ticked build steps move to the
 progress archive; `CHANGELOG.md` keeps its newest entries, the rest in
 `archive/CHANGELOG-STAGE-0.2-1.md`; and `tests/docs.test.js` fails when a
-doc passes its cap (8 KB; `DECISIONS.md` 12 KB; `PROGRESS.md` 5 KB) or
+doc passes its cap (8 KB; `DECISIONS.md` 12 KB; `PROGRESS.md` 4 KB, as before) or
 the archive index misses a file. The 0.2.1 setup script line is in place.
 
 **D-337 · 2026-10-25 · An audit every 20 versions** (the owner's picks, both
@@ -175,3 +175,9 @@ recommended) `PROGRESS.md` names the next audit's version; when it comes,
 the audit is Next up. Each audit also splits one big code file into
 smaller ones, nothing visible changed (order may change: `history-0.2.js`,
 `screens.js`, `turn.js`, `main.js`). The next audit is at 0.2.129.
+
+**D-338 · 2026-10-25 · Audits lose nothing** (the owner's wish) Nothing
+important, useful, educational or insightful is lost in a cleanup. Text is
+moved word for word, never cut; only pointers, indexes and rules may be
+reworded. Each audit compares every removed line with the whole repo and
+lists, in its PR, each line not found word for word, with why.

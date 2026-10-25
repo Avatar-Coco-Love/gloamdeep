@@ -5,7 +5,7 @@ export const HISTORY_02 = [
   { v: '0.2.109', date: '2026-10-25', title: 'A tidy-up, the first audit', lines: [
     "Tidying, with nothing in the game changed: the notes Claude reads at the start of each conversation are shorter, and older changelog entries and finished build steps moved to the archive. This Version history still holds every version.",
     "A check now fails when a notes file grows past its size limit, and an audit like this one comes every 20 versions. The next is at 0.2.129.",
-    "Decisions: D-336, D-337.",
+    "Decisions: D-336, D-337, D-338.",
   ] },
   { v: '0.2.108', date: '2026-10-25', title: 'A fall keeps the world', lines: [
     "A fall now leaves the world as it was. You still wake at the first room's start with full hearts and the starting oil, but every room stays as you left it: the same seed and layouts, rats where they were, torches still lit, your set-down workbench and stash chest in place with what the chest holds, and the map of every room you found.",
