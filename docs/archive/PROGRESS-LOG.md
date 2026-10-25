@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.110, bigger stacks.** Stacks hold 20 small finds, 5
+  flasks or potions; a full stack goes on in a free slot. Still 1 workbench
+  or chest carried; full lines as before; a chest moves what fits, the rest
+  stays with its line; the count's box widens (D-333, D-339).
+  [Playtest](https://claude.ai/artifact/SApq31qzZj2JxjKjsTnSCe).
 - **2026-10-25, 0.2.109, the first audit.** Nothing in the game changed.
   `CLAUDE.md` 10 → 7.9 KB, `PROGRESS.md` 8 → 3 KB, `CHANGELOG.md`
   52 → 4 KB; one archive index; `tests/docs.test.js` checks every doc's

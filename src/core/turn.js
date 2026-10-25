@@ -224,13 +224,19 @@ function chaseStep(state, e, sign = 1) {
 // with what was set down, what chests keep and what grows back (D-332). `fell` keeps
 // the room as the hero fell in it, for the fall to be shown before they wake (D-234).
 // It is a `fall` event.
+// In Hardcore the world starts over instead, from the same seed (D-334, D-344).
 function fall(state) {
-  const { place, hero } = state.home;
-  const woke = place === state.place ? { ...state, hero } : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
   const { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn } = state;
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
+  if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
+  const { place, hero } = state.home;
+  const woke = place === state.place ? { ...state, hero } : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
   return note(say({ ...woke, fell, health: maxHealth(state), oil: OIL.start }, 'fall'), 'fall');
 }
+// § start over: Hardcore's fall (MO2, D-344): a new Hardcore world from `seed`, as on
+// day one: every room, the bag, the level, the map found and the time of day. The
+// profile's Records are kept elsewhere (profile.js). "The world begins again." is said.
+export const startOver = (seed) => say(makeWorld('first', seed, 'hardcore'), 'anew');
 
 // § attack: the hero swings the lantern at the foe and stays put (D-109),
 // or the weapon held, which hits for its own `hit` (D-252). It passes a turn

@@ -22,6 +22,9 @@ export const MODE_MENU = [
 ];
 export const MODE_HEADING = 'Choose a way to play';
 export const MODE_FIRST = MODE_MENU.findIndex((l) => l.id === 'normal');
+// § journey ends: after a Hardcore fall, the world begun again from the same seed or a new one (MO2, D-344)
+export const ENDED_MENU = [{ id: 'same', text: 'Same world' }, { id: 'other', text: 'New world' }];
+export const ENDED_HEADING = 'Your journey ends.';
 // The pause menu during play (D-177, D-187, D-193), the Journal under Resume (D-270)
 export const PAUSE_MENU = [{ id: 'resume', text: 'Resume' }, { id: 'journal', text: 'Journal' }, { id: 'settings', text: 'Settings' }, { id: 'howto', text: 'How to play' }, { id: 'title', text: 'Back to title' }];
 // Settings, from the title or the pause menu (D-189, D-190, D-210, D-255): picking a switch moves it to the next choice.

@@ -37,7 +37,7 @@ import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
-import { PAUSE_MENU, benchMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING } from '../core/menu.js';
+import { PAUSE_MENU, benchMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
@@ -80,6 +80,7 @@ export function createFrame(app, ui) {
     else if (screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
     else if (screen === 'sure') drawTitle(ctx, SURE_MENU, app.chosen, t, still(), SURE_HEADING, SURE_NOTE);
     else if (screen === 'mode') drawTitle(ctx, MODE_MENU, app.chosen, t, still(), MODE_HEADING, MODE_MENU[app.chosen].note);
+    else if (screen === 'ended') drawTitle(ctx, ENDED_MENU, app.chosen, t, still(), ENDED_HEADING); // after a Hardcore fall (D-344)
     else drawTitle(ctx, screens.menuOf(screen), app.chosen, t, still(), screen === 'settings' ? 'Settings' : null);
   }
 
