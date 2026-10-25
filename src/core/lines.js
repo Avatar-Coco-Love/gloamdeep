@@ -16,6 +16,7 @@ export const LINES = {
   lampmothDie: { text: 'The lampmoth flutters and falls.', warn: false }, // (D-356)
   lampmothBite: { text: 'The lampmoth bites you.', warn: false }, // (D-356)
   flaskMimicWakes: { text: 'The flask opens its eyes!', warn: false }, // (D-368)
+  flaskMimicHurt: { text: 'The flask mimic cracks.', warn: false }, // (D-369)
   flaskMimicSettles: { text: 'The flask mimic settles down.', warn: false }, // (D-368)
   flaskMimicDie: { text: 'The flask mimic cracks and falls still.', warn: false }, // (D-366)
   flaskMimicBite: { text: 'The flask mimic bites you.', warn: false }, // (D-366)
@@ -83,6 +84,7 @@ const OIL_LOW = 0.2; // "under 20%", as in the study
 // line's {n}, as the level does. A line with `texts` says the one after the
 // last it said, kept in `state.told` (D-297).
 export function say(state, id, n) {
+  if (!LINES[id]) return state; // a creature with no line for this says nothing new (D-369)
   if (LINES[id]?.texts) {
     const i = (state.told?.[id] ?? 0) % LINES[id].texts.length;
     return { ...state, line: { id, turn: state.turn, i }, told: { ...state.told, [id]: i + 1 } };
@@ -97,6 +99,7 @@ const filled = new WeakMap();
 export function shownLine(state) {
   if (!state.line || state.turn - state.line.turn >= LINE_TURNS) return null;
   const entry = LINES[state.line.id];
+  if (!entry) return null; // a line that isn't there, as an old save may hold, shows nothing (D-369)
   if (entry.texts) {
     if (!filled.has(state.line)) filled.set(state.line, { text: entry.texts[state.line.i ?? 0], warn: entry.warn });
     return filled.get(state.line);

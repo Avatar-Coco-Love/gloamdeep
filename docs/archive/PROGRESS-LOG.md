@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.122, How to play: Frame.** Two picks, both
+  recommended: a fifth row, Frame, on the Touch, Mouse and Keyboard pages:
+  tap or click a creature's plaque, or Tab (D-361, answers Q-060).
+  [Playtest](https://claude.ai/artifact/VNP6Xba7pYhK3BpWXzqhVx).
 - **2026-10-25, 0.2.121, framing a creature.** Mock-up of three looks from
   the real game, A picked: amber plaque edge, corners on the tile, a tag
   with name and hearts above it, the next-move arrow. Tap again to let go;

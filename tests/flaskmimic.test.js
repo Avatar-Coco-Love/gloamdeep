@@ -6,7 +6,7 @@ import { makeState, step, wait, FIRST_START, creatureList, nextMoves } from '../
 import { layoutAt } from '../src/core/region.js';
 import { biteSound } from '../src/core/enemies.js';
 import { get } from '../src/core/registry.js';
-import { LINES } from '../src/core/lines.js';
+import { LINES, shownLine } from '../src/core/lines.js';
 const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 
 const room = makeRoom(FIRST_ROOM);
@@ -32,7 +32,7 @@ test('a flask mimic has 3 health and a bite of 1, chases once awake, and looks l
   const m = get('flaskMimic');
   assert.equal(m.name, 'Flask mimic'); assert.equal(m.health, 3); assert.equal(m.bite, 1);
   assert.deepEqual(m.ways, ['chases']); assert.equal(m.looksLike, 'flask'); assert.equal(m.awakeTurns, 6);
-  for (const id of [m.die, m.bites, m.wakes, m.settles]) assert.ok(LINES[id], id);
+  for (const id of [m.hurt, m.die, m.bites, m.wakes, m.settles]) assert.ok(LINES[id], id);
 });
 
 test('asleep it does nothing, even next to the hero, and is hidden from the creature list', () => {
@@ -69,6 +69,13 @@ test('after 6 turns awake it settles back down asleep where it stands', () => {
   assert.equal(s.enemies[0].asleep, true);
   assert.equal(s.enemies[0].awake, undefined);
   assert.equal(s.line.id, 'flaskMimicSettles');
+});
+
+test('a hit it lives through says it cracks, unless its bite says more, and a line shows (D-369)', () => {
+  const s = step(step(at(5, 10), 'up'), 'up');
+  assert.equal(s.enemies[0].health, 2);
+  assert.equal(shownLine(s).text, 'The flask mimic bites you.'); // its bite on the same turn replaces it, as the rat's does
+  assert.equal(LINES[get('flaskMimic').hurt].text, 'The flask mimic cracks.');
 });
 
 test('three lantern hits kill it once awake', () => {
