@@ -88,7 +88,7 @@ test('at 0 health the hero falls and wakes at the start; the room stays as it wa
   assert.equal(shownLine(n).text, 'You fall, and wake again.');
 });
 
-test('a fall keeps the bag, for now (D-247)', () => {
+test('a fall with no way to play picked keeps the bag, as Gentle (D-247, D-342)', () => {
   const s = { ...at(3, 10), health: 1, bag: [{ id: 'flask', n: 2 }], enemies: [{ id: 'rat', x: 2, y: 10 }] };
   assert.deepEqual(wait(s).bag, [{ id: 'flask', n: 2 }]);
 });

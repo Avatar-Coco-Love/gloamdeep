@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.114', date: '2026-10-25', title: 'The bag where you fell', lines: [
+    "In Normal, a fall now leaves your bag where you fell: a small leather pouch tied at the neck, lying on the floor with everything that was in it. You wake with an empty bag; the knife stays in your hand.",
+    "Walk onto it to take everything back, with \"You take back your bag.\" Stacks top up first. What doesn't fit stays in it, with \"Your bag is full.\", for later.",
+    "Each fall leaves its own bag, so falling again before you fetch one loses nothing. The map shows each one as a small brown dot until you take it back.",
+    "Gentle still keeps the bag through a fall, and Hardcore starts the world over.",
+    "Decisions: D-345.",
+  ] },
   { v: '0.2.113', date: '2026-10-25', title: 'Hardcore', lines: [
     "In Hardcore, a fall now ends the journey. The fall plays as before, then at its darkest a page says \"Your journey ends.\" with Same world (picked) and New world.",
     "The world starts over as on day one: every room, the bag, the level, the map and the time of day. The profile's Records stay, and the fall counts in them. The new world is saved at once, so closing the game can't bring the old one back.",

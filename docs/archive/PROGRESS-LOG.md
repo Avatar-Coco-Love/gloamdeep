@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.111, the chest taken down.** The chest's panel gains
+  Deconstruct chest above Close: an empty chest goes into the bag, a turn,
+  "You take down the stash chest."; with anything inside "Empty the chest
+  first.", free; carried or bag full as the bench (D-340).
+  [Playtest](https://claude.ai/artifact/Q84TPd3b4GTaduoXTXTscF).
 - **2026-10-25, 0.2.110, bigger stacks.** Stacks hold 20 small finds, 5
   flasks or potions; a full stack goes on in a free slot. Still 1 workbench
   or chest carried; full lines as before; a chest moves what fits, the rest
