@@ -18,7 +18,7 @@ const withWood = (s = makeState(room), form = 1) => {
   return { ...n, items: n.items.map((it) => (it.id === 'wood' ? { ...it, form } : it)) };
 };
 const TAKE = ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'];
-const LOOK = ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'];
+const LOOK = ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'];
 
 test('wood goes in the bag in stacks of 3, grows back in a day, in 3 looks', () => {
   const wood = get('wood');

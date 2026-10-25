@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.103 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.104 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-CH2 Set the stash chest down on the surface, the bench's way (D-322, D-325).
+CH2 Set the stash chest down on the surface, the bench's way (D-322, D-329).
 
 ## Waiting on the owner
 - Play 0.2.17 sideways: should the room fill the whole screen (Q-048)?
@@ -86,6 +86,7 @@ Wood, then the chest (D-314; order may change)
 - [x] WB3 Bump it for its panel: Deconstruct workbench, 0.2.101 (D-323)
 - [x] The chest planned: cost, look, 12 slots, five steps, 0.2.102 (D-324, D-325)
 - [x] CH1 The stash chest made on the bench panel, 0.2.103 (D-326)
+- [x] Showing what Wood makes: its look line, a Crafting page, 0.2.104 (D-328, the owner's find)
 - [ ] CH2 to CH5 The stash chest: set down, open, put in and take out, take down
 - [ ] A creature drawn to light
 
@@ -97,11 +98,6 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-25, 0.2.101, the workbench panel.** Bumping a set-down bench,
-  or a tap on one beside the hero, opens its panel, free: the room dimmed,
-  a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts
-  it back in the bag, a turn; carried already or a full bag, its line, free.
-  Things made at it come as lines above Deconstruct (D-323). [Mock-up](https://claude.ai/artifact/VfKuStt4ym66WaxdqohiKJ), [playtest](https://claude.ai/artifact/HSyKWapzZhrL2jJhpd66rj).
 - **2026-10-25, 0.2.102, the stash chest planned.** Made at the workbench
   for 3 Wood and 3 Stone; look B, stone corners and a gold latch; 12 slots in
   stacks of 3; any number stand, each its own, 1 carried (D-324). Five steps,
@@ -111,3 +107,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   bag, a turn, the panel kept open; dim with too few, saying the cost, free;
   only 1 carried; three bag lines; look B (D-326).
   [Playtest](https://claude.ai/artifact/74LdswwP5QPkTksUD1wbJM).
+- **2026-10-25, 0.2.104, what Wood makes.** The owner found crafting with
+  wood wasn't plain. Wood's first look line is now "Three make a
+  workbench.", and How to play gains a Crafting page after Keyboard (D-328).
+  CH2's picks are settled (D-329); D-317 to D-323 archived (D-327).
+  [Playtest](https://claude.ai/artifact/8LTXJpnfQK78mqi5UfZrv9).

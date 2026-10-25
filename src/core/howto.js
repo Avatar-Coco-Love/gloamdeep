@@ -1,11 +1,12 @@
 // § how to play: the controls, one page per way of playing (D-179, D-193).
-// Touch, Mouse and Keyboard; Left and Right flip between them. Walking by
-// touch or mouse follows the Controls switch, so only what works is shown (D-189).
+// Touch, Mouse and Keyboard, then Crafting; Left and Right flip between them.
+// Walking by touch or mouse follows the Controls switch, so only what works is
+// shown (D-189). Crafting says how Make works, the same for every way (D-328).
 // Plain data, no drawing.
 import { swipesWalk, tapsWalk } from './settings.js';
 
-export const HOWTO_PAGES = ['touch', 'mouse', 'keyboard'];
-const NAMES = { touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard' };
+export const HOWTO_PAGES = ['touch', 'mouse', 'keyboard', 'crafting'];
+const NAMES = { touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', crafting: 'Crafting' };
 export const pageName = (id) => NAMES[id];
 
 // The next page, or the one before with back; it wraps round
@@ -24,6 +25,14 @@ function walkWays(controls, tap, swipe, hold) {
 
 // The page's rows: [{ action, ways: [text, …] }], one text per drawn line
 export function howtoRows(page, controls) {
+  if (page === 'crafting') {
+    return [
+      { action: 'Make', ways: ['Pick a stack in the bag', 'then press Make'] },
+      { action: 'Oilcap', ways: ['3 make an oil flask'] },
+      { action: 'Wood', ways: ['3 make a workbench'] },
+      { action: 'Bench', ways: ['Bump it to make more'] },
+    ];
+  }
   if (page === 'keyboard') {
     return [
       { action: 'Walk', ways: ['Arrows or WASD'] },
