@@ -23,6 +23,7 @@ this page and a decision disagree, the decision wins.
 ## The world (more in `WORLD.md`)
 - **World, region, cell, room, opening:** see `WORLD.md`, "Words we
   use" (D-169, D-171). In the code a room is a "place".
+- **Hearthwood:** the starting region, home in its centre (D-348).
 - **Surface:** depth 0, the woods and the way into the crypt (D-233).
 - **Depth:** how far down a floor is. **Floor:** all the rooms at one
   depth.
@@ -73,6 +74,8 @@ this page and a decision disagree, the decision wins.
 ## Menus and tools
 - **Journal:** one book with tabs: Records first, then Growth, later
   quests, a bestiary and feats (D-262, D-293).
+- **Bestiary:** the Journal's tab of creatures met; more of a page shows
+  the more you meet and fight that creature (D-350).
 - **Growth:** the Journal's tab for spending embers (D-293).
 - **Records:** the Journal's facts about how you've played: deepest,
   beaten, falls, rooms found, steps, flasks poured, torches lit, time played

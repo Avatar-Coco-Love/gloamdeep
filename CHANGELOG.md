@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.116 (2026-10-25)
+- No change to play: a check-in on the project, and the owner's answers written down.
+- In Normal, the knife in your hand stays with you through a fall, for now, so you can go after your bag armed.
+- The starting region, the woods around home, is named Hearthwood.
+- Decided for a later step: every creature you can see will show its next move, to try out; nothing shows for a creature hidden in the dark.
+- Decided for later: the Journal's Bestiary gets a page for each creature you meet, with how many you met and beat and how to fight it, showing more the more you meet it.
+- Decisions: D-347 to D-350. Questions closed: Q-045, Q-047, Q-049. Questions opened: Q-058.
+
 ## 0.2.115 (2026-10-25)
 - Settings, opened from the pause menu, now has a line under the seed: "Way to play: Normal" (or Gentle, or Hardcore). From the title, where no journey is open, it isn't there.
 - Picking it shows the three ways with the one you play picked. The harder ones are grey; landing on one says "Only an easier way can be picked."

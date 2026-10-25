@@ -2,6 +2,14 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.116', date: '2026-10-25', title: 'A check-in', lines: [
+    "No change to play: a check-in on the project, and the owner's answers written down.",
+    "In Normal, the knife in your hand stays with you through a fall, for now, so you can go after your bag armed.",
+    "The starting region, the woods around home, is named Hearthwood.",
+    "Decided for a later step: every creature you can see will show its next move, to try out; nothing shows for a creature hidden in the dark.",
+    "Decided for later: the Journal's Bestiary gets a page for each creature you meet, with how many you met and beat and how to fight it, showing more the more you meet it.",
+    "Decisions: D-347 to D-350. Questions closed: Q-045, Q-047, Q-049. Questions opened: Q-058.",
+  ] },
   { v: '0.2.115', date: '2026-10-25', title: 'An easier way', lines: [
     "Settings, opened from the pause menu, now has a line under the seed: \"Way to play: Normal\" (or Gentle, or Hardcore). From the title, where no journey is open, it isn't there.",
     "Picking it shows the three ways with the one you play picked. The harder ones are grey; landing on one says \"Only an easier way can be picked.\"",
