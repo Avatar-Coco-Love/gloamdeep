@@ -24,7 +24,9 @@
 // Stash chest, above it, makes one into the bag, a turn, and the panel stays open (CH1, D-326).
 // Bumping a set-down stash chest, or a click or tap on one, opens its panel the same way,
 // free (CH3, D-330): arrows or a tap move the gold frame over its 12 slots, Down past them
-// to Close; Close, Esc, P or a tap outside the box close it. The bag's row only shows.
+// to Close; Close, Esc, P or a tap outside the box close it. Down from the chest's
+// second row reaches the bag's row, then Close; Enter, Space, a click or a tap on a
+// filled slot moves its whole stack to the other side, free (CH4, D-331).
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
@@ -74,7 +76,7 @@ import { journalAt } from '../render/journal.js';
 import { bagAt, panelOnTop, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { chestAt } from '../render/chestpanel.js';
-import { CHEST_CLOSE, CHEST_WORDS, moveChest } from '../core/chest.js';
+import { CHEST_BAG, CHEST_CLOSE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE } from '../render/screen.js';
 
 const WORDS = {
@@ -114,7 +116,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? CHEST_WORDS : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
@@ -393,6 +395,13 @@ export function createScreens(app, ui) {
   function openPanel(at) { app.queued = null; app.bench = at; show(tileAt(app.state.room, at.x, at.y).panel); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
+  // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
+  const chestSlotWords = (i) => {
+    if (i === CHEST_CLOSE) return 'Close';
+    const out = i < CHEST_BAG, s = out ? stashAt(app.state, app.bench.x, app.bench.y)[i] : app.state.bag[i - CHEST_BAG];
+    return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
+  };
+  function pickChest(i) { app.chosen = i; spoken.textContent = chestSlotWords(i); }
   const benchWords = () => `Workbench. ${benchMenu(app.state.bag).filter((l) => l.cost).map((l) => `${l.text}, ${l.cost.replace(' · ', ' and ')}${l.dim ? ', too few' : ''}. `).join('')}Deconstruct workbench, or Close.`;
 
   // § explorer (D-214): opens on the Settings seed, else a random one, on the surface;
@@ -510,7 +519,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
-    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); return; } // a slot does nothing until CH4
+    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
@@ -541,7 +550,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'trim') { moveToTrim(moveTrim(app.chosen, dir)); return; }
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
-    if (app.screen === 'chest') { app.chosen = moveChest(app.chosen, dir); return; }
+    if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
     if (app.screen === 'bag') { if (dir === 'left' || dir === 'right') pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + (dir === 'left' ? -1 : 1)))); return; }
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
     if (app.screen === 'journal') {
@@ -587,7 +596,7 @@ export function createScreens(app, ui) {
       if (held) return;
       const at = chestAt(px, py);
       if (at === 'out' || at === CHEST_CLOSE) show('play');
-      else if (at) app.chosen = at.slot;
+      else if (at) choose(at.slot);
       return;
     }
     if (app.screen === 'bag') {

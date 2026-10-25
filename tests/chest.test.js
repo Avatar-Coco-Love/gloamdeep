@@ -8,7 +8,7 @@ import { makeState, makeAt, setDown, setSides, step, panelBeside } from '../src/
 import { benchMenu } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
-import { CHEST_SLOTS, CHEST_CLOSE, CHEST_WORDS, moveChest } from '../src/core/chest.js';
+import { CHEST_SLOTS, CHEST_BAG, CHEST_CLOSE, chestWords, moveChest, moveStack, stashAt, withStashes } from '../src/core/chest.js';
 import { chestAt } from '../src/render/chestpanel.js';
 
 const withBag = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
@@ -85,10 +85,12 @@ test('a set-down chest frees the bag, so another can be made', () => {
 });
 
 // § panel (CH3, D-330): 12 slots in two rows of 6, a gold frame moved by the arrows, then Close
-test('its panel has 12 slots, two rows of the bag\'s 6, and Close after them', () => {
+test('its panel has 12 slots, two rows of the bag\'s 6, the bag\'s 6, and Close after them', () => {
   assert.equal(CHEST_SLOTS, 12);
-  assert.equal(CHEST_CLOSE, 12);
-  assert.equal(CHEST_WORDS, 'Stash chest. 12 slots, all empty. Close.');
+  assert.equal(CHEST_BAG, 12);
+  assert.equal(CHEST_CLOSE, 18);
+  assert.equal(chestWords([]), 'Stash chest. 12 slots, all empty. Bag below. Close.');
+  assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash chest. 1 of 12 slots used. Bag below. Close.');
 });
 
 test('Left and Right move along a row and stop at its ends', () => {
@@ -99,20 +101,79 @@ test('Left and Right move along a row and stop at its ends', () => {
   assert.equal(moveChest(11, 'left'), 10);
 });
 
-test('Down goes to the second row, then Close; Up comes back to the second row\'s first slot', () => {
+test('Down goes to the second row, the bag\'s row, then Close; Up comes back the same way (CH4, D-331)', () => {
   assert.equal(moveChest(2, 'down'), 8);
-  assert.equal(moveChest(8, 'down'), CHEST_CLOSE);
+  assert.equal(moveChest(8, 'down'), 14);
+  assert.equal(moveChest(14, 'down'), CHEST_CLOSE);
   assert.equal(moveChest(CHEST_CLOSE, 'down'), CHEST_CLOSE);
   assert.equal(moveChest(CHEST_CLOSE, 'left'), CHEST_CLOSE);
-  assert.equal(moveChest(CHEST_CLOSE, 'up'), 6);
+  assert.equal(moveChest(CHEST_CLOSE, 'up'), CHEST_BAG);
+  assert.equal(moveChest(14, 'up'), 8);
   assert.equal(moveChest(8, 'up'), 2);
   assert.equal(moveChest(2, 'up'), 2);
+  assert.equal(moveChest(17, 'right'), 17);
 });
 
-test('a tap picks a chest slot or Close; the bag\'s row does nothing yet; outside the box closes', () => {
+test('a tap picks a chest slot, a bag slot or Close; outside the box closes', () => {
   assert.deepEqual(chestAt(20, 70), { slot: 0 });
   assert.deepEqual(chestAt(45, 95), { slot: 7 });
+  assert.deepEqual(chestAt(20, 140), { slot: CHEST_BAG });
   assert.equal(chestAt(88, 166), CHEST_CLOSE);
-  assert.equal(chestAt(20, 140), null);
+  assert.equal(chestAt(20, 120), null);
   assert.equal(chestAt(2, 2), 'out');
+});
+
+// § putting in and taking out (CH4, D-331): a whole stack moves to the other side, free
+const atChest = (bag, stash = []) => ({ ...setDown({ ...outside(), bag: [{ id: 'chest', n: 1 }, ...bag] }, 0, 'right'), stashes: stash.length ? { 'first:3,2': stash } : {} });
+
+test('picking a bag slot puts its whole stack in the chest, free, with no line', () => {
+  const s = atChest([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }]), n = moveStack(s, 3, 2, CHEST_BAG);
+  assert.deepEqual(n.bag, [{ id: 'stone', n: 2 }]);
+  assert.deepEqual(stashAt(n, 3, 2), [{ id: 'wood', n: 3 }]);
+  assert.equal(n.turn, s.turn);
+  assert.equal(n.line, s.line);
+});
+
+test('picking a chest slot takes its stack out into the bag; the slots after it move up', () => {
+  const s = atChest([], [{ id: 'wood', n: 3 }, { id: 'stone', n: 1 }]), n = moveStack(s, 3, 2, 0);
+  assert.deepEqual(n.bag, [{ id: 'wood', n: 3 }]);
+  assert.deepEqual(stashAt(n, 3, 2), [{ id: 'stone', n: 1 }]);
+  assert.equal(n.turn, s.turn);
+});
+
+test('a stack joins one of its kind when it all fits there, its look going with it', () => {
+  const s = atChest([{ id: 'wood', n: 1, form: 2 }], [{ id: 'wood', n: 2, form: 0 }]);
+  assert.deepEqual(stashAt(moveStack(s, 3, 2, CHEST_BAG), 3, 2), [{ id: 'wood', n: 3, form: 2 }]);
+  assert.deepEqual(moveStack(s, 3, 2, 0).bag, [{ id: 'wood', n: 3, form: 0 }]);
+});
+
+test('when it can\'t all go it says so, free, and nothing moves', () => {
+  const full = atChest([{ id: 'wood', n: 2 }], [{ id: 'wood', n: 2 }]);
+  for (const [i, text] of [[0, 'Your bag is full.'], [CHEST_BAG, 'The chest is full.']]) {
+    const n = moveStack(full, 3, 2, i);
+    assert.equal(n.bag, full.bag);
+    assert.equal(n.stashes, full.stashes);
+    assert.equal(n.turn, full.turn);
+    assert.equal(shownLine(n).text, text);
+  }
+  const ids = ['wood', 'stone', 'oilcap', 'heartcap', 'flask', 'potion'];
+  const bagFull = atChest(ids.map((id) => ({ id, n: 1 })), [{ id: 'workbench', n: 1 }]);
+  assert.equal(shownLine(moveStack(bagFull, 3, 2, 0)).text, 'Your bag is full.');
+  const chestFull = atChest([{ id: 'stone', n: 1 }], Array.from({ length: 12 }, (_, i) => ({ id: `x${i}`, n: 1 })));
+  assert.equal(shownLine(moveStack(chestFull, 3, 2, CHEST_BAG)).text, 'The chest is full.');
+});
+
+test('an empty slot does nothing, and each chest keeps its own things', () => {
+  const s = atChest([{ id: 'wood', n: 3 }]);
+  assert.equal(moveStack(s, 3, 2, 5), s);
+  assert.equal(moveStack(s, 3, 2, CHEST_BAG + 4), s);
+  const n = moveStack(s, 3, 2, CHEST_BAG);
+  assert.deepEqual(stashAt(n, 1, 2), []);
+  assert.deepEqual(stashAt({ ...n, place: 'woods' }, 3, 2), []);
+});
+
+test('an older save keeps nothing in chests; one already kept is left as it is', () => {
+  assert.deepEqual(withStashes({ bag: [] }).stashes, {});
+  const kept = { stashes: { 'first:3,2': [{ id: 'wood', n: 1 }] } };
+  assert.equal(withStashes(kept), kept);
 });

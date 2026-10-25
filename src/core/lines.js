@@ -59,7 +59,8 @@ export const LINES = {
   chestShort: { text: 'You need 3 Wood and 3 Stone.', warn: false }, // too few, free
   chestSet: { text: 'You set down the stash chest.', warn: false }, // a turn (CH2, D-329)
   chestLook: { texts: ['A stash chest, empty.', 'Set it down on the surface.', "It keeps what the bag can't."], warn: false },
-  bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free
+  bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331)
+  stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },

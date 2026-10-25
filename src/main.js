@@ -16,6 +16,7 @@ import { loadSettings, swipesWalk, tapsWalk, stillMotion } from './core/settings
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, usingSlot, withoutSlot, renamedSlot, lookedSlot } from './core/profile.js';
 import { loadJourney, saveJourney, dropJourney } from './core/save.js';
+import { moveStack } from './core/chest.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
 import { lanternFrom } from './core/sight.js';
@@ -293,6 +294,7 @@ const screens = createScreens(app, {
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
+  stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
 });
 // In play the Controls switch can turn swipes off (D-189); off the room, the screens take them

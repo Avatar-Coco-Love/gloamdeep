@@ -93,6 +93,11 @@ test('a fall keeps the bag, for now (D-247)', () => {
   assert.deepEqual(wait(s).bag, [{ id: 'flask', n: 2 }]);
 });
 
+test('a fall loses what stash chests kept, as their rooms begin again (D-331)', () => {
+  const s = { ...at(3, 10), health: 1, stashes: { 'woods:3,2': [{ id: 'wood', n: 3 }] }, enemies: [{ id: 'rat', x: 2, y: 10 }] };
+  assert.deepEqual(wait(s).stashes, {});
+});
+
 test('a fall keeps the room as the hero fell in it, to be shown before they wake (D-234)', () => {
   const s = { ...at(3, 10), health: 1, enemies: [{ id: 'rat', x: 2, y: 10 }] };
   const n = wait(s);

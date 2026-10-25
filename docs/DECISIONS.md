@@ -156,3 +156,14 @@ then Close. Arrows or a tap move a gold frame over the chest's slots, the
 bag's way; Down from the second row reaches Close, Up from Close the second
 row's first slot. Close, Esc, P or a tap outside the box close it, the
 bench's way (D-323). The bag's row only shows until CH4.
+
+**D-331 · 2026-10-25 · Putting things in the chest and taking them out**
+(step CH4 of D-325, the owner's picks, all recommended; builds D-330) On the
+chest's panel, Down from its second row reaches the bag's row, then Close;
+Up comes back the same way. Enter, Space, a click or a tap on a filled slot
+moves its whole stack to the other side, free, with no line: onto a stack of
+its kind when all of it fits there, else into the next empty slot, the slots
+after it moving up, the bag's way. When it can't all go, "Your bag is full."
+or "The chest is full.", free, and nothing moves. Each chest keeps its own
+things in the save. A fall begins every room again, so a chest set down goes,
+and what it held with it (as the bench already did); Q-058 asks about this.
