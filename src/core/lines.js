@@ -61,7 +61,7 @@ export const LINES = {
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
-  woodLook: { texts: ['Dry wood, for crafting later.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
+  woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)

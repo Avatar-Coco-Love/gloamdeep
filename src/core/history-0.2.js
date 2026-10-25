@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.104', date: '2026-10-25', title: 'Showing what Wood makes', lines: [
+    "Wood's first line in the bag now says \"Three make a workbench.\", so it is plain that 3 Wood make something, as oilcaps say they make a flask.",
+    "How to play has a fourth page, Crafting, after Keyboard: choose a stack in the bag and press Make; 3 oilcaps make an oil flask, 3 Wood a workbench, and you walk into a workbench to make more there.",
+    "Setting the stash chest down is settled for next time: the workbench's way. Older decisions move to an archive file.",
+    "Decisions: D-327, D-328, D-329.",
+  ] },
   { v: '0.2.103', date: '2026-10-25', title: 'The stash chest, made', lines: [
     "The workbench panel has a new top line: Stash chest, with its cost, 3 Wood · 3 Stone, on the right. Picking it uses them up and puts a stash chest in the bag. A turn passes, the line says \"You make a stash chest.\", and the panel stays open. The panel's lines now sit at its left.",
     "With too few, the line shows dim and says \"You need 3 Wood and 3 Stone.\"; with a chest already in the bag, \"You already carry a stash chest.\" Neither takes a turn. You carry only 1.",

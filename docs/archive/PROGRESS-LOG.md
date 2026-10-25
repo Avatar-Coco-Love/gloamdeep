@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.101, the workbench panel.** Bumping a set-down bench,
+  or a tap on one beside the hero, opens its panel, free: the room dimmed,
+  a box headed WORKBENCH, Deconstruct workbench and Close. Deconstruct puts
+  it back in the bag, a turn; carried already or a full bag, its line, free.
+  Things made at it come as lines above Deconstruct (D-323). [Mock-up](https://claude.ai/artifact/VfKuStt4ym66WaxdqohiKJ), [playtest](https://claude.ai/artifact/HSyKWapzZhrL2jJhpd66rj).
 - **2026-10-25, 0.2.100, the workbench set down.** Set down in the bag marks
   the free sides; an arrow, a swipe, or a click or tap on a mark sets it
   there, a turn. Only on the surface, on empty ground off the edge, the room

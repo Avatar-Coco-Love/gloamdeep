@@ -7,15 +7,16 @@ import { howtoAt, PAGE_Y } from '../src/render/howto.js';
 import { textWidth } from '../src/render/font.js';
 import { W, SCREEN_H } from '../src/render/screen.js';
 
-test('Touch, Mouse and Keyboard each have a page, and Left and Right flip round them', () => {
-  assert.deepEqual(HOWTO_PAGES, ['touch', 'mouse', 'keyboard']);
+test('Touch, Mouse, Keyboard and Crafting each have a page, and Left and Right flip round them', () => {
+  assert.deepEqual(HOWTO_PAGES, ['touch', 'mouse', 'keyboard', 'crafting']);
   assert.equal(nextPage('touch'), 'mouse');
-  assert.equal(nextPage('keyboard'), 'touch');
-  assert.equal(nextPage('touch', true), 'keyboard');
+  assert.equal(nextPage('keyboard'), 'crafting');
+  assert.equal(nextPage('crafting'), 'touch');
+  assert.equal(nextPage('touch', true), 'crafting');
 });
 
-test('every page lists Walk, Wait, Lantern and Pause, and nothing else', () => {
-  for (const p of HOWTO_PAGES) assert.deepEqual(howtoRows(p, 'both').map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause']);
+test('every controls page lists Walk, Wait, Lantern and Pause, and nothing else', () => {
+  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, 'both').map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause']);
 });
 
 test('walking by touch follows the Controls switch; a tap on the hero still waits', () => {
@@ -40,6 +41,12 @@ test('a tap on the page line flips back on its left third and on elsewhere', () 
   assert.equal(howtoAt(10, PAGE_Y + 2), 'prev');
   assert.equal(howtoAt(W - 10, PAGE_Y + 2), 'next');
   assert.equal(howtoAt(W / 2, PAGE_Y - 20), null);
+});
+
+test('the Crafting page says how Make works, whatever the Controls switch (D-328)', () => {
+  assert.deepEqual(howtoRows('crafting', 'swipe').map((r) => r.action), ['Make', 'Oilcap', 'Wood', 'Bench']);
+  assert.deepEqual(howtoRows('crafting', 'tap'), howtoRows('crafting', 'both'));
+  assert.match(howtoWords('crafting', 'both'), /^How to play, Crafting\. Make: Pick a stack in the bag then press Make\./);
 });
 
 test('a screen reader hears the page in words', () => {
