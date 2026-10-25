@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.121 (2026-10-25)
+- Tap a creature's plaque in the row under the room to frame it: the plaque gets an amber edge, amber corners mark the creature on the field, a small tag above it shows its name and hearts, and an arrow shows its next step.
+- The frame stays as you play. Tap the same plaque to let it go, or another to frame that one instead. It goes when the creature dies or leaves the light.
+- On a keyboard, Tab frames the first plaque, then the next, then none.
+- Framing takes no turn.
+- Decisions: D-359, D-360.
+
 ## 0.2.120 (2026-10-25)
 - A new row under the room lists the creatures that have noticed you and stand in light. Each has a small plaque with its face and what it does next if you wait: fangs for a bite, an arrow for a step. One that has noticed you but can't move shows just its face.
 - A lampmoth flying at your lit lantern gets a plaque too.
@@ -85,9 +92,3 @@ Entry format:
 - The picked way shows its note under the menu: "A fall keeps the bag.", "The bag waits where you fall." or "One life. A fall starts the world over."
 - The way you pick is saved with the journey, but for now every fall still plays as Gentle; Hardcore and Normal come in the next steps. A journey saved before this plays as Gentle.
 - Decisions: D-341, D-342; D-343 moved the stash chest's decisions to the archive.
-
-## 0.2.111 (2026-10-25)
-- On a stash chest's panel, a new line sits between the bag's row and Close: Deconstruct chest. Down from the bag's row reaches it, then Close.
-- Picking it on an empty chest puts the chest back in your bag, whole, and the ground is clear again. A turn passes and the line says "You take down the stash chest."
-- With anything still inside it says "Empty the chest first."; with a stash chest already in the bag "You already carry a stash chest."; and with every slot taken "Your bag is full." Then it stays, and no turn passes.
-- Decisions: D-340; this ends the stash chest's steps (D-325).

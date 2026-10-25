@@ -74,6 +74,7 @@ this page and a decision disagree, the decision wins.
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the row of plaques under the room, one for each
   creature that has noticed the hero; a plaque shows its face and next move (D-357).
+  Tapping one **frames** its creature: amber corners, name and hearts (D-359).
 
 ## Menus and tools
 - **Journal:** one book with tabs: Records first, then Growth, later

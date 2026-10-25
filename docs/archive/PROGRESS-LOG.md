@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.118, the lampmoth.** Mock-up of three looks, A picked:
+  a pale moth, the Lampmoth, health 1, bite 1. It flies at the hero while the
+  lantern is lit, from anywhere in the room, else to the nearest lit torch;
+  one room a floor on depths 2 to 4 holds one in place of its rat (D-356).
+  [Playtest](https://claude.ai/artifact/UDspyAGRUHVXQmYVmH97WU).
 - **2026-10-25, 0.2.117, four answers.** Open questions with picks; the
   owner took every recommendation: the creature walks toward the nearest
   light (D-351); Bestiary pages open at meet, 1 beaten, 3 beaten (D-352);

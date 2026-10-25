@@ -2,7 +2,7 @@
 // steps onto next, and small fangs in the gap toward the hero when it bites
 // (look D of the 0.2.119 mock-up). In the hostile marks' pink, outlined in the
 // deepest dark, pulsing like the walk mark; steady with reduced motion.
-// Not drawn yet: it is for the tapped creature, the list's second step (D-357).
+// Drawn only for the framed creature (framed.js, D-357).
 const PINK = '#e8786a', DARK = '#0e0c16';
 const ARROW = ['oo...', 'o#o..', 'o##o.', 'o###o', 'o##o.', 'o#o..', 'oo...']; // pointing right
 const FANGS = ['ooooooo', 'o#####o', 'o#o.o#o', 'ooo.ooo']; // pointing down
