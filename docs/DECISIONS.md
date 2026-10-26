@@ -189,3 +189,12 @@ never the oil's amber. One the dev tools place wears the first, Sand.
 **D-374 · 2026-10-26 · Each creature varies its own way** (the owner's
 answer) Whether a creature varies, and how, is decided creature by
 creature: colours, or its shape itself. Ideas kept in `RESEARCH.md`.
+
+**D-375 · 2026-10-26 · On the home screen** (the owner's picks) The game
+can be installed on a phone's home screen and opens full screen. Installing
+only: no offline copy, so loading, saving and updates work as before
+(offline play could be its own step later). Only the browser offers it;
+the game shows no prompt of its own, so one ignored offer stays quiet. The
+icon is the lantern switch's lit lantern alone, no floor or backdrop
+([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). On iPhone the installed game keeps its own saves,
+apart from Safari's; noted in `TECH.md`, nothing built for it.

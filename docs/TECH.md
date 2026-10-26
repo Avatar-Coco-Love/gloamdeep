@@ -97,3 +97,10 @@ the top `CHANGELOG.md` entry. Add a test that checks this. The in-game
 Version history (`src/core/history.js` and its files, one per minor
 version) holds every changelog line; `tests/history.test.js` checks it
 word for word (D-254).
+
+## Home screen (D-375)
+`src/render/appicon.js` adds the app card (a web app manifest, built in
+`src/core/install.js`) and the icons as data URLs at boot, so there are
+no files. No service worker: nothing is cached, so the game loads fresh
+as before. On iPhone, a home-screen web app keeps its own storage, so its
+saves are apart from Safari's; Android's share Chrome's.
