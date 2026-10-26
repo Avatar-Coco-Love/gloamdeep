@@ -20,6 +20,9 @@ export const ENEMIES = {
   // harm, and it chases for `awakeTurns` turns, then settles back down where
   // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
   flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
+  // Its sting clicks of claws (D-370).
+  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, ways: ['chases'], die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
 };
 
 // § lookups: the enemy on tile x, y, or undefined
@@ -42,7 +45,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

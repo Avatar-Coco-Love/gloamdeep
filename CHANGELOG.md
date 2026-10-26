@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.126 (2026-10-26)
+- A new creature, the scorpion: amber-brown, its tail curled over its back. It has 1 heart, so one hit of anything kills it, but its sting takes 2 hearts.
+- It chases you once it sees you in the light. On each floor of depths 3 and 4, one room holds a scorpion in place of its rat, never the lampmoth's room.
+- Its sting has its own sound: two dry clicks of claws, then a sharp stab.
+- Creatures now give more experience: their hearts and bite added together. A lampmoth gives 2, a rat, gloamling or scorpion 3, a flask mimic 4. A new room still gives 1.
+- Decisions: D-370, D-371, D-372.
+
 ## 0.2.125 (2026-10-25)
 - Fixed: hitting a flask mimic without killing it froze the game, and a saved game froze again when loaded.
 - Hurt, the flask mimic now says "The flask mimic cracks." Its bite on the same turn still says more.

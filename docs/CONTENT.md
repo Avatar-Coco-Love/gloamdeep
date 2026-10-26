@@ -8,7 +8,8 @@ decisions win. Read this before proposing new content, so it builds on
 what exists. Every PR that adds or changes content updates its row
 (the checklist is in `TECH.md`, "Adding content").
 
-Turns are the hero's turns. "Grows back" is the `regrow` time (D-306).
+Turns are the hero's turns. A creature beaten gives its hearts plus its
+bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 
 ## Creatures (`src/core/enemies.js`, ways in `behaviours.js`)
 
@@ -18,6 +19,7 @@ Turns are the hero's turns. "Grows back" is the `regrow` time (D-306).
 | `gloamling` | 2 | 1 | chases, shunsLight | depth 5 on, 3 rooms a floor, for the second rat | D-240, D-244 |
 | `lampmoth` | 1 | 1 | seeksLight | depths 2 to 4, 1 room a floor, for the rat | D-351, D-356 |
 | `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369 |
+| `scorpion` | 1 | 2 | chases | depths 3 and 4, 1 room a floor (never the lampmoth's), for the rat | D-370 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees

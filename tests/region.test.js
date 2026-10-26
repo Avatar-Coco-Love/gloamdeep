@@ -92,7 +92,7 @@ test('every opening is open on both sides, at the same spot', () => {
   }
 });
 
-test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat (or the lampmoth, D-356) and a herb', () => {
+test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat (or the lampmoth, D-356, or the scorpion, D-370) and a herb', () => {
   for (const seed of SEEDS) for (const c of layoutAt(seed, 2).cells) {
     const p = placeFor(c.id, seed), all = p.map.join('');
     assert.equal(all.includes('<'), !!c.up);

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.123, the second audit.** Nothing in the game changed;
+  early, so content goes in cleanly (D-362). `turn.js` 32 → 10 KB, split
+  into five files it passes on; a replay of 154 moves matches the old build.
+  `DECISIONS.md` 10 → 6 KB, `CHANGELOG.md` 7.7 → 2.6 KB. New `CONTENT.md`
+  and an "Adding content" checklist (D-363). No playtest: nothing to play.
 - **2026-10-25, 0.2.122, How to play: Frame.** Two picks, both
   recommended: a fifth row, Frame, on the Touch, Mouse and Keyboard pages:
   tap or click a creature's plaque, or Tab (D-361, answers Q-060).

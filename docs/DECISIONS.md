@@ -153,3 +153,25 @@ was one of three) Hurt, the flask mimic says "The flask mimic cracks."
 A line a creature doesn't have is never said, so the line already
 showing stays, and a line that isn't there, as an old save may hold,
 shows nothing. A test checks that every line a creature names exists.
+
+**D-370 · 2026-10-26 · The scorpion** (the owner's picks, all recommended;
+one of the five kept by D-365) Amber-brown, side on, its tail curled up
+over its back, claws raised and the pink hostile eye, as in the mock-up.
+1 heart and a bite of 2, the first creature to bite that hard; it chases
+(the Chases way), so one hit of anything kills it. On each floor of
+depths 3 and 4, one room the seed picks, never the lampmoth's, holds a
+scorpion in place of its rat. Its lines: "The scorpion stings you." and
+"The scorpion curls up and falls still." Its sting is its own sound, a
+dry double click of claws, then a short sharp stab; it is on the sound
+board.
+
+**D-371 · 2026-10-26 · Experience from creatures: hearts and bite** (the
+owner's pick, recommended; supersedes D-245 in part) A creature beaten
+gives its hearts and its bite added together: a lampmoth 2, a rat 3, a
+gloamling 3, a flask mimic 4, a scorpion 3. A new creature follows the
+rule by itself. A new room still gives 1, and levels cost the same.
+
+**D-372 · 2026-10-26 · Creature materials, later** (the owner's picks;
+narrows Q-061) Beaten creatures will one day leave materials of their
+own, to make new things with, each creature with its own chance from the
+seed. Not built yet: the names, looks, chances and recipes are Q-061.

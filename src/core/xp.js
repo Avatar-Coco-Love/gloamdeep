@@ -1,8 +1,9 @@
-// § experience: what the hero earns by fighting and finding (D-038, D-245).
+// § experience: what the hero earns by fighting and finding (D-038, D-245, D-371).
 // Plain data, no drawing. `state.xp` is the total; `state.found` lists the
 // rooms (place ids) the hero has stood in, so a room pays only once.
 
-export const XP_FOE = 1; // a creature beaten
+// A creature beaten is worth its hearts and its bite together: a rat 3 (D-371)
+export const xpOf = (entry) => entry.health + entry.bite;
 export const XP_ROOM = 1; // a room never stood in before
 
 export const gain = (state, n) => ({ ...state, xp: state.xp + n });

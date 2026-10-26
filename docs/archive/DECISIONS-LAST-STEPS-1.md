@@ -84,7 +84,8 @@ dungeon alike, three rooms the seed picks hold a gloamling in place of
 their second rat, on the same tile.
 
 **D-245 · 2026-10-22 · Experience** (step 39, owner's picks; builds
-D-038) Beating a creature gives 1 experience, and so does stepping into
+D-038) *Superseded in part by D-371 (2026-10-26): a creature beaten now
+gives its hearts and bite.* Beating a creature gives 1 experience, and so does stepping into
 a room the hero has never stood in (a dev jump gives none). It shows only
 as an amber "+1" rising over the hero; the total isn't shown yet. A fall
 keeps it all, and the hand-made rooms stay found; the generated depths,

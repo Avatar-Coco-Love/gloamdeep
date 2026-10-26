@@ -1,11 +1,12 @@
-// § experience: beating a creature and finding a room each give 1 (D-245)
+// § experience: beating a creature gives its hearts and bite, finding a room 1 (D-245, D-371)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, FIRST_ENEMIES } from '../src/core/room.js';
 import { makeState, makeWorld, step, wait, FIRST_START } from '../src/core/turn.js';
 import { goToDepth } from '../src/core/stairs.js';
 import { readJourney, journeyText, unpackJourney } from '../src/core/save.js';
-import { levelOf, xpFor } from '../src/core/xp.js';
+import { levelOf, xpFor, xpOf } from '../src/core/xp.js';
+import { get } from '../src/core/registry.js';
 import { shownLine } from '../src/core/lines.js';
 
 const room = makeRoom(FIRST_ROOM);
@@ -19,9 +20,13 @@ test('a journey starts with no experience, its first room found', () => {
   assert.deepEqual(s.found, ['first']);
 });
 
-test('beating a creature gives 1; a hit it survives gives none', () => {
-  assert.equal(step(nextToRat(1), 'left').xp, 1);
+test('beating a rat gives 3, its hearts and bite; a hit it survives gives none (D-371)', () => {
+  assert.equal(step(nextToRat(1), 'left').xp, 3);
   assert.equal(step(nextToRat(2), 'left').xp, 0);
+});
+
+test('each creature is worth its hearts and bite', () => {
+  assert.deepEqual(['rat', 'gloamling', 'lampmoth', 'flaskMimic', 'scorpion'].map((id) => xpOf(get(id))), [3, 3, 2, 4, 3]);
 });
 
 test('a room never stood in gives 1, once', () => {
@@ -75,7 +80,7 @@ test('levels cost 10 more each: 2 at 10, 3 at 30, 4 at 60', () => {
 });
 
 test('reaching a level says so, with its number, over the foe\'s line', () => {
-  const s = step({ ...nextToRat(1), xp: 9 }, 'left');
+  const s = step({ ...nextToRat(1), xp: 7 }, 'left');
   assert.equal(s.xp, 10);
   assert.equal(shownLine(s).text, 'You feel stronger. Level 2.');
   assert.equal(shownLine(s), shownLine(wait(s)), 'the same saying stays one line, drawn and spoken once');

@@ -33,7 +33,7 @@ this page and a decision disagree, the decision wins.
 ## The hero
 - **Hearts:** the hero's health, 5, and up to 5 more bought (D-115, D-293). **LV:** the level (D-246).
 - **Embers:** 1 for each level past the first, spent in Growth (D-293).
-- **Experience:** 1 per creature beaten and per new room (D-245).
+- **Experience:** a creature beaten gives its hearts and bite; a new room 1 (D-245, D-371).
 - **Lantern, oil:** the light the hero carries and what it burns.
 - **Flask:** oil to pour into the lantern, from the bag (D-247, D-249).
 - **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339).
@@ -71,6 +71,7 @@ this page and a decision disagree, the decision wins.
 - **Gloamling:** chases, and shuns light (D-240).
 - **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
 - **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
+- **Scorpion:** chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the row of plaques under the room, one for each
