@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.126 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.127 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -33,6 +33,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-26, 0.2.127, on the home screen.** The owner asked for
+  installing, as their other games have. Install only, no offline copy;
+  only the browser asks; the icon is the lit lantern alone, no backdrop
+  ([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). iPhone saves are apart from
+  Safari's, noted (D-375).
+  [Playtest](https://claude.ai/artifact/1T71JsozbHTCbQCv2zRJg6).
 - **2026-10-26, 0.2.126, the scorpion.** The owner picked the scorpion:
   1 heart, a sting of 2, chases; one room a floor on depths 3 and 4, for
   the rat, never the lampmoth's; its own click-and-stab sound (D-370).
@@ -48,11 +54,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   crashed, and the save kept the broken line. Fixed with a safety net and
   "The flask mimic cracks." (D-369).
   [Playtest](https://claude.ai/artifact/JA97bK1WfXmnjULyLkKFPB).
-- **2026-10-25, 0.2.124, the flask mimic.** Six creatures in a
-  [mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh); the owner
-  and their girlfriend picked the flask mimic: 3 hearts, bite 1, about 1
-  room in 4 on depths 3 to 5, a glassy bite (D-365 to D-367). Then the
-  owner's idea: it sleeps as a flask; a bump wakes it, it chases 6 turns
-  and settles (D-368).
-  [Playtest](https://claude.ai/artifact/NpXtDfeH3xzeBR4DgJr99t),
-  [sounds](https://claude.ai/artifact/QB1y2ehNz5YnsZ17rYnapj).

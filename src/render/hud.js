@@ -93,11 +93,12 @@ function drawBox(c, text, bx, by) {
 
 // § lantern icon: the hero's lantern pixels (sprites.js) for the switch button,
 // a 5 × 5 map. The flame is lit, or the empty oil segments' colour when off (D-080).
-const LANTERN_ICON = ['..k..', '.kak.', 'kywyk', 'kYyYk', '.kOk.'];
-const ON = { k: '#9790a4', a: '#e8d5a0', y: '#ffd66b', w: '#efe6cc', Y: '#f39a3b', O: '#a8642c' };
-const OFF = { ...ON, a: '#3a3446', y: '#2a2636', w: '#2a2636', Y: '#2a2636', O: '#3a3446' };
+// Lit, it is the home-screen icon too (render/appicon.js, D-375).
+export const LANTERN_ICON = ['..k..', '.kak.', 'kywyk', 'kYyYk', '.kOk.'];
+export const LANTERN_ON = { k: '#9790a4', a: '#e8d5a0', y: '#ffd66b', w: '#efe6cc', Y: '#f39a3b', O: '#a8642c' };
+const OFF = { ...LANTERN_ON, a: '#3a3446', y: '#2a2636', w: '#2a2636', Y: '#2a2636', O: '#3a3446' };
 export function drawLanternIcon(c, lit) {
-  const pal = lit ? ON : OFF;
+  const pal = lit ? LANTERN_ON : OFF;
   c.clearRect(0, 0, 5, 5);
   LANTERN_ICON.forEach((row, y) => [...row].forEach((ch, x) => {
     if (pal[ch]) { c.fillStyle = pal[ch]; c.fillRect(x, y, 1, 1); }

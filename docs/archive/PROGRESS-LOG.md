@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.124, the flask mimic.** Six creatures in a
+  [mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh); the owner
+  and their girlfriend picked the flask mimic: 3 hearts, bite 1, about 1
+  room in 4 on depths 3 to 5, a glassy bite (D-365 to D-367). Then the
+  owner's idea: it sleeps as a flask; a bump wakes it, it chases 6 turns
+  and settles (D-368).
+  [Playtest](https://claude.ai/artifact/NpXtDfeH3xzeBR4DgJr99t),
+  [sounds](https://claude.ai/artifact/QB1y2ehNz5YnsZ17rYnapj).
 - **2026-10-25, 0.2.123, the second audit.** Nothing in the game changed;
   early, so content goes in cleanly (D-362). `turn.js` 32 → 10 KB, split
   into five files it passes on; a replay of 154 moves matches the old build.

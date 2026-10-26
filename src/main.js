@@ -33,10 +33,12 @@ import { createScreens } from './input/screens.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
+import { addAppCard } from './render/appicon.js';
 
 const canvas = document.getElementById('game'), hud = document.getElementById('hud'), list = document.getElementById('list');
 const { ctx, hudCtx, listCtx } = createScreen(canvas, hud, list);
 document.getElementById('version').textContent = VERSION;
+addAppCard(); // so a phone can put the game on its home screen (D-375)
 
 // The only Math.random: a new seed for each journey (D-148, D-187), unless a
 // seed is typed in Settings (D-191). journeySeed: the one this journey began on.
