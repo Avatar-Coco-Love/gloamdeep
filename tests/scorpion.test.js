@@ -57,3 +57,25 @@ test('the scorpion stands in place of its room\'s rat', () => {
     for (const o of others) assert.ok(!placeFor(o, seed).enemies.some((e) => e.id === 'scorpion'));
   }
 });
+
+test('each scorpion a room lays out wears one of its 5 colour sets, the same for the same seed (D-373)', () => {
+  const seen = new Set();
+  for (const seed of SEEDS) {
+    const [id] = scorpionRooms(seed, 3), s = placeFor(id, seed).enemies.find((e) => e.id === 'scorpion');
+    assert.ok(Number.isInteger(s.colour) && s.colour >= 0 && s.colour < get('scorpion').colours, `seed ${seed}`);
+    assert.equal(placeFor(id, seed).enemies.find((e) => e.id === 'scorpion').colour, s.colour);
+    seen.add(s.colour);
+  }
+  assert.equal(seen.size, 5, 'every set turns up');
+});
+
+test('a rat or lampmoth wears no colour set', () => {
+  for (const seed of SEEDS.slice(0, 10)) for (const c of layoutAt(seed, 3).cells) {
+    for (const e of placeFor(c.id, seed).enemies) if (e.id !== 'scorpion') assert.equal(e.colour, undefined);
+  }
+});
+
+test('a scorpion keeps its colour as it moves', () => {
+  const s = { ...at(5, 8), enemies: [{ id: 'scorpion', x: 5, y: 8, colour: 3 }] };
+  assert.equal(wait(s).enemies[0].colour, 3);
+});

@@ -19,14 +19,15 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `gloamling` | 2 | 1 | chases, shunsLight | depth 5 on, 3 rooms a floor, for the second rat | D-240, D-244 |
 | `lampmoth` | 1 | 1 | seeksLight | depths 2 to 4, 1 room a floor, for the rat | D-351, D-356 |
 | `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369 |
-| `scorpion` | 1 | 2 | chases | depths 3 and 4, 1 room a floor (never the lampmoth's), for the rat | D-370 |
+| `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | depths 3 and 4, 1 room a floor (never the lampmoth's), for the rat | D-370, D-373 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch)
 (D-269, D-351). A creature that `looksLike` a find sleeps in its disguise
-until bumped, then wakes for its `awakeTurns` (D-368). A new creature mixes these by name; a new way is a new
+until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373).
+A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 
 ## Finds and things made (`src/core/items.js`)

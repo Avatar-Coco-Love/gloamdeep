@@ -37,7 +37,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   1 heart, a sting of 2, chases; one room a floor on depths 3 and 4, for
   the rat, never the lampmoth's; its own click-and-stab sound (D-370).
   Creatures now give hearts + bite in experience (D-371). Creature
-  materials wanted, later (D-372).
+  materials wanted, later (D-372). After the owner's look, redrawn from
+  above in one of five colour sets picked by the seed (D-373,
+  [mock-up](https://claude.ai/artifact/5C8yz3Cu5SkVAvGjE8jkFr)); each
+  creature varies its own way (D-374).
   [Playtest](https://claude.ai/artifact/C462j1sM9TfdFfWx5S95qS),
   [sounds](https://claude.ai/artifact/7u1X7KXfdAcaCSGacTazhx).
 - **2026-10-25, 0.2.125, the mimic freeze.** The owner summoned a flask

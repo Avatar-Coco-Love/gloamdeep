@@ -163,11 +163,20 @@ const FLASK_MIMIC = { mirror: true, rows: [
   '', '', '......kk', '.....kaa', '......kk', '......ko', '.....koo', '....kooo', '...kwpoo', '...kwooo',
   '...kkwkw', '...kOkkk', '....kOOO', '.....kkk'] };
 
-// § scorpion: amber-brown, side on and facing right, its tail curled up over its
-// back, claws raised in front and the pink hostile eye (D-370, the mock-up's)
+// § scorpion: seen from above, as the lampmoth is: two big pincers, eight legs, a
+// striped body with the pink hostile eyes, and the tail curled to one side with a
+// pale sting (D-370). Its `o`, `O` and `a` are its colour set's (D-373).
 const SCORPION = { mirror: false, rows: [
-  '', '', '', '..kkk...........', '.kOoOk..........', '.kk.kOk.........', '....kOk.........', '....kOk...kk.kk.',
-  '.....kOkkkOOkOok', '....kkoooooOkkk.', '...kOoooooopOk..', '...kOOOOOOOOOk..', '....kkOkOkOkk...', '....k.k.k.k.....'] };
+  '..kk........kk..', '.kook......kook.', 'kooko.k..k.okook', 'koook.k..k.koook', '.kooOk....kOook.', '..kkOk.kk.kOkk..',
+  '....kOkOOkOk....', '..k.kopoopok.k..', '.k.kkooooook.k.k', 'k.k.kOOOOOOkk.k.', '.k.kkooooookk.k.', 'k.k.kkOOOOkk..k.',
+  '......kOOk..kk..', '......kOok.kak..', '.......kOOkkOk..', '........kkOOk...'] };
+// Its colour sets, light, shade and sting: Sand, Rust, Coal, Olive and Bone; never
+// the oil's amber (D-373). The registry's `colours` counts them.
+const SCORPION_COLOURS = [
+  { o: '#d9c48e', O: '#9a8458', a: '#efe6cc' }, { o: '#d0603a', O: '#7e3020', a: '#e8d5a0' },
+  { o: '#5e5870', O: '#302c3c', a: '#b9ab88' }, { o: '#a9a65a', O: '#64612e', a: '#e8d5a0' },
+  { o: '#e6dcc4', O: '#a89c80', a: '#6b7686' },
+];
 
 function build(rows, mirror) {
   return Array.from({ length: 16 }, (_, i) => {
@@ -191,7 +200,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -228,6 +237,10 @@ function mirrored(cv) {
 }
 const LEFT = {}, LEFT_FLASHES = {};
 for (const id of Object.keys(FLASHES)) { LEFT[id] = mirrored(SPRITES[id]); LEFT_FLASHES[id] = mirrored(FLASHES[id]); }
+// § colours: a creature in its colour set, facing right and left (D-373); the first is its SPRITES one
+const COLOURS = { scorpion: SCORPION_COLOURS.map((set) => spriteCanvas(SCORPION, null, { ...PAL, ...set })) };
+const COLOURS_LEFT = Object.fromEntries(Object.entries(COLOURS).map(([id, all]) => [id, all.map(mirrored)]));
+const dressedIn = (e, left) => (left ? COLOURS_LEFT : COLOURS)[e.id]?.[e.colour] ?? (left ? LEFT : SPRITES)[e.id];
 // § looks: the hero in a cloak, eyes, trim and clothes (P3 to P6), its four cloak shades, its eye
 // colour and the lantern's cap and base swapped, its rows dressed; the outline and the flame stay.
 // Each is made once, the first time it is worn or shown. The profile in play's is worn wherever
@@ -315,7 +328,7 @@ export function drawItems(c, items, t, still) {
 // `at`: (enemy) → the tile it is shown on, part way along while it slides (D-128).
 // One that walked left is drawn mirrored (D-158).
 // A creature's sprite, facing the way it faces, for its plaque (D-357)
-export const faceOf = (e) => (e.facing === 'left' ? LEFT : SPRITES)[e.id];
+export const faceOf = (e) => dressedIn(e, e.facing === 'left');
 export function drawEnemies(c, enemies, t, still, hit, at = (e) => e) {
   for (const e of enemies) drawEnemy(c, e, at(e), t, still, hit && e.x === hit.x && e.y === hit.y);
   if (hit && !enemies.some((e) => e.x === hit.x && e.y === hit.y)) drawEnemy(c, hit, hit, t, still, true);
@@ -326,5 +339,5 @@ function drawEnemy(c, e, p, t, still, flash) {
   const bob = still ? 0 : Math.floor(t / 520 + e.x) % 2;
   drawShadow(c, x, y, 8);
   const left = e.facing === 'left';
-  c.drawImage((flash ? (left ? LEFT_FLASHES : FLASHES) : (left ? LEFT : SPRITES))[e.id], x, y - 2 - bob);
+  c.drawImage(flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : dressedIn(e, left), x, y - 2 - bob);
 }

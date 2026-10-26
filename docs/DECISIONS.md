@@ -155,8 +155,11 @@ showing stays, and a line that isn't there, as an old save may hold,
 shows nothing. A test checks that every line a creature names exists.
 
 **D-370 · 2026-10-26 · The scorpion** (the owner's picks, all recommended;
-one of the five kept by D-365) Amber-brown, side on, its tail curled up
-over its back, claws raised and the pink hostile eye, as in the mock-up.
+one of the five kept by D-365) Seen from above, as the lampmoth is: two
+big pincers, eight legs, a striped body with the pink hostile eyes, and
+the tail curled to one side with a pale sting (changed after the owner's
+look: amber-brown and side on → from above, in its colour set, D-373;
+[mock-up](https://claude.ai/artifact/5C8yz3Cu5SkVAvGjE8jkFr)).
 1 heart and a bite of 2, the first creature to bite that hard; it chases
 (the Chases way), so one hit of anything kills it. On each floor of
 depths 3 and 4, one room the seed picks, never the lampmoth's, holds a
@@ -175,3 +178,14 @@ rule by itself. A new room still gives 1, and levels cost the same.
 narrows Q-061) Beaten creatures will one day leave materials of their
 own, to make new things with, each creature with its own chance from the
 seed. Not built yet: the names, looks, chances and recipes are Q-061.
+
+**D-373 · 2026-10-26 · A creature's colour sets** (the owner's idea and
+picks, all recommended) One drawing, worn in one of a small set of colours
+made for that creature. Each one a room lays out picks its set from the
+seed and its tile, like a mushroom's tone (D-305), so the same world shows
+the same colours. The scorpion's five: Sand, Rust, Coal, Olive and Bone,
+never the oil's amber. One the dev tools place wears the first, Sand.
+
+**D-374 · 2026-10-26 · Each creature varies its own way** (the owner's
+answer) Whether a creature varies, and how, is decided creature by
+creature: colours, or its shape itself. Ideas kept in `RESEARCH.md`.

@@ -10,6 +10,16 @@ import { rng } from './rng.js';
 const toneSeed = (seed, x, y) => (Math.imul(seed, 0x27d4eb2d) ^ Math.imul(x + 1, 0x165667b1) ^ Math.imul(y + 1, 0x9e3779b1)) >>> 0;
 const spread = (r, most) => Math.round((r() * 2 - 1) * most);
 
+// § colours: a creature kind with `colours` in the registry wears one of that
+// many colour sets, each one its own, picked the same way (D-373). One with no
+// `colour`, as the dev tools place, wears the first.
+export function coloured(seed, enemies) {
+  return enemies.map((e) => {
+    const n = get(e.id)?.colours;
+    return n ? { ...e, colour: Math.floor(rng(toneSeed(seed, e.x, e.y))() * n) } : e;
+  });
+}
+
 // (seed, items) → the items, each kind with a tone given its own
 export function toned(seed, items) {
   return items.map((it) => {

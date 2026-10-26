@@ -85,6 +85,10 @@ town only decoration: a home base should do something.
   is a tool in a fight (Golden Krone Hotel).
 - **Creature materials** (the owner, 2026-10-26, D-372): beaten creatures
   leave materials of their own, each with its own chance, for new recipes.
+- **Creatures that vary** (the owner, 2026-10-26, D-374): each kind its
+  own way. Rats in a spread of greys, and in shape: fur messy or not, the
+  tail held differently, injuries. Injuries could be their own thing, as
+  in Dwarf Fortress, where a wound to a part changes what a creature can do.
 - **Crafting and a home town**: craft from things you find (mushrooms,
   moss, oil; the Depth Meter could be crafted), and rescued NPCs move to
   the home base and give it a real use.

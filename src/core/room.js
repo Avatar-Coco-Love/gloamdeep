@@ -6,6 +6,7 @@ import { generateRoom, withMimic } from './cave.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
+import { coloured } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
 
@@ -141,8 +142,8 @@ export function scorpionRooms(seed, depth) {
   while (out.length < Math.min(SCORPION_ROOMS, ids.length)) out.push(...ids.splice(Math.floor(r() * ids.length), 1));
   return out;
 }
-// A room with its rat swapped for another creature
-const ratAs = (room, id) => room && { ...room, enemies: room.enemies.map((e) => (e.id === 'rat' ? { ...e, id } : e)) };
+// A room with its rat swapped for another creature, in its own colours (D-373)
+const ratAs = (room, id, seed) => room && { ...room, enemies: coloured(seed, room.enemies.map((e) => (e.id === 'rat' ? { ...e, id } : e))) };
 // § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
 // a flask mimic as well as all it holds (D-366)
 const MIMIC_ODDS = 0.25, MIMIC_FROM = 3, MIMIC_TO = 5;
@@ -164,7 +165,7 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', knife: id === placeAt(KNIFE_DEPTH), deposits });
-  const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth') : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion') : made;
+  const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth', cell.seed) : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion', cell.seed) : made;
   const room = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   return { ...(room || PLACES[DEEPER]), depth, look, sides: cell?.sides || {} };
 }
