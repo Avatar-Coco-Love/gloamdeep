@@ -2,6 +2,14 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.126', date: '2026-10-26', title: 'The scorpion', lines: [
+    "A new creature, the scorpion, drawn from above: two big pincers, eight legs and its tail curled to one side. It has 1 heart, so one hit of anything kills it, but its sting takes 2 hearts.",
+    "Each scorpion wears one of five colours, Sand, Rust, Coal, Olive or Bone, picked by the world's seed, so no two floors look quite alike.",
+    "It chases you once it sees you in the light. On each floor of depths 3 and 4, one room holds a scorpion in place of its rat, never the lampmoth's room.",
+    "Its sting has its own sound: two dry clicks of claws, then a sharp stab.",
+    "Creatures now give more experience: their hearts and bite added together. A lampmoth gives 2, a rat, gloamling or scorpion 3, a flask mimic 4. A new room still gives 1.",
+    "Decisions: D-370, D-371, D-372, D-373, D-374.",
+  ] },
   { v: '0.2.125', date: '2026-10-25', title: 'The mimic freeze fixed', lines: [
     "Fixed: hitting a flask mimic without killing it froze the game, and a saved game froze again when loaded.",
     "Hurt, the flask mimic now says \"The flask mimic cracks.\" Its bite on the same turn still says more.",

@@ -83,6 +83,12 @@ town only decoration: a home base should do something.
   charging station that must be joined to some power.
 - **Light-shy creatures**: some fear or are hurt by light, so the lantern
   is a tool in a fight (Golden Krone Hotel).
+- **Creature materials** (the owner, 2026-10-26, D-372): beaten creatures
+  leave materials of their own, each with its own chance, for new recipes.
+- **Creatures that vary** (the owner, 2026-10-26, D-374): each kind its
+  own way. Rats in a spread of greys, and in shape: fur messy or not, the
+  tail held differently, injuries. Injuries could be their own thing, as
+  in Dwarf Fortress, where a wound to a part changes what a creature can do.
 - **Crafting and a home town**: craft from things you find (mushrooms,
   moss, oil; the Depth Meter could be crafted), and rescued NPCs move to
   the home base and give it a real use.
@@ -107,14 +113,13 @@ town only decoration: a home base should do something.
 - A small bag that grows with add-on pouches.
 - Pushing creatures into hazards (water, pits).
 
-## Creatures shown, not picked (2026-10-25, D-365)
+## Creatures shown, not picked (2026-10-25, D-365; the scorpion picked next, D-370)
 Each built only from the ways creatures have
 ([mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh)):
 - **Snapcap:** a heartcap look-alike with pink eyes; no ways, so it never
   moves and bites whoever stands next to it. 2 hearts, bite 1, depths 2 to 4.
 - **Mole:** chases and never flees. 4 hearts, bite 1, the Warren.
 - **Bat:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
-- **Scorpion:** chases. 1 heart, bite 2, depths 3 and 4.
 - **Cave spider:** shuns light only, so it waits in the dark, backs out of
   light and bites when the lantern is off. 2 hearts, bite 1, depths 2 to 4.
 

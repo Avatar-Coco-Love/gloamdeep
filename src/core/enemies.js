@@ -4,7 +4,8 @@
 // `chasing` once it has noticed the hero (D-127, D-157), `flees`, the turns
 // of fleeing it has left (D-301), `asleep` for one in disguise, `stirs` on the
 // turn it wakes and `awake`, the turns it has left to chase (D-368), and `facing` ('left'
-// or 'right', drawn facing right until it walks, D-158). `ways` names how it
+// or 'right', drawn facing right until it walks, D-158), and `colour`, the set it
+// wears, for a kind with `colours` (D-373). `ways` names how it
 // acts, from behaviours.js (D-269).
 export const ENEMIES = {
   // Two lantern hits kill it (D-109, D-110); it bites for 1 when next to the hero (D-114)
@@ -20,6 +21,9 @@ export const ENEMIES = {
   // harm, and it chases for `awakeTurns` turns, then settles back down where
   // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
   flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
+  // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
+  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
 };
 
 // § lookups: the enemy on tile x, y, or undefined
@@ -42,7 +46,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

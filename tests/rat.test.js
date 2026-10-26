@@ -15,8 +15,8 @@ const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES);
 const nextToRat = () => ({ ...start(), hero: { x: 3, y: 10 }, seed: FLEES }); // the coin says flee (D-301)
 const FLEES = 5, STANDS = 1; // seeds whose coin, for these hits, says flee or stand
 
-test('the registry has the rat, the gloamling, the lampmoth and the flask mimic as enemies', () => {
-  assert.deepEqual(byKind('enemy').map((e) => e.id), ['rat', 'gloamling', 'lampmoth', 'flaskMimic']);
+test('the registry has the rat, the gloamling, the lampmoth, the flask mimic and the scorpion as enemies', () => {
+  assert.deepEqual(byKind('enemy').map((e) => e.id), ['rat', 'gloamling', 'lampmoth', 'flaskMimic', 'scorpion']);
 });
 
 test('the first room has the rat where the study put it', () => {

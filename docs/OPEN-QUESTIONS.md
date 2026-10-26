@@ -81,6 +81,8 @@ achievement, D-284) Which records get a set, the numbers of each tier,
 what a reward is (perhaps the play-earned currency, Q-055, or a look)
 and where achievements show (a Journal tab, a note on reaching one).
 
-**Q-061 · Creatures that leave things behind** (before the first, D-366)
-Whether a beaten creature may leave a find, perhaps the flask mimic a
-real flask; which creatures, what and how often. A new mechanic, its own step.
+**Q-061 · Creature materials** (before the first, D-366, D-372)
+The owner wants beaten creatures to leave materials of their own, each
+with its own chance (D-372). Still open: which creatures, each material's
+name and look, the chances, and the recipes they go into. A new
+mechanic, its own step.

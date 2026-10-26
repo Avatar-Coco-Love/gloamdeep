@@ -15,7 +15,7 @@ import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
 import { offEdge, walkOff } from './openings.js';
-import { XP_FOE, gain } from './xp.js';
+import { xpOf, gain } from './xp.js';
 import { bagAdd } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
@@ -84,7 +84,7 @@ function pickUp(state, found) {
 // or the weapon held, which hits for its own `hit` (D-252). It passes a turn
 // like a step, so oil burns (D-111). One that may flee flees or stands (D-301).
 // The foe's line is said, and an oil line
-// said on the same turn replaces it (D-112). A foe beaten is worth experience (D-245).
+// said on the same turn replaces it (D-112). A foe beaten is worth experience, its hearts and bite (D-245, D-371).
 // It is a `hit` event, and a foe beaten a `beat` too.
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => (state.held && get(state.held)?.hit) || LANTERN_HIT;
@@ -93,7 +93,7 @@ function attack(state, foe) {
   const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, heroHit(state));
   const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
   const next = note(passTurn({ ...state, enemies }), 'hit', { id: foe.id, held: state.held });
-  return endTurn(state, say(dead ? note(gain(next, XP_FOE), 'beat', { id: foe.id }) : next, dead ? entry.die : stands ? entry.stands : entry.hurt));
+  return endTurn(state, say(dead ? note(gain(next, xpOf(entry)), 'beat', { id: foe.id }) : next, dead ? entry.die : stands ? entry.stands : entry.hurt));
 }
 
 // § wake: bumping a creature asleep in disguise wakes it, with no harm and no

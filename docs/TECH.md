@@ -78,7 +78,7 @@ themselves. Each kind also touches:
 - **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
   line ids); its lines in `src/core/lines.js`; its sprite in
   `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
-  flash); where it lives in `src/core/room.js` (like `lampmothRooms`) or
+  flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (like `lampmothRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
   the sound board). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
