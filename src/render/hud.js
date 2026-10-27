@@ -3,6 +3,7 @@
 // the buttons' icons.
 import { drawText, textWidth } from './font.js';
 import { SPRITES } from './sprites.js';
+import { drawGlass } from './glass.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
 // the depth, as in the D-378 mock-up. Drawn in game pixels: a see-through
@@ -10,7 +11,6 @@ import { SPRITES } from './sprites.js';
 // round (pixel glass, D-380). `alpha` fades it while the hero is under it.
 // Gives the panel's { w, h }, for the creature list under it (D-357).
 const PAD = 3, LINE = 7, GAP_Y = 3;
-const GLASS = 'rgba(14,12,22,.6)', GLASS_EDGE = 'rgba(239,230,204,.28)';
 export function drawStatus(c, { oil, health, max, depth, level }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
   const top = Math.max(heartsH(max), LINE), w = 2 * PAD + Math.max(heartsW(max) + 4 + textWidth(lv), BAR_W, textWidth(where));
@@ -24,15 +24,6 @@ export function drawStatus(c, { oil, health, max, depth, level }, x, y, alpha = 
   drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, '#9790a4');
   c.restore();
   return { w, h };
-}
-
-// § glass: the see-through night fill and its soft light edge, corners left out;
-// the panel's, and the text line's at the bottom (D-381)
-export function drawGlass(c, x, y, w, h) {
-  c.fillStyle = GLASS; c.fillRect(x + 1, y + 1, w - 2, h - 2);
-  c.fillStyle = GLASS_EDGE;
-  c.fillRect(x + 1, y, w - 2, 1); c.fillRect(x + 1, y + h - 1, w - 2, 1);
-  c.fillRect(x, y + 1, 1, h - 2); c.fillRect(x + w - 1, y + 1, 1, h - 2);
 }
 
 // § oil bar: style study 1's 10 amber segments (study lines 37–40, 522). A

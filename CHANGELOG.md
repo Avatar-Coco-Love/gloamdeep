@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.135 (2026-10-27)
+- The bag now opens as a glass card in the middle of the screen, the room dimmed around it, with bigger slots.
+- Under the slots, the card shows the chosen item's name, how many you carry, and its look line.
+- A small round cross at the card's top right closes it; I, Esc and a tap outside still do too. The corner buttons hide while the bag is open.
+- Decisions: D-385.
+
 ## 0.2.134 (2026-10-27)
 - The lantern is now a big round button in the room's bottom right corner, its rim gold while it is lit.
 - A new quick slot stands left of the lantern: tap it to pour a flask from your bag, one turn, as the bag's Pour does. It shows how many flasks you carry, and goes dim when you have none.

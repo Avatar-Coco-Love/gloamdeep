@@ -1,7 +1,7 @@
 // § bag button: opens the bag during play (D-247). It sits on the lantern's
-// arc, up and left of it (D-384), round on the glass; while the bag is open it stays, as a cross that closes it. Thin layer: a tap
-// or click only calls onBag(); hide(on) takes it away, closes(on) turns it into the cross.
-import { drawBagIcon, drawCloseIcon } from '../render/hud.js';
+// arc, up and left of it (D-384), round on the glass; while the bag is open it hides, and the
+// card's own cross closes it (D-385). Thin layer: a tap or click only calls onBag(); hide(on) takes it away.
+import { drawBagIcon } from '../render/hud.js';
 import { keepPlaced } from './lantern.js';
 
 export function createBagButton(canvas, { onBag }) {
@@ -19,10 +19,5 @@ export function createBagButton(canvas, { onBag }) {
   keepPlaced(canvas, button, 3);
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
-    closes(on) {
-      (on ? drawCloseIcon : drawBagIcon)(icon.getContext('2d'));
-      button.title = on ? 'Close bag (I)' : 'Bag (I)';
-      button.setAttribute('aria-label', on ? 'Close bag' : 'Bag');
-    },
   };
 }

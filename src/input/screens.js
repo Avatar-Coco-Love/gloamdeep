@@ -76,11 +76,11 @@ import { slotLines, slotsAt, slotsHeading, askTop } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
-import { bagAt, panelOnTop, twoButtons } from '../render/bag.js';
+import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, CHEST_CLOSE, chestWords, moveChest, stashAt } from '../core/chest.js';
-import { TILE } from '../render/screen.js';
+import { TILE, view } from '../render/screen.js';
 
 const WORDS = {
   title: 'Gloamdeep. New journey, Journal, How to play, Settings, Profiles or Seed Explorer: press Enter, or tap one.',
@@ -117,7 +117,7 @@ export function createScreens(app, ui) {
     lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     const mapOpen = next === 'map' || next === 'explore';
     mapButton.hide(!playing && !mapOpen); mapButton.closes(mapOpen);
-    bagButton.hide(!playing && next !== 'bag'); bagButton.closes(next === 'bag');
+    bagButton.hide(!playing); // the card's own cross closes the bag (D-385)
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
@@ -348,7 +348,7 @@ export function createScreens(app, ui) {
   const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. Left and Right choose, Enter pours, makes, eats or drinks, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
-    else if (app.screen === 'play') { app.queued = null; app.bagOnTop = panelOnTop(app.state.hero.y * TILE - app.cam.y); show('bag'); }
+    else if (app.screen === 'play') { app.queued = null; show('bag'); }
   }
   function pickSlot(i) { app.chosen = i; spoken.textContent = slotWords(i); ui.lookAt(i); } // choosing says an item's look line (D-297)
   // Enter, Space or the button: pours a flask, makes one from oilcaps (D-299),
@@ -634,8 +634,8 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'bag') {
       if (held) return;
-      const s = app.state.bag[app.chosen], at = bagAt(px, py, app.bagOnTop, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
-      if (at === 'out') show('play');
+      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
+      if (at === 'out' || at === 'close') show('play');
       else if (at === 'act' || at === 'make') useChosen(at === 'make');
       else if (at) pickSlot(at.slot);
       return;

@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.132, the room fills the screen.** The owner picked
+  about 11 tiles tall, the deepest dark past a small room's edges, and
+  the text line on glass at the bottom (D-381). The buttons stand in the
+  room's corners; the menus keep their own picture over the room. The
+  dev stats line is now a Stats switch, off at first (D-382).
+  [Playtest](https://claude.ai/artifact/XNkevYgascXJnSg4rtsoRV).
 - **2026-10-27, 0.2.131, the glass panel.** The owner picked the corner
   HUD's order (D-380): panel, room fills, round map, round lantern, cards.
   The hearts, level, oil and depth sit on pixel glass top left, the

@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.134 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.135 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner HUD, step 5 of 5 (D-380): menus as full-screen cards, the bag
-first (D-378). Propose its look first (the card's size, glass, how the
-slots sit). Creature materials (Q-061) wait.
+Menus as cards (D-378), after the bag: the workbench and stash chest
+panels next. Propose their look first (like the bag's card, or other).
+Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.135, the bag card.** The owner picked the bag as a
+  glass card in the middle, the room dim around it (full screen later,
+  when there is more to show), with the item's name, count and Look line,
+  and a round cross to close it; the corner buttons hide meanwhile (D-385).
+  [Playtest](https://claude.ai/artifact/BCY1LCWNmR4iDckseSDpzm).
 - **2026-10-27, 0.2.134, the round lantern.** The owner picked a 64 px
   round lantern bottom right, the bag and a quick slot on an arc around
   it, and the flask always in the quick slot: a tap pours one, and it
@@ -42,9 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   wrench in a row left of it, and a tap that opens the full map (D-383).
   Pause, the bag and the wrench are round on the glass now.
   [Playtest](https://claude.ai/artifact/1vvcxm2EMWhP4n8xx2CnJz).
-- **2026-10-27, 0.2.132, the room fills the screen.** The owner picked
-  about 11 tiles tall, the deepest dark past a small room's edges, and
-  the text line on glass at the bottom (D-381). The buttons stand in the
-  room's corners; the menus keep their own picture over the room. The
-  dev stats line is now a Stats switch, off at first (D-382).
-  [Playtest](https://claude.ai/artifact/XNkevYgascXJnSg4rtsoRV).

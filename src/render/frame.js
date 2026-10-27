@@ -231,7 +231,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
     else if (app.screen === 'bench') drawBenchPanel(ctx, benchMenu(state.bag), app.chosen, t, still());
     else if (app.screen === 'chest') drawChestPanel(ctx, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still());
-    else if (app.screen === 'bag') drawBag(ctx, state.bag, app.chosen, spriteOf, app.bagOnTop, state.held, state.health >= maxHealth(state));
+    else if (app.screen === 'bag') drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
     else dev.draw(rc, state, cam);
   }
 

@@ -193,3 +193,13 @@ left and the bag up and left. The map stays only top right (D-383). The
 quick slot always holds the flask: a tap pours the first flask in the
 bag, one turn, like the bag's Pour; it shows how many are carried, dim
 with none. Built in 0.2.134.
+
+**D-385 · 2026-10-27 · The bag as a card** (the owner's picks,
+[mock-up](https://claude.ai/artifact/84qChoSf6ZKkuMpdRDUXjQ); step 5 of
+D-380) The bag opens as a glass card in the middle of the screen, the room
+dimmed around it (option B; the owner liked it over full screen for now, to
+change when there is more to show). Six bigger slots in a row, the held
+slot above; under a line, the chosen item's name, how many are carried and
+its Look line (D-297), its buttons at the right. A small round cross at
+the card's top right closes it, as I, Esc and a tap outside still do; the
+corner buttons hide while it is open. Built in 0.2.135.

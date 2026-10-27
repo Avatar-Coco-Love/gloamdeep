@@ -5,7 +5,7 @@
 // Ordinary lines are the study's grey, warnings amber (D-097).
 import { view, LINE_H } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
-import { drawGlass } from './hud.js';
+import { drawGlass } from './glass.js';
 
 const GREY = '#9790a4', AMBER = '#ffc65c'; // the study's --muted and --amber
 const FADE_MS = 500;

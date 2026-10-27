@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { BAG_SLOTS, most, bagAdd, bagTake, bagPay, stackFull, withBag, firstFlask, flasksIn } from '../src/core/bag.js';
 import { makeWorld } from '../src/core/turn.js';
 import { packJourney, unpackJourney } from '../src/core/save.js';
-import { byKind } from '../src/core/registry.js';
+import { byKind, get } from '../src/core/registry.js';
 
 test('the bag has six slots', () => {
   assert.equal(BAG_SLOTS, 6);
@@ -65,23 +65,36 @@ test('the bag is kept in the save, and an older save gets an empty one', () => {
   assert.deepEqual(withBag(old).bag, []);
 });
 
-test('the panel fits the picture, and a tap picks a slot, Pour, or closes it', async () => {
-  const { PANEL, bagAt } = await import('../src/render/bag.js');
-  const { W, SCREEN_H, H } = await import('../src/render/screen.js');
-  assert.ok(PANEL.x >= 0 && PANEL.x + PANEL.w <= W && PANEL.y > H / 2 && PANEL.y + PANEL.h <= SCREEN_H);
-  assert.equal(bagAt(W / 2, 10), 'out');
-  const row = PANEL.y + 15 + 26 + 11; // under the held slot (D-252)
-  const slots = Array.from({ length: 200 }, (_, x) => bagAt(x, row)).filter((a) => a && a.slot !== undefined).map((a) => a.slot);
+test('the card sits in the middle, and a tap picks a slot, Pour, the cross, or closes it (D-385)', async () => {
+  const { CARD, cardAt, bagAt } = await import('../src/render/bag.js');
+  const vw = 312, vh = 176, { x, y } = cardAt(vw, vh);
+  assert.ok(x >= 8 && x + CARD.w <= vw - 8 && y >= 8 && y + CARD.h <= vh - 8);
+  assert.equal(bagAt(4, 4, vw, vh), 'out');
+  const row = y + 56 + 14;
+  const slots = Array.from({ length: vw }, (_, px) => bagAt(px, row, vw, vh)).filter((a) => a && a.slot !== undefined).map((a) => a.slot);
   assert.deepEqual([...new Set(slots)], [0, 1, 2, 3, 4, 5]);
-  assert.equal(bagAt(PANEL.x + PANEL.w - 10, PANEL.y + PANEL.h - 8), 'act');
+  assert.equal(bagAt(x + CARD.w - 14, y + 104, vw, vh), 'act');
+  assert.equal(bagAt(x + CARD.w - 11, y + 10, vw, vh), 'close');
+  assert.equal(bagAt(x + 20, y + 120, vw, vh), null);
 });
 
-test('the panel moves to the top when it would hide the hero', async () => {
-  const { PANEL, bagAt, panelOnTop } = await import('../src/render/bag.js');
-  assert.equal(panelOnTop(16 * 5), false);
-  assert.equal(panelOnTop(16 * 10), true);
-  assert.equal(bagAt(PANEL.x + 20, 56, true).slot, 0);
-  assert.equal(bagAt(PANEL.x + 20, 56, false), 'out');
+test('the card shows the Look line last said, or the first (D-297)', async () => {
+  const { lookLine } = await import('../src/render/bag.js');
+  assert.equal(lookLine(get('oilcap')), 'Three make an oil flask.');
+  assert.equal(lookLine(get('oilcap'), { oilcapLook: 2 }), 'It smells faintly of lamp oil.');
+  assert.equal(lookLine(get('flask')), null);
+});
+
+test('every name, count, Look line and button fits the card', async () => {
+  const { CARD } = await import('../src/render/bag.js');
+  const { textWidth } = await import('../src/render/font.js');
+  const { LINES } = await import('../src/core/lines.js');
+  for (const id of ['flask', 'herb', 'oilcap', 'heartcap', 'potion', 'stone', 'wood', 'workbench', 'chest', 'knife']) {
+    const e = get(id);
+    const buttons = e.sets ? textWidth('SET DOWN') + 8 : (e.craft && e.eats ? 2 : e.oil || e.eats || e.craft ? 1 : 0) * (textWidth('DRINK') + 8 + 4);
+    assert.ok(10 + textWidth(e.name) + 6 + textWidth('20 carried') + 4 + buttons <= CARD.w - 10, id);
+    for (const t of (e.look && LINES[e.look].texts) || []) assert.ok(textWidth(t) <= CARD.w - 20, t);
+  }
 });
 
 test('the quick slot finds the first flask and counts them all (D-384)', () => {
