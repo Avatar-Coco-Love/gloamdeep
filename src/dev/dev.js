@@ -6,7 +6,8 @@ import { tileAt, depthOf } from '../core/room.js';
 import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
-import { W, H, TILE } from '../render/screen.js';
+import { TILE } from '../render/screen.js';
+import { LINE_UP } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
 import { setPixelText } from './pixeltext.js';
@@ -31,7 +32,7 @@ function save(opts) {
 // canvas; the wrench stands left of its top (D-199).
 export function createDev(stage, canvas, game, picture) {
   // every switch starts off (D-047); only View starts open (D-087)
-  const opts = { grid: false, coords: false, noLight: false, reveal: false, revealMap: false, open: ['view'], ...load() };
+  const opts = { grid: false, coords: false, noLight: false, reveal: false, revealMap: false, stats: false, open: ['view'], ...load() };
   save(opts);
 
   // § panel: the wrench button and the folding sections
@@ -45,19 +46,18 @@ export function createDev(stage, canvas, game, picture) {
   const readout = el('div', { id: 'dev-readout' });
   const tools = buildPanel(panel, opts, () => save(opts), game);
   document.body.append(button, panel, readout);
-  // § drawer: along the screen's left edge, from under the wrench down to
-  // the stats line (D-200); the stats line keeps to the space left of the
-  // picture when it stands sideways (D-199)
+  // § drawer: along the screen's left edge, from under the wrench's row down to
+  // the bottom (D-200). The stats line, small, sits bottom left just above the
+  // text line's glass (D-382)
   const fitPanel = () => {
     const top = parseFloat(button.style.top) + 52;
     panel.style.top = top + 'px';
-    panel.style.height = Math.max(88, readout.getBoundingClientRect().top - 8 - top) + 'px';
+    panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
   };
-  keepPlaced(picture, button, -1, (top, left, pic) => {
-    readout.style.maxWidth = left < pic.left ? pic.left - 16 + 'px' : '';
+  keepPlaced(picture, button, -1, (top, left, room) => {
+    readout.style.bottom = innerHeight - room.bottom + (LINE_UP + 2) * (room.height / picture.height) + 'px';
     fitPanel();
   });
-  new ResizeObserver(fitPanel).observe(readout);
 
   let open = false;
   const showPanel = (show) => {
@@ -91,10 +91,10 @@ export function createDev(stage, canvas, game, picture) {
   let pointed = null;
   const point = (ev) => {
     const r = canvas.getBoundingClientRect(), cam = game.camera(), { room } = game.get();
-    const px = (ev.clientX - r.left) / r.width * W, py = (ev.clientY - r.top) / r.height * canvas.height;
+    const px = (ev.clientX - r.left) / r.width * canvas.width, py = (ev.clientY - r.top) / r.height * canvas.height;
     const tx = Math.floor((px + cam.x) / TILE), ty = Math.floor((py + cam.y) / TILE);
-    const onRoom = px >= 0 && py >= 0 && px < W && py < H; // the text strip is no tile
-    pointed = onRoom && tx < room.cols && ty < room.rows ? { x: tx, y: ty } : null;
+    const onRoom = px >= 0 && py >= 0 && px < canvas.width && py < canvas.height; // the room's canvas fills the screen (D-381)
+    pointed = onRoom && tx >= 0 && ty >= 0 && tx < room.cols && ty < room.rows ? { x: tx, y: ty } : null;
   };
   stage.addEventListener('pointerdown', point);
   stage.addEventListener('pointermove', point);
@@ -127,12 +127,11 @@ export function createDev(stage, canvas, game, picture) {
       countFrame(performance.now());
       if (opts.grid) drawGrid(ctx, cam);
       if (opts.coords && pointed) {
-        ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip(); // off the text strip
         drawPointed(ctx, pointed.x - cam.x / TILE, pointed.y - cam.y / TILE);
-        ctx.restore();
       }
       tools.sync(state);
-      // § stats: always on; a second line for the pick and the pointed tile (D-088)
+      // § stats: with the Stats switch on (D-382, was always on, D-088); a second line for the pick and the pointed tile
+      readout.hidden = !opts.stats;
       const h = state.hero, picked = tools.picked();
       let next = `fps ${fps} · turn ${state.turn} · day ${state.turn % DAY_TURNS}/${DAY_TURNS} · oil ${Math.round(state.oil * 100)}% · ${state.lit ? 'lit' : 'dark'} · health ${state.health} · xp ${state.xp} · hero ${h.x},${h.y} · depth ${depthOf(state.place)} · seed ${state.seed}`;
       const more = [];
@@ -144,7 +143,7 @@ export function createDev(stage, canvas, game, picture) {
         more.push(tile);
       }
       if (more.length) next += '\n' + more.join(' · ');
-      if (next !== text) { text = next; setPixelText(readout, text); } // touch the page only on change
+      if (next !== text) { text = next; setPixelText(readout, text, 1); } // touch the page only on change
     },
   };
 }

@@ -16,16 +16,22 @@ export function drawStatus(c, { oil, health, max, depth, level }, x, y, alpha = 
   const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + LINE;
   c.save();
   c.globalAlpha = alpha;
-  c.fillStyle = GLASS; c.fillRect(x + 1, y + 1, w - 2, h - 2);
-  c.fillStyle = GLASS_EDGE;
-  c.fillRect(x + 1, y, w - 2, 1); c.fillRect(x + 1, y + h - 1, w - 2, 1);
-  c.fillRect(x, y + 1, 1, h - 2); c.fillRect(x + w - 1, y + 1, 1, h - 2);
+  drawGlass(c, x, y, w, h);
   drawHearts(c, health, max, x + PAD, y + PAD + (top > LINE ? 0 : 1));
   drawText(c, lv, x + w - PAD - textWidth(lv), y + PAD, '#9790a4'); // the study's --muted
   drawOilBar(c, oil, x + PAD, y + PAD + top + GAP_Y);
   drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, '#9790a4');
   c.restore();
   return { w, h };
+}
+
+// § glass: the see-through night fill and its soft light edge, corners left out;
+// the panel's, and the text line's at the bottom (D-381)
+export function drawGlass(c, x, y, w, h) {
+  c.fillStyle = GLASS; c.fillRect(x + 1, y + 1, w - 2, h - 2);
+  c.fillStyle = GLASS_EDGE;
+  c.fillRect(x + 1, y, w - 2, 1); c.fillRect(x + 1, y + h - 1, w - 2, 1);
+  c.fillRect(x, y + 1, 1, h - 2); c.fillRect(x + w - 1, y + 1, 1, h - 2);
 }
 
 // § oil bar: style study 1's 10 amber segments (study lines 37–40, 522). A

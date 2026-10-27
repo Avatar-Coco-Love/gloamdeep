@@ -12,7 +12,9 @@ at build plan step 7 (D-039).
   Touch, mouse and keyboard all work (Pointer Events for tap and click).
 - 60 fps on a mid-range phone. Avoid allocating memory every frame. The
   style study's per-pixel lighting runs on a 176 × 208 canvas, so keep the
-  native resolution small.
+  native resolution small. The room's canvas fills the screen at about 11
+  tiles tall (D-381), about 400 × 190 on a wide phone; the menus keep their
+  own 176 × 221 canvas over it.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - No blue flash on tap (D-011). Set `-webkit-tap-highlight-color:

@@ -157,3 +157,19 @@ The panel is drawn in game pixels: a see-through night fill, a soft light
 edge and round corners. The creature list stands under it, down the room's
 left. Both fade almost away while the hero, or a creature beside them, is
 under them. Built in 0.2.131.
+
+**D-381 · 2026-10-27 · The room fills the screen** (the owner's picks,
+recommended; step 2 of D-380) The room fills the whole screen, zoomed so
+about 11 tiles show from top to bottom; the width follows the screen. A
+room narrower or shorter than the screen sits in the middle, the deepest
+dark around it, and the camera follows the hero only along a side where
+the room is bigger (D-195). The text line sits on the same glass, along
+the bottom of the room. Until the round map and lantern come, pause, the
+map and the bag stand in the top right corner, the wrench left of pause,
+and the lantern in the bottom right. Built in 0.2.132.
+
+**D-382 · 2026-10-27 · The stats line is a switch** (the owner's idea and
+picks, recommended; supersedes part of D-088) The dev stats line shows only
+with a new Stats switch in View, off at first and remembered, with no key
+(S walks). When on, it is half size, bottom left, just above the text
+line. Built in 0.2.132.

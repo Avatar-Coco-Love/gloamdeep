@@ -22,12 +22,12 @@ tools to be chosen together later.
 - The panel has sections, View, Spawn, Room, Oil, Hero, Share, one open
   at a time, remembered (D-087). Colours: D-093. Code: `src/dev/panel.js`. **A new tool
   goes into a section there**, or a new section.
-- It is a drawer along the left edge, from under the wrench down to the
-  stats line; tabs in a column, the open section's tools beside them;
+- It is a drawer along the left edge, from under the wrench's row down to
+  the bottom; tabs in a column, the open section's tools beside them;
   all words in the pixel font (D-200). Code: `src/dev/pixeltext.js`.
-- Sideways, the wrench stands left of the picture's top, and the stats
-  line keeps to the space left of the room (D-199).
-- Stats line, bottom left: frames a second (fps, D-294), turn, oil %, lit or dark, hero tile, then the
+- The wrench stands left of the pause button, top right (D-381).
+- Stats line, with the Stats switch in View on (off at first, D-382), small,
+  bottom left above the text line: frames a second (fps, D-294), turn, oil %, lit or dark, hero tile, then the
   spawn pick and pointed tile (D-088). New state joins it as it arrives:
   health, depth, and the seed (D-150).
 - PC keys: ` the panel; G, C, R the View switches (D-090).

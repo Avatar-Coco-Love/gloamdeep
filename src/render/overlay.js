@@ -1,6 +1,6 @@
 // § overlay: dev mode's grid and pointed-tile outline (D-045). Drawn on top
 // of the game; it only reads where things are, it never changes them.
-import { TILE, W, H } from './screen.js';
+import { TILE, view } from './screen.js';
 
 const GRID = 'rgba(255,255,255,.2)';
 const POINTED = '#ffc65c'; // the page's focus colour
@@ -8,9 +8,10 @@ const POINTED = '#ffc65c'; // the page's focus colour
 // § grid: one faint 1-pixel line on the top and left edge of every tile,
 // moved with the camera (D-195); none on the screen's own edge
 export function drawGrid(c, cam) {
+  const W = view.w, H = view.h, first = (p) => (((-p) % TILE) + TILE) % TILE; // a room centred in the screen starts the camera below 0 (D-381)
   c.fillStyle = GRID;
-  for (let x = TILE - cam.x % TILE; x < W; x += TILE) if (x > 0) c.fillRect(x, 0, 1, H);
-  for (let y = TILE - cam.y % TILE; y < H; y += TILE) if (y > 0) c.fillRect(0, y, W, 1);
+  for (let x = first(cam.x); x < W; x += TILE) if (x > 0) c.fillRect(x, 0, 1, H);
+  for (let y = first(cam.y); y < H; y += TILE) if (y > 0) c.fillRect(0, y, W, 1);
 }
 
 // § pointed: a bright 1-pixel box just inside the tile under the finger or mouse;

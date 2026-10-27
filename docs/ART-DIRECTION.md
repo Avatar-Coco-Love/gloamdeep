@@ -11,6 +11,8 @@ without asking the owner. The only planned changes are the two fixes under
 ## Grid and scale
 - Tiles are 16 × 16 pixels. The study room is 11 × 13 tiles (176 × 208 px).
   A 13-pixel text strip sits under it, so the picture is 176 × 221 (D-094).
+  In play the room fills the screen, about 11 tiles tall, and the text line
+  sits on glass at its bottom (D-381); the menus keep the 176 × 221 picture.
 - Draw at native size on a small canvas, then enlarge it with CSS
   `image-rendering: pixelated`. Use whole-number zoom (2×, 3×) when it
   fits, and fractional zoom only on very narrow screens. Turn image

@@ -7,7 +7,7 @@ const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', CORE = '#fff5d6', GREY
 const DIM = '#5c566a', DIM_GOLD = '#a08548'; // a line that can't be picked, as on the bench's panel (D-326)
 export const LINE_GAP = 16; // from one line's top to the next
 const TAP_PAD = 8; // game pixels above and below a line that still pick it
-const VEIL = 0.7; // how dark the pause menu's veil over the room is (D-187)
+export const VEIL = 0.7; // how dark the pause menu's veil over the room is (D-187)
 
 // The tapped line of a menu whose first line's top is `top`, or -1. y in game pixels.
 export function lineAt(y, count, top) {

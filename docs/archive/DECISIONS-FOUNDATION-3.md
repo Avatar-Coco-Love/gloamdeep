@@ -79,7 +79,7 @@ playtest: folding headings, any number open → one open → fixed buttons.) Swi
 A new tool adds a section (`src/dev/panel.js`).
 
 **D-088 · 2026-10-18 · A live stats line** (0.1.13, supersedes part of
-D-046)
+D-046) *Partly superseded by D-382 (2026-10-27): off at first, small, bottom left.*
 The bottom-left readout always shows the turn, the oil in %, lit or
 dark, and the hero's tile. A second line shows the spawn pick and, with
 Coords on, the pointed tile. It grows as enemies and floors arrive.
