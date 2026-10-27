@@ -9,6 +9,7 @@ export const SCREEN_H = H + LINE_H; // 221, the room and its text line
 export const LIST_H = 17; // upright, the creature list's row under the text line (D-357); sideways it is in the strip's column
 export const BUTTON = 44; // a 44 px tap target (TECH.md)
 export const BUTTON_GAP = 8; // 8 px from the picture
+export const MAP_DISC = 104; // the round map's width, top right (D-383)
 const ROW = BUTTON + BUTTON_GAP; // the buttons' column beside the picture (D-198, D-377)
 export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D-381)
 export const view = { w: W, h: H }; // the room canvas's size in game pixels, set by the fit

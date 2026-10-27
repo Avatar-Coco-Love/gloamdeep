@@ -14,7 +14,7 @@
 import { W, SCREEN_H } from './screen.js';
 import { drawText, textWidth } from './font.js';
 import { veil } from './menu.js';
-import { markAt } from '../core/map.js';
+import { markAt, aroundHero } from '../core/map.js';
 import { areaAt } from '../core/room.js';
 
 const K = '#0e0c16', LINE = '#2a2636', EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
@@ -58,10 +58,12 @@ function arrow(c, x, y, down, colour) { // 5 × 3, pointing up or down
 const drawn = document.createElement('canvas');
 let plan = null, k = 0;
 export function setMap(next) { plan = next; k = 0; }
-function redraw(at) {
-  k = at;
-  drawn.width = plan.cols * k; drawn.height = plan.rows * k;
-  const c = drawn.getContext('2d');
+function redraw(at) { k = at; drawPlan(drawn, plan, k); }
+// A plan's rooms and doorways drawn into canvas `into`, sized to it, at k pixels per tile;
+// the round map's too (D-383)
+export function drawPlan(into, plan, k) {
+  into.width = plan.cols * k; into.height = plan.rows * k;
+  const c = into.getContext('2d');
   for (const { x: ox, y: oy, room, seen } of plan.rooms) {
     for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
       const mark = markAt(room, seen, x, y);
@@ -70,6 +72,22 @@ function redraw(at) {
   }
   c.fillStyle = DOOR;
   for (const { x, y } of plan.doors) c.fillRect(x * k, y * k, k, k);
+}
+// The hero's blinking gold dot and each bag where you fell, on a plan drawn at mx, my, k pixels a tile
+function drawMarks(c, plan, mx, my, k, t, still) {
+  c.fillStyle = BAG;
+  for (const b of plan.bags || []) c.fillRect(mx + b.x * k, my + b.y * k, k, k);
+  if (plan.hero && (still || Math.floor(t / 400) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(mx + plan.hero.x * k, my + plan.hero.y * k, k, k); }
+}
+
+// § round map: the floor around the hero, the hero in the middle, on the round
+// map top right (D-383): `drawn` the plan from drawPlan at k pixels a tile, c the
+// round map's own canvas, cleared so its glass shows where nothing is found
+export function drawRoundMap(c, plan, drawn, k, t, still) {
+  const n = c.canvas.width, { x: mx, y: my } = aroundHero(plan, n, k);
+  c.clearRect(0, 0, n, n);
+  c.drawImage(drawn, mx, my);
+  drawMarks(c, plan, mx, my, k, t, still);
 }
 
 // The Explorer's bar: bar.seed the seed shown, bar.back whether Back has a seed to go to
@@ -110,8 +128,6 @@ export function drawMap(c, view, t, still, turns, bar = null) {
   c.beginPath(); c.rect(win.x, win.y, win.w, win.h); c.clip();
   const mx = win.x - view.x, my = win.y - view.y;
   c.drawImage(drawn, mx, my);
-  c.fillStyle = BAG;
-  for (const b of plan.bags || []) c.fillRect(mx + b.x * k, my + b.y * k, k, k);
-  if (plan.hero && (still || Math.floor(t / 400) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(mx + plan.hero.x * k, my + plan.hero.y * k, k, k); }
+  drawMarks(c, plan, mx, my, k, t, still);
   c.restore();
 }

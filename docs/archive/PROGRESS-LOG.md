@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.130, sideways only.** The game always uses its
+  sideways layout. A phone held upright pauses behind a "turn your phone"
+  picture; on Android, Play goes full screen and locks sideways;
+  installed, it opens sideways (D-377). PC windows are never asked.
+  [Playtest](https://claude.ai/artifact/T5rM58vSuLWJxc3ynNW6nK).
 - **2026-10-27, 0.2.129, sideways and a new look.** The owner's ideas
   from the Brogue talk are kept (D-379). Landscape only, full screen,
   install optional (D-377). A Genshin feel: corner HUD, glass, round
