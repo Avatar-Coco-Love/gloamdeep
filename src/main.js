@@ -30,6 +30,7 @@ import { createMapButton } from './input/mapbutton.js';
 import { createBagButton } from './input/bagbutton.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
+import { createUpright, goSideways } from './input/upright.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
@@ -316,7 +317,10 @@ const screens = createScreens(app, {
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
+  goSideways,
 });
+// Held upright, play pauses behind the picture (D-377)
+createUpright({ onUpright: () => { if (app.screen === 'play') screens.pause(); } });
 // In play the Controls switch can turn swipes off (D-189); off the room, the screens take them
 const onDir = (dir, how) => {
   if (app.screen !== 'play') screens.onDir(dir, how);

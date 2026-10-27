@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-26, 0.2.127, on the home screen.** The owner asked for
+  installing, as their other games have. Install only, no offline copy;
+  only the browser asks; the icon is the lit lantern alone, no backdrop
+  ([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). iPhone saves are apart from
+  Safari's, noted (D-375).
+  [Playtest](https://claude.ai/artifact/1T71JsozbHTCbQCv2zRJg6).
 - **2026-10-26, 0.2.126, the scorpion.** The owner picked the scorpion:
   1 heart, a sting of 2, chases; one room a floor on depths 3 and 4, for
   the rat, never the lampmoth's; its own click-and-stab sound (D-370).

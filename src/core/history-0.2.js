@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.130', date: '2026-10-27', title: 'Sideways only', lines: [
+    "The game now plays sideways only, on every screen. The hearts, depth and oil always stand in a column at the room's left, and the buttons beside the room.",
+    "A phone held upright pauses the game and shows a picture asking you to turn it sideways. Turn it back and the pause menu waits. A PC window is never asked, whatever its shape.",
+    "On a phone that allows it (Android), Play, Continue or Resume also go full screen and lock the screen sideways. iPhone browsers can't lock, so the picture asks instead.",
+    "Put on the home screen, the game now opens sideways by itself.",
+    "Decisions: D-377.",
+  ] },
   { v: '0.2.129', date: '2026-10-27', title: 'Sideways next', lines: [
     "Decided: the game will play sideways only, full screen, on every screen. A phone held upright will pause and ask you to turn it; on Android, Play also locks it sideways. Installing stays optional. This comes next.",
     "Decided, from the mock-ups: a Genshin Impact feel. The room fills the screen, the hearts and oil sit on a glass panel top left, a round map top right, and the lantern becomes a big round button with the bag, map and a quick slot around it. Menus become full-screen cards, the bag first.",
