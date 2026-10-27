@@ -4,7 +4,7 @@
 import { drawPauseIcon } from '../render/hud.js';
 import { keepPlaced } from './lantern.js';
 
-export function createPauseButton(hud, { onPause }) {
+export function createPauseButton(canvas, { onPause }) {
   const button = document.createElement('button');
   button.id = 'pause-button';
   button.type = 'button';
@@ -16,6 +16,6 @@ export function createPauseButton(hud, { onPause }) {
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onPause(); }); // Enter then picks a menu line, not the button again
   document.body.append(button);
-  keepPlaced(hud, button, 1);
+  keepPlaced(canvas, button, 1);
   return { hide(on) { button.style.display = on ? 'none' : ''; } };
 }

@@ -5,7 +5,7 @@
 import { drawBagIcon, drawCloseIcon } from '../render/hud.js';
 import { keepPlaced } from './lantern.js';
 
-export function createBagButton(hud, { onBag }) {
+export function createBagButton(canvas, { onBag }) {
   const button = document.createElement('button');
   button.id = 'bag-button';
   button.type = 'button';
@@ -17,7 +17,7 @@ export function createBagButton(hud, { onBag }) {
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onBag(); });
   document.body.append(button);
-  keepPlaced(hud, button, 3);
+  keepPlaced(canvas, button, 3);
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
     closes(on) {

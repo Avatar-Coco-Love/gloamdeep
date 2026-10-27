@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.128, research notes.** The owner asked how other
+  games do bosses ([Boss Study](https://claude.ai/artifact/QiDD51bkLeTwgWwojJikJs))
+  and for talks to hear. Their notes from the Into the Breach talk, a
+  combat sandbox and a seeded puzzle tester, are kept, later under one
+  title-menu tools line with the Seed Explorer; games, bosses and talks
+  move to `RESEARCH-GAMES.md` (D-376). No playtest: nothing to play.
 - **2026-10-26, 0.2.127, on the home screen.** The owner asked for
   installing, as their other games have. Install only, no offline copy;
   only the browser asks; the icon is the lit lantern alone, no backdrop

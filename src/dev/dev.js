@@ -27,9 +27,9 @@ function save(opts) {
 // gives the state with the starting room back, forget() with a blank memory,
 // setOil(amount) with that much oil, heal() with full hearts; still() is
 // true when motion is reduced (D-190); camera() is the
-// room pixel at the screen's top-left (D-195). `hud` is the strip at the
-// picture's top; the wrench sits at the left end of the buttons' row (D-198).
-export function createDev(stage, canvas, game, hud) {
+// room pixel at the screen's top-left (D-195). `picture` is the room's
+// canvas; the wrench stands left of its top (D-199).
+export function createDev(stage, canvas, game, picture) {
   // every switch starts off (D-047); only View starts open (D-087)
   const opts = { grid: false, coords: false, noLight: false, reveal: false, revealMap: false, open: ['view'], ...load() };
   save(opts);
@@ -53,7 +53,7 @@ export function createDev(stage, canvas, game, hud) {
     panel.style.top = top + 'px';
     panel.style.height = Math.max(88, readout.getBoundingClientRect().top - 8 - top) + 'px';
   };
-  keepPlaced(hud, button, -1, (top, left, pic) => {
+  keepPlaced(picture, button, -1, (top, left, pic) => {
     readout.style.maxWidth = left < pic.left ? pic.left - 16 + 'px' : '';
     fitPanel();
   });

@@ -33,7 +33,7 @@
     font: 11px/1 ui-monospace, "Courier New", monospace; opacity: .7; pointer-events: none;
   }
   /* The lantern switch (src/input/lantern.js, D-080), the pause button (src/input/pause.js,
-     D-187), the map button (src/input/mapbutton.js, D-205), the bag button (src/input/bagbutton.js, D-247) and the dev wrench: placed by script in a row above the picture (D-198). */
+     D-187), the map button (src/input/mapbutton.js, D-205), the bag button (src/input/bagbutton.js, D-247) and the dev wrench: placed by script beside the picture (D-377). */
   #lantern-button, #pause-button, #map-button, #bag-button {
     position: fixed; z-index: 1; top: 8px; left: 8px;
     width: 44px; height: 44px; padding: 0; display: grid; place-items: center;
@@ -112,7 +112,7 @@
 </style>
 </head>
 <body>
-<main><div id="stage"><canvas id="hud" aria-hidden="true"></canvas><canvas id="game" aria-label="Gloamdeep game screen"></canvas><canvas id="list" aria-hidden="true"></canvas></div></main>
+<main><div id="stage"><canvas id="game" aria-label="Gloamdeep game screen"></canvas><canvas id="list" aria-hidden="true"></canvas></div></main>
 <div id="line" role="status"></div>
 <div id="version" aria-label="Version"></div>
 <script type="module" src="src/main.js"></script>

@@ -75,11 +75,13 @@ this page and a decision disagree, the decision wins.
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 - **Next move:** what a seen creature does if the hero waits (D-349).
-- **Creature list:** the row of plaques under the room, one for each
-  creature that has noticed the hero; a plaque shows its face and next move (D-357).
+- **Creature list:** the column of plaques under the glass panel, one for each
+  creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).
   Tapping one **frames** its creature: amber corners, name and hearts (D-359).
 
 ## Menus and tools
+- **Glass panel:** the see-through panel over the room's top left with the
+  hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
 - **Journal:** one book with tabs: Records first, then Growth, later
   quests, a bestiary and feats (D-262, D-293).
 - **Bestiary:** the Journal's tab of creatures met; more of a page shows

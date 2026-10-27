@@ -148,3 +148,12 @@ edge-case runner, the world's floors lining up, a dimension rift with its
 bizarre creatures, generated beginnings, and a much bigger world, the
 surface first. D-364 to D-374 moved unchanged to
 `archive/DECISIONS-CREATURES-2.md`.
+
+**D-380 · 2026-10-27 · The corner HUD's steps, and the glass panel** (the
+owner's picks, recommended) D-378 is built in this order: the glass panel
+top left, the room filling the screen, the round map top right with pause
+and the wrench, the big round lantern with its arc, then menus as cards.
+The panel is drawn in game pixels: a see-through night fill, a soft light
+edge and round corners. The creature list stands under it, down the room's
+left. Both fade almost away while the hero, or a creature beside them, is
+under them. Built in 0.2.131.
