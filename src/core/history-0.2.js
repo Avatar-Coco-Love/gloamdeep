@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.131', date: '2026-10-27', title: 'The glass panel', lines: [
+    "The hearts, level, oil and depth now sit on a see-through glass panel over the room's top left, and the column beside the room is gone.",
+    "The creature list stands under the panel, down the room's left. Tapping a plaque still frames its creature.",
+    "Walk under the panel, or have a creature beside you there, and the panel and the plaques fade almost away, so nothing is hidden.",
+    "Decisions: D-380.",
+  ] },
   { v: '0.2.130', date: '2026-10-27', title: 'Sideways only', lines: [
     "The game now plays sideways only, on every screen. The hearts, depth and oil always stand in a column at the room's left, and the buttons beside the room.",
     "A phone held upright pauses the game and shows a picture asking you to turn it sideways. Turn it back and the pause menu waits. A PC window is never asked, whatever its shape.",

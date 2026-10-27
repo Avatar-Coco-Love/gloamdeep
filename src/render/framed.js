@@ -20,7 +20,7 @@ function drawCorners(c, x, y) {
     }
   }
 }
-// A heart as the strip draws it (hud.js): full in the hostile red over its deeper red, else empty
+// A heart as the panel draws it (hud.js): full in the hostile red over its deeper red, else empty
 function drawHeart(c, x0, y0, full) {
   HEART.forEach((row, y) => [...row].forEach((ch, x) => {
     if (ch !== 'x') return;

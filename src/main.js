@@ -36,8 +36,8 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 
-const canvas = document.getElementById('game'), hud = document.getElementById('hud'), list = document.getElementById('list');
-const { ctx, hudCtx, listCtx } = createScreen(canvas, hud, list);
+const canvas = document.getElementById('game'), list = document.getElementById('list');
+const { ctx, listCtx } = createScreen(canvas, list);
 document.getElementById('version').textContent = VERSION;
 addAppCard(); // so a phone can put the game on its home screen (D-375)
 
@@ -275,10 +275,10 @@ function hear(events) {
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
 // § switch: the lantern button and the L key, free at any time in play (D-080, D-081); it ticks (D-257)
 const switchIt = () => { if (app.screen === 'play') { const before = app.state; app.state = switchLantern(before); hear(eventsSince(before, app.state)); } };
-const lanternButton = createLanternButton(hud, { onSwitch: switchIt });
-const pauseButton = createPauseButton(hud, { onPause: () => screens.pause() });
-const mapButton = createMapButton(hud, { onMap: () => screens.toggleMap() });
-const bagButton = createBagButton(hud, { onBag: () => screens.toggleBag() });
+const lanternButton = createLanternButton(canvas, { onSwitch: switchIt });
+const pauseButton = createPauseButton(canvas, { onPause: () => screens.pause() });
+const mapButton = createMapButton(canvas, { onMap: () => screens.toggleMap() });
+const bagButton = createBagButton(canvas, { onBag: () => screens.toggleBag() });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
@@ -360,8 +360,8 @@ const dev = createDev(stage, canvas, { // on for everyone (D-086)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
-}, hud);
-const frame = createFrame(app, { ctx, hudCtx, listCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
+}, canvas);
+const frame = createFrame(app, { ctx, listCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

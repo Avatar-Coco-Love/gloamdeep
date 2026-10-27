@@ -6,7 +6,7 @@
 import { drawMapIcon, drawCloseIcon } from '../render/hud.js';
 import { keepPlaced } from './lantern.js';
 
-export function createMapButton(hud, { onMap }) {
+export function createMapButton(canvas, { onMap }) {
   const button = document.createElement('button');
   button.id = 'map-button';
   button.type = 'button';
@@ -18,7 +18,7 @@ export function createMapButton(hud, { onMap }) {
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onMap(); });
   document.body.append(button);
-  keepPlaced(hud, button, 2);
+  keepPlaced(canvas, button, 2);
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
     closes(on) {

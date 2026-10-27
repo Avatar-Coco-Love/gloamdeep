@@ -1,14 +1,15 @@
 // § creature list (D-357, CL1): a plaque for each creature that has noticed
 // the hero, from creatureList (core/creatureturn.js), as in the round 3 mock-up: its
 // face, and its next move in the hostile pink (fangs for a bite, an arrow the
-// way it steps; nothing while it waits). Upright, a row under the text line;
-// sideways, a column under the boxes in the strip's column. Newest last; past
+// way it steps; nothing while it waits). A column under the glass panel, down
+// the room's left (D-380). Newest last; past
 // the room left, the last spot says how many more ("+2"). The framed one's
 // plaque has an amber edge (CL2).
 import { drawText, textWidth } from './font.js';
 import { faceOf } from './sprites.js';
 
-export const PLAQUE_W = 22, PLAQUE_H = 13;
+export const PLAQUE_W = 22;
+export const PLAQUE_H = 13;
 const GAP = 2, FACE_W = 12; // the face sits 2 in, the icon centred 17 in
 const PINK = '#e8786a', AMBER = '#ffc65c', EDGE = '#3a3448', FILL = '#1b1824', GREY = '#9790a4';
 const ARROW = ['#..', '##.', '###', '##.', '#..']; // pointing right

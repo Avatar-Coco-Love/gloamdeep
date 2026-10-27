@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.130 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.131 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner HUD (D-378), one small step at a time: first the hearts, oil,
-depth and level on a glass panel top left, over the room. Propose the
-steps' order first. Creature materials (Q-061) wait.
+The corner HUD, step 2 of 5 (D-380): the room fills the screen, a wider
+view with the camera scrolling. Propose how first (how many tiles show,
+what shows past a small room's edge). Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.131, the glass panel.** The owner picked the corner
+  HUD's order (D-380): panel, room fills, round map, round lantern, cards.
+  The hearts, level, oil and depth sit on pixel glass top left, the
+  creature list under it; both fade while the hero is under them.
+  [Playtest](https://claude.ai/artifact/9hfkfSw21NRdTP49rsk9Tb).
 - **2026-10-27, 0.2.130, sideways only.** The game always uses its
   sideways layout. A phone held upright pauses behind a "turn your phone"
   picture; on Android, Play goes full screen and locks sideways;
@@ -42,9 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   install optional (D-377). A Genshin feel: corner HUD, glass, round
   buttons, menus as cards ([mock-up](https://claude.ai/artifact/R76iHAXcaVistZemiEe8XA), D-378).
   No playtest: nothing to play.
-- **2026-10-27, 0.2.128, research notes.** The owner asked how other
-  games do bosses ([Boss Study](https://claude.ai/artifact/QiDD51bkLeTwgWwojJikJs))
-  and for talks to hear. Their notes from the Into the Breach talk, a
-  combat sandbox and a seeded puzzle tester, are kept, later under one
-  title-menu tools line with the Seed Explorer; games, bosses and talks
-  move to `RESEARCH-GAMES.md` (D-376). No playtest: nothing to play.

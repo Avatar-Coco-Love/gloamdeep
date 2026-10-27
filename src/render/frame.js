@@ -7,10 +7,10 @@ import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
-import { drawCreatureList, plaqueAt, plaquesShown } from './creatures.js';
+import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawTitle } from './title.js';
-import { drawPause, veil } from './menu.js';
+import { drawPause } from './menu.js';
 import { drawSeedPad } from './seedpad.js';
 import { drawNamePad } from './namepad.js';
 import { drawHowTo } from './howto.js';
@@ -47,10 +47,14 @@ export const FADE_MS = 200; // each way, taking stairs (D-135)
 // 0 before a, 1 after b, and evenly between; a jump at a when b is not after it
 const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (t - a) / (b - a))));
 
-// `ui`: the canvases (the room's, the strip's and the creature list's), the text line, the spoken line, the lantern button, the dev
+// § panel's fade: how see-through the corner panel and the plaques under it
+// get while the hero, or a creature next to them, is under them (D-380), and how fast
+const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
+
+// `ui`: the canvases (the room's and the creature list's), the text line, the spoken line, the lantern button, the dev
 // tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, hudCtx, listCtx, hud, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -58,6 +62,7 @@ export function createFrame(app, ui) {
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
+  let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
 
   // § creature list's order: newest last (D-357). Each creature keeps the place it
   // got when it joined, on its shown spot (main.js); one that leaves the list loses it.
@@ -100,8 +105,7 @@ export function createFrame(app, ui) {
   }
 
   function draw(t) {
-    hudCtx.fillStyle = '#0e0c16'; hudCtx.fillRect(0, 0, hud.width, hud.height); // the strip stays empty on the title
-    listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // and the list's row
+    listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // the list's row stays empty
     const p = playing(app.profiles);
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
     if (screens.onTitle()) { onTitleScreens(t); return; }
@@ -169,18 +173,26 @@ export function createFrame(app, ui) {
       ctx.fillStyle = '#0e0c16'; ctx.fillRect(0, 0, W, H);
       ctx.globalAlpha = 1;
     }
-    // § strip: the hearts, depth and oil above the room or beside it, covering none of it (D-198, D-199)
-    const foot = drawStatus(hudCtx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
-    // § creature list: under the text line, or under the boxes in the column (D-357); none while taking stairs or falling
+    // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
+    // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
+    const n = list ? list.length : 0; // the panel's size is last frame's, near enough
+    const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, H - 2), more = shownN < n ? 1 : 0;
+    const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
+    const hx = s.hero.x, hy = s.hero.y;
+    const covered = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })]
+      .some(([px, py]) => px - cam.x < 2 + under.w && px - cam.x + TILE > 2 && py - cam.y < 2 + under.h && py - cam.y + TILE > 2);
+    const goal = covered ? UNDER_ALPHA : 1, dt = Math.max(0, t - panel.t);
+    panel.alpha = still() ? goal : panel.alpha + Math.sign(goal - panel.alpha) * Math.min(Math.abs(goal - panel.alpha), dt / FADE_PANEL_MS);
+    panel.t = t;
+    Object.assign(panel, drawStatus(ctx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      // where the list sits, from the room canvas's top left: under the text line, or in the column at its left
-      row = foot === null ? { list, x: 2, y: 2, across: true, end: W - 2, dx: 0, dy: SCREEN_H }
-        : { list, x: 2, y: foot + 4, across: false, end: hud.height - 2, dx: -hud.width, dy: 0 };
-      drawCreatureList(foot === null ? listCtx : hudCtx, list, row.x, row.y, row.across, row.end, isFramed);
+      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end: H - 2 }; // where the list sits, in the room canvas's pixels
+      ctx.save(); ctx.globalAlpha = panel.alpha;
+      drawCreatureList(ctx, list, row.x, row.y, row.across, row.end, isFramed);
+      ctx.restore();
     }
-    if (!['play', 'bag', 'place'].includes(app.screen)) { veil(hudCtx); veil(listCtx); } // dimmed with the room under a menu; the bag and setting down leave both in view (D-247)
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     textLine.draw(ctx, line, t, still());
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
@@ -206,7 +218,7 @@ export function createFrame(app, ui) {
   // px, py, in the room canvas's pixels; the list's spots in order; or null and [] with no list
   function plaqueSpot(px, py) {
     if (!row) return null;
-    const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px - row.dx, py - row.dy);
+    const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px, py);
     return i < 0 ? null : foeAt(row.list[i].e);
   }
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);
