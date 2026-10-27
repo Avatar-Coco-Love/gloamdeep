@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.134', date: '2026-10-27', title: 'The round lantern', lines: [
+    "The lantern is now a big round button in the room's bottom right corner, its rim gold while it is lit.",
+    "A new quick slot stands left of the lantern: tap it to pour a flask from your bag, one turn, as the bag's Pour does. It shows how many flasks you carry, and goes dim when you have none.",
+    "The bag now sits up and left of the lantern, the two round buttons curving around it.",
+    "Decisions: D-384.",
+  ] },
   { v: '0.2.133', date: '2026-10-27', title: 'The round map', lines: [
     "A round map now stands in the room's top right corner. It shows what you have found around you, about 17 tiles across, with you in the middle and the rooms next door once found.",
     "Tap the round map, or press M as before, to open the full map. While it is open, a small round cross in the corner closes it.",

@@ -2,6 +2,7 @@
 // top left (D-378, was a strip or column beside the room, D-198, D-199), and
 // the buttons' icons.
 import { drawText, textWidth } from './font.js';
+import { SPRITES } from './sprites.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
 // the depth, as in the D-378 mock-up. Drawn in game pixels: a see-through
@@ -109,4 +110,16 @@ export function drawBagIcon(c) {
   c.clearRect(0, 0, 5, 5);
   c.fillStyle = '#9790a4';
   BAG_ICON.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(x, y, 1, 1); }));
+}
+
+// § flask slot icon: the quick slot (D-384), the bag's flask sprite with how
+// many are carried at its lower right, light on a dark rim; dim with none.
+// A 20 × 16 map.
+export function drawFlaskSlot(c, n) {
+  c.clearRect(0, 0, 20, 16);
+  c.globalAlpha = n ? 1 : 0.35; c.drawImage(SPRITES.flask, -2, 0); c.globalAlpha = 1;
+  if (!n) return;
+  const text = String(n), x = 20 - textWidth(text) - 1, y = 7;
+  for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) drawText(c, text, x + dx, y + dy, '#0e0c16');
+  drawText(c, text, x, y, '#efe6cc');
 }

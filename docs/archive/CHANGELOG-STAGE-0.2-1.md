@@ -1,8 +1,15 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.120)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.121)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), and 0.2.120 at 0.2.132 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), and 0.2.121 at 0.2.134 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.121 (2026-10-25)
+- Tap a creature's plaque in the row under the room to frame it: the plaque gets an amber edge, amber corners mark the creature on the field, a small tag above it shows its name and hearts, and an arrow shows its next step.
+- The frame stays as you play. Tap the same plaque to let it go, or another to frame that one instead. It goes when the creature dies or leaves the light.
+- On a keyboard, Tab frames the first plaque, then the next, then none.
+- Framing takes no turn.
+- Decisions: D-359, D-360.
 
 ## 0.2.120 (2026-10-25)
 - A new row under the room lists the creatures that have noticed you and stand in light. Each has a small plaque with its face and what it does next if you wait: fangs for a bite, an arrow for a step. One that has noticed you but can't move shows just its face.

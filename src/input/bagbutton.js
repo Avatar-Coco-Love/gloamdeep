@@ -1,6 +1,5 @@
-// § bag button: opens the bag during play (D-247). It sits left of the map
-// button in the buttons' row, or under it sideways (D-198), in the same style;
-// while the bag is open it stays, as a cross that closes it. Thin layer: a tap
+// § bag button: opens the bag during play (D-247). It sits on the lantern's
+// arc, up and left of it (D-384), round on the glass; while the bag is open it stays, as a cross that closes it. Thin layer: a tap
 // or click only calls onBag(); hide(on) takes it away, closes(on) turns it into the cross.
 import { drawBagIcon, drawCloseIcon } from '../render/hud.js';
 import { keepPlaced } from './lantern.js';

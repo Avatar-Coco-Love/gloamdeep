@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.131, the glass panel.** The owner picked the corner
+  HUD's order (D-380): panel, room fills, round map, round lantern, cards.
+  The hearts, level, oil and depth sit on pixel glass top left, the
+  creature list under it; both fade while the hero is under them.
+  [Playtest](https://claude.ai/artifact/9hfkfSw21NRdTP49rsk9Tb).
 - **2026-10-27, 0.2.130, sideways only.** The game always uses its
   sideways layout. A phone held upright pauses behind a "turn your phone"
   picture; on Android, Play goes full screen and locks sideways;

@@ -28,6 +28,7 @@ import { jabAt } from './jab.js';
 import { drawMark, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
+import { flasksIn } from '../core/bag.js';
 import { reach } from '../core/oil.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
@@ -58,7 +59,7 @@ const CLEAR_OVER = new Set(['play', 'bag', 'place']);
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, quickSlot, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -217,7 +218,7 @@ export function createFrame(app, ui) {
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     textLine.draw(rc, line, t, still());
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
-    lanternButton.show(state.lit);
+    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPause(ctx, PAUSE_MENU, app.chosen, t, still());
     else if (app.screen === 'settings') drawPause(ctx, screens.menuOf(app.screen), app.chosen, t, still(), 'Settings');
