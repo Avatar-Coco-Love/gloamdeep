@@ -66,6 +66,8 @@ tools to be chosen together later.
 - Save and load test situations
 - Seed load (the display is built, D-150)
 - Speed up or slow down animations
+- A combat sandbox and a seeded puzzle tester, with the Seed Explorer
+  under one title-menu tools line (the owner's idea, D-376)
 
 ## Next
 Items, enemies and NPCs join the spawn chips as each arrives in the

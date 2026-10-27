@@ -198,3 +198,9 @@ the game shows no prompt of its own, so one ignored offer stays quiet. The
 icon is the lantern switch's lit lantern alone, no floor or backdrop
 ([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). On iPhone the installed game keeps its own saves,
 apart from Safari's; noted in `TECH.md`, nothing built for it.
+
+**D-376 · 2026-10-27 · A tools menu later; research split** (the owner's
+picks, recommended) A combat sandbox and a seeded puzzle tester, the
+owner's notes from the Into the Breach talk, are kept for later; built,
+the Seed Explorer's title line becomes a tools menu for all three. The
+games, bosses and talks move to `RESEARCH-GAMES.md`.

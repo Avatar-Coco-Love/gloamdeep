@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.127 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.128 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -33,6 +33,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.128, research notes.** The owner asked how other
+  games do bosses ([Boss Study](https://claude.ai/artifact/QiDD51bkLeTwgWwojJikJs))
+  and for talks to hear. Their notes from the Into the Breach talk, a
+  combat sandbox and a seeded puzzle tester, are kept, later under one
+  title-menu tools line with the Seed Explorer; games, bosses and talks
+  move to `RESEARCH-GAMES.md` (D-376). No playtest: nothing to play.
 - **2026-10-26, 0.2.127, on the home screen.** The owner asked for
   installing, as their other games have. Install only, no offline copy;
   only the browser asks; the icon is the lit lantern alone, no backdrop
@@ -49,8 +55,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   creature varies its own way (D-374).
   [Playtest](https://claude.ai/artifact/C462j1sM9TfdFfWx5S95qS),
   [sounds](https://claude.ai/artifact/7u1X7KXfdAcaCSGacTazhx).
-- **2026-10-25, 0.2.125, the mimic freeze.** The owner summoned a flask
-  mimic, hit it, and the game froze: it had no hurt line, so drawing
-  crashed, and the save kept the broken line. Fixed with a safety net and
-  "The flask mimic cracks." (D-369).
-  [Playtest](https://claude.ai/artifact/JA97bK1WfXmnjULyLkKFPB).

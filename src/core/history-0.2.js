@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.128', date: '2026-10-27', title: 'Research notes', lines: [
+    "The research notes are split in two: the owner's wish list and kept ideas stay in RESEARCH.md, and the games, how they do bosses, and talks worth hearing move to a new RESEARCH-GAMES.md.",
+    "Kept for later, from the Into the Breach talk: a combat sandbox and a seeded puzzle tester, to sit with the Seed Explorer under one tools line on the title menu.",
+    "Nothing in the game changed.",
+    "Decisions: D-376.",
+  ] },
   { v: '0.2.127', date: '2026-10-26', title: 'On your home screen', lines: [
     "The game can now be put on a phone's home screen, and it opens full screen like an app. On Android, Chrome may offer it once by itself; if you say no, it stays quiet for a long time. On iPhone, use Share, then Add to Home Screen.",
     "Its icon is the lit lantern from the lantern switch, on its own, drawn by the game's code.",
