@@ -42,37 +42,9 @@ items: collectables, craftables, weapons and more. Where they stand:
   Valley, rumours, quests, vendors, a companion or two, and their
   equipment to use when they allow it.
 
-## The games
-**Hoplite** (phone, turn-based, hex grid; from the 2013 7-Day Roguelike)
-- Few enemies, each with one clear job: one fights close, one shoots, one
-  throws bombs, one fires a beam. You can read what each will do, so every
-  move is a small puzzle. Only 4 kinds, and reviews still praised it.
-- Few actions, each with a cost: throwing the spear leaves you unarmed
-  until you pick it up again; the shield bash pushes enemies and bombs.
-- An altar on each floor: pick one reward, healing or a new power.
-- Pushing enemies into hazards (lava) is part of fighting.
-
-**Into the Breach**: enemies show what they will do before they do it, so
-the game is reacting to clear threats. The most recommended "game like
-Hoplite".
-
-**Golden Krone Hotel**: light is a weapon. Sunlight hurts vampires, and
-you can snuff out torches to hide. Close to pillar 1.
-
-**Darkest Dungeon** (from general knowledge): a torch meter where lower
-light means more danger and better loot.
-
-**Shattered Pixel Dungeon** (the best-loved phone roguelike)
-- A small backpack, and add-on bags (seeds, scrolls, wands) that save
-  space.
-- Crafting from finds: three seeds in an alchemy pot brew a potion.
-- Hunger pushes you on, as oil does here.
-
-**Desktop Dungeons**: uncovering dark tiles heals you, so exploring pays.
-
-**Sproggiwood, Rogue Wizards**: a home town built up with tamed creatures
-and helpful NPCs, and pets that join you. A reviewer found Sproggiwood's
-town only decoration: a home base should do something.
+## The games, bosses and talks
+`RESEARCH-GAMES.md` (D-376): what similar games do, how they do bosses,
+talks to hear, and the sources.
 
 ## Ideas the owner wants kept for later
 - **Creatures show their next move** (Hoplite, Into the Breach). To try:
@@ -107,6 +79,11 @@ town only decoration: a home base should do something.
   than one way. To balance: show its moves (D-349); count turns per phase
   against damage and oil; give it fixed rules, using the seeded RNG; test
   phases with the dev tools, perhaps a script that plays them many times.
+- **Tools for testing fights and puzzles** (the owner's notes from the
+  Into the Breach talk, 2026-10-27, D-376): a combat and strategy
+  sandbox, a dev tool with quick switches for each layer, spawning and so
+  on; and a seeded puzzle tester. Both sit beside the Seed Explorer: its
+  title-menu line becomes a tools menu, Combat, Puzzle and Explorer.
 
 ## Ideas shown, not picked (2026-10-21)
 - A shrine or lit brazier on some floors where you pick one boon.
@@ -122,13 +99,3 @@ Each built only from the ways creatures have
 - **Bat:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
 - **Cave spider:** shuns light only, so it waits in the dark, backs out of
   light and bites when the lantern is off. 2 hearts, bite 1, depths 2 to 4.
-
-## Sources
-- AV Club review of Hoplite: https://www.avclub.com/mobile-review-of-the-week-hoplite-iosandroid
-- MobyGames, Hoplite: https://www.mobygames.com/game/77779/hoplite/
-- Gamepressure, Hoplite: https://www.gamepressure.com/games/hoplite/z54287
-- Games like Hoplite: https://alternativeto.net/software/hoplite and https://thinkygames.com/games/hoplite/similar/
-- Golden Krone Hotel: https://store.steampowered.com/app/497800/Golden_Krone_Hotel/
-- Pixel Dungeon wiki, alchemy: https://pixeldungeon.fandom.com/wiki/Mod-Shattered_Pixel_Dungeon/Alchemy
-- Sproggiwood postmortem: https://gamedeveloper.com/design/design-postmortem-story-driven-roguelike-sproggiwood
-- Rogue Wizards: https://toucharcade.com/2017/03/16/intriguing-isometric-roguelike-rogue-wizards-needs-ios-beta-testers/

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-25, 0.2.125, the mimic freeze.** The owner summoned a flask
+  mimic, hit it, and the game froze: it had no hurt line, so drawing
+  crashed, and the save kept the broken line. Fixed with a safety net and
+  "The flask mimic cracks." (D-369).
+  [Playtest](https://claude.ai/artifact/JA97bK1WfXmnjULyLkKFPB).
 - **2026-10-25, 0.2.124, the flask mimic.** Six creatures in a
   [mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh); the owner
   and their girlfriend picked the flask mimic: 3 hearts, bite 1, about 1

@@ -49,7 +49,7 @@ Read the smallest file that answers the question.
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile and place, with numbers (D-363) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
-| `docs/RESEARCH.md` | the owner's wish list, similar games, ideas kept | when proposing a feature |
+| `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md` | when proposing a feature |
 | `docs/DESIGN.md` | the one-page design brief | before proposing any feature |
 | `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | before any world, region or map step |
 | `docs/regions/` | one rule sheet per region, once designed | only the region a step touches |
