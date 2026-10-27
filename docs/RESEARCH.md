@@ -85,6 +85,24 @@ talks to hear, and the sources.
   on; and a seeded puzzle tester. Both sit beside the Seed Explorer: its
   title-menu line becomes a tools menu, Combat, Puzzle and Explorer.
 
+- **From the Brogue talk** (the owner, 2026-10-27, D-379):
+  - *Edge-case runner*: a dev bot that makes many seeds and reports
+    broken cases (a room you can't reach, stuck creatures), in the tools
+    menu (D-376).
+  - *Depths line up*: a floor's shape shows through the next (a cave
+    over a cave, a river over a lake, a hole dropping you to the matching
+    spot). Later maybe seeing down a pit to the floor below.
+  - *A dimension rift*: found anywhere in the world; step close and it
+    pulls you into a generated other place, not of the ordinary world.
+  - *Bizarre creatures*: rift creatures with odd looks and odd rules
+    that can claw their way out into the ordinary world.
+  - *Generated beginnings*, optional, chosen or rolled: a new start each
+    save, start choices, a generated world and world history, and a hero
+    backstory that lines up with it. Simple, but it must line up; most of
+    the game will be generated.
+  - *A bigger world*, all ways: a wider surface first, then structures,
+    caves and more in layers; more and bigger regions; no bottom.
+
 ## Ideas shown, not picked (2026-10-21)
 - A shrine or lit brazier on some floors where you pick one boon.
 - A small bag that grows with add-on pouches.

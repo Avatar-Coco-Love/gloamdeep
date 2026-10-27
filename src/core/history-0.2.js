@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.129', date: '2026-10-27', title: 'Sideways next', lines: [
+    "Decided: the game will play sideways only, full screen, on every screen. A phone held upright will pause and ask you to turn it; on Android, Play also locks it sideways. Installing stays optional. This comes next.",
+    "Decided, from the mock-ups: a Genshin Impact feel. The room fills the screen, the hearts and oil sit on a glass panel top left, a round map top right, and the lantern becomes a big round button with the bag, map and a quick slot around it. Menus become full-screen cards, the bag first.",
+    "Kept for later, from the Brogue talk: a bot that hunts broken seeds, floors that line up with the ones above, a dimension rift with bizarre creatures, generated beginnings and backstories, and a much bigger world, the surface first.",
+    "Nothing in the game changed.",
+    "Decisions: D-377, D-378, D-379.",
+  ] },
   { v: '0.2.128', date: '2026-10-27', title: 'Research notes', lines: [
     "The research notes are split in two: the owner's wish list and kept ideas stay in RESEARCH.md, and the games, how they do bosses, and talks worth hearing move to a new RESEARCH-GAMES.md.",
     "Kept for later, from the Into the Breach talk: a combat sandbox and a seeded puzzle tester, to sit with the Seed Explorer under one tools line on the title menu.",

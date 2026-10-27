@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.128 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.129 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Creature materials (D-372, Q-061), in a new conversation: offer which
-creatures leave what, names, looks, chances and a first recipe, after
-reading `CONTENT.md`, with a mock-up and a recommendation. Or, if the
-owner prefers, the next creature from `RESEARCH.md` (D-365).
+Landscape only (D-377), one small visible step: a phone held upright
+pauses and shows a "turn your phone" picture; Android locks sideways and
+goes full screen on Play; installed, it opens sideways. Then the corner
+HUD (D-378). Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -20,6 +20,7 @@ owner prefers, the next creature from `RESEARCH.md` (D-365).
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
 - Creature materials: which, names, chances, recipes (Q-061).
+- The start-up screens and the maker's name (Q-063), before 1.0.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -33,6 +34,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.129, sideways and a new look.** The owner's ideas
+  from the Brogue talk are kept (D-379). Landscape only, full screen,
+  install optional (D-377). A Genshin feel: corner HUD, glass, round
+  buttons, menus as cards ([mock-up](https://claude.ai/artifact/R76iHAXcaVistZemiEe8XA), D-378).
+  No playtest: nothing to play.
 - **2026-10-27, 0.2.128, research notes.** The owner asked how other
   games do bosses ([Boss Study](https://claude.ai/artifact/QiDD51bkLeTwgWwojJikJs))
   and for talks to hear. Their notes from the Into the Breach talk, a
@@ -45,13 +51,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   ([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). iPhone saves are apart from
   Safari's, noted (D-375).
   [Playtest](https://claude.ai/artifact/1T71JsozbHTCbQCv2zRJg6).
-- **2026-10-26, 0.2.126, the scorpion.** The owner picked the scorpion:
-  1 heart, a sting of 2, chases; one room a floor on depths 3 and 4, for
-  the rat, never the lampmoth's; its own click-and-stab sound (D-370).
-  Creatures now give hearts + bite in experience (D-371). Creature
-  materials wanted, later (D-372). After the owner's look, redrawn from
-  above in one of five colour sets picked by the seed (D-373,
-  [mock-up](https://claude.ai/artifact/5C8yz3Cu5SkVAvGjE8jkFr)); each
-  creature varies its own way (D-374).
-  [Playtest](https://claude.ai/artifact/C462j1sM9TfdFfWx5S95qS),
-  [sounds](https://claude.ai/artifact/7u1X7KXfdAcaCSGacTazhx).

@@ -86,3 +86,8 @@ The owner wants beaten creatures to leave materials of their own, each
 with its own chance (D-372). Still open: which creatures, each material's
 name and look, the chances, and the recipes they go into. A new
 mechanic, its own step.
+
+**Q-063 · The start-up screens** (before 1.0, D-377)
+The owner wants the game to load like other games: a maker's name, then
+the menu. Still open: the maker's (studio) name, its look and sound, and
+what shows between it and the menu.
