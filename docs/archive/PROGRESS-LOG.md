@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.137, the workbench card.** The owner picked both
+  panels as glass cards like the bag, Deconstruct bottom left, built in
+  two steps (D-387). The workbench card: things to make in slots left,
+  the chosen one's cost with how many are carried, its Look line and Make
+  right. [Playtest](https://claude.ai/artifact/JzpJfTrqV97QbUydQ4WSVt).
 - **2026-10-27, 0.2.136, the title fills the screen.** The owner asked
   for the pre-game menus to fill the screen and for the bag's lost line.
   The title's floor and light now fill the whole screen behind the menu;

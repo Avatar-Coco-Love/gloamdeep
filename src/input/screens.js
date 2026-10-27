@@ -79,6 +79,7 @@ import { journalAt } from '../render/journal.js';
 import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
+import { settingsCardAt } from '../render/settingscard.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE, view } from '../render/screen.js';
@@ -109,7 +110,7 @@ export function createScreens(app, ui) {
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, ['settings', 'ways', 'easier'].includes(app.screen)));
-  const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -2).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Back.`;
+  const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
     const playing = next === 'play';
@@ -577,7 +578,6 @@ export function createScreens(app, ui) {
     else if (id === 'flasks') changeFlasks();
     else if (id === 'sound') changeSound();
     else if (id === 'history') openHistory();
-    else if (id === 'back') closeSettings();
   }
   // Arrows and swipes off the room: menus take swipes always (D-189)
   const onDir = (dir, how) => {
@@ -646,6 +646,14 @@ export function createScreens(app, ui) {
       if (held) return;
       const at = pauseCardAt(px, py, view.w, view.h, PAUSE_MENU.length);
       if (at === 'out' || at === 'close') show('play'); // the round cross resumes (D-388)
+      else if (at) { app.chosen = at.line; choose(at.line); }
+      return;
+    }
+    if (app.screen === 'settings') {
+      if (held) return;
+      const at = settingsCardAt(px, py, view.w, view.h, menuOf('settings'));
+      if (at === 'out' || at === 'close') closeSettings(); // the round cross goes back (D-389)
+      else if (at === 'history') { app.chosen = menuOf('settings').length - 1; openHistory(); }
       else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }

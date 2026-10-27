@@ -24,6 +24,7 @@ import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawChestPanel } from './chestpanel.js';
 import { drawPauseCard } from './pausecard.js';
+import { drawSettingsCard } from './settingscard.js';
 import { stashAt } from '../core/chest.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawAlert, drawGain } from './walk.js';
@@ -55,8 +56,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused']); // drawn on the room, the text line over them (D-385, D-387); none over the pause card (D-388)
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings']); // drawn on the room, the text line over them (D-385, D-387); none over the pause and settings cards (D-388, D-389)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -124,6 +125,7 @@ export function createFrame(app, ui) {
     else if (screen === 'seed') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawSeedPad(ctx, app.entry, app.chosen, t, still()); }
     else if (screen === 'howto') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawHowTo(ctx, app.page, app.settings.controls, app.chosen, t, still()); }
     else if (screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a dark page of its own
+    else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
     else if (screen === 'slots') drawSlots(ctx, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, app.slotsBack && app.profiles.current !== null, t, still());
     else if (screen === 'name') drawNamePad(ctx, app.entry, app.chosen, t, still(), app.renaming ? 'Rename profile' : undefined);
     else if (screen === 'cloak') drawCloaks(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
@@ -136,7 +138,7 @@ export function createFrame(app, ui) {
       const [menu, heading, note] = screen === 'sure' ? [SURE_MENU, SURE_HEADING, SURE_NOTE]
         : screen === 'mode' ? [MODE_MENU, MODE_HEADING, MODE_MENU[app.chosen].note]
         : screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
-        : [screens.menuOf(screen), screen === 'settings' ? 'Settings' : null, null];
+        : [screens.menuOf(screen), null, null];
       titleScene(menu.length, t);
       drawTitle(ctx, menu, app.chosen, t, still(), heading, note);
     }
@@ -245,7 +247,7 @@ export function createFrame(app, ui) {
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(rc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
-    else if (app.screen === 'settings') drawPause(ctx, screens.menuOf(app.screen), app.chosen, t, still(), 'Settings');
+    else if (app.screen === 'settings') drawSettingsCard(rc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
     else if (app.screen === 'ways') { const l = screens.menuOf('ways')[app.chosen]; drawPause(ctx, screens.menuOf('ways'), app.chosen, t, still(), MODE_HEADING, l.dim ? HARDER_NOTE : l.note); } // MO4, D-346
     else if (app.screen === 'easier') drawPause(ctx, SURE_MENU, app.chosen, t, still(), easeHeading(app.easier), EASE_NOTE);
     else if (app.screen === 'seed') drawSeedPad(ctx, app.entry, app.chosen, t, still());

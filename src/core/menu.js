@@ -47,20 +47,21 @@ export const pauseFacts = (state) => {
   return [['Seed', String(state.seed)], ['Way to play', MODE_MENU[modeAt(state.mode)].text], ['Depth', depth === 0 ? 'Surface' : String(depth)], ['Level', String(levelOf(state.xp))]];
 };
 // Settings, from the title or the pause menu (D-189, D-190, D-210, D-255): picking a switch moves it to the next choice.
-// Version history, above Back, opens the page of every version (D-254).
+// Each switch's line also gives its name and value apart, for the card's two columns (D-389).
+// Version history, last, is the card's button; the card's cross does what Back did (D-254, D-389).
 // deviceReduced: the device's own reduced-motion setting, which Motion follows until picked;
 // journey: this journey's seed, named from the pause menu (D-191), else null;
 // mode: this journey's way to play, its line under the seed from the pause menu (MO4, D-346)
+const named = (id, text) => { const at = text.indexOf(': '); return { id, text, name: text.slice(0, at), value: text.slice(at + 2) }; };
 export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null) => [
-  { id: 'controls', text: controlsText(s.controls) },
-  { id: 'motion', text: motionText(s.motion, deviceReduced) },
-  { id: 'seed', text: seedText(s.seed, journey) },
-  ...(mode ? [{ id: 'mode', text: modeText(mode) }] : []),
-  { id: 'lantern', text: lanternText(s.lantern) },
-  { id: 'flasks', text: flasksText(s.flasks) },
-  { id: 'sound', text: soundText(s.sound) },
+  named('controls', controlsText(s.controls)),
+  named('motion', motionText(s.motion, deviceReduced)),
+  named('seed', seedText(s.seed, journey)),
+  ...(mode ? [named('mode', modeText(mode))] : []),
+  named('lantern', lanternText(s.lantern)),
+  named('flasks', flasksText(s.flasks)),
+  named('sound', soundText(s.sound)),
   { id: 'history', text: 'Version history' },
-  { id: 'back', text: 'Back' },
 ];
 
 // § move: Up and Down walk the lines and stop at the ends

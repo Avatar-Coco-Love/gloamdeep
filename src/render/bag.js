@@ -129,7 +129,7 @@ export function drawSlot(c, x, y, item, chosen, spriteOf) {
 
 // § card: the room nearly dark, the glass card on it with `title` in ember top left, the round
 // cross top right, a rule under them and the line between the slots and the item, `split` from
-// the card's left; gives cardAt's card
+// the card's left (none for 0, Settings' one column, D-389); gives cardAt's card
 export function drawCard(c, vw, vh, title, split = SPLIT_X) {
   c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
   const card = cardAt(vw, vh), { x, y, w, h, close } = card;
@@ -137,7 +137,8 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X) {
   drawText(c, title, x + PAD, y + 7, EMBER);
   round(c, close.x, close.y, close.r);
   cross(c, close.x, close.y);
-  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1); c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
+  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1);
+  if (split) c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
   return card;
 }
 

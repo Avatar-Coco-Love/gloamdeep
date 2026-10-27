@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.140 (2026-10-27)
+- Settings now opens as a glass card that fills the screen, like the pause card, both from the pause card and from the title. SETTINGS sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
+- Each setting is a row: its name on the left, its value in a column on the right, so every value shows at once. A tap anywhere level with a row changes it.
+- Version history is a button in the bottom left corner.
+- Decisions: D-389.
+
 ## 0.2.139 (2026-10-27)
 - The pause menu now opens as a glass card that fills the screen, like the bag. PAUSED sits at its top left, and the round cross resumes, as Esc, P and a tap outside still do.
 - Its lines run down the left: Resume, Journal, Settings, How to play and Back to title. A tap anywhere level with a line picks it.
@@ -95,9 +101,3 @@ Entry format:
 - Kept for later, from the Into the Breach talk: a combat sandbox and a seeded puzzle tester, to sit with the Seed Explorer under one tools line on the title menu.
 - Nothing in the game changed.
 - Decisions: D-376.
-
-## 0.2.127 (2026-10-26)
-- The game can now be put on a phone's home screen, and it opens full screen like an app. On Android, Chrome may offer it once by itself; if you say no, it stays quiet for a long time. On iPhone, use Share, then Add to Home Screen.
-- Its icon is the lit lantern from the lantern switch, on its own, drawn by the game's code.
-- It still needs a connection to start, and plays and saves just as before. On iPhone, the home-screen game keeps its own saves, apart from Safari's.
-- Decisions: D-375.
