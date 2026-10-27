@@ -53,9 +53,9 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
-// Screens over play that dim the room around them; the cards (the bag's, the workbench's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'place']);
-const CARDS = new Set(['bag', 'bench']); // drawn on the room, the text line over them (D-385, D-387)
+// Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's) and placing a workbench leave it clear
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place']);
+const CARDS = new Set(['bag', 'bench', 'chest']); // drawn on the room, the text line over them (D-385, D-387)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -252,7 +252,6 @@ export function createFrame(app, ui) {
     else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());
     else if (app.screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
-    else if (app.screen === 'chest') drawChestPanel(ctx, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still());
     else if (app.screen === 'bag') {
       drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
       textLine.draw(rc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
@@ -260,6 +259,10 @@ export function createFrame(app, ui) {
     else if (app.screen === 'bench') {
       drawBenchPanel(rc, view.w, view.h, benchMakes(state.bag), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
       textLine.draw(rc, line, t, still()); // "You make a stash chest."
+    }
+    else if (app.screen === 'chest') {
+      drawChestPanel(rc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still()); // a card on the room (D-387)
+      textLine.draw(rc, line, t, still()); // "Your bag is full."
     }
     else dev.draw(rc, state, cam);
   }

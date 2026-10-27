@@ -92,3 +92,10 @@ The owner wants the game to load like other games: a maker's name, then
 the menu. Still open: the maker's (studio) name, its look and sound, and
 what shows between it and the menu. Skipped for now, the owner's call
 (2026-10-27): the game opens on the menu as today.
+
+**Q-064 · The chest card on squarer screens** (found building D-387)
+The stash chest's card needs the room about 1.7 times as wide as tall
+(a sideways phone is about 2). On a squarer screen, a sideways tablet or
+a narrow PC window, the bag's grid runs past the card's right edge.
+Still open: smaller slots there, the bag's grid under the chest's, or
+leave it while the game is phone first.

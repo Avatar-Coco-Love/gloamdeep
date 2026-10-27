@@ -20,7 +20,9 @@ const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
 export const EDGE_GAP = 8; // the room's edge left showing around the card
 export const CARD_VEIL = 0.85; // the room's dimming around and under the card
-export const SLOT = 30, SLOT_GAP = 4, COLS = 3;
+export const SLOT = 30;
+export const SLOT_GAP = 4;
+const COLS = 3;
 export const PAD = 12;
 export const HELD_Y = 30; // the held slot's top, and the item's name's on the right
 export const LINE_H = 12;
@@ -44,12 +46,13 @@ export function cardAt(vw, vh) {
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
   return { x, y, w, h, close: { x: x + w - 12, y: y + 11, r: 8 }, button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
 }
-// Slot i's top left in the 3 × 2 grid, whose top is `top` below the card's
-export const slotAt = (card, i, top = GRID_Y) => ({ x: card.x + PAD + (i % COLS) * (SLOT + SLOT_GAP), y: card.y + top + Math.floor(i / COLS) * (SLOT + SLOT_GAP) });
-// The grid's slot at x, y, or -1
-export function gridAt(card, x, y, top = GRID_Y) {
-  for (let i = 0; i < BAG_SLOTS; i++) {
-    const s = slotAt(card, i, top), half = SLOT_GAP / 2;
+// Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
+// `cols` wide (the stash chest's 4 × 3, D-387)
+export const slotAt = (card, i, top = GRID_Y, cols = COLS, left = PAD) => ({ x: card.x + left + (i % cols) * (SLOT + SLOT_GAP), y: card.y + top + Math.floor(i / cols) * (SLOT + SLOT_GAP) });
+// The grid's slot at x, y, or -1, for a grid of `count` slots
+export function gridAt(card, x, y, top = GRID_Y, cols = COLS, count = BAG_SLOTS, left = PAD) {
+  for (let i = 0; i < count; i++) {
+    const s = slotAt(card, i, top, cols, left), half = SLOT_GAP / 2;
     if (x >= s.x - half && x < s.x + SLOT + half && y >= s.y - half && y < s.y + SLOT + half) return i;
   }
   return -1;
@@ -125,15 +128,16 @@ export function drawSlot(c, x, y, item, chosen, spriteOf) {
 }
 
 // § card: the room nearly dark, the glass card on it with `title` in ember top left, the round
-// cross top right, a rule under them and the line between the slots and the item; gives cardAt's card
-export function drawCard(c, vw, vh, title) {
+// cross top right, a rule under them and the line between the slots and the item, `split` from
+// the card's left; gives cardAt's card
+export function drawCard(c, vw, vh, title, split = SPLIT_X) {
   c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
   const card = cardAt(vw, vh), { x, y, w, h, close } = card;
   drawGlass(c, x, y, w, h);
   drawText(c, title, x + PAD, y + 7, EMBER);
   round(c, close.x, close.y, close.r);
   cross(c, close.x, close.y);
-  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1); c.fillRect(x + SPLIT_X, y + RULE_Y + 8, 1, h - RULE_Y - 16);
+  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1); c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
   return card;
 }
 

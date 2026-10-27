@@ -22,12 +22,12 @@
 // free (WB3, D-323): Up and Down choose, Enter, Space or a tap picks; Deconstruct workbench
 // takes it down, a turn, and closes it; Close, Esc, P or a tap outside the box close it.
 // Stash chest, above it, makes one into the bag, a turn, and the panel stays open (CH1, D-326).
-// Bumping a set-down stash chest, or a click or tap on one, opens its panel the same way,
-// free (CH3, D-330): arrows or a tap move the gold frame over its 12 slots, Down past them
-// to Close; Close, Esc, P or a tap outside the box close it. Down from the chest's
-// second row reaches the bag's row, then Close; Enter, Space, a click or a tap on a
-// filled slot moves its whole stack to the other side, free (CH4, D-331). Deconstruct
-// chest, above Close, takes it down the bench's way, only when empty (CH5).
+// Bumping a set-down stash chest, or a click or tap on one, opens its card the same way,
+// free (CH3, D-330; a card, D-387): arrows move the gold frame over its 12 slots and,
+// Right from them, the bag's 6; the round cross, Esc, P or a tap outside the card close
+// it. Enter, Space, a click or a tap on a filled slot moves its whole stack to the other
+// side, free (CH4, D-331). Deconstruct, Down from either grid's bottom row, takes it
+// down the bench's way, only when empty (CH5).
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // A Hardcore fall shows "Your journey ends.": Same world or New world wakes the hero in the
@@ -79,7 +79,7 @@ import { journalAt } from '../render/journal.js';
 import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { chestAt } from '../render/chestpanel.js';
-import { CHEST_BAG, CHEST_TAKE, CHEST_CLOSE, chestWords, moveChest, stashAt } from '../core/chest.js';
+import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE, view } from '../render/screen.js';
 
 const WORDS = {
@@ -405,7 +405,6 @@ export function createScreens(app, ui) {
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {
-    if (i === CHEST_CLOSE) return 'Close';
     if (i === CHEST_TAKE) return 'Deconstruct chest';
     const out = i < CHEST_BAG, s = out ? stashAt(app.state, app.bench.x, app.bench.y)[i] : app.state.bag[i - CHEST_BAG];
     return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
@@ -557,7 +556,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'ways') { pickWay(id); return; }
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
-    if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
+    if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
@@ -636,9 +635,9 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'chest') {
       if (held) return;
-      const at = chestAt(px, py);
-      if (at === 'out' || at === CHEST_CLOSE) show('play');
-      else if (at === CHEST_TAKE) choose(at);
+      const at = chestAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') show('play');
+      else if (at === 'take') { app.chosen = CHEST_TAKE; choose(CHEST_TAKE); }
       else if (at) choose(at.slot);
       return;
     }
