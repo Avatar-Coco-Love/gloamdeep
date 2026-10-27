@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.133 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.134 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner HUD, step 4 of 5 (D-380): the big round lantern bottom right,
-with the bag, the map and one quick slot in an arc (D-378). Propose its
-look first (size, the arc, what the quick slot holds). Creature materials
-(Q-061) wait.
+The corner HUD, step 5 of 5 (D-380): menus as full-screen cards, the bag
+first (D-378). Propose its look first (the card's size, glass, how the
+slots sit). Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -33,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.134, the round lantern.** The owner picked a 64 px
+  round lantern bottom right, the bag and a quick slot on an arc around
+  it, and the flask always in the quick slot: a tap pours one, and it
+  shows how many are carried (D-384).
+  [Playtest](https://claude.ai/artifact/VmcisJ3aSq6CSq5QaKmzXC).
 - **2026-10-27, 0.2.133, the round map.** The owner picked a medium
   round map, 104 px, showing the floor around the hero, pause and the
   wrench in a row left of it, and a tap that opens the full map (D-383).
@@ -44,8 +48,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   room's corners; the menus keep their own picture over the room. The
   dev stats line is now a Stats switch, off at first (D-382).
   [Playtest](https://claude.ai/artifact/XNkevYgascXJnSg4rtsoRV).
-- **2026-10-27, 0.2.131, the glass panel.** The owner picked the corner
-  HUD's order (D-380): panel, room fills, round map, round lantern, cards.
-  The hearts, level, oil and depth sit on pixel glass top left, the
-  creature list under it; both fade while the hero is under them.
-  [Playtest](https://claude.ai/artifact/9hfkfSw21NRdTP49rsk9Tb).

@@ -1,7 +1,7 @@
 // § bag: six slots, a stack in each; kept through a fall and in the save (D-247)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { BAG_SLOTS, most, bagAdd, bagTake, bagPay, stackFull, withBag } from '../src/core/bag.js';
+import { BAG_SLOTS, most, bagAdd, bagTake, bagPay, stackFull, withBag, firstFlask, flasksIn } from '../src/core/bag.js';
 import { makeWorld } from '../src/core/turn.js';
 import { packJourney, unpackJourney } from '../src/core/save.js';
 import { byKind } from '../src/core/registry.js';
@@ -82,4 +82,12 @@ test('the panel moves to the top when it would hide the hero', async () => {
   assert.equal(panelOnTop(16 * 10), true);
   assert.equal(bagAt(PANEL.x + 20, 56, true).slot, 0);
   assert.equal(bagAt(PANEL.x + 20, 56, false), 'out');
+});
+
+test('the quick slot finds the first flask and counts them all (D-384)', () => {
+  const bag = [{ id: 'wood', n: 3 }, { id: 'flask', n: 5 }, { id: 'oilcap', n: 2 }, { id: 'flask', n: 2 }];
+  assert.equal(firstFlask(bag), 1);
+  assert.equal(flasksIn(bag), 7);
+  assert.equal(firstFlask([{ id: 'wood', n: 1 }]), -1);
+  assert.equal(flasksIn([]), 0);
 });

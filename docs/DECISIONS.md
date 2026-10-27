@@ -184,3 +184,12 @@ closes it, and the square map button is gone. Pause stands left of it,
 the wrench left of pause, the bag under pause until the lantern's arc;
 all three are round on the glass. It fades like the panel (D-380).
 Built in 0.2.133.
+
+**D-384 · 2026-10-27 · The round lantern and its arc** (the owner's picks,
+recommended; step 4 of D-380) The lantern is a round button 64 px across
+in the room's bottom right corner, on the glass, its rim gold while lit.
+Two round 44 px buttons sit on an arc around it: the quick slot to its
+left and the bag up and left. The map stays only top right (D-383). The
+quick slot always holds the flask: a tap pours the first flask in the
+bag, one turn, like the bag's Pour; it shows how many are carried, dim
+with none. Built in 0.2.134.

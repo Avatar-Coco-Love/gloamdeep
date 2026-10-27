@@ -27,6 +27,11 @@ export const stackFull = (bag, id) => bag.some((s) => s.id === id) && bag.every(
 // Whether the bag holds at least `of`'s counts, { itemId: n } (a bench craft's cost, CH1)
 export const bagHas = (bag, of) => Object.entries(of).every(([id, n]) => bag.filter((s) => s.id === id).reduce((a, s) => a + s.n, 0) >= n);
 
+// § flasks: the first slot holding oil to pour, or -1, and how many flasks are
+// carried in all, for the quick slot (D-384)
+export const firstFlask = (bag) => bag.findIndex((s) => get(s.id)?.oil);
+export const flasksIn = (bag) => bag.reduce((a, s) => a + (get(s.id)?.oil ? s.n : 0), 0);
+
 // The bag with n (one unless said) taken from slot i; an emptied slot is
 // gone, and the ones after it move up
 export function bagTake(bag, i, n = 1) {

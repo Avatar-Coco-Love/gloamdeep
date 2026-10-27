@@ -101,7 +101,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
-  const { spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion } = ui;
+  const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
@@ -114,7 +114,7 @@ export function createScreens(app, ui) {
     const playing = next === 'play';
     if (playing && (onTitle() || app.screen === 'paused')) ui.goSideways(); // Play, Continue or Resume: full screen, sideways (D-377)
     app.screen = next; app.chosen = at;
-    lanternButton.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
+    lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     const mapOpen = next === 'map' || next === 'explore';
     mapButton.hide(!playing && !mapOpen); mapButton.closes(mapOpen);
     bagButton.hide(!playing && next !== 'bag'); bagButton.closes(next === 'bag');

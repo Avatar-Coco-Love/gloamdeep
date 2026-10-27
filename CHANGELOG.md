@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.134 (2026-10-27)
+- The lantern is now a big round button in the room's bottom right corner, its rim gold while it is lit.
+- A new quick slot stands left of the lantern: tap it to pour a flask from your bag, one turn, as the bag's Pour does. It shows how many flasks you carry, and goes dim when you have none.
+- The bag now sits up and left of the lantern, the two round buttons curving around it.
+- Decisions: D-384.
+
 ## 0.2.133 (2026-10-27)
 - A round map now stands in the room's top right corner. It shows what you have found around you, about 17 tiles across, with you in the middle and the rooms next door once found.
 - Tap the round map, or press M as before, to open the full map. While it is open, a small round cross in the corner closes it.
@@ -98,10 +104,3 @@ Entry format:
 ## 0.2.122 (2026-10-25)
 - How to play's Touch, Mouse and Keyboard pages have a new row, Frame: tap (or click) a creature's plaque, or press Tab.
 - Decisions: D-361. Questions closed: Q-060.
-
-## 0.2.121 (2026-10-25)
-- Tap a creature's plaque in the row under the room to frame it: the plaque gets an amber edge, amber corners mark the creature on the field, a small tag above it shows its name and hearts, and an arrow shows its next step.
-- The frame stays as you play. Tap the same plaque to let it go, or another to frame that one instead. It goes when the creature dies or leaves the light.
-- On a keyboard, Tab frames the first plaque, then the next, then none.
-- Framing takes no turn.
-- Decisions: D-359, D-360.

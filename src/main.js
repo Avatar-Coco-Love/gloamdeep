@@ -28,6 +28,8 @@ import { createLanternButton } from './input/lantern.js';
 import { createPauseButton } from './input/pause.js';
 import { createMapButton } from './input/mapbutton.js';
 import { createBagButton } from './input/bagbutton.js';
+import { createQuickSlot } from './input/quickslot.js';
+import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
 import { createUpright, goSideways } from './input/upright.js';
@@ -284,6 +286,8 @@ const lanternButton = createLanternButton(roomCanvas, { onSwitch: switchIt });
 const pauseButton = createPauseButton(roomCanvas, { onPause: () => screens.pause() });
 const mapButton = createMapButton(roomCanvas, { onMap: () => screens.toggleMap() });
 const bagButton = createBagButton(roomCanvas, { onBag: () => screens.toggleBag() });
+// § quick slot: pours the first flask in the bag, one turn, like the bag's Pour (D-384)
+const quickSlot = createQuickSlot(roomCanvas, { onPour: () => { const i = firstFlask(app.state.bag); if (app.screen === 'play' && i >= 0) tryStep({ pour: i }); } });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
@@ -315,7 +319,7 @@ function dropSlot(i) {
 }
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
@@ -366,7 +370,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
 }, roomCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, quickSlot, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

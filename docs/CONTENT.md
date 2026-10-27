@@ -34,7 +34,7 @@ mechanic and its own step.
 
 | id | What it does | Stack | Grows back | Where, or how made | Decisions |
 | --- | --- | --- | --- | --- | --- |
-| `flask` | 45% oil, poured from the bag | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps | D-078, D-149, D-247, D-299 |
+| `flask` | 45% oil, poured from the bag or the quick slot | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps | D-078, D-149, D-247, D-299, D-384 |
 | `knife` | held, hits for 2 | held | never | the first room of depth 2 | D-252, D-347 |
 | `herb` | heals 2 where it lies | none | 300 | each generated room | D-155, D-156 |
 | `oilcap` | 3 make a flask | 20 | 300 | each generated room | D-296, D-299 |
