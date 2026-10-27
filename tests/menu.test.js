@@ -1,7 +1,9 @@
 // § menu: the title screen's and pause menu's lines, and moving between them
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, settingsMenu, moveChoice } from '../src/core/menu.js';
+import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, settingsMenu, moveChoice, pauseFacts } from '../src/core/menu.js';
+import { pauseCardAt, SPLIT } from '../src/render/pausecard.js';
+import { cardAt } from '../src/render/bag.js';
 import { CONTROLS } from '../src/core/settings.js';
 import { lineAt, pauseTop, LINE_GAP } from '../src/render/menu.js';
 import { SCREEN_H, W } from '../src/render/screen.js';
@@ -71,4 +73,18 @@ test('in play, Settings has the way to play under the seed; only an easier one c
   assert.equal(easeMode({ mode: 'hardcore' }, 'gentle').mode, 'gentle');
   assert.equal(easeMode({ mode: 'gentle' }, 'hardcore').mode, 'gentle');
   for (const words of [HARDER_NOTE, EASE_NOTE, easeHeading('gentle'), easeHeading('normal')]) assert.ok(textWidth(words) <= W, words);
+});
+
+test('the pause card: a tap across the left picks a line, the cross or outside resumes, the right picks none (D-388)', () => {
+  const vw = 422, vh = 195, card = cardAt(vw, vh), n = PAUSE_MENU.length;
+  assert.deepEqual(pauseCardAt(card.x + 20, card.y + 36, vw, vh, n), { line: 0 });
+  assert.deepEqual(pauseCardAt(card.x + SPLIT - 2, card.y + 34 + 4 * 22 + 4, vw, vh, n), { line: 4 });
+  assert.equal(pauseCardAt(card.x + SPLIT + 20, card.y + 36, vw, vh, n), null);
+  assert.equal(pauseCardAt(card.close.x, card.close.y, vw, vh, n), 'close');
+  assert.equal(pauseCardAt(2, 2, vw, vh, n), 'out');
+});
+
+test("the pause card's facts: the seed, the way to play, the depth and the level (D-388)", () => {
+  assert.deepEqual(pauseFacts({ seed: 48213, mode: 'normal', place: 'first', xp: 0 }), [['Seed', '48213'], ['Way to play', 'Normal'], ['Depth', 'Surface'], ['Level', '1']]);
+  assert.equal(pauseFacts({ seed: 7, mode: 'gentle', place: 'depth3', xp: 0 })[2][1], '3');
 });

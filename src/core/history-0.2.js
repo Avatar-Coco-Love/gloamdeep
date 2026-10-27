@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.139', date: '2026-10-27', title: 'The pause card', lines: [
+    "The pause menu now opens as a glass card that fills the screen, like the bag. PAUSED sits at its top left, and the round cross resumes, as Esc, P and a tap outside still do.",
+    "Its lines run down the left: Resume, Journal, Settings, How to play and Back to title. A tap anywhere level with a line picks it.",
+    "On the right, This journey shows the world's seed, the way you play, the depth and your level.",
+    "Decisions: D-388.",
+  ] },
   { v: '0.2.138', date: '2026-10-27', title: 'The stash chest card', lines: [
     "The stash chest now opens as a glass card that fills the screen, like the bag and the workbench. Its 12 slots sit in a 4 × 3 grid on the left; your bag's 6 sit in a 3 × 2 grid on the right.",
     "The chosen stack's name and count show under the bag's slots (Stone, 6 in the chest). A tap still moves it to the other side.",

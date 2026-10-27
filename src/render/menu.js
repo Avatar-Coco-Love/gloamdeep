@@ -1,5 +1,5 @@
 // § menu lines: a menu's lines centred in the pixel font, the chosen one gold with
-// a small flame beside it (D-181). Shared by the title screen and the pause menu (D-187).
+// a small flame beside it (D-181). Shared by the title screen and the pages from the pause card (D-187, D-388).
 import { W, H, SCREEN_H } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 

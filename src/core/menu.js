@@ -3,6 +3,8 @@
 import { get } from './registry.js';
 import { bagHas, carried, BAG_SLOTS } from './bag.js';
 import { controlsText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
+import { depthOf } from './room.js';
+import { levelOf } from './xp.js';
 
 // The Seed Explorer, a dev tool, is its last line (D-214)
 // The Journal under New journey (D-270), Profiles back to the slot screen under Settings (D-271)
@@ -38,6 +40,12 @@ export const ENDED_MENU = [{ id: 'same', text: 'Same world' }, { id: 'other', te
 export const ENDED_HEADING = 'Your journey ends.';
 // The pause menu during play (D-177, D-187, D-193), the Journal under Resume (D-270)
 export const PAUSE_MENU = [{ id: 'resume', text: 'Resume' }, { id: 'journal', text: 'Journal' }, { id: 'settings', text: 'Settings' }, { id: 'howto', text: 'How to play' }, { id: 'title', text: 'Back to title' }];
+// The pause card's facts on its right, under THIS JOURNEY (D-388): the journey's seed, its way
+// to play, the depth as the panel names it (Surface, else its number) and the hero's level
+export const pauseFacts = (state) => {
+  const depth = depthOf(state.place);
+  return [['Seed', String(state.seed)], ['Way to play', MODE_MENU[modeAt(state.mode)].text], ['Depth', depth === 0 ? 'Surface' : String(depth)], ['Level', String(levelOf(state.xp))]];
+};
 // Settings, from the title or the pause menu (D-189, D-190, D-210, D-255): picking a switch moves it to the next choice.
 // Version history, above Back, opens the page of every version (D-254).
 // deviceReduced: the device's own reduced-motion setting, which Motion follows until picked;

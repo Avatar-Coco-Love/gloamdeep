@@ -134,42 +134,6 @@ edge and round corners. The creature list stands under it, down the room's
 left. Both fade almost away while the hero, or a creature beside them, is
 under them. Built in 0.2.131.
 
-**D-381 · 2026-10-27 · The room fills the screen** (the owner's picks,
-recommended; step 2 of D-380) The room fills the whole screen, zoomed so
-about 11 tiles show from top to bottom; the width follows the screen. A
-room narrower or shorter than the screen sits in the middle, the deepest
-dark around it, and the camera follows the hero only along a side where
-the room is bigger (D-195). The text line sits on the same glass, along
-the bottom of the room. Until the round map and lantern come, pause, the
-map and the bag stand in the top right corner, the wrench left of pause,
-and the lantern in the bottom right. Built in 0.2.132.
-
-**D-382 · 2026-10-27 · The stats line is a switch** (the owner's idea and
-picks, recommended; supersedes part of D-088) The dev stats line shows only
-with a new Stats switch in View, off at first and remembered, with no key
-(S walks). When on, it is half size, bottom left, just above the text
-line. Built in 0.2.132.
-
-**D-383 · 2026-10-27 · The round map** (the owner's picks, recommended,
-[mock-up](https://claude.ai/artifact/4i4721ijRn29hbHL6EJgYC); step 3 of
-D-380) A round map, 104 px across, stands in the room's top right corner
-on the panel's glass. It shows the floor around the hero as the full map
-draws it, about 17 tiles across, the hero in the middle. A tap opens the
-full map (M still does); while it is open a small round cross there
-closes it, and the square map button is gone. Pause stands left of it,
-the wrench left of pause, the bag under pause until the lantern's arc;
-all three are round on the glass. It fades like the panel (D-380).
-Built in 0.2.133.
-
-**D-384 · 2026-10-27 · The round lantern and its arc** (the owner's picks,
-recommended; step 4 of D-380) The lantern is a round button 64 px across
-in the room's bottom right corner, on the glass, its rim gold while lit.
-Two round 44 px buttons sit on an arc around it: the quick slot to its
-left and the bag up and left. The map stays only top right (D-383). The
-quick slot always holds the flask: a tap pours the first flask in the
-bag, one turn, like the bag's Pour; it shows how many are carried, dim
-with none. Built in 0.2.134.
-
 **D-385 · 2026-10-27 · The bag as a card** (the owner's picks,
 [mock-up](https://claude.ai/artifact/84qChoSf6ZKkuMpdRDUXjQ); step 5 of
 D-380) The bag opens as a glass card filling the screen but for a thin
@@ -204,3 +168,13 @@ on the left, the bag's 6 in a 3 × 2 grid on the right, the chosen stack's
 name and count under them; a tap moves it, as now. On both, Deconstruct
 is a button bottom left. Two steps: the workbench built in 0.2.137, the
 chest in 0.2.138.
+
+**D-388 · 2026-10-27 · The pause menu as a card** (the owner's picks, both
+recommended, [mock-up](https://claude.ai/artifact/Kmghde4csUSwoN5vZiJtMj);
+step 7 of D-380) The pause menu opens as a glass card like the bag's
+(D-385), PAUSED in ember top left, the round cross resuming as Esc, P and
+a tap outside do. Its lines run down the left, the chosen one gold with the
+flame; a tap level with a line picks it. On the right, THIS JOURNEY: its
+seed, way to play, depth (Surface, else its number) and level, since the
+panel is under the card. The pages it opens stay as they are. D-381 to
+D-384 moved unchanged to `archive/DECISIONS-CORNER-HUD.md`. Built in 0.2.139.

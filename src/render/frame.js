@@ -23,6 +23,7 @@ import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawChestPanel } from './chestpanel.js';
+import { drawPauseCard } from './pausecard.js';
 import { stashAt } from '../core/chest.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawAlert, drawGain } from './walk.js';
@@ -41,7 +42,7 @@ import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
-import { PAUSE_MENU, benchMakes, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING, HARDER_NOTE, EASE_NOTE, easeHeading } from '../core/menu.js';
+import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING, HARDER_NOTE, EASE_NOTE, easeHeading } from '../core/menu.js';
 import { doorways } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
@@ -53,9 +54,9 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
-// Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place']);
-const CARDS = new Set(['bag', 'bench', 'chest']); // drawn on the room, the text line over them (D-385, D-387)
+// Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused']); // drawn on the room, the text line over them (D-385, D-387); none over the pause card (D-388)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -243,7 +244,7 @@ export function createFrame(app, ui) {
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
-    if (app.screen === 'paused') drawPause(ctx, PAUSE_MENU, app.chosen, t, still());
+    if (app.screen === 'paused') drawPauseCard(rc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawPause(ctx, screens.menuOf(app.screen), app.chosen, t, still(), 'Settings');
     else if (app.screen === 'ways') { const l = screens.menuOf('ways')[app.chosen]; drawPause(ctx, screens.menuOf('ways'), app.chosen, t, still(), MODE_HEADING, l.dim ? HARDER_NOTE : l.note); } // MO4, D-346
     else if (app.screen === 'easier') drawPause(ctx, SURE_MENU, app.chosen, t, still(), easeHeading(app.easier), EASE_NOTE);

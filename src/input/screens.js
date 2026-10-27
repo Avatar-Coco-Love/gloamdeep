@@ -78,6 +78,7 @@ import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
+import { pauseCardAt } from '../render/pausecard.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE, view } from '../render/screen.js';
@@ -639,6 +640,13 @@ export function createScreens(app, ui) {
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'take') { app.chosen = CHEST_TAKE; choose(CHEST_TAKE); }
       else if (at) choose(at.slot);
+      return;
+    }
+    if (app.screen === 'paused') {
+      if (held) return;
+      const at = pauseCardAt(px, py, view.w, view.h, PAUSE_MENU.length);
+      if (at === 'out' || at === 'close') show('play'); // the round cross resumes (D-388)
+      else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }
     if (app.screen === 'bag') {
