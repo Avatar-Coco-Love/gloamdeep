@@ -20,7 +20,6 @@ HUD (D-378). Creature materials (Q-061) wait.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
 - Creature materials: which, names, chances, recipes (Q-061).
-- The start-up screens and the maker's name (Q-063), before 1.0.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step

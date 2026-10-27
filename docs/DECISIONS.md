@@ -130,7 +130,7 @@ and shows a picture asking to turn it. On Android, tapping Play also goes
 full screen and locks sideways; installed, the game opens sideways by
 itself. Installing stays optional (D-375); iPhone browsers can't lock
 sideways, so the picture covers them. One day it loads like other games:
-a maker's name, then the menu (Q-063). Next to build.
+a maker's name, then the menu (Q-063, skipped for now). Next to build.
 
 **D-378 · 2026-10-27 · A Genshin feel: corner HUD, glass, cards** (the
 owner's picks, recommended,

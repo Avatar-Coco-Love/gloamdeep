@@ -90,4 +90,5 @@ mechanic, its own step.
 **Q-063 · The start-up screens** (before 1.0, D-377)
 The owner wants the game to load like other games: a maker's name, then
 the menu. Still open: the maker's (studio) name, its look and sound, and
-what shows between it and the menu.
+what shows between it and the menu. Skipped for now, the owner's call
+(2026-10-27): the game opens on the menu as today.
