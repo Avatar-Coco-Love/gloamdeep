@@ -2,6 +2,11 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.136', date: '2026-10-27', title: 'The title fills the screen', lines: [
+    "On the title and its pages, the dark crypt floor and the lantern's light now fill the whole screen, with no box around the name and the menu.",
+    "With the bag open, a line the game says now shows over the card. Set down the workbench where it can't go, and you see \"Only on the surface.\" or \"There is no room there.\" instead of nothing.",
+    "Decisions: D-386.",
+  ] },
   { v: '0.2.135', date: '2026-10-27', title: 'The bag card', lines: [
     "The bag now opens as a glass card that fills the screen, with bigger slots in a 3 by 2 grid on the left. The arrow keys move around the grid.",
     "On the right, the card shows the chosen item's name, how many you carry, and its look line. Its buttons sit in the bottom right corner, near your thumb.",

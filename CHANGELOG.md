@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.136 (2026-10-27)
+- On the title and its pages, the dark crypt floor and the lantern's light now fill the whole screen, with no box around the name and the menu.
+- With the bag open, a line the game says now shows over the card. Set down the workbench where it can't go, and you see "Only on the surface." or "There is no room there." instead of nothing.
+- Decisions: D-386.
+
 ## 0.2.135 (2026-10-27)
 - The bag now opens as a glass card that fills the screen, with bigger slots in a 3 by 2 grid on the left. The arrow keys move around the grid.
 - On the right, the card shows the chosen item's name, how many you carry, and its look line. Its buttons sit in the bottom right corner, near your thumb.
@@ -100,9 +105,3 @@ Entry format:
 - About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.
 - Its bite clinks of glass, then snaps.
 - Decisions: D-365, D-366, D-367, D-368. Questions closed: Q-062.
-
-## 0.2.123 (2026-10-25)
-- The second tidy-up, seven versions early. Nothing in the game changes.
-- The turn rules' biggest file is split into six smaller ones (the creatures' turn, a fall, the bag's buttons, and more), so new creatures and finds are quicker to add.
-- A new page in the docs lists every creature, find, tile, light and place with its numbers, and the tech notes list the files each new kind of content touches.
-- Decisions: D-362, D-363, D-364.
