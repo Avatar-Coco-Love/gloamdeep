@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.139 (2026-10-27)
+- The pause menu now opens as a glass card that fills the screen, like the bag. PAUSED sits at its top left, and the round cross resumes, as Esc, P and a tap outside still do.
+- Its lines run down the left: Resume, Journal, Settings, How to play and Back to title. A tap anywhere level with a line picks it.
+- On the right, This journey shows the world's seed, the way you play, the depth and your level.
+- Decisions: D-388.
+
 ## 0.2.138 (2026-10-27)
 - The stash chest now opens as a glass card that fills the screen, like the bag and the workbench. Its 12 slots sit in a 4 × 3 grid on the left; your bag's 6 sit in a 3 × 2 grid on the right.
 - The chosen stack's name and count show under the bag's slots (Stone, 6 in the chest). A tap still moves it to the other side.
@@ -95,11 +101,3 @@ Entry format:
 - Its icon is the lit lantern from the lantern switch, on its own, drawn by the game's code.
 - It still needs a connection to start, and plays and saves just as before. On iPhone, the home-screen game keeps its own saves, apart from Safari's.
 - Decisions: D-375.
-
-## 0.2.126 (2026-10-26)
-- A new creature, the scorpion, drawn from above: two big pincers, eight legs and its tail curled to one side. It has 1 heart, so one hit of anything kills it, but its sting takes 2 hearts.
-- Each scorpion wears one of five colours, Sand, Rust, Coal, Olive or Bone, picked by the world's seed, so no two floors look quite alike.
-- It chases you once it sees you in the light. On each floor of depths 3 and 4, one room holds a scorpion in place of its rat, never the lampmoth's room.
-- Its sting has its own sound: two dry clicks of claws, then a sharp stab.
-- Creatures now give more experience: their hearts and bite added together. A lampmoth gives 2, a rat, gloamling or scorpion 3, a flask mimic 4. A new room still gives 1.
-- Decisions: D-370, D-371, D-372, D-373, D-374.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.136, the title fills the screen.** The owner asked
+  for the pre-game menus to fill the screen and for the bag's lost line.
+  The title's floor and light now fill the whole screen behind the menu;
+  the text line shows over the bag's card, so "Only on the surface."
+  is seen (D-386). [Playtest](https://claude.ai/artifact/8W3YKmtUnveVAV5uwJhT5f).
 - **2026-10-27, 0.2.135, the bag card.** The owner picked the bag as a
   glass card filling the screen, so its buttons sit near the thumbs:
   slots in a 3 × 2 grid left, the item's name, count and Look line right,
