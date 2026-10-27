@@ -24,8 +24,10 @@ export function bagAdd(bag, id, form, slots = BAG_SLOTS) {
 // Whether item `id` has stacks and all of them are at their limit
 export const stackFull = (bag, id) => bag.some((s) => s.id === id) && bag.every((s) => s.id !== id || s.n >= most(id));
 
+// How many of item `id` the bag holds, in all its stacks (the workbench's card, D-387)
+export const carried = (bag, id) => bag.reduce((a, s) => a + (s.id === id ? s.n : 0), 0);
 // Whether the bag holds at least `of`'s counts, { itemId: n } (a bench craft's cost, CH1)
-export const bagHas = (bag, of) => Object.entries(of).every(([id, n]) => bag.filter((s) => s.id === id).reduce((a, s) => a + s.n, 0) >= n);
+export const bagHas = (bag, of) => Object.entries(of).every(([id, n]) => carried(bag, id) >= n);
 
 // § flasks: the first slot holding oil to pour, or -1, and how many flasks are
 // carried in all, for the quick slot (D-384)

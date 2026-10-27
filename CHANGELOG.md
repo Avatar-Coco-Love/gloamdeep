@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.137 (2026-10-27)
+- The workbench now opens as a glass card that fills the screen, like the bag. The things you can make there sit in slots on the left; the stash chest is the first.
+- On the right, the card shows the chosen thing's name, each cost with how many you carry (3 / 5 Wood), and its look line. Make sits in the bottom right corner, dim with too few.
+- Deconstruct is a button in the bottom left corner, away from Make. The round cross closes the card, as I, Esc and a tap outside still do; the Close line is gone.
+- Decisions: D-387.
+
 ## 0.2.136 (2026-10-27)
 - On the title and its pages, the dark crypt floor and the lantern's light now fill the whole screen, with no box around the name and the menu.
 - With the bag open, a line the game says now shows over the card. Set down the workbench where it can't go, and you see "Only on the surface." or "There is no room there." instead of nothing.
@@ -97,11 +103,3 @@ Entry format:
 - Hurt, the flask mimic now says "The flask mimic cracks." Its bite on the same turn still says more.
 - A creature with no line for something now says nothing new instead of freezing, and a test checks every creature's lines are there.
 - Decisions: D-369.
-
-## 0.2.124 (2026-10-25)
-- A new creature, the flask mimic. It looks just like an oil flask, and it doesn't show on the creature list.
-- Bump it and it opens its eyes, with no harm done, and wakes. It does nothing that turn, so you have a step's start to run.
-- Awake, it has pink eyes and a row of teeth, 3 hearts and a bite of 1, and it chases you. After 6 turns it settles back down as a flask where it stands.
-- About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.
-- Its bite clinks of glass, then snaps.
-- Decisions: D-365, D-366, D-367, D-368. Questions closed: Q-062.

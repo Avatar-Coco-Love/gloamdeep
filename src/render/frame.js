@@ -41,7 +41,7 @@ import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
-import { PAUSE_MENU, benchMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING, HARDER_NOTE, EASE_NOTE, easeHeading } from '../core/menu.js';
+import { PAUSE_MENU, benchMakes, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, ENDED_MENU, ENDED_HEADING, HARDER_NOTE, EASE_NOTE, easeHeading } from '../core/menu.js';
 import { doorways } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
@@ -53,8 +53,9 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
-// Screens over play that dim the room around them; the bag and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'place']);
+// Screens over play that dim the room around them; the cards (the bag's, the workbench's) and placing a workbench leave it clear
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'place']);
+const CARDS = new Set(['bag', 'bench']); // drawn on the room, the text line over them (D-385, D-387)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -238,7 +239,7 @@ export function createFrame(app, ui) {
       rc.restore();
     }
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
-    if (app.screen !== 'bag') textLine.draw(rc, line, t, still()); // over the bag's card instead, below
+    if (!CARDS.has(app.screen)) textLine.draw(rc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
@@ -251,11 +252,14 @@ export function createFrame(app, ui) {
     else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());
     else if (app.screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
-    else if (app.screen === 'bench') drawBenchPanel(ctx, benchMenu(state.bag), app.chosen, t, still());
     else if (app.screen === 'chest') drawChestPanel(ctx, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still());
     else if (app.screen === 'bag') {
       drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
       textLine.draw(rc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
+    }
+    else if (app.screen === 'bench') {
+      drawBenchPanel(rc, view.w, view.h, benchMakes(state.bag), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
+      textLine.draw(rc, line, t, still()); // "You make a stash chest."
     }
     else dev.draw(rc, state, cam);
   }

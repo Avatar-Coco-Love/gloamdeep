@@ -1,42 +1,52 @@
-// § bench panel (WB3, D-323): bumping a set-down workbench dims the room behind
-// the pause menu's veil, with a box in the middle of the picture: "WORKBENCH" in
-// ember at its top, then its lines, the chosen one gold with the menus' flame.
-// A thing made at the bench has its cost on the right; with too few it is dim (CH1, D-326).
-import { W, SCREEN_H } from './screen.js';
-import { drawText, textWidth, FONT_H } from './font.js';
-import { veil, drawMarker, lineAt, LINE_GAP } from './menu.js';
+// § bench card (WB3, D-323; a card, D-387): bumping a set-down workbench opens a glass
+// card on the room as the bag's (D-385), "WORKBENCH" at its top. On the left, each thing
+// made at it is a slot in the bag's 3 × 2 grid, the chosen one framed in gold. On the
+// right, its name, a row per cost with its sprite and "3 / 5 Wood" (needed / carried),
+// its Look line, and MAKE in the bottom right corner, dim with too few (CH1, D-326).
+// DECONSTRUCT is in the bottom left corner, the menus' flame beside it when chosen.
+import { drawText, textWidth } from './font.js';
+import { drawMarker } from './menu.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, BUTTON, PAD, HELD_Y, LINE_H, DETAIL_X, TAP_PAD } from './bag.js';
+import { BAG_SLOTS } from '../core/bag.js';
+import { BENCH_TAKE } from '../core/menu.js';
+import { get } from '../core/registry.js';
 
-const K = '#0e0c16', LINE = '#2a2636', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4';
-const DIM = '#5c566a', DIM_GOLD = '#a08548', COST = '#6f6880';
-const HEADING = 'WORKBENCH', PAD_X = 14, HEAD_GAP = 14, COST_GAP = 12;
-const lineWidth = (l) => textWidth(l.text) + (l.cost ? COST_GAP + textWidth(l.cost) : 0);
-// The box around `menu`'s lines and the heading, in the middle of the picture
-function box(menu) {
-  const w = Math.max(...menu.map(lineWidth)) + 2 * PAD_X;
-  const h = 6 + HEAD_GAP + (menu.length - 1) * LINE_GAP + FONT_H + 3;
-  return { x: Math.floor((W - w) / 2), y: Math.floor((SCREEN_H - h) / 2), w, h };
+const GREY = '#9790a4', CORE = '#efe6cc';
+const TAKE = 'DECONSTRUCT', TAKE_W = textWidth(TAKE) + 8;
+const COST_Y = HELD_Y + LINE_H, COST_H = 18; // the cost rows under the name, a sprite each
+const take = (card) => ({ x: card.x + PAD, y: card.button.y });
+
+// What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'make', 'take'
+// (Deconstruct), 'close' (the round cross), or null; outside the card, 'out'
+export function benchAt(x, y, vw, vh) {
+  const card = cardAt(vw, vh), t = take(card), { button } = card;
+  if (!inCard(card, x, y)) return 'out';
+  if (onCross(card, x, y)) return 'close';
+  const i = gridAt(card, x, y, HELD_Y);
+  if (i >= 0) return { slot: i };
+  if (y < button.y - TAP_PAD || y >= button.y + BUTTON.h + TAP_PAD) return null;
+  if (x >= button.x - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD) return 'make';
+  if (x >= t.x - TAP_PAD && x < t.x + TAKE_W + TAP_PAD) return 'take';
+  return null;
 }
-const linesTop = (b) => b.y + 6 + HEAD_GAP;
 
-// What a tap at x, y picks: a line's index, -1 inside the box off the lines, or 'out'
-export function benchAt(menu, x, y) {
-  const b = box(menu);
-  if (x < b.x || x >= b.x + b.w || y < b.y || y >= b.y + b.h) return 'out';
-  return lineAt(y, menu.length, linesTop(b));
-}
-
-export function drawBenchPanel(c, menu, chosen, t, still) {
-  veil(c);
-  const b = box(menu);
-  c.fillStyle = K; c.fillRect(b.x, b.y, b.w, b.h);
-  c.fillStyle = LINE;
-  c.fillRect(b.x, b.y, b.w, 1); c.fillRect(b.x, b.y + b.h - 1, b.w, 1);
-  c.fillRect(b.x, b.y, 1, b.h); c.fillRect(b.x + b.w - 1, b.y, 1, b.h);
-  drawText(c, HEADING, Math.floor((W - textWidth(HEADING)) / 2), b.y + 6, EMBER);
-  menu.forEach((l, i) => {
-    const x = b.x + PAD_X, y = linesTop(b) + i * LINE_GAP, on = i === chosen;
-    drawText(c, l.text, x, y, on ? (l.dim ? DIM_GOLD : GOLD) : l.dim ? DIM : GREY);
-    if (l.cost) drawText(c, l.cost, b.x + b.w - PAD_X - textWidth(l.cost), y, l.dim ? DIM : COST);
-    if (on) drawMarker(c, x - 7, y + 1, t, still);
+// c: the room's canvas, `vw` × `vh`; makes: benchMakes(bag) (core/menu.js); chosen: a slot
+// or BENCH_TAKE; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297)
+export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still) {
+  const card = drawCard(c, vw, vh, 'WORKBENCH'), { x, y, w } = card, at = take(card);
+  for (let i = 0; i < BAG_SLOTS; i++) { const s = slotAt(card, i, HELD_Y); drawSlot(c, s.x, s.y, makes[i] && { id: makes[i].item, n: 1 }, i === chosen, spriteOf); }
+  drawButton(c, at.x, at.y, TAKE, false, TAKE_W);
+  if (chosen === BENCH_TAKE) drawMarker(c, at.x - 7, at.y + 4, t, still);
+  const make = makes[chosen], entry = make && get(make.item);
+  if (!entry) return;
+  const dx = x + DETAIL_X, dw = x + w - PAD - dx;
+  drawText(c, entry.name, dx, y + HELD_Y, CORE);
+  make.cost.forEach(({ id, n, have }, i) => {
+    const cy = y + COST_Y + i * COST_H;
+    c.drawImage(spriteOf({ id, n }), dx, cy);
+    drawText(c, `${n} / ${have} ${get(id).name}`, dx + 19, cy + 5, GREY);
   });
+  const look = lookLine(entry, told), top = y + COST_Y + make.cost.length * COST_H + 6;
+  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, top + i * LINE_H, GREY));
+  drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
 }

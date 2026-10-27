@@ -1,8 +1,16 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.123)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.124)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), and 0.2.123 at 0.2.136 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), and 0.2.124 at 0.2.137 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.124 (2026-10-25)
+- A new creature, the flask mimic. It looks just like an oil flask, and it doesn't show on the creature list.
+- Bump it and it opens its eyes, with no harm done, and wakes. It does nothing that turn, so you have a step's start to run.
+- Awake, it has pink eyes and a row of teeth, 3 hearts and a bite of 1, and it chases you. After 6 turns it settles back down as a flask where it stands.
+- About 1 room in 4 on depths 3 to 5 holds one, as well as everything the room already had, so there is as much oil as before.
+- Its bite clinks of glass, then snaps.
+- Decisions: D-365, D-366, D-367, D-368. Questions closed: Q-062.
 
 ## 0.2.123 (2026-10-25)
 - The second tidy-up, seven versions early. Nothing in the game changes.
