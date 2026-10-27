@@ -64,9 +64,19 @@ export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, o
   });
   area.addEventListener('pointerup', (ev) => {
     if (!press || ev.pointerId !== press.id) return;
-    if (!press.swiped && !press.held) onPoint(...gamePoint(press));
+    if (!press.swiped && !press.held) { onPoint(...gamePoint(press)); ghost = ev.pointerType !== 'mouse'; }
     end();
   });
+  // § ghost click: after a finger's tap a phone sends a click where it lifted, which would
+  // press a button the tap just brought back there (the bag's cross over the round map,
+  // D-385). That one click is dropped; the next finger down clears it.
+  let ghost = false;
+  addEventListener('pointerdown', () => { ghost = false; }, true);
+  addEventListener('click', (ev) => {
+    if (!ghost) return;
+    ghost = false;
+    if (!area.contains(ev.target)) { ev.preventDefault(); ev.stopPropagation(); }
+  }, true);
   area.addEventListener('pointercancel', end);
 
   return { held: () => (press && press.held ? gamePoint(press) : null), kind: () => kind };
