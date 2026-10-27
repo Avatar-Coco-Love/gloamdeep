@@ -25,8 +25,8 @@ Entry format:
 - The room now fills the whole screen, with bigger tiles: about 11 tiles from top to bottom, and as many across as the screen is wide. The camera scrolls with you.
 - A room narrower than the screen sits in the middle, with the deepest dark around it.
 - The text line now sits on glass along the bottom of the room. The pause, map and bag buttons stand in the room's top right corner, and the lantern in its bottom right.
-- Dev tools: the wrench stands left of the pause button, and the stats line is at the top middle.
-- Decisions: D-381.
+- Dev tools: the wrench stands left of the pause button. The stats line is now off at first: a new Stats switch in View shows it, small, at the bottom left.
+- Decisions: D-381, D-382.
 
 ## 0.2.131 (2026-10-27)
 - The hearts, level, oil and depth now sit on a see-through glass panel over the room's top left, and the column beside the room is gone.

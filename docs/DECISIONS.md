@@ -167,3 +167,9 @@ the room is bigger (D-195). The text line sits on the same glass, along
 the bottom of the room. Until the round map and lantern come, pause, the
 map and the bag stand in the top right corner, the wrench left of pause,
 and the lantern in the bottom right. Built in 0.2.132.
+
+**D-382 · 2026-10-27 · The stats line is a switch** (the owner's idea and
+picks, recommended; supersedes part of D-088) The dev stats line shows only
+with a new Stats switch in View, off at first and remembered, with no key
+(S walks). When on, it is half size, bottom left, just above the text
+line. Built in 0.2.132.

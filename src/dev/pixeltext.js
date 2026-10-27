@@ -7,8 +7,8 @@ import { drawText, textWidth, FONT_H } from '../render/font.js';
 const ZOOM = 2; // each font pixel is 2 × 2 page pixels
 const masks = new Map();
 
-function mask(piece) {
-  const k = Math.ceil(ZOOM * (devicePixelRatio || 1)), key = k + ' ' + piece;
+function mask(piece, zoom) {
+  const k = Math.ceil(zoom * (devicePixelRatio || 1)), key = k + ' ' + piece;
   if (!masks.has(key)) {
     const c = document.createElement('canvas');
     c.width = Math.max(1, textWidth(piece) * k); c.height = FONT_H * k;
@@ -21,8 +21,9 @@ function mask(piece) {
 }
 
 // Puts `text` into `node` in the pixel font. Lines break at \n; a line
-// wraps only between pieces split by " · ", each keeping its dot.
-export function setPixelText(node, text) {
+// wraps only between pieces split by " · ", each keeping its dot. `zoom`:
+// page pixels per font pixel (the stats line's are 1, D-382).
+export function setPixelText(node, text, zoom = ZOOM) {
   const shown = document.createElement('span');
   shown.className = 'px';
   shown.setAttribute('aria-hidden', 'true');
@@ -32,8 +33,8 @@ export function setPixelText(node, text) {
     pieces.forEach((p, i) => {
       const piece = i < pieces.length - 1 ? p + ' ·' : p, word = document.createElement('span');
       word.className = 'px-word';
-      word.style.width = textWidth(piece) * ZOOM + 'px';
-      word.style.webkitMaskImage = word.style.maskImage = mask(piece);
+      word.style.width = textWidth(piece) * zoom + 'px'; word.style.height = FONT_H * zoom + 'px';
+      word.style.webkitMaskImage = word.style.maskImage = mask(piece, zoom);
       row.append(word);
     });
     shown.append(row);

@@ -59,6 +59,8 @@
   .px { display: inline-flex; flex-direction: column; gap: 4px; vertical-align: middle; }
   .px-line { display: flex; flex-wrap: wrap; gap: 4px 8px; }
   .px-word { display: block; height: 18px; background: currentColor; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+  #dev-readout .px { gap: 2px; } #dev-readout .px-line { gap: 2px 4px; } /* the words are half size (D-382) */
+  #dev-readout[hidden] { display: none; }
   .px-said { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   /* the drawer: along the left edge, from under the wrench down to the stats
      line (height set by script); tabs in a column, the open section beside */
@@ -106,10 +108,10 @@
   #upright { position: fixed; inset: 0; z-index: 3; display: grid; place-items: center; background: #0b0a10; touch-action: none; }
   #upright[hidden] { display: none; }
   #upright canvas { image-rendering: pixelated; image-rendering: crisp-edges; background: none; }
-  /* the stats line: top centre, between the glass panel and the buttons, clear of the text line (D-381) */
+  /* the stats line, with the Stats switch on: small, bottom left, above the text line (bottom set by script, D-382) */
   #dev-readout {
-    left: 50%; top: max(8px, env(safe-area-inset-top)); transform: translateX(-50%);
-    max-width: calc(100% - 320px); padding: 4px 6px; border-radius: 4px; background: rgba(14,12,22,.7);
+    left: max(8px, env(safe-area-inset-left));
+    max-width: 40%; padding: 4px 6px; border-radius: 4px; background: rgba(14,12,22,.7);
     color: #b7bdcc; pointer-events: none;
   }
 </style>
