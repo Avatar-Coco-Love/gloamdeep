@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.135, the bag card.** The owner picked the bag as a
+  glass card filling the screen, so its buttons sit near the thumbs:
+  slots in a 3 × 2 grid left, the item's name, count and Look line right,
+  a round cross to close it; the corner buttons hide meanwhile (D-385).
+  [Playtest](https://claude.ai/artifact/BCY1LCWNmR4iDckseSDpzm).
 - **2026-10-27, 0.2.134, the round lantern.** The owner picked a 64 px
   round lantern bottom right, the bag and a quick slot on an arc around
   it, and the flask always in the quick slot: a tap pours one, and it

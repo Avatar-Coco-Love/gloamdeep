@@ -12,9 +12,10 @@ import { BENCH_TAKE } from '../core/menu.js';
 import { get } from '../core/registry.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
-const TAKE = 'DECONSTRUCT', TAKE_W = textWidth(TAKE) + 8;
+export const TAKE = 'DECONSTRUCT'; // the stash chest's card too (D-387)
+export const TAKE_W = textWidth(TAKE) + 8;
 const COST_Y = HELD_Y + LINE_H, COST_H = 18; // the cost rows under the name, a sprite each
-const take = (card) => ({ x: card.x + PAD, y: card.button.y });
+export const take = (card) => ({ x: card.x + PAD, y: card.button.y });
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'make', 'take'
 // (Deconstruct), 'close' (the round cross), or null; outside the card, 'out'

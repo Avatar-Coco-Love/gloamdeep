@@ -10,8 +10,8 @@ import { benchAt } from '../src/render/benchpanel.js';
 import { cardAt, slotAt, HELD_Y } from '../src/render/bag.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
-import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, CHEST_CLOSE, chestWords, moveChest, moveStack, stashAt, withStashes } from '../src/core/chest.js';
-import { chestAt } from '../src/render/chestpanel.js';
+import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, chestWords, moveChest, moveStack, stashAt, withStashes } from '../src/core/chest.js';
+import { chestAt, SPLIT } from '../src/render/chestpanel.js';
 
 const withBag = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 const PAID = [{ id: 'wood', n: 3 }, { id: 'oilcap', n: 2 }, { id: 'stone', n: 3 }];
@@ -104,48 +104,56 @@ test('a set-down chest frees the bag, so another can be made', () => {
   assert.deepEqual(makeAt(n, 'chest').bag.at(-1), { id: 'chest', n: 1 });
 });
 
-// § panel (CH3, D-330): 12 slots in two rows of 6, a gold frame moved by the arrows, then Close
-test('its panel has 12 slots, two rows of the bag\'s 6, the bag\'s 6, and Close after them', () => {
+// § card (CH3, D-330; a card, D-387): 12 slots in a 4 × 3 grid, the bag's 3 × 2 beside them, Deconstruct
+test('its card has 12 slots, the bag\'s 6, and Deconstruct after them', () => {
   assert.equal(CHEST_SLOTS, 12);
   assert.equal(CHEST_BAG, 12);
   assert.equal(CHEST_TAKE, 18);
-  assert.equal(CHEST_CLOSE, 19);
-  assert.equal(chestWords([]), 'Stash chest. 12 slots, all empty. Bag below. Deconstruct chest, or Close.');
-  assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash chest. 1 of 12 slots used. Bag below. Deconstruct chest, or Close.');
+  assert.equal(chestWords([]), 'Stash chest. 12 slots, all empty. Bag on the right. Deconstruct chest, or Close.');
+  assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash chest. 1 of 12 slots used. Bag on the right. Deconstruct chest, or Close.');
 });
 
-test('Left and Right move along a row and stop at its ends', () => {
+test('Left and Right move along a row, Right from the chest\'s right column to the bag and Left back (D-387)', () => {
   assert.equal(moveChest(0, 'right'), 1);
   assert.equal(moveChest(0, 'left'), 0);
-  assert.equal(moveChest(5, 'right'), 5);
-  assert.equal(moveChest(6, 'left'), 6);
-  assert.equal(moveChest(11, 'left'), 10);
+  assert.equal(moveChest(3, 'right'), CHEST_BAG);
+  assert.equal(moveChest(7, 'right'), CHEST_BAG + 3);
+  assert.equal(moveChest(11, 'right'), CHEST_BAG + 3);
+  assert.equal(moveChest(CHEST_BAG, 'left'), 3);
+  assert.equal(moveChest(CHEST_BAG + 3, 'left'), 7);
+  assert.equal(moveChest(CHEST_BAG + 2, 'right'), CHEST_BAG + 2);
+  assert.equal(moveChest(4, 'left'), 4);
 });
 
-test('Down goes to the second row, the bag\'s row, Deconstruct chest, then Close; Up comes back the same way (CH4, D-331; CH5)', () => {
-  assert.equal(moveChest(2, 'down'), 8);
-  assert.equal(moveChest(8, 'down'), 14);
-  assert.equal(moveChest(14, 'down'), CHEST_TAKE);
-  assert.equal(moveChest(CHEST_TAKE, 'down'), CHEST_CLOSE);
+test('Up and Down move in each grid, Down from a bottom row to Deconstruct, Up from it to the chest (D-387; CH5)', () => {
+  assert.equal(moveChest(2, 'down'), 6);
+  assert.equal(moveChest(6, 'down'), 10);
+  assert.equal(moveChest(10, 'down'), CHEST_TAKE);
+  assert.equal(moveChest(CHEST_BAG + 1, 'down'), CHEST_BAG + 4);
+  assert.equal(moveChest(CHEST_BAG + 4, 'down'), CHEST_TAKE);
+  assert.equal(moveChest(CHEST_BAG + 4, 'up'), CHEST_BAG + 1);
+  assert.equal(moveChest(CHEST_BAG + 1, 'up'), CHEST_BAG + 1);
+  assert.equal(moveChest(CHEST_TAKE, 'up'), 8);
+  assert.equal(moveChest(CHEST_TAKE, 'down'), CHEST_TAKE);
   assert.equal(moveChest(CHEST_TAKE, 'left'), CHEST_TAKE);
-  assert.equal(moveChest(CHEST_CLOSE, 'down'), CHEST_CLOSE);
-  assert.equal(moveChest(CHEST_CLOSE, 'left'), CHEST_CLOSE);
-  assert.equal(moveChest(CHEST_CLOSE, 'up'), CHEST_TAKE);
-  assert.equal(moveChest(CHEST_TAKE, 'up'), CHEST_BAG);
-  assert.equal(moveChest(14, 'up'), 8);
-  assert.equal(moveChest(8, 'up'), 2);
   assert.equal(moveChest(2, 'up'), 2);
-  assert.equal(moveChest(17, 'right'), 17);
 });
 
-test('a tap picks a chest slot, a bag slot, Deconstruct chest or Close; outside the box closes', () => {
-  assert.deepEqual(chestAt(20, 70), { slot: 0 });
-  assert.deepEqual(chestAt(45, 95), { slot: 7 });
-  assert.deepEqual(chestAt(20, 140), { slot: CHEST_BAG });
-  assert.equal(chestAt(88, 160), CHEST_TAKE);
-  assert.equal(chestAt(88, 173), CHEST_CLOSE);
-  assert.equal(chestAt(20, 120), null);
-  assert.equal(chestAt(2, 2), 'out');
+test('a tap on the chest card picks a chest slot, a bag slot, Deconstruct or the cross; outside it closes (D-387)', () => {
+  const vw = 320, vh = 176, card = cardAt(vw, vh), s = slotAt(card, 5, 28, 4);
+  assert.deepEqual(chestAt(s.x + 5, s.y + 5, vw, vh), { slot: 5 });
+  const b = slotAt(card, 0, 40, 3, SPLIT + 13);
+  assert.deepEqual(chestAt(b.x + 5, b.y + 5, vw, vh), { slot: CHEST_BAG });
+  assert.deepEqual(chestAt(b.x + 40, b.y + 40, vw, vh), { slot: CHEST_BAG + 4 });
+  assert.equal(chestAt(card.x + 14, card.button.y + 2, vw, vh), 'take');
+  assert.equal(chestAt(card.close.x, card.close.y, vw, vh), 'close');
+  assert.equal(chestAt(card.x + SPLIT, card.y + 60, vw, vh), null);
+  assert.equal(chestAt(2, 2, vw, vh), 'out');
+});
+
+test('the chest card\'s slots stay above Deconstruct on a room 11 tiles tall (D-387)', () => {
+  const card = cardAt(320, 176), last = slotAt(card, 11, 28, 4);
+  assert.ok(last.y + 30 < card.button.y);
 });
 
 // § putting in and taking out (CH4, D-331): a whole stack moves to the other side, free

@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.138', date: '2026-10-27', title: 'The stash chest card', lines: [
+    "The stash chest now opens as a glass card that fills the screen, like the bag and the workbench. Its 12 slots sit in a 4 × 3 grid on the left; your bag's 6 sit in a 3 × 2 grid on the right.",
+    "The chosen stack's name and count show under the bag's slots (Stone, 6 in the chest). A tap still moves it to the other side.",
+    "Arrows move around both grids: Right from the chest's right column reaches the bag. Deconstruct is a button in the bottom left corner, and the round cross closes the card, as Esc and a tap outside still do; the Close line is gone.",
+    "Decisions: D-387.",
+  ] },
   { v: '0.2.137', date: '2026-10-27', title: 'The workbench card', lines: [
     "The workbench now opens as a glass card that fills the screen, like the bag. The things you can make there sit in slots on the left; the stash chest is the first.",
     "On the right, the card shows the chosen thing's name, each cost with how many you carry (3 / 5 Wood), and its look line. Make sits in the bottom right corner, dim with too few.",

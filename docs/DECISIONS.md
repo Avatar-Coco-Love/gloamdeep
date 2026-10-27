@@ -203,4 +203,4 @@ bottom right, dim with too few. The chest: its 12 slots in a 4 × 3 grid
 on the left, the bag's 6 in a 3 × 2 grid on the right, the chosen stack's
 name and count under them; a tap moves it, as now. On both, Deconstruct
 is a button bottom left. Two steps: the workbench built in 0.2.137, the
-chest next.
+chest in 0.2.138.

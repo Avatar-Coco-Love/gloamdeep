@@ -1,29 +1,29 @@
-// § chest: the stash chest's panel (CH3, D-325, D-330). Its 12 slots are two rows
-// of the bag's 6 (D-324); `chosen` is a chest slot, 0 to 11, a bag slot, 12 to 17
-// (CHEST_BAG + i), CHEST_TAKE for its Deconstruct chest line (CH5) or CHEST_CLOSE
-// for its Close line. Plain data, no drawing.
+// § chest: the stash chest's card (CH3, D-325, D-330; a card, D-387). Its 12 slots
+// are a 4 × 3 grid, the bag's 6 a 3 × 2 grid beside them; `chosen` is a chest slot,
+// 0 to 11, a bag slot, 12 to 17 (CHEST_BAG + i), or CHEST_TAKE for its Deconstruct
+// button (CH5). Plain data, no drawing.
 import { BAG_SLOTS, bagAdd } from './bag.js';
 import { say } from './lines.js';
 
 export const CHEST_SLOTS = 2 * BAG_SLOTS;
-export const CHEST_BAG = CHEST_SLOTS; // the bag's first slot on the panel (CH4, D-331)
-export const CHEST_TAKE = CHEST_BAG + BAG_SLOTS; // Deconstruct chest, above Close (CH5)
-export const CHEST_CLOSE = CHEST_TAKE + 1;
+export const CHEST_BAG = CHEST_SLOTS; // the bag's first slot on the card (CH4, D-331)
+export const CHEST_TAKE = CHEST_BAG + BAG_SLOTS; // Deconstruct, under the chest's grid (CH5)
+const COLS = 4, ROWS = 3, BAG_COLS = 3;
 
-// What a screen reader hears as the panel opens
-export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag below. Deconstruct chest, or Close.`;
+// What a screen reader hears as the card opens
+export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag on the right. Deconstruct chest, or Close.`;
 
-// Where an arrow moves the gold frame: Left and Right along a row, Down to the
-// second row, the bag's row, Deconstruct chest and then Close, Up back the same way;
-// Up from Deconstruct chest reaches the bag's first slot (CH4, D-331; CH5)
+// Where an arrow moves the gold frame: around the chest's grid, Right from its right
+// column to the bag's grid, Left from the bag's left column back; Down from the bottom
+// row of either to Deconstruct, Up from it to the chest's bottom row (D-387)
 export function moveChest(i, dir) {
-  if (i === CHEST_CLOSE) return dir === 'up' ? CHEST_TAKE : i;
-  if (i === CHEST_TAKE) return dir === 'up' ? CHEST_BAG : dir === 'down' ? CHEST_CLOSE : i;
-  const col = i % BAG_SLOTS, row = Math.floor(i / BAG_SLOTS);
-  if (dir === 'left') return col > 0 ? i - 1 : i;
-  if (dir === 'right') return col < BAG_SLOTS - 1 ? i + 1 : i;
-  if (dir === 'up') return row > 0 ? i - BAG_SLOTS : i;
-  if (dir === 'down') return row < 2 ? i + BAG_SLOTS : CHEST_TAKE;
+  if (i === CHEST_TAKE) return dir === 'up' ? (ROWS - 1) * COLS : i;
+  const bag = i >= CHEST_BAG, j = bag ? i - CHEST_BAG : i, cols = bag ? BAG_COLS : COLS, rows = bag ? 2 : ROWS;
+  const col = j % cols, row = Math.floor(j / cols);
+  if (dir === 'left') return col > 0 ? i - 1 : bag ? row * COLS + COLS - 1 : i;
+  if (dir === 'right') return col < cols - 1 ? i + 1 : bag ? i : CHEST_BAG + Math.min(row, 1) * BAG_COLS;
+  if (dir === 'up') return row > 0 ? i - cols : i;
+  if (dir === 'down') return row < rows - 1 ? i + cols : CHEST_TAKE;
   return i;
 }
 
@@ -47,7 +47,7 @@ function put(to, s, slots) {
   return { to, left: s.n - n };
 }
 
-// § move: picking a filled slot on the chest's panel moves its stack to the other
+// § move: picking a filled slot on the chest's card moves its stack to the other
 // side, free, with no line; an emptied slot is gone and the ones after it move up,
 // the bag's way. What can't go stays in its slot, with "Your bag is full." or
 // "The chest is full.", free (D-331, D-333)
