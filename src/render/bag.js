@@ -1,52 +1,81 @@
-// § bag panel: a box like the map's over the room's foot, so the hero and the
-// strip stay in view (D-247); over its top instead when the hero stands where
-// the panel would hide them. "BAG" in ember at its top, then the held slot
-// with "HELD" beside it, the weapon in hand (D-252), then the six slots in
-// a row, each an item's sprite with its count when more than one, the chosen
-// slot framed in gold. Under them the chosen item's name, and on the right
-// Pour for one that pours, Make for one that crafts, dim with too few
-// (D-299), or Eat (Drink for a potion) for one that heals, dim at full health
-// (D-308); heartcaps both make and heal, so Make sits left of Eat (D-309). The workbench
-// has Set down, wider, at the same right end (WB2, D-322). No veil: the room shows above it.
-import { W, H } from './screen.js';
+// § bag card: a glass card filling the room's canvas but for a thin edge, the
+// room nearly dark around it, so its buttons sit near the thumbs (D-385; was a
+// box over the room's foot, D-247). "BAG" in ember at its top left and a round
+// cross at its top right that closes it. On the left, the held slot with
+// "HELD" beside it, the weapon in hand (D-252), and the six slots in a 3 × 2
+// grid, each an item's sprite with its count when more than one, the chosen
+// slot framed in gold. On the right, the chosen item's name, how many are
+// carried and its Look line (D-297), and in the bottom right corner Pour for
+// one that pours, Make for one that crafts, dim with too few (D-299), or Eat
+// (Drink for a potion) for one that heals, dim at full health (D-308);
+// heartcaps both make and heal, so Make sits left of Eat (D-309). The
+// workbench has Set down, wider, at the same right end (WB2, D-322).
 import { drawText, textWidth } from './font.js';
+import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
 import { BAG_SLOTS } from '../core/bag.js';
 import { get } from '../core/registry.js';
+import { LINES } from '../core/lines.js';
 
-const K = '#0e0c16', LINE = '#2a2636', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6';
-const SLOT = 22, SLOT_GAP = 3;
-export const PANEL = { x: 8, w: W - 16, h: 86, y: H - 4 - 86 }; // above the text line, so its lines show (D-298)
-const TOP_Y = 4; // the panel's top when it moves over the room's top
-// Whether the panel goes to the top: the hero's tile, `heroY` pixels down the screen, would be under it
-export const panelOnTop = (heroY) => heroY + 16 > PANEL.y - 4;
-const ROW_X = Math.floor((W - (BAG_SLOTS * SLOT + (BAG_SLOTS - 1) * SLOT_GAP)) / 2);
-// The button for an item: Pour, Make, Eat or Drink, the same size, at the foot's right end;
+const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
+const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
+export const EDGE_GAP = 8; // the room's edge left showing around the card
+export const CARD_VEIL = 0.85; // the room's dimming around and under the card
+const SLOT = 30, SLOT_GAP = 4, PAD = 12, COLS = 3;
+const RULE_Y = 20, HELD_Y = 30, GRID_Y = 70, LINE_H = 12;
+const GRID_W = COLS * SLOT + (COLS - 1) * SLOT_GAP;
+const HELD = 'HELD', HELD_X = PAD + textWidth(HELD) + 6;
+export const SPLIT_X = PAD + GRID_W + 12; // the line between the slots and the item, from the card's left
+const DETAIL_X = SPLIT_X + 9;
+// The button for an item: Pour, Make, Eat or Drink, the same size, in the bottom right corner;
 // Make, for an item that also heals, just left of it
-const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK')) + 6, h: 11 };
-BUTTON.x = PANEL.x + PANEL.w - 4 - BUTTON.w;
-const MAKE_X = BUTTON.x - 4 - BUTTON.w;
-const SET = 'SET DOWN', SET_W = textWidth(SET) + 6, SET_X = BUTTON.x + BUTTON.w - SET_W; // Set down's own width
+const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK')) + 8, h: 13 };
+const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
 const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : null);
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
-// The panel's rows from its top: the held slot's, the slots' row, and the name's line under it
-const rows = (top) => { const y = top ? TOP_Y : PANEL.y, held = y + 15, row = held + SLOT + 4; return { y, held, row, foot: row + SLOT + 6 }; };
-const HELD_X = Math.floor((W - SLOT) / 2), HELD = 'HELD';
-const slotX = (i) => ROW_X + i * (SLOT + SLOT_GAP);
-const TAP_PAD = 4; // game pixels around a slot or the button that still pick it
+const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
 
-// What a tap at x, y picks: { slot: i }, 'act' (Pour, Make, Eat, Drink, or Set down, when
-// `wide`), 'make' (Make beside Eat, when `two`), or null; outside the panel, 'out'
-export function bagAt(x, y, top = false, two = false, wide = false) {
-  const p = rows(top);
-  if (x < PANEL.x || x >= PANEL.x + PANEL.w || y < p.y || y >= p.y + PANEL.h) return 'out';
-  if (y >= p.row - TAP_PAD && y < p.row + SLOT + TAP_PAD) {
-    const i = Math.floor((x - ROW_X + SLOT_GAP / 2) / (SLOT + SLOT_GAP));
-    return i >= 0 && i < BAG_SLOTS ? { slot: i } : null;
+// § layout: the card and its parts on a view `vw` × `vh` game pixels
+export function cardAt(vw, vh) {
+  const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP);
+  const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
+  return { x, y, w, h, close: { x: x + w - 12, y: y + 11, r: 8 }, button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
+}
+const slotAt = (card, i) => ({ x: card.x + PAD + (i % COLS) * (SLOT + SLOT_GAP), y: card.y + GRID_Y + Math.floor(i / COLS) * (SLOT + SLOT_GAP) });
+
+// What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'act' (Pour,
+// Make, Eat, Drink, or Set down, when `wide`), 'make' (Make beside Eat, when `two`),
+// 'close' (the round cross), or null; outside the card, 'out'
+export function bagAt(x, y, vw, vh, two = false, wide = false) {
+  const card = cardAt(vw, vh), { close, button, make, set } = card;
+  if (x < card.x || x >= card.x + card.w || y < card.y || y >= card.y + card.h) return 'out';
+  if (Math.hypot(x - close.x, y - close.y) <= close.r + TAP_PAD) return 'close';
+  for (let i = 0; i < BAG_SLOTS; i++) {
+    const s = slotAt(card, i), half = SLOT_GAP / 2;
+    if (x >= s.x - half && x < s.x + SLOT + half && y >= s.y - half && y < s.y + SLOT + half) return { slot: i };
   }
-  if (y >= p.foot - 2 - TAP_PAD && x >= (wide ? SET_X : BUTTON.x) - (two ? 2 : TAP_PAD)) return 'act';
-  if (two && y >= p.foot - 2 - TAP_PAD && x >= MAKE_X - TAP_PAD) return 'make';
+  const foot = y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD;
+  if (foot && x >= (wide ? set.x : button.x) - (two ? 2 : TAP_PAD) && x < button.x + BUTTON.w + TAP_PAD) return 'act';
+  if (two && foot && x >= make.x - TAP_PAD && x < button.x) return 'make';
   return null;
+}
+
+// § wrap: words into lines no wider than `w` game pixels
+export function wrapWords(text, w) {
+  const lines = [];
+  for (const word of text.split(' ')) {
+    const last = lines.length - 1;
+    if (last >= 0 && textWidth(`${lines[last]} ${word}`) <= w) lines[last] += ` ${word}`;
+    else lines.push(word);
+  }
+  return lines;
+}
+
+// The item's Look line last said, or its first before any (D-297); null for an item with none
+export function lookLine(entry, told = {}) {
+  const texts = entry?.look && LINES[entry.look]?.texts;
+  if (!texts) return null;
+  return texts[((told[entry.look] ?? 1) - 1 + texts.length) % texts.length];
 }
 
 function frame(c, x, y, w, h, colour) {
@@ -55,40 +84,65 @@ function frame(c, x, y, w, h, colour) {
   c.fillRect(x, y, 1, h); c.fillRect(x + w - 1, y, 1, h);
 }
 
-// bag: [{ id, n, form? }]; chosen: the slot picked; spriteOf: a slot's or item's sprite (sprites.js); top: see panelOnTop;
-// held: the weapon in hand's id, or null; full: whether the hero is at full health
-export function drawBag(c, bag, chosen, spriteOf, top = false, held = null, full = false) {
-  const { x, w, h } = PANEL, { y, held: hy, row, foot } = rows(top);
-  c.fillStyle = K; c.fillRect(x, y, w, h);
-  frame(c, x, y, w, h, LINE);
-  drawText(c, 'BAG', Math.floor((W - textWidth('BAG')) / 2), y + 4, EMBER);
-  drawText(c, HELD, HELD_X - 5 - textWidth(HELD), hy + 8, GREY);
-  frame(c, HELD_X, hy, SLOT, SLOT, LINE);
-  if (held) c.drawImage(spriteOf({ id: held }), HELD_X + 3, hy + 3);
-  for (let i = 0; i < BAG_SLOTS; i++) {
-    const sx = slotX(i), s = bag[i];
-    frame(c, sx, row, SLOT, SLOT, i === chosen ? GOLD : LINE);
-    if (!s) continue;
-    c.drawImage(spriteOf(s), sx + 3, row + 3);
-    if (s.n > 1) {
-      const n = String(s.n), nw = textWidth(n);
-      c.fillStyle = K; c.fillRect(sx + SLOT - 3 - nw, row + SLOT - 10, nw + 2, 8);
-      drawText(c, n, sx + SLOT - 2 - nw, row + SLOT - 9, CORE);
-    }
+// § round: a pixel disc on the glass with its light edge, as the corner buttons
+function round(c, cx, cy, r) {
+  for (let dy = -r; dy <= r; dy++) {
+    const w = Math.floor(Math.sqrt(r * r - dy * dy));
+    c.fillStyle = GLASS; c.fillRect(cx - w, cy + dy, 2 * w + 1, 1);
+    c.fillStyle = EDGE; c.fillRect(cx - w, cy + dy, 1, 1); c.fillRect(cx + w, cy + dy, 1, 1);
   }
+  c.fillStyle = EDGE;
+  for (let dx = -r; dx <= r; dx++) { const h = Math.floor(Math.sqrt(r * r - dx * dx)); c.fillRect(cx + dx, cy - h, 1, 1); c.fillRect(cx + dx, cy + h, 1, 1); }
+}
+// The cross on it, as the close icon's 5 × 5 (hud.js), its middle at cx, cy
+function cross(c, cx, cy) {
+  c.fillStyle = GREY;
+  for (let i = 0; i < 5; i++) { c.fillRect(cx - 2 + i, cy - 2 + i, 1, 1); c.fillRect(cx + 2 - i, cy - 2 + i, 1, 1); }
+}
+
+function slot(c, x, y, item, chosen, spriteOf) {
+  c.fillStyle = SLOT_FILL; c.fillRect(x + 1, y + 1, SLOT - 2, SLOT - 2);
+  frame(c, x, y, SLOT, SLOT, chosen ? GOLD : LINE);
+  if (!item) return;
+  c.drawImage(spriteOf(item), x + 7, y + 7);
+  if (item.n > 1) {
+    const n = String(item.n), nw = textWidth(n);
+    c.fillStyle = K; c.fillRect(x + SLOT - 4 - nw, y + SLOT - 11, nw + 2, 9);
+    drawText(c, n, x + SLOT - 3 - nw, y + SLOT - 10, CORE);
+  }
+}
+
+// c: the room's canvas, `vw` × `vh`; bag: [{ id, n, form? }]; chosen: the slot picked;
+// spriteOf: a slot's or item's sprite (sprites.js); held: the weapon in hand's id, or
+// null; full: whether the hero is at full health; told: the state's told lines (D-297)
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = false, told = {}) {
+  c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
+  const card = cardAt(vw, vh), { x, y, w, h, close } = card;
+  drawGlass(c, x, y, w, h);
+  drawText(c, 'BAG', x + PAD, y + 7, EMBER);
+  round(c, close.x, close.y, close.r);
+  cross(c, close.x, close.y);
+  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1); c.fillRect(x + SPLIT_X, y + RULE_Y + 8, 1, h - RULE_Y - 16);
+  drawText(c, HELD, x + PAD, y + HELD_Y + 11, GREY);
+  slot(c, x + HELD_X, y + HELD_Y, held && { id: held, n: 1 }, false, spriteOf);
+  for (let i = 0; i < BAG_SLOTS; i++) { const s = slotAt(card, i); slot(c, s.x, s.y, bag[i], i === chosen, spriteOf); }
   const entry = bag[chosen] && get(bag[chosen].id);
   if (!entry) return;
-  drawText(c, entry.name, x + 5, foot, GREY);
+  const dx = x + DETAIL_X, dw = x + w - PAD - dx;
+  drawText(c, entry.name, dx, y + HELD_Y, CORE);
+  drawText(c, `${bag[chosen].n} carried`, dx, y + HELD_Y + LINE_H, GREY);
+  const look = lookLine(entry, told);
+  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, y + HELD_Y + 2.5 * LINE_H + i * LINE_H, GREY));
   const text = buttonText(entry);
   if (!text) return;
   const few = entry.craft && bag[chosen].n < entry.craft.of;
-  if (text === SET) { button(c, SET_X, foot, text, false, SET_W); return; }
-  button(c, BUTTON.x, foot, text, entry.eats ? full : few);
-  if (twoButtons(entry)) button(c, MAKE_X, foot, 'MAKE', few);
+  if (text === SET) { button(c, card.set.x, card.set.y, text, false, SET_W); return; }
+  button(c, card.button.x, card.button.y, text, entry.eats ? full : few);
+  if (twoButtons(entry)) button(c, card.make.x, card.make.y, 'MAKE', few);
 }
 
-function button(c, bx, foot, text, dim, w = BUTTON.w) {
-  c.fillStyle = K; c.fillRect(bx, foot - 2, w, BUTTON.h);
-  frame(c, bx, foot - 2, w, BUTTON.h, dim ? LINE : EMBER);
-  drawText(c, text, bx + Math.floor((w - textWidth(text)) / 2), foot, dim ? GREY : GOLD);
+function button(c, bx, by, text, dim, w = BUTTON.w) {
+  c.fillStyle = K; c.fillRect(bx, by, w, BUTTON.h);
+  frame(c, bx, by, w, BUTTON.h, dim ? LINE : EMBER);
+  drawText(c, text, bx + Math.floor((w - textWidth(text)) / 2), by + 3, dim ? GREY : GOLD);
 }

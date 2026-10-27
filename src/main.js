@@ -72,7 +72,6 @@ const app = {
   cam: { x: 0, y: 0 }, // the room pixel at the screen's top-left (src/core/camera.js)
   bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
   framed: null, // the shown spot (foeAt) of the creature whose plaque was tapped (CL2, D-357)
-  bagOnTop: false, // the bag's panel over the room's top, so it doesn't hide the hero (D-247)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
 };
 const newWorld = (mode) => {
@@ -335,7 +334,10 @@ const onDir = (dir, how) => {
   if (app.screen !== 'play') screens.onDir(dir, how);
   else if (how !== 'swipe' || swipesWalk(app.settings.controls)) tryStep(dir);
 };
-const onPoint = (px, py, held) => { if (app.screen === 'play') stepToward(...toRoom([px, py]), held); else screens.onPoint(px, py, held); };
+const onPoint = (px, py, held) => {
+  if (app.screen === 'play') stepToward(...toRoom([px, py]), held);
+  else screens.onPoint(...(app.screen === 'bag' ? toRoom([px, py]) : [px, py]), held); // the bag's card is on the room (D-385)
+};
 const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
 const onTab = () => {
