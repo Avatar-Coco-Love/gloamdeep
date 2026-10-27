@@ -18,7 +18,7 @@ header says when it moved and why.
 | `DECISIONS-FOUNDATION-5.md` | D-114 to D-129 | steps 22 to 24 | D-151 |
 | `DECISIONS-FOUNDATION-6.md` | D-130 to D-158 | steps 25 to 30 | D-161 |
 | `DECISIONS-STAGE-0.2-1.md` | D-159 to D-167 | steps 31 to 33 | D-188 |
-| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362 on | stage 0.3, the world; the audits | |
+| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-375 on | stage 0.3, the world; the audits | |
 | `DECISIONS-MENU.md` | D-177 to D-193 | the main menu, steps 52 to 58 | D-196 |
 | `DECISIONS-GETTING-AROUND.md` | D-194 to D-200 | steps 43 to 45, U1, U2 | D-208 |
 | `DECISIONS-REGION.md` | D-201 to D-208 | a region and its map, 46 to 47b | D-213 |
@@ -36,6 +36,7 @@ header says when it moved and why.
 | `DECISIONS-MODES.md` | D-334, D-341, D-342, D-344 to D-346 | the three ways to play, MO1 to MO4 | D-355 |
 | `DECISIONS-GROWING-7.md` | D-332, D-333, D-335, D-339, D-343, D-347, D-348, D-350, D-352 to D-355, D-360 | a fall keeps the world, bigger stacks, the Bestiary, Hearthwood | D-362 |
 | `DECISIONS-CREATURES.md` | D-349, D-351, D-356 to D-359, D-361 | every next move, the lampmoth, the creature list, framing | D-360, D-362 |
+| `DECISIONS-CREATURES-2.md` | D-364 to D-374 | more creatures, the flask mimic, the scorpion, varying creatures | D-379 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
