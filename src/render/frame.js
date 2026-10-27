@@ -56,9 +56,9 @@ const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 const CLEAR_OVER = new Set(['play', 'bag', 'place']);
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
-// D-381), the text line, the spoken line, the lantern button, the dev tools, the screens, and still() and foeAt(e) from main.js.
+// D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -67,6 +67,7 @@ export function createFrame(app, ui) {
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
+  let roundAlpha = 1; // the round map's fade (D-383)
 
   // § creature list's order: newest last (D-357). Each creature keeps the place it
   // got when it joined, on its shown spot (main.js); one that leaves the list loses it.
@@ -196,11 +197,14 @@ export function createFrame(app, ui) {
     const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
-    const covered = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })]
-      .some(([px, py]) => px - cam.x < 2 + under.w && px - cam.x + TILE > 2 && py - cam.y < 2 + under.h && py - cam.y + TILE > 2);
-    const goal = covered ? UNDER_ALPHA : 1, dt = Math.max(0, t - panel.t);
-    panel.alpha = still() ? goal : panel.alpha + Math.sign(goal - panel.alpha) * Math.min(Math.abs(goal - panel.alpha), dt / FADE_PANEL_MS);
+    const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
+    const covers = (a) => spots.some(([px, py]) => px - cam.x < a.x + a.w && px - cam.x + TILE > a.x && py - cam.y < a.y + a.h && py - cam.y + TILE > a.y);
+    const dt = Math.max(0, t - panel.t), fade = (alpha, goal) => (still() ? goal : alpha + Math.sign(goal - alpha) * Math.min(Math.abs(goal - alpha), dt / FADE_PANEL_MS));
+    panel.alpha = fade(panel.alpha, covers({ x: 2, y: 2, ...under }) ? UNDER_ALPHA : 1);
     panel.t = t;
+    // § round map: the floor around the hero, top right, fading the same way (D-383)
+    roundAlpha = app.screen === 'play' ? fade(roundAlpha, covers(mapButton.area()) ? UNDER_ALPHA : 1) : 1;
+    mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
     Object.assign(panel, drawStatus(rc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     row = null;
     if (list) {

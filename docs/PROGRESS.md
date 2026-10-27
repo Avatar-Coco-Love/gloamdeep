@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.132 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.133 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner HUD, step 3 of 5 (D-380): the round map top right, with pause
-and the wrench. Propose its look first (size, what it shows, how a tap
-opens the full map). Creature materials (Q-061) wait.
+The corner HUD, step 4 of 5 (D-380): the big round lantern bottom right,
+with the bag, the map and one quick slot in an arc (D-378). Propose its
+look first (size, the arc, what the quick slot holds). Creature materials
+(Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +33,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.133, the round map.** The owner picked a medium
+  round map, 104 px, showing the floor around the hero, pause and the
+  wrench in a row left of it, and a tap that opens the full map (D-383).
+  Pause, the bag and the wrench are round on the glass now.
+  [Playtest](https://claude.ai/artifact/1vvcxm2EMWhP4n8xx2CnJz).
 - **2026-10-27, 0.2.132, the room fills the screen.** The owner picked
   about 11 tiles tall, the deepest dark past a small room's edges, and
   the text line on glass at the bottom (D-381). The buttons stand in the
@@ -43,8 +49,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   The hearts, level, oil and depth sit on pixel glass top left, the
   creature list under it; both fade while the hero is under them.
   [Playtest](https://claude.ai/artifact/9hfkfSw21NRdTP49rsk9Tb).
-- **2026-10-27, 0.2.130, sideways only.** The game always uses its
-  sideways layout. A phone held upright pauses behind a "turn your phone"
-  picture; on Android, Play goes full screen and locks sideways;
-  installed, it opens sideways (D-377). PC windows are never asked.
-  [Playtest](https://claude.ai/artifact/T5rM58vSuLWJxc3ynNW6nK).

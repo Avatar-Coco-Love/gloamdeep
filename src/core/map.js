@@ -214,3 +214,11 @@ export function zoomView(view, plan, w, h, by, cx = w / 2, cy = h / 2) {
   const s = k / view.k;
   return clampView({ k, x: (view.x + cx) * s - cx, y: (view.y + cy) * s - cy }, plan, w, h);
 }
+
+// § around the hero: (plan, n, k) → { x, y }, where the plan's top-left goes on a
+// square n pixels wide, drawn at k pixels a tile, so the hero's tile sits in its
+// middle (the round map, D-383); on another floor, the plan's own middle
+export function aroundHero(plan, n, k) {
+  const at = plan.hero || { x: (plan.cols - 1) / 2, y: (plan.rows - 1) / 2 };
+  return { x: Math.round((n - k) / 2 - at.x * k), y: Math.round((n - k) / 2 - at.y * k) };
+}

@@ -94,6 +94,8 @@ the same map players see. Built at step 47 (D-205): the map button or M
 shows the floor the hero is on, on its grid, each room from the tiles
 remembered, in a box that scrolls and zooms; dev Reveal map shows the
 whole floor (`src/core/map.js`). Next it turns between floors (D-206).
+Since 0.2.133 a round map top right shows the floor around the hero, and a
+tap on it opens the full map (D-383).
 
 ## Where today's game goes (D-175)
 The crypt rooms (two, and a third beside the first since D-197) and the

@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.133', date: '2026-10-27', title: 'The round map', lines: [
+    "A round map now stands in the room's top right corner. It shows what you have found around you, about 17 tiles across, with you in the middle and the rooms next door once found.",
+    "Tap the round map, or press M as before, to open the full map. While it is open, a small round cross in the corner closes it.",
+    "Pause stands left of the round map, the bag under pause. Pause, the bag and the dev wrench are now round, on the same glass as the panel.",
+    "Walk under the round map, or have a creature beside you there, and it fades almost away, like the panel.",
+    "Decisions: D-383.",
+  ] },
   { v: '0.2.132', date: '2026-10-27', title: 'The room fills the screen', lines: [
     "The room now fills the whole screen, with bigger tiles: about 11 tiles from top to bottom, and as many across as the screen is wide. The camera scrolls with you.",
     "A room narrower than the screen sits in the middle, with the deepest dark around it.",

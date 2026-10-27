@@ -173,3 +173,14 @@ picks, recommended; supersedes part of D-088) The dev stats line shows only
 with a new Stats switch in View, off at first and remembered, with no key
 (S walks). When on, it is half size, bottom left, just above the text
 line. Built in 0.2.132.
+
+**D-383 · 2026-10-27 · The round map** (the owner's picks, recommended,
+[mock-up](https://claude.ai/artifact/4i4721ijRn29hbHL6EJgYC); step 3 of
+D-380) A round map, 104 px across, stands in the room's top right corner
+on the panel's glass. It shows the floor around the hero as the full map
+draws it, about 17 tiles across, the hero in the middle. A tap opens the
+full map (M still does); while it is open a small round cross there
+closes it, and the square map button is gone. Pause stands left of it,
+the wrench left of pause, the bag under pause until the lantern's arc;
+all three are round on the glass. It fades like the panel (D-380).
+Built in 0.2.133.

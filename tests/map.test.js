@@ -1,7 +1,7 @@
 // § map: the floor the hero is on, from the tiles remembered (D-176, D-205)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { floorPlan, wholeSurface, markAt, roomsFound, fitView, panView, zoomView, ZOOM_MAX, floorsShown, turnFrom, stairsNear, stairsIn, centreView, DEEPEST } from '../src/core/map.js';
+import { floorPlan, wholeSurface, markAt, roomsFound, fitView, panView, zoomView, ZOOM_MAX, floorsShown, turnFrom, stairsNear, stairsIn, centreView, DEEPEST, aroundHero } from '../src/core/map.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth, goToPlace } from '../src/core/stairs.js';
 import { remember } from '../src/core/fog.js';
@@ -171,4 +171,13 @@ test('each floor below the surface names its area beside its depth (D-233)', () 
   assert.equal(areaAt(0), null); // the surface: woods and crypt together
   assert.deepEqual([1, 2, 4, 5, 7, 8, 40].map((d) => areaAt(d).area), ['CRYPT', 'CAVE', 'CAVE', 'WARREN', 'WARREN', 'DUNGEON', 'DUNGEON']);
   assert.deepEqual([1, 3, 6, 9].map((d) => areaAt(d).look), ['crypt', 'rock', 'earth', 'dungeon']);
+});
+
+test('the round map puts the hero\'s tile in its middle, or the plan\'s middle on another floor (D-383)', () => {
+  const plan = { cols: 20, rows: 12, hero: { x: 4, y: 7 } };
+  const { x, y } = aroundHero(plan, 52, 3);
+  assert.equal(x + 4 * 3, 25); // the hero's 3 pixels are 25 to 27, the middle of 52
+  assert.equal(y + 7 * 3, 25);
+  const far = aroundHero({ ...plan, hero: null }, 52, 3);
+  assert.deepEqual(far, { x: -4, y: 8 }); // the middle of 20 × 12 tiles, 30 and 18 pixels in, near 26
 });

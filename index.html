@@ -35,7 +35,7 @@
     font: 11px/1 ui-monospace, "Courier New", monospace; opacity: .7; pointer-events: none;
   }
   /* The lantern switch (src/input/lantern.js, D-080), the pause button (src/input/pause.js,
-     D-187), the map button (src/input/mapbutton.js, D-205), the bag button (src/input/bagbutton.js, D-247) and the dev wrench: placed by script in the room's corners (D-381). */
+     D-187), the round map (src/input/mapbutton.js, D-205, D-383), the bag button (src/input/bagbutton.js, D-247) and the dev wrench: placed by script in the room's corners (D-381). */
   #lantern-button, #pause-button, #map-button, #bag-button {
     position: fixed; z-index: 1; top: 8px; left: 8px;
     width: 44px; height: 44px; padding: 0; display: grid; place-items: center;
@@ -43,6 +43,13 @@
   }
   #lantern-button[aria-pressed="true"] { border-color: #a8642c; }
   #lantern-button canvas, #pause-button canvas, #map-button canvas, #bag-button canvas { width: 25px; height: 25px; image-rendering: pixelated; image-rendering: crisp-edges; background: none; }
+  /* Round on the panel's glass (D-383): pause and the bag (the wrench below); the round
+     map, 104 px, shows the floor around the hero, and is a small round cross while the map is open */
+  #pause-button, #map-button, #bag-button { border-radius: 50%; background: rgba(14,12,22,.6); border-color: rgba(239,230,204,.28); }
+  #map-button { width: 104px; height: 104px; border-width: 2px; overflow: hidden; }
+  #map-button canvas:first-child { width: 100%; height: 100%; }
+  #map-button canvas[hidden] { display: none; }
+  #map-button.closes { width: 44px; height: 44px; border-width: 1px; transform: translateX(60px); }
   /* Dev tools (src/dev/dev.js, panel.js): on for everyone (D-086). Game palette
      (ART-DIRECTION.md): violet for the section tabs, stone for the tools
      beside them, lantern gold for what is on, the hostile red for what undoes
@@ -51,7 +58,7 @@
   #dev-button {
     top: max(8px, env(safe-area-inset-top)); left: max(8px, env(safe-area-inset-left));
     width: 44px; height: 44px; padding: 0; display: grid; place-items: center;
-    border: 1px solid #ffc65c; border-radius: 6px; background: rgba(14,12,22,.88); cursor: pointer;
+    border: 1px solid #ffc65c; border-radius: 50%; background: rgba(14,12,22,.6); cursor: pointer; /* round on the glass (D-383) */
   }
   #dev-button[aria-expanded="true"] { background: #3a2a14; box-shadow: 0 0 10px rgba(255,198,92,.3); }
   #dev-button canvas { width: 24px; height: 24px; image-rendering: pixelated; image-rendering: crisp-edges; background: none; }

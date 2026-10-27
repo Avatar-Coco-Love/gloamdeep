@@ -366,7 +366,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
 }, roomCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern
