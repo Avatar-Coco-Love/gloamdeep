@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.139 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.140 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The pages the pause card opens (Settings, Journal, How to play) as
-cards too? Propose with a mock-up. Creature materials (Q-061) wait.
+The other pages the pause card opens (Journal, How to play) as cards
+too? Propose with a mock-up. Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.140, the settings card.** The owner picked Settings
+  as a glass card, from the pause card and the title alike: a row per
+  switch, its name left and value right, the cross for Back, Version
+  history a button bottom left (D-389).
+  [Playtest](https://claude.ai/artifact/2jms1biwLbb2THgRU9VLP7).
 - **2026-10-27, 0.2.139, the pause card.** The owner picked the pause
   menu as a glass card, lines down the left, THIS JOURNEY right (seed, way
   to play, depth, level), headed PAUSED (D-388). D-381 to D-384 archived.
@@ -41,8 +46,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   right with the chosen stack's name and count under it, Deconstruct
   bottom left, the round cross to close. Squarer screens: Q-064.
   [Playtest](https://claude.ai/artifact/TKqcpC4nL7eRGzVaiLAouh).
-- **2026-10-27, 0.2.137, the workbench card.** The owner picked both
-  panels as glass cards like the bag, Deconstruct bottom left, built in
-  two steps (D-387). The workbench card: things to make in slots left,
-  the chosen one's cost with how many are carried, its Look line and Make
-  right. [Playtest](https://claude.ai/artifact/JzpJfTrqV97QbUydQ4WSVt).

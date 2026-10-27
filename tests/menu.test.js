@@ -3,7 +3,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, settingsMenu, moveChoice, pauseFacts } from '../src/core/menu.js';
 import { pauseCardAt, SPLIT } from '../src/render/pausecard.js';
-import { cardAt } from '../src/render/bag.js';
+import { cardAt, PAD } from '../src/render/bag.js';
+import { settingsCardAt } from '../src/render/settingscard.js';
 import { CONTROLS } from '../src/core/settings.js';
 import { lineAt, pauseTop, LINE_GAP } from '../src/render/menu.js';
 import { SCREEN_H, W } from '../src/render/screen.js';
@@ -40,11 +41,22 @@ test('the pause menu offers Resume, Journal (D-270), Settings, How to play, then
   assert.deepEqual(PAUSE_MENU.map((l) => l.id), ['resume', 'journal', 'settings', 'howto', 'title']);
 });
 
-test('Settings shows Controls, Motion, Seed, then Back, and every choice fits the picture with its flame', () => {
-  assert.deepEqual(settingsMenu({ controls: 'tap', motion: null, seed: null }).map((l) => l.text), ['Controls: Tap only', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Version history', 'Back']);
+test('Settings shows Controls, Motion, Seed and the rest, Version history last, each switch with its name and value apart (D-389)', () => {
+  assert.deepEqual(settingsMenu({ controls: 'tap', motion: null, seed: null }).map((l) => l.text), ['Controls: Tap only', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Version history']);
   assert.equal(settingsMenu({ controls: 'tap', motion: null }, true)[1].text, 'Motion: Reduced');
-  assert.ok(textWidth(settingsMenu({ seed: null }, false, 99999)[2].text) + 2 * 8 <= W);
-  for (const c of CONTROLS) assert.ok(textWidth(settingsMenu({ controls: c.id })[0].text) + 2 * 8 <= W);
+  assert.deepEqual(['name', 'value'].map((k) => settingsMenu({ seed: null }, false, 99999)[2][k]), ['Seed', 'Random (this one 99999)']);
+});
+
+test('the settings card: a tap across a row picks it, the button opens Version history, the cross or outside goes back, and every row fits (D-389)', () => {
+  const vw = 422, vh = 195, card = cardAt(vw, vh), menu = settingsMenu({ seed: null }, false, 99999, 'gentle'), n = menu.length - 1;
+  assert.deepEqual(settingsCardAt(card.x + 20, card.y + 32, vw, vh, menu), { line: 0 });
+  assert.deepEqual(settingsCardAt(card.x + card.w - 30, card.y + 30 + (n - 1) * 16 + 4, vw, vh, menu), { line: n - 1 });
+  assert.equal(settingsCardAt(card.x + PAD + 4, card.button.y + 4, vw, vh, menu), 'history');
+  assert.equal(settingsCardAt(card.close.x, card.close.y, vw, vh, menu), 'close');
+  assert.equal(settingsCardAt(2, 2, vw, vh, menu), 'out');
+  const names = Math.max(...menu.slice(0, -1).map((l) => textWidth(l.name)));
+  for (const c of CONTROLS) assert.ok(PAD + 8 + names + 20 + textWidth(settingsMenu({ controls: c.id })[0].value) + PAD <= card.w);
+  assert.ok(PAD + 8 + names + 20 + textWidth(menu[2].value) + PAD <= card.w);
 });
 
 test('with a heading, the heading and lines still sit inside the picture', () => {

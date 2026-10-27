@@ -178,3 +178,14 @@ flame; a tap level with a line picks it. On the right, THIS JOURNEY: its
 seed, way to play, depth (Surface, else its number) and level, since the
 panel is under the card. The pages it opens stay as they are. D-381 to
 D-384 moved unchanged to `archive/DECISIONS-CORNER-HUD.md`. Built in 0.2.139.
+
+**D-389 · 2026-10-27 · Settings as a card** (the owner's picks, all
+recommended, [mock-up](https://claude.ai/artifact/EJLMun2QMa8nE7kSqhGjen))
+Settings opens as a glass card like the pause card's (D-388), SETTINGS in
+ember top left, from the pause card and from the title alike, on the
+title's scene there. Each switch is a row, its name grey on the left and
+its value in a column on the right, the chosen row gold with the flame; a
+tap level with a row picks it. The round cross goes back, as Esc and a tap
+outside do, so the Back line is gone; Version history is a button bottom
+left, as Deconstruct is. The pages it opens stay as they are. Built in
+0.2.140.

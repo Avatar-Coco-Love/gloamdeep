@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.140', date: '2026-10-27', title: 'The settings card', lines: [
+    "Settings now opens as a glass card that fills the screen, like the pause card, both from the pause card and from the title. SETTINGS sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.",
+    "Each setting is a row: its name on the left, its value in a column on the right, so every value shows at once. A tap anywhere level with a row changes it.",
+    "Version history is a button in the bottom left corner.",
+    "Decisions: D-389.",
+  ] },
   { v: '0.2.139', date: '2026-10-27', title: 'The pause card', lines: [
     "The pause menu now opens as a glass card that fills the screen, like the bag. PAUSED sits at its top left, and the round cross resumes, as Esc, P and a tap outside still do.",
     "Its lines run down the left: Resume, Journal, Settings, How to play and Back to title. A tap anywhere level with a line picks it.",
