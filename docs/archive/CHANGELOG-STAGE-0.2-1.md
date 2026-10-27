@@ -1,8 +1,15 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.119)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.120)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), and 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), and 0.2.120 at 0.2.132 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.120 (2026-10-25)
+- A new row under the room lists the creatures that have noticed you and stand in light. Each has a small plaque with its face and what it does next if you wait: fangs for a bite, an arrow for a step. One that has noticed you but can't move shows just its face.
+- A lampmoth flying at your lit lantern gets a plaque too.
+- New plaques join at the end of the row, and one goes when its creature dies or leaves the light. If more than 7 are listed, the last spot says how many more ("+2").
+- Held sideways, the plaques stack under the hearts, depth, oil and level.
+- Decisions: D-358.
 
 ## 0.2.119 (2026-10-25)
 - No change to play: how creatures will show their next move is decided, after three rounds of mock-ups.

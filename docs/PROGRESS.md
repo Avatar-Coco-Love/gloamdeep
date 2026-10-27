@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.131 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.132 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner HUD, step 2 of 5 (D-380): the room fills the screen, a wider
-view with the camera scrolling. Propose how first (how many tiles show,
-what shows past a small room's edge). Creature materials (Q-061) wait.
+The corner HUD, step 3 of 5 (D-380): the round map top right, with pause
+and the wrench. Propose its look first (size, what it shows, how a tap
+opens the full map). Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.132, the room fills the screen.** The owner picked
+  about 11 tiles tall, the deepest dark past a small room's edges, and
+  the text line on glass at the bottom (D-381). The buttons stand in the
+  room's corners; the menus keep their own picture over the room.
+  [Playtest](https://claude.ai/artifact/XNkevYgascXJnSg4rtsoRV).
 - **2026-10-27, 0.2.131, the glass panel.** The owner picked the corner
   HUD's order (D-380): panel, room fills, round map, round lantern, cards.
   The hearts, level, oil and depth sit on pixel glass top left, the
@@ -42,8 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   picture; on Android, Play goes full screen and locks sideways;
   installed, it opens sideways (D-377). PC windows are never asked.
   [Playtest](https://claude.ai/artifact/T5rM58vSuLWJxc3ynNW6nK).
-- **2026-10-27, 0.2.129, sideways and a new look.** The owner's ideas
-  from the Brogue talk are kept (D-379). Landscape only, full screen,
-  install optional (D-377). A Genshin feel: corner HUD, glass, round
-  buttons, menus as cards ([mock-up](https://claude.ai/artifact/R76iHAXcaVistZemiEe8XA), D-378).
-  No playtest: nothing to play.

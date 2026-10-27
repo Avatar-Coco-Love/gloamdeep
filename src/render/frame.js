@@ -1,16 +1,17 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, H, SCREEN_H } from './screen.js';
+import { TILE, W, SCREEN_H, view } from './screen.js';
 import { drawRoom } from './tiles.js';
 import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
+import { LINE_UP } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawTitle } from './title.js';
-import { drawPause } from './menu.js';
+import { drawPause, VEIL } from './menu.js';
 import { drawSeedPad } from './seedpad.js';
 import { drawNamePad } from './namepad.js';
 import { drawHowTo } from './howto.js';
@@ -51,10 +52,13 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
-// `ui`: the canvases (the room's and the creature list's), the text line, the spoken line, the lantern button, the dev
-// tools, the screens, and still() and foeAt(e) from main.js.
+// Screens over play that dim the room around them; the bag and placing a workbench leave it clear
+const CLEAR_OVER = new Set(['play', 'bag', 'place']);
+
+// `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
+// D-381), the text line, the spoken line, the lantern button, the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -75,13 +79,23 @@ export function createFrame(app, ui) {
     return listed.slice().sort((a, b) => foeAt(a.e).joined - foeAt(b.e).joined);
   }
 
-  // Draws in room pixels, moved by the camera and kept off the text strip below the room
+  // Draws in room pixels, moved by the camera
   function inRoom(draw) {
-    ctx.save();
-    ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip();
-    ctx.translate(-app.cam.x, -app.cam.y);
+    rc.save();
+    rc.translate(-app.cam.x, -app.cam.y);
     draw();
-    ctx.restore();
+    rc.restore();
+  }
+
+  // § veil around: a menu over play dims its own picture (menu.js); the room
+  // around the picture gets the same veil, so the whole screen dims once (D-381)
+  function veilAround() {
+    const r = canvas.getBoundingClientRect(), b = rc.canvas.getBoundingClientRect();
+    const k = rc.canvas.width / b.width, x = (r.left - b.left) * k, y = (r.top - b.top) * k;
+    rc.save();
+    rc.beginPath(); rc.rect(0, 0, view.w, view.h); rc.rect(x, y, r.width * k, r.height * k); rc.clip('evenodd');
+    rc.globalAlpha = VEIL; rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h);
+    rc.restore();
   }
 
   function onTitleScreens(t) {
@@ -108,7 +122,8 @@ export function createFrame(app, ui) {
     listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // the list's row stays empty
     const p = playing(app.profiles);
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
-    if (screens.onTitle()) { onTitleScreens(t); return; }
+    if (screens.onTitle()) { rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); onTitleScreens(t); return; }
+    ctx.clearRect(0, 0, W, SCREEN_H); // see-through over the room, but for a menu
     const { state, shown, nudge, hit, jab, bitten, travel, fall, walk } = app;
     const s = travel?.from || fall?.from || state;
     let nx = 0, ny = 0;
@@ -125,14 +140,15 @@ export function createFrame(app, ui) {
     // § camera: centred on the sliding hero, a bump's nudge left out (D-195)
     const list = travel || fall ? null : creaturesListed(s); // none while taking stairs or falling
     const sx = Math.round(shown.x * TILE), sy = Math.round(shown.y * TILE);
-    const cam = app.cam = cameraAt(sx, sy, s.room, W, H);
-    ctx.drawImage(base, cam.x, cam.y, W, H, 0, 0, W, H);
+    const cam = app.cam = cameraAt(sx, sy, s.room, view.w, view.h);
+    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); // the deepest dark past a small room's edges (D-381)
+    rc.drawImage(base, -cam.x, -cam.y);
     inRoom(() => {
-      drawBrackets(ctx, s.room, s.lights);
-      drawItems(ctx, s.items, t, still());
-      drawHero(ctx, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
+      drawBrackets(rc, s.room, s.lights);
+      drawItems(rc, s.items, t, still());
+      drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
       // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
-      drawEnemies(ctx, s.enemies, t, still(), hit && t < hit.until ? hit.enemy : null, foeAt);
+      drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemy : null, foeAt);
     });
     // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
     const sun = s.room.dark.sky ? daylight(s.turn) : 0, lightOn = !dev.lightOff() && sun < 1;
@@ -146,37 +162,38 @@ export function createFrame(app, ui) {
       lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));
       const sunIn = mouthLight(s); // daylight through the cave mouth, steady, no flicker (D-218)
       if (sunIn) lights.push(sunIn);
-      drawLight(ctx, s.room, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
+      drawLight(rc, s.room, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
     }
     inRoom(() => {
-      drawFlames(ctx, s.room, s.lights, t, still());
-      if (s.lit && !lying) { ctx.fillStyle = '#fff5d6'; ctx.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
-      drawDoors(ctx, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
+      drawFlames(rc, s.room, s.lights, t, still());
+      if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
+      drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
       const framed = list?.find((a) => foeAt(a.e) === app.framed);
-      if (framed) drawFramed(ctx, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
-      if (walk && !walk.stopped && !travel) drawMark(ctx, walk.tx, walk.ty, t, still());
-      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(ctx, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
-      if (t < app.alertUntil) drawAlert(ctx, sx + nx, sy + ny);
-      else if (app.gain && !fall) drawGain(ctx, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
+      if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
+      if (walk && !walk.stopped && !travel) drawMark(rc, walk.tx, walk.ty, t, still());
+      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
+      if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
+      else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
     });
     // § shake: the room jumps a pixel left and right after a hit; none with reduced motion (study line 432, D-105)
     // A bite shakes it the same way (D-118).
     if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil)) && !still()) {
       const jx = Math.floor(t / 30) % 2 ? 1 : -1;
-      ctx.drawImage(canvas, 0, 0, W, H, jx, 0, W, H);
-      ctx.fillStyle = '#0e0c16'; ctx.fillRect(jx > 0 ? 0 : W - 1, 0, 1, H);
+      rc.drawImage(rc.canvas, jx, 0);
+      rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : view.w - 1, 0, 1, view.h);
     }
     // Taking stairs, the room dims to the deepest dark and back (D-135); a fall closes it the same way; the hearts and oil stay
     const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / FADE_MS) : dark;
     if (dim > 0) {
-      ctx.globalAlpha = dim;
-      ctx.fillStyle = '#0e0c16'; ctx.fillRect(0, 0, W, H);
-      ctx.globalAlpha = 1;
+      rc.globalAlpha = dim;
+      rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h);
+      rc.globalAlpha = 1;
     }
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
     // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
     const n = list ? list.length : 0; // the panel's size is last frame's, near enough
-    const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, H - 2), more = shownN < n ? 1 : 0;
+    const end = view.h - LINE_UP - 2; // the creature list stops above the text line (D-381)
+    const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const covered = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })]
@@ -184,19 +201,20 @@ export function createFrame(app, ui) {
     const goal = covered ? UNDER_ALPHA : 1, dt = Math.max(0, t - panel.t);
     panel.alpha = still() ? goal : panel.alpha + Math.sign(goal - panel.alpha) * Math.min(Math.abs(goal - panel.alpha), dt / FADE_PANEL_MS);
     panel.t = t;
-    Object.assign(panel, drawStatus(ctx, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    Object.assign(panel, drawStatus(rc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end: H - 2 }; // where the list sits, in the room canvas's pixels
-      ctx.save(); ctx.globalAlpha = panel.alpha;
-      drawCreatureList(ctx, list, row.x, row.y, row.across, row.end, isFramed);
-      ctx.restore();
+      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end }; // where the list sits, in the room canvas's pixels
+      rc.save(); rc.globalAlpha = panel.alpha;
+      drawCreatureList(rc, list, row.x, row.y, row.across, row.end, isFramed);
+      rc.restore();
     }
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
-    textLine.draw(ctx, line, t, still());
+    textLine.draw(rc, line, t, still());
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit);
+    if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPause(ctx, PAUSE_MENU, app.chosen, t, still());
     else if (app.screen === 'settings') drawPause(ctx, screens.menuOf(app.screen), app.chosen, t, still(), 'Settings');
     else if (app.screen === 'ways') { const l = screens.menuOf('ways')[app.chosen]; drawPause(ctx, screens.menuOf('ways'), app.chosen, t, still(), MODE_HEADING, l.dim ? HARDER_NOTE : l.note); } // MO4, D-346
@@ -209,7 +227,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'bench') drawBenchPanel(ctx, benchMenu(state.bag), app.chosen, t, still());
     else if (app.screen === 'chest') drawChestPanel(ctx, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still());
     else if (app.screen === 'bag') drawBag(ctx, state.bag, app.chosen, spriteOf, app.bagOnTop, state.held, state.health >= maxHealth(state));
-    else dev.draw(ctx, state, cam);
+    else dev.draw(rc, state, cam);
   }
 
   // A new journey draws its room afresh

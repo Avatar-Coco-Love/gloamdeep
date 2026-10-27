@@ -36,8 +36,13 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 
-const canvas = document.getElementById('game'), list = document.getElementById('list');
-const { ctx, listCtx } = createScreen(canvas, list);
+const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room');
+const { ctx, listCtx, roomCtx } = createScreen(canvas, list, roomCanvas);
+// A point on the menus' picture, in its pixels → the same point on the room's canvas, which fills the screen (D-381)
+const toRoom = ([px, py]) => {
+  const a = canvas.getBoundingClientRect(), b = roomCanvas.getBoundingClientRect(), k = roomCanvas.width / b.width;
+  return [(a.left + px / canvas.width * a.width - b.left) * k, (a.top + py / canvas.height * a.height - b.top) * k];
+};
 document.getElementById('version').textContent = VERSION;
 addAppCard(); // so a phone can put the game on its home screen (D-375)
 
@@ -253,7 +258,7 @@ function walkOn() {
   if (app.state !== before && cameIntoView(before, app.state)) { walk.stopped = true; app.alertUntil = performance.now() + ALERT_MS; }
   else if (app.state.place !== before.place) walk.stopped = true; // the held tile was in the room left behind
 }
-// The held point in game pixels → the walk's target, kept while the finger stays put
+// The held point in the room canvas's pixels → the walk's target, kept while the finger stays put
 function holdAt(p) {
   if (!p || app.screen !== 'play' || dev.armed() || !tapsWalk(app.settings.controls)) { app.walk = null; return; }
   const { walk, cam } = app;
@@ -275,10 +280,10 @@ function hear(events) {
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
 // § switch: the lantern button and the L key, free at any time in play (D-080, D-081); it ticks (D-257)
 const switchIt = () => { if (app.screen === 'play') { const before = app.state; app.state = switchLantern(before); hear(eventsSince(before, app.state)); } };
-const lanternButton = createLanternButton(canvas, { onSwitch: switchIt });
-const pauseButton = createPauseButton(canvas, { onPause: () => screens.pause() });
-const mapButton = createMapButton(canvas, { onMap: () => screens.toggleMap() });
-const bagButton = createBagButton(canvas, { onBag: () => screens.toggleBag() });
+const lanternButton = createLanternButton(roomCanvas, { onSwitch: switchIt });
+const pauseButton = createPauseButton(roomCanvas, { onPause: () => screens.pause() });
+const mapButton = createMapButton(roomCanvas, { onMap: () => screens.toggleMap() });
+const bagButton = createBagButton(roomCanvas, { onBag: () => screens.toggleBag() });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
@@ -326,7 +331,7 @@ const onDir = (dir, how) => {
   if (app.screen !== 'play') screens.onDir(dir, how);
   else if (how !== 'swipe' || swipesWalk(app.settings.controls)) tryStep(dir);
 };
-const onPoint = (px, py, held) => { if (app.screen === 'play') stepToward(px, py, held); else screens.onPoint(px, py, held); };
+const onPoint = (px, py, held) => { if (app.screen === 'play') stepToward(...toRoom([px, py]), held); else screens.onPoint(px, py, held); };
 const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
 const onTab = () => {
@@ -340,7 +345,7 @@ const input = createInput(stage, canvas, {
   onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
 });
 const mapMoves = createMapMoves(stage, canvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap });
-const dev = createDev(stage, canvas, { // on for everyone (D-086)
+const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   get: () => app.state,
   still,
   set: (s) => { // a new place shows at once, with no slide (Go to depth)
@@ -360,8 +365,8 @@ const dev = createDev(stage, canvas, { // on for everyone (D-086)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
-}, canvas);
-const frame = createFrame(app, { ctx, listCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
+}, roomCanvas);
+const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern
@@ -400,7 +405,8 @@ function update(t) {
   shown.x = approach(shown.x, s.hero.x, dt);
   shown.y = approach(shown.y, s.hero.y, dt);
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  holdAt(input.held());
+  const held = input.held();
+  holdAt(held && toRoom(held));
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }

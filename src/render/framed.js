@@ -4,7 +4,7 @@
 // below it when the room's top is too near. Drawn in room pixels.
 import { drawText, textWidth } from './font.js';
 import { drawMoves } from './moves.js';
-import { W } from './screen.js';
+import { view } from './screen.js';
 import { get } from '../core/registry.js';
 
 const AMBER = '#ffc65c', DARK = '#0e0c16', EDGE = '#2a2636', WORDS = '#c9c2d6';
@@ -45,5 +45,5 @@ export function drawFramed(c, { e, move }, p, cam, t, still) {
   drawCorners(c, x - 1, y - 1);
   if (move) drawMoves(c, [move], () => p, t, still);
   const def = get(e.id), max = def.health, top = y - 3 - TAG_H;
-  drawTag(c, def.name, e.health ?? max, max, x + 8, top >= cam.y ? top : y + BOX + 1, cam.x + 1, cam.x + W - 1);
+  drawTag(c, def.name, e.health ?? max, max, x + 8, top >= cam.y ? top : y + BOX + 1, cam.x + 1, cam.x + view.w - 1);
 }

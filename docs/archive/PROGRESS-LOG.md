@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.129, sideways and a new look.** The owner's ideas
+  from the Brogue talk are kept (D-379). Landscape only, full screen,
+  install optional (D-377). A Genshin feel: corner HUD, glass, round
+  buttons, menus as cards ([mock-up](https://claude.ai/artifact/R76iHAXcaVistZemiEe8XA), D-378).
+  No playtest: nothing to play.
 - **2026-10-27, 0.2.128, research notes.** The owner asked how other
   games do bosses ([Boss Study](https://claude.ai/artifact/QiDD51bkLeTwgWwojJikJs))
   and for talks to hear. Their notes from the Into the Breach talk, a

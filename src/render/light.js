@@ -3,9 +3,10 @@
 // Shadow edges blend over one 4 × 4 cell into the dithered bands (D-053).
 // The room sets the darkness and the remembered tiles' look (D-063); their
 // edge fades over one cell (D-060). Lights and cells are in room pixels; the
-// camera picks which of them land on the screen (D-195).
+// camera picks which of them land on the screen (D-195). Past a small room's
+// edges the screen keeps the deepest dark, unlit (D-381).
 import { CELL, seenCells } from '../core/light.js';
-import { TILE, W, H } from './screen.js';
+import { TILE, view } from './screen.js';
 
 let CW = 0, CH = 0; // the room's size in cells
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16);
@@ -28,7 +29,7 @@ function blend(cells, x, y) {
 // `cam`: the room pixel at the screen's top-left (src/core/camera.js).
 // `dark`: the darkness now, the room's own unless the sky's changes it (core/daytime.js);
 // `lamp`: how much the lights add, less as daylight outshines them (D-217).
-const NO_SHIFT = { x: 0, y: 0 }; // a screen-sized room, as on the title
+const NO_SHIFT = { x: 0, y: 0 }; // a screen-sized room, as on the title, lit whole
 let seenBy = []; // one cell buffer per light, reused every frame
 export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1) {
   if (room.cols * TILE / CELL !== CW || room.rows * TILE / CELL !== CH) { // a new room size: new buffers
@@ -45,10 +46,12 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   for (let cy = 0; cy < CH; cy++) for (let cx = 0; cx < CW; cx++) {
     known[cy * CW + cx] = memory ? memory[(cy >> 2) * room.cols + (cx >> 2)] : 1;
   }
-  const img = ctx.getImageData(0, 0, W, H), d = img.data;
+  const [W, H] = cam === NO_SHIFT ? [CW * CELL, CH * CELL] : [view.w, view.h]; // the title's room is its screen
+  const img = ctx.getImageData(0, 0, W, H), d = img.data, RW = CW * CELL, RH = CH * CELL;
   const { unseen, remembered } = dark;
   for (let sy = 0; sy < H; sy++) for (let sx = 0; sx < W; sx++) {
     const x = sx + cam.x, y = sy + cam.y; // the room pixel; the dither keeps to the room, not the screen
+    if (x < 0 || y < 0 || x >= RW || y >= RH) continue; // beyond the room
     const th = BAYER[((y & 3) << 2) | (x & 3)];
     const amb = blend(known, x, y) > th ? remembered : unseen;
     let lr = 0, lg = 0, lb = 0;
