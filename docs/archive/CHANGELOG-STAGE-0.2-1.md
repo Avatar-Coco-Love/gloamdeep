@@ -1,8 +1,14 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.122)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.123)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), and 0.2.122 at 0.2.135 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), and 0.2.123 at 0.2.136 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.123 (2026-10-25)
+- The second tidy-up, seven versions early. Nothing in the game changes.
+- The turn rules' biggest file is split into six smaller ones (the creatures' turn, a fall, the bag's buttons, and more), so new creatures and finds are quicker to add.
+- A new page in the docs lists every creature, find, tile, light and place with its numbers, and the tech notes list the files each new kind of content touches.
+- Decisions: D-362, D-363, D-364.
 
 ## 0.2.122 (2026-10-25)
 - How to play's Touch, Mouse and Keyboard pages have a new row, Frame: tap (or click) a creature's plaque, or press Tab.

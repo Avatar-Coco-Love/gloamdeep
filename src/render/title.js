@@ -5,7 +5,7 @@
 import { makeRoom } from '../core/room.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { reach } from '../core/oil.js';
-import { W, H, SCREEN_H, TILE } from './screen.js';
+import { W, H, TILE, view } from './screen.js';
 import { drawRoom } from './tiles.js';
 import { drawHero } from './sprites.js';
 import { drawLight, flicker } from './light.js';
@@ -22,16 +22,20 @@ export const titleTop = (count) => Math.min(MENU_Y, MENU_Y - (count - 3) * LINE_
 // Each line past 5 lifts the hero and light one tile, clear of the page's heading (D-249, D-254)
 export const heroRow = (count) => HERO.y - Math.max(0, count - 5);
 
-// § scene: the floor, drawn once; no tile is remembered, so only the light shows it
-const room = makeRoom(Array.from({ length: H / TILE }, () => '.'.repeat(W / TILE)));
-const unseen = new Uint8Array(room.cols * room.rows);
-let floor = null, name = null;
-function paint() {
-  floor = document.createElement('canvas');
-  floor.width = W; floor.height = H;
+// § scene: the floor, drawn once per screen size; no tile is remembered, so
+// only the light shows it. It fills the whole room canvas behind the picture
+// (`view`), its tiles lined up with the picture's, so no box shows around it.
+let scene = null, name = null;
+function paint(cols, rows) {
+  const room = makeRoom(Array.from({ length: rows }, () => '.'.repeat(cols)));
+  const floor = document.createElement('canvas');
+  floor.width = cols * TILE; floor.height = rows * TILE;
   drawRoom(floor.getContext('2d'), room);
-  // § name: carved (D-186): a dark outline all round and an ember edge
-  // underneath, drawn small once, then doubled with crisp pixels
+  scene = { cols, rows, room, floor, unseen: new Uint8Array(cols * rows) };
+}
+// § name: carved (D-186): a dark outline all round and an ember edge
+// underneath, drawn small once, then doubled with crisp pixels
+function carve() {
   const w = textWidth(NAME), small = document.createElement('canvas');
   small.width = w + 2; small.height = FONT_H + 3;
   const s = small.getContext('2d');
@@ -42,19 +46,28 @@ function paint() {
 }
 
 const lights = [{ ...LANTERN, x: 0, y: 0, r: 0 }]; // reused every frame (TECH.md)
+// c: the room canvas, `view` big; count: the page's lines; still: prefers-reduced-motion;
+// ox, oy: the picture's top left on it, so the hero stands where the picture puts them
+export function drawScene(c, count, t, still, ox, oy) {
+  const sx = (ox % TILE) - TILE, sy = (oy % TILE) - TILE; // the floor's top left, the picture's tiles lined up
+  const cols = Math.ceil((view.w - sx) / TILE), rows = Math.ceil((view.h - sy) / TILE);
+  if (!scene || scene.cols !== cols || scene.rows !== rows) paint(cols, rows);
+  c.fillStyle = K; c.fillRect(0, 0, view.w, view.h);
+  c.drawImage(scene.floor, sx, sy);
+  const hx = ox + HERO.x * TILE, hy = oy + heroRow(count) * TILE;
+  drawHero(c, hx, hy);
+  const L = lights[0];
+  L.x = hx - sx + LANTERN_AT.x; L.y = hy - sy - 2 + LANTERN_AT.y; // in the floor's pixels
+  L.r = reach(LIGHT_OIL) * (still ? 1 : flicker(t, 1.7, 0.035));
+  drawLight(c, scene.room, lights, scene.unseen, { x: -sx, y: -sy });
+  c.fillStyle = CORE; c.fillRect(L.x + sx, L.y + sy, 1, 1); // the flame's core is always bright
+}
+
+// The name and the page's lines on the picture, over the scene (drawScene).
 // menu: [{ text }]; chosen: its index; still: prefers-reduced-motion; heading: a page's name (Settings);
 // note: a grey line in the strip under the menu (the Are you sure page's)
 export function drawTitle(c, menu, chosen, t, still, heading = null, note = null) {
-  if (!floor) paint();
-  c.fillStyle = K; c.fillRect(0, 0, W, SCREEN_H);
-  c.drawImage(floor, 0, 0);
-  const hx = HERO.x * TILE, hy = heroRow(menu.length) * TILE;
-  drawHero(c, hx, hy);
-  const L = lights[0];
-  L.x = hx + LANTERN_AT.x; L.y = hy - 2 + LANTERN_AT.y;
-  L.r = reach(LIGHT_OIL) * (still ? 1 : flicker(t, 1.7, 0.035));
-  drawLight(c, room, lights, unseen);
-  c.fillStyle = CORE; c.fillRect(L.x, L.y, 1, 1); // the flame's core is always bright
+  if (!name) carve();
   c.drawImage(name, Math.floor((W - name.width * NAME_SCALE) / 2), NAME_Y, name.width * NAME_SCALE, name.height * NAME_SCALE);
   const top = titleTop(menu.length);
   if (heading) drawHeading(c, heading, top);

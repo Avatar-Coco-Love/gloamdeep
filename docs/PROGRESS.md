@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.135 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.136 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.136, the title fills the screen.** The owner asked
+  for the pre-game menus to fill the screen and for the bag's lost line.
+  The title's floor and light now fill the whole screen behind the menu;
+  the text line shows over the bag's card, so "Only on the surface."
+  is seen (D-386). [Playtest](https://claude.ai/artifact/8W3YKmtUnveVAV5uwJhT5f).
 - **2026-10-27, 0.2.135, the bag card.** The owner picked the bag as a
   glass card filling the screen, so its buttons sit near the thumbs:
   slots in a 3 × 2 grid left, the item's name, count and Look line right,
@@ -42,8 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   it, and the flask always in the quick slot: a tap pours one, and it
   shows how many are carried (D-384).
   [Playtest](https://claude.ai/artifact/VmcisJ3aSq6CSq5QaKmzXC).
-- **2026-10-27, 0.2.133, the round map.** The owner picked a medium
-  round map, 104 px, showing the floor around the hero, pause and the
-  wrench in a row left of it, and a tap that opens the full map (D-383).
-  Pause, the bag and the wrench are round on the glass now.
-  [Playtest](https://claude.ai/artifact/1vvcxm2EMWhP4n8xx2CnJz).

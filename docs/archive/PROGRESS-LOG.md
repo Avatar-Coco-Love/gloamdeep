@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.133, the round map.** The owner picked a medium
+  round map, 104 px, showing the floor around the hero, pause and the
+  wrench in a row left of it, and a tap that opens the full map (D-383).
+  Pause, the bag and the wrench are round on the glass now.
+  [Playtest](https://claude.ai/artifact/1vvcxm2EMWhP4n8xx2CnJz).
 - **2026-10-27, 0.2.132, the room fills the screen.** The owner picked
   about 11 tiles tall, the deepest dark past a small room's edges, and
   the text line on glass at the bottom (D-381). The buttons stand in the

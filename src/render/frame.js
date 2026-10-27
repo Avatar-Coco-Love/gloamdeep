@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view } from './screen.js';
+import { TILE, W, SCREEN_H, view, fitTitle } from './screen.js';
 import { drawRoom } from './tiles.js';
 import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
@@ -10,7 +10,7 @@ import { drawStatus } from './hud.js';
 import { LINE_UP } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
-import { drawTitle } from './title.js';
+import { drawTitle, drawScene } from './title.js';
 import { drawPause, VEIL } from './menu.js';
 import { drawSeedPad } from './seedpad.js';
 import { drawNamePad } from './namepad.js';
@@ -100,12 +100,28 @@ export function createFrame(app, ui) {
     rc.restore();
   }
 
+  // The picture's top left on the room canvas; on the title's screens both have the same zoom (screen.js)
+  function pictureAt() {
+    const r = canvas.getBoundingClientRect(), b = rc.canvas.getBoundingClientRect(), k = rc.canvas.width / b.width;
+    return { x: Math.round((r.left - b.left) * k), y: Math.round((r.top - b.top) * k) };
+  }
+  // § title scene: the floor, hero and light fill the whole screen behind the title's lines.
+  // The picture gets its own copy of the scene's part under it, so a veiled page (the seed pad,
+  // How to play, the explorer's map) dims picture and room alike, with no seam between them
+  function titleScene(count, t, veiled = false) {
+    const at = pictureAt();
+    drawScene(rc, count, t, still(), at.x, at.y);
+    if (!veiled) return;
+    ctx.drawImage(rc.canvas, -at.x, -at.y);
+    rc.globalAlpha = VEIL; rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); rc.globalAlpha = 1;
+  }
+
   function onTitleScreens(t) {
     const { screen } = app;
-    if (screen === 'explore') { drawTitle(ctx, [], 0, t, still()); drawMap(ctx, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); }
-    else if (screen === 'seed') { drawTitle(ctx, [], 0, t, still()); drawSeedPad(ctx, app.entry, app.chosen, t, still()); }
-    else if (screen === 'howto') { drawTitle(ctx, [], 0, t, still()); drawHowTo(ctx, app.page, app.settings.controls, app.chosen, t, still()); }
-    else if (screen === 'history') { drawTitle(ctx, [], 0, t, still()); drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still()); }
+    if (screen === 'explore') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawMap(ctx, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); }
+    else if (screen === 'seed') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawSeedPad(ctx, app.entry, app.chosen, t, still()); }
+    else if (screen === 'howto') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawHowTo(ctx, app.page, app.settings.controls, app.chosen, t, still()); }
+    else if (screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a dark page of its own
     else if (screen === 'slots') drawSlots(ctx, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, app.slotsBack && app.profiles.current !== null, t, still());
     else if (screen === 'name') drawNamePad(ctx, app.entry, app.chosen, t, still(), app.renaming ? 'Rename profile' : undefined);
     else if (screen === 'cloak') drawCloaks(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
@@ -114,17 +130,23 @@ export function createFrame(app, ui) {
     else if (screen === 'clothes') drawClothes(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
     else if (screen === 'drop') drawAsk(ctx, slotName(app.profiles.slots[app.dropping], app.dropping), SURE_MENU, app.chosen, DROP_NOTE, t, still());
     else if (screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
-    else if (screen === 'sure') drawTitle(ctx, SURE_MENU, app.chosen, t, still(), SURE_HEADING, SURE_NOTE);
-    else if (screen === 'mode') drawTitle(ctx, MODE_MENU, app.chosen, t, still(), MODE_HEADING, MODE_MENU[app.chosen].note);
-    else if (screen === 'ended') drawTitle(ctx, ENDED_MENU, app.chosen, t, still(), ENDED_HEADING); // after a Hardcore fall (D-344)
-    else drawTitle(ctx, screens.menuOf(screen), app.chosen, t, still(), screen === 'settings' ? 'Settings' : null);
+    else {
+      const [menu, heading, note] = screen === 'sure' ? [SURE_MENU, SURE_HEADING, SURE_NOTE]
+        : screen === 'mode' ? [MODE_MENU, MODE_HEADING, MODE_MENU[app.chosen].note]
+        : screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
+        : [screens.menuOf(screen), screen === 'settings' ? 'Settings' : null, null];
+      titleScene(menu.length, t);
+      drawTitle(ctx, menu, app.chosen, t, still(), heading, note);
+    }
   }
 
   function draw(t) {
     listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // the list's row stays empty
     const p = playing(app.profiles);
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
-    if (screens.onTitle()) { rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); onTitleScreens(t); return; }
+    const onTitle = screens.onTitle();
+    fitTitle(onTitle); // the title's scene fills the screen at the picture's zoom
+    if (onTitle) { rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); ctx.clearRect(0, 0, W, SCREEN_H); onTitleScreens(t); return; }
     ctx.clearRect(0, 0, W, SCREEN_H); // see-through over the room, but for a menu
     const { state, shown, nudge, hit, jab, bitten, travel, fall, walk } = app;
     const s = travel?.from || fall?.from || state;
@@ -216,7 +238,7 @@ export function createFrame(app, ui) {
       rc.restore();
     }
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
-    textLine.draw(rc, line, t, still());
+    if (app.screen !== 'bag') textLine.draw(rc, line, t, still()); // over the bag's card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
@@ -231,7 +253,10 @@ export function createFrame(app, ui) {
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
     else if (app.screen === 'bench') drawBenchPanel(ctx, benchMenu(state.bag), app.chosen, t, still());
     else if (app.screen === 'chest') drawChestPanel(ctx, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still());
-    else if (app.screen === 'bag') drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
+    else if (app.screen === 'bag') {
+      drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
+      textLine.draw(rc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
+    }
     else dev.draw(rc, state, cam);
   }
 
