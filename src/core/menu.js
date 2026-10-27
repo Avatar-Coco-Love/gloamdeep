@@ -1,7 +1,7 @@
 // § menu: the title screen's lines (D-177). Only what works is listed (D-178):
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
-import { bagHas } from './bag.js';
+import { bagHas, carried, BAG_SLOTS } from './bag.js';
 import { controlsText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
 
 // The Seed Explorer, a dev tool, is its last line (D-214)
@@ -56,12 +56,19 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 ];
 
 // § move: Up and Down walk the lines and stop at the ends
-// The workbench's panel (WB3, D-323): each thing made at it is a line above Deconstruct,
-// its cost on the right, dim with too few in the bag (the stash chest, CH1, D-326)
+// The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
+// in a 3 × 2 grid as the bag's, with its cost and how many of each the bag holds;
+// dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
 export const BENCH_MAKES = ['chest'];
-const costText = (of) => Object.entries(of).map(([id, n]) => `${n} ${get(id).name}`).join(' · ');
-export const benchMenu = (bag) => [
-  ...BENCH_MAKES.map((id) => ({ id: 'make', item: id, text: get(id).name, cost: costText(get(id).bench.of), dim: !bagHas(bag, get(id).bench.of) })),
-  { id: 'deconstruct', text: 'Deconstruct workbench' }, { id: 'close', text: 'Close' },
-];
+export const BENCH_TAKE = BAG_SLOTS;
+export const benchMakes = (bag) => BENCH_MAKES.map((id) => {
+  const of = get(id).bench.of;
+  return { item: id, cost: Object.entries(of).map(([at, n]) => ({ id: at, n, have: carried(bag, at) })), dim: !bagHas(bag, of) };
+});
+// The arrows on the card: the grid, Down from its bottom row to Deconstruct, Up from it back
+export function moveBench(i, dir) {
+  if (i === BENCH_TAKE) return dir === 'up' ? BAG_SLOTS - 3 : i;
+  if (dir === 'down' && i >= 3) return BENCH_TAKE;
+  return Math.min(BAG_SLOTS - 1, Math.max(0, i + { left: -1, right: 1, up: -3, down: 3 }[dir]));
+}
 export const moveChoice = (i, dir, count) => Math.max(0, Math.min(count - 1, i + (dir === 'up' ? -1 : dir === 'down' ? 1 : 0)));

@@ -63,7 +63,7 @@ import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMenu, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, HARDER_NOTE, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, HARDER_NOTE, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
@@ -102,7 +102,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
-  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'bench' ? benchMenu(app.state.bag) : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
+  const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
@@ -411,7 +411,14 @@ export function createScreens(app, ui) {
     return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
   };
   function pickChest(i) { app.chosen = i; spoken.textContent = chestSlotWords(i); }
-  const benchWords = () => `Workbench. ${benchMenu(app.state.bag).filter((l) => l.cost).map((l) => `${l.text}, ${l.cost.replace(' · ', ' and ')}${l.dim ? ', too few' : ''}. `).join('')}Deconstruct workbench, or Close.`;
+  const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, ${c.have} carried`).join(' and ')}${m.dim ? ', too few' : ''}`;
+  const benchWords = () => `Workbench. ${benchMakes(app.state.bag).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
+  // § bench card (D-387): the frame on a slot says what is made there and its cost
+  function pickBench(i) {
+    app.chosen = i;
+    const m = benchMakes(app.state.bag)[i];
+    spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
+  }
 
   // § explorer (D-214): opens on the Settings seed, else a random one, on the surface;
   // Reseed, a typed seed and Back keep the floor shown, fitted whole. Settings never changes.
@@ -551,7 +558,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'chest') { if (i === CHEST_CLOSE) show('play'); else if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
-    if (app.screen === 'bench') { if (id === 'make') ui.make(menuOf('bench')[i].item); else if (id === 'deconstruct') takeDownBench(); else show('play'); return; }
+    if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
     else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)
@@ -583,6 +590,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
+    if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
     if (app.screen === 'journal') {
@@ -619,9 +627,11 @@ export function createScreens(app, ui) {
     if (app.screen === 'place') { if (!held) tapSide(px, py); return; }
     if (app.screen === 'bench') {
       if (held) return;
-      const at = benchAt(benchMenu(app.state.bag), px, py);
-      if (at === 'out') show('play');
-      else if (at >= 0) { app.chosen = at; choose(at); }
+      const at = benchAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') show('play');
+      else if (at === 'make' && app.chosen !== BENCH_TAKE) choose(app.chosen); // Make shows only for a slot
+      else if (at === 'take') { app.chosen = BENCH_TAKE; choose(BENCH_TAKE); }
+      else if (at) pickBench(at.slot);
       return;
     }
     if (app.screen === 'chest') {

@@ -191,3 +191,16 @@ text line is drawn over the bag's card (D-385), so a line said with the
 bag open ("Only on the surface.", "There is no room there.") shows and
 the bag stays open. D-375 to D-377 moved unchanged to
 `archive/DECISIONS-SCREEN.md`. Built in 0.2.136.
+
+**D-387 · 2026-10-27 · The workbench and stash chest as cards** (the
+owner's picks, recommended,
+[mock-up](https://claude.ai/artifact/NwENpGb5VXDLmd78DZMa3p); step 6 of
+D-380) Both panels open as glass cards like the bag's (D-385), the round
+cross closing them, Close gone. The workbench: the things made at it in
+the bag's 3 × 2 slots on the left; on the right the chosen one's name,
+each cost with how many are carried (3 / 5 Wood), its Look line and Make
+bottom right, dim with too few. The chest: its 12 slots in a 4 × 3 grid
+on the left, the bag's 6 in a 3 × 2 grid on the right, the chosen stack's
+name and count under them; a tap moves it, as now. On both, Deconstruct
+is a button bottom left. Two steps: the workbench built in 0.2.137, the
+chest next.

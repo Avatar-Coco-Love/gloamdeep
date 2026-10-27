@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.134, the round lantern.** The owner picked a 64 px
+  round lantern bottom right, the bag and a quick slot on an arc around
+  it, and the flask always in the quick slot: a tap pours one, and it
+  shows how many are carried (D-384).
+  [Playtest](https://claude.ai/artifact/VmcisJ3aSq6CSq5QaKmzXC).
 - **2026-10-27, 0.2.133, the round map.** The owner picked a medium
   round map, 104 px, showing the floor around the hero, pause and the
   wrench in a row left of it, and a tap that opens the full map (D-383).

@@ -5,7 +5,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, SKY, tileAt } from '../src/core/room.js';
 import { makeState, makeAt, setDown, setSides, step, panelBeside, takeDown } from '../src/core/turn.js';
-import { benchMenu } from '../src/core/menu.js';
+import { benchMakes, moveBench, BENCH_TAKE } from '../src/core/menu.js';
+import { benchAt } from '../src/render/benchpanel.js';
+import { cardAt, slotAt, HELD_Y } from '../src/render/bag.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
 import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, CHEST_CLOSE, chestWords, moveChest, moveStack, stashAt, withStashes } from '../src/core/chest.js';
@@ -37,10 +39,28 @@ test('only 1 is carried: a second says so, free, and the Wood and Stone stay', (
   assert.equal(shownLine(n).text, 'You already carry a stash chest.');
 });
 
-test('its line on the bench panel sits above Deconstruct, its cost on the right, dim with too few', () => {
-  assert.deepEqual(benchMenu(PAID).map((l) => l.id), ['make', 'deconstruct', 'close']);
-  assert.deepEqual({ ...benchMenu(PAID)[0] }, { id: 'make', item: 'chest', text: 'Stash chest', cost: '3 Wood · 3 Stone', dim: false });
-  assert.equal(benchMenu([{ id: 'wood', n: 3 }])[0].dim, true);
+test('its slot on the bench card has its cost with how many are carried, dim with too few (D-387)', () => {
+  assert.deepEqual(benchMakes(PAID), [{ item: 'chest', cost: [{ id: 'wood', n: 3, have: 3 }, { id: 'stone', n: 3, have: 3 }], dim: false }]);
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }])[0].dim, true);
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }])[0].cost[1].have, 0);
+});
+
+test('the arrows move in the bench card\'s grid, Down from its bottom row to Deconstruct (D-387)', () => {
+  assert.equal(moveBench(0, 'right'), 1);
+  assert.equal(moveBench(0, 'down'), 3);
+  assert.equal(moveBench(4, 'down'), BENCH_TAKE);
+  assert.equal(moveBench(BENCH_TAKE, 'up'), 3);
+  assert.equal(moveBench(BENCH_TAKE, 'left'), BENCH_TAKE);
+  assert.equal(moveBench(0, 'up'), 0);
+});
+
+test('a tap on the bench card picks a slot, Make, Deconstruct or the cross; outside it closes (D-387)', () => {
+  const vw = 360, vh = 176, card = cardAt(vw, vh), s = slotAt(card, 1, HELD_Y);
+  assert.deepEqual(benchAt(s.x + 5, s.y + 5, vw, vh), { slot: 1 });
+  assert.equal(benchAt(card.button.x + 2, card.button.y + 2, vw, vh), 'make');
+  assert.equal(benchAt(card.x + 14, card.button.y + 2, vw, vh), 'take');
+  assert.equal(benchAt(card.close.x, card.close.y, vw, vh), 'close');
+  assert.equal(benchAt(2, 2, vw, vh), 'out');
 });
 
 test('in the bag it is one of a kind, with its lines in turn', () => {

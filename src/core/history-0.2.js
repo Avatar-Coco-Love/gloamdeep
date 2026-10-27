@@ -2,6 +2,12 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.137', date: '2026-10-27', title: 'The workbench card', lines: [
+    "The workbench now opens as a glass card that fills the screen, like the bag. The things you can make there sit in slots on the left; the stash chest is the first.",
+    "On the right, the card shows the chosen thing's name, each cost with how many you carry (3 / 5 Wood), and its look line. Make sits in the bottom right corner, dim with too few.",
+    "Deconstruct is a button in the bottom left corner, away from Make. The round cross closes the card, as I, Esc and a tap outside still do; the Close line is gone.",
+    "Decisions: D-387.",
+  ] },
   { v: '0.2.136', date: '2026-10-27', title: 'The title fills the screen', lines: [
     "On the title and its pages, the dark crypt floor and the lantern's light now fill the whole screen, with no box around the name and the menu.",
     "With the bag open, a line the game says now shows over the card. Set down the workbench where it can't go, and you see \"Only on the surface.\" or \"There is no room there.\" instead of nothing.",

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.136 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.137 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Menus as cards (D-378), after the bag: the workbench and stash chest
-panels next. Propose their look first (like the bag's card, or other).
+The stash chest as a card (D-387, step 2): its 12 slots in a 4 × 3 grid
+left, the bag's 3 × 2 right, Deconstruct bottom left, as the mock-up.
 Creature materials (Q-061) wait.
 
 ## Waiting on the owner
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.137, the workbench card.** The owner picked both
+  panels as glass cards like the bag, Deconstruct bottom left, built in
+  two steps (D-387). The workbench card: things to make in slots left,
+  the chosen one's cost with how many are carried, its Look line and Make
+  right. [Playtest](https://claude.ai/artifact/JzpJfTrqV97QbUydQ4WSVt).
 - **2026-10-27, 0.2.136, the title fills the screen.** The owner asked
   for the pre-game menus to fill the screen and for the bag's lost line.
   The title's floor and light now fill the whole screen behind the menu;
@@ -42,8 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   slots in a 3 × 2 grid left, the item's name, count and Look line right,
   a round cross to close it; the corner buttons hide meanwhile (D-385).
   [Playtest](https://claude.ai/artifact/BCY1LCWNmR4iDckseSDpzm).
-- **2026-10-27, 0.2.134, the round lantern.** The owner picked a 64 px
-  round lantern bottom right, the bag and a quick slot on an arc around
-  it, and the flask always in the quick slot: a tap pours one, and it
-  shows how many are carried (D-384).
-  [Playtest](https://claude.ai/artifact/VmcisJ3aSq6CSq5QaKmzXC).
