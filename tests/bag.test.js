@@ -65,17 +65,19 @@ test('the bag is kept in the save, and an older save gets an empty one', () => {
   assert.deepEqual(withBag(old).bag, []);
 });
 
-test('the card sits in the middle, and a tap picks a slot, Pour, the cross, or closes it (D-385)', async () => {
-  const { CARD, cardAt, bagAt } = await import('../src/render/bag.js');
-  const vw = 312, vh = 176, { x, y } = cardAt(vw, vh);
-  assert.ok(x >= 8 && x + CARD.w <= vw - 8 && y >= 8 && y + CARD.h <= vh - 8);
-  assert.equal(bagAt(4, 4, vw, vh), 'out');
-  const row = y + 56 + 14;
-  const slots = Array.from({ length: vw }, (_, px) => bagAt(px, row, vw, vh)).filter((a) => a && a.slot !== undefined).map((a) => a.slot);
-  assert.deepEqual([...new Set(slots)], [0, 1, 2, 3, 4, 5]);
-  assert.equal(bagAt(x + CARD.w - 14, y + 104, vw, vh), 'act');
-  assert.equal(bagAt(x + CARD.w - 11, y + 10, vw, vh), 'close');
-  assert.equal(bagAt(x + 20, y + 120, vw, vh), null);
+test('the card fills the screen, and a tap picks a slot, Pour, the cross, or closes it (D-385)', async () => {
+  const { cardAt, bagAt, EDGE_GAP } = await import('../src/render/bag.js');
+  for (const vw of [234, 312, 380]) {
+    const vh = 176, card = cardAt(vw, vh);
+    assert.equal(card.x, EDGE_GAP); assert.equal(card.x + card.w, vw - EDGE_GAP); assert.equal(card.y + card.h, vh - EDGE_GAP);
+    assert.equal(bagAt(2, 2, vw, vh), 'out');
+    const picked = [];
+    for (let y = 0; y < vh; y++) for (let x = 0; x < vw; x++) { const a = bagAt(x, y, vw, vh); if (a && a.slot !== undefined) picked.push(a.slot); }
+    assert.deepEqual([...new Set(picked)].sort(), [0, 1, 2, 3, 4, 5]);
+    assert.equal(bagAt(card.button.x + 4, card.button.y + 4, vw, vh), 'act');
+    assert.ok(card.button.x > vw / 2 && card.button.y > vh / 2); // near the right thumb
+    assert.equal(bagAt(card.close.x, card.close.y, vw, vh), 'close');
+  }
 });
 
 test('the card shows the Look line last said, or the first (D-297)', async () => {
@@ -85,15 +87,19 @@ test('the card shows the Look line last said, or the first (D-297)', async () =>
   assert.equal(lookLine(get('flask')), null);
 });
 
-test('every name, count, Look line and button fits the card', async () => {
-  const { CARD } = await import('../src/render/bag.js');
+test('every name, count, Look line and button fits the card, on a 4:3 screen too', async () => {
+  const { cardAt, SPLIT_X, wrapWords } = await import('../src/render/bag.js');
   const { textWidth } = await import('../src/render/font.js');
   const { LINES } = await import('../src/core/lines.js');
+  const card = cardAt(234, 176), dw = card.w - 12 - (SPLIT_X + 9);
   for (const id of ['flask', 'herb', 'oilcap', 'heartcap', 'potion', 'stone', 'wood', 'workbench', 'chest', 'knife']) {
     const e = get(id);
-    const buttons = e.sets ? textWidth('SET DOWN') + 8 : (e.craft && e.eats ? 2 : e.oil || e.eats || e.craft ? 1 : 0) * (textWidth('DRINK') + 8 + 4);
-    assert.ok(10 + textWidth(e.name) + 6 + textWidth('20 carried') + 4 + buttons <= CARD.w - 10, id);
-    for (const t of (e.look && LINES[e.look].texts) || []) assert.ok(textWidth(t) <= CARD.w - 20, t);
+    assert.ok(textWidth(e.name) <= dw && textWidth('20 carried') <= dw, id);
+    for (const t of (e.look && LINES[e.look].texts) || []) {
+      const lines = wrapWords(t, dw);
+      assert.ok(lines.every((l) => textWidth(l) <= dw) && 30 + 30 + lines.length * 12 < card.button.y - card.y, t);
+    }
+    assert.ok(card.make.x > card.x + SPLIT_X, id);
   }
 });
 

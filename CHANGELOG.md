@@ -22,8 +22,8 @@ Entry format:
 ```
 
 ## 0.2.135 (2026-10-27)
-- The bag now opens as a glass card in the middle of the screen, the room dimmed around it, with bigger slots.
-- Under the slots, the card shows the chosen item's name, how many you carry, and its look line.
+- The bag now opens as a glass card that fills the screen, with bigger slots in a 3 by 2 grid on the left. The arrow keys move around the grid.
+- On the right, the card shows the chosen item's name, how many you carry, and its look line. Its buttons sit in the bottom right corner, near your thumb.
 - A small round cross at the card's top right closes it; I, Esc and a tap outside still do too. The corner buttons hide while the bag is open.
 - Decisions: D-385.
 
@@ -106,7 +106,3 @@ Entry format:
 - The turn rules' biggest file is split into six smaller ones (the creatures' turn, a fall, the bag's buttons, and more), so new creatures and finds are quicker to add.
 - A new page in the docs lists every creature, find, tile, light and place with its numbers, and the tech notes list the files each new kind of content touches.
 - Decisions: D-362, D-363, D-364.
-
-## 0.2.122 (2026-10-25)
-- How to play's Touch, Mouse and Keyboard pages have a new row, Frame: tap (or click) a creature's plaque, or press Tab.
-- Decisions: D-361. Questions closed: Q-060.

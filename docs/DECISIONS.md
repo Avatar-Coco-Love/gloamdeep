@@ -196,10 +196,11 @@ with none. Built in 0.2.134.
 
 **D-385 · 2026-10-27 · The bag as a card** (the owner's picks,
 [mock-up](https://claude.ai/artifact/84qChoSf6ZKkuMpdRDUXjQ); step 5 of
-D-380) The bag opens as a glass card in the middle of the screen, the room
-dimmed around it (option B; the owner liked it over full screen for now, to
-change when there is more to show). Six bigger slots in a row, the held
-slot above; under a line, the chosen item's name, how many are carried and
-its Look line (D-297), its buttons at the right. A small round cross at
-the card's top right closes it, as I, Esc and a tap outside still do; the
-corner buttons hide while it is open. Built in 0.2.135.
+D-380) The bag opens as a glass card filling the screen but for a thin
+edge, the room nearly dark (changed after building: middle card → full
+screen, so the buttons sit near the thumbs). Six bigger slots in a 3 × 2
+grid on the left, the held slot above; on the right the chosen item's
+name, how many are carried and its Look line (D-297), its buttons in the
+bottom right corner. The arrows move in the grid. A small round cross top
+right closes it, as I, Esc and a tap outside still do; the corner buttons
+hide while it is open. Built in 0.2.135.

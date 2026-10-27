@@ -345,7 +345,7 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. Left and Right choose, Enter pours, makes, eats or drinks, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats or drinks, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -583,7 +583,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
-    if (app.screen === 'bag') { if (dir === 'left' || dir === 'right') pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + (dir === 'left' ? -1 : 1)))); return; }
+    if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
     if (app.screen === 'journal') {
       if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth');

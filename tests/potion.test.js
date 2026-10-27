@@ -50,12 +50,12 @@ test('at full health the potion stays, free', () => {
 });
 
 test('the heartcap shows Make beside Eat; the potion says Drink', async () => {
-  const { bagAt, twoButtons, cardAt, CARD } = await import('../src/render/bag.js');
+  const { bagAt, twoButtons, cardAt } = await import('../src/render/bag.js');
   assert.ok(twoButtons(get('heartcap')));
   assert.ok(!twoButtons(get('oilcap')) && !twoButtons(get('potion')));
   assert.equal(get('potion').verb, 'DRINK');
-  const { x, y } = cardAt(312, 176), fy = y + 104;
-  assert.equal(bagAt(x + CARD.w - 14, fy, 312, 176, true), 'act');
-  assert.equal(bagAt(x + CARD.w - 50, fy, 312, 176, true), 'make');
-  assert.equal(bagAt(x + CARD.w - 50, fy, 312, 176, false), null);
+  const { button, make } = cardAt(312, 176);
+  assert.equal(bagAt(button.x + 4, button.y + 4, 312, 176, true), 'act');
+  assert.equal(bagAt(make.x + 4, make.y + 4, 312, 176, true), 'make');
+  assert.equal(bagAt(make.x + 4, make.y + 4, 312, 176, false), null);
 });
