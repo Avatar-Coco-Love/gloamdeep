@@ -23,7 +23,7 @@ export function buildManifest(base, icons) {
     id: base, start_url: base, scope: base,
     name: 'Gloamdeep', short_name: 'Gloamdeep',
     description: 'Carry a lantern down through dark places, and the oil runs low.',
-    display: 'standalone', orientation: 'any',
+    display: 'standalone', orientation: 'landscape', // opens sideways, installed (D-377)
     background_color: NIGHT, theme_color: NIGHT,
     categories: ['games'],
     icons: icons.map(({ src, size }) => ({ src, sizes: `${size}x${size}`, type: 'image/png', purpose: 'any' })),

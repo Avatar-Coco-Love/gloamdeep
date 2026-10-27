@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.129 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.130 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Landscape only (D-377), one small visible step: a phone held upright
-pauses and shows a "turn your phone" picture; Android locks sideways and
-goes full screen on Play; installed, it opens sideways. Then the corner
-HUD (D-378). Creature materials (Q-061) wait.
+The corner HUD (D-378), one small step at a time: first the hearts, oil,
+depth and level on a glass panel top left, over the room. Propose the
+steps' order first. Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -33,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-27, 0.2.130, sideways only.** The game always uses its
+  sideways layout. A phone held upright pauses behind a "turn your phone"
+  picture; on Android, Play goes full screen and locks sideways;
+  installed, it opens sideways (D-377). PC windows are never asked.
+  [Playtest](https://claude.ai/artifact/T5rM58vSuLWJxc3ynNW6nK).
 - **2026-10-27, 0.2.129, sideways and a new look.** The owner's ideas
   from the Brogue talk are kept (D-379). Landscape only, full screen,
   install optional (D-377). A Genshin feel: corner HUD, glass, round
@@ -44,9 +48,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   combat sandbox and a seeded puzzle tester, are kept, later under one
   title-menu tools line with the Seed Explorer; games, bosses and talks
   move to `RESEARCH-GAMES.md` (D-376). No playtest: nothing to play.
-- **2026-10-26, 0.2.127, on the home screen.** The owner asked for
-  installing, as their other games have. Install only, no offline copy;
-  only the browser asks; the icon is the lit lantern alone, no backdrop
-  ([mock-up](https://claude.ai/artifact/PQUdYNRLtotU44CkkgR8Lz)). iPhone saves are apart from
-  Safari's, noted (D-375).
-  [Playtest](https://claude.ai/artifact/1T71JsozbHTCbQCv2zRJg6).
