@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.145 (2026-10-28)
+- The seed pad now opens as a glass card that fills the screen, like Settings, both from Settings and from the Seed Explorer. SEED sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
+- The digits typed sit in an ember box, with the keys under it as buttons on the same 4-column grid, both in the middle of the card. The chosen key glows ember; the rest are dim. Arrows, digits and Backspace work as before.
+- Decisions: D-394.
+
 ## 0.2.144 (2026-10-28)
 - Version history now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. VERSION HISTORY sits at its top left, and the round cross goes back to Settings, as Esc and a tap outside still do; the Back line is gone.
 - The list is the same: each version's number and title, with + to open it and − while open. An open version's lines now use the card's whole width, and the list scrolls inside the card, with its thin bar at the right.
@@ -31,10 +36,3 @@ Entry format:
 - The Version history's data is split into three smaller files by version, word for word, so it shows exactly as before.
 - Older decisions and changelog entries moved, word for word, into the archive.
 - Decisions: D-392.
-
-## 0.2.142 (2026-10-28)
-- The Journal now opens as a glass card that fills the screen, like How to play, both from the pause card and from the title. JOURNAL sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
-- Records and Growth are tabs under the heading. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn them, and Enter turns to Growth.
-- Each tab's rows sit under the tabs, the name on the left and its value in a column on the right.
-- On Growth, Add a heart is a button in the bottom right corner, with "1 ember each" beside it. It is dim while no ember can buy a heart. Enter presses it too.
-- Decisions: D-391.

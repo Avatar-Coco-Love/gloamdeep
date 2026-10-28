@@ -54,7 +54,7 @@
 import { depthOf, areaAt, tileAt } from '../core/room.js';
 import { lineAt, pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
-import { keyAt } from '../render/seedpad.js';
+import { seedCardAt } from '../render/seedpad.js';
 import { howtoAt } from '../render/howto.js';
 import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
 import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/history.js';
@@ -678,7 +678,13 @@ export function createScreens(app, ui) {
       else if (at) pickSlot(at.slot);
       return;
     }
-    if (app.screen === 'seed') { const k = keyAt(px, py); if (k >= 0) { app.chosen = k; choose(k); } return; }
+    if (app.screen === 'seed') {
+      if (held) return;
+      const at = seedCardAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') closePad(); // the round cross goes back (D-394)
+      else if (at) { app.chosen = at.key; choose(at.key); }
+      return;
+    }
     if (app.screen === 'name') { const k = nameKeyAt(px, py); if (k >= 0) { app.chosen = k; choose(k); } return; }
     if (app.screen === 'cloak') { const k = cloakKeyAt(px, py); if (k >= 0) pressCloak(k, true); return; }
     if (app.screen === 'eyes') { const k = cloakKeyAt(px, py); if (k >= 0) pressEyes(k, true); return; }

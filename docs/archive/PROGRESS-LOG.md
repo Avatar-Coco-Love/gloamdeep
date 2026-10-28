@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.142, the journal card.** The owner picked the
+  Journal as a glass card with tabs like How to play, Records and Growth
+  under the heading; on Growth, ADD A HEART a button bottom right with
+  "1 ember each" beside it (D-391).
+  [Playtest](https://claude.ai/artifact/P6n3LHKXTrePCkYWtnHYMo).
 - **2026-10-28, 0.2.141, the how to play card.** The owner picked How to
   play as a glass card with tabs, from the pause card and the title alike:
   Touch, Mouse, Keyboard and Crafting under the heading, the open one gold

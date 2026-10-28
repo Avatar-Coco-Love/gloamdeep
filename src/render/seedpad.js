@@ -1,39 +1,52 @@
-// § seed pad: the page for typing a seed (D-191), over the darkened title or room.
-// The heading Seed, the digits typed so far with a cursor, then the keys on a
-// 4-column grid; the chosen key gold with the menu's flame.
+// § seed card (D-394; was a page over the darkened title or room, D-191): the seed pad opens
+// as a glass card as the settings card (D-389), from Settings and from the Explorer alike,
+// "SEED" at its top and the round cross that goes back. The digits typed so far in an ember
+// box with a cursor, the keys under it as buttons on the pad's 4-column grid, both centred
+// in the card; the chosen key ember and gold as a button that can be pressed, the rest dim.
 import { PAD, PAD_ROWS, PAD_COLS } from '../core/seedpad.js';
-import { W, SCREEN_H } from './screen.js';
-import { drawText, textWidth, FONT_H } from './font.js';
-import { LINE_GAP, veil, drawHeading, drawMarker } from './menu.js';
+import { drawText, textWidth } from './font.js';
+import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON } from './bag.js';
 
-const GOLD = '#ffd66b', GREY = '#9790a4';
-const CELL = 24; // a grid column's width
-const LEFT = Math.floor((W - PAD_COLS * CELL) / 2);
-const TAP_PAD = 4; // game pixels around a key that still press it
-// The entry line's top; the heading sits one line above, the keys from two lines below
-export const PAD_TOP = Math.floor((SCREEN_H - (PAD_ROWS + 1) * LINE_GAP - FONT_H) / 2) + LINE_GAP / 2;
-const keysTop = PAD_TOP + 2 * LINE_GAP;
+const GOLD = '#ffd66b', EMBER = '#f39a3b', K = '#0e0c16';
+const CELL = 34, GAP = 4; // a key's width on the grid, and the gap between keys
+const ROW = BUTTON.h + GAP; // from one row of keys' top to the next
+const FIELD_H = 15, FIELD_GAP = 10; // the digits' box, and the gap under it
+const RULE = 20; // the card's rule under its heading, from its top
+const GRID_W = PAD_COLS * CELL + (PAD_COLS - 1) * GAP;
+const BLOCK_H = FIELD_H + FIELD_GAP + PAD_ROWS * ROW - GAP;
 
-const keyX = (k) => LEFT + k.col * CELL + Math.floor((k.span * CELL - textWidth(k.text)) / 2);
+// § layout: the box's and the keys' top left on a view `vw` × `vh`, centred under the rule
+function padAt(vw, vh) {
+  const card = cardAt(vw, vh);
+  const x = card.x + Math.floor((card.w - GRID_W) / 2), y = card.y + RULE + Math.max(4, Math.floor((card.h - RULE - BLOCK_H) / 2));
+  return { card, x, y, keysY: y + FIELD_H + FIELD_GAP };
+}
+const keyBox = (pad, k) => ({ x: pad.x + k.col * (CELL + GAP), y: pad.keysY + k.row * ROW, w: k.span * CELL + (k.span - 1) * GAP });
 
-// The key under a tap at x, y in game pixels, as its index, or -1
-export function keyAt(x, y) {
-  const row = Math.floor((y - keysTop + TAP_PAD) / LINE_GAP);
-  if (row < 0 || row >= PAD_ROWS || x < LEFT || x >= LEFT + PAD_COLS * CELL) return -1;
-  const col = Math.floor((x - LEFT) / CELL);
-  return PAD.findIndex((k) => k.row === row && col >= k.col && col < k.col + k.span);
+// What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { key: i }, 'close' (the round
+// cross), or null; outside the card, 'out'
+export function seedCardAt(x, y, vw, vh) {
+  const pad = padAt(vw, vh);
+  if (!inCard(pad.card, x, y)) return 'out';
+  if (onCross(pad.card, x, y)) return 'close';
+  const i = PAD.findIndex((k) => {
+    const b = keyBox(pad, k), half = GAP / 2;
+    return x >= b.x - half && x < b.x + b.w + half && y >= b.y - half && y < b.y + BUTTON.h + half;
+  });
+  return i >= 0 ? { key: i } : null;
 }
 
-// entry: the digits typed; chosen: a key's index; still: reduced motion (the cursor stays lit)
-export function drawSeedPad(c, entry, chosen, t, still) {
-  veil(c);
-  drawHeading(c, 'Seed', PAD_TOP);
-  const w = textWidth(entry), cursor = entry.length < 5, x = Math.floor((W - w - (cursor ? 5 : 0)) / 2);
-  drawText(c, entry, x, PAD_TOP, GOLD);
-  if (cursor && (still || Math.floor(t / 500) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(x + w + (entry ? 1 : 0), PAD_TOP + 7, 4, 1); }
-  PAD.forEach((k, i) => {
-    const kx = keyX(k), ky = keysTop + k.row * LINE_GAP;
-    drawText(c, k.text, kx, ky, i === chosen ? GOLD : GREY);
-    if (i === chosen) drawMarker(c, kx - 7, ky + 1, t, still);
-  });
+// c: the room's canvas, `vw` × `vh`; entry: the digits typed; chosen: a key's index;
+// still: reduced motion (the cursor stays lit)
+export function drawSeedCard(c, vw, vh, entry, chosen, t, still) {
+  drawCard(c, vw, vh, 'SEED', 0);
+  const pad = padAt(vw, vh), { x, y } = pad;
+  c.fillStyle = K; c.fillRect(x, y, GRID_W, FIELD_H);
+  c.fillStyle = EMBER;
+  c.fillRect(x + 1, y, GRID_W - 2, 1); c.fillRect(x + 1, y + FIELD_H - 1, GRID_W - 2, 1);
+  c.fillRect(x, y + 1, 1, FIELD_H - 2); c.fillRect(x + GRID_W - 1, y + 1, 1, FIELD_H - 2);
+  const w = textWidth(entry), cursor = entry.length < 5, tx = x + Math.floor((GRID_W - w - (cursor ? 5 : 0)) / 2);
+  drawText(c, entry, tx, y + 4, GOLD);
+  if (cursor && (still || Math.floor(t / 500) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(tx + w + (entry ? 1 : 0), y + 11, 4, 1); }
+  PAD.forEach((k, i) => { const b = keyBox(pad, k); drawButton(c, b.x, b.y, k.text.toUpperCase(), i !== chosen, b.w); });
 }
