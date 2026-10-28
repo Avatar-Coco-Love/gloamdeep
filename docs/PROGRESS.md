@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.157 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.158 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -36,6 +36,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.158, a bite stops the walk.** The owner said yes:
+  a creature's bite stops a walk to a tapped tile, with the "!", whichever
+  Stop walking choice is set (D-410). [Playtest](https://claude.ai/artifact/DJJKtDjui4S4J8M3maSorT).
 - **2026-10-28, 0.2.157, tap to walk.** A tap on a tile walks there
   at once, 4 steps a second, amber dots along the way; a tap stops it at
   no turn's cost; a held finger does the same (D-406, D-408). Settings:
@@ -48,8 +51,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   cost (D-406). Stops when a creature comes into view; version number
   off in play; tap to walk first (D-407). A held finger walks the same
   way; Swipe, Tap to walk and Arrow pad switches; finds stop it (D-408).
-- **2026-10-28, 0.2.155, past the room's edge.** The owner picked, from
-  pictures drawn by the game, the rock, brick or trees going on past a
-  small room's edge, each as remembered as the nearest edge tile, and a
-  passage straight out from each doorway (D-405). Trees behind the cave
-  mouth. [Playtest](https://claude.ai/artifact/KSiwBFTEEzoSENK4uKVbZE).
