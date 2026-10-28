@@ -181,3 +181,12 @@ keys under it as buttons like Make on the pad's 7-column grid, DEL and OK
 wider on the last row, both centred in the card; the chosen key ember, the
 rest dim. The round cross goes back to the profiles, as Esc and a tap
 outside do, so the Back key is gone (supersedes D-288). Built in 0.2.149.
+
+**D-399 · 2026-10-28 · The looks as cards** (the owner's picks, all
+recommended, [mock-up](https://claude.ai/artifact/KVRN72rzpnRRZPo6BfoksW))
+The cloak, eyes, trim and clothes screens (P3 to P6) open as glass cards
+like the name card (D-398) on the title's scene, CLOAK, EYES, TRIM and
+CLOTHES in ember top left. The framed boxes stay as they are, centred in
+the card, the picked one gold. OK is a button in the bottom right corner.
+The round cross goes back a card, as Back did, and so does a tap outside,
+so the Back line is gone; Esc stays as it was. Built in 0.2.150.

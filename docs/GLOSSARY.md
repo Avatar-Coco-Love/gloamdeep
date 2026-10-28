@@ -109,7 +109,8 @@ this page and a decision disagree, the decision wins.
   wears: the cloak's colour, the eyes' colour and the lantern's trim (its
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,
   Short, Tattered), chosen after the name or with Change look (the LOOK
-  button) on the slot screen (D-275 to D-278, D-289, D-397).
+  button) on the slot screen (D-275 to D-278, D-289, D-397); each a glass
+  card since D-399.
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).

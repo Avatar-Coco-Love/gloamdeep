@@ -63,13 +63,13 @@ export const CLOTHES_IDS = Object.keys(CLOTHES);
 export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
-// § look screens: the choices three to a row (the clothes two), then OK and Back, each on its
-// own row; walked as the seed pad's keys are. The cloak, eyes and trim screens share the shape.
+// § look cards: the choices three to a row (the clothes two), then OK on its own row (the round
+// cross does what Back did, D-399); walked as the seed pad's keys are. The cloak, eyes and trim
+// cards share the shape.
 export const CLOAK_COLS = 3;
 const lookPad = (ids, cols = CLOAK_COLS) => [
   ...ids.map((id, i) => ({ id, row: Math.floor(i / cols), col: i % cols, span: 1 })),
   { id: 'ok', row: 2, col: 0, span: cols },
-  { id: 'back', row: 3, col: 0, span: cols },
 ];
 export const CLOAK_PAD = lookPad(CLOAK_IDS);
 export const EYES_PAD = lookPad(EYE_IDS);
