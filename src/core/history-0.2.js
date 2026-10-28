@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.151', date: '2026-10-28', title: 'The ask cards', lines: [
+    "Start over?, Delete …? and Play …? (the easier way to play) now open as a small glass card in the middle of the screen, the title's scene or the room dim around it. The question sits at its top left in ember, with the grey note under it.",
+    "Yes and No are buttons along the card's bottom, YES and NO, with NO picked first as before; the arrows move between them. The round cross, Esc and a tap outside the card all mean No.",
+    "Decisions: D-400. Questions opened: Q-065.",
+  ] },
   { v: '0.2.150', date: '2026-10-28', title: 'The look cards', lines: [
     "Choosing a profile's look now opens a glass card that fills the screen, on the title's scene, like the name card: CLOAK, then EYES, TRIM and CLOTHES at its top left.",
     "The choices keep their framed boxes, centred in the card, the picked one framed in gold; OK is a button in the bottom right corner.",

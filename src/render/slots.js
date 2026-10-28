@@ -5,19 +5,16 @@
 // LOOK (Change look, P3, D-289) and DELETE as buttons along its foot (D-273), like the Explorer's
 // (D-395). While renaming or deleting, the card's title asks which, and that button reads CANCEL.
 // The round cross goes back to the title, shown only when there is one to go back to. The question
-// after Delete, Delete …?, is still a page of its own, drawn here too, with its note and Yes and No.
-import { W, SCREEN_H } from './screen.js';
+// after Delete, Delete …?, is the ask card (askcard.js, D-400).
 import { drawText, textWidth } from './font.js';
-import { drawHeading, drawMarker, drawLines } from './menu.js';
+import { drawMarker } from './menu.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { SLOTS, slotName, playedText } from '../core/profile.js';
 
-const K = '#0e0c16', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
+const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
 const BOX_H = 30, BOX_Y = 30, BOX_GAP = 34; // each slot's box; the first box's top inside the card, and from one box's top to the next
 const PATCH = 22, PATCH_X = 4, PATCH_TOP = 4; // the hero's lit patch, at the box's left
 const TEXT_X = PATCH_X + PATCH + 6;
-const HEADING_Y = 26; // the Delete question's line top, as the Journal page's was
-const ASK_TOP = 140; // the question's Yes, with No under it
 
 // The buttons along the foot: Rename, Change look and Delete (the one being done reads Cancel);
 // text is said, label drawn. picking: null, 'rename', 'look' or 'delete'
@@ -108,11 +105,3 @@ export function drawSlots(c, vw, vh, ps, heroOf, chosen, picking, back, t, still
   lines.forEach((l, i) => drawButton(c, row.buttons[i].x, row.y, l.label, chosen !== SLOTS + i && picking !== l.id, row.buttons[i].w)); // the chosen one ember, and the one being done
 }
 
-// § ask: Delete Coco? Lost for good. Yes and No (D-271), as Start over? asks (D-238)
-export function drawAsk(c, name, menu, chosen, note, t, still) {
-  c.fillStyle = K; c.fillRect(0, 0, W, SCREEN_H);
-  drawHeading(c, `Delete ${name}?`, HEADING_Y);
-  drawText(c, note, Math.floor((W - textWidth(note)) / 2), HEADING_Y + 4, GREY);
-  drawLines(c, menu, chosen, ASK_TOP, t, still);
-}
-export const askTop = ASK_TOP;

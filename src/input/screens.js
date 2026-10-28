@@ -74,7 +74,8 @@ import { BAG_SLOTS } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
-import { slotLines, slotsAt, slotsHeading, moveSlots, askTop } from '../render/slots.js';
+import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
+import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
@@ -112,7 +113,10 @@ export function createScreens(app, ui) {
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
-  const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, ['settings', 'easier'].includes(app.screen)));
+  const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
+  // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
+  const ASKS = new Set(['sure', 'drop', 'easier']);
+  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
@@ -125,8 +129,7 @@ export function createScreens(app, ui) {
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
-      : next === 'ways' ? waysWords() : next === 'easier' ? `${easeHeading(app.easier)} ${EASE_NOTE} Yes or No.`
-      : next === 'drop' ? `Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}? ${DROP_NOTE} Yes or No.`
+      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' ? `${askOf(next).join(' ')} Yes or No.`
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
@@ -600,6 +603,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth'); return; } // the tabs (D-391)
+    if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
     if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
     if (app.screen === 'history') {
       fitHistory();
@@ -721,6 +725,13 @@ export function createScreens(app, ui) {
       else if (at) turnTab(at.tab);
       return;
     }
+    if (ASKS.has(app.screen)) {
+      if (held) return;
+      const at = askCardAt(px, py, view.w, view.h, ...askOf(app.screen));
+      if (at === 'out' || at === 'close') pause(); // the round cross means No (D-400)
+      else if (at) { app.chosen = at.line; choose(at.line); }
+      return;
+    }
     if (app.screen === 'slots') {
       if (held) return;
       const at = slotsAt(px, py, view.w, view.h, linesNow(), slotsBack());
@@ -735,5 +746,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
+  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns };
 }

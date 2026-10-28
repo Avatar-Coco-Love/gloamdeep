@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.148, the profiles card.** The owner picked the
+  profiles as a glass card on the title's scene: PROFILES top left, the
+  three boxes as they were, RENAME, LOOK and DELETE buttons along its
+  foot, the cross back to the title only once there is one (D-397).
+  [Playtest](https://claude.ai/artifact/1pv964gKBCCvaQvCktBvNv).
 - **2026-10-28, 0.2.147, the way to play card.** The owner picked the
   ways to play as a glass card like Settings, WAY TO PLAY top left, each
   way a row with its note under it, from New journey and from Settings in
