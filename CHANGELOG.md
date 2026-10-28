@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.153 (2026-10-28)
+- The round buttons on the title have new icons, drawn at the game's own pixel size instead of doubled pixels: an open book with lines for Journal, a round question mark for How to play, a gear with a hole for Settings, and a wrench with an open jaw for the Seed Explorer.
+- Decisions: D-402.
+
 ## 0.2.152 (2026-10-28)
 - The title screen is laid out like a phone game's. The hero stands in the lantern's light in the middle, with one big button under them: CONTINUE while a journey is saved, with New journey as a grey line under it, or NEW JOURNEY on its own.
 - Journal, How to play and Settings are round buttons in the top right corner, each with a small icon (a book, a question mark, a gear) and its name under it. On a squarer screen they stand down the right side instead.

@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.152 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.153 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The owner's plan (2026-10-28): the title is laid out like a phone game's
-(0.2.152, D-401); next, step 2, its round buttons' draft icons (book,
-question mark, gear, wrench) are tuned after playing it, from mock-ups.
-Then upright play (Q-065) is looked at, then creature materials (Q-061).
+The owner's plan (2026-10-28): the title revamp is done (0.2.152 and
+0.2.153, D-401, D-402); next, upright play (Q-065) is looked at, from
+mock-ups, then creature materials (Q-061).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -21,7 +20,7 @@ Then upright play (Q-065) is looked at, then creature materials (Q-061).
 - Achievements' tiers and rewards (Q-057), before the first one.
 - Creature materials: which, names, chances, recipes (Q-061).
 - The chest card on squarer screens (Q-064), any time.
-- Playing upright too (Q-065), after the title's icons.
+- Playing upright too (Q-065), next.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -35,6 +34,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.153, the title icons.** The owner picked the round
+  buttons' icons at 9 × 9, one game pixel per dot, the shapes as drawn:
+  a book with lines, a round question mark, a gear with a hole, a wrench
+  with an open jaw (D-402).
+  [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).
 - **2026-10-28, 0.2.152, the title revamped.** The owner picked layout A
   from three mock-ups and the name lit from below at triple size from six
   drawn by the game: one big CONTINUE or NEW JOURNEY button under the
@@ -47,8 +51,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   top left, the note under it, YES and NO as buttons, NO first; the cross,
   Esc or a tap outside mean No (D-400). Upright play noted as Q-065.
   [Playtest](https://claude.ai/artifact/QKVE3SQxtDWeq3p2WTEvVD).
-- **2026-10-28, 0.2.150, the look cards.** The owner picked the cloak,
-  eyes, trim and clothes screens as glass cards like the name card: CLOAK,
-  EYES, TRIM or CLOTHES top left, the boxes centred, OK a button bottom
-  right, the cross (or a tap outside) back a card (D-399).
-  [Playtest](https://claude.ai/artifact/ACHppiuWHJgGU526WFqzar).

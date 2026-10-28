@@ -135,4 +135,14 @@ drawings (supersedes D-186's carved look and double size): dim stone at
 the letters' tops to gold and bone at their feet, the dark outline and
 ember edge kept. Two steps: this, with draft icons, built in 0.2.152;
 then the icons tuned after playing it. D-393 to D-400 moved unchanged to
-`archive/DECISIONS-CARDS-2.md`.
+`archive/DECISIONS-CARDS-2.md`. Its 5 × 5 icons superseded by D-402
+(2026-10-28).
+
+**D-402 · 2026-10-28 · The title's icons** (the owner's picks, both
+recommended, [mock-up](https://claude.ai/artifact/6dBqbqFa8xDYXoSnzCFEyH);
+supersedes D-401's 5 × 5 icons) The round buttons' icons are 9 × 9, drawn
+at one game pixel per dot like the hero and the hearts, the same size on
+screen as the drafts: an open book with lines (Journal), a round question
+mark (How to play), a gear with a hole (Settings) and a wrench with an
+open jaw (Seed Explorer). Stone grey, gold when chosen, as before. Built
+in 0.2.153.
