@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.146 (2026-10-28)
+- The map now opens as a glass card that fills the screen, like the bag. MAP sits at its top left, the floor's name and its arrows in the middle of the same row, and the round cross closes it, as M, Esc and a tap outside still do. The round map in the corner hides while it is open.
+- The Seed Explorer is the same card, on the title's scene: Back, Type and Reseed are buttons along its bottom, the seed in gold between them. Dragging, zooming, the floor arrows and tapping stairs work as before.
+- Fixed: the map's up arrow and Page Up now turn back up to the surface; before, they stopped at depth 1.
+- Decisions: D-395.
+
 ## 0.2.145 (2026-10-28)
 - The seed pad now opens as a glass card that fills the screen, like Settings, both from Settings and from the Seed Explorer. SEED sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
 - The digits typed sit in an ember box, with the keys under it as buttons on the same 4-column grid, both in the middle of the card. The chosen key glows ember; the rest are dim. Arrows, digits and Backspace work as before.
@@ -30,9 +36,3 @@ Entry format:
 - Version history now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. VERSION HISTORY sits at its top left, and the round cross goes back to Settings, as Esc and a tap outside still do; the Back line is gone.
 - The list is the same: each version's number and title, with + to open it and − while open. An open version's lines now use the card's whole width, and the list scrolls inside the card, with its thin bar at the right.
 - Decisions: D-393.
-
-## 0.2.143 (2026-10-28)
-- Behind the scenes: the third tidy-up of the notes and code. Nothing in the game changes.
-- The Version history's data is split into three smaller files by version, word for word, so it shows exactly as before.
-- Older decisions and changelog entries moved, word for word, into the archive.
-- Decisions: D-392.

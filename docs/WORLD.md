@@ -95,7 +95,8 @@ shows the floor the hero is on, on its grid, each room from the tiles
 remembered, in a box that scrolls and zooms; dev Reveal map shows the
 whole floor (`src/core/map.js`). Next it turns between floors (D-206).
 Since 0.2.133 a round map top right shows the floor around the hero, and a
-tap on it opens the full map (D-383).
+tap on it opens the full map (D-383). Since 0.2.146 the full map, and the
+Seed Explorer, is a glass card like the bag's (D-395).
 
 ## Where today's game goes (D-175)
 The crypt rooms (two, and a third beside the first since D-197) and the

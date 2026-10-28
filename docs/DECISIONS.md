@@ -138,3 +138,14 @@ on the pad's 4-column grid, both centred in the card; the chosen key ember,
 the rest dim. The keys and how arrows move between them stay as they are
 (D-191). The round cross goes back, as Esc and a tap outside do. Built in
 0.2.145.
+
+**D-395 · 2026-10-28 · The map as a card** (the owner's picks, all
+recommended, [mock-up](https://claude.ai/artifact/2tpkiwwgPRNCUyDwKcmQ7e))
+The map opens as a glass card like the bag's (D-385), MAP in ember top
+left, the floor's name and its arrows centred on the same row (D-206), the
+round cross closing it as M, Esc and a tap outside do; the round map
+(D-383) hides while it is open. The Seed Explorer (D-214) is the same card
+on the title's scene, Back, Type and Reseed buttons like Make along its
+foot, the seed in gold between them. Scrolling, zooming and stairs stay as
+they are. A bug found on the way is fixed too: the map turns up to the
+surface again. Built in 0.2.146.
