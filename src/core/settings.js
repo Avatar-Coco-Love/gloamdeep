@@ -48,6 +48,11 @@ export const nextFlasks = nextLantern;
 export const soundText = (id) => 'Sound: ' + (id === 'on' ? 'On' : 'Off');
 export const nextSound = (id) => (id === 'on' ? 'off' : 'on');
 
+// § stats line: On or Off (D-412). On, a short line bottom left in play: fps, turn, time
+// of day, xp, the hero's tile and the seed, what the panel doesn't show. Off until picked.
+export const statsText = (id) => 'Stats line: ' + (id === 'on' ? 'On' : 'Off');
+export const statsShown = (s) => s.stats === 'on';
+
 // § storage: localStorage, wrapped (TECH.md)
 const KEY = 'gloamdeep-settings';
 export function loadSettings() {
@@ -63,7 +68,8 @@ export function loadSettings() {
   const lantern = s?.lantern === 'self' ? 'self' : 'hand';
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
-  return { swipe, tapwalk, pad, stop, motion, seed, lantern, flasks, sound };
+  const stats = s?.stats === 'on' ? 'on' : 'off';
+  return { swipe, tapwalk, pad, stop, motion, seed, lantern, flasks, sound, stats };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify(s)); } catch { /* not kept */ }

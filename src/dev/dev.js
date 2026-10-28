@@ -1,18 +1,19 @@
 // § dev: dev tools (DEV-TOOLS.md), on for everyone on every build (D-086).
 // A wrench button slides out the drawer (panel.js); a stats line sits at the
-// bottom left (D-088); on a PC, keys work the drawer (D-090). Words are in
-// the game's pixel font (D-200).
+// bottom left (D-088), or a short one with Settings' Stats line (D-412); on a
+// PC, keys work the drawer (D-090). Words are in the game's pixel font (D-200).
 import { tileAt, depthOf } from '../core/room.js';
 import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
-import { TILE } from '../render/screen.js';
+import { TILE, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
 import { LINE_UP } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
 import { setPixelText } from './pixeltext.js';
 import { keepPlaced } from '../input/lantern.js';
 import { DAY_TURNS } from '../core/daytime.js';
+import { statsShown, padShown } from '../core/settings.js';
 
 const KEY = 'gloamdeep-dev'; // localStorage: the switches and the open sections
 
@@ -27,7 +28,7 @@ function save(opts) {
 // `game` gives tools the state: get() reads it, set(s) replaces it, reset()
 // gives the state with the starting room back, forget() with a blank memory,
 // setOil(amount) with that much oil, heal() with full hearts; still() is
-// true when motion is reduced (D-190); camera() is the
+// true when motion is reduced (D-190); settings() are Settings' switches; camera() is the
 // room pixel at the screen's top-left (D-195). `picture` is the room's
 // canvas; the wrench stands left of its top (D-199).
 export function createDev(stage, canvas, game, picture) {
@@ -48,14 +49,17 @@ export function createDev(stage, canvas, game, picture) {
   document.body.append(button, panel, readout);
   // § drawer: along the screen's left edge, from under the wrench's row down to
   // the bottom (D-200). The stats line, small, sits bottom left just above the
-  // text line's glass (D-382)
+  // text line's glass (D-382), or just above the arrow pad while it shows (D-412)
+  let lineBottom = 0, padBottom = 0;
   const fitPanel = () => {
     const top = parseFloat(button.style.top) + 52;
     panel.style.top = top + 'px';
     panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
   };
   keepPlaced(picture, button, -1, (top, left, room) => {
-    readout.style.bottom = innerHeight - room.bottom + (LINE_UP + 2) * (room.height / picture.height) + 'px';
+    lineBottom = innerHeight - room.bottom + (LINE_UP + 2) * (room.height / picture.height);
+    padBottom = innerHeight - room.bottom + BUTTON_GAP + PAD_DISC + 6;
+    readout.style.bottom = lineBottom + 'px';
     fitPanel();
   });
 
@@ -130,10 +134,17 @@ export function createDev(stage, canvas, game, picture) {
         drawPointed(ctx, pointed.x - cam.x / TILE, pointed.y - cam.y / TILE);
       }
       tools.sync(state);
-      // § stats: with the Stats switch on (D-382, was always on, D-088); a second line for the pick and the pointed tile
-      readout.hidden = !opts.stats;
-      const h = state.hero, picked = tools.picked();
-      let next = `fps ${fps} · turn ${state.turn} · day ${state.turn % DAY_TURNS}/${DAY_TURNS} · oil ${Math.round(state.oil * 100)}% · ${state.lit ? 'lit' : 'dark'} · health ${state.health} · xp ${state.xp} · hero ${h.x},${h.y} · depth ${depthOf(state.place)} · seed ${state.seed}`;
+      // § stats: with the Stats switch on (D-382, was always on, D-088); a second line for the pick and the pointed tile.
+      // Settings' Stats line alone shows a short one at full size, without what the panel shows (D-412)
+      const full = opts.stats, short = !full && statsShown(game.settings());
+      readout.hidden = !full && !short;
+      if (readout.hidden) return;
+      readout.classList.toggle('short', short);
+      readout.style.bottom = (padShown(game.settings()) ? Math.max(lineBottom, padBottom) : lineBottom) + 'px';
+      const h = state.hero, picked = tools.picked(), day = `day ${state.turn % DAY_TURNS}/${DAY_TURNS}`;
+      let next = short
+        ? `fps ${fps} · turn ${state.turn} · ${day} · xp ${state.xp} · hero ${h.x},${h.y} · seed ${state.seed}`
+        : `fps ${fps} · turn ${state.turn} · ${day} · oil ${Math.round(state.oil * 100)}% · ${state.lit ? 'lit' : 'dark'} · health ${state.health} · xp ${state.xp} · hero ${h.x},${h.y} · depth ${depthOf(state.place)} · seed ${state.seed}`;
       const more = [];
       if (picked) more.push(`placing ${picked.name}`);
       if (opts.coords && pointed) {
@@ -143,7 +154,8 @@ export function createDev(stage, canvas, game, picture) {
         more.push(tile);
       }
       if (more.length) next += '\n' + more.join(' · ');
-      if (next !== text) { text = next; setPixelText(readout, text, 1); } // touch the page only on change
+      const zoom = short ? 2 : 1;
+      if (next + zoom !== text) { text = next + zoom; setPixelText(readout, next, zoom); } // touch the page only on change
     },
   };
 }

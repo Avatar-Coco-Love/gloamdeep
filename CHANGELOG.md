@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.160 (2026-10-28)
+- Settings has a new Stats line switch, at the bottom, Off at first. On, a short line shows bottom left in play at the game's normal pixel size: fps (frames a second), turn, time of day, xp, the hero's tile and the seed. Hearts, oil and depth are left out, as the panel shows them.
+- While the arrow pad is on, the line sits just above it. The dev drawer's Stats switch still shows the full, small line.
+- Decisions: D-412.
+
 ## 0.2.159 (2026-10-28)
 - The arrow pad: a round glass disc in the bottom left corner, one arrow in each quarter. Press a quarter and the hero steps that way at once; hold it and they keep walking, 4 steps a second. Slide your thumb onto another quarter to turn. The pressed arrow turns gold, and the pad fades while the hero or a creature is under it, as the round map does.
 - Settings has a new Arrow pad switch, under Tap to walk, Off at first. How to play's Walk line says the pad can be turned on in Settings, or names it once it is on.

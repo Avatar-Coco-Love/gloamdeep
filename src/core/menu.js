@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried, BAG_SLOTS } from './bag.js';
-import { swipeText, tapWalkText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
+import { swipeText, tapWalkText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, statsText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -64,6 +64,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
   named('lantern', lanternText(s.lantern)),
   named('flasks', flasksText(s.flasks)),
   named('sound', soundText(s.sound)),
+  named('stats', statsText(s.stats)),
   { id: 'history', text: 'Version history' },
 ];
 

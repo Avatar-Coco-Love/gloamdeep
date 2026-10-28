@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.157, tap to walk.** A tap on a tile walks there
+  at once, 4 steps a second, amber dots along the way; a tap stops it at
+  no turn's cost; a held finger does the same (D-406, D-408). Settings:
+  Swipe, Tap to walk, and Stop walking, On sight or When noticed (D-409,
+  answers Q-067). [Playtest](https://claude.ai/artifact/Bn9tvzdNXFcJoRMoJjKvGb).
 - **2026-10-28, 0.2.156, steering picked.** Docs only. From pressable
   [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1) the owner
   picked the round arrow pad bottom left, off at first, and tap to walk

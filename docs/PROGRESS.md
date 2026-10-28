@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.159 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.160 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -34,6 +34,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.160, the stats line in Settings.** A Stats line
+  switch, off at first: a short line bottom left, at full pixel size,
+  with fps, turn, time of day, xp, hero tile and seed; above the arrow
+  pad when it shows (D-412). [Playtest](https://claude.ai/artifact/DoFZ6h4s98D1oo3mV2C77F).
 - **2026-10-28, 0.2.159, the arrow pad.** A round glass disc bottom
   left, an arrow in each quarter: a press steps at once, held it walks 4
   steps a second; off at first, an Arrow pad switch in Settings. How to
@@ -42,8 +46,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-10-28, 0.2.158, a bite stops the walk.** The owner said yes:
   a creature's bite stops a walk to a tapped tile, with the "!", whichever
   Stop walking choice is set (D-410). [Playtest](https://claude.ai/artifact/DJJKtDjui4S4J8M3maSorT).
-- **2026-10-28, 0.2.157, tap to walk.** A tap on a tile walks there
-  at once, 4 steps a second, amber dots along the way; a tap stops it at
-  no turn's cost; a held finger does the same (D-406, D-408). Settings:
-  Swipe, Tap to walk, and Stop walking, On sight or When noticed (D-409,
-  answers Q-067). [Playtest](https://claude.ai/artifact/Bn9tvzdNXFcJoRMoJjKvGb).

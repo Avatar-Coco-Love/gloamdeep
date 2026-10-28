@@ -72,6 +72,8 @@
   .px-line { display: flex; flex-wrap: wrap; gap: 4px 8px; }
   .px-word { display: block; height: 18px; background: currentColor; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
   #dev-readout .px { gap: 2px; } #dev-readout .px-line { gap: 2px 4px; } /* the words are half size (D-382) */
+  #dev-readout.short .px { gap: 4px; } #dev-readout.short .px-line { gap: 4px 8px; } /* Settings' Stats line: full size (D-412) */
+  #dev-readout.short { max-width: 50%; }
   #dev-readout[hidden] { display: none; }
   .px-said { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   /* the drawer: along the left edge, from under the wrench down to the stats

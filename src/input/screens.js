@@ -67,7 +67,7 @@ import { nameCardAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { lookCardAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, swipeText, tapWalkText, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
+import { saveSettings, swipeText, tapWalkText, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
@@ -489,6 +489,7 @@ export function createScreens(app, ui) {
   const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
   const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
   const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
+  const changeStats = () => { const o = nextOnOff(app.settings.stats); change('stats', o, statsText(o)); };
 
   // § ways (MO4, D-346): Settings' Way to play line opens the ways, the one played picked; a harder
   // one can't be picked, the one played goes back, an easier one asks first (No picked)
@@ -595,6 +596,7 @@ export function createScreens(app, ui) {
     else if (id === 'lantern') changeLantern();
     else if (id === 'flasks') changeFlasks();
     else if (id === 'sound') changeSound();
+    else if (id === 'stats') changeStats();
     else if (id === 'history') openHistory();
   }
   // Arrows and swipes off the room: menus take swipes always (D-189)
@@ -630,6 +632,7 @@ export function createScreens(app, ui) {
     else if (id === 'lantern' && (dir === 'left' || dir === 'right')) changeLantern();
     else if (id === 'flasks' && (dir === 'left' || dir === 'right')) changeFlasks();
     else if (id === 'sound' && (dir === 'left' || dir === 'right')) changeSound();
+    else if (id === 'stats' && (dir === 'left' || dir === 'right')) changeStats();
     else app.chosen = moveChoice(app.chosen, dir, menuOf(app.screen).length);
   };
   // A tap or click off the room

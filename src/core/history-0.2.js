@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.160', date: '2026-10-28', title: 'The stats line in Settings', lines: [
+    "Settings has a new Stats line switch, at the bottom, Off at first. On, a short line shows bottom left in play at the game's normal pixel size: fps (frames a second), turn, time of day, xp, the hero's tile and the seed. Hearts, oil and depth are left out, as the panel shows them.",
+    "While the arrow pad is on, the line sits just above it. The dev drawer's Stats switch still shows the full, small line.",
+    "Decisions: D-412.",
+  ] },
   { v: '0.2.159', date: '2026-10-28', title: 'The arrow pad', lines: [
     "The arrow pad: a round glass disc in the bottom left corner, one arrow in each quarter. Press a quarter and the hero steps that way at once; hold it and they keep walking, 4 steps a second. Slide your thumb onto another quarter to turn. The pressed arrow turns gold, and the pad fades while the hero or a creature is under it, as the round map does.",
     "Settings has a new Arrow pad switch, under Tap to walk, Off at first. How to play's Walk line says the pad can be turned on in Settings, or names it once it is on.",
