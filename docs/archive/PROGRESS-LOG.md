@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.152, the title revamped.** The owner picked layout A
+  from three mock-ups and the name lit from below at triple size from six
+  drawn by the game: one big CONTINUE or NEW JOURNEY button under the
+  hero, Journal, How to play and Settings round top right, the profile a
+  glass chip top left opening Profiles, the Seed Explorer round bottom
+  left (D-401). D-393 to D-400 archived.
+  [Playtest](https://claude.ai/artifact/WKrWA7LCh7Pz8gRp6qy6Bz).
 - **2026-10-28, 0.2.151, the ask cards.** The owner picked Start over?,
   Delete …? and Play …? as a small glass card in the middle, the question
   top left, the note under it, YES and NO as buttons, NO first; the cross,

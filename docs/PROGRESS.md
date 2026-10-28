@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.154 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.155 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The owner's plan (2026-10-28): upright play (Q-065) is tabled. Next, past
-a small room's edge its rock or trees go on all around (D-403); then
-mock-ups of the arrow pad and tap to walk (D-404, Q-067); then creature
-materials (Q-061).
+Mock-ups of the arrow pad and tap a tile to walk there, each one a
+player can turn on or off (D-404, Q-067), in a fresh conversation; then
+creature materials (Q-061). Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -37,6 +36,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.155, past the room's edge.** The owner picked, from
+  pictures drawn by the game, the rock, brick or trees going on past a
+  small room's edge, each as remembered as the nearest edge tile, and a
+  passage straight out from each doorway (D-405). Trees behind the cave
+  mouth. [Playtest](https://claude.ai/artifact/KSiwBFTEEzoSENK4uKVbZE).
 - **2026-10-28, 0.2.154, next steps: the edge and steering.** Docs
   only. The owner picked the room's edge going on past a small room, lit
   like it, so no flat colour shows (D-403), rooms behind the wall later
@@ -47,10 +51,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   a book with lines, a round question mark, a gear with a hole, a wrench
   with an open jaw (D-402).
   [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).
-- **2026-10-28, 0.2.152, the title revamped.** The owner picked layout A
-  from three mock-ups and the name lit from below at triple size from six
-  drawn by the game: one big CONTINUE or NEW JOURNEY button under the
-  hero, Journal, How to play and Settings round top right, the profile a
-  glass chip top left opening Profiles, the Seed Explorer round bottom
-  left (D-401). D-393 to D-400 archived.
-  [Playtest](https://claude.ai/artifact/WKrWA7LCh7Pz8gRp6qy6Bz).

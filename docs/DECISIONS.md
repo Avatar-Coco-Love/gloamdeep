@@ -154,10 +154,19 @@ a cave, trees outside) goes on past it all around, lit like the room, so
 dark stays dark, daylight carries on, and no seam or flat colour shows.
 It can't be walked on. Later, the owner's idea: a room on the same depth
 behind the wall shows there instead, once visited or while something in
-it shines (Q-066).
+it shines (Q-066). Built in 0.2.155 (D-405).
 
 **D-404 · 2026-10-28 · Easier steering** (the owner's picks) Taps step
 the wrong way too often; swipes are accurate and stay. An on-screen arrow
 pad and "tap a tile, walk there" are both wanted, each one a player can
 turn on or off, working side by side. Mock-ups come first (Q-067).
 
+**D-405 · 2026-10-28 · How the edge goes on** (the owner's picks, both
+recommended, from pictures drawn by the game; builds D-403) Past the edge
+the room's own rock, brick or trees go on, each as remembered as the edge
+tile nearest it, so remembered ground carries on dim and unseen stays
+dark; the lantern doesn't reach through the rock. Straight out from each
+doorway a floor passage runs on, lit as the lantern nears. Behind the
+woods' cave mouth the trees go on, as it leads down into the rock (not
+asked yet, the build's own choice; the owner may change it). Built in
+0.2.155.

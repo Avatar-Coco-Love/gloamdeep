@@ -2,7 +2,7 @@
 // Plain data, no drawing. The hero's tile sits in the middle of the screen,
 // and the camera stops at the room's edges, so nothing beyond the room shows.
 // Along a side where the room is no bigger than the screen it never moves,
-// and the room sits in the middle, the deepest dark around it (D-381).
+// and the room sits in the middle, its rock going on around it (D-381, D-403).
 const TILE_SIZE = 16;
 
 // (hero's top-left in room pixels, room, screen width and height in pixels)
