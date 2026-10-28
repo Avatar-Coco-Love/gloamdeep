@@ -1,8 +1,20 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.146)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.148)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, and 0.2.145 and 0.2.146 at 0.2.157 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, and 0.2.147 and 0.2.148 at 0.2.159 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.148 (2026-10-28)
+- The profiles now open as a glass card that fills the screen, on the title's scene, like Settings. PROFILES sits at its top left; each profile keeps its framed box, with its hero, name, deepest depth and play time.
+- Rename, Change look and Delete are buttons along the card's bottom: RENAME, LOOK and DELETE. While one is being done, the card's title asks which (RENAME WHICH?) and its button reads CANCEL. The arrows go down the boxes onto the buttons, then left and right along them.
+- The round cross goes back to the title, as Esc and a tap outside do. When the game first opens there is no title to go back to yet, so the cross is not shown. The Delete question stays as it was for now.
+- Decisions: D-397.
+
+## 0.2.147 (2026-10-28)
+- New journey's "Choose a way to play" now opens as a glass card that fills the screen, like Settings. WAY TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
+- Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.
+- Settings' Way to play line, in play, opens the same card on the room: the ways that can't be picked stay grey, with their own note.
+- Decisions: D-396.
 
 ## 0.2.146 (2026-10-28)
 - The map now opens as a glass card that fills the screen, like the bag. MAP sits at its top left, the floor's name and its arrows in the middle of the same row, and the round cross closes it, as M, Esc and a tap outside still do. The round map in the corner hides while it is open.

@@ -29,6 +29,7 @@ import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
 import { drawWays } from './ways.js';
 import { stashAt } from '../core/chest.js';
+import { padShown } from '../core/settings.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
@@ -65,7 +66,7 @@ const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', '
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, quickSlot, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -79,7 +80,7 @@ export function createFrame(app, ui) {
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
-  let roundAlpha = 1; // the round map's fade (D-383)
+  let roundAlpha = 1, padAlpha = 1; // the round map's fade (D-383), and the arrow pad's (D-406)
 
   // § creature list's order: newest last (D-357). Each creature keeps the place it
   // got when it joined, on its shown spot (main.js); one that leaves the list loses it.
@@ -158,7 +159,7 @@ export function createFrame(app, ui) {
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
     const onTitle = screens.onTitle();
     fitTitle(onTitle); // the title's scene fills the screen at the picture's zoom
-    if (onTitle) { rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); ctx.clearRect(0, 0, W, SCREEN_H); onTitleScreens(t); return; }
+    if (onTitle) { arrowPad.show(false, 1); rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); ctx.clearRect(0, 0, W, SCREEN_H); onTitleScreens(t); return; }
     ctx.clearRect(0, 0, W, SCREEN_H); // see-through over the room, but for a menu
     const { state, shown, nudge, hit, jab, bitten, travel, fall, walk } = app;
     const s = travel?.from || fall?.from || state;
@@ -247,6 +248,10 @@ export function createFrame(app, ui) {
     // § round map: the floor around the hero, top right, fading the same way (D-383)
     roundAlpha = app.screen === 'play' ? fade(roundAlpha, covers(mapButton.area()) ? UNDER_ALPHA : 1) : 1;
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
+    // § arrow pad: bottom left, in play with its switch on, fading the same way (D-406)
+    const padOn = app.screen === 'play' && padShown(app.settings);
+    padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
+    arrowPad.show(padOn, padAlpha);
     Object.assign(panel, drawStatus(rc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     row = null;
     if (list) {

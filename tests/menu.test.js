@@ -41,10 +41,10 @@ test('the pause menu offers Resume, Journal (D-270), Settings, How to play, then
   assert.deepEqual(PAUSE_MENU.map((l) => l.id), ['resume', 'journal', 'settings', 'howto', 'title']);
 });
 
-test('Settings shows Swipe, Tap to walk, Stop walking, Motion, Seed and the rest, Version history last, each switch with its name and value apart (D-389)', () => {
-  assert.deepEqual(settingsMenu({ swipe: 'off', tapwalk: 'on', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap to walk: On', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Version history']);
-  assert.equal(settingsMenu({ motion: null }, true)[3].text, 'Motion: Reduced');
-  assert.deepEqual(['name', 'value'].map((k) => settingsMenu({ seed: null }, false, 99999)[4][k]), ['Seed', 'Random (this one 99999)']);
+test('Settings shows Swipe, Tap to walk, Arrow pad, Stop walking, Motion, Seed and the rest, Version history last, each switch with its name and value apart (D-389)', () => {
+  assert.deepEqual(settingsMenu({ swipe: 'off', tapwalk: 'on', pad: 'off', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap to walk: On', 'Arrow pad: Off', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Version history']);
+  assert.equal(settingsMenu({ motion: null }, true)[4].text, 'Motion: Reduced');
+  assert.deepEqual(['name', 'value'].map((k) => settingsMenu({ seed: null }, false, 99999)[5][k]), ['Seed', 'Random (this one 99999)']);
 });
 
 test('the settings card: a tap across a row picks it, the button opens Version history, the cross or outside goes back, and every row fits (D-389)', () => {
@@ -74,7 +74,7 @@ test('a tap picks the line under it, near it, or none', () => {
 
 test('in play, Settings has the way to play under the seed; only an easier one changes it (MO4, D-346)', async () => {
   const { modeText, easier, easeMenu, easeMode, HARDER_NOTE, EASE_NOTE, easeHeading } = await import('../src/core/menu.js');
-  assert.deepEqual(settingsMenu({ seed: null }, false, 7, 'normal').map((l) => l.id).slice(4, 6), ['seed', 'mode']);
+  assert.deepEqual(settingsMenu({ seed: null }, false, 7, 'normal').map((l) => l.id).slice(5, 7), ['seed', 'mode']);
   assert.ok(!settingsMenu({ seed: null }).some((l) => l.id === 'mode'));
   for (const id of ['gentle', 'normal', 'hardcore']) assert.ok(textWidth(modeText(id)) + 2 * 8 <= W, id);
   assert.equal(modeText('hardcore'), 'Way to play: Hardcore');

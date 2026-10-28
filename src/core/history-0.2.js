@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.159', date: '2026-10-28', title: 'The arrow pad', lines: [
+    "The arrow pad: a round glass disc in the bottom left corner, one arrow in each quarter. Press a quarter and the hero steps that way at once; hold it and they keep walking, 4 steps a second. Slide your thumb onto another quarter to turn. The pressed arrow turns gold, and the pad fades while the hero or a creature is under it, as the round map does.",
+    "Settings has a new Arrow pad switch, under Tap to walk, Off at first. How to play's Walk line says the pad can be turned on in Settings, or names it once it is on.",
+    "The version number shows only on the title and the pause menu, no longer in play.",
+    "Decisions: D-411.",
+  ] },
   { v: '0.2.158', date: '2026-10-28', title: 'A bite stops the walk', lines: [
     "A bite stops a walk to a tapped tile, with a \"!\", whichever Stop walking choice is set.",
     "Decisions: D-410.",

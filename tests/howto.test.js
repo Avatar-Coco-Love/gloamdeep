@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { HOWTO_PAGES, nextPage, howtoRows, howtoWords } from '../src/core/howto.js';
-const SWITCHES = ['on', 'off'].flatMap((swipe) => ['on', 'off'].map((tapwalk) => ({ swipe, tapwalk }))); // every Swipe and Tap to walk pick
+const SWITCHES = ['on', 'off'].flatMap((swipe) => ['on', 'off'].flatMap((tapwalk) => ['on', 'off'].map((pad) => ({ swipe, tapwalk, pad })))); // every Swipe, Tap to walk and Arrow pad pick
 import { howtoAt } from '../src/render/howto.js';
 import { cardAt } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
@@ -25,15 +25,16 @@ test('Frame says how to frame a creature on each way of playing (D-361)', () => 
   assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tapwalk: 'on' })[4].ways, ['Tab']);
 });
 
-test('walking by touch follows the Swipe and Tap to walk switches; a tap on the hero still waits (D-408)', () => {
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'on' })[0].ways, ['Tap where to go', 'or swipe']);
-  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'on' })[0].ways, ['Click where to go', 'or drag']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'on' })[0].ways, ['Tap where to go', 'Tap again to stop']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[0].ways, ['Swipe']);
-  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'off' })[0].ways, ['Drag']);
+test('walking by touch follows the Swipe, Tap to walk and Arrow pad switches; a tap on the hero still waits (D-408)', () => {
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'on' })[0].ways, ['Tap where to go', 'or swipe', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'on', pad: 'on' })[0].ways, ['Click where to go', 'or drag', 'or the arrow pad']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'on' })[0].ways, ['Tap where to go', 'Tap again to stop', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[0].ways, ['Swipe', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'off', pad: 'on' })[0].ways, ['Drag', 'or the arrow pad']);
   assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'off' })[0].ways, ['Turn on in Settings']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'off', pad: 'on' })[0].ways, ['The arrow pad']);
   assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[1].ways, ['Tap the hero']);
-  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tapwalk: 'off' })[0].ways, ['Arrows or WASD']);
+  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tapwalk: 'off', pad: 'on' })[0].ways, ['Arrows or WASD']);
 });
 
 // A sideways phone's room (D-377), and the narrowest a card is drawn on

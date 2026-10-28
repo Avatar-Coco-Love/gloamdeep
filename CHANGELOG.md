@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.159 (2026-10-28)
+- The arrow pad: a round glass disc in the bottom left corner, one arrow in each quarter. Press a quarter and the hero steps that way at once; hold it and they keep walking, 4 steps a second. Slide your thumb onto another quarter to turn. The pressed arrow turns gold, and the pad fades while the hero or a creature is under it, as the round map does.
+- Settings has a new Arrow pad switch, under Tap to walk, Off at first. How to play's Walk line says the pad can be turned on in Settings, or names it once it is on.
+- The version number shows only on the title and the pause menu, no longer in play.
+- Decisions: D-411.
+
 ## 0.2.158 (2026-10-28)
 - A bite stops a walk to a tapped tile, with a "!", whichever Stop walking choice is set.
 - Decisions: D-410.
@@ -78,15 +84,3 @@ Entry format:
 - The name typed sits in an ember box, and each letter is a small button on the same 7-column grid, with DEL and OK wider buttons on the last row; the chosen key is ember and gold, the rest dim.
 - The round cross goes back to the profiles, as Esc and a tap outside do, so the Back key is gone.
 - Decisions: D-398.
-
-## 0.2.148 (2026-10-28)
-- The profiles now open as a glass card that fills the screen, on the title's scene, like Settings. PROFILES sits at its top left; each profile keeps its framed box, with its hero, name, deepest depth and play time.
-- Rename, Change look and Delete are buttons along the card's bottom: RENAME, LOOK and DELETE. While one is being done, the card's title asks which (RENAME WHICH?) and its button reads CANCEL. The arrows go down the boxes onto the buttons, then left and right along them.
-- The round cross goes back to the title, as Esc and a tap outside do. When the game first opens there is no title to go back to yet, so the cross is not shown. The Delete question stays as it was for now.
-- Decisions: D-397.
-
-## 0.2.147 (2026-10-28)
-- New journey's "Choose a way to play" now opens as a glass card that fills the screen, like Settings. WAY TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
-- Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.
-- Settings' Way to play line, in play, opens the same card on the room: the ways that can't be picked stay grey, with their own note.
-- Decisions: D-396.

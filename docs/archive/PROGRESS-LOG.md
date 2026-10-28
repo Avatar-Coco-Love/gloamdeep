@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.156, steering picked.** Docs only. From pressable
+  [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1) the owner
+  picked the round arrow pad bottom left, off at first, and tap to walk
+  at once with dots along the way, on at first; a tap stops at no turn's
+  cost (D-406). Stops when a creature comes into view; version number
+  off in play; tap to walk first (D-407). A held finger walks the same
+  way; Swipe, Tap to walk and Arrow pad switches; finds stop it (D-408).
 - **2026-10-28, 0.2.155, past the room's edge.** The owner picked, from
   pictures drawn by the game, the rock, brick or trees going on past a
   small room's edge, each as remembered as the nearest edge tile, and a
