@@ -199,3 +199,12 @@ Mouse, Keyboard and Crafting, the open one gold with the flame and
 underlined; a tap on a tab opens it, and Left and Right still turn them.
 The rows sit under the tabs as before. The round cross goes back, as Esc
 and a tap outside do, so the Back line is gone. Built in 0.2.141.
+
+**D-391 · 2026-10-28 · The Journal as a card** (the owner's picks, both
+recommended, [mock-up](https://claude.ai/artifact/UB6fUbcFBoXu1wYh7iYakK))
+The Journal opens as a glass card like the how to play card (D-390),
+JOURNAL in ember top left, from the pause card and the title alike. Its
+tabs, Records and Growth, sit under the heading the same way; each row's
+name is grey on the left, its value in a column on the right. On Growth,
+ADD A HEART is a button bottom right, "1 ember each" grey beside it, dim
+while no ember can buy one. The round cross goes back. Built in 0.2.142.

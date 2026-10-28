@@ -2,6 +2,13 @@
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
 // tests/history.test.js checks every one. Plain data.
 export const HISTORY_02 = [
+  { v: '0.2.142', date: '2026-10-28', title: 'The journal card', lines: [
+    "The Journal now opens as a glass card that fills the screen, like How to play, both from the pause card and from the title. JOURNAL sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.",
+    "Records and Growth are tabs under the heading. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn them, and Enter turns to Growth.",
+    "Each tab's rows sit under the tabs, the name on the left and its value in a column on the right.",
+    "On Growth, Add a heart is a button in the bottom right corner, with \"1 ember each\" beside it. It is dim while no ember can buy a heart. Enter presses it too.",
+    "Decisions: D-391.",
+  ] },
   { v: '0.2.141', date: '2026-10-28', title: 'The how to play card', lines: [
     "How to play now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. HOW TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.",
     "Its pages are tabs under the heading: Touch, Mouse, Keyboard and Crafting. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn the pages.",

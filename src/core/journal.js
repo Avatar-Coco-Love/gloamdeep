@@ -18,14 +18,15 @@ export const recordRows = (r, played = 0) => [
   { text: 'Torches lit', value: String(r.torches) },
   { text: 'Time played', value: playedText(played) },
 ];
-// The words for the screen reader
-export const journalWords = (r, played = 0) => `Journal, Records tab. ${recordRows(r, played).map((row) => `${row.text}, ${row.value}`).join('. ')}. Back.`;
+// The words for the screen reader; the card's cross goes back (D-391)
+const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
+export const journalWords = (r, played = 0) => `Journal, Records tab. ${recordRows(r, played).map((row) => `${row.text}, ${row.value}`).join('. ')}. ${TURN}`;
 
 // § growth: the Growth tab's rows, from the journey (D-293): the embers left and
-// the hearts in all; then Add a heart, picked to spend an ember on one more
+// the hearts in all; then Add a heart, a button that spends an ember on one more (D-391)
 export const growthRows = (state) => [
   { text: 'Embers', value: String(embers(state)) },
   { text: 'Hearts', value: `${maxHealth(state)} of ${HERO_HEALTH + HEARTS_MORE}` },
 ];
-export const ADD_HEART = { text: 'Add a heart', cost: `${HEART_COST} ember` };
-export const growthWords = (state) => `Journal, Growth tab. ${growthRows(state).map((row) => `${row.text}, ${row.value}`).join('. ')}. ${ADD_HEART.text}, ${ADD_HEART.cost}${canAddHeart(state) ? '' : ', not now'}. Back.`;
+export const ADD_HEART = { text: 'Add a heart', cost: `${HEART_COST} ember each` };
+export const growthWords = (state) => `Journal, Growth tab. ${growthRows(state).map((row) => `${row.text}, ${row.value}`).join('. ')}. ${ADD_HEART.text}, ${ADD_HEART.cost}${canAddHeart(state) ? '' : ', not now'}. ${TURN}`;

@@ -35,10 +35,10 @@
 // Version history in Settings opens the page of every version (D-254): Up and Down choose one,
 // Enter, Space, Right or a tap on its row opens or closes it (Left closes it), swipes and
 // Page Up and Page Down scroll a page; Back, Esc or P return to Settings.
-// Journal, on the title and the pause menu, opens its page on Records (D-270); Left and
-// Right or a tap on a tab turn to Records or Growth (D-293). On Growth, Up and Down choose
-// Add a heart or Back, and Enter, Space or a tap on Add a heart spends an ember on one.
-// Enter or Space on Back, a tap on Back, Esc or P return to the menu it was opened from.
+// Journal, on the title and the pause menu, opens its card on Records (D-270, D-391); Left and
+// Right or a tap on a tab turn to Records or Growth (D-293). Enter or Space turns to Growth,
+// and there, as a tap on ADD A HEART, spends an ember on one more. The round cross, a tap
+// outside the card, Esc or P return to the menu it was opened from.
 // The game opens on the slot screen (D-271): Up and Down or a tap pick a slot's box, which
 // plays as that profile (a new one in an empty slot) and opens the title. Delete, then a box,
 // asks "Delete …? Lost for good." with No picked; No, Esc or P go back. Profiles on the title
@@ -130,12 +130,12 @@ export function createScreens(app, ui) {
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
-  // § journal: its tabs (D-270, D-293). It opens on Records; Growth opens on Back.
+  // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
   const journalPageWords = () => (app.tab === 'growth' ? growthWords(app.state) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
   function openJournal() { app.tab = 'records'; show('journal'); }
   function turnTab(id) {
     if (id === app.tab) return;
-    app.tab = id; app.chosen = 1;
+    app.tab = id;
     spoken.textContent = journalPageWords();
   }
   function buyHeart() {
@@ -552,7 +552,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bag') { useChosen(); return; }
     if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
     if (app.screen === 'history') { if (i < HISTORY.length) openVersion(i); else closeHistory(); return; }
-    if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
+    if (app.screen === 'journal') { if (app.tab === 'growth') buyHeart(); else turnTab('growth'); return; } // Enter turns to Growth, and there adds a heart
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
     if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
@@ -594,11 +594,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
-    if (app.screen === 'journal') {
-      if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth');
-      else if (app.tab === 'growth') app.chosen = moveChoice(app.chosen, dir, 2);
-      return;
-    }
+    if (app.screen === 'journal') { if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth'); return; } // the tabs (D-391)
     if (app.screen === 'slots') { app.chosen = moveChoice(app.chosen, dir, SLOTS + linesNow().length); return; }
     if (app.screen === 'history') {
       if (dir === 'left' || dir === 'right') openVersion(app.chosen, dir === 'right');
@@ -687,10 +683,11 @@ export function createScreens(app, ui) {
       return;
     }
     if (app.screen === 'journal') {
-      const at = journalAt(px, py, app.tab);
-      if (at === 'back') closeJournal();
-      else if (at === 'heart') { app.chosen = 0; buyHeart(); }
-      else if (at) turnTab(at);
+      if (held) return;
+      const at = journalAt(px, py, view.w, view.h, app.tab);
+      if (at === 'out' || at === 'close') closeJournal(); // the round cross goes back (D-391)
+      else if (at === 'heart') buyHeart();
+      else if (at) turnTab(at.tab);
       return;
     }
     if (app.screen === 'slots') {

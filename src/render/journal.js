@@ -1,69 +1,70 @@
-// § journal: the Journal's page (D-262, D-270), dark like Version history's. The
-// heading Journal, the tab row, Records and Growth (D-293), the open one framed,
-// a rule under the row, then the tab's rows: each name in grey and its value in
-// light at the right. Growth adds Add a heart under its rows, light while an
-// ember can buy one. Back stays at the foot. The flame marks the line chosen.
-import { W, SCREEN_H } from './screen.js';
-import { drawText, textWidth, FONT_H } from './font.js';
-import { drawHeading, drawMarker } from './menu.js';
-import { BACK_Y } from './history.js';
+// § journal card (D-391; after the how to play card, D-390): the Journal (D-262, D-270) opens
+// as a glass card as the bag's (D-385), from the pause card on the room and from the title on
+// its scene alike, "JOURNAL" at its top and the round cross that goes back. Under the heading
+// its tabs, Records and Growth (D-293), the open one gold with the menus' flame (D-181) and
+// underlined; under them the tab's rows, each name grey on the left and its value light in a
+// column on the right. Growth has ADD A HEART as a button in the bottom right corner, as Make
+// on the bag's card, its cost grey beside it, dim while no ember can buy one.
+import { drawText, textWidth } from './font.js';
+import { drawMarker } from './menu.js';
+import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { TABS, recordRows, growthRows, ADD_HEART } from '../core/journal.js';
 import { canAddHeart } from '../core/growth.js';
 
-const K = '#0e0c16', GOLD = '#ffd66b', GREY = '#9790a4', DIM = '#4a4458', CORE = '#fff5d6';
-const TABS_Y = 24, EDGE = 8; // the tab row's words, and the rule's ends from the sides
-const RULE_Y = TABS_Y + FONT_H + 2;
-const ROWS_Y = RULE_Y + 10, ROW_H = 14, NAME_X = 14;
-export const ADD_Y = ROWS_Y + 2 * ROW_H + 8; // Add a heart, under the Growth tab's two rows
-const TAP_PAD = 8; // game pixels above and below Back that still pick it
+const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
+const TABS_Y = 28, TABS_RULE_Y = 44; // inside the card: the tabs' top and the rule under them
+const ROWS_Y = 52, ROW_H = 11; // Records' first row's top, and from one row's top to the next
+const GROWTH_Y = 54, GROWTH_H = 16; // Growth's two rows, spaced wider
+const MARK_W = 8; // the flame and its gap, left of the open tab and of the names
+const TAB_GAP = 24; // between two tabs
+const VALUE_GAP = 20; // between the longest name and the values' column
+const COST_GAP = 8; // between the cost and the button
+export const HEART = ADD_HEART.text.toUpperCase();
+export const HEART_W = textWidth(HEART) + 8;
+const tabsLeft = (card) => card.x + PAD + MARK_W;
+// Each tab's left edge, in a row from the left
+function tabXs(card) {
+  let x = tabsLeft(card);
+  return TABS.map((tab) => { const at = x; x += textWidth(tab.text) + TAB_GAP; return at; });
+}
+const heartAt = (card) => ({ x: card.x + card.w - PAD - HEART_W, y: card.button.y });
 
-// Each tab's left and right, in game pixels
-const tabSpans = () => {
-  let x = EDGE + 4;
-  return TABS.map((tab) => { const w = textWidth(tab.text), span = { ...tab, x, w }; x += w + 9; return span; });
-};
-
-// What a tap at x, y in game pixels picks: 'back', 'heart' (on the Growth tab),
-// a tab's id, or null
-export function journalAt(x, y, tab = 'records') {
-  if (y >= BACK_Y - TAP_PAD && y < BACK_Y + FONT_H + TAP_PAD) return 'back';
-  if (y >= TABS_Y - 6 && y < RULE_Y + 4) return tabSpans().find((s) => x >= s.x - 4 && x < s.x + s.w + 5)?.id ?? null;
-  if (tab === 'growth' && y >= ADD_Y - 5 && y < ADD_Y + FONT_H + 5) return 'heart';
-  return null;
+// What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { tab } for a tab (anywhere from
+// halfway to the tab before to halfway to the next, between the two rules), 'heart' (the button,
+// on Growth), 'close' (the round cross), or null; outside the card, 'out'. tab: the one open.
+export function journalAt(x, y, vw, vh, tab = 'records') {
+  const card = cardAt(vw, vh), h = heartAt(card);
+  if (!inCard(card, x, y)) return 'out';
+  if (onCross(card, x, y)) return 'close';
+  if (tab === 'growth' && y >= h.y - TAP_PAD && y < h.y + BUTTON.h + TAP_PAD && x >= h.x - TAP_PAD && x < h.x + HEART_W + TAP_PAD) return 'heart';
+  if (y < card.y + TABS_Y - 8 || y >= card.y + TABS_RULE_Y) return null;
+  const xs = tabXs(card);
+  let i = 0;
+  while (i < xs.length - 1 && x >= (xs[i] + textWidth(TABS[i].text) + xs[i + 1]) / 2) i++;
+  return { tab: TABS[i].id };
 }
 
-// § draw: records and played, the profile's; state, the journey's; tab, the one
-// open; chosen, the line the flame marks (on Growth, 0 Add a heart, 1 Back);
-// still: reduced motion
-export function drawJournal(c, records, played, state, tab, chosen, t, still) {
-  c.fillStyle = K; c.fillRect(0, 0, W, SCREEN_H); // a page of its own
-  drawHeading(c, 'Journal', TABS_Y + 2);
-  // § tabs: the open tab framed, its foot open onto the page below the rule
-  let ruleFrom = EDGE;
-  for (const s of tabSpans()) {
-    const open = s.id === tab;
-    if (open) {
-      c.fillStyle = GREY;
-      c.fillRect(s.x - 3, TABS_Y - 3, s.w + 6, 1); c.fillRect(s.x - 3, TABS_Y - 3, 1, RULE_Y - TABS_Y + 3); c.fillRect(s.x + s.w + 2, TABS_Y - 3, 1, RULE_Y - TABS_Y + 3);
-      c.fillRect(ruleFrom, RULE_Y, s.x - 3 - ruleFrom, 1);
-      ruleFrom = s.x + s.w + 3;
-    }
-    drawText(c, s.text, s.x, TABS_Y, open ? GOLD : GREY);
-  }
-  c.fillStyle = GREY; c.fillRect(ruleFrom, RULE_Y, W - EDGE - ruleFrom, 1);
-  const rows = tab === 'growth' ? growthRows(state) : recordRows(records, played);
-  rows.forEach((row, i) => {
-    const y = ROWS_Y + i * ROW_H;
-    drawText(c, row.text, NAME_X, y, GREY);
-    drawText(c, row.value, W - NAME_X - textWidth(row.value), y, CORE);
+// c: the room's canvas, `vw` × `vh`; records and played, the profile's; state, the journey's;
+// tab, the one open; still: prefers-reduced-motion
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still) {
+  const card = drawCard(c, vw, vh, 'JOURNAL', 0), { x, y, w } = card, xs = tabXs(card);
+  TABS.forEach((s, i) => {
+    const on = s.id === tab;
+    drawText(c, s.text, xs[i], y + TABS_Y, on ? GOLD : GREY);
+    if (!on) return;
+    drawMarker(c, xs[i] - MARK_W, y + TABS_Y + 1, t, still);
+    c.fillStyle = GOLD; c.fillRect(xs[i], y + TABS_Y + 11, textWidth(s.text), 1);
   });
-  if (tab === 'growth') {
-    const can = canAddHeart(state);
-    drawText(c, ADD_HEART.text, NAME_X, ADD_Y, can ? (chosen === 0 ? GOLD : CORE) : DIM);
-    drawText(c, ADD_HEART.cost, W - NAME_X - textWidth(ADD_HEART.cost), ADD_Y, can ? GREY : DIM);
-    if (chosen === 0) drawMarker(c, NAME_X - 7, ADD_Y + 1, t, still);
-  }
-  const bx = Math.floor((W - textWidth('Back')) / 2), onBack = tab !== 'growth' || chosen !== 0;
-  drawText(c, 'Back', bx, BACK_Y, onBack ? GOLD : GREY);
-  if (onBack) drawMarker(c, bx - 7, BACK_Y + 1, t, still);
+  c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y, w - 16, 1);
+  // § rows: one values' column for both tabs, after Records' longest name
+  const recs = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...recs.map((r) => textWidth(r.text))) + VALUE_GAP;
+  const growth = tab === 'growth', rows = growth ? growthRows(state) : recs, top = y + (growth ? GROWTH_Y : ROWS_Y), step = growth ? GROWTH_H : ROW_H;
+  rows.forEach((row, i) => {
+    drawText(c, row.text, nx, top + i * step, GREY);
+    drawText(c, row.value, vx, top + i * step, CORE);
+  });
+  if (!growth) return;
+  const h = heartAt(card);
+  drawButton(c, h.x, h.y, HEART, !canAddHeart(state), HEART_W);
+  drawText(c, ADD_HEART.cost, h.x - COST_GAP - textWidth(ADD_HEART.cost), h.y + 3, GREY);
 }
