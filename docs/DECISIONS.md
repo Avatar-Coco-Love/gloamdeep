@@ -142,8 +142,8 @@ rebuilt at home as their own stations. Items are fixed, with rare finer
 versions from portal depths. Nothing wears out. Better tools open
 tougher materials.
 
-**D-416 · 2026-10-28 · Skills, all four ways** (the owner's picks: all
-four, "a combination sounds nice") Embers buy a Growth tree; big
+**D-416 · 2026-10-28 · Skills, all four ways** *Superseded by D-419
+(2026-10-28).* (the owner's picks: all four, "a combination sounds nice") Embers buy a Growth tree; big
 abilities are found; NPCs teach some; and learning by doing covers only
 mining, woodcutting, fishing, farming and cooking, each level a small
 perk, so fighting stays with levels and embers.
@@ -160,3 +160,10 @@ for useful things, and the look currency only from deeds, records and
 achievements, for looks only (D-280). The bag's slots grow by crafting
 pouches and bags; no weight. A recipe shows once its parts have been
 held; special ones are found as notes and lore; NPCs teach or sell some.
+
+**D-419 · 2026-10-28 · Skills, two ways** (the owner's pick, Claude's two
+recommended; supersedes D-416) Skills and abilities come two ways only:
+embers buy a Growth tree of steady upgrades, and big abilities are found
+deep down, each opening new paths. Learning by doing and skills taught by
+NPCs are left out for now, to keep growth simple; either may come back by
+a new decision. NPCs may still teach or sell recipes (D-418).
