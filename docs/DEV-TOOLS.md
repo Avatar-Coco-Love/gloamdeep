@@ -29,7 +29,8 @@ tools to be chosen together later.
 - Stats line, with the Stats switch in View on (off at first, D-382), small,
   bottom left above the text line: frames a second (fps, D-294), turn, oil %, lit or dark, hero tile, then the
   spawn pick and pointed tile (D-088). New state joins it as it arrives:
-  health, depth, and the seed (D-150).
+  health, depth, and the seed (D-150). Settings' Stats line switch shows a
+  short one at full size, without oil, lit, health and depth (D-412).
 - PC keys: ` the panel; G, C, R the View switches (D-090).
 - Grid and coordinates overlay (D-046); both move with the camera (D-195). Drawing: `src/render/overlay.js`.
 - Spawn: chips grouped by registry kind; tap one, then tap tiles; tap it

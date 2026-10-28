@@ -178,3 +178,13 @@ choices (not asked; the owner may change them): a thumb slid onto another
 quarter turns that way at once; the pad's middle presses nothing; a press
 ends a walk to a tapped tile; Arrow pad sits under Tap to walk in
 Settings; the version number shows on every title screen.
+
+**D-412 · 2026-10-28 · The stats line in Settings** (the owner's picks,
+all recommended, at their partner's wish; builds on D-382) Settings gets a Stats
+line switch, off at first. On, a short line at the game's normal pixel
+size sits bottom left in play: fps, turn, time of day, xp, the hero's
+tile and the seed (the panel already shows hearts, oil and depth). Built
+in 0.2.160, with the build's own choices (not asked; the owner may change
+them): the switch is Settings' last line; while the arrow pad shows, the
+line sits just above it; the dev drawer's Stats switch, when on, shows
+the full small line instead.

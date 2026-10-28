@@ -381,6 +381,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
+  settings: () => app.settings,
   camera: () => app.cam,
 }, roomCanvas);
 const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt });

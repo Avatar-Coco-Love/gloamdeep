@@ -42,7 +42,7 @@ test('the pause menu offers Resume, Journal (D-270), Settings, How to play, then
 });
 
 test('Settings shows Swipe, Tap to walk, Arrow pad, Stop walking, Motion, Seed and the rest, Version history last, each switch with its name and value apart (D-389)', () => {
-  assert.deepEqual(settingsMenu({ swipe: 'off', tapwalk: 'on', pad: 'off', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap to walk: On', 'Arrow pad: Off', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Version history']);
+  assert.deepEqual(settingsMenu({ swipe: 'off', tapwalk: 'on', pad: 'off', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap to walk: On', 'Arrow pad: Off', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Sound: Off', 'Stats line: Off', 'Version history']);
   assert.equal(settingsMenu({ motion: null }, true)[4].text, 'Motion: Reduced');
   assert.deepEqual(['name', 'value'].map((k) => settingsMenu({ seed: null }, false, 99999)[5][k]), ['Seed', 'Random (this one 99999)']);
 });
