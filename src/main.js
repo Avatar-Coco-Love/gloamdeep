@@ -336,7 +336,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(...toRoom([px, py]), held);
-  else screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways'].includes(app.screen) ? toRoom([px, py]) : [px, py]), held); // the cards are on the room (D-385, D-387 to D-391, D-393 to D-396)
+  else screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots'].includes(app.screen) ? toRoom([px, py]) : [px, py]), held); // the cards are on the room (D-385, D-387 to D-391, D-393 to D-397)
 };
 const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)

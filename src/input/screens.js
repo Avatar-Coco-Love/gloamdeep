@@ -40,10 +40,10 @@
 // Right or a tap on a tab turn to Records or Growth (D-293). Enter or Space turns to Growth,
 // and there, as a tap on ADD A HEART, spends an ember on one more. The round cross, a tap
 // outside the card, Esc or P return to the menu it was opened from.
-// The game opens on the slot screen (D-271): Up and Down or a tap pick a slot's box, which
+// The game opens on the slot screen (D-271), a card (D-397): Up and Down or a tap pick a slot's box, which
 // plays as that profile (a new one in an empty slot) and opens the title. Delete, then a box,
 // asks "Delete …? Lost for good." with No picked; No, Esc or P go back. Profiles on the title
-// opens the slot screen again, with Back, Esc or P returning to the title. An empty box first
+// opens the slot screen again, with the round cross, Esc, P or a tap outside returning to the title. An empty box first
 // opens the name pad (D-272): letters typed, tapped or picked, Del, and OK makes the profile;
 // Esc goes back to the slot screen with nothing made. Rename, then a profile's box, opens the
 // pad on its name; OK keeps the new name, Esc the old (D-273). Cancel, Esc or P stop picking.
@@ -73,7 +73,7 @@ import { BAG_SLOTS } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
-import { slotLines, slotsAt, slotsHeading, askTop } from '../render/slots.js';
+import { slotLines, slotsAt, slotsHeading, moveSlots, askTop } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
@@ -189,10 +189,12 @@ export function createScreens(app, ui) {
     }
   }
 
-  // § slots (D-271): the flame starts on the profile in use; Back only once there is a title to go back to
-  const linesNow = () => slotLines(app.picking, app.slotsBack && app.profiles.current !== null);
+  // § slots (D-271, a card D-397): the flame starts on the profile in use; the round cross only once
+  // there is a title to go back to
+  const slotsBack = () => app.slotsBack && app.profiles.current !== null;
+  const linesNow = () => slotLines(app.picking);
   const profileWords = (p, i) => (p ? `${slotName(p, i)}, deepest ${p.records.deepest}, played ${playedText(p.played)}` : 'Empty');
-  const slotsWords = () => `${app.picking ? slotsHeading(app.picking) : 'Profiles. Pick one to play.'} ${app.profiles.slots.map(profileWords).join('. ')}. ${linesNow().map((l) => l.text).join('. ')}.`;
+  const slotsWords = () => `${app.picking ? slotsHeading(app.picking) : 'Profiles. Pick one to play.'} ${app.profiles.slots.map(profileWords).join('. ')}. ${linesNow().map((l) => l.text).join('. ')}${slotsBack() ? '. Back' : ''}.`;
   function openSlots(back) { app.picking = null; app.slotsBack = back; show('slots', app.profiles.current ?? 0); }
   function chooseSlot(i) {
     if (i < SLOTS) {
@@ -207,7 +209,6 @@ export function createScreens(app, ui) {
     }
     const id = linesNow()[i - SLOTS]?.id;
     if (id === 'rename' || id === 'look' || id === 'delete') { app.picking = app.picking === id ? null : id; spoken.textContent = slotsWords(); }
-    else if (id === 'back') titleAt('profiles');
   }
   // § name pad (D-272): OK makes the profile with the letters typed (none keeps it unnamed,
   // Claude's call) and opens the title; Back or Esc goes back to the slot screen with nothing made.
@@ -471,7 +472,7 @@ export function createScreens(app, ui) {
     else if (app.screen === 'trim') escTrim();
     else if (app.screen === 'clothes') escClothes();
     else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
-    else if (app.screen === 'slots' && linesNow().some((l) => l.id === 'back')) titleAt('profiles');
+    else if (app.screen === 'slots' && slotsBack()) titleAt('profiles');
   }
   function change(key, next, words) {
     app.settings = { ...app.settings, [key]: next };
@@ -603,7 +604,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth'); return; } // the tabs (D-391)
-    if (app.screen === 'slots') { app.chosen = moveChoice(app.chosen, dir, SLOTS + linesNow().length); return; }
+    if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
     if (app.screen === 'history') {
       fitHistory();
       if (dir === 'left' || dir === 'right') openVersion(app.chosen, dir === 'right');
@@ -715,8 +716,10 @@ export function createScreens(app, ui) {
       return;
     }
     if (app.screen === 'slots') {
-      const at = slotsAt(py, linesNow()), i = typeof at === 'number' ? at : SLOTS + linesNow().findIndex((l) => l.id === at);
-      if (at !== null) { app.chosen = i; chooseSlot(i); }
+      if (held) return;
+      const at = slotsAt(px, py, view.w, view.h, linesNow(), slotsBack());
+      if (at === 'close' || (at === 'out' && slotsBack())) titleAt('profiles'); // the round cross goes back (D-397)
+      else if (at !== null && at !== 'out') { const i = typeof at === 'number' ? at : SLOTS + linesNow().findIndex((l) => l.id === at); app.chosen = i; chooseSlot(i); }
       return;
     }
     const i = lineAt(py, menuOf(app.screen).length, menuTop());
@@ -726,5 +729,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
+  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, turns };
 }
