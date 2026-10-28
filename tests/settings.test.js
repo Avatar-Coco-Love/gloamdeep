@@ -1,7 +1,7 @@
-// § settings: the Swipe, Tap to walk, Stop walking, Motion, Seed and Lantern lines (D-179, D-190, D-191, D-210, D-408)
+// § settings: the Swipe, Tap to walk, Arrow pad, Stop walking, Motion, Seed and Lantern lines (D-179, D-190, D-191, D-210, D-408)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nextOnOff, swipeText, tapWalkText, nextStop, stopText, swipesWalk, tapsWalk, loadSettings, saveSettings, stillMotion, motionText, nextMotion, seedText, lanternText, nextLantern } from '../src/core/settings.js';
+import { nextOnOff, swipeText, tapWalkText, padText, padShown, nextStop, stopText, swipesWalk, tapsWalk, loadSettings, saveSettings, stillMotion, motionText, nextMotion, seedText, lanternText, nextLantern } from '../src/core/settings.js';
 
 test('Swipe and Tap to walk each flip On and Off; Stop walking flips On sight and When noticed (D-408)', () => {
   assert.equal(nextOnOff('on'), 'off');
@@ -13,14 +13,27 @@ test('Swipe and Tap to walk each flip On and Off; Stop walking flips On sight an
   assert.equal(stopText('sight'), 'Stop walking: On sight');
 });
 
+test('the Arrow pad switch is off at first and shows the pad only when on; a kept pick comes back (D-406)', () => {
+  assert.equal(padText('off'), 'Arrow pad: Off');
+  assert.equal(padText('on'), 'Arrow pad: On');
+  assert.ok(!padShown({}) && !padShown({ pad: 'off' }) && padShown({ pad: 'on' }));
+  const kept = { 'gloamdeep-settings': '{"pad":"big"}' };
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try {
+    assert.equal(loadSettings().pad, 'off');
+    saveSettings({ pad: 'on' });
+    assert.equal(loadSettings().pad, 'on');
+  } finally { delete globalThis.localStorage; }
+});
+
 test('Swipe off stops swipes walking; Tap to walk off stops taps walking', () => {
   assert.ok(swipesWalk({ swipe: 'on', tapwalk: 'on' }) && tapsWalk({ swipe: 'on', tapwalk: 'on' }));
   assert.ok(!swipesWalk({ swipe: 'off', tapwalk: 'on' }) && tapsWalk({ swipe: 'off', tapwalk: 'on' }));
   assert.ok(swipesWalk({ swipe: 'on', tapwalk: 'off' }) && !tapsWalk({ swipe: 'on', tapwalk: 'off' }));
 });
 
-test('with no storage, or a strange value kept, both are on and it stops on sight; the old Controls pick carries over', () => {
-  assert.deepEqual(loadSettings(), { swipe: 'on', tapwalk: 'on', stop: 'sight', motion: null, seed: null, lantern: 'hand', flasks: 'hand', sound: 'off' }); // no localStorage here
+test('with no storage, or a strange value kept, Swipe and Tap to walk are on, the pad off, and it stops on sight; the old Controls pick carries over', () => {
+  assert.deepEqual(loadSettings(), { swipe: 'on', tapwalk: 'on', pad: 'off', stop: 'sight', motion: null, seed: null, lantern: 'hand', flasks: 'hand', sound: 'off' }); // no localStorage here
   saveSettings({ swipe: 'off' }); // does not throw
   const kept = { 'gloamdeep-settings': '{"swipe":"fly","stop":"never"}' };
   globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
@@ -54,7 +67,7 @@ test('a kept Motion choice comes back; a strange one follows the device', () => 
   try {
     assert.equal(loadSettings().motion, null);
     saveSettings({ swipe: 'off', motion: 'reduced' });
-    assert.deepEqual(loadSettings(), { swipe: 'off', tapwalk: 'on', stop: 'sight', motion: 'reduced', seed: null, lantern: 'hand', flasks: 'hand', sound: 'off' });
+    assert.deepEqual(loadSettings(), { swipe: 'off', tapwalk: 'on', pad: 'off', stop: 'sight', motion: 'reduced', seed: null, lantern: 'hand', flasks: 'hand', sound: 'off' });
   } finally { delete globalThis.localStorage; }
 });
 

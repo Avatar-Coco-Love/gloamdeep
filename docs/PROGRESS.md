@@ -4,14 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.158 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.159 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The arrow pad (D-406): a round glass disc bottom left, an Arrow pad
-switch in Settings, off at first; the version number off in play (D-407);
-How to play's line about the pad (D-408). Then creature materials
-(Q-061). Upright play (Q-065) is tabled.
+Creature materials (Q-061): which creatures drop what, their names,
+chances and recipes, asked first. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,6 +34,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.159, the arrow pad.** A round glass disc bottom
+  left, an arrow in each quarter: a press steps at once, held it walks 4
+  steps a second; off at first, an Arrow pad switch in Settings. How to
+  play names it; the version number is off in play (D-411).
+  [Playtest](https://claude.ai/artifact/GMo6MfsMhLZLpV7ZUXjKed).
 - **2026-10-28, 0.2.158, a bite stops the walk.** The owner said yes:
   a creature's bite stops a walk to a tapped tile, with the "!", whichever
   Stop walking choice is set (D-410). [Playtest](https://claude.ai/artifact/DJJKtDjui4S4J8M3maSorT).
@@ -44,10 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   no turn's cost; a held finger does the same (D-406, D-408). Settings:
   Swipe, Tap to walk, and Stop walking, On sight or When noticed (D-409,
   answers Q-067). [Playtest](https://claude.ai/artifact/Bn9tvzdNXFcJoRMoJjKvGb).
-- **2026-10-28, 0.2.156, steering picked.** Docs only. From pressable
-  [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1) the owner
-  picked the round arrow pad bottom left, off at first, and tap to walk
-  at once with dots along the way, on at first; a tap stops at no turn's
-  cost (D-406). Stops when a creature comes into view; version number
-  off in play; tap to walk first (D-407). A held finger walks the same
-  way; Swipe, Tap to walk and Arrow pad switches; finds stop it (D-408).

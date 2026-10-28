@@ -10,6 +10,7 @@ export const LIST_H = 17; // upright, the creature list's row under the text lin
 export const BUTTON = 44; // a 44 px tap target (TECH.md)
 export const BUTTON_GAP = 8; // 8 px from the picture
 export const MAP_DISC = 104; // the round map's width, top right (D-383)
+export const PAD_DISC = 128; // the arrow pad's width, bottom left (D-406)
 export const LANTERN = 64; // the round lantern's width, bottom right (D-384)
 export const ARC = 64; // from the lantern's middle to its arc's buttons' middles (D-384)
 const ROW = BUTTON + BUTTON_GAP; // the buttons' column beside the picture (D-198, D-377)

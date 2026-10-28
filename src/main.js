@@ -29,6 +29,7 @@ import { createPauseButton } from './input/pause.js';
 import { createMapButton } from './input/mapbutton.js';
 import { createBagButton } from './input/bagbutton.js';
 import { createQuickSlot } from './input/quickslot.js';
+import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
@@ -136,6 +137,7 @@ Object.assign(app, {
   queued: null, nudge: null, // nudge: { dx, dy, until } after bumping a wall
   // The walk to a tapped tile (D-406, D-408): its tile and the way still to go there, until it ends or stops
   walk: null, // { tx, ty, way }
+  padDir: null, // the arrow pad's quarter held, which keeps walking (D-406)
   alertUntil: 0, // the "!" over the hero after a stop
   gain: null, // { n, at } the "+1" over the hero when experience is earned (D-245)
   hit: null, // { enemy, until, shakeUntil } after attacking an enemy (D-105, D-109)
@@ -296,6 +298,12 @@ function freshView() {
   app.queued = app.nudge = app.hit = app.jab = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
+// § arrow pad: a press ends a walk and steps at once, as a key does; held, it
+// keeps stepping at the held pace (D-406), in update below
+const arrowPad = createArrowPad(roomCanvas, { onPress: (dir) => {
+  app.padDir = dir;
+  if (dir && app.screen === 'play') { app.walk = null; tryStep(dir); lastHeldStep = performance.now(); }
+} });
 // § journey: New journey starts in a new world (D-187), in the way to play picked (D-334)
 function newJourney(mode) {
   app.state = newWorld(mode); app.jumped = false;
@@ -375,7 +383,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   camera: () => app.cam,
 }, roomCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, quickSlot, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern
@@ -414,10 +422,11 @@ function update(t) {
   shown.x = approach(shown.x, s.hero.x, dt);
   shown.y = approach(shown.y, s.hero.y, dt);
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  if (app.screen !== 'play') app.walk = null; // a card or menu ends a walk
+  if (app.screen !== 'play') app.walk = app.padDir = null; // a card or menu ends a walk, and the pad's
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }
+    else if (app.padDir && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; tryStep(app.padDir); }
     else if (app.walk && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; walkOn(); }
   }
 }

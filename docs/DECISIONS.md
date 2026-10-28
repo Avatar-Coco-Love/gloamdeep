@@ -168,3 +168,13 @@ comes with the pad.
 **D-410 · 2026-10-28 · A bite stops the walk** (the owner's pick) A walk
 to a tapped tile stops, with the "!", when a creature bites the hero,
 whichever Stop walking choice is set. Built in 0.2.158.
+
+**D-411 · 2026-10-28 · The arrow pad's details** (the owner's picks, all
+recommended; builds D-406 to D-408) A held quarter steps at once, then 4
+steps a second. How to play's Walk line ends "Arrow pad in Settings", or
+"or the arrow pad" once it is on. The pad fades like the round map while
+the hero or a creature is under it. Built in 0.2.159, with the build's own
+choices (not asked; the owner may change them): a thumb slid onto another
+quarter turns that way at once; the pad's middle presses nothing; a press
+ends a walk to a tapped tile; Arrow pad sits under Tap to walk in
+Settings; the version number shows on every title screen.

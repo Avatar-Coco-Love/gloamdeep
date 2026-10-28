@@ -107,3 +107,33 @@ export function drawFlaskSlot(c, n) {
   for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) drawText(c, text, x + dx, y + dy, '#0e0c16');
   drawText(c, text, x, y, '#efe6cc');
 }
+
+// § arrow pad: the round pad's face (D-406), drawn at its own size, `size` CSS
+// pixels: faint lines between its quarters, the pressed quarter lit, and each
+// quarter's arrow, a 9 × 9 icon at 3 px a dot, stone grey, gold while pressed
+const ARROW = ['.........', '....x....', '...xxx...', '..xxxxx..', '.xxxxxxx.', '...xxx...', '...xxx...', '...xxx...', '.........'];
+const ARROW_PX = 3, ARROW_OUT = 40; // a dot's size, and from the middle to each arrow's
+const TURN = { up: 270, right: 0, down: 90, left: 180 };
+export function drawArrowPad(c, size, held) {
+  const m = size / 2, r = m - 2;
+  c.clearRect(0, 0, size, size);
+  if (held) {
+    const a = TURN[held] * Math.PI / 180;
+    c.beginPath(); c.moveTo(m, m); c.arc(m, m, r, a - Math.PI / 4, a + Math.PI / 4); c.closePath();
+    c.fillStyle = 'rgba(255,198,92,.16)'; c.fill();
+  }
+  c.strokeStyle = 'rgba(239,230,204,.12)'; c.lineWidth = 1;
+  for (const a of [45, 135]) {
+    const k = a * Math.PI / 180, dx = Math.cos(k) * (r - 2), dy = Math.sin(k) * (r - 2);
+    c.beginPath(); c.moveTo(m - dx, m - dy); c.lineTo(m + dx, m + dy); c.stroke();
+  }
+  for (const [dir, [u, v]] of Object.entries({ up: [0, -1], right: [1, 0], down: [0, 1], left: [-1, 0] })) {
+    c.fillStyle = dir === held ? '#ffc65c' : '#9790a4';
+    ARROW.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (ch !== 'x') return;
+      let p = x - 4, q = y - 4; // the up arrow, turned to face its way
+      if (dir === 'down') q = -q; else if (dir === 'left') [p, q] = [q, -p]; else if (dir === 'right') [p, q] = [-q, p];
+      c.fillRect(Math.round(m + u * ARROW_OUT + (p - 0.5) * ARROW_PX), Math.round(m + v * ARROW_OUT + (q - 0.5) * ARROW_PX), ARROW_PX, ARROW_PX);
+    }));
+  }
+}

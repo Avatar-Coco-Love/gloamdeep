@@ -67,7 +67,7 @@ import { nameCardAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { lookCardAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, swipeText, tapWalkText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
+import { saveSettings, swipeText, tapWalkText, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
@@ -109,6 +109,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
+  const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
@@ -126,6 +127,7 @@ export function createScreens(app, ui) {
     app.screen = next; app.chosen = at;
     lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
+    version.hidden = !(onTitle() || next === 'paused'); // the version number on the title and the pause menu, not in play (D-407)
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
@@ -481,6 +483,7 @@ export function createScreens(app, ui) {
   }
   const changeSwipe = () => { const o = nextOnOff(app.settings.swipe); change('swipe', o, swipeText(o)); };
   const changeTapWalk = () => { const o = nextOnOff(app.settings.tapwalk); change('tapwalk', o, tapWalkText(o)); };
+  const changePad = () => { const o = nextOnOff(app.settings.pad); change('pad', o, padText(o)); };
   const changeStop = () => { const o = nextStop(app.settings.stop); change('stop', o, stopText(o)); };
   const changeMotion = () => { const m = nextMotion(app.settings.motion, reduceMotion.matches); change('motion', m, motionText(m, reduceMotion.matches)); };
   const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
@@ -584,6 +587,7 @@ export function createScreens(app, ui) {
     else if (id === 'explore') openExplorer();
     else if (id === 'swipe') changeSwipe();
     else if (id === 'tapwalk') changeTapWalk();
+    else if (id === 'pad') changePad();
     else if (id === 'stop') changeStop();
     else if (id === 'motion') changeMotion();
     else if (id === 'seed') openPad();
@@ -620,6 +624,7 @@ export function createScreens(app, ui) {
     const id = menuOf(app.screen)[app.chosen]?.id;
     if (id === 'swipe' && (dir === 'left' || dir === 'right')) changeSwipe();
     else if (id === 'tapwalk' && (dir === 'left' || dir === 'right')) changeTapWalk();
+    else if (id === 'pad' && (dir === 'left' || dir === 'right')) changePad();
     else if (id === 'stop' && (dir === 'left' || dir === 'right')) changeStop();
     else if (id === 'motion' && (dir === 'left' || dir === 'right')) changeMotion();
     else if (id === 'lantern' && (dir === 'left' || dir === 'right')) changeLantern();

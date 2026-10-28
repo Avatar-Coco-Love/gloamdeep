@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried, BAG_SLOTS } from './bag.js';
-import { swipeText, tapWalkText, stopText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
+import { swipeText, tapWalkText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -56,6 +56,7 @@ const named = (id, text) => { const at = text.indexOf(': '); return { id, text, 
 export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null) => [
   named('swipe', swipeText(s.swipe)),
   named('tapwalk', tapWalkText(s.tapwalk)),
+  named('pad', padText(s.pad)),
   named('stop', stopText(s.stop)),
   named('motion', motionText(s.motion, deviceReduced)),
   named('seed', seedText(s.seed, journey)),
