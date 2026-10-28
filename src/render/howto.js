@@ -38,9 +38,9 @@ export function howtoAt(x, y, vw, vh) {
   return { page: HOWTO_PAGES[i] };
 }
 
-// c: the room's canvas, `vw` × `vh`; page: the open tab's id; controls: the Controls switch;
+// c: the room's canvas, `vw` × `vh`; page: the open tab's id; settings: the walking switches;
 // still: prefers-reduced-motion
-export function drawHowTo(c, vw, vh, page, controls, t, still) {
+export function drawHowTo(c, vw, vh, page, settings, t, still) {
   const card = drawCard(c, vw, vh, 'HOW TO PLAY', 0), { x, y, w } = card, xs = tabXs(card);
   HOWTO_PAGES.forEach((p, i) => {
     const on = p === page, name = pageName(p);
@@ -52,7 +52,7 @@ export function drawHowTo(c, vw, vh, page, controls, t, still) {
   c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y, w - 16, 1);
   const ax = tabsLeft(card);
   let ly = y + ROWS_Y;
-  for (const row of howtoRows(page, controls)) {
+  for (const row of howtoRows(page, settings)) {
     drawText(c, row.action, ax, ly, GREY);
     for (const way of row.ways) { drawText(c, way, ax + WAYS_X, ly, CORE); ly += ROW_H; }
   }

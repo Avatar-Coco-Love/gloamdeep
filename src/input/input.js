@@ -8,13 +8,13 @@ const KEYS = {
   arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right',
 };
 const SWIPE_PX = 24; // a finger moving this far (CSS px) is a swipe, not a tap
-const HOLD_MS = 250; // a still finger held this long keeps stepping
+const HOLD_MS = 250; // a still finger held this long walks to the tile under it, as a tap does (D-408)
 
-// onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Controls switch, D-189); onPoint(x, y) for taps and holds, in game pixels;
+// onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Swipe switch, D-189, D-408); onPoint(x, y, held) for taps, and
+// once for a finger or button held still, held then true, in game pixels;
 // onLantern() for the L key; onWait() for Space, which repeats while held, like the arrows;
 // onChoose() for Enter; onPause() for Esc and P; onMap() for M; onBag() for I; onFloor(way) for < and > or Page Up and Page Down; onTab() for Tab, which returns true when it used the key; onType(key) for digits and Backspace (the seed pad, D-191), R, T and B (the Seed Explorer, D-214), C (the bag's Make, D-309) and letters (the name pad, D-272; P, M, I, L and WASD act as usual when it is shut),
 // which returns true when it used the key.
-// held() gives the point of a finger held still, so the loop keeps stepping toward it;
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opens on it, D-193).
 export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab }) {
   let kind = 'touch'; // phone first, until something is pressed
@@ -52,7 +52,7 @@ export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, o
     if (press || (ev.pointerType === 'mouse' && ev.button !== 0)) return;
     area.setPointerCapture(ev.pointerId);
     press = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, swiped: false, held: false };
-    press.timer = setTimeout(() => { if (press && !press.swiped) press.held = true; }, HOLD_MS);
+    press.timer = setTimeout(() => { if (press && !press.swiped) { press.held = true; onPoint(...gamePoint(press), true); } }, HOLD_MS);
   });
   area.addEventListener('pointermove', (ev) => {
     if (!press || ev.pointerId !== press.id) return;
@@ -79,5 +79,5 @@ export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, o
   }, true);
   area.addEventListener('pointercancel', end);
 
-  return { held: () => (press && press.held ? gamePoint(press) : null), kind: () => kind };
+  return { kind: () => kind };
 }

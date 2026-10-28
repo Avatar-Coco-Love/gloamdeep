@@ -67,7 +67,7 @@ import { nameCardAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { lookCardAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
+import { saveSettings, swipeText, tapWalkText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
@@ -128,7 +128,7 @@ export function createScreens(app, ui) {
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
-      : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
+      : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' ? `${askOf(next).join(' ')} Yes or No.`
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
@@ -150,7 +150,7 @@ export function createScreens(app, ui) {
     spoken.textContent = journalPageWords();
   }
   function openHowTo() { app.page = ui.input().kind(); show('howto'); }
-  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings.controls); }
+  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings); }
   const flipPage = (back = false) => openPage(nextPage(app.page, back));
 
   // § version history (D-254): opens with every version closed, on the newest, on a card (D-393)
@@ -479,7 +479,9 @@ export function createScreens(app, ui) {
     saveSettings(app.settings);
     spoken.textContent = words;
   }
-  const changeControls = (back = false) => { const c = nextControl(app.settings.controls, back); change('controls', c, controlsText(c)); };
+  const changeSwipe = () => { const o = nextOnOff(app.settings.swipe); change('swipe', o, swipeText(o)); };
+  const changeTapWalk = () => { const o = nextOnOff(app.settings.tapwalk); change('tapwalk', o, tapWalkText(o)); };
+  const changeStop = () => { const o = nextStop(app.settings.stop); change('stop', o, stopText(o)); };
   const changeMotion = () => { const m = nextMotion(app.settings.motion, reduceMotion.matches); change('motion', m, motionText(m, reduceMotion.matches)); };
   const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
   const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
@@ -580,7 +582,9 @@ export function createScreens(app, ui) {
     else if (id === 'journal') openJournal();
     else if (id === 'howto') openHowTo();
     else if (id === 'explore') openExplorer();
-    else if (id === 'controls') changeControls();
+    else if (id === 'swipe') changeSwipe();
+    else if (id === 'tapwalk') changeTapWalk();
+    else if (id === 'stop') changeStop();
     else if (id === 'motion') changeMotion();
     else if (id === 'seed') openPad();
     else if (id === 'mode') openWays();
@@ -614,7 +618,9 @@ export function createScreens(app, ui) {
       return;
     }
     const id = menuOf(app.screen)[app.chosen]?.id;
-    if (id === 'controls' && (dir === 'left' || dir === 'right')) changeControls(dir === 'left');
+    if (id === 'swipe' && (dir === 'left' || dir === 'right')) changeSwipe();
+    else if (id === 'tapwalk' && (dir === 'left' || dir === 'right')) changeTapWalk();
+    else if (id === 'stop' && (dir === 'left' || dir === 'right')) changeStop();
     else if (id === 'motion' && (dir === 'left' || dir === 'right')) changeMotion();
     else if (id === 'lantern' && (dir === 'left' || dir === 'right')) changeLantern();
     else if (id === 'flasks' && (dir === 'left' || dir === 'right')) changeFlasks();
