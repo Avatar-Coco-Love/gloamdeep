@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.141 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.142 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The Journal as a card too, the last page the pause card opens? Propose
-with a mock-up. Then the audit at 0.2.143. Creature materials (Q-061) wait.
+The audit at 0.2.143 (D-337): measure what a conversation reads at its
+start, archive, trim, split one big code file. Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.142, the journal card.** The owner picked the
+  Journal as a glass card with tabs like How to play, Records and Growth
+  under the heading; on Growth, ADD A HEART a button bottom right with
+  "1 ember each" beside it (D-391).
+  [Playtest](https://claude.ai/artifact/P6n3LHKXTrePCkYWtnHYMo).
 - **2026-10-28, 0.2.141, the how to play card.** The owner picked How to
   play as a glass card with tabs, from the pause card and the title alike:
   Touch, Mouse, Keyboard and Crafting under the heading, the open one gold
@@ -42,7 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   switch, its name left and value right, the cross for Back, Version
   history a button bottom left (D-389).
   [Playtest](https://claude.ai/artifact/2jms1biwLbb2THgRU9VLP7).
-- **2026-10-27, 0.2.139, the pause card.** The owner picked the pause
-  menu as a glass card, lines down the left, THIS JOURNEY right (seed, way
-  to play, depth, level), headed PAUSED (D-388). D-381 to D-384 archived.
-  [Playtest](https://claude.ai/artifact/EUYvk4txqvvqWkFLudeueG).

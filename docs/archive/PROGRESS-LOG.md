@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.139, the pause card.** The owner picked the pause
+  menu as a glass card, lines down the left, THIS JOURNEY right (seed, way
+  to play, depth, level), headed PAUSED (D-388). D-381 to D-384 archived.
+  [Playtest](https://claude.ai/artifact/EUYvk4txqvvqWkFLudeueG).
 - **2026-10-27, 0.2.138, the stash chest card.** Step 2 of D-387, as
   the mock-up: the chest's 12 slots in a 4 × 3 grid left, the bag's 3 × 2
   right with the chosen stack's name and count under it, Deconstruct

@@ -56,8 +56,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings and how to play cards (D-388 to D-390)
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play and journal cards (D-388 to D-391)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -133,7 +133,7 @@ export function createFrame(app, ui) {
     else if (screen === 'trim') drawTrims(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
     else if (screen === 'clothes') drawClothes(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
     else if (screen === 'drop') drawAsk(ctx, slotName(app.profiles.slots[app.dropping], app.dropping), SURE_MENU, app.chosen, DROP_NOTE, t, still());
-    else if (screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
+    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); } // the card on the title's scene (D-391)
     else {
       const [menu, heading, note] = screen === 'sure' ? [SURE_MENU, SURE_HEADING, SURE_NOTE]
         : screen === 'mode' ? [MODE_MENU, MODE_HEADING, MODE_MENU[app.chosen].note]
@@ -253,7 +253,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'seed') drawSeedPad(ctx, app.entry, app.chosen, t, still());
     else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());
-    else if (app.screen === 'journal') drawJournal(ctx, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, app.chosen, t, still());
+    else if (app.screen === 'journal') drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
     else if (app.screen === 'bag') {
       drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
