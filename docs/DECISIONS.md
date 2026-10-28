@@ -190,3 +190,12 @@ CLOTHES in ember top left. The framed boxes stay as they are, centred in
 the card, the picked one gold. OK is a button in the bottom right corner.
 The round cross goes back a card, as Back did, and so does a tap outside,
 so the Back line is gone; Esc stays as it was. Built in 0.2.150.
+
+**D-400 · 2026-10-28 · The asks as cards** (the owner's picks, all
+recommended) Start over? (D-238), Delete …? (D-271) and Play …?, the ask
+before an easier way (D-346), open as a small glass card centred on the
+title's scene or the room, which shows dim around it. The question in
+ember top left like the other cards' names, the round cross top right,
+the grey note centred under the rule, YES and NO as buttons like Make
+(D-299) along its foot, NO picked first. The cross, Esc and a tap outside
+mean No. Your journey ends. (D-344) stays a page for now. Built in 0.2.151.

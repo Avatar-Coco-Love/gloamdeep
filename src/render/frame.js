@@ -11,13 +11,14 @@ import { LINE_UP } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawTitle, drawScene } from './title.js';
-import { drawPause, VEIL } from './menu.js';
+import { VEIL } from './menu.js';
 import { drawSeedCard } from './seedpad.js';
 import { drawNameCard } from './namepad.js';
 import { drawHowTo } from './howto.js';
 import { drawHistory } from './history.js';
 import { drawJournal } from './journal.js';
-import { drawSlots, drawAsk } from './slots.js';
+import { drawSlots } from './slots.js';
+import { drawAskCard } from './askcard.js';
 import { drawCloaks, drawEyes, drawTrims, drawClothes } from './cloak.js';
 import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
@@ -42,9 +43,9 @@ import { daylight, darkNow } from '../core/daytime.js';
 import { shownSeed, canGoBack } from '../core/explorer.js';
 import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
-import { playing, slotName } from '../core/profile.js';
+import { playing } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
-import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, SURE_HEADING, SURE_NOTE, DROP_NOTE, ENDED_MENU, ENDED_HEADING, EASE_NOTE, easeHeading } from '../core/menu.js';
+import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
@@ -57,8 +58,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards (D-388 to D-391, D-393 to D-396)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -130,11 +131,10 @@ export function createFrame(app, ui) {
     else if (screen === 'eyes') { titleScene(0, t); drawEyes(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.chosen); }
     else if (screen === 'trim') { titleScene(0, t); drawTrims(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.trim, app.clothes, app.chosen); }
     else if (screen === 'clothes') { titleScene(0, t); drawClothes(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.trim, app.clothes, app.chosen); }
-    else if (screen === 'drop') drawAsk(ctx, slotName(app.profiles.slots[app.dropping], app.dropping), SURE_MENU, app.chosen, DROP_NOTE, t, still());
+    else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
     else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); } // the card on the title's scene (D-391)
     else {
-      const [menu, heading, note] = screen === 'sure' ? [SURE_MENU, SURE_HEADING, SURE_NOTE]
-        : screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
+      const [menu, heading, note] = screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
         : [screens.menuOf(screen), null, null];
       titleScene(menu.length, t);
       drawTitle(ctx, menu, app.chosen, t, still(), heading, note);
@@ -246,7 +246,7 @@ export function createFrame(app, ui) {
     if (app.screen === 'paused') drawPauseCard(rc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawSettingsCard(rc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
     else if (app.screen === 'ways') drawWays(rc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
-    else if (app.screen === 'easier') drawPause(ctx, SURE_MENU, app.chosen, t, still(), easeHeading(app.easier), EASE_NOTE);
+    else if (app.screen === 'easier') drawAskCard(rc, view.w, view.h, ...screens.askOf('easier'), SURE_MENU, app.chosen); // the ask card on the room (D-400)
     else if (app.screen === 'seed') drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)

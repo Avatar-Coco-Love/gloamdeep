@@ -100,7 +100,7 @@ export function frame(c, x, y, w, h, colour) {
 }
 
 // § round: a pixel disc on the glass with its light edge, as the corner buttons
-function round(c, cx, cy, r) {
+export function round(c, cx, cy, r) {
   for (let dy = -r; dy <= r; dy++) {
     const w = Math.floor(Math.sqrt(r * r - dy * dy));
     c.fillStyle = GLASS; c.fillRect(cx - w, cy + dy, 2 * w + 1, 1);
@@ -110,7 +110,7 @@ function round(c, cx, cy, r) {
   for (let dx = -r; dx <= r; dx++) { const h = Math.floor(Math.sqrt(r * r - dx * dx)); c.fillRect(cx + dx, cy - h, 1, 1); c.fillRect(cx + dx, cy + h, 1, 1); }
 }
 // The cross on it, as the close icon's 5 × 5 (hud.js), its middle at cx, cy
-function cross(c, cx, cy) {
+export function cross(c, cx, cy) {
   c.fillStyle = GREY;
   for (let i = 0; i < 5; i++) { c.fillRect(cx - 2 + i, cy - 2 + i, 1, 1); c.fillRect(cx + 2 - i, cy - 2 + i, 1, 1); }
 }

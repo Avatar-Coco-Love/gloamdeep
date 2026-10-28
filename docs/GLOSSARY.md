@@ -105,6 +105,8 @@ this page and a decision disagree, the decision wins.
   delete a profile (D-271); a glass card since D-397.
 - **Name pad:** the page of letters for naming a new profile (D-272), or
   renaming one (D-273); a glass card since D-398.
+- **Ask card:** the small glass card in the middle that asks Yes or No:
+  Start over?, Delete …? and Play …? (D-400).
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero
   wears: the cloak's colour, the eyes' colour and the lantern's trim (its
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,
