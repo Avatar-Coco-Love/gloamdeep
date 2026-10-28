@@ -12,7 +12,7 @@ content, with `CONTENT.md` for what exists today.
 
 | Part | What it covers | Status |
 | --- | --- | --- |
-| 1. The frame | size, needs, depth, where strength comes from, crafts, loot, skills, drops, money, the bag, recipes | settled (D-414 to D-418) |
+| 1. The frame | size, needs, depth, where strength comes from, crafts, loot, skills, drops, money, the bag, recipes | settled (D-414, D-415, D-417 to D-419) |
 | 2. Raw things | plants, wood, stone, ore, fishing, farming; what each biome gives | next |
 | 3. Creature drops | each creature's common and rare material, chances (Q-061) | to ask |
 | 4. Making | each craft family's recipes, workstations, the ladder | to ask |
@@ -66,18 +66,16 @@ Seven craft families; every recipe belongs to one:
 - **Tools open tougher materials,** as in Stardew Valley or Terraria:
   each better tool opens new materials, and new places.
 
-### Growth and skills (D-416)
-All four ways at once, each with its own job:
+### Growth and skills (D-419, supersedes D-416)
+Two ways, each with its own job:
 - **Embers buy a Growth tree:** steady upgrades, growing from today's
   hearts *(e.g. a slower oil burn, a stronger bite, more slots)*.
 - **Big abilities are found,** as in Hollow Knight: from shrines, relics
   or bosses deep down, each opening new paths *(e.g. the double jump,
   a dash, the elemental powers)*.
-- **Learn by doing, for gathering only:** mining, woodcutting, fishing,
-  farming and cooking level up with use, each level a small perk *(e.g.
-  a chance of an extra drop, one bump fewer)*. Fighting stays with levels
-  and embers, so the two never overlap.
-- **Taught by NPCs:** some skills come from people met or rescued.
+- Learning by doing and skills taught by NPCs are left out for now, to
+  keep growth simple; either may come back by a new decision. NPCs may
+  still teach or sell recipes (D-418).
 
 ### Creature drops (D-417, narrows Q-061)
 - **Its own common material, and some have a rare one,** each with its
@@ -106,7 +104,6 @@ All four ways at once, each with its own job:
   altar); how long the recipe ladder is in each biome.
 - **5:** weapon kinds and shapes; the lantern's upgrade slots; armour
   and charm slots.
-- **6:** the Growth tree's branches; how fast gathering skills rise; which
-  abilities are found where.
+- **6:** the Growth tree's branches; which abilities are found where.
 - **7:** what a lore piece gives; trophies; achievement tiers (Q-057).
 - **8:** what home upgrades do; who the first vendor is; prices.

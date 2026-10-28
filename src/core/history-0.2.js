@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.162', date: '2026-10-28', title: 'Skills, two ways', lines: [
+    "Docs only: skills and abilities now come two ways, not four: embers buy a Growth tree, and big abilities are found deep down. Learning by doing and skills taught by NPCs are left out for now, to keep growth simple; NPCs may still teach or sell recipes.",
+    "Decisions: D-419, which supersedes D-416.",
+  ] },
   { v: '0.2.161', date: '2026-10-28', title: 'The scope, part 1', lines: [
     "Docs only: the plan for all of the game's things is drawn up in eight parts, in docs/SCOPE.md: the frame, raw things, creature drops, making, gear, growth, collectables, and home and trade. Part 1, the frame, is settled.",
     "The frame: about 100 to 150 things in all, a biome at a time; no hunger, food a bonus; wood, stone and oil everywhere, each biome its own set; gear and crafting lead.",

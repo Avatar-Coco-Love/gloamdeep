@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.162 (2026-10-28)
+- Docs only: skills and abilities now come two ways, not four: embers buy a Growth tree, and big abilities are found deep down. Learning by doing and skills taught by NPCs are left out for now, to keep growth simple; NPCs may still teach or sell recipes.
+- Decisions: D-419, which supersedes D-416.
+
 ## 0.2.161 (2026-10-28)
 - Docs only: the plan for all of the game's things is drawn up in eight parts, in `docs/SCOPE.md`: the frame, raw things, creature drops, making, gear, growth, collectables, and home and trade. Part 1, the frame, is settled.
 - The frame: about 100 to 150 things in all, a biome at a time; no hunger, food a bonus; wood, stone and oil everywhere, each biome its own set; gear and crafting lead.
@@ -80,8 +84,3 @@ Entry format:
 - The profile you are playing sits top left as a small glass box with your hero, name and deepest depth; tapping it opens Profiles, so the Profiles line is gone. The Seed Explorer is a round button with a wrench in the bottom left corner.
 - The name Gloamdeep is bigger and lit from below, dim at the tops of the letters and gold at their feet, as if the hero's lantern shone up at it.
 - Decisions: D-401.
-
-## 0.2.151 (2026-10-28)
-- Start over?, Delete …? and Play …? (the easier way to play) now open as a small glass card in the middle of the screen, the title's scene or the room dim around it. The question sits at its top left in ember, with the grey note under it.
-- Yes and No are buttons along the card's bottom, YES and NO, with NO picked first as before; the arrows move between them. The round cross, Esc and a tap outside the card all mean No.
-- Decisions: D-400. Questions opened: Q-065.

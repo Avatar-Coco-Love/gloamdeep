@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.159, the arrow pad.** A round glass disc bottom
+  left, an arrow in each quarter: a press steps at once, held it walks 4
+  steps a second; off at first, an Arrow pad switch in Settings. How to
+  play names it; the version number is off in play (D-411).
+  [Playtest](https://claude.ai/artifact/GMo6MfsMhLZLpV7ZUXjKed).
 - **2026-10-28, 0.2.158, a bite stops the walk.** The owner said yes:
   a creature's bite stops a walk to a tapped tile, with the "!", whichever
   Stop walking choice is set (D-410). [Playtest](https://claude.ai/artifact/DJJKtDjui4S4J8M3maSorT).

@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.161 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.162 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -36,6 +36,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.162, skills, two ways.** Docs only. The owner
+  narrowed skills to Claude's two picks: a Growth tree for embers, and
+  big abilities found; doing and NPC teaching left out for now (D-419,
+  supersedes D-416).
 - **2026-10-28, 0.2.161, the scope, part 1.** Docs only. The plan for
   every item, craft, drop and skill, in eight parts in `SCOPE.md`
   (D-413). The frame: 100 to 150 things, no hunger, each biome its own
@@ -45,8 +49,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   switch, off at first: a short line bottom left, at full pixel size,
   with fps, turn, time of day, xp, hero tile and seed; above the arrow
   pad when it shows (D-412). [Playtest](https://claude.ai/artifact/DoFZ6h4s98D1oo3mV2C77F).
-- **2026-10-28, 0.2.159, the arrow pad.** A round glass disc bottom
-  left, an arrow in each quarter: a press steps at once, held it walks 4
-  steps a second; off at first, an Arrow pad switch in Settings. How to
-  play names it; the version number is off in play (D-411).
-  [Playtest](https://claude.ai/artifact/GMo6MfsMhLZLpV7ZUXjKed).
