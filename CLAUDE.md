@@ -44,22 +44,22 @@ Read the smallest file that answers the question.
 
 | File | What it holds | When to read it |
 | --- | --- | --- |
-| `docs/PROGRESS.md` | status, Next up, the last 3 log entries | every conversation |
-| `docs/DECISIONS.md` | the newest decisions; older ones archived | grep for an ID or topic |
+| `docs/PROGRESS.md` | status, Next up, the last 3 logs | every conversation |
+| `docs/DECISIONS.md` | the newest decisions | grep for an ID or topic |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile and place (D-363); `SCOPE.md`, the plan (D-413) | before adding content |
-| `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
+| `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…) | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md` | when proposing a feature |
-| `docs/DESIGN.md` | the one-page design brief | before proposing any feature |
-| `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | before any world, region or map step |
-| `docs/regions/` | one rule sheet per region, once designed | only the region a step touches |
-| `docs/VISION.md` | the pitch, inspirations, the pillars | when proposing a design |
-| `docs/ART-DIRECTION.md` | the visual rules taken from the style study | before any drawing code |
+| `docs/DESIGN.md` | the one-page design brief | before proposing a feature |
+| `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | world, region or map steps |
+| `docs/regions/` | one rule sheet per region | only the region a step touches |
+| `docs/VISION.md` | the pitch, inspirations, pillars | when proposing a design |
+| `docs/ART-DIRECTION.md` | the visual rules from the style study | before any drawing code |
 | `docs/TECH.md` | architecture, code rules, adding content | before writing code |
-| `docs/DEV-TOOLS.md` | the dev mode plan and tool list | when touching dev mode |
+| `docs/DEV-TOOLS.md` | the dev mode plan and tools | when touching dev mode |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
-| `docs/archive/` | old decisions (in force), changelog, log | grep only; its `README.md` is the index |
-| `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (see `reference/README.md`) |
+| `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
+| `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |
 
 ## Keeping track: every PR does all of these
 

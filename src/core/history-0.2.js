@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.164', date: '2026-10-28', title: 'The fourth audit', lines: [
+    "Nothing in the game changes. The fourth audit: the screens for a new profile's name and look, and Rename and Look, move word for word from screens.js into their own file, profilescreens.js.",
+    "Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; CLAUDE.md's file table is tidied, its rules word for word. The next audit is at 0.2.184.",
+    "Decisions: D-421.",
+  ] },
   { v: '0.2.163', date: '2026-10-28', title: 'A bigger name pad', lines: [
     "The name pad (Name and Rename) is much bigger and split for thumbs: A to M on the left half of the card, N to Z on the right, the middle left open. Del sits bottom left after M, OK bottom right after Z.",
     "The keys grow to fill the card, about three times as wide and twice as tall as before, and their letters, the typed name and its box are twice as big. The arrows walk across the split; tapping, clicking and typing work as before.",

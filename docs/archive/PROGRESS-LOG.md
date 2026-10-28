@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.161, the scope, part 1.** Docs only. The plan for
+  every item, craft, drop and skill, in eight parts in `SCOPE.md`
+  (D-413). The frame: 100 to 150 things, no hunger, each biome its own
+  set, gear leads (D-414); seven craft families (D-415); skills four
+  ways (D-416); drops (D-417); two currencies, bag, recipes (D-418).
 - **2026-10-28, 0.2.160, the stats line in Settings.** A Stats line
   switch, off at first: a short line bottom left, at full pixel size,
   with fps, turn, time of day, xp, hero tile and seed; above the arrow

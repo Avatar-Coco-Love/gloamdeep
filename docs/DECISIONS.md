@@ -176,3 +176,11 @@ thumbs: A to M four to a row hugging the card's left side with Del after
 M, N to Z the same on the right with OK after Z, the middle open. Claude's
 calls, may change: keys at most 48 × 32 game pixels on big screens; the
 arrows walk across the split.
+
+**D-421 · 2026-10-28 · The fourth audit, tiny** (the owner's picks, both
+recommended) The audit at 0.2.164 is kept small: the profile screens
+(name pad, cloak, eyes, trim, clothes, Rename and Look) move word for word
+from `screens.js` into `profilescreens.js`, nothing visible changed;
+`CHANGELOG.md` keeps its newest 3 entries; `CLAUDE.md`'s file table is
+tidied, its rules word for word. The rest of `screens.js` and `main.js`
+follow at later audits; the next is at 0.2.184.

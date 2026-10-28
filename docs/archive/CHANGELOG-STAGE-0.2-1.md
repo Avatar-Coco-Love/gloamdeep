@@ -1,8 +1,61 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.152)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.161)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, and 0.2.152 at 0.2.163 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.161 (2026-10-28)
+- Docs only: the plan for all of the game's things is drawn up in eight parts, in `docs/SCOPE.md`: the frame, raw things, creature drops, making, gear, growth, collectables, and home and trade. Part 1, the frame, is settled.
+- The frame: about 100 to 150 things in all, a biome at a time; no hunger, food a bonus; wood, stone and oil everywhere, each biome its own set; gear and crafting lead.
+- Seven craft families: lampcraft, cooking and alchemy, smithing and tools, building, leatherwork, electronic and arcane. Fixed items with rare finer versions, nothing wears out, better tools open tougher materials.
+- Skills come four ways: a Growth tree for embers, abilities found, NPCs teaching, and gathering skills that grow with use. Each creature drops its own material, some a rare one too. Two currencies, trade coins and the look currency; the bag grows by crafted pouches; recipes show once their parts are held, or are found or taught.
+- Decisions: D-413 to D-418.
+- Docs: decisions D-404 and D-406 to D-412 moved to `archive/DECISIONS-STEERING.md`.
+
+## 0.2.160 (2026-10-28)
+- Settings has a new Stats line switch, at the bottom, Off at first. On, a short line shows bottom left in play at the game's normal pixel size: fps (frames a second), turn, time of day, xp, the hero's tile and the seed. Hearts, oil and depth are left out, as the panel shows them.
+- While the arrow pad is on, the line sits just above it. The dev drawer's Stats switch still shows the full, small line.
+- Decisions: D-412.
+
+## 0.2.159 (2026-10-28)
+- The arrow pad: a round glass disc in the bottom left corner, one arrow in each quarter. Press a quarter and the hero steps that way at once; hold it and they keep walking, 4 steps a second. Slide your thumb onto another quarter to turn. The pressed arrow turns gold, and the pad fades while the hero or a creature is under it, as the round map does.
+- Settings has a new Arrow pad switch, under Tap to walk, Off at first. How to play's Walk line says the pad can be turned on in Settings, or names it once it is on.
+- The version number shows only on the title and the pause menu, no longer in play.
+- Decisions: D-411.
+
+## 0.2.158 (2026-10-28)
+- A bite stops a walk to a tapped tile, with a "!", whichever Stop walking choice is set.
+- Decisions: D-410.
+
+## 0.2.157 (2026-10-28)
+- Tap to walk: tap a tile and the hero walks there at once, around walls, 4 steps a second, with small gold dots on the way still to go and corners marking the tile. Tap again while walking to stop; stopping costs no turn. Holding a finger on a tile does the same as a tap.
+- A tap on a tile beside the hero still steps there, so it bites, mines or opens as before. A tap on dark you haven't seen walks as far as the ground you remember goes. A key, a swipe or Space ends a walk.
+- The walk stops by itself, with a "!", when a find or a creature comes into view. A new Settings line, Stop walking, can make it stop for a creature only once it has noticed you (When noticed) instead of on sight.
+- Settings' Controls line is now two switches, Swipe and Tap to walk, both On at first; your old pick carries over. The Arrow pad switch comes with the pad. How to play says how walking works now.
+- Decisions: D-409. Questions closed: Q-067.
+- Docs: decisions D-401 to D-403 and D-405 moved to archive/DECISIONS-TITLE-EDGE.md.
+
+## 0.2.156 (2026-10-28)
+- Steering mock-ups are picked: the arrow pad will be one round glass disc in the bottom left corner, each quarter an arrow, off at first. A press steps once; held, it keeps walking.
+- Tapping a tile will walk the hero there at once, with gold dots along the way, and is on at first; today's one-step tap goes. A tap while walking stops, costing no turn, and the walk stops by itself when a creature comes into view.
+- In play the version number will show only on the title and the pause menu. Tap to walk comes first. Planned, not built yet.
+- Tap to walk will fit in like this: holding a finger on a tile does the same as tapping it; Settings' Controls line becomes three switches, Swipe, Tap to walk and Arrow pad; a walk stops by itself when a creature or a find comes into view, or, by a Settings choice, when a creature notices you; a tap on unexplored dark walks as far as you remember. How to play will say the arrow pad can be turned on in Settings.
+- Decisions: D-406, D-407, D-408.
+
+## 0.2.155 (2026-10-28)
+- Past a small room's edge, the rock, brick or trees now go on all around to the screen's edges instead of a flat dark colour, drawn so no seam shows where the room ends. Nothing past the edge can be walked on.
+- It is lit like the room: as remembered as the edge tile next to it, pitch dark where you haven't been, and in full daylight outside. The lantern doesn't reach through the rock.
+- Out from each doorway a passage runs on to the screen's edge, so a way out looks like one; the lantern lights it as you come near. Behind the woods' cave mouth the trees go on.
+- Decisions: D-405.
+
+## 0.2.154 (2026-10-28)
+- Past a small room's edge, whatever stands there (rock in a cave, trees outside) will go on all around, lit like the room, so no flat colour or seam shows beside it. Planned, not built yet.
+- Steering is to get easier: an on-screen arrow pad and tapping a tile to walk there, each one you can turn on or off, beside swiping. Mock-ups come first.
+- Decisions: D-403, D-404. Questions opened: Q-066, Q-067.
+
+## 0.2.153 (2026-10-28)
+- The round buttons on the title have new icons, drawn at the game's own pixel size instead of doubled pixels: an open book with lines for Journal, a round question mark for How to play, a gear with a hole for Settings, and a wrench with an open jaw for the Seed Explorer.
+- Decisions: D-402.
 
 ## 0.2.152 (2026-10-28)
 - The title screen is laid out like a phone game's. The hero stands in the lantern's light in the middle, with one big button under them: CONTINUE while a journey is saved, with New journey as a grey line under it, or NEW JOURNEY on its own.
