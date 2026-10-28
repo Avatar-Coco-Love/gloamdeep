@@ -57,7 +57,7 @@ import { keyAt } from '../render/seedpad.js';
 import { howtoAt } from '../render/howto.js';
 import { historyRows, historyAt, headRow, lastRow, ROW_H, LIST_H } from '../render/history.js';
 import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/history.js';
-import { nextPage, howtoWords, HOWTO_LINES } from '../core/howto.js';
+import { nextPage, howtoWords } from '../core/howto.js';
 import { PAD, typeKey, entrySeed, moveKey } from '../core/seedpad.js';
 import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
@@ -145,7 +145,8 @@ export function createScreens(app, ui) {
     spoken.textContent = journalPageWords();
   }
   function openHowTo() { app.page = ui.input().kind(); show('howto'); }
-  function flipPage(back = false) { app.page = nextPage(app.page, back); spoken.textContent = howtoWords(app.page, app.settings.controls); }
+  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings.controls); }
+  const flipPage = (back = false) => openPage(nextPage(app.page, back));
 
   // § version history (D-254): opens with every version closed, on the newest
   function openHistory() { app.opened = new Set(); app.rows = historyRows(app.opened); app.scroll = 0; show('history'); }
@@ -549,7 +550,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'trim') { pressTrim(i); return; }
     if (app.screen === 'clothes') { pressClothes(i); return; }
     if (app.screen === 'bag') { useChosen(); return; }
-    if (app.screen === 'howto') { if (HOWTO_LINES[i] === 'page') flipPage(); else closeHowTo(); return; }
+    if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
     if (app.screen === 'history') { if (i < HISTORY.length) openVersion(i); else closeHistory(); return; }
     if (app.screen === 'journal') { if (app.tab === 'growth' && i === 0) buyHeart(); else closeJournal(); return; }
     if (app.screen === 'slots') { chooseSlot(i); return; }
@@ -592,7 +593,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
-    if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); else app.chosen = moveChoice(app.chosen, dir, HOWTO_LINES.length); return; }
+    if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') {
       if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth');
       else if (app.tab === 'growth') app.chosen = moveChoice(app.chosen, dir, 2);
@@ -657,6 +658,13 @@ export function createScreens(app, ui) {
       else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }
+    if (app.screen === 'howto') {
+      if (held) return;
+      const at = howtoAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') closeHowTo(); // the round cross goes back (D-390)
+      else if (at) openPage(at.page);
+      return;
+    }
     if (app.screen === 'bag') {
       if (held) return;
       const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
@@ -690,7 +698,6 @@ export function createScreens(app, ui) {
       if (at !== null) { app.chosen = i; chooseSlot(i); }
       return;
     }
-    if (app.screen === 'howto') { const at = howtoAt(px, py); if (at === 'back') closeHowTo(); else if (at) { app.chosen = 0; flipPage(at === 'prev'); } return; }
     const i = lineAt(py, menuOf(app.screen).length, menuTop());
     if (i >= 0) { app.chosen = i; choose(i); }
   };

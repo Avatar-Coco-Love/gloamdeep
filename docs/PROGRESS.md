@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.140 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.141 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The other pages the pause card opens (Journal, How to play) as cards
-too? Propose with a mock-up. Creature materials (Q-061) wait.
+The Journal as a card too, the last page the pause card opens? Propose
+with a mock-up. Then the audit at 0.2.143. Creature materials (Q-061) wait.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,6 +32,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.141, the how to play card.** The owner picked How to
+  play as a glass card with tabs, from the pause card and the title alike:
+  Touch, Mouse, Keyboard and Crafting under the heading, the open one gold
+  and underlined, the cross for Back (D-390).
+  [Playtest](https://claude.ai/artifact/JS4B4tXGVqeiaupCzmSbsc).
 - **2026-10-27, 0.2.140, the settings card.** The owner picked Settings
   as a glass card, from the pause card and the title alike: a row per
   switch, its name left and value right, the cross for Back, Version
@@ -41,8 +46,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   menu as a glass card, lines down the left, THIS JOURNEY right (seed, way
   to play, depth, level), headed PAUSED (D-388). D-381 to D-384 archived.
   [Playtest](https://claude.ai/artifact/EUYvk4txqvvqWkFLudeueG).
-- **2026-10-27, 0.2.138, the stash chest card.** Step 2 of D-387, as
-  the mock-up: the chest's 12 slots in a 4 × 3 grid left, the bag's 3 × 2
-  right with the chosen stack's name and count under it, Deconstruct
-  bottom left, the round cross to close. Squarer screens: Q-064.
-  [Playtest](https://claude.ai/artifact/TKqcpC4nL7eRGzVaiLAouh).

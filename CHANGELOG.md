@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.141 (2026-10-28)
+- How to play now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. HOW TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
+- Its pages are tabs under the heading: Touch, Mouse, Keyboard and Crafting. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn the pages.
+- Each page's rows sit under the tabs, the action on the left and how to do it on the right, as before.
+- Decisions: D-390.
+
 ## 0.2.140 (2026-10-27)
 - Settings now opens as a glass card that fills the screen, like the pause card, both from the pause card and from the title. SETTINGS sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
 - Each setting is a row: its name on the left, its value in a column on the right, so every value shows at once. A tap anywhere level with a row changes it.
@@ -95,9 +101,3 @@ Entry format:
 - Kept for later, from the Brogue talk: a bot that hunts broken seeds, floors that line up with the ones above, a dimension rift with bizarre creatures, generated beginnings and backstories, and a much bigger world, the surface first.
 - Nothing in the game changed.
 - Decisions: D-377, D-378, D-379.
-
-## 0.2.128 (2026-10-27)
-- The research notes are split in two: the owner's wish list and kept ideas stay in `RESEARCH.md`, and the games, how they do bosses, and talks worth hearing move to a new `RESEARCH-GAMES.md`.
-- Kept for later, from the Into the Breach talk: a combat sandbox and a seeded puzzle tester, to sit with the Seed Explorer under one tools line on the title menu.
-- Nothing in the game changed.
-- Decisions: D-376.
