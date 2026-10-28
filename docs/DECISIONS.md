@@ -146,3 +146,18 @@ screen as the drafts: an open book with lines (Journal), a round question
 mark (How to play), a gear with a hole (Settings) and a wrench with an
 open jaw (Seed Explorer). Stone grey, gold when chosen, as before. Built
 in 0.2.153.
+
+**D-403 · 2026-10-28 · Past a small room's edge** (the owner's pick,
+recommended; changes D-381's "deepest dark around it") Where a room is
+narrower or shorter than the screen, whatever stands at its edge (rock in
+a cave, trees outside) goes on past it all around, lit like the room, so
+dark stays dark, daylight carries on, and no seam or flat colour shows.
+It can't be walked on. Later, the owner's idea: a room on the same depth
+behind the wall shows there instead, once visited or while something in
+it shines (Q-066).
+
+**D-404 · 2026-10-28 · Easier steering** (the owner's picks) Taps step
+the wrong way too often; swipes are accurate and stay. An on-screen arrow
+pad and "tap a tile, walk there" are both wanted, each one a player can
+turn on or off, working side by side. Mock-ups come first (Q-067).
+

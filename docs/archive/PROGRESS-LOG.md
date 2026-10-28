@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.151, the ask cards.** The owner picked Start over?,
+  Delete …? and Play …? as a small glass card in the middle, the question
+  top left, the note under it, YES and NO as buttons, NO first; the cross,
+  Esc or a tap outside mean No (D-400). Upright play noted as Q-065.
+  [Playtest](https://claude.ai/artifact/QKVE3SQxtDWeq3p2WTEvVD).
 - **2026-10-28, 0.2.150, the look cards.** The owner picked the cloak,
   eyes, trim and clothes screens as glass cards like the name card: CLOAK,
   EYES, TRIM or CLOTHES top left, the boxes centred, OK a button bottom
