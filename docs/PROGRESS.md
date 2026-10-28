@@ -8,8 +8,10 @@ go to the top of `archive/PROGRESS-LOG.md`.
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Creature materials (Q-061): which ones, their names, chances and
-recipes; ask the owner, then build the first in a small step.
+The owner's plan (2026-10-28): every screen still drawn on the picture
+(seed pad, map, way to play, slots, name pad, looks, the asks) becomes a
+glass card; then the main menu is revamped, from mock-ups. Creature
+materials (Q-061) wait until after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
