@@ -60,3 +60,10 @@ test('Stop walking: On sight stops for a creature coming into view; When noticed
   const find = at(1, 1, [], [{ id: 'flask', x: 1, y: 2 }]);
   assert.equal(stopsWalk({ ...find, items: [] }, find, 'noticed'), true, 'a find stops it either way');
 });
+
+test('a bite stops the walk, whichever Stop walking choice (D-410)', () => {
+  const s = at(1, 1, [{ id: 'rat', x: 1, y: 3 }]), bitten = { ...s, events: [{ type: 'bite', id: 'rat', hurt: 1 }] };
+  assert.equal(stopsWalk(s, s, 'noticed'), false, 'nothing new, no bite');
+  assert.equal(stopsWalk(s, bitten, 'noticed'), true);
+  assert.equal(stopsWalk(s, bitten, 'sight'), true);
+});

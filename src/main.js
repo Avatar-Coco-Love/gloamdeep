@@ -258,7 +258,7 @@ const stepToward = (px, py, held = false) => {
 };
 // § walk on: one step on the way to the walk's tile, at the held pace (D-044). It ends
 // on the tile, at the end of remembered ground, or in another room; it stops by itself
-// for a find or a creature, with a "!" (D-407, D-408, the Stop walking switch).
+// for a bite, a find or a creature, with a "!" (D-407, D-408, D-410, the Stop walking switch).
 function walkOn() {
   const { walk } = app, before = app.state, [next] = walk.way = wayTo(before, walk.tx, walk.ty);
   if (!next) { app.walk = null; return; }

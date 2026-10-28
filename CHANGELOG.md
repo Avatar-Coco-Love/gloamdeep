@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.158 (2026-10-28)
+- A bite stops a walk to a tapped tile, with a "!", whichever Stop walking choice is set.
+- Decisions: D-410.
+
 ## 0.2.157 (2026-10-28)
 - Tap to walk: tap a tile and the hero walks there at once, around walls, 4 steps a second, with small gold dots on the way still to go and corners marking the tile. Tap again while walking to stop; stopping costs no turn. Holding a finger on a tile does the same as a tap.
 - A tap on a tile beside the hero still steps there, so it bites, mines or opens as before. A tap on dark you haven't seen walks as far as the ground you remember goes. A key, a swipe or Space ends a walk.

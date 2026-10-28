@@ -164,3 +164,7 @@ a tap far off on a wall or creature walks to the nearest tile it can
 reach; a key, a swipe or Space ends a walk and acts; a held finger while
 walking walks anew; a card or menu ends a walk; the Arrow pad switch
 comes with the pad.
+
+**D-410 · 2026-10-28 · A bite stops the walk** (the owner's pick) A walk
+to a tapped tile stops, with the "!", when a creature bites the hero,
+whichever Stop walking choice is set. Built in 0.2.158.

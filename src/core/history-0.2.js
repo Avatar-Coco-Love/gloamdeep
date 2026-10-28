@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.158', date: '2026-10-28', title: 'A bite stops the walk', lines: [
+    "A bite stops a walk to a tapped tile, with a \"!\", whichever Stop walking choice is set.",
+    "Decisions: D-410.",
+  ] },
   { v: '0.2.157', date: '2026-10-28', title: 'Tap to walk', lines: [
     "Tap to walk: tap a tile and the hero walks there at once, around walls, 4 steps a second, with small gold dots on the way still to go and corners marking the tile. Tap again while walking to stop; stopping costs no turn. Holding a finger on a tile does the same as a tap.",
     "A tap on a tile beside the hero still steps there, so it bites, mines or opens as before. A tap on dark you haven't seen walks as far as the ground you remember goes. A key, a swipe or Space ends a walk.",

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.155, past the room's edge.** The owner picked, from
+  pictures drawn by the game, the rock, brick or trees going on past a
+  small room's edge, each as remembered as the nearest edge tile, and a
+  passage straight out from each doorway (D-405). Trees behind the cave
+  mouth. [Playtest](https://claude.ai/artifact/KSiwBFTEEzoSENK4uKVbZE).
 - **2026-10-28, 0.2.154, next steps: the edge and steering.** Docs
   only. The owner picked the room's edge going on past a small room, lit
   like it, so no flat colour shows (D-403), rooms behind the wall later
