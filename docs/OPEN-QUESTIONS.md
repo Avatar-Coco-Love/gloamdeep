@@ -115,7 +115,6 @@ it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
 
 **Q-067 · The arrow pad and tap to walk** (raised 2026-10-28, D-404)
-Picked: D-406, D-407. Still open: the stop choice's name and words (in
-view, or when a creature notices the hero), how the new switches sit
-beside Controls' Tap only and Swipe only, and whether a held finger
-still walks toward it (D-219) while tap to walk is on.
+Picked: D-406 to D-408. Still open: the stop choice's name and words (on
+sight, or when a creature notices the hero), and whether long walks go
+faster than the held pace (4 steps a second), tried in the playtest.

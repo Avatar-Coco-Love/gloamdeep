@@ -189,3 +189,14 @@ choice to stop instead when a creature notices the hero. The switches are
 named Arrow pad and Tap to walk. The version number shows only on the
 title and the pause menu, not in play. Tap to walk is built first, then
 the pad.
+
+**D-408 · 2026-10-28 · How tap to walk fits** (the owner's picks, all
+recommended but the third; builds D-406, D-407, answers part of Q-067)
+A held finger on a tile does the same as a tap to walk, so there is one
+way of walking (replaces D-219's held walk). Settings' Controls line
+becomes three switches: Swipe, Tap to walk, Arrow pad. The walk stops
+by itself when a creature or a find comes into view. A tap on unknown
+dark walks as far as remembered ground goes, then stops. Built with tap
+to walk: a Settings choice to stop when a creature notices the hero
+instead of on sight, on sight at first. How to play gets a line saying
+the arrow pad can be turned on in Settings.
