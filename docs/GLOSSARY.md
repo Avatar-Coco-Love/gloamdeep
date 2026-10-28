@@ -104,7 +104,7 @@ this page and a decision disagree, the decision wins.
 - **Slot screen, Profiles:** where the game opens, to pick, start or
   delete a profile (D-271); a glass card since D-397.
 - **Name pad:** the page of letters for naming a new profile (D-272), or
-  renaming one (D-273); a glass card since D-398.
+  renaming one (D-273); a glass card since D-398, split for thumbs since D-420.
 - **Ask card:** the small glass card in the middle that asks Yes or No:
   Start over?, Delete …? and Play …? (D-400).
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero

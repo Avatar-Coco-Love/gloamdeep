@@ -167,3 +167,12 @@ embers buy a Growth tree of steady upgrades, and big abilities are found
 deep down, each opening new paths. Learning by doing and skills taught by
 NPCs are left out for now, to keep growth simple; either may come back by
 a new decision. NPCs may still teach or sell recipes (D-418).
+
+**D-420 · 2026-10-28 · A bigger name pad, split for thumbs** (the owner's
+picks: A to Z kept, "some ergonomic design for people with small hands";
+builds D-272, D-398) The name pad's keys grow to fill the card, their
+letters, the typed name and its box twice as big. The pad is split for
+thumbs: A to M four to a row hugging the card's left side with Del after
+M, N to Z the same on the right with OK after Z, the middle open. Claude's
+calls, may change: keys at most 48 × 32 game pixels on big screens; the
+arrows walk across the split.
