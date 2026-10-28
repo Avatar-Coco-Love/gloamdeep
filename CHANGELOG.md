@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.149 (2026-10-28)
+- Naming a new profile now opens a glass card that fills the screen, on the title's scene, like the seed pad. NAME sits at its top left, or RENAME when renaming a profile.
+- The name typed sits in an ember box, and each letter is a small button on the same 7-column grid, with DEL and OK wider buttons on the last row; the chosen key is ember and gold, the rest dim.
+- The round cross goes back to the profiles, as Esc and a tap outside do, so the Back key is gone.
+- Decisions: D-398.
+
 ## 0.2.148 (2026-10-28)
 - The profiles now open as a glass card that fills the screen, on the title's scene, like Settings. PROFILES sits at its top left; each profile keeps its framed box, with its hero, name, deepest depth and play time.
 - Rename, Change look and Delete are buttons along the card's bottom: RENAME, LOOK and DELETE. While one is being done, the card's title asks which (RENAME WHICH?) and its button reads CANCEL. The arrows go down the boxes onto the buttons, then left and right along them.

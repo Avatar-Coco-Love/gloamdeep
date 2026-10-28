@@ -65,7 +65,7 @@ Empty box has no hero. Play time in the box is still to come.
 pick; builds D-272, D-273) The name pad gets a Back key on its own row
 under Del and OK, as the look screens have. It does what Esc does: a new
 profile goes back to the slot screen with nothing made, and a rename
-keeps the old name.
+keeps the old name. Superseded by D-398 (2026-10-28).
 
 **D-289 · 2026-10-23 · Change look** (the owner's wish and pick) The
 slot screen's Look line reads "Change look", clearer to new players. It

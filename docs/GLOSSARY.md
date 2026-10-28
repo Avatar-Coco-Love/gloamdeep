@@ -104,7 +104,7 @@ this page and a decision disagree, the decision wins.
 - **Slot screen, Profiles:** where the game opens, to pick, start or
   delete a profile (D-271); a glass card since D-397.
 - **Name pad:** the page of letters for naming a new profile (D-272), or
-  renaming one (D-273).
+  renaming one (D-273); a glass card since D-398.
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero
   wears: the cloak's colour, the eyes' colour and the lantern's trim (its
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,

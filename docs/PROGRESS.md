@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.148 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.149 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
 The owner's plan (2026-10-28): every screen still drawn on the picture
-(name pad, looks, the asks; the seed pad, the map, the way to play and
-the profiles are done) becomes a glass card, the name pad next; then the main
+(looks, the asks; the seed pad, the map, the way to play, the profiles
+and the name pad are done) becomes a glass card, the looks next; then the main
 menu is revamped, from mock-ups. Creature materials (Q-061) wait until after.
 
 ## Waiting on the owner
@@ -34,6 +34,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.149, the name card.** The owner picked the name pad
+  as a glass card like the seed card: NAME (or RENAME) top left, the name
+  in an ember box, the letters as buttons on the same 7-column grid, the
+  cross for Back (D-398).
+  [Playtest](https://claude.ai/artifact/PaYKiikXUq3KgtZaaMZ3pa).
 - **2026-10-28, 0.2.148, the profiles card.** The owner picked the
   profiles as a glass card on the title's scene: PROFILES top left, the
   three boxes as they were, RENAME, LOOK and DELETE buttons along its
@@ -44,8 +49,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   way a row with its note under it, from New journey and from Settings in
   play alike, ways that can't be picked grey (D-396).
   [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).
-- **2026-10-28, 0.2.146, the map card.** The owner picked the map as a
-  glass card like the bag's: MAP top left, the floor's name and arrows
-  centred on that row; the Seed Explorer the same card, Back, Type and
-  Reseed buttons along its foot (D-395). Fixed: the map turns up to the
-  surface again. [Playtest](https://claude.ai/artifact/2q5iC1ZepGgrMLyrZMTctS).

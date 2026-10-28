@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.146, the map card.** The owner picked the map as a
+  glass card like the bag's: MAP top left, the floor's name and arrows
+  centred on that row; the Seed Explorer the same card, Back, Type and
+  Reseed buttons along its foot (D-395). Fixed: the map turns up to the
+  surface again. [Playtest](https://claude.ai/artifact/2q5iC1ZepGgrMLyrZMTctS).
 - **2026-10-28, 0.2.145, the seed card.** The owner picked the seed pad
   as a glass card, from Settings and the Explorer alike: the digits in an
   ember box, the keys as buttons on the same grid, centred (D-394).
