@@ -1,11 +1,10 @@
 // § round map: the floor around the hero on a round glass button in the room's
 // top right corner (D-383), the hero in its middle. A tap or click opens the
-// full map (D-205); while the map is open it stays, as a small round cross
-// that closes it. Thin layer: a tap or click only calls onMap(); hide(on)
-// takes it away, closes(on) turns it into the cross, show(state, reveal, t,
+// full map (D-205), whose card has its own cross (D-395; the button was that
+// cross before). Thin layer: a tap or click only calls onMap(); hide(on)
+// takes it away, show(state, reveal, t,
 // still, alpha) draws the floor and fades the button (frame.js), and area()
 // is where it sits, in the room canvas's pixels.
-import { drawCloseIcon } from '../render/hud.js';
 import { drawPlan, drawRoundMap } from '../render/map.js';
 import { floorPlan } from '../core/map.js';
 import { MAP_DISC } from '../render/screen.js';
@@ -19,12 +18,9 @@ export function createMapButton(canvas, { onMap }) {
   button.type = 'button';
   button.title = 'Map (M)';
   button.setAttribute('aria-label', 'Map');
-  const map = document.createElement('canvas'), cross = document.createElement('canvas');
+  const map = document.createElement('canvas');
   map.width = map.height = MAP_DISC / 2;
-  cross.width = cross.height = 5;
-  drawCloseIcon(cross.getContext('2d'));
-  cross.hidden = true;
-  button.append(map, cross);
+  button.append(map);
   button.addEventListener('click', () => { button.blur(); onMap(); });
   document.body.append(button);
   let area = { x: 0, y: 0, w: 0, h: 0 };
@@ -37,12 +33,6 @@ export function createMapButton(canvas, { onMap }) {
   let planFor = null, revealed = null, plan = null, faded = 1;
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
-    closes(on) {
-      button.classList.toggle('closes', on);
-      map.hidden = on; cross.hidden = !on;
-      button.title = on ? 'Close map (M)' : 'Map (M)';
-      button.setAttribute('aria-label', on ? 'Close map' : 'Map');
-    },
     show(state, reveal, t, still, alpha) {
       if (state !== planFor || reveal !== revealed) {
         planFor = state; revealed = reveal; plan = floorPlan(state, reveal);

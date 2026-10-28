@@ -336,7 +336,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(...toRoom([px, py]), held);
-  else screens.onPoint(...(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed'].includes(app.screen) ? toRoom([px, py]) : [px, py]), held); // the cards are on the room (D-385, D-387 to D-391, D-393, D-394)
+  else screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed'].includes(app.screen) ? toRoom([px, py]) : [px, py]), held); // the cards are on the room (D-385, D-387 to D-391, D-393 to D-395)
 };
 const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
@@ -350,7 +350,7 @@ const onChoose = () => { if (app.screen !== 'play' && !screens.onMapScreen()) sc
 const input = createInput(stage, canvas, {
   onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
 });
-const mapMoves = createMapMoves(stage, canvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap });
+const mapMoves = createMapMoves(stage, roomCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
 const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   get: () => app.state,
   still,

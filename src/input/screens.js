@@ -67,7 +67,7 @@ import { cloakKeyAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, HARDER_NOTE, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
-import { setMap, inBox, turnAt, barAt, VIEW, EXPLORE_VIEW } from '../render/map.js';
+import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
 import { BAG_SLOTS } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
@@ -118,9 +118,7 @@ export function createScreens(app, ui) {
     if (playing && (onTitle() || app.screen === 'paused')) ui.goSideways(); // Play, Continue or Resume: full screen, sideways (D-377)
     app.screen = next; app.chosen = at;
     lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
-    const mapOpen = next === 'map' || next === 'explore';
-    mapButton.hide(!playing && !mapOpen); mapButton.closes(mapOpen);
-    bagButton.hide(!playing); // the card's own cross closes the bag (D-385)
+    mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings.controls) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
@@ -312,7 +310,7 @@ export function createScreens(app, ui) {
 
   // § map: the floor the hero is on, worked out once as it opens; no turn passes
   // (D-205). It turns to other floors seen; the hero stays put (D-206).
-  const win = () => (app.screen === 'explore' ? EXPLORE_VIEW : VIEW); // the map's window, shorter in the Explorer
+  const win = () => mapLayout(view.w, view.h, app.screen === 'explore').win; // the map's window on its card, shorter in the Explorer (D-395)
   const world = () => (app.screen === 'explore' ? explorerWorld(shownSeed(app.seeds)) : app.state); // the world the map shows
   const panMap = (dx, dy) => { app.view = panView(app.view, app.plan, win().w, win().h, dx, dy); };
   const zoomMap = (by, x, y) => { app.view = zoomView(app.view, app.plan, win().w, win().h, by, x - win().x, y - win().y); };
@@ -341,8 +339,9 @@ export function createScreens(app, ui) {
   }
   function turnMap(way) {
     if (app.screen === 'history') { pageHistory(way === 'up' ? -1 : 1); return; }
-    const to = (app.screen === 'map' || app.screen === 'explore') && turnFrom(app.floors, app.plan.depth, way);
-    if (to) mapFloor(to);
+    if (app.screen !== 'map' && app.screen !== 'explore') return;
+    const to = turnFrom(app.floors, app.plan.depth, way);
+    if (to !== null) mapFloor(to); // the surface is 0, a floor too (D-395)
   }
   // A tap on found stairs turns the map to the floor they lead to, centred on the matching stairs
   function tapStairs(px, py) {
@@ -623,11 +622,11 @@ export function createScreens(app, ui) {
   const onPoint = (px, py, held) => {
     if (app.screen === 'map' || app.screen === 'explore') {
       if (held || ui.mapMoves().dragged()) return;
-      const way = turnAt(px, py), button = app.screen === 'explore' && barAt(px, py);
-      if (way) turnMap(way);
-      else if (button) pressBar(button);
-      else if (!inBox(px, py)) pause(); // closes the map, or the Explorer to the title
-      else if (app.screen === 'map' || py < win().y + win().h) tapStairs(px, py); // not through the Explorer's bar
+      const at = mapCardAt(px, py, view.w, view.h, app.screen === 'explore');
+      if (at === 'up' || at === 'down') turnMap(at);
+      else if (at === 'out' || at === 'close') pause(); // closes the map, or the Explorer to the title
+      else if (at) pressBar(at);
+      else if (py < win().y + win().h) tapStairs(px, py); // not through the Explorer's row
       return;
     }
     if (app.screen === 'place') { if (!held) tapSide(px, py); return; }

@@ -48,12 +48,10 @@
   #lantern-button canvas { width: 35px; height: 35px; }
   #quick-slot canvas { width: 30px; height: 24px; }
   /* Round on the panel's glass (D-383, D-384): the lantern, pause, the bag and the quick slot (the wrench below); the round
-     map, 104 px, shows the floor around the hero, and is a small round cross while the map is open */
+     map, 104 px, shows the floor around the hero; the map's card has its own cross (D-395) */
   #lantern-button, #pause-button, #map-button, #bag-button, #quick-slot { border-radius: 50%; background: rgba(14,12,22,.6); border-color: rgba(239,230,204,.28); }
   #map-button { width: 104px; height: 104px; border-width: 2px; overflow: hidden; }
-  #map-button canvas:first-child { width: 100%; height: 100%; }
-  #map-button canvas[hidden] { display: none; }
-  #map-button.closes { width: 44px; height: 44px; border-width: 1px; transform: translateX(60px); }
+  #map-button canvas { width: 100%; height: 100%; }
   /* Dev tools (src/dev/dev.js, panel.js): on for everyone (D-086). Game palette
      (ART-DIRECTION.md): violet for the section tabs, stone for the tools
      beside them, lantern gold for what is on, the hostile red for what undoes

@@ -1,23 +1,24 @@
-// § map screen: a floor, in a box like the hearts' over the room under its
-// veil (D-205), "DEPTH 3" inside at the top between an up arrow and a down
-// arrow that turn the map a floor, ember while there is a floor that way,
+// § map card (D-395; was a box over the room under its veil, D-205): the map opens as a
+// glass card like the bag's (D-385), "MAP" in ember top left and the round cross that
+// closes it. Between them, centred, "DEPTH 3" and the area's name between an up arrow
+// and a down arrow that turn the map a floor, ember while there is a floor that way,
 // else greyed (D-206). Each room is
 // drawn small from the tiles remembered: floors in the floor's grey, walls
 // beside them in the brick's top edge, found stairs in their violet, the
 // hero a blinking gold dot on their own floor (still with reduced motion), each
 // bag where you fell a leather brown dot (MO3, D-345).
 // Rooms sit a tile apart, a dark seam between them, and a pale blue line
-// bridges each doorway found (D-224). It scrolls and zooms
-// in its window (the view, core/map.js); a tap outside the box closes it (main.js).
-// In the Seed Explorer (D-214) a bar at the box's bottom shows the seed, with
-// Back on its left and Type and Reseed on its right; the window is shorter.
-import { W, SCREEN_H } from './screen.js';
+// bridges each doorway found (D-224). It scrolls and zooms in its window under the
+// card's rule (the view, core/map.js).
+// In the Seed Explorer (D-214) the same card sits on the title's scene, a row at its
+// foot: Back a button on its left, Type and Reseed on its right, the seed in gold
+// between them; the window is shorter.
 import { drawText, textWidth } from './font.js';
-import { veil } from './menu.js';
+import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, PAD } from './bag.js';
 import { markAt, aroundHero } from '../core/map.js';
 import { areaAt } from '../core/room.js';
 
-const K = '#0e0c16', LINE = '#2a2636', EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
+const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
 const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0' }; // ART-DIRECTION.md
 // Walls in each room's own tone, and the heading's area name in its floor's (D-233):
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green
@@ -25,30 +26,37 @@ const TONE = { crypt: '#69748b', rock: '#7a8396', earth: '#8e7a62', dungeon: '#4
 const wallOf = (room) => TONE[room.look] || SHOWN.wall;
 const BAG = '#9a7350'; // the bag where you fell, in its leather brown (MO3, D-345)
 const DOOR = '#a6e0e4'; // the cloak's pale blue, not the stairs' violet or the lantern's amber
-// The box, 8 pixels in from the picture's edges, and the map's window inside it, under the heading
-export const BOX = { x: 8, y: 8, w: W - 16, h: SCREEN_H - 16 };
-export const VIEW = { x: BOX.x + 4, y: BOX.y + 16, w: BOX.w - 8, h: BOX.h - 20 };
-const BAR_H = 24; // the Explorer's bar, its line above included
-export const EXPLORE_VIEW = { ...VIEW, h: VIEW.h - BAR_H };
-const BAR = { y: EXPLORE_VIEW.y + EXPLORE_VIEW.h + 2, h: BAR_H - 4 }; // the buttons' row, under a line and a gap
-// The bar's buttons, left to right, each just wide enough for its word; the seed fills the space between
-const button = (id, text, x) => ({ id, text, x, w: textWidth(text) + 6 });
-const back = button('back', 'BACK', BOX.x + 4), reseed = button('reseed', 'RESEED', 0), type = button('type', 'TYPE', 0);
-reseed.x = BOX.x + BOX.w - 4 - reseed.w; type.x = reseed.x - 3 - type.w;
-const BUTTONS = [back, type, reseed];
-// Which button a tap at x, y presses, its id, or null; a tap anywhere in the bar
-// goes to the nearest button on its side of the seed, so no tap is lost
-export function barAt(x, y) {
-  if (!inBox(x, y) || y < BAR.y - 2) return null;
-  if (x < BUTTONS[0].x + BUTTONS[0].w + 4) return 'back';
-  if (x >= BUTTONS[2].x - 1) return 'reseed';
-  if (x >= BUTTONS[1].x - 4) return 'type';
+const RULE = 20, TOP = 26, INSET = 8; // the card's rule under its heading; the window's top and sides inside the card
+const GAP = 4; // between "DEPTH 3" and each arrow, and between Type and Reseed
+
+// § layout: on a view `vw` × `vh`, the card, the map's window and, in the Explorer, its
+// buttons' row: { y, back, type, reseed }, each button { x, w }, just wide enough for its word
+const wide = (text) => textWidth(text) + 8;
+export function mapLayout(vw, vh, explore = false) {
+  const card = cardAt(vw, vh), bottom = card.y + card.h;
+  const row = explore ? bottom - PAD - BUTTON.h : bottom - INSET + GAP;
+  const win = { x: card.x + INSET, y: card.y + TOP, w: card.w - 2 * INSET, h: row - GAP - card.y - TOP };
+  if (!explore) return { card, win, bar: null };
+  const reseed = { x: card.x + card.w - PAD - wide('RESEED'), w: wide('RESEED') };
+  const type = { x: reseed.x - GAP - wide('TYPE'), w: wide('TYPE') };
+  return { card, win, bar: { y: row, back: { x: card.x + PAD, w: wide('BACK') }, type, reseed } };
+}
+
+// What a tap at x, y on the room's canvas picks: 'out' outside the card, 'close' (the round
+// cross), 'up' or 'down' in the heading's left or right half, in the Explorer 'back', 'type'
+// or 'reseed' anywhere in its row (the nearest button on its side of the seed, so no tap is
+// lost), else null
+export function mapCardAt(x, y, vw, vh, explore = false) {
+  const { card, bar } = mapLayout(vw, vh, explore);
+  if (!inCard(card, x, y)) return 'out';
+  if (onCross(card, x, y)) return 'close';
+  if (y < card.y + RULE) return x < card.x + card.w / 2 ? 'up' : 'down';
+  if (!bar || y < bar.y - GAP) return null;
+  if (x < bar.back.x + bar.back.w + GAP) return 'back';
+  if (x >= bar.reseed.x - 1) return 'reseed';
+  if (x >= bar.type.x - GAP) return 'type';
   return null;
 }
-export const inBox = (x, y) => x >= BOX.x && y >= BOX.y && x < BOX.x + BOX.w && y < BOX.y + BOX.h;
-// What a tap at x, y turns the map: 'up' in the heading's left half, 'down' in its right, else null
-export const turnAt = (x, y) => (inBox(x, y) && y < VIEW.y ? (x < W / 2 ? 'up' : 'down') : null);
-const GAP = 4; // between "DEPTH 3" and each arrow
 function arrow(c, x, y, down, colour) { // 5 × 3, pointing up or down
   c.fillStyle = colour;
   for (let i = 0; i < 3; i++) c.fillRect(x + i, down ? y + i : y + 2 - i, 5 - 2 * i, 1);
@@ -90,40 +98,31 @@ export function drawRoundMap(c, plan, drawn, k, t, still) {
   drawMarks(c, plan, mx, my, k, t, still);
 }
 
-// The Explorer's bar: bar.seed the seed shown, bar.back whether Back has a seed to go to
-function drawBar(c, bar) {
-  c.fillStyle = LINE; c.fillRect(BOX.x + 1, BAR.y - 2, BOX.w - 2, 1);
-  for (const b of BUTTONS) {
-    const on = b.id !== 'back' || bar.back;
-    c.fillStyle = LINE;
-    c.fillRect(b.x, BAR.y, b.w, 1); c.fillRect(b.x, BAR.y + BAR.h - 1, b.w, 1);
-    c.fillRect(b.x, BAR.y, 1, BAR.h); c.fillRect(b.x + b.w - 1, BAR.y, 1, BAR.h);
-    drawText(c, b.text, b.x + 3, BAR.y + 6, on ? EMBER : DIM);
-  }
-  const text = `SEED ${bar.seed}`, left = BUTTONS[0].x + BUTTONS[0].w, right = BUTTONS[1].x;
-  drawText(c, text, Math.floor((left + right - textWidth(text)) / 2), BAR.y + 6, GOLD);
+// The Explorer's row: bar the layout's; seed the seed shown, back whether Back has a seed to go to
+function drawBar(c, bar, seed, back) {
+  drawButton(c, bar.back.x, bar.y, 'BACK', !back, bar.back.w);
+  drawButton(c, bar.type.x, bar.y, 'TYPE', false, bar.type.w);
+  drawButton(c, bar.reseed.x, bar.y, 'RESEED', false, bar.reseed.w);
+  const text = `SEED ${seed}`, left = bar.back.x + bar.back.w, right = bar.type.x;
+  drawText(c, text, Math.floor((left + right - textWidth(text)) / 2), bar.y + 3, GOLD);
 }
 
-// view: { k, x, y } (core/map.js); turns: { up, down }, whether each arrow turns the map;
-// bar: the Explorer's seed and Back (drawBar), or null in the game
-export function drawMap(c, view, t, still, turns, bar = null) {
+// c: the room's canvas, `vw` × `vh`; view: { k, x, y } (core/map.js); turns: { up, down },
+// whether each arrow turns the map; explore: the Explorer's seed and Back ({ seed, back },
+// drawBar), or null in the game
+export function drawMap(c, vw, vh, view, t, still, turns, explore = null) {
   if (view.k !== k) redraw(view.k);
-  veil(c);
-  const { x, y, w, h } = BOX;
-  c.fillStyle = K; c.fillRect(x, y, w, h);
-  c.fillStyle = LINE;
-  c.fillRect(x, y, w, 1); c.fillRect(x, y + h - 1, w, 1);
-  c.fillRect(x, y, 1, h); c.fillRect(x + w - 1, y, 1, h);
+  const { card, win, bar } = mapLayout(vw, vh, !!explore);
+  drawCard(c, vw, vh, 'MAP', 0);
   // As the strip says it (D-209), then the area's name in its tone (D-233)
   const depth = plan.depth === 0 ? 'SURFACE' : `DEPTH ${plan.depth}`, area = areaAt(plan.depth);
   const name = area ? ` · ${area.area}` : '', head = depth + name;
-  const hx = Math.floor((W - textWidth(head)) / 2);
-  drawText(c, depth, hx, y + 5, EMBER);
-  if (area) drawText(c, name, hx + textWidth(depth), y + 5, TONE[area.look]);
-  arrow(c, hx - GAP - 5, y + 7, false, turns.up ? EMBER : DIM);
-  arrow(c, hx + textWidth(head) + GAP, y + 7, true, turns.down ? EMBER : DIM);
-  if (bar) drawBar(c, bar);
-  const win = bar ? EXPLORE_VIEW : VIEW;
+  const hx = card.x + Math.floor((card.w - textWidth(head)) / 2), hy = card.y + 7;
+  drawText(c, depth, hx, hy, EMBER);
+  if (area) drawText(c, name, hx + textWidth(depth), hy, TONE[area.look]);
+  arrow(c, hx - GAP - 5, hy + 2, false, turns.up ? EMBER : DIM);
+  arrow(c, hx + textWidth(head) + GAP, hy + 2, true, turns.down ? EMBER : DIM);
+  if (bar) drawBar(c, bar, explore.seed, explore.back);
   c.save();
   c.beginPath(); c.rect(win.x, win.y, win.w, win.h); c.clip();
   const mx = win.x - view.x, my = win.y - view.y;

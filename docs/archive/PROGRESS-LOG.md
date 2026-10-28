@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.143, the third audit.** Nothing in the game changed
+  (D-392, all recommended). `history-0.2.js` 82 → 14 KB, split by version
+  into three files; the Version history matches the old build's.
+  `DECISIONS.md` 12 → 6.5 KB, `CHANGELOG.md` 7.6 → 2.4 KB; `CLAUDE.md`'s
+  pointers tidied. No playtest: nothing to play.
 - **2026-10-28, 0.2.142, the journal card.** The owner picked the
   Journal as a glass card with tabs like How to play, Records and Growth
   under the heading; on Growth, ADD A HEART a button bottom right with

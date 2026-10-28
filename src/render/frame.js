@@ -56,8 +56,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history and seed cards (D-388 to D-391, D-393, D-394)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed and map cards (D-388 to D-391, D-393 to D-395)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -108,20 +108,16 @@ export function createFrame(app, ui) {
     const r = canvas.getBoundingClientRect(), b = rc.canvas.getBoundingClientRect(), k = rc.canvas.width / b.width;
     return { x: Math.round((r.left - b.left) * k), y: Math.round((r.top - b.top) * k) };
   }
-  // § title scene: the floor, hero and light fill the whole screen behind the title's lines.
-  // The picture gets its own copy of the scene's part under it, so a veiled page (the seed pad,
-  // How to play, the explorer's map) dims picture and room alike, with no seam between them
-  function titleScene(count, t, veiled = false) {
+  // § title scene: the floor, hero and light fill the whole screen behind the title's lines
+  // and its cards
+  function titleScene(count, t) {
     const at = pictureAt();
     drawScene(rc, count, t, still(), at.x, at.y);
-    if (!veiled) return;
-    ctx.drawImage(rc.canvas, -at.x, -at.y);
-    rc.globalAlpha = VEIL; rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); rc.globalAlpha = 1;
   }
 
   function onTitleScreens(t) {
     const { screen } = app;
-    if (screen === 'explore') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawMap(ctx, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); }
+    if (screen === 'explore') { titleScene(0, t); drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); } // the map's card on the title's scene (D-395)
     else if (screen === 'seed') { titleScene(0, t); drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); } // the card on the title's scene (D-394)
     else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); } // the card on the title's scene (D-390)
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
@@ -254,7 +250,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
     else if (app.screen === 'journal') drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
-    else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
+    else if (app.screen === 'map') drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
       drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
       textLine.draw(rc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
