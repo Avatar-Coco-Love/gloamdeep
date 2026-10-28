@@ -5,6 +5,7 @@ import { TITLE_MENU, PAUSE_MENU, titleMenu, SURE_MENU, SURE_HEADING, SURE_NOTE, 
 import { pauseCardAt, SPLIT } from '../src/render/pausecard.js';
 import { cardAt, PAD } from '../src/render/bag.js';
 import { settingsCardAt } from '../src/render/settingscard.js';
+import { waysAt } from '../src/render/ways.js';
 import { CONTROLS } from '../src/core/settings.js';
 import { lineAt, pauseTop, LINE_GAP } from '../src/render/menu.js';
 import { SCREEN_H, W } from '../src/render/screen.js';
@@ -99,4 +100,16 @@ test('the pause card: a tap across the left picks a line, the cross or outside r
 test("the pause card's facts: the seed, the way to play, the depth and the level (D-388)", () => {
   assert.deepEqual(pauseFacts({ seed: 48213, mode: 'normal', place: 'first', xp: 0 }), [['Seed', '48213'], ['Way to play', 'Normal'], ['Depth', 'Surface'], ['Level', '1']]);
   assert.equal(pauseFacts({ seed: 7, mode: 'gentle', place: 'depth3', xp: 0 })[2][1], '3');
+});
+
+test('the way to play card: a tap on a way or its note picks it, the cross or outside goes back (D-396)', async () => {
+  const { easeMenu, HARDER_NOTE } = await import('../src/core/menu.js');
+  assert.deepEqual(easeMenu('normal').map((l) => l.note === HARDER_NOTE), [false, false, true]);
+  const vw = 180, vh = 320, card = cardAt(vw, vh), x = card.x + PAD + 20;
+  assert.deepEqual(waysAt(x, card.y + 31, vw, vh, MODE_MENU), { line: 0 }); // Gentle's name
+  assert.deepEqual(waysAt(x, card.y + 43, vw, vh, MODE_MENU), { line: 0 }); // its note
+  assert.deepEqual(waysAt(x, card.y + 61, vw, vh, MODE_MENU), { line: 1 }); // Normal's name
+  assert.equal(waysAt(x, card.y + card.h - 20, vw, vh, MODE_MENU), null); // under the rows
+  assert.equal(waysAt(card.close.x, card.close.y, vw, vh, MODE_MENU), 'close');
+  assert.equal(waysAt(1, 1, vw, vh, MODE_MENU), 'out');
 });

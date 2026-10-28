@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.147', date: '2026-10-28', title: 'The way to play card', lines: [
+    "New journey's \"Choose a way to play\" now opens as a glass card that fills the screen, like Settings. WAY TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do.",
+    "Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.",
+    "Settings' Way to play line, in play, opens the same card on the room: the ways that can't be picked stay grey, with their own note.",
+    "Decisions: D-396.",
+  ] },
   { v: '0.2.146', date: '2026-10-28', title: 'The map card', lines: [
     "The map now opens as a glass card that fills the screen, like the bag. MAP sits at its top left, the floor's name and its arrows in the middle of the same row, and the round cross closes it, as M, Esc and a tap outside still do. The round map in the corner hides while it is open.",
     "The Seed Explorer is the same card, on the title's scene: Back, Type and Reseed are buttons along its bottom, the seed in gold between them. Dragging, zooming, the floor arrows and tapping stairs work as before.",

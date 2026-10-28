@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.144, the version history card.** The owner picked
+  Version history as a glass card, one list as before: number, title and
+  + or −, an open version's lines across the card's width, the thin
+  scroll bar kept, the cross for Back (D-393).
+  [Playtest](https://claude.ai/artifact/7RtrpFhPrCToJBtiDxpoSf).
 - **2026-10-28, 0.2.143, the third audit.** Nothing in the game changed
   (D-392, all recommended). `history-0.2.js` 82 → 14 KB, split by version
   into three files; the Version history matches the old build's.

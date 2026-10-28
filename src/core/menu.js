@@ -26,11 +26,11 @@ export const MODE_HEADING = 'Choose a way to play';
 export const MODE_FIRST = MODE_MENU.findIndex((l) => l.id === 'normal');
 // § changing the way: from Settings in play, only toward easier (MO4, D-334, D-346). The page shows
 // all three, the one played picked, the harder ones grey with their own note; an easier one asks first.
+export const HARDER_NOTE = 'Only an easier way can be picked.';
 export const modeAt = (id) => Math.max(0, MODE_MENU.findIndex((l) => l.id === id));
 export const modeText = (id) => 'Way to play: ' + MODE_MENU[modeAt(id)].text;
 export const easier = (from, to) => modeAt(to) < modeAt(from);
-export const easeMenu = (from) => MODE_MENU.map((l, i) => ({ ...l, dim: i > modeAt(from) }));
-export const HARDER_NOTE = 'Only an easier way can be picked.';
+export const easeMenu = (from) => MODE_MENU.map((l, i) => (i > modeAt(from) ? { ...l, dim: true, note: HARDER_NOTE } : l));
 export const easeHeading = (to) => `Play ${MODE_MENU[modeAt(to)].text}?`;
 export const EASE_NOTE = 'There is no going back.';
 // A journey's way made easier; never harder (D-334)

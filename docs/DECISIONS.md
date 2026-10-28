@@ -149,3 +149,14 @@ on the title's scene, Back, Type and Reseed buttons like Make along its
 foot, the seed in gold between them. Scrolling, zooming and stairs stay as
 they are. A bug found on the way is fixed too: the map turns up to the
 surface again. Built in 0.2.146.
+
+**D-396 · 2026-10-28 · The way to play as a card** (the owner's picks,
+all recommended, [mock-up](https://claude.ai/artifact/5E2ooeSYUHJ1cLRh2kvW3b))
+The ways to play (D-334) open as a glass card like the settings card
+(D-389), WAY TO PLAY in ember top left, from New journey on the title's
+scene and from Settings' Way to play line in play alike (MO4, D-346). Each
+way is a row, its name and its note under it, so all three notes show at
+once; the chosen row gold with the flame. A way that can't be picked stays
+grey with its own note. Tapping a way or its note picks it. The round
+cross goes back, as Esc and a tap outside do. The ask before an easier way
+stays as it is until the asks become cards. Built in 0.2.147.
