@@ -30,7 +30,7 @@ import { drawSettingsCard } from './settingscard.js';
 import { drawWays } from './ways.js';
 import { stashAt } from '../core/chest.js';
 import { jabAt } from './jab.js';
-import { drawMark, drawAlert, drawGain } from './walk.js';
+import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn } from '../core/bag.js';
@@ -127,7 +127,7 @@ export function createFrame(app, ui) {
     const { screen } = app;
     if (screen === 'explore') { titleScene(0, t); drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); } // the map's card on the title's scene (D-395)
     else if (screen === 'seed') { titleScene(0, t); drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); } // the card on the title's scene (D-394)
-    else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); } // the card on the title's scene (D-390)
+    else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still()); } // the card on the title's scene (D-390)
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'mode') { titleScene(0, t); drawWays(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-396)
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
@@ -213,7 +213,7 @@ export function createFrame(app, ui) {
       drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
       const framed = list?.find((a) => foeAt(a.e) === app.framed);
       if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
-      if (walk && !walk.stopped && !travel) drawMark(rc, walk.tx, walk.ty, t, still());
+      if (walk && !travel) { drawDots(rc, walk.way, walk.tx, walk.ty); drawMark(rc, walk.tx, walk.ty, t, still()); } // the walk to a tapped tile (D-406)
       if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
       if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
       else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
@@ -266,7 +266,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'ways') drawWays(rc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'easier') drawAskCard(rc, view.w, view.h, ...screens.askOf('easier'), SURE_MENU, app.chosen); // the ask card on the room (D-400)
     else if (app.screen === 'seed') drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
-    else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); // a card on the room (D-390)
+    else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
     else if (app.screen === 'journal') drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)

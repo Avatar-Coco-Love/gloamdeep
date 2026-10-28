@@ -1,9 +1,9 @@
-// § walk marks: the held walk's target and its stop (D-220), in room pixels.
+// § walk marks: the walk's target, its way and its stop (D-220, D-406), in room pixels.
 import { drawText, textWidth } from './font.js';
 
 const AMBER = '#ffc65c', DARK = '#0e0c16'; // the menu's amber, outlined in the deepest dark
 
-// § mark: a small amber corner frame on the held tile, pulsing; steady with reduced motion
+// § mark: a small amber corner frame on the tile walked to, pulsing; steady with reduced motion
 export function drawMark(c, tx, ty, t, still) {
   const x = tx * 16, y = ty * 16;
   c.globalAlpha = still ? 1 : 0.6 + 0.4 * (Math.sin(t / 160) + 1) / 2;
@@ -13,6 +13,13 @@ export function drawMark(c, tx, ty, t, still) {
     c.fillRect(x + cx, y + cy + (sy < 0 ? -3 : 0), 1, 4);
   }
   c.globalAlpha = 1;
+}
+
+// § dots: a small amber dot in the middle of each tile of the way still to walk, steady;
+// way: [{ x, y }, …], the tiles (core/walk.js wayTo); not on the marked tile x, y
+export function drawDots(c, way, tx, ty) {
+  c.fillStyle = AMBER;
+  for (const { x, y } of way) if (x !== tx || y !== ty) c.fillRect(x * 16 + 7, y * 16 + 7, 2, 2);
 }
 
 // § stop: a "!" over the hero when something came into view; x, y: the hero's tile in pixels

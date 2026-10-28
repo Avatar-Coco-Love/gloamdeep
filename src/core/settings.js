@@ -1,22 +1,21 @@
-// § settings: the Controls switch (D-179, D-189): tap and swipe, tap only, or swipe only.
-// It turns off only walking by taps or swipes in play; menus take both always.
-// Kept on this device; if the browser's storage is blocked it stays Tap and swipe.
+// § walking: the Swipe and Tap to walk switches (D-408; were the one Controls line,
+// D-179, D-189), each On or Off, both on at first. They turn off only walking by
+// swipes or taps in play; menus take both always. Kept on this device; if the
+// browser's storage is blocked they stay on.
 import { SEED_MAX } from './rng.js';
 
-export const CONTROLS = [
-  { id: 'both', text: 'Tap and swipe' },
-  { id: 'tap', text: 'Tap only' },
-  { id: 'swipe', text: 'Swipe only' },
-];
-// The next choice, or the one before with Left; it wraps round
-export function nextControl(id, back = false) {
-  const i = CONTROLS.findIndex((c) => c.id === id), n = CONTROLS.length;
-  return CONTROLS[(i + (back ? n - 1 : 1)) % n].id;
-}
-export const controlsText = (id) => 'Controls: ' + (CONTROLS.find((c) => c.id === id) || CONTROLS[0]).text;
-// What the switch lets walk: a swipe, or a tap toward a side and a held finger
-export const swipesWalk = (id) => id !== 'tap';
-export const tapsWalk = (id) => id !== 'swipe';
+export const swipeText = (id) => 'Swipe: ' + (id === 'off' ? 'Off' : 'On');
+export const tapWalkText = (id) => 'Tap to walk: ' + (id === 'off' ? 'Off' : 'On');
+export const nextOnOff = (id) => (id === 'off' ? 'on' : 'off');
+// What the switches let walk, from the settings: a swipe, or a tap or held finger on a tile
+export const swipesWalk = (s) => s.swipe !== 'off';
+export const tapsWalk = (s) => s.tapwalk !== 'off';
+
+// § stop: when a walk to a tapped tile stops for a creature (D-407, D-408, Q-067):
+// On sight, as it comes into view, or When noticed, once it has noticed the hero.
+// A find coming into view stops it either way. On sight until picked.
+export const stopText = (id) => 'Stop walking: ' + (id === 'noticed' ? 'When noticed' : 'On sight');
+export const nextStop = (id) => (id === 'noticed' ? 'sight' : 'noticed');
 
 // § motion: the Motion switch (D-179, D-190): Full or Reduced. Until it is picked
 // (null) it follows the device's own reduced-motion setting; once picked, the pick wins.
@@ -52,13 +51,16 @@ const KEY = 'gloamdeep-settings';
 export function loadSettings() {
   let s = null;
   try { s = JSON.parse(localStorage.getItem(KEY)); } catch { /* not kept */ }
-  const controls = CONTROLS.some((c) => c.id === s?.controls) ? s.controls : 'both';
+  const onOff = (v, was) => (v === 'on' || v === 'off' ? v : was); // the old Controls line's pick carries over
+  const swipe = onOff(s?.swipe, s?.controls === 'tap' ? 'off' : 'on');
+  const tapwalk = onOff(s?.tapwalk, s?.controls === 'swipe' ? 'off' : 'on');
+  const stop = s?.stop === 'noticed' ? 'noticed' : 'sight';
   const motion = s?.motion === 'full' || s?.motion === 'reduced' ? s.motion : null;
   const seed = isSeed(s?.seed) ? s.seed : null;
   const lantern = s?.lantern === 'self' ? 'self' : 'hand';
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
-  return { controls, motion, seed, lantern, flasks, sound };
+  return { swipe, tapwalk, stop, motion, seed, lantern, flasks, sound };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify(s)); } catch { /* not kept */ }

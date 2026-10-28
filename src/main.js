@@ -22,7 +22,7 @@ import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
 import { lanternFrom } from './core/sight.js';
 import { mouthLight } from './core/mouth.js';
-import { wayStep, cameIntoView } from './core/walk.js';
+import { wayTo, stopsWalk } from './core/walk.js';
 import { createInput } from './input/input.js';
 import { createLanternButton } from './input/lantern.js';
 import { createPauseButton } from './input/pause.js';
@@ -129,14 +129,13 @@ const spoken = document.getElementById('line'); // the same words for screen rea
 // so a slow device walks as fast as a quick one (D-294).
 const SLIDE = 0.18 * 60 / 1000; // tiles per millisecond: the study's 0.18 a frame, at 60 frames a second
 const MAX_SLIDE_MS = 100; // a longer gap between frames (a hidden page) slides as this much
-const HOLD_STEP_MS = 250; // a held finger walks about 4 steps a second (D-044)
+const HOLD_STEP_MS = 250; // a walk goes about 4 steps a second, the held pace (D-044, Q-067)
 let lastHeldStep = 0;
 Object.assign(app, {
   shown: { x: app.state.hero.x, y: app.state.hero.y },
   queued: null, nudge: null, // nudge: { dx, dy, until } after bumping a wall
-  // The held walk (D-219, D-220): its target tile, set where the finger lands and moved only when it slides,
-  // as the camera follows the hero; `stopped` once something came into view, until the finger lifts.
-  walk: null, // { px, py, tx, ty, stopped }
+  // The walk to a tapped tile (D-406, D-408): its tile and the way still to go there, until it ends or stops
+  walk: null, // { tx, ty, way }
   alertUntil: 0, // the "!" over the hero after a stop
   gain: null, // { n, at } the "+1" over the hero when experience is earned (D-245)
   hit: null, // { enemy, until, shakeUntil } after attacking an enemy (D-105, D-109)
@@ -236,35 +235,38 @@ function nudgeToward(dir) {
   const [dx, dy] = DIRS[dir];
   app.nudge = { dx, dy, until: performance.now() + 90 };
 }
-// A tap on the hero waits a turn; a finger held on the hero does nothing (D-085).
-// With Swipe only, taps toward a side and held fingers don't walk; a tap on the hero still waits (D-189).
+// § tap: a tap on the hero waits a turn (D-085); a tap on a tile beside them steps
+// there, which bites, mines or opens as a step does; one further off walks there
+// at once (D-406). A tap while walking only stops it, and no turn passes. With
+// Tap to walk off, only the tap on the hero, a plaque or a bench beside works (D-408).
+// held: the same from a finger held still, which walks anew instead of stopping (D-408)
 const stepToward = (px, py, held = false) => {
   const spot = frame.plaqueSpot(px, py); // a plaque frames its creature, or lets it go; no turn passes (CL2)
   if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
+  if (app.walk && !held) { app.walk = null; return; }
   const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
   const dir = toward(h.x, h.y, tx, ty);
-  // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the Controls (WB3, CH3)
-  const bench = dir && panelBeside(app.state, dir);
+  if (!dir) { if (!held) tryStep('wait'); return; }
+  // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)
+  const bench = panelBeside(app.state, dir);
   if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }
-  if (dir) { if (tapsWalk(app.settings.controls)) tryStep(dir); }
-  else if (!held) tryStep('wait');
+  if (!tapsWalk(app.settings)) return;
+  if (Math.abs(tx - h.x) + Math.abs(ty - h.y) === 1) { app.walk = null; tryStep(dir); return; }
+  app.walk = { tx, ty, way: wayTo(app.state, tx, ty) };
+  lastHeldStep = -Infinity; // the first step at once
 };
-// § held walk: one step on the remembered way to the held tile, else one step toward it,
-// as a held finger walked before (D-044, D-220). A creature or item coming into view stops it (D-219).
+// § walk on: one step on the way to the walk's tile, at the held pace (D-044). It ends
+// on the tile, at the end of remembered ground, or in another room; it stops by itself
+// for a find or a creature, with a "!" (D-407, D-408, the Stop walking switch).
 function walkOn() {
-  const { walk } = app, before = app.state, h = before.hero, dir = wayStep(before, walk.tx, walk.ty) || toward(h.x, h.y, walk.tx, walk.ty);
-  if (!dir) return;
-  tryStep(dir);
-  if (app.state !== before && cameIntoView(before, app.state)) { walk.stopped = true; app.alertUntil = performance.now() + ALERT_MS; }
-  else if (app.state.place !== before.place) walk.stopped = true; // the held tile was in the room left behind
-}
-// The held point in the room canvas's pixels → the walk's target, kept while the finger stays put
-function holdAt(p) {
-  if (!p || app.screen !== 'play' || dev.armed() || !tapsWalk(app.settings.controls)) { app.walk = null; return; }
-  const { walk, cam } = app;
-  if (walk && walk.px === p[0] && walk.py === p[1]) return;
-  app.walk = { px: p[0], py: p[1], tx: Math.floor((p[0] + cam.x) / TILE), ty: Math.floor((p[1] + cam.y) / TILE), stopped: walk?.stopped || false };
+  const { walk } = app, before = app.state, [next] = walk.way = wayTo(before, walk.tx, walk.ty);
+  if (!next) { app.walk = null; return; }
+  tryStep(toward(before.hero.x, before.hero.y, next.x, next.y));
+  const now = app.state;
+  if (now === before || now.place !== before.place || (now.hero.x === walk.tx && now.hero.y === walk.ty)) app.walk = null;
+  else if (stopsWalk(before, now, app.settings.stop)) { app.walk = null; app.alertUntil = performance.now() + ALERT_MS; }
+  else walk.way = wayTo(now, walk.tx, walk.ty);
 }
 
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
@@ -329,16 +331,17 @@ const screens = createScreens(app, {
 });
 // Held upright, play pauses behind the picture (D-377)
 createUpright({ onUpright: () => { if (app.screen === 'play') screens.pause(); } });
-// In play the Controls switch can turn swipes off (D-189); off the room, the screens take them
+// In play the Swipe switch can turn swipes off (D-189, D-408); off the room, the screens take them.
+// A key or swipe in play ends a walk to a tapped tile and steps itself.
 const onDir = (dir, how) => {
   if (app.screen !== 'play') screens.onDir(dir, how);
-  else if (how !== 'swipe' || swipesWalk(app.settings.controls)) tryStep(dir);
+  else if (how !== 'swipe' || swipesWalk(app.settings)) { app.walk = null; tryStep(dir); }
 };
 const onPoint = (px, py, held) => {
-  if (app.screen === 'play') stepToward(...toRoom([px, py]), held);
-  else screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'title'].includes(app.screen) ? toRoom([px, py]) : [px, py]), held); // the cards and the title are on the room (D-385, D-387 to D-391, D-393 to D-401)
+  if (app.screen === 'play') stepToward(...toRoom([px, py]), held); // held: from a finger held still (D-408)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'title'].includes(app.screen) ? toRoom([px, py]) : [px, py])); // the cards and the title are on the room (D-385, D-387 to D-391, D-393 to D-401)
 };
-const onWait = () => { if (app.screen === 'play') tryStep('wait'); else if (!screens.onMapScreen()) screens.choose(); };
+const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
 const onTab = () => {
   if (app.screen !== 'play') return false;
@@ -411,12 +414,11 @@ function update(t) {
   shown.x = approach(shown.x, s.hero.x, dt);
   shown.y = approach(shown.y, s.hero.y, dt);
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  const held = input.held();
-  holdAt(held && toRoom(held));
+  if (app.screen !== 'play') app.walk = null; // a card or menu ends a walk
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }
-    else if (app.walk && !app.walk.stopped && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; walkOn(); }
+    else if (app.walk && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; walkOn(); }
   }
 }
 function loop(t) {

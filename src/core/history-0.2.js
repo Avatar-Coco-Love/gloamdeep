@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.157', date: '2026-10-28', title: 'Tap to walk', lines: [
+    "Tap to walk: tap a tile and the hero walks there at once, around walls, 4 steps a second, with small gold dots on the way still to go and corners marking the tile. Tap again while walking to stop; stopping costs no turn. Holding a finger on a tile does the same as a tap.",
+    "A tap on a tile beside the hero still steps there, so it bites, mines or opens as before. A tap on dark you haven't seen walks as far as the ground you remember goes. A key, a swipe or Space ends a walk.",
+    "The walk stops by itself, with a \"!\", when a find or a creature comes into view. A new Settings line, Stop walking, can make it stop for a creature only once it has noticed you (When noticed) instead of on sight.",
+    "Settings' Controls line is now two switches, Swipe and Tap to walk, both On at first; your old pick carries over. The Arrow pad switch comes with the pad. How to play says how walking works now.",
+    "Decisions: D-409. Questions closed: Q-067.",
+    "Docs: decisions D-401 to D-403 and D-405 moved to archive/DECISIONS-TITLE-EDGE.md.",
+  ] },
   { v: '0.2.156', date: '2026-10-28', title: 'Steering picked', lines: [
     "Steering mock-ups are picked: the arrow pad will be one round glass disc in the bottom left corner, each quarter an arrow, off at first. A press steps once; held, it keeps walking.",
     "Tapping a tile will walk the hero there at once, with gold dots along the way, and is on at first; today's one-step tap goes. A tap while walking stops, costing no turn, and the walk stops by itself when a creature comes into view.",

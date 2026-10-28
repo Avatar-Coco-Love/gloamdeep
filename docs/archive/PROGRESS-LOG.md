@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.154, next steps: the edge and steering.** Docs
+  only. The owner picked the room's edge going on past a small room, lit
+  like it, so no flat colour shows (D-403), rooms behind the wall later
+  (Q-066); and easier steering, an arrow pad and tap a tile to walk, each
+  optional, from mock-ups (D-404, Q-067). Upright play tabled.
 - **2026-10-28, 0.2.153, the title icons.** The owner picked the round
   buttons' icons at 9 × 9, one game pixel per dot, the shapes as drawn:
   a book with lines, a round question mark, a gear with a hole, a wrench

@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried, BAG_SLOTS } from './bag.js';
-import { controlsText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
+import { swipeText, tapWalkText, stopText, motionText, seedText, lanternText, flasksText, soundText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -46,7 +46,7 @@ export const pauseFacts = (state) => {
   const depth = depthOf(state.place);
   return [['Seed', String(state.seed)], ['Way to play', MODE_MENU[modeAt(state.mode)].text], ['Depth', depth === 0 ? 'Surface' : String(depth)], ['Level', String(levelOf(state.xp))]];
 };
-// Settings, from the title or the pause menu (D-189, D-190, D-210, D-255): picking a switch moves it to the next choice.
+// Settings, from the title or the pause menu (D-190, D-210, D-255, D-408): picking a switch moves it to the next choice.
 // Each switch's line also gives its name and value apart, for the card's two columns (D-389).
 // Version history, last, is the card's button; the card's cross does what Back did (D-254, D-389).
 // deviceReduced: the device's own reduced-motion setting, which Motion follows until picked;
@@ -54,7 +54,9 @@ export const pauseFacts = (state) => {
 // mode: this journey's way to play, its line under the seed from the pause menu (MO4, D-346)
 const named = (id, text) => { const at = text.indexOf(': '); return { id, text, name: text.slice(0, at), value: text.slice(at + 2) }; };
 export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null) => [
-  named('controls', controlsText(s.controls)),
+  named('swipe', swipeText(s.swipe)),
+  named('tapwalk', tapWalkText(s.tapwalk)),
+  named('stop', stopText(s.stop)),
   named('motion', motionText(s.motion, deviceReduced)),
   named('seed', seedText(s.seed, journey)),
   ...(mode ? [named('mode', modeText(mode))] : []),

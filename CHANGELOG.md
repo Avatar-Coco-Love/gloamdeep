@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.157 (2026-10-28)
+- Tap to walk: tap a tile and the hero walks there at once, around walls, 4 steps a second, with small gold dots on the way still to go and corners marking the tile. Tap again while walking to stop; stopping costs no turn. Holding a finger on a tile does the same as a tap.
+- A tap on a tile beside the hero still steps there, so it bites, mines or opens as before. A tap on dark you haven't seen walks as far as the ground you remember goes. A key, a swipe or Space ends a walk.
+- The walk stops by itself, with a "!", when a find or a creature comes into view. A new Settings line, Stop walking, can make it stop for a creature only once it has noticed you (When noticed) instead of on sight.
+- Settings' Controls line is now two switches, Swipe and Tap to walk, both On at first; your old pick carries over. The Arrow pad switch comes with the pad. How to play says how walking works now.
+- Decisions: D-409. Questions closed: Q-067.
+- Docs: decisions D-401 to D-403 and D-405 moved to archive/DECISIONS-TITLE-EDGE.md.
+
 ## 0.2.156 (2026-10-28)
 - Steering mock-ups are picked: the arrow pad will be one round glass disc in the bottom left corner, each quarter an arrow, off at first. A press steps once; held, it keeps walking.
 - Tapping a tile will walk the hero there at once, with gold dots along the way, and is on at first; today's one-step tap goes. A tap while walking stops, costing no turn, and the walk stops by itself when a creature comes into view.
@@ -78,14 +86,3 @@ Entry format:
 - Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.
 - Settings' Way to play line, in play, opens the same card on the room: the ways that can't be picked stay grey, with their own note.
 - Decisions: D-396.
-
-## 0.2.146 (2026-10-28)
-- The map now opens as a glass card that fills the screen, like the bag. MAP sits at its top left, the floor's name and its arrows in the middle of the same row, and the round cross closes it, as M, Esc and a tap outside still do. The round map in the corner hides while it is open.
-- The Seed Explorer is the same card, on the title's scene: Back, Type and Reseed are buttons along its bottom, the seed in gold between them. Dragging, zooming, the floor arrows and tapping stairs work as before.
-- Fixed: the map's up arrow and Page Up now turn back up to the surface; before, they stopped at depth 1.
-- Decisions: D-395.
-
-## 0.2.145 (2026-10-28)
-- The seed pad now opens as a glass card that fills the screen, like Settings, both from Settings and from the Seed Explorer. SEED sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
-- The digits typed sit in an ember box, with the keys under it as buttons on the same 4-column grid, both in the middle of the card. The chosen key glows ember; the rest are dim. Arrows, digits and Backspace work as before.
-- Decisions: D-394.
