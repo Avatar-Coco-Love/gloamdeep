@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.150, the look cards.** The owner picked the cloak,
+  eyes, trim and clothes screens as glass cards like the name card: CLOAK,
+  EYES, TRIM or CLOTHES top left, the boxes centred, OK a button bottom
+  right, the cross (or a tap outside) back a card (D-399).
+  [Playtest](https://claude.ai/artifact/ACHppiuWHJgGU526WFqzar).
 - **2026-10-28, 0.2.149, the name card.** The owner picked the name pad
   as a glass card like the seed card: NAME (or RENAME) top left, the name
   in an ember box, the letters as buttons on the same 7-column grid, the

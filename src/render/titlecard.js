@@ -1,8 +1,8 @@
 // § title card (D-401; were the title's centred lines, D-181): the title screen laid out like a
 // phone game's, on the title's scene. The name at the top (title.js), one big ember button under
 // the hero: CONTINUE while a journey is saved, with New journey a grey line under it, else NEW
-// JOURNEY alone. Journal, How to play and Settings are round buttons top right, a draft 5 × 5 icon
-// in each and its name under it; the profile in play is a glass chip top left, its hero, name and
+// JOURNEY alone. Journal, How to play and Settings are round buttons top right, a 9 × 9 icon
+// in each (D-402) and its name under it; the profile in play is a glass chip top left, its hero, name and
 // deepest depth, opening Profiles; the Seed Explorer a round button bottom left, its name beside
 // it. The chosen one is ember (the button, a round button's rim, the chip's edge) or gold with
 // the flame (the grey line). No sprites here, so the tests can load it.
@@ -23,12 +23,12 @@ const LINE_GAP = 7; // from the big button's foot to New journey's top
 const R = 12, ROUND_GAP = 52, COLUMN_GAP = 40; // the round buttons' radius, and from one's middle to the next in a row, or in a column
 const TAP_PAD = 4;
 
-// § icons: 5 × 5 in the stone grey, like the corner buttons' (hud.js); drafts, to be tuned (D-401)
+// § icons: 9 × 9 in the stone grey, one game pixel per dot like the hero's and the hearts' (D-402; were 5 × 5 drafts, doubled, D-401)
 const ICONS = {
-  journal: ['xx.xx', 'x.x.x', 'x.x.x', 'xx.xx', '..x..'], // an open book
-  howto: ['.xxx.', '...x.', '..x..', '.....', '..x..'], // a question mark
-  settings: ['.x.x.', 'xxxxx', 'xx.xx', 'xxxxx', '.x.x.'], // a gear
-  explore: ['...xx', '..x.x', '.xxx.', 'xx...', 'x....'], // a wrench, the tools (D-376)
+  journal: ['.xx...xx.', 'x..x.x..x', 'x.x.x.x.x', 'x...x...x', 'x.x.x.x.x', 'x...x...x', 'x.x.x.x.x', '.xxx.xxx.', '....x....'], // an open book, its lines
+  howto: ['..xxxxx..', '.xx...xx.', '.xx...xx.', '.....xx..', '....xx...', '....xx...', '.........', '....xx...', '....xx...'], // a question mark
+  settings: ['....x....', '.x.xxx.x.', '..xxxxx..', '.xxx.xxx.', 'xxx...xxx', '.xxx.xxx.', '..xxxxx..', '.x.xxx.x.', '....x....'], // a gear, its hole
+  explore: ['......x.x', '......x.x', '.....xxxx', '....xxx..', '...xxx...', '..xxx....', '.xxx.....', 'xxx......', 'xx.......'], // a wrench, the tools (D-376)
 };
 const ROUNDS = ['journal', 'howto', 'settings'];
 const NAMES = { journal: 'Journal', howto: 'How to play', settings: 'Settings', explore: 'Seed Explorer' };
@@ -95,7 +95,7 @@ export function drawTitleCard(c, vw, vh, menu, chosen, chip, t, still) {
     } else {
       round(c, b.mx, b.my, R, on ? EMBER : undefined);
       c.fillStyle = on ? GOLD : GREY;
-      ICONS[b.id].forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(b.mx - 5 + 2 * x, b.my - 5 + 2 * y, 2, 2); }));
+      ICONS[b.id].forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(b.mx - 4 + x, b.my - 4 + y, 1, 1); }));
       if (b.id === 'explore') drawText(c, b.word, b.x + b.w + 6, b.my - 4, on ? GOLD : GREY);
       else drawText(c, b.word, b.mx - Math.floor(textWidth(b.word) / 2), b.y + b.h + 3, on ? GOLD : GREY);
     }
