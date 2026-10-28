@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.162, skills, two ways.** Docs only. The owner
+  narrowed skills to Claude's two picks: a Growth tree for embers, and
+  big abilities found; doing and NPC teaching left out for now (D-419,
+  supersedes D-416).
 - **2026-10-28, 0.2.161, the scope, part 1.** Docs only. The plan for
   every item, craft, drop and skill, in eight parts in `SCOPE.md`
   (D-413). The frame: 100 to 150 things, no hunger, each biome its own

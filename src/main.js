@@ -360,6 +360,7 @@ const onTab = () => {
 const onChoose = () => { if (app.screen !== 'play' && !screens.onMapScreen()) screens.choose(); };
 const input = createInput(stage, canvas, {
   onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
+  guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
 });
 const mapMoves = createMapMoves(stage, roomCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
 const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)

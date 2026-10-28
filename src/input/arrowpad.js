@@ -5,12 +5,15 @@
 // Shown in play only while the Arrow pad switch is on (off at first). Thin layer:
 // it only calls onPress(dir) as a quarter is pressed and onPress(null) as it is
 // let go; show(on, alpha) shows or hides it and fades it (frame.js), and area()
-// is where it sits, in the room canvas's pixels.
+// is where it sits, in the room canvas's pixels; guards(x, y) is true for a point
+// on the screen (CSS px) on the shown pad or the ring round it, where a tap or held
+// finger doesn't walk (D-422).
 import { drawArrowPad } from '../render/hud.js';
 import { PAD_DISC as SIZE } from '../render/screen.js';
 import { keepPlaced } from './lantern.js';
 
 const MIDDLE = 10; // CSS px round the middle where no quarter is pressed
+const RING = 32; // CSS px round the disc, about a thumb wide, where taps don't walk (D-422)
 
 export function createArrowPad(canvas, { onPress }) {
   const pad = document.createElement('div');
@@ -53,5 +56,10 @@ export function createArrowPad(canvas, { onPress }) {
       if (on && alpha !== faded) { faded = alpha; pad.style.opacity = alpha < 1 ? alpha : ''; }
     },
     area: () => area,
+    guards(x, y) {
+      if (!shown) return false;
+      const b = pad.getBoundingClientRect();
+      return Math.hypot(x - b.left - b.width / 2, y - b.top - b.height / 2) <= b.width / 2 + RING;
+    },
   };
 }
