@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.148', date: '2026-10-28', title: 'The profiles card', lines: [
+    "The profiles now open as a glass card that fills the screen, on the title's scene, like Settings. PROFILES sits at its top left; each profile keeps its framed box, with its hero, name, deepest depth and play time.",
+    "Rename, Change look and Delete are buttons along the card's bottom: RENAME, LOOK and DELETE. While one is being done, the card's title asks which (RENAME WHICH?) and its button reads CANCEL. The arrows go down the boxes onto the buttons, then left and right along them.",
+    "The round cross goes back to the title, as Esc and a tap outside do. When the game first opens there is no title to go back to yet, so the cross is not shown. The Delete question stays as it was for now.",
+    "Decisions: D-397.",
+  ] },
   { v: '0.2.147', date: '2026-10-28', title: 'The way to play card', lines: [
     "New journey's \"Choose a way to play\" now opens as a glass card that fills the screen, like Settings. WAY TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do.",
     "Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.",

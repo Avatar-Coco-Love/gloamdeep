@@ -124,7 +124,7 @@ export function createFrame(app, ui) {
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'mode') { titleScene(0, t); drawWays(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-396)
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
-    else if (screen === 'slots') drawSlots(ctx, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, app.slotsBack && app.profiles.current !== null, t, still());
+    else if (screen === 'slots') { titleScene(0, t); drawSlots(rc, view.w, view.h, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, screens.slotsBack(), t, still()); } // the card on the title's scene (D-397)
     else if (screen === 'name') drawNamePad(ctx, app.entry, app.chosen, t, still(), app.renaming ? 'Rename profile' : undefined);
     else if (screen === 'cloak') drawCloaks(ctx, app.cloak, app.eyes, app.trim, app.clothes, app.chosen, t, still());
     else if (screen === 'eyes') drawEyes(ctx, app.cloak, app.eyes, app.chosen, t, still());

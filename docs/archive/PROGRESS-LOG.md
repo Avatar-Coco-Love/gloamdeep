@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.145, the seed card.** The owner picked the seed pad
+  as a glass card, from Settings and the Explorer alike: the digits in an
+  ember box, the keys as buttons on the same grid, centred (D-394).
+  [Playtest](https://claude.ai/artifact/NhsASzWxiSrc8VzxekwgLu).
 - **2026-10-28, 0.2.144, the version history card.** The owner picked
   Version history as a glass card, one list as before: number, title and
   + or −, an open version's lines across the card's width, the thin

@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { SLOTS, FORMAT, UPGRADES, newProfile, newProfiles, unpackProfiles, packProfiles, playing, withDeepest, loadProfiles, saveProfiles, slotName, usingSlot, withoutSlot, renamedSlot, lookedSlot, withPlayed, playedText } from '../src/core/profile.js';
-import { slotLines, slotsAt, slotsHeading } from '../src/render/slots.js';
+import { slotLines, slotsAt, slotsHeading, slotsLayout, moveSlots } from '../src/render/slots.js';
 import { journeyKey, loadJourney, saveJourney, dropJourney } from '../src/core/save.js';
 import { makeWorld } from '../src/core/turn.js';
 
@@ -125,21 +125,40 @@ test('renaming changes only the name; nothing typed makes it unnamed; an empty s
   assert.equal(renamedSlot(ps, 1, 'TOM').slots[1], null);
 });
 
-test('the slot screen: Rename, Change look, Delete, the one being done reads Cancel, a tap picks the nearest line', () => {
-  assert.deepEqual(slotLines(null, true).map((l) => l.text), ['Rename', 'Change look', 'Delete', 'Back']);
-  assert.deepEqual(slotLines('rename', false).map((l) => l.text), ['Cancel', 'Change look', 'Delete']);
-  assert.deepEqual(slotLines('look', false).map((l) => l.text), ['Rename', 'Cancel', 'Delete']);
-  assert.deepEqual(slotLines('delete', false).map((l) => l.text), ['Rename', 'Change look', 'Cancel']);
+test('the slots card: RENAME, LOOK, DELETE buttons, the one being done reads CANCEL (D-397)', () => {
+  assert.deepEqual(slotLines(null).map((l) => l.text), ['Rename', 'Change look', 'Delete']);
+  assert.deepEqual(slotLines(null).map((l) => l.label), ['RENAME', 'LOOK', 'DELETE']);
+  assert.deepEqual(slotLines('rename').map((l) => l.label), ['CANCEL', 'LOOK', 'DELETE']);
+  assert.deepEqual(slotLines('look').map((l) => l.text), ['Rename', 'Cancel', 'Delete']);
+  assert.deepEqual(slotLines('delete').map((l) => l.label), ['RENAME', 'LOOK', 'CANCEL']);
   assert.equal(slotsHeading('rename'), 'Rename which?');
   assert.equal(slotsHeading('look'), 'Change whose look?');
   assert.equal(slotsHeading(null), 'Profiles');
-  const lines = slotLines(null, true), seen = new Set();
-  for (let y = 145; y < 225; y++) seen.add(slotsAt(y, lines));
-  for (const id of ['rename', 'look', 'delete', 'back']) assert.ok(seen.has(id), id);
-  assert.equal(slotsAt(158, lines), 'rename');
-  assert.equal(slotsAt(174, lines), 'look');
-  assert.equal(slotsAt(190, lines), 'delete');
-  assert.equal(slotsAt(210, lines), 'back');
+});
+
+test('the slots card: a tap picks a box, the nearest button in the row, or the cross only with a title to go back to', () => {
+  const lines = slotLines(null);
+  for (const [vw, vh] of [[176, 300], [300, 221]]) {
+    const { card, boxes, row } = slotsLayout(vw, vh, lines);
+    boxes.forEach((b, i) => assert.equal(slotsAt(b.x + 20, b.y + 15, vw, vh, lines, true), i));
+    assert.ok(boxes[2].y + 30 < row.y, 'the boxes stay above the buttons');
+    row.buttons.forEach((b, i) => assert.equal(slotsAt(b.x + 2, row.y + 6, vw, vh, lines, true), lines[i].id));
+    assert.equal(slotsAt(card.x + 1, row.y + 6, vw, vh, lines, true), 'rename'); // nearest in the row
+    assert.equal(slotsAt(card.x + card.w - 12, card.y + 11, vw, vh, lines, true), 'close');
+    assert.notEqual(slotsAt(card.x + card.w - 12, card.y + 11, vw, vh, lines, false), 'close');
+    assert.equal(slotsAt(2, 2, vw, vh, lines, false), 'out');
+  }
+});
+
+test('the slots card\'s arrows: Up and Down through the boxes onto the row, Left and Right along it', () => {
+  assert.equal(moveSlots(0, 'down'), 1);
+  assert.equal(moveSlots(2, 'down'), 3);
+  assert.equal(moveSlots(3, 'right'), 4);
+  assert.equal(moveSlots(5, 'right'), 5);
+  assert.equal(moveSlots(3, 'left'), 3);
+  assert.equal(moveSlots(4, 'up'), 2);
+  assert.equal(moveSlots(0, 'up'), 0);
+  assert.equal(moveSlots(1, 'left'), 1);
 });
 
 test('a new profile wears the cloak chosen after its name; Look changes only the look (P3)', () => {

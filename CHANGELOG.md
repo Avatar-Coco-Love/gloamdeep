@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.148 (2026-10-28)
+- The profiles now open as a glass card that fills the screen, on the title's scene, like Settings. PROFILES sits at its top left; each profile keeps its framed box, with its hero, name, deepest depth and play time.
+- Rename, Change look and Delete are buttons along the card's bottom: RENAME, LOOK and DELETE. While one is being done, the card's title asks which (RENAME WHICH?) and its button reads CANCEL. The arrows go down the boxes onto the buttons, then left and right along them.
+- The round cross goes back to the title, as Esc and a tap outside do. When the game first opens there is no title to go back to yet, so the cross is not shown. The Delete question stays as it was for now.
+- Decisions: D-397.
+
 ## 0.2.147 (2026-10-28)
 - New journey's "Choose a way to play" now opens as a glass card that fills the screen, like Settings. WAY TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
 - Each way is a row with its note under it, so Gentle, Normal and Hardcore can be compared at once; the chosen one is gold with the flame. Tapping a way or its note picks it.

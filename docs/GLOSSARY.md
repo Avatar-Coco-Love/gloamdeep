@@ -102,14 +102,14 @@ this page and a decision disagree, the decision wins.
   name, a look, Records, its play time (D-290) and their own journey (D-268).
 - **Slot:** one of the 3 places for a profile; empty or in use (D-268).
 - **Slot screen, Profiles:** where the game opens, to pick, start or
-  delete a profile (D-271).
+  delete a profile (D-271); a glass card since D-397.
 - **Name pad:** the page of letters for naming a new profile (D-272), or
   renaming one (D-273).
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero
   wears: the cloak's colour, the eyes' colour and the lantern's trim (its
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,
-  Short, Tattered), chosen after the name or with Change look on the slot
-  screen (D-275 to D-278, D-289).
+  Short, Tattered), chosen after the name or with Change look (the LOOK
+  button) on the slot screen (D-275 to D-278, D-289, D-397).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).
