@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.163 (2026-10-28)
+- The name pad (Name and Rename) is much bigger and split for thumbs: A to M on the left half of the card, N to Z on the right, the middle left open. Del sits bottom left after M, OK bottom right after Z.
+- The keys grow to fill the card, about three times as wide and twice as tall as before, and their letters, the typed name and its box are twice as big. The arrows walk across the split; tapping, clicking and typing work as before.
+- Decisions: D-420.
+
 ## 0.2.162 (2026-10-28)
 - Docs only: skills and abilities now come two ways, not four: embers buy a Growth tree, and big abilities are found deep down. Learning by doing and skills taught by NPCs are left out for now, to keep growth simple; NPCs may still teach or sell recipes.
 - Decisions: D-419, which supersedes D-416.
@@ -77,10 +82,3 @@ Entry format:
 ## 0.2.153 (2026-10-28)
 - The round buttons on the title have new icons, drawn at the game's own pixel size instead of doubled pixels: an open book with lines for Journal, a round question mark for How to play, a gear with a hole for Settings, and a wrench with an open jaw for the Seed Explorer.
 - Decisions: D-402.
-
-## 0.2.152 (2026-10-28)
-- The title screen is laid out like a phone game's. The hero stands in the lantern's light in the middle, with one big button under them: CONTINUE while a journey is saved, with New journey as a grey line under it, or NEW JOURNEY on its own.
-- Journal, How to play and Settings are round buttons in the top right corner, each with a small icon (a book, a question mark, a gear) and its name under it. On a squarer screen they stand down the right side instead.
-- The profile you are playing sits top left as a small glass box with your hero, name and deepest depth; tapping it opens Profiles, so the Profiles line is gone. The Seed Explorer is a round button with a wrench in the bottom left corner.
-- The name Gloamdeep is bigger and lit from below, dim at the tops of the letters and gold at their feet, as if the hero's lantern shone up at it.
-- Decisions: D-401.

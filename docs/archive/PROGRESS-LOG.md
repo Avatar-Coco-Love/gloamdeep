@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.160, the stats line in Settings.** A Stats line
+  switch, off at first: a short line bottom left, at full pixel size,
+  with fps, turn, time of day, xp, hero tile and seed; above the arrow
+  pad when it shows (D-412). [Playtest](https://claude.ai/artifact/DoFZ6h4s98D1oo3mV2C77F).
 - **2026-10-28, 0.2.159, the arrow pad.** A round glass disc bottom
   left, an arrow in each quarter: a press steps at once, held it walks 4
   steps a second; off at first, an Arrow pad switch in Settings. How to

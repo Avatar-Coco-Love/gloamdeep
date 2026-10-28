@@ -165,8 +165,9 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = fa
   if (twoButtons(entry)) drawButton(c, card.make.x, card.make.y, 'MAKE', few);
 }
 
-export function drawButton(c, bx, by, text, dim, w = BUTTON.w) {
-  c.fillStyle = K; c.fillRect(bx, by, w, BUTTON.h);
-  frame(c, bx, by, w, BUTTON.h, dim ? LINE : EMBER);
-  drawText(c, text, bx + Math.floor((w - textWidth(text)) / 2), by + 3, dim ? GREY : GOLD);
+// h and size: a taller button and bigger letters (the name pad's keys, D-420)
+export function drawButton(c, bx, by, text, dim, w = BUTTON.w, h = BUTTON.h, size = 1) {
+  c.fillStyle = K; c.fillRect(bx, by, w, h);
+  frame(c, bx, by, w, h, dim ? LINE : EMBER);
+  drawText(c, text, bx + Math.floor((w - textWidth(text) * size) / 2), by + Math.floor((h - 7 * size) / 2), dim ? GREY : GOLD, size);
 }

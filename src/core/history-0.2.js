@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.163', date: '2026-10-28', title: 'A bigger name pad', lines: [
+    "The name pad (Name and Rename) is much bigger and split for thumbs: A to M on the left half of the card, N to Z on the right, the middle left open. Del sits bottom left after M, OK bottom right after Z.",
+    "The keys grow to fill the card, about three times as wide and twice as tall as before, and their letters, the typed name and its box are twice as big. The arrows walk across the split; tapping, clicking and typing work as before.",
+    "Decisions: D-420.",
+  ] },
   { v: '0.2.162', date: '2026-10-28', title: 'Skills, two ways', lines: [
     "Docs only: skills and abilities now come two ways, not four: embers buy a Growth tree, and big abilities are found deep down. Learning by doing and skills taught by NPCs are left out for now, to keep growth simple; NPCs may still teach or sell recipes.",
     "Decisions: D-419, which supersedes D-416.",

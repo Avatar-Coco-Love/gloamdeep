@@ -100,13 +100,14 @@ const advance = (ch) => (ch === ' ' ? SPACE : glyph(ch)[0].length) + 1;
 // § width: in game pixels, without the gap after the last letter
 export const textWidth = (text) => [...text].reduce((w, ch) => w + advance(ch), 0) - (text ? 1 : 0);
 
-// § draw: text with its top left at x, y, in one colour
-export function drawText(c, text, x, y, colour) {
+// § draw: text with its top left at x, y, in one colour; `size` draws each pixel as a
+// size × size square (the name pad's twice-as-big letters, D-420)
+export function drawText(c, text, x, y, colour, size = 1) {
   c.fillStyle = colour;
   for (const ch of text) {
     if (ch !== ' ') glyph(ch).forEach((row, j) => {
-      for (let i = 0; i < row.length; i++) if (row[i] === '#') c.fillRect(x + i, y + j, 1, 1);
+      for (let i = 0; i < row.length; i++) if (row[i] === '#') c.fillRect(x + i * size, y + j * size, size, size);
     });
-    x += advance(ch);
+    x += advance(ch) * size;
   }
 }
