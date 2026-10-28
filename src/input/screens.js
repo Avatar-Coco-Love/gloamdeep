@@ -64,7 +64,7 @@ import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
 import { nameKeyAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, HARDER_NOTE, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, nextControl, controlsText, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
@@ -81,6 +81,7 @@ import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
+import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { TILE, view } from '../render/screen.js';
@@ -110,7 +111,7 @@ export function createScreens(app, ui) {
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
-  const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, ['settings', 'ways', 'easier'].includes(app.screen)));
+  const menuTop = () => (app.screen === 'drop' ? askTop : onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, ['settings', 'easier'].includes(app.screen)));
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
@@ -485,7 +486,7 @@ export function createScreens(app, ui) {
 
   // § ways (MO4, D-346): Settings' Way to play line opens the ways, the one played picked; a harder
   // one can't be picked, the one played goes back, an easier one asks first (No picked)
-  const waysWords = () => `${MODE_HEADING}. ${easeMenu(app.state.mode).map((l) => `${l.text}: ${l.dim ? HARDER_NOTE : l.note}`).join(' ')}`;
+  const waysWords = () => `${MODE_HEADING}. ${easeMenu(app.state.mode).map((l) => `${l.text}: ${l.note}`).join(' ')}`;
   const openWays = (at = app.state.mode) => show('ways', modeAt(at));
   const closeWays = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'mode'));
   function pickWay(id) {
@@ -659,6 +660,13 @@ export function createScreens(app, ui) {
       const at = settingsCardAt(px, py, view.w, view.h, menuOf('settings'));
       if (at === 'out' || at === 'close') closeSettings(); // the round cross goes back (D-389)
       else if (at === 'history') { app.chosen = menuOf('settings').length - 1; openHistory(); }
+      else if (at) { app.chosen = at.line; choose(at.line); }
+      return;
+    }
+    if (app.screen === 'mode' || app.screen === 'ways') {
+      if (held) return;
+      const at = waysAt(px, py, view.w, view.h, menuOf(app.screen));
+      if (at === 'out' || at === 'close') pause(); // the round cross goes back (D-396)
       else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }
