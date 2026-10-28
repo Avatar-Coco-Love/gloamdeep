@@ -224,8 +224,9 @@ export function makeRoom(map, dark = CAVE, look = 'crypt') {
 }
 
 // § lookups
+// Past the edge it is wall, or what `room.beyond` says for a room widened for drawing (openings.js, D-403)
 export function letterAt(room, x, y) {
-  return x < 0 || y < 0 || x >= room.cols || y >= room.rows ? OUTSIDE : room.map[y][x];
+  return x < 0 || y < 0 || x >= room.cols || y >= room.rows ? (room.beyond ? room.beyond(x, y) : OUTSIDE) : room.map[y][x];
 }
 export const tileAt = (room, x, y) => byLetter(letterAt(room, x, y));
 export const isWall = (room, x, y) => tileAt(room, x, y).id === 'wall';

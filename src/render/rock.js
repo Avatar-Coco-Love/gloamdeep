@@ -4,7 +4,8 @@
 // below, shade on the floor under it. But the rock's edges don't keep to the
 // tiles: corners round off and edges wander a few pixels. Walking is still by
 // tile, and a floor tile's middle is never covered. Drawn once per room;
-// tiles.js draws the stairs on top.
+// tiles.js draws the stairs on top. Past a small room's edge the rock goes on
+// (drawRockBeyond, D-403), in the same pixels' places, so no seam shows.
 import { hash } from '../core/noise.js';
 import { isWall, tileAt } from '../core/room.js';
 import { TILE as T } from './screen.js';
@@ -29,19 +30,24 @@ const STONES = 0.5; // the share of earth floor tiles with a stone
 // between middles and cut at a level that wobbles in 3-pixel steps, so edges
 // stay chunky pixel art. An opening in the room's edge stays clear to the
 // edge: the tile beyond it counts as floor, and its own tile has no rock (D-201).
-function mask(room, wobble) {
-  const W = room.cols * T, H = room.rows * T, m = new Uint8Array(W * H);
+// `win`: the pixels to work out, { x0, y0, w, h }, the room's own or wider.
+const floorDiv = (a, n) => Math.floor(a / n), mod = (a) => ((a % T) + T) % T; // right for pixels left of or above the room too
+function roomWalls(room) {
   const inside = (x, y) => x >= 0 && y >= 0 && x < room.cols && y < room.rows;
   const gap = (x, y) => !isWall(room, x, y) && (x === 0 || y === 0 || x === room.cols - 1 || y === room.rows - 1);
   const wall = (x, y) => inside(x, y) ? +isWall(room, x, y) : +!gap(Math.max(0, Math.min(room.cols - 1, x)), Math.max(0, Math.min(room.rows - 1, y)));
-  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
-    const tx = x / T | 0, ty = y / T | 0, ix = x % T, iy = y % T;
+  return { wall, gap };
+}
+function mask(room, wobble, win, { wall, gap }) {
+  const { x0: X0, y0: Y0, w: W, h: H } = win, m = new Uint8Array(W * H);
+  for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
+    const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y);
     const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
     const v = (wall(x0, y0) * (1 - ax) + wall(x0 + 1, y0) * ax) * (1 - ay) + (wall(x0, y0 + 1) * (1 - ax) + wall(x0 + 1, y0 + 1) * ax) * ay;
-    let rock = v > 0.5 - (hash(x / 3 | 0, y / 3 | 0, 7) - 0.5) * wobble;
+    let rock = v > 0.5 - (hash(floorDiv(x, 3), floorDiv(y, 3), 7) - 0.5) * wobble;
     if (isWall(room, tx, ty) && v > 0.95) rock = true;
     if (!isWall(room, tx, ty) && (tileAt(room, tx, ty).leads || gap(tx, ty) || ix > 3 && ix < 12 && iy > 3 && iy < 12)) rock = false;
-    m[y * W + x] = rock ? 1 : 0;
+    m[(y - Y0) * W + x - X0] = rock ? 1 : 0;
   }
   return m;
 }
@@ -51,7 +57,7 @@ function mask(room, wobble) {
 const FACE = ['#4b5468', '#555e73', '#434b5d'], FACE_TOP = ['#6a7489', '#5f697e'], SEAM = '#262a35';
 function chunks(x, y) {
   let best = 1e9, second = 1e9, id = 0;
-  const cx = x / 7 | 0, cy = y / 6 | 0;
+  const cx = floorDiv(x, 7), cy = floorDiv(y, 6);
   for (let j = -1; j <= 1; j++) for (let i = -1; i <= 1; i++) {
     const px = (cx + i) * 7 + hash(cx + i, cy + j, 21) * 7, py = (cy + j) * 6 + hash(cx + i, cy + j, 22) * 6;
     const d = (x - px) ** 2 + ((y - py) * 1.3) ** 2;
@@ -64,25 +70,25 @@ function chunks(x, y) {
 // Earth is uneven bands of rock, like a cut through the ground, with dark lines between
 const STRATA = ['#5a4a3e', '#6a584a', '#4e4036'], STRATA_LINE = ['#3a2f26', '#2a221c'];
 function strata(x, y) {
-  const k = hash((y + (hash(x / 5 | 0, y / 3 | 0, 3) * 2 | 0)) / 3 | 0, x / 9 | 0, 11);
-  if ((y + (hash(x / 5 | 0, 0, 3) * 2 | 0)) % 3 === 0) return STRATA_LINE[k < 0.3 ? 0 : 1];
+  const k = hash(floorDiv(y + (hash(floorDiv(x, 5), floorDiv(y, 3), 3) * 2 | 0), 3), floorDiv(x, 9), 11);
+  if (((y + (hash(floorDiv(x, 5), 0, 3) * 2 | 0)) % 3 + 3) % 3 === 0) return STRATA_LINE[k < 0.3 ? 0 : 1];
   return STRATA[Math.min(2, k * 3 | 0)];
 }
 
 // § floor: uneven ground with gravel and pebbles, and on some tiles a spot:
 // a puddle on grey rock, a stone on earth
 function floor(look, x, y) {
-  const tx = x / T | 0, ty = y / T | 0, h = hash(x, y, 5), [base, light, dark, pebble] = look.floor;
-  return look.spot(x, y, tx, ty) || (h < 0.06 ? pebble : h < 0.14 ? dark : hash(x / 3 | 0, y / 3 | 0, 6) < 0.3 ? light : base);
+  const tx = floorDiv(x, T), ty = floorDiv(y, T), h = hash(x, y, 5), [base, light, dark, pebble] = look.floor;
+  return look.spot(x, y, tx, ty) || (h < 0.06 ? pebble : h < 0.14 ? dark : hash(floorDiv(x, 3), floorDiv(y, 3), 6) < 0.3 ? light : base);
 }
 function puddle(x, y, tx, ty) {
   if (hash(tx, ty, 12) >= PUDDLES) return null;
-  const px = x % T - 8, py = y % T - 9, e = px * px / 16 + py * py / 6;
+  const px = mod(x) - 8, py = mod(y) - 9, e = px * px / 16 + py * py / 6;
   return e < 0.3 && py < 0 ? '#3a4660' : e < 1 ? '#262d3d' : null;
 }
 function stone(x, y, tx, ty) {
   if (hash(tx, ty, 13) >= STONES) return null;
-  const px = x % T - (3 + hash(tx, ty, 14) * 9 | 0), py = y % T - (4 + hash(tx, ty, 15) * 8 | 0);
+  const px = mod(x) - (3 + hash(tx, ty, 14) * 9 | 0), py = mod(y) - (4 + hash(tx, ty, 15) * 8 | 0);
   return px * px + py * py < 3 ? (py < 0 ? '#6a5848' : '#544435') : null;
 }
 
@@ -91,22 +97,38 @@ const RGB = new Map();
 const toRgb = (h) => RGB.get(h) || (RGB.set(h, rgb(h)), RGB.get(h));
 
 export function drawRock(c, room) {
-  const W = room.cols * T, H = room.rows * T; // the whole room, which can be bigger than the screen (D-195)
-  const look = LOOKS[room.look] || LOOKS.rock, m = mask(room, look.wobble), rock = (x, y) => x < 0 || y < 0 || x >= W || y >= H || m[y * W + x] === 1;
+  const win = { x0: 0, y0: 0, w: room.cols * T, h: room.rows * T }; // the whole room, which can be bigger than the screen (D-195)
+  c.putImageData(paint(c, room, win, roomWalls(room), false), 0, 0);
+}
+
+// § beyond: the rock going on `mx` tiles past the left and right edges and
+// `my` past the top and bottom, around `wide`, a room widened by openings.js
+// (D-403), into `c`, as big as all that. The room's own pixels are left clear.
+export function drawRockBeyond(c, wide, mx, my) {
+  const win = { x0: -mx * T, y0: -my * T, w: (wide.cols + 2 * mx) * T, h: (wide.rows + 2 * my) * T };
+  const out = (x, y) => x < -mx || y < -my || x >= wide.cols + mx || y >= wide.rows + my;
+  c.putImageData(paint(c, wide, win, { wall: (x, y) => (out(x, y) ? 1 : +isWall(wide, x, y)), gap: () => false }, true), 0, 0);
+}
+
+function paint(c, room, win, walls, beyond) {
+  const { x0: X0, y0: Y0, w: W, h: H } = win, RW = room.cols * T, RH = room.rows * T;
+  const look = LOOKS[room.look] || LOOKS.rock, m = mask(room, look.wobble, win, walls);
+  const rock = (x, y) => x < X0 || y < Y0 || x >= X0 + W || y >= Y0 + H || m[(y - Y0) * W + x - X0] === 1;
   const img = c.createImageData(W, H), d = img.data;
-  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+  for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
+    if (beyond && x >= 0 && y >= 0 && x < RW && y < RH) continue; // the room's own, drawn by drawRock
     let col, shade = 1;
     if (rock(x, y)) {
       let down = 0; // rock pixels below this one, down to open floor
-      while (down < FACE_H && y + down + 1 < H && rock(x, y + down + 1)) down++;
-      if (down < FACE_H && y + down + 1 < H) col = down === FACE_H - 1 ? look.edge : down === 0 ? look.foot : look.face(x, y);
+      while (down < FACE_H && y + down + 1 < Y0 + H && rock(x, y + down + 1)) down++;
+      if (down < FACE_H && y + down + 1 < Y0 + H) col = down === FACE_H - 1 ? look.edge : down === 0 ? look.foot : look.face(x, y);
       else col = !rock(x - 1, y) || !rock(x + 1, y) || !rock(x, y - 1) ? look.edge : hash(x >> 1, y >> 1, 9) < 0.15 ? look.grit : look.cap;
     } else {
       col = floor(look, x, y);
       for (let k = 1; k <= 4; k++) if (rock(x, y - k)) { shade = k <= 2 ? 0.55 : 0.78; break; } // shade under the face
     }
-    const [r, g, b] = toRgb(col), k = (y * W + x) * 4;
+    const [r, g, b] = toRgb(col), k = ((y - Y0) * W + x - X0) * 4;
     d[k] = r * shade; d[k + 1] = g * shade; d[k + 2] = b * shade; d[k + 3] = 255;
   }
-  c.putImageData(img, 0, 0);
+  return img;
 }

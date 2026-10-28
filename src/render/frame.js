@@ -2,7 +2,7 @@
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, fitTitle } from './screen.js';
-import { drawRoom } from './tiles.js';
+import { drawRoom, drawBeyond } from './tiles.js';
 import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
@@ -47,7 +47,7 @@ import { cameraAt } from '../core/camera.js';
 import { playing } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
-import { doorways } from '../core/openings.js';
+import { doorways, widen } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
 
@@ -70,6 +70,11 @@ export function createFrame(app, ui) {
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
   let drawnRoom = null, doors = []; // the room drawn into `base`, and its doorways (D-225)
+  // Past a small room's edge its rock or trees go on (D-403): drawn onto `around`, mx tiles
+  // past the sides and my past the top and bottom, enough to reach the screen's edges
+  const around = document.createElement('canvas');
+  let wide = null, mx = 0, my = 0;
+  const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 1;
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
@@ -164,6 +169,12 @@ export function createFrame(app, ui) {
       drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
       base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
       drawRoom(base.getContext('2d'), drawnRoom);
+      wide = widen(drawnRoom, doors); mx = my = 0;
+    }
+    if (past(wide.cols, view.w) > mx || past(wide.rows, view.h) > my) { // a new room, or a wider screen
+      mx = past(wide.cols, view.w); my = past(wide.rows, view.h);
+      around.width = (wide.cols + 2 * mx) * TILE; around.height = (wide.rows + 2 * my) * TILE;
+      drawBeyond(around.getContext('2d'), wide, mx, my);
     }
     // § fall: the hero lies down, the light closes to the deepest dark, then opens where they wake (D-234)
     const lying = !!fall?.from && t >= fall.lieAt;
@@ -172,7 +183,8 @@ export function createFrame(app, ui) {
     const list = travel || fall ? null : creaturesListed(s); // none while taking stairs or falling
     const sx = Math.round(shown.x * TILE), sy = Math.round(shown.y * TILE);
     const cam = app.cam = cameraAt(sx, sy, s.room, view.w, view.h);
-    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); // the deepest dark past a small room's edges (D-381)
+    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); // the deepest dark, only past what `around` holds
+    rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
     rc.drawImage(base, -cam.x, -cam.y);
     inRoom(() => {
       drawBrackets(rc, s.room, s.lights);
@@ -193,7 +205,7 @@ export function createFrame(app, ui) {
       lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));
       const sunIn = mouthLight(s); // daylight through the cave mouth, steady, no flicker (D-218)
       if (sunIn) lights.push(sunIn);
-      drawLight(rc, s.room, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
+      drawLight(rc, wide, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
     }
     inRoom(() => {
       drawFlames(rc, s.room, s.lights, t, still());

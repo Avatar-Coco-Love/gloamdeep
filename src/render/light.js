@@ -4,8 +4,11 @@
 // The room sets the darkness and the remembered tiles' look (D-063); their
 // edge fades over one cell (D-060). Lights and cells are in room pixels; the
 // camera picks which of them land on the screen (D-195). Past a small room's
-// edges the screen keeps the deepest dark, unlit (D-381).
+// edges, a room widened by openings.js is lit like the room: as remembered as
+// the nearest edge tile, and lights reach on only down a doorway's passage
+// (D-403). A room not widened keeps the deepest dark there (D-381).
 import { CELL, seenCells } from '../core/light.js';
+import { tileAt } from '../core/room.js';
 import { TILE, view } from './screen.js';
 
 let CW = 0, CH = 0; // the room's size in cells
@@ -18,8 +21,8 @@ let known = new Uint8Array(0); // cells on remembered tiles
 function blend(cells, x, y) {
   const fx = (x + 0.5) / CELL - 0.5, fy = (y + 0.5) / CELL - 0.5;
   const x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
-  const xa = x0 < 0 ? 0 : x0, xb = x0 + 1 >= CW ? CW - 1 : x0 + 1;
-  const ya = (y0 < 0 ? 0 : y0) * CW, yb = (y0 + 1 >= CH ? CH - 1 : y0 + 1) * CW;
+  const xa = x0 < 0 ? 0 : x0 >= CW ? CW - 1 : x0, xb = x0 + 1 >= CW ? CW - 1 : x0 + 1 < 0 ? 0 : x0 + 1; // past the edge, the edge's own (D-403)
+  const ya = (y0 < 0 ? 0 : y0 >= CH ? CH - 1 : y0) * CW, yb = (y0 + 1 >= CH ? CH - 1 : y0 + 1 < 0 ? 0 : y0 + 1) * CW;
   return (cells[ya + xa] * (1 - ax) + cells[ya + xb] * ax) * (1 - ay) + (cells[yb + xa] * (1 - ax) + cells[yb + xb] * ax) * ay;
 }
 
@@ -49,13 +52,16 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   const [W, H] = cam === NO_SHIFT ? [CW * CELL, CH * CELL] : [view.w, view.h]; // the title's room is its screen
   const img = ctx.getImageData(0, 0, W, H), d = img.data, RW = CW * CELL, RH = CH * CELL;
   const { unseen, remembered } = dark;
+  let tx = NaN, ty = NaN, open = true; // the tile past the edge last looked at, and whether light goes on into it
   for (let sy = 0; sy < H; sy++) for (let sx = 0; sx < W; sx++) {
     const x = sx + cam.x, y = sy + cam.y; // the room pixel; the dither keeps to the room, not the screen
-    if (x < 0 || y < 0 || x >= RW || y >= RH) continue; // beyond the room
+    const out = x < 0 || y < 0 || x >= RW || y >= RH;
+    if (out && !room.beyond) continue; // beyond a room not widened
+    if (out && (x >> 4 !== tx || y >> 4 !== ty)) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
     const th = BAYER[((y & 3) << 2) | (x & 3)];
-    const amb = blend(known, x, y) > th ? remembered : unseen;
+    const amb = blend(known, x, y) > th ? remembered : unseen; // past the edge, the nearest edge cell's
     let lr = 0, lg = 0, lb = 0;
-    for (let i = 0; i < lit.length; i++) {
+    for (let i = (out && !open) ? lit.length : 0; i < lit.length; i++) {
       const { L, cells } = lit[i], dx = x - L.x, dy = y - L.y;
       let f = 1 - Math.sqrt(dx * dx + dy * dy) / L.r;
       if (f <= 0) continue;

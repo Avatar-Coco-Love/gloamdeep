@@ -40,3 +40,14 @@ export function doorways(place, room, seed) {
   }
   return out;
 }
+
+// § beyond: (room, doorways) → the room for drawing, past its edge the rock
+// or trees going on all around, and floor straight out from each doorway, a
+// passage on, but for the cave mouth, which leads down into the rock (D-403).
+// Only drawing and light read it; nothing walks there.
+const PAST = { up: (d, x, y) => x === d.x && y < 0, down: (d, x, y, r) => x === d.x && y >= r.rows,
+  left: (d, x, y) => y === d.y && x < 0, right: (d, x, y, r) => y === d.y && x >= r.cols };
+export function widen(room, doors) {
+  const fill = room.look === 'woods' ? 'T' : '#', ways = doors.filter((d) => tileAt(room, d.x, d.y).id !== 'caveMouth');
+  return { ...room, beyond: (x, y) => (ways.some((d) => PAST[d.dir](d, x, y, room)) ? '.' : fill) };
+}

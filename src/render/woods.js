@@ -58,3 +58,20 @@ export function drawTree(c, room, tx, ty) {
   const shade = (x, y, k) => { c.fillStyle = `rgba(0,0,0,${1 - k})`; c.fillRect(x, y, 1, 1); };
   paintTree(put, shade, tx, ty);
 }
+
+// § beyond: the grass and trees going on `mx` tiles past the left and right
+// edges and `my` past the top and bottom, around `wide`, a room widened by
+// openings.js (D-403), into `c`, as big as all that. The room's own pixels
+// are left clear, for drawWoods.
+export function drawWoodsBeyond(c, wide, mx, my) {
+  const ox = mx * T, oy = my * T, w = (wide.cols + 2 * mx) * T, h = (wide.rows + 2 * my) * T;
+  const img = c.createImageData(w, h), d = img.data, RW = wide.cols * T, RH = wide.rows * T;
+  const mine = (x, y) => (x < 0 || y < 0 || x >= RW || y >= RH) && x >= -ox && y >= -oy && x < w - ox && y < h - oy;
+  const put = (x, y, hex) => { if (!mine(x, y)) return; const [r, g, b] = rgb(hex), i = ((y + oy) * w + x + ox) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
+  const shade = (x, y, k) => { if (!mine(x, y)) return; const i = ((y + oy) * w + x + ox) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
+  for (let y = -oy; y < h - oy; y++) for (let x = -ox; x < w - ox; x++) if (mine(x, y)) grass(put, x, y);
+  for (let ty = -my; ty < wide.rows + my; ty++) for (let tx = -mx; tx < wide.cols + mx; tx++) {
+    if (tileAt(wide, tx, ty).id === 'tree' && (tx < 0 || ty < 0 || tx >= wide.cols || ty >= wide.rows)) paintTree(put, shade, tx, ty);
+  }
+  c.putImageData(img, 0, 0);
+}

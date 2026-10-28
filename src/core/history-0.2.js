@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.155', date: '2026-10-28', title: "Past the room's edge", lines: [
+    "Past a small room's edge, the rock, brick or trees now go on all around to the screen's edges instead of a flat dark colour, drawn so no seam shows where the room ends. Nothing past the edge can be walked on.",
+    "It is lit like the room: as remembered as the edge tile next to it, pitch dark where you haven't been, and in full daylight outside. The lantern doesn't reach through the rock.",
+    "Out from each doorway a passage runs on to the screen's edge, so a way out looks like one; the lantern lights it as you come near. Behind the woods' cave mouth the trees go on.",
+    "Decisions: D-405.",
+  ] },
   { v: '0.2.154', date: '2026-10-28', title: 'Next steps: the edge and steering', lines: [
     "Past a small room's edge, whatever stands there (rock in a cave, trees outside) will go on all around, lit like the room, so no flat colour or seam shows beside it. Planned, not built yet.",
     "Steering is to get easier: an on-screen arrow pad and tapping a tile to walk there, each one you can turn on or off, beside swiping. Mock-ups come first.",
