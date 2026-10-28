@@ -56,7 +56,4 @@ export function howtoRows(page, controls) {
 // The page in words, for screen readers
 export const howtoWords = (page, controls) =>
   `How to play, ${pageName(page)}. ` + howtoRows(page, controls).map((r) => `${r.action}: ${r.ways.join(' ')}.`).join(' ') +
-  ' Left or Right for another page. Back.';
-
-// § lines: the page's name, then Back; Up and Down move between them
-export const HOWTO_LINES = ['page', 'back'];
+  ' Left or Right for another page. Esc or the close button goes back.';

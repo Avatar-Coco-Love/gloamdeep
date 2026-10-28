@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.138, the stash chest card.** Step 2 of D-387, as
+  the mock-up: the chest's 12 slots in a 4 × 3 grid left, the bag's 3 × 2
+  right with the chosen stack's name and count under it, Deconstruct
+  bottom left, the round cross to close. Squarer screens: Q-064.
+  [Playtest](https://claude.ai/artifact/TKqcpC4nL7eRGzVaiLAouh).
 - **2026-10-27, 0.2.137, the workbench card.** The owner picked both
   panels as glass cards like the bag, Deconstruct bottom left, built in
   two steps (D-387). The workbench card: things to make in slots left,

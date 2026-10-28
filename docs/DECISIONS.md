@@ -189,3 +189,13 @@ tap level with a row picks it. The round cross goes back, as Esc and a tap
 outside do, so the Back line is gone; Version history is a button bottom
 left, as Deconstruct is. The pages it opens stay as they are. Built in
 0.2.140.
+
+**D-390 · 2026-10-28 · How to play as a card** (the owner's picks, both
+recommended, [mock-up](https://claude.ai/artifact/7iyPwFpKrFw8qKH6mkdVhP))
+How to play opens as a glass card like the settings card (D-389), HOW TO
+PLAY in ember top left, from the pause card and from the title alike, on
+the title's scene there. Its pages are tabs under the heading, Touch,
+Mouse, Keyboard and Crafting, the open one gold with the flame and
+underlined; a tap on a tab opens it, and Left and Right still turn them.
+The rows sit under the tabs as before. The round cross goes back, as Esc
+and a tap outside do, so the Back line is gone. Built in 0.2.141.

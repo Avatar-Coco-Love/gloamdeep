@@ -3,9 +3,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { HOWTO_PAGES, nextPage, howtoRows, howtoWords } from '../src/core/howto.js';
 import { CONTROLS } from '../src/core/settings.js';
-import { howtoAt, PAGE_Y } from '../src/render/howto.js';
+import { howtoAt } from '../src/render/howto.js';
+import { cardAt } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
-import { W, SCREEN_H } from '../src/render/screen.js';
 
 test('Touch, Mouse, Keyboard and Crafting each have a page, and Left and Right flip round them', () => {
   assert.deepEqual(HOWTO_PAGES, ['touch', 'mouse', 'keyboard', 'crafting']);
@@ -34,19 +34,25 @@ test('walking by touch follows the Controls switch; a tap on the hero still wait
   assert.deepEqual(howtoRows('keyboard', 'swipe')[0].ways, ['Arrows or WASD']);
 });
 
-test('every way fits the picture beside its action, and the page fits its height', () => {
+// A sideways phone's room (D-377), and the narrowest a card is drawn on
+const VW = 300, VH = 176;
+
+test('every way fits the card beside its action, and the page fits under the tabs (D-390)', () => {
+  const card = cardAt(VW, VH);
   for (const p of HOWTO_PAGES) for (const c of CONTROLS) {
     const rows = howtoRows(p, c.id);
-    assert.ok(rows.reduce((n, r) => n + r.ways.length, 0) <= 6);
-    for (const r of rows) for (const w of r.ways) assert.ok(textWidth(w) + 38 + 2 * 8 <= W, w);
+    assert.ok(52 + rows.reduce((n, r) => n + r.ways.length, 0) * 11 <= card.h - 12);
+    for (const r of rows) for (const w of r.ways) assert.ok(12 + 8 + 44 + textWidth(w) <= card.w - 12, w);
   }
-  assert.ok(PAGE_Y - 16 >= 0 && howtoAt(W / 2, SCREEN_H - 1) === null);
 });
 
-test('a tap on the page line flips back on its left third and on elsewhere', () => {
-  assert.equal(howtoAt(10, PAGE_Y + 2), 'prev');
-  assert.equal(howtoAt(W - 10, PAGE_Y + 2), 'next');
-  assert.equal(howtoAt(W / 2, PAGE_Y - 20), null);
+test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390)', () => {
+  const { x, y, w, close } = cardAt(VW, VH);
+  assert.deepEqual(howtoAt(x + 24, y + 30, VW, VH), { page: 'touch' });
+  assert.deepEqual(howtoAt(x + w - 24, y + 30, VW, VH), { page: 'crafting' });
+  assert.equal(howtoAt(close.x, close.y, VW, VH), 'close');
+  assert.equal(howtoAt(2, 2, VW, VH), 'out');
+  assert.equal(howtoAt(x + w / 2, y + 80, VW, VH), null);
 });
 
 test('the Crafting page says how Make works, whatever the Controls switch (D-328)', () => {
@@ -56,5 +62,5 @@ test('the Crafting page says how Make works, whatever the Controls switch (D-328
 });
 
 test('a screen reader hears the page in words', () => {
-  assert.match(howtoWords('keyboard', 'both'), /^How to play, Keyboard\. Walk: Arrows or WASD\. Wait: Space\./);
+  assert.match(howtoWords('keyboard', 'both'), /^How to play, Keyboard\. Walk: Arrows or WASD\. Wait: Space\..* Esc or the close button goes back\.$/);
 });
