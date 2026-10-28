@@ -55,6 +55,7 @@
 import { depthOf, areaAt, tileAt } from '../core/room.js';
 import { lineAt, pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
+import { titleCardAt, chipOf } from '../render/titlecard.js';
 import { seedCardAt } from '../render/seedpad.js';
 import { howtoAt } from '../render/howto.js';
 import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
@@ -739,12 +740,15 @@ export function createScreens(app, ui) {
       else if (at !== null && at !== 'out') { const i = typeof at === 'number' ? at : SLOTS + linesNow().findIndex((l) => l.id === at); app.chosen = i; chooseSlot(i); }
       return;
     }
-    const i = lineAt(py, menuOf(app.screen).length, menuTop());
+    const i = app.screen === 'title' ? titleCardAt(px, py, view.w, view.h, menuOf('title'), chip()) // the title's buttons (D-401)
+      : lineAt(py, menuOf(app.screen).length, menuTop());
     if (i >= 0) { app.chosen = i; choose(i); }
   };
+  // § chip: the profile in play on the title, its name and deepest depth (D-401)
+  const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns };
+  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

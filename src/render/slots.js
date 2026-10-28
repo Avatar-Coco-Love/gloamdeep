@@ -12,9 +12,9 @@ import { cardAt, drawCard, drawButton, frame, inCard, onCross, BUTTON, PAD, TAP_
 import { SLOTS, slotName, playedText } from '../core/profile.js';
 
 const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
-const BOX_H = 30, BOX_Y = 30, BOX_GAP = 34; // each slot's box; the first box's top inside the card, and from one box's top to the next
+export const BOX_H = 30; const BOX_Y = 30, BOX_GAP = 34; // each slot's box; the first box's top inside the card, and from one box's top to the next
 const PATCH = 22, PATCH_X = 4, PATCH_TOP = 4; // the hero's lit patch, at the box's left
-const TEXT_X = PATCH_X + PATCH + 6;
+export const TEXT_X = PATCH_X + PATCH + 6; // a profile's name and depth, from its box's left; the title's chip too (D-401)
 
 // The buttons along the foot: Rename, Change look and Delete (the one being done reads Cancel);
 // text is said, label drawn. picking: null, 'rename', 'look' or 'delete'
@@ -75,7 +75,7 @@ function paint() {
   c.fillStyle = glow; c.fillRect(0, 0, PATCH, PATCH);
 }
 // A hero's sprite, 1×, on its patch and shadow, in the box at x, y
-function drawPatchHero(c, hero, x, y) {
+export function drawPatchHero(c, hero, x, y) {
   if (!patch) paint();
   const px = x + PATCH_X, py = y + PATCH_TOP, hx = px + 3, hy = py + 2;
   c.drawImage(patch, px, py);

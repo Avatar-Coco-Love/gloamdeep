@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.149, the name card.** The owner picked the name pad
+  as a glass card like the seed card: NAME (or RENAME) top left, the name
+  in an ember box, the letters as buttons on the same 7-column grid, the
+  cross for Back (D-398).
+  [Playtest](https://claude.ai/artifact/PaYKiikXUq3KgtZaaMZ3pa).
 - **2026-10-28, 0.2.148, the profiles card.** The owner picked the
   profiles as a glass card on the title's scene: PROFILES top left, the
   three boxes as they were, RENAME, LOOK and DELETE buttons along its

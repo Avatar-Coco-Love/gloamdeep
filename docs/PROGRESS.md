@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.151 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.152 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The owner's plan (2026-10-28): every screen still drawn on the picture
-became a glass card (the asks last, 0.2.151; Your journey ends. stays a
-page, D-400); next the main menu is revamped, from mock-ups. Then upright play (Q-065) is looked at, then
-creature materials (Q-061).
+The owner's plan (2026-10-28): the title is laid out like a phone game's
+(0.2.152, D-401); next, step 2, its round buttons' draft icons (book,
+question mark, gear, wrench) are tuned after playing it, from mock-ups.
+Then upright play (Q-065) is looked at, then creature materials (Q-061).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -21,7 +21,7 @@ creature materials (Q-061).
 - Achievements' tiers and rewards (Q-057), before the first one.
 - Creature materials: which, names, chances, recipes (Q-061).
 - The chest card on squarer screens (Q-064), any time.
-- Playing upright too (Q-065), after the main menu revamp.
+- Playing upright too (Q-065), after the title's icons.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -35,6 +35,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.152, the title revamped.** The owner picked layout A
+  from three mock-ups and the name lit from below at triple size from six
+  drawn by the game: one big CONTINUE or NEW JOURNEY button under the
+  hero, Journal, How to play and Settings round top right, the profile a
+  glass chip top left opening Profiles, the Seed Explorer round bottom
+  left (D-401). D-393 to D-400 archived.
+  [Playtest](https://claude.ai/artifact/WKrWA7LCh7Pz8gRp6qy6Bz).
 - **2026-10-28, 0.2.151, the ask cards.** The owner picked Start over?,
   Delete …? and Play …? as a small glass card in the middle, the question
   top left, the note under it, YES and NO as buttons, NO first; the cross,
@@ -45,8 +52,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   EYES, TRIM or CLOTHES top left, the boxes centred, OK a button bottom
   right, the cross (or a tap outside) back a card (D-399).
   [Playtest](https://claude.ai/artifact/ACHppiuWHJgGU526WFqzar).
-- **2026-10-28, 0.2.149, the name card.** The owner picked the name pad
-  as a glass card like the seed card: NAME (or RENAME) top left, the name
-  in an ember box, the letters as buttons on the same 7-column grid, the
-  cross for Back (D-398).
-  [Playtest](https://claude.ai/artifact/PaYKiikXUq3KgtZaaMZ3pa).
