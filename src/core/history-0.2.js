@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.150', date: '2026-10-28', title: 'The look cards', lines: [
+    "Choosing a profile's look now opens a glass card that fills the screen, on the title's scene, like the name card: CLOAK, then EYES, TRIM and CLOTHES at its top left.",
+    "The choices keep their framed boxes, centred in the card, the picked one framed in gold; OK is a button in the bottom right corner.",
+    "The round cross goes back a card, as Back did, and so does a tap outside the card, so the Back line is gone. Esc still works as before.",
+    "Decisions: D-399.",
+  ] },
   { v: '0.2.149', date: '2026-10-28', title: 'The name card', lines: [
     "Naming a new profile now opens a glass card that fills the screen, on the title's scene, like the seed pad. NAME sits at its top left, or RENAME when renaming a profile.",
     "The name typed sits in an ember box, and each letter is a small button on the same 7-column grid, with DEL and OK wider buttons on the last row; the chosen key is ember and gold, the rest dim.",

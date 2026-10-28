@@ -2,6 +2,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CLOAKS, CLOAK_IDS, CLOAK_PAD, DEFAULT_CLOAK, cloakOf, moveCloak, EYES, EYE_IDS, EYES_PAD, DEFAULT_EYES, eyesOf, moveEyes, TRIMS, TRIM_IDS, TRIM_PAD, DEFAULT_TRIM, trimOf, moveTrim, CLOTHES, CLOTHES_IDS, CLOTHES_PAD, DEFAULT_CLOTHES, clothesOf, moveClothes } from '../src/core/looks.js';
+import { lookCardAt } from '../src/render/cloak.js';
+import { cardAt } from '../src/render/bag.js';
 import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIMS, CLOTHES as REGISTERED_CLOTHES, get } from '../src/core/registry.js';
 
 test('six cloaks, teal first, each with four shades; the registry has them', () => {
@@ -24,14 +26,14 @@ test('a profile from before P3, or with an unknown cloak, wears teal', () => {
   assert.equal(cloakOf({ look: { cloak: 'heather' } }), 'heather');
 });
 
-test('the cloak screen: three heroes to a row, then OK, then Back; the arrows walk them', () => {
+test('the cloak card: three heroes to a row, then OK; the arrows walk them', () => {
   const at = (id) => CLOAK_PAD.findIndex((k) => k.id === id);
   assert.equal(moveCloak(at('teal'), 'right'), at('moss'));
   assert.equal(moveCloak(at('heather'), 'right'), at('heather')); // the row's end
   assert.equal(moveCloak(at('moss'), 'down'), at('indigo'));
   assert.equal(moveCloak(at('indigo'), 'down'), at('ok'));
-  assert.equal(moveCloak(at('ok'), 'down'), at('back'));
-  assert.equal(moveCloak(at('back'), 'down'), at('back'));
+  assert.equal(moveCloak(at('ok'), 'down'), at('ok')); // no Back under it: the cross goes back (D-399)
+  assert.equal(at('back'), -1);
   assert.equal(moveCloak(at('ok'), 'up'), at('rust'));
 });
 
@@ -60,7 +62,7 @@ test('the eyes screen has the cloak screen\'s shape, and the arrows walk it the 
   assert.equal(moveEyes(at('bone'), 'right'), at('ice'));
   assert.equal(moveEyes(at('ice'), 'down'), at('silver'));
   assert.equal(moveEyes(at('silver'), 'down'), at('ok'));
-  assert.equal(moveEyes(at('ok'), 'down'), at('back'));
+  assert.equal(moveEyes(at('ok'), 'down'), at('ok'));
 });
 
 test('six trims, brass first, each a cap and a base shade; the registry has them; none kept out', () => {
@@ -91,7 +93,7 @@ test('the trim screen has the cloak screen\'s shape, and the arrows walk it the 
   assert.equal(moveTrim(at('brass'), 'right'), at('iron'));
   assert.equal(moveTrim(at('iron'), 'down'), at('verdigris'));
   assert.equal(moveTrim(at('verdigris'), 'down'), at('ok'));
-  assert.equal(moveTrim(at('ok'), 'down'), at('back'));
+  assert.equal(moveTrim(at('ok'), 'down'), at('ok'));
 });
 
 test('four clothes, the cloak first; the registry has them', () => {
@@ -109,13 +111,25 @@ test('a profile from before P6, or with unknown clothes, wears the cloak', () =>
   assert.equal(clothesOf({ look: { clothes: 'tattered' } }), 'tattered');
 });
 
-test('the clothes screen: two heroes to a row, then OK, then Back; the arrows walk them', () => {
+test('the clothes card: two heroes to a row, then OK; the arrows walk them', () => {
   const at = (id) => CLOTHES_PAD.findIndex((k) => k.id === id);
-  assert.deepEqual(CLOTHES_PAD.map(({ row, col }) => [row, col]), [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0], [3, 0]]);
+  assert.deepEqual(CLOTHES_PAD.map(({ row, col }) => [row, col]), [[0, 0], [0, 1], [1, 0], [1, 1], [2, 0]]);
   assert.equal(moveClothes(at('cloak'), 'right'), at('belted'));
   assert.equal(moveClothes(at('belted'), 'right'), at('belted')); // the row's end
   assert.equal(moveClothes(at('belted'), 'down'), at('tattered'));
   assert.equal(moveClothes(at('tattered'), 'down'), at('ok'));
   assert.equal(moveClothes(at('ok'), 'up'), at('short'));
-  assert.equal(moveClothes(at('ok'), 'down'), at('back'));
+  assert.equal(moveClothes(at('ok'), 'down'), at('ok'));
+});
+
+test('a tap on a look card picks a box, OK, the cross, or nothing; outside it is out (D-399)', () => {
+  const vw = 195, vh = 422, card = cardAt(vw, vh), { button, close } = card;
+  assert.equal(lookCardAt(2, 2, vw, vh), 'out');
+  assert.equal(lookCardAt(close.x, close.y, vw, vh), 'close');
+  assert.deepEqual(lookCardAt(button.x + 2, button.y + 2, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'ok') });
+  assert.deepEqual(lookCardAt(button.x + 2, button.y + 2, vw, vh, CLOTHES_PAD), { key: CLOTHES_PAD.findIndex((k) => k.id === 'ok') });
+  const mid = Math.floor(vw / 2), cy = Math.floor(vh / 2); // the middle box of the cloak card's top row sits just above the middle
+  assert.deepEqual(lookCardAt(mid, cy - 20, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'moss') });
+  assert.deepEqual(lookCardAt(mid, cy + 30, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'indigo') });
+  assert.equal(lookCardAt(card.x + 14, cy, vw, vh), null); // the glass beside the boxes
 });

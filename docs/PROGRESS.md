@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.149 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.150 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
 The owner's plan (2026-10-28): every screen still drawn on the picture
-(looks, the asks; the seed pad, the map, the way to play, the profiles
-and the name pad are done) becomes a glass card, the looks next; then the main
-menu is revamped, from mock-ups. Creature materials (Q-061) wait until after.
+(the asks; the seed pad, the map, the way to play, the profiles, the name
+pad and the looks are done) becomes a glass card, the asks next; then the main menu is revamped, from mock-ups.
+Creature materials (Q-061) wait until after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,6 +34,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.150, the look cards.** The owner picked the cloak,
+  eyes, trim and clothes screens as glass cards like the name card: CLOAK,
+  EYES, TRIM or CLOTHES top left, the boxes centred, OK a button bottom
+  right, the cross (or a tap outside) back a card (D-399).
+  [Playtest](https://claude.ai/artifact/ACHppiuWHJgGU526WFqzar).
 - **2026-10-28, 0.2.149, the name card.** The owner picked the name pad
   as a glass card like the seed card: NAME (or RENAME) top left, the name
   in an ember box, the letters as buttons on the same 7-column grid, the
@@ -44,8 +49,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   three boxes as they were, RENAME, LOOK and DELETE buttons along its
   foot, the cross back to the title only once there is one (D-397).
   [Playtest](https://claude.ai/artifact/1pv964gKBCCvaQvCktBvNv).
-- **2026-10-28, 0.2.147, the way to play card.** The owner picked the
-  ways to play as a glass card like Settings, WAY TO PLAY top left, each
-  way a row with its note under it, from New journey and from Settings in
-  play alike, ways that can't be picked grey (D-396).
-  [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).

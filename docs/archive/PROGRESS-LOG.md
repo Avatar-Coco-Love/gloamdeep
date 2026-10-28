@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.147, the way to play card.** The owner picked the
+  ways to play as a glass card like Settings, WAY TO PLAY top left, each
+  way a row with its note under it, from New journey and from Settings in
+  play alike, ways that can't be picked grey (D-396).
+  [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).
 - **2026-10-28, 0.2.146, the map card.** The owner picked the map as a
   glass card like the bag's: MAP top left, the floor's name and arrows
   centred on that row; the Seed Explorer the same card, Back, Type and
