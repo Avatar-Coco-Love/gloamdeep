@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.161 (2026-10-28)
+- Docs only: the plan for all of the game's things is drawn up in eight parts, in `docs/SCOPE.md`: the frame, raw things, creature drops, making, gear, growth, collectables, and home and trade. Part 1, the frame, is settled.
+- The frame: about 100 to 150 things in all, a biome at a time; no hunger, food a bonus; wood, stone and oil everywhere, each biome its own set; gear and crafting lead.
+- Seven craft families: lampcraft, cooking and alchemy, smithing and tools, building, leatherwork, electronic and arcane. Fixed items with rare finer versions, nothing wears out, better tools open tougher materials.
+- Skills come four ways: a Growth tree for embers, abilities found, NPCs teaching, and gathering skills that grow with use. Each creature drops its own material, some a rare one too. Two currencies, trade coins and the look currency; the bag grows by crafted pouches; recipes show once their parts are held, or are found or taught.
+- Decisions: D-413 to D-418.
+- Docs: decisions D-404 and D-406 to D-412 moved to `archive/DECISIONS-STEERING.md`.
+
 ## 0.2.160 (2026-10-28)
 - Settings has a new Stats line switch, at the bottom, Off at first. On, a short line shows bottom left in play at the game's normal pixel size: fps (frames a second), turn, time of day, xp, the hero's tile and the seed. Hearts, oil and depth are left out, as the panel shows them.
 - While the arrow pad is on, the line sits just above it. The dev drawer's Stats switch still shows the full, small line.
@@ -77,15 +85,3 @@ Entry format:
 - Start over?, Delete …? and Play …? (the easier way to play) now open as a small glass card in the middle of the screen, the title's scene or the room dim around it. The question sits at its top left in ember, with the grey note under it.
 - Yes and No are buttons along the card's bottom, YES and NO, with NO picked first as before; the arrows move between them. The round cross, Esc and a tap outside the card all mean No.
 - Decisions: D-400. Questions opened: Q-065.
-
-## 0.2.150 (2026-10-28)
-- Choosing a profile's look now opens a glass card that fills the screen, on the title's scene, like the name card: CLOAK, then EYES, TRIM and CLOTHES at its top left.
-- The choices keep their framed boxes, centred in the card, the picked one framed in gold; OK is a button in the bottom right corner.
-- The round cross goes back a card, as Back did, and so does a tap outside the card, so the Back line is gone. Esc still works as before.
-- Decisions: D-399.
-
-## 0.2.149 (2026-10-28)
-- Naming a new profile now opens a glass card that fills the screen, on the title's scene, like the seed pad. NAME sits at its top left, or RENAME when renaming a profile.
-- The name typed sits in an ember box, and each letter is a small button on the same 7-column grid, with DEL and OK wider buttons on the last row; the chosen key is ember and gold, the rest dim.
-- The round cross goes back to the profiles, as Esc and a tap outside do, so the Back key is gone.
-- Decisions: D-398.

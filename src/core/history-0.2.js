@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.161', date: '2026-10-28', title: 'The scope, part 1', lines: [
+    "Docs only: the plan for all of the game's things is drawn up in eight parts, in docs/SCOPE.md: the frame, raw things, creature drops, making, gear, growth, collectables, and home and trade. Part 1, the frame, is settled.",
+    "The frame: about 100 to 150 things in all, a biome at a time; no hunger, food a bonus; wood, stone and oil everywhere, each biome its own set; gear and crafting lead.",
+    "Seven craft families: lampcraft, cooking and alchemy, smithing and tools, building, leatherwork, electronic and arcane. Fixed items with rare finer versions, nothing wears out, better tools open tougher materials.",
+    "Skills come four ways: a Growth tree for embers, abilities found, NPCs teaching, and gathering skills that grow with use. Each creature drops its own material, some a rare one too. Two currencies, trade coins and the look currency; the bag grows by crafted pouches; recipes show once their parts are held, or are found or taught.",
+    "Decisions: D-413 to D-418.",
+    "Docs: decisions D-404 and D-406 to D-412 moved to archive/DECISIONS-STEERING.md.",
+  ] },
   { v: '0.2.160', date: '2026-10-28', title: 'The stats line in Settings', lines: [
     "Settings has a new Stats line switch, at the bottom, Off at first. On, a short line shows bottom left in play at the game's normal pixel size: fps (frames a second), turn, time of day, xp, the hero's tile and the seed. Hearts, oil and depth are left out, as the panel shows them.",
     "While the arrow pad is on, the line sits just above it. The dev drawer's Stats switch still shows the full, small line.",
