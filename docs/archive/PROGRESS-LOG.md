@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-27, 0.2.140, the settings card.** The owner picked Settings
+  as a glass card, from the pause card and the title alike: a row per
+  switch, its name left and value right, the cross for Back, Version
+  history a button bottom left (D-389).
+  [Playtest](https://claude.ai/artifact/2jms1biwLbb2THgRU9VLP7).
 - **2026-10-27, 0.2.139, the pause card.** The owner picked the pause
   menu as a glass card, lines down the left, THIS JOURNEY right (seed, way
   to play, depth, level), headed PAUSED (D-388). D-381 to D-384 archived.

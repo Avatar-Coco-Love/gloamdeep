@@ -45,7 +45,7 @@ Read the smallest file that answers the question.
 | File | What it holds | When to read it |
 | --- | --- | --- |
 | `docs/PROGRESS.md` | status, Next up, the last 3 log entries | every conversation |
-| `docs/DECISIONS.md` | D-168 to 176, 336 to 338, 362, 363, 378 + | grep for an ID or topic |
+| `docs/DECISIONS.md` | the newest decisions; older ones archived | grep for an ID or topic |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile and place, with numbers (D-363) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions, Q-001, Q-002… | when a step touches one |
@@ -58,7 +58,7 @@ Read the smallest file that answers the question.
 | `docs/TECH.md` | architecture, code rules, adding content | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tool list | when touching dev mode |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
-| `docs/archive/` | old decisions (in force), changelog, log; index in its `README.md` | grep only, as its `README.md` shows |
+| `docs/archive/` | old decisions (in force), changelog, log | grep only; its `README.md` is the index |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (see `reference/README.md`) |
 
 ## Keeping track: every PR does all of these

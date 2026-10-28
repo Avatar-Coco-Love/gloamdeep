@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.143 (2026-10-28)
+- Behind the scenes: the third tidy-up of the notes and code. Nothing in the game changes.
+- The Version history's data is split into three smaller files by version, word for word, so it shows exactly as before.
+- Older decisions and changelog entries moved, word for word, into the archive.
+- Decisions: D-392.
+
 ## 0.2.142 (2026-10-28)
 - The Journal now opens as a glass card that fills the screen, like How to play, both from the pause card and from the title. JOURNAL sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
 - Records and Growth are tabs under the heading. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn them, and Enter turns to Growth.
@@ -33,71 +39,3 @@ Entry format:
 - Its pages are tabs under the heading: Touch, Mouse, Keyboard and Crafting. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn the pages.
 - Each page's rows sit under the tabs, the action on the left and how to do it on the right, as before.
 - Decisions: D-390.
-
-## 0.2.140 (2026-10-27)
-- Settings now opens as a glass card that fills the screen, like the pause card, both from the pause card and from the title. SETTINGS sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
-- Each setting is a row: its name on the left, its value in a column on the right, so every value shows at once. A tap anywhere level with a row changes it.
-- Version history is a button in the bottom left corner.
-- Decisions: D-389.
-
-## 0.2.139 (2026-10-27)
-- The pause menu now opens as a glass card that fills the screen, like the bag. PAUSED sits at its top left, and the round cross resumes, as Esc, P and a tap outside still do.
-- Its lines run down the left: Resume, Journal, Settings, How to play and Back to title. A tap anywhere level with a line picks it.
-- On the right, This journey shows the world's seed, the way you play, the depth and your level.
-- Decisions: D-388.
-
-## 0.2.138 (2026-10-27)
-- The stash chest now opens as a glass card that fills the screen, like the bag and the workbench. Its 12 slots sit in a 4 × 3 grid on the left; your bag's 6 sit in a 3 × 2 grid on the right.
-- The chosen stack's name and count show under the bag's slots (Stone, 6 in the chest). A tap still moves it to the other side.
-- Arrows move around both grids: Right from the chest's right column reaches the bag. Deconstruct is a button in the bottom left corner, and the round cross closes the card, as Esc and a tap outside still do; the Close line is gone.
-- Decisions: D-387.
-
-## 0.2.137 (2026-10-27)
-- The workbench now opens as a glass card that fills the screen, like the bag. The things you can make there sit in slots on the left; the stash chest is the first.
-- On the right, the card shows the chosen thing's name, each cost with how many you carry (3 / 5 Wood), and its look line. Make sits in the bottom right corner, dim with too few.
-- Deconstruct is a button in the bottom left corner, away from Make. The round cross closes the card, as I, Esc and a tap outside still do; the Close line is gone.
-- Decisions: D-387.
-
-## 0.2.136 (2026-10-27)
-- On the title and its pages, the dark crypt floor and the lantern's light now fill the whole screen, with no box around the name and the menu.
-- With the bag open, a line the game says now shows over the card. Set down the workbench where it can't go, and you see "Only on the surface." or "There is no room there." instead of nothing.
-- Decisions: D-386.
-
-## 0.2.135 (2026-10-27)
-- The bag now opens as a glass card that fills the screen, with bigger slots in a 3 by 2 grid on the left. The arrow keys move around the grid.
-- On the right, the card shows the chosen item's name, how many you carry, and its look line. Its buttons sit in the bottom right corner, near your thumb.
-- A small round cross at the card's top right closes it; I, Esc and a tap outside still do too. The corner buttons hide while the bag is open.
-- Decisions: D-385.
-
-## 0.2.134 (2026-10-27)
-- The lantern is now a big round button in the room's bottom right corner, its rim gold while it is lit.
-- A new quick slot stands left of the lantern: tap it to pour a flask from your bag, one turn, as the bag's Pour does. It shows how many flasks you carry, and goes dim when you have none.
-- The bag now sits up and left of the lantern, the two round buttons curving around it.
-- Decisions: D-384.
-
-## 0.2.133 (2026-10-27)
-- A round map now stands in the room's top right corner. It shows what you have found around you, about 17 tiles across, with you in the middle and the rooms next door once found.
-- Tap the round map, or press M as before, to open the full map. While it is open, a small round cross in the corner closes it.
-- Pause stands left of the round map, the bag under pause. Pause, the bag and the dev wrench are now round, on the same glass as the panel.
-- Walk under the round map, or have a creature beside you there, and it fades almost away, like the panel.
-- Decisions: D-383.
-
-## 0.2.132 (2026-10-27)
-- The room now fills the whole screen, with bigger tiles: about 11 tiles from top to bottom, and as many across as the screen is wide. The camera scrolls with you.
-- A room narrower than the screen sits in the middle, with the deepest dark around it.
-- The text line now sits on glass along the bottom of the room. The pause, map and bag buttons stand in the room's top right corner, and the lantern in its bottom right.
-- Dev tools: the wrench stands left of the pause button. The stats line is now off at first: a new Stats switch in View shows it, small, at the bottom left.
-- Decisions: D-381, D-382.
-
-## 0.2.131 (2026-10-27)
-- The hearts, level, oil and depth now sit on a see-through glass panel over the room's top left, and the column beside the room is gone.
-- The creature list stands under the panel, down the room's left. Tapping a plaque still frames its creature.
-- Walk under the panel, or have a creature beside you there, and the panel and the plaques fade almost away, so nothing is hidden.
-- Decisions: D-380.
-
-## 0.2.130 (2026-10-27)
-- The game now plays sideways only, on every screen. The hearts, depth and oil always stand in a column at the room's left, and the buttons beside the room.
-- A phone held upright pauses the game and shows a picture asking you to turn it sideways. Turn it back and the pause menu waits. A PC window is never asked, whatever its shape.
-- On a phone that allows it (Android), Play, Continue or Resume also go full screen and lock the screen sideways. iPhone browsers can't lock, so the picture asks instead.
-- Put on the home screen, the game now opens sideways by itself.
-- Decisions: D-377.
