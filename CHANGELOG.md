@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.156 (2026-10-28)
+- Steering mock-ups are picked: the arrow pad will be one round glass disc in the bottom left corner, each quarter an arrow, off at first. A press steps once; held, it keeps walking.
+- Tapping a tile will walk the hero there at once, with gold dots along the way, and is on at first; today's one-step tap goes. A tap while walking stops, costing no turn, and the walk stops by itself when a creature comes into view.
+- In play the version number will show only on the title and the pause menu. Tap to walk comes first. Planned, not built yet.
+- Tap to walk will fit in like this: holding a finger on a tile does the same as tapping it; Settings' Controls line becomes three switches, Swipe, Tap to walk and Arrow pad; a walk stops by itself when a creature or a find comes into view, or, by a Settings choice, when a creature notices you; a tap on unexplored dark walks as far as you remember. How to play will say the arrow pad can be turned on in Settings.
+- Decisions: D-406, D-407, D-408.
+
 ## 0.2.155 (2026-10-28)
 - Past a small room's edge, the rock, brick or trees now go on all around to the screen's edges instead of a flat dark colour, drawn so no seam shows where the room ends. Nothing past the edge can be walked on.
 - It is lit like the room: as remembered as the edge tile next to it, pitch dark where you haven't been, and in full daylight outside. The lantern doesn't reach through the rock.
@@ -82,8 +89,3 @@ Entry format:
 - The seed pad now opens as a glass card that fills the screen, like Settings, both from Settings and from the Seed Explorer. SEED sits at its top left, and the round cross goes back, as Esc and a tap outside still do.
 - The digits typed sit in an ember box, with the keys under it as buttons on the same 4-column grid, both in the middle of the card. The chosen key glows ember; the rest are dim. Arrows, digits and Backspace work as before.
 - Decisions: D-394.
-
-## 0.2.144 (2026-10-28)
-- Version history now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. VERSION HISTORY sits at its top left, and the round cross goes back to Settings, as Esc and a tap outside still do; the Back line is gone.
-- The list is the same: each version's number and title, with + to open it and − while open. An open version's lines now use the card's whole width, and the list scrolls inside the card, with its thin bar at the right.
-- Decisions: D-393.

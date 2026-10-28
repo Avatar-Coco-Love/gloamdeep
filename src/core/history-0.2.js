@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.156', date: '2026-10-28', title: 'Steering picked', lines: [
+    "Steering mock-ups are picked: the arrow pad will be one round glass disc in the bottom left corner, each quarter an arrow, off at first. A press steps once; held, it keeps walking.",
+    "Tapping a tile will walk the hero there at once, with gold dots along the way, and is on at first; today's one-step tap goes. A tap while walking stops, costing no turn, and the walk stops by itself when a creature comes into view.",
+    "In play the version number will show only on the title and the pause menu. Tap to walk comes first. Planned, not built yet.",
+    "Tap to walk will fit in like this: holding a finger on a tile does the same as tapping it; Settings' Controls line becomes three switches, Swipe, Tap to walk and Arrow pad; a walk stops by itself when a creature or a find comes into view, or, by a Settings choice, when a creature notices you; a tap on unexplored dark walks as far as you remember. How to play will say the arrow pad can be turned on in Settings.",
+    "Decisions: D-406, D-407, D-408.",
+  ] },
   { v: '0.2.155', date: '2026-10-28', title: "Past the room's edge", lines: [
     "Past a small room's edge, the rock, brick or trees now go on all around to the screen's edges instead of a flat dark colour, drawn so no seam shows where the room ends. Nothing past the edge can be walked on.",
     "It is lit like the room: as remembered as the edge tile next to it, pitch dark where you haven't been, and in full daylight outside. The lantern doesn't reach through the rock.",
