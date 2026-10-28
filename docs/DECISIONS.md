@@ -128,3 +128,13 @@ version's number, title and + or −, an open one's date and lines under
 its row, wrapped to the card's width. It scrolls inside the card, the
 thin bar kept at its right. The round cross goes back to Settings, as Esc
 and a tap outside do, so the Back line is gone. Built in 0.2.144.
+
+**D-394 · 2026-10-28 · The seed pad as a card** (the owner's picks, both
+recommended, [mock-up](https://claude.ai/artifact/3Sqb5FWCeDRPhisHUKs2YF))
+The seed pad opens as a glass card like the settings card (D-389), SEED
+in ember top left, from Settings and from the Seed Explorer alike. The
+digits typed sit in an ember box, the keys under it as buttons like Make
+on the pad's 4-column grid, both centred in the card; the chosen key ember,
+the rest dim. The keys and how arrows move between them stay as they are
+(D-191). The round cross goes back, as Esc and a tap outside do. Built in
+0.2.145.
