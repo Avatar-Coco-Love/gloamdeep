@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.141, the how to play card.** The owner picked How to
+  play as a glass card with tabs, from the pause card and the title alike:
+  Touch, Mouse, Keyboard and Crafting under the heading, the open one gold
+  and underlined, the cross for Back (D-390).
+  [Playtest](https://claude.ai/artifact/JS4B4tXGVqeiaupCzmSbsc).
 - **2026-10-27, 0.2.140, the settings card.** The owner picked Settings
   as a glass card, from the pause card and the title alike: a row per
   switch, its name left and value right, the cross for Back, Version

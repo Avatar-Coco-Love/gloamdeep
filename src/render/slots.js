@@ -7,7 +7,6 @@
 import { W, SCREEN_H } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { LINE_GAP, drawHeading, drawMarker, drawLines } from './menu.js';
-import { BACK_Y } from './history.js';
 import { SLOTS, slotName, playedText } from '../core/profile.js';
 
 const K = '#0e0c16', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
@@ -19,6 +18,7 @@ const RENAME_Y = BOX_Y + SLOTS * BOX_GAP + 10, LOOK_Y = RENAME_Y + LINE_GAP, DEL
 const TAP_PAD = 8; // game pixels above and below a line that still pick it; the nearest line wins
 const HEADING_Y = 26; // the heading's line top, one line above it, as the Journal's
 const ASK_TOP = 140; // the question's Yes, with No under it
+const BACK_Y = 206; // Back's top, at the foot of the picture, where the Version history page's was
 
 // The lines under the boxes: Rename, Change look and Delete (the one being done reads Cancel), and Back
 // when there is somewhere to go back to. picking: null, 'rename', 'look' or 'delete'

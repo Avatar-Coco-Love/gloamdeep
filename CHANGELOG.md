@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.144 (2026-10-28)
+- Version history now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. VERSION HISTORY sits at its top left, and the round cross goes back to Settings, as Esc and a tap outside still do; the Back line is gone.
+- The list is the same: each version's number and title, with + to open it and − while open. An open version's lines now use the card's whole width, and the list scrolls inside the card, with its thin bar at the right.
+- Decisions: D-393.
+
 ## 0.2.143 (2026-10-28)
 - Behind the scenes: the third tidy-up of the notes and code. Nothing in the game changes.
 - The Version history's data is split into three smaller files by version, word for word, so it shows exactly as before.
@@ -33,9 +38,3 @@ Entry format:
 - Each tab's rows sit under the tabs, the name on the left and its value in a column on the right.
 - On Growth, Add a heart is a button in the bottom right corner, with "1 ember each" beside it. It is dim while no ember can buy a heart. Enter presses it too.
 - Decisions: D-391.
-
-## 0.2.141 (2026-10-28)
-- How to play now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. HOW TO PLAY sits at its top left, and the round cross goes back, as Esc and a tap outside still do; the Back line is gone.
-- Its pages are tabs under the heading: Touch, Mouse, Keyboard and Crafting. The open one is gold, with the flame, and underlined. A tap on a tab opens it; Left and Right still turn the pages.
-- Each page's rows sit under the tabs, the action on the left and how to do it on the right, as before.
-- Decisions: D-390.
