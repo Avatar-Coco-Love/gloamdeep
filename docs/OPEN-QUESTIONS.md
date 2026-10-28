@@ -104,4 +104,20 @@ leave it while the game is phone first.
 A player close to the owner doesn't like the game forced sideways, though
 willing to try to get used to it. Still open: whether a phone held upright
 could play too, which needs a second layout for the play screen and every
-card. The owner's call (2026-10-28): look at it after the main menu revamp.
+card. The owner's call (2026-10-28): look at it after the main menu revamp;
+then tabled for now (2026-10-28), after the room's edge and steering.
+
+**Q-066 · Rooms seen through the wall** (raised 2026-10-28, D-403)
+The owner's idea: past a small room's edge, a room on the same depth
+(reached another way) shows where it really lies, if the hero has been
+there or something in it shines (a torch, a glow). Still open: how near
+it must be, how it looks unvisited, and whether it shows on the surface.
+Needs rooms placed beside each other outside the map; its own step.
+
+**Q-067 · The arrow pad and tap to walk** (raised 2026-10-28, D-404)
+Still open, from mock-ups: where the pad sits (bottom left, clear of the
+lantern's arc?), its size and look, press for one step and hold to keep
+walking, how a tap on a tile walks there and stops (a second tap? a
+creature in view, as D-219?), the Settings switches' names and which are
+on at first, and whether today's one-step tap goes.
+

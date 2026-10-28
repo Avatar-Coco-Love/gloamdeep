@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.154', date: '2026-10-28', title: 'Next steps: the edge and steering', lines: [
+    "Past a small room's edge, whatever stands there (rock in a cave, trees outside) will go on all around, lit like the room, so no flat colour or seam shows beside it. Planned, not built yet.",
+    "Steering is to get easier: an on-screen arrow pad and tapping a tile to walk there, each one you can turn on or off, beside swiping. Mock-ups come first.",
+    "Decisions: D-403, D-404. Questions opened: Q-066, Q-067.",
+  ] },
   { v: '0.2.153', date: '2026-10-28', title: 'The title icons', lines: [
     "The round buttons on the title have new icons, drawn at the game's own pixel size instead of doubled pixels: an open book with lines for Journal, a round question mark for How to play, a gear with a hole for Settings, and a wrench with an open jaw for the Seed Explorer.",
     "Decisions: D-402.",
