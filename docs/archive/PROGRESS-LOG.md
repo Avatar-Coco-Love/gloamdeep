@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.158, a bite stops the walk.** The owner said yes:
+  a creature's bite stops a walk to a tapped tile, with the "!", whichever
+  Stop walking choice is set (D-410). [Playtest](https://claude.ai/artifact/DJJKtDjui4S4J8M3maSorT).
 - **2026-10-28, 0.2.157, tap to walk.** A tap on a tile walks there
   at once, 4 steps a second, amber dots along the way; a tap stops it at
   no turn's cost; a held finger does the same (D-406, D-408). Settings:

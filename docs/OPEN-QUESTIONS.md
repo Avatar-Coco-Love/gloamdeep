@@ -69,8 +69,9 @@ Names are A to Z only for now (D-272). A space would allow "OLD TOM",
 digits "COCO2". The owner is unsure and wants it kept for later.
 
 **Q-055 · The play-earned currency** (before the first unlock, D-280)
-What it is called, how it is earned (depths, finds, deeds, gathering),
-what it buys first (looks, unique things) and where it is spent.
+Narrowed by D-418: it is the look currency, earned only from deeds,
+records and achievements, buying only looks; trade coins are separate.
+Still open: its name, which deeds pay, what it buys first and where.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
@@ -83,9 +84,10 @@ and where achievements show (a Journal tab, a note on reaching one).
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each
-with its own chance (D-372). Still open: which creatures, each material's
-name and look, the chances, and the recipes they go into. A new
-mechanic, its own step.
+with its own chance (D-372): a common one each, a rare one for some, for
+gear, potions, lampcraft, trophies and trade (D-417). Still open: each
+material's name and look, the chances, and the recipes. Part 3 of the
+scope (`SCOPE.md`); a new mechanic, its own step.
 
 **Q-063 · The start-up screens** (before 1.0, D-377)
 The owner wants the game to load like other games: a maker's name, then

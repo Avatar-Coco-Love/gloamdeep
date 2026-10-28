@@ -119,72 +119,44 @@ keeps its newest 3 entries. `CLAUDE.md`'s pointers are tidied, its rules
 word for word. `screens.js` and `main.js` follow at later audits; the next
 is at 0.2.163.
 
-**D-404 · 2026-10-28 · Easier steering** (the owner's picks) Taps step
-the wrong way too often; swipes are accurate and stay. An on-screen arrow
-pad and "tap a tile, walk there" are both wanted, each one a player can
-turn on or off, working side by side. Mock-ups come first (Q-067).
+**D-413 · 2026-10-28 · The full scope, drawn up in parts** (the owner's
+request) Before more content is added one item at a time, the whole scope
+of items, resources, collectables, harvestables, craftables, experience
+and skills is drawn up in eight parts, each asked as multiple choice
+first: the frame, raw things, creature drops, making, gear, growth,
+collectables, home and trade. It lives in `docs/SCOPE.md`. D-404 and
+D-406 to D-412 moved unchanged to `archive/DECISIONS-STEERING.md`.
 
-**D-406 · 2026-10-28 · The arrow pad and tap to walk** (the owner's picks,
-from pressable [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1); builds D-404, answers part of Q-067)
-The arrow pad (A) is one round glass disc 128 px across in the room's
-bottom left corner, the twin of the round map: each quarter is one arrow,
-a 9 × 9 pixel icon in the stone grey, gold while pressed. A press steps
-once; held, it keeps walking at the held pace (D-044). Tap a tile and the
-hero walks there at once (F), gold dots on each tile of the way and
-corner marks on the tile (D). A tap while walking stops the hero, and
-stopping costs no turn (the owner's addition). At first tap to walk is
-on and the pad off; today's one-step tap goes.
+**D-414 · 2026-10-28 · The scope's frame** (the owner's picks, all
+recommended) About 100 to 150 things in all, each biome bringing about
+25 to 35, built a biome at a time. No hunger: oil stays the only clock,
+and food is a bonus that heals or boosts. Wood, stone and oil are found
+everywhere, and each biome adds its own set, deeper ones making better
+things. Gear and crafting lead the ways of getting stronger (D-038).
 
-**D-407 · 2026-10-28 · Steering's details** (the owner's picks,
-recommended; answers part of Q-067) The walk to a tapped tile stops by
-itself when a creature comes into view; the owner's idea: a Settings
-choice to stop instead when a creature notices the hero. The switches are
-named Arrow pad and Tap to walk. The version number shows only on the
-title and the pause menu, not in play. Tap to walk is built first, then
-the pad.
+**D-415 · 2026-10-28 · Crafts and loot** (the owner's picks, all
+recommended, with the owner's addition) Seven craft families: lampcraft,
+cooking and alchemy, smithing and tools, building, leatherwork, and
+(the owner's addition) electronic and arcane, both found below and then
+rebuilt at home as their own stations. Items are fixed, with rare finer
+versions from portal depths. Nothing wears out. Better tools open
+tougher materials.
 
-**D-408 · 2026-10-28 · How tap to walk fits** (the owner's picks, all
-recommended but the third; builds D-406, D-407, answers part of Q-067)
-A held finger on a tile does the same as a tap to walk, so there is one
-way of walking (replaces D-219's held walk). Settings' Controls line
-becomes three switches: Swipe, Tap to walk, Arrow pad. The walk stops
-by itself when a creature or a find comes into view. A tap on unknown
-dark walks as far as remembered ground goes, then stops. Built with tap
-to walk: a Settings choice to stop when a creature notices the hero
-instead of on sight, on sight at first. How to play gets a line saying
-the arrow pad can be turned on in Settings.
+**D-416 · 2026-10-28 · Skills, all four ways** (the owner's picks: all
+four, "a combination sounds nice") Embers buy a Growth tree; big
+abilities are found; NPCs teach some; and learning by doing covers only
+mining, woodcutting, fishing, farming and cooking, each level a small
+perk, so fighting stays with levels and embers.
 
-**D-409 · 2026-10-28 · Tap to walk's words and pace** (the owner's picks,
-both recommended; answers Q-067) The stop choice in Settings reads "Stop
-walking", On sight at first or When noticed. A walk goes at the held pace,
-4 steps a second, to be tried in the playtest. Built in 0.2.157, with the
-build's own choices (not asked; the owner may change them): a tap on a
-tile beside the hero steps there once, so it still bites, mines or opens;
-a tap far off on a wall or creature walks to the nearest tile it can
-reach; a key, a swipe or Space ends a walk and acts; a held finger while
-walking walks anew; a card or menu ends a walk; the Arrow pad switch
-comes with the pad.
+**D-417 · 2026-10-28 · What creatures drop** (the owner's picks,
+recommended; narrows Q-061) Each creature leaves its own common material,
+and some a rare one too, each at its own chance. They go into gear and
+armour, potions and lampcraft, bestiary pages and trophies, and are sold
+to vendors.
 
-**D-410 · 2026-10-28 · A bite stops the walk** (the owner's pick) A walk
-to a tapped tile stops, with the "!", when a creature bites the hero,
-whichever Stop walking choice is set. Built in 0.2.158.
-
-**D-411 · 2026-10-28 · The arrow pad's details** (the owner's picks, all
-recommended; builds D-406 to D-408) A held quarter steps at once, then 4
-steps a second. How to play's Walk line ends "Arrow pad in Settings", or
-"or the arrow pad" once it is on. The pad fades like the round map while
-the hero or a creature is under it. Built in 0.2.159, with the build's own
-choices (not asked; the owner may change them): a thumb slid onto another
-quarter turns that way at once; the pad's middle presses nothing; a press
-ends a walk to a tapped tile; Arrow pad sits under Tap to walk in
-Settings; the version number shows on every title screen.
-
-**D-412 · 2026-10-28 · The stats line in Settings** (the owner's picks,
-all recommended, at their partner's wish; builds on D-382) Settings gets a Stats
-line switch, off at first. On, a short line at the game's normal pixel
-size sits bottom left in play: fps, turn, time of day, xp, the hero's
-tile and the seed (the panel already shows hearts, oil and depth). Built
-in 0.2.160, with the build's own choices (not asked; the owner may change
-them): the switch is Settings' last line; while the arrow pad shows, the
-line sits just above it; the dev drawer's Stats switch, when on, shows
-the full small line instead.
+**D-418 · 2026-10-28 · Money, the bag and recipes** (the owner's picks,
+all recommended; narrows Q-055) Two currencies: trade coins from selling,
+for useful things, and the look currency only from deeds, records and
+achievements, for looks only (D-280). The bag's slots grow by crafting
+pouches and bags; no weight. A recipe shows once its parts have been
+held; special ones are found as notes and lore; NPCs teach or sell some.
