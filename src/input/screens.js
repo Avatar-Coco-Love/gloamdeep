@@ -44,8 +44,8 @@
 // plays as that profile (a new one in an empty slot) and opens the title. Delete, then a box,
 // asks "Delete …? Lost for good." with No picked; No, Esc or P go back. Profiles on the title
 // opens the slot screen again, with the round cross, Esc, P or a tap outside returning to the title. An empty box first
-// opens the name pad (D-272): letters typed, tapped or picked, Del, and OK makes the profile;
-// Esc goes back to the slot screen with nothing made. Rename, then a profile's box, opens the
+// opens the name pad (D-272), a card (D-398): letters typed, tapped or picked, Del, and OK makes the profile;
+// the round cross, a tap outside or Esc goes back to the slot screen with nothing made. Rename, then a profile's box, opens the
 // pad on its name; OK keeps the new name, Esc the old (D-273). Cancel, Esc or P stop picking.
 // After the name, a new profile chooses its cloak, its eyes, its lantern's trim, then its clothes;
 // Look, then a box, changes them later (P3 to P6). Arrows, swipes or a tap pick one, OK goes on,
@@ -61,7 +61,7 @@ import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/histor
 import { nextPage, howtoWords } from '../core/howto.js';
 import { PAD, typeKey, entrySeed, moveKey } from '../core/seedpad.js';
 import { NAME_PAD, typeLetter, moveName } from '../core/namepad.js';
-import { nameKeyAt } from '../render/namepad.js';
+import { nameCardAt } from '../render/namepad.js';
 import { CLOAKS, CLOAK_PAD, CLOAK_IDS, moveCloak, cloakOf, EYES, EYES_PAD, EYE_IDS, moveEyes, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, moveTrim, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, moveClothes, clothesOf } from '../core/looks.js';
 import { cloakKeyAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
@@ -211,15 +211,14 @@ export function createScreens(app, ui) {
     if (id === 'rename' || id === 'look' || id === 'delete') { app.picking = app.picking === id ? null : id; spoken.textContent = slotsWords(); }
   }
   // § name pad (D-272): OK makes the profile with the letters typed (none keeps it unnamed,
-  // Claude's call) and opens the title; Back or Esc goes back to the slot screen with nothing made.
-  // Renaming (D-273) opens on the name kept; OK keeps the new one (none: unnamed again) and
-  // goes back to the slot screen; Back or Esc leaves the old name (D-288).
-  const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, then OK.` : 'Name your profile. Type up to 12 letters, then OK.');
+  // Claude's call) and opens the title; the round cross, a tap outside or Esc goes back to the slot
+  // screen with nothing made (D-398). Renaming (D-273) opens on the name kept; OK keeps the new one
+  // (none: unnamed again) and goes back to the slot screen; the cross or Esc leaves the old name.
+  const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, then OK. Esc or the close button goes back.` : 'Name your profile. Type up to 12 letters, then OK. Esc or the close button goes back.');
   function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; show('name'); }
   function closeName() { app.picking = null; show('slots', app.naming); }
   function pressName(id) {
-    if (id === 'back') closeName();
-    else if (id === 'ok' && app.renaming) { ui.renameSlot(app.naming, app.entry); closeName(); }
+    if (id === 'ok' && app.renaming) { ui.renameSlot(app.naming, app.entry); closeName(); }
     else if (id === 'ok') openCloak(app.naming, true);
     else { app.entry = typeLetter(app.entry, id); spoken.textContent = app.entry || 'nothing typed'; }
   }
@@ -693,7 +692,13 @@ export function createScreens(app, ui) {
       else if (at) { app.chosen = at.key; choose(at.key); }
       return;
     }
-    if (app.screen === 'name') { const k = nameKeyAt(px, py); if (k >= 0) { app.chosen = k; choose(k); } return; }
+    if (app.screen === 'name') {
+      if (held) return;
+      const at = nameCardAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') closeName(); // the round cross goes back (D-398)
+      else if (at) { app.chosen = at.key; choose(at.key); }
+      return;
+    }
     if (app.screen === 'cloak') { const k = cloakKeyAt(px, py); if (k >= 0) pressCloak(k, true); return; }
     if (app.screen === 'eyes') { const k = cloakKeyAt(px, py); if (k >= 0) pressEyes(k, true); return; }
     if (app.screen === 'trim') { const k = cloakKeyAt(px, py); if (k >= 0) pressTrim(k, true); return; }

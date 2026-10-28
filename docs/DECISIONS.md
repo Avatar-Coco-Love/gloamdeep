@@ -172,3 +172,12 @@ card's title asks which. The round cross goes back to the title, as Esc
 and a tap outside do; when the game first opens there is no title yet, so
 the cross is hidden, as Back was. The Delete question stays a page until
 the asks become cards. Built in 0.2.148.
+
+**D-398 · 2026-10-28 · The name pad as a card** (the owner's picks, all
+recommended) The name pad (D-272) opens as a glass card like the seed
+card (D-394) on the title's scene, NAME in ember top left, or RENAME when
+renaming a profile (D-273). The letters typed sit in an ember box, the
+keys under it as buttons like Make on the pad's 7-column grid, DEL and OK
+wider on the last row, both centred in the card; the chosen key ember, the
+rest dim. The round cross goes back to the profiles, as Esc and a tap
+outside do, so the Back key is gone (supersedes D-288). Built in 0.2.149.
