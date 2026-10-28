@@ -99,14 +99,14 @@ export function frame(c, x, y, w, h, colour) {
   c.fillRect(x, y, 1, h); c.fillRect(x + w - 1, y, 1, h);
 }
 
-// § round: a pixel disc on the glass with its light edge, as the corner buttons
-export function round(c, cx, cy, r) {
+// § round: a pixel disc on the glass with its light edge, as the corner buttons; edge: its rim's colour
+export function round(c, cx, cy, r, edge = EDGE) {
   for (let dy = -r; dy <= r; dy++) {
     const w = Math.floor(Math.sqrt(r * r - dy * dy));
     c.fillStyle = GLASS; c.fillRect(cx - w, cy + dy, 2 * w + 1, 1);
-    c.fillStyle = EDGE; c.fillRect(cx - w, cy + dy, 1, 1); c.fillRect(cx + w, cy + dy, 1, 1);
+    c.fillStyle = edge; c.fillRect(cx - w, cy + dy, 1, 1); c.fillRect(cx + w, cy + dy, 1, 1);
   }
-  c.fillStyle = EDGE;
+  c.fillStyle = edge;
   for (let dx = -r; dx <= r; dx++) { const h = Math.floor(Math.sqrt(r * r - dx * dx)); c.fillRect(cx + dx, cy - h, 1, 1); c.fillRect(cx + dx, cy + h, 1, 1); }
 }
 // The cross on it, as the close icon's 5 × 5 (hud.js), its middle at cx, cy

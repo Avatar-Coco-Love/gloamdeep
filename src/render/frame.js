@@ -10,7 +10,8 @@ import { drawStatus } from './hud.js';
 import { LINE_UP } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
-import { drawTitle, drawScene } from './title.js';
+import { drawTitle, drawScene, drawName } from './title.js';
+import { drawTitleCard, nameTop } from './titlecard.js';
 import { VEIL } from './menu.js';
 import { drawSeedCard } from './seedpad.js';
 import { drawNameCard } from './namepad.js';
@@ -133,7 +134,12 @@ export function createFrame(app, ui) {
     else if (screen === 'clothes') { titleScene(0, t); drawClothes(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.trim, app.clothes, app.chosen); }
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
     else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); } // the card on the title's scene (D-391)
-    else {
+    else if (screen === 'title') { // laid out like a phone game's (D-401)
+      const p = playing(app.profiles);
+      titleScene(3, t);
+      drawName(rc, view.w / 2, nameTop(view.h));
+      drawTitleCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, { ...screens.chip(), hero: heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)) }, t, still());
+    } else {
       const [menu, heading, note] = screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
         : [screens.menuOf(screen), null, null];
       titleScene(menu.length, t);

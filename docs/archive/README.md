@@ -18,7 +18,7 @@ header says when it moved and why.
 | `DECISIONS-FOUNDATION-5.md` | D-114 to D-129 | steps 22 to 24 | D-151 |
 | `DECISIONS-FOUNDATION-6.md` | D-130 to D-158 | steps 25 to 30 | D-161 |
 | `DECISIONS-STAGE-0.2-1.md` | D-159 to D-167 | steps 31 to 33 | D-188 |
-| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392 on | stage 0.3, the world; the audits | |
+| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392, D-401 on | stage 0.3, the world; the audits | |
 | `DECISIONS-MENU.md` | D-177 to D-193 | the main menu, steps 52 to 58 | D-196 |
 | `DECISIONS-GETTING-AROUND.md` | D-194 to D-200 | steps 43 to 45, U1, U2 | D-208 |
 | `DECISIONS-REGION.md` | D-201 to D-208 | a region and its map, 46 to 47b | D-213 |
@@ -40,6 +40,7 @@ header says when it moved and why.
 | `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only | D-386 |
 | `DECISIONS-CORNER-HUD.md` | D-381 to D-384 | the room filling the screen, the stats switch, the round map and lantern | D-388 |
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |
+| `DECISIONS-CARDS-2.md` | D-393 to D-400 | more menus as cards, the asks | D-401 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

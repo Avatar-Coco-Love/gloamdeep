@@ -63,6 +63,8 @@ arrows, Enter, Space, a tap or a click. The name is the pixel font at
 double size, carved: gold, a dark outline, an ember edge underneath
 (changed after seeing 5 looks: glow → carved). The wrench and the
 lantern button stay hidden until the journey starts.
+*The name's look superseded by D-401 (2026-10-28): lit from below, at
+triple size.*
 
 **D-187 · 2026-10-20 · How the pause menu works** (step 53, owner's
 picks) A pause button with two bars, in the lantern button's style,

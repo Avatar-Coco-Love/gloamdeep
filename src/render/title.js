@@ -1,6 +1,6 @@
 // § title: the title screen, the lantern in the dark (D-181). Pitch black,
 // the hero on crypt floor in the lantern's dithered light, the name glowing
-// warm above, carved, and a small flame marking the chosen line. Drawn with the
+// warm above, lit from below (D-401), and a small flame marking the chosen line. Drawn with the
 // game's own tiles, sprite, light and font.
 import { makeRoom } from '../core/room.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
@@ -11,9 +11,9 @@ import { drawHero } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawLines, drawHeading, LINE_GAP } from './menu.js';
+import { NAME, NAME_TOP, NAME_SCALE } from './titlecard.js';
 
 const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', CORE = '#fff5d6', GREY = '#9790a4';
-const NAME = 'Gloamdeep', NAME_Y = 28, NAME_SCALE = 2; // the name at double size
 const HERO = { x: 5, y: 6 }; // the middle of the room, in tiles
 const LIGHT_OIL = 0.5; // a half-full lantern: the light stays between the name and the menu
 export const MENU_Y = 166; // the first menu line's top
@@ -33,16 +33,27 @@ function paint(cols, rows) {
   drawRoom(floor.getContext('2d'), room);
   scene = { cols, rows, room, floor, unseen: new Uint8Array(cols * rows) };
 }
-// § name: carved (D-186): a dark outline all round and an ember edge
-// underneath, drawn small once, then doubled with crisp pixels
+// § name: lit from below (D-401; was carved, D-186): a dark outline all round and an ember
+// edge underneath, the letters dim stone at the top and gold to bone at the foot, as if the
+// hero's lantern lit them from beneath; drawn small once, then tripled with crisp pixels
+const LIT = ['#5c566a', '#5c566a', '#a8642c', '#a8642c', '#e9a94a', GOLD, GOLD, '#efe6cc', '#efe6cc']; // each font row's colour, top to foot
 function carve() {
   const w = textWidth(NAME), small = document.createElement('canvas');
   small.width = w + 2; small.height = FONT_H + 3;
   const s = small.getContext('2d');
   for (let dx = 0; dx <= 2; dx++) for (let dy = 0; dy <= 3; dy++) drawText(s, NAME, dx, dy, K);
   drawText(s, NAME, 1, 2, EMBER);
-  drawText(s, NAME, 1, 1, GOLD);
+  LIT.forEach((colour, row) => {
+    s.save(); s.beginPath(); s.rect(0, 1 + row, small.width, 1); s.clip();
+    drawText(s, NAME, 1, 1, colour);
+    s.restore();
+  });
   name = small;
+}
+// The name centred on x = cx, its top at y
+export function drawName(c, cx, y) {
+  if (!name) carve();
+  c.drawImage(name, Math.floor(cx - (name.width * NAME_SCALE) / 2), y, name.width * NAME_SCALE, name.height * NAME_SCALE);
 }
 
 const lights = [{ ...LANTERN, x: 0, y: 0, r: 0 }]; // reused every frame (TECH.md)
@@ -67,8 +78,7 @@ export function drawScene(c, count, t, still, ox, oy) {
 // menu: [{ text }]; chosen: its index; still: prefers-reduced-motion; heading: a page's name (Settings);
 // note: a grey line in the strip under the menu (the Are you sure page's)
 export function drawTitle(c, menu, chosen, t, still, heading = null, note = null) {
-  if (!name) carve();
-  c.drawImage(name, Math.floor((W - name.width * NAME_SCALE) / 2), NAME_Y, name.width * NAME_SCALE, name.height * NAME_SCALE);
+  drawName(c, W / 2, NAME_TOP);
   const top = titleTop(menu.length);
   if (heading) drawHeading(c, heading, top);
   drawLines(c, menu, chosen, top, t, still);

@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.152', date: '2026-10-28', title: 'The title revamped', lines: [
+    "The title screen is laid out like a phone game's. The hero stands in the lantern's light in the middle, with one big button under them: CONTINUE while a journey is saved, with New journey as a grey line under it, or NEW JOURNEY on its own.",
+    "Journal, How to play and Settings are round buttons in the top right corner, each with a small icon (a book, a question mark, a gear) and its name under it. On a squarer screen they stand down the right side instead.",
+    "The profile you are playing sits top left as a small glass box with your hero, name and deepest depth; tapping it opens Profiles, so the Profiles line is gone. The Seed Explorer is a round button with a wrench in the bottom left corner.",
+    "The name Gloamdeep is bigger and lit from below, dim at the tops of the letters and gold at their feet, as if the hero's lantern shone up at it.",
+    "Decisions: D-401.",
+  ] },
   { v: '0.2.151', date: '2026-10-28', title: 'The ask cards', lines: [
     "Start over?, Delete …? and Play …? (the easier way to play) now open as a small glass card in the middle of the screen, the title's scene or the room dim around it. The question sits at its top left in ember, with the grey note under it.",
     "Yes and No are buttons along the card's bottom, YES and NO, with NO picked first as before; the arrows move between them. The round cross, Esc and a tap outside the card all mean No.",
