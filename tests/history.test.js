@@ -5,7 +5,10 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { HISTORY, scrollToShow, clampScroll, versionWords } from '../src/core/history.js';
 import { VERSION } from '../src/core/version.js';
 import { textWidth, hasGlyph } from '../src/render/font.js';
-import { wrap, historyRows, historyAt, headRow, lastRow, TITLE_W, BODY_W, ROW_H, LIST_Y, LIST_H, BACK_Y } from '../src/render/history.js';
+import { wrap, historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../src/render/history.js';
+
+// A sideways phone's room canvas, and a squarer screen's, the narrowest the card meets
+const PHONE = [422, 195], SQUARE = [240, 180];
 
 // The changelog's versions, from CHANGELOG.md and its archive files: a bullet and
 // the indented lines under it make one line; the format example in a fence is skipped
@@ -49,24 +52,28 @@ test('the versions run with no gaps and no repeats, from 0.0.1', () => {
   }
 });
 
-test('every title fits its row, and every letter is in the pixel font', () => {
+test('every title fits its row, even on a squarer screen, and every letter is in the pixel font', () => {
+  const { titleW } = historyLayout(...SQUARE);
   for (const e of HISTORY) {
-    assert.ok(e.title && textWidth(e.title) <= TITLE_W, e.v);
+    assert.ok(e.title && textWidth(e.title) <= titleW, e.v);
     for (const ch of [e.v, e.date, e.title, ...e.lines].join('')) assert.ok(hasGlyph(ch), `${e.v}: ${ch}`);
   }
 });
 
-test('wrapped lines fit the window and keep every word', () => {
+test('wrapped lines fit the card and keep every word', () => {
+  const { bodyW, bodyX, card } = historyLayout(...SQUARE);
+  assert.ok(bodyX + bodyW < card.x + card.w);
   for (const e of HISTORY) for (const line of e.lines) {
-    const rows = wrap(line, BODY_W);
-    for (const r of rows) assert.ok(textWidth(r) <= BODY_W, r);
+    const rows = wrap(line, bodyW);
+    for (const r of rows) assert.ok(textWidth(r) <= bodyW, r);
     assert.equal(rows.join(' ').replace(/\s+/g, ''), line.replace(/\s+/g, ''));
   }
 });
 
 test('closed, each version is one row; open, its date and lines follow it', () => {
-  assert.equal(historyRows(new Set()).length, HISTORY.length);
-  const e = HISTORY[1], rows = historyRows(new Set([e.v]));
+  assert.equal(historyRows(new Set(), 200).length, HISTORY.length);
+  const e = HISTORY[1], rows = historyRows(new Set([e.v]), 200);
+  assert.equal(rows.w, 200);
   assert.equal(rows[headRow(rows, 1)].kind, 'head');
   assert.deepEqual(rows[2], { i: 1, kind: 'date', text: e.date });
   assert.equal(rows.filter((r) => r.kind === 'line').length, e.lines.length);
@@ -84,11 +91,15 @@ test('the list scrolls just enough to show a row, and never past its ends', () =
   assert.equal(clampScroll(30, 2 * ROW_H, view), 0); // shorter than the window
 });
 
-test('a tap picks a row in the window, or Back', () => {
-  assert.deepEqual(historyAt(LIST_Y + 1, 0, 90), { row: 0 });
-  assert.deepEqual(historyAt(LIST_Y + ROW_H + 1, 2 * ROW_H, 90), { row: 3 });
-  assert.equal(historyAt(BACK_Y + 2, 0, 90), 'back');
-  assert.equal(historyAt(LIST_Y + LIST_H - 1, 0, 3), null); // below the last row
+test('on the card, a tap picks a row in the window; the cross or outside goes back (D-393)', () => {
+  const { card, top, h } = historyLayout(...PHONE), x = card.x + 40;
+  assert.ok(h % ROW_H === 0 && top + h <= card.y + card.h - 8, 'whole rows, inside the card');
+  assert.deepEqual(historyAt(x, top + 1, ...PHONE, 0, 90), { row: 0 });
+  assert.deepEqual(historyAt(x, top + ROW_H + 1, ...PHONE, 2 * ROW_H, 90), { row: 3 });
+  assert.equal(historyAt(x, top + h - 1, ...PHONE, 0, 3), null); // below the last row
+  assert.equal(historyAt(x, top - 4, ...PHONE, 0, 90), null); // the heading
+  assert.equal(historyAt(card.close.x, card.close.y, ...PHONE, 0, 90), 'close');
+  assert.equal(historyAt(2, 2, ...PHONE, 0, 90), 'out');
 });
 
 test('a screen reader hears the number and title, and the lines while open', () => {

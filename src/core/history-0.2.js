@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.144', date: '2026-10-28', title: 'The version history card', lines: [
+    "Version history now opens as a glass card that fills the screen, like Settings, both from the pause card and from the title. VERSION HISTORY sits at its top left, and the round cross goes back to Settings, as Esc and a tap outside still do; the Back line is gone.",
+    "The list is the same: each version's number and title, with + to open it and − while open. An open version's lines now use the card's whole width, and the list scrolls inside the card, with its thin bar at the right.",
+    "Decisions: D-393.",
+  ] },
   { v: '0.2.143', date: '2026-10-28', title: 'The third audit', lines: [
     "Behind the scenes: the third tidy-up of the notes and code. Nothing in the game changes.",
     "The Version history's data is split into three smaller files by version, word for word, so it shows exactly as before.",

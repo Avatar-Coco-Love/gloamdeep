@@ -32,9 +32,10 @@
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // A Hardcore fall shows "Your journey ends.": Same world or New world wakes the hero in the
 // world begun again (D-344); Esc or P return to the title, Continue there.
-// Version history in Settings opens the page of every version (D-254): Up and Down choose one,
-// Enter, Space, Right or a tap on its row opens or closes it (Left closes it), swipes and
-// Page Up and Page Down scroll a page; Back, Esc or P return to Settings.
+// Version history in Settings opens its card of every version (D-254, D-393): Up and Down choose
+// one, Enter, Space, Right or a tap on its row opens or closes it (Left closes it), swipes and
+// Page Up and Page Down scroll a page; the round cross, a tap outside the card, Esc or P return
+// to Settings.
 // Journal, on the title and the pause menu, opens its card on Records (D-270, D-391); Left and
 // Right or a tap on a tab turn to Records or Growth (D-293). Enter or Space turns to Growth,
 // and there, as a tap on ADD A HEART, spends an ember on one more. The round cross, a tap
@@ -55,7 +56,7 @@ import { lineAt, pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
 import { keyAt } from '../render/seedpad.js';
 import { howtoAt } from '../render/howto.js';
-import { historyRows, historyAt, headRow, lastRow, ROW_H, LIST_H } from '../render/history.js';
+import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
 import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/history.js';
 import { nextPage, howtoWords } from '../core/howto.js';
 import { PAD, typeKey, entrySeed, moveKey } from '../core/seedpad.js';
@@ -93,7 +94,7 @@ const WORDS = {
   paused: 'Paused. Resume, Journal, Settings, How to play, or Back to title.',
   play: '',
 };
-const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Back.`;
+const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Esc or the close button goes back.`;
 const SEED_WORDS = 'Seed. Type up to 5 digits, then OK. Random gives a new world each journey. Esc leaves it unchanged.';
 const EXPLORE_PAD_WORDS = 'Seed. Type up to 5 digits, then OK to see that seed. Random shows a random one. Esc leaves it unchanged.';
 const PAN = 8; // game pixels an arrow key scrolls the map
@@ -148,17 +149,22 @@ export function createScreens(app, ui) {
   function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings.controls); }
   const flipPage = (back = false) => openPage(nextPage(app.page, back));
 
-  // § version history (D-254): opens with every version closed, on the newest
-  function openHistory() { app.opened = new Set(); app.rows = historyRows(app.opened); app.scroll = 0; show('history'); }
+  // § version history (D-254): opens with every version closed, on the newest, on a card (D-393)
+  const listH = () => historyLayout(view.w, view.h).h; // the card's window, as tall as the screen lets it be
+  function openHistory() { app.opened = new Set(); app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW); app.scroll = 0; show('history'); }
   const closeHistory = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'history'));
-  const shownRows = () => clampScroll(app.scroll, app.rows.length * ROW_H, LIST_H);
-  // Choose version i (or Back), its row scrolled into view
+  const shownRows = () => clampScroll(app.scroll, app.rows.length * ROW_H, listH());
+  // The rows wrapped again when the card's width has changed since (the screen turned or resized)
+  function fitHistory() {
+    const w = historyLayout(view.w, view.h).bodyW;
+    if (app.rows.w !== w) { app.rows = historyRows(app.opened, w); app.scroll = shownRows(); }
+  }
+  // Choose version i, its row scrolled into view
   function pickVersion(i) {
     app.chosen = i;
     const e = HISTORY[i];
-    if (!e) { spoken.textContent = 'Back'; return; }
     const r = headRow(app.rows, i);
-    app.scroll = scrollToShow(app.scroll, r, r, ROW_H, LIST_H, app.rows.length);
+    app.scroll = scrollToShow(app.scroll, r, r, ROW_H, listH(), app.rows.length);
     spoken.textContent = versionWords(e, app.opened.has(e.v));
   }
   // Open or close version i; an opened one shows as much of itself as fits
@@ -166,17 +172,19 @@ export function createScreens(app, ui) {
     const e = HISTORY[i];
     if (!e || open === app.opened.has(e.v)) return;
     if (open) app.opened.add(e.v); else app.opened.delete(e.v);
-    app.rows = historyRows(app.opened);
+    app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW);
     app.scroll = shownRows();
     pickVersion(i);
-    if (open) app.scroll = scrollToShow(app.scroll, headRow(app.rows, i), lastRow(app.rows, i), ROW_H, LIST_H, app.rows.length);
+    if (open) app.scroll = scrollToShow(app.scroll, headRow(app.rows, i), lastRow(app.rows, i), ROW_H, listH(), app.rows.length);
   }
   // Scroll a page down (by > 0) or up; the flame moves to the top version shown if it scrolled away
   function pageHistory(by) {
-    app.scroll = clampScroll(app.scroll + by * (LIST_H - ROW_H), app.rows.length * ROW_H, LIST_H);
-    const top = Math.floor(app.scroll / ROW_H), bottom = Math.floor((app.scroll + LIST_H) / ROW_H) - 1;
+    fitHistory();
+    const h = listH();
+    app.scroll = clampScroll(app.scroll + by * (h - ROW_H), app.rows.length * ROW_H, h);
+    const top = Math.floor(app.scroll / ROW_H), bottom = Math.floor((app.scroll + h) / ROW_H) - 1;
     const shown = (r) => r >= top && r <= bottom;
-    if (app.chosen < HISTORY.length && !app.rows.some((row, r) => row.i === app.chosen && shown(r))) {
+    if (!app.rows.some((row, r) => row.i === app.chosen && shown(r))) {
       app.chosen = app.rows[top].i;
       spoken.textContent = versionWords(HISTORY[app.chosen], app.opened.has(HISTORY[app.chosen].v));
     }
@@ -551,7 +559,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'clothes') { pressClothes(i); return; }
     if (app.screen === 'bag') { useChosen(); return; }
     if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
-    if (app.screen === 'history') { if (i < HISTORY.length) openVersion(i); else closeHistory(); return; }
+    if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
     if (app.screen === 'journal') { if (app.tab === 'growth') buyHeart(); else turnTab('growth'); return; } // Enter turns to Growth, and there adds a heart
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
@@ -597,9 +605,10 @@ export function createScreens(app, ui) {
     if (app.screen === 'journal') { if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth'); return; } // the tabs (D-391)
     if (app.screen === 'slots') { app.chosen = moveChoice(app.chosen, dir, SLOTS + linesNow().length); return; }
     if (app.screen === 'history') {
+      fitHistory();
       if (dir === 'left' || dir === 'right') openVersion(app.chosen, dir === 'right');
       else if (how === 'swipe') pageHistory(dir === 'up' ? 1 : -1); // the list follows the finger
-      else pickVersion(moveChoice(app.chosen, dir, HISTORY.length + 1));
+      else pickVersion(moveChoice(app.chosen, dir, HISTORY.length));
       return;
     }
     const id = menuOf(app.screen)[app.chosen]?.id;
@@ -676,8 +685,10 @@ export function createScreens(app, ui) {
     if (app.screen === 'trim') { const k = cloakKeyAt(px, py); if (k >= 0) pressTrim(k, true); return; }
     if (app.screen === 'clothes') { const k = cloakKeyAt(px, py, CLOTHES_PAD); if (k >= 0) pressClothes(k, true); return; }
     if (app.screen === 'history') {
-      const at = historyAt(py, app.scroll, app.rows.length);
-      if (at === 'back') closeHistory();
+      if (held) return;
+      fitHistory();
+      const at = historyAt(px, py, view.w, view.h, app.scroll, app.rows.length);
+      if (at === 'out' || at === 'close') closeHistory(); // the round cross goes back (D-393)
       else if (at && app.rows[at.row].kind === 'head') openVersion(app.rows[at.row].i);
       else if (at) pickVersion(app.rows[at.row].i);
       return;

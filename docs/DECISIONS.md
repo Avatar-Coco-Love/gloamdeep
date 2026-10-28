@@ -118,3 +118,13 @@ built, moved unchanged to `archive/DECISIONS-CARDS.md`. `CHANGELOG.md`
 keeps its newest 3 entries. `CLAUDE.md`'s pointers are tidied, its rules
 word for word. `screens.js` and `main.js` follow at later audits; the next
 is at 0.2.163.
+
+**D-393 · 2026-10-28 · Version history as a card** (the owner's picks,
+both recommended, [mock-up](https://claude.ai/artifact/5wfbN8oH3FUVpGcxiu2snN))
+Version history opens as a glass card like the settings card (D-389),
+VERSION HISTORY in ember top left, from Settings on the room and on the
+title's scene alike. Its list stays one list as on the page (D-254): each
+version's number, title and + or −, an open one's date and lines under
+its row, wrapped to the card's width. It scrolls inside the card, the
+thin bar kept at its right. The round cross goes back to Settings, as Esc
+and a tap outside do, so the Back line is gone. Built in 0.2.144.

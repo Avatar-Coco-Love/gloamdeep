@@ -56,8 +56,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play and journal cards (D-388 to D-391)
+const CLEAR_OVER = new Set(['play', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal and version history cards (D-388 to D-391, D-393)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
 // D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -124,7 +124,7 @@ export function createFrame(app, ui) {
     if (screen === 'explore') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawMap(ctx, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); }
     else if (screen === 'seed') { titleScene(0, t, true); drawTitle(ctx, [], 0, t, still()); drawSeedPad(ctx, app.entry, app.chosen, t, still()); }
     else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); } // the card on the title's scene (D-390)
-    else if (screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a dark page of its own
+    else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
     else if (screen === 'slots') drawSlots(ctx, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, app.slotsBack && app.profiles.current !== null, t, still());
     else if (screen === 'name') drawNamePad(ctx, app.entry, app.chosen, t, still(), app.renaming ? 'Rename profile' : undefined);
@@ -252,7 +252,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'easier') drawPause(ctx, SURE_MENU, app.chosen, t, still(), easeHeading(app.easier), EASE_NOTE);
     else if (app.screen === 'seed') drawSeedPad(ctx, app.entry, app.chosen, t, still());
     else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings.controls, t, still()); // a card on the room (D-390)
-    else if (app.screen === 'history') drawHistory(ctx, app.rows, app.opened, app.scroll, app.chosen, t, still());
+    else if (app.screen === 'history') drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
     else if (app.screen === 'journal') drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(ctx, app.view, t, still(), screens.turns());
     else if (app.screen === 'bag') {
