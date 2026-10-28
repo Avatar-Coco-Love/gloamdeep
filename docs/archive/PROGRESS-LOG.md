@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.153, the title icons.** The owner picked the round
+  buttons' icons at 9 × 9, one game pixel per dot, the shapes as drawn:
+  a book with lines, a round question mark, a gear with a hole, a wrench
+  with an open jaw (D-402).
+  [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).
 - **2026-10-28, 0.2.152, the title revamped.** The owner picked layout A
   from three mock-ups and the name lit from below at triple size from six
   drawn by the game: one big CONTINUE or NEW JOURNEY button under the

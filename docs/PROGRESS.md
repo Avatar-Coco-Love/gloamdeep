@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.155 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.156 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Mock-ups of the arrow pad and tap a tile to walk there, each one a
-player can turn on or off (D-404, Q-067), in a fresh conversation; then
-creature materials (Q-061). Upright play (Q-065) is tabled.
+Tap to walk (D-406, D-407): tap a tile and the hero walks there, gold
+dots along the way, a tap stops at no turn's cost, on at first; settle
+Q-067's rest first. Then the arrow pad, then creature materials (Q-061).
+Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,7 +23,7 @@ creature materials (Q-061). Upright play (Q-065) is tabled.
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
-- The arrow pad and tap to walk (Q-067), from mock-ups.
+- The rest of steering (Q-067), before tap to walk is built.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -36,6 +37,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.156, steering picked.** Docs only. From pressable
+  [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1) the owner
+  picked the round arrow pad bottom left, off at first, and tap to walk
+  at once with dots along the way, on at first; a tap stops at no turn's
+  cost (D-406). Stops when a creature comes into view; version number
+  off in play; tap to walk first (D-407).
 - **2026-10-28, 0.2.155, past the room's edge.** The owner picked, from
   pictures drawn by the game, the rock, brick or trees going on past a
   small room's edge, each as remembered as the nearest edge tile, and a
@@ -46,8 +53,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   like it, so no flat colour shows (D-403), rooms behind the wall later
   (Q-066); and easier steering, an arrow pad and tap a tile to walk, each
   optional, from mock-ups (D-404, Q-067). Upright play tabled.
-- **2026-10-28, 0.2.153, the title icons.** The owner picked the round
-  buttons' icons at 9 × 9, one game pixel per dot, the shapes as drawn:
-  a book with lines, a round question mark, a gear with a hole, a wrench
-  with an open jaw (D-402).
-  [Playtest](https://claude.ai/artifact/Wg7D8AW8bKpBdxPLvF2521).

@@ -170,3 +170,22 @@ doorway a floor passage runs on, lit as the lantern nears. Behind the
 woods' cave mouth the trees go on, as it leads down into the rock (not
 asked yet, the build's own choice; the owner may change it). Built in
 0.2.155.
+
+**D-406 · 2026-10-28 · The arrow pad and tap to walk** (the owner's picks,
+from pressable [mock-ups](https://claude.ai/artifact/29z7Ued7aTpeNtKaE7yhg1); builds D-404, answers part of Q-067)
+The arrow pad (A) is one round glass disc 128 px across in the room's
+bottom left corner, the twin of the round map: each quarter is one arrow,
+a 9 × 9 pixel icon in the stone grey, gold while pressed. A press steps
+once; held, it keeps walking at the held pace (D-044). Tap a tile and the
+hero walks there at once (F), gold dots on each tile of the way and
+corner marks on the tile (D). A tap while walking stops the hero, and
+stopping costs no turn (the owner's addition). At first tap to walk is
+on and the pad off; today's one-step tap goes.
+
+**D-407 · 2026-10-28 · Steering's details** (the owner's picks,
+recommended; answers part of Q-067) The walk to a tapped tile stops by
+itself when a creature comes into view; the owner's idea: a Settings
+choice to stop instead when a creature notices the hero. The switches are
+named Arrow pad and Tap to walk. The version number shows only on the
+title and the pause menu, not in play. Tap to walk is built first, then
+the pad.

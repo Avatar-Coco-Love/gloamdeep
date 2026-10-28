@@ -115,9 +115,7 @@ it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
 
 **Q-067 · The arrow pad and tap to walk** (raised 2026-10-28, D-404)
-Still open, from mock-ups: where the pad sits (bottom left, clear of the
-lantern's arc?), its size and look, press for one step and hold to keep
-walking, how a tap on a tile walks there and stops (a second tap? a
-creature in view, as D-219?), the Settings switches' names and which are
-on at first, and whether today's one-step tap goes.
-
+Picked: D-406, D-407. Still open: the stop choice's name and words (in
+view, or when a creature notices the hero), how the new switches sit
+beside Controls' Tap only and Swipe only, and whether a held finger
+still walks toward it (D-219) while tap to walk is on.
