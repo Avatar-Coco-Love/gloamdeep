@@ -75,3 +75,12 @@ test('saving and loading go through localStorage, and work without it', () => {
     assert.deepEqual(loadJourney().state, s);
   } finally { delete globalThis.localStorage; }
 });
+
+test('a save tells whether it was kept: not when storage is full or blocked (D-428)', () => {
+  assert.equal(saveJourney(makeWorld('first', 3), false), false, 'no localStorage here');
+  globalThis.localStorage = { setItem: () => { throw new Error('QuotaExceededError'); } };
+  try { assert.equal(saveJourney(makeWorld('first', 3), false), false, 'full'); } finally { delete globalThis.localStorage; }
+  const kept = {};
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try { assert.equal(saveJourney(makeWorld('first', 3), false), true); } finally { delete globalThis.localStorage; }
+});

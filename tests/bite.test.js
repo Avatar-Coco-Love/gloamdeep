@@ -109,3 +109,13 @@ test('a fall keeps the room as the hero fell in it, to be shown before they wake
   assert.equal(n.fell.enemies.length, 1);
   assert.equal(n.fell.enemies[0].x, 2);
 });
+
+test('a creature standing where the hero wakes steps aside to the nearest free tile (D-426)', () => {
+  const s = { ...at(3, 10), health: 1, enemies: [{ id: 'rat', x: 2, y: 10 }, { id: 'rat', x: FIRST_START.x, y: FIRST_START.y }] };
+  const n = wait(s), moved = n.enemies[1];
+  assert.deepEqual(n.hero, FIRST_START);
+  assert.notDeepEqual([moved.x, moved.y], [FIRST_START.x, FIRST_START.y]);
+  assert.equal(Math.abs(moved.x - FIRST_START.x) + Math.abs(moved.y - FIRST_START.y), 1, 'one step away');
+  assert.equal(room.map[moved.y][moved.x], '.');
+  assert.deepEqual([n.enemies[0].x, n.enemies[0].y], [2, 10], 'the others stay where they were');
+});

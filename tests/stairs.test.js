@@ -125,3 +125,14 @@ test('stairs sink toward the wall above first, then left, then right, else down 
   assert.equal(stairsFacing(r, 2, 2), 'down');
   assert.equal(stairsFacing(makeWorld().room, 1, 1), 'up');
 });
+
+test('a creature waiting on the stairs the hero arrives on steps aside to the nearest free tile (D-426)', () => {
+  const s = at(2, 1), second = s.elsewhere.second;
+  const waiting = { ...s, elsewhere: { ...s.elsewhere, second: { ...second, enemies: [{ id: 'rat', x: 1, y: 1, chasing: true }] } } };
+  const n = step(waiting, 'left');
+  assert.equal(n.place, 'second');
+  assert.deepEqual(n.hero, { x: 1, y: 1 });
+  assert.equal(n.enemies.length, 1);
+  assert.notDeepEqual([n.enemies[0].x, n.enemies[0].y], [1, 1], 'not on the hero');
+  assert.equal(tileAt(n.room, n.enemies[0].x, n.enemies[0].y).solid, false);
+});

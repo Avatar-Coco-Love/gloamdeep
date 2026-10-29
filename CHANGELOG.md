@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.167 (2026-10-29)
+- Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.
+- The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.
+- If your journey can't be saved, because the browser's storage is full or blocked, the text line now says "Your journey could not be saved." in amber, once. Before, saving failed silently.
+- Decisions: D-426, D-427 and D-428. Questions opened: Q-068.
+
 ## 0.2.166 (2026-10-29)
 - A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line "Carry a lantern down through the gloam." Nothing in the game itself changes.
 - The picture, `share.png`, is the one image file allowed. A script, `tools/sharecard.js`, draws it with the game's own code; it is drawn again when the title art changes.
@@ -32,8 +38,3 @@ Entry format:
 - A tap or held finger past the room's edge, where there is no way, now does nothing; before, the hero headed that way. A tap on a wall or unexplored dark inside the room still walks as near as it can.
 - Decided, not built yet: past a doorway that leads outside, the woods will go on instead of brick, with a grass path and daylight. Pictures come first.
 - Decisions: D-422, which supersedes part of D-406, D-423 and D-424.
-
-## 0.2.164 (2026-10-28)
-- Nothing in the game changes. The fourth audit: the screens for a new profile's name and look, and Rename and Look, move word for word from screens.js into their own file, profilescreens.js.
-- Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; CLAUDE.md's file table is tidied, its rules word for word. The next audit is at 0.2.184.
-- Decisions: D-421.

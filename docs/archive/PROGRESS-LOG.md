@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.164, the fourth audit.** Nothing in the game changed
+  (D-421, both recommended). The profile screens moved word for word from
+  `screens.js` (50 → 45 KB) into `profilescreens.js`; making a profile
+  plays the same as the old build. `CHANGELOG.md` 7.3 → 2 KB; `CLAUDE.md`'s
+  file table tidied. No playtest: nothing to play.
 - **2026-10-28, 0.2.163, a bigger name pad.** The name pad's keys fill
   the card, split for thumbs: A to M left, N to Z right, Del and OK at
   the bottom corners; letters and the typed name twice as big (D-420).

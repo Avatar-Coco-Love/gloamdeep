@@ -56,8 +56,9 @@ export function loadJourney(slot = 0) {
   try { kept = readJourney(localStorage.getItem(journeyKey(slot))); } catch { /* not kept */ }
   return kept;
 }
+// Whether it was kept: false when storage is full or blocked, for the warning line (D-428)
 export function saveJourney(state, jumped, slot = 0) {
-  try { localStorage.setItem(journeyKey(slot), journeyText(state, jumped)); } catch { /* not kept */ }
+  try { localStorage.setItem(journeyKey(slot), journeyText(state, jumped)); return true; } catch { return false; /* not kept */ }
 }
 // A deleted profile's journey goes with it (D-271)
 export function dropJourney(slot) {

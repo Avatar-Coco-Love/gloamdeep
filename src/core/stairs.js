@@ -44,7 +44,27 @@ export function arrive(state, to, there, spot) {
   const elsewhere = { ...state.elsewhere, [state.place]: here };
   delete elsewhere[to];
   const items = state.held ? there.items.filter((it) => it.id !== state.held) : there.items;
-  return { ...state, ...there, items, taken: there.taken || [], place: to, elsewhere, hero: spot };
+  return stepAside({ ...state, ...there, items, taken: there.taken || [], place: to, elsewhere, hero: spot });
+}
+
+// § step aside: a creature standing where the hero arrives or wakes, as one that chased
+// them to the stairs, steps to the nearest free tile by steps: nothing solid, no item,
+// no other creature; none free, and it stays (D-426)
+export function stepAside(state) {
+  const { hero, room } = state, at = (x, y) => state.enemies.find((e) => e.x === x && e.y === y);
+  const foe = at(hero.x, hero.y);
+  if (!foe) return state;
+  const seen = new Set([hero.x + ',' + hero.y]), queue = [hero];
+  for (let i = 0; i < queue.length; i++) {
+    for (const [dx, dy] of [[0, -1], [0, 1], [-1, 0], [1, 0]]) { // up, down, left, right, as DIRS
+      const x = queue[i].x + dx, y = queue[i].y + dy;
+      if (seen.has(x + ',' + y) || x < 0 || y < 0 || x >= room.cols || y >= room.rows || tileAt(room, x, y).solid) continue;
+      seen.add(x + ',' + y);
+      if (!state.items.some((it) => it.x === x && it.y === y) && !at(x, y)) return { ...state, enemies: state.enemies.map((e) => (e === foe ? { ...e, x, y } : e)) };
+      queue.push({ x, y });
+    }
+  }
+  return state;
 }
 
 // A place never visited, as it begins from the game's seed, with nothing remembered

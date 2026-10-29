@@ -23,7 +23,7 @@ let refit = null, titled = false; // the fit, and whether the room canvas is zoo
 export function createScreen(canvas, list, room) {
   canvas.width = W; canvas.height = SCREEN_H;
   list.width = W; list.height = LIST_H;
-  const ctx = canvas.getContext('2d'), listCtx = list.getContext('2d'), roomCtx = room.getContext('2d');
+  const ctx = canvas.getContext('2d'), listCtx = list.getContext('2d'), roomCtx = room.getContext('2d', { willReadFrequently: true }); // the light reads its pixels back every frame (D-427)
   ctx.imageSmoothingEnabled = false; listCtx.imageSmoothingEnabled = false;
   const fit = () => { fitCanvas(canvas, list); fitRoom(room, roomCtx, canvas); };
   refit = fit;

@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.166 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.167 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -23,6 +23,7 @@ by the game, for the owner to pick from (D-423); then the scope, part 2
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
+- Smoother on slower phones: half-size light, WebGL, or a phone test first (Q-068), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -36,6 +37,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.167, a bug, faster light, a save warning.** A check
+  of the game (tests, 360,000 random turns, a slow-phone timing) found a
+  creature and the hero sharing a tile after stairs or a fall: it steps
+  aside now (D-426). The light is about twice as fast, every pixel the
+  same (D-427); a failed save says so (D-428). Q-068 opened.
+  [Playtest](https://claude.ai/artifact/PiAgNGU9GwEkafNrZx7RqM).
 - **2026-10-29, 0.2.166, a share card.** A shared link now shows the
   title scene (the owner's pick, A), "Carry a lantern down through the
   gloam." and the name; `share.png` is the one image file, drawn by
@@ -46,8 +53,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   turned off once for everyone (D-422, supersedes part of D-406); a tap
   past the room's edge does nothing (D-424). The woods will go on past a doorway outside, pictures first (D-423).
   [Playtest](https://claude.ai/artifact/JcUHw3cDfELW4oWKGYYz6r).
-- **2026-10-28, 0.2.164, the fourth audit.** Nothing in the game changed
-  (D-421, both recommended). The profile screens moved word for word from
-  `screens.js` (50 → 45 KB) into `profilescreens.js`; making a profile
-  plays the same as the old build. `CHANGELOG.md` 7.3 → 2 KB; `CLAUDE.md`'s
-  file table tidied. No playtest: nothing to play.
