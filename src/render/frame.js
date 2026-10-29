@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, fitTitle } from './screen.js';
+import { TILE, W, SCREEN_H, view, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
@@ -75,7 +75,7 @@ export function createFrame(app, ui) {
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas'), spare = document.createElement('canvas');
   let wide = null, mx = 0, my = 0, drawnThere = null; // and past the crypt's doorway out, the woods as drawn (D-438)
-  const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 1;
+  const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
@@ -166,6 +166,7 @@ export function createFrame(app, ui) {
     let nx = 0, ny = 0;
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
+    fitRoomCols(s.room.cols); // a narrow room zooms in to fill the width, with a margin (D-441)
     const out = outside(s); // the woods past the doorway, as they are now (D-438)
     if (s.room !== drawnRoom || (out && out.there) !== drawnThere) {
       if (s.room !== drawnRoom) {

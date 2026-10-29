@@ -1,4 +1,6 @@
 // § screen: a small native canvas, enlarged with crisp pixels (ART-DIRECTION.md, "Grid and scale")
+import { MARGIN } from '../core/camera.js';
+
 export const TILE = 16;
 export const COLS = 11;
 export const ROWS = 13;
@@ -16,7 +18,7 @@ export const ARC = 64; // from the lantern's middle to its arc's buttons' middle
 const ROW = BUTTON + BUTTON_GAP; // the buttons' column beside the picture (D-198, D-377)
 export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D-381)
 export const view = { w: W, h: H }; // the room canvas's size in game pixels, set by the fit
-let refit = null, titled = false; // the fit, and whether the room canvas is zoomed as the picture (the title's scene)
+let refit = null, titled = false, roomCols = 0; // the fit, the room's width in tiles, and whether the room canvas is zoomed as the picture (the title's scene)
 
 // (canvas, list, room) → { ctx, listCtx, roomCtx }: the menus' picture, the list's row
 // below it, and the room's canvas filling the screen behind them (D-381)
@@ -53,12 +55,14 @@ function zoom(fitScale) {
 
 // § room fit: the room fills the whole box behind the menus (D-381), zoomed so
 // about VIEW_ROWS tiles show from top to bottom; the width follows the screen.
-// The same whole-pixel zoom as the picture's, so a few more rows can show.
+// A room narrower than that zooms in further, until it and a margin each side
+// fill the width (D-441); never zoomed out past the VIEW_ROWS view.
+// The same whole-pixel zoom as the picture's, so a little more can show.
 // On the title's screens it takes the picture's own zoom instead, so the
 // title's scene fills the whole screen, pixel for pixel with the picture.
 function fitRoom(room, roomCtx, picture) {
   const box = room.parentElement, bw = box.clientWidth, bh = box.clientHeight;
-  const scale = titled ? pictureZoom(bw, bh) : zoom(bh / (VIEW_ROWS * TILE));
+  const scale = titled ? pictureZoom(bw, bh) : zoom(Math.max(bh / (VIEW_ROWS * TILE), roomCols ? bw / (roomCols * TILE + 2 * MARGIN) : 0));
   let w = Math.max(1, Math.floor(bw / scale)), h = Math.max(1, Math.floor(bh / scale));
   let left = Math.round((bw - w * scale) / 2), top = Math.round((bh - h * scale) / 2);
   if (titled) { // its pixels on the picture's, so the scene goes on across the picture's edge
@@ -77,5 +81,12 @@ function fitRoom(room, roomCtx, picture) {
 export function fitTitle(on) {
   if (on === titled) return;
   titled = on;
+  refit?.();
+}
+
+// § room width: the room in play, its width in tiles; the room canvas fits again when it changes (D-441)
+export function fitRoomCols(cols) {
+  if (cols === roomCols) return;
+  roomCols = cols;
   refit?.();
 }

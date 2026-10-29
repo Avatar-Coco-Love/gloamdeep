@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.175', date: '2026-10-29', title: 'The camera with a margin', lines: [
+    "A room narrower than the screen now zooms in until it fills the width, with a margin of one and a half tiles past each side, so the first room and others like it look bigger on a phone held sideways. It never shows more than before, about 11 tiles from top to bottom.",
+    "The camera now stops one and a half tiles past every edge of a room, big rooms too, so the hero at a wall keeps a little room from the screen's edge. The rock past the edge, and the woods past the doorway out, show in that margin.",
+    "The controls, the glass panel and the round map keep their size.",
+    "Decisions: built as D-441 and D-443 say.",
+  ] },
   { v: '0.2.174', date: '2026-10-29', title: 'The camera, pictures', lines: [
     "Nothing in the game changes yet. Pictures drawn by the game, on a phone held sideways, compared today's camera with zooming in so a room fills the screen. Picked, the owner's idea: a room narrower than the screen zooms in until it fills the width, with a small margin of one and a half tiles past each edge, so almost nothing outside the room shows and the hero at a wall keeps a little room from the screen's edge. The controls keep their size.",
     "Every corner piece (the round map with pause and the wrench, the lantern and its arc, the arrow pad) will fade almost away while the hero is under it, as the glass panel already does.",

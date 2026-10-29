@@ -184,7 +184,7 @@ a margin of 1½ tiles each side, fills the screen. It never shows more than
 today's view, about 11 tiles top to bottom (D-381). The camera follows the
 hero (D-195) and stops at most 1½ tiles past any edge, so the hero at a
 wall keeps a little room from the screen's edge. The controls keep their
-size. The margin may change at the playtest.
+size. The margin may change at the playtest. Built in 0.2.175.
 
 **D-442 · 2026-10-29 · Every corner piece fades** (the owner's pick,
 recommended; extends D-380) Like the glass panel, every piece in the
@@ -195,4 +195,5 @@ a creature beside them, is under it. Its own step, after D-441.
 **D-443 · 2026-10-29 · The outside stays where it shows** (the owner's
 pick, recommended) The rock going on past a room's edge (D-403) and the
 real woods past the doorway out (D-438 to D-440) stay, and show inside
-D-441's margin. Rooms seen through the wall (Q-066) stay open.
+D-441's margin. Rooms seen through the wall (Q-066) stay open. Built in
+0.2.175.
