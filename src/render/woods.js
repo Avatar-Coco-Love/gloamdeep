@@ -4,7 +4,6 @@ import { hash } from '../core/noise.js';
 import { tileAt } from '../core/room.js';
 import { TILE as T } from './screen.js';
 import { paintMouths } from './mouth.js';
-import { SIDE } from '../core/openings.js';
 
 // Value noise: hash at whole points, mixed between them
 function noise(x, y, s) {
@@ -73,26 +72,6 @@ export function drawWoodsBeyond(c, wide, mx, my) {
   for (let y = -oy; y < h - oy; y++) for (let x = -ox; x < w - ox; x++) if (mine(x, y)) grass(put, x, y);
   for (let ty = -my; ty < wide.rows + my; ty++) for (let tx = -mx; tx < wide.cols + mx; tx++) {
     if (tileAt(wide, tx, ty).id === 'tree' && (tx < 0 || ty < 0 || tx >= wide.cols || ty >= wide.rows)) paintTree(put, shade, tx, ty);
-  }
-  c.putImageData(img, 0, 0);
-}
-
-// § past the doorway (D-438): the woods' grass and trees past their own edges, on the
-// side past the crypt's doorway out, onto `c`, drawBeyond's canvas, `mx` and `my` tiles
-// around `wide`, the crypt room widened with the woods (openings.js). Drawn over what
-// is there; the woods room's own pixels are left for drawRoom.
-export function drawWoodsPast(c, wide, mx, my) {
-  const P = wide.past, woods = P.there.room, W = c.canvas.width, H = c.canvas.height;
-  const ox = (mx + P.x) * T, oy = (my + P.y) * T, WW = woods.cols * T, WH = woods.rows * T; // the woods' top-left on c, and their size
-  const side = SIDE[P.dir], cols = wide.cols, rows = wide.rows;
-  const img = c.getImageData(0, 0, W, H), d = img.data;
-  // x, y in the woods' pixels: on c, past the doorway, and past the woods' own edges
-  const mine = (x, y) => { const X = x + ox, Y = y + oy; return X >= 0 && Y >= 0 && X < W && Y < H && (x < 0 || y < 0 || x >= WW || y >= WH) && side((X >> 4) - mx, (Y >> 4) - my, { cols, rows }); };
-  const put = (x, y, hex) => { if (!mine(x, y)) return; const [r, g, b] = rgb(hex), i = ((y + oy) * W + x + ox) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
-  const shade = (x, y, k) => { if (!mine(x, y)) return; const i = ((y + oy) * W + x + ox) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
-  for (let y = -oy; y < H - oy; y++) for (let x = -ox; x < W - ox; x++) if (mine(x, y)) grass(put, x, y);
-  for (let ty = Math.floor(-oy / T); ty < (H - oy) / T; ty++) for (let tx = Math.floor(-ox / T); tx < (W - ox) / T; tx++) {
-    if (mine(tx * T, ty * T)) paintTree(put, shade, tx, ty);
   }
   c.putImageData(img, 0, 0);
 }

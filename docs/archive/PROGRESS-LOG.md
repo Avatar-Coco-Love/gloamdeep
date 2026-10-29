@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.173, the real woods past the doorway.** Past the
+  crypt's doorway out, the woods room itself, placed so its mouth lies
+  just past it, as play left it, trees going on (D-438); in the woods' own
+  light and memory, the lantern spilling out with tree shadows (D-439).
+  Other rooms unchanged, pixel for pixel. Found: Q-070.
+  [Playtest](https://claude.ai/artifact/WhSSEFNqsK5XHnoCxqtdPB).
 - **2026-10-29, 0.2.172, the woods past the doorway, pictures.** Pictures
   drawn by the game: the real woods room or a made-up path. Picked: the
   real woods as they are now, "completely accurate" (D-438), in the woods'

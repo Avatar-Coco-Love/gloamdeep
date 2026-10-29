@@ -121,10 +121,3 @@ Half as D-432 says barely sped the light up. With the last pass faster,
 the lights' own work is a bigger share: measure again, then build Half
 and Automatic as decided, make Half do more (softer shadows, pictures
 first), or drop them. The code that was built is easy to redo.
-
-**Q-070 · Woods past a top or bottom doorway** (found building D-438)
-The crypt rooms are taller than the screen, and the camera stops at the
-room's top and bottom edges (D-381), so when the doorway out is in the top
-or bottom wall the woods past it never come into view. Doorways in the
-left and right walls show them well. Still open: let the camera go on
-past an opening, or leave it. With D-441's margin, 1½ tiles of it show.

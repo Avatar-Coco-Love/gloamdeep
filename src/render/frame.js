@@ -48,7 +48,7 @@ import { cameraAt } from '../core/camera.js';
 import { playing } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
-import { doorways, widen, outside } from '../core/openings.js';
+import { doorways, widen } from '../core/openings.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
 
@@ -73,8 +73,8 @@ export function createFrame(app, ui) {
   let drawnRoom = null, doors = []; // the room drawn into `base`, and its doorways (D-225)
   // Past a small room's edge its rock or trees go on (D-403): drawn onto `around`, mx tiles
   // past the sides and my past the top and bottom, enough to reach the screen's edges
-  const around = document.createElement('canvas'), spare = document.createElement('canvas');
-  let wide = null, mx = 0, my = 0, drawnThere = null; // and past the crypt's doorway out, the woods as drawn (D-438)
+  const around = document.createElement('canvas');
+  let wide = null, mx = 0, my = 0;
   const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
@@ -175,20 +175,16 @@ export function createFrame(app, ui) {
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
     fitRoomCols(s.room.cols); // a narrow room zooms in to fill the width, with a margin (D-441)
-    const out = outside(s); // the woods past the doorway, as they are now (D-438)
-    if (s.room !== drawnRoom || (out && out.there) !== drawnThere) {
-      if (s.room !== drawnRoom) {
-        drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
-        base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
-        drawRoom(base.getContext('2d'), drawnRoom);
-      }
-      drawnThere = out && out.there;
-      wide = widen(drawnRoom, doors, out); mx = my = 0;
+    if (s.room !== drawnRoom) {
+      drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
+      base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
+      drawRoom(base.getContext('2d'), drawnRoom);
+      wide = widen(drawnRoom, doors); mx = my = 0;
     }
     if (past(wide.cols, roomView.w) > mx || past(wide.rows, roomView.h) > my) { // a new room, or a wider screen
       mx = past(wide.cols, roomView.w); my = past(wide.rows, roomView.h);
       around.width = (wide.cols + 2 * mx) * TILE; around.height = (wide.rows + 2 * my) * TILE;
-      drawBeyond(around.getContext('2d'), wide, mx, my, spare);
+      drawBeyond(around.getContext('2d'), wide, mx, my);
     }
     // § fall: the hero lies down, the light closes to the deepest dark, then opens where they wake (D-234)
     const lying = !!fall?.from && t >= fall.lieAt;
@@ -200,9 +196,7 @@ export function createFrame(app, ui) {
     rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h); // the deepest dark, only past what `around` holds
     rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
     rc.drawImage(base, -cam.x, -cam.y);
-    const P = wide.past;
     inRoom(() => {
-      if (P) { rc.save(); rc.translate(P.x * TILE, P.y * TILE); drawItems(rc, P.there.items, t, still()); rc.restore(); } // the sticks lying in the woods
       drawBrackets(rc, s.room, s.lights);
       drawItems(rc, s.items, t, still());
       drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
@@ -221,9 +215,7 @@ export function createFrame(app, ui) {
       lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));
       const sunIn = mouthLight(s); // daylight through the cave mouth, steady, no flicker (D-218)
       if (sunIn) lights.push(sunIn);
-      // Past the doorway out, the woods in their own light: their sky by the time of day, their memory (D-439)
-      const woodsLight = P && { room: P.seenFrom, x: P.x * TILE, y: P.y * TILE, dir: P.dir, memory: dev.revealed() ? null : P.there.seen, dark: darkNow(P.there.room, s.turn), lamp: 1 - daylight(s.turn) };
-      drawLight(rc, wide, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun, woodsLight);
+      drawLight(rc, wide, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
     }
     inRoom(() => {
       drawFlames(rc, s.room, s.lights, t, still());

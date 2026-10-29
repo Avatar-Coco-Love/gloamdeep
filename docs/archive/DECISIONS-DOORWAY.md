@@ -24,12 +24,14 @@ sticks and fallen branch, and whatever play has changed there (a stump
 where a tree was felled, a workbench or chest set down, a stick picked
 up gone). Past the woods room's own edges, trees go on. The owner's
 words: "It needs to be completely accurate."
+*Superseded by D-445 (2026-10-29): plain dark past the edge.*
 
 **D-439 · 2026-10-29 · The woods' own light past the doorway** (the
 owner's pick, recommended) The woods side keeps the woods' own sky:
 daylight by the time of day, fading through dusk, and at night as the
 woods show it, remembered tiles moonlit blue, the rest black (D-217); the
 lantern's light spills out of the doorway as now.
+*Superseded by D-445 (2026-10-29): plain dark past the edge.*
 
 **D-440 · 2026-10-29 · Each place shows itself** (the owner's rule, the
 recommended pick) No one look fits every place. Past an opening, what
@@ -37,3 +39,4 @@ shows is the place on the other side, made by its own kind's rules from
 its own seed, as it is now, with its own light and atmosphere (sky,
 darkness, memory). Most things in the game are procedural, each in its
 own way. This holds for every kind of place added later.
+*Superseded by D-445 (2026-10-29): plain dark past the edge.*

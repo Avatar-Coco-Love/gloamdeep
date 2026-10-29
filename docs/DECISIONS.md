@@ -119,49 +119,6 @@ keeps its newest 3 entries. `CLAUDE.md`'s pointers are tidied, its rules
 word for word. `screens.js` and `main.js` follow at later audits; the next
 is at 0.2.163.
 
-**D-413 · 2026-10-28 · The full scope, drawn up in parts** (the owner's
-request) Before more content is added one item at a time, the whole scope
-of items, resources, collectables, harvestables, craftables, experience
-and skills is drawn up in eight parts, each asked as multiple choice
-first: the frame, raw things, creature drops, making, gear, growth,
-collectables, home and trade. It lives in `docs/SCOPE.md`. D-404 and
-D-406 to D-412 moved unchanged to `archive/DECISIONS-STEERING.md`.
-
-**D-414 · 2026-10-28 · The scope's frame** (the owner's picks, all
-recommended) About 100 to 150 things in all, each biome bringing about
-25 to 35, built a biome at a time. No hunger: oil stays the only clock,
-and food is a bonus that heals or boosts. Wood, stone and oil are found
-everywhere, and each biome adds its own set, deeper ones making better
-things. Gear and crafting lead the ways of getting stronger (D-038).
-
-**D-415 · 2026-10-28 · Crafts and loot** (the owner's picks, all
-recommended, with the owner's addition) Seven craft families: lampcraft,
-cooking and alchemy, smithing and tools, building, leatherwork, and
-(the owner's addition) electronic and arcane, both found below and then
-rebuilt at home as their own stations. Items are fixed, with rare finer
-versions from portal depths. Nothing wears out. Better tools open
-tougher materials.
-
-**D-417 · 2026-10-28 · What creatures drop** (the owner's picks,
-recommended; narrows Q-061) Each creature leaves its own common material,
-and some a rare one too, each at its own chance. They go into gear and
-armour, potions and lampcraft, bestiary pages and trophies, and are sold
-to vendors.
-
-**D-418 · 2026-10-28 · Money, the bag and recipes** (the owner's picks,
-all recommended; narrows Q-055) Two currencies: trade coins from selling,
-for useful things, and the look currency only from deeds, records and
-achievements, for looks only (D-280). The bag's slots grow by crafting
-pouches and bags; no weight. A recipe shows once its parts have been
-held; special ones are found as notes and lore; NPCs teach or sell some.
-
-**D-419 · 2026-10-28 · Skills, two ways** (the owner's pick, Claude's two
-recommended; supersedes D-416) Skills and abilities come two ways only:
-embers buy a Growth tree of steady upgrades, and big abilities are found
-deep down, each opening new paths. Learning by doing and skills taught by
-NPCs are left out for now, to keep growth simple; either may come back by
-a new decision. NPCs may still teach or sell recipes (D-418).
-
 **D-421 · 2026-10-28 · The fourth audit, tiny** (the owner's picks, both
 recommended) The audit at 0.2.164 is kept small: the profile screens
 (name pad, cloak, eyes, trim, clothes, Rename and Look) move word for word
@@ -197,6 +154,8 @@ pick, recommended) The rock going on past a room's edge (D-403) and the
 real woods past the doorway out (D-438 to D-440) stay, and show inside
 D-441's margin. Rooms seen through the wall (Q-066) stay open. Built in
 0.2.175.
+*"And the real woods past the doorway out" superseded by D-445
+(2026-10-29): past every edge, the room's own rock or trees.*
 
 **D-444 · 2026-10-29 · The zoom's limit and the screen layer** (the
 owner's picks, all recommended; builds D-441, found before merging) A
@@ -205,3 +164,19 @@ above and below still shows. The glass panel, plaques, text line and
 cards sit on their own layer at the old zoom, so they keep their size and
 fit. Easing the zoom between rooms is its own later step. Built in
 0.2.175.
+
+**D-445 · 2026-10-29 · Plain dark past the edge** (the owner's pick,
+recommended, from pictures; answers Q-070, supersedes D-438 to D-440 and
+part of D-443) Showing the woods past the crypt's doorway out looked
+pasted on: a bright strip of trees beside black rock, and the woods
+showed nothing back past the cave mouth, so a rat waiting by the door
+stayed hidden. Past every edge the room's own rock or trees go on, as
+before 0.2.173 (D-403), and the doorway out is a dark way on. The margin
+(D-441) stays. Rooms seen through the wall (Q-066) stay open. Built in
+0.2.176.
+
+**D-446 · 2026-10-29 · The first step is yours** (the owner's pick,
+recommended; a bug the owner found; supersedes part of D-132) Coming
+into a room by a doorway, stairs or the cave mouth, the creatures there
+skip that one turn, so the hero sees what waits before it can bite. The
+next turn they act as before. Built in 0.2.176.
