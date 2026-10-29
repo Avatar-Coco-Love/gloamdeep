@@ -67,12 +67,24 @@ test('a rat next to the hero does not bite as they take the stairs', () => {
   assert.deepEqual(n.elsewhere.first.enemies, [{ id: 'rat', x: 2, y: 2, chasing: true }]); // it stays, still chasing
 });
 
-test('rats in the room the hero arrives in take their turn', () => {
+test('the first step in a room just come into is the hero\'s own; then the rats act (D-446)', () => {
   let s = makeWorld();
   s = { ...s, elsewhere: { ...s.elsewhere, second: { ...s.elsewhere.second, enemies: [{ id: 'rat', x: 2, y: 1 }] } } };
   const n = step(at(2, 1, s), 'left');
-  assert.equal(n.health, HERO_HEALTH - 1);
-  assert.equal(shownLine(n).text, 'The rat bites you.');
+  assert.equal(n.place, 'second');
+  assert.equal(n.health, HERO_HEALTH);
+  assert.equal(wait(n).health, HERO_HEALTH - 1);
+  assert.equal(shownLine(wait(n)).text, 'The rat bites you.');
+});
+
+test('back in through the doorway out, a rat left beside it doesn\'t bite at once (D-446)', () => {
+  const seed = 10, w = makeWorld('first', seed); // the cave mouth leads to the first room's top doorway, at 5, 0
+  let s = { ...w, hero: { x: 5, y: 0 }, enemies: [{ id: 'rat', x: 5, y: 1, chasing: true }] };
+  s = step(s, 'up');
+  assert.equal(s.place, 'woods');
+  s = step(s, 'down');
+  assert.equal(s.place, 'first');
+  assert.equal(s.health, HERO_HEALTH);
 });
 
 test('falling in the second room wakes the hero at the first room\'s start, every room as it was (D-332)', () => {

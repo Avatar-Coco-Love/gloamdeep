@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.176', date: '2026-10-29', title: 'Plain dark past the door', lines: [
+    "Past the crypt's doorway that leads outside, the woods no longer show. Past every room's edge, its own rock or trees go on, as they did before 0.2.173, and the doorway out is a dark way on. The bright strip of trees over black rock looked pasted on, and the woods showed nothing back past the cave mouth, so a rat waiting by the door stayed hidden.",
+    "Coming into a room by a doorway, stairs or the cave mouth, your first step there is your own: the creatures in that room skip that one turn, so you see what waits before it can bite. A rat left chasing by the door no longer bites the moment you step back in.",
+    "Decisions: D-445 and D-446. Questions closed: Q-070.",
+  ] },
   { v: '0.2.175', date: '2026-10-29', title: 'The camera with a margin', lines: [
     "A room narrower than the screen now zooms in until it fills the width, with a margin of one and a half tiles past each side, so the first room and others like it look bigger on a phone held sideways. It never shows more than before, about 11 tiles from top to bottom, and never fewer than 9, so what comes from above and below still shows.",
     "The camera now stops one and a half tiles past every edge of a room, big rooms too, so the hero at a wall keeps a little room from the screen's edge. The rock past the edge, and the woods past the doorway out, show in that margin.",

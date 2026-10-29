@@ -11,7 +11,8 @@ import { enemiesAct } from './creatureturn.js';
 export const wait = (state) => endTurn(state, passTurn(state));
 // The end of a passed turn: the oil line, if one was crossed, a new room's
 // experience (D-245), the level line if a level was reached, which replaces
-// any other line (D-246), then the enemies' turn. Another room is an `enter`
+// any other line (D-246), then the enemies' turn, but for a room just come
+// into: the hero's first step there is their own (D-446). Another room is an `enter`
 // event, a new one a `found` too, and a level reached a `level`. Last, what
 // was taken here and is due grows back out of sight, or anywhere in a room
 // just come into, as it grew while the hero was away (regrow.js, D-307).
@@ -20,6 +21,7 @@ export const endTurn = (before, after) => {
   let found = discover(before, id ? say(after, id) : after);
   if (place !== before.place) found = note(found, 'enter', { place });
   if (found.found.length > after.found.length) found = note(found, 'found', { place });
-  const level = levelOf(found.xp);
-  return regrow(enemiesAct(level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found), place !== before.place);
+  const level = levelOf(found.xp), moved = place !== before.place;
+  const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
+  return regrow(moved ? done : enemiesAct(done), moved);
 };

@@ -5,8 +5,7 @@ import { isWall, tileAt } from '../core/room.js';
 import { stairsFacing } from '../core/stairs.js';
 import { TILE as T } from './screen.js';
 import { drawRock, drawRockBeyond } from './rock.js';
-import { drawWoods, drawTree, drawWoodsBeyond, drawWoodsPast } from './woods.js';
-import { SIDE } from '../core/openings.js';
+import { drawWoods, drawTree, drawWoodsBeyond } from './woods.js';
 import { drawDeposit, drawBranch, drawStump, drawBench, SPRITES } from './sprites.js';
 import { formOf } from '../core/tiles.js';
 import { get } from '../core/registry.js';
@@ -146,23 +145,14 @@ export function drawRoom(c, room) {
 // § beyond: past a small room's edge its rock, brick or trees go on, `mx`
 // tiles left and right and `my` up and down, a passage straight out from each
 // doorway (D-403). `wide` is the room widened by openings.js; `c` is as big as
-// all that, the room's own tiles left clear for drawRoom. Past the crypt's
-// doorway out, the woods room itself, drawn as in the woods, onto `spare` first,
-// and their trees going on past its edges (D-438).
-export function drawBeyond(c, wide, mx, my, spare) {
+// all that, the room's own tiles left clear for drawRoom.
+export function drawBeyond(c, wide, mx, my) {
   c.clearRect(0, 0, c.canvas.width, c.canvas.height);
   if (wide.look === 'woods') return drawWoodsBeyond(c, wide, mx, my);
   if (wide.look === 'rock' || wide.look === 'earth') return drawRockBeyond(c, wide, mx, my);
-  const P = wide.past, past = (x, y) => !!P && SIDE[P.dir](x, y, wide);
   c.save(); c.translate(mx * T, my * T);
   for (let y = -my; y < wide.rows + my; y++) for (let x = -mx; x < wide.cols + mx; x++) {
-    if ((x < 0 || y < 0 || x >= wide.cols || y >= wide.rows) && !past(x, y)) DRAW[tileAt(wide, x, y).id](c, wide, x, y);
+    if (x < 0 || y < 0 || x >= wide.cols || y >= wide.rows) DRAW[tileAt(wide, x, y).id](c, wide, x, y);
   }
   c.restore();
-  if (!P) return;
-  drawWoodsPast(c, wide, mx, my);
-  const woods = P.there.room;
-  spare.width = woods.cols * T; spare.height = woods.rows * T;
-  drawRoom(spare.getContext('2d'), woods);
-  c.drawImage(spare, (mx + P.x) * T, (my + P.y) * T);
 }

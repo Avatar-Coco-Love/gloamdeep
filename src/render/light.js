@@ -6,8 +6,7 @@
 // camera picks which of them land on the screen (D-195). Past a small room's
 // edges, a room widened by openings.js is lit like the room: as remembered as
 // the nearest edge tile, and lights reach on only down a doorway's passage
-// (D-403). A room not widened keeps the deepest dark there (D-381). Past the
-// crypt's doorway out, the woods keep their own darkness and memory (D-439).
+// (D-403). A room not widened keeps the deepest dark there (D-381).
 import { CELL, seenCells } from '../core/light.js';
 import { tileAt } from '../core/room.js';
 import { TILE, roomView as view } from './screen.js';
@@ -39,46 +38,12 @@ function blendPast(cells, x, y) { // any pixel, past the edge too
   return MIX[(cells[ya + xa] << 7) | (cells[ya + xb] << 6) | (cells[yb + xa] << 5) | (cells[yb + xb] << 4) | ((y & 3) << 2) | (x & 3)];
 }
 
-// § past the doorway (D-438, D-439): the woods seen past the crypt's doorway out, lit as
-// the woods light themselves: their own darkness and memory, the lights adding `lamp` of
-// theirs, as daylight outshines them. A light in the room reaches them only as it sees
-// them from the woods' own tiles, out through the doorway and around their trees
-// (openings.js, seenFrom); an `indoor` light, the daylight through the mouth, not at all.
-// The same blend as the room's own, for a room of any size.
-function mixCells(cells, cw, ch, x, y) {
-  const RW = cw * CELL, RH = ch * CELL, px = x < 0 ? 0 : x >= RW ? RW - 1 : x, py = y < 0 ? 0 : y >= RH ? RH - 1 : y;
-  const fx = (px + 0.5) / CELL - 0.5, fy = (py + 0.5) / CELL - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
-  const xa = x0 < 0 ? 0 : x0, xb = x0 + 1 >= cw ? cw - 1 : x0 + 1, ya = (y0 < 0 ? 0 : y0) * cw, yb = (y0 + 1 >= ch ? ch - 1 : y0 + 1) * cw;
-  return (cells[ya + xa] * (1 - ax) + cells[ya + xb] * ax) * (1 - ay) + (cells[yb + xa] * (1 - ax) + cells[yb + xb] * ax) * ay;
-}
-// Per pixel of `room` and a border EDGE pixels wide, 1 where its remembered tiles' darkness shows, as `shade`
-function shadeOf(room, memory) {
-  const cw = room.cols * TILE / CELL, ch = room.rows * TILE / CELL, RW = cw * CELL, RH = ch * CELL;
-  const cells = new Uint8Array(cw * ch), out = new Uint8Array(SW(RW) * (RH + 2 * EDGE));
-  for (let cy = 0; cy < ch; cy++) for (let cx = 0; cx < cw; cx++) cells[cy * cw + cx] = memory ? memory[(cy >> 2) * room.cols + (cx >> 2)] : 1;
-  for (let y = -EDGE, k = 0; y < RH + EDGE; y++) for (let x = -EDGE; x < RW + EDGE; x++, k++) {
-    out[k] = mixCells(cells, cw, ch, x, y) > BAYER[((y & 3) << 2) | (x & 3)] ? 1 : 0;
-  }
-  return out;
-}
-// The screen columns past the doorway on a row, [from, to), by its way out: x, y the room
-// pixel at the row's left end, W the screen's width, RW and RH the room's size in pixels
-const ON = { up: (x, y, W) => (y < 0 ? [0, W] : [0, 0]), down: (x, y, W, RW, RH) => (y >= RH ? [0, W] : [0, 0]),
-  left: (x, y, W) => [0, Math.max(0, Math.min(W, -x))], right: (x, y, W, RW) => [Math.max(0, Math.min(W, RW - x)), W] };
-let pastA = new Int32Array(0), pastB = pastA; // per screen row, those columns
-let pastBy = []; // one cell buffer per light, in the woods' cells
-let pastShade = new Uint8Array(0), pastFor = { room: null, memory: null }; // the woods' darkness, and what it was worked for
-// From a pixel past the edge to its pixel in the border, with the dither's pattern (as below)
-const edged = (v, R) => (v < 0 ? (v & 3) - EDGE : v >= R ? R + (v & 3) : v);
-
 // `lights`: [{ x, y, r, cr, cg, cb }] in screen pixels: the lantern and any
 // torches (D-101). r 0 is no light at all, the lantern switched off (D-082).
 // `memory`: one byte per tile, 1 when remembered; null shows every tile remembered.
 // `cam`: the room pixel at the screen's top-left (src/core/camera.js).
 // `dark`: the darkness now, the room's own unless the sky's changes it (core/daytime.js);
 // `lamp`: how much the lights add, less as daylight outshines them (D-217).
-// `past`: { room, x, y, dir, memory, dark, lamp }, the woods past the crypt's doorway
-// out, their top-left at x, y in room pixels (above), or null.
 const NO_SHIFT = { x: 0, y: 0 }; // a screen-sized room, as on the title, lit whole
 let seenBy = []; // one cell buffer per light, reused every frame
 // § speed (D-427): the same picture as working every light at every pixel, in less
@@ -96,7 +61,7 @@ let shade = new Uint8Array(0); // per room pixel, 1 where remembered tiles' dark
 // and a border EDGE pixels wide around the room (D-436): past the edge the darkness is the nearest edge pixel's,
 // with the dither's own pattern, so it repeats every 4 pixels and the border holds every answer
 const EDGE = 4, SW = (RW) => RW + 2 * EDGE;
-export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1, past = null) {
+export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1) {
   if (room.cols * TILE / CELL !== CW || room.rows * TILE / CELL !== CH) { // a new room size: new buffers
     CW = room.cols * TILE / CELL; CH = room.rows * TILE / CELL;
     known = new Uint8Array(CW * CH); seenBy = [];
@@ -115,14 +80,6 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
     lit.push({ L, cells });
   }
   const RW = CW * CELL, RH = CH * CELL;
-  const P = past, PR = P?.room, PW = P ? PR.cols * TILE : 0, PH = P ? PR.rows * TILE : 0;
-  if (P) {
-    if (P.lamp > 0) lit.forEach(({ L }, i) => { // by full day the lights add nothing there
-      if (!pastBy[i] || pastBy[i].length !== PW * PH / CELL / CELL) pastBy[i] = new Uint8Array(PW * PH / CELL / CELL);
-      lit[i].past = seenCells(PR, L.x - P.x, L.y - P.y, L.r, pastBy[i]);
-    });
-    if (pastFor.room !== PR || pastFor.memory !== P.memory) { pastShade = shadeOf(PR, P.memory); pastFor = { room: PR, memory: P.memory }; }
-  }
   if (memory !== evenBy) {
     for (let cy = 0; cy < CH; cy++) for (let cx = 0; cx < CW; cx++) {
       known[cy * CW + cx] = memory ? memory[(cy >> 2) * room.cols + (cx >> 2)] : 1;
@@ -145,8 +102,7 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   if (addR.length < W * H) { addR = new Float64Array(W * H); addG = new Float64Array(W * H); addB = new Float64Array(W * H); }
   // § spans (D-436): per screen row, the columns the lights' squares cover; only these are
   // cleared, summed and read, the rest add nothing
-  if (spanLo.length < H) { spanLo = new Int32Array(H); spanHi = new Int32Array(H); pastA = new Int32Array(H); pastB = new Int32Array(H); }
-  for (let sy = 0; sy < H; sy++) [pastA[sy], pastB[sy]] = P ? ON[P.dir](cam.x, sy + cam.y, W, RW, RH) : [0, 0];
+  if (spanLo.length < H) { spanLo = new Int32Array(H); spanHi = new Int32Array(H); }
   spanLo.fill(W, 0, H); spanHi.fill(-1, 0, H);
   for (const at of lit) {
     const { L } = at;
@@ -160,29 +116,24 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
     addR.fill(0, a, b); addG.fill(0, a, b); addB.fill(0, a, b);
   }
   // § lights: each over the screen pixels its reach can touch, in the list's order
-  for (const { L, cells, past: seen, x0, x1, y0, y1 } of lit) {
+  for (const { L, cells, x0, x1, y0, y1 } of lit) {
     let tx = NaN, ty = NaN, open = true; // the tile past the edge last looked at, and whether light goes on into it
     for (let sy = y0; sy <= y1; sy++) for (let sx = x0; sx <= x1; sx++) {
       const x = sx + cam.x, y = sy + cam.y; // the room pixel; the dither keeps to the room, not the screen
       const out = x < 0 || y < 0 || x >= RW || y >= RH;
-      let there = false, wx = 0, wy = 0; // past the doorway, and the pixel in the woods
       if (out) {
         if (!room.beyond) continue; // beyond a room not widened
-        there = sx >= pastA[sy] && sx < pastB[sy];
-        if (there) { if (L.indoor || P.lamp <= 0) continue; wx = x - P.x; wy = y - P.y; }
-        if (!there || wx < 0 || wy < 0 || wx >= PW || wy >= PH) { // past the room, or past the woods' own edges: only open tiles
-          if (x >> 4 !== tx || y >> 4 !== ty) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
-          if (!open) continue;
-        }
+        if (x >> 4 !== tx || y >> 4 !== ty) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
+        if (!open) continue;
       }
-      const s = there ? mixCells(seen, PW / CELL, PH / CELL, wx, wy) : out ? blendPast(cells, x, y) : blend(cells, x, y);
+      const s = out ? blendPast(cells, x, y) : blend(cells, x, y);
       if (s <= 0) continue;
       const dx = x - L.x, dy = y - L.y;
       let f = 1 - Math.sqrt(dx * dx + dy * dy) / L.r;
       if (f <= 0) continue;
       f = Math.floor(f * Math.sqrt(Math.sqrt(f)) * s * BANDS + BAYER[((y & 3) << 2) | (x & 3)]) / BANDS;
-      const k = sy * W + sx, m = there ? P.lamp : lamp;
-      addR[k] += f * L.cr * m; addG[k] += f * L.cg * m; addB[k] += f * L.cb * m;
+      const k = sy * W + sx;
+      addR[k] += f * L.cr * lamp; addG[k] += f * L.cg * lamp; addB[k] += f * L.cb * lamp;
     }
   }
   // § every pixel: the room's darkness, remembered or unseen, plus what the lights add.
@@ -191,30 +142,20 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   const { unseen, remembered } = dark;
   const black = (c) => c[0] === 0 && c[1] === 0 && c[2] === 0; // a pixel times nothing is 0, written straight (D-429)
   const unseenBlack = black(unseen), rememberedBlack = black(remembered);
-  const pastUnseenBlack = P && black(P.dark.unseen), pastRememberedBlack = P && black(P.dark.remembered), PPW = SW(PW);
-  const white = (c) => c[0] === 1 && c[1] === 1 && c[2] === 1, pastUnseenWhite = P && white(P.dark.unseen), pastRememberedWhite = P && white(P.dark.remembered); // a pixel times one is left as it is
-  const BW = SW(RW);
+  const PW = SW(RW);
   for (let sy = 0; sy < H; sy++) {
     const y = sy + cam.y, inRows = y >= 0 && y < RH;
     if (!inRows && !room.beyond) continue; // beyond a room not widened, left as is
     const xa = inRows ? Math.min(W, Math.max(0, -cam.x)) : W, xb = inRows ? Math.min(W, Math.max(xa, RW - cam.x)) : W; // the room's columns on screen
-    const lo = spanLo[sy], hi = spanHi[sy], row = (EDGE + edged(y, RH)) * BW + EDGE; // past the edge, the border's pixel with the same pattern
-    const pastRow = P ? (EDGE + edged(y - P.y, PH)) * PPW + EDGE : 0; // the same in the woods' darkness
-    const pa = pastA[sy], pb = pastB[sy];
+    const lo = spanLo[sy], hi = spanHi[sy], row = (EDGE + (y < 0 ? (y & 3) - EDGE : y >= RH ? RH + (y & 3) : y)) * PW + EDGE; // past the edge, the border's pixel with the same pattern
     for (let sx = room.beyond ? 0 : xa, end = room.beyond ? W : xb, j = sy * W + sx; sx < end; sx++, j++) {
-      const x = sx + cam.x, k = j * 4;
-      let mem, amb, blk; // remembered here, the darkness, and whether it is black
-      if (sx >= pa && sx < pb) {
-        mem = pastShade[pastRow + edged(x - P.x, PW)];
-        if ((mem ? pastRememberedWhite : pastUnseenWhite) && (sx < lo || sx > hi || addR[j] === 0 && addG[j] === 0 && addB[j] === 0)) continue; // daylight, nothing added
-        amb = mem ? P.dark.remembered : P.dark.unseen; blk = mem ? pastRememberedBlack : pastUnseenBlack;
-      } else { mem = shade[row + edged(x, RW)]; amb = mem ? remembered : unseen; blk = mem ? rememberedBlack : unseenBlack; }
+      const x = sx + cam.x, mem = shade[row + (x < 0 ? (x & 3) - EDGE : x >= RW ? RW + (x & 3) : x)], amb = mem ? remembered : unseen, k = j * 4;
       if (sx < lo || sx > hi) { // no light reaches
-        if (blk) px[j] &= ALPHA;
+        if (mem ? rememberedBlack : unseenBlack) px[j] &= ALPHA;
         else { d[k] = d[k] * amb[0]; d[k + 1] = d[k + 1] * amb[1]; d[k + 2] = d[k + 2] * amb[2]; }
         continue;
       }
-      if (blk && addR[j] === 0 && addG[j] === 0 && addB[j] === 0) { px[j] &= ALPHA; continue; }
+      if ((mem ? rememberedBlack : unseenBlack) && addR[j] === 0 && addG[j] === 0 && addB[j] === 0) { px[j] &= ALPHA; continue; }
       d[k] = d[k] * (amb[0] + addR[j]); d[k + 1] = d[k + 1] * (amb[1] + addG[j]); d[k + 2] = d[k + 2] * (amb[2] + addB[j]); // the pixels clamp at 255 themselves
     }
   }

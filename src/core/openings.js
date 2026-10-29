@@ -4,9 +4,9 @@
 // so on for each side, in hand-made rooms and generated ones (D-201). The cave
 // mouth pairs its own two tiles instead, as the woods and the crypt differ in
 // size (mouth.js, D-211). The room left waits, as stairs leave it (stairs.js).
-import { sidesOf, tileAt, letterAt } from './room.js';
+import { sidesOf, tileAt } from './room.js';
 import { arrive, fresh } from './stairs.js';
-import { mouthSpot, mouthOf, mouthSides } from './mouth.js';
+import { mouthSpot } from './mouth.js';
 
 // True when x, y lies outside the room
 export const offEdge = (room, x, y) => x < 0 || y < 0 || x >= room.cols || y >= room.rows;
@@ -41,41 +41,13 @@ export function doorways(place, room, seed) {
   return out;
 }
 
-// § beyond: (room, doorways, past) → the room for drawing, past its edge the rock
+// § beyond: (room, doorways) → the room for drawing, past its edge the rock
 // or trees going on all around, and floor straight out from each doorway, a
 // passage on, but for the cave mouth, which leads down into the rock (D-403).
-// `past` (outside below), when given, takes the whole side past its doorway:
-// the woods room's own tiles there, and trees past its edges (D-438).
 // Only drawing and light read it; nothing walks there.
 const PAST = { up: (d, x, y) => x === d.x && y < 0, down: (d, x, y, r) => x === d.x && y >= r.rows,
   left: (d, x, y) => y === d.y && x < 0, right: (d, x, y, r) => y === d.y && x >= r.cols };
-export function widen(room, doors, past = null) {
+export function widen(room, doors) {
   const fill = room.look === 'woods' ? 'T' : '#', ways = doors.filter((d) => tileAt(room, d.x, d.y).id !== 'caveMouth');
-  const out = (x, y) => (ways.some((d) => PAST[d.dir](d, x, y, room)) ? '.' : fill);
-  if (!past) return { ...room, beyond: out };
-  const there = past.there.room, onSide = SIDE[past.dir];
-  const woods = (x, y) => (x < 0 || y < 0 || x >= there.cols || y >= there.rows ? 'T' : there.map[y][x]);
-  const wide = { ...room, beyond: (x, y) => (onSide(x, y, room) ? woods(x - past.x, y - past.y) : out(x, y)) };
-  // `seenFrom`: the woods as a light in this room sees them, in the woods' own tiles: this
-  // room where it lies, its rock or brick around it, and trees past the woods' edges (light.js)
-  const seenFrom = { ...there, beyond: (x, y) => (onSide(x + past.x, y + past.y, room) ? 'T' : letterAt(wide, x + past.x, y + past.y)) };
-  return Object.assign(wide, { past: { ...past, seenFrom } });
-}
-
-// § outside (D-438): (state) → past the crypt's doorway that leads out, the
-// woods room itself as it is now: { dir, x, y, there }, `dir` the way out
-// through the doorway, x, y the woods' top-left in this room's tiles, placed so
-// its cave mouth lies just past the doorway, and `there` the woods as they
-// wait in `state.elsewhere` (tiles, items, memory), or as they begin if never
-// visited. Null in any other room. Plain data, for drawing and light.
-export const SIDE = { up: (x, y) => y < 0, down: (x, y, r) => y >= r.rows, left: (x) => x < 0, right: (x, y, r) => x >= r.cols };
-const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
-const begun = new Map(); // the woods as they begin, by seed, made once
-export function outside(state) {
-  const m = mouthOf(state.seed);
-  if (state.place !== m.room || state.place === 'woods') return null;
-  const dir = Object.keys(mouthSides(m.room, state.seed))[0], [dx, dy] = STEP[dir];
-  if (!begun.has(state.seed)) begun.set(state.seed, fresh('woods', state.seed));
-  const there = state.elsewhere.woods || begun.get(state.seed);
-  return { dir, x: m.gap.x + dx - m.tile.x, y: m.gap.y + dy - m.tile.y, there };
+  return { ...room, beyond: (x, y) => (ways.some((d) => PAST[d.dir](d, x, y, room)) ? '.' : fill) };
 }

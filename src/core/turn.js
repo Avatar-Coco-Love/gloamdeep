@@ -39,7 +39,7 @@ export { pour, craft, makeAt, eat, setDown, takeDown, panelBeside, setSides, loo
 // enemies left behind can act (D-132). Walking off an edge through an
 // opening does the same, into the room beyond (D-197); elsewhere the edge is
 // wall. Every passed turn ends with the enemies' turn (D-114), in the room
-// the hero ends it in. A tile walked onto is a `step` event (events.js).
+// the hero ends it in, but for the first step into a room (D-446). A tile walked onto is a `step` event (events.js).
 export function step(state, dir) {
   const [dx, dy] = DIRS[dir];
   const x = state.hero.x + dx, y = state.hero.y + dy;

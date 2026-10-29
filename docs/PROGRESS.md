@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.175 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.176 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -25,7 +25,6 @@ Automatic wait on Q-069. Upright play (Q-065) is tabled.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light, now or later (Q-069).
-- Woods past a top or bottom doorway (Q-070), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -39,6 +38,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.176, plain dark past the door.** The owner found it
+  janky: a bright strip of woods over black rock past the crypt's doorway
+  out, and a rat waiting by the door, hidden from the woods, bit at once
+  on the way back in. Picked: plain dark past every edge again (D-445),
+  and the first step in a room is the hero's own (D-446).
+  [Playtest](https://claude.ai/artifact/2CoTTqi199dRyMbeLENNAg).
 - **2026-10-29, 0.2.175, the camera with a margin.** A narrow room zooms
   in to fill the width with a 1½-tile margin, between 9 and 11 tiles
   tall; the camera stops 1½ tiles past every edge, the rock and woods
@@ -50,9 +55,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   narrow rooms zoom to fill the width with a 1½-tile margin (D-441); every
   corner piece fades over the hero (D-442); the outside stays inside the
   margin (D-443). [Pictures](https://claude.ai/artifact/UpDgkoK7nFTA9MrA5wHdzD).
-- **2026-10-29, 0.2.173, the real woods past the doorway.** Past the
-  crypt's doorway out, the woods room itself, placed so its mouth lies
-  just past it, as play left it, trees going on (D-438); in the woods' own
-  light and memory, the lantern spilling out with tree shadows (D-439).
-  Other rooms unchanged, pixel for pixel. Found: Q-070.
-  [Playtest](https://claude.ai/artifact/WhSSEFNqsK5XHnoCxqtdPB).
