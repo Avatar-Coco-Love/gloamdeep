@@ -4,11 +4,11 @@
 // cross before). Thin layer: a tap or click only calls onMap(); hide(on)
 // takes it away, show(state, reveal, t,
 // still, alpha) draws the floor and fades the button (frame.js), and area()
-// is where it sits, in the room canvas's pixels.
+// is where it sits, in the screen layer's pixels.
 import { drawPlan, drawRoundMap } from '../render/map.js';
 import { floorPlan } from '../core/map.js';
 import { MAP_DISC } from '../render/screen.js';
-import { keepPlaced } from './lantern.js';
+import { keepFading } from './lantern.js';
 
 const K = 3; // pixels a tile: about 17 tiles across, near the room's own pixel size
 
@@ -23,14 +23,10 @@ export function createMapButton(canvas, { onMap }) {
   button.append(map);
   button.addEventListener('click', () => { button.blur(); onMap(); });
   document.body.append(button);
-  let area = { x: 0, y: 0, w: 0, h: 0 };
-  keepPlaced(canvas, button, 2, (top, left, r) => {
-    const per = canvas.width / r.width; // room pixels a screen pixel
-    area = { x: (left - r.left) * per, y: (top - r.top) * per, w: MAP_DISC * per, h: MAP_DISC * per };
-  });
+  const { area, fade } = keepFading(canvas, button, 2, MAP_DISC);
   // The plan worked out again only when the state or the reveal changes, and drawn once
   const drawn = document.createElement('canvas'), c = map.getContext('2d');
-  let planFor = null, revealed = null, plan = null, faded = 1;
+  let planFor = null, revealed = null, plan = null;
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
     show(state, reveal, t, still, alpha) {
@@ -39,8 +35,8 @@ export function createMapButton(canvas, { onMap }) {
         drawPlan(drawn, plan, K);
       }
       drawRoundMap(c, plan, drawn, K, t, still);
-      if (alpha !== faded) { faded = alpha; button.style.opacity = alpha < 1 ? alpha : ''; }
+      fade(alpha);
     },
-    area: () => area,
+    area,
   };
 }

@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.177 (2026-10-29)
+- Every corner piece now fades almost away while the hero, or a creature beside the hero, is under it, as the glass panel and the round map already did. Each corner fades as one piece: in the top right, the round map, pause and the wrench; in the bottom right, the lantern with the bag and the quick slot on its arc. When any button in a corner is covered, the whole corner fades, so it never looks half faded.
+- Decisions: built as D-442 says; D-447.
+
 ## 0.2.176 (2026-10-29)
 - Past the crypt's doorway that leads outside, the woods no longer show. Past every room's edge, its own rock or trees go on, as they did before 0.2.173, and the doorway out is a dark way on. The bright strip of trees over black rock looked pasted on, and the woods showed nothing back past the cave mouth, so a rat waiting by the door stayed hidden.
 - Coming into a room by a doorway, stairs or the cave mouth, your first step there is your own: the creatures in that room skip that one turn, so you see what waits before it can bite. A rat left chasing by the door no longer bites the moment you step back in.

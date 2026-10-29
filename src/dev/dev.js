@@ -6,12 +6,12 @@ import { tileAt, depthOf } from '../core/room.js';
 import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
-import { TILE, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
+import { TILE, BUTTON, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
 import { LINE_UP } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
 import { setPixelText } from './pixeltext.js';
-import { keepPlaced } from '../input/lantern.js';
+import { keepFading } from '../input/lantern.js';
 import { DAY_TURNS } from '../core/daytime.js';
 import { statsShown, padShown } from '../core/settings.js';
 
@@ -56,7 +56,7 @@ export function createDev(stage, canvas, game, picture) {
     panel.style.top = top + 'px';
     panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
   };
-  keepPlaced(picture, button, -1, (top, left, room) => {
+  const wrench = keepFading(picture, button, -1, BUTTON, (top, left, room) => { // it fades with the round map (D-442)
     lineBottom = innerHeight - room.bottom + (LINE_UP + 2) * (room.height / picture.height);
     padBottom = innerHeight - room.bottom + BUTTON_GAP + PAD_DISC + 6;
     readout.style.bottom = lineBottom + 'px';
@@ -115,6 +115,7 @@ export function createDev(stage, canvas, game, picture) {
   }
   return {
     hide,
+    wrench, // area() and fade(alpha), for the top right corner's fade (D-442)
     armed: () => tools.picked() !== null,
     lightOff: () => opts.noLight, // see the whole room, lit or not (D-057)
     revealed: () => opts.reveal, // show every tile as remembered; the memory is kept (D-061)

@@ -2,7 +2,8 @@
 // lantern button in the buttons' row (D-198), in the same style. Thin layer: a tap or click only calls onPause();
 // hide(on) takes it away on the title screen and while the menu is open.
 import { drawPauseIcon } from '../render/hud.js';
-import { keepPlaced } from './lantern.js';
+import { keepFading } from './lantern.js';
+import { BUTTON } from '../render/screen.js';
 
 export function createPauseButton(canvas, { onPause }) {
   const button = document.createElement('button');
@@ -16,6 +17,6 @@ export function createPauseButton(canvas, { onPause }) {
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onPause(); }); // Enter then picks a menu line, not the button again
   document.body.append(button);
-  keepPlaced(canvas, button, 1);
-  return { hide(on) { button.style.display = on ? 'none' : ''; } };
+  const { area, fade } = keepFading(canvas, button, 1, BUTTON);
+  return { area, fade, hide(on) { button.style.display = on ? 'none' : ''; } };
 }

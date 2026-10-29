@@ -147,7 +147,7 @@ size. The margin may change at the playtest. Built in 0.2.175.
 recommended; extends D-380) Like the glass panel, every piece in the
 screen's corners (the round map with pause and the wrench, the round
 lantern and its arc, the arrow pad) fades almost away while the hero, or
-a creature beside them, is under it. Its own step, after D-441.
+a creature beside them, is under it. Its own step, after D-441. Built in 0.2.177.
 
 **D-443 · 2026-10-29 · The outside stays where it shows** (the owner's
 pick, recommended) The rock going on past a room's edge (D-403) and the
@@ -180,3 +180,10 @@ recommended; a bug the owner found; supersedes part of D-132) Coming
 into a room by a doorway, stairs or the cave mouth, the creatures there
 skip that one turn, so the hero sees what waits before it can bite. The
 next turn they act as before. Built in 0.2.176.
+
+**D-447 · 2026-10-29 · Each corner fades as one piece** (the owner's pick,
+recommended; builds D-442) The top right corner (the round map, pause and
+the wrench) and the bottom right (the lantern, the bag and the quick slot)
+each fade as a whole when the hero, or a creature beside it, is under any
+button in it, so a corner never looks half faded. The arrow pad fades on
+its own. Built in 0.2.177.
