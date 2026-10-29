@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.166, a share card.** A shared link now shows the
+  title scene (the owner's pick, A), "Carry a lantern down through the
+  gloam." and the name; `share.png` is the one image file, drawn by
+  `tools/sharecard.js` (D-425). Shows once the game is on GitHub Pages.
+  [Mock-ups](https://claude.ai/artifact/5jwNkYCqQZLjbsvMSRHHaz).
 - **2026-10-28, 0.2.165, a guard round the pad.** Taps in a thumb-wide
   ring round the arrow pad no longer walk; Tap to walk is Off at first,
   turned off once for everyone (D-422, supersedes part of D-406); a tap

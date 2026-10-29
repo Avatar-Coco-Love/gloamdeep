@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.168 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.169 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Pictures of the light worked at half size beside today's, and how an
-Automatic choice would switch, for the owner to pick from (Q-068); then
-the woods past the crypt's doorway outside (D-423), then the scope, part 2
-(`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
+The camera on whole pixels, so the light no longer goes black on some
+screen sizes, with a test (D-434); then the Half choice and Automatic
+(D-432, D-433), the woods past the crypt's doorway outside (D-423), and
+the scope, part 2 (`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -24,8 +24,7 @@ the woods past the crypt's doorway outside (D-423), then the scope, part 2
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
-- The half-size light: its look, names and Automatic (Q-068), next up.
-- Your phone's fps (Settings → Stats line) and its model, any time.
+- The light choices' names in Settings (Q-068), with the Half step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -39,6 +38,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.169, half-size light, pictures.** Pictures drawn by
+  the game compare today's light with two half-size ones; the owner picked
+  the soft one (D-432) and Automatic switching down once (D-433). The
+  owner's S26 Ultra runs at about 120 fps. Found: the light goes black on
+  some screen sizes; fixing it is next (D-434).
+  [Pictures](https://claude.ai/artifact/GbP79PqaMwajfoF8gy4Nvz).
 - **2026-10-29, 0.2.168, smoother light, a speed check.** The light
   reuses work that hasn't changed, every pixel the same (3,456 pictures):
   on a simulated slow phone about 45 fps instead of 37 (D-429).
@@ -50,8 +55,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   aside now (D-426). The light is about twice as fast, every pixel the
   same (D-427); a failed save says so (D-428). Q-068 opened.
   [Playtest](https://claude.ai/artifact/PiAgNGU9GwEkafNrZx7RqM).
-- **2026-10-29, 0.2.166, a share card.** A shared link now shows the
-  title scene (the owner's pick, A), "Carry a lantern down through the
-  gloam." and the name; `share.png` is the one image file, drawn by
-  `tools/sharecard.js` (D-425). Shows once the game is on GitHub Pages.
-  [Mock-ups](https://claude.ai/artifact/5jwNkYCqQZLjbsvMSRHHaz).
