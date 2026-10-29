@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.169 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.170 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The camera on whole pixels, so the light no longer goes black on some
-screen sizes, with a test (D-434); then the Half choice and Automatic
-(D-432, D-433), the woods past the crypt's doorway outside (D-423), and
-the scope, part 2 (`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
+The Half choice and Automatic for the light (D-432, D-433, D-435); then
+the woods past the crypt's doorway outside (D-423), and the scope, part 2
+(`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -37,6 +36,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.170, the light on every screen.** The camera now
+  stops on a whole pixel, so the light no longer goes black on screens an
+  odd number of game pixels wide or tall (D-434), with a test.
+  [Playtest](https://claude.ai/artifact/FAdxJKJbe6saPc5aTwAeqF).
 - **2026-10-29, 0.2.169, half-size light, pictures.** Pictures drawn by
   the game compare today's light with two half-size ones; the owner picked
   the soft one (D-432) and Automatic switching down once (D-433). The
@@ -49,9 +52,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   on a simulated slow phone about 45 fps instead of 37 (D-429).
   `tools/perf.js` and a frame budget in `TECH.md` (D-430); one step a
   conversation (D-431). [Playtest](https://claude.ai/artifact/6vCMhWMRrz9oKxRTy3BKjH).
-- **2026-10-29, 0.2.167, a bug, faster light, a save warning.** A check
-  of the game (tests, 360,000 random turns, a slow-phone timing) found a
-  creature and the hero sharing a tile after stairs or a fall: it steps
-  aside now (D-426). The light is about twice as fast, every pixel the
-  same (D-427); a failed save says so (D-428). Q-068 opened.
-  [Playtest](https://claude.ai/artifact/PiAgNGU9GwEkafNrZx7RqM).

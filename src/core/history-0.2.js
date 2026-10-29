@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.170', date: '2026-10-29', title: 'The light on every screen', lines: [
+    "Fixed: on some screen sizes, such as a phone held sideways, the whole light went black in caves bigger than the screen, so the hero and lantern vanished. The view now always stops on a whole pixel, and a test checks it.",
+    "Decisions: D-434.",
+  ] },
   { v: '0.2.169', date: '2026-10-29', title: 'Half-size light, pictures', lines: [
     "Nothing in the game changes. Pictures drawn by the game compare today's light with two half-size lights, worked out on one pixel in four. The soft one is picked for a Half choice: it looks almost the same, with shadow edges a touch softer, and runs about 35 frames a second on a simulated slow phone instead of 26 to 30.",
     "Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.",
