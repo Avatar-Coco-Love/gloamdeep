@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.170, the light on every screen.** The camera now
+  stops on a whole pixel, so the light no longer goes black on screens an
+  odd number of game pixels wide or tall (D-434), with a test.
+  [Playtest](https://claude.ai/artifact/FAdxJKJbe6saPc5aTwAeqF).
 - **2026-10-29, 0.2.169, half-size light, pictures.** Pictures drawn by
   the game compare today's light with two half-size ones; the owner picked
   the soft one (D-432) and Automatic switching down once (D-433). The
