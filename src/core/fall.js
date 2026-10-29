@@ -1,6 +1,6 @@
 // § fall and the lost bag: what a fall does in each way to play, and taking
 // back the bag left where the hero fell (split from turn.js, D-362).
-import { arrive, fresh as freshPlace } from './stairs.js';
+import { arrive, stepAside, fresh as freshPlace } from './stairs.js';
 import { OIL } from './oil.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
@@ -36,7 +36,7 @@ export function fall(state) {
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = state.home;
-  const woke = place === state.place ? { ...state, hero } : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
+  const woke = place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
   return note(say({ ...woke, fell, health: maxHealth(state), oil: OIL.start }, 'fall'), 'fall');
 }
 // In Normal the bag stays where the hero fell, its stacks in it, and they wake

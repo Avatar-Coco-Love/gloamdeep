@@ -162,15 +162,6 @@ deep down, each opening new paths. Learning by doing and skills taught by
 NPCs are left out for now, to keep growth simple; either may come back by
 a new decision. NPCs may still teach or sell recipes (D-418).
 
-**D-420 · 2026-10-28 · A bigger name pad, split for thumbs** (the owner's
-picks: A to Z kept, "some ergonomic design for people with small hands";
-builds D-272, D-398) The name pad's keys grow to fill the card, their
-letters, the typed name and its box twice as big. The pad is split for
-thumbs: A to M four to a row hugging the card's left side with Del after
-M, N to Z the same on the right with OK after Z, the middle open. Claude's
-calls, may change: keys at most 48 × 32 game pixels on big screens; the
-arrows walk across the split.
-
 **D-421 · 2026-10-28 · The fourth audit, tiny** (the owner's picks, both
 recommended) The audit at 0.2.164 is kept small: the profile screens
 (name pad, cloak, eyes, trim, clothes, Rename and Look) move word for word
@@ -179,26 +170,12 @@ from `screens.js` into `profilescreens.js`, nothing visible changed;
 tidied, its rules word for word. The rest of `screens.js` and `main.js`
 follow at later audits; the next is at 0.2.184.
 
-**D-422 · 2026-10-28 · A guard round the arrow pad; Tap to walk off**
-(the owner's picks, all recommended; supersedes D-406's "at first tap to
-walk is on") Taps near the pad sent the hero off. A ring about a thumb
-wide (32 screen px) round the shown pad takes no tap or held finger; a
-swipe from there still steps (the build's choice). Tap to walk is Off at
-first, and turned off once for everyone, saves too; Settings turns it
-back on. Built in 0.2.165.
-
 **D-423 · 2026-10-28 · The woods past a doorway outside** (the owner's
 pick, recommended; changes D-405's passage) Past a crypt doorway that
 leads out to the woods, the woods go on instead of brick: a grass path
 out of the doorway, trees either side, lit by daylight that follows the
 time of day, dark at night. Pictures drawn by the game come first; its
 own step.
-
-**D-424 · 2026-10-29 · No walking past the edge** (the owner's pick,
-recommended; changes D-409's far tap) A tap or held finger past the
-room's edge, where the rock, brick or trees go on (D-403), does nothing,
-even beside a doorway. A tap on a wall or unknown dark inside the room
-still walks as near as it can (D-408, D-409). Built in 0.2.165.
 
 **D-425 · 2026-10-29 · The share card** (the owner's picks: A, the
 first sentence, the script) A link to the game
@@ -208,3 +185,26 @@ line "Carry a lantern down through the gloam." `share.png` is the one
 image file allowed (an exception to D-003's no image files): drawn by
 `tools/sharecard.js` with the game's own code, never by hand, and drawn
 again when the title art changes. Built in 0.2.166.
+
+**D-426 · 2026-10-29 · A creature steps aside** (the owner's pick,
+recommended; a bug found by the 0.2.167 check) A creature standing where
+the hero arrives (stairs, a doorway, a dev jump) or wakes after a fall
+steps to the nearest free tile, counted in steps: not solid, no item, no
+other creature. With none free it stays. Before, the two shared a tile,
+frozen. Built in 0.2.167.
+
+**D-427 · 2026-10-29 · Faster light, the same look** (the owner's pick,
+recommended; a step of D-294, D-295) The light is worked out in about
+half the time, every pixel the same as before (checked picture by
+picture): each light only over the square it can reach, remembered tiles
+with nothing near their edge skip the blend, and f to the 1.25 is worked
+as f × √√f. The room's canvas tells the browser it is read back every
+frame. A simulated slow phone still runs under 60 frames a second; more
+needs a look change or another way of drawing, the owner's call. Built in
+0.2.167.
+
+**D-428 · 2026-10-29 · A failed save says so** (the owner's pick,
+recommended) When a journey can't be saved (storage full or blocked),
+the text line says "Your journey could not be saved." in amber, once,
+until a save works again. The words are Claude's, may change. Smaller
+saves are left for later. Built in 0.2.167.

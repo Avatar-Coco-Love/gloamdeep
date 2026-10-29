@@ -78,6 +78,7 @@ export const LINES = {
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
+  unsaved: { text: 'Your journey could not be saved.', warn: true }, // a save failed: storage full or blocked; once, until one is kept again (D-428)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

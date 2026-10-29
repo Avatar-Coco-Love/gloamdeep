@@ -34,10 +34,20 @@ function blend(cells, x, y) {
 // `lamp`: how much the lights add, less as daylight outshines them (D-217).
 const NO_SHIFT = { x: 0, y: 0 }; // a screen-sized room, as on the title, lit whole
 let seenBy = []; // one cell buffer per light, reused every frame
+// § speed (D-427): the same picture as working every light at every pixel, in less
+// time. A tile whose neighbours are all remembered, or all not, needs no blend, nor
+// does a pixel past the edge beside such a tile;
+// each light only works over the square it can reach; and what the lights add up
+// to is kept per screen pixel, added in the same order as before. f to the 1.25
+// is worked as f × √√f, many times quicker than Math.pow, and the same picture.
+const NONE = {}; // no memory worked out yet
+let even = new Uint8Array(0), evenBy = NONE; // per tile: 0 or 1 when it and its 8 neighbours match, else 2; the memory it is for
+let addR = new Float64Array(0), addG = addR, addB = addR; // the lights' sum per screen pixel
 export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1) {
   if (room.cols * TILE / CELL !== CW || room.rows * TILE / CELL !== CH) { // a new room size: new buffers
     CW = room.cols * TILE / CELL; CH = room.rows * TILE / CELL;
     known = new Uint8Array(CW * CH); seenBy = [];
+    even = new Uint8Array(room.cols * room.rows); evenBy = NONE;
   }
   const lit = [];
   for (const L of lights) {
@@ -46,34 +56,60 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
     seenCells(room, L.x, L.y, L.r, cells);
     lit.push({ L, cells });
   }
-  for (let cy = 0; cy < CH; cy++) for (let cx = 0; cx < CW; cx++) {
-    known[cy * CW + cx] = memory ? memory[(cy >> 2) * room.cols + (cx >> 2)] : 1;
+  const RW = CW * CELL, RH = CH * CELL;
+  if (memory !== evenBy) {
+    for (let cy = 0; cy < CH; cy++) for (let cx = 0; cx < CW; cx++) {
+      known[cy * CW + cx] = memory ? memory[(cy >> 2) * room.cols + (cx >> 2)] : 1;
+    }
+    const at = (tx, ty) => known[(Math.max(0, Math.min(room.rows - 1, ty)) * 4) * CW + Math.max(0, Math.min(room.cols - 1, tx)) * 4];
+    for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
+      const v = at(tx, ty);
+      let same = true;
+      for (let j = -1; j <= 1 && same; j++) for (let i = -1; i <= 1; i++) if (at(tx + i, ty + j) !== v) { same = false; break; }
+      even[ty * room.cols + tx] = same ? v : 2;
+    }
+    evenBy = memory;
   }
   const [W, H] = cam === NO_SHIFT ? [CW * CELL, CH * CELL] : [view.w, view.h]; // the title's room is its screen
-  const img = ctx.getImageData(0, 0, W, H), d = img.data, RW = CW * CELL, RH = CH * CELL;
-  const { unseen, remembered } = dark;
-  let tx = NaN, ty = NaN, open = true; // the tile past the edge last looked at, and whether light goes on into it
-  for (let sy = 0; sy < H; sy++) for (let sx = 0; sx < W; sx++) {
-    const x = sx + cam.x, y = sy + cam.y; // the room pixel; the dither keeps to the room, not the screen
-    const out = x < 0 || y < 0 || x >= RW || y >= RH;
-    if (out && !room.beyond) continue; // beyond a room not widened
-    if (out && (x >> 4 !== tx || y >> 4 !== ty)) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
-    const th = BAYER[((y & 3) << 2) | (x & 3)];
-    const amb = blend(known, x, y) > th ? remembered : unseen; // past the edge, the nearest edge cell's
-    let lr = 0, lg = 0, lb = 0;
-    for (let i = (out && !open) ? lit.length : 0; i < lit.length; i++) {
-      const { L, cells } = lit[i], dx = x - L.x, dy = y - L.y;
+  if (addR.length < W * H) { addR = new Float64Array(W * H); addG = new Float64Array(W * H); addB = new Float64Array(W * H); }
+  else { addR.fill(0, 0, W * H); addG.fill(0, 0, W * H); addB.fill(0, 0, W * H); }
+  // § lights: each over the screen pixels its reach can touch, in the list's order
+  for (const { L, cells } of lit) {
+    const x0 = Math.max(0, Math.floor(L.x - L.r - cam.x)), x1 = Math.min(W - 1, Math.ceil(L.x + L.r - cam.x));
+    const y0 = Math.max(0, Math.floor(L.y - L.r - cam.y)), y1 = Math.min(H - 1, Math.ceil(L.y + L.r - cam.y));
+    let tx = NaN, ty = NaN, open = true; // the tile past the edge last looked at, and whether light goes on into it
+    for (let sy = y0; sy <= y1; sy++) for (let sx = x0; sx <= x1; sx++) {
+      const x = sx + cam.x, y = sy + cam.y; // the room pixel; the dither keeps to the room, not the screen
+      const out = x < 0 || y < 0 || x >= RW || y >= RH;
+      if (out) {
+        if (!room.beyond) continue; // beyond a room not widened
+        if (x >> 4 !== tx || y >> 4 !== ty) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
+        if (!open) continue;
+      }
+      const dx = x - L.x, dy = y - L.y;
       let f = 1 - Math.sqrt(dx * dx + dy * dy) / L.r;
       if (f <= 0) continue;
       const s = blend(cells, x, y);
       if (s <= 0) continue;
-      f = Math.floor(Math.pow(f, 1.25) * s * BANDS + th) / BANDS;
-      lr += f * L.cr * lamp; lg += f * L.cg * lamp; lb += f * L.cb * lamp;
+      f = Math.floor(f * Math.sqrt(Math.sqrt(f)) * s * BANDS + BAYER[((y & 3) << 2) | (x & 3)]) / BANDS;
+      const k = sy * W + sx;
+      addR[k] += f * L.cr * lamp; addG[k] += f * L.cg * lamp; addB[k] += f * L.cb * lamp;
     }
-    const k = (sy * W + sx) * 4;
-    d[k] = Math.min(255, d[k] * (amb[0] + lr));
-    d[k + 1] = Math.min(255, d[k + 1] * (amb[1] + lg));
-    d[k + 2] = Math.min(255, d[k + 2] * (amb[2] + lb));
+  }
+  // § every pixel: the room's darkness, remembered or unseen, plus what the lights add
+  const img = ctx.getImageData(0, 0, W, H), d = img.data;
+  const { unseen, remembered } = dark;
+  for (let sy = 0; sy < H; sy++) for (let sx = 0; sx < W; sx++) {
+    const x = sx + cam.x, y = sy + cam.y;
+    const out = x < 0 || y < 0 || x >= RW || y >= RH;
+    if (out && !room.beyond) continue; // beyond a room not widened
+    const tx = x >> 4, ty = y >> 4; // past the edge, the edge tile's: the blend only sees the edge's cells
+    const e = even[(ty < 0 ? 0 : ty >= room.rows ? room.rows - 1 : ty) * room.cols + (tx < 0 ? 0 : tx >= room.cols ? room.cols - 1 : tx)];
+    const amb = (e === 2 ? blend(known, x, y) > BAYER[((y & 3) << 2) | (x & 3)] : e) ? remembered : unseen; // past the edge, the nearest edge cell's
+    const j = sy * W + sx, k = j * 4;
+    d[k] = Math.min(255, d[k] * (amb[0] + addR[j]));
+    d[k + 1] = Math.min(255, d[k + 1] * (amb[1] + addG[j]));
+    d[k + 2] = Math.min(255, d[k + 2] * (amb[2] + addB[j]));
   }
   ctx.putImageData(img, 0, 0);
 }

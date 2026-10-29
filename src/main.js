@@ -12,6 +12,7 @@ import { SEED_MAX } from './core/rng.js';
 import { createScreen, TILE } from './render/screen.js';
 import { reach, setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
+import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, tapsWalk, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, usingSlot, withoutSlot, renamedSlot, lookedSlot } from './core/profile.js';
@@ -91,10 +92,13 @@ function loadInto(slot) {
 loadInto(app.profiles.current);
 const sound = createSound(() => app.settings.sound === 'on'); // D-255
 // Saved after every turn, or any change, once the journey has begun (D-238)
-let savedState = app.state;
+// A save that fails says so once, until one is kept again (D-428)
+let savedState = app.state, unsaved = false;
 function keepJourney() {
   if (app.state === savedState) return;
-  saveJourney(app.state, app.jumped, app.profiles.current); savedState = app.state; app.saved = true;
+  const kept = saveJourney(app.state, app.jumped, app.profiles.current);
+  if (!kept && !unsaved) app.state = say(app.state, 'unsaved');
+  unsaved = !kept; savedState = app.state; app.saved = true;
 }
 function keepRecords(events) {
   // The profile's Records (D-021, D-232, D-268, D-270): the deepest depth walked to,

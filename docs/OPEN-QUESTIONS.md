@@ -115,3 +115,11 @@ The owner's idea: past a small room's edge, a room on the same depth
 there or something in it shines (a torch, a glow). Still open: how near
 it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
+
+**Q-068 · Smooth on slower phones** (raised 2026-10-29, D-427)
+The 0.2.167 check timed play on a simulated slow phone (a processor 4×
+slower): about 25 frames a second after D-427, against the 60 goal; the
+light is most of the work. Still open: a light worked at half size (edges
+a little softer), drawing it another way (WebGL), or waiting for a test
+on the owner's own phone first.
+

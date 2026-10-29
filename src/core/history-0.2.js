@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.167', date: '2026-10-29', title: 'A bug, faster light, a save warning', lines: [
+    "Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.",
+    "The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.",
+    "If your journey can't be saved, because the browser's storage is full or blocked, the text line now says \"Your journey could not be saved.\" in amber, once. Before, saving failed silently.",
+    "Decisions: D-426, D-427 and D-428. Questions opened: Q-068.",
+  ] },
   { v: '0.2.166', date: '2026-10-29', title: 'A share card', lines: [
     "A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line \"Carry a lantern down through the gloam.\" Nothing in the game itself changes.",
     "The picture, share.png, is the one image file allowed. A script, tools/sharecard.js, draws it with the game's own code; it is drawn again when the title art changes.",
