@@ -127,4 +127,4 @@ The crypt rooms are taller than the screen, and the camera stops at the
 room's top and bottom edges (D-381), so when the doorway out is in the top
 or bottom wall the woods past it never come into view. Doorways in the
 left and right walls show them well. Still open: let the camera go on
-past an opening, or leave it.
+past an opening, or leave it. With D-441's margin, 1½ tiles of it show.

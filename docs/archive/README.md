@@ -46,6 +46,7 @@ header says when it moved and why.
 | `DECISIONS-PAD-EDGE.md` | D-420, D-422, D-424 | a bigger name pad, the pad's guard, no walking past the edge | D-426 |
 | `DECISIONS-CHECKUP.md` | D-425 to D-428 | the share card, the 0.2.167 check | D-429 |
 | `DECISIONS-SPEED.md` | D-429, D-430, D-432 to D-437 | the faster light, the speed check, the light choices, Half on hold | D-432, D-436, D-438 |
+| `DECISIONS-DOORWAY.md` | D-423, D-438 to D-440 | the woods past the doorway, each place shows itself | D-441 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

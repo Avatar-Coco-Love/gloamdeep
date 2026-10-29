@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.171, a faster last pass of light.** Half, built as
+  decided, ran no faster, so it is on hold (Q-069). The time was past the
+  room's edge: that darkness is now worked once with the memory. Every
+  pixel the same (1,200 pictures); walking about 31 fps instead of 22 to
+  25 (D-436). The Light line's place and start, for later (D-437).
+  [Playtest](https://claude.ai/artifact/JwoMMZnhWtg2wK7x2urztu).
 - **2026-10-29, 0.2.170, the light on every screen.** The camera now
   stops on a whole pixel, so the light no longer goes black on screens an
   odd number of game pixels wide or tall (D-434), with a test.
