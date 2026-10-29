@@ -4,7 +4,7 @@
 // below it when the room's top is too near. Drawn in room pixels.
 import { drawText, textWidth } from './font.js';
 import { drawMoves } from './moves.js';
-import { view } from './screen.js';
+import { roomView as view } from './screen.js';
 import { get } from '../core/registry.js';
 
 const AMBER = '#ffc65c', DARK = '#0e0c16', EDGE = '#2a2636', WORDS = '#c9c2d6';

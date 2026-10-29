@@ -5,7 +5,7 @@
 import { makeRoom } from '../core/room.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { reach } from '../core/oil.js';
-import { W, H, TILE, view } from './screen.js';
+import { W, H, TILE, roomView as view } from './screen.js';
 import { drawRoom } from './tiles.js';
 import { drawHero } from './sprites.js';
 import { drawLight, flicker } from './light.js';

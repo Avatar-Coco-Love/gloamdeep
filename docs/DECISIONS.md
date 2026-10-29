@@ -197,3 +197,11 @@ pick, recommended) The rock going on past a room's edge (D-403) and the
 real woods past the doorway out (D-438 to D-440) stay, and show inside
 D-441's margin. Rooms seen through the wall (Q-066) stay open. Built in
 0.2.175.
+
+**D-444 · 2026-10-29 · The zoom's limit and the screen layer** (the
+owner's picks, all recommended; builds D-441, found before merging) A
+narrow room zooms in no further than 9 tiles tall, so what comes from
+above and below still shows. The glass panel, plaques, text line and
+cards sit on their own layer at the old zoom, so they keep their size and
+fit. Easing the zoom between rooms is its own later step. Built in
+0.2.175.

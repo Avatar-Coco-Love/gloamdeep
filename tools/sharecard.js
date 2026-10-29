@@ -19,10 +19,10 @@ const OUT = join(ROOT, 'share.png');
 // § picture: 240 × 126 game pixels, each drawn 5 × 5, so 1200 × 630, the
 // usual size for a link card; the title's picture (176 wide) in the middle
 const PAGE = `<script type="module">
-import { view, W } from '/src/render/screen.js';
+import { view, roomView, W } from '/src/render/screen.js';
 import { drawScene, drawName } from '/src/render/title.js';
 const GW = 240, GH = 126, Z = 5;
-view.w = GW; view.h = GH;
+view.w = roomView.w = GW; view.h = roomView.h = GH;
 const small = document.createElement('canvas'); small.width = GW; small.height = GH;
 const s = small.getContext('2d'); s.imageSmoothingEnabled = false;
 drawScene(s, 3, 0, true, (GW - W) / 2, -12); // still: no flicker; the hero lifted to fit the short picture

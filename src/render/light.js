@@ -10,7 +10,7 @@
 // crypt's doorway out, the woods keep their own darkness and memory (D-439).
 import { CELL, seenCells } from '../core/light.js';
 import { tileAt } from '../core/room.js';
-import { TILE, view } from './screen.js';
+import { TILE, roomView as view } from './screen.js';
 
 let CW = 0, CH = 0; // the room's size in cells
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => (v + 0.5) / 16);
