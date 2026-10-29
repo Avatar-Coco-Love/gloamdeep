@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.169, half-size light, pictures.** Pictures drawn by
+  the game compare today's light with two half-size ones; the owner picked
+  the soft one (D-432) and Automatic switching down once (D-433). The
+  owner's S26 Ultra runs at about 120 fps. Found: the light goes black on
+  some screen sizes; fixing it is next (D-434).
+  The choices: Full, Half, Automatic (D-435).
+  [Pictures](https://claude.ai/artifact/GbP79PqaMwajfoF8gy4Nvz).
 - **2026-10-29, 0.2.168, smoother light, a speed check.** The light
   reuses work that hasn't changed, every pixel the same (3,456 pictures):
   on a simulated slow phone about 45 fps instead of 37 (D-429).

@@ -45,7 +45,7 @@ header says when it moved and why.
 | `DECISIONS-STEERING.md` | D-404, D-406 to D-412 | easier steering, tap to walk, the arrow pad, the stats line | D-413 |
 | `DECISIONS-PAD-EDGE.md` | D-420, D-422, D-424 | a bigger name pad, the pad's guard, no walking past the edge | D-426 |
 | `DECISIONS-CHECKUP.md` | D-425 to D-428 | the share card, the 0.2.167 check | D-429 |
-| `DECISIONS-SPEED.md` | D-429, D-430, D-432 to D-435 | the faster light, the speed check, the light choices | D-432, D-436 |
+| `DECISIONS-SPEED.md` | D-429, D-430, D-432 to D-437 | the faster light, the speed check, the light choices, Half on hold | D-432, D-436, D-438 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
