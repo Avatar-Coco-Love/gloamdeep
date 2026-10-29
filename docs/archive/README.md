@@ -44,6 +44,7 @@ header says when it moved and why.
 | `DECISIONS-TITLE-EDGE.md` | D-401 to D-403, D-405 | the title like a phone game's, its icons, the room's edge | D-409 |
 | `DECISIONS-STEERING.md` | D-404, D-406 to D-412 | easier steering, tap to walk, the arrow pad, the stats line | D-413 |
 | `DECISIONS-PAD-EDGE.md` | D-420, D-422, D-424 | a bigger name pad, the pad's guard, no walking past the edge | D-426 |
+| `DECISIONS-CHECKUP.md` | D-425 to D-428 | the share card, the 0.2.167 check | D-429 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -54,7 +55,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-1.md` | 0.1.0 to 0.1.12 |
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
-| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.152 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, and at 0.2.167) |
+| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.165 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, and at 0.2.168) |
 
 ## Progress
 

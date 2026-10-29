@@ -16,14 +16,26 @@ const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5].map((v) => 
 const BANDS = 5;
 let known = new Uint8Array(0); // cells on remembered tiles
 
-// How much of `cells` covers pixel x, y (0 to 1): the four nearest cell
-// centres mixed by distance, so an edge fades across one cell.
-function blend(cells, x, y) {
-  const fx = (x + 0.5) / CELL - 0.5, fy = (y + 0.5) / CELL - 0.5;
-  const x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
-  const xa = x0 < 0 ? 0 : x0 >= CW ? CW - 1 : x0, xb = x0 + 1 >= CW ? CW - 1 : x0 + 1 < 0 ? 0 : x0 + 1; // past the edge, the edge's own (D-403)
-  const ya = (y0 < 0 ? 0 : y0 >= CH ? CH - 1 : y0) * CW, yb = (y0 + 1 >= CH ? CH - 1 : y0 + 1 < 0 ? 0 : y0 + 1) * CW;
-  return (cells[ya + xa] * (1 - ax) + cells[ya + xb] * ax) * (1 - ay) + (cells[yb + xa] * (1 - ax) + cells[yb + xb] * ax) * ay;
+// § blend: how much of `cells` covers pixel x, y (0 to 1): the four nearest cell
+// centres mixed by distance, so an edge fades across one cell. Past the edge, the
+// edge's own cells (D-403). Cells only ever hold 0 or 1, so there are 256 answers:
+// the four cells' pattern by where the pixel sits in its cell, worked once (D-429).
+// Per room column and row: the two cells mixed (rows times CW).
+const MIX = new Float64Array(256);
+for (let q = 0; q < 16; q++) for (let j = 0; j < 4; j++) for (let i = 0; i < 4; i++) {
+  const ax = (i + 0.5) / CELL - 0.5 - Math.floor((i + 0.5) / CELL - 0.5), ay = (j + 0.5) / CELL - 0.5 - Math.floor((j + 0.5) / CELL - 0.5);
+  const a = q >> 3, b = (q >> 2) & 1, c = (q >> 1) & 1, d = q & 1;
+  MIX[(q << 4) | (j << 2) | i] = (a * (1 - ax) + b * ax) * (1 - ay) + (c * (1 - ax) + d * ax) * ay;
+}
+let colA = new Int32Array(0), colB = colA, rowA = colA, rowB = colA;
+function blend(cells, x, y) { // a pixel inside the room
+  const ya = rowA[y], yb = rowB[y], xa = colA[x], xb = colB[x];
+  return MIX[(cells[ya + xa] << 7) | (cells[ya + xb] << 6) | (cells[yb + xa] << 5) | (cells[yb + xb] << 4) | ((y & 3) << 2) | (x & 3)];
+}
+function blendPast(cells, x, y) { // any pixel, past the edge too
+  const cx = x < 0 ? 0 : x >= CW * CELL ? CW * CELL - 1 : x, cy = y < 0 ? 0 : y >= CH * CELL ? CH * CELL - 1 : y; // past the edge both cells are the edge's
+  const ya = rowA[cy], yb = rowB[cy], xa = colA[cx], xb = colB[cx];
+  return MIX[(cells[ya + xa] << 7) | (cells[ya + xb] << 6) | (cells[yb + xa] << 5) | (cells[yb + xb] << 4) | ((y & 3) << 2) | (x & 3)];
 }
 
 // `lights`: [{ x, y, r, cr, cg, cb }] in screen pixels: the lantern and any
@@ -43,11 +55,17 @@ let seenBy = []; // one cell buffer per light, reused every frame
 const NONE = {}; // no memory worked out yet
 let even = new Uint8Array(0), evenBy = NONE; // per tile: 0 or 1 when it and its 8 neighbours match, else 2; the memory it is for
 let addR = new Float64Array(0), addG = addR, addB = addR; // the lights' sum per screen pixel
+let shade = new Uint8Array(0); // per room pixel, 1 where remembered tiles' darkness shows (D-429); worked with `even`
 export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1) {
   if (room.cols * TILE / CELL !== CW || room.rows * TILE / CELL !== CH) { // a new room size: new buffers
     CW = room.cols * TILE / CELL; CH = room.rows * TILE / CELL;
     known = new Uint8Array(CW * CH); seenBy = [];
     even = new Uint8Array(room.cols * room.rows); evenBy = NONE;
+    const RW = CW * CELL, RH = CH * CELL, cell = (c, n) => (c < 0 ? 0 : c >= n ? n - 1 : c);
+    shade = new Uint8Array(RW * RH);
+    colA = new Int32Array(RW); colB = new Int32Array(RW); rowA = new Int32Array(RH); rowB = new Int32Array(RH);
+    for (let x = 0; x < RW; x++) { const x0 = Math.floor((x + 0.5) / CELL - 0.5); colA[x] = cell(x0, CW); colB[x] = cell(x0 + 1, CW); }
+    for (let y = 0; y < RH; y++) { const y0 = Math.floor((y + 0.5) / CELL - 0.5); rowA[y] = cell(y0, CH) * CW; rowB[y] = cell(y0 + 1, CH) * CW; }
   }
   const lit = [];
   for (const L of lights) {
@@ -68,6 +86,12 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
       for (let j = -1; j <= 1 && same; j++) for (let i = -1; i <= 1; i++) if (at(tx + i, ty + j) !== v) { same = false; break; }
       even[ty * room.cols + tx] = same ? v : 2;
     }
+    for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) { // the same choice as the loop below makes, kept per pixel
+      const e = even[ty * room.cols + tx];
+      for (let y = ty * TILE; y < ty * TILE + TILE; y++) for (let x = tx * TILE, k = y * RW + x; x < tx * TILE + TILE; x++, k++) {
+        shade[k] = e === 2 ? (blend(known, x, y) > BAYER[((y & 3) << 2) | (x & 3)] ? 1 : 0) : e;
+      }
+    }
     evenBy = memory;
   }
   const [W, H] = cam === NO_SHIFT ? [CW * CELL, CH * CELL] : [view.w, view.h]; // the title's room is its screen
@@ -86,11 +110,11 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
         if (x >> 4 !== tx || y >> 4 !== ty) { tx = x >> 4; ty = y >> 4; open = !tileAt(room, tx, ty).blocksLight; }
         if (!open) continue;
       }
+      const s = out ? blendPast(cells, x, y) : blend(cells, x, y);
+      if (s <= 0) continue;
       const dx = x - L.x, dy = y - L.y;
       let f = 1 - Math.sqrt(dx * dx + dy * dy) / L.r;
       if (f <= 0) continue;
-      const s = blend(cells, x, y);
-      if (s <= 0) continue;
       f = Math.floor(f * Math.sqrt(Math.sqrt(f)) * s * BANDS + BAYER[((y & 3) << 2) | (x & 3)]) / BANDS;
       const k = sy * W + sx;
       addR[k] += f * L.cr * lamp; addG[k] += f * L.cg * lamp; addB[k] += f * L.cb * lamp;
@@ -99,17 +123,24 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   // § every pixel: the room's darkness, remembered or unseen, plus what the lights add
   const img = ctx.getImageData(0, 0, W, H), d = img.data;
   const { unseen, remembered } = dark;
+  const black = (c) => c[0] === 0 && c[1] === 0 && c[2] === 0; // a pixel times nothing is 0, written straight (D-429)
+  const unseenBlack = black(unseen), rememberedBlack = black(remembered);
   for (let sy = 0; sy < H; sy++) for (let sx = 0; sx < W; sx++) {
     const x = sx + cam.x, y = sy + cam.y;
     const out = x < 0 || y < 0 || x >= RW || y >= RH;
-    if (out && !room.beyond) continue; // beyond a room not widened
+    if (!out) { // inside the room, the darkness chosen once per memory (D-429)
+      const mem = shade[y * RW + x], amb = mem ? remembered : unseen, j = sy * W + sx, k = j * 4;
+      if ((mem ? rememberedBlack : unseenBlack) && addR[j] === 0 && addG[j] === 0 && addB[j] === 0) { d[k] = d[k + 1] = d[k + 2] = 0; continue; }
+      d[k] = d[k] * (amb[0] + addR[j]); d[k + 1] = d[k + 1] * (amb[1] + addG[j]); d[k + 2] = d[k + 2] * (amb[2] + addB[j]); // the pixels clamp at 255 themselves
+      continue;
+    }
+    if (!room.beyond) continue; // beyond a room not widened
     const tx = x >> 4, ty = y >> 4; // past the edge, the edge tile's: the blend only sees the edge's cells
     const e = even[(ty < 0 ? 0 : ty >= room.rows ? room.rows - 1 : ty) * room.cols + (tx < 0 ? 0 : tx >= room.cols ? room.cols - 1 : tx)];
-    const amb = (e === 2 ? blend(known, x, y) > BAYER[((y & 3) << 2) | (x & 3)] : e) ? remembered : unseen; // past the edge, the nearest edge cell's
+    const mem = e === 2 ? blendPast(known, x, y) > BAYER[((y & 3) << 2) | (x & 3)] : e, amb = mem ? remembered : unseen; // past the edge, the nearest edge cell's
     const j = sy * W + sx, k = j * 4;
-    d[k] = Math.min(255, d[k] * (amb[0] + addR[j]));
-    d[k + 1] = Math.min(255, d[k + 1] * (amb[1] + addG[j]));
-    d[k + 2] = Math.min(255, d[k + 2] * (amb[2] + addB[j]));
+    if ((mem ? rememberedBlack : unseenBlack) && addR[j] === 0 && addG[j] === 0 && addB[j] === 0) { d[k] = d[k + 1] = d[k + 2] = 0; continue; }
+    d[k] = d[k] * (amb[0] + addR[j]); d[k + 1] = d[k + 1] * (amb[1] + addG[j]); d[k + 2] = d[k + 2] * (amb[2] + addB[j]);
   }
   ctx.putImageData(img, 0, 0);
 }

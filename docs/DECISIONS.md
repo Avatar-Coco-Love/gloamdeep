@@ -177,34 +177,25 @@ out of the doorway, trees either side, lit by daylight that follows the
 time of day, dark at night. Pictures drawn by the game come first; its
 own step.
 
-**D-425 · 2026-10-29 · The share card** (the owner's picks: A, the
-first sentence, the script) A link to the game
-shows a card: the title screen without its menu, the hero in the
-lantern's light under the name, 1200 × 630, with "Gloamdeep" and the
-line "Carry a lantern down through the gloam." `share.png` is the one
-image file allowed (an exception to D-003's no image files): drawn by
-`tools/sharecard.js` with the game's own code, never by hand, and drawn
-again when the title art changes. Built in 0.2.166.
+**D-429 · 2026-10-29 · More reuse in the light, the same look** (the
+owner's pick, recommended; a step of D-294, D-295, answers part of Q-068)
+The light keeps work that hasn't changed: which pixels show remembered
+tiles' darkness is worked once per change of memory, not every frame; the
+mix of four cells at a shadow's edge comes from a table of its 256
+answers; and a pixel that ends up black is written as 0. Every pixel is
+the same as before, checked on 3,456 pictures. On a simulated slow phone
+the light takes about 16.5 ms a frame instead of 20.3, about 45 frames a
+second instead of 37. Built in 0.2.168.
 
-**D-426 · 2026-10-29 · A creature steps aside** (the owner's pick,
-recommended; a bug found by the 0.2.167 check) A creature standing where
-the hero arrives (stairs, a doorway, a dev jump) or wakes after a fall
-steps to the nearest free tile, counted in steps: not solid, no item, no
-other creature. With none free it stays. Before, the two shared a tile,
-frozen. Built in 0.2.167.
+**D-430 · 2026-10-29 · A speed check and a frame budget** (the owner's
+picks, both recommended) `tools/perf.js` times play on a simulated slow
+phone (the processor 4 times slower, seed 4127) and prints frames a second
+and the milliseconds a frame spends in all and in the light. The frame
+budget in `docs/TECH.md`: 16.7 ms a frame in all, the light at most 8 ms.
+A PR that changes drawing runs it before and after and gives both in the
+PR. Built in 0.2.168.
 
-**D-427 · 2026-10-29 · Faster light, the same look** (the owner's pick,
-recommended; a step of D-294, D-295) The light is worked out in about
-half the time, every pixel the same as before (checked picture by
-picture): each light only over the square it can reach, remembered tiles
-with nothing near their edge skip the blend, and f to the 1.25 is worked
-as f × √√f. The room's canvas tells the browser it is read back every
-frame. A simulated slow phone still runs under 60 frames a second; more
-needs a look change or another way of drawing, the owner's call. Built in
-0.2.167.
-
-**D-428 · 2026-10-29 · A failed save says so** (the owner's pick,
-recommended) When a journey can't be saved (storage full or blocked),
-the text line says "Your journey could not be saved." in amber, once,
-until a save works again. The words are Claude's, may change. Smaller
-saves are left for later. Built in 0.2.167.
+**D-431 · 2026-10-29 · How we work: one step a conversation** (the owner's
+pick, recommended) The owner keeps choosing every question. Each
+conversation does one step, ends with its handoff, and the next step
+starts in a fresh conversation, so less is read again each time.

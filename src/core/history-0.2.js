@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.168', date: '2026-10-29', title: 'Smoother light, a speed check', lines: [
+    "The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.",
+    "A new tool, tools/perf.js, times play on a simulated slow phone, and docs/TECH.md now has a frame budget: 16.7 ms a frame in all, the light at most 8 ms. Changes to drawing are timed before and after.",
+    "Decisions: D-429, D-430 and D-431.",
+  ] },
   { v: '0.2.167', date: '2026-10-29', title: 'A bug, faster light, a save warning', lines: [
     "Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.",
     "The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.",
