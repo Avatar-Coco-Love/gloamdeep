@@ -23,6 +23,7 @@ import { inDaylight, passTime } from './core/daytime.js';
 import { lanternFrom } from './core/sight.js';
 import { mouthLight } from './core/mouth.js';
 import { wayTo, stopsWalk } from './core/walk.js';
+import { offEdge } from './core/openings.js';
 import { createInput } from './input/input.js';
 import { createLanternButton } from './input/lantern.js';
 import { createPauseButton } from './input/pause.js';
@@ -241,6 +242,7 @@ function nudgeToward(dir) {
 // there, which bites, mines or opens as a step does; one further off walks there
 // at once (D-406). A tap while walking only stops it, and no turn passes. With
 // Tap to walk off, only the tap on the hero, a plaque or a bench beside works (D-408).
+// A tap past the room's edge, where nothing can be walked, does nothing (D-424).
 // held: the same from a finger held still, which walks anew instead of stopping (D-408)
 const stepToward = (px, py, held = false) => {
   const spot = frame.plaqueSpot(px, py); // a plaque frames its creature, or lets it go; no turn passes (CL2)
@@ -248,6 +250,7 @@ const stepToward = (px, py, held = false) => {
   if (app.walk && !held) { app.walk = null; return; }
   const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
+  if (offEdge(app.state.room, tx, ty)) return; // past the room's edge a tap does nothing (D-424)
   const dir = toward(h.x, h.y, tx, ty);
   if (!dir) { if (!held) tryStep('wait'); return; }
   // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)

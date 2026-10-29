@@ -199,3 +199,9 @@ leads out to the woods, the woods go on instead of brick: a grass path
 out of the doorway, trees either side, lit by daylight that follows the
 time of day, dark at night. Pictures drawn by the game come first; its
 own step.
+
+**D-424 · 2026-10-29 · No walking past the edge** (the owner's pick,
+recommended; changes D-409's far tap) A tap or held finger past the
+room's edge, where the rock, brick or trees go on (D-403), does nothing,
+even beside a doorway. A tap on a wall or unknown dark inside the room
+still walks as near as it can (D-408, D-409). Built in 0.2.165.

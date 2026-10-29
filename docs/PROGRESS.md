@@ -38,8 +38,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-10-28, 0.2.165, a guard round the pad.** Taps in a thumb-wide
   ring round the arrow pad no longer walk; Tap to walk is Off at first,
-  turned off once for everyone (D-422, supersedes part of D-406). The
-  woods will go on past a doorway outside, pictures first (D-423).
+  turned off once for everyone (D-422, supersedes part of D-406); a tap
+  past the room's edge does nothing (D-424). The woods will go on past a doorway outside, pictures first (D-423).
   [Playtest](https://claude.ai/artifact/JcUHw3cDfELW4oWKGYYz6r).
 - **2026-10-28, 0.2.164, the fourth audit.** Nothing in the game changed
   (D-421, both recommended). The profile screens moved word for word from

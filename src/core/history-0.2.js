@@ -6,8 +6,9 @@ export const HISTORY_02 = [
   { v: '0.2.165', date: '2026-10-28', title: 'A guard round the pad', lines: [
     "Tap to walk is now Off at first, and switched off once for everyone, saved games too. Turn it back on in Settings. You walk by swiping or with the arrow pad.",
     "A ring about a thumb wide round the arrow pad now ignores taps and held fingers, so a thumb that misses the pad no longer sends the hero walking. A swipe that starts there still steps.",
+    "A tap or held finger past the room's edge, where there is no way, now does nothing; before, the hero headed that way. A tap on a wall or unexplored dark inside the room still walks as near as it can.",
     "Decided, not built yet: past a doorway that leads outside, the woods will go on instead of brick, with a grass path and daylight. Pictures come first.",
-    "Decisions: D-422, which supersedes part of D-406, and D-423.",
+    "Decisions: D-422, which supersedes part of D-406, D-423 and D-424.",
   ] },
   { v: '0.2.164', date: '2026-10-28', title: 'The fourth audit', lines: [
     "Nothing in the game changes. The fourth audit: the screens for a new profile's name and look, and Rename and Look, move word for word from screens.js into their own file, profilescreens.js.",
