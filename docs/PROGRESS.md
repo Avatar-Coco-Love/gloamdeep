@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.171 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.172 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The woods past the crypt's doorway outside (D-423), pictures first; then
-the scope, part 2 (`SCOPE.md`, D-413). Half and Automatic wait on Q-069.
+Build the real woods past the crypt's doorway outside, as they are now,
+in their own light (D-438 to D-440), with a playtest; then the scope,
+part 2 (`SCOPE.md`, D-413). Half and Automatic wait on Q-069.
 Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -37,6 +38,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.172, the woods past the doorway, pictures.** Pictures
+  drawn by the game: the real woods room or a made-up path. Picked: the
+  real woods as they are now, "completely accurate" (D-438), in the woods'
+  own light, moonlit at night (D-439); each place shows itself, a rule
+  (D-440). [Pictures](https://claude.ai/artifact/X8Fuaxofr3C5dkJ523ByuZ).
 - **2026-10-29, 0.2.171, a faster last pass of light.** Half, built as
   decided, ran no faster, so it is on hold (Q-069). The time was past the
   room's edge: that darkness is now worked once with the memory. Every
@@ -47,10 +53,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   stops on a whole pixel, so the light no longer goes black on screens an
   odd number of game pixels wide or tall (D-434), with a test.
   [Playtest](https://claude.ai/artifact/FAdxJKJbe6saPc5aTwAeqF).
-- **2026-10-29, 0.2.169, half-size light, pictures.** Pictures drawn by
-  the game compare today's light with two half-size ones; the owner picked
-  the soft one (D-432) and Automatic switching down once (D-433). The
-  owner's S26 Ultra runs at about 120 fps. Found: the light goes black on
-  some screen sizes; fixing it is next (D-434).
-  The choices: Full, Half, Automatic (D-435).
-  [Pictures](https://claude.ai/artifact/GbP79PqaMwajfoF8gy4Nvz).

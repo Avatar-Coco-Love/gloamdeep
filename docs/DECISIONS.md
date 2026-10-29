@@ -175,26 +175,33 @@ pick, recommended; changes D-405's passage) Past a crypt doorway that
 leads out to the woods, the woods go on instead of brick: a grass path
 out of the doorway, trees either side, lit by daylight that follows the
 time of day, dark at night. Pictures drawn by the game come first; its
-own step.
+own step. *"A grass path out of the doorway, trees either side" superseded
+by D-438 (2026-10-29): the real woods room, as it is now.*
 
 **D-431 · 2026-10-29 · How we work: one step a conversation** (the owner's
 pick, recommended) The owner keeps choosing every question. Each
 conversation does one step, ends with its handoff, and the next step
 starts in a fresh conversation, so less is read again each time.
 
-**D-436 · 2026-10-29 · Half on hold; the last pass first** (the owner's
-picks, all recommended) Half, built as D-432 says, looked the same as Full
-but ran no faster on the simulated slow phone (24 to 32 fps both): the
-work it cuts was about 4 ms of the light's 25. The time was in the last
-pass over every pixel, most of it past the room's edge, where the edge's
-darkness was worked out again for every pixel, every frame. Now it is
-worked once with the memory, in a 4-pixel border around the room, and
-only the rows' columns the lights can reach are cleared and read. Every
-pixel the same (1,200 pictures); walking about 31 fps instead of 22 to
-25, the light about 19.5 ms instead of 25. Half and Automatic wait,
-unbuilt, until the light is measured again (Q-069).
+**D-438 · 2026-10-29 · The real woods past the doorway** (the owner's
+pick, recommended, from [pictures](https://claude.ai/artifact/X8Fuaxofr3C5dkJ523ByuZ); supersedes part of
+D-423) Past the crypt's doorway that leads out, the woods shown are the
+woods room itself, as it is now: placed so its cave mouth lies just past
+the doorway, with its trees, the rocks beside the mouth, its grass, its
+sticks and fallen branch, and whatever play has changed there (a stump
+where a tree was felled, a workbench or chest set down, a stick picked
+up gone). Past the woods room's own edges, trees go on. The owner's
+words: "It needs to be completely accurate."
 
-**D-437 · 2026-10-29 · The light's line, when it comes** (the owner's
-picks, both recommended) The Light line goes after Motion in Settings,
-and Automatic is the choice before any pick (D-433, D-435); until
-Automatic is built, Full.
+**D-439 · 2026-10-29 · The woods' own light past the doorway** (the
+owner's pick, recommended) The woods side keeps the woods' own sky:
+daylight by the time of day, fading through dusk, and at night as the
+woods show it, remembered tiles moonlit blue, the rest black (D-217); the
+lantern's light spills out of the doorway as now.
+
+**D-440 · 2026-10-29 · Each place shows itself** (the owner's rule, the
+recommended pick) No one look fits every place. Past an opening, what
+shows is the place on the other side, made by its own kind's rules from
+its own seed, as it is now, with its own light and atmosphere (sky,
+darkness, memory). Most things in the game are procedural, each in its
+own way. This holds for every kind of place added later.

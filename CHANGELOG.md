@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.172 (2026-10-29)
+- Nothing in the game changes yet. Pictures drawn by the game compared two ways to show the woods past the crypt's doorway that leads outside. Picked: the real woods room itself, as it is now, with its trees, rocks, sticks, fallen branch and anything changed in play, so what you see is where you walk. The owner's words: "It needs to be completely accurate."
+- The woods past the doorway will keep the woods' own light: daylight by the time of day, dusk, and a moonlit night.
+- A rule for every place to come: past an opening, the place on the other side shows itself, made by its own kind's rules, with its own light and atmosphere. No one look fits every place.
+- Decisions: D-438, D-439 and D-440.
+
 ## 0.2.171 (2026-10-29)
 - The lighting is worked out faster again, so play is smoother on slower phones: walking on a simulated slow phone runs about 31 frames a second instead of 22 to 25. Every pixel looks exactly as before; this was checked on 1,200 pictures.
 - The Half choice was built and measured first, but it ran no faster, so it is not in the game; Half and Automatic wait until the light is measured again. When the Light line comes, it goes after Motion, and Automatic is where it starts.
@@ -35,8 +41,3 @@ Entry format:
 - Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.
 - Found: on some screen sizes the whole light goes black in rooms bigger than the screen, so the hero and lantern vanish. Its fix is the next step.
 - Decisions: D-432, D-433, D-434 and D-435. Questions closed: Q-068.
-
-## 0.2.168 (2026-10-29)
-- The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.
-- A new tool, `tools/perf.js`, times play on a simulated slow phone, and `docs/TECH.md` now has a frame budget: 16.7 ms a frame in all, the light at most 8 ms. Changes to drawing are timed before and after.
-- Decisions: D-429, D-430 and D-431.
