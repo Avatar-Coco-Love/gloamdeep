@@ -170,38 +170,29 @@ from `screens.js` into `profilescreens.js`, nothing visible changed;
 tidied, its rules word for word. The rest of `screens.js` and `main.js`
 follow at later audits; the next is at 0.2.184.
 
-**D-423 · 2026-10-28 · The woods past a doorway outside** (the owner's
-pick, recommended; changes D-405's passage) Past a crypt doorway that
-leads out to the woods, the woods go on instead of brick: a grass path
-out of the doorway, trees either side, lit by daylight that follows the
-time of day, dark at night. Pictures drawn by the game come first; its
-own step. *"A grass path out of the doorway, trees either side" superseded
-by D-438 (2026-10-29): the real woods room, as it is now.*
-
 **D-431 · 2026-10-29 · How we work: one step a conversation** (the owner's
 pick, recommended) The owner keeps choosing every question. Each
 conversation does one step, ends with its handoff, and the next step
 starts in a fresh conversation, so less is read again each time.
 
-**D-438 · 2026-10-29 · The real woods past the doorway** (the owner's
-pick, recommended, from [pictures](https://claude.ai/artifact/X8Fuaxofr3C5dkJ523ByuZ); supersedes part of
-D-423) Past the crypt's doorway that leads out, the woods shown are the
-woods room itself, as it is now: placed so its cave mouth lies just past
-the doorway, with its trees, the rocks beside the mouth, its grass, its
-sticks and fallen branch, and whatever play has changed there (a stump
-where a tree was felled, a workbench or chest set down, a stick picked
-up gone). Past the woods room's own edges, trees go on. The owner's
-words: "It needs to be completely accurate."
+**D-441 · 2026-10-29 · The camera stays in the room, with a margin** (the
+owner's idea, pick C, recommended, from
+[pictures](https://claude.ai/artifact/UpDgkoK7nFTA9MrA5wHdzD); changes part
+of D-381) A room narrower than the screen no longer sits in the middle
+with the outside around it: the view zooms in until the room's width, and
+a margin of 1½ tiles each side, fills the screen. It never shows more than
+today's view, about 11 tiles top to bottom (D-381). The camera follows the
+hero (D-195) and stops at most 1½ tiles past any edge, so the hero at a
+wall keeps a little room from the screen's edge. The controls keep their
+size. The margin may change at the playtest.
 
-**D-439 · 2026-10-29 · The woods' own light past the doorway** (the
-owner's pick, recommended) The woods side keeps the woods' own sky:
-daylight by the time of day, fading through dusk, and at night as the
-woods show it, remembered tiles moonlit blue, the rest black (D-217); the
-lantern's light spills out of the doorway as now.
+**D-442 · 2026-10-29 · Every corner piece fades** (the owner's pick,
+recommended; extends D-380) Like the glass panel, every piece in the
+screen's corners (the round map with pause and the wrench, the round
+lantern and its arc, the arrow pad) fades almost away while the hero, or
+a creature beside them, is under it. Its own step, after D-441.
 
-**D-440 · 2026-10-29 · Each place shows itself** (the owner's rule, the
-recommended pick) No one look fits every place. Past an opening, what
-shows is the place on the other side, made by its own kind's rules from
-its own seed, as it is now, with its own light and atmosphere (sky,
-darkness, memory). Most things in the game are procedural, each in its
-own way. This holds for every kind of place added later.
+**D-443 · 2026-10-29 · The outside stays where it shows** (the owner's
+pick, recommended) The rock going on past a room's edge (D-403) and the
+real woods past the doorway out (D-438 to D-440) stay, and show inside
+D-441's margin. Rooms seen through the wall (Q-066) stay open.
