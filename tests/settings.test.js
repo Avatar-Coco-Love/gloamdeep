@@ -45,8 +45,8 @@ test('the Stats line switch is off at first and shows the short line only when o
   } finally { delete globalThis.localStorage; }
 });
 
-test('with no storage, or a strange value kept, Swipe and Tap to walk are on, the pad off, and it stops on sight; the old Controls pick carries over', () => {
-  assert.deepEqual(loadSettings(), { swipe: 'on', tapwalk: 'on', pad: 'off', stop: 'sight', motion: null, seed: null, lantern: 'hand', flasks: 'hand', sound: 'off', stats: 'off' }); // no localStorage here
+test('with no storage, or a strange value kept, Swipe is on, Tap to walk and the pad off, and it stops on sight; the old Controls pick carries over', () => {
+  assert.deepEqual(loadSettings(), { swipe: 'on', tapwalk: 'off', pad: 'off', stop: 'sight', motion: null, seed: null, lantern: 'hand', flasks: 'hand', sound: 'off', stats: 'off' }); // no localStorage here
   saveSettings({ swipe: 'off' }); // does not throw
   const kept = { 'gloamdeep-settings': '{"swipe":"fly","stop":"never"}' };
   globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
@@ -60,6 +60,18 @@ test('with no storage, or a strange value kept, Swipe and Tap to walk are on, th
     assert.equal(loadSettings().swipe, 'off', 'Tap only was swipes off');
     kept['gloamdeep-settings'] = '{"controls":"swipe"}';
     assert.equal(loadSettings().tapwalk, 'off', 'Swipe only was taps off');
+  } finally { delete globalThis.localStorage; }
+});
+
+test('Tap to walk goes off once for everyone (D-422); turned on after that, it stays on', () => {
+  const kept = { 'gloamdeep-settings': '{"tapwalk":"on"}' };
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try {
+    assert.equal(loadSettings().tapwalk, 'off', 'an On kept before D-422 is dropped');
+    saveSettings({ ...loadSettings(), tapwalk: 'on' });
+    assert.equal(loadSettings().tapwalk, 'on');
+    saveSettings({ ...loadSettings(), tapwalk: 'off' });
+    assert.equal(loadSettings().tapwalk, 'off');
   } finally { delete globalThis.localStorage; }
 });
 
@@ -80,7 +92,7 @@ test('a kept Motion choice comes back; a strange one follows the device', () => 
   try {
     assert.equal(loadSettings().motion, null);
     saveSettings({ swipe: 'off', motion: 'reduced' });
-    assert.deepEqual(loadSettings(), { swipe: 'off', tapwalk: 'on', pad: 'off', stop: 'sight', motion: 'reduced', seed: null, lantern: 'hand', flasks: 'hand', sound: 'off', stats: 'off' });
+    assert.deepEqual(loadSettings(), { swipe: 'off', tapwalk: 'off', pad: 'off', stop: 'sight', motion: 'reduced', seed: null, lantern: 'hand', flasks: 'hand', sound: 'off', stats: 'off' });
   } finally { delete globalThis.localStorage; }
 });
 

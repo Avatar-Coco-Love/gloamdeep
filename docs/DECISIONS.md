@@ -184,3 +184,24 @@ from `screens.js` into `profilescreens.js`, nothing visible changed;
 `CHANGELOG.md` keeps its newest 3 entries; `CLAUDE.md`'s file table is
 tidied, its rules word for word. The rest of `screens.js` and `main.js`
 follow at later audits; the next is at 0.2.184.
+
+**D-422 · 2026-10-28 · A guard round the arrow pad; Tap to walk off**
+(the owner's picks, all recommended; supersedes D-406's "at first tap to
+walk is on") Taps near the pad sent the hero off. A ring about a thumb
+wide (32 screen px) round the shown pad takes no tap or held finger; a
+swipe from there still steps (the build's choice). Tap to walk is Off at
+first, and turned off once for everyone, saves too; Settings turns it
+back on. Built in 0.2.165.
+
+**D-423 · 2026-10-28 · The woods past a doorway outside** (the owner's
+pick, recommended; changes D-405's passage) Past a crypt doorway that
+leads out to the woods, the woods go on instead of brick: a grass path
+out of the doorway, trees either side, lit by daylight that follows the
+time of day, dark at night. Pictures drawn by the game come first; its
+own step.
+
+**D-424 · 2026-10-29 · No walking past the edge** (the owner's pick,
+recommended; changes D-409's far tap) A tap or held finger past the
+room's edge, where the rock, brick or trees go on (D-403), does nothing,
+even beside a doorway. A tap on a wall or unknown dark inside the room
+still walks as near as it can (D-408, D-409). Built in 0.2.165.

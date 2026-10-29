@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.164 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.165 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The scope, part 2 (`SCOPE.md`, D-413): raw things, what
-each biome gives and how gathering works, asked first; then part 3,
-creature drops (Q-061). Upright play (Q-065) is tabled.
+Pictures of the woods going on past the crypt's doorway outside, drawn
+by the game, for the owner to pick from (D-423); then the scope, part 2
+(`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,6 +36,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-28, 0.2.165, a guard round the pad.** Taps in a thumb-wide
+  ring round the arrow pad no longer walk; Tap to walk is Off at first,
+  turned off once for everyone (D-422, supersedes part of D-406); a tap
+  past the room's edge does nothing (D-424). The woods will go on past a doorway outside, pictures first (D-423).
+  [Playtest](https://claude.ai/artifact/JcUHw3cDfELW4oWKGYYz6r).
 - **2026-10-28, 0.2.164, the fourth audit.** Nothing in the game changed
   (D-421, both recommended). The profile screens moved word for word from
   `screens.js` (50 → 45 KB) into `profilescreens.js`; making a profile
@@ -45,7 +50,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   the card, split for thumbs: A to M left, N to Z right, Del and OK at
   the bottom corners; letters and the typed name twice as big (D-420).
   [Playtest](https://claude.ai/artifact/4Ha8DYJAEaXeV8pztB7Bhd).
-- **2026-10-28, 0.2.162, skills, two ways.** Docs only. The owner
-  narrowed skills to Claude's two picks: a Growth tree for embers, and
-  big abilities found; doing and NPC teaching left out for now (D-419,
-  supersedes D-416).

@@ -15,8 +15,9 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // onLantern() for the L key; onWait() for Space, which repeats while held, like the arrows;
 // onChoose() for Enter; onPause() for Esc and P; onMap() for M; onBag() for I; onFloor(way) for < and > or Page Up and Page Down; onTab() for Tab, which returns true when it used the key; onType(key) for digits and Backspace (the seed pad, D-191), R, T and B (the Seed Explorer, D-214), C (the bag's Make, D-309) and letters (the name pad, D-272; P, M, I, L and WASD act as usual when it is shut),
 // which returns true when it used the key.
+// guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opens on it, D-193).
-export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab }) {
+export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -51,8 +52,8 @@ export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, o
     kind = ev.pointerType === 'mouse' ? 'mouse' : 'touch';
     if (press || (ev.pointerType === 'mouse' && ev.button !== 0)) return;
     area.setPointerCapture(ev.pointerId);
-    press = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, swiped: false, held: false };
-    press.timer = setTimeout(() => { if (press && !press.swiped) { press.held = true; onPoint(...gamePoint(press), true); } }, HOLD_MS);
+    press = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, swiped: false, held: false, guard: guarded(ev.clientX, ev.clientY) };
+    press.timer = setTimeout(() => { if (press && !press.swiped && !press.guard) { press.held = true; onPoint(...gamePoint(press), true); } }, HOLD_MS);
   });
   area.addEventListener('pointermove', (ev) => {
     if (!press || ev.pointerId !== press.id) return;
@@ -64,7 +65,7 @@ export function createInput(area, canvas, { onDir, onPoint, onLantern, onWait, o
   });
   area.addEventListener('pointerup', (ev) => {
     if (!press || ev.pointerId !== press.id) return;
-    if (!press.swiped && !press.held) { onPoint(...gamePoint(press)); ghost = ev.pointerType !== 'mouse'; }
+    if (!press.swiped && !press.held && !press.guard) { onPoint(...gamePoint(press)); ghost = ev.pointerType !== 'mouse'; }
     end();
   });
   // § ghost click: after a finger's tap a phone sends a click where it lifted, which would
