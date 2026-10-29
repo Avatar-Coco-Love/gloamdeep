@@ -206,3 +206,7 @@ Its fix, the camera rounded to a whole pixel with a test, is the next
 step, on its own; then the Half choice and Automatic (D-432, D-433).
 Speeding up the last pass over every pixel (about 10 ms of the light, the
 same look) comes later.
+
+**D-435 · 2026-10-29 · The light choices' names** (the owner's pick;
+answers Q-068) Settings names the light's choices Full, Half and
+Automatic (D-432, D-433).

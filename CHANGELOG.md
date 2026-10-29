@@ -25,7 +25,7 @@ Entry format:
 - Nothing in the game changes. Pictures drawn by the game compare today's light with two half-size lights, worked out on one pixel in four. The soft one is picked for a Half choice: it looks almost the same, with shadow edges a touch softer, and runs about 35 frames a second on a simulated slow phone instead of 26 to 30.
 - Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.
 - Found: on some screen sizes the whole light goes black in rooms bigger than the screen, so the hero and lantern vanish. Its fix is the next step.
-- Decisions: D-432, D-433 and D-434.
+- Decisions: D-432, D-433, D-434 and D-435. Questions closed: Q-068.
 
 ## 0.2.168 (2026-10-29)
 - The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.

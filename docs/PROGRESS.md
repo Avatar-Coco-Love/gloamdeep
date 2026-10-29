@@ -24,7 +24,6 @@ the scope, part 2 (`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
-- The light choices' names in Settings (Q-068), with the Half step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -43,6 +42,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   the soft one (D-432) and Automatic switching down once (D-433). The
   owner's S26 Ultra runs at about 120 fps. Found: the light goes black on
   some screen sizes; fixing it is next (D-434).
+  The choices: Full, Half, Automatic (D-435).
   [Pictures](https://claude.ai/artifact/GbP79PqaMwajfoF8gy4Nvz).
 - **2026-10-29, 0.2.168, smoother light, a speed check.** The light
   reuses work that hasn't changed, every pixel the same (3,456 pictures):
