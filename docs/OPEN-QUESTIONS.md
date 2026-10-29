@@ -115,12 +115,3 @@ The owner's idea: past a small room's edge, a room on the same depth
 there or something in it shines (a torch, a glow). Still open: how near
 it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
-
-**Q-068 · Smooth on slower phones** (raised 2026-10-29, D-427)
-The light is most of a frame's work. D-429 made it faster with the same
-look: about 45 frames a second on a simulated slow phone (`tools/perf.js`,
-D-430), against the 60 goal. The owner picked a light worked at half size
-(edges a little softer) as a choice, and would like it Automatic too,
-beside the specific choices. Still open: how it looks (pictures first),
-the choices' names, and when Automatic switches. WebGL stays for later.
-

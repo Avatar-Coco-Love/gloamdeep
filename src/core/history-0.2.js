@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.169', date: '2026-10-29', title: 'Half-size light, pictures', lines: [
+    "Nothing in the game changes. Pictures drawn by the game compare today's light with two half-size lights, worked out on one pixel in four. The soft one is picked for a Half choice: it looks almost the same, with shadow edges a touch softer, and runs about 35 frames a second on a simulated slow phone instead of 26 to 30.",
+    "Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.",
+    "Found: on some screen sizes the whole light goes black in rooms bigger than the screen, so the hero and lantern vanish. Its fix is the next step.",
+    "Decisions: D-432, D-433, D-434 and D-435. Questions closed: Q-068.",
+  ] },
   { v: '0.2.168', date: '2026-10-29', title: 'Smoother light, a speed check', lines: [
     "The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.",
     "A new tool, tools/perf.js, times play on a simulated slow phone, and docs/TECH.md now has a frame budget: 16.7 ms a frame in all, the light at most 8 ms. Changes to drawing are timed before and after.",
