@@ -35,3 +35,12 @@ test('a room narrower than the screen sits in the middle and never moves sideway
     assert.equal(cam.y, Math.max(0, Math.min(208 - tall, y * 16 + 8 - tall / 2)));
   }
 });
+
+test('the camera stays on whole pixels on a screen an odd number of pixels wide or tall (D-434)', () => {
+  for (const [w, h] of [[211, 97], [177, 209], [175, 97]]) {
+    for (let p = 0; p < 20 * 16; p += 3) {
+      const cam = cameraAt(p, p, big, w, h);
+      assert.ok(Number.isInteger(cam.x) && Number.isInteger(cam.y), `${w} × ${h} at ${p}: ${cam.x}, ${cam.y}`);
+    }
+  }
+});

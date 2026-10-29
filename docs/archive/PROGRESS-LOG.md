@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.167, a bug, faster light, a save warning.** A check
+  of the game (tests, 360,000 random turns, a slow-phone timing) found a
+  creature and the hero sharing a tile after stairs or a fall: it steps
+  aside now (D-426). The light is about twice as fast, every pixel the
+  same (D-427); a failed save says so (D-428). Q-068 opened.
+  [Playtest](https://claude.ai/artifact/PiAgNGU9GwEkafNrZx7RqM).
 - **2026-10-29, 0.2.166, a share card.** A shared link now shows the
   title scene (the owner's pick, A), "Carry a lantern down through the
   gloam." and the name; `share.png` is the one image file, drawn by
