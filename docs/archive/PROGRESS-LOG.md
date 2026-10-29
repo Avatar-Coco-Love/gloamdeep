@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-28, 0.2.163, a bigger name pad.** The name pad's keys fill
+  the card, split for thumbs: A to M left, N to Z right, Del and OK at
+  the bottom corners; letters and the typed name twice as big (D-420).
+  [Playtest](https://claude.ai/artifact/4Ha8DYJAEaXeV8pztB7Bhd).
 - **2026-10-28, 0.2.162, skills, two ways.** Docs only. The owner
   narrowed skills to Claude's two picks: a Growth tree for embers, and
   big abilities found; doing and NPC teaching left out for now (D-419,

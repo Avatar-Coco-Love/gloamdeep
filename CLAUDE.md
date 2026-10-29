@@ -131,7 +131,8 @@ Read the smallest file that answers the question.
 ## Hard technical rules (details in `docs/TECH.md`)
 
 - No external assets: no image, audio or font files, no CDNs, no frameworks,
-  no build step (`tools/` is only for playtests). Visuals use Canvas 2D. Sound uses the Web Audio API.
+  no build step (`tools/` is only for playtests). One exception: `share.png`,
+  the share card, drawn by `tools/sharecard.js` (D-425). Visuals use Canvas 2D. Sound uses the Web Audio API.
 - Phone first. Everything works with touch, mouse and keyboard.
 - Game state is kept separate from drawing. All content (items, enemies,
   NPCs, tiles) lives in one data registry. Randomness goes through a seeded

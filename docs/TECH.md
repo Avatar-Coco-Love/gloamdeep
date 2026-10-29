@@ -7,7 +7,9 @@ at build plan step 7 (D-039).
 - Vanilla HTML, CSS and JavaScript. No frameworks, no build step. Opening
   `index.html` through any static server must work.
 - No external assets: no image, audio or font files, and nothing loaded from
-  a CDN. Visuals use Canvas 2D, sound uses Web Audio.
+  a CDN. Visuals use Canvas 2D, sound uses Web Audio. One exception:
+  `share.png`, the picture a shared link shows, drawn by the game's code
+  through `tools/sharecard.js`, never by hand (D-425).
 - Phone first, landscape only (D-377): a phone held upright is asked to turn (`src/input/upright.js`). Tap targets are at least 44 px.
   Touch, mouse and keyboard all work (Pointer Events for tap and click).
 - 60 fps on a mid-range phone. Avoid allocating memory every frame. The
@@ -68,6 +70,7 @@ tests/              node --test, for core/ only
 tools/playtest.js   packs the game into one page for playtests (D-073);
                     not part of the game, which has no build step
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
+tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 ```
 ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.

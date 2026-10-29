@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.166', date: '2026-10-29', title: 'A share card', lines: [
+    "A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line \"Carry a lantern down through the gloam.\" Nothing in the game itself changes.",
+    "The picture, share.png, is the one image file allowed. A script, tools/sharecard.js, draws it with the game's own code; it is drawn again when the title art changes.",
+    "Decisions: D-425.",
+  ] },
   { v: '0.2.165', date: '2026-10-28', title: 'A guard round the pad', lines: [
     "Tap to walk is now Off at first, and switched off once for everyone, saved games too. Turn it back on in Settings. You walk by swiping or with the arrow pad.",
     "A ring about a thumb wide round the arrow pad now ignores taps and held fingers, so a thumb that misses the pad no longer sends the hero walking. A swipe that starts there still steps.",

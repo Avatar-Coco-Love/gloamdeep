@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.166 (2026-10-29)
+- A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line "Carry a lantern down through the gloam." Nothing in the game itself changes.
+- The picture, `share.png`, is the one image file allowed. A script, `tools/sharecard.js`, draws it with the game's own code; it is drawn again when the title art changes.
+- Decisions: D-425.
+
 ## 0.2.165 (2026-10-28)
 - Tap to walk is now Off at first, and switched off once for everyone, saved games too. Turn it back on in Settings. You walk by swiping or with the arrow pad.
 - A ring about a thumb wide round the arrow pad now ignores taps and held fingers, so a thumb that misses the pad no longer sends the hero walking. A swipe that starts there still steps.
@@ -32,8 +37,3 @@ Entry format:
 - Nothing in the game changes. The fourth audit: the screens for a new profile's name and look, and Rename and Look, move word for word from screens.js into their own file, profilescreens.js.
 - Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; CLAUDE.md's file table is tidied, its rules word for word. The next audit is at 0.2.184.
 - Decisions: D-421.
-
-## 0.2.163 (2026-10-28)
-- The name pad (Name and Rename) is much bigger and split for thumbs: A to M on the left half of the card, N to Z on the right, the middle left open. Del sits bottom left after M, OK bottom right after Z.
-- The keys grow to fill the card, about three times as wide and twice as tall as before, and their letters, the typed name and its box are twice as big. The arrows walk across the split; tapping, clicking and typing work as before.
-- Decisions: D-420.
