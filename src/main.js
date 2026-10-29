@@ -41,13 +41,15 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 
-const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room');
-const { ctx, listCtx, roomCtx } = createScreen(canvas, list, roomCanvas);
-// A point on the menus' picture, in its pixels → the same point on the room's canvas, which fills the screen (D-381)
-const toRoom = ([px, py]) => {
-  const a = canvas.getBoundingClientRect(), b = roomCanvas.getBoundingClientRect(), k = roomCanvas.width / b.width;
+const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
+const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
+// A point on the menus' picture, in its pixels → the same point on a canvas filling the screen: the room's (D-381),
+// or the screen layer's over it, with the panel, plaques and cards (D-444)
+const onCanvas = (to) => ([px, py]) => {
+  const a = canvas.getBoundingClientRect(), b = to.getBoundingClientRect(), k = to.width / b.width;
   return [(a.left + px / canvas.width * a.width - b.left) * k, (a.top + py / canvas.height * a.height - b.top) * k];
 };
+const toRoom = onCanvas(roomCanvas), toLayer = onCanvas(hudCanvas);
 document.getElementById('version').textContent = VERSION;
 addAppCard(); // so a phone can put the game on its home screen (D-375)
 
@@ -248,11 +250,12 @@ function nudgeToward(dir) {
 // Tap to walk off, only the tap on the hero, a plaque or a bench beside works (D-408).
 // A tap past the room's edge, where nothing can be walked, does nothing (D-424).
 // held: the same from a finger held still, which walks anew instead of stopping (D-408)
-const stepToward = (px, py, held = false) => {
-  const spot = frame.plaqueSpot(px, py); // a plaque frames its creature, or lets it go; no turn passes (CL2)
+// picX, picY: on the menus' picture, in its pixels
+const stepToward = (picX, picY, held = false) => {
+  const spot = frame.plaqueSpot(...toLayer([picX, picY])); // a plaque frames its creature, or lets it go; no turn passes (CL2)
   if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
   if (app.walk && !held) { app.walk = null; return; }
-  const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
+  const [px, py] = toRoom([picX, picY]), h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
   if (offEdge(app.state.room, tx, ty)) return; // past the room's edge a tap does nothing (D-424)
   const dir = toward(h.x, h.y, tx, ty);
@@ -292,12 +295,12 @@ function hear(events) {
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
 // § switch: the lantern button and the L key, free at any time in play (D-080, D-081); it ticks (D-257)
 const switchIt = () => { if (app.screen === 'play') { const before = app.state; app.state = switchLantern(before); hear(eventsSince(before, app.state)); } };
-const lanternButton = createLanternButton(roomCanvas, { onSwitch: switchIt });
-const pauseButton = createPauseButton(roomCanvas, { onPause: () => screens.pause() });
-const mapButton = createMapButton(roomCanvas, { onMap: () => screens.toggleMap() });
-const bagButton = createBagButton(roomCanvas, { onBag: () => screens.toggleBag() });
+const lanternButton = createLanternButton(hudCanvas, { onSwitch: switchIt });
+const pauseButton = createPauseButton(hudCanvas, { onPause: () => screens.pause() });
+const mapButton = createMapButton(hudCanvas, { onMap: () => screens.toggleMap() });
+const bagButton = createBagButton(hudCanvas, { onBag: () => screens.toggleBag() });
 // § quick slot: pours the first flask in the bag, one turn, like the bag's Pour (D-384)
-const quickSlot = createQuickSlot(roomCanvas, { onPour: () => { const i = firstFlask(app.state.bag); if (app.screen === 'play' && i >= 0) tryStep({ pour: i }); } });
+const quickSlot = createQuickSlot(hudCanvas, { onPour: () => { const i = firstFlask(app.state.bag); if (app.screen === 'play' && i >= 0) tryStep({ pour: i }); } });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
@@ -307,7 +310,7 @@ function freshView() {
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
 // keeps stepping at the held pace (D-406), in update below
-const arrowPad = createArrowPad(roomCanvas, { onPress: (dir) => {
+const arrowPad = createArrowPad(hudCanvas, { onPress: (dir) => {
   app.padDir = dir;
   if (dir && app.screen === 'play') { app.walk = null; tryStep(dir); lastHeldStep = performance.now(); }
 } });
@@ -353,8 +356,8 @@ const onDir = (dir, how) => {
   else if (how !== 'swipe' || swipesWalk(app.settings)) { app.walk = null; tryStep(dir); }
 };
 const onPoint = (px, py, held) => {
-  if (app.screen === 'play') stepToward(...toRoom([px, py]), held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'title'].includes(app.screen) ? toRoom([px, py]) : [px, py])); // the cards and the title are on the room (D-385, D-387 to D-391, D-393 to D-401)
+  if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
@@ -369,7 +372,7 @@ const input = createInput(stage, canvas, {
   onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
 });
-const mapMoves = createMapMoves(stage, roomCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
+const mapMoves = createMapMoves(stage, hudCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
 const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   get: () => app.state,
   still,
@@ -391,8 +394,8 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   goOutside: () => goToPlace(app.state, 'woods'), // the woods, on the surface too (D-209)
   settings: () => app.settings,
   camera: () => app.cam,
-}, roomCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt });
+}, hudCanvas);
+const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

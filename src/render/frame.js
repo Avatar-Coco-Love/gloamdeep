@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, fitTitle } from './screen.js';
+import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawHero, drawItems, drawEnemies, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
@@ -63,10 +63,10 @@ const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier']);
 const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 
-// `ui`: the canvases (the menus' picture, the creature list's row, and the room filling the screen behind them,
-// D-381), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
+// `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
+// D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern button, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, mapButton, arrowPad, quickSlot, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -75,7 +75,7 @@ export function createFrame(app, ui) {
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas'), spare = document.createElement('canvas');
   let wide = null, mx = 0, my = 0, drawnThere = null; // and past the crypt's doorway out, the woods as drawn (D-438)
-  const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 1;
+  const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
@@ -104,12 +104,19 @@ export function createFrame(app, ui) {
   // § veil around: a menu over play dims its own picture (menu.js); the room
   // around the picture gets the same veil, so the whole screen dims once (D-381)
   function veilAround() {
-    const r = canvas.getBoundingClientRect(), b = rc.canvas.getBoundingClientRect();
-    const k = rc.canvas.width / b.width, x = (r.left - b.left) * k, y = (r.top - b.top) * k;
-    rc.save();
-    rc.beginPath(); rc.rect(0, 0, view.w, view.h); rc.rect(x, y, r.width * k, r.height * k); rc.clip('evenodd');
-    rc.globalAlpha = VEIL; rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h);
-    rc.restore();
+    const r = canvas.getBoundingClientRect(), b = hc.canvas.getBoundingClientRect();
+    const k = hc.canvas.width / b.width, x = (r.left - b.left) * k, y = (r.top - b.top) * k;
+    hc.save();
+    hc.beginPath(); hc.rect(0, 0, view.w, view.h); hc.rect(x, y, r.width * k, r.height * k); hc.clip('evenodd');
+    hc.globalAlpha = VEIL; hc.fillStyle = '#0e0c16'; hc.fillRect(0, 0, view.w, view.h);
+    hc.restore();
+  }
+
+  // (x, y, size) in the room canvas's pixels → [x, y, size] in the screen layer's (D-444)
+  function onLayer(x, y, size) {
+    const r = rc.canvas.getBoundingClientRect(), b = hc.canvas.getBoundingClientRect();
+    const z = r.width / rc.canvas.width * (hc.canvas.width / b.width), k = hc.canvas.width / b.width;
+    return [(r.left - b.left) * k + x * z, (r.top - b.top) * k + y * z, size * z];
   }
 
   // The picture's top left on the room canvas; on the title's screens both have the same zoom (screen.js)
@@ -159,6 +166,7 @@ export function createFrame(app, ui) {
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
     const onTitle = screens.onTitle();
     fitTitle(onTitle); // the title's scene fills the screen at the picture's zoom
+    hc.clearRect(0, 0, view.w, view.h); // the screen layer, see-through but for what is drawn on it below
     if (onTitle) { arrowPad.show(false, 1); rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); ctx.clearRect(0, 0, W, SCREEN_H); onTitleScreens(t); return; }
     ctx.clearRect(0, 0, W, SCREEN_H); // see-through over the room, but for a menu
     const { state, shown, nudge, hit, jab, bitten, travel, fall, walk } = app;
@@ -166,6 +174,7 @@ export function createFrame(app, ui) {
     let nx = 0, ny = 0;
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
+    fitRoomCols(s.room.cols); // a narrow room zooms in to fill the width, with a margin (D-441)
     const out = outside(s); // the woods past the doorway, as they are now (D-438)
     if (s.room !== drawnRoom || (out && out.there) !== drawnThere) {
       if (s.room !== drawnRoom) {
@@ -176,8 +185,8 @@ export function createFrame(app, ui) {
       drawnThere = out && out.there;
       wide = widen(drawnRoom, doors, out); mx = my = 0;
     }
-    if (past(wide.cols, view.w) > mx || past(wide.rows, view.h) > my) { // a new room, or a wider screen
-      mx = past(wide.cols, view.w); my = past(wide.rows, view.h);
+    if (past(wide.cols, roomView.w) > mx || past(wide.rows, roomView.h) > my) { // a new room, or a wider screen
+      mx = past(wide.cols, roomView.w); my = past(wide.rows, roomView.h);
       around.width = (wide.cols + 2 * mx) * TILE; around.height = (wide.rows + 2 * my) * TILE;
       drawBeyond(around.getContext('2d'), wide, mx, my, spare);
     }
@@ -187,8 +196,8 @@ export function createFrame(app, ui) {
     // § camera: centred on the sliding hero, a bump's nudge left out (D-195)
     const list = travel || fall ? null : creaturesListed(s); // none while taking stairs or falling
     const sx = Math.round(shown.x * TILE), sy = Math.round(shown.y * TILE);
-    const cam = app.cam = cameraAt(sx, sy, s.room, view.w, view.h);
-    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); // the deepest dark, only past what `around` holds
+    const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h);
+    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h); // the deepest dark, only past what `around` holds
     rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
     rc.drawImage(base, -cam.x, -cam.y);
     const P = wide.past;
@@ -232,13 +241,13 @@ export function createFrame(app, ui) {
     if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil)) && !still()) {
       const jx = Math.floor(t / 30) % 2 ? 1 : -1;
       rc.drawImage(rc.canvas, jx, 0);
-      rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : view.w - 1, 0, 1, view.h);
+      rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : roomView.w - 1, 0, 1, roomView.h);
     }
     // Taking stairs, the room dims to the deepest dark and back (D-135); a fall closes it the same way; the hearts and oil stay
     const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / FADE_MS) : dark;
     if (dim > 0) {
       rc.globalAlpha = dim;
-      rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h);
+      rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h);
       rc.globalAlpha = 1;
     }
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
@@ -249,7 +258,10 @@ export function createFrame(app, ui) {
     const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
-    const covers = (a) => spots.some(([px, py]) => px - cam.x < a.x + a.w && px - cam.x + TILE > a.x && py - cam.y < a.y + a.h && py - cam.y + TILE > a.y);
+    const covers = (a) => spots.some(([px, py]) => { // on the screen layer, where the panel and the corner pieces are (D-444)
+      const [x, y, size] = onLayer(px - cam.x, py - cam.y, TILE);
+      return x < a.x + a.w && x + size > a.x && y < a.y + a.h && y + size > a.y;
+    });
     const dt = Math.max(0, t - panel.t), fade = (alpha, goal) => (still() ? goal : alpha + Math.sign(goal - alpha) * Math.min(Math.abs(goal - alpha), dt / FADE_PANEL_MS));
     panel.alpha = fade(panel.alpha, covers({ x: 2, y: 2, ...under }) ? UNDER_ALPHA : 1);
     panel.t = t;
@@ -260,40 +272,40 @@ export function createFrame(app, ui) {
     const padOn = app.screen === 'play' && padShown(app.settings);
     padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
     arrowPad.show(padOn, padAlpha);
-    Object.assign(panel, drawStatus(rc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end }; // where the list sits, in the room canvas's pixels
-      rc.save(); rc.globalAlpha = panel.alpha;
-      drawCreatureList(rc, list, row.x, row.y, row.across, row.end, isFramed);
-      rc.restore();
+      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
+      hc.save(); hc.globalAlpha = panel.alpha;
+      drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
+      hc.restore();
     }
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
-    if (!CARDS.has(app.screen)) textLine.draw(rc, line, t, still()); // over a card instead, below
+    if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
     if (!CLEAR_OVER.has(app.screen)) veilAround();
-    if (app.screen === 'paused') drawPauseCard(rc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
-    else if (app.screen === 'settings') drawSettingsCard(rc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
-    else if (app.screen === 'ways') drawWays(rc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
-    else if (app.screen === 'easier') drawAskCard(rc, view.w, view.h, ...screens.askOf('easier'), SURE_MENU, app.chosen); // the ask card on the room (D-400)
-    else if (app.screen === 'seed') drawSeedCard(rc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
-    else if (app.screen === 'howto') drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
-    else if (app.screen === 'history') drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
-    else if (app.screen === 'journal') drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
-    else if (app.screen === 'map') drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
+    if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
+    else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
+    else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
+    else if (app.screen === 'easier') drawAskCard(hc, view.w, view.h, ...screens.askOf('easier'), SURE_MENU, app.chosen); // the ask card on the room (D-400)
+    else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
+    else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
+    else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
+    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
+    else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(rc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
-      textLine.draw(rc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
+      textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'bench') {
-      drawBenchPanel(rc, view.w, view.h, benchMakes(state.bag), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
-      textLine.draw(rc, line, t, still()); // "You make a stash chest."
+      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
+      textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {
-      drawChestPanel(rc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still()); // a card on the room (D-387)
-      textLine.draw(rc, line, t, still()); // "Your bag is full."
+      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still()); // a card on the room (D-387)
+      textLine.draw(hc, line, t, still()); // "Your bag is full."
     }
     else dev.draw(rc, state, cam);
   }
@@ -301,7 +313,7 @@ export function createFrame(app, ui) {
   // A new journey draws its room afresh
   const redraw = () => { drawnRoom = null; };
   // § plaques for taps (CL2): the shown spot (main.js) of the creature whose plaque is under
-  // px, py, in the room canvas's pixels; the list's spots in order; or null and [] with no list
+  // px, py, in the screen layer's pixels (D-444); the list's spots in order; or null and [] with no list
   function plaqueSpot(px, py) {
     if (!row) return null;
     const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px, py);

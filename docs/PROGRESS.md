@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.174 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.175 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Build the camera with a margin (D-441); the corner fade (D-442) is the
-step after. Then the scope, part 2 (`SCOPE.md`, D-413). Half and
+The corner fade (D-442): every corner piece fades over the hero. Then
+easing the zoom between rooms (D-444), and the scope, part 2 (`SCOPE.md`,
+D-413). Half and
 Automatic wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -38,6 +39,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.175, the camera with a margin.** A narrow room zooms
+  in to fill the width with a 1½-tile margin, between 9 and 11 tiles
+  tall; the camera stops 1½ tiles past every edge, the rock and woods
+  showing there (D-441, D-443). Found before merging: the cards were
+  zoomed too and cut off; now the panel, plaques, text line and cards
+  are on their own layer at the old zoom (D-444). [Playtest](https://claude.ai/artifact/SiC27uwdNQCbZGRnnSMgY1).
 - **2026-10-29, 0.2.174, the camera, pictures.** The owner's idea: the
   camera never goes past the room. Pictures drawn by the game; picked C,
   narrow rooms zoom to fill the width with a 1½-tile margin (D-441); every
@@ -49,8 +56,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   light and memory, the lantern spilling out with tree shadows (D-439).
   Other rooms unchanged, pixel for pixel. Found: Q-070.
   [Playtest](https://claude.ai/artifact/WhSSEFNqsK5XHnoCxqtdPB).
-- **2026-10-29, 0.2.172, the woods past the doorway, pictures.** Pictures
-  drawn by the game: the real woods room or a made-up path. Picked: the
-  real woods as they are now, "completely accurate" (D-438), in the woods'
-  own light, moonlit at night (D-439); each place shows itself, a rule
-  (D-440). [Pictures](https://claude.ai/artifact/X8Fuaxofr3C5dkJ523ByuZ).

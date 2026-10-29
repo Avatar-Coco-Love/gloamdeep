@@ -1,6 +1,6 @@
 // § overlay: dev mode's grid and pointed-tile outline (D-045). Drawn on top
 // of the game; it only reads where things are, it never changes them.
-import { TILE, view } from './screen.js';
+import { TILE, roomView as view } from './screen.js';
 
 const GRID = 'rgba(255,255,255,.2)';
 const POINTED = '#ffc65c'; // the page's focus colour

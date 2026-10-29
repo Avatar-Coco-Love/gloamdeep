@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.172, the woods past the doorway, pictures.** Pictures
+  drawn by the game: the real woods room or a made-up path. Picked: the
+  real woods as they are now, "completely accurate" (D-438), in the woods'
+  own light, moonlit at night (D-439); each place shows itself, a rule
+  (D-440). [Pictures](https://claude.ai/artifact/X8Fuaxofr3C5dkJ523ByuZ).
 - **2026-10-29, 0.2.171, a faster last pass of light.** Half, built as
   decided, ran no faster, so it is on hold (Q-069). The time was past the
   room's edge: that darkness is now worked once with the memory. Every
