@@ -1,8 +1,14 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.166)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.167)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, and 0.2.166 at 0.2.169. Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, and 0.2.167 at 0.2.171. Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.167 (2026-10-29)
+- Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.
+- The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.
+- If your journey can't be saved, because the browser's storage is full or blocked, the text line now says "Your journey could not be saved." in amber, once. Before, saving failed silently.
+- Decisions: D-426, D-427 and D-428. Questions opened: Q-068.
 
 ## 0.2.166 (2026-10-29)
 - A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line "Carry a lantern down through the gloam." Nothing in the game itself changes.

@@ -21,7 +21,8 @@ at build plan step 7 (D-039).
   light at most 8 ms of it. `node tools/perf.js` times play on a simulated
   slow phone (the processor 4× slower); a PR that changes drawing runs it
   before and after and gives both. At 0.2.168: about 20 ms a frame, the
-  light 16.5 ms, about 45 fps.
+  light 16.5 ms, about 45 fps. At 0.2.171 (another day, the same machine
+  slower): walking about 27 ms a frame, the light 19.5 ms, about 31 fps.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - No blue flash on tap (D-011). Set `-webkit-tap-highlight-color:

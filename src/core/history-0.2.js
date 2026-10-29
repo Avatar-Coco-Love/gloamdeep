@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.171', date: '2026-10-29', title: 'A faster last pass of light', lines: [
+    "The lighting is worked out faster again, so play is smoother on slower phones: walking on a simulated slow phone runs about 31 frames a second instead of 22 to 25. Every pixel looks exactly as before; this was checked on 1,200 pictures.",
+    "The Half choice was built and measured first, but it ran no faster, so it is not in the game; Half and Automatic wait until the light is measured again. When the Light line comes, it goes after Motion, and Automatic is where it starts.",
+    "Decisions: D-436 and D-437. Questions opened: Q-069.",
+  ] },
   { v: '0.2.170', date: '2026-10-29', title: 'The light on every screen', lines: [
     "Fixed: on some screen sizes, such as a phone held sideways, the whole light went black in caves bigger than the screen, so the hero and lantern vanished. The view now always stops on a whole pixel, and a test checks it.",
     "Decisions: D-434.",

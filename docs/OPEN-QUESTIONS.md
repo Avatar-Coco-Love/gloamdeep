@@ -115,3 +115,9 @@ The owner's idea: past a small room's edge, a room on the same depth
 there or something in it shines (a torch, a glow). Still open: how near
 it must be, how it looks unvisited, and whether it shows on the surface.
 Needs rooms placed beside each other outside the map; its own step.
+
+**Q-069 · Half and Automatic, now?** (raised 2026-10-29, D-436)
+Half as D-432 says barely sped the light up. With the last pass faster,
+the lights' own work is a bigger share: measure again, then build Half
+and Automatic as decided, make Half do more (softer shadows, pictures
+first), or drop them. The code that was built is easy to redo.

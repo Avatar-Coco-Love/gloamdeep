@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.168, smoother light, a speed check.** The light
+  reuses work that hasn't changed, every pixel the same (3,456 pictures):
+  on a simulated slow phone about 45 fps instead of 37 (D-429).
+  `tools/perf.js` and a frame budget in `TECH.md` (D-430); one step a
+  conversation (D-431). [Playtest](https://claude.ai/artifact/6vCMhWMRrz9oKxRTy3BKjH).
 - **2026-10-29, 0.2.167, a bug, faster light, a save warning.** A check
   of the game (tests, 360,000 random turns, a slow-phone timing) found a
   creature and the hero sharing a tile after stairs or a fall: it steps
