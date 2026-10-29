@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.165 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.166 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -36,6 +36,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.166, a share card.** A shared link now shows the
+  title scene (the owner's pick, A), "Carry a lantern down through the
+  gloam." and the name; `share.png` is the one image file, drawn by
+  `tools/sharecard.js` (D-425). Shows once the game is on GitHub Pages.
+  [Mock-ups](https://claude.ai/artifact/5jwNkYCqQZLjbsvMSRHHaz).
 - **2026-10-28, 0.2.165, a guard round the pad.** Taps in a thumb-wide
   ring round the arrow pad no longer walk; Tap to walk is Off at first,
   turned off once for everyone (D-422, supersedes part of D-406); a tap
@@ -46,7 +51,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   `screens.js` (50 → 45 KB) into `profilescreens.js`; making a profile
   plays the same as the old build. `CHANGELOG.md` 7.3 → 2 KB; `CLAUDE.md`'s
   file table tidied. No playtest: nothing to play.
-- **2026-10-28, 0.2.163, a bigger name pad.** The name pad's keys fill
-  the card, split for thumbs: A to M left, N to Z right, Del and OK at
-  the bottom corners; letters and the typed name twice as big (D-420).
-  [Playtest](https://claude.ai/artifact/4Ha8DYJAEaXeV8pztB7Bhd).

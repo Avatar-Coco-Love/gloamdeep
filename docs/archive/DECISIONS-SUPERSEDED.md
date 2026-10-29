@@ -30,3 +30,9 @@ For now the rat only sits there. Walking into it flashes it white for
 0.14 s, shakes the room a pixel side to side for 0.12 s (none with
 reduced motion), and says its line. Like bumping a wall, it passes no
 turn and burns no oil. Fighting comes in a later step (Q-030).
+
+**D-416 · 2026-10-28 · Skills, all four ways** *Superseded by D-419
+(2026-10-28).* (the owner's picks: all four, "a combination sounds nice") Embers buy a Growth tree; big
+abilities are found; NPCs teach some; and learning by doing covers only
+mining, woodcutting, fishing, farming and cooking, each level a small
+perk, so fighting stays with levels and embers.

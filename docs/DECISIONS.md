@@ -142,12 +142,6 @@ rebuilt at home as their own stations. Items are fixed, with rare finer
 versions from portal depths. Nothing wears out. Better tools open
 tougher materials.
 
-**D-416 · 2026-10-28 · Skills, all four ways** *Superseded by D-419
-(2026-10-28).* (the owner's picks: all four, "a combination sounds nice") Embers buy a Growth tree; big
-abilities are found; NPCs teach some; and learning by doing covers only
-mining, woodcutting, fishing, farming and cooking, each level a small
-perk, so fighting stays with levels and embers.
-
 **D-417 · 2026-10-28 · What creatures drop** (the owner's picks,
 recommended; narrows Q-061) Each creature leaves its own common material,
 and some a rare one too, each at its own chance. They go into gear and
@@ -205,3 +199,12 @@ recommended; changes D-409's far tap) A tap or held finger past the
 room's edge, where the rock, brick or trees go on (D-403), does nothing,
 even beside a doorway. A tap on a wall or unknown dark inside the room
 still walks as near as it can (D-408, D-409). Built in 0.2.165.
+
+**D-425 · 2026-10-29 · The share card** (the owner's picks: A, the
+first sentence, the script) A link to the game
+shows a card: the title screen without its menu, the hero in the
+lantern's light under the name, 1200 × 630, with "Gloamdeep" and the
+line "Carry a lantern down through the gloam." `share.png` is the one
+image file allowed (an exception to D-003's no image files): drawn by
+`tools/sharecard.js` with the game's own code, never by hand, and drawn
+again when the title art changes. Built in 0.2.166.
