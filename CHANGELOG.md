@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.173 (2026-10-29)
+- Past the crypt's doorway that leads outside, the real woods now show: the woods room itself, placed so its cave mouth lies just past the doorway, with its trees, the rocks beside the mouth, its grass, sticks and fallen branch, and anything changed in play there, such as a stump where a tree was felled or a chest set down. Past the woods' own edges, trees go on.
+- The woods there keep their own light: full daylight by day, fading through dusk, and at night only the tiles remembered in the woods show, moonlit blue. The lantern's light spills out through the doorway onto the grass, with the trees casting shadows; the daylight that comes in through the cave mouth stays inside.
+- Play away from that doorway looks exactly as before, checked on pictures of other rooms by day and night.
+- Decisions: built as D-438, D-439 and D-440 say. Questions opened: Q-070.
+
 ## 0.2.172 (2026-10-29)
 - Nothing in the game changes yet. Pictures drawn by the game compared two ways to show the woods past the crypt's doorway that leads outside. Picked: the real woods room itself, as it is now, with its trees, rocks, sticks, fallen branch and anything changed in play, so what you see is where you walk. The owner's words: "It needs to be completely accurate."
 - The woods past the doorway will keep the woods' own light: daylight by the time of day, dusk, and a moonlit night.
@@ -35,9 +41,3 @@ Entry format:
 ## 0.2.170 (2026-10-29)
 - Fixed: on some screen sizes, such as a phone held sideways, the whole light went black in caves bigger than the screen, so the hero and lantern vanished. The view now always stops on a whole pixel, and a test checks it.
 - Decisions: D-434.
-
-## 0.2.169 (2026-10-29)
-- Nothing in the game changes. Pictures drawn by the game compare today's light with two half-size lights, worked out on one pixel in four. The soft one is picked for a Half choice: it looks almost the same, with shadow edges a touch softer, and runs about 35 frames a second on a simulated slow phone instead of 26 to 30.
-- Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.
-- Found: on some screen sizes the whole light goes black in rooms bigger than the screen, so the hero and lantern vanish. Its fix is the next step.
-- Decisions: D-432, D-433, D-434 and D-435. Questions closed: Q-068.

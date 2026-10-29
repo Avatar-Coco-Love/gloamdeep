@@ -1,8 +1,14 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.168)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.169)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, and 0.2.168 at 0.2.172. Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, and 0.2.169 at 0.2.173. Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.169 (2026-10-29)
+- Nothing in the game changes. Pictures drawn by the game compare today's light with two half-size lights, worked out on one pixel in four. The soft one is picked for a Half choice: it looks almost the same, with shadow edges a touch softer, and runs about 35 frames a second on a simulated slow phone instead of 26 to 30.
+- Picked for later: an Automatic choice that switches the light to half after 3 seconds under 50 frames a second, until the game is opened again.
+- Found: on some screen sizes the whole light goes black in rooms bigger than the screen, so the hero and lantern vanish. Its fix is the next step.
+- Decisions: D-432, D-433, D-434 and D-435. Questions closed: Q-068.
 
 ## 0.2.168 (2026-10-29)
 - The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.
