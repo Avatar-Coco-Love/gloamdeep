@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.171 (2026-10-29)
+- The lighting is worked out faster again, so play is smoother on slower phones: walking on a simulated slow phone runs about 31 frames a second instead of 22 to 25. Every pixel looks exactly as before; this was checked on 1,200 pictures.
+- The Half choice was built and measured first, but it ran no faster, so it is not in the game; Half and Automatic wait until the light is measured again. When the Light line comes, it goes after Motion, and Automatic is where it starts.
+- Decisions: D-436 and D-437. Questions opened: Q-069.
+
 ## 0.2.170 (2026-10-29)
 - Fixed: on some screen sizes, such as a phone held sideways, the whole light went black in caves bigger than the screen, so the hero and lantern vanished. The view now always stops on a whole pixel, and a test checks it.
 - Decisions: D-434.
@@ -35,9 +40,3 @@ Entry format:
 - The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.
 - A new tool, `tools/perf.js`, times play on a simulated slow phone, and `docs/TECH.md` now has a frame budget: 16.7 ms a frame in all, the light at most 8 ms. Changes to drawing are timed before and after.
 - Decisions: D-429, D-430 and D-431.
-
-## 0.2.167 (2026-10-29)
-- Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.
-- The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.
-- If your journey can't be saved, because the browser's storage is full or blocked, the text line now says "Your journey could not be saved." in amber, once. Before, saving failed silently.
-- Decisions: D-426, D-427 and D-428. Questions opened: Q-068.
