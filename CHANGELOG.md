@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.168 (2026-10-29)
+- The lighting is worked out about a fifth faster again, so play is smoother on slower phones: on a simulated slow phone, about 45 frames a second instead of 37. Every pixel looks exactly as before; this was checked on 3,456 pictures.
+- A new tool, `tools/perf.js`, times play on a simulated slow phone, and `docs/TECH.md` now has a frame budget: 16.7 ms a frame in all, the light at most 8 ms. Changes to drawing are timed before and after.
+- Decisions: D-429, D-430 and D-431.
+
 ## 0.2.167 (2026-10-29)
 - Fixed: a creature standing where you arrive (on stairs, through a doorway) or wake after a fall now steps aside to the nearest free tile. Before, you and it shared one tile, both stuck: it couldn't bite and you couldn't hit it.
 - The lighting is worked out about twice as fast, so play should run smoother on phones. Every pixel looks exactly as before; this was checked picture by picture.
@@ -31,10 +36,3 @@ Entry format:
 - A shared link to the game now shows a card: the title screen without its menu, the hero in the lantern's light under the name, with the line "Carry a lantern down through the gloam." Nothing in the game itself changes.
 - The picture, `share.png`, is the one image file allowed. A script, `tools/sharecard.js`, draws it with the game's own code; it is drawn again when the title art changes.
 - Decisions: D-425.
-
-## 0.2.165 (2026-10-28)
-- Tap to walk is now Off at first, and switched off once for everyone, saved games too. Turn it back on in Settings. You walk by swiping or with the arrow pad.
-- A ring about a thumb wide round the arrow pad now ignores taps and held fingers, so a thumb that misses the pad no longer sends the hero walking. A swipe that starts there still steps.
-- A tap or held finger past the room's edge, where there is no way, now does nothing; before, the hero headed that way. A tap on a wall or unexplored dark inside the room still walks as near as it can.
-- Decided, not built yet: past a doorway that leads outside, the woods will go on instead of brick, with a grass path and daylight. Pictures come first.
-- Decisions: D-422, which supersedes part of D-406, D-423 and D-424.

@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.167 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.168 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Pictures of the woods going on past the crypt's doorway outside, drawn
-by the game, for the owner to pick from (D-423); then the scope, part 2
+Pictures of the light worked at half size beside today's, and how an
+Automatic choice would switch, for the owner to pick from (Q-068); then
+the woods past the crypt's doorway outside (D-423), then the scope, part 2
 (`SCOPE.md`, D-413). Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -23,7 +24,8 @@ by the game, for the owner to pick from (D-423); then the scope, part 2
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
-- Smoother on slower phones: half-size light, WebGL, or a phone test first (Q-068), any time.
+- The half-size light: its look, names and Automatic (Q-068), next up.
+- Your phone's fps (Settings → Stats line) and its model, any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -37,6 +39,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.168, smoother light, a speed check.** The light
+  reuses work that hasn't changed, every pixel the same (3,456 pictures):
+  on a simulated slow phone about 45 fps instead of 37 (D-429).
+  `tools/perf.js` and a frame budget in `TECH.md` (D-430); one step a
+  conversation (D-431). [Playtest](https://claude.ai/artifact/6vCMhWMRrz9oKxRTy3BKjH).
 - **2026-10-29, 0.2.167, a bug, faster light, a save warning.** A check
   of the game (tests, 360,000 random turns, a slow-phone timing) found a
   creature and the hero sharing a tile after stairs or a fall: it steps
@@ -48,8 +55,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   gloam." and the name; `share.png` is the one image file, drawn by
   `tools/sharecard.js` (D-425). Shows once the game is on GitHub Pages.
   [Mock-ups](https://claude.ai/artifact/5jwNkYCqQZLjbsvMSRHHaz).
-- **2026-10-28, 0.2.165, a guard round the pad.** Taps in a thumb-wide
-  ring round the arrow pad no longer walk; Tap to walk is Off at first,
-  turned off once for everyone (D-422, supersedes part of D-406); a tap
-  past the room's edge does nothing (D-424). The woods will go on past a doorway outside, pictures first (D-423).
-  [Playtest](https://claude.ai/artifact/JcUHw3cDfELW4oWKGYYz6r).

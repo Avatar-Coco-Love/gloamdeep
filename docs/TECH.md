@@ -17,6 +17,11 @@ at build plan step 7 (D-039).
   native resolution small. The room's canvas fills the screen at about 11
   tiles tall (D-381), about 400 × 190 on a wide phone; the menus keep their
   own 176 × 221 canvas over it.
+- **Frame budget (D-430):** 16.7 ms a frame in all, for 60 fps; the
+  light at most 8 ms of it. `node tools/perf.js` times play on a simulated
+  slow phone (the processor 4× slower); a PR that changes drawing runs it
+  before and after and gives both. At 0.2.168: about 20 ms a frame, the
+  light 16.5 ms, about 45 fps.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - No blue flash on tap (D-011). Set `-webkit-tap-highlight-color:
@@ -71,6 +76,7 @@ tools/playtest.js   packs the game into one page for playtests (D-073);
                     not part of the game, which has no build step
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
+tools/perf.js       times play on a simulated slow phone (D-430); Playwright
 ```
 ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.
