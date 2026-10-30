@@ -20,7 +20,9 @@ export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D
 export const MIN_ROWS = 9; // a narrow room zooms in no further than this many tiles tall (D-444)
 export const view = { w: W, h: H }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), set by the fit
 export const roomView = { w: W, h: H }; // the room canvas's size in game pixels, zoomed in for a narrow room (D-441)
+export const GLIDE_MS = 400; // the room's zoom glides to a new room's this long (D-448)
 let refit = null, titled = false, roomCols = 0; // the fit, the room's width in tiles, and whether the room canvas is zoomed as the picture (the title's scene)
+let shownZoom = 0, glide = null; // the room canvas's zoom last fitted, and { from, start } while it glides (D-448)
 
 // (canvas, list, room, hud) → { ctx, listCtx, roomCtx, hudCtx }: the menus' picture, the list's row
 // below it, the room's canvas filling the screen behind them (D-381), and the screen
@@ -71,7 +73,16 @@ function fitRoom(room, roomCtx, hud, hudCtx, picture) {
   const near = titled || !roomCols ? base
     : zoom(Math.max(bh / (VIEW_ROWS * TILE), Math.min(bw / (roomCols * TILE + 2 * MARGIN), bh / (MIN_ROWS * TILE))));
   fitLayer(hud, hudCtx, base, view, picture);
-  fitLayer(room, roomCtx, near, roomView, picture);
+  shownZoom = glidingTo(near);
+  fitLayer(room, roomCtx, shownZoom, roomView, picture);
+}
+// § glide: into a room of another width, the zoom eases from the old room's to the new one's,
+// starting and landing gently, so most of it shows as the new room brightens (D-448). Between
+// whole zooms the pixels are a hair uneven for that moment.
+function glidingTo(near) {
+  const k = glide ? (performance.now() - glide.start) / GLIDE_MS : 1;
+  if (k >= 1) { glide = null; return near; }
+  return glide.from + (near - glide.from) * k * k * (3 - 2 * k);
 }
 function fitLayer(c, cx, scale, size, picture) {
   const box = c.parentElement, bw = box.clientWidth, bh = box.clientHeight;
@@ -92,13 +103,16 @@ function fitLayer(c, cx, scale, size, picture) {
 // § title fit: on (the title's screens) or off (play); the room canvas fits again when it changes
 export function fitTitle(on) {
   if (on === titled) return;
-  titled = on;
+  titled = on; glide = null;
+  if (on) roomCols = 0; // back in play, the room's zoom starts where it belongs, no glide
   refit?.();
 }
 
-// § room width: the room in play, its width in tiles; the room canvas fits again when it changes (D-441)
-export function fitRoomCols(cols) {
-  if (cols === roomCols) return;
+// § room width: the room in play, its width in tiles; the room canvas fits again when it changes
+// (D-441), its zoom gliding there unless `ease` is off (reduced motion), then every frame of the glide (D-448)
+export function fitRoomCols(cols, ease = true) {
+  if (cols === roomCols) { if (glide) refit?.(); return; }
+  glide = ease && roomCols && shownZoom ? { from: shownZoom, start: performance.now() } : null;
   roomCols = cols;
   refit?.();
 }

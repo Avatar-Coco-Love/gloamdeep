@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.175, the camera with a margin.** A narrow room zooms
+  in to fill the width with a 1½-tile margin, between 9 and 11 tiles
+  tall; the camera stops 1½ tiles past every edge, the rock and woods
+  showing there (D-441, D-443). Found before merging: the cards were
+  zoomed too and cut off; now the panel, plaques, text line and cards
+  are on their own layer at the old zoom (D-444). [Playtest](https://claude.ai/artifact/SiC27uwdNQCbZGRnnSMgY1).
 - **2026-10-29, 0.2.174, the camera, pictures.** The owner's idea: the
   camera never goes past the room. Pictures drawn by the game; picked C,
   narrow rooms zoom to fill the width with a 1½-tile margin (D-441); every

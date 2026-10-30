@@ -187,3 +187,10 @@ the wrench) and the bottom right (the lantern, the bag and the quick slot)
 each fade as a whole when the hero, or a creature beside it, is under any
 button in it, so a corner never looks half faded. The arrow pad fades on
 its own. Built in 0.2.177.
+
+**D-448 · 2026-10-30 · The zoom glides between rooms** (the owner's
+picks, all recommended; builds D-444) Into a room of another width, the
+zoom glides from the old room's to the new one's while the new room fades
+in (D-135), over 0.4 seconds, starting and landing gently. For that
+moment the pixels may be a hair uneven, then crisp again. With reduced
+motion it jumps in the dark as before. Built in 0.2.178.
