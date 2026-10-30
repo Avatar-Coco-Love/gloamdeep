@@ -29,7 +29,7 @@ export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver } from './fall.js';
-export { pour, craft, makeAt, eat, setDown, takeDown, panelBeside, setSides, look, pourByItself } from './bagturn.js';
+export { pour, craft, makeAt, eat, hold, setDown, takeDown, panelBeside, setSides, look, pourByItself } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid
 // changes nothing and passes no turn, so the same state comes back (D-043).
@@ -64,14 +64,19 @@ export function step(state, dir) {
 // has no room (D-247), or with its full line when it holds some (D-250, D-333);
 // an oilcap the same, saying one of its lines as it goes in (D-296, D-297). A herb heals, never above full, and is gone with its
 // line; at full health it stays on the floor (D-155, D-156). A weapon goes
-// into an empty hand with its line (D-252); with one held it stays for now,
-// as only one knife lies in the world. Taken is a `take` event, a herb eaten an `eat`.
+// into an empty hand with its line (D-252); with one held, into the bag, 1 a
+// slot, with its `bagged` line, and with no room it stays, "Your bag is full."
+// (D-479). Taken is a `take` event, a herb eaten an `eat`.
 // Either way it goes on the room's taken list, to grow back (regrow.js, D-306).
 function pickUp(state, found) {
   const entry = get(found.id), id = found.id;
   if (entry.fetch) return fetchBag(state, found);
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
-  if (entry.hold) return state.held ? state : note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
+  if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
+  if (entry.hold) {
+    const bag = bagAdd(state.bag, id);
+    return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
+  }
   if (entry.bag) {
     const bag = bagAdd(state.bag, id, found.form);
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
@@ -87,14 +92,32 @@ function pickUp(state, found) {
 // The foe's line is said, and an oil line
 // said on the same turn replaces it (D-112). A foe beaten is worth experience, its hearts and bite (D-245, D-371).
 // It is a `hit` event, and a foe beaten a `beat` too. A foe beaten may leave a drop (dropFrom).
+// A weapon that hits `through` (the spear) hits the creature awake behind the foe too,
+// in the line from the hero, for that much; the foe's line is the one said (D-479).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => (state.held && get(state.held)?.hit) || LANTERN_HIT;
+// The creature awake behind `foe`, seen from the hero, that the weapon held hits too, or null
+export function behind(state, foe) {
+  if (!(state.held && get(state.held)?.through)) return null;
+  const e = enemyAt(state, 2 * foe.x - state.hero.x, 2 * foe.y - state.hero.y);
+  return e && !e.asleep ? e : null;
+}
 function attack(state, foe) {
   if (foe.asleep) return wake(state, foe);
-  const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, heroHit(state));
+  const back = behind(state, foe), first = strike(state, foe, heroHit(state));
+  const both = back ? strike(first.state, back, get(state.held).through) : null;
+  let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
+  if (back) next = note(next, 'hit', { id: back.id, held: state.held });
+  for (const id of [first.beaten, both?.beaten].filter(Boolean)) next = note(gain(next, xpOf(get(id))), 'beat', { id });
+  return endTurn(state, say(next, first.line));
+}
+// One creature hit for `damage`: the state with it hurt, fled or gone and its drop
+// lying, the line it says, and its id when beaten
+function strike(state, foe, damage) {
+  const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, damage);
   const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
-  const next = note(passTurn({ ...state, enemies, items: dead ? dropFrom(state, foe, entry) : state.items }), 'hit', { id: foe.id, held: state.held });
-  return endTurn(state, say(dead ? note(gain(next, xpOf(entry)), 'beat', { id: foe.id }) : next, dead ? entry.die : stands ? entry.stands : entry.hurt));
+  const items = dead ? dropFrom(state, foe, entry) : state.items;
+  return { state: { ...state, enemies, items }, line: dead ? entry.die : stands ? entry.stands : entry.hurt, beaten: dead && foe.id };
 }
 
 // § drop: the items with what a beaten foe `drops`, about 1 time in 2 (D-453), on the

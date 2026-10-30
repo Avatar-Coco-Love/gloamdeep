@@ -36,10 +36,12 @@ test('walking onto the knife puts it in hand, not the bag, with its line', () =>
   assert.equal(shownLine(n).text, 'You take the knife.');
 });
 
-test('with a knife held, another stays on the floor', () => {
-  const n = step({ ...withKnife(), held: 'knife' }, 'up');
-  assert.equal(itemAt(n, 5, 10).id, 'knife');
-  assert.deepEqual(n.bag, []);
+test('with a weapon held, the knife goes into the bag with its line (D-479)', () => {
+  const n = step({ ...withKnife(), held: 'spear' }, 'up');
+  assert.equal(itemAt(n, 5, 10), undefined);
+  assert.deepEqual(n.bag, [{ id: 'knife', n: 1 }]);
+  assert.equal(n.held, 'spear');
+  assert.equal(shownLine(n).text, 'The knife goes in your bag.');
 });
 
 test('the knife kills a rat in one hit; the lantern takes two', () => {

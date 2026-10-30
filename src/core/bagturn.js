@@ -1,4 +1,4 @@
-// § bag turn: what the bag's buttons and the panels do: pour, make, eat, set down,
+// § bag turn: what the bag's buttons and the panels do: pour, make, eat, hold, set down,
 // take down and look (split from turn.js, D-362)
 import { tileAt, withTile } from './room.js';
 import { get } from './registry.js';
@@ -60,6 +60,16 @@ export function eat(state, i) {
   if (state.health >= maxHealth(state)) return say(state, 'notHurt');
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
   return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + entry.heal) });
+}
+
+// § hold: Hold on bag slot i puts its weapon in the hand, and the one held, if
+// any, in that slot; it passes a turn, like a pour, with its `holds` line (D-479).
+// A `hold` event.
+export function hold(state, i) {
+  const s = state.bag[i], entry = s && get(s.id);
+  if (!entry?.hold) return state;
+  const bag = state.held ? state.bag.map((o, j) => (j === i ? { id: state.held, n: 1 } : o)) : bagTake(state.bag, i);
+  return endTurn(state, say(note(passTurn({ ...state, bag, held: s.id }), 'hold', { id: s.id }), entry.holds));
 }
 
 // § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's

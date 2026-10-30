@@ -107,7 +107,7 @@ const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `setDown(slot, dir)`,
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
@@ -276,7 +276,7 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats or drinks, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks or holds, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -290,6 +290,11 @@ export function createScreens(app, ui) {
     if (make && !entry?.craft) return;
     if (entry?.oil) { show('play'); ui.pour(app.chosen); return; }
     if (entry?.sets && !make) { startSetting(); return; }
+    if (entry?.hold && !make) { // a weapon into the hand, the one held into its slot, the bag kept open (D-479)
+      ui.hold(app.chosen);
+      if (app.fall) show('play'); else spoken.textContent = slotWords(app.chosen);
+      return;
+    }
     if (entry?.eats && !make) {
       ui.eat(app.chosen);
       if (app.fall) { show('play'); return; } // a bite in that turn felled the hero

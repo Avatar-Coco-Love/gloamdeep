@@ -187,6 +187,12 @@ const KNIFE = { mirror: false, rows: [
   '', '', '.............kk.', '............kSk.', '...........kwSk.', '..........kwSk..', '.........kwSk...', '........kwSk....', '....kk.kwSk.....',
   '....kdkkSk......', '.....kddk.......', '.....kOkdk......', '....kOk.kk......', '...kOk..........', '..kOk...........', '..kk............'] };
 
+// § spear: a long wooden shaft pointing up and right, a steel head with a pale
+// edge on a dark binding, as the step 6 mock-up drew it (D-479)
+const SPEAR = { mirror: false, rows: [
+  '..........kkkk..', '.........kwSSk..', '..........kwSk..', '.........kwSkk..', '........kkkkk...', '.......kWk.k....', '......kWk.......', '.....kWk........',
+  '....kWk.........', '...kNk..........', '..kNk...........', '.kNk............', 'kNk.............', 'kk..............', '', ''] };
+
 // § rat: redrawn from the study's (D-009), side on and facing right: a pink
 // hostile eye (ART-DIRECTION.md palette), ear, nose, feet and tail (D-104)
 const RAT = { mirror: false, rows: [
@@ -254,7 +260,7 @@ const BAG_TORCH = { mirror: false, rows: [
   '.....kTOTOk.....', '......kkkk......', '......kWNk......', '......kWNk......', '......kWNk......', '...kkkkWNkkkk...',
   '..kHHLDkkHHLDk..', '...kkkk..kkkk...'] };
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -377,15 +383,16 @@ export function drawItems(c, items, t, still) {
 
 // § enemies: like items, 2 pixels up on a shadow. The rat bobs 1 pixel every
 // 0.52 s, each column in its own beat; still with reduced motion (study line 378).
-// `hit`: the enemy flashing white just now, or null (D-105). A hit that
+// `hits`: the enemies flashing white just now, the spear's two at most (D-105, D-479). A hit that
 // killed it still flashes it once, then it is gone (D-113).
 // `at`: (enemy) → the tile it is shown on, part way along while it slides (D-128).
 // One that walked left is drawn mirrored (D-158).
 // A creature's sprite, facing the way it faces, for its plaque (D-357)
 export const faceOf = (e) => dressedIn(e, e.facing === 'left');
-export function drawEnemies(c, enemies, t, still, hit, at = (e) => e) {
-  for (const e of enemies) drawEnemy(c, e, at(e), t, still, hit && e.x === hit.x && e.y === hit.y);
-  if (hit && !enemies.some((e) => e.x === hit.x && e.y === hit.y)) drawEnemy(c, hit, hit, t, still, true);
+export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e) {
+  const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
+  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e));
+  for (const h of hits) if (!enemies.some((e) => e.x === h.x && e.y === h.y)) drawEnemy(c, h, h, t, still, true);
 }
 function drawEnemy(c, e, p, t, still, flash) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);

@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -172,6 +172,7 @@ function tryStep(dir) {
   else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn (D-247)
   else if (dir.craft !== undefined) app.state = craft(app.state, dir.craft); // a flask from 3 oilcaps, one turn (D-299)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
+  else if (dir.hold !== undefined) app.state = hold(app.state, dir.hold); // a weapon from the bag into the hand, one turn (D-479)
   else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
@@ -180,7 +181,7 @@ function tryStep(dir) {
     const next = step(app.state, dir);
     const [dx, dy] = DIRS[dir], foe = enemyAt(app.state, app.state.hero.x + dx, app.state.hero.y + dy);
     to = { x: before.hero.x + dx, y: before.hero.y + dy };
-    if (foe && !foe.asleep) app.hit = { enemy: foe, ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368)
+    if (foe && !foe.asleep) app.hit = { enemies: [foe, behind(app.state, foe)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479)
     if (foe && !foe.asleep && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
     app.state = next;
@@ -229,7 +230,7 @@ function beginAgain(other) {
 // The creature list keeps each one's place in its row there too (frame.js, D-357).
 let foeShown = new Map();
 function followFoes(was, now) {
-  const alive = now.length < was.length ? was.filter((e) => e !== app.hit?.enemy) : was;
+  const alive = now.length < was.length ? was.filter((e) => !app.hit?.enemies.includes(e)) : was;
   if (alive.length !== now.length) return;
   const next = new Map();
   now.forEach((e, i) => next.set(e, foeShown.get(alive[i]) || { x: alive[i].x, y: alive[i].y }));
@@ -356,7 +357,7 @@ function dropSlot(i) {
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,
-  pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }),
+  pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)

@@ -201,7 +201,7 @@ export function createFrame(app, ui) {
       drawItems(rc, s.items, t, still());
       drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
       // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
-      drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemy : null, foeAt);
+      drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt);
     });
     // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
     const sun = s.room.dark.sky ? daylight(s.turn) : 0, lightOn = !dev.lightOff() && sun < 1;

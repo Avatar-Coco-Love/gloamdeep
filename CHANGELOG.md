@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.194 (2026-10-30)
+- A second weapon, the spear, lies in the first room of depth 3. Walking into a creature with it hits that creature for 2 and the one behind it, in a straight line, for 1. Both flash.
+- Found while you hold a weapon, a weapon now goes into your bag instead of staying on the floor. If the bag is full, it stays there.
+- Choose a weapon in the bag and press Hold: it goes into your hand and the one you held takes its slot. It takes a turn.
+- Decisions: D-479.
+
 ## 0.2.193 (2026-10-30)
 - Torches: in the bag, choose Moth Dust and press Make, and 1 Moth Dust with 1 Wood makes a torch. Without Wood the Make button is dim. Torches stack 5 to a slot.
 - Choose a torch in the bag and press Set down, then pick a side: it stands on that floor tile, in the depths too, on a stick in a ring of stones, and lights 3 tiles around like a wall torch. It blocks the way, and lampmoths come to it.
