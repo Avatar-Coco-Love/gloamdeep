@@ -4,6 +4,12 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.208', date: '2026-10-30', title: 'Selling to the peddler', lines: [
+    "Bump the peddler at home and, after his line, his card opens: your coins and your bag on the left, what he pays for the chosen thing on the right.",
+    "He buys creature materials, one at a time: 1 coin for a common one, 5 for a rare one. Pick a slot, then Sell, Enter or Space. No turn passes, and Sell is dim for what he doesn't buy.",
+    "Your coins are kept when you fall, except in Hardcore, where they go with the world. Buying from him comes later.",
+    "Decisions: D-494.",
+  ] },
   { v: '0.2.207', date: '2026-10-30', title: 'The sixth audit', lines: [
     "Nothing in the game changes. The sixth audit: the Version history's 0.2.121 to 0.2.186 move word for word from history-0.2.js into their own file, history-0.2-3.js.",
     "Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions D-491 and D-492 moved to the archive; the build plan's ticked steps 9 to 12 moved to archive/PROGRESS-LOG.md. The next audit is at 0.2.227.",

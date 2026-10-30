@@ -22,7 +22,7 @@ export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0);
 // `seed` sets every generated depth (D-148).
 export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1, people = []) {
   const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items, people };
-  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {}, stashes: {} };
+  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {}, stashes: {}, coins: 0 };
 }
 
 // § world: every place, the hero in the first one. The others wait in

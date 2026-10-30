@@ -28,6 +28,9 @@
 // it. Enter, Space, a click or a tap on a filled slot moves its whole stack to the other
 // side, free (CH4, D-331). Deconstruct, Down from either grid's bottom row, takes it
 // down the bench's way, only when empty (CH5).
+// Bumping the peddler at home, or a click or tap on him, says his line and opens his card,
+// free (D-494): arrows or a tap pick a bag slot; Sell, Enter or Space sell one of it, free;
+// the round cross, Esc, P or a tap outside the card close it.
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // A Hardcore fall shows "Your journey ends.": Same world or New world wakes the hero in the
@@ -90,6 +93,8 @@ import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
+import { tradeAt } from '../render/tradepanel.js';
+import { tradeWords, slotWords, priceOf } from '../core/trade.js';
 import { view } from '../render/screen.js';
 
 const WORDS = {
@@ -117,7 +122,7 @@ export function createScreens(app, ui) {
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'bed' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'bed'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488)
@@ -136,7 +141,7 @@ export function createScreens(app, ui) {
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? `${askOf(next).join(' ')} Yes or No.`
-      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
+      : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
@@ -363,6 +368,10 @@ export function createScreens(app, ui) {
     return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
   };
   function pickChest(i) { app.chosen = i; spoken.textContent = chestSlotWords(i); }
+  // § trade card (D-494): it opens on the first thing he buys; the frame on a slot says it and its price
+  function openTrade() { app.queued = null; show('trade', Math.max(0, app.state.bag.findIndex((s) => priceOf(s.id)))); }
+  function pickTrade(i) { app.chosen = i; spoken.textContent = slotWords(app.state, i); }
+  function sellChosen() { ui.sell(app.chosen); pickTrade(Math.min(app.chosen, Math.max(0, app.state.bag.length - 1))); }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, ${c.have} carried`).join(' and ')}${m.dim ? ', too few' : ''}`;
   const benchWords = () => `Workbench. ${benchMakes(app.state.bag).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
   // § bench card (D-387): the frame on a slot says what is made there and its cost
@@ -376,7 +385,7 @@ export function createScreens(app, ui) {
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest' || app.screen === 'bed') show('play');
+    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest' || app.screen === 'trade' || app.screen === 'bed') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -456,6 +465,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
+    if (app.screen === 'trade') { sellChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
@@ -492,6 +502,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
+    if (app.screen === 'trade') { pickTrade(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // the bag's 3 × 2 grid
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
@@ -536,6 +547,14 @@ export function createScreens(app, ui) {
       else if (at === 'make' && app.chosen !== BENCH_TAKE) choose(app.chosen); // Make shows only for a slot
       else if (at === 'take') { app.chosen = BENCH_TAKE; choose(BENCH_TAKE); }
       else if (at) pickBench(at.slot);
+      return;
+    }
+    if (app.screen === 'trade') {
+      if (held) return;
+      const at = tradeAt(px, py, view.w, view.h);
+      if (at === 'out' || at === 'close') show('play');
+      else if (at === 'sell') sellChosen();
+      else if (at) pickTrade(at.slot);
       return;
     }
     if (app.screen === 'chest') {
@@ -647,5 +666,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

@@ -25,6 +25,7 @@ import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawChestPanel } from './chestpanel.js';
+import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
 import { drawWays } from './ways.js';
@@ -60,8 +61,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -306,6 +307,10 @@ export function createFrame(app, ui) {
     else if (app.screen === 'chest') {
       drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still()); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "Your bag is full."
+    }
+    else if (app.screen === 'trade') {
+      drawTradePanel(hc, view.w, view.h, state, app.chosen, spriteOf); // a card on the room (D-494)
+      textLine.draw(hc, line, t, still()); // his home line, said as it opens
     }
     else dev.draw(rc, state, cam);
   }

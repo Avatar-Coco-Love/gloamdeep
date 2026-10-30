@@ -46,23 +46,24 @@ export const ITEMS = {
   // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,
   // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
   // (D-333); with every stack full it stays, with its `full` line. It never grows back.
-  ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull' },
+  ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull', sells: 1 },
   // The other four common materials (D-454), taken and kept the Rat Tail's way (D-475):
   // a lampmoth's Moth Dust, a scorpion's Stinger, a flask mimic's Mimic Glass and a
   // gloamling's Gloam Wisp. Make on Mimic Glass turns 1 with 2 oilcaps into a flask (D-477);
   // Make on Moth Dust turns 1 with 1 Wood into a torch (D-478).
-  mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull',
+  mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull', sells: 1,
     craft: { into: 'bagTorch', of: { mothDust: 1, wood: 1 }, says: 'torchMake' } },
-  stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull' },
-  mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull',
+  stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull', sells: 1 },
+  mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull', sells: 1,
     craft: { into: 'flask', of: { mimicGlass: 1, oilcap: 2 }, says: 'glassFlaskMake' } },
-  gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull' },
+  gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull', sells: 1 },
+  // Each common material `sells` to the peddler for 1 trade coin, each rare one for 5 (step 13a, D-494).
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic
   // Heart and a gloamling's Gloam Eye.
-  venomSac: { id: 'venomSac', kind: 'item', name: 'Venom Sac', bag: true, max: 20, says: 'venomSacTake', look: 'venomSacLook', full: 'venomSacFull' },
-  mimicHeart: { id: 'mimicHeart', kind: 'item', name: 'Mimic Heart', bag: true, max: 20, says: 'mimicHeartTake', look: 'mimicHeartLook', full: 'mimicHeartFull' },
-  gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull' },
+  venomSac: { id: 'venomSac', kind: 'item', name: 'Venom Sac', bag: true, max: 20, says: 'venomSacTake', look: 'venomSacLook', full: 'venomSacFull', sells: 5 },
+  mimicHeart: { id: 'mimicHeart', kind: 'item', name: 'Mimic Heart', bag: true, max: 20, says: 'mimicHeartTake', look: 'mimicHeartLook', full: 'mimicHeartFull', sells: 5 },
+  gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull', sells: 5 },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.205, the rescue.** Step 12b: the rubble around
+  the peddler is dug like a deposit, 3 bumps a turn each, no tool, no
+  stone, and he calls out as you dig. Clear one heap and he thanks you
+  and is gone, heading home (D-491). Playtest:
+  https://claude.ai/artifact/9VefmamSpciKvZjazBBo8N
 - **2026-10-30, 0.2.204, the trapped peddler.** Step 11 ends with
   the bed, and step 12 begins in three small steps (D-489, D-490). In
   one depth 3 room, a peddler (look A) stands in a ring of rubble and

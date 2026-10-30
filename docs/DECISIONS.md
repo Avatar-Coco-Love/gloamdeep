@@ -179,3 +179,17 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 9 to 12 move to `archive/PROGRESS-LOG.md`. `CLAUDE.md` is left as it
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
+
+**D-494 · 2026-10-30 · The vendor begins: selling to the peddler** (the
+owner's picks, all recommended; step 13a of D-482, builds D-471 and
+D-472) Step 13 starts with selling only; buying from him comes later.
+Bumping the peddler at home says his home line, as before, and opens
+his card, "PEDDLER": the coins carried and the bag's 6 slots on the
+left, the chosen stack's name, count and price on the right, SELL in
+the corner, dim for what he doesn't buy. A tap picks a slot; SELL,
+Enter or Space sell one of it, free, no turn. He buys only creature
+materials so far: each common one for 1 trade coin, each rare one for
+5, the price kept in the registry as `sells`. The names stay plain,
+"Peddler" and "coins". Coins are kept on a fall in Gentle and Normal
+and lost with the world when Hardcore starts over. An older save has
+none yet.
