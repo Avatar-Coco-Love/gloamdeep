@@ -46,6 +46,7 @@ export function howtoRows(page, settings) {
       { action: 'Pick', ways: ['In the bag, breaks veins'] },
       { action: 'Wick', ways: ['Fit it in the bag'] },
       { action: 'Vest', ways: ['Wear it from the bag'] },
+      { action: 'Charm', ways: ['Wear it from the bag'] },
     ];
   }
   if (page === 'keyboard') {

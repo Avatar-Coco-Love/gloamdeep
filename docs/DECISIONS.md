@@ -170,18 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-483 · 2026-10-30 · The Copper Wick** (the owner's picks, all
-recommended; step 9 of D-482, builds D-459) The first lantern part is
-the Copper Wick, in the lantern's wick slot. It is made at the
-workbench, its third slot, from 3 Copper Ore and 1 Wood, and only one
-is carried or fitted. Fitted, it burns oil a quarter slower: a full
-tank lasts 75 turns, not 60; oil alone still sets the reach (D-014).
-Choosing it in the bag shows Fit, which puts it in the lantern, free,
-with "You fit the copper wick." Swapping and taking parts out wait for
-a second part; no mark on the lantern button and no lantern row in the
-bag for now. Its bag picture is look A of the mock-up: an upright cloth
-wick with a burnt tip in a wide copper collar.
-
 **D-484 · 2026-10-30 · The Rat Hide Vest** (the owner's picks, all
 recommended; step 10 of D-482, builds D-458) Armour comes first in step
 10, the two charms after, each its own step. The first armour piece is
@@ -203,3 +191,14 @@ Glass, Dust, Wood) and Bench (Bench, Make, Pick, Wick, Vest), so the
 Copper Wick and the vest get rows. Keyboard keeps its full name: five
 tabs fit, so the mock-up's "Keys" was not needed. Also moved D-481 to
 the archive, word for word, as this file neared 12 KB.
+
+**D-486 · 2026-10-30 · The Wisp Charm** (the owner's picks, all
+recommended; step 10 of D-482, builds D-458) The first charm is the
+Wisp Charm, named for its material, made at the workbench, its fifth
+slot, from 3 Gloam Wisp and 1 Copper Ore (Gloam Wisp's first use); one
+is carried or worn. Wear, in the bag, puts it on, free, in a charm
+slot, "You put on the wisp charm." Worn, a beaten creature leaves its
+rare material about 1 in 5, not 1 in 10; the common stays 1 in 2. Its
+bag picture, a gloam wisp in a round copper setting on a small loop,
+and its lines are drafted for the playtest. Also moved D-483 to the
+archive, word for word, as this file neared 12 KB.

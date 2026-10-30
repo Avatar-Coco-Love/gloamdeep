@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.200', date: '2026-10-30', title: 'The wisp charm', lines: [
+    "Make a Wisp Charm at the workbench, the first charm: bump the bench and choose its fifth slot. It costs 3 Gloam Wisp and 1 Copper Ore, and Make is dim with too few. You have one at a time.",
+    "Choose the charm in the bag and press Wear: you put it on, and no turn passes. You can wear it and the vest together.",
+    "While you wear it, beaten creatures leave their rare material about 1 in 5 instead of 1 in 10: the Venom Sac, the Mimic Heart and the Gloam Eye. Common drops stay about 1 in 2.",
+    "How to play's Bench page has a new row for the charm.",
+    "Decisions: D-486.",
+  ] },
   { v: '0.2.199', date: '2026-10-30', title: 'The rat hide vest', lines: [
     "The workbench card has room for more: its grid is now 4 × 3, 12 slots, like the stash chest's.",
     "Make a Rat Hide Vest at the workbench, the first armour: bump the bench and choose its fourth slot. It costs 4 Rat Tail and 1 Wood, and Make is dim with too few. You have one at a time.",

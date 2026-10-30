@@ -86,6 +86,8 @@ this page and a decision disagree, the decision wins.
   in the bag, puts a part in the lantern, free (D-483).
 - **Rat Hide Vest, Wear, glance:** the first armour; Wear, in the bag,
   puts it on, free; worn, a bite may glance off and hurt nothing (D-484).
+- **Wisp Charm:** the first charm, worn from the bag; worn, rare drops
+  come about 1 in 5 (D-486).
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
