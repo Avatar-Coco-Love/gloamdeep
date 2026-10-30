@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.198 (2026-10-30)
+- Make a Copper Wick at the workbench, the first lantern part: bump the bench and choose its third slot. It costs 3 Copper Ore and 1 Wood, and Make is dim with too few. You have one at a time.
+- Choose the wick in the bag and press Fit: it goes into the lantern, and no turn passes.
+- With the wick fitted, the lantern burns oil a quarter slower: a full tank lasts 75 turns instead of 60, and each flask lasts longer too. How far the light reaches still depends only on the oil.
+- Decisions: D-483.
+
 ## 0.2.197 (2026-10-30)
 - A look at where things stand: steps 1 to 8 of the build order are done, and all 685 tests pass.
 - Lantern parts come next, the first to use Copper Ore. The rest follow in the order proposed in the plan: armour and charms, home pieces and rest, the first rescue, the vendor and coins, the garden, fishing, lore, relics, feats.
@@ -95,11 +101,3 @@ Entry format:
 - Nothing in the game changes. The fifth audit: the Seed Explorer, Settings' ways to play and the seed pad move word for word from screens.js into their own file, explorerscreens.js.
 - Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions moved to the archive; CLAUDE.md's pointers are tidied, its rules word for word; GLOSSARY.md's "In the code" moved word for word to GLOSSARY-CODE.md. The next audit is at 0.2.206.
 - Decisions: D-468.
-
-## 0.2.185 (2026-10-30)
-- The scope's part 7, collectables, is settled. Lore pages found below fill a Lore tab in the Journal, in sets; finishing a set gives a small lasting boost.
-- Relics, 1 or 2 a biome, are set on a shelf at home and each gives a small lasting boost while there.
-- Each creature will have a trophy, made from its materials and hung at home, completing its Bestiary page.
-- Achievements come in 3 tiers, each paying the look currency, in a Feats tab in the Journal.
-- Nothing in the game changes yet.
-- Decisions: D-464 to D-467.

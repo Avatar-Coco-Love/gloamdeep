@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.198', date: '2026-10-30', title: 'The copper wick', lines: [
+    "Make a Copper Wick at the workbench, the first lantern part: bump the bench and choose its third slot. It costs 3 Copper Ore and 1 Wood, and Make is dim with too few. You have one at a time.",
+    "Choose the wick in the bag and press Fit: it goes into the lantern, and no turn passes.",
+    "With the wick fitted, the lantern burns oil a quarter slower: a full tank lasts 75 turns instead of 60, and each flask lasts longer too. How far the light reaches still depends only on the oil.",
+    "Decisions: D-483.",
+  ] },
   { v: '0.2.197', date: '2026-10-30', title: 'The rest of the order', lines: [
     "A look at where things stand: steps 1 to 8 of the build order are done, and all 685 tests pass.",
     "Lantern parts come next, the first to use Copper Ore. The rest follow in the order proposed in the plan: armour and charms, home pieces and rest, the first rescue, the vendor and coins, the garden, fishing, lore, relics, feats.",

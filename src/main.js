@@ -16,6 +16,7 @@ import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, usingSlot, withoutSlot, renamedSlot, lookedSlot } from './core/profile.js';
+import { fit } from './core/parts.js';
 import { loadJourney, saveJourney, dropJourney } from './core/save.js';
 import { moveStack } from './core/chest.js';
 import { easeMode } from './core/menu.js';
@@ -360,6 +361,7 @@ const screens = createScreens(app, {
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
+  fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below

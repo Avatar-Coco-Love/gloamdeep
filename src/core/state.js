@@ -4,6 +4,7 @@ import { beginPlace, PLACES } from './room.js';
 import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
 import { fresh } from './events.js';
+import { burnOf } from './parts.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -53,7 +54,7 @@ function away(begun, here, seen) {
 }
 
 // A passed turn starts a new list of events (events.js)
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit ? burnOil(state.oil) : state.oil });
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit ? burnOil(state.oil, burnOf(state)) : state.oil });
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

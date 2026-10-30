@@ -82,6 +82,8 @@ this page and a decision disagree, the decision wins.
 - **Gear, held:** what the hero holds in hand, first the knife (D-252), then the spear, which hits through to the creature behind (D-479). **Hold**, in the bag, swaps a weapon into the hand.
 - **Armour, charm, lantern part:** gear to come: one armour piece and two
   charms worn, parts in the lantern's slots (D-458, D-459).
+- **Copper Wick, Fit:** the first lantern part, in its wick slot; Fit,
+  in the bag, puts a part in the lantern, free (D-483).
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
