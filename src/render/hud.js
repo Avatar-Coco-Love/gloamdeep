@@ -14,7 +14,8 @@ import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
 const PAD = 3, LINE = 7, GAP_Y = 3;
 export function drawStatus(c, { oil, health, max, depth, level }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
-  const top = Math.max(heartsH(max), LINE), w = 2 * PAD + Math.max(heartsW(max) + 4 + textWidth(lv), BAR_W, textWidth(where));
+  const shown = Math.max(max, health); // a gold heart past the most (D-488)
+  const top = Math.max(heartsH(shown), LINE), w = 2 * PAD + Math.max(heartsW(shown) + 4 + textWidth(lv), BAR_W, textWidth(where));
   const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + LINE;
   c.save();
   c.globalAlpha = alpha;

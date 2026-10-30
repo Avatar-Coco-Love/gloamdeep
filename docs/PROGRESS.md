@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.202 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.203 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 11 begins, home pieces and rest (D-469): read Part 8 of
-`SCOPE.md`, then propose the first home piece, what it costs, what
-resting there does, its numbers and a mock-up, and ask the owner.
+Step 11 goes on, home pieces and rest (D-469, D-488): read Part 8 of
+`SCOPE.md`, then ask the owner whether the bed ends step 11 or a
+second home piece comes first, before step 12, the first rescue.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -31,7 +31,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [x] 9 Lantern parts, the first using Copper Ore (0.2.198)
 - [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
-- [ ] 11 Home pieces and rest
+- [ ] 11 Home pieces and rest (the bed 0.2.203)
 - [ ] 12 The first rescue
 - [ ] 13 The vendor and coins
 - [ ] 14 The garden
@@ -48,6 +48,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.203, the bed.** Step 11 begins: the bed, the
+  first home piece, is made at the workbench from 4 Wood and 2 Rat
+  Tail and set down on the surface. Bumped from dusk, the hero sleeps
+  until morning, no oil burnt, and wakes healed and rested, with one
+  gold heart; by day it asks Deconstruct bed? (D-488). Playtest:
+  https://claude.ai/artifact/5Qugqpr6RDmfmKGE6kvVoX
 - **2026-10-30, 0.2.202, the heart charm.** Step 10 ends: the Heart
   Charm, the second charm, is made at the workbench from 1 Mimic Heart
   and 1 Copper Ore; worn beside the Wisp Charm, a full tank lasts about
@@ -59,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   tap was read on the menus' picture, not the room's); now it sets it
   there, as D-322 meant. Swipes worked already. Playtest:
   https://claude.ai/artifact/Ci1dp4r6gTrT5DUwFWVWhp
-- **2026-10-30, 0.2.200, the wisp charm.** Step 10 goes on: the
-  Wisp Charm, the first charm, is made at the workbench from 3 Gloam
-  Wisp and 1 Copper Ore; Wear in the bag puts it on, free, and rare
-  drops then come about 1 in 5, not 1 in 10 (D-486).
-  Playtest: https://claude.ai/artifact/K7s2JGJS2tS7TctJAntSiL

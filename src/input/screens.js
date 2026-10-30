@@ -69,7 +69,7 @@ import { CLOAK_PAD, moveCloak, EYES_PAD, moveEyes, TRIM_PAD, moveTrim, CLOTHES_P
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, BED_HEADING, BED_NOTE, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
@@ -114,14 +114,14 @@ export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
-    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU
+    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'bed' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'bed'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
-  const ASKS = new Set(['sure', 'drop', 'easier']);
-  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : [easeHeading(app.easier), EASE_NOTE]);
+  const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488)
+  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? [BED_HEADING, BED_NOTE] : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
@@ -135,7 +135,7 @@ export function createScreens(app, ui) {
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
-      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' ? `${askOf(next).join(' ')} Yes or No.`
+      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? `${askOf(next).join(' ')} Yes or No.`
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
@@ -352,7 +352,8 @@ export function createScreens(app, ui) {
   // § bench panel (WB3, D-323): `app.bench` is the bench's tile. Deconstruct closes the
   // panel whatever happens, so its line shows, taken down or not; the chest's too (CH5). A stash chest's tile
   // opens the chest's panel instead, on its first slot (CH3, D-330).
-  function openPanel(at) { app.queued = null; app.bench = at; show(tileAt(app.state.room, at.x, at.y).panel); }
+  // The bed's by day is an ask, No picked (D-488).
+  function openPanel(at) { const panel = tileAt(app.state.room, at.x, at.y).panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
@@ -375,7 +376,7 @@ export function createScreens(app, ui) {
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest') show('play');
+    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest' || app.screen === 'bed') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -454,6 +455,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'ways') { pickWay(id); return; }
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
+    if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);

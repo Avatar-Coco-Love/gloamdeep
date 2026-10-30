@@ -50,6 +50,10 @@ export const TILES = {
   // tree, light passing over it; bumping it opens its panel, 12 slots (CH3, D-330),
   // where Deconstruct chest `takes` it back into the bag, only when empty (CH5).
   stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash chest', solid: true, blocksLight: false, panel: 'chest', takes: { item: 'chest', says: 'chestTake', empty: 'chestNotEmpty' } },
+  // A bed set down on the surface, the bench's way (D-488): solid, light passing over it.
+  // Bumped at night it `sleeps` (sleep.js); by day it opens its ask card, Deconstruct bed?,
+  // where Yes `takes` it back into the bag.
+  bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

@@ -73,6 +73,9 @@ this page and a decision disagree, the decision wins.
   on the surface, opened by walking into it; each one keeps 12 slots of its
   own, a picked stack moving between it and the bag, and taken down only
   when empty (D-021, D-324, D-325, D-326, D-330, D-331, D-340).
+- **Bed, sleep, rested:** the first home piece, from the workbench, set
+  down on the surface; bumped from dusk, the hero sleeps until morning
+  and wakes healed and rested, a gold heart after the red (D-488).
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455). Not in
   the game yet.

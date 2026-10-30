@@ -12,6 +12,9 @@ export const TITLE_MENU = [{ id: 'new', text: 'New journey' }, { id: 'journal', 
 export const titleMenu = (saved) => (saved ? [{ id: 'continue', text: 'Continue' }, ...TITLE_MENU] : TITLE_MENU);
 // New journey asks first while a journey is saved (D-238)
 export const SURE_MENU = [{ id: 'yes', text: 'Yes' }, { id: 'no', text: 'No' }];
+// The bed bumped by day: an ask to take it down (D-488)
+export const BED_HEADING = 'Deconstruct bed?';
+export const BED_NOTE = "You aren't tired.";
 export const SURE_HEADING = 'Start over?';
 export const SURE_NOTE = 'The saved journey is lost.';
 // Deleting a profile asks the same way, No picked (D-271)
@@ -72,7 +75,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
 // in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds;
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487)
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488)
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
 export const BENCH_TAKE = BENCH_SLOTS;
