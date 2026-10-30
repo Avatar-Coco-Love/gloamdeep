@@ -72,6 +72,8 @@ this page and a decision disagree, the decision wins.
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
 - **Gear, held:** what the hero holds in hand, first the knife (D-252).
+- **Armour, charm, lantern part:** gear to come: one armour piece and two
+  charms worn, parts in the lantern's slots (D-458, D-459).
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).

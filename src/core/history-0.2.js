@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.183', date: '2026-10-30', title: 'The scope, part 5', lines: [
+    "The scope's part 5, gear, is settled. About 4 or 5 weapon kinds, each with its own attack shape; each biome's new metal makes a better one of each kind. One is held in hand, others swapped from the bag.",
+    "The hero will wear one armour piece and two charms, each charm with one small effect.",
+    "The lantern will have a few part slots, with many parts to choose from, made at the workbench and swapped anywhere. Oil still alone sets how far the light reaches.",
+    "Torches to set down are the other light in the plan, and fishing uses one rod, better with each metal.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-457 to D-460.",
+  ] },
   { v: '0.2.182', date: '2026-10-30', title: 'The scope, part 4', lines: [
     "The scope's part 4, making, is settled. Small things such as flasks, potions and torches are made in the bag, anywhere; building, tools and leatherwork at the workbench.",
     "Later each bigger craft gets a station of its own, built at home on the surface: a forge, a kitchen fire, a power bench and an altar.",
