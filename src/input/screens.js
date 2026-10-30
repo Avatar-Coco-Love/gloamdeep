@@ -30,7 +30,10 @@
 // down the bench's way, only when empty (CH5).
 // Bumping the peddler at home, or a click or tap on him, says his line and opens his card,
 // free (D-494): arrows or a tap pick a bag slot; Sell, Enter or Space sell one of it, free;
-// the round cross, Esc, P or a tap outside the card close it.
+// the round cross, Esc, P or a tap outside the card close it. Its tabs, Sell and Buy (D-495):
+// a tap turns one, or Up from the grid's top row moves the frame onto them, Left and Right
+// or Enter turn them there, and Down goes back; on Buy the grid holds his wares, and Buy,
+// Enter or Space buy one, free.
 // Continue goes back to the saved journey; New journey, while one is saved, asks
 // "Start over?" first, and No, Esc or P return to the title (D-238).
 // A Hardcore fall shows "Your journey ends.": Same world or New world wakes the hero in the
@@ -94,7 +97,7 @@ import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { tradeAt } from '../render/tradepanel.js';
-import { tradeWords, slotWords, priceOf } from '../core/trade.js';
+import { tradeWords, slotWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
 import { view } from '../render/screen.js';
 
 const WORDS = {
@@ -369,9 +372,28 @@ export function createScreens(app, ui) {
   };
   function pickChest(i) { app.chosen = i; spoken.textContent = chestSlotWords(i); }
   // § trade card (D-494): it opens on the first thing he buys; the frame on a slot says it and its price
-  function openTrade() { app.queued = null; show('trade', Math.max(0, app.state.bag.findIndex((s) => priceOf(s.id)))); }
-  function pickTrade(i) { app.chosen = i; spoken.textContent = slotWords(app.state, i); }
-  function sellChosen() { ui.sell(app.chosen); pickTrade(Math.min(app.chosen, Math.max(0, app.state.bag.length - 1))); }
+  function openTrade() { app.queued = null; app.tab = 'sell'; show('trade', Math.max(0, app.state.bag.findIndex((s) => priceOf(s.id)))); }
+  const tradeCount = () => (app.tab === 'buy' ? wares().length : BAG_SLOTS);
+  function pickTrade(i) {
+    app.chosen = i;
+    spoken.textContent = i < 0 ? `Tabs, ${app.tab === 'buy' ? 'Buy' : 'Sell'} open` : app.tab === 'buy' ? wareWords(app.state, i) : slotWords(app.state, i);
+  }
+  // § trade tabs (D-495): turning one keeps the frame on the tabs, else picks the first slot
+  function turnTrade(id, onTabs = app.chosen < 0) {
+    if (id !== app.tab) { app.tab = id; spoken.textContent = id === 'buy' ? buyWords(app.state) : tradeWords(app.state); }
+    app.chosen = onTabs ? -1 : 0;
+  }
+  function tradeChosen() {
+    if (app.chosen < 0) { turnTrade(app.tab === 'buy' ? 'sell' : 'buy'); return; }
+    if (app.tab === 'buy') { ui.buy(app.chosen); pickTrade(app.chosen); return; }
+    ui.sell(app.chosen); pickTrade(Math.min(app.chosen, Math.max(0, app.state.bag.length - 1)));
+  }
+  function moveTrade(dir) {
+    if (app.chosen < 0) { if (dir === 'down') pickTrade(0); else if (dir !== 'up') turnTrade(dir === 'left' ? 'sell' : 'buy'); return; }
+    if (dir === 'up' && app.chosen < 3) { pickTrade(-1); return; } // the grid's top row: onto the tabs
+    const to = app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir];
+    pickTrade(to >= 0 && to < tradeCount() ? to : app.chosen); // a 3 × 2 grid, his wares fewer
+  }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, ${c.have} carried`).join(' and ')}${m.dim ? ', too few' : ''}`;
   const benchWords = () => `Workbench. ${benchMakes(app.state.bag).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
   // § bench card (D-387): the frame on a slot says what is made there and its cost
@@ -465,7 +487,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
-    if (app.screen === 'trade') { sellChosen(); return; }
+    if (app.screen === 'trade') { tradeChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
@@ -502,7 +524,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
     if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
-    if (app.screen === 'trade') { pickTrade(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // the bag's 3 × 2 grid
+    if (app.screen === 'trade') { moveTrade(dir); return; } // the grid, the tabs above it (D-495)
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
@@ -551,9 +573,10 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'trade') {
       if (held) return;
-      const at = tradeAt(px, py, view.w, view.h);
+      const at = tradeAt(px, py, view.w, view.h, app.tab);
       if (at === 'out' || at === 'close') show('play');
-      else if (at === 'sell') sellChosen();
+      else if (at === 'act') { if (app.chosen >= 0) tradeChosen(); }
+      else if (at?.tab) turnTrade(at.tab, false);
       else if (at) pickTrade(at.slot);
       return;
     }

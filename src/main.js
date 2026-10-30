@@ -20,7 +20,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { loadJourney, saveJourney, dropJourney } from './core/save.js';
 import { moveStack } from './core/chest.js';
-import { buyerAt, sell } from './core/trade.js';
+import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
@@ -370,6 +370,7 @@ const screens = createScreens(app, {
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
+  buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
   goSideways,
 });

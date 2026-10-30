@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.208 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.209 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 13b, buying from the peddler (D-471, D-494): propose what he sells
-first and its prices, asked, before building.
+Step 14, the garden (D-482): propose how it plays, with its names and
+numbers, asked, before building.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,7 +28,7 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 13 The vendor and coins (13a selling, 0.2.208)
+- [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
@@ -43,6 +43,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.209, buying from the peddler.** Step 13b ends step
+  13: his card has Sell and Buy tabs, and he sells an oil flask for 3
+  coins and a torch for 2, never running out, free, no turn (D-495).
+  Playtest: https://claude.ai/artifact/B6NkhrCQfdzGzwi7mx8rtK
 - **2026-10-30, 0.2.208, selling to the peddler.** Step 13a: bumped at
   home, the peddler says his line and opens his card. He buys creature
   materials one at a time, free: common 1 coin, rare 5. Coins are kept
@@ -54,8 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (55 → 14 KB) into `history-0.2-3.js`. `DECISIONS.md` 10.9 → 10.1 KB,
   `CHANGELOG.md` 7.8 → 2.1 KB; ticked steps 9 to 12 archived. No
   playtest: nothing to play.
-- **2026-10-30, 0.2.206, he stands at home.** Step 12c ends step 12:
-  freed, the peddler stands at once in the woods, on the open tile
-  nearest their middle, and a bump there says his home lines in turn.
-  Nothing set down or grown back goes on his tile. The audit moves to
-  0.2.207 (D-492). Playtest: https://claude.ai/artifact/KBoc19zWuzuwCp8haVe1H6
