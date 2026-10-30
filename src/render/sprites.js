@@ -8,6 +8,7 @@ const PAL = {
   k: '#0e0c16', w: '#efe6cc', C: '#a6e0e4', c: '#58a8b4', B: '#2f6a7c', b: '#1c3e4e',
   y: '#ffd66b', Y: '#f39a3b', O: '#a8642c', o: '#e9a94a', a: '#e8d5a0',
   S: '#9aa6b4', s: '#6b7686', d: '#4a5262', p: '#e8786a', e: '#efe6cc', // e: the hero's eyes
+  A: '#b9ab88', // bone's shade (ART-DIRECTION.md palette)
   T: '#e8d5a0', t: '#a8642c', // the lantern's trim, cap and base (P5)
   g: '#6fb04e', G: '#3c6e3a', // moss (ART-DIRECTION.md palette)
   r: '#d8483c', R: '#8c2430', // the heartcap's bright red, light and shade (D-303)
@@ -71,6 +72,30 @@ const STONE = { mirror: false, rows: [
 const RAT_TAIL = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.........kkk....', '........kpppk...', '.......kpkkkpk..', '.......kpk.kpk..', '..kkk...kpppk...',
   '.kSSskkkkpkk....', '.ksskpppppk.....', '..kkkkkkkk......'] };
+
+// § moth dust: a small heap of pale dust with amber glints, two motes floating
+// (look A of the drops mock-up, D-475)
+const MOTH_DUST = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '.........w......', '....a...........', '.......kkk......', '.....kkawak.....', '....kaayaaak....',
+  '...kawaaaoaak...', '..kaaoaAaaaYak..', '..kkkkkkkkkkkk..'] };
+
+// § stinger: the scorpion's tail tip, two shell segments curling up to the pale
+// sting, drawn in its Sand set's `o`, `O` and `a` (look A, D-475)
+const STINGER = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '..........kk....', '.........kak....', '.........kaAk...', '..........kOk...', '...kkk...koOk...',
+  '..kooOkkkoOk....', '..kOoooooOk.....', '...kkOOOkk......'] };
+
+// § mimic glass: one curved shard of the flask's glass, a pale gleam and a smear
+// of amber oil (look A, D-475)
+const MIMIC_GLASS = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '........k.......', '.......kwk......', '......kwCk......', '.....kwCcck.....', '....kCCcocck....',
+  '...kCcooOcck....', '..kkkkkkkkkkk...'] };
+
+// § gloam wisp: a tuft of the gloamling's shadow shaped like a small flame, a pale
+// grey core so it shows on a dark floor (look A, D-475)
+const GLOAM_WISP = { mirror: false, rows: [
+  '', '', '', '', '', '.......k........', '.......kk.......', '......kdbk......', '......kdbk......', '.....kdsdbk.....',
+  '.....kdssbk.....', '....kbdssdbk....', '....kbddddbk....', '.....kbbbbk.....', '......kkkk......'] };
 
 // § wood: three looks, one per stick as it lies (W1, D-314): a straight stick,
 // a forked twig with a leaf, a crooked branch, in the trees' trunk browns
@@ -206,7 +231,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.

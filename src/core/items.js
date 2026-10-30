@@ -42,6 +42,13 @@ export const ITEMS = {
   // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
   // (D-333); with every stack full it stays, with its `full` line. It never grows back.
   ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull' },
+  // The other four common materials (D-454), taken and kept the Rat Tail's way (D-475):
+  // a lampmoth's Moth Dust, a scorpion's Stinger, a flask mimic's Mimic Glass and a
+  // gloamling's Gloam Wisp.
+  mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull' },
+  stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull' },
+  mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull' },
+  gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);

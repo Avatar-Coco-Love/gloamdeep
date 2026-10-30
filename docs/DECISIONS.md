@@ -191,3 +191,14 @@ saved and a replay drops the same. Stacks of 20, as other small finds
 (D-333). Three lines when taken and three when chosen in the bag, each
 in turn, and a "can't carry more" line, drafted for the playtest. Left on the floor it
 stays until taken and never grows back.
+
+**D-475 · 2026-10-30 · The other four common drops** (the owner's
+picks, all recommended; step 2 of D-473, narrows Q-061) Each is look A
+of the drops mock-up: Moth Dust a small heap of pale dust with amber
+glints and two motes; the Stinger the scorpion's tail tip, two segments
+curling up to the pale sting, always in the Sand colours so all stack
+together; Mimic Glass one curved shard, a pale gleam and a smear of
+amber oil; the Gloam Wisp a tuft of shadow shaped like a small flame
+with a pale grey core. Otherwise each goes the Rat Tail's way (D-474):
+the same seeded 1-in-2 coin, stacks of 20, and lines drafted for the
+playtest.
