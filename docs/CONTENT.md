@@ -95,3 +95,9 @@ Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
 
 6 cloaks, 6 eyes, 6 trims and 4 clothes; their names are in
 `GLOSSARY.md` (D-275 to D-278, D-289).
+
+## Growth upgrades (`src/core/upgrades.js`)
+
+Bought with embers on the Journal's Growth tree (D-462, D-481): Light,
+Body and Hands. Body: Heart, one more heart, up to 5 (D-293). Light and
+Hands: none yet.

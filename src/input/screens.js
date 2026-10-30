@@ -36,10 +36,11 @@
 // one, Enter, Space, Right or a tap on its row opens or closes it (Left closes it), swipes and
 // Page Up and Page Down scroll a page; the round cross, a tap outside the card, Esc or P return
 // to Settings.
-// Journal, on the title and the pause menu, opens its card on Records (D-270, D-391); Left and
-// Right or a tap on a tab turn to Records or Growth (D-293). Enter or Space turns to Growth,
-// and there, as a tap on ADD A HEART, spends an ember on one more. The round cross, a tap
-// outside the card, Esc or P return to the menu it was opened from.
+// Journal, on the title and the pause menu, opens its card on Records (D-270, D-391); Right,
+// Enter or Space, or a tap on a tab turn to Growth (D-293), a tree (D-481): the arrows or a tap
+// move the gold outline over its places, Left past Light back to Records, and Enter or Space,
+// as a tap on the button, buys the picked upgrade (ADD A HEART on Body's heart). The round
+// cross, a tap outside the card, Esc or P return to the menu it was opened from.
 // The game opens on the slot screen (D-271), a card (D-397): Up and Down or a tap pick a slot's box, which
 // plays as that profile (a new one in an empty slot) and opens the title. Delete, then a box,
 // asks "Delete …? Lost for good." with No picked; No, Esc or P go back. Profiles on the title
@@ -80,7 +81,7 @@ import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
 import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
-import { addHeart } from '../core/growth.js';
+import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { bagAt, twoButtons } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
@@ -140,14 +141,23 @@ export function createScreens(app, ui) {
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
-  const journalPageWords = () => (app.tab === 'growth' ? growthWords(app.state) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
-  function openJournal() { app.tab = 'records'; show('journal'); }
+  // Growth opens on Body's heart (D-481).
+  const journalPageWords = () => (app.tab === 'growth' ? growthWords(app.state, app.growthPick) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
+  function openJournal() { app.tab = 'records'; app.growthPick = START_PICK; show('journal'); }
   function turnTab(id) {
     if (id === app.tab) return;
     app.tab = id;
     spoken.textContent = journalPageWords();
   }
-  function buyHeart() {
+  // An arrow or a tap moves Growth's gold outline; Left past Light turns back to Records
+  function pickGrowth(pick) {
+    if (!pick) { turnTab('records'); return; }
+    app.growthPick = pick;
+    spoken.textContent = journalPageWords();
+  }
+  // The picked place's button: today only the heart has one (D-481)
+  function buyPicked() {
+    if (!told(app.state, app.growthPick).button) return;
     const s = addHeart(app.state);
     if (s === app.state) return;
     app.state = s;
@@ -431,7 +441,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bag') { useChosen(); return; }
     if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
     if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
-    if (app.screen === 'journal') { if (app.tab === 'growth') buyHeart(); else turnTab('growth'); return; } // Enter turns to Growth, and there adds a heart
+    if (app.screen === 'journal') { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); return; } // Enter turns to Growth, and there buys the picked upgrade
     if (app.screen === 'slots') { chooseSlot(i); return; }
     if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
     if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
@@ -477,7 +487,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
-    if (app.screen === 'journal') { if (dir === 'left' || dir === 'right') turnTab(dir === 'left' ? 'records' : 'growth'); return; } // the tabs (D-391)
+    if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
     if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
     if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
     if (app.screen === 'history') {
@@ -598,9 +608,10 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'journal') {
       if (held) return;
-      const at = journalAt(px, py, view.w, view.h, app.tab);
+      const at = journalAt(px, py, view.w, view.h, app.tab, app.state, app.growthPick);
       if (at === 'out' || at === 'close') closeJournal(); // the round cross goes back (D-391)
-      else if (at === 'heart') buyHeart();
+      else if (at === 'buy') buyPicked();
+      else if (at?.pick) pickGrowth(at.pick);
       else if (at) turnTab(at.tab);
       return;
     }

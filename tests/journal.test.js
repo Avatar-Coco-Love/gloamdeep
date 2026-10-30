@@ -1,10 +1,11 @@
 // § journal: one book with tabs, Records first (J1, D-262, D-270)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { TABS, recordRows, journalWords, growthRows, growthWords } from '../src/core/journal.js';
+import { TABS, recordRows, journalWords, growthWords } from '../src/core/journal.js';
+import { START_PICK } from '../src/core/growth.js';
 import { counted } from '../src/core/record.js';
 import { newProfile } from '../src/core/profile.js';
-import { journalAt, HEART, HEART_W } from '../src/render/journal.js';
+import { journalAt } from '../src/render/journal.js';
 import { cardAt, PAD } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
 
@@ -14,11 +15,13 @@ test('Records is the first tab, Growth the second (D-293)', () => {
   assert.deepEqual(TABS.map((t) => t.text), ['Records', 'Growth']);
 });
 
-test('the Growth tab shows the embers left and the hearts in all, then Add a heart (D-293)', () => {
+test('the Growth tab says the embers left, then the picked place: Body\'s heart first (D-293, D-481)', () => {
   const s = { xp: 30, hearts: 1, health: 6 }; // level 3: two embers, one spent
-  assert.deepEqual(growthRows(s).map((r) => [r.text, r.value]), [['Embers', '1'], ['Hearts', '6 of 10']]);
-  assert.equal(growthWords(s), 'Journal, Growth tab. Embers, 1. Hearts, 6 of 10. Add a heart, 1 ember each. Left or Right for another tab. Esc or the close button goes back.');
-  assert.equal(growthWords({ xp: 0, health: 5 }), 'Journal, Growth tab. Embers, 0. Hearts, 5 of 10. Add a heart, 1 ember each, not now. Left or Right for another tab. Esc or the close button goes back.');
+  const tail = 'Arrows pick another place, Left past Light for Records. Esc or the close button goes back.';
+  assert.equal(growthWords(s), `Journal, Growth tab. Embers, 1. Body, row 1, Heart. Hearts 6 of 10. One more heart for good, arriving full. Add a heart, 1 ember. ${tail}`);
+  assert.equal(growthWords({ xp: 0, health: 5 }, START_PICK), `Journal, Growth tab. Embers, 0. Body, row 1, Heart. Hearts 5 of 10. One more heart for good, arriving full. Add a heart, 1 ember, not now. ${tail}`);
+  assert.equal(growthWords(s, { col: 0, row: 0 }), `Journal, Growth tab. Embers, 1. Light, row 1, To come. More to grow here later. ${tail}`);
+  assert.equal(growthWords(s, { col: 2, row: 1 }), `Journal, Growth tab. Embers, 1. Hands, row 2, Locked. Opens deeper down. ${tail}`);
 });
 
 test('the Records tab shows the deepest depth, creatures beaten, falls, rooms found, steps, flasks poured, torches lit and time played (D-283, D-285, D-286, D-291)', () => {
@@ -42,13 +45,11 @@ test('nothing counted is the same Records, and a dev jump stops the counting (D-
 // A sideways phone's room (D-377), and the narrowest a card is drawn on
 const VW = 300, VH = 176;
 
-test('Records fits the card under the tabs, and Add a heart with its cost fits Growth (D-391)', () => {
+test('Records fits the card under the tabs (D-391)', () => {
   const card = cardAt(VW, VH), rows = recordRows({ ...records, steps: 999999 }, 359999 * 60);
   assert.ok(52 + rows.length * 11 <= card.h - 12);
   const vx = PAD + 8 + Math.max(...rows.map((r) => textWidth(r.text))) + 20;
   for (const r of rows) assert.ok(vx + textWidth(r.value) <= card.w - PAD, r.value);
-  assert.equal(HEART, 'ADD A HEART');
-  assert.ok(PAD + 8 + textWidth('Hearts') + 20 + textWidth('10 of 10') < card.w - PAD - HEART_W - 8 - textWidth('1 ember each'));
 });
 
 test('a tap on a tab turns to it; the cross or a tap outside goes back (D-391)', () => {
@@ -60,8 +61,13 @@ test('a tap on a tab turns to it; the cross or a tap outside goes back (D-391)',
   assert.equal(journalAt(x + 40, y + 80, VW, VH), null);
 });
 
-test('on Growth a tap on ADD A HEART picks it; on Records it is not there (D-391)', () => {
-  const { x, w, button } = cardAt(VW, VH), at = [x + w - PAD - HEART_W / 2, button.y + 6];
-  assert.equal(journalAt(...at, VW, VH, 'growth'), 'heart');
-  assert.equal(journalAt(...at, VW, VH, 'records'), null);
+test('on Growth a tap on a place picks it, and on the picked heart\'s button buys; on Records neither is there (D-481)', () => {
+  const { x, y, w, button } = cardAt(VW, VH), st = { xp: 10, health: 5 };
+  const buy = [x + w - PAD - 10, button.y + 6];
+  assert.equal(journalAt(...buy, VW, VH, 'growth', st, START_PICK), 'buy');
+  assert.equal(journalAt(...buy, VW, VH, 'growth', st, { col: 0, row: 0 }), null, 'a place to come has no button');
+  assert.equal(journalAt(...buy, VW, VH, 'records', st, START_PICK), null);
+  const picks = [];
+  for (let py = y + 50; py < y + 130; py += 2) for (let px = x; px < x + w; px += 2) { const at = journalAt(px, py, VW, VH, 'growth', st, START_PICK); if (at?.pick) picks.push(`${at.pick.col},${at.pick.row}`); }
+  assert.deepEqual([...new Set(picks)].sort(), ['0,0', '0,1', '1,0', '1,1', '2,0', '2,1']);
 });

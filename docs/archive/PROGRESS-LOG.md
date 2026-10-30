@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.193, torches.** Step 5: Make on Moth Dust turns
+  1 dust and 1 Wood into a torch, stacks of 5; Set down beside the hero
+  anywhere, the bench's way, on a stone foot, lighting 3 tiles; out
+  after 100 turns, bare floor left (D-478). Playtest:
+  https://claude.ai/artifact/3yLzsoqZpyuNzCZc7hYtMw
 - **2026-10-30, 0.2.192, the glass flask.** Step 4: in the bag, Make on
   Mimic Glass turns 1 glass and 2 Oilcaps into an oil flask; dim
   without them; a How to play row (D-477). Playtest:

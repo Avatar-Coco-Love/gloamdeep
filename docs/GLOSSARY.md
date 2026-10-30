@@ -103,8 +103,8 @@ this page and a decision disagree, the decision wins.
   quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
 - **Bestiary:** the Journal's tab of creatures met; more of a page shows
   the more you meet and fight that creature (D-350).
-- **Growth:** the Journal's tab for spending embers (D-293); its branches
-  to come: Light, Body, Hands (D-462).
+- **Growth:** the Journal's tab for spending embers (D-293), a tree with
+  three branches, Light, Body and Hands (D-462, D-481).
 - **Records:** the Journal's facts about how you've played: deepest,
   beaten, falls, rooms found, steps, flasks poured, torches lit, time played
   (D-262, D-270, D-283, D-285, D-286, D-291).

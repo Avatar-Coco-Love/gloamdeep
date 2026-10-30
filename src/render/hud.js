@@ -4,6 +4,7 @@
 import { drawText, textWidth } from './font.js';
 import { SPRITES } from './sprites.js';
 import { drawGlass } from './glass.js';
+import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
 // the depth, as in the D-378 mock-up. Drawn in game pixels: a see-through
@@ -41,24 +42,9 @@ function drawOilBar(c, oil, bx, by) {
   }
 }
 
-// § hearts: the hero's health as small pixel hearts (D-116). A full heart is
-// the hostile red with the study's deeper red (PAL p, R) under it; an empty
-// one is an empty oil segment's colour. Past 5, hearts bought (D-293) fill a
-// second row below, up to 10.
-const HEART = ['.x.x.', 'xxxxx', '.xxx.', '..x..'], HEART_W = 5, ROW_HEARTS = 5;
+// § hearts: two rows of 5 at most (hearts.js)
 const heartsW = (max) => Math.min(max, ROW_HEARTS) * HEART_W + (Math.min(max, ROW_HEARTS) - 1) * GAP;
 const heartsH = (max) => Math.ceil(max / ROW_HEARTS) * (HEART.length + GAP) - GAP;
-function drawHearts(c, health, max, bx, by) {
-  for (let i = 0; i < max; i++) {
-    const x0 = bx + (i % ROW_HEARTS) * (HEART_W + GAP), y0 = by + Math.floor(i / ROW_HEARTS) * (HEART.length + GAP), full = i < health;
-    HEART.forEach((row, y) => [...row].forEach((ch, x) => {
-      if (ch !== 'x') return;
-      const low = y === HEART.length - 1 || HEART[y + 1][x] !== 'x'; // the heart's lower edge
-      c.fillStyle = !full ? '#2a2636' : low ? '#c4473a' : '#e8786a';
-      c.fillRect(x0 + x, y0 + y, 1, 1);
-    }));
-  }
-}
 
 // § lantern icon: the hero's lantern pixels (sprites.js) for the switch button,
 // a 5 × 5 map. The flame is lit, or the empty oil segments' colour when off (D-080).

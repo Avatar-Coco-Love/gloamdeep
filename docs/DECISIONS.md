@@ -156,28 +156,6 @@ hearts in Body (D-462). The rest follows later, in an order asked
 then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
 (Q-069) stay waiting, outside the order.
 
-**D-477 · 2026-10-30 · The first creature recipe: a glass flask** (the
-owner's picks, all recommended; step 4 of D-473, narrows Q-061) In the
-bag, Make on Mimic Glass turns 1 Mimic Glass and 2 Oilcaps into an Oil
-flask, a turn, as 3 Oilcaps still do (D-299); with too few of either the
-button is dim. It makes a find we have, so nothing new is drawn. The
-How to play Crafting page gets a row for it. Its lines are drafted for
-the playtest.
-
-**D-478 · 2026-10-30 · Torches made and set down** (the owner's picks,
-all recommended; step 5 of D-473, builds D-459, D-455) In the bag, Make
-on Moth Dust turns 1 Moth Dust and 1 Wood into a Torch, a turn; with
-too few the button is dim. Torches stack 5, like flasks. Set down
-from the bag the bench's way, but anywhere, in the depths too: a side
-is picked, it goes on plain floor off the edge, never cutting the room
-in two, a turn, and it blocks the way. It stands as look A of the step
-5 mock-up, a stick in a ring of stones, its head wrapped in cloth, and
-lights 3 tiles like a wall torch, so lampmoths come to it. It burns 100
-turns by the clock, even while the hero is away, then goes out, leaving
-bare floor; it can't be taken back. The How to play Crafting page gets
-a row. Its lines are drafted for the playtest. Also moved D-474 to
-D-476 to the archive, word for word, as this file neared 12 KB.
-
 **D-479 · 2026-10-30 · The spear, a second weapon** (the owner's picks,
 all recommended; step 6 of D-473, builds D-457, D-252) The second kind
 is a spear that hits through: walking into a creature hits it for 2,
@@ -203,3 +181,17 @@ mock-up: a one-point stone head on a wooden handle, the deposit's
 boulder flecked with copper, a grey lump flecked with copper. The How
 to play Crafting page gets a row. Its lines are drafted for the
 playtest.
+
+**D-481 · 2026-10-30 · The Growth tree** (the owner's picks; step 8 of
+D-473, builds D-462, D-293) Growth is drawn as look D of the step 8
+mock-up, the owner's mix of three columns and a drawn tree: an ember
+glows at the root, the trunk splits into three limbs, Light, Body and
+Hands, and each climbs through its branch's places, the first row at
+the bottom. Today's hearts are Body's first upgrade, with a row of
+hearts bought. Light and Hands show dim dashed places "to come"; one
+more row shows dim and locked, "opens deeper". The arrows or a tap pick
+a place, outlined gold; right of a line it says the embers left, its
+name and words, and its button with the cost. Upgrades are free to buy
+in any open row, in any order: nothing bought closes or opens another.
+It still opens as the Journal's Growth tab. Also moved D-477 and D-478
+to the archive, word for word, as this file passed 12 KB.

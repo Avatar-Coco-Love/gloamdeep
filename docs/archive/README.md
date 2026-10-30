@@ -50,7 +50,7 @@ header says when it moved and why.
 | `DECISIONS-SCOPE.md` | D-413 to D-415, D-417 to D-419 | the scope in parts, its frame, crafts, drops, money, skills | D-445 |
 | `DECISIONS-CAMERA.md` | D-441 to D-448 | the camera's margin and zoom, the corner fade, plain dark past the edge | D-450 |
 | `DECISIONS-SCOPE-2.md` | D-450 to D-472 | the scope's parts 2 to 8: ore, tools, plants, fishing, farming, drops, making, gear, growth, collectables, home, trade | D-457, D-461, D-464, D-468, D-476 |
-| `DECISIONS-DROPS.md` | D-474 to D-476 | the build order's steps 1 to 3: the Rat Tail, the common and rare drops | D-478 |
+| `DECISIONS-DROPS.md` | D-474 to D-478 | the build order's steps 1 to 5: the Rat Tail, the common and rare drops, the glass flask, torches | D-478, D-481 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

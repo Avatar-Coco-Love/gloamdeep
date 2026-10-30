@@ -44,3 +44,32 @@ test('a fall wakes the hero with every heart bought, and keeps them', () => {
   assert.equal(n.hearts, 1);
   assert.equal(n.health, 6);
 });
+
+// § tree (D-462, D-481)
+import { ROWS, START_PICK, upgradeAt, movePick, told } from '../src/core/growth.js';
+import { BRANCHES, UPGRADES } from '../src/core/upgrades.js';
+import { UPGRADES as GATHERED } from '../src/core/registry.js';
+
+test('the tree has three branches, Light, Body and Hands, and the heart is Body\'s first, in the registry', () => {
+  assert.deepEqual(BRANCHES.map((b) => b.text), ['Light', 'Body', 'Hands']);
+  assert.equal(upgradeAt(START_PICK), UPGRADES.heart);
+  assert.equal(GATHERED, UPGRADES);
+  assert.equal(upgradeAt({ col: 0, row: 0 }), null);
+  assert.equal(ROWS, 2, 'the open row and one locked');
+});
+
+test('the arrows move the pick, Up climbs, and Left past Light gives null for Records', () => {
+  assert.deepEqual(movePick(START_PICK, 'up'), { col: 1, row: 1 });
+  assert.deepEqual(movePick({ col: 1, row: 1 }, 'up'), { col: 1, row: 1 });
+  assert.deepEqual(movePick(START_PICK, 'down'), START_PICK);
+  assert.deepEqual(movePick(START_PICK, 'right'), { col: 2, row: 0 });
+  assert.deepEqual(movePick({ col: 2, row: 0 }, 'right'), { col: 2, row: 0 });
+  assert.equal(movePick({ col: 0, row: 1 }, 'left'), null);
+});
+
+test('the heart\'s button is dim without an ember; a place to come or locked has none', () => {
+  assert.equal(told(at(0), START_PICK).button.can, false);
+  assert.equal(told(at(10), START_PICK).button.can, true);
+  assert.equal(told(at(10), { col: 0, row: 0 }).button, null);
+  assert.equal(told(at(10), { col: 1, row: 1 }).name, 'Locked');
+});
