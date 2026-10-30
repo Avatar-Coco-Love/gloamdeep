@@ -24,6 +24,8 @@ stopping costs no turn (the owner's addition). At first tap to walk is
 on and the pad off; today's one-step tap goes.
 *"At first tap to walk is on" superseded by D-422 (2026-10-28): off at
 first.*
+*"Today's one-step tap goes" superseded by D-449 (2026-10-30): it is
+back as Tap: Step.*
 
 **D-407 · 2026-10-28 · Steering's details** (the owner's picks,
 recommended; answers part of Q-067) The walk to a tapped tile stops by

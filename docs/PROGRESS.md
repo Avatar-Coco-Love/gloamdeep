@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.178 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.179 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -36,6 +36,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.179, tap to step.** The owner brought back D-042's
+  one-step tap: Settings' Tap line is Off, Step or Walk. Held, Step keeps
+  stepping toward the finger. New players start on Step; a saved pick
+  stays, On as Walk (D-449). [Playtest](https://claude.ai/artifact/Uz4CRLWvkwnWJ2zSxcVCxU).
 - **2026-10-30, 0.2.178, the zoom glides.** Into a room of another
   width, the zoom glides to the new room's while it fades in, 0.4 s,
   gently at both ends; reduced motion jumps as before (D-448).
@@ -44,9 +48,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   over the hero (D-442). The owner picked each corner as one piece: the
   round map, pause and wrench; the lantern, bag and quick slot (D-447).
   [Playtest](https://claude.ai/artifact/Efqf9XrbyRdxv6wxpG8kpt).
-- **2026-10-29, 0.2.176, plain dark past the door.** The owner found it
-  janky: a bright strip of woods over black rock past the crypt's doorway
-  out, and a rat waiting by the door, hidden from the woods, bit at once
-  on the way back in. Picked: plain dark past every edge again (D-445),
-  and the first step in a room is the hero's own (D-446).
-  [Playtest](https://claude.ai/artifact/2CoTTqi199dRyMbeLENNAg).

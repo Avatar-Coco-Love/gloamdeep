@@ -13,7 +13,7 @@ import { createScreen, TILE } from './render/screen.js';
 import { reach, setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
-import { loadSettings, swipesWalk, tapsWalk, stillMotion } from './core/settings.js';
+import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, usingSlot, withoutSlot, renamedSlot, lookedSlot } from './core/profile.js';
 import { loadJourney, saveJourney, dropJourney } from './core/save.js';
@@ -145,6 +145,7 @@ Object.assign(app, {
   // The walk to a tapped tile (D-406, D-408): its tile and the way still to go there, until it ends or stops
   walk: null, // { tx, ty, way }
   padDir: null, // the arrow pad's quarter held, which keeps walking (D-406)
+  hold: null, // [picX, picY] a finger held with Tap on Step, which keeps stepping toward it (D-449)
   alertUntil: 0, // the "!" over the hero after a stop
   gain: null, // { n, at } the "+1" over the hero when experience is earned (D-245)
   hit: null, // { enemy, until, shakeUntil } after attacking an enemy (D-105, D-109)
@@ -246,28 +247,44 @@ function nudgeToward(dir) {
 }
 // § tap: a tap on the hero waits a turn (D-085); a tap on a tile beside them steps
 // there, which bites, mines or opens as a step does; one further off walks there
-// at once (D-406). A tap while walking only stops it, and no turn passes. With
-// Tap to walk off, only the tap on the hero, a plaque or a bench beside works (D-408).
+// at once (D-406), or with Tap on Step steps once toward it, along the farther side (D-042, D-449).
+// A tap while walking only stops it, and no turn passes. With Tap off, only the tap on
+// the hero, a plaque or a bench beside works (D-408).
 // A tap past the room's edge, where nothing can be walked, does nothing (D-424).
-// held: the same from a finger held still, which walks anew instead of stopping (D-408)
+// held: the same from a finger held still, which walks anew instead of stopping (D-408),
+// or on Step keeps stepping toward the finger (holdStep below)
 // picX, picY: on the menus' picture, in its pixels
 const stepToward = (picX, picY, held = false) => {
   const spot = frame.plaqueSpot(...toLayer([picX, picY])); // a plaque frames its creature, or lets it go; no turn passes (CL2)
   if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
   if (app.walk && !held) { app.walk = null; return; }
-  const [px, py] = toRoom([picX, picY]), h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
+  const h = app.state.hero, [tx, ty] = tileAt(picX, picY);
   if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
+  if (held && tapsStep(app.settings)) { app.hold = [picX, picY]; lastHeldStep = -Infinity; return; } // the first step at once
   if (offEdge(app.state.room, tx, ty)) return; // past the room's edge a tap does nothing (D-424)
   const dir = toward(h.x, h.y, tx, ty);
   if (!dir) { if (!held) tryStep('wait'); return; }
   // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)
   const bench = panelBeside(app.state, dir);
   if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }
+  if (tapsStep(app.settings)) { tryStep(dir); return; }
   if (!tapsWalk(app.settings)) return;
   if (Math.abs(tx - h.x) + Math.abs(ty - h.y) === 1) { app.walk = null; tryStep(dir); return; }
   app.walk = { tx, ty, way: wayTo(app.state, tx, ty) };
   lastHeldStep = -Infinity; // the first step at once
 };
+// The room's tile under a point on the menus' picture
+function tileAt(picX, picY) {
+  const [px, py] = toRoom([picX, picY]);
+  return [Math.floor((px + app.cam.x) / TILE), Math.floor((py + app.cam.y) / TILE)];
+}
+// § hold to step (Tap: Step, D-449): a held finger steps the hero toward it at the held
+// pace (D-044), along the farther side; sliding steers, and on its tile, or past the
+// room's edge (D-424), the hero waits for it to move. Lifting stops at once.
+function holdStep() {
+  const h = app.state.hero, [tx, ty] = tileAt(...app.hold), dir = toward(h.x, h.y, tx, ty);
+  if (dir && !offEdge(app.state.room, tx, ty)) tryStep(dir);
+}
 // § walk on: one step on the way to the walk's tile, at the held pace (D-044). It ends
 // on the tile, at the end of remembered ground, or in another room; it stops by itself
 // for a bite, a find or a creature, with a "!" (D-407, D-408, D-410, the Stop walking switch).
@@ -369,7 +386,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen !== 'play' && !screens.onMapScreen()) screens.choose(); };
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
+  onDir, onPoint, onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
 });
 const mapMoves = createMapMoves(stage, hudCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
@@ -434,12 +451,13 @@ function update(t) {
   shown.x = approach(shown.x, s.hero.x, dt);
   shown.y = approach(shown.y, s.hero.y, dt);
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  if (app.screen !== 'play') app.walk = app.padDir = null; // a card or menu ends a walk, and the pad's
+  if (app.screen !== 'play') app.walk = app.padDir = app.hold = null; // a card or menu ends a walk, the pad's and a hold's
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }
     else if (app.padDir && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; tryStep(app.padDir); }
     else if (app.walk && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; walkOn(); }
+    else if (app.hold && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; holdStep(); }
   }
 }
 function loop(t) {

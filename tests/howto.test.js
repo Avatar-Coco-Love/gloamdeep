@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { HOWTO_PAGES, nextPage, howtoRows, howtoWords } from '../src/core/howto.js';
-const SWITCHES = ['on', 'off'].flatMap((swipe) => ['on', 'off'].flatMap((tapwalk) => ['on', 'off'].map((pad) => ({ swipe, tapwalk, pad })))); // every Swipe, Tap to walk and Arrow pad pick
+const SWITCHES = ['on', 'off'].flatMap((swipe) => ['off', 'step', 'walk'].flatMap((tap) => ['on', 'off'].map((pad) => ({ swipe, tap, pad })))); // every Swipe, Tap and Arrow pad pick
 import { howtoAt } from '../src/render/howto.js';
 import { cardAt } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
@@ -16,25 +16,27 @@ test('Touch, Mouse, Keyboard and Crafting each have a page, and Left and Right f
 });
 
 test('every controls page lists Walk, Wait, Lantern, Pause and Frame, and nothing else', () => {
-  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, { swipe: 'on', tapwalk: 'on' }).map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame']);
+  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, { swipe: 'on', tap: 'walk' }).map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame']);
 });
 
 test('Frame says how to frame a creature on each way of playing (D-361)', () => {
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[4].ways, ["Tap a creature's plaque"]);
-  assert.deepEqual(howtoRows('mouse', { swipe: 'off', tapwalk: 'on' })[4].ways, ["Click a creature's plaque"]);
-  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tapwalk: 'on' })[4].ways, ['Tab']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tap: 'off' })[4].ways, ["Tap a creature's plaque"]);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'off', tap: 'walk' })[4].ways, ["Click a creature's plaque"]);
+  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tap: 'walk' })[4].ways, ['Tab']);
 });
 
-test('walking by touch follows the Swipe, Tap to walk and Arrow pad switches; a tap on the hero still waits (D-408)', () => {
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'on' })[0].ways, ['Tap where to go', 'or swipe', 'Arrow pad in Settings']);
-  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'on', pad: 'on' })[0].ways, ['Click where to go', 'or drag', 'or the arrow pad']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'on' })[0].ways, ['Tap where to go', 'Tap again to stop', 'Arrow pad in Settings']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[0].ways, ['Swipe', 'Arrow pad in Settings']);
-  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tapwalk: 'off', pad: 'on' })[0].ways, ['Drag', 'or the arrow pad']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'off' })[0].ways, ['Turn on in Settings']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'off', tapwalk: 'off', pad: 'on' })[0].ways, ['The arrow pad']);
-  assert.deepEqual(howtoRows('touch', { swipe: 'on', tapwalk: 'off' })[1].ways, ['Tap the hero']);
-  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tapwalk: 'off', pad: 'on' })[0].ways, ['Arrows or WASD']);
+test('walking by touch follows the Swipe, Tap and Arrow pad lines; a tap on the hero still waits (D-408, D-449)', () => {
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tap: 'step' })[0].ways, ['Tap toward a tile', 'or swipe', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'off', tap: 'step', pad: 'on' })[0].ways, ['Click toward a tile', 'Hold to keep going', 'or the arrow pad']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tap: 'walk' })[0].ways, ['Tap where to go', 'or swipe', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tap: 'walk', pad: 'on' })[0].ways, ['Click where to go', 'or drag', 'or the arrow pad']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'off', tap: 'walk' })[0].ways, ['Tap where to go', 'Tap again to stop', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tap: 'off' })[0].ways, ['Swipe', 'Arrow pad in Settings']);
+  assert.deepEqual(howtoRows('mouse', { swipe: 'on', tap: 'off', pad: 'on' })[0].ways, ['Drag', 'or the arrow pad']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'off', tap: 'off' })[0].ways, ['Turn on in Settings']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'off', tap: 'off', pad: 'on' })[0].ways, ['The arrow pad']);
+  assert.deepEqual(howtoRows('touch', { swipe: 'on', tap: 'off' })[1].ways, ['Tap the hero']);
+  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tap: 'off', pad: 'on' })[0].ways, ['Arrows or WASD']);
 });
 
 // A sideways phone's room (D-377), and the narrowest a card is drawn on
@@ -59,8 +61,8 @@ test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390
 });
 
 test('the Crafting page says how Make works, whatever the Controls switch (D-328)', () => {
-  assert.deepEqual(howtoRows('crafting', { swipe: 'on', tapwalk: 'off' }).map((r) => r.action), ['Make', 'Oilcap', 'Wood', 'Bench']);
-  assert.deepEqual(howtoRows('crafting', { swipe: 'off', tapwalk: 'on' }), howtoRows('crafting', { swipe: 'on', tapwalk: 'on' }));
+  assert.deepEqual(howtoRows('crafting', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Make', 'Oilcap', 'Wood', 'Bench']);
+  assert.deepEqual(howtoRows('crafting', { swipe: 'off', tap: 'walk' }), howtoRows('crafting', { swipe: 'on', tap: 'walk' }));
   assert.match(howtoWords('crafting', 'both'), /^How to play, Crafting\. Make: Pick a stack in the bag then press Make\./);
 });
 

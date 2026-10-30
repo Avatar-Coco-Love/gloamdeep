@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.179', date: '2026-10-30', title: 'Tap to step', lines: [
+    "Settings' Tap to walk line is now Tap, with three choices: Off, Step and Walk. Pick it, or press Right, to go on; Left goes back.",
+    "Step brings back the first tap: each tap moves the hero one tile toward it, along the farther side. Hold a finger, or the mouse button, and the hero keeps stepping toward it, about 4 steps a second; slide to steer, lift to stop. Walk is the tap to walk from before.",
+    "New players start on Step. If you already changed anything in Settings, your pick stays: On is now Walk, Off stays Off.",
+    "How to play says how Step works: tap toward a tile, then or swipe, or hold to keep going.",
+    "Decisions: D-449.",
+  ] },
   { v: '0.2.178', date: '2026-10-30', title: 'The zoom glides', lines: [
     "Taking a doorway or stairs into a room of another width, the zoom now glides from the old room's to the new one's while the new room fades in, over 0.4 seconds, starting and landing gently, instead of jumping in the dark. For that moment some pixel rows are a hair wider than others, then everything is crisp again. With reduced motion on, it jumps as before.",
     "Decisions: D-448.",
