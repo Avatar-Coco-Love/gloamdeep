@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.182', date: '2026-10-30', title: 'The scope, part 4', lines: [
+    "The scope's part 4, making, is settled. Small things such as flasks, potions and torches are made in the bag, anywhere; building, tools and leatherwork at the workbench.",
+    "Later each bigger craft gets a station of its own, built at home on the surface: a forge, a kitchen fire, a power bench and an altar.",
+    "Each biome will bring about 8 to 12 new things to make. Most open once you have held their parts; 1 or 2 special ones a biome are found below.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-455 and D-456.",
+  ] },
   { v: '0.2.181', date: '2026-10-30', title: 'The scope, part 3', lines: [
     "The scope's part 3, creature drops, is settled. A beaten creature drops its own material about 1 time in 2, left on the floor where it fell, to take by stepping on it.",
     "Creatures from depth 3 down also have a rare material, about 1 in 10.",

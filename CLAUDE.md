@@ -47,7 +47,7 @@ Read the smallest file that answers the question.
 | `docs/PROGRESS.md` | status, Next up, the last 3 logs | every conversation |
 | `docs/DECISIONS.md` | the newest decisions | grep for an ID or topic |
 | `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
-| `docs/CONTENT.md` | every creature, find, tile and place (D-363); `SCOPE.md`, the plan (D-413) | before adding content |
+| `docs/CONTENT.md` | every creature, find, tile and place (D-363); `SCOPE.md`, the plan (D-413), its part 1 in `SCOPE-FRAME.md` | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…) | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md` | when proposing a feature |
 | `docs/DESIGN.md` | the one-page design brief | before proposing a feature |
