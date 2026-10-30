@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.209 (2026-10-30)
+- Bump the peddler at home and his card now has two tabs, Sell and Buy. On Buy, his wares: an oil flask for 3 coins and a torch for 2. He never runs out.
+- Pick one, then Buy, Enter or Space to buy one, free, no turn. Buy is dim with too few coins or no room in your bag, and the card says why.
+- Tap a tab to turn it, or press Up from the top row of slots, then Left or Right. Step 13, the vendor and coins, is done.
+- Decisions: D-495.
+
 ## 0.2.208 (2026-10-30)
 - Bump the peddler at home and, after his line, his card opens: your coins and your bag on the left, what he pays for the chosen thing on the right.
 - He buys creature materials, one at a time: 1 coin for a common one, 5 for a rare one. Pick a slot, then Sell, Enter or Space. No turn passes, and Sell is dim for what he doesn't buy.

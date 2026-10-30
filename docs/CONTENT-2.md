@@ -9,7 +9,7 @@ neared 8 KB.
 
 | id | What it does | Where | Decisions |
 | --- | --- | --- | --- |
-| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug; one heap cleared, thanks the hero and is gone; then stands at home beside the woods' middle, with his own lines, and his card opens to sell to him: each common creature material 1 coin, each rare one 5 (`sells`); turns to face the hero | one room of depth 3 the seed picks; freed, the woods | D-470, D-471, D-490, D-491, D-492, D-494 |
+| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug; one heap cleared, thanks the hero and is gone; then stands at home beside the woods' middle, with his own lines, and his card opens to sell to him: each common creature material 1 coin, each rare one 5 (`sells`); his Buy tab sells a flask for 3 coins and a torch for 2, never running out (`wares`); turns to face the hero | one room of depth 3 the seed picks; freed, the woods | D-470, D-471, D-490, D-491, D-492, D-494, D-495 |
 
 ## The hero's looks (`src/core/looks.js`)
 

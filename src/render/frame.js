@@ -309,7 +309,7 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // "Your bag is full."
     }
     else if (app.screen === 'trade') {
-      drawTradePanel(hc, view.w, view.h, state, app.chosen, spriteOf); // a card on the room (D-494)
+      drawTradePanel(hc, view.w, view.h, state, app.chosen, spriteOf, app.tab, t, still()); // a card on the room (D-494), its tabs (D-495)
       textLine.draw(hc, line, t, still()); // his home line, said as it opens
     }
     else dev.draw(rc, state, cam);

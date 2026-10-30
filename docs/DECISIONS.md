@@ -193,3 +193,12 @@ materials so far: each common one for 1 trade coin, each rare one for
 "Peddler" and "coins". Coins are kept on a fall in Gentle and Normal
 and lost with the world when Hardcore starts over. An older save has
 none yet.
+
+**D-495 · 2026-10-30 · Buying from the peddler** (the owner's picks,
+all recommended; step 13b of D-482, ends step 13) He sells an oil
+flask for 3 coins and a torch for 2, kept in the registry as his
+`wares`, and never runs out. His card gets two tabs, Sell and Buy, the
+Journal's look; Buy shows his wares in the grid, and BUY, Enter or
+Space buy one, free, no turn, dim with too few coins or no room in
+the bag, the card saying why. Seeds wait for the garden; recipes
+wait for a way to sell them.

@@ -8,8 +8,9 @@
 export const PEOPLE = {
   // The first person, a peddler trapped by a ring of rubble on depth 3 (step 12a, D-490):
   // freed in 12b (D-491), at home in 12c (D-492), the first vendor in step 13 (D-471):
-  // at home, he `buys` what has a price, `sells` in the registry (D-494). Named at its own step.
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', freed: 'peddlerFreed', home: 'peddlerHome', buys: true },
+  // at home, he `buys` what has a price, `sells` in the registry (D-494), and sells his
+  // `wares`, { itemId: price } in coins, never running out (D-495). Named at its own step.
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', freed: 'peddlerFreed', home: 'peddlerHome', buys: true, wares: { flask: 3, bagTorch: 2 } },
 };
 
 // The person standing on x, y, or undefined

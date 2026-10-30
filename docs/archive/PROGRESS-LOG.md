@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.206, he stands at home.** Step 12c ends step 12:
+  freed, the peddler stands at once in the woods, on the open tile
+  nearest their middle, and a bump there says his home lines in turn.
+  Nothing set down or grown back goes on his tile. The audit moves to
+  0.2.207 (D-492). Playtest: https://claude.ai/artifact/KBoc19zWuzuwCp8haVe1H6
 - **2026-10-30, 0.2.205, the rescue.** Step 12b: the rubble around
   the peddler is dug like a deposit, 3 bumps a turn each, no tool, no
   stone, and he calls out as you dig. Clear one heap and he thanks you
