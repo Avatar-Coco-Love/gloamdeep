@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.189', date: '2026-10-30', title: 'The Rat Tail', lines: [
+    "A beaten rat now leaves a Rat Tail where it fell, about 1 time in 2. Step on it to put it in your bag, in stacks of 20, with a line.",
+    "A Rat Tail is curled into a loop, the rat's pink with a grey stub. Choosing it in the bag says a line about it; it is for crafting later.",
+    "With every stack full it stays on the floor until you come back for it. It never grows back.",
+    "Decisions: D-474.",
+  ] },
   { v: '0.2.188', date: '2026-10-30', title: 'The build order', lines: [
     "The scope's build order is set: creature drops come first, so today's five creatures leave materials to take home.",
     "The first 8 steps: a rat's Rat Tail, the other common drops, the rare drops, a first recipe using one, torches to make and set down, a second weapon kind, a pick and the first ore, and the Growth tree.",

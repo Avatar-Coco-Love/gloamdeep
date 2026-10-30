@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.186, the fifth audit.** Nothing in the game changed
+  (D-468; all recommended, and the glossary split too). The Seed
+  Explorer, ways to play and seed pad moved word for word from
+  `screens.js` (44 → 41 KB) into `explorerscreens.js`; the old and new
+  builds say the same on those screens. `DECISIONS.md` 10.7 → 7.9 KB,
+  `CHANGELOG.md` 7.1 → 2.3 KB, `GLOSSARY.md` 7.8 → 6.6 KB (code words
+  to `GLOSSARY-CODE.md`); `CLAUDE.md`'s pointers tidied. No playtest:
+  nothing to play.
 - **2026-10-30, 0.2.185, the scope, part 7.** Collectables settled:
   lore in sets, a boost per set; relics on a shelf at home; a trophy per
   creature; achievements in 3 tiers paying the look currency, in a Feats

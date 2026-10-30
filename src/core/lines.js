@@ -49,6 +49,9 @@ export const LINES = {
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
+  ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
+  ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
+  ratTailFull: { text: "You can't carry more rat tails.", warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)

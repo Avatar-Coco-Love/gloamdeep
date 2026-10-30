@@ -181,3 +181,13 @@ torches made and set down (D-459); a second weapon kind and the swap
 hearts in Body (D-462). The rest follows later, in an order asked
 then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
 (Q-069) stay waiting, outside the order.
+
+**D-474 · 2026-10-30 · The Rat Tail** (the owner's picks, all
+recommended; step 1 of D-473, narrows Q-061) On the floor and in the
+bag it is look A: the rat's pink tail curled into a loop, with a grey
+stub where it joined the rat. The 1-in-2 coin is seeded like a flee's,
+from the seed, the turn and the tile the rat fell on, so nothing new is
+saved and a replay drops the same. Stacks of 20, as other small finds
+(D-333). Three lines when taken and three when chosen in the bag, each
+in turn, and a "can't carry more" line, drafted for the playtest. Left on the floor it
+stays until taken and never grows back.
