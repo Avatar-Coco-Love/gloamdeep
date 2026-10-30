@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.211 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.212 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -43,6 +43,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.212, only a side heap frees him.** The owner's
+  catch: a cleared corner heap freed the peddler and started his turns,
+  though the hero couldn't reach him. Now only a heap straight beside
+  him frees him (D-498). Playtest:
+  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
 - **2026-10-30, 0.2.211, the lantern beam home.** The peddler leaves
   in look A's lantern beam, and beams in at home the first time the
   hero comes, once the room has faded in; at home he greets the hero
@@ -53,7 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   or 3 after a bump, or when you leave the room (D-496; the beam look
   chosen from a mock-up, built next). Playtest:
   https://claude.ai/artifact/KnQkvXYZRJ1AQbzdNY6xwp
-- **2026-10-30, 0.2.209, buying from the peddler.** Step 13b ends step
-  13: his card has Sell and Buy tabs, and he sells an oil flask for 3
-  coins and a torch for 2, never running out, free, no turn (D-495).
-  Playtest: https://claude.ai/artifact/B6NkhrCQfdzGzwi7mx8rtK

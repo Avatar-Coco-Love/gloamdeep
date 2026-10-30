@@ -195,3 +195,17 @@ test('at home he greets the hero once, the hero within 2 tiles', () => {
   assert.equal(again.events.some((e) => e.type === 'arrive'), false);
   assert.notEqual(again.line.turn, again.turn);
 });
+
+// § corners: a corner heap cleared opens no way to him, so it doesn't free him (D-498)
+test('a corner heap cleared does not free him; he cheers on, and a side heap frees him', () => {
+  const room = makeRoom(['#######', '#.....#', '#.UUU.#', '#.U.U.#', '#.UUU.#', '#.....#', '#######']);
+  let s = { ...makeState(room, { x: 1, y: 2 }), people: [{ id: 'peddler', x: 3, y: 3 }] };
+  for (let i = 0; i < 3; i++) s = step(s, 'right');
+  assert.equal(s.people[0].leaves, undefined);
+  assert.equal(shownLine(s).text, LINES.rubbleClear.text);
+  s = step(step(s, 'down'), 'right');
+  assert.ok(LINES.peddlerDigging.texts.includes(shownLine(s).text));
+  s = step(step(s, 'right'), 'right');
+  assert.equal(s.people[0].leaves, s.turn + 5);
+  assert.equal(shownLine(s).text, LINES.peddlerFreed.text);
+});

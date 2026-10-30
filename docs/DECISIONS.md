@@ -180,21 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-496 · 2026-10-30 · The rescued peddler lingers, then beams home**
-(the owner's idea and picks, the turns his own, the rest recommended
-after a mock-up of four looks; changes D-491's "is gone" and D-492's
-"at once") Freed, the peddler stays where he stood and thanks the
-hero. Left alone 5 turns, he says goodbye and heads home; bumped, free,
-he talks, his lines taking turns, and goes 3 turns after the last bump.
-The hero leaving the room first, he goes home anyway. Digging him out,
-his first call is for help, then he cheers the digging on. Creatures
-don't step onto a person. Two steps: 0.2.210 does all this with a
-plain fade where he stood; the next draws look A, the lantern beam
-(Starbound-like), as he leaves and arrives, and a one-time greeting at
-home when the hero comes within 2 tiles. His lines are drafted for the
-playtest. Also moved D-494 to the archive, word for word, as this file
-neared 12 KB.
-
 **D-497 · 2026-10-30 · The lantern beam home** (recommended; the
 second step of D-496) The beam is the mock-up's look A, one second.
 Leaving, it plays where he stood. Arriving, it plays the first time
@@ -205,3 +190,11 @@ you are, friend! Welcome!", drafted for the playtest. With reduced
 motion there is no beam, and the dev Go outside finds him there.
 Also moved D-495 to the archive, word for word, as this file passed
 12 KB.
+
+**D-498 · 2026-10-30 · Only a side heap frees the peddler** (the
+owner's catch and pick, recommended; changes D-491's "one heap
+cleared") A corner heap opens no way to him, as the hero steps only up,
+down, left and right. Cleared, it says the rubble's own line, frees no
+one and starts no turns; he keeps cheering the digging on. A heap
+straight up, down, left or right of him frees him, as before. Also
+moved D-496 to the archive, word for word, as this file passed 12 KB.

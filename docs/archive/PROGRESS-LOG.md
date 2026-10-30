@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.209, buying from the peddler.** Step 13b ends step
+  13: his card has Sell and Buy tabs, and he sells an oil flask for 3
+  coins and a torch for 2, never running out, free, no turn (D-495).
+  Playtest: https://claude.ai/artifact/B6NkhrCQfdzGzwi7mx8rtK
 - **2026-10-30, 0.2.208, selling to the peddler.** Step 13a: bumped at
   home, the peddler says his line and opens his card. He buys creature
   materials one at a time, free: common 1 coin, rare 5. Coins are kept

@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.212', date: '2026-10-30', title: 'Only a side heap frees him', lines: [
+    "Clearing a corner heap of the rubble around the peddler no longer frees him: you can't reach him through a corner. He keeps cheering you on.",
+    "Clear a heap straight up, down, left or right of him to free him. His 5 turns start then, so you have time to step in and talk.",
+    "Decisions: D-498.",
+  ] },
   { v: '0.2.211', date: '2026-10-30', title: 'The lantern beam home', lines: [
     "Free the peddler and, when he heads home, a column of warm lantern light now drops onto him. He comes apart in thin bands that rise up the beam, then it goes out.",
     "Go home to the woods next and he beams in the same way beside the middle, once the room has faded in.",
