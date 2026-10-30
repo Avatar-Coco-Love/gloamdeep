@@ -1,8 +1,15 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.183)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.184)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, and 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468), and 0.2.184 at 0.2.187. Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.184 (2026-10-30)
+- The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.
+- The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.
+- Each biome will hide one big ability, at a shrine or from a boss near its bottom, opening new paths in places already seen.
+- Nothing in the game changes yet.
+- Decisions: D-461 to D-463.
 
 ## 0.2.183 (2026-10-30)
 - The scope's part 5, gear, is settled. About 4 or 5 weapon kinds, each with its own attack shape; each biome's new metal makes a better one of each kind. One is held in hand, others swapped from the bag.
