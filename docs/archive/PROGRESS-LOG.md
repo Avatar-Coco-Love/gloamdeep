@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.185, the scope, part 7.** Collectables settled:
+  lore in sets, a boost per set; relics on a shelf at home; a trophy per
+  creature; achievements in 3 tiers paying the look currency, in a Feats
+  tab (D-464 to D-467). Nothing visible.
 - **2026-10-30, 0.2.184, the scope, part 6.** Growth settled: levels as
   today, no cap; a Growth tree of Light, Body and Hands, rows opening by
   biome; one found ability per biome (D-461 to D-463). Nothing visible.

@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.188', date: '2026-10-30', title: 'The build order', lines: [
+    "The scope's build order is set: creature drops come first, so today's five creatures leave materials to take home.",
+    "The first 8 steps: a rat's Rat Tail, the other common drops, the rare drops, a first recipe using one, torches to make and set down, a second weapon kind, a pick and the first ore, and the Growth tree.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-473.",
+  ] },
   { v: '0.2.187', date: '2026-10-30', title: 'The scope, part 8', lines: [
     "The scope's part 8, home and trade, is settled. Home grows by the pieces you build there, and sleeping at home gives a short boost for the next trip.",
     "Most people will be rescued below and move home; later some stay where you meet them, and wanderers such as a merchant visit.",

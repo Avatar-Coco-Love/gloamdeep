@@ -168,3 +168,16 @@ picks, recommended, and kept on falling added after the PR opened;
 builds D-418) Trade coins come only from selling to vendors: creatures
 never drop them and none are found below, so finds stay the reward.
 Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).
+
+**D-473 · 2026-10-30 · The scope's build order** (the owner's picks,
+all recommended; answers the Next up of 0.2.187) Drops come first, so
+the five creatures of today reward the hero and the loop deeper → find
+→ craft → deeper closes soonest. The first 8 steps, each one small
+visible change, with names and numbers asked at each one's own step:
+a beaten rat leaves a Rat Tail (D-453, D-454); the other four common
+drops; the rare drops; a first recipe using a creature material;
+torches made and set down (D-459); a second weapon kind and the swap
+(D-457); a pick and the first ore (D-450); the Growth tree, today's
+hearts in Body (D-462). The rest follows later, in an order asked
+then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
+(Q-069) stay waiting, outside the order.
