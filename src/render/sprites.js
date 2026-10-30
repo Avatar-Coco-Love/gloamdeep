@@ -66,6 +66,12 @@ const STONE = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '......kkkk......', '.....kHHLLk.....', '....kHLLLMMk....', '....kLLLMMDk....', '....kMMMMDDk....',
   '.....kDDDDk.....', '......kkkk......'] };
 
+// § rat tail: the rat's pink tail curled into a loop, a grey stub where it joined
+// the rat (look A of the Rat Tail mock-up, D-474)
+const RAT_TAIL = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '.........kkk....', '........kpppk...', '.......kpkkkpk..', '.......kpk.kpk..', '..kkk...kpppk...',
+  '.kSSskkkkpkk....', '.ksskpppppk.....', '..kkkkkkkk......'] };
+
 // § wood: three looks, one per stick as it lies (W1, D-314): a straight stick,
 // a forked twig with a leaf, a crooked branch, in the trees' trunk browns
 const WOODS = [
@@ -200,7 +206,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.

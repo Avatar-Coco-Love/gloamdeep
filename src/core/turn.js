@@ -9,7 +9,8 @@ import { tileAt, withTile } from './room.js';
 import { formOf } from './tiles.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
-import { enemyAt, hitEnemy } from './enemies.js';
+import { enemyAt, hitEnemy, DROP_CHANCE } from './enemies.js';
+import { rng, seedFor } from './rng.js';
 import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
@@ -85,15 +86,25 @@ function pickUp(state, found) {
 // like a step, so oil burns (D-111). One that may flee flees or stands (D-301).
 // The foe's line is said, and an oil line
 // said on the same turn replaces it (D-112). A foe beaten is worth experience, its hearts and bite (D-245, D-371).
-// It is a `hit` event, and a foe beaten a `beat` too.
+// It is a `hit` event, and a foe beaten a `beat` too. A foe beaten may leave a drop (dropFrom).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => (state.held && get(state.held)?.hit) || LANTERN_HIT;
 function attack(state, foe) {
   if (foe.asleep) return wake(state, foe);
   const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, heroHit(state));
   const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
-  const next = note(passTurn({ ...state, enemies }), 'hit', { id: foe.id, held: state.held });
+  const next = note(passTurn({ ...state, enemies, items: dead ? dropFrom(state, foe, entry) : state.items }), 'hit', { id: foe.id, held: state.held });
   return endTurn(state, say(dead ? note(gain(next, xpOf(entry)), 'beat', { id: foe.id }) : next, dead ? entry.die : stands ? entry.stands : entry.hurt));
+}
+
+// § drop: the items with what a beaten foe `drops`, about 1 time in 2 (D-453), on the
+// tile where it fell (creatures never stand on items), else the nearest open one. The coin is seeded, as a
+// flee's is, from the seed, the turn and its tile (D-474), so a replay drops the same.
+// It never grows back, so it lies there until taken (D-474).
+function dropFrom(state, foe, entry) {
+  if (!entry.drops || rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y + 4096))() >= DROP_CHANCE) return state.items;
+  const [at] = spread(state, foe.x, foe.y, 1, true);
+  return [...state.items, { id: entry.drops, ...at }];
 }
 
 // § wake: bumping a creature asleep in disguise wakes it, with no harm and no
@@ -158,10 +169,11 @@ function minable(room, x, y) {
 }
 
 // k tiles for what didn't fit: x, y first, then the nearest open ones around it with
-// nothing on them and no hero, sides before corners; x, y again when none is left
-function spread(state, x, y, k) {
+// nothing on them and no hero, sides before corners; x, y again when none is left.
+// With `free`, x, y too only when nothing lies on it (a drop, D-474).
+function spread(state, x, y, k, free = false) {
   const around = [[0, 0], [0, 1], [-1, 0], [1, 0], [0, -1], [-1, 1], [1, 1], [-1, -1], [1, -1]].map(([dx, dy]) => ({ x: x + dx, y: y + dy }));
-  const open = around.filter((t) => (t.x === x && t.y === y) || (!tileAt(state.room, t.x, t.y).solid
+  const open = around.filter((t) => (!free && t.x === x && t.y === y) || (!tileAt(state.room, t.x, t.y).solid
     && !(t.x === state.hero.x && t.y === state.hero.y) && !state.items.some((o) => o.x === t.x && o.y === t.y)));
   return Array.from({ length: k }, (_, i) => open[i] || { x, y });
 }

@@ -87,8 +87,8 @@ The owner wants beaten creatures to leave materials of their own, each
 with its own chance (D-372): a common one each, a rare one for some, for
 gear, potions, lampcraft, trophies and trade (D-417). Names and chances
 are settled (D-453, D-454), and where things are made (D-455, D-456).
-Still open: each material's look and the recipes it goes into, at each
-one's own step; a new mechanic, its own step.
+Still open: each material's look (the Rat Tail's is D-474) and the
+recipes it goes into, at each one's own step; a new mechanic, its own step.
 
 **Q-063 · The start-up screens** (before 1.0, D-377)
 The owner wants the game to load like other games: a maker's name, then

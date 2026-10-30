@@ -38,6 +38,10 @@ export const ITEMS = {
   // A plain stone from a broken deposit, never found lying (D-311, O2), for crafts
   // later. Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
   stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, look: 'stoneLook', full: 'stoneFull' },
+  // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,
+  // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
+  // (D-333); with every stack full it stays, with its `full` line. It never grows back.
+  ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);

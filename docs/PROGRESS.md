@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.188 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.189 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 1 of the scope's build order (D-473): a beaten rat leaves a Rat
-Tail where it fell; step on it to take it (D-453, D-454). Propose its
-look, and the drop's chance from the seed, first. Half and Automatic
+Step 2 of the build order (D-473): the other four common drops, Moth
+Dust, Stinger, Mimic Glass and Gloam Wisp (D-453, D-454), the Rat
+Tail's way (D-474). Propose their looks first. Half and Automatic
 wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -30,7 +30,7 @@ Ticked steps up to 0.2.121 are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The scope, drops first (D-473):
-- [ ] 1 A beaten rat leaves a Rat Tail; step on it to take it
+- [x] 1 A beaten rat leaves a Rat Tail; step on it to take it, 0.2.189
 - [ ] 2 The other four common drops
 - [ ] 3 The rare drops, from depth 3
 - [ ] 4 A first recipe using a creature material
@@ -50,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.189, the Rat Tail.** Step 1: a beaten rat leaves a
+  Rat Tail where it fell about 1 time in 2, seeded like a flee; step on
+  it to take it, stacks of 20, three take and three look lines, left
+  for good with a full bag (D-474, look A). Playtest:
+  https://claude.ai/artifact/TTRSKUx9bwaU8k4yiSaBRT
 - **2026-10-30, 0.2.188, the build order.** The owner picked drops
   first: 8 steps from a rat's Rat Tail to the Growth tree, the rest
   later; Q-069 stays waiting (D-473). Nothing visible.
@@ -58,11 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   move home, later some met in place and wanderers; the first vendor is
   at home; coins only from selling, kept on a fall (D-469 to D-472). The scope is done.
   Nothing visible.
-- **2026-10-30, 0.2.186, the fifth audit.** Nothing in the game changed
-  (D-468; all recommended, and the glossary split too). The Seed
-  Explorer, ways to play and seed pad moved word for word from
-  `screens.js` (44 → 41 KB) into `explorerscreens.js`; the old and new
-  builds say the same on those screens. `DECISIONS.md` 10.7 → 7.9 KB,
-  `CHANGELOG.md` 7.1 → 2.3 KB, `GLOSSARY.md` 7.8 → 6.6 KB (code words
-  to `GLOSSARY-CODE.md`); `CLAUDE.md`'s pointers tidied. No playtest:
-  nothing to play.

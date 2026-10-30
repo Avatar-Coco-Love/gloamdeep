@@ -10,8 +10,8 @@
 export const ENEMIES = {
   // Two lantern hits kill it (D-109, D-110); it bites for 1 when next to the hero (D-114)
   // and chases them once it notices them (D-126). Once hurt, it may flee (D-292, D-301).
-  // Its bite sounds of teeth (D-259).
-  rat: { id: 'rat', kind: 'enemy', name: 'Rat', health: 2, bite: 1, ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
+  // Its bite sounds of teeth (D-259). Beaten, it `drops` a Rat Tail now and then (D-453, D-454).
+  rat: { id: 'rat', kind: 'enemy', name: 'Rat', health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
   // It chases, and shuns light (D-240).
   gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
   // It seeks light (D-351); one hit of anything kills it (D-356).
@@ -25,6 +25,9 @@ export const ENEMIES = {
   // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
   scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
 };
+
+// § drops: how often a beaten creature leaves its common material (D-453)
+export const DROP_CHANCE = 0.5;
 
 // § lookups: the enemy on tile x, y, or undefined
 export const enemyAt = (state, x, y) => state.enemies.find((e) => e.x === x && e.y === y);
