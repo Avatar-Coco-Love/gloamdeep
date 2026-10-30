@@ -58,9 +58,11 @@ export const TILES = {
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },
   // A heap of fallen rock (D-490): solid, light passing over it, so a person trapped
-  // behind it is seen. It rings the peddler on depth 3; bumped, the person beside it
-  // calls out, or it says its `bump` line, free. Cleared in step 12b.
-  rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, blocksLight: false, bump: 'rubbleBump' },
+  // behind it is seen. It rings the peddler on depth 3. Dug by hand, `dig.hits` bumps a
+  // turn each, it clears to floor and gives nothing, freeing the person beside it
+  // (rescue.js, D-491); it never comes back.
+  rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, blocksLight: false,
+    dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' } },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },

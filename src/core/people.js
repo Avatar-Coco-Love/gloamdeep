@@ -1,12 +1,13 @@
 // § people: every person, keyed by id (D-470, D-490). `registry.js` gathers this table
 // with the other kinds. A person stands on a floor tile, in the place's `people` list as
-// { id, x, y }, and never moves yet. Bumped, or the rubble around them bumped, they say
-// their `calls` line, free. Plain data, no drawing.
+// { id, x, y }, and never moves yet. Bumped, they say their `calls` line, free; the
+// rubble around them dug, the same line, and once a heap beside them is cleared, their
+// `freed` line, and they are gone (rescue.js, D-491). Plain data, no drawing.
 
 export const PEOPLE = {
   // The first person, a peddler trapped by a ring of rubble on depth 3 (step 12a, D-490):
-  // freed in 12b, at home in 12c, the first vendor in step 13 (D-471). Named at its own step.
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls' },
+  // freed in 12b (D-491), at home in 12c, the first vendor in step 13 (D-471). Named at its own step.
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', freed: 'peddlerFreed' },
 };
 
 // The person standing on x, y, or undefined

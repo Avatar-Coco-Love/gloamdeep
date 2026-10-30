@@ -26,7 +26,8 @@ import { endTurn } from './endturn.js';
 import { fleeOrStand } from './creatureturn.js';
 import { fetchBag } from './fall.js';
 import { sleep } from './sleep.js';
-import { personAt, personBeside } from './people.js';
+import { personAt } from './people.js';
+import { dig } from './rescue.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -54,7 +55,7 @@ export function step(state, dir) {
   const tile = tileAt(state.room, x, y);
   if (tile.solid) {
     if (tile.sleeps) return sleep(state); // the bed (D-488)
-    if (tile.bump) return say(state, get(personBeside(state, x, y)?.id)?.calls || tile.bump); // rubble: the one trapped behind it calls out, free (D-490)
+    if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
