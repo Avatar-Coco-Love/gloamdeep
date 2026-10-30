@@ -61,17 +61,18 @@ import { howtoAt } from '../render/howto.js';
 import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
 import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/history.js';
 import { nextPage, howtoWords } from '../core/howto.js';
-import { PAD, typeKey, entrySeed, moveKey } from '../core/seedpad.js';
+import { PAD, moveKey } from '../core/seedpad.js';
 import { NAME_PAD, moveName } from '../core/namepad.js';
 import { nameCardAt } from '../render/namepad.js';
 import { CLOAK_PAD, moveCloak, EYES_PAD, moveEyes, TRIM_PAD, moveTrim, CLOTHES_PAD, moveClothes } from '../core/looks.js';
 import { createProfileScreens } from './profilescreens.js';
+import { createWorldScreens } from './explorerscreens.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
+import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
-import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
+import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { BAG_SLOTS } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
@@ -349,26 +350,9 @@ export function createScreens(app, ui) {
     spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
   }
 
-  // § explorer (D-214): opens on the Settings seed, else a random one, on the surface;
-  // Reseed, a typed seed and Back keep the floor shown, fitted whole. Settings never changes.
-  function openExplorer() {
-    app.seeds = startSeeds(app.settings.seed || ui.randomSeed());
-    app.floors = floorsShown(null, true);
-    show('explore');
-    mapFloor(0);
-  }
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
-  const closeExplorer = () => titleAt('explore');
-  function showSeeds(next) {
-    if (next === app.seeds) return;
-    app.seeds = next;
-    mapFloor(app.plan.depth);
-  }
-  function pressBar(id) {
-    if (id === 'back') showSeeds(backSeed(app.seeds));
-    else if (id === 'reseed') showSeeds(addSeed(app.seeds, ui.randomSeed()));
-    else if (id === 'type') openPad('explore');
-  }
+  const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
+    pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
     if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest') show('play');
     else if (app.screen === 'explore') closeExplorer();
@@ -407,47 +391,6 @@ export function createScreens(app, ui) {
   const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
   const changeStats = () => { const o = nextOnOff(app.settings.stats); change('stats', o, statsText(o)); };
 
-  // § ways (MO4, D-346): Settings' Way to play line opens the ways, the one played picked; a harder
-  // one can't be picked, the one played goes back, an easier one asks first (No picked)
-  const waysWords = () => `${MODE_HEADING}. ${easeMenu(app.state.mode).map((l) => `${l.text}: ${l.note}`).join(' ')}`;
-  const openWays = (at = app.state.mode) => show('ways', modeAt(at));
-  const closeWays = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'mode'));
-  function pickWay(id) {
-    if (easier(app.state.mode, id)) { app.easier = id; show('easier', SURE_MENU.findIndex((l) => l.id === 'no')); }
-    else if (id === app.state.mode) closeWays();
-  }
-  function closeEasier(yes) {
-    if (!yes) { openWays(app.easier); return; }
-    ui.ease(app.easier); closeWays();
-    spoken.textContent = modeText(app.state.mode);
-  }
-
-  // § seed pad (D-191): OK keeps the typed seed, or Random when none is typed; Random
-  // keeps Random. Either starts the next New journey; this one goes on as it is.
-  // From the Explorer it starts empty; OK shows the seed typed, or keeps the one shown
-  // when none is typed, and Random shows a random one (D-214).
-  function openPad(from = 'settings') {
-    app.padFrom = from;
-    app.entry = from === 'settings' && app.settings.seed ? String(app.settings.seed) : '';
-    show('seed');
-  }
-  function closePad() {
-    if (app.padFrom === 'explore') { show('explore'); mapFloor(app.plan.depth, () => app.view); }
-    else show('settings', menuOf('settings').findIndex((l) => l.id === 'seed'));
-  }
-  function pressKey(id) {
-    if (app.padFrom === 'explore' && (id === 'ok' || id === 'random')) {
-      const seed = id === 'ok' ? entrySeed(app.entry) : ui.randomSeed();
-      closePad();
-      if (seed) showSeeds(addSeed(app.seeds, seed));
-    } else if (id === 'ok' || id === 'random') {
-      const seed = id === 'ok' ? entrySeed(app.entry) : null;
-      app.settings = { ...app.settings, seed };
-      saveSettings(app.settings);
-      closePad();
-      spoken.textContent = seedText(seed);
-    } else { app.entry = typeKey(app.entry, id); spoken.textContent = app.entry || 'nothing typed'; }
-  }
   // Digits and Backspace type on the seed pad from a keyboard; the flame moves to OK, so Enter keeps it
   // In the Explorer, R reseeds, T types a seed and B goes back (D-214); in the bag, C makes (D-309)
   const onType = (key) => {

@@ -1,8 +1,9 @@
-# Steering and the stats line (D-404, D-406 to D-412)
+# Steering and the stats line (D-404, D-406 to D-412, D-449)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.161 (D-413), when it
 neared 12 KB: easier steering, tap to walk, the arrow pad, and the stats
-line in Settings, all built. These are still in force unless marked
+line in Settings, all built; D-449, Tap: Off, Step or Walk, at 0.2.186
+(D-468). These are still in force unless marked
 superseded. Grep for an ID or topic; never read this whole.
 
 ---
@@ -80,3 +81,13 @@ in 0.2.160, with the build's own choices (not asked; the owner may change
 them): the switch is Settings' last line; while the arrow pad shows, the
 line sits just above it; the dev drawer's Stats switch, when on, shows
 the full small line instead.
+
+**D-449 · 2026-10-30 · Tap: Off, Step or Walk** (the owner's choice;
+details all recommended; supersedes D-406's "the one-step tap goes" and
+D-422's "Off at first") Settings' Tap to walk line becomes Tap: Off, Step,
+Walk; picking it or Right goes on, Left back. Step is D-042's tap, one step
+toward the tap; a finger held 0.25 s keeps stepping toward it at the held
+pace (D-044), sliding steers, lifting stops. Walk is D-406's walk. New
+players start on Step; saved settings keep their pick, On as Walk. How to
+play: "Tap toward a tile", then "or swipe" or "Hold to keep going".
+Built in 0.2.179.

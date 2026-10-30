@@ -46,17 +46,16 @@ Read the smallest file that answers the question.
 | --- | --- | --- |
 | `docs/PROGRESS.md` | status, Next up, the last 3 logs | every conversation |
 | `docs/DECISIONS.md` | the newest decisions | grep for an ID or topic |
-| `docs/GLOSSARY.md` | the game's words and their decisions (D-264) | before naming anything |
+| `docs/GLOSSARY.md` | the game's words (D-264); the code's in `GLOSSARY-CODE.md` | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile, place (D-363); the plan in `SCOPE*.md` (D-413) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…) | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md` | when proposing a feature |
-| `docs/DESIGN.md` | the one-page design brief | before proposing a feature |
+| `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
-| `docs/VISION.md` | the pitch, inspirations, pillars | when proposing a design |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study | before any drawing code |
 | `docs/TECH.md` | architecture, code rules, adding content | before writing code |
-| `docs/DEV-TOOLS.md` | the dev mode plan and tools | when touching dev mode |
+| `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
 | `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |

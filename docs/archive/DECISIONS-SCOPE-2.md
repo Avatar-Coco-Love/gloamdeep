@@ -1,10 +1,11 @@
-# The scope, parts 2 to 5 (D-450 to D-460)
+# The scope, parts 2 to 7 (D-450 to D-467)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.183 (D-457), when it
 neared 12 KB: ore and tools, plants, wood and oil, fishing and farming,
 drop chances, today's creature materials; D-455 and D-456, where
 things are made and the ladder, at 0.2.184 (D-461); D-457 to D-460,
-gear, at 0.2.185 (D-464). These are still in force
+gear, at 0.2.185 (D-464); D-461 to D-467, growth and collectables, at
+0.2.186 (D-468). These are still in force
 unless marked superseded. Grep for an ID or topic; never read this
 whole.
 
@@ -102,3 +103,52 @@ recommended; builds D-450, D-452) Fishing uses one rod, made better
 with each biome's metal like picks and axes; a better rod catches
 deeper fish. Bait may come later. How fishing plays is asked at its own
 step.
+
+**D-461 · 2026-10-30 · The scope, part 6: levels and embers** (the
+owner's pick, recommended; builds D-246, D-293, D-371) Levels keep
+today's curve, each costing 10 more experience than the one before, and
+each still gives 1 ember, with no cap. Deeper creatures give more
+experience by themselves (hearts and bite), so the climb stays steady. Also moved D-455 and D-456 to the archive,
+word for word, as this file passed 12 KB.
+
+**D-462 · 2026-10-30 · The scope, part 6: the Growth tree** (the owner's
+picks, all recommended; builds D-293, D-419) The Growth tree has three
+branches: Light *(e.g. a slower burn, a bigger tank)*, Body (today's
+hearts, and *e.g.* a stronger bite, a guard) and Hands *(e.g. more bag
+slots, faster gathering, better drop odds)*. Gathering skills are Hands
+upgrades bought with embers, not learned by doing. Each branch's next
+row opens once the hero has reached the next biome, so going deeper
+opens stronger upgrades; each upgrade costs 1 ember, as today. Each
+upgrade and its numbers come at its own step.
+
+**D-463 · 2026-10-30 · The scope, part 6: found abilities** (the owner's
+pick, recommended; builds D-419) Each biome hides one big ability, at a
+shrine or from a boss near its bottom. Each opens paths in places
+already seen *(e.g. a leap over a 1-tile gap)*, so going back pays
+(pillar 3). Which ability lies where comes at its own step.
+
+**D-464 · 2026-10-30 · The scope, part 7: lore** (the owner's pick,
+recommended; builds D-038, D-414) Lore pieces are notes, carvings and
+murals found below. They fill a Lore tab in the Journal, each telling a
+bit of the mystery. They come in sets *(e.g. 5 pages of one story)*;
+finishing a set gives one small lasting boost. The sets, their stories
+and boosts come at each one's own step. Also moved D-457 to D-460 to
+the archive, word for word, as this file neared 12 KB.
+
+**D-465 · 2026-10-30 · The scope, part 7: relics** (the owner's pick,
+recommended; builds D-038, D-419) Relics are rare finds, about 1 or 2 a
+biome besides its found ability (D-463). Each is set on a shelf at home
+and gives one small lasting boost while it is there, so home grows with
+what was found. Each relic and its boost come at its own step.
+
+**D-466 · 2026-10-30 · The scope, part 7: trophies** (the owner's pick,
+recommended; builds D-350, D-417) Each creature has one trophy, made at
+the workbench from its materials and hung at home. It completes that
+creature's Bestiary page. Trophies are for looks and pride and give no
+strength. Each trophy's recipe and look come at its own step.
+
+**D-467 · 2026-10-30 · The scope, part 7: achievements** (the owner's
+pick, recommended; builds D-284, D-418, narrows Q-057) Each chosen
+record has a set of 3 tiers, and each tier pays the look currency. They
+show in a Feats tab in the Journal, with a note on reaching one. Which
+records get a set, and each tier's number, come at the first one's step.

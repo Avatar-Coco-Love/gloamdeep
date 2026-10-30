@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.183, the scope, part 5.** Gear settled: 4 or 5
+  weapon kinds, better by each metal, one in hand; one armour, two
+  charms; lantern part slots made at the workbench; torches; a rod
+  (D-457 to D-460). Nothing visible.
 - **2026-10-30, 0.2.182, the scope, part 4.** Making settled: small
   things in the bag, building, tools and leather at the bench, a station
   per bigger family at home, surface only; 8 to 12 recipes a biome, 1 or
