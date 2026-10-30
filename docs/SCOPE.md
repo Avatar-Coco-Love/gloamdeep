@@ -14,8 +14,8 @@ content, with `CONTENT.md` for what exists today.
 | --- | --- | --- |
 | 1. The frame | size, needs, depth, where strength comes from, crafts, loot, skills, drops, money, the bag, recipes | settled (D-414, D-415, D-417 to D-419) |
 | 2. Raw things | plants, wood, stone, ore, fishing, farming; what each biome gives | settled (D-450 to D-452) |
-| 3. Creature drops | each creature's common and rare material, chances (Q-061) | next |
-| 4. Making | each craft family's recipes, workstations, the ladder | to ask |
+| 3. Creature drops | each creature's common and rare material, chances (Q-061) | settled (D-453, D-454) |
+| 4. Making | each craft family's recipes, workstations, the ladder | next |
 | 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | to ask |
 | 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | to ask |
 | 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | to ask |
@@ -112,10 +112,20 @@ Two ways, each with its own job:
 - **Farming (D-452):** a garden at home; seeds grow while the hero is
   below. Gardening away from home may come later.
 
+## Part 3: creature drops (settled)
+- **Chances (D-453):** the common material about 1 in 2; a rare one,
+  about 1 in 10, only for creatures from depth 3 down. Fixed for now;
+  portal depths or a charm may raise them later.
+- **Picking up (D-453):** a drop lies where the creature fell; step on
+  it to take it. A full bag leaves it there.
+- **Today's five (D-454):** Rat Tail; Moth Dust; Stinger, rare Venom
+  Sac; Mimic Glass, rare Mimic Heart; Gloam Wisp, rare Gloam Eye. Each
+  leans to what fits its creature; the rare ones to finer gear.
+
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
   plants and wood; how fishing and the garden play.
-- **3:** each creature's materials, their names, looks and chances.
+- **3:** each material's look; the materials of creatures still to come.
 - **4:** where each family is made (bag, bench, forge, kitchen, power,
   altar); how long the recipe ladder is in each biome.
 - **5:** weapon kinds and shapes; the lantern's upgrade slots; armour

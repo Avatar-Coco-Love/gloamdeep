@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.181', date: '2026-10-30', title: 'The scope, part 3', lines: [
+    "The scope's part 3, creature drops, is settled. A beaten creature drops its own material about 1 time in 2, left on the floor where it fell, to take by stepping on it.",
+    "Creatures from depth 3 down also have a rare material, about 1 in 10.",
+    "Today's materials: Rat Tail, Moth Dust, Stinger, Mimic Glass and Gloam Wisp, and the rare Venom Sac, Mimic Heart and Gloam Eye. Each leans toward a craft that fits its creature; the recipes are part 4.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-453 and D-454.",
+  ] },
   { v: '0.2.180', date: '2026-10-30', title: 'The scope, part 2', lines: [
     "The scope's part 2, raw things, is settled. Each biome brings one new metal for now, 2 or 3 plants to gather (one of them an oil plant) and, below the surface, a wood of its own.",
     "Better picks open each new ore, better axes the deeper woods, and tools open new places too. Stone stays breakable by hand.",

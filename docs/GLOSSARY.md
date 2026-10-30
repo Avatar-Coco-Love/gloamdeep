@@ -45,6 +45,9 @@ this page and a decision disagree, the decision wins.
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
 - **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309).
+- **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
+  Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic
+  Heart, Gloam Eye (D-453, D-454). Not in the game yet.
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).

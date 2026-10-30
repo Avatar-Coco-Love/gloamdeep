@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.181 (2026-10-30)
+- The scope's part 3, creature drops, is settled. A beaten creature drops its own material about 1 time in 2, left on the floor where it fell, to take by stepping on it.
+- Creatures from depth 3 down also have a rare material, about 1 in 10.
+- Today's materials: Rat Tail, Moth Dust, Stinger, Mimic Glass and Gloam Wisp, and the rare Venom Sac, Mimic Heart and Gloam Eye. Each leans toward a craft that fits its creature; the recipes are part 4.
+- Nothing in the game changes yet.
+- Decisions: D-453 and D-454.
+
 ## 0.2.180 (2026-10-30)
 - The scope's part 2, raw things, is settled. Each biome brings one new metal for now, 2 or 3 plants to gather (one of them an oil plant) and, below the surface, a wood of its own.
 - Better picks open each new ore, better axes the deeper woods, and tools open new places too. Stone stays breakable by hand.
@@ -76,7 +83,3 @@ Entry format:
 - The lighting is worked out faster again, so play is smoother on slower phones: walking on a simulated slow phone runs about 31 frames a second instead of 22 to 25. Every pixel looks exactly as before; this was checked on 1,200 pictures.
 - The Half choice was built and measured first, but it ran no faster, so it is not in the game; Half and Automatic wait until the light is measured again. When the Light line comes, it goes after Motion, and Automatic is where it starts.
 - Decisions: D-436 and D-437. Questions opened: Q-069.
-
-## 0.2.170 (2026-10-29)
-- Fixed: on some screen sizes, such as a phone held sideways, the whole light went black in caves bigger than the screen, so the hero and lantern vanished. The view now always stops on a whole pixel, and a test checks it.
-- Decisions: D-434.
