@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.177 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.178 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Easing the zoom between rooms (D-444), then the scope, part 2
-(`SCOPE.md`, D-413). Half and Automatic wait on Q-069. Upright play
-(Q-065) is tabled.
+The scope, part 2 (`SCOPE.md`, D-413). Half and Automatic wait on
+Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -37,6 +36,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.178, the zoom glides.** Into a room of another
+  width, the zoom glides to the new room's while it fades in, 0.4 s,
+  gently at both ends; reduced motion jumps as before (D-448).
+  [Playtest](https://claude.ai/artifact/3Fu1tDaxRE8sKhu9zvrd8W).
 - **2026-10-29, 0.2.177, the corner fade.** Every corner piece fades
   over the hero (D-442). The owner picked each corner as one piece: the
   round map, pause and wrench; the lantern, bag and quick slot (D-447).
@@ -47,9 +50,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   on the way back in. Picked: plain dark past every edge again (D-445),
   and the first step in a room is the hero's own (D-446).
   [Playtest](https://claude.ai/artifact/2CoTTqi199dRyMbeLENNAg).
-- **2026-10-29, 0.2.175, the camera with a margin.** A narrow room zooms
-  in to fill the width with a 1½-tile margin, between 9 and 11 tiles
-  tall; the camera stops 1½ tiles past every edge, the rock and woods
-  showing there (D-441, D-443). Found before merging: the cards were
-  zoomed too and cut off; now the panel, plaques, text line and cards
-  are on their own layer at the old zoom (D-444). [Playtest](https://claude.ai/artifact/SiC27uwdNQCbZGRnnSMgY1).

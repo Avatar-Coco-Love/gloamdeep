@@ -174,7 +174,7 @@ export function createFrame(app, ui) {
     let nx = 0, ny = 0;
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
-    fitRoomCols(s.room.cols); // a narrow room zooms in to fill the width, with a margin (D-441)
+    fitRoomCols(s.room.cols, !still()); // a narrow room zooms in to fill the width, with a margin (D-441), gliding there (D-448)
     if (s.room !== drawnRoom) {
       drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
       base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;

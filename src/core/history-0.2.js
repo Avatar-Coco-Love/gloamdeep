@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.178', date: '2026-10-30', title: 'The zoom glides', lines: [
+    "Taking a doorway or stairs into a room of another width, the zoom now glides from the old room's to the new one's while the new room fades in, over 0.4 seconds, starting and landing gently, instead of jumping in the dark. For that moment some pixel rows are a hair wider than others, then everything is crisp again. With reduced motion on, it jumps as before.",
+    "Decisions: D-448.",
+  ] },
   { v: '0.2.177', date: '2026-10-29', title: 'The corner fade', lines: [
     "Every corner piece now fades almost away while the hero, or a creature beside the hero, is under it, as the glass panel and the round map already did. Each corner fades as one piece: in the top right, the round map, pause and the wrench; in the bottom right, the lantern with the bag and the quick slot on its arc. When any button in a corner is covered, the whole corner fades, so it never looks half faded.",
     "Decisions: built as D-442 says; D-447.",
