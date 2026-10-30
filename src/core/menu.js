@@ -1,7 +1,7 @@
 // § menu: the title screen's lines (D-177). Only what works is listed (D-178):
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
-import { bagHas, carried, BAG_SLOTS } from './bag.js';
+import { bagHas, carried } from './bag.js';
 import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, statsText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
@@ -70,18 +70,20 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 
 // § move: Up and Down walk the lines and stop at the ends
 // The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
-// in a 3 × 2 grid as the bag's, with its cost and how many of each the bag holds;
+// in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds;
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick']; // the stone pick (D-480), the copper wick (D-483)
-export const BENCH_TAKE = BAG_SLOTS;
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484)
+export const BENCH_COLS = 4;
+export const BENCH_SLOTS = 12;
+export const BENCH_TAKE = BENCH_SLOTS;
 export const benchMakes = (bag) => BENCH_MAKES.map((id) => {
   const of = get(id).bench.of;
   return { item: id, cost: Object.entries(of).map(([at, n]) => ({ id: at, n, have: carried(bag, at) })), dim: !bagHas(bag, of) };
 });
 // The arrows on the card: the grid, Down from its bottom row to Deconstruct, Up from it back
 export function moveBench(i, dir) {
-  if (i === BENCH_TAKE) return dir === 'up' ? BAG_SLOTS - 3 : i;
-  if (dir === 'down' && i >= 3) return BENCH_TAKE;
-  return Math.min(BAG_SLOTS - 1, Math.max(0, i + { left: -1, right: 1, up: -3, down: 3 }[dir]));
+  if (i === BENCH_TAKE) return dir === 'up' ? BENCH_SLOTS - BENCH_COLS : i;
+  if (dir === 'down' && i >= BENCH_SLOTS - BENCH_COLS) return BENCH_TAKE;
+  return Math.min(BENCH_SLOTS - 1, Math.max(0, i + { left: -1, right: 1, up: -BENCH_COLS, down: BENCH_COLS }[dir]));
 }
 export const moveChoice = (i, dir, count) => Math.max(0, Math.min(count - 1, i + (dir === 'up' ? -1 : dir === 'down' ? 1 : 0)));

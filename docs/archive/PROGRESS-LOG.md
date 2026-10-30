@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.196, the Growth tree.** Step 8: Growth is a
+  tree, look D of the mock-up: an ember at the root, limbs climbing
+  through Light, Body and Hands; the heart is Body's first, the rest to
+  come, a locked row above; pick a place, its words and button on the
+  right; any order (D-481). Playtest:
+  https://claude.ai/artifact/ProGVaa8ATkFjvdywoRNCh
 - **2026-10-30, 0.2.195, the pick and copper.** Step 7: the Stone
   Pick is made at the workbench from 2 Wood and 3 Stone and works from
   the bag; from depth 3, one boulder in each Cave room is a Copper vein,

@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.199 (2026-10-30)
+- The workbench card has room for more: its grid is now 4 × 3, 12 slots, like the stash chest's.
+- Make a Rat Hide Vest at the workbench, the first armour: bump the bench and choose its fourth slot. It costs 4 Rat Tail and 1 Wood, and Make is dim with too few. You have one at a time.
+- Choose the vest in the bag and press Wear: you put it on, and no turn passes.
+- While you wear it, each bite has a 1 in 4 chance to glance off and hurt nothing: "The bite glances off your vest."
+- How to play's Crafting page is now two tabs, Bag and Bench, with new rows for the Copper Wick and the vest.
+- Decisions: D-484 and D-485.
+
 ## 0.2.198 (2026-10-30)
 - Make a Copper Wick at the workbench, the first lantern part: bump the bench and choose its third slot. It costs 3 Copper Ore and 1 Wood, and Make is dim with too few. You have one at a time.
 - Choose the wick in the bag and press Fit: it goes into the lantern, and no turn passes.
@@ -96,8 +104,3 @@ Entry format:
 - The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling, and are kept when you fall.
 - Nothing in the game changes yet. The whole scope is now settled.
 - Decisions: D-469 to D-472.
-
-## 0.2.186 (2026-10-30)
-- Nothing in the game changes. The fifth audit: the Seed Explorer, Settings' ways to play and the seed pad move word for word from screens.js into their own file, explorerscreens.js.
-- Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions moved to the archive; CLAUDE.md's pointers are tidied, its rules word for word; GLOSSARY.md's "In the code" moved word for word to GLOSSARY-CODE.md. The next audit is at 0.2.206.
-- Decisions: D-468.

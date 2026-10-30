@@ -1,7 +1,7 @@
 // § how to play card (D-390; after the settings card, D-389): How to play opens as a glass
 // card as the bag's (D-385), from the pause card on the room and from the title on its scene
 // alike, "HOW TO PLAY" at its top and the round cross that goes back. Under the heading the
-// pages are tabs, Touch, Mouse, Keyboard and Crafting, the open one gold with the menus'
+// pages are tabs, Touch, Mouse, Keyboard, Bag and Bench (D-484), the open one gold with the menus'
 // flame (D-181) and underlined; under them the page's rows, the action grey on the left and
 // its ways light on the right (D-193).
 import { drawText, textWidth } from './font.js';

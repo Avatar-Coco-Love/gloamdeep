@@ -156,20 +156,6 @@ hearts in Body (D-462). The rest follows later, in an order asked
 then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
 (Q-069) stay waiting, outside the order.
 
-**D-481 · 2026-10-30 · The Growth tree** (the owner's picks; step 8 of
-D-473, builds D-462, D-293) Growth is drawn as look D of the step 8
-mock-up, the owner's mix of three columns and a drawn tree: an ember
-glows at the root, the trunk splits into three limbs, Light, Body and
-Hands, and each climbs through its branch's places, the first row at
-the bottom. Today's hearts are Body's first upgrade, with a row of
-hearts bought. Light and Hands show dim dashed places "to come"; one
-more row shows dim and locked, "opens deeper". The arrows or a tap pick
-a place, outlined gold; right of a line it says the embers left, its
-name and words, and its button with the cost. Upgrades are free to buy
-in any open row, in any order: nothing bought closes or opens another.
-It still opens as the Journal's Growth tab. Also moved D-477 and D-478
-to the archive, word for word, as this file passed 12 KB.
-
 **D-482 · 2026-10-30 · The rest of the build order** (the owner's picks,
 all recommended; answers the Next up of 0.2.196) Lantern parts come
 next: Copper Ore, mined since step 7, gets its first use, and the
@@ -195,3 +181,25 @@ with "You fit the copper wick." Swapping and taking parts out wait for
 a second part; no mark on the lantern button and no lantern row in the
 bag for now. Its bag picture is look A of the mock-up: an upright cloth
 wick with a burnt tip in a wide copper collar.
+
+**D-484 · 2026-10-30 · The Rat Hide Vest** (the owner's picks, all
+recommended; step 10 of D-482, builds D-458) Armour comes first in step
+10, the two charms after, each its own step. The first armour piece is
+the Rat Hide Vest, leatherwork, made at the workbench, its fourth slot,
+from 4 Rat Tail and 1 Wood (Rat Tail's first use); one is carried or
+worn. Choosing it in the bag shows Wear, which puts it on, free, "You
+put on the rat hide vest." Worn, each bite has a 1 in 4 chance, from
+the seed, to glance off and hurt nothing; when no bite that turn hurts,
+"The bite glances off your vest." A glancing bite is still a bite: its
+sound plays and a walk stops. Taking it off, and a mark that it is worn,
+wait for now. Its bag picture, a brown vest with grey fur at the
+shoulders laced in pink, and its lines are drafted for the playtest.
+
+**D-485 · 2026-10-30 · Room on the crafting pages** (the owner's picks,
+all recommended; the owner's ask) The workbench card's grid is 4 × 3,
+12 slots, as the stash chest's, the words on its right a little
+narrower. How to play's Crafting tab becomes two, Bag (Make, Oilcap,
+Glass, Dust, Wood) and Bench (Bench, Make, Pick, Wick, Vest), so the
+Copper Wick and the vest get rows. Keyboard keeps its full name: five
+tabs fit, so the mock-up's "Keys" was not needed. Also moved D-481 to
+the archive, word for word, as this file neared 12 KB.

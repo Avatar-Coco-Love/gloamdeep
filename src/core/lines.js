@@ -71,6 +71,12 @@ export const LINES = {
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free
   copperWickLook: { texts: ['A copper wick. Fit it to burn less oil.', 'A wick in a copper collar.', 'It will make each flask last longer.'], warn: false },
   wickFit: { text: 'You fit the copper wick.', warn: false }, // Fit in the bag, free (D-483)
+  vestMake: { text: 'You make a rat hide vest.', warn: false }, // its line on the bench panel, a turn (D-484)
+  ratVestFull: { text: 'You already have a rat hide vest.', warn: false }, // carried or worn, free
+  vestShort: { text: 'You need 4 Rat Tail and 1 Wood.', warn: false }, // too few, free
+  ratVestLook: { texts: ['A rat hide vest. Wear it to turn bites.', 'Rat tails, stitched tight.', 'It smells of the tunnels too.'], warn: false },
+  vestWear: { text: 'You put on the rat hide vest.', warn: false }, // Wear in the bag, free (D-484)
+  glance: { text: 'The bite glances off your vest.', warn: false }, // worn, a bite that hurts nothing (D-484)
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
   ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },

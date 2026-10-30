@@ -1,13 +1,13 @@
 // § how to play: the controls, one page per way of playing (D-179, D-193).
-// Touch, Mouse and Keyboard, then Crafting; Left and Right flip between them.
+// Touch, Mouse and Keyboard, then crafting's two, Bag and Bench (D-484); Left and Right flip between them.
 // Walking by touch or mouse follows the Swipe and Tap lines, so only
-// what works is shown, and the arrow pad's line (D-189, D-408). Frame says how to frame a creature (D-359, D-361). Crafting
-// says how Make works, the same for every way (D-328).
+// what works is shown, and the arrow pad's line (D-189, D-408). Frame says how to frame a creature (D-359, D-361). Bag and
+// Bench say how making works, the same for every way (D-328): in the bag, and at the workbench.
 // Plain data, no drawing.
 import { swipesWalk, tapsWalk, tapsStep, padShown } from './settings.js';
 
-export const HOWTO_PAGES = ['touch', 'mouse', 'keyboard', 'crafting'];
-const NAMES = { touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', crafting: 'Crafting' };
+export const HOWTO_PAGES = ['touch', 'mouse', 'keyboard', 'bag', 'bench'];
+const NAMES = { touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', bag: 'Bag', bench: 'Bench' };
 export const pageName = (id) => NAMES[id];
 
 // The next page, or the one before with back; it wraps round
@@ -30,15 +30,22 @@ function walkWays(settings, tap, swipe) {
 
 // The page's rows: [{ action, ways: [text, …] }], one text per drawn line
 export function howtoRows(page, settings) {
-  if (page === 'crafting') {
+  if (page === 'bag') {
     return [
       { action: 'Make', ways: ['Pick a stack in the bag', 'then press Make'] },
       { action: 'Oilcap', ways: ['3 make an oil flask'] },
       { action: 'Glass', ways: ['With 2 oilcaps, a flask'] },
       { action: 'Dust', ways: ['With 1 wood, a torch'] },
       { action: 'Wood', ways: ['3 make a workbench'] },
+    ];
+  }
+  if (page === 'bench') {
+    return [
       { action: 'Bench', ways: ['Bump it to make more'] },
+      { action: 'Make', ways: ['Choose a thing, then Make'] },
       { action: 'Pick', ways: ['In the bag, breaks veins'] },
+      { action: 'Wick', ways: ['Fit it in the bag'] },
+      { action: 'Vest', ways: ['Wear it from the bag'] },
     ];
   }
   if (page === 'keyboard') {

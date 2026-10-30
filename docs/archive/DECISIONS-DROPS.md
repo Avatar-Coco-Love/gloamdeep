@@ -1,10 +1,11 @@
-# The drops (D-474 to D-480)
+# The drops (D-474 to D-481)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
 other four common drops and the rare drops; D-477 and D-478, steps 4 and
 5, the glass flask and torches, at 0.2.196 (D-481); D-479 and D-480,
-steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482).
+steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482); D-481,
+step 8, the Growth tree, at 0.2.199 (D-485).
 
 ---
 
@@ -87,3 +88,17 @@ mock-up: a one-point stone head on a wooden handle, the deposit's
 boulder flecked with copper, a grey lump flecked with copper. The How
 to play Crafting page gets a row. Its lines are drafted for the
 playtest.
+
+**D-481 · 2026-10-30 · The Growth tree** (the owner's picks; step 8 of
+D-473, builds D-462, D-293) Growth is drawn as look D of the step 8
+mock-up, the owner's mix of three columns and a drawn tree: an ember
+glows at the root, the trunk splits into three limbs, Light, Body and
+Hands, and each climbs through its branch's places, the first row at
+the bottom. Today's hearts are Body's first upgrade, with a row of
+hearts bought. Light and Hands show dim dashed places "to come"; one
+more row shows dim and locked, "opens deeper". The arrows or a tap pick
+a place, outlined gold; right of a line it says the embers left, its
+name and words, and its button with the cost. Upgrades are free to buy
+in any open row, in any order: nothing bought closes or opens another.
+It still opens as the Journal's Growth tab. Also moved D-477 and D-478
+to the archive, word for word, as this file passed 12 KB.
