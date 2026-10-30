@@ -12,6 +12,7 @@ import { stashAt, withoutStash } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
 import { isFitted } from './parts.js';
+import { isWorn } from './worn.js';
 
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
@@ -41,11 +42,11 @@ export function craft(state, i) {
 // from the bag and puts one `id` in it, passing a turn, with its line (CH1, D-326).
 // With too few, its `short` line; with one already carried, its `full` line (or
 // "Your bag is full."); all free, and the bag stays as it was. A lantern part already
-// fitted counts as carried (D-483).
+// fitted, or a piece worn, counts as carried (D-483, D-484).
 export function makeAt(state, id) {
   const recipe = get(id)?.bench;
   if (!recipe) return state;
-  if (isFitted(state, id)) return say(state, get(id).full);
+  if (isFitted(state, id) || isWorn(state, id)) return say(state, get(id).full);
   if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
   const paid = bagPay(state.bag, recipe.of);
   const bag = bagAdd(paid, id);

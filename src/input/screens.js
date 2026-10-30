@@ -108,7 +108,7 @@ const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `setDown(slot, dir)`,
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
@@ -286,7 +286,7 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks, holds or fits, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks, holds, fits or wears, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -305,8 +305,8 @@ export function createScreens(app, ui) {
       if (app.fall) show('play'); else spoken.textContent = slotWords(app.chosen);
       return;
     }
-    if (entry?.part && !make) { // a lantern part into its slot, free, the bag kept open (D-483)
-      ui.fit(app.chosen);
+    if ((entry?.part || entry?.wear) && !make) { // a lantern part into its slot, or armour put on, free, the bag kept open (D-483, D-484)
+      if (entry.part) ui.fit(app.chosen); else ui.wear(app.chosen);
       if (!app.state.bag[app.chosen]) app.chosen = Math.max(0, app.state.bag.length - 1);
       spoken.textContent = slotWords(app.chosen);
       return;

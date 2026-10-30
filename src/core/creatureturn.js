@@ -10,6 +10,7 @@ import { litAt, clearLine } from './sight.js';
 import { note } from './events.js';
 import { DIRS, passTurn, itemAt } from './state.js';
 import { fall } from './fall.js';
+import { glanceOf } from './worn.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -18,20 +19,26 @@ import { fall } from './fall.js';
 // One fleeing bites only when it has no tile to flee to (D-292).
 // At 0 health the hero falls and wakes at the room's start (D-119).
 // Then the others come one tile closer (D-126 to D-129).
-// Each bite is a `bite` event, in the order they bite.
+// Each bite is a `bite` event, in the order they bite. Worn armour turns some aside:
+// each bite has its `glance` chance, from the seed, to hurt nothing, and when none
+// hurts, the glance line shows (D-484).
 export function enemiesAct(state) {
   return settle(act(state));
 }
 function act(state) {
   const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
-  const health = Math.max(0, state.health - bites.reduce((sum, e) => sum + get(e.id).bite, 0));
+  const hurts = bites.map((e) => (glances(state, e) ? 0 : get(e.id).bite)), first = hurts.findIndex((n) => n > 0);
+  const health = Math.max(0, state.health - hurts.reduce((sum, n) => sum + n, 0));
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
-  let bitten = stood ? { ...state, health, enemies } : say({ ...state, health, enemies }, get(bites[0].id).bites);
-  for (const e of bites) bitten = note(bitten, 'bite', { id: e.id, hurt: get(e.id).bite });
+  let bitten = stood ? { ...state, health, enemies } : say({ ...state, health, enemies }, first < 0 ? 'glance' : get(bites[first].id).bites);
+  bites.forEach((e, i) => { bitten = note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });
   return health > 0 ? enemiesMove(bitten) : fall(bitten);
 }
+// Whether creature e's bite this turn glances off the hero's armour (D-484)
+const glances = (state, e) => { const g = glanceOf(state); return g > 0 && rng(seedFor(state.seed ^ state.turn, GLANCE_SALT + e.x * 64 + e.y))() < g; };
+const GLANCE_SALT = 4096; // keeps the glance's dice apart from the flee's (fleesHurt)
 // § settle: after the creatures' turn, one that stirred is awake and chasing for its
 // `awakeTurns`; one awake counts a turn down, and at the last settles back
 // down asleep where it stands, with its line (D-368)

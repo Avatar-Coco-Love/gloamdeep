@@ -42,7 +42,7 @@ mechanic and its own step.
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `stone` | for crafts | 20 | never | a deposit | D-312 |
-| `ratTail` | for crafts later | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474 |
+| `ratTail` | 4 with 1 Wood make the Rat Hide Vest | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474, D-484 |
 | `mothDust` | with 1 Wood makes a torch | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475, D-478 |
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
 | `mimicGlass` | with 2 oilcaps makes a flask | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475, D-477 |
@@ -56,6 +56,7 @@ mechanic and its own step.
 | `pick` | the Stone Pick: in the bag, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone | D-480 |
 | `copperOre` | the first ore, for crafts | 20 | never | a copper vein | D-480 |
 | `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
+| `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood | D-478 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 

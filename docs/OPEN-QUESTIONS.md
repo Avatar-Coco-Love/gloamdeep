@@ -88,7 +88,7 @@ with its own chance (D-372): a common one each, a rare one for some, for
 gear, potions, lampcraft, trophies and trade (D-417). Names and chances
 are settled (D-453, D-454), and where things are made (D-455, D-456).
 Still open: each material's look (all eight are D-474 to D-476) and the
-recipes it goes into (Mimic Glass's first is D-477), at each one's own
+recipes it goes into (Mimic Glass's first is D-477, Rat Tail's D-484), at each one's own
 step; a new mechanic, its own step.
 
 **Q-063 · The start-up screens** (before 1.0, D-377)

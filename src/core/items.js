@@ -92,6 +92,11 @@ export const ITEMS = {
   // so a full tank lasts 75 turns, not 60. Oil alone still sets the reach (D-014).
   copperWick: { id: 'copperWick', kind: 'item', name: 'Copper Wick', bag: true, max: 1, look: 'copperWickLook', full: 'copperWickFull',
     bench: { of: { copperOre: 3, wood: 1 }, says: 'wickMake', short: 'wickShort' }, part: { slot: 'wick', burn: 1 / 75 }, fits: 'wickFit' },
+  // The first armour piece (D-484), leatherwork: made at the workbench, never found. Wear, in the
+  // bag, puts it on, free, in the hero's `wear.slot`, with its `wears` line; worn, each bite has a
+  // `wear.glance` chance to glance off and hurt nothing (creatureturn.js).
+  ratVest: { id: 'ratVest', kind: 'item', name: 'Rat Hide Vest', bag: true, max: 1, look: 'ratVestLook', full: 'ratVestFull',
+    bench: { of: { ratTail: 4, wood: 1 }, says: 'vestMake', short: 'vestShort' }, wear: { slot: 'armour', glance: 0.25 }, wears: 'vestWear' },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).
