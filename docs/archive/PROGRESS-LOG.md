@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.203, the bed.** Step 11 begins: the bed, the
+  first home piece, is made at the workbench from 4 Wood and 2 Rat
+  Tail and set down on the surface. Bumped from dusk, the hero sleeps
+  until morning, no oil burnt, and wakes healed and rested, with one
+  gold heart; by day it asks Deconstruct bed? (D-488). Playtest:
+  https://claude.ai/artifact/5Qugqpr6RDmfmKGE6kvVoX
 - **2026-10-30, 0.2.202, the heart charm.** Step 10 ends: the Heart
   Charm, the second charm, is made at the workbench from 1 Mimic Heart
   and 1 Copper Ore; worn beside the Wisp Charm, a full tank lasts about

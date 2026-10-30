@@ -36,3 +36,9 @@ turn and burns no oil. Fighting comes in a later step (Q-030).
 abilities are found; NPCs teach some; and learning by doing covers only
 mining, woodcutting, fishing, farming and cooking, each level a small
 perk, so fighting stays with levels and embers.
+
+**D-489 · 2026-10-30 · The bed ends step 11; the audit on time** *The
+audit part superseded by D-492 (2026-10-30).* (the
+owner's picks, both recommended) Step 11 ends with the bed: the first
+rescue, step 12, comes next, and more home pieces can come later, once
+there are reasons to build them. The sixth audit stays at 0.2.206.

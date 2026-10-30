@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.206', date: '2026-10-30', title: 'He stands at home', lines: [
+    "Free the peddler and he goes straight home: he stands in the woods on the surface, on the open tile nearest their middle, and turns to face you.",
+    "Bump him there and he speaks, his home lines taking turns. No turn passes.",
+    "Nothing you set down, and nothing that grows back, goes on his tile. Rescuing the first person is done; the audit comes next.",
+    "Decisions: D-492.",
+  ] },
   { v: '0.2.205', date: '2026-10-30', title: 'The rescue', lines: [
     "Dig the rubble around the trapped peddler on depth 3 to free him. Each heap takes 3 bumps, a turn each, and no tool; he calls out as you dig, his lines taking turns.",
     "Clear any one heap and he is free: he thanks you and is gone from the room, heading home. The rest of the rubble stays, and you can still dig it.",

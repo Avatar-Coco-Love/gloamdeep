@@ -62,7 +62,7 @@ export function step(state, dir) {
   const foe = enemyAt(state, x, y);
   if (foe) return attack(state, foe);
   const person = personAt(state, x, y);
-  if (person) return say(state, get(person.id).calls); // a person speaks, free (D-490)
+  if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   for (const found of state.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
   return endTurn(state, takeStairs(next) || next);

@@ -141,6 +141,7 @@ export const LINES = {
   // The trapped peddler's call through the rubble, the lines taking turns (step 12a, D-490); drafted for the playtest
   peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false },
   peddlerFreed: { text: '"Thank you! I\'ll head for the surface."', warn: false }, // the rubble beside him cleared; he is gone (D-491), drafted for the playtest
+  peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."', '"Let me unpack. I\'ll have wares soon."'], warn: false }, // at home in the woods (D-492), drafted for the playtest
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken

@@ -4,6 +4,7 @@ import { tileAt, withTile } from './room.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
+import { personAt } from './people.js';
 import { offEdge } from './openings.js';
 import { bagAdd, bagTake, bagHas, bagPay, canCraft } from './bag.js';
 import { note } from './events.js';
@@ -127,7 +128,7 @@ export function setSides(state, i) {
   return Object.keys(DIRS).filter((dir) => {
     const x = hero.x + DIRS[dir][0], y = hero.y + DIRS[dir][1];
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2 || tileAt(room, x, y).id !== 'floor') return false;
-    if (itemAt(state, x, y) || enemyAt(state, x, y)) return false;
+    if (itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y)) return false; // not on a person (D-492)
     return joined(withTile(room, x, y, get(sets.tile)));
   });
 }
