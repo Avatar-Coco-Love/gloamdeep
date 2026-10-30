@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.194, the spear.** Step 6: the spear lies in
+  depth 3's first room; it hits a creature for 2 and the one awake
+  behind it for 1. A weapon found with one held goes into the bag, and
+  Hold there swaps it into the hand, a turn (D-479). Playtest:
+  https://claude.ai/artifact/2AAs6QhoWvosWacA7S1bTT
 - **2026-10-30, 0.2.193, torches.** Step 5: Make on Moth Dust turns
   1 dust and 1 Wood into a torch, stacks of 5; Set down beside the hero
   anywhere, the bench's way, on a stone foot, lighting 3 tiles; out
@@ -885,7 +890,7 @@ Entries moved out of `docs/PROGRESS.md`, newest first.
   rat faces the way it walks (D-155 to D-158). Playtest:
   https://claude.ai/artifact/JXppcTSyx9XAw76kF1wTSG
 
-## Build plan: stage 0.3, the world (ticked steps up to 0.2.121)
+## Build plan: stage 0.3, the world (ticked steps)
 
 Moved from `PROGRESS.md` at 0.2.109, the first regular audit (D-336).
 
@@ -969,6 +974,18 @@ The stash chest, the modes (D-324, D-333 to D-335; order may change)
 - Creatures show their next move, to try (D-349): the creature list (D-357)
   - [x] CL1 The row of plaques, faces and action icons (D-358), 0.2.120
   - [x] CL2 Tapping a plaque frames its creature (D-359), 0.2.121
+
+Moved from `PROGRESS.md` at 0.2.197 (D-482):
+
+The scope, drops first (D-473):
+- [x] 1 A beaten rat leaves a Rat Tail; step on it to take it, 0.2.189
+- [x] 2 The other four common drops, 0.2.190
+- [x] 3 The rare drops, from depth 3, 0.2.191
+- [x] 4 A first recipe: Mimic Glass and 2 Oilcaps make a flask, 0.2.192
+- [x] 5 Torches: made in the bag, set down on a tile, 0.2.193
+- [x] 6 The spear, hitting through; swapped in the bag, 0.2.194
+- [x] 7 A pick, and the first ore in the mines, 0.2.195
+- [x] 8 The Growth tree: Light, Body, Hands; today's hearts in Body, 0.2.196
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

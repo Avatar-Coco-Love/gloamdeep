@@ -156,32 +156,6 @@ hearts in Body (D-462). The rest follows later, in an order asked
 then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
 (Q-069) stay waiting, outside the order.
 
-**D-479 · 2026-10-30 · The spear, a second weapon** (the owner's picks,
-all recommended; step 6 of D-473, builds D-457, D-252) The second kind
-is a spear that hits through: walking into a creature hits it for 2,
-as the knife does, and the creature awake behind it, in the line from
-the hero, for 1; one asleep in disguise there is left as it is. The
-front one's line is said. It lies in depth 3's first room, the one with
-the stairs up, by the knife's rule, and not while the hero has one.
-Found with a weapon held, a weapon goes into the bag, 1 a slot; with
-the bag full it stays on the floor, "Your bag is full." Hold on it in
-the bag swaps it with the one in hand, a turn, the bag staying open.
-It looks as the step 6 mock-up drew it, a wooden shaft with a steel
-head. Its lines are drafted for the playtest.
-
-**D-480 · 2026-10-30 · The Stone Pick and copper** (the owner's picks,
-all recommended; step 7 of D-473, builds D-450, D-455, D-451) The first
-pick is the Stone Pick, a second slot at the workbench: 2 Wood and 3
-Stone, dim with too few, one carried. It is never held; with it in the
-bag, a Copper vein breaks. From depth 3, one of the 3 deposits in each
-Cave room is a vein; without the pick a bump says it is too hard,
-free. 4 bumps give 1 Copper Ore, stacks of 20, for crafts later; a
-vein grows back after 1800 turns. Look A of each in the step 7
-mock-up: a one-point stone head on a wooden handle, the deposit's
-boulder flecked with copper, a grey lump flecked with copper. The How
-to play Crafting page gets a row. Its lines are drafted for the
-playtest.
-
 **D-481 · 2026-10-30 · The Growth tree** (the owner's picks; step 8 of
 D-473, builds D-462, D-293) Growth is drawn as look D of the step 8
 mock-up, the owner's mix of three columns and a drawn tree: an ember
@@ -195,3 +169,17 @@ name and words, and its button with the cost. Upgrades are free to buy
 in any open row, in any order: nothing bought closes or opens another.
 It still opens as the Journal's Growth tab. Also moved D-477 and D-478
 to the archive, word for word, as this file passed 12 KB.
+
+**D-482 · 2026-10-30 · The rest of the build order** (the owner's picks,
+all recommended; answers the Next up of 0.2.196) Lantern parts come
+next: Copper Ore, mined since step 7, gets its first use, and the
+lantern is the heart of the game. Claude proposes the rest of the
+order and the owner approves it by merging: lantern parts, armour and
+charms, home pieces and rest, the first rescue, vendor and coins,
+garden, fishing, lore, relics, feats. The rescue comes before the
+vendor, who is a rescued person (D-471); collectables come last, as
+they reward everything before them. Each may take more than one small
+step, with its names and numbers asked at its own step. The first
+Light and Hands upgrades may join any of them. Half and Automatic
+(Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
+for word, as this file neared 12 KB.

@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.197', date: '2026-10-30', title: 'The rest of the order', lines: [
+    "A look at where things stand: steps 1 to 8 of the build order are done, and all 685 tests pass.",
+    "Lantern parts come next, the first to use Copper Ore. The rest follow in the order proposed in the plan: armour and charms, home pieces and rest, the first rescue, the vendor and coins, the garden, fishing, lore, relics, feats.",
+    "Half and Automatic light keep waiting. Nothing in the game changed.",
+    "Decisions: D-482.",
+  ] },
   { v: '0.2.196', date: '2026-10-30', title: 'The Growth tree', lines: [
     "The Journal's Growth tab is now a tree: an ember glows at its root, and three limbs climb from it, Light, Body and Hands. Each branch has a row of places, the first at the bottom.",
     "Today's hearts are Body's first upgrade, with a row of small hearts for those bought. Light and Hands show dim places still to come, and a dim locked row above opens deeper down.",
