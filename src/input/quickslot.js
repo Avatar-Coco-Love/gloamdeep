@@ -3,7 +3,8 @@
 // flasks are carried, dim with none, when a tap does nothing. Thin layer: a tap
 // or click only calls onPour(); show(n) redraws the count; hide(on) takes it away.
 import { drawFlaskSlot } from '../render/hud.js';
-import { keepPlaced } from './lantern.js';
+import { keepFading } from './lantern.js';
+import { BUTTON } from '../render/screen.js';
 
 export function createQuickSlot(canvas, { onPour }) {
   const button = document.createElement('button');
@@ -14,9 +15,10 @@ export function createQuickSlot(canvas, { onPour }) {
   button.append(icon);
   button.addEventListener('click', (ev) => { onPour(); if (ev.detail) button.blur(); });
   document.body.append(button);
-  keepPlaced(canvas, button, 4);
+  const { area, fade } = keepFading(canvas, button, 4, BUTTON);
   let shown = null;
   return {
+    area, fade, // its corner's fade (D-442)
     hide(on) { button.style.display = on ? 'none' : ''; },
     show(n) {
       if (n === shown) return;

@@ -1,7 +1,8 @@
 // § lantern button: the on-screen lantern switch, big and round in the room's
 // bottom right corner (D-080, D-199, D-377, D-381, D-384). Thin layer: a tap or
 // click only calls onSwitch(); show(lit) redraws its icon and tells screen
-// readers whether it is on; hide(on) takes it away on the title screen.
+// readers whether it is on; hide(on) takes it away on the title screen; area()
+// and fade(alpha) are for its corner's fade (D-442).
 import { drawLanternIcon } from '../render/hud.js';
 import { BUTTON as SIZE, BUTTON_GAP as GAP, MAP_DISC as DISC, PAD_DISC, LANTERN, ARC } from '../render/screen.js';
 
@@ -35,6 +36,21 @@ export function keepPlaced(canvas, button, slot, then) {
   watch.observe(document.documentElement); watch.observe(canvas);
 }
 
+// § fading: a placed button `size` px wide, and where it sits in `canvas`'s pixels,
+// for its corner's fade (D-383, D-442): area() is the spot, fade(alpha) sets how see-through
+export function keepFading(canvas, button, slot, size, then) {
+  let area = { x: 0, y: 0, w: 0, h: 0 }, faded = 1;
+  keepPlaced(canvas, button, slot, (top, left, r) => {
+    const per = canvas.width / r.width; // canvas pixels a screen pixel
+    area = { x: (left - r.left) * per, y: (top - r.top) * per, w: size * per, h: size * per };
+    then?.(top, left, r);
+  });
+  return {
+    area: () => area,
+    fade(alpha) { if (alpha !== faded) { faded = alpha; button.style.opacity = alpha < 1 ? alpha : ''; } },
+  };
+}
+
 export function createLanternButton(canvas, { onSwitch }) {
   const button = document.createElement('button');
   button.id = 'lantern-button';
@@ -47,10 +63,11 @@ export function createLanternButton(canvas, { onSwitch }) {
   button.addEventListener('click', (ev) => { onSwitch(); if (ev.detail) button.blur(); }); // a tap or click lets go of the focus; Enter or Space keeps it
   document.body.append(button);
 
-  keepPlaced(canvas, button, 0);
+  const { area, fade } = keepFading(canvas, button, 0, LANTERN);
 
   let shown = null;
   return {
+    area, fade, // its corner's fade (D-442)
     hide(on) { button.style.display = on ? 'none' : ''; },
     show(lit) {
       if (lit === shown) return;

@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.176 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.177 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The corner fade (D-442): every corner piece fades over the hero. Then
-easing the zoom between rooms (D-444), and the scope, part 2 (`SCOPE.md`,
-D-413). Half and
-Automatic wait on Q-069. Upright play (Q-065) is tabled.
+Easing the zoom between rooms (D-444), then the scope, part 2
+(`SCOPE.md`, D-413). Half and Automatic wait on Q-069. Upright play
+(Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -38,6 +37,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-29, 0.2.177, the corner fade.** Every corner piece fades
+  over the hero (D-442). The owner picked each corner as one piece: the
+  round map, pause and wrench; the lantern, bag and quick slot (D-447).
+  [Playtest](https://claude.ai/artifact/Efqf9XrbyRdxv6wxpG8kpt).
 - **2026-10-29, 0.2.176, plain dark past the door.** The owner found it
   janky: a bright strip of woods over black rock past the crypt's doorway
   out, and a rat waiting by the door, hidden from the woods, bit at once
@@ -50,8 +53,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   showing there (D-441, D-443). Found before merging: the cards were
   zoomed too and cut off; now the panel, plaques, text line and cards
   are on their own layer at the old zoom (D-444). [Playtest](https://claude.ai/artifact/SiC27uwdNQCbZGRnnSMgY1).
-- **2026-10-29, 0.2.174, the camera, pictures.** The owner's idea: the
-  camera never goes past the room. Pictures drawn by the game; picked C,
-  narrow rooms zoom to fill the width with a 1½-tile margin (D-441); every
-  corner piece fades over the hero (D-442); the outside stays inside the
-  margin (D-443). [Pictures](https://claude.ai/artifact/UpDgkoK7nFTA9MrA5wHdzD).
