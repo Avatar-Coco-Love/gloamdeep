@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.192, the glass flask.** Step 4: in the bag, Make on
+  Mimic Glass turns 1 glass and 2 Oilcaps into an oil flask; dim
+  without them; a How to play row (D-477). Playtest:
+  https://claude.ai/artifact/6yeV5ujJ19Y79iVQGhKLFj
 - **2026-10-30, 0.2.191, the rare drops.** Step 3: a beaten scorpion,
   flask mimic or gloamling now and then leaves a Venom Sac, Mimic Heart
   or Gloam Eye, about 1 in 10 on its own coin; with the common too, it

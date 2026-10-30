@@ -156,6 +156,8 @@ export function mimicRooms(seed, depth) {
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;
 export const SPEAR_DEPTH = 3;
+// § veins: one of each Cave room's deposits is a copper vein from depth 3 (D-480)
+export const VEIN_DEPTH = 3;
 export const placeAt = (depth) => Object.keys(PLACES).find((id) => PLACES[id].depth === depth) || `depth${depth}`;
 const weaponIn = (id) => (id === placeAt(KNIFE_DEPTH) ? 'knife' : id === placeAt(SPEAR_DEPTH) ? 'spear' : null);
 export const depthOf = (id) => PLACES[id]?.depth ?? parseInt(id.slice('depth'.length), 10);
@@ -166,7 +168,7 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
-  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits });
+  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0 });
   const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth', cell.seed) : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion', cell.seed) : made;
   const room = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   return { ...(room || PLACES[DEEPER]), depth, look, sides: cell?.sides || {} };

@@ -55,6 +55,17 @@ export const LINES = {
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
+  veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the bag, free (D-480)
+  veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)
+  veinChip2: { text: 'Chips of rock fly.', warn: false }, // the second
+  veinCrack: { text: 'The vein cracks.', warn: false }, // the third
+  copperOreTake: { texts: ['The rock gives. You take copper ore.', 'A lump of copper ore comes free.', 'The vein breaks. Copper ore!'], warn: false }, // the fourth
+  copperOreLook: { texts: ['Copper ore, for crafting later.', 'Grey rock, flecked with copper.', 'It is heavier than it looks.'], warn: false },
+  copperOreFull: { text: "You can't carry more copper ore.", warn: false },
+  pickMake: { text: 'You make a stone pick.', warn: false }, // its line on the bench panel, a turn (D-480)
+  pickFull: { text: 'You already carry a stone pick.', warn: false }, // only 1 is carried, free
+  pickShort: { text: 'You need 2 Wood and 3 Stone.', warn: false }, // too few, free
+  pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Keep it in the bag to use it.', 'A sharp stone, lashed to a stick.'], warn: false },
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
   ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },

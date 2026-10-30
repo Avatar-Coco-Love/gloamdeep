@@ -22,13 +22,13 @@ export const HEARTCAP_ODDS = 0.5;
 // openings to carve at the edges, as { dir, at } (region.js, D-201).
 // `ways.rats` is how many rats the room holds (D-231), and `ways.second` the
 // kind of creature that takes the extra ones' place (a gloamling, D-240), and
-// `ways.weapon` the weapon that lies there, if any: the knife (D-252) or the spear (D-479), and `ways.deposits` how many deposits (D-311). `ways.up` and `ways.down` are where the stairs must be, as { x, y }, so
+// `ways.weapon` the weapon that lies there, if any: the knife (D-252) or the spear (D-479), `ways.deposits` how many deposits (D-311), and `ways.veins` how many of them are copper veins (D-480). `ways.up` and `ways.down` are where the stairs must be, as { x, y }, so
 // floors line up (D-202); true lets the room pick, null leaves them out.
-export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0 } = {}) {
+export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0 } = {}) {
   const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel;
   for (let i = 0; i < TRIES; i++) {
     const g = carve(r), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig), up, down, dig), up, down, rats, second, weapon);
-    if (room) return { ...room, map: deposits ? withDeposits(r, room, deposits) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
+    if (room) return { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
   }
   return null;
 }
@@ -190,23 +190,25 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
 // § deposits: `count` deposits on open floor, off the edge, where nothing lies,
 // stands or starts (D-311). Each one must leave every open tile reachable, so a
 // deposit never cuts the room in two; one that can't fit is left out. Placed
-// after everything else, so the rest of a seed's room stays as it was.
-function withDeposits(r, room, count) {
+// after everything else, so the rest of a seed's room stays as it was. The last
+// `veins` placed become copper veins ('V', D-480), so every deposit stays where it was.
+function withDeposits(r, room, count, veins = 0) {
   const g = room.map.map((row) => [...row]), things = [room.start, ...room.items, ...room.enemies];
-  const all = tilesWhere(g, (x, y) => walkable(g, { x, y }));
+  const all = tilesWhere(g, (x, y) => walkable(g, { x, y })), placed = [];
   for (let i = 0; i < count; i++) {
     const spots = all.filter((t) => g[t.y][t.x] === '.' && !onEdge(t) && !things.some((o) => same(o, t)));
     while (spots.length) {
       const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
       g[at.y][at.x] = 'O';
-      if (joined(g)) break;
+      if (joined(g)) { placed.push(at); break; }
       g[at.y][at.x] = '.';
     }
   }
+  for (const at of veins ? placed.slice(-veins) : []) g[at.y][at.x] = 'V';
   return g.map((row) => row.join(''));
 }
-// Whether every tile of g that can be walked joins up with the rest, a deposit ('O') counting as solid
-const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && g[t.y][t.x] !== '#' && g[t.y][t.x] !== 'O';
+// Whether every tile of g that can be walked joins up with the rest, a deposit ('O') or vein ('V') counting as solid
+const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V'].includes(g[t.y][t.x]);
 function joined(g) {
   const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
   while (queue.length) {

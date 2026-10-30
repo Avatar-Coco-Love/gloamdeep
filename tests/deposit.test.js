@@ -13,7 +13,8 @@ import { LINES } from '../src/core/lines.js';
 import { readJourney, journeyText } from '../src/core/save.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
-const deposits = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === 'O' ? [{ x, y }] : [])));
+// A copper vein ('V') is one of the 3 from depth 3 (D-480)
+const deposits = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === 'O' || ch === 'V' ? [{ x, y }] : [])));
 
 // Every tile the hero could stand on, joined or not
 function joined(room) {

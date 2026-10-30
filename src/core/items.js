@@ -81,6 +81,12 @@ export const ITEMS = {
   chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
     bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
     sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
+  // The first pick, made at the workbench as the chest is, never found (D-480). Only `max` 1
+  // is carried; it is never held, only carried: with it in the bag, a copper vein breaks.
+  pick: { id: 'pick', kind: 'item', name: 'Stone Pick', bag: true, max: 1, look: 'pickLook', full: 'pickFull',
+    bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
+  // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
+  copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).

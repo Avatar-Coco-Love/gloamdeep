@@ -72,7 +72,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
 // in a 3 × 2 grid as the bag's, with its cost and how many of each the bag holds;
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest'];
+export const BENCH_MAKES = ['chest', 'pick']; // the stone pick (D-480)
 export const BENCH_TAKE = BAG_SLOTS;
 export const benchMakes = (bag) => BENCH_MAKES.map((id) => {
   const of = get(id).bench.of;

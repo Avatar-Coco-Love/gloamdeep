@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.195 (2026-10-30)
+- Make a Stone Pick at the workbench: bump it and choose the new slot beside the stash chest. It costs 2 Wood and 3 Stone, and Make is dim with too few. You carry one at a time.
+- Copper veins, grey boulders flecked with copper, are the first ore. From depth 3, one of the three boulders in each Cave room is a vein. Without the pick in your bag, bumping one says it is too hard to break by hand, and no turn passes.
+- With the pick in your bag, 4 bumps break a vein, a turn each, and give 1 Copper Ore. Ore stacks 20 to a slot and is for crafting later. A broken vein grows back after 1800 turns, twice as slow as stone.
+- The Crafting page of How to play has a row for the pick.
+- Decisions: D-480.
+
 ## 0.2.194 (2026-10-30)
 - A second weapon, the spear, lies in the first room of depth 3. Walking into a creature with it hits that creature for 2 and the one behind it, in a straight line, for 1. Both flash.
 - Found while you hold a weapon, a weapon now goes into your bag instead of staying on the floor. If the bag is full, it stays there.

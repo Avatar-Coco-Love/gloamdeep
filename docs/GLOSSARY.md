@@ -55,6 +55,11 @@ this page and a decision disagree, the decision wins.
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
 - **Stone:** a small grey pebble from a deposit, for later crafts (D-312).
+- **Copper vein:** a deposit's boulder flecked with copper, one in each
+  Cave room from depth 3; four bumps with the Stone Pick break it for
+  Copper Ore, the first ore (D-450, D-480).
+- **Stone Pick:** the first pick, made at the workbench, carried in the
+  bag, never held (D-480).
 - **Wood:** sticks, branches and trees all give it, for crafts and building;
   sticks lie in the woods in three looks (D-314, D-315).
 - **Fallen branch:** one in each woods room, blocking a tile; two bumps

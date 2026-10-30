@@ -67,6 +67,21 @@ const STONE = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '......kkkk......', '.....kHHLLk.....', '....kHLLLMMk....', '....kLLLMMDk....', '....kMMMMDDk....',
   '.....kDDDDk.....', '......kkkk......'] };
 
+// § vein: the deposit's boulder with copper flecks and no seam (look A of the step 7 mock-up, D-480)
+const VEIN = { mirror: false, rows: [
+  '', '', '', '', '......kkkk......', '....kkHHLLkk....', '...kHHoLLLMMk...', '..kHLLOLLLMoMk..', '..kLLLLLLMMODk..',
+  '.kLoLLLLMMMMDDk.', '.kMOLLLLMoMDDDk.', '.kMMMMMMMOMDDDk.', '..kDMMoMMDDDDk..', '...kkDDODDDkk...', '.....kkkkkk.....'] };
+
+// § copper ore: the stone's grey lump flecked with copper (look A of the step 7 mock-up, D-480)
+const COPPER_ORE = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '......kkkk......', '.....kHoLLk.....', '....kHLOLMMk....', '....koLLMoDk....', '....kMMMODDk....',
+  '.....kDDDDk.....', '......kkkk......'] };
+
+// § pick: a stone head with one point, on a wooden handle up and right (look A of the step 7 mock-up, D-480)
+const PICK = { mirror: false, rows: [
+  '', '', '....kkkk........', '...kHHLLkk......', '....kkkLLMk.....', '.......kkMMk....', '.......kWkMMk...', '......kWk.kMk...',
+  '.....kWk..kDk...', '....kNk...kDk...', '...kNk.....kk...', '..kNk...........', '.kNk............', '.kk.............', '', ''] };
+
 // § rat tail: the rat's pink tail curled into a loop, a grey stub where it joined
 // the rat (look A of the Rat Tail mock-up, D-474)
 const RAT_TAIL = { mirror: false, rows: [
@@ -260,7 +275,7 @@ const BAG_TORCH = { mirror: false, rows: [
   '.....kTOTOk.....', '......kkkk......', '......kWNk......', '......kWNk......', '......kWNk......', '...kkkkWNkkkk...',
   '..kHHLDkkHHLDk..', '...kkkk..kkkk...'] };
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -326,10 +341,11 @@ export function drawShadow(c, x, y, w) {
 }
 
 // § deposit: drawn on its tile 2 pixels up, on a wide shadow, as items are (D-311)
-export function drawDeposit(c, tx, ty) {
+// a copper vein the same way, with its own sprite (D-480)
+export function drawDeposit(c, tx, ty, sprite = SPRITES.deposit) {
   const x = tx * 16, y = ty * 16 - 2;
   drawShadow(c, x, y, 12);
-  c.drawImage(SPRITES.deposit, x, y);
+  c.drawImage(sprite, x, y);
 }
 
 // § branch: drawn flat on its tile in its look, on a shadow as wide as it (D-316)
