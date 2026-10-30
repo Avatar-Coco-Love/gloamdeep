@@ -4,7 +4,7 @@
 // person trapped beside it calls out: their `calls` line while nothing beside them is
 // dug yet, then their `digging` lines, taking turns (D-496); with no one there, the
 // rubble's own `chips` line. The last bump clears it to floor and gives nothing. A
-// person beside it is then free: they thank the hero with their `freed` line and stay,
+// person straight up, down, left or right of it is then free, a corner opening no way (D-498): they thank the hero with their `freed` line and stay,
 // `leaves` set, until their turns are up (homeward.js, D-496); then they head home: they
 // stand at once in the woods, beside its middle (step 12c, D-492). Each bump is a `chip`
 // event, a person freed a `free` one, a person gone a `leave` one.
@@ -29,16 +29,17 @@ export function dig(state, x, y) {
   }
   const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
   const dug = note(passTurn({ ...state, room }), 'chip', { id: tile.id, n });
-  if (!person) return endTurn(state, say(dug, breaks));
+  if (!person || Math.abs(person.x - x) + Math.abs(person.y - y) !== 1) return endTurn(state, say(dug, breaks)); // a corner opens no way to them (D-498)
   const people = dug.people.map((p) => (p === person ? { ...p, leaves: dug.turn + who.waits[0] } : p));
   return endTurn(state, say(note({ ...dug, people }, 'free', { id: person.id }), who.freed));
 }
 
-// Whether any rubble beside person p has been bumped already
+// Whether any rubble beside person p has been bumped already, or a heap there cleared (D-498)
 const dugBeside = (state, p) => Object.keys(state.room.chips ?? {}).some((k) => {
   const [x, y] = k.split(',').map(Number);
   return Math.max(Math.abs(p.x - x), Math.abs(p.y - y)) === 1;
-});
+}) || AROUND.some(([dx, dy]) => tileAt(state.room, p.x + dx, p.y + dy).id !== 'rubble');
+const AROUND = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
 
 // § waiting: a freed person bumped says their `waiting` lines, taking turns, free, and
 // stays `waits[1]` turns from now (D-496)

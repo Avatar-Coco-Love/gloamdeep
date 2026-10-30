@@ -1,4 +1,4 @@
-# The drops (D-474 to D-495)
+# The drops (D-474 to D-496)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -14,7 +14,8 @@ slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
 (D-492); D-491 and D-492, steps 12b and 12c, the rescue and the
 peddler at home, at 0.2.207, the sixth audit (D-493); D-494, step 13a,
 selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
-from him, at 0.2.211 (D-497).
+from him, at 0.2.211 (D-497); D-496, the peddler lingering, at
+0.2.212 (D-498).
 
 ---
 
@@ -252,3 +253,18 @@ Journal's look; Buy shows his wares in the grid, and BUY, Enter or
 Space buy one, free, no turn, dim with too few coins or no room in
 the bag, the card saying why. Seeds wait for the garden; recipes
 wait for a way to sell them.
+
+**D-496 · 2026-10-30 · The rescued peddler lingers, then beams home**
+(the owner's idea and picks, the turns his own, the rest recommended
+after a mock-up of four looks; changes D-491's "is gone" and D-492's
+"at once") Freed, the peddler stays where he stood and thanks the
+hero. Left alone 5 turns, he says goodbye and heads home; bumped, free,
+he talks, his lines taking turns, and goes 3 turns after the last bump.
+The hero leaving the room first, he goes home anyway. Digging him out,
+his first call is for help, then he cheers the digging on. Creatures
+don't step onto a person. Two steps: 0.2.210 does all this with a
+plain fade where he stood; the next draws look A, the lantern beam
+(Starbound-like), as he leaves and arrives, and a one-time greeting at
+home when the hero comes within 2 tiles. His lines are drafted for the
+playtest. Also moved D-494 to the archive, word for word, as this file
+neared 12 KB.

@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.212 (2026-10-30)
+- Clearing a corner heap of the rubble around the peddler no longer frees him: you can't reach him through a corner. He keeps cheering you on.
+- Clear a heap straight up, down, left or right of him to free him. His 5 turns start then, so you have time to step in and talk.
+- Decisions: D-498.
+
 ## 0.2.211 (2026-10-30)
 - Free the peddler and, when he heads home, a column of warm lantern light now drops onto him. He comes apart in thin bands that rise up the beam, then it goes out.
 - Go home to the woods next and he beams in the same way beside the middle, once the room has faded in.
