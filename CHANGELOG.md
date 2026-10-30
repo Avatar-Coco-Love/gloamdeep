@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.180 (2026-10-30)
+- The scope's part 2, raw things, is settled. Each biome brings one new metal for now, 2 or 3 plants to gather (one of them an oil plant) and, below the surface, a wood of its own.
+- Better picks open each new ore, better axes the deeper woods, and tools open new places too. Stone stays breakable by hand.
+- Fishing will work in any water, on the surface and below, with the right tools. Farming will be a garden at home that grows while you are below.
+- Nothing in the game changes yet: each thing gets its names and numbers at its own step.
+- Decisions: D-450 to D-452.
+
 ## 0.2.179 (2026-10-30)
 - Settings' Tap to walk line is now Tap, with three choices: Off, Step and Walk. Pick it, or press Right, to go on; Left goes back.
 - Step brings back the first tap: each tap moves the hero one tile toward it, along the farther side. Hold a finger, or the mouse button, and the hero keeps stepping toward it, about 4 steps a second; slide to steer, lift to stop. Walk is the tap to walk from before.

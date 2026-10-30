@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.180', date: '2026-10-30', title: 'The scope, part 2', lines: [
+    "The scope's part 2, raw things, is settled. Each biome brings one new metal for now, 2 or 3 plants to gather (one of them an oil plant) and, below the surface, a wood of its own.",
+    "Better picks open each new ore, better axes the deeper woods, and tools open new places too. Stone stays breakable by hand.",
+    "Fishing will work in any water, on the surface and below, with the right tools. Farming will be a garden at home that grows while you are below.",
+    "Nothing in the game changes yet: each thing gets its names and numbers at its own step.",
+    "Decisions: D-450 to D-452.",
+  ] },
   { v: '0.2.179', date: '2026-10-30', title: 'Tap to step', lines: [
     "Settings' Tap to walk line is now Tap, with three choices: Off, Step and Walk. Pick it, or press Right, to go on; Left goes back.",
     "Step brings back the first tap: each tap moves the hero one tile toward it, along the farther side. Hold a finger, or the mouse button, and the hero keeps stepping toward it, about 4 steps a second; slide to steer, lift to stop. Walk is the tap to walk from before.",

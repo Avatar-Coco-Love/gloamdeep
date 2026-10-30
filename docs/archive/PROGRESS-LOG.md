@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.177, the corner fade.** Every corner piece fades
+  over the hero (D-442). The owner picked each corner as one piece: the
+  round map, pause and wrench; the lantern, bag and quick slot (D-447).
+  [Playtest](https://claude.ai/artifact/Efqf9XrbyRdxv6wxpG8kpt).
 - **2026-10-29, 0.2.176, plain dark past the door.** The owner found it
   janky: a bright strip of woods over black rock past the crypt's doorway
   out, and a rat waiting by the door, hidden from the woods, bit at once
