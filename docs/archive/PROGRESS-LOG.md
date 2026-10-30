@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.208, selling to the peddler.** Step 13a: bumped at
+  home, the peddler says his line and opens his card. He buys creature
+  materials one at a time, free: common 1 coin, rare 5. Coins are kept
+  on a fall, but not when Hardcore starts over (D-494). Playtest:
+  https://claude.ai/artifact/LEt8viddhmdyPNpU6rctjm
 - **2026-10-30, 0.2.207, the sixth audit.** Nothing in the game changed
   (D-493; all recommended, CLAUDE.md left as it is). The Version
   history's 0.2.121 to 0.2.186 moved word for word from `history-0.2.js`

@@ -7,7 +7,7 @@ import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
-import { send } from './core/homeward.js';
+import { send, arrive } from './core/homeward.js';
 import { beginPlace, depthOf } from './core/room.js';
 import { SEED_MAX } from './core/rng.js';
 import { createScreen, TILE } from './render/screen.js';
@@ -154,7 +154,7 @@ Object.assign(app, {
   gain: null, // { n, at } the "+1" over the hero when experience is earned (D-245)
   hit: null, // { enemy, until, shakeUntil } after attacking an enemy (D-105, D-109)
   jab: null, // { dx, dy, start } after a hit with a weapon held (D-253)
-  leaving: null, // { id, x, y, start } a freed person gone home, fading (D-496)
+  beam: null, // { id, x, y, start, arriving } a freed person beamed home, or in at home (D-496)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
   fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
@@ -199,8 +199,6 @@ function tryStep(dir) {
   const events = eventsSince(before, state);
   hear(events);
   keepRecords(events);
-  const gone = events.find((e) => e.type === 'leave');
-  if (gone && !still()) app.leaving = { ...gone, start: performance.now() }; // he fades where he stood (D-496)
   if (fell) fallDown(state.fell);
   const went = !fell && state.place !== before.place;
   if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
@@ -208,6 +206,9 @@ function tryStep(dir) {
     app.travel = { from: { ...before, hero: to }, mid: now + FADE_MS, end: now + 2 * FADE_MS };
   } else if (went || (still() && !fell)) { snap(state.hero); if (went) foeShown = new Map(); }
   else if (!fell) followFoes(before.enemies, state.enemies);
+  // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)
+  const beam = events.find((e) => e.type === 'leave' || e.type === 'arrive');
+  if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now() };
 }
@@ -331,7 +332,7 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => { const i = firstFl
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.leaving = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.jab = app.beam = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
@@ -422,7 +423,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
-  goOutside: () => send(goToPlace(app.state, 'woods'), app.state.place), // the woods, on the surface too (D-209); one freed and waiting goes home (D-496)
+  goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
   camera: () => app.cam,
 }, hudCanvas);

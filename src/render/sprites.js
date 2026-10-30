@@ -389,25 +389,16 @@ export function drawDeposit(c, tx, ty, sprite = SPRITES.deposit) {
 // § people: each drawn on its tile 2 pixels up with an idle bob, as creatures are, turned to
 // face the hero: drawn facing left, mirrored when the hero is to the right (D-490)
 const PEOPLE_RIGHT = {};
+export function personSprite(p, hero) {
+  if (hero.x <= p.x) return SPRITES[p.id];
+  return (PEOPLE_RIGHT[p.id] ??= mirrored(SPRITES[p.id]));
+}
 export function drawPeople(c, people, hero, t, still) {
   for (const p of people || []) {
     const x = p.x * 16, y = p.y * 16, bob = still ? 0 : Math.floor(t / 600 + p.x) % 2;
     drawShadow(c, x, y, 8);
-    const right = hero.x > p.x;
-    if (right && !PEOPLE_RIGHT[p.id]) PEOPLE_RIGHT[p.id] = mirrored(SPRITES[p.id]);
-    c.drawImage(right ? PEOPLE_RIGHT[p.id] : SPRITES[p.id], x, y - 2 - bob);
+    c.drawImage(personSprite(p, hero), x, y - 2 - bob);
   }
-}
-
-// § leaving: a freed person gone home fades where they stood, in LEAVE_MS (D-496); gone:
-// { id, x, y, start }. None with reduced motion: they are simply gone.
-export const LEAVE_MS = 400;
-export function drawLeaving(c, gone, hero, t) {
-  const a = gone ? 1 - (t - gone.start) / LEAVE_MS : 0;
-  if (a <= 0 || a > 1) return;
-  c.globalAlpha = a;
-  drawPeople(c, [gone], hero, t, true);
-  c.globalAlpha = 1;
 }
 
 // § branch: drawn flat on its tile in its look, on a shadow as wide as it (D-316)

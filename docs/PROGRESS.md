@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.210 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.211 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The peddler's second step (D-496): the lantern beam as he leaves and
-arrives, and his greeting at home within 2 tiles. Then step 14, the garden.
+Step 14, the garden (D-452, `SCOPE.md`): propose how it starts, in
+small steps, with a mock-up.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -43,6 +43,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.211, the lantern beam home.** The peddler leaves
+  in look A's lantern beam, and beams in at home the first time the
+  hero comes, once the room has faded in; at home he greets the hero
+  once, within 2 tiles (D-497). Playtest:
+  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
 - **2026-10-30, 0.2.210, the peddler lingers.** Freed, he stays and
   thanks you; bumped, he talks, free. He fades away home 5 turns later,
   or 3 after a bump, or when you leave the room (D-496; the beam look
@@ -52,8 +57,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   13: his card has Sell and Buy tabs, and he sells an oil flask for 3
   coins and a torch for 2, never running out, free, no turn (D-495).
   Playtest: https://claude.ai/artifact/B6NkhrCQfdzGzwi7mx8rtK
-- **2026-10-30, 0.2.208, selling to the peddler.** Step 13a: bumped at
-  home, the peddler says his line and opens his card. He buys creature
-  materials one at a time, free: common 1 coin, rare 5. Coins are kept
-  on a fall, but not when Hardcore starts over (D-494). Playtest:
-  https://claude.ai/artifact/LEt8viddhmdyPNpU6rctjm

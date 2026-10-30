@@ -171,3 +171,27 @@ test('at home a bump says his home lines in turn, free', () => {
   assert.equal(shownLine(one).text, LINES.peddlerHome.texts[0]);
   assert.equal(shownLine(two).text, LINES.peddlerHome.texts[1]);
 });
+
+// § beam home: gone home, he beams in when the hero next comes, and greets the hero once, near (D-496)
+test('gone home, he beams in as the hero comes into the woods, an arrive event where he stands', () => {
+  const seed = 7, id = peddlerRoom(seed), there = goToPlace(makeWorld('first', seed), id);
+  const s = { ...there, people: [{ ...there.people[0], leaves: there.turn + 5 }] };
+  const away = endTurn(s, passTurn(goToPlace(s, 'first')));
+  assert.equal(away.elsewhere.woods.people[0].arrives, true);
+  const home = endTurn(away, passTurn(goToPlace(away, 'woods')));
+  const [him] = home.people;
+  assert.equal(him.arrives, undefined);
+  assert.deepEqual(home.events.filter((e) => e.type === 'arrive'), [{ type: 'arrive', id: 'peddler', x: him.x, y: him.y }]);
+  assert.equal(wait(home).events.some((e) => e.type === 'arrive'), false);
+});
+
+test('at home he greets the hero once, the hero within 2 tiles', () => {
+  const s = { ...makeState(makeRoom(['########', '#......#', '########']), { x: 3, y: 1 }), people: [{ id: 'peddler', x: 6, y: 1, home: true }] };
+  const far = wait(s);
+  assert.equal(far.people[0].greeted, undefined);
+  const near = step(far, 'right'), again = step(step(near, 'left'), 'right');
+  assert.equal(near.people[0].greeted, true);
+  assert.equal(shownLine(near).text, LINES.peddlerGreets.text);
+  assert.equal(again.events.some((e) => e.type === 'arrive'), false);
+  assert.notEqual(again.line.turn, again.turn);
+});

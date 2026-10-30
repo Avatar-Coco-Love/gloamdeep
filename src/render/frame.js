@@ -3,8 +3,9 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
-import { drawHero, drawItems, drawEnemies, drawPeople, drawLeaving, spriteOf, wearLook, heroIn } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
+import { drawBeam, BEAM_MS } from './beam.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
 import { LINE_UP } from './textline.js';
@@ -200,8 +201,9 @@ export function createFrame(app, ui) {
     inRoom(() => {
       drawBrackets(rc, s.room, s.lights);
       drawItems(rc, s.items, t, still());
-      drawPeople(rc, s.people, s.hero, t, still()); // turned to face the hero (D-490)
-      drawLeaving(rc, app.leaving, s.hero, t); // a freed person gone home fades (D-496)
+      const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
+      drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero, t, still()); // turned to face the hero (D-490)
+      drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
       drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
       // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
       drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt);

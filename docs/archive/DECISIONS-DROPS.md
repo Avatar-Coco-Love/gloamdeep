@@ -1,4 +1,4 @@
-# The drops (D-474 to D-494)
+# The drops (D-474 to D-495)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -13,7 +13,8 @@ slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
 0.2.205 (D-491); D-490, step 12a, the trapped peddler, at 0.2.206
 (D-492); D-491 and D-492, steps 12b and 12c, the rescue and the
 peddler at home, at 0.2.207, the sixth audit (D-493); D-494, step 13a,
-selling to the peddler, at 0.2.210 (D-496).
+selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
+from him, at 0.2.211 (D-497).
 
 ---
 
@@ -242,3 +243,12 @@ materials so far: each common one for 1 trade coin, each rare one for
 "Peddler" and "coins". Coins are kept on a fall in Gentle and Normal
 and lost with the world when Hardcore starts over. An older save has
 none yet.
+
+**D-495 · 2026-10-30 · Buying from the peddler** (the owner's picks,
+all recommended; step 13b of D-482, ends step 13) He sells an oil
+flask for 3 coins and a torch for 2, kept in the registry as his
+`wares`, and never runs out. His card gets two tabs, Sell and Buy, the
+Journal's look; Buy shows his wares in the grid, and BUY, Enter or
+Space buy one, free, no turn, dim with too few coins or no room in
+the bag, the card saying why. Seeds wait for the garden; recipes
+wait for a way to sell them.

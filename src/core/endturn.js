@@ -7,7 +7,7 @@ import { passTurn } from './state.js';
 import { enemiesAct } from './creatureturn.js';
 import { get } from './registry.js';
 import { withTile } from './room.js';
-import { leave, send } from './homeward.js';
+import { leave, send, arrive, greet } from './homeward.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -17,7 +17,8 @@ export const wait = (state) => endTurn(state, passTurn(state));
 // any other line (D-246), then the enemies' turn, but for a room just come
 // into: the hero's first step there is their own (D-446). A freed person whose turns are
 // up says their goodbye and goes home before it, and one still waiting in a room left goes
-// home too (homeward.js, D-496). Another room is an `enter`
+// home too (homeward.js, D-496); one at home beams in as the hero comes, and greets them
+// once, near. Another room is an `enter`
 // event, a new one a `found` too, and a level reached a `level`. Last, what
 // was taken here and is due grows back out of sight, or anywhere in a room
 // just come into, as it grew while the hero was away (regrow.js, D-307), and a torch
@@ -31,7 +32,8 @@ export const endTurn = (before, after) => {
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
   const next = burnOut(regrow(moved ? done : enemiesAct(done), moved), moved);
-  return next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
+  const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
+  return greet(arrive(sent)); // one gone home beams in as the hero comes, and greets the hero once, near (D-496)
 };
 
 // § burn out: a torch set down goes out on its `out` turn, leaving bare floor where its

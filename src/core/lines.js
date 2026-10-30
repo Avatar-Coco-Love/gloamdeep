@@ -144,6 +144,7 @@ export const LINES = {
   peddlerFreed: { text: '"I\'m free! Thank you, friend!"', warn: false }, // the rubble beside him cleared; he stays a little (D-491, D-496), drafted for the playtest
   peddlerWaiting: { texts: ['"I thought I\'d never see light again."', '"Your lantern found me. I owe you."', '"I know the way up from here."'], warn: false }, // bumped, freed, still in the room (D-496), drafted for the playtest
   peddlerLeaving: { text: '"Thank you! I\'ll head for the surface."', warn: false }, // the turns up, he goes home (D-496); the old freed line, drafted for the playtest
+  peddlerGreets: { text: '"There you are, friend! Welcome!"', warn: false }, // at home, the hero first within 2 tiles (D-496), drafted for the playtest
   peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."', '"Let me unpack. I\'ll have wares soon."'], warn: false }, // at home in the woods (D-492), drafted for the playtest
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second

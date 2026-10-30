@@ -6,7 +6,8 @@
 // stay, `leaves` set to the turn they go: `waits[0]` turns on, and a bump, free, says their
 // `waiting` lines and sets it `waits[1]` turns on. Then they say their `leaving` line and
 // are gone, standing at once at home in the woods, `home` set, where a bump says their
-// `home` lines (D-492); the hero leaving the room first, they go home too. Plain data, no drawing.
+// `home` lines (D-492); the hero leaving the room first, they go home too. There they beam in
+// as the hero comes, and say their `greeting` line once, the hero near (D-496). Plain data, no drawing.
 
 export const PEOPLE = {
   // The first person, a peddler trapped by a ring of rubble on depth 3 (step 12a, D-490):
@@ -14,7 +15,7 @@ export const PEOPLE = {
   // at home, he `buys` what has a price, `sells` in the registry (D-494), and sells his
   // `wares`, { itemId: price } in coins, never running out (D-495). Named at its own step.
   // Freed, he waits 5 turns, or 3 after each bump, then heads home (D-496).
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', buys: true, wares: { flask: 3, bagTorch: 2 } },
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', buys: true, wares: { flask: 3, bagTorch: 2 } },
 };
 
 // The person standing on x, y, or undefined

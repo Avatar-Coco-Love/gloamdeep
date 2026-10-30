@@ -9,7 +9,7 @@ neared 8 KB.
 
 | id | What it does | Where | Decisions |
 | --- | --- | --- | --- |
-| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug, then cheers the digging on; one heap cleared, thanks the hero and stays, talking when bumped, and goes home 5 turns after, or 3 after a bump, or when the hero leaves the room; then stands at home beside the woods' middle, with his own lines, and his card opens to sell to him: each common creature material 1 coin, each rare one 5 (`sells`); his Buy tab sells a flask for 3 coins and a torch for 2, never running out (`wares`); turns to face the hero | one room of depth 3 the seed picks; freed, the woods | D-470, D-471, D-490, D-491, D-492, D-494, D-495, D-496 |
+| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug, then cheers the digging on; one heap cleared, thanks the hero and stays, talking when bumped, and goes home 5 turns after, or 3 after a bump, or when the hero leaves the room, in a lantern beam; beams in at home beside the woods' middle when the hero next comes, greets the hero once within 2 tiles, with his own lines, and his card opens to sell to him: each common creature material 1 coin, each rare one 5 (`sells`); his Buy tab sells a flask for 3 coins and a torch for 2, never running out (`wares`); turns to face the hero | one room of depth 3 the seed picks; freed, the woods | D-470, D-471, D-490, D-491, D-492, D-494, D-495, D-496, D-497 |
 
 ## The hero's looks (`src/core/looks.js`)
 
