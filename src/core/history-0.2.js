@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.187', date: '2026-10-30', title: 'The scope, part 8', lines: [
+    "The scope's part 8, home and trade, is settled. Home grows by the pieces you build there, and sleeping at home gives a short boost for the next trip.",
+    "Most people will be rescued below and move home; later some stay where you meet them, and wanderers such as a merchant visit.",
+    "The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling, and are kept when you fall.",
+    "Nothing in the game changes yet. The whole scope is now settled.",
+    "Decisions: D-469 to D-472.",
+  ] },
   { v: '0.2.186', date: '2026-10-30', title: 'The fifth audit', lines: [
     "Nothing in the game changes. The fifth audit: the Seed Explorer, Settings' ways to play and the seed pad move word for word from screens.js into their own file, explorerscreens.js.",
     "Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions moved to the archive; CLAUDE.md's pointers are tidied, its rules word for word; GLOSSARY.md's \"In the code\" moved word for word to GLOSSARY-CODE.md. The next audit is at 0.2.206.",

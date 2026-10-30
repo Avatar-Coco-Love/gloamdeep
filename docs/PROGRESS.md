@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.186 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.187 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The scope, part 8, home and trade (`SCOPE.md`). Half and Automatic wait
-on Q-069. Upright play (Q-065) is tabled.
+A build order for the scope (`SCOPE.md`, `SCOPE-FRAME.md`): propose
+the order its first steps are built in, for the owner to approve. Half
+and Automatic wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -17,7 +18,7 @@ on Q-069. Upright play (Q-065) is tabled.
 - The play-earned currency (Q-055), before the first unlock.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' records and numbers (Q-057), before the first one.
-- The scope's part 8 (`SCOPE.md`).
+- The scope's build order, the Next up.
 - Creature materials: looks and recipes (Q-061), each at its own step.
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
@@ -36,6 +37,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.187, the scope, part 8.** Home and trade settled:
+  home grows by built pieces, rest gives a boost; people rescued below
+  move home, later some met in place and wanderers; the first vendor is
+  at home; coins only from selling, kept on a fall (D-469 to D-472). The scope is done.
+  Nothing visible.
 - **2026-10-30, 0.2.186, the fifth audit.** Nothing in the game changed
   (D-468; all recommended, and the glossary split too). The Seed
   Explorer, ways to play and seed pad moved word for word from
@@ -48,6 +54,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   lore in sets, a boost per set; relics on a shelf at home; a trophy per
   creature; achievements in 3 tiers paying the look currency, in a Feats
   tab (D-464 to D-467). Nothing visible.
-- **2026-10-30, 0.2.184, the scope, part 6.** Growth settled: levels as
-  today, no cap; a Growth tree of Light, Body and Hands, rows opening by
-  biome; one found ability per biome (D-461 to D-463). Nothing visible.

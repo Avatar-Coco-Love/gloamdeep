@@ -20,7 +20,7 @@ what exists today.
 | 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | settled (D-457 to D-460) |
 | 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | settled (D-461 to D-463) |
 | 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | settled (D-464 to D-467) |
-| 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | next |
+| 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | settled (D-469 to D-472) |
 
 ## Part 2: raw things (settled)
 - **Ore (D-450):** one new metal per biome for now, each a step better
@@ -98,6 +98,23 @@ what exists today.
   look currency, shown in a Feats tab. Looks stay bought with that
   currency only (D-280, D-418).
 
+## Part 8: home and trade (settled)
+- **Home (D-469):** grows by the pieces built there with the Building
+  craft *(e.g. a bed, shelves, the stations)*; no home level. Stations
+  still don't improve (D-456).
+- **Rest (D-469):** sleeping at home gives a short boost for the next
+  trip *(e.g. a little extra oil or a heart)*.
+- **People (D-470):** most are rescued below and move home, each giving
+  it a use *(e.g. a vendor, a teacher)*. Later, some stay where they are
+  met *(e.g. the cult in a lit place below)*, and wanderers visit
+  *(e.g. a wandering merchant)*.
+- **The first vendor (D-471):** a rescued person who sets up at home,
+  buying creature materials and spare finds, selling *(e.g.)* seeds,
+  recipes and basics. More vendors come with more rescues.
+- **Trade coins (D-472):** come only from selling to vendors, never
+  dropped or found, so finds stay the reward, and are kept on a fall.
+  The look currency stays deeds only (D-418, Q-055).
+
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
   plants and wood; how fishing and the garden play.
@@ -110,4 +127,5 @@ what exists today.
 - **6:** each upgrade and its numbers; which ability lies where.
 - **7:** each lore set, relic and trophy at its own step; which records
   get achievements, and their numbers (Q-057); the look currency (Q-055).
-- **8:** what home upgrades do, and whether stations improve; who the first vendor is; prices.
+- **8:** each home piece and the rest boost; who the first rescued
+  person is and how a rescue plays; prices.

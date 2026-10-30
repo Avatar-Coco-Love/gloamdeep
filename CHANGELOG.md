@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.187 (2026-10-30)
+- The scope's part 8, home and trade, is settled. Home grows by the pieces you build there, and sleeping at home gives a short boost for the next trip.
+- Most people will be rescued below and move home; later some stay where you meet them, and wanderers such as a merchant visit.
+- The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling, and are kept when you fall.
+- Nothing in the game changes yet. The whole scope is now settled.
+- Decisions: D-469 to D-472.
+
 ## 0.2.186 (2026-10-30)
 - Nothing in the game changes. The fifth audit: the Seed Explorer, Settings' ways to play and the seed pad move word for word from screens.js into their own file, explorerscreens.js.
 - Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions moved to the archive; CLAUDE.md's pointers are tidied, its rules word for word; GLOSSARY.md's "In the code" moved word for word to GLOSSARY-CODE.md. The next audit is at 0.2.206.
@@ -33,10 +40,3 @@ Entry format:
 - Achievements come in 3 tiers, each paying the look currency, in a Feats tab in the Journal.
 - Nothing in the game changes yet.
 - Decisions: D-464 to D-467.
-
-## 0.2.184 (2026-10-30)
-- The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.
-- The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.
-- Each biome will hide one big ability, at a shrine or from a boss near its bottom, opening new paths in places already seen.
-- Nothing in the game changes yet.
-- Decisions: D-461 to D-463.

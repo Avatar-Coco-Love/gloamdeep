@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.184, the scope, part 6.** Growth settled: levels as
+  today, no cap; a Growth tree of Light, Body and Hands, rows opening by
+  biome; one found ability per biome (D-461 to D-463). Nothing visible.
 - **2026-10-30, 0.2.183, the scope, part 5.** Gear settled: 4 or 5
   weapon kinds, better by each metal, one in hand; one armour, two
   charms; lantern part slots made at the workbench; torches; a rod

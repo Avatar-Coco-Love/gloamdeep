@@ -142,3 +142,29 @@ keeps its newest 3 entries; `CLAUDE.md`'s pointers are tidied, its rules
 word for word; `GLOSSARY.md`'s "In the code" moves word for word to
 `GLOSSARY-CODE.md`. The rest of `screens.js` and `main.js` follow at
 later audits; the next is at 0.2.206.
+
+**D-469 · 2026-10-30 · The scope, part 8: home** (the owner's picks;
+builds D-038, D-455, D-465) Home grows by the pieces built there with
+the Building craft *(e.g. a bed, shelves, the stations)*, with no home
+level. Stations still don't improve (D-456). Sleeping at home gives a
+short boost for the next trip *(e.g. a little extra oil or a heart)*.
+Each piece and the boost come at each one's own step.
+
+**D-470 · 2026-10-30 · The scope, part 8: people** (the owner's picks,
+the recommended one and the owner's addition; builds the wish in
+`RESEARCH.md`) Most people are rescued below and move home, each giving
+it a use *(e.g. a vendor, a teacher)*. Later, some people stay where the
+hero meets them *(e.g. the cult in a lit place below)*, and wanderers
+visit *(e.g. a wandering merchant)*. Who each is comes at its own step.
+
+**D-471 · 2026-10-30 · The scope, part 8: the first vendor** (the
+owner's pick, recommended) The first vendor is a rescued person who sets
+up at home. They buy creature materials and spare finds and sell useful
+things *(e.g. seeds, recipes, basics)*. More vendors come with more
+rescues. Who they are and their prices come at their own step.
+
+**D-472 · 2026-10-30 · The scope, part 8: trade coins** (the owner's
+picks, recommended, and kept on falling added after the PR opened;
+builds D-418) Trade coins come only from selling to vendors: creatures
+never drop them and none are found below, so finds stay the reward.
+Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).
