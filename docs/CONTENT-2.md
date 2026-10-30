@@ -9,7 +9,7 @@ neared 8 KB.
 
 | id | What it does | Where | Decisions |
 | --- | --- | --- | --- |
-| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug; one heap cleared, thanks the hero and is gone; turns to face the hero | one room of depth 3 the seed picks | D-470, D-471, D-490, D-491 |
+| `peddler` | trapped in a ring of rubble; calls out when it is bumped or dug; one heap cleared, thanks the hero and is gone; then stands at home beside the woods' middle, with his own lines; turns to face the hero | one room of depth 3 the seed picks; freed, the woods | D-470, D-471, D-490, D-491, D-492 |
 
 ## The hero's looks (`src/core/looks.js`)
 

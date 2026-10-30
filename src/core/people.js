@@ -2,12 +2,13 @@
 // with the other kinds. A person stands on a floor tile, in the place's `people` list as
 // { id, x, y }, and never moves yet. Bumped, they say their `calls` line, free; the
 // rubble around them dug, the same line, and once a heap beside them is cleared, their
-// `freed` line, and they are gone (rescue.js, D-491). Plain data, no drawing.
+// `freed` line, and they are gone (rescue.js, D-491), standing at once at home in the
+// woods, `home` set, where a bump says their `home` lines (D-492). Plain data, no drawing.
 
 export const PEOPLE = {
   // The first person, a peddler trapped by a ring of rubble on depth 3 (step 12a, D-490):
-  // freed in 12b (D-491), at home in 12c, the first vendor in step 13 (D-471). Named at its own step.
-  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', freed: 'peddlerFreed' },
+  // freed in 12b (D-491), at home in 12c (D-492), the first vendor in step 13 (D-471). Named at its own step.
+  peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', freed: 'peddlerFreed', home: 'peddlerHome' },
 };
 
 // The person standing on x, y, or undefined

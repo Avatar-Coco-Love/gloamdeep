@@ -104,3 +104,28 @@ test('a format 8 save gets an empty people list in every room, a room seen stayi
   assert.deepEqual(up.people, []);
   assert.deepEqual(up.elsewhere.depth3, { room: 1, items: [], people: [] });
 });
+
+// § home: freed, he stands at once in the woods beside their middle, with his own lines (step 12c, D-492)
+test('freed, he stands at once at home in the woods, on an open tile beside the middle', () => {
+  for (const seed of SEEDS.slice(0, 10)) {
+    let s = { ...makeWorld('first', seed), ...trapped({ x: 2, y: 2 }), seed, elsewhere: makeWorld('first', seed).elsewhere };
+    for (let i = 0; i < 3; i++) s = step(s, 'right');
+    const [him] = s.elsewhere.woods.people, room = s.elsewhere.woods.room, mid = { x: room.cols >> 1, y: room.rows >> 1 };
+    assert.equal(him.id, 'peddler');
+    assert.equal(him.home, true);
+    assert.notDeepEqual({ x: him.x, y: him.y }, mid, `seed ${seed}`);
+    assert.equal(tileAt(room, him.x, him.y).solid, false);
+    assert.ok(Math.abs(him.x - mid.x) + Math.abs(him.y - mid.y) <= 3, `seed ${seed} is near the middle`);
+    const home = goToPlace(s, 'woods');
+    assert.deepEqual(home.people, [him]);
+    assert.deepEqual(readJourney(journeyText(home)).state.people, [him]);
+  }
+});
+
+test('at home a bump says his home lines in turn, free', () => {
+  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true }] };
+  const one = step(s, 'right'), two = step(one, 'right');
+  assert.equal(one.turn, s.turn);
+  assert.equal(shownLine(one).text, LINES.peddlerHome.texts[0]);
+  assert.equal(shownLine(two).text, LINES.peddlerHome.texts[1]);
+});

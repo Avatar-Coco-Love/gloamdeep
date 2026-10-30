@@ -170,30 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-489 · 2026-10-30 · The bed ends step 11; the audit on time** (the
-owner's picks, both recommended) Step 11 ends with the bed: the first
-rescue, step 12, comes next, and more home pieces can come later, once
-there are reasons to build them. The sixth audit stays at 0.2.206.
-
-**D-490 · 2026-10-30 · The first rescue begins: the trapped peddler**
-(the owner's picks, all recommended, the rubble's look and facing after
-two mock-ups; step 12 of D-482, builds D-470 and D-471) The first person
-rescued is the future vendor, a peddler; his name comes at its own
-step. In one room of depth 3 the seed picks, he stands trapped in a
-ring of rubble: every open tile of the 8 around him is rubble, a tall,
-dense heap of fallen rock, solid, light passing over it. Freed, he
-goes home on his own. Step 12 is three small steps: 12a, he is there
-and calls out when the rubble around him is bumped, his lines taking
-turns, free (this step); 12b, the rescue; 12c, he stands at home. His
-look is look A of the mock-up: a brown hood with one pale eye and a
-canvas bundle tied with amber cord on his back. Like the creatures, he
-is drawn side-on and turns to face the hero. People are their own
-registry kind in `src/core/people.js`, each room keeping its people as
-it keeps its creatures; a save is upgraded with none, so a room already
-seen stays as it was, and he waits only in a room not yet seen. His lines are
-drafted for the playtest. Also moved D-487 to the archive, word for
-word, as this file neared 12 KB.
-
 **D-491 · 2026-10-30 · The rescue: dig one heap, and he is free** (the
 owner's picks, all recommended; step 12b of D-490, answers the 12b
 asks) Rubble is dug as a deposit is, by hand, no tool needed: 3 bumps,
@@ -205,3 +181,14 @@ Freed, he says a thank-you line and is gone from the room, heading
 home, where step 12c puts him. His thank-you and the rubble's lines
 are drafted for the playtest. Also moved D-488 to the archive, word
 for word, as this file neared 12 KB.
+
+**D-492 · 2026-10-30 · He stands at home; step 12 ends before the
+audit** (the owner's picks, the recommended ones but the audit's
+timing; step 12c of D-490; supersedes D-489's audit part) Freed, the
+peddler stands at once in the woods, home: on the open tile nearest
+the woods' middle, never the middle itself, where Go outside lands.
+Bumped there, he says his home lines, taking turns, free; nothing set
+down or grown back goes on his tile. Step 12 ends here, and the sixth
+audit moves to 0.2.207. His home lines are drafted for the playtest.
+Also moved D-489 and D-490 to the archive, word for word, as this file
+neared 12 KB.

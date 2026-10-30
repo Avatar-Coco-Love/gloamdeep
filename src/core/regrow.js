@@ -74,6 +74,6 @@ function free(state, { x, y }, came) {
   if (state.hero.x === x && state.hero.y === y) return false;
   if (tileAt(state.room, x, y).solid) return false;
   const on = (list) => list.some((o) => o.x === x && o.y === y);
-  if (on(state.enemies) || on(state.items)) return false;
+  if (on(state.enemies) || on(state.items) || on(state.people || [])) return false;
   return came || !litAt(state, x, y);
 }

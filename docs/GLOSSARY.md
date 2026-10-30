@@ -109,8 +109,8 @@ this page and a decision disagree, the decision wins.
 
 ## People
 - **Peddler:** the first person, found trapped in a ring of rubble on
-  depth 3; freed by digging one heap, and the first vendor (D-471,
-  D-490, D-491).
+  depth 3; freed by digging one heap, he stands at home in the woods,
+  and is the first vendor (D-471, D-490, D-491, D-492).
 - **Rubble:** a heap of fallen rock, solid, light passing over it; dug
   away by hand in 3 bumps (D-490, D-491).
 

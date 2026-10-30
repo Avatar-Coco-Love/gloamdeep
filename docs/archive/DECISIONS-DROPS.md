@@ -1,4 +1,4 @@
-# The drops (D-474 to D-488)
+# The drops (D-474 to D-490)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -10,7 +10,8 @@ Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
 0.2.202 (D-487); D-485, room on the crafting pages, and D-486,
 the Wisp Charm, at 0.2.203 (D-488); D-487, the Heart Charm and worn
 slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
-0.2.205 (D-491).
+0.2.205 (D-491); D-490, step 12a, the trapped peddler, at 0.2.206
+(D-492).
 
 ---
 
@@ -183,3 +184,22 @@ Deconstruct bed?, "You aren't tired.", Yes taking it back into the bag,
 No picked. Its picture, a wooden frame with a straw pillow and a grey
 hide blanket, and its lines are drafted for the playtest. Also moved
 D-485 and D-486 to the archive, word for word, as this file neared 12 KB.
+
+**D-490 · 2026-10-30 · The first rescue begins: the trapped peddler**
+(the owner's picks, all recommended, the rubble's look and facing after
+two mock-ups; step 12 of D-482, builds D-470 and D-471) The first person
+rescued is the future vendor, a peddler; his name comes at its own
+step. In one room of depth 3 the seed picks, he stands trapped in a
+ring of rubble: every open tile of the 8 around him is rubble, a tall,
+dense heap of fallen rock, solid, light passing over it. Freed, he
+goes home on his own. Step 12 is three small steps: 12a, he is there
+and calls out when the rubble around him is bumped, his lines taking
+turns, free (this step); 12b, the rescue; 12c, he stands at home. His
+look is look A of the mock-up: a brown hood with one pale eye and a
+canvas bundle tied with amber cord on his back. Like the creatures, he
+is drawn side-on and turns to face the hero. People are their own
+registry kind in `src/core/people.js`, each room keeping its people as
+it keeps its creatures; a save is upgraded with none, so a room already
+seen stays as it was, and he waits only in a room not yet seen. His lines are
+drafted for the playtest. Also moved D-487 to the archive, word for
+word, as this file neared 12 KB.
