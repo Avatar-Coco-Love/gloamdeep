@@ -18,7 +18,7 @@ header says when it moved and why.
 | `DECISIONS-FOUNDATION-5.md` | D-114 to D-129 | steps 22 to 24 | D-151 |
 | `DECISIONS-FOUNDATION-6.md` | D-130 to D-158 | steps 25 to 30 | D-161 |
 | `DECISIONS-STAGE-0.2-1.md` | D-159 to D-167 | steps 31 to 33 | D-188 |
-| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392, D-421, D-431, D-449, D-461 on | stage 0.3, the world; the audits | |
+| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392, D-421, D-431, D-468 on | stage 0.3, the world; the audits | |
 | `DECISIONS-MENU.md` | D-177 to D-193 | the main menu, steps 52 to 58 | D-196 |
 | `DECISIONS-GETTING-AROUND.md` | D-194 to D-200 | steps 43 to 45, U1, U2 | D-208 |
 | `DECISIONS-REGION.md` | D-201 to D-208 | a region and its map, 46 to 47b | D-213 |
@@ -42,14 +42,14 @@ header says when it moved and why.
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |
 | `DECISIONS-CARDS-2.md` | D-393 to D-400 | more menus as cards, the asks | D-401 |
 | `DECISIONS-TITLE-EDGE.md` | D-401 to D-403, D-405 | the title like a phone game's, its icons, the room's edge | D-409 |
-| `DECISIONS-STEERING.md` | D-404, D-406 to D-412 | easier steering, tap to walk, the arrow pad, the stats line | D-413 |
+| `DECISIONS-STEERING.md` | D-404, D-406 to D-412, D-449 | easier steering, tap to walk, the arrow pad, the stats line, Tap: Off, Step or Walk | D-413, D-468 |
 | `DECISIONS-PAD-EDGE.md` | D-420, D-422, D-424 | a bigger name pad, the pad's guard, no walking past the edge | D-426 |
 | `DECISIONS-CHECKUP.md` | D-425 to D-428 | the share card, the 0.2.167 check | D-429 |
 | `DECISIONS-SPEED.md` | D-429, D-430, D-432 to D-437 | the faster light, the speed check, the light choices, Half on hold | D-432, D-436, D-438 |
 | `DECISIONS-DOORWAY.md` | D-423, D-438 to D-440 | the woods past the doorway, each place shows itself | D-441 |
 | `DECISIONS-SCOPE.md` | D-413 to D-415, D-417 to D-419 | the scope in parts, its frame, crafts, drops, money, skills | D-445 |
 | `DECISIONS-CAMERA.md` | D-441 to D-448 | the camera's margin and zoom, the corner fade, plain dark past the edge | D-450 |
-| `DECISIONS-SCOPE-2.md` | D-450 to D-460 | the scope's parts 2 to 5: ore, tools, plants, fishing, farming, drops, making, gear | D-457, D-461, D-464 |
+| `DECISIONS-SCOPE-2.md` | D-450 to D-467 | the scope's parts 2 to 7: ore, tools, plants, fishing, farming, drops, making, gear, growth, collectables | D-457, D-461, D-464, D-468 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -60,7 +60,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-1.md` | 0.1.0 to 0.1.12 |
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
-| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.174 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, and at 0.2.185) |
+| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.183 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, and at 0.2.186, D-468) |
 
 ## Progress
 

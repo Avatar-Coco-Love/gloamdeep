@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.186', date: '2026-10-30', title: 'The fifth audit', lines: [
+    "Nothing in the game changes. The fifth audit: the Seed Explorer, Settings' ways to play and the seed pad move word for word from screens.js into their own file, explorerscreens.js.",
+    "Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions moved to the archive; CLAUDE.md's pointers are tidied, its rules word for word; GLOSSARY.md's \"In the code\" moved word for word to GLOSSARY-CODE.md. The next audit is at 0.2.206.",
+    "Decisions: D-468.",
+  ] },
   { v: '0.2.185', date: '2026-10-30', title: 'The scope, part 7', lines: [
     "The scope's part 7, collectables, is settled. Lore pages found below fill a Lore tab in the Journal, in sets; finishing a set gives a small lasting boost.",
     "Relics, 1 or 2 a biome, are set on a shelf at home and each gives a small lasting boost while there.",
