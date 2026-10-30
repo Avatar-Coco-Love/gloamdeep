@@ -42,7 +42,7 @@ mechanic and its own step.
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `stone` | for crafts | 20 | never | a deposit | D-312 |
 | `ratTail` | for crafts later | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474 |
-| `mothDust` | for crafts later | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475 |
+| `mothDust` | with 1 Wood makes a torch | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475, D-478 |
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
 | `mimicGlass` | with 2 oilcaps makes a flask | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475, D-477 |
 | `gloamWisp` | for crafts later | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475 |
@@ -52,6 +52,7 @@ mechanic and its own step.
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
+| `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood | D-478 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 
 ## Tiles (`src/core/tiles.js`)
@@ -67,12 +68,13 @@ mechanic and its own step.
 | `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room | D-311, D-312 |
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
+| `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 
 ## Lights (`src/core/lights.js`)
 
 | id | What it does | Where | Decisions |
 | --- | --- | --- | --- |
-| `torch` | lights 3 tiles around, flickering | the first rooms; by the stairs up in generated rooms | D-121, D-149 |
+| `torch` | lights 3 tiles around, flickering | the first rooms; by the stairs up in generated rooms; on a torch stand, out after 100 turns | D-121, D-149, D-478 |
 | `unlitTorch` | lit for good by walking into its wall | the first rooms | D-121, D-122 |
 
 ## Places (`src/core/room.js`)

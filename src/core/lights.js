@@ -7,8 +7,10 @@ export const LIGHTS = {
   unlitTorch: { id: 'unlitTorch', kind: 'light', name: 'Unlit torch', reach: 0, lightsTo: 'torch' },
 };
 
-// Where a mounted torch's light comes from, in pixels from its tile's corner (D-099).
-export const LIGHT_AT = { face: [8, 13], right: [18, 10], left: [-2, 10] };
+// Where a mounted torch's light comes from, in pixels from its tile's corner (D-099);
+// a torch set down shines from its flame, over its stone foot (D-478).
+// One set down keeps the turn it goes `out` on its entry in `state.lights`.
+export const LIGHT_AT = { face: [8, 13], right: [18, 10], left: [-2, 10], stand: [8, 7] };
 
 // § lookups: the light on tile x, y, or undefined
 export const lightAt = (state, x, y) => state.lights.find((l) => l.x === x && l.y === y);

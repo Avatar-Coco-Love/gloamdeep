@@ -44,8 +44,10 @@ export const ITEMS = {
   ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull' },
   // The other four common materials (D-454), taken and kept the Rat Tail's way (D-475):
   // a lampmoth's Moth Dust, a scorpion's Stinger, a flask mimic's Mimic Glass and a
-  // gloamling's Gloam Wisp. Make on Mimic Glass turns 1 with 2 oilcaps into a flask (D-477).
-  mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull' },
+  // gloamling's Gloam Wisp. Make on Mimic Glass turns 1 with 2 oilcaps into a flask (D-477);
+  // Make on Moth Dust turns 1 with 1 Wood into a torch (D-478).
+  mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull',
+    craft: { into: 'bagTorch', of: { mothDust: 1, wood: 1 }, says: 'torchMake' } },
   stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull' },
   mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull',
     craft: { into: 'flask', of: { mimicGlass: 1, oilcap: 2 }, says: 'glassFlaskMake' } },
@@ -74,6 +76,11 @@ export const ITEMS = {
   chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
     bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
     sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
+  // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
+  // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
+  // `burns` that many turns, then goes out and leaves bare floor (endturn.js).
+  bagTorch: { id: 'bagTorch', kind: 'item', name: 'Torch', bag: true, max: 5, look: 'bagTorchLook', full: 'bagTorchFull',
+    sets: { tile: 'torchStand', says: 'torchSet', anywhere: true, light: 'torch', burns: 100 } },
   // Normal's fall leaves the bag where the hero fell, `holds` its stacks (MO3, D-334, D-345).
   // Walking onto it puts back what fits, with its `says` line; the rest stays in it,
   // with its `full` line. Each fall leaves its own. It never grows back.

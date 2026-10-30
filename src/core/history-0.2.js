@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.193', date: '2026-10-30', title: 'Torches', lines: [
+    "Torches: in the bag, choose Moth Dust and press Make, and 1 Moth Dust with 1 Wood makes a torch. Without Wood the Make button is dim. Torches stack 5 to a slot.",
+    "Choose a torch in the bag and press Set down, then pick a side: it stands on that floor tile, in the depths too, on a stick in a ring of stones, and lights 3 tiles around like a wall torch. It blocks the way, and lampmoths come to it.",
+    "A torch burns 100 turns, even while you are away, then goes out and leaves bare floor. It can't be picked back up.",
+    "The Crafting page of How to play has a row for it.",
+    "Decisions: D-478.",
+  ] },
   { v: '0.2.192', date: '2026-10-30', title: 'The glass flask', lines: [
     "Mimic Glass is the first creature find you can craft with: choose it in the bag and press Make, and 1 Mimic Glass with 2 Oilcaps makes an oil flask. 3 Oilcaps alone still make one too.",
     "Without 2 Oilcaps the Make button is dim. Choosing Mimic Glass now says what it makes.",

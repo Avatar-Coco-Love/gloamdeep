@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.190, four more drops.** Step 2: a beaten lampmoth,
+  scorpion, flask mimic or gloamling leaves Moth Dust, a Stinger, Mimic
+  Glass or a Gloam Wisp the Rat Tail's way; look A of each, the Stinger
+  always Sand (D-475). Playtest:
+  https://claude.ai/artifact/X9oUHcC6NXsviu7tZeRj7f
 - **2026-10-30, 0.2.189, the Rat Tail.** Step 1: a beaten rat leaves a
   Rat Tail where it fell about 1 time in 2, seeded like a flee; step on
   it to take it, stacks of 20, three take and three look lines, left
