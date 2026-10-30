@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.206 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.207 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The sixth audit (D-337, D-492): measure what a conversation reads at its
-start, archive, trim, and split one big code file, nothing visible changed.
+Step 13, the vendor and coins (D-482, D-471, D-472): propose its first
+small step, its names and numbers asked, before building.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,10 +28,6 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [x] 9 Lantern parts, the first using Copper Ore (0.2.198)
-- [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
-- [x] 11 Home pieces and rest (the bed 0.2.203)
-- [x] 12 The first rescue (12a, the trapped peddler 0.2.204; 12b, the rescue 0.2.205; 12c, at home 0.2.206)
 - [ ] 13 The vendor and coins
 - [ ] 14 The garden
 - [ ] 15 Fishing
@@ -39,7 +35,7 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 17 Relics
 - [ ] 18 Feats
 
-**Next audit: 0.2.207** (D-337, D-468, D-492).
+**Next audit: 0.2.227** (D-337, D-493).
 
 Ideas for later (and the owner's wish list in `RESEARCH.md`): gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
@@ -47,6 +43,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.207, the sixth audit.** Nothing in the game changed
+  (D-493; all recommended, CLAUDE.md left as it is). The Version
+  history's 0.2.121 to 0.2.186 moved word for word from `history-0.2.js`
+  (55 → 14 KB) into `history-0.2-3.js`. `DECISIONS.md` 10.9 → 10.1 KB,
+  `CHANGELOG.md` 7.8 → 2.1 KB; ticked steps 9 to 12 archived. No
+  playtest: nothing to play.
 - **2026-10-30, 0.2.206, he stands at home.** Step 12c ends step 12:
   freed, the peddler stands at once in the woods, on the open tile
   nearest their middle, and a bump there says his home lines in turn.
@@ -57,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   stone, and he calls out as you dig. Clear one heap and he thanks you
   and is gone, heading home (D-491). Playtest:
   https://claude.ai/artifact/9VefmamSpciKvZjazBBo8N
-- **2026-10-30, 0.2.204, the trapped peddler.** Step 11 ends with
-  the bed, and step 12 begins in three small steps (D-489, D-490). In
-  one depth 3 room, a peddler (look A) stands in a ring of rubble and
-  calls out when it is bumped, turning to face the hero. People are
-  now their own kind. Playtest: https://claude.ai/artifact/JmaYXNkCMkQXPmG1ux7P5L

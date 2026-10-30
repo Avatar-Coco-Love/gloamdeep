@@ -1,8 +1,76 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.194)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.204)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468), 0.2.184 at 0.2.187, 0.2.185 at 0.2.198 (the 8 KB cap), 0.2.186 at 0.2.199 (the 8 KB cap), 0.2.187 at 0.2.200 (the 8 KB cap), 0.2.188 at 0.2.201 (the 8 KB cap), 0.2.189 and 0.2.190 at 0.2.202 (the 8 KB cap), 0.2.191 at 0.2.203 (the 8 KB cap), 0.2.192 at 0.2.204 (the 8 KB cap), and 0.2.193 and 0.2.194 at 0.2.205 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468), 0.2.184 at 0.2.187, 0.2.185 at 0.2.198 (the 8 KB cap), 0.2.186 at 0.2.199 (the 8 KB cap), 0.2.187 at 0.2.200 (the 8 KB cap), 0.2.188 at 0.2.201 (the 8 KB cap), 0.2.189 and 0.2.190 at 0.2.202 (the 8 KB cap), 0.2.191 at 0.2.203 (the 8 KB cap), 0.2.192 at 0.2.204 (the 8 KB cap), 0.2.193 and 0.2.194 at 0.2.205 (the 8 KB cap), and 0.2.195 to 0.2.204 at 0.2.207, the sixth audit (D-493). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.204 (2026-10-30)
+- In one room of depth 3, the seed picks which, a peddler is trapped in a ring of rubble: tall heaps of fallen rock fill every open tile around him. The rubble is solid, but your light passes over it, so you can see him through it.
+- Bump the rubble around him and he calls out to you, his lines taking turns. No turn passes. Rubble with no one behind it is only a heap of fallen rock.
+- He stands side-on with a big canvas pack on his back, and turns to face whichever side you are on. Freeing him comes next.
+- Behind the scenes, people are now their own kind, and each room keeps its people as it keeps its creatures. Your save is updated by itself; a room you have already seen stays as it was, so he waits only in a room not yet seen.
+- Decisions: D-489, D-490.
+
+## 0.2.203 (2026-10-30)
+- Make a Bed at the workbench, the first home piece: bump the bench and choose its seventh slot. It costs 4 Wood and 2 Rat Tail, and Make is dim with too few. You carry one at a time.
+- Choose it in the bag and press Set down to put it beside you on the surface, as the stash chest goes.
+- From dusk until morning, bump the bed to sleep: you sleep until the next morning, and the lantern burns nothing while you sleep. You wake healed to full and rested, with one gold heart after your red ones. A bite takes the gold heart first, and a fall loses it.
+- By day, bumping the bed asks "Deconstruct bed?" with "You aren't tired." Yes takes it back into the bag; No, picked first, leaves it.
+- How to play's Bench page now says to bump the bed at night to sleep.
+- Decisions: D-488.
+
+## 0.2.202 (2026-10-30)
+- Make a Heart Charm at the workbench, the second charm: bump the bench and choose its sixth slot. It costs 1 Mimic Heart and 1 Copper Ore, and Make is dim with too few. You have one at a time.
+- Choose it in the bag and press Wear: you put it on, and no turn passes. You can wear both charms and the vest together.
+- While you wear it, the lantern burns oil more slowly: a full tank lasts about 70 turns instead of 60, or about 87 with the Copper Wick.
+- Behind the scenes, each worn slot now holds a list and says how many pieces it takes, so more slots can come later without breaking saves. Your save is updated by itself, and anything you wear stays on.
+- How to play's Bench page now says you can wear two charms.
+- Decisions: D-487.
+
+## 0.2.201 (2026-10-30)
+- Tapping a marked tile now sets down the workbench, the stash chest or a torch, as it should. On phones the tap was read in the wrong place, missed the tile, and left the thing in the bag; swiping still worked.
+- Decisions: none (it was meant to work this way, D-322).
+
+## 0.2.200 (2026-10-30)
+- Make a Wisp Charm at the workbench, the first charm: bump the bench and choose its fifth slot. It costs 3 Gloam Wisp and 1 Copper Ore, and Make is dim with too few. You have one at a time.
+- Choose the charm in the bag and press Wear: you put it on, and no turn passes. You can wear it and the vest together.
+- While you wear it, beaten creatures leave their rare material about 1 in 5 instead of 1 in 10: the Venom Sac, the Mimic Heart and the Gloam Eye. Common drops stay about 1 in 2.
+- How to play's Bench page has a new row for the charm.
+- Decisions: D-486.
+
+## 0.2.199 (2026-10-30)
+- The workbench card has room for more: its grid is now 4 × 3, 12 slots, like the stash chest's.
+- Make a Rat Hide Vest at the workbench, the first armour: bump the bench and choose its fourth slot. It costs 4 Rat Tail and 1 Wood, and Make is dim with too few. You have one at a time.
+- Choose the vest in the bag and press Wear: you put it on, and no turn passes.
+- While you wear it, each bite has a 1 in 4 chance to glance off and hurt nothing: "The bite glances off your vest."
+- How to play's Crafting page is now two tabs, Bag and Bench, with new rows for the Copper Wick and the vest.
+- Decisions: D-484 and D-485.
+
+## 0.2.198 (2026-10-30)
+- Make a Copper Wick at the workbench, the first lantern part: bump the bench and choose its third slot. It costs 3 Copper Ore and 1 Wood, and Make is dim with too few. You have one at a time.
+- Choose the wick in the bag and press Fit: it goes into the lantern, and no turn passes.
+- With the wick fitted, the lantern burns oil a quarter slower: a full tank lasts 75 turns instead of 60, and each flask lasts longer too. How far the light reaches still depends only on the oil.
+- Decisions: D-483.
+
+## 0.2.197 (2026-10-30)
+- A look at where things stand: steps 1 to 8 of the build order are done, and all 685 tests pass.
+- Lantern parts come next, the first to use Copper Ore. The rest follow in the order proposed in the plan: armour and charms, home pieces and rest, the first rescue, the vendor and coins, the garden, fishing, lore, relics, feats.
+- Half and Automatic light keep waiting. Nothing in the game changed.
+- Decisions: D-482.
+
+## 0.2.196 (2026-10-30)
+- The Journal's Growth tab is now a tree: an ember glows at its root, and three limbs climb from it, Light, Body and Hands. Each branch has a row of places, the first at the bottom.
+- Today's hearts are Body's first upgrade, with a row of small hearts for those bought. Light and Hands show dim places still to come, and a dim locked row above opens deeper down.
+- The arrows or a tap pick a place, outlined in gold. On the right it says your embers, the place's name and what it does, with its button and cost: ADD A HEART on the heart. Left past Light turns back to Records.
+- Embers buy any open upgrade, in any order; nothing you buy closes another.
+- Decisions: D-481.
+
+## 0.2.195 (2026-10-30)
+- Make a Stone Pick at the workbench: bump it and choose the new slot beside the stash chest. It costs 2 Wood and 3 Stone, and Make is dim with too few. You carry one at a time.
+- Copper veins, grey boulders flecked with copper, are the first ore. From depth 3, one of the three boulders in each Cave room is a vein. Without the pick in your bag, bumping one says it is too hard to break by hand, and no turn passes.
+- With the pick in your bag, 4 bumps break a vein, a turn each, and give 1 Copper Ore. Ore stacks 20 to a slot and is for crafting later. A broken vein grows back after 1800 turns, twice as slow as stone.
+- The Crafting page of How to play has a row for the pick.
+- Decisions: D-480.
 
 ## 0.2.194 (2026-10-30)
 - A second weapon, the spear, lies in the first room of depth 3. Walking into a creature with it hits that creature for 2 and the one behind it, in a straight line, for 1. Both flash.

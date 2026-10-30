@@ -1,4 +1,4 @@
-# The drops (D-474 to D-490)
+# The drops (D-474 to D-492)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -11,7 +11,8 @@ Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
 the Wisp Charm, at 0.2.203 (D-488); D-487, the Heart Charm and worn
 slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
 0.2.205 (D-491); D-490, step 12a, the trapped peddler, at 0.2.206
-(D-492).
+(D-492); D-491 and D-492, steps 12b and 12c, the rescue and the
+peddler at home, at 0.2.207, the sixth audit (D-493).
 
 ---
 
@@ -203,3 +204,26 @@ it keeps its creatures; a save is upgraded with none, so a room already
 seen stays as it was, and he waits only in a room not yet seen. His lines are
 drafted for the playtest. Also moved D-487 to the archive, word for
 word, as this file neared 12 KB.
+
+**D-491 · 2026-10-30 · The rescue: dig one heap, and he is free** (the
+owner's picks, all recommended; step 12b of D-490, answers the 12b
+asks) Rubble is dug as a deposit is, by hand, no tool needed: 3 bumps,
+a turn each. Clearing any one heap of the ring frees the peddler; the
+rest of the ring stays and can still be dug. Cleared rubble gives no
+stone and never comes back. As each heap is dug, he calls out, his
+lines taking turns; with no one behind it, rubble has its own lines.
+Freed, he says a thank-you line and is gone from the room, heading
+home, where step 12c puts him. His thank-you and the rubble's lines
+are drafted for the playtest. Also moved D-488 to the archive, word
+for word, as this file neared 12 KB.
+
+**D-492 · 2026-10-30 · He stands at home; step 12 ends before the
+audit** (the owner's picks, the recommended ones but the audit's
+timing; step 12c of D-490; supersedes D-489's audit part) Freed, the
+peddler stands at once in the woods, home: on the open tile nearest
+the woods' middle, never the middle itself, where Go outside lands.
+Bumped there, he says his home lines, taking turns, free; nothing set
+down or grown back goes on his tile. Step 12 ends here, and the sixth
+audit moves to 0.2.207. His home lines are drafted for the playtest.
+Also moved D-489 and D-490 to the archive, word for word, as this file
+neared 12 KB.

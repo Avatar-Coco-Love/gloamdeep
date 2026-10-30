@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.204, the trapped peddler.** Step 11 ends with
+  the bed, and step 12 begins in three small steps (D-489, D-490). In
+  one depth 3 room, a peddler (look A) stands in a ring of rubble and
+  calls out when it is bumped, turning to face the hero. People are
+  now their own kind. Playtest: https://claude.ai/artifact/JmaYXNkCMkQXPmG1ux7P5L
 - **2026-10-30, 0.2.203, the bed.** Step 11 begins: the bed, the
   first home piece, is made at the workbench from 4 Wood and 2 Rat
   Tail and set down on the surface. Bumped from dusk, the hero sleeps
@@ -1034,6 +1039,14 @@ The scope, drops first (D-473):
 - [x] 6 The spear, hitting through; swapped in the bag, 0.2.194
 - [x] 7 A pick, and the first ore in the mines, 0.2.195
 - [x] 8 The Growth tree: Light, Body, Hands; today's hearts in Body, 0.2.196
+
+Moved from `PROGRESS.md` at 0.2.207, the sixth audit (D-493):
+
+The rest of the scope, proposed (D-482; may change):
+- [x] 9 Lantern parts, the first using Copper Ore (0.2.198)
+- [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
+- [x] 11 Home pieces and rest (the bed 0.2.203)
+- [x] 12 The first rescue (12a, the trapped peddler 0.2.204; 12b, the rescue 0.2.205; 12c, at home 0.2.206)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

@@ -170,25 +170,12 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-491 · 2026-10-30 · The rescue: dig one heap, and he is free** (the
-owner's picks, all recommended; step 12b of D-490, answers the 12b
-asks) Rubble is dug as a deposit is, by hand, no tool needed: 3 bumps,
-a turn each. Clearing any one heap of the ring frees the peddler; the
-rest of the ring stays and can still be dug. Cleared rubble gives no
-stone and never comes back. As each heap is dug, he calls out, his
-lines taking turns; with no one behind it, rubble has its own lines.
-Freed, he says a thank-you line and is gone from the room, heading
-home, where step 12c puts him. His thank-you and the rubble's lines
-are drafted for the playtest. Also moved D-488 to the archive, word
-for word, as this file neared 12 KB.
-
-**D-492 · 2026-10-30 · He stands at home; step 12 ends before the
-audit** (the owner's picks, the recommended ones but the audit's
-timing; step 12c of D-490; supersedes D-489's audit part) Freed, the
-peddler stands at once in the woods, home: on the open tile nearest
-the woods' middle, never the middle itself, where Go outside lands.
-Bumped there, he says his home lines, taking turns, free; nothing set
-down or grown back goes on his tile. Step 12 ends here, and the sixth
-audit moves to 0.2.207. His home lines are drafted for the playtest.
-Also moved D-489 and D-490 to the archive, word for word, as this file
-neared 12 KB.
+**D-493 · 2026-10-30 · The sixth audit: the newer Version history**
+(the owner's picks, all recommended but CLAUDE.md's tidy) The audit at
+0.2.207 moves the Version history's 0.2.121 to 0.2.186 word for word
+from `history-0.2.js` into `history-0.2-3.js`, nothing visible
+changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
+`CHANGELOG.md` keeps its newest 3 entries; the build plan's ticked steps
+9 to 12 move to `archive/PROGRESS-LOG.md`. `CLAUDE.md` is left as it
+is. `screens.js` and `main.js` follow at later audits; the next is at
+0.2.227.
