@@ -100,6 +100,11 @@ export const LINES = {
   bagBack: { text: 'You take back your bag.', warn: false }, // all of the bag where you fell, back in (MO3, D-345)
   stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
+  torchMake: { text: 'You make a torch.', warn: false }, // 1 moth dust, 1 wood (D-478)
+  bagTorchLook: { texts: ['A torch. Set it down to light the way.', 'Moth dust packed round a stick.', 'It burns for a while, then goes out.'], warn: false },
+  bagTorchFull: { text: "You can't carry more torches.", warn: false },
+  torchSet: { text: 'You set down the torch.', warn: false }, // a turn (D-478)
+  torchOut: { text: 'Your torch burns out.', warn: false }, // in sight, 100 turns after (D-478)
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)

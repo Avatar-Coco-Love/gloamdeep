@@ -2,7 +2,7 @@
 // 437–445). The bracket is drawn before the light, so the light falls on it;
 // the flame and its embers are drawn after, always bright (ART-DIRECTION.md).
 // Each torch takes the look of its mount (D-099); a side mount pokes out over
-// the open tile next to it.
+// the open tile next to it. A torch set down stands on its stone foot (D-478).
 import { get } from '../core/registry.js';
 import { mountAt } from '../core/mount.js';
 import { LIGHT_AT } from '../core/lights.js';
@@ -21,8 +21,14 @@ const BRACKET = {
   right: [[15, 8, 1, 5, K], [16, 11, 3, 1, K], [16, 8, 4, 1, K], [17, 7, 2, 1, N], [16, 9, 3, 2, N], [16, 9, 3, 1, NL]],
 };
 BRACKET.left = BRACKET.right.map(([x, y, w, h, c]) => [16 - x - w, y, w, h, c]);
+// A torch set down: look A of the step 5 mock-up, a stick in a ring of stones, its head
+// wrapped in cloth (D-478). One letter a pixel, drawn as the brackets are.
+const STAND_COLOURS = { k: K, W: NL, N, O: '#a8642c', t: '#e8d5a0', H: '#6a7489', L: '#555e73', D: '#434b5d' };
+const STAND_ROWS = ['......kkkk......', '.....kOtOtk.....', '.....ktOtOk.....', '......kkkk......', '......kWNk......', '......kWNk......',
+  '......kWNk......', '...kkkkWNkkkk...', '..kHHLDkkHHLDk..', '...kkkk..kkkk...'];
+BRACKET.stand = STAND_ROWS.flatMap((r, y) => [...r].flatMap((ch, x) => (ch === '.' ? [] : [[x, y + 6, 1, 1, STAND_COLOURS[ch]]])));
 // How far the flame sits from the study's spot. Where the light comes from is in core/lights.js.
-const FLAME_DX = { face: 0, right: 10, left: -10 };
+const FLAME_DX = { face: 0, right: 10, left: -10, stand: 0 }, FLAME_DY = { stand: 1 };
 
 // The charred stub where the flame would be, option A in the picture (D-125).
 const STUB = [[6, 5, 4, 2, K], [7, 4, 2, 1, K], [7, 5, 2, 2, CHAR], [7, 4, 1, 1, ASH]];
@@ -57,7 +63,7 @@ const embers = [];
 let emberCount = 0;
 export function drawFlames(c, room, lights, t, still) {
   burning(room, lights).forEach(({ l, m }, i) => {
-    const x0 = l.x * T + FLAME_DX[m], y0 = l.y * T, ph = still ? 0 : Math.floor(t / 110 + i) % 3;
+    const x0 = l.x * T + FLAME_DX[m], y0 = l.y * T + (FLAME_DY[m] || 0), ph = still ? 0 : Math.floor(t / 110 + i) % 3;
     c.fillStyle = FLAME_Y; c.fillRect(x0 + 6, y0 + 4, 4, 3);
     c.fillStyle = FLAME_y; c.fillRect(x0 + 7, y0 + 3, 2, 4); c.fillRect(x0 + [7, 8, 7][ph], y0 + 2 - (ph === 1 ? 1 : 0), 1, 2);
     c.fillStyle = CORE; c.fillRect(x0 + 7, y0 + 5, 2, 2);

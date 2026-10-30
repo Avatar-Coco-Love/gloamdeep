@@ -128,6 +128,8 @@ const DRAW = {
   // On the woods' grass, where it was set down; elsewhere on that room's floor (WB2, D-322)
   bench: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y); },
   stash: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.chest); }, // the bench's way (CH2, D-329)
+  // On the room's own ground; its stone foot is drawn with the torches, before the light (D-478)
+  torchStand: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); },
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

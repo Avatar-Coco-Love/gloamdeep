@@ -64,17 +64,19 @@ export function eat(state, i) {
 
 // § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's
 // bench) beside the hero on side `dir`, takes it from the bag and passes a turn,
-// with its line (WB2, D-322). Only under the sky; elsewhere "Only on the surface."
-// is said, free. It goes only on plain floor off the room's edge, with nothing on
-// it, and only when the room stays joined; toward any other side (or none),
-// "There is no room there.", free. A `set` event.
+// with its line (WB2, D-322). Only under the sky, unless it goes `anywhere` (a torch,
+// D-478); elsewhere "Only on the surface." is said, free. It goes only on plain floor
+// off the room's edge, with nothing on it, and only when the room stays joined; toward
+// any other side (or none), "There is no room there.", free. A `set` event. One that
+// brings a `light` puts it on that tile, going out `burns` turns later (endturn.js).
 export function setDown(state, i, dir) {
   const entry = state.bag[i] && get(state.bag[i].id), sets = entry?.sets;
   if (!sets) return state;
-  if (!state.room.dark?.sky) return say(state, 'notSurface');
+  if (!sets.anywhere && !state.room.dark?.sky) return say(state, 'notSurface');
   if (!setSides(state, i).includes(dir)) return say(state, 'noRoom');
-  const [dx, dy] = DIRS[dir], room = withTile(state.room, state.hero.x + dx, state.hero.y + dy, get(sets.tile));
-  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'set', { id: sets.tile });
+  const [dx, dy] = DIRS[dir], x = state.hero.x + dx, y = state.hero.y + dy, room = withTile(state.room, x, y, get(sets.tile));
+  const lights = sets.light ? [...state.lights, { id: sets.light, x, y, out: state.turn + 1 + sets.burns }] : state.lights;
+  const next = note(passTurn({ ...state, room, lights, bag: bagTake(state.bag, i) }), 'set', { id: sets.tile });
   return endTurn(state, say(next, sets.says));
 }
 
@@ -101,9 +103,10 @@ export function panelBeside(state, dir) {
 }
 
 // The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface
+// unless it goes `anywhere`
 export function setSides(state, i) {
   const sets = state.bag[i] && get(state.bag[i].id).sets, { room, hero } = state;
-  if (!sets || !room.dark?.sky) return [];
+  if (!sets || (!sets.anywhere && !room.dark?.sky)) return [];
   return Object.keys(DIRS).filter((dir) => {
     const x = hero.x + DIRS[dir][0], y = hero.y + DIRS[dir][1];
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2 || tileAt(room, x, y).id !== 'floor') return false;

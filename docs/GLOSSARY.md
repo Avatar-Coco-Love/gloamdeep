@@ -44,6 +44,8 @@ this page and a decision disagree, the decision wins.
   bag, heals 1 heart (D-303, D-308); 3 make a healing potion (D-309).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
+- **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
+  floor tile anywhere; it burns 100 turns, then goes out (D-478).
 - **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309).
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic
