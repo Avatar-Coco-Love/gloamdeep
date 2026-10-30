@@ -143,32 +143,6 @@ word for word; `GLOSSARY.md`'s "In the code" moves word for word to
 `GLOSSARY-CODE.md`. The rest of `screens.js` and `main.js` follow at
 later audits; the next is at 0.2.206.
 
-**D-469 · 2026-10-30 · The scope, part 8: home** (the owner's picks;
-builds D-038, D-455, D-465) Home grows by the pieces built there with
-the Building craft *(e.g. a bed, shelves, the stations)*, with no home
-level. Stations still don't improve (D-456). Sleeping at home gives a
-short boost for the next trip *(e.g. a little extra oil or a heart)*.
-Each piece and the boost come at each one's own step.
-
-**D-470 · 2026-10-30 · The scope, part 8: people** (the owner's picks,
-the recommended one and the owner's addition; builds the wish in
-`RESEARCH.md`) Most people are rescued below and move home, each giving
-it a use *(e.g. a vendor, a teacher)*. Later, some people stay where the
-hero meets them *(e.g. the cult in a lit place below)*, and wanderers
-visit *(e.g. a wandering merchant)*. Who each is comes at its own step.
-
-**D-471 · 2026-10-30 · The scope, part 8: the first vendor** (the
-owner's pick, recommended) The first vendor is a rescued person who sets
-up at home. They buy creature materials and spare finds and sell useful
-things *(e.g. seeds, recipes, basics)*. More vendors come with more
-rescues. Who they are and their prices come at their own step.
-
-**D-472 · 2026-10-30 · The scope, part 8: trade coins** (the owner's
-picks, recommended, and kept on falling added after the PR opened;
-builds D-418) Trade coins come only from selling to vendors: creatures
-never drop them and none are found below, so finds stay the reward.
-Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).
-
 **D-473 · 2026-10-30 · The scope's build order** (the owner's picks,
 all recommended; answers the Next up of 0.2.187) Drops come first, so
 the five creatures of today reward the hero and the loop deeper → find
@@ -202,3 +176,14 @@ amber oil; the Gloam Wisp a tuft of shadow shaped like a small flame
 with a pale grey core. Otherwise each goes the Rat Tail's way (D-474):
 the same seeded 1-in-2 coin, stacks of 20, and lines drafted for the
 playtest.
+
+**D-476 · 2026-10-30 · The rare drops** (the owner's picks, all
+recommended; step 3 of D-473, narrows Q-061) Each is look A of the rare
+drops mock-up: the Venom Sac a plump bulb of green venom with a pale
+gleam and a short neck of Sand shell; the Mimic Heart a heart of amber
+oil with a glass gleam; the Gloam Eye a round pale eye with the pink
+iris, rimmed in shadow grey. The rare one rolls its own seeded coin,
+about 1 in 10, apart from the common's 1 in 2, so both can fall: the
+common where the creature fell, the rare on the nearest open tile.
+Otherwise each goes the Rat Tail's way (D-474): stacks of 20, and lines
+drafted for the playtest.

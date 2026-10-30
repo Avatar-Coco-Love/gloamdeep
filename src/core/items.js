@@ -49,6 +49,12 @@ export const ITEMS = {
   stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull' },
   mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull' },
   gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull' },
+  // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
+  // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic
+  // Heart and a gloamling's Gloam Eye.
+  venomSac: { id: 'venomSac', kind: 'item', name: 'Venom Sac', bag: true, max: 20, says: 'venomSacTake', look: 'venomSacLook', full: 'venomSacFull' },
+  mimicHeart: { id: 'mimicHeart', kind: 'item', name: 'Mimic Heart', bag: true, max: 20, says: 'mimicHeartTake', look: 'mimicHeartLook', full: 'mimicHeartFull' },
+  gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);

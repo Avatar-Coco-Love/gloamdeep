@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.191 (2026-10-30)
+- A beaten scorpion, flask mimic or gloamling now and then leaves a rare find as well, about 1 time in 10: a Venom Sac, a Mimic Heart or a Gloam Eye. It has a chance of its own, so a creature can leave both; then the rare one lies on the tile beside.
+- A Venom Sac is a plump bulb of green venom. A Mimic Heart is a heart of amber oil with a glassy gleam. A Gloam Eye is a round pale eye with a pink iris.
+- Each goes in your bag in stacks of 20, with a line, and says a line when chosen there; they are for crafting later. With every stack full they stay on the floor.
+- Decisions: D-476.
+
 ## 0.2.190 (2026-10-30)
 - A beaten lampmoth, scorpion, flask mimic or gloamling now leaves its own material where it fell, about 1 time in 2, as a rat leaves its tail: Moth Dust, a Stinger, Mimic Glass or a Gloam Wisp.
 - Moth Dust is a small heap of pale dust with amber glints. A Stinger is a scorpion's curled tail tip, always in the sand colours. Mimic Glass is a curved shard with a smear of oil. A Gloam Wisp is a tuft of shadow shaped like a small flame.

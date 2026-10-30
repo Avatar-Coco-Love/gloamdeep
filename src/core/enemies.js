@@ -12,24 +12,27 @@ export const ENEMIES = {
   // and chases them once it notices them (D-126). Once hurt, it may flee (D-292, D-301).
   // Its bite sounds of teeth (D-259). Beaten, it `drops` a Rat Tail now and then (D-453, D-454).
   rat: { id: 'rat', kind: 'enemy', name: 'Rat', health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
-  // It chases, and shuns light (D-240). Beaten, it may drop a Gloam Wisp (D-475).
-  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, drops: 'gloamWisp', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
+  // It chases, and shuns light (D-240). Beaten, it may drop a Gloam Wisp (D-475),
+  // and now and then its `rare` Gloam Eye (D-476).
+  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
   // It seeks light (D-351); one hit of anything kills it (D-356). It may drop Moth Dust (D-475).
   lampmoth: { id: 'lampmoth', kind: 'enemy', name: 'Lampmoth', health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
   // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
   // `looksLike` and hidden from the creature list; a bump wakes it, with no
   // harm, and it chases for `awakeTurns` turns, then settles back down where
   // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
-  // Beaten, it may drop Mimic Glass (D-475).
-  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, drops: 'mimicGlass', ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  // Beaten, it may drop Mimic Glass (D-475), and now and then a Mimic Heart (D-476).
+  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, drops: 'mimicGlass', rare: 'mimicHeart', ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
   // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
   // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
-  // Beaten, it may drop a Stinger, always in Sand (D-475).
-  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, drops: 'stinger', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
+  // Beaten, it may drop a Stinger, always in Sand (D-475), and now and then a Venom Sac (D-476).
+  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
 };
 
-// § drops: how often a beaten creature leaves its common material (D-453)
+// § drops: how often a beaten creature leaves its common material, and its rare one,
+// each on a coin of its own (D-453, D-476)
 export const DROP_CHANCE = 0.5;
+export const RARE_CHANCE = 0.1;
 
 // § lookups: the enemy on tile x, y, or undefined
 export const enemyAt = (state, x, y) => state.enemies.find((e) => e.x === x && e.y === y);

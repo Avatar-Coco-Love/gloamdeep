@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.188, the build order.** The owner picked drops
+  first: 8 steps from a rat's Rat Tail to the Growth tree, the rest
+  later; Q-069 stays waiting (D-473). Nothing visible.
 - **2026-10-30, 0.2.187, the scope, part 8.** Home and trade settled:
   home grows by built pieces, rest gives a boost; people rescued below
   move home, later some met in place and wanderers; the first vendor is
