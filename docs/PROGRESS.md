@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.180 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.181 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The scope, part 3, creature drops (`SCOPE.md`, Q-061). Half and Automatic wait on
+The scope, part 4, making (`SCOPE.md`). Half and Automatic wait on
 Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -17,8 +17,8 @@ Q-069. Upright play (Q-065) is tabled.
 - The play-earned currency (Q-055), before the first unlock.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
-- The scope's parts 3 to 8 (`SCOPE.md`), one part at a time.
-- Creature materials: names, chances, recipes (Q-061), part 3.
+- The scope's parts 4 to 8 (`SCOPE.md`), one part at a time.
+- Creature materials: looks and recipes (Q-061), part 4.
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
@@ -36,6 +36,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.181, the scope, part 3.** Creature drops settled:
+  common 1 in 2, rare 1 in 10 from depth 3 down, left on the floor;
+  today's five creatures' materials named (D-453, D-454). Nothing visible.
 - **2026-10-30, 0.2.180, the scope, part 2.** Raw things settled: one
   metal per biome, better picks and axes open ores, deeper woods and
   places; 2 or 3 plants a biome, one for oil; fishing in any water; a
@@ -44,7 +47,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   one-step tap: Settings' Tap line is Off, Step or Walk. Held, Step keeps
   stepping toward the finger. New players start on Step; a saved pick
   stays, On as Walk (D-449). [Playtest](https://claude.ai/artifact/Uz4CRLWvkwnWJ2zSxcVCxU).
-- **2026-10-30, 0.2.178, the zoom glides.** Into a room of another
-  width, the zoom glides to the new room's while it fades in, 0.4 s,
-  gently at both ends; reduced motion jumps as before (D-448).
-  [Playtest](https://claude.ai/artifact/3Fu1tDaxRE8sKhu9zvrd8W).

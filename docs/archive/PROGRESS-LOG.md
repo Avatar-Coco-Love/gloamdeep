@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.178, the zoom glides.** Into a room of another
+  width, the zoom glides to the new room's while it fades in, 0.4 s,
+  gently at both ends; reduced motion jumps as before (D-448).
+  [Playtest](https://claude.ai/artifact/3Fu1tDaxRE8sKhu9zvrd8W).
 - **2026-10-29, 0.2.177, the corner fade.** Every corner piece fades
   over the hero (D-442). The owner picked each corner as one piece: the
   round map, pause and wrench; the lantern, bag and quick slot (D-447).

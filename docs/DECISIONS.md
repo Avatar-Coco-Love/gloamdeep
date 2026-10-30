@@ -164,3 +164,20 @@ owner's picks) Fishing works in any water, on the surface and below,
 with the right tools. Farming is a garden at home: seeds planted on the
 surface grow over turns while the hero is below. Gardening away from
 home may come later. How each works is asked at its own step.
+
+**D-453 · 2026-10-30 · The scope, part 3: drop chances** (the owner's
+picks, all recommended; builds D-417, narrows Q-061) A beaten creature
+drops its common material about 1 time in 2. Creatures from depth 3 down
+(flask mimic, scorpion, gloamling) also have a rare one, about 1 in 10;
+rats and lampmoths have only a common one. A drop lies where the
+creature fell, taken by stepping on it; a full bag leaves it there. The
+chances stay fixed for now; better odds in portal depths, or a charm or
+Growth upgrade that raises them, may come later.
+
+**D-454 · 2026-10-30 · The scope, part 3: today's materials** (the
+owner's picks, all recommended; narrows Q-061) Rat: Rat Tail. Lampmoth:
+Moth Dust. Scorpion: Stinger, rare Venom Sac. Flask mimic: Mimic Glass,
+rare Mimic Heart. Gloamling: Gloam Wisp, rare Gloam Eye. Each leans to
+what fits its creature: Moth Dust and Gloam Wisp to lampcraft, Stinger
+and Venom Sac to weapons and antidotes, Rat Tail and Mimic Glass to
+leatherwork and flasks, the rare ones to finer gear. Recipes are part 4.
