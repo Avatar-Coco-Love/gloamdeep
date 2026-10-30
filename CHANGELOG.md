@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.197 (2026-10-30)
+- A look at where things stand: steps 1 to 8 of the build order are done, and all 685 tests pass.
+- Lantern parts come next, the first to use Copper Ore. The rest follow in the order proposed in the plan: armour and charms, home pieces and rest, the first rescue, the vendor and coins, the garden, fishing, lore, relics, feats.
+- Half and Automatic light keep waiting. Nothing in the game changed.
+- Decisions: D-482.
+
 ## 0.2.196 (2026-10-30)
 - The Journal's Growth tab is now a tree: an ember glows at its root, and three limbs climb from it, Light, Body and Hands. Each branch has a row of places, the first at the bottom.
 - Today's hearts are Body's first upgrade, with a row of small hearts for those bought. Light and Hands show dim places still to come, and a dim locked row above opens deeper down.
