@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.189, the Rat Tail.** Step 1: a beaten rat leaves a
+  Rat Tail where it fell about 1 time in 2, seeded like a flee; step on
+  it to take it, stacks of 20, three take and three look lines, left
+  for good with a full bag (D-474, look A). Playtest:
+  https://claude.ai/artifact/TTRSKUx9bwaU8k4yiSaBRT
 - **2026-10-30, 0.2.188, the build order.** The owner picked drops
   first: 8 steps from a rat's Rat Tail to the Growth tree, the rest
   later; Q-069 stays waiting (D-473). Nothing visible.

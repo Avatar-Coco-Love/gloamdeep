@@ -29,6 +29,15 @@ export const carried = (bag, id) => bag.reduce((a, s) => a + (s.id === id ? s.n 
 // Whether the bag holds at least `of`'s counts, { itemId: n } (a bench craft's cost, CH1)
 export const bagHas = (bag, of) => Object.entries(of).every(([id, n]) => carried(bag, id) >= n);
 
+// Whether Make on bag slot i can make its item's `craft.into`: its `craft.of`
+// on that stack for a count of itself (3 oilcaps), or in the whole bag for a
+// mixed cost, { itemId: n } (Mimic Glass with oilcaps, D-477)
+export function canCraft(bag, i) {
+  const s = bag[i], of = s && get(s.id).craft?.of;
+  if (!of) return false;
+  return typeof of === 'number' ? s.n >= of : bagHas(bag, of);
+}
+
 // § flasks: the first slot holding oil to pour, or -1, and how many flasks are
 // carried in all, for the quick slot (D-384)
 export const firstFlask = (bag) => bag.findIndex((s) => get(s.id)?.oil);

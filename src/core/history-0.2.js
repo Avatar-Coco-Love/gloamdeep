@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.192', date: '2026-10-30', title: 'The glass flask', lines: [
+    "Mimic Glass is the first creature find you can craft with: choose it in the bag and press Make, and 1 Mimic Glass with 2 Oilcaps makes an oil flask. 3 Oilcaps alone still make one too.",
+    "Without 2 Oilcaps the Make button is dim. Choosing Mimic Glass now says what it makes.",
+    "The Crafting page of How to play has a row for it.",
+    "Decisions: D-477.",
+  ] },
   { v: '0.2.191', date: '2026-10-30', title: 'The rare drops', lines: [
     "A beaten scorpion, flask mimic or gloamling now and then leaves a rare find as well, about 1 time in 10: a Venom Sac, a Mimic Heart or a Gloam Eye. It has a chance of its own, so a creature can leave both; then the rare one lies on the tile beside.",
     "A Venom Sac is a plump bulb of green venom. A Mimic Heart is a heart of amber oil with a glassy gleam. A Gloam Eye is a round pale eye with a pink iris.",

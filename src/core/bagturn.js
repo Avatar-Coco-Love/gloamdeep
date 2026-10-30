@@ -5,7 +5,7 @@ import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, canCraft } from './bag.js';
 import { note } from './events.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash } from './chest.js';
@@ -26,11 +26,12 @@ export function pour(state, i) {
 // `craft.into`, which goes on its stack or in a slot at the end, and passes a
 // turn, like a pour, with its line (D-299). With too few, nothing happens;
 // with no room for what it makes, its `full` line is said, free, and the bag
-// stays as it was.
+// stays as it was. A mixed cost is taken from the whole bag (D-477).
 export function craft(state, i) {
   const s = state.bag[i], recipe = s && get(s.id).craft;
-  if (!recipe || s.n < recipe.of) return state;
-  const bag = bagAdd(bagTake(state.bag, i, recipe.of), recipe.into);
+  if (!canCraft(state.bag, i)) return state;
+  const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, recipe.of) : bagPay(state.bag, recipe.of);
+  const bag = bagAdd(paid, recipe.into);
   if (!bag) return say(state, get(recipe.into).full);
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
 }

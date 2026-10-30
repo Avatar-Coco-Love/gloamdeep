@@ -44,10 +44,11 @@ export const ITEMS = {
   ratTail: { id: 'ratTail', kind: 'item', name: 'Rat Tail', bag: true, max: 20, says: 'ratTailTake', look: 'ratTailLook', full: 'ratTailFull' },
   // The other four common materials (D-454), taken and kept the Rat Tail's way (D-475):
   // a lampmoth's Moth Dust, a scorpion's Stinger, a flask mimic's Mimic Glass and a
-  // gloamling's Gloam Wisp.
+  // gloamling's Gloam Wisp. Make on Mimic Glass turns 1 with 2 oilcaps into a flask (D-477).
   mothDust: { id: 'mothDust', kind: 'item', name: 'Moth Dust', bag: true, max: 20, says: 'mothDustTake', look: 'mothDustLook', full: 'mothDustFull' },
   stinger: { id: 'stinger', kind: 'item', name: 'Stinger', bag: true, max: 20, says: 'stingerTake', look: 'stingerLook', full: 'stingerFull' },
-  mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull' },
+  mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull',
+    craft: { into: 'flask', of: { mimicGlass: 1, oilcap: 2 }, says: 'glassFlaskMake' } },
   gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull' },
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic

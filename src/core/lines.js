@@ -33,6 +33,7 @@ export const LINES = {
   flaskFull: { text: "You can't carry more flasks.", warn: false }, // every stack full, no slot free (D-250, D-333)
   knifeTake: { text: 'You take the knife.', warn: false }, // into the held slot (D-252)
   flaskMake: { text: 'You make an oil flask.', warn: false }, // 3 oilcaps crafted (D-299)
+  glassFlaskMake: { text: 'You make a flask from the glass.', warn: false }, // 1 mimic glass, 2 oilcaps (D-477)
   oilcapFull: { text: "You can't carry more oilcaps.", warn: false }, // every stack full, no slot free (D-250, D-296, D-333)
   heartcapFull: { text: "You can't carry more heartcaps.", warn: false }, // every stack full, no slot free (D-250, D-303, D-333)
   // Lines with `texts` take turns: each saying the next, then back to the first (D-297)
@@ -59,7 +60,7 @@ export const LINES = {
   stingerLook: { texts: ['A stinger, for crafting later.', 'The tip is still sharp.', 'Its shell is hard and dry.'], warn: false },
   stingerFull: { text: "You can't carry more stingers.", warn: false },
   mimicGlassTake: { texts: ['You pick up the mimic glass.', 'A shard of the mimic. It is still oily.', 'The mimic glass goes in your bag.'], warn: false },
-  mimicGlassLook: { texts: ['Mimic glass, for crafting later.', 'Thick glass, smeared with oil.', 'Its edge is sharp.'], warn: false },
+  mimicGlassLook: { texts: ['Mimic glass. With 2 oilcaps, a flask.', 'Thick glass, smeared with oil.', 'Its edge is sharp.'], warn: false },
   mimicGlassFull: { text: "You can't carry more mimic glass.", warn: false },
   gloamWispTake: { texts: ['You catch the gloam wisp.', 'The wisp is cold in your hand.', 'The gloam wisp goes in your bag.'], warn: false },
   gloamWispLook: { texts: ['A gloam wisp, for crafting later.', 'It shrinks from your light.', 'A scrap of living shadow.'], warn: false },
