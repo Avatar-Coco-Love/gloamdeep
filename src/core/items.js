@@ -107,6 +107,10 @@ export const ITEMS = {
   // lasts 70 turns, not 60, or about 87 with the Copper Wick (parts.js).
   heartCharm: { id: 'heartCharm', kind: 'item', name: 'Heart Charm', bag: true, max: 1, look: 'heartCharmLook', full: 'heartCharmFull',
     bench: { of: { mimicHeart: 1, copperOre: 1 }, says: 'heartMake', short: 'heartShort' }, wear: { slot: 'charm', burn: 6 / 7 }, wears: 'heartWear' },
+  // The first home piece (D-488): made at the workbench, never found, set down on the surface
+  // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
+  bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',
+    bench: { of: { wood: 4, ratTail: 2 }, says: 'bedMake', short: 'bedShort' }, sets: { tile: 'bedstead', says: 'bedSet' } },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).

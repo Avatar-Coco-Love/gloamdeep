@@ -170,26 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-485 · 2026-10-30 · Room on the crafting pages** (the owner's picks,
-all recommended; the owner's ask) The workbench card's grid is 4 × 3,
-12 slots, as the stash chest's, the words on its right a little
-narrower. How to play's Crafting tab becomes two, Bag (Make, Oilcap,
-Glass, Dust, Wood) and Bench (Bench, Make, Pick, Wick, Vest), so the
-Copper Wick and the vest get rows. Keyboard keeps its full name: five
-tabs fit, so the mock-up's "Keys" was not needed. Also moved D-481 to
-the archive, word for word, as this file neared 12 KB.
-
-**D-486 · 2026-10-30 · The Wisp Charm** (the owner's picks, all
-recommended; step 10 of D-482, builds D-458) The first charm is the
-Wisp Charm, named for its material, made at the workbench, its fifth
-slot, from 3 Gloam Wisp and 1 Copper Ore (Gloam Wisp's first use); one
-is carried or worn. Wear, in the bag, puts it on, free, in a charm
-slot, "You put on the wisp charm." Worn, a beaten creature leaves its
-rare material about 1 in 5, not 1 in 10; the common stays 1 in 2. Its
-bag picture, a gloam wisp in a round copper setting on a small loop,
-and its lines are drafted for the playtest. Also moved D-483 to the
-archive, word for word, as this file neared 12 KB.
-
 **D-487 · 2026-10-30 · The Heart Charm, and worn slots that grow**
 (the owner's picks, all recommended; step 10 of D-482, builds D-458,
 the owner's ask that new gear fit beside the old, D-261) The second
@@ -206,3 +186,17 @@ bag shows worn pieces as today. Its bag picture, the mimic heart's
 amber in the wisp charm's copper setting, and its lines are drafted for
 the playtest. Also moved D-484 to the archive, word for word, as this
 file neared 12 KB.
+
+**D-488 · 2026-10-30 · The bed, and sleeping at home** (the owner's
+picks, all recommended, and heal to full, the owner's add; step 11 of
+D-482, builds D-469) The first home piece is a bed, made at the
+workbench, its seventh slot, from 4 Wood and 2 Rat Tail (the hide its
+blanket); one is carried, set down on the surface the chest's way.
+From dusk until morning, bumping it sleeps until the next morning in
+one go, the lantern burning nothing: the hero wakes healed to full and
+rested, with one gold heart after the red ones, the first lost to a
+bite and gone after a fall. By day a bump opens a small card,
+Deconstruct bed?, "You aren't tired.", Yes taking it back into the bag,
+No picked. Its picture, a wooden frame with a straw pillow and a grey
+hide blanket, and its lines are drafted for the playtest. Also moved
+D-485 and D-486 to the archive, word for word, as this file neared 12 KB.

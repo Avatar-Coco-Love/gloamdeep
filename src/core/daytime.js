@@ -3,7 +3,8 @@
 // full day, a 30-turn dusk, 70 of night, a 30-turn dawn. Time passes below
 // ground too; only rooms under the sky show it.
 export const DAY_TURNS = 300;
-const DUSK = 170, NIGHT = 200, DAWN = 270, FADE = 30;
+export const DUSK = 170;
+const NIGHT = 200, DAWN = 270, FADE = 30;
 // Night's remembered tiles: the study's cold blue, as moonlight (D-060, Q-027)
 export const MOONLIT = [0.15, 0.16, 0.26];
 

@@ -64,7 +64,7 @@ const app = {
   // Who plays: the profiles on this device (D-268), the one in use picked on the slot screen (D-271)
   profiles: loadProfiles(),
   jumped: false, // a dev jump stops this journey counting towards the deepest depth (D-232)
-  // screen: 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'explore', 'history' or 'journal'
+  // screen: 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'bed' (the bed's ask by day, D-488), 'explore', 'history' or 'journal'
   screen: 'slots', chosen: 0,
   picking: null, dropping: 0, slotsBack: false, // the slot screen: Rename or Delete picked (D-273), the slot asked about, Back shown (D-271)
   pageFrom: 'title', // the menu Settings or How to play was opened from
@@ -268,7 +268,7 @@ const stepToward = (picX, picY, held = false) => {
   const dir = toward(h.x, h.y, tx, ty);
   if (!dir) { if (!held) tryStep('wait'); return; }
   // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)
-  const bench = panelBeside(app.state, dir);
+  const bench = panelBeside(app.state, dir, true); // the bed too, which sleeps at night (D-488)
   if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }
   if (tapsStep(app.settings)) { tryStep(dir); return; }
   if (!tapsWalk(app.settings)) return;
@@ -380,7 +380,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'bed', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)

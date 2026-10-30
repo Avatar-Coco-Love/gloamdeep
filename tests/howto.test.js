@@ -61,9 +61,9 @@ test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390
   assert.equal(howtoAt(x + w / 2, y + 80, VW, VH), null);
 });
 
-test('the Bag and Bench pages say how making works, whatever the Controls switch (D-328, D-484)', () => {
+test('the Bag and Bench pages say how making works, whatever the Controls switch (D-328, D-484, D-488)', () => {
   assert.deepEqual(howtoRows('bag', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Make', 'Oilcap', 'Glass', 'Dust', 'Wood']);
-  assert.deepEqual(howtoRows('bench', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Bench', 'Make', 'Pick', 'Wick', 'Vest', 'Charm']);
+  assert.deepEqual(howtoRows('bench', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Bench', 'Make', 'Pick', 'Wick', 'Vest', 'Charm', 'Bed']);
   for (const p of ['bag', 'bench']) assert.deepEqual(howtoRows(p, { swipe: 'off', tap: 'walk' }), howtoRows(p, { swipe: 'on', tap: 'walk' }));
   assert.match(howtoWords('bag', 'both'), /^How to play, Bag\. Make: Pick a stack in the bag then press Make\./);
   assert.match(howtoWords('bench', 'both'), /^How to play, Bench\. Bench: Bump it to make more\./);

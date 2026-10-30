@@ -1,4 +1,4 @@
-# The drops (D-474 to D-484)
+# The drops (D-474 to D-486)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -7,7 +7,8 @@ other four common drops and the rare drops; D-477 and D-478, steps 4 and
 steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482); D-481,
 step 8, the Growth tree, at 0.2.199 (D-485); D-483, step 9, the
 Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
-0.2.202 (D-487).
+0.2.202 (D-487); D-485, room on the crafting pages, and D-486,
+the Wisp Charm, at 0.2.203 (D-488).
 
 ---
 
@@ -129,3 +130,23 @@ the seed, to glance off and hurt nothing; when no bite that turn hurts,
 sound plays and a walk stops. Taking it off, and a mark that it is worn,
 wait for now. Its bag picture, a brown vest with grey fur at the
 shoulders laced in pink, and its lines are drafted for the playtest.
+
+**D-485 · 2026-10-30 · Room on the crafting pages** (the owner's picks,
+all recommended; the owner's ask) The workbench card's grid is 4 × 3,
+12 slots, as the stash chest's, the words on its right a little
+narrower. How to play's Crafting tab becomes two, Bag (Make, Oilcap,
+Glass, Dust, Wood) and Bench (Bench, Make, Pick, Wick, Vest), so the
+Copper Wick and the vest get rows. Keyboard keeps its full name: five
+tabs fit, so the mock-up's "Keys" was not needed. Also moved D-481 to
+the archive, word for word, as this file neared 12 KB.
+
+**D-486 · 2026-10-30 · The Wisp Charm** (the owner's picks, all
+recommended; step 10 of D-482, builds D-458) The first charm is the
+Wisp Charm, named for its material, made at the workbench, its fifth
+slot, from 3 Gloam Wisp and 1 Copper Ore (Gloam Wisp's first use); one
+is carried or worn. Wear, in the bag, puts it on, free, in a charm
+slot, "You put on the wisp charm." Worn, a beaten creature leaves its
+rare material about 1 in 5, not 1 in 10; the common stays 1 in 2. Its
+bag picture, a gloam wisp in a round copper setting on a small loop,
+and its lines are drafted for the playtest. Also moved D-483 to the
+archive, word for word, as this file neared 12 KB.

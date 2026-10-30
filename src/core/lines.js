@@ -133,6 +133,14 @@ export const LINES = {
   chestTake: { text: 'You take down the stash chest.', warn: false }, // Deconstruct chest, a turn (CH5)
   chestNotEmpty: { text: 'Empty the chest first.', warn: false }, // Deconstruct chest with anything inside, free (CH5)
   chestLook: { texts: ['A stash chest, empty.', 'Set it down on the surface.', "It keeps what the bag can't."], warn: false },
+  bedMake: { text: 'You make a bed.', warn: false }, // its line on the bench panel, a turn (D-488)
+  bedFull: { text: 'You already carry a bed.', warn: false }, // only 1 is carried, free
+  bedShort: { text: 'You need 4 Wood, 2 Rat Tail.', warn: false }, // too few, free
+  bedSet: { text: 'You set down the bed.', warn: false }, // a turn
+  bedTake: { text: 'You take down the bed.', warn: false }, // Yes on Deconstruct bed?, a turn
+  bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
+  sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
+  notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331), or the bag where you fell (D-345)
   bagBack: { text: 'You take back your bag.', warn: false }, // all of the bag where you fell, back in (MO3, D-345)
   stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)

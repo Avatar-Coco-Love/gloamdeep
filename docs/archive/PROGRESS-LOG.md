@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.200, the wisp charm.** Step 10 goes on: the
+  Wisp Charm, the first charm, is made at the workbench from 3 Gloam
+  Wisp and 1 Copper Ore; Wear in the bag puts it on, free, and rare
+  drops then come about 1 in 5, not 1 in 10 (D-486).
+  Playtest: https://claude.ai/artifact/K7s2JGJS2tS7TctJAntSiL
 - **2026-10-30, 0.2.199, the rat hide vest.** Step 10 begins: the
   Rat Hide Vest, the first armour, is made at the workbench from 4 Rat
   Tail and 1 Wood; Wear in the bag puts it on, free, and each bite then

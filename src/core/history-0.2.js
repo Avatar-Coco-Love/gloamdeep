@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.203', date: '2026-10-30', title: 'The bed', lines: [
+    "Make a Bed at the workbench, the first home piece: bump the bench and choose its seventh slot. It costs 4 Wood and 2 Rat Tail, and Make is dim with too few. You carry one at a time.",
+    "Choose it in the bag and press Set down to put it beside you on the surface, as the stash chest goes.",
+    "From dusk until morning, bump the bed to sleep: you sleep until the next morning, and the lantern burns nothing while you sleep. You wake healed to full and rested, with one gold heart after your red ones. A bite takes the gold heart first, and a fall loses it.",
+    "By day, bumping the bed asks \"Deconstruct bed?\" with \"You aren't tired.\" Yes takes it back into the bag; No, picked first, leaves it.",
+    "How to play's Bench page now says to bump the bed at night to sleep.",
+    "Decisions: D-488.",
+  ] },
   { v: '0.2.202', date: '2026-10-30', title: 'The heart charm', lines: [
     "Make a Heart Charm at the workbench, the second charm: bump the bench and choose its sixth slot. It costs 1 Mimic Heart and 1 Copper Ore, and Make is dim with too few. You have one at a time.",
     "Choose it in the bag and press Wear: you put it on, and no turn passes. You can wear both charms and the vest together.",

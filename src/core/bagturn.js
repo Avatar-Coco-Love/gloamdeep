@@ -10,6 +10,7 @@ import { note } from './events.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
+import { tired } from './sleep.js';
 import { endTurn } from './endturn.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
@@ -110,10 +111,12 @@ export function takeDown(state, x, y) {
   return endTurn(state, say(next, takes.says));
 }
 
-// The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null
-export function panelBeside(state, dir) {
+// The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null.
+// The bed opens its card only by day; at night a bump sleeps (D-488), unless `any`.
+export function panelBeside(state, dir, any = false) {
   const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1];
-  return !offEdge(state.room, x, y) && tileAt(state.room, x, y).panel ? { x, y } : null;
+  const tile = !offEdge(state.room, x, y) && tileAt(state.room, x, y);
+  return tile?.panel && (any || !(tile.sleeps && tired(state))) ? { x, y } : null;
 }
 
 // The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface
