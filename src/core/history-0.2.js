@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.184', date: '2026-10-30', title: 'The scope, part 6', lines: [
+    "The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.",
+    "The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.",
+    "Each biome will hide one big ability, at a shrine or from a boss near its bottom, opening new paths in places already seen.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-461 to D-463.",
+  ] },
   { v: '0.2.183', date: '2026-10-30', title: 'The scope, part 5', lines: [
     "The scope's part 5, gear, is settled. About 4 or 5 weapon kinds, each with its own attack shape; each biome's new metal makes a better one of each kind. One is held in hand, others swapped from the bag.",
     "The hero will wear one armour piece and two charms, each charm with one small effect.",

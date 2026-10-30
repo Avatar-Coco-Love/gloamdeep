@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.184 (2026-10-30)
+- The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.
+- The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.
+- Each biome will hide one big ability, at a shrine or from a boss near its bottom, opening new paths in places already seen.
+- Nothing in the game changes yet.
+- Decisions: D-461 to D-463.
+
 ## 0.2.183 (2026-10-30)
 - The scope's part 5, gear, is settled. About 4 or 5 weapon kinds, each with its own attack shape; each biome's new metal makes a better one of each kind. One is held in hand, others swapped from the bag.
 - The hero will wear one armour piece and two charms, each charm with one small effect.
@@ -81,9 +88,3 @@ Entry format:
 - Every corner piece (the round map with pause and the wrench, the lantern and its arc, the arrow pad) will fade almost away while the hero is under it, as the glass panel already does.
 - The rock past a room's edge and the real woods past the doorway out stay, showing inside the margin.
 - Decisions: D-441, D-442 and D-443.
-
-## 0.2.173 (2026-10-29)
-- Past the crypt's doorway that leads outside, the real woods now show: the woods room itself, placed so its cave mouth lies just past the doorway, with its trees, the rocks beside the mouth, its grass, sticks and fallen branch, and anything changed in play there, such as a stump where a tree was felled or a chest set down. Past the woods' own edges, trees go on.
-- The woods there keep their own light: full daylight by day, fading through dusk, and at night only the tiles remembered in the woods show, moonlit blue. The lantern's light spills out through the doorway onto the grass, with the trees casting shadows; the daylight that comes in through the cave mouth stays inside.
-- Play away from that doorway looks exactly as before, checked on pictures of other rooms by day and night.
-- Decisions: built as D-438, D-439 and D-440 say. Questions opened: Q-070.
