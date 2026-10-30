@@ -18,7 +18,7 @@ header says when it moved and why.
 | `DECISIONS-FOUNDATION-5.md` | D-114 to D-129 | steps 22 to 24 | D-151 |
 | `DECISIONS-FOUNDATION-6.md` | D-130 to D-158 | steps 25 to 30 | D-161 |
 | `DECISIONS-STAGE-0.2-1.md` | D-159 to D-167 | steps 31 to 33 | D-188 |
-| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392, D-421, D-431, D-449, D-457 on | stage 0.3, the world; the audits | |
+| (in `docs/DECISIONS.md`) | D-168 to D-176, D-336 to D-338, D-362, D-363, D-392, D-421, D-431, D-449, D-461 on | stage 0.3, the world; the audits | |
 | `DECISIONS-MENU.md` | D-177 to D-193 | the main menu, steps 52 to 58 | D-196 |
 | `DECISIONS-GETTING-AROUND.md` | D-194 to D-200 | steps 43 to 45, U1, U2 | D-208 |
 | `DECISIONS-REGION.md` | D-201 to D-208 | a region and its map, 46 to 47b | D-213 |
@@ -49,7 +49,7 @@ header says when it moved and why.
 | `DECISIONS-DOORWAY.md` | D-423, D-438 to D-440 | the woods past the doorway, each place shows itself | D-441 |
 | `DECISIONS-SCOPE.md` | D-413 to D-415, D-417 to D-419 | the scope in parts, its frame, crafts, drops, money, skills | D-445 |
 | `DECISIONS-CAMERA.md` | D-441 to D-448 | the camera's margin and zoom, the corner fade, plain dark past the edge | D-450 |
-| `DECISIONS-SCOPE-2.md` | D-450 to D-456 | the scope's parts 2 to 4: ore, tools, plants, fishing, farming, drops, making | D-457, D-461 |
+| `DECISIONS-SCOPE-2.md` | D-450 to D-460 | the scope's parts 2 to 5: ore, tools, plants, fishing, farming, drops, making, gear | D-457, D-461, D-464 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -60,7 +60,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-1.md` | 0.1.0 to 0.1.12 |
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
-| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.173 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, and at 0.2.184) |
+| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.174 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, and at 0.2.185) |
 
 ## Progress
 

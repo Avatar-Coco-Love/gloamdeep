@@ -1,9 +1,10 @@
-# The scope, parts 2 to 4 (D-450 to D-456)
+# The scope, parts 2 to 5 (D-450 to D-460)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.183 (D-457), when it
 neared 12 KB: ore and tools, plants, wood and oil, fishing and farming,
 drop chances, today's creature materials; D-455 and D-456, where
-things are made and the ladder, at 0.2.184 (D-461). These are still in force
+things are made and the ladder, at 0.2.184 (D-461); D-457 to D-460,
+gear, at 0.2.185 (D-464). These are still in force
 unless marked superseded. Grep for an ID or topic; never read this
 whole.
 
@@ -67,3 +68,37 @@ are the electronic and arcane stations themselves (D-415). Stations
 don't improve for now; whether they can is asked with home upgrades in
 part 8. The owner asked to weigh station upgrades and found recipes
 before picking these.
+
+**D-457 · 2026-10-30 · The scope, part 5: weapons** (the owner's picks,
+all recommended; builds D-027, D-252, D-450) About 4 or 5 weapon kinds,
+each with its own attack shape *(e.g. a knife hitting 1 tile, a spear 2
+in a line, an axe a sweep of 3, a sling at range)*. Each biome's new
+metal makes a better one of each kind: the shape stays, the hits grow.
+The hero holds one weapon in hand, as today; others ride in the bag and
+are swapped there, a swap taking a turn. Each kind's name, shape and
+numbers come at its own step. Also moved D-450 to D-454 to the archive,
+word for word, as this file neared 12 KB.
+
+**D-458 · 2026-10-30 · The scope, part 5: armour and charms** (the
+owner's picks, recommended; builds D-415) Besides the weapon in hand,
+the hero wears one armour piece, made by leatherwork, and two charms,
+each with one small effect *(e.g. better drop odds, a slower burn)*.
+Each piece's effect and recipe come at its own step.
+
+**D-459 · 2026-10-30 · The scope, part 5: the lantern's parts and
+torches** (the owner's picks, all recommended; the owner's thought of
+many lantern upgrades) The lantern has a few part slots *(e.g. tank,
+wick, glass)*, with many parts for each; one fits per slot and can be
+swapped *(e.g. a bigger tank holds more oil, a slow wick burns less, a
+coloured glass shows hidden marks)*. Oil still alone sets how far the
+light reaches (D-014). Parts are made at the workbench (answering part
+4's open point) and fitted from the bag, anywhere. The other light in
+the plan is torches, made in the bag and set down on a tile, burning
+for a while (D-024, D-455). Flares, glowing gear and machine lights were
+weighed and left out for now; any may come back by a new decision.
+
+**D-460 · 2026-10-30 · The scope, part 5: the rod** (the owner's pick,
+recommended; builds D-450, D-452) Fishing uses one rod, made better
+with each biome's metal like picks and axes; a better rod catches
+deeper fish. Bait may come later. How fishing plays is asked at its own
+step.

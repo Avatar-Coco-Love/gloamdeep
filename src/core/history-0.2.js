@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.185', date: '2026-10-30', title: 'The scope, part 7', lines: [
+    "The scope's part 7, collectables, is settled. Lore pages found below fill a Lore tab in the Journal, in sets; finishing a set gives a small lasting boost.",
+    "Relics, 1 or 2 a biome, are set on a shelf at home and each gives a small lasting boost while there.",
+    "Each creature will have a trophy, made from its materials and hung at home, completing its Bestiary page.",
+    "Achievements come in 3 tiers, each paying the look currency, in a Feats tab in the Journal.",
+    "Nothing in the game changes yet.",
+    "Decisions: D-464 to D-467.",
+  ] },
   { v: '0.2.184', date: '2026-10-30', title: 'The scope, part 6', lines: [
     "The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.",
     "The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.",
