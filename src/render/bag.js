@@ -31,11 +31,11 @@ const GRID_W = COLS * SLOT + (COLS - 1) * SLOT_GAP;
 const HELD = 'HELD', HELD_X = PAD + textWidth(HELD) + 6;
 export const SPLIT_X = PAD + GRID_W + 12; // the line between the slots and the item, from the card's left
 export const DETAIL_X = SPLIT_X + 9;
-// The button for an item: Pour, Make, Eat, Drink or Hold (a weapon, D-479), the same size, in the bottom right corner;
+// The button for an item: Pour, Make, Eat, Drink, Hold (a weapon, D-479) or Fit (a lantern part, D-483), the same size, in the bottom right corner;
 // Make, for an item that also heals, just left of it
-export const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK'), textWidth('HOLD')) + 8, h: 13 };
+export const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK'), textWidth('HOLD'), textWidth('FIT')) + 8, h: 13 };
 const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
-const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold ? 'HOLD' : null);
+const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold ? 'HOLD' : entry.part ? 'FIT' : null);
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it

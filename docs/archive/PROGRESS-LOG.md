@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.195, the pick and copper.** Step 7: the Stone
+  Pick is made at the workbench from 2 Wood and 3 Stone and works from
+  the bag; from depth 3, one boulder in each Cave room is a Copper vein,
+  4 bumps with the pick for 1 Copper Ore, back after 1800 turns (D-480).
+  Playtest: https://claude.ai/artifact/FyifAjtSFndiZ3RTYzAiD7
 - **2026-10-30, 0.2.194, the spear.** Step 6: the spear lies in
   depth 3's first room; it hits a creature for 2 and the one awake
   behind it for 1. A weapon found with one held goes into the bag, and

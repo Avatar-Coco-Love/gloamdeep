@@ -183,3 +183,15 @@ step, with its names and numbers asked at its own step. The first
 Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
+
+**D-483 · 2026-10-30 · The Copper Wick** (the owner's picks, all
+recommended; step 9 of D-482, builds D-459) The first lantern part is
+the Copper Wick, in the lantern's wick slot. It is made at the
+workbench, its third slot, from 3 Copper Ore and 1 Wood, and only one
+is carried or fitted. Fitted, it burns oil a quarter slower: a full
+tank lasts 75 turns, not 60; oil alone still sets the reach (D-014).
+Choosing it in the bag shows Fit, which puts it in the lantern, free,
+with "You fit the copper wick." Swapping and taking parts out wait for
+a second part; no mark on the lantern button and no lantern row in the
+bag for now. Its bag picture is look A of the mock-up: an upright cloth
+wick with a burnt tip in a wide copper collar.

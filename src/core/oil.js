@@ -6,9 +6,9 @@
 const TILE_SIZE = 16;
 export const OIL = { start: 1, burn: 1 / 60 };
 
-// Each passed turn burns a little, even standing still (D-037). Counted in
-// whole burns so 60 empty a full tank exactly, with no rounding drift.
-export const burnOil = (oil) => Math.max(0, Math.round(oil / OIL.burn - 1) * OIL.burn);
+// Each passed turn burns `burn`, even standing still (D-037): 60 empty a full tank, 75 with
+// the Copper Wick (D-483). A last sliver of rounding counts as empty.
+export const burnOil = (oil, burn = OIL.burn) => (oil - burn > 1e-9 ? oil - burn : 0);
 
 // § reach: 1.6 tiles plus 3.6 per full tank; an empty lantern is a 0.9-tile ember (D-015).
 export const reach = (oil) => (oil > 0 ? 1.6 + 3.6 * oil : 0.9) * TILE_SIZE;

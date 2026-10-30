@@ -66,6 +66,11 @@ export const LINES = {
   pickFull: { text: 'You already carry a stone pick.', warn: false }, // only 1 is carried, free
   pickShort: { text: 'You need 2 Wood and 3 Stone.', warn: false }, // too few, free
   pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Keep it in the bag to use it.', 'A sharp stone, lashed to a stick.'], warn: false },
+  wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
+  copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
+  wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free
+  copperWickLook: { texts: ['A copper wick. Fit it to burn less oil.', 'A wick in a copper collar.', 'It will make each flask last longer.'], warn: false },
+  wickFit: { text: 'You fit the copper wick.', warn: false }, // Fit in the bag, free (D-483)
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
   ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },

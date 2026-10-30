@@ -87,6 +87,11 @@ export const ITEMS = {
     bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
   // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
   copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },
+  // The first lantern part (D-483): made at the workbench, never found. Fit, in the bag, puts it
+  // in the lantern's `part.slot`, free, with its `fits` line; fitted, a lit turn burns `part.burn`,
+  // so a full tank lasts 75 turns, not 60. Oil alone still sets the reach (D-014).
+  copperWick: { id: 'copperWick', kind: 'item', name: 'Copper Wick', bag: true, max: 1, look: 'copperWickLook', full: 'copperWickFull',
+    bench: { of: { copperOre: 3, wood: 1 }, says: 'wickMake', short: 'wickShort' }, part: { slot: 'wick', burn: 1 / 75 }, fits: 'wickFit' },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).
