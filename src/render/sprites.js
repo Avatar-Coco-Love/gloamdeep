@@ -399,6 +399,17 @@ export function drawPeople(c, people, hero, t, still) {
   }
 }
 
+// § leaving: a freed person gone home fades where they stood, in LEAVE_MS (D-496); gone:
+// { id, x, y, start }. None with reduced motion: they are simply gone.
+export const LEAVE_MS = 400;
+export function drawLeaving(c, gone, hero, t) {
+  const a = gone ? 1 - (t - gone.start) / LEAVE_MS : 0;
+  if (a <= 0 || a > 1) return;
+  c.globalAlpha = a;
+  drawPeople(c, [gone], hero, t, true);
+  c.globalAlpha = 1;
+}
+
 // § branch: drawn flat on its tile in its look, on a shadow as wide as it (D-316)
 export function drawBranch(c, tx, ty, form) {
   const x = tx * 16, y = ty * 16;

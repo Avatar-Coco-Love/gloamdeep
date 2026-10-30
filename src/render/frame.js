@@ -3,7 +3,7 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
-import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, drawPeople, drawLeaving, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
@@ -201,6 +201,7 @@ export function createFrame(app, ui) {
       drawBrackets(rc, s.room, s.lights);
       drawItems(rc, s.items, t, still());
       drawPeople(rc, s.people, s.hero, t, still()); // turned to face the hero (D-490)
+      drawLeaving(rc, app.leaving, s.hero, t); // a freed person gone home fades (D-496)
       drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
       // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
       drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt);

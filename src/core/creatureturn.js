@@ -10,6 +10,7 @@ import { litAt, clearLine } from './sight.js';
 import { note } from './events.js';
 import { DIRS, passTurn, itemAt } from './state.js';
 import { fall } from './fall.js';
+import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
@@ -133,9 +134,9 @@ function lightGoal(state, e) {
 }
 
 // Whether enemy e may step onto tile x, y: nothing solid, no item, no other
-// enemy, not the hero, and no light for one that shuns it unless `lit` (D-240)
+// enemy, no person (D-496), not the hero, and no light for one that shuns it unless `lit` (D-240)
 function free(state, e, x, y, lit = false) {
-  if (tileAt(state.room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
+  if (tileAt(state.room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
   return lit || traits(get(e.id)).intoLight || !litAt(state, x, y);
 }
 

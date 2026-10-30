@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.210 (2026-10-30)
+- Free the peddler and he no longer vanishes at once. He thanks you and stays where he stood. Bump him to talk: free, his lines taking turns.
+- Left alone 5 turns, or 3 after your last bump, he says goodbye and fades away, heading home to the woods. Leave the room first and he goes home anyway.
+- Digging him out, his first call is for help; after that he cheers the digging on. Creatures no longer step onto a person.
+- Decisions: D-496.
+
 ## 0.2.209 (2026-10-30)
 - Bump the peddler at home and his card now has two tabs, Sell and Buy. On Buy, his wares: an oil flask for 3 coins and a torch for 2. He never runs out.
 - Pick one, then Buy, Enter or Space to buy one, free, no turn. Buy is dim with too few coins or no room in your bag, and the card says why.

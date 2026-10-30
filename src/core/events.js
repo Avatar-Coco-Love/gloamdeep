@@ -21,6 +21,7 @@
 //   torch                a torch was lit (D-121)
 //   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2); rubble too (D-491)
 //   free { id }          person `id` was freed from the rubble (D-491)
+//   leave { id, x, y }   person `id`, freed, left x, y for home (D-496)
 //   set { id }           tile `id` was set down from the bag, the workbench's bench (WB2)
 //   hold { id }          weapon `id` went from the bag into the hand (D-479)
 //   sell { id, coins }   one of item `id` was sold at home for `coins`, free (D-494)

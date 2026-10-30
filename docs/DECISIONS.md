@@ -180,20 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-494 · 2026-10-30 · The vendor begins: selling to the peddler** (the
-owner's picks, all recommended; step 13a of D-482, builds D-471 and
-D-472) Step 13 starts with selling only; buying from him comes later.
-Bumping the peddler at home says his home line, as before, and opens
-his card, "PEDDLER": the coins carried and the bag's 6 slots on the
-left, the chosen stack's name, count and price on the right, SELL in
-the corner, dim for what he doesn't buy. A tap picks a slot; SELL,
-Enter or Space sell one of it, free, no turn. He buys only creature
-materials so far: each common one for 1 trade coin, each rare one for
-5, the price kept in the registry as `sells`. The names stay plain,
-"Peddler" and "coins". Coins are kept on a fall in Gentle and Normal
-and lost with the world when Hardcore starts over. An older save has
-none yet.
-
 **D-495 · 2026-10-30 · Buying from the peddler** (the owner's picks,
 all recommended; step 13b of D-482, ends step 13) He sells an oil
 flask for 3 coins and a torch for 2, kept in the registry as his
@@ -202,3 +188,18 @@ Journal's look; Buy shows his wares in the grid, and BUY, Enter or
 Space buy one, free, no turn, dim with too few coins or no room in
 the bag, the card saying why. Seeds wait for the garden; recipes
 wait for a way to sell them.
+
+**D-496 · 2026-10-30 · The rescued peddler lingers, then beams home**
+(the owner's idea and picks, the turns his own, the rest recommended
+after a mock-up of four looks; changes D-491's "is gone" and D-492's
+"at once") Freed, the peddler stays where he stood and thanks the
+hero. Left alone 5 turns, he says goodbye and heads home; bumped, free,
+he talks, his lines taking turns, and goes 3 turns after the last bump.
+The hero leaving the room first, he goes home anyway. Digging him out,
+his first call is for help, then he cheers the digging on. Creatures
+don't step onto a person. Two steps: 0.2.210 does all this with a
+plain fade where he stood; the next draws look A, the lantern beam
+(Starbound-like), as he leaves and arrives, and a one-time greeting at
+home when the hero comes within 2 tiles. His lines are drafted for the
+playtest. Also moved D-494 to the archive, word for word, as this file
+neared 12 KB.

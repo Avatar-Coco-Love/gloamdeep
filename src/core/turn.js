@@ -27,7 +27,7 @@ import { fleeOrStand } from './creatureturn.js';
 import { fetchBag } from './fall.js';
 import { sleep } from './sleep.js';
 import { personAt } from './people.js';
-import { dig } from './rescue.js';
+import { dig, talk } from './rescue.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -62,6 +62,7 @@ export function step(state, dir) {
   const foe = enemyAt(state, x, y);
   if (foe) return attack(state, foe);
   const person = personAt(state, x, y);
+  if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they stay a little longer (D-496)
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   for (const found of state.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile

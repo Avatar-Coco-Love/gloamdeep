@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.209 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.210 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 14, the garden (D-482): propose how it plays, with its names and
-numbers, asked, before building.
+The peddler's second step (D-496): the lantern beam as he leaves and
+arrives, and his greeting at home within 2 tiles. Then step 14, the garden.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -43,6 +43,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.210, the peddler lingers.** Freed, he stays and
+  thanks you; bumped, he talks, free. He fades away home 5 turns later,
+  or 3 after a bump, or when you leave the room (D-496; the beam look
+  chosen from a mock-up, built next). Playtest:
+  https://claude.ai/artifact/KnQkvXYZRJ1AQbzdNY6xwp
 - **2026-10-30, 0.2.209, buying from the peddler.** Step 13b ends step
   13: his card has Sell and Buy tabs, and he sells an oil flask for 3
   coins and a torch for 2, never running out, free, no turn (D-495).
@@ -52,9 +57,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   materials one at a time, free: common 1 coin, rare 5. Coins are kept
   on a fall, but not when Hardcore starts over (D-494). Playtest:
   https://claude.ai/artifact/LEt8viddhmdyPNpU6rctjm
-- **2026-10-30, 0.2.207, the sixth audit.** Nothing in the game changed
-  (D-493; all recommended, CLAUDE.md left as it is). The Version
-  history's 0.2.121 to 0.2.186 moved word for word from `history-0.2.js`
-  (55 → 14 KB) into `history-0.2-3.js`. `DECISIONS.md` 10.9 → 10.1 KB,
-  `CHANGELOG.md` 7.8 → 2.1 KB; ticked steps 9 to 12 archived. No
-  playtest: nothing to play.
