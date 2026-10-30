@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.198, the copper wick.** Step 9: the Copper
+  Wick, the first lantern part, is made at the workbench from 3 Copper
+  Ore and 1 Wood; Fit in the bag puts it in the lantern, free, and a
+  full tank lasts 75 turns, not 60 (D-483). Playtest:
+  https://claude.ai/artifact/9U8FKSSSMt3KFyr8S6LdrG
 - **2026-10-30, 0.2.197, the rest of the order.** A look at where
   we stand: steps 1 to 8 done, 685 tests pass. Lantern parts come
   next, then the order proposed in the plan; Half and Automatic keep

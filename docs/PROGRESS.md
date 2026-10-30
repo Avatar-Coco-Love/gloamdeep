@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.200 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.201 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -49,6 +49,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.201, tap to set down.** A fix: on phones, tapping
+  a marked tile to set down the workbench, chest or torch missed (the
+  tap was read on the menus' picture, not the room's); now it sets it
+  there, as D-322 meant. Swipes worked already. Playtest:
+  https://claude.ai/artifact/Ci1dp4r6gTrT5DUwFWVWhp
 - **2026-10-30, 0.2.200, the wisp charm.** Step 10 goes on: the
   Wisp Charm, the first charm, is made at the workbench from 3 Gloam
   Wisp and 1 Copper Ore; Wear in the bag puts it on, free, and rare
@@ -60,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   has a 1 in 4 chance to glance off (D-484). The workbench card is now
   4 × 3, and How to play's Crafting is two tabs, Bag and Bench (D-485).
   Playtest: https://claude.ai/artifact/9tLgCJiwKBz316QTnReiUu
-- **2026-10-30, 0.2.198, the copper wick.** Step 9: the Copper
-  Wick, the first lantern part, is made at the workbench from 3 Copper
-  Ore and 1 Wood; Fit in the bag puts it in the lantern, free, and a
-  full tank lasts 75 turns, not 60 (D-483). Playtest:
-  https://claude.ai/artifact/9U8FKSSSMt3KFyr8S6LdrG

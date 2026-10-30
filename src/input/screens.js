@@ -90,7 +90,7 @@ import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
-import { TILE, view } from '../render/screen.js';
+import { view } from '../render/screen.js';
 
 const WORDS = {
   title: 'Gloamdeep. New journey, Journal, How to play, Settings, Profiles or Seed Explorer: press Enter, or tap one.',
@@ -109,7 +109,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `setDown(slot, dir)`,
-// `takeDown(x, y)`, `make(item)`, `lookAt(slot)` and `goSideways()` from main.js.
+// `takeDown(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goSideways()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const version = document.getElementById('version');
@@ -344,7 +344,7 @@ export function createScreens(app, ui) {
   }
   // A tap or click on a marked tile sets it there; anywhere else leaves it in the bag
   function tapSide(px, py) {
-    const h = app.state.hero, tx = Math.floor((px + app.cam.x) / TILE), ty = Math.floor((py + app.cam.y) / TILE);
+    const h = app.state.hero, [tx, ty] = ui.roomTile(px, py);
     const dir = app.setting.sides.find((d) => h.x + DIRS[d][0] === tx && h.y + DIRS[d][1] === ty);
     if (dir) setToward(dir); else show('play');
   }
