@@ -97,6 +97,23 @@ const GLOAM_WISP = { mirror: false, rows: [
   '', '', '', '', '', '.......k........', '.......kk.......', '......kdbk......', '......kdbk......', '.....kdsdbk.....',
   '.....kdssbk.....', '....kbdssdbk....', '....kbddddbk....', '.....kbbbbk.....', '......kkkk......'] };
 
+// § venom sac: a plump bulb of green venom with a pale gleam, a short neck of the
+// Sand shell where it joined the sting (look A of the rare drops mock-up, D-476)
+const VENOM_SAC = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '.......kk.......', '......kook......', '.....kkOOkk.....', '....kgwggggk....', '...kgwgggggGk...',
+  '...kggggggGGk...', '....kgggGGGk....', '.....kkkkkk.....'] };
+
+// § mimic heart: a heart of the flask's amber oil, a glass gleam at its upper left (look A, D-476)
+const MIMIC_HEART = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '...kkk..kkk.....', '..kwook.kooOk...', '.kwoooookooOOk..', '.kooYoooooooOk..', '..kooooooooOk...',
+  '...koooooooOk...', '....kooooOOk....', '.....kOOOOk.....', '......kkkk......'] };
+
+// § gloam eye: a round pale eye with the pink iris, rimmed in the gloamling's
+// shadow grey (look A, D-476)
+const GLOAM_EYE = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '.....kkkkkk.....', '....kdwwwwdk....', '...kdwwppwwdk...', '...kdwpkkpwdk...',
+  '...kdwwppwwdk...', '....kdwwwwdk....', '.....kkkkkk.....'] };
+
 // § wood: three looks, one per stick as it lies (W1, D-314): a straight stick,
 // a forked twig with a leaf, a crooked branch, in the trees' trunk browns
 const WOODS = [
@@ -231,7 +248,7 @@ function spriteCanvas(def, flash = null, pal = PAL) {
   return cv;
 }
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), deposit: spriteCanvas(DEPOSIT), stone: spriteCanvas(STONE), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.

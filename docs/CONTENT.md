@@ -16,10 +16,10 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | id | Hearts | Bite | Ways | Where | Decisions |
 | --- | --- | --- | --- | --- | --- |
 | `rat` | 2 | 1 | chases, fleesHurt | the first rooms; 1 in each generated room, 2 from depth 5 | D-106, D-110, D-114, D-126, D-149, D-231, D-292, D-301, D-474 |
-| `gloamling` | 2 | 1 | chases, shunsLight | depth 5 on, 3 rooms a floor, for the second rat | D-240, D-244, D-475 |
+| `gloamling` | 2 | 1 | chases, shunsLight | depth 5 on, 3 rooms a floor, for the second rat | D-240, D-244, D-475, D-476 |
 | `lampmoth` | 1 | 1 | seeksLight | depths 2 to 4, 1 room a floor, for the rat | D-351, D-356, D-475 |
-| `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369, D-475 |
-| `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | depths 3 and 4, 1 room a floor (never the lampmoth's), for the rat | D-370, D-373, D-475 |
+| `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369, D-475, D-476 |
+| `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | depths 3 and 4, 1 room a floor (never the lampmoth's), for the rat | D-370, D-373, D-475, D-476 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
@@ -46,6 +46,9 @@ mechanic and its own step.
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
 | `mimicGlass` | for crafts later | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475 |
 | `gloamWisp` | for crafts later | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475 |
+| `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10, its own coin | D-454, D-476 |
+| `mimicHeart` | for crafts later | 20 | never | a beaten flask mimic, about 1 in 10, its own coin | D-454, D-476 |
+| `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10, its own coin | D-454, D-476 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |

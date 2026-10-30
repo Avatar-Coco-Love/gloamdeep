@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.190 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.191 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 3 of the build order (D-473): the rare drops from depth 3, Venom
-Sac, Mimic Heart and Gloam Eye, about 1 in 10 (D-453, D-454). Propose
-their looks first, and how a rare one and a common one fall together. Half and Automatic
-wait on Q-069. Upright play (Q-065) is tabled.
+Step 4 of the build order (D-473): a first recipe using a creature
+material. Propose which material, what it makes and where (in the bag or
+at the workbench, D-455), with a mock-up of the new find. Half and
+Automatic wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,7 +32,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The scope, drops first (D-473):
 - [x] 1 A beaten rat leaves a Rat Tail; step on it to take it, 0.2.189
 - [x] 2 The other four common drops, 0.2.190
-- [ ] 3 The rare drops, from depth 3
+- [x] 3 The rare drops, from depth 3, 0.2.191
 - [ ] 4 A first recipe using a creature material
 - [ ] 5 Torches: made in the bag, set down on a tile
 - [ ] 6 A second weapon kind, its own shape; swapped in the bag
@@ -50,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.191, the rare drops.** Step 3: a beaten scorpion,
+  flask mimic or gloamling now and then leaves a Venom Sac, Mimic Heart
+  or Gloam Eye, about 1 in 10 on its own coin; with the common too, it
+  lies beside it. Look A of each (D-476). Playtest:
+  https://claude.ai/artifact/F7FMSbndyWxaUNwTqqySqc
 - **2026-10-30, 0.2.190, four more drops.** Step 2: a beaten lampmoth,
   scorpion, flask mimic or gloamling leaves Moth Dust, a Stinger, Mimic
   Glass or a Gloam Wisp the Rat Tail's way; look A of each, the Stinger
@@ -60,6 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   it to take it, stacks of 20, three take and three look lines, left
   for good with a full bag (D-474, look A). Playtest:
   https://claude.ai/artifact/TTRSKUx9bwaU8k4yiSaBRT
-- **2026-10-30, 0.2.188, the build order.** The owner picked drops
-  first: 8 steps from a rat's Rat Tail to the Growth tree, the rest
-  later; Q-069 stays waiting (D-473). Nothing visible.

@@ -64,6 +64,15 @@ export const LINES = {
   gloamWispTake: { texts: ['You catch the gloam wisp.', 'The wisp is cold in your hand.', 'The gloam wisp goes in your bag.'], warn: false },
   gloamWispLook: { texts: ['A gloam wisp, for crafting later.', 'It shrinks from your light.', 'A scrap of living shadow.'], warn: false },
   gloamWispFull: { text: "You can't carry more gloam wisps.", warn: false },
+  venomSacTake: { texts: ['A venom sac! A rare find.', 'You lift the sac gently. It sloshes.', 'The venom sac goes in your bag.'], warn: false }, // (D-476)
+  venomSacLook: { texts: ['A venom sac, for crafting later.', 'Green venom, sealed in a thin skin.', 'Best not to squeeze it.'], warn: false },
+  venomSacFull: { text: "You can't carry more venom sacs.", warn: false },
+  mimicHeartTake: { texts: ['A mimic heart! A rare find.', 'The heart is warm, like lamp oil.', 'The mimic heart goes in your bag.'], warn: false },
+  mimicHeartLook: { texts: ['A mimic heart, for crafting later.', 'Amber oil, shaped like a heart.', 'It seems to beat, now and then.'], warn: false },
+  mimicHeartFull: { text: "You can't carry more mimic hearts.", warn: false },
+  gloamEyeTake: { texts: ['A gloam eye! A rare find.', 'The eye is cold and smooth.', 'The gloam eye goes in your bag.'], warn: false },
+  gloamEyeLook: { texts: ['A gloam eye, for crafting later.', 'It still seems to watch you.', 'It blinks away from your light.'], warn: false },
+  gloamEyeFull: { text: "You can't carry more gloam eyes.", warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)

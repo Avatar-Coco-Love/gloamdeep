@@ -1,11 +1,12 @@
-# The scope, parts 2 to 7 (D-450 to D-467)
+# The scope, parts 2 to 8 (D-450 to D-472)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.183 (D-457), when it
 neared 12 KB: ore and tools, plants, wood and oil, fishing and farming,
 drop chances, today's creature materials; D-455 and D-456, where
 things are made and the ladder, at 0.2.184 (D-461); D-457 to D-460,
 gear, at 0.2.185 (D-464); D-461 to D-467, growth and collectables, at
-0.2.186 (D-468). These are still in force
+0.2.186 (D-468); D-469 to D-472, home and trade, at 0.2.191
+(D-476). These are still in force
 unless marked superseded. Grep for an ID or topic; never read this
 whole.
 
@@ -152,3 +153,29 @@ pick, recommended; builds D-284, D-418, narrows Q-057) Each chosen
 record has a set of 3 tiers, and each tier pays the look currency. They
 show in a Feats tab in the Journal, with a note on reaching one. Which
 records get a set, and each tier's number, come at the first one's step.
+
+**D-469 · 2026-10-30 · The scope, part 8: home** (the owner's picks;
+builds D-038, D-455, D-465) Home grows by the pieces built there with
+the Building craft *(e.g. a bed, shelves, the stations)*, with no home
+level. Stations still don't improve (D-456). Sleeping at home gives a
+short boost for the next trip *(e.g. a little extra oil or a heart)*.
+Each piece and the boost come at each one's own step.
+
+**D-470 · 2026-10-30 · The scope, part 8: people** (the owner's picks,
+the recommended one and the owner's addition; builds the wish in
+`RESEARCH.md`) Most people are rescued below and move home, each giving
+it a use *(e.g. a vendor, a teacher)*. Later, some people stay where the
+hero meets them *(e.g. the cult in a lit place below)*, and wanderers
+visit *(e.g. a wandering merchant)*. Who each is comes at its own step.
+
+**D-471 · 2026-10-30 · The scope, part 8: the first vendor** (the
+owner's pick, recommended) The first vendor is a rescued person who sets
+up at home. They buy creature materials and spare finds and sell useful
+things *(e.g. seeds, recipes, basics)*. More vendors come with more
+rescues. Who they are and their prices come at their own step.
+
+**D-472 · 2026-10-30 · The scope, part 8: trade coins** (the owner's
+picks, recommended, and kept on falling added after the PR opened;
+builds D-418) Trade coins come only from selling to vendors: creatures
+never drop them and none are found below, so finds stay the reward.
+Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).
