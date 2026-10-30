@@ -24,6 +24,8 @@ wide (32 screen px) round the shown pad takes no tap or held finger; a
 swipe from there still steps (the build's choice). Tap to walk is Off at
 first, and turned off once for everyone, saves too; Settings turns it
 back on. Built in 0.2.165.
+*"Tap to walk is Off at first" superseded by D-449 (2026-10-30): Tap
+starts on Step; a saved pick stays.*
 
 **D-424 · 2026-10-29 · No walking past the edge** (the owner's pick,
 recommended; changes D-409's far tap) A tap or held finger past the

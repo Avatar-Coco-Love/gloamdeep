@@ -1,10 +1,10 @@
 // § how to play: the controls, one page per way of playing (D-179, D-193).
 // Touch, Mouse and Keyboard, then Crafting; Left and Right flip between them.
-// Walking by touch or mouse follows the Swipe and Tap to walk switches, so only
+// Walking by touch or mouse follows the Swipe and Tap lines, so only
 // what works is shown, and the arrow pad's line (D-189, D-408). Frame says how to frame a creature (D-359, D-361). Crafting
 // says how Make works, the same for every way (D-328).
 // Plain data, no drawing.
-import { swipesWalk, tapsWalk, padShown } from './settings.js';
+import { swipesWalk, tapsWalk, tapsStep, padShown } from './settings.js';
 
 export const HOWTO_PAGES = ['touch', 'mouse', 'keyboard', 'crafting'];
 const NAMES = { touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', crafting: 'Crafting' };
@@ -16,13 +16,15 @@ export function nextPage(id, back = false) {
   return HOWTO_PAGES[(i + (back ? n - 1 : 1)) % n];
 }
 
-// § walking by pointer: a tap or click on a tile walks there, another stops,
-// and a swipe or drag steps once (D-406, D-408); a tap or click on the hero
-// always waits (D-085). A last line names the arrow pad, or where to turn it on (D-408)
+// § walking by pointer: a tap or click on a tile walks there, another stops (Tap: Walk),
+// or steps once toward it, held keeps stepping (Tap: Step), and a swipe or drag steps once
+// (D-406, D-408, D-449); a tap or click on the hero always waits (D-085). A last line names
+// the arrow pad, or where to turn it on (D-408)
 function walkWays(settings, tap, swipe) {
-  const taps = tapsWalk(settings), swipes = swipesWalk(settings), pad = padShown(settings);
-  if (!taps && !swipes) return [pad ? 'The arrow pad' : 'Turn on in Settings'];
-  const ways = taps ? [`${tap} where to go`, swipes ? `or ${swipe.toLowerCase()}` : `${tap} again to stop`] : [swipe];
+  const walks = tapsWalk(settings), steps = tapsStep(settings), swipes = swipesWalk(settings), pad = padShown(settings);
+  if (!walks && !steps && !swipes) return [pad ? 'The arrow pad' : 'Turn on in Settings'];
+  const ways = walks ? [`${tap} where to go`, swipes ? `or ${swipe.toLowerCase()}` : `${tap} again to stop`]
+    : steps ? [`${tap} toward a tile`, swipes ? `or ${swipe.toLowerCase()}` : 'Hold to keep going'] : [swipe];
   return [...ways, pad ? 'or the arrow pad' : 'Arrow pad in Settings'];
 }
 

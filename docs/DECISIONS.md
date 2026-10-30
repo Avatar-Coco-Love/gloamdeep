@@ -194,3 +194,13 @@ zoom glides from the old room's to the new one's while the new room fades
 in (D-135), over 0.4 seconds, starting and landing gently. For that
 moment the pixels may be a hair uneven, then crisp again. With reduced
 motion it jumps in the dark as before. Built in 0.2.178.
+
+**D-449 · 2026-10-30 · Tap: Off, Step or Walk** (the owner's choice;
+details all recommended; supersedes D-406's "the one-step tap goes" and
+D-422's "Off at first") Settings' Tap to walk line becomes Tap: Off, Step,
+Walk; picking it or Right goes on, Left back. Step is D-042's tap, one step
+toward the tap; a finger held 0.25 s keeps stepping toward it at the held
+pace (D-044), sliding steers, lifting stops. Walk is D-406's walk. New
+players start on Step; saved settings keep their pick, On as Walk. How to
+play: "Tap toward a tile", then "or swipe" or "Hold to keep going".
+Built in 0.2.179.

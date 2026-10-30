@@ -1,16 +1,23 @@
-// § walking: the Swipe, Tap to walk and Arrow pad switches (D-408; were the one Controls line,
-// D-179, D-189), each On or Off, Swipe on at first, Tap to walk and the pad off (D-422, was on, D-406). They turn off only walking by
-// swipes or taps in play; menus take both always. Kept on this device; if the
-// browser's storage is blocked they stay on.
+// § walking: the Swipe, Tap and Arrow pad lines (D-408; were the one Controls line,
+// D-179, D-189). Swipe and the pad are On or Off, Swipe on and the pad off at first.
+// Tap is Off, Step (one step toward the tap, held keeps stepping, D-042) or Walk (walk
+// there, D-406), Step at first (D-449). They turn off only walking by swipes or taps
+// in play; menus take both always. Kept on this device; if the browser's storage is
+// blocked they stay as at first.
 import { SEED_MAX } from './rng.js';
 
 export const swipeText = (id) => 'Swipe: ' + (id === 'off' ? 'Off' : 'On');
-export const tapWalkText = (id) => 'Tap to walk: ' + (id === 'off' ? 'Off' : 'On');
+const TAPS = ['off', 'step', 'walk'];
+export const tapText = (id) => 'Tap: ' + { off: 'Off', step: 'Step', walk: 'Walk' }[id];
+// Off, Step, Walk and round again; back goes the other way (D-449)
+export const nextTap = (id, back = false) => TAPS[(TAPS.indexOf(id) + (back ? 2 : 1)) % 3];
 export const padText = (id) => 'Arrow pad: ' + (id === 'on' ? 'On' : 'Off');
 export const nextOnOff = (id) => (id === 'off' ? 'on' : 'off');
-// What the switches let walk, from the settings: a swipe, or a tap or held finger on a tile
+// What the switches let walk, from the settings: a swipe, or a tap or held finger on a tile,
+// which walks there or steps toward it
 export const swipesWalk = (s) => s.swipe !== 'off';
-export const tapsWalk = (s) => s.tapwalk !== 'off';
+export const tapsWalk = (s) => s.tap === 'walk';
+export const tapsStep = (s) => s.tap === 'step';
 export const padShown = (s) => s.pad === 'on';
 
 // § stop: when a walk to a tapped tile stops for a creature (D-407, D-408, Q-067):
@@ -60,8 +67,9 @@ export function loadSettings() {
   try { s = JSON.parse(localStorage.getItem(KEY)); } catch { /* not kept */ }
   const onOff = (v, was) => (v === 'on' || v === 'off' ? v : was); // the old Controls line's pick carries over
   const swipe = onOff(s?.swipe, s?.controls === 'tap' ? 'off' : 'on');
-  // Tap to walk went off for everyone once (D-422): a pick kept before then, without taps: 2, is dropped
-  const tapwalk = s?.taps === 2 && s?.tapwalk === 'on' ? 'on' : 'off';
+  // Tap starts on Step (D-449). Settings kept before it keep Tap to walk's pick, On as Walk;
+  // Tap to walk had gone off for everyone once (D-422): an On kept before then, without taps: 2, was dropped
+  const tap = TAPS.includes(s?.tap) ? s.tap : !s ? 'step' : s.taps === 2 && s.tapwalk === 'on' ? 'walk' : 'off';
   const pad = s?.pad === 'on' ? 'on' : 'off';
   const stop = s?.stop === 'noticed' ? 'noticed' : 'sight';
   const motion = s?.motion === 'full' || s?.motion === 'reduced' ? s.motion : null;
@@ -70,7 +78,7 @@ export function loadSettings() {
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
   const stats = s?.stats === 'on' ? 'on' : 'off';
-  return { swipe, tapwalk, pad, stop, motion, seed, lantern, flasks, sound, stats };
+  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, stats };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify({ ...s, taps: 2 })); } catch { /* not kept */ }

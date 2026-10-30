@@ -68,7 +68,7 @@ import { CLOAK_PAD, moveCloak, EYES_PAD, moveEyes, TRIM_PAD, moveTrim, CLOTHES_P
 import { createProfileScreens } from './profilescreens.js';
 import { lookCardAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, modeAt, modeText, easier, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, swipeText, tapWalkText, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
+import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, seedText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { startSeeds, shownSeed, addSeed, backSeed, explorerWorld } from '../core/explorer.js';
@@ -398,7 +398,7 @@ export function createScreens(app, ui) {
     spoken.textContent = words;
   }
   const changeSwipe = () => { const o = nextOnOff(app.settings.swipe); change('swipe', o, swipeText(o)); };
-  const changeTapWalk = () => { const o = nextOnOff(app.settings.tapwalk); change('tapwalk', o, tapWalkText(o)); };
+  const changeTap = (back = false) => { const o = nextTap(app.settings.tap, back); change('tap', o, tapText(o)); };
   const changePad = () => { const o = nextOnOff(app.settings.pad); change('pad', o, padText(o)); };
   const changeStop = () => { const o = nextStop(app.settings.stop); change('stop', o, stopText(o)); };
   const changeMotion = () => { const m = nextMotion(app.settings.motion, reduceMotion.matches); change('motion', m, motionText(m, reduceMotion.matches)); };
@@ -503,7 +503,7 @@ export function createScreens(app, ui) {
     else if (id === 'howto') openHowTo();
     else if (id === 'explore') openExplorer();
     else if (id === 'swipe') changeSwipe();
-    else if (id === 'tapwalk') changeTapWalk();
+    else if (id === 'tap') changeTap();
     else if (id === 'pad') changePad();
     else if (id === 'stop') changeStop();
     else if (id === 'motion') changeMotion();
@@ -541,7 +541,7 @@ export function createScreens(app, ui) {
     }
     const id = menuOf(app.screen)[app.chosen]?.id;
     if (id === 'swipe' && (dir === 'left' || dir === 'right')) changeSwipe();
-    else if (id === 'tapwalk' && (dir === 'left' || dir === 'right')) changeTapWalk();
+    else if (id === 'tap' && (dir === 'left' || dir === 'right')) changeTap(dir === 'left');
     else if (id === 'pad' && (dir === 'left' || dir === 'right')) changePad();
     else if (id === 'stop' && (dir === 'left' || dir === 'right')) changeStop();
     else if (id === 'motion' && (dir === 'left' || dir === 'right')) changeMotion();

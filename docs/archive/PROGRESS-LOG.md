@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-29, 0.2.176, plain dark past the door.** The owner found it
+  janky: a bright strip of woods over black rock past the crypt's doorway
+  out, and a rat waiting by the door, hidden from the woods, bit at once
+  on the way back in. Picked: plain dark past every edge again (D-445),
+  and the first step in a room is the hero's own (D-446).
+  [Playtest](https://claude.ai/artifact/2CoTTqi199dRyMbeLENNAg).
 - **2026-10-29, 0.2.175, the camera with a margin.** A narrow room zooms
   in to fill the width with a 1½-tile margin, between 9 and 11 tiles
   tall; the camera stops 1½ tiles past every edge, the rock and woods
