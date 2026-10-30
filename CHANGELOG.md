@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.183 (2026-10-30)
+- The scope's part 5, gear, is settled. About 4 or 5 weapon kinds, each with its own attack shape; each biome's new metal makes a better one of each kind. One is held in hand, others swapped from the bag.
+- The hero will wear one armour piece and two charms, each charm with one small effect.
+- The lantern will have a few part slots, with many parts to choose from, made at the workbench and swapped anywhere. Oil still alone sets how far the light reaches.
+- Torches to set down are the other light in the plan, and fishing uses one rod, better with each metal.
+- Nothing in the game changes yet.
+- Decisions: D-457 to D-460.
+
 ## 0.2.182 (2026-10-30)
 - The scope's part 4, making, is settled. Small things such as flasks, potions and torches are made in the bag, anywhere; building, tools and leatherwork at the workbench.
 - Later each bigger craft gets a station of its own, built at home on the surface: a forge, a kitchen fire, a power bench and an altar.
@@ -79,9 +87,3 @@ Entry format:
 - The woods there keep their own light: full daylight by day, fading through dusk, and at night only the tiles remembered in the woods show, moonlit blue. The lantern's light spills out through the doorway onto the grass, with the trees casting shadows; the daylight that comes in through the cave mouth stays inside.
 - Play away from that doorway looks exactly as before, checked on pictures of other rooms by day and night.
 - Decisions: built as D-438, D-439 and D-440 say. Questions opened: Q-070.
-
-## 0.2.172 (2026-10-29)
-- Nothing in the game changes yet. Pictures drawn by the game compared two ways to show the woods past the crypt's doorway that leads outside. Picked: the real woods room itself, as it is now, with its trees, rocks, sticks, fallen branch and anything changed in play, so what you see is where you walk. The owner's words: "It needs to be completely accurate."
-- The woods past the doorway will keep the woods' own light: daylight by the time of day, dusk, and a moonlit night.
-- A rule for every place to come: past an opening, the place on the other side shows itself, made by its own kind's rules, with its own light and atmosphere. No one look fits every place.
-- Decisions: D-438, D-439 and D-440.

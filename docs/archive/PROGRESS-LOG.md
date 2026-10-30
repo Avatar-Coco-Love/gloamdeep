@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.180, the scope, part 2.** Raw things settled: one
+  metal per biome, better picks and axes open ores, deeper woods and
+  places; 2 or 3 plants a biome, one for oil; fishing in any water; a
+  garden at home (D-450 to D-452). Nothing visible.
 - **2026-10-30, 0.2.179, tap to step.** The owner brought back D-042's
   one-step tap: Settings' Tap line is Off, Step or Walk. Held, Step keeps
   stepping toward the finger. New players start on Step; a saved pick

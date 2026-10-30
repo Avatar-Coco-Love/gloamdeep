@@ -17,8 +17,8 @@ what exists today.
 | 2. Raw things | plants, wood, stone, ore, fishing, farming; what each biome gives | settled (D-450 to D-452) |
 | 3. Creature drops | each creature's common and rare material, chances (Q-061) | settled (D-453, D-454) |
 | 4. Making | each craft family's recipes, workstations, the ladder | settled (D-455, D-456) |
-| 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | next |
-| 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | to ask |
+| 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | settled (D-457 to D-460) |
+| 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | next |
 | 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | to ask |
 | 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | to ask |
 
@@ -59,15 +59,31 @@ what exists today.
   (D-450); a few special ones, about 1 or 2 a biome, plus the electronic
   and arcane stations, are found below. Stations don't improve for now.
 
+## Part 5: gear (settled)
+- **Weapons (D-457):** about 4 or 5 kinds, each with its own attack
+  shape *(e.g. knife 1 tile, spear 2 in a line, axe a sweep of 3, a
+  sling at range)*. Each biome's metal makes a better one of each kind:
+  the shape stays, the hits grow. One in hand; others in the bag,
+  swapped there, a swap taking a turn.
+- **Worn (D-458):** one armour piece (leatherwork) and two charms, each
+  with one small effect *(e.g. better drop odds, a slower burn)*.
+- **The lantern (D-459):** a few part slots *(e.g. tank, wick, glass)*,
+  many parts for each, one per slot, swapped from the bag anywhere;
+  made at the workbench. Oil alone still sets the reach (D-014).
+- **Other light (D-459):** torches, made in the bag and set down on a
+  tile. Flares, glowing gear and machine lights are left out for now.
+- **Fishing (D-460):** one rod, better by each biome's metal; bait may
+  come later.
+
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
   plants and wood; how fishing and the garden play.
 - **3:** each material's look; the materials of creatures still to come.
 - **4:** each recipe, station and creature material's use, names and
-  costs at its own step; where lantern upgrades are made (with part 5).
-- **5:** weapon kinds and shapes; the lantern's upgrade slots; armour
-  and charm slots; the tools for fishing. The owner's thought: many
-  lantern upgrades, and other tools that give light.
+  costs at its own step.
+- **5:** each weapon kind's name, shape and numbers; the lantern's
+  slots and parts; each armour and charm's effect; how a torch burns;
+  how fishing plays. All at each one's own step.
 - **6:** the Growth tree's branches; which abilities are found where.
 - **7:** what a lore piece gives; trophies; achievement tiers (Q-057).
 - **8:** what home upgrades do, and whether stations improve; who the first vendor is; prices.
