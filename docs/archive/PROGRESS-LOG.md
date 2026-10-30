@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.202, the heart charm.** Step 10 ends: the Heart
+  Charm, the second charm, is made at the workbench from 1 Mimic Heart
+  and 1 Copper Ore; worn beside the Wisp Charm, a full tank lasts about
+  70 turns, not 60. Each worn slot is now a list with its size in one
+  table, so new slots fit without breaking saves (D-487). Playtest:
+  https://claude.ai/artifact/QXpzkRJkLdzi6KvezjVT89
 - **2026-10-30, 0.2.201, tap to set down.** A fix: on phones, tapping
   a marked tile to set down the workbench, chest or torch missed (the
   tap was read on the menus' picture, not the room's); now it sets it

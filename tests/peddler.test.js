@@ -1,8 +1,9 @@
 // § peddler: the first person, trapped in a ring of rubble in one room of depth 3 that
-// the seed picks; bumped, the rubble lets him call out (step 12a, D-490)
+// the seed picks; the rubble dug, he calls out, and one heap cleared frees him
+// (step 12a, D-490; step 12b, D-491)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { placeFor, peddlerRoom, makeRoom, PEDDLER_DEPTH } from '../src/core/room.js';
+import { placeFor, peddlerRoom, makeRoom, tileAt, PEDDLER_DEPTH } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { get, byKind } from '../src/core/registry.js';
 import { makeState, makeWorld, step } from '../src/core/turn.js';
@@ -46,20 +47,37 @@ test('no other depth holds people or rubble, and the same seed puts him in the s
 const MAP = ['#######', '#..UUU#', '#..U.U#', '#..UUU#', '#######'];
 const trapped = (hero) => ({ ...makeState(makeRoom(MAP), hero), people: [{ id: 'peddler', x: 4, y: 2 }] });
 
-test('bumping the rubble around him, he calls out, his lines taking turns, free', () => {
+test('digging the rubble around him, he calls out, his lines taking turns, a turn each', () => {
   const s = trapped({ x: 2, y: 2 }), bumped = step(s, 'right');
-  assert.equal(bumped.turn, s.turn);
+  assert.equal(bumped.turn, s.turn + 1);
+  assert.equal(bumped.room.chips['3,2'], 1);
   assert.equal(shownLine(bumped).text, LINES.peddlerCalls.texts[0]);
   assert.equal(shownLine(step(bumped, 'right')).text, LINES.peddlerCalls.texts[1]);
   const corner = step({ ...trapped({ x: 2, y: 1 }) }, 'right'); // the rubble at a corner of the ring
   assert.equal(shownLine(corner).text, LINES.peddlerCalls.texts[0]);
 });
 
-test('rubble with no one beside it is only a heap of fallen rock', () => {
-  const s = { ...makeState(makeRoom(['#####', '#.U.#', '#####']), { x: 1, y: 1 }), people: [] };
-  const bumped = step(s, 'right');
-  assert.equal(shownLine(bumped).text, 'A heap of fallen rock.');
-  assert.deepEqual(bumped.hero, { x: 1, y: 1 });
+test('the third bump clears one heap to floor, no stone; he thanks the hero and is gone', () => {
+  let s = trapped({ x: 2, y: 2 });
+  for (let i = 0; i < 3; i++) s = step(s, 'right');
+  assert.equal(s.turn, 3);
+  assert.equal(tileAt(s.room, 3, 2).id, 'floor');
+  assert.equal(tileAt(s.room, 3, 1).id, 'rubble'); // the rest of the ring stays
+  assert.deepEqual(s.room.chips, {});
+  assert.deepEqual(s.bag, []);
+  assert.deepEqual(s.people, []);
+  assert.equal(shownLine(s).text, LINES.peddlerFreed.text);
+  assert.deepEqual(s.events.filter((e) => e.type === 'free'), [{ type: 'free', id: 'peddler' }]);
+  assert.deepEqual(s.taken, []); // never comes back
+});
+
+test('rubble with no one beside it is dug the same, with its own lines', () => {
+  let s = { ...makeState(makeRoom(['#####', '#.U.#', '#####']), { x: 1, y: 1 }), people: [] };
+  const lines = [];
+  for (let i = 0; i < 3; i++) { s = step(s, 'right'); lines.push(shownLine(s).text); }
+  assert.deepEqual(lines, ['You pull rocks off the heap.', 'The heap shifts.', 'The rubble falls away.']);
+  assert.deepEqual(s.hero, { x: 1, y: 1 });
+  assert.equal(tileAt(s.room, 2, 1).id, 'floor');
 });
 
 test('walking into him is a word from him, free, and he stays where he is', () => {

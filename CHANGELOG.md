@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.205 (2026-10-30)
+- Dig the rubble around the trapped peddler on depth 3 to free him. Each heap takes 3 bumps, a turn each, and no tool; he calls out as you dig, his lines taking turns.
+- Clear any one heap and he is free: he thanks you and is gone from the room, heading home. The rest of the rubble stays, and you can still dig it.
+- Cleared rubble gives no stone and never comes back. Rubble with no one behind it is dug the same, with its own lines.
+- Decisions: D-491.
+
 ## 0.2.204 (2026-10-30)
 - In one room of depth 3, the seed picks which, a peddler is trapped in a ring of rubble: tall heaps of fallen rock fill every open tile around him. The rubble is solid, but your light passes over it, so you can see him through it.
 - Bump the rubble around him and he calls out to you, his lines taking turns. No turn passes. Rubble with no one behind it is only a heap of fallen rock.
@@ -88,16 +94,3 @@ Entry format:
 - With the pick in your bag, 4 bumps break a vein, a turn each, and give 1 Copper Ore. Ore stacks 20 to a slot and is for crafting later. A broken vein grows back after 1800 turns, twice as slow as stone.
 - The Crafting page of How to play has a row for the pick.
 - Decisions: D-480.
-
-## 0.2.194 (2026-10-30)
-- A second weapon, the spear, lies in the first room of depth 3. Walking into a creature with it hits that creature for 2 and the one behind it, in a straight line, for 1. Both flash.
-- Found while you hold a weapon, a weapon now goes into your bag instead of staying on the floor. If the bag is full, it stays there.
-- Choose a weapon in the bag and press Hold: it goes into your hand and the one you held takes its slot. It takes a turn.
-- Decisions: D-479.
-
-## 0.2.193 (2026-10-30)
-- Torches: in the bag, choose Moth Dust and press Make, and 1 Moth Dust with 1 Wood makes a torch. Without Wood the Make button is dim. Torches stack 5 to a slot.
-- Choose a torch in the bag and press Set down, then pick a side: it stands on that floor tile, in the depths too, on a stick in a ring of stones, and lights 3 tiles around like a wall torch. It blocks the way, and lampmoths come to it.
-- A torch burns 100 turns, even while you are away, then goes out and leaves bare floor. It can't be picked back up.
-- The Crafting page of How to play has a row for it.
-- Decisions: D-478.

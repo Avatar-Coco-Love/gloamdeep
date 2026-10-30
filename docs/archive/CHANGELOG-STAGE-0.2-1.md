@@ -1,8 +1,21 @@
-# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.192)
+# Changelog: stage 0.2, part 1 (0.2.0 to 0.2.194)
 
 Moved unchanged from `CHANGELOG.md` at 0.2.109, the first regular audit
-(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468), 0.2.184 at 0.2.187, 0.2.185 at 0.2.198 (the 8 KB cap), 0.2.186 at 0.2.199 (the 8 KB cap), 0.2.187 at 0.2.200 (the 8 KB cap), 0.2.188 at 0.2.201 (the 8 KB cap), 0.2.189 and 0.2.190 at 0.2.202 (the 8 KB cap), 0.2.191 at 0.2.203 (the 8 KB cap), and 0.2.192 at 0.2.204 (the 8 KB cap). Newest first.
+(D-336), 0.2.104 to 0.2.106 at 0.2.115, 0.2.107 at 0.2.117, 0.2.108 at 0.2.119, 0.2.109 and 0.2.110 at 0.2.120, 0.2.111 at 0.2.121 (the 8 KB cap), 0.2.112 to 0.2.119 at 0.2.123, the second audit (D-362), 0.2.120 at 0.2.132 (the 8 KB cap), 0.2.121 at 0.2.134 (the 8 KB cap), 0.2.122 at 0.2.135 (the 8 KB cap), 0.2.123 at 0.2.136 (the 8 KB cap), 0.2.124 at 0.2.137 (the 8 KB cap), 0.2.125 at 0.2.138 (the 8 KB cap), 0.2.126 at 0.2.139 (the 8 KB cap), 0.2.127 at 0.2.140 (the 8 KB cap), 0.2.128 at 0.2.141 (the 8 KB cap), 0.2.129 at 0.2.142 (the 8 KB cap), 0.2.130 to 0.2.140 at 0.2.143, the third audit (D-392), 0.2.141 at 0.2.144, 0.2.142 at 0.2.145, 0.2.143 at 0.2.146, 0.2.144 at 0.2.156, 0.2.145 and 0.2.146 at 0.2.157, 0.2.147 and 0.2.148 at 0.2.159, 0.2.149 and 0.2.150 at 0.2.161, 0.2.151 at 0.2.162, 0.2.152 at 0.2.163 (the 8 KB cap), and 0.2.153 to 0.2.161 at 0.2.164, the fourth audit (D-421), 0.2.162 at 0.2.165, 0.2.163 at 0.2.166, 0.2.164 at 0.2.167, 0.2.165 at 0.2.168, 0.2.166 at 0.2.169, 0.2.167 at 0.2.171, 0.2.168 at 0.2.172, 0.2.169 at 0.2.173, 0.2.170 at 0.2.181, 0.2.171 at 0.2.182, 0.2.172 at 0.2.183, 0.2.173 at 0.2.184, 0.2.174 at 0.2.185, 0.2.175 to 0.2.183 at 0.2.186, the fifth audit (D-468), 0.2.184 at 0.2.187, 0.2.185 at 0.2.198 (the 8 KB cap), 0.2.186 at 0.2.199 (the 8 KB cap), 0.2.187 at 0.2.200 (the 8 KB cap), 0.2.188 at 0.2.201 (the 8 KB cap), 0.2.189 and 0.2.190 at 0.2.202 (the 8 KB cap), 0.2.191 at 0.2.203 (the 8 KB cap), 0.2.192 at 0.2.204 (the 8 KB cap), and 0.2.193 and 0.2.194 at 0.2.205 (the 8 KB cap). Newest first.
 Grep for a version; never read this whole.
+
+## 0.2.194 (2026-10-30)
+- A second weapon, the spear, lies in the first room of depth 3. Walking into a creature with it hits that creature for 2 and the one behind it, in a straight line, for 1. Both flash.
+- Found while you hold a weapon, a weapon now goes into your bag instead of staying on the floor. If the bag is full, it stays there.
+- Choose a weapon in the bag and press Hold: it goes into your hand and the one you held takes its slot. It takes a turn.
+- Decisions: D-479.
+
+## 0.2.193 (2026-10-30)
+- Torches: in the bag, choose Moth Dust and press Make, and 1 Moth Dust with 1 Wood makes a torch. Without Wood the Make button is dim. Torches stack 5 to a slot.
+- Choose a torch in the bag and press Set down, then pick a side: it stands on that floor tile, in the depths too, on a stick in a ring of stones, and lights 3 tiles around like a wall torch. It blocks the way, and lampmoths come to it.
+- A torch burns 100 turns, even while you are away, then goes out and leaves bare floor. It can't be picked back up.
+- The Crafting page of How to play has a row for it.
+- Decisions: D-478.
 
 ## 0.2.192 (2026-10-30)
 - Mimic Glass is the first creature find you can craft with: choose it in the bag and press Make, and 1 Mimic Glass with 2 Oilcaps makes an oil flask. 3 Oilcaps alone still make one too.

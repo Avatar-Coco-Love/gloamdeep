@@ -109,8 +109,10 @@ this page and a decision disagree, the decision wins.
 
 ## People
 - **Peddler:** the first person, found trapped in a ring of rubble on
-  depth 3; to be rescued, and the first vendor (D-471, D-490).
-- **Rubble:** a heap of fallen rock, solid, light passing over it (D-490).
+  depth 3; freed by digging one heap, and the first vendor (D-471,
+  D-490, D-491).
+- **Rubble:** a heap of fallen rock, solid, light passing over it; dug
+  away by hand in 3 bumps (D-490, D-491).
 
 ## Menus and tools
 Moved to `GLOSSARY-CODE.md` (D-490): glass panel, Journal, Bestiary,

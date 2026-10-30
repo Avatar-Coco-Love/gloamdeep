@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.204 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.205 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 12b, the rescue (D-490): ask the owner how the rubble around the
-peddler is cleared (bumps like a deposit, the pick, how many), what he
-says when freed, and whether the cleared rubble gives stone.
+Step 12c, he stands at home (D-490): ask the owner where on the surface
+the freed peddler stands, and what he says there.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -32,7 +31,7 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 9 Lantern parts, the first using Copper Ore (0.2.198)
 - [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
 - [x] 11 Home pieces and rest (the bed 0.2.203)
-- [ ] 12 The first rescue (12a, the trapped peddler 0.2.204)
+- [ ] 12 The first rescue (12a, the trapped peddler 0.2.204; 12b, the rescue 0.2.205)
 - [ ] 13 The vendor and coins
 - [ ] 14 The garden
 - [ ] 15 Fishing
@@ -48,6 +47,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.205, the rescue.** Step 12b: the rubble around
+  the peddler is dug like a deposit, 3 bumps a turn each, no tool, no
+  stone, and he calls out as you dig. Clear one heap and he thanks you
+  and is gone, heading home (D-491). Playtest:
+  https://claude.ai/artifact/9VefmamSpciKvZjazBBo8N
 - **2026-10-30, 0.2.204, the trapped peddler.** Step 11 ends with
   the bed, and step 12 begins in three small steps (D-489, D-490). In
   one depth 3 room, a peddler (look A) stands in a ring of rubble and
@@ -59,9 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   until morning, no oil burnt, and wakes healed and rested, with one
   gold heart; by day it asks Deconstruct bed? (D-488). Playtest:
   https://claude.ai/artifact/5Qugqpr6RDmfmKGE6kvVoX
-- **2026-10-30, 0.2.202, the heart charm.** Step 10 ends: the Heart
-  Charm, the second charm, is made at the workbench from 1 Mimic Heart
-  and 1 Copper Ore; worn beside the Wisp Charm, a full tank lasts about
-  70 turns, not 60. Each worn slot is now a list with its size in one
-  table, so new slots fit without breaking saves (D-487). Playtest:
-  https://claude.ai/artifact/QXpzkRJkLdzi6KvezjVT89

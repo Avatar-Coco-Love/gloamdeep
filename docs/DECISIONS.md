@@ -170,20 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-488 · 2026-10-30 · The bed, and sleeping at home** (the owner's
-picks, all recommended, and heal to full, the owner's add; step 11 of
-D-482, builds D-469) The first home piece is a bed, made at the
-workbench, its seventh slot, from 4 Wood and 2 Rat Tail (the hide its
-blanket); one is carried, set down on the surface the chest's way.
-From dusk until morning, bumping it sleeps until the next morning in
-one go, the lantern burning nothing: the hero wakes healed to full and
-rested, with one gold heart after the red ones, the first lost to a
-bite and gone after a fall. By day a bump opens a small card,
-Deconstruct bed?, "You aren't tired.", Yes taking it back into the bag,
-No picked. Its picture, a wooden frame with a straw pillow and a grey
-hide blanket, and its lines are drafted for the playtest. Also moved
-D-485 and D-486 to the archive, word for word, as this file neared 12 KB.
-
 **D-489 · 2026-10-30 · The bed ends step 11; the audit on time** (the
 owner's picks, both recommended) Step 11 ends with the bed: the first
 rescue, step 12, comes next, and more home pieces can come later, once
@@ -207,3 +193,15 @@ it keeps its creatures; a save is upgraded with none, so a room already
 seen stays as it was, and he waits only in a room not yet seen. His lines are
 drafted for the playtest. Also moved D-487 to the archive, word for
 word, as this file neared 12 KB.
+
+**D-491 · 2026-10-30 · The rescue: dig one heap, and he is free** (the
+owner's picks, all recommended; step 12b of D-490, answers the 12b
+asks) Rubble is dug as a deposit is, by hand, no tool needed: 3 bumps,
+a turn each. Clearing any one heap of the ring frees the peddler; the
+rest of the ring stays and can still be dug. Cleared rubble gives no
+stone and never comes back. As each heap is dug, he calls out, his
+lines taking turns; with no one behind it, rubble has its own lines.
+Freed, he says a thank-you line and is gone from the room, heading
+home, where step 12c puts him. His thank-you and the rubble's lines
+are drafted for the playtest. Also moved D-488 to the archive, word
+for word, as this file neared 12 KB.

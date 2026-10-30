@@ -1,4 +1,4 @@
-# The drops (D-474 to D-487)
+# The drops (D-474 to D-488)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -9,7 +9,8 @@ step 8, the Growth tree, at 0.2.199 (D-485); D-483, step 9, the
 Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
 0.2.202 (D-487); D-485, room on the crafting pages, and D-486,
 the Wisp Charm, at 0.2.203 (D-488); D-487, the Heart Charm and worn
-slots that grow, at 0.2.204 (D-490).
+slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
+0.2.205 (D-491).
 
 ---
 
@@ -168,3 +169,17 @@ bag shows worn pieces as today. Its bag picture, the mimic heart's
 amber in the wisp charm's copper setting, and its lines are drafted for
 the playtest. Also moved D-484 to the archive, word for word, as this
 file neared 12 KB.
+
+**D-488 · 2026-10-30 · The bed, and sleeping at home** (the owner's
+picks, all recommended, and heal to full, the owner's add; step 11 of
+D-482, builds D-469) The first home piece is a bed, made at the
+workbench, its seventh slot, from 4 Wood and 2 Rat Tail (the hide its
+blanket); one is carried, set down on the surface the chest's way.
+From dusk until morning, bumping it sleeps until the next morning in
+one go, the lantern burning nothing: the hero wakes healed to full and
+rested, with one gold heart after the red ones, the first lost to a
+bite and gone after a fall. By day a bump opens a small card,
+Deconstruct bed?, "You aren't tired.", Yes taking it back into the bag,
+No picked. Its picture, a wooden frame with a straw pillow and a grey
+hide blanket, and its lines are drafted for the playtest. Also moved
+D-485 and D-486 to the archive, word for word, as this file neared 12 KB.

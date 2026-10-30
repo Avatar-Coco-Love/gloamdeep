@@ -19,7 +19,8 @@
 //   eat { id }           a herb was eaten, or a heartcap or potion from the bag (D-308, D-309)
 //   pour { id, by }      a flask was poured, by 'hand' or by 'self' (D-249)
 //   torch                a torch was lit (D-121)
-//   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2)
+//   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2); rubble too (D-491)
+//   free { id }          person `id` was freed from the rubble (D-491)
 //   set { id }           tile `id` was set down from the bag, the workbench's bench (WB2)
 //   hold { id }          weapon `id` went from the bag into the hand (D-479)
 

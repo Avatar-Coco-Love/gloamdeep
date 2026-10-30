@@ -138,9 +138,12 @@ export const LINES = {
   bedShort: { text: 'You need 4 Wood, 2 Rat Tail.', warn: false }, // too few, free
   bedSet: { text: 'You set down the bed.', warn: false }, // a turn
   bedTake: { text: 'You take down the bed.', warn: false }, // Yes on Deconstruct bed?, a turn
-  // The trapped peddler's call through the rubble, the lines taking turns, free (step 12a, D-490); drafted for the playtest
+  // The trapped peddler's call through the rubble, the lines taking turns (step 12a, D-490); drafted for the playtest
   peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false },
-  rubbleBump: { text: 'A heap of fallen rock.', warn: false }, // rubble with no one behind it, free (D-490)
+  peddlerFreed: { text: '"Thank you! I\'ll head for the surface."', warn: false }, // the rubble beside him cleared; he is gone (D-491), drafted for the playtest
+  rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
+  rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
+  rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
   bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
