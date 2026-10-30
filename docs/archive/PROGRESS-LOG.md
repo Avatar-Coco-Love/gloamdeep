@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.199, the rat hide vest.** Step 10 begins: the
+  Rat Hide Vest, the first armour, is made at the workbench from 4 Rat
+  Tail and 1 Wood; Wear in the bag puts it on, free, and each bite then
+  has a 1 in 4 chance to glance off (D-484). The workbench card is now
+  4 × 3, and How to play's Crafting is two tabs, Bag and Bench (D-485).
+  Playtest: https://claude.ai/artifact/9tLgCJiwKBz316QTnReiUu
 - **2026-10-30, 0.2.198, the copper wick.** Step 9: the Copper
   Wick, the first lantern part, is made at the workbench from 3 Copper
   Ore and 1 Wood; Fit in the bag puts it in the lantern, free, and a

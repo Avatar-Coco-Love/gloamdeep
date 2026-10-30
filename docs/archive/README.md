@@ -50,7 +50,7 @@ header says when it moved and why.
 | `DECISIONS-SCOPE.md` | D-413 to D-415, D-417 to D-419 | the scope in parts, its frame, crafts, drops, money, skills | D-445 |
 | `DECISIONS-CAMERA.md` | D-441 to D-448 | the camera's margin and zoom, the corner fade, plain dark past the edge | D-450 |
 | `DECISIONS-SCOPE-2.md` | D-450 to D-472 | the scope's parts 2 to 8: ore, tools, plants, fishing, farming, drops, making, gear, growth, collectables, home, trade | D-457, D-461, D-464, D-468, D-476 |
-| `DECISIONS-DROPS.md` | D-474 to D-481, D-483 | the build order's steps 1 to 9: the Rat Tail, the common and rare drops, the glass flask, torches, the spear, the pick, the Growth tree, the Copper Wick | D-478, D-481, D-482, D-485, D-486 |
+| `DECISIONS-DROPS.md` | D-474 to D-481, D-483, D-484 | the build order's steps 1 to 10: the Rat Tail, the common and rare drops, the glass flask, torches, the spear, the pick, the Growth tree, the Copper Wick, the Rat Hide Vest | D-478, D-481, D-482, D-485, D-486, D-487 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -61,7 +61,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-1.md` | 0.1.0 to 0.1.12 |
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
-| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.188 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, and at 0.2.201) |
+| `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.190 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, and at 0.2.202) |
 
 ## Progress
 

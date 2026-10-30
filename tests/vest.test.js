@@ -27,7 +27,7 @@ test('Make takes its cost for a vest, a turn; too few, one carried or one worn i
   assert.equal(shownLine(makeAt(start([{ id: 'ratTail', n: 3 }]), 'ratVest')).text, 'You need 4 Rat Tail and 1 Wood.');
   const more = [{ id: 'ratTail', n: 4 }, { id: 'wood', n: 1 }];
   assert.equal(shownLine(makeAt({ ...made, bag: [...made.bag, ...more] }, 'ratVest')).text, 'You already have a rat hide vest.');
-  const worn = makeAt({ ...s, bag: more, worn: { armour: 'ratVest' } }, 'ratVest');
+  const worn = makeAt({ ...s, bag: more, worn: { armour: ['ratVest'] } }, 'ratVest');
   assert.equal(worn.turn, s.turn);
   assert.equal(shownLine(worn).text, 'You already have a rat hide vest.');
 });
@@ -37,7 +37,7 @@ test('Wear puts the vest on from the bag, free, with its line', () => {
   assert.deepEqual(wornOf(s), {});
   assert.equal(glanceOf(s), 0);
   const n = wear(s, 1);
-  assert.deepEqual(n.worn, { armour: 'ratVest' });
+  assert.deepEqual(n.worn, { armour: ['ratVest'] });
   assert.deepEqual(n.bag, [{ id: 'stone', n: 2 }]);
   assert.equal(n.turn, s.turn);
   assert.equal(shownLine(n).text, 'You put on the rat hide vest.');
@@ -51,7 +51,7 @@ test('worn, about 1 in 4 bites glance off and hurt nothing, with the glance line
   let glanced = 0;
   for (let turn = 0; turn < 400; turn++) {
     assert.equal(bitten(s, turn).health, 2, 'bare, every bite hurts');
-    const b = bitten({ ...s, worn: { armour: 'ratVest' } }, turn);
+    const b = bitten({ ...s, worn: { armour: ['ratVest'] } }, turn);
     if (b.health === 3) { glanced++; assert.equal(shownLine(b).text, 'The bite glances off your vest.'); }
     else assert.equal(b.health, 2);
   }

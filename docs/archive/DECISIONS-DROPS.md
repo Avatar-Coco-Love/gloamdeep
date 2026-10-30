@@ -1,4 +1,4 @@
-# The drops (D-474 to D-483)
+# The drops (D-474 to D-484)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -6,7 +6,8 @@ other four common drops and the rare drops; D-477 and D-478, steps 4 and
 5, the glass flask and torches, at 0.2.196 (D-481); D-479 and D-480,
 steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482); D-481,
 step 8, the Growth tree, at 0.2.199 (D-485); D-483, step 9, the
-Copper Wick, at 0.2.200 (D-486).
+Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
+0.2.202 (D-487).
 
 ---
 
@@ -115,3 +116,16 @@ with "You fit the copper wick." Swapping and taking parts out wait for
 a second part; no mark on the lantern button and no lantern row in the
 bag for now. Its bag picture is look A of the mock-up: an upright cloth
 wick with a burnt tip in a wide copper collar.
+
+**D-484 · 2026-10-30 · The Rat Hide Vest** (the owner's picks, all
+recommended; step 10 of D-482, builds D-458) Armour comes first in step
+10, the two charms after, each its own step. The first armour piece is
+the Rat Hide Vest, leatherwork, made at the workbench, its fourth slot,
+from 4 Rat Tail and 1 Wood (Rat Tail's first use); one is carried or
+worn. Choosing it in the bag shows Wear, which puts it on, free, "You
+put on the rat hide vest." Worn, each bite has a 1 in 4 chance, from
+the seed, to glance off and hurt nothing; when no bite that turn hurts,
+"The bite glances off your vest." A glancing bite is still a bite: its
+sound plays and a walk stops. Taking it off, and a mark that it is worn,
+wait for now. Its bag picture, a brown vest with grey fur at the
+shoulders laced in pink, and its lines are drafted for the playtest.

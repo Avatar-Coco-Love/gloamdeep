@@ -26,16 +26,16 @@ test('Make takes its cost for a charm, a turn; too few or one worn is free', () 
   assert.equal(made.turn, s.turn + 1);
   assert.equal(shownLine(made).text, 'You make a wisp charm.');
   assert.equal(shownLine(makeAt(start([{ id: 'gloamWisp', n: 2 }]), 'wispCharm')).text, 'You need 3 Gloam Wisp, 1 Copper Ore.');
-  const worn = makeAt({ ...s, worn: { charm: 'wispCharm' } }, 'wispCharm');
+  const worn = makeAt({ ...s, worn: { charm: ['wispCharm'] } }, 'wispCharm');
   assert.equal(worn.turn, s.turn);
   assert.equal(shownLine(worn).text, 'You already have a wisp charm.');
 });
 
 test('Wear puts the charm on from the bag, free, beside the vest', () => {
-  const s = { ...start([{ id: 'wispCharm', n: 1 }]), worn: { armour: 'ratVest' } };
+  const s = { ...start([{ id: 'wispCharm', n: 1 }]), worn: { armour: ['ratVest'] } };
   assert.equal(rareOf(s, 0.1), 0.1);
   const n = wear(s, 0);
-  assert.deepEqual(n.worn, { armour: 'ratVest', charm: 'wispCharm' });
+  assert.deepEqual(n.worn, { armour: ['ratVest'], charm: ['wispCharm'] });
   assert.deepEqual(n.bag, []);
   assert.equal(n.turn, s.turn);
   assert.equal(shownLine(n).text, 'You put on the wisp charm.');
@@ -47,7 +47,7 @@ test('worn, a beaten gloamling leaves its Gloam Eye about 1 in 5; the common sti
     enemies: [{ id: 'gloamling', x: 5, y: 10, health: 1, chasing: true }] }, 'up');
   const seeds = Array.from({ length: 1000 }, (_, i) => i + 1);
   const count = (id, worn) => seeds.filter((s) => beat(s, worn).items.some((it) => it.id === id)).length;
-  const rare = count('gloamEye', { charm: 'wispCharm' }), common = count('gloamWisp', { charm: 'wispCharm' });
+  const rare = count('gloamEye', { charm: ['wispCharm'] }), common = count('gloamWisp', { charm: ['wispCharm'] });
   assert.ok(rare > 150 && rare < 250, `${rare} of 1000`);
   assert.ok(common > 420 && common < 580, `${common} of 1000`);
   assert.ok(count('gloamEye', {}) < 140, 'bare, still about 1 in 10');

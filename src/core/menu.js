@@ -72,7 +72,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
 // in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds;
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486)
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487)
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
 export const BENCH_TAKE = BENCH_SLOTS;

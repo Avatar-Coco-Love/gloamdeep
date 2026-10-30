@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.202', date: '2026-10-30', title: 'The heart charm', lines: [
+    "Make a Heart Charm at the workbench, the second charm: bump the bench and choose its sixth slot. It costs 1 Mimic Heart and 1 Copper Ore, and Make is dim with too few. You have one at a time.",
+    "Choose it in the bag and press Wear: you put it on, and no turn passes. You can wear both charms and the vest together.",
+    "While you wear it, the lantern burns oil more slowly: a full tank lasts about 70 turns instead of 60, or about 87 with the Copper Wick.",
+    "Behind the scenes, each worn slot now holds a list and says how many pieces it takes, so more slots can come later without breaking saves. Your save is updated by itself, and anything you wear stays on.",
+    "How to play's Bench page now says you can wear two charms.",
+    "Decisions: D-487.",
+  ] },
   { v: '0.2.201', date: '2026-10-30', title: 'Tap to set down', lines: [
     "Tapping a marked tile now sets down the workbench, the stash chest or a torch, as it should. On phones the tap was read in the wrong place, missed the tile, and left the thing in the bag; swiping still worked.",
     "Decisions: none (it was meant to work this way, D-322).",
