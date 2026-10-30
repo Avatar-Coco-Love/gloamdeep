@@ -112,8 +112,8 @@ what exists today.
   buying creature materials and spare finds, selling *(e.g.)* seeds,
   recipes and basics. More vendors come with more rescues.
 - **Trade coins (D-472):** come only from selling to vendors, never
-  dropped or found, so finds stay the reward. The look currency stays
-  deeds only (D-418, Q-055).
+  dropped or found, so finds stay the reward, and are kept on a fall.
+  The look currency stays deeds only (D-418, Q-055).
 
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
@@ -128,4 +128,4 @@ what exists today.
 - **7:** each lore set, relic and trophy at its own step; which records
   get achievements, and their numbers (Q-057); the look currency (Q-055).
 - **8:** each home piece and the rest boost; who the first rescued
-  person is and how a rescue plays; prices; what falling does to coins.
+  person is and how a rescue plays; prices.

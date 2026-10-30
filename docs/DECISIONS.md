@@ -164,6 +164,7 @@ things *(e.g. seeds, recipes, basics)*. More vendors come with more
 rescues. Who they are and their prices come at their own step.
 
 **D-472 · 2026-10-30 · The scope, part 8: trade coins** (the owner's
-pick, recommended; builds D-418) Trade coins come only from selling to
-vendors: creatures never drop them and none are found below, so finds
-stay the reward. The look currency stays earned by deeds only (Q-055).
+picks, recommended, and kept on falling added after the PR opened;
+builds D-418) Trade coins come only from selling to vendors: creatures
+never drop them and none are found below, so finds stay the reward.
+Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).

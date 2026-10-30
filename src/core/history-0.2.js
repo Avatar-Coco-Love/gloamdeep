@@ -6,7 +6,7 @@ export const HISTORY_02 = [
   { v: '0.2.187', date: '2026-10-30', title: 'The scope, part 8', lines: [
     "The scope's part 8, home and trade, is settled. Home grows by the pieces you build there, and sleeping at home gives a short boost for the next trip.",
     "Most people will be rescued below and move home; later some stay where you meet them, and wanderers such as a merchant visit.",
-    "The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling.",
+    "The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling, and are kept when you fall.",
     "Nothing in the game changes yet. The whole scope is now settled.",
     "Decisions: D-469 to D-472.",
   ] },

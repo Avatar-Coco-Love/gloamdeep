@@ -40,7 +40,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-10-30, 0.2.187, the scope, part 8.** Home and trade settled:
   home grows by built pieces, rest gives a boost; people rescued below
   move home, later some met in place and wanderers; the first vendor is
-  at home; coins only from selling (D-469 to D-472). The scope is done.
+  at home; coins only from selling, kept on a fall (D-469 to D-472). The scope is done.
   Nothing visible.
 - **2026-10-30, 0.2.186, the fifth audit.** Nothing in the game changed
   (D-468; all recommended, and the glossary split too). The Seed
