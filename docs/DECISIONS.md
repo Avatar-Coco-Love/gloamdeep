@@ -142,27 +142,6 @@ players start on Step; saved settings keep their pick, On as Walk. How to
 play: "Tap toward a tile", then "or swipe" or "Hold to keep going".
 Built in 0.2.179.
 
-**D-455 · 2026-10-30 · The scope, part 4: where things are made** (the
-owner's picks, all recommended; builds D-296, D-415) Small things, such
-as flasks, potions and torches, are made in the bag, anywhere. Building,
-tools and leatherwork are made at the workbench. Later each bigger
-family gets one station of its own, built at home: a forge for
-smithing, a kitchen fire for cooking, a power bench for electronic, an
-altar for arcane. Stations stand only on the surface, like the
-workbench, so coming home to make things is part of the loop. Each
-station's name, look and cost are settled at its own step.
-
-**D-456 · 2026-10-30 · The scope, part 4: the ladder** (the owner's
-picks, all recommended; builds D-414, D-418) Each biome has about 8 to
-12 new things to make. Most rungs open by their materials: a recipe
-shows once the hero has held its parts, so deeper materials, opened by
-better tools (D-450), open deeper recipes. A few special recipes, about
-1 or 2 a biome, the rarer or finer things, are found below instead, as
-are the electronic and arcane stations themselves (D-415). Stations
-don't improve for now; whether they can is asked with home upgrades in
-part 8. The owner asked to weigh station upgrades and found recipes
-before picking these.
-
 **D-457 · 2026-10-30 · The scope, part 5: weapons** (the owner's picks,
 all recommended; builds D-027, D-252, D-450) About 4 or 5 weapon kinds,
 each with its own attack shape *(e.g. a knife hitting 1 tile, a spear 2
@@ -196,3 +175,26 @@ recommended; builds D-450, D-452) Fishing uses one rod, made better
 with each biome's metal like picks and axes; a better rod catches
 deeper fish. Bait may come later. How fishing plays is asked at its own
 step.
+
+**D-461 · 2026-10-30 · The scope, part 6: levels and embers** (the
+owner's pick, recommended; builds D-246, D-293, D-371) Levels keep
+today's curve, each costing 10 more experience than the one before, and
+each still gives 1 ember, with no cap. Deeper creatures give more
+experience by themselves (hearts and bite), so the climb stays steady. Also moved D-455 and D-456 to the archive,
+word for word, as this file passed 12 KB.
+
+**D-462 · 2026-10-30 · The scope, part 6: the Growth tree** (the owner's
+picks, all recommended; builds D-293, D-419) The Growth tree has three
+branches: Light *(e.g. a slower burn, a bigger tank)*, Body (today's
+hearts, and *e.g.* a stronger bite, a guard) and Hands *(e.g. more bag
+slots, faster gathering, better drop odds)*. Gathering skills are Hands
+upgrades bought with embers, not learned by doing. Each branch's next
+row opens once the hero has reached the next biome, so going deeper
+opens stronger upgrades; each upgrade costs 1 ember, as today. Each
+upgrade and its numbers come at its own step.
+
+**D-463 · 2026-10-30 · The scope, part 6: found abilities** (the owner's
+pick, recommended; builds D-419) Each biome hides one big ability, at a
+shrine or from a boss near its bottom. Each opens paths in places
+already seen *(e.g. a leap over a 1-tile gap)*, so going back pays
+(pillar 3). Which ability lies where comes at its own step.

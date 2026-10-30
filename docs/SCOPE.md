@@ -18,8 +18,8 @@ what exists today.
 | 3. Creature drops | each creature's common and rare material, chances (Q-061) | settled (D-453, D-454) |
 | 4. Making | each craft family's recipes, workstations, the ladder | settled (D-455, D-456) |
 | 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | settled (D-457 to D-460) |
-| 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | next |
-| 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | to ask |
+| 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | settled (D-461 to D-463) |
+| 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | next |
 | 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | to ask |
 
 ## Part 2: raw things (settled)
@@ -75,6 +75,17 @@ what exists today.
 - **Fishing (D-460):** one rod, better by each biome's metal; bait may
   come later.
 
+## Part 6: growth (settled)
+- **Levels (D-461):** today's curve, each level 10 more experience than
+  the last, 1 ember each, no cap.
+- **The Growth tree (D-462):** three branches: Light *(e.g. slower
+  burn)*, Body (hearts, *e.g.* bite, guard) and Hands *(e.g. bag slots,
+  faster gathering, drop odds)*. Gathering skills are Hands upgrades.
+  Each branch's next row opens on reaching the next biome; 1 ember each.
+- **Found abilities (D-463):** one per biome, at a shrine or from a boss
+  near its bottom, each opening paths in places already seen *(e.g. a
+  leap over a 1-tile gap)*.
+
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
   plants and wood; how fishing and the garden play.
@@ -84,6 +95,6 @@ what exists today.
 - **5:** each weapon kind's name, shape and numbers; the lantern's
   slots and parts; each armour and charm's effect; how a torch burns;
   how fishing plays. All at each one's own step.
-- **6:** the Growth tree's branches; which abilities are found where.
+- **6:** each upgrade and its numbers; which ability lies where.
 - **7:** what a lore piece gives; trophies; achievement tiers (Q-057).
 - **8:** what home upgrades do, and whether stations improve; who the first vendor is; prices.
