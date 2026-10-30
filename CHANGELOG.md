@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.182 (2026-10-30)
+- The scope's part 4, making, is settled. Small things such as flasks, potions and torches are made in the bag, anywhere; building, tools and leatherwork at the workbench.
+- Later each bigger craft gets a station of its own, built at home on the surface: a forge, a kitchen fire, a power bench and an altar.
+- Each biome will bring about 8 to 12 new things to make. Most open once you have held their parts; 1 or 2 special ones a biome are found below.
+- Nothing in the game changes yet.
+- Decisions: D-455 and D-456.
+
 ## 0.2.181 (2026-10-30)
 - The scope's part 3, creature drops, is settled. A beaten creature drops its own material about 1 time in 2, left on the floor where it fell, to take by stepping on it.
 - Creatures from depth 3 down also have a rare material, about 1 in 10.
@@ -78,8 +85,3 @@ Entry format:
 - The woods past the doorway will keep the woods' own light: daylight by the time of day, dusk, and a moonlit night.
 - A rule for every place to come: past an opening, the place on the other side shows itself, made by its own kind's rules, with its own light and atmosphere. No one look fits every place.
 - Decisions: D-438, D-439 and D-440.
-
-## 0.2.171 (2026-10-29)
-- The lighting is worked out faster again, so play is smoother on slower phones: walking on a simulated slow phone runs about 31 frames a second instead of 22 to 25. Every pixel looks exactly as before; this was checked on 1,200 pictures.
-- The Half choice was built and measured first, but it ran no faster, so it is not in the game; Half and Automatic wait until the light is measured again. When the Light line comes, it goes after Motion, and Automatic is where it starts.
-- Decisions: D-436 and D-437. Questions opened: Q-069.

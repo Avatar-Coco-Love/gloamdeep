@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.179, tap to step.** The owner brought back D-042's
+  one-step tap: Settings' Tap line is Off, Step or Walk. Held, Step keeps
+  stepping toward the finger. New players start on Step; a saved pick
+  stays, On as Walk (D-449). [Playtest](https://claude.ai/artifact/Uz4CRLWvkwnWJ2zSxcVCxU).
 - **2026-10-30, 0.2.178, the zoom glides.** Into a room of another
   width, the zoom glides to the new room's while it fades in, 0.4 s,
   gently at both ends; reduced motion jumps as before (D-448).

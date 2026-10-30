@@ -65,6 +65,9 @@ this page and a decision disagree, the decision wins.
   on the surface, opened by walking into it; each one keeps 12 slots of its
   own, a picked stack moving between it and the bag, and taken down only
   when empty (D-021, D-324, D-325, D-326, D-330, D-331, D-340).
+- **Station:** a place to make one bigger craft family, built at home on
+  the surface: forge, kitchen fire, power bench, altar (D-455). Not in
+  the game yet.
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
