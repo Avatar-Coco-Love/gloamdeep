@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.207, the sixth audit.** Nothing in the game changed
+  (D-493; all recommended, CLAUDE.md left as it is). The Version
+  history's 0.2.121 to 0.2.186 moved word for word from `history-0.2.js`
+  (55 → 14 KB) into `history-0.2-3.js`. `DECISIONS.md` 10.9 → 10.1 KB,
+  `CHANGELOG.md` 7.8 → 2.1 KB; ticked steps 9 to 12 archived. No
+  playtest: nothing to play.
 - **2026-10-30, 0.2.206, he stands at home.** Step 12c ends step 12:
   freed, the peddler stands at once in the woods, on the open tile
   nearest their middle, and a bump there says his home lines in turn.

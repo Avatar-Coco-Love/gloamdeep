@@ -1,4 +1,4 @@
-# The drops (D-474 to D-492)
+# The drops (D-474 to D-494)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -12,7 +12,8 @@ the Wisp Charm, at 0.2.203 (D-488); D-487, the Heart Charm and worn
 slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
 0.2.205 (D-491); D-490, step 12a, the trapped peddler, at 0.2.206
 (D-492); D-491 and D-492, steps 12b and 12c, the rescue and the
-peddler at home, at 0.2.207, the sixth audit (D-493).
+peddler at home, at 0.2.207, the sixth audit (D-493); D-494, step 13a,
+selling to the peddler, at 0.2.210 (D-496).
 
 ---
 
@@ -227,3 +228,17 @@ down or grown back goes on his tile. Step 12 ends here, and the sixth
 audit moves to 0.2.207. His home lines are drafted for the playtest.
 Also moved D-489 and D-490 to the archive, word for word, as this file
 neared 12 KB.
+
+**D-494 · 2026-10-30 · The vendor begins: selling to the peddler** (the
+owner's picks, all recommended; step 13a of D-482, builds D-471 and
+D-472) Step 13 starts with selling only; buying from him comes later.
+Bumping the peddler at home says his home line, as before, and opens
+his card, "PEDDLER": the coins carried and the bag's 6 slots on the
+left, the chosen stack's name, count and price on the right, SELL in
+the corner, dim for what he doesn't buy. A tap picks a slot; SELL,
+Enter or Space sell one of it, free, no turn. He buys only creature
+materials so far: each common one for 1 trade coin, each rare one for
+5, the price kept in the registry as `sells`. The names stay plain,
+"Peddler" and "coins". Coins are kept on a fall in Gentle and Normal
+and lost with the world when Hardcore starts over. An older save has
+none yet.

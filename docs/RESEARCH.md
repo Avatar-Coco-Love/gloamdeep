@@ -61,6 +61,9 @@ talks to hear, and the sources.
   own way. Rats in a spread of greys, and in shape: fur messy or not, the
   tail held differently, injuries. Injuries could be their own thing, as
   in Dwarf Fortress, where a wound to a part changes what a creature can do.
+- **Rising sparks for a death** (the owner, 2026-10-30, D-496): look B
+  of the peddler's mock-up, a person's pixels drifting up as amber
+  sparks, played more slowly, when an important NPC dies.
 - **Crafting and a home town**: craft from things you find (mushrooms,
   moss, oil; the Depth Meter could be crafted), and rescued NPCs move to
   the home base and give it a real use.
