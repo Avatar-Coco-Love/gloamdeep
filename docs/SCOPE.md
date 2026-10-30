@@ -19,8 +19,8 @@ what exists today.
 | 4. Making | each craft family's recipes, workstations, the ladder | settled (D-455, D-456) |
 | 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | settled (D-457 to D-460) |
 | 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | settled (D-461 to D-463) |
-| 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | next |
-| 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | to ask |
+| 7. Collectables | lore, relics, the bestiary, trophies, looks, achievements | settled (D-464 to D-467) |
+| 8. Home and trade | home upgrades, NPCs, vendors, the two currencies | next |
 
 ## Part 2: raw things (settled)
 - **Ore (D-450):** one new metal per biome for now, each a step better
@@ -86,6 +86,18 @@ what exists today.
   near its bottom, each opening paths in places already seen *(e.g. a
   leap over a 1-tile gap)*.
 
+## Part 7: collectables (settled)
+- **Lore (D-464):** notes, carvings and murals found below fill a Lore
+  tab in the Journal, in sets *(e.g. 5 pages of one story)*; a finished
+  set gives one small lasting boost.
+- **Relics (D-465):** rare finds, about 1 or 2 a biome, set on a shelf
+  at home, each giving one small lasting boost while there.
+- **Trophies (D-466):** one per creature, made at the workbench from its
+  materials, hung at home; it completes its Bestiary page. No strength.
+- **Achievements (D-467):** 3 tiers a chosen record, each paying the
+  look currency, shown in a Feats tab. Looks stay bought with that
+  currency only (D-280, D-418).
+
 ## Still to ask, part by part
 - **2:** names and numbers at each thing's own step: each biome's metal,
   plants and wood; how fishing and the garden play.
@@ -96,5 +108,6 @@ what exists today.
   slots and parts; each armour and charm's effect; how a torch burns;
   how fishing plays. All at each one's own step.
 - **6:** each upgrade and its numbers; which ability lies where.
-- **7:** what a lore piece gives; trophies; achievement tiers (Q-057).
+- **7:** each lore set, relic and trophy at its own step; which records
+  get achievements, and their numbers (Q-057); the look currency (Q-055).
 - **8:** what home upgrades do, and whether stations improve; who the first vendor is; prices.

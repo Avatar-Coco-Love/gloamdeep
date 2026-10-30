@@ -78,9 +78,9 @@ region, D-281) Whether the name shows on screen when you enter, with a
 difficulty rating, and how the rating looks (stars, skulls, words).
 
 **Q-057 · Achievements: tiers and rewards** (before the first
-achievement, D-284) Which records get a set, the numbers of each tier,
-what a reward is (perhaps the play-earned currency, Q-055, or a look)
-and where achievements show (a Journal tab, a note on reaching one).
+achievement, D-284) Narrowed by D-467: 3 tiers a set, each paying the
+look currency (Q-055), shown in a Feats tab with a note on reaching one.
+Still open: which records get a set, and the numbers of each tier.
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each

@@ -142,40 +142,6 @@ players start on Step; saved settings keep their pick, On as Walk. How to
 play: "Tap toward a tile", then "or swipe" or "Hold to keep going".
 Built in 0.2.179.
 
-**D-457 · 2026-10-30 · The scope, part 5: weapons** (the owner's picks,
-all recommended; builds D-027, D-252, D-450) About 4 or 5 weapon kinds,
-each with its own attack shape *(e.g. a knife hitting 1 tile, a spear 2
-in a line, an axe a sweep of 3, a sling at range)*. Each biome's new
-metal makes a better one of each kind: the shape stays, the hits grow.
-The hero holds one weapon in hand, as today; others ride in the bag and
-are swapped there, a swap taking a turn. Each kind's name, shape and
-numbers come at its own step. Also moved D-450 to D-454 to the archive,
-word for word, as this file neared 12 KB.
-
-**D-458 · 2026-10-30 · The scope, part 5: armour and charms** (the
-owner's picks, recommended; builds D-415) Besides the weapon in hand,
-the hero wears one armour piece, made by leatherwork, and two charms,
-each with one small effect *(e.g. better drop odds, a slower burn)*.
-Each piece's effect and recipe come at its own step.
-
-**D-459 · 2026-10-30 · The scope, part 5: the lantern's parts and
-torches** (the owner's picks, all recommended; the owner's thought of
-many lantern upgrades) The lantern has a few part slots *(e.g. tank,
-wick, glass)*, with many parts for each; one fits per slot and can be
-swapped *(e.g. a bigger tank holds more oil, a slow wick burns less, a
-coloured glass shows hidden marks)*. Oil still alone sets how far the
-light reaches (D-014). Parts are made at the workbench (answering part
-4's open point) and fitted from the bag, anywhere. The other light in
-the plan is torches, made in the bag and set down on a tile, burning
-for a while (D-024, D-455). Flares, glowing gear and machine lights were
-weighed and left out for now; any may come back by a new decision.
-
-**D-460 · 2026-10-30 · The scope, part 5: the rod** (the owner's pick,
-recommended; builds D-450, D-452) Fishing uses one rod, made better
-with each biome's metal like picks and axes; a better rod catches
-deeper fish. Bait may come later. How fishing plays is asked at its own
-step.
-
 **D-461 · 2026-10-30 · The scope, part 6: levels and embers** (the
 owner's pick, recommended; builds D-246, D-293, D-371) Levels keep
 today's curve, each costing 10 more experience than the one before, and
@@ -198,3 +164,29 @@ pick, recommended; builds D-419) Each biome hides one big ability, at a
 shrine or from a boss near its bottom. Each opens paths in places
 already seen *(e.g. a leap over a 1-tile gap)*, so going back pays
 (pillar 3). Which ability lies where comes at its own step.
+
+**D-464 · 2026-10-30 · The scope, part 7: lore** (the owner's pick,
+recommended; builds D-038, D-414) Lore pieces are notes, carvings and
+murals found below. They fill a Lore tab in the Journal, each telling a
+bit of the mystery. They come in sets *(e.g. 5 pages of one story)*;
+finishing a set gives one small lasting boost. The sets, their stories
+and boosts come at each one's own step. Also moved D-457 to D-460 to
+the archive, word for word, as this file neared 12 KB.
+
+**D-465 · 2026-10-30 · The scope, part 7: relics** (the owner's pick,
+recommended; builds D-038, D-419) Relics are rare finds, about 1 or 2 a
+biome besides its found ability (D-463). Each is set on a shelf at home
+and gives one small lasting boost while it is there, so home grows with
+what was found. Each relic and its boost come at its own step.
+
+**D-466 · 2026-10-30 · The scope, part 7: trophies** (the owner's pick,
+recommended; builds D-350, D-417) Each creature has one trophy, made at
+the workbench from its materials and hung at home. It completes that
+creature's Bestiary page. Trophies are for looks and pride and give no
+strength. Each trophy's recipe and look come at its own step.
+
+**D-467 · 2026-10-30 · The scope, part 7: achievements** (the owner's
+pick, recommended; builds D-284, D-418, narrows Q-057) Each chosen
+record has a set of 3 tiers, and each tier pays the look currency. They
+show in a Feats tab in the Journal, with a note on reaching one. Which
+records get a set, and each tier's number, come at the first one's step.

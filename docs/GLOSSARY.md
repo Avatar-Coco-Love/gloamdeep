@@ -92,7 +92,7 @@ this page and a decision disagree, the decision wins.
 - **Glass panel:** the see-through panel over the room's top left with the
   hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
 - **Journal:** one book with tabs: Records first, then Growth, later
-  quests, a bestiary and feats (D-262, D-293); a glass card (D-391).
+  quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
 - **Bestiary:** the Journal's tab of creatures met; more of a page shows
   the more you meet and fight that creature (D-350).
 - **Growth:** the Journal's tab for spending embers (D-293); its branches

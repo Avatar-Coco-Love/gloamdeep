@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.185 (2026-10-30)
+- The scope's part 7, collectables, is settled. Lore pages found below fill a Lore tab in the Journal, in sets; finishing a set gives a small lasting boost.
+- Relics, 1 or 2 a biome, are set on a shelf at home and each gives a small lasting boost while there.
+- Each creature will have a trophy, made from its materials and hung at home, completing its Bestiary page.
+- Achievements come in 3 tiers, each paying the look currency, in a Feats tab in the Journal.
+- Nothing in the game changes yet.
+- Decisions: D-464 to D-467.
+
 ## 0.2.184 (2026-10-30)
 - The scope's part 6, growth, is settled. Levels keep today's climb, 1 ember each, with no top level.
 - The Growth tree will have three branches: Light, Body and Hands. Gathering skills are Hands upgrades, bought with embers. Each branch's next row opens when you reach the next biome.
@@ -82,9 +90,3 @@ Entry format:
 - The camera now stops one and a half tiles past every edge of a room, big rooms too, so the hero at a wall keeps a little room from the screen's edge. The rock past the edge, and the woods past the doorway out, show in that margin.
 - The controls, the glass panel, the creature plaques, the text line and every card (pause, bag, map and the rest) keep their size, on their own layer over the room, so the cards fit the screen however the room zooms.
 - Decisions: built as D-441 and D-443 say; D-444.
-
-## 0.2.174 (2026-10-29)
-- Nothing in the game changes yet. Pictures drawn by the game, on a phone held sideways, compared today's camera with zooming in so a room fills the screen. Picked, the owner's idea: a room narrower than the screen zooms in until it fills the width, with a small margin of one and a half tiles past each edge, so almost nothing outside the room shows and the hero at a wall keeps a little room from the screen's edge. The controls keep their size.
-- Every corner piece (the round map with pause and the wrench, the lantern and its arc, the arrow pad) will fade almost away while the hero is under it, as the glass panel already does.
-- The rock past a room's edge and the real woods past the doorway out stay, showing inside the margin.
-- Decisions: D-441, D-442 and D-443.

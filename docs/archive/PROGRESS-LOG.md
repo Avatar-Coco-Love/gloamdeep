@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.182, the scope, part 4.** Making settled: small
+  things in the bag, building, tools and leather at the bench, a station
+  per bigger family at home, surface only; 8 to 12 recipes a biome, 1 or
+  2 found below (D-455, D-456). Nothing visible.
 - **2026-10-30, 0.2.181, the scope, part 3.** Creature drops settled:
   common 1 in 2, rare 1 in 10 from depth 3 down, left on the floor;
   today's five creatures' materials named (D-453, D-454). Nothing visible.
