@@ -180,15 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-495 · 2026-10-30 · Buying from the peddler** (the owner's picks,
-all recommended; step 13b of D-482, ends step 13) He sells an oil
-flask for 3 coins and a torch for 2, kept in the registry as his
-`wares`, and never runs out. His card gets two tabs, Sell and Buy, the
-Journal's look; Buy shows his wares in the grid, and BUY, Enter or
-Space buy one, free, no turn, dim with too few coins or no room in
-the bag, the card saying why. Seeds wait for the garden; recipes
-wait for a way to sell them.
-
 **D-496 · 2026-10-30 · The rescued peddler lingers, then beams home**
 (the owner's idea and picks, the turns his own, the rest recommended
 after a mock-up of four looks; changes D-491's "is gone" and D-492's
@@ -203,3 +194,14 @@ plain fade where he stood; the next draws look A, the lantern beam
 home when the hero comes within 2 tiles. His lines are drafted for the
 playtest. Also moved D-494 to the archive, word for word, as this file
 neared 12 KB.
+
+**D-497 · 2026-10-30 · The lantern beam home** (recommended; the
+second step of D-496) The beam is the mock-up's look A, one second.
+Leaving, it plays where he stood. Arriving, it plays the first time
+the hero comes into the woods after he went home, once the room has
+faded in; till then he isn't drawn. His greeting, said once, comes at
+the end of a turn with the hero within 2 tiles, diagonals too: "There
+you are, friend! Welcome!", drafted for the playtest. With reduced
+motion there is no beam, and the dev Go outside finds him there.
+Also moved D-495 to the archive, word for word, as this file passed
+12 KB.

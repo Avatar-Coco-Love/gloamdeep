@@ -4,6 +4,12 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.211', date: '2026-10-30', title: 'The lantern beam home', lines: [
+    "Free the peddler and, when he heads home, a column of warm lantern light now drops onto him. He comes apart in thin bands that rise up the beam, then it goes out.",
+    "Go home to the woods next and he beams in the same way beside the middle, once the room has faded in.",
+    "The first time you come within 2 tiles of him at home, he greets you, once.",
+    "Decisions: D-497.",
+  ] },
   { v: '0.2.210', date: '2026-10-30', title: 'The peddler lingers', lines: [
     "Free the peddler and he no longer vanishes at once. He thanks you and stays where he stood. Bump him to talk: free, his lines taking turns.",
     "Left alone 5 turns, or 3 after your last bump, he says goodbye and fades away, heading home to the woods. Leave the room first and he goes home anyway.",
