@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.208 (2026-10-30)
+- Bump the peddler at home and, after his line, his card opens: your coins and your bag on the left, what he pays for the chosen thing on the right.
+- He buys creature materials, one at a time: 1 coin for a common one, 5 for a rare one. Pick a slot, then Sell, Enter or Space. No turn passes, and Sell is dim for what he doesn't buy.
+- Your coins are kept when you fall, except in Hardcore, where they go with the world. Buying from him comes later.
+- Decisions: D-494.
+
 ## 0.2.207 (2026-10-30)
 - Nothing in the game changes. The sixth audit: the Version history's 0.2.121 to 0.2.186 move word for word from history-0.2.js into their own file, history-0.2-3.js.
 - Docs: CHANGELOG.md keeps its newest 3 entries, the rest moved to archive/CHANGELOG-STAGE-0.2-1.md; finished decisions D-491 and D-492 moved to the archive; the build plan's ticked steps 9 to 12 moved to archive/PROGRESS-LOG.md. The next audit is at 0.2.227.
@@ -31,9 +37,3 @@ Entry format:
 - Bump him there and he speaks, his home lines taking turns. No turn passes.
 - Nothing you set down, and nothing that grows back, goes on his tile. Rescuing the first person is done; the audit comes next.
 - Decisions: D-492.
-
-## 0.2.205 (2026-10-30)
-- Dig the rubble around the trapped peddler on depth 3 to free him. Each heap takes 3 bumps, a turn each, and no tool; he calls out as you dig, his lines taking turns.
-- Clear any one heap and he is free: he thanks you and is gone from the room, heading home. The rest of the rubble stays, and you can still dig it.
-- Cleared rubble gives no stone and never comes back. Rubble with no one behind it is dug the same, with its own lines.
-- Decisions: D-491.

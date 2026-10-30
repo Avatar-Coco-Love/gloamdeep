@@ -110,7 +110,11 @@ this page and a decision disagree, the decision wins.
 ## People
 - **Peddler:** the first person, found trapped in a ring of rubble on
   depth 3; freed by digging one heap, he stands at home in the woods,
-  and is the first vendor (D-471, D-490, D-491, D-492).
+  and is the first vendor: bumped there, his card opens and he buys
+  creature materials (D-471, D-490, D-491, D-492, D-494).
+- **Trade coins (coins):** earned only by selling to a vendor, 1 for a
+  common creature material, 5 for a rare one; kept on a fall, but not
+  when Hardcore starts over (D-472, D-494).
 - **Rubble:** a heap of fallen rock, solid, light passing over it; dug
   away by hand in 3 bumps (D-490, D-491).
 

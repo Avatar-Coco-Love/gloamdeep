@@ -20,6 +20,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { loadJourney, saveJourney, dropJourney } from './core/save.js';
 import { moveStack } from './core/chest.js';
+import { buyerAt, sell } from './core/trade.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
@@ -64,7 +65,7 @@ const app = {
   // Who plays: the profiles on this device (D-268), the one in use picked on the slot screen (D-271)
   profiles: loadProfiles(),
   jumped: false, // a dev jump stops this journey counting towards the deepest depth (D-232)
-  // screen: 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'bed' (the bed's ask by day, D-488), 'explore', 'history' or 'journal'
+  // screen: 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'trade' (the peddler's card, D-494), 'bed' (the bed's ask by day, D-488), 'explore', 'history' or 'journal'
   screen: 'slots', chosen: 0,
   picking: null, dropping: 0, slotsBack: false, // the slot screen: Rename or Delete picked (D-273), the slot asked about, Back shown (D-271)
   pageFrom: 'title', // the menu Settings or How to play was opened from
@@ -178,6 +179,7 @@ function tryStep(dir) {
   else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
+  else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { app.state = step(app.state, dir); screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494)
   else if (panelBeside(before, dir)) { screens.openPanel(panelBeside(before, dir)); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3)
   else {
     const next = step(app.state, dir);
@@ -367,6 +369,7 @@ const screens = createScreens(app, {
   wear: (slot) => { app.state = wear(app.state, slot); }, // armour put on, free (D-484)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
+  sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
   goSideways,
 });
@@ -380,7 +383,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'bed', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'sure', 'drop', 'easier', 'bed', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.207 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.208 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 13, the vendor and coins (D-482, D-471, D-472): propose its first
-small step, its names and numbers asked, before building.
+Step 13b, buying from the peddler (D-471, D-494): propose what he sells
+first and its prices, asked, before building.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,7 +28,7 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 13 The vendor and coins
+- [ ] 13 The vendor and coins (13a selling, 0.2.208)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
@@ -43,6 +43,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.208, selling to the peddler.** Step 13a: bumped at
+  home, the peddler says his line and opens his card. He buys creature
+  materials one at a time, free: common 1 coin, rare 5. Coins are kept
+  on a fall, but not when Hardcore starts over (D-494). Playtest:
+  https://claude.ai/artifact/LEt8viddhmdyPNpU6rctjm
 - **2026-10-30, 0.2.207, the sixth audit.** Nothing in the game changed
   (D-493; all recommended, CLAUDE.md left as it is). The Version
   history's 0.2.121 to 0.2.186 moved word for word from `history-0.2.js`
@@ -54,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   nearest their middle, and a bump there says his home lines in turn.
   Nothing set down or grown back goes on his tile. The audit moves to
   0.2.207 (D-492). Playtest: https://claude.ai/artifact/KBoc19zWuzuwCp8haVe1H6
-- **2026-10-30, 0.2.205, the rescue.** Step 12b: the rubble around
-  the peddler is dug like a deposit, 3 bumps a turn each, no tool, no
-  stone, and he calls out as you dig. Clear one heap and he thanks you
-  and is gone, heading home (D-491). Playtest:
-  https://claude.ai/artifact/9VefmamSpciKvZjazBBo8N
