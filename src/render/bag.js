@@ -12,7 +12,7 @@
 // workbench has Set down, wider, at the same right end (WB2, D-322).
 import { drawText, textWidth } from './font.js';
 import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
-import { BAG_SLOTS } from '../core/bag.js';
+import { BAG_SLOTS, canCraft } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
 
@@ -159,7 +159,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = fa
   if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, y + HELD_Y + 2.5 * LINE_H + i * LINE_H, GREY));
   const text = buttonText(entry);
   if (!text) return;
-  const few = entry.craft && bag[chosen].n < entry.craft.of;
+  const few = entry.craft && !canCraft(bag, chosen);
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
   drawButton(c, card.button.x, card.button.y, text, entry.eats ? full : few);
   if (twoButtons(entry)) drawButton(c, card.make.x, card.make.y, 'MAKE', few);

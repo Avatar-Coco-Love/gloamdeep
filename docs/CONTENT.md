@@ -34,7 +34,7 @@ mechanic and its own step.
 
 | id | What it does | Stack | Grows back | Where, or how made | Decisions |
 | --- | --- | --- | --- | --- | --- |
-| `flask` | 45% oil, poured from the bag or the quick slot | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps | D-078, D-149, D-247, D-299, D-384 |
+| `flask` | 45% oil, poured from the bag or the quick slot | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps, or 1 Mimic Glass and 2 oilcaps | D-078, D-149, D-247, D-299, D-384, D-477 |
 | `knife` | held, hits for 2 | held | never | the first room of depth 2 | D-252, D-347 |
 | `herb` | heals 2 where it lies | none | 300 | each generated room | D-155, D-156 |
 | `oilcap` | 3 make a flask | 20 | 300 | each generated room | D-296, D-299 |
@@ -44,7 +44,7 @@ mechanic and its own step.
 | `ratTail` | for crafts later | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474 |
 | `mothDust` | for crafts later | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475 |
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
-| `mimicGlass` | for crafts later | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475 |
+| `mimicGlass` | with 2 oilcaps makes a flask | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475, D-477 |
 | `gloamWisp` | for crafts later | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10, its own coin | D-454, D-476 |
 | `mimicHeart` | for crafts later | 20 | never | a beaten flask mimic, about 1 in 10, its own coin | D-454, D-476 |

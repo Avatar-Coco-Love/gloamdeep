@@ -11,7 +11,7 @@ const room = makeRoom(FIRST_ROOM);
 const DROPS = { lampmoth: 'mothDust', scorpion: 'stinger', flaskMimic: 'mimicGlass', gloamling: 'gloamWisp' };
 const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, for crafting later.', "You can't carry more moth dust."],
   stinger: ['You pick up the stinger.', 'A stinger, for crafting later.', "You can't carry more stingers."],
-  mimicGlass: ['You pick up the mimic glass.', 'Mimic glass, for crafting later.', "You can't carry more mimic glass."],
+  mimicGlass: ['You pick up the mimic glass.', 'Mimic glass. With 2 oilcaps, a flask.', "You can't carry more mimic glass."],
   gloamWisp: ['You catch the gloam wisp.', 'A gloam wisp, for crafting later.', "You can't carry more gloam wisps."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.
 const beat = (id, seed, s = makeState(room)) => step({ ...s, seed, hero: { x: 5, y: 11 }, items: [],

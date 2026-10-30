@@ -34,6 +34,7 @@ export function howtoRows(page, settings) {
     return [
       { action: 'Make', ways: ['Pick a stack in the bag', 'then press Make'] },
       { action: 'Oilcap', ways: ['3 make an oil flask'] },
+      { action: 'Glass', ways: ['With 2 oilcaps, a flask'] },
       { action: 'Wood', ways: ['3 make a workbench'] },
       { action: 'Bench', ways: ['Bump it to make more'] },
     ];

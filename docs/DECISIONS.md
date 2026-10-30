@@ -187,3 +187,11 @@ about 1 in 10, apart from the common's 1 in 2, so both can fall: the
 common where the creature fell, the rare on the nearest open tile.
 Otherwise each goes the Rat Tail's way (D-474): stacks of 20, and lines
 drafted for the playtest.
+
+**D-477 · 2026-10-30 · The first creature recipe: a glass flask** (the
+owner's picks, all recommended; step 4 of D-473, narrows Q-061) In the
+bag, Make on Mimic Glass turns 1 Mimic Glass and 2 Oilcaps into an Oil
+flask, a turn, as 3 Oilcaps still do (D-299); with too few of either the
+button is dim. It makes a find we have, so nothing new is drawn. The
+How to play Crafting page gets a row for it. Its lines are drafted for
+the playtest.

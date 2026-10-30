@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.191 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.192 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 4 of the build order (D-473): a first recipe using a creature
-material. Propose which material, what it makes and where (in the bag or
-at the workbench, D-455), with a mock-up of the new find. Half and
-Automatic wait on Q-069. Upright play (Q-065) is tabled.
+Step 5 of the build order (D-473): torches made in the bag and set
+down on a tile (D-459, D-455). Propose the recipe, how long one burns
+and how it is set down, with a mock-up. Half and Automatic wait on
+Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -33,7 +33,7 @@ The scope, drops first (D-473):
 - [x] 1 A beaten rat leaves a Rat Tail; step on it to take it, 0.2.189
 - [x] 2 The other four common drops, 0.2.190
 - [x] 3 The rare drops, from depth 3, 0.2.191
-- [ ] 4 A first recipe using a creature material
+- [x] 4 A first recipe: Mimic Glass and 2 Oilcaps make a flask, 0.2.192
 - [ ] 5 Torches: made in the bag, set down on a tile
 - [ ] 6 A second weapon kind, its own shape; swapped in the bag
 - [ ] 7 A pick, and the first ore in the mines
@@ -50,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.192, the glass flask.** Step 4: in the bag, Make on
+  Mimic Glass turns 1 glass and 2 Oilcaps into an oil flask; dim
+  without them; a How to play row (D-477). Playtest:
+  https://claude.ai/artifact/6yeV5ujJ19Y79iVQGhKLFj
 - **2026-10-30, 0.2.191, the rare drops.** Step 3: a beaten scorpion,
   flask mimic or gloamling now and then leaves a Venom Sac, Mimic Heart
   or Gloam Eye, about 1 in 10 on its own coin; with the common too, it
@@ -60,8 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   Glass or a Gloam Wisp the Rat Tail's way; look A of each, the Stinger
   always Sand (D-475). Playtest:
   https://claude.ai/artifact/X9oUHcC6NXsviu7tZeRj7f
-- **2026-10-30, 0.2.189, the Rat Tail.** Step 1: a beaten rat leaves a
-  Rat Tail where it fell about 1 time in 2, seeded like a flee; step on
-  it to take it, stacks of 20, three take and three look lines, left
-  for good with a full bag (D-474, look A). Playtest:
-  https://claude.ai/artifact/TTRSKUx9bwaU8k4yiSaBRT

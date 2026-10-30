@@ -73,7 +73,7 @@ import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
-import { BAG_SLOTS } from '../core/bag.js';
+import { BAG_SLOTS, canCraft } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
@@ -297,7 +297,7 @@ export function createScreens(app, ui) {
       spoken.textContent = slotWords(app.chosen);
       return;
     }
-    if (!entry?.craft || s.n < entry.craft.of) return; // dim: nothing happens
+    if (!entry?.craft || !canCraft(app.state.bag, app.chosen)) return; // dim: nothing happens
     const turn = app.state.turn;
     ui.craft(app.chosen);
     if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
