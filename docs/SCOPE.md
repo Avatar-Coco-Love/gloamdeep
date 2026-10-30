@@ -13,8 +13,8 @@ content, with `CONTENT.md` for what exists today.
 | Part | What it covers | Status |
 | --- | --- | --- |
 | 1. The frame | size, needs, depth, where strength comes from, crafts, loot, skills, drops, money, the bag, recipes | settled (D-414, D-415, D-417 to D-419) |
-| 2. Raw things | plants, wood, stone, ore, fishing, farming; what each biome gives | next |
-| 3. Creature drops | each creature's common and rare material, chances (Q-061) | to ask |
+| 2. Raw things | plants, wood, stone, ore, fishing, farming; what each biome gives | settled (D-450 to D-452) |
+| 3. Creature drops | each creature's common and rare material, chances (Q-061) | next |
 | 4. Making | each craft family's recipes, workstations, the ladder | to ask |
 | 5. Gear | weapons and their shapes, the lantern's upgrades, armour, charms, tools | to ask |
 | 6. Growth | levels, embers, the Growth tree, gathering skills, found abilities | to ask |
@@ -96,14 +96,31 @@ Two ways, each with its own job:
   held its parts; special ones come from notes, machines and shrines
   found deep down; and NPCs teach or sell some.
 
+## Part 2: raw things (settled)
+- **Ore (D-450):** one new metal per biome for now, each a step better
+  than the one above; more may come later. *(e.g. copper in the mines.)*
+- **Tools open things (D-450):** better picks open the next ore; stone
+  stays breakable by hand. Better axes open the deeper woods. Tools open
+  places too *(e.g. a pick through a cracked wall, a rod across water)*.
+- **Plants (D-451):** each biome adds 2 or 3, one an oil plant like the
+  oilcap, deeper ones giving more oil.
+- **Wood and stone (D-451):** plain wood up top, one wood of each deeper
+  biome's own. Stone stays plain; a biome stone may come later.
+- **Growing back (D-451):** today's speeds (D-306): plants 300 turns,
+  trees and deposits 900, rarer things slower.
+- **Fishing (D-452):** any water, surface and below, with the right tools.
+- **Farming (D-452):** a garden at home; seeds grow while the hero is
+  below. Gardening away from home may come later.
+
 ## Still to ask, part by part
-- **2:** which plants, woods, stones and ores each biome has; how fishing
-  and farming work and where; which tools gate what.
+- **2:** names and numbers at each thing's own step: each biome's metal,
+  plants and wood; how fishing and the garden play.
 - **3:** each creature's materials, their names, looks and chances.
 - **4:** where each family is made (bag, bench, forge, kitchen, power,
   altar); how long the recipe ladder is in each biome.
 - **5:** weapon kinds and shapes; the lantern's upgrade slots; armour
-  and charm slots.
+  and charm slots; the tools for fishing. The owner's thought: many
+  lantern upgrades, and other tools that give light.
 - **6:** the Growth tree's branches; which abilities are found where.
 - **7:** what a lore piece gives; trophies; achievement tiers (Q-057).
 - **8:** what home upgrades do; who the first vendor is; prices.

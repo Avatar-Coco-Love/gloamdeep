@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.179 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.180 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The scope, part 2 (`SCOPE.md`, D-413). Half and Automatic wait on
+The scope, part 3, creature drops (`SCOPE.md`, Q-061). Half and Automatic wait on
 Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -17,7 +17,7 @@ Q-069. Upright play (Q-065) is tabled.
 - The play-earned currency (Q-055), before the first unlock.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' tiers and rewards (Q-057), before the first one.
-- The scope's parts 2 to 8 (`SCOPE.md`), one part at a time.
+- The scope's parts 3 to 8 (`SCOPE.md`), one part at a time.
 - Creature materials: names, chances, recipes (Q-061), part 3.
 - The chest card on squarer screens (Q-064), any time.
 - Playing upright too (Q-065), tabled for now.
@@ -36,6 +36,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); a floor torch; trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.180, the scope, part 2.** Raw things settled: one
+  metal per biome, better picks and axes open ores, deeper woods and
+  places; 2 or 3 plants a biome, one for oil; fishing in any water; a
+  garden at home (D-450 to D-452). Nothing visible.
 - **2026-10-30, 0.2.179, tap to step.** The owner brought back D-042's
   one-step tap: Settings' Tap line is Off, Step or Walk. Held, Step keeps
   stepping toward the finger. New players start on Step; a saved pick
@@ -44,7 +48,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   width, the zoom glides to the new room's while it fades in, 0.4 s,
   gently at both ends; reduced motion jumps as before (D-448).
   [Playtest](https://claude.ai/artifact/3Fu1tDaxRE8sKhu9zvrd8W).
-- **2026-10-29, 0.2.177, the corner fade.** Every corner piece fades
-  over the hero (D-442). The owner picked each corner as one piece: the
-  round map, pause and wrench; the lantern, bag and quick slot (D-447).
-  [Playtest](https://claude.ai/artifact/Efqf9XrbyRdxv6wxpG8kpt).
