@@ -170,19 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-484 · 2026-10-30 · The Rat Hide Vest** (the owner's picks, all
-recommended; step 10 of D-482, builds D-458) Armour comes first in step
-10, the two charms after, each its own step. The first armour piece is
-the Rat Hide Vest, leatherwork, made at the workbench, its fourth slot,
-from 4 Rat Tail and 1 Wood (Rat Tail's first use); one is carried or
-worn. Choosing it in the bag shows Wear, which puts it on, free, "You
-put on the rat hide vest." Worn, each bite has a 1 in 4 chance, from
-the seed, to glance off and hurt nothing; when no bite that turn hurts,
-"The bite glances off your vest." A glancing bite is still a bite: its
-sound plays and a walk stops. Taking it off, and a mark that it is worn,
-wait for now. Its bag picture, a brown vest with grey fur at the
-shoulders laced in pink, and its lines are drafted for the playtest.
-
 **D-485 · 2026-10-30 · Room on the crafting pages** (the owner's picks,
 all recommended; the owner's ask) The workbench card's grid is 4 × 3,
 12 slots, as the stash chest's, the words on its right a little
@@ -202,3 +189,20 @@ rare material about 1 in 5, not 1 in 10; the common stays 1 in 2. Its
 bag picture, a gloam wisp in a round copper setting on a small loop,
 and its lines are drafted for the playtest. Also moved D-483 to the
 archive, word for word, as this file neared 12 KB.
+
+**D-487 · 2026-10-30 · The Heart Charm, and worn slots that grow**
+(the owner's picks, all recommended; step 10 of D-482, builds D-458,
+the owner's ask that new gear fit beside the old, D-261) The second
+charm is the Heart Charm, made at the workbench, its sixth slot, from 1
+Mimic Heart and 1 Copper Ore (Mimic Heart's first use); one is carried
+or worn. Wear, in the bag, puts it on, free, "You put on the heart
+charm." Worn, the lantern burns oil a sixth slower: a full tank lasts
+about 70 turns, not 60, and about 87 with the Copper Wick. The two
+charms are worn together. How many pieces each worn slot takes is one
+table, armour 1 and charm 2, each slot a list, so a new slot or a
+bigger one is one number; a save is upgraded to the list (format 7 to
+8). With a slot full, Wear gives back the piece worn there longest. The
+bag shows worn pieces as today. Its bag picture, the mimic heart's
+amber in the wisp charm's copper setting, and its lines are drafted for
+the playtest. Also moved D-484 to the archive, word for word, as this
+file neared 12 KB.

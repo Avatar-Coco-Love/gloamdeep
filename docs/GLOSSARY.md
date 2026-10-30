@@ -88,6 +88,8 @@ this page and a decision disagree, the decision wins.
   puts it on, free; worn, a bite may glance off and hurt nothing (D-484).
 - **Wisp Charm:** the first charm, worn from the bag; worn, rare drops
   come about 1 in 5 (D-486).
+- **Heart Charm:** the second charm, worn beside it; worn, the oil
+  burns a sixth slower (D-487).
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).

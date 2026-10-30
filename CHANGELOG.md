@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.202 (2026-10-30)
+- Make a Heart Charm at the workbench, the second charm: bump the bench and choose its sixth slot. It costs 1 Mimic Heart and 1 Copper Ore, and Make is dim with too few. You have one at a time.
+- Choose it in the bag and press Wear: you put it on, and no turn passes. You can wear both charms and the vest together.
+- While you wear it, the lantern burns oil more slowly: a full tank lasts about 70 turns instead of 60, or about 87 with the Copper Wick.
+- Behind the scenes, each worn slot now holds a list and says how many pieces it takes, so more slots can come later without breaking saves. Your save is updated by itself, and anything you wear stays on.
+- How to play's Bench page now says you can wear two charms.
+- Decisions: D-487.
+
 ## 0.2.201 (2026-10-30)
 - Tapping a marked tile now sets down the workbench, the stash chest or a torch, as it should. On phones the tap was read in the wrong place, missed the tile, and left the thing in the bag; swiping still worked.
 - Decisions: none (it was meant to work this way, D-322).
@@ -90,15 +98,3 @@ Entry format:
 - A Venom Sac is a plump bulb of green venom. A Mimic Heart is a heart of amber oil with a glassy gleam. A Gloam Eye is a round pale eye with a pink iris.
 - Each goes in your bag in stacks of 20, with a line, and says a line when chosen there; they are for crafting later. With every stack full they stay on the floor.
 - Decisions: D-476.
-
-## 0.2.190 (2026-10-30)
-- A beaten lampmoth, scorpion, flask mimic or gloamling now leaves its own material where it fell, about 1 time in 2, as a rat leaves its tail: Moth Dust, a Stinger, Mimic Glass or a Gloam Wisp.
-- Moth Dust is a small heap of pale dust with amber glints. A Stinger is a scorpion's curled tail tip, always in the sand colours. Mimic Glass is a curved shard with a smear of oil. A Gloam Wisp is a tuft of shadow shaped like a small flame.
-- Each goes in your bag in stacks of 20, with a line, and says a line when chosen there; they are for crafting later. With every stack full they stay on the floor.
-- Decisions: D-475.
-
-## 0.2.189 (2026-10-30)
-- A beaten rat now leaves a Rat Tail where it fell, about 1 time in 2. Step on it to put it in your bag, in stacks of 20, with a line.
-- A Rat Tail is curled into a loop, the rat's pink with a grey stub. Choosing it in the bag says a line about it; it is for crafting later.
-- With every stack full it stays on the floor until you come back for it. It never grows back.
-- Decisions: D-474.

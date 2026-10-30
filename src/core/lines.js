@@ -82,6 +82,11 @@ export const LINES = {
   charmShort: { text: 'You need 3 Gloam Wisp, 1 Copper Ore.', warn: false }, // too few, free
   wispCharmLook: { texts: ['A wisp charm. Wear it for rarer finds.', 'A gloam wisp, caught in copper.', 'It tugs toward hidden things.'], warn: false },
   charmWear: { text: 'You put on the wisp charm.', warn: false }, // Wear in the bag, free (D-486)
+  heartMake: { text: 'You make a heart charm.', warn: false }, // its line on the bench panel, a turn (D-487)
+  heartCharmFull: { text: 'You already have a heart charm.', warn: false }, // carried or worn, free
+  heartShort: { text: 'You need 1 Mimic Heart, 1 Copper Ore.', warn: false }, // too few, free
+  heartCharmLook: { texts: ['A heart charm. Wear it to burn less oil.', 'A mimic heart, set in copper.', 'It beats slow, like a banked flame.'], warn: false },
+  heartWear: { text: 'You put on the heart charm.', warn: false }, // Wear in the bag, free (D-487)
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
   ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },
