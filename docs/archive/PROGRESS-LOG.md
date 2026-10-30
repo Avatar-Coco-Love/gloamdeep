@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.191, the rare drops.** Step 3: a beaten scorpion,
+  flask mimic or gloamling now and then leaves a Venom Sac, Mimic Heart
+  or Gloam Eye, about 1 in 10 on its own coin; with the common too, it
+  lies beside it. Look A of each (D-476). Playtest:
+  https://claude.ai/artifact/F7FMSbndyWxaUNwTqqySqc
 - **2026-10-30, 0.2.190, four more drops.** Step 2: a beaten lampmoth,
   scorpion, flask mimic or gloamling leaves Moth Dust, a Stinger, Mimic
   Glass or a Gloam Wisp the Rat Tail's way; look A of each, the Stinger

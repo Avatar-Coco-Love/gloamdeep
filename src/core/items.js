@@ -15,8 +15,13 @@ export const ITEMS = {
   // The first weapon (D-252): walking onto it puts it in the hero's hand, in the
   // held slot apart from the bag, with its line. Held, it hits for `hit` in
   // place of the lantern's 1. It lies only in depth 2's first room, and not
-  // while the hero holds one (cave.js, stairs.js).
-  knife: { id: 'knife', kind: 'item', name: 'Knife', hit: 2, hold: true, says: 'knifeTake' },
+  // while the hero has one (cave.js, stairs.js). Found with a weapon held, it
+  // goes into the bag with its `bagged` line, 1 a slot; Hold there swaps it into
+  // the hand with its `holds` line (D-479).
+  knife: { id: 'knife', kind: 'item', name: 'Knife', hit: 2, hold: true, says: 'knifeTake', bagged: 'knifeBag', holds: 'knifeHold' },
+  // The second weapon (D-479): it hits a creature for `hit` and the one awake
+  // behind it, in a line, for `through`. It lies only in depth 3's first room.
+  spear: { id: 'spear', kind: 'item', name: 'Spear', hit: 2, through: 1, hold: true, says: 'spearTake', bagged: 'spearBag', holds: 'spearHold' },
   herb: { id: 'herb', kind: 'item', name: 'Healing herb', heal: 2, says: 'herbEat', regrow: DAY_TURNS },
   // The first resource (D-296): an amber mushroom, one in every generated room.
   // Walking onto it puts it in the bag with one of its `says` lines, in turn;

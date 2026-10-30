@@ -177,3 +177,16 @@ turns by the clock, even while the hero is away, then goes out, leaving
 bare floor; it can't be taken back. The How to play Crafting page gets
 a row. Its lines are drafted for the playtest. Also moved D-474 to
 D-476 to the archive, word for word, as this file neared 12 KB.
+
+**D-479 · 2026-10-30 · The spear, a second weapon** (the owner's picks,
+all recommended; step 6 of D-473, builds D-457, D-252) The second kind
+is a spear that hits through: walking into a creature hits it for 2,
+as the knife does, and the creature awake behind it, in the line from
+the hero, for 1; one asleep in disguise there is left as it is. The
+front one's line is said. It lies in depth 3's first room, the one with
+the stairs up, by the knife's rule, and not while the hero has one.
+Found with a weapon held, a weapon goes into the bag, 1 a slot; with
+the bag full it stays on the floor, "Your bag is full." Hold on it in
+the bag swaps it with the one in hand, a turn, the bag staying open.
+It looks as the step 6 mock-up drew it, a wooden shaft with a steel
+head. Its lines are drafted for the playtest.
