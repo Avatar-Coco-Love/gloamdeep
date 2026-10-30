@@ -53,6 +53,8 @@ mechanic and its own step.
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
+| `pick` | the Stone Pick: in the bag, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone | D-480 |
+| `copperOre` | the first ore, for crafts | 20 | never | a copper vein | D-480 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood | D-478 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 
@@ -67,6 +69,7 @@ mechanic and its own step.
 | `stump` | grows back into a tree | | where a tree was felled | D-317 |
 | `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods room | D-316 |
 | `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room | D-311, D-312 |
+| `vein` | with the pick in the bag, 4 bumps: 1 Copper Ore | 1800 | 1 of the 3 deposits in each Cave room from depth 3 | D-480 |
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |

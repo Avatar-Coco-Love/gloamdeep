@@ -121,6 +121,7 @@ const DRAW = {
   caveMouth: (c, room, x, y) => { c.fillStyle = '#0c0b12'; c.fillRect(x * T, y * T, T, T); },
   // On the rock's own floor in a cave (D-310); a deposit spawned elsewhere stands on that room's floor
   deposit: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y); },
+  vein: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.vein); }, // a deposit's way (D-480)
   // On the woods' grass; a branch spawned elsewhere lies on that room's floor (D-316)
   branch: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBranch(c, x, y, formOf(get('branch'), x, y)); },
   // On the woods' grass, where a tree was felled; elsewhere on that room's floor (W3, D-317)

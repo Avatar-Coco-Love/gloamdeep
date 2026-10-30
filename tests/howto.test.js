@@ -61,7 +61,7 @@ test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390
 });
 
 test('the Crafting page says how Make works, whatever the Controls switch (D-328)', () => {
-  assert.deepEqual(howtoRows('crafting', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Make', 'Oilcap', 'Glass', 'Dust', 'Wood', 'Bench']);
+  assert.deepEqual(howtoRows('crafting', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Make', 'Oilcap', 'Glass', 'Dust', 'Wood', 'Bench', 'Pick']);
   assert.deepEqual(howtoRows('crafting', { swipe: 'off', tap: 'walk' }), howtoRows('crafting', { swipe: 'on', tap: 'walk' }));
   assert.match(howtoWords('crafting', 'both'), /^How to play, Crafting\. Make: Pick a stack in the bag then press Make\./);
 });

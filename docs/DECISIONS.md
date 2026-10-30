@@ -190,3 +190,16 @@ the bag full it stays on the floor, "Your bag is full." Hold on it in
 the bag swaps it with the one in hand, a turn, the bag staying open.
 It looks as the step 6 mock-up drew it, a wooden shaft with a steel
 head. Its lines are drafted for the playtest.
+
+**D-480 · 2026-10-30 · The Stone Pick and copper** (the owner's picks,
+all recommended; step 7 of D-473, builds D-450, D-455, D-451) The first
+pick is the Stone Pick, a second slot at the workbench: 2 Wood and 3
+Stone, dim with too few, one carried. It is never held; with it in the
+bag, a Copper vein breaks. From depth 3, one of the 3 deposits in each
+Cave room is a vein; without the pick a bump says it is too hard,
+free. 4 bumps give 1 Copper Ore, stacks of 20, for crafts later; a
+vein grows back after 1800 turns. Look A of each in the step 7
+mock-up: a one-point stone head on a wooden handle, the deposit's
+boulder flecked with copper, a grey lump flecked with copper. The How
+to play Crafting page gets a row. Its lines are drafted for the
+playtest.

@@ -31,6 +31,11 @@ export const TILES = {
   // it stood (regrow.js, O3, D-313).
   deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2,
     mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' } },
+  // A copper vein, a boulder flecked with copper, one in each Cave room from depth 3 (D-480):
+  // mined as a deposit is, but only with the pick it `needs` in the bag; without, its `hard`
+  // line, free. 4 bumps give a Copper Ore; it grows back after 6 days, slower than stone.
+  vein: { id: 'vein', kind: 'tile', letter: 'V', name: 'Copper vein', solid: true, blocksLight: false, regrow: 6 * DAY_TURNS, near: 2,
+    mine: { hits: 4, chips: ['veinChip', 'veinChip2', 'veinCrack'], drops: 'copperOre', breaks: 'copperOreTake', needs: 'pick', hard: 'veinHard' } },
   // A fallen branch on the woods floor (W2, D-316): mined as a deposit is, but 2 bumps
   // give `n` Wood. It lies in one of `forms` looks, picked by its tile (formOf), and the
   // Wood it gives takes that look. With room for fewer than `n`, the rest lies on its

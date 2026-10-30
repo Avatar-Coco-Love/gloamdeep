@@ -40,7 +40,7 @@ test('only 1 is carried: a second says so, free, and the Wood and Stone stay', (
 });
 
 test('its slot on the bench card has its cost with how many are carried, dim with too few (D-387)', () => {
-  assert.deepEqual(benchMakes(PAID), [{ item: 'chest', cost: [{ id: 'wood', n: 3, have: 3 }, { id: 'stone', n: 3, have: 3 }], dim: false }]);
+  assert.deepEqual(benchMakes(PAID)[0], { item: 'chest', cost: [{ id: 'wood', n: 3, have: 3 }, { id: 'stone', n: 3, have: 3 }], dim: false });
   assert.equal(benchMakes([{ id: 'wood', n: 3 }])[0].dim, true);
   assert.equal(benchMakes([{ id: 'wood', n: 3 }])[0].cost[1].have, 0);
 });

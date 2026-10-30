@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.194 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.195 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 7 of the build order (D-473): a pick, and the first ore in the
-mines (D-450). Propose the pick's name and how it is got, the ore's
-name, look and where it lies, with a mock-up. Half and Automatic wait
-on Q-069. Upright play (Q-065) is tabled.
+Step 8 of the build order (D-473): the Growth tree, first with its
+three branches Light, Body and Hands, and today's bought hearts moved
+into Body (D-462). Propose how it looks and opens, with a mock-up.
+Half and Automatic wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,7 +36,7 @@ The scope, drops first (D-473):
 - [x] 4 A first recipe: Mimic Glass and 2 Oilcaps make a flask, 0.2.192
 - [x] 5 Torches: made in the bag, set down on a tile, 0.2.193
 - [x] 6 The spear, hitting through; swapped in the bag, 0.2.194
-- [ ] 7 A pick, and the first ore in the mines
+- [x] 7 A pick, and the first ore in the mines, 0.2.195
 - [ ] 8 The Growth tree: Light, Body, Hands; today's hearts in Body
 Later, order asked then: lantern parts, armour and charms, home pieces
 and rest, the first rescue, vendor and coins, garden, fishing, lore,
@@ -50,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.195, the pick and copper.** Step 7: the Stone
+  Pick is made at the workbench from 2 Wood and 3 Stone and works from
+  the bag; from depth 3, one boulder in each Cave room is a Copper vein,
+  4 bumps with the pick for 1 Copper Ore, back after 1800 turns (D-480).
+  Playtest: https://claude.ai/artifact/FyifAjtSFndiZ3RTYzAiD7
 - **2026-10-30, 0.2.194, the spear.** Step 6: the spear lies in
   depth 3's first room; it hits a creature for 2 and the one awake
   behind it for 1. A weapon found with one held goes into the bag, and
@@ -60,7 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   anywhere, the bench's way, on a stone foot, lighting 3 tiles; out
   after 100 turns, bare floor left (D-478). Playtest:
   https://claude.ai/artifact/3yLzsoqZpyuNzCZc7hYtMw
-- **2026-10-30, 0.2.192, the glass flask.** Step 4: in the bag, Make on
-  Mimic Glass turns 1 glass and 2 Oilcaps into an oil flask; dim
-  without them; a How to play row (D-477). Playtest:
-  https://claude.ai/artifact/6yeV5ujJ19Y79iVQGhKLFj

@@ -38,6 +38,7 @@ export function howtoRows(page, settings) {
       { action: 'Dust', ways: ['With 1 wood, a torch'] },
       { action: 'Wood', ways: ['3 make a workbench'] },
       { action: 'Bench', ways: ['Bump it to make more'] },
+      { action: 'Pick', ways: ['In the bag, breaks veins'] },
     ];
   }
   if (page === 'keyboard') {
