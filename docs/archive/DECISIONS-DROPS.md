@@ -1,11 +1,12 @@
-# The drops (D-474 to D-481)
+# The drops (D-474 to D-483)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
 other four common drops and the rare drops; D-477 and D-478, steps 4 and
 5, the glass flask and torches, at 0.2.196 (D-481); D-479 and D-480,
 steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482); D-481,
-step 8, the Growth tree, at 0.2.199 (D-485).
+step 8, the Growth tree, at 0.2.199 (D-485); D-483, step 9, the
+Copper Wick, at 0.2.200 (D-486).
 
 ---
 
@@ -102,3 +103,15 @@ name and words, and its button with the cost. Upgrades are free to buy
 in any open row, in any order: nothing bought closes or opens another.
 It still opens as the Journal's Growth tab. Also moved D-477 and D-478
 to the archive, word for word, as this file passed 12 KB.
+
+**D-483 · 2026-10-30 · The Copper Wick** (the owner's picks, all
+recommended; step 9 of D-482, builds D-459) The first lantern part is
+the Copper Wick, in the lantern's wick slot. It is made at the
+workbench, its third slot, from 3 Copper Ore and 1 Wood, and only one
+is carried or fitted. Fitted, it burns oil a quarter slower: a full
+tank lasts 75 turns, not 60; oil alone still sets the reach (D-014).
+Choosing it in the bag shows Fit, which puts it in the lantern, free,
+with "You fit the copper wick." Swapping and taking parts out wait for
+a second part; no mark on the lantern button and no lantern row in the
+bag for now. Its bag picture is look A of the mock-up: an upright cloth
+wick with a burnt tip in a wide copper collar.

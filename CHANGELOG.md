@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.200 (2026-10-30)
+- Make a Wisp Charm at the workbench, the first charm: bump the bench and choose its fifth slot. It costs 3 Gloam Wisp and 1 Copper Ore, and Make is dim with too few. You have one at a time.
+- Choose the charm in the bag and press Wear: you put it on, and no turn passes. You can wear it and the vest together.
+- While you wear it, beaten creatures leave their rare material about 1 in 5 instead of 1 in 10: the Venom Sac, the Mimic Heart and the Gloam Eye. Common drops stay about 1 in 2.
+- How to play's Bench page has a new row for the charm.
+- Decisions: D-486.
+
 ## 0.2.199 (2026-10-30)
 - The workbench card has room for more: its grid is now 4 × 3, 12 slots, like the stash chest's.
 - Make a Rat Hide Vest at the workbench, the first armour: bump the bench and choose its fourth slot. It costs 4 Rat Tail and 1 Wood, and Make is dim with too few. You have one at a time.
@@ -97,10 +104,3 @@ Entry format:
 - The first 8 steps: a rat's Rat Tail, the other common drops, the rare drops, a first recipe using one, torches to make and set down, a second weapon kind, a pick and the first ore, and the Growth tree.
 - Nothing in the game changes yet.
 - Decisions: D-473.
-
-## 0.2.187 (2026-10-30)
-- The scope's part 8, home and trade, is settled. Home grows by the pieces you build there, and sleeping at home gives a short boost for the next trip.
-- Most people will be rescued below and move home; later some stay where you meet them, and wanderers such as a merchant visit.
-- The first vendor will be a rescued person at home, buying creature materials and spare finds. Trade coins come only from selling, and are kept when you fall.
-- Nothing in the game changes yet. The whole scope is now settled.
-- Decisions: D-469 to D-472.

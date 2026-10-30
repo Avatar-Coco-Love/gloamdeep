@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.197, the rest of the order.** A look at where
+  we stand: steps 1 to 8 done, 685 tests pass. Lantern parts come
+  next, then the order proposed in the plan; Half and Automatic keep
+  waiting (D-482). Nothing visible changed.
 - **2026-10-30, 0.2.196, the Growth tree.** Step 8: Growth is a
   tree, look D of the mock-up: an ember at the root, limbs climbing
   through Light, Body and Hands; the heart is Body's first, the rest to

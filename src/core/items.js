@@ -97,6 +97,11 @@ export const ITEMS = {
   // `wear.glance` chance to glance off and hurt nothing (creatureturn.js).
   ratVest: { id: 'ratVest', kind: 'item', name: 'Rat Hide Vest', bag: true, max: 1, look: 'ratVestLook', full: 'ratVestFull',
     bench: { of: { ratTail: 4, wood: 1 }, says: 'vestMake', short: 'vestShort' }, wear: { slot: 'armour', glance: 0.25 }, wears: 'vestWear' },
+  // The first charm (D-486): made at the workbench, never found. Wear, in the bag, puts it on,
+  // free, in the `charm` slot; worn, a beaten creature leaves its rare material about `wear.rare`
+  // of the time, not 1 in 10 (turn.js).
+  wispCharm: { id: 'wispCharm', kind: 'item', name: 'Wisp Charm', bag: true, max: 1, look: 'wispCharmLook', full: 'wispCharmFull',
+    bench: { of: { gloamWisp: 3, copperOre: 1 }, says: 'charmMake', short: 'charmShort' }, wear: { slot: 'charm', rare: 0.2 }, wears: 'charmWear' },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).
