@@ -207,8 +207,8 @@ function withDeposits(r, room, count, veins = 0) {
   for (const at of veins ? placed.slice(-veins) : []) g[at.y][at.x] = 'V';
   return g.map((row) => row.join(''));
 }
-// Whether every tile of g that can be walked joins up with the rest, a deposit ('O') or vein ('V') counting as solid
-const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V'].includes(g[t.y][t.x]);
+// Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V') or rubble ('U') counting as solid
+const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U'].includes(g[t.y][t.x]);
 function joined(g) {
   const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
   while (queue.length) {
@@ -241,6 +241,35 @@ export function withMimic(seed, room) {
     const ok = joined(g);
     g[at.y][at.x] = '.';
     if (ok) return { ...room, enemies: [...room.enemies, { id: 'flaskMimic', x: at.x, y: at.y, asleep: true }] };
+  }
+  return room;
+}
+
+// § trapped: (seed, room, id) → the room with person `id` trapped in a ring of rubble
+// ('U', D-490): on open floor at least 5 steps from the way in, with at least 5 of its
+// 8 tiles around open, every open one turned to rubble, the walls doing the rest. Off
+// the edge, with no stairs or opening beside, nothing lying, standing or starting on it or
+// around it, and never cutting the room in two. Placed last, from its own seed, so the
+// rest of a seed's room stays as it was; the room as it was when no tile fits.
+export const RING = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
+export function withTrapped(seed, room, id) {
+  const r = rng(seed ^ 0x1f83d9ab), g = room.map.map((row) => [...row]), far = reach(g, room.start);
+  const things = [room.start, ...room.items, ...room.enemies];
+  const ring = (t) => RING.map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
+  const fits = (t) => {
+    const around = ring(t);
+    return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(n)) && around.filter((n) => g[n.y][n.x] === '.').length >= 5
+      && ![t, ...around].some((n) => things.some((o) => same(o, n)));
+  };
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(t) && far.get(key(t)) >= 5 && fits(t));
+  while (spots.length) {
+    const at = spots.splice(int(r, 0, spots.length - 1), 1)[0], open = ring(at).filter((n) => g[n.y][n.x] === '.');
+    for (const n of [at, ...open]) g[n.y][n.x] = 'U';
+    if (joined(g)) {
+      g[at.y][at.x] = '.';
+      return { ...room, map: g.map((row) => row.join('')), people: [...(room.people || []), { id, x: at.x, y: at.y }] };
+    }
+    for (const n of [at, ...open]) g[n.y][n.x] = '.';
   }
   return room;
 }

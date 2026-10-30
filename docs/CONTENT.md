@@ -78,6 +78,7 @@ mechanic and its own step.
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
 | `bedstead` | the bed: at night sleep till morning, healed, a gold heart; by day, Deconstruct bed? | | set down on the surface | D-488 |
+| `rubble` | solid, light passing over it; bumped, the person beside it calls out | | a ring around the peddler, depth 3 | D-490 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 
 ## Lights (`src/core/lights.js`)
@@ -97,13 +98,5 @@ mechanic and its own step.
 
 Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
 
-## The hero's looks (`src/core/looks.js`)
-
-6 cloaks, 6 eyes, 6 trims and 4 clothes; their names are in
-`GLOSSARY.md` (D-275 to D-278, D-289).
-
-## Growth upgrades (`src/core/upgrades.js`)
-
-Bought with embers on the Journal's Growth tree (D-462, D-481): Light,
-Body and Hands. Body: Heart, one more heart, up to 5 (D-293). Light and
-Hands: none yet.
+## People, the hero's looks, Growth upgrades
+In `CONTENT-2.md`.

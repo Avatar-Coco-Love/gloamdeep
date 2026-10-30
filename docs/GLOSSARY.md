@@ -107,20 +107,14 @@ this page and a decision disagree, the decision wins.
   creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).
   Tapping one **frames** its creature: amber corners, name and hearts (D-359).
 
+## People
+- **Peddler:** the first person, found trapped in a ring of rubble on
+  depth 3; to be rescued, and the first vendor (D-471, D-490).
+- **Rubble:** a heap of fallen rock, solid, light passing over it (D-490).
+
 ## Menus and tools
-- **Glass panel:** the see-through panel over the room's top left with the
-  hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
-- **Journal:** one book with tabs: Records first, then Growth, later
-  quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
-- **Bestiary:** the Journal's tab of creatures met; more of a page shows
-  the more you meet and fight that creature (D-350).
-- **Growth:** the Journal's tab for spending embers (D-293), a tree with
-  three branches, Light, Body and Hands (D-462, D-481).
-- **Records:** the Journal's facts about how you've played: deepest,
-  beaten, falls, rooms found, steps, flasks poured, torches lit, time played
-  (D-262, D-270, D-283, D-285, D-286, D-291).
-- **Seed Explorer:** the title's map of a whole seed (D-214).
-- **Dev tools:** on for everyone (D-086, `DEV-TOOLS.md`).
+Moved to `GLOSSARY-CODE.md` (D-490): glass panel, Journal, Bestiary,
+Growth, Records, Seed Explorer, dev tools.
 
 ## In the code (D-263)
 Moved to `GLOSSARY-CODE.md` (D-468): event, profile, slot, the slot

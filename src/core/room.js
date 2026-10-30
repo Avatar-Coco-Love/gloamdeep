@@ -2,7 +2,7 @@
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
 import { byLetter } from './registry.js';
-import { generateRoom, withMimic } from './cave.js';
+import { generateRoom, withMimic, withTrapped } from './cave.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -152,6 +152,13 @@ export function mimicRooms(seed, depth) {
   const r = rng(seedAt(seed, depth) ^ 0x9b05688c);
   return layoutAt(seed, depth).cells.map((c) => c.id).filter(() => r() < MIMIC_ODDS);
 }
+// § the peddler: on depth 3, one room the seed picks holds the peddler, trapped in a
+// ring of rubble (step 12a, D-490)
+export const PEDDLER_DEPTH = 3;
+export function peddlerRoom(seed) {
+  const ids = layoutAt(seed, PEDDLER_DEPTH).cells.map((c) => c.id), r = rng(seedAt(seed, PEDDLER_DEPTH) ^ 0x5be0cd19);
+  return ids[Math.floor(r() * ids.length)];
+}
 // § weapons: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;
@@ -170,8 +177,9 @@ export function placeFor(id, seed = 1) {
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0 });
   const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth', cell.seed) : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion', cell.seed) : made;
-  const room = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
-  return { ...(room || PLACES[DEEPER]), depth, look, sides: cell?.sides || {} };
+  const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
+  const room = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;
+  return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };
 }
 
 // The room beyond each edge of a place with openings, by direction (D-197,
@@ -205,7 +213,7 @@ export function placeBeside(id, way, seed = 1) {
 // § begin: any place as it begins, from its plan and the game's seed
 export function beginPlace(id, seed) {
   const p = placeFor(id, seed);
-  return { room: makeRoom(p.map, p.sky ? SKY : CAVE, p.look), start: p.start, lights: p.lights, enemies: p.enemies, items: p.items || [] };
+  return { room: makeRoom(p.map, p.sky ? SKY : CAVE, p.look), start: p.start, lights: p.lights, enemies: p.enemies, items: p.items || [], people: p.people || [] };
 }
 
 // § darkness: each place sets how dark never-seen tiles are and how

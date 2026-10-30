@@ -1,7 +1,7 @@
 // § stairs: going from room to room (D-130 to D-132). Plain data, no drawing.
 // The room the hero is in lives at the top of the state as before; every
 // other room waits in `state.elsewhere`, by place id, just as it was left
-// (D-019): its tiles, lights, enemies, items and memory. A depth never
+// (D-019): its tiles, lights, enemies, items, people and memory. A depth never
 // visited begins fresh, generated from the game's seed (D-147, D-148).
 import { placeBeside, placeAt, placeFor, beginPlace, tileAt, isWall } from './room.js';
 import { blankMemory } from './fog.js';
@@ -41,12 +41,12 @@ export function goToPlace(state, to) {
 export function arrive(state, to, there, spot) {
   const enemies = state.enemies.map((e) => (e.flees > 0 ? { ...e, flees: 0, chasing: false } : e))
     .map(({ awake, ...e }) => (awake ? { ...e, chasing: false, asleep: true } : e)); // one awake settles back down (D-368)
-  const here = { room: state.room, lights: state.lights, enemies, items: state.items, taken: state.taken || [], seen: state.seen };
+  const here = { room: state.room, lights: state.lights, enemies, items: state.items, people: state.people || [], taken: state.taken || [], seen: state.seen };
   const elsewhere = { ...state.elsewhere, [state.place]: here };
   delete elsewhere[to];
   const has = [state.held, ...(state.bag || []).map((s) => s.id)].filter((id) => id && get(id)?.hold);
   const items = there.items.filter((it) => !has.includes(it.id));
-  return stepAside({ ...state, ...there, items, taken: there.taken || [], place: to, elsewhere, hero: spot });
+  return stepAside({ ...state, ...there, items, people: there.people || [], taken: there.taken || [], place: to, elsewhere, hero: spot });
 }
 
 // § step aside: a creature standing where the hero arrives or wakes, as one that chased
@@ -71,8 +71,8 @@ export function stepAside(state) {
 
 // A place never visited, as it begins from the game's seed, with nothing remembered
 export function fresh(id, seed) {
-  const { room, lights, enemies, items } = beginPlace(id, seed);
-  return { room, lights, enemies, items, taken: [], seen: blankMemory(room) };
+  const { room, lights, enemies, items, people } = beginPlace(id, seed);
+  return { room, lights, enemies, items, people, taken: [], seen: blankMemory(room) };
 }
 
 // The first tile of kind `id` in the room, row by row, or null

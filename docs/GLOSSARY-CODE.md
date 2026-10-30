@@ -2,9 +2,9 @@
 
 The words for parts of the code and its screens, moved word for word
 from `GLOSSARY.md` at 0.2.186, the fifth audit (D-468), so that page
-has room to grow. Its rules hold here too: use these words in the game,
-the docs and the code; where this page and a decision disagree, the
-decision wins.
+has room to grow, and the menus and tools at 0.2.204 (D-490). Its
+rules hold here too: use these words in the game, the docs and the
+code; where this page and a decision disagree, the decision wins.
 
 ## In the code (D-263)
 - **Event:** one thing that happened in a turn ("rat died"); each turn
@@ -28,3 +28,18 @@ decision wins.
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).
+
+## Menus and tools
+- **Glass panel:** the see-through panel over the room's top left with the
+  hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
+- **Journal:** one book with tabs: Records first, then Growth, later
+  quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
+- **Bestiary:** the Journal's tab of creatures met; more of a page shows
+  the more you meet and fight that creature (D-350).
+- **Growth:** the Journal's tab for spending embers (D-293), a tree with
+  three branches, Light, Body and Hands (D-462, D-481).
+- **Records:** the Journal's facts about how you've played: deepest,
+  beaten, falls, rooms found, steps, flasks poured, torches lit, time played
+  (D-262, D-270, D-283, D-285, D-286, D-291).
+- **Seed Explorer:** the title's map of a whole seed (D-214).
+- **Dev tools:** on for everyone (D-086, `DEV-TOOLS.md`).

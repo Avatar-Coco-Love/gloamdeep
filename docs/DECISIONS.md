@@ -170,23 +170,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-487 · 2026-10-30 · The Heart Charm, and worn slots that grow**
-(the owner's picks, all recommended; step 10 of D-482, builds D-458,
-the owner's ask that new gear fit beside the old, D-261) The second
-charm is the Heart Charm, made at the workbench, its sixth slot, from 1
-Mimic Heart and 1 Copper Ore (Mimic Heart's first use); one is carried
-or worn. Wear, in the bag, puts it on, free, "You put on the heart
-charm." Worn, the lantern burns oil a sixth slower: a full tank lasts
-about 70 turns, not 60, and about 87 with the Copper Wick. The two
-charms are worn together. How many pieces each worn slot takes is one
-table, armour 1 and charm 2, each slot a list, so a new slot or a
-bigger one is one number; a save is upgraded to the list (format 7 to
-8). With a slot full, Wear gives back the piece worn there longest. The
-bag shows worn pieces as today. Its bag picture, the mimic heart's
-amber in the wisp charm's copper setting, and its lines are drafted for
-the playtest. Also moved D-484 to the archive, word for word, as this
-file neared 12 KB.
-
 **D-488 · 2026-10-30 · The bed, and sleeping at home** (the owner's
 picks, all recommended, and heal to full, the owner's add; step 11 of
 D-482, builds D-469) The first home piece is a bed, made at the
@@ -200,3 +183,27 @@ Deconstruct bed?, "You aren't tired.", Yes taking it back into the bag,
 No picked. Its picture, a wooden frame with a straw pillow and a grey
 hide blanket, and its lines are drafted for the playtest. Also moved
 D-485 and D-486 to the archive, word for word, as this file neared 12 KB.
+
+**D-489 · 2026-10-30 · The bed ends step 11; the audit on time** (the
+owner's picks, both recommended) Step 11 ends with the bed: the first
+rescue, step 12, comes next, and more home pieces can come later, once
+there are reasons to build them. The sixth audit stays at 0.2.206.
+
+**D-490 · 2026-10-30 · The first rescue begins: the trapped peddler**
+(the owner's picks, all recommended, the rubble's look and facing after
+two mock-ups; step 12 of D-482, builds D-470 and D-471) The first person
+rescued is the future vendor, a peddler; his name comes at its own
+step. In one room of depth 3 the seed picks, he stands trapped in a
+ring of rubble: every open tile of the 8 around him is rubble, a tall,
+dense heap of fallen rock, solid, light passing over it. Freed, he
+goes home on his own. Step 12 is three small steps: 12a, he is there
+and calls out when the rubble around him is bumped, his lines taking
+turns, free (this step); 12b, the rescue; 12c, he stands at home. His
+look is look A of the mock-up: a brown hood with one pale eye and a
+canvas bundle tied with amber cord on his back. Like the creatures, he
+is drawn side-on and turns to face the hero. People are their own
+registry kind in `src/core/people.js`, each room keeping its people as
+it keeps its creatures; a save is upgraded with none, so a room already
+seen stays as it was, and he waits only in a room not yet seen. His lines are
+drafted for the playtest. Also moved D-487 to the archive, word for
+word, as this file neared 12 KB.

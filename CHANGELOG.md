@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.204 (2026-10-30)
+- In one room of depth 3, the seed picks which, a peddler is trapped in a ring of rubble: tall heaps of fallen rock fill every open tile around him. The rubble is solid, but your light passes over it, so you can see him through it.
+- Bump the rubble around him and he calls out to you, his lines taking turns. No turn passes. Rubble with no one behind it is only a heap of fallen rock.
+- He stands side-on with a big canvas pack on his back, and turns to face whichever side you are on. Freeing him comes next.
+- Behind the scenes, people are now their own kind, and each room keeps its people as it keeps its creatures. Your save is updated by itself; a room you have already seen stays as it was, so he waits only in a room not yet seen.
+- Decisions: D-489, D-490.
+
 ## 0.2.203 (2026-10-30)
 - Make a Bed at the workbench, the first home piece: bump the bench and choose its seventh slot. It costs 4 Wood and 2 Rat Tail, and Make is dim with too few. You carry one at a time.
 - Choose it in the bag and press Set down to put it beside you on the surface, as the stash chest goes.
@@ -94,9 +101,3 @@ Entry format:
 - A torch burns 100 turns, even while you are away, then goes out and leaves bare floor. It can't be picked back up.
 - The Crafting page of How to play has a row for it.
 - Decisions: D-478.
-
-## 0.2.192 (2026-10-30)
-- Mimic Glass is the first creature find you can craft with: choose it in the bag and press Make, and 1 Mimic Glass with 2 Oilcaps makes an oil flask. 3 Oilcaps alone still make one too.
-- Without 2 Oilcaps the Make button is dim. Choosing Mimic Glass now says what it makes.
-- The Crafting page of How to play has a row for it.
-- Decisions: D-477.

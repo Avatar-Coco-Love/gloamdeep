@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.203 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.204 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 11 goes on, home pieces and rest (D-469, D-488): read Part 8 of
-`SCOPE.md`, then ask the owner whether the bed ends step 11 or a
-second home piece comes first, before step 12, the first rescue.
+Step 12b, the rescue (D-490): ask the owner how the rubble around the
+peddler is cleared (bumps like a deposit, the pick, how many), what he
+says when freed, and whether the cleared rubble gives stone.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -31,8 +31,8 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [x] 9 Lantern parts, the first using Copper Ore (0.2.198)
 - [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
-- [ ] 11 Home pieces and rest (the bed 0.2.203)
-- [ ] 12 The first rescue
+- [x] 11 Home pieces and rest (the bed 0.2.203)
+- [ ] 12 The first rescue (12a, the trapped peddler 0.2.204)
 - [ ] 13 The vendor and coins
 - [ ] 14 The garden
 - [ ] 15 Fishing
@@ -48,6 +48,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.204, the trapped peddler.** Step 11 ends with
+  the bed, and step 12 begins in three small steps (D-489, D-490). In
+  one depth 3 room, a peddler (look A) stands in a ring of rubble and
+  calls out when it is bumped, turning to face the hero. People are
+  now their own kind. Playtest: https://claude.ai/artifact/JmaYXNkCMkQXPmG1ux7P5L
 - **2026-10-30, 0.2.203, the bed.** Step 11 begins: the bed, the
   first home piece, is made at the workbench from 4 Wood and 2 Rat
   Tail and set down on the surface. Bumped from dusk, the hero sleeps
@@ -60,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   70 turns, not 60. Each worn slot is now a list with its size in one
   table, so new slots fit without breaking saves (D-487). Playtest:
   https://claude.ai/artifact/QXpzkRJkLdzi6KvezjVT89
-- **2026-10-30, 0.2.201, tap to set down.** A fix: on phones, tapping
-  a marked tile to set down the workbench, chest or torch missed (the
-  tap was read on the menus' picture, not the room's); now it sets it
-  there, as D-322 meant. Swipes worked already. Playtest:
-  https://claude.ai/artifact/Ci1dp4r6gTrT5DUwFWVWhp

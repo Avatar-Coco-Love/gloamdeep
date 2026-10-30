@@ -102,6 +102,10 @@ themselves. Each kind also touches:
 - **A tile:** its entry in `src/core/tiles.js` with a new `letter`; its
   drawing in `src/render/tiles.js` (and `sprites.js`); where it stands in
   `cave.js`, `woods.js` or `room.js`; a `mine` tile's lines in `lines.js`.
+- **A person:** its entry in `src/core/people.js` (its `calls` line); its
+  lines in `lines.js`; its sprite in `sprites.js`, drawn facing left; where
+  it stands in `cave.js` (like `withTrapped`) or `room.js`; its row in
+  `CONTENT-2.md` (D-490).
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in
   `tests/registry.test.js` and the room tests, where they change.
 
