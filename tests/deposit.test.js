@@ -16,10 +16,10 @@ const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 // A copper vein ('V') is one of the 3 from depth 3 (D-480)
 const deposits = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === 'O' || ch === 'V' ? [{ x, y }] : [])));
 
-// Every tile the hero could stand on, joined or not
-function joined(room) {
+// Every tile the hero could stand on, joined or not; a person trapped in rubble stands apart (D-490)
+function joined(room, people = []) {
   const open = [];
-  for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid) open.push({ x, y });
+  for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid && !people.some((p) => p.x === x && p.y === y)) open.push({ x, y });
   const seen = new Set([`${open[0].x},${open[0].y}`]), queue = [open[0]];
   while (queue.length) {
     const t = queue.shift();
@@ -40,7 +40,7 @@ test('every Cave room holds 3 deposits, off the edge and clear of what lies, sta
       assert.ok(d.x > 0 && d.y > 0 && d.x < room.cols - 1 && d.y < room.rows - 1);
       assert.ok(![p.start, ...p.items, ...p.enemies].some((o) => o.x === d.x && o.y === d.y));
     }
-    assert.ok(joined(room), `seed ${seed}, ${id} is cut in two`);
+    assert.ok(joined(room, p.people), `seed ${seed}, ${id} is cut in two`);
   }
 });
 

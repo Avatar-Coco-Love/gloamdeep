@@ -1,4 +1,4 @@
-# The drops (D-474 to D-486)
+# The drops (D-474 to D-487)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -8,7 +8,8 @@ steps 6 and 7, the spear and the Stone Pick, at 0.2.197 (D-482); D-481,
 step 8, the Growth tree, at 0.2.199 (D-485); D-483, step 9, the
 Copper Wick, at 0.2.200 (D-486); D-484, step 10's Rat Hide Vest, at
 0.2.202 (D-487); D-485, room on the crafting pages, and D-486,
-the Wisp Charm, at 0.2.203 (D-488).
+the Wisp Charm, at 0.2.203 (D-488); D-487, the Heart Charm and worn
+slots that grow, at 0.2.204 (D-490).
 
 ---
 
@@ -150,3 +151,20 @@ rare material about 1 in 5, not 1 in 10; the common stays 1 in 2. Its
 bag picture, a gloam wisp in a round copper setting on a small loop,
 and its lines are drafted for the playtest. Also moved D-483 to the
 archive, word for word, as this file neared 12 KB.
+
+**D-487 · 2026-10-30 · The Heart Charm, and worn slots that grow**
+(the owner's picks, all recommended; step 10 of D-482, builds D-458,
+the owner's ask that new gear fit beside the old, D-261) The second
+charm is the Heart Charm, made at the workbench, its sixth slot, from 1
+Mimic Heart and 1 Copper Ore (Mimic Heart's first use); one is carried
+or worn. Wear, in the bag, puts it on, free, "You put on the heart
+charm." Worn, the lantern burns oil a sixth slower: a full tank lasts
+about 70 turns, not 60, and about 87 with the Copper Wick. The two
+charms are worn together. How many pieces each worn slot takes is one
+table, armour 1 and charm 2, each slot a list, so a new slot or a
+bigger one is one number; a save is upgraded to the list (format 7 to
+8). With a slot full, Wear gives back the piece worn there longest. The
+bag shows worn pieces as today. Its bag picture, the mimic heart's
+amber in the wisp charm's copper setting, and its lines are drafted for
+the playtest. Also moved D-484 to the archive, word for word, as this
+file neared 12 KB.

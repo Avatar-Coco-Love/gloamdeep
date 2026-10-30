@@ -5,10 +5,11 @@ import { TILES } from './tiles.js';
 import { ITEMS } from './items.js';
 import { LIGHTS } from './lights.js';
 import { ENEMIES } from './enemies.js';
+import { PEOPLE } from './people.js';
 import { UPGRADES as GROWTH_UPGRADES } from './upgrades.js';
 import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES } from './looks.js';
 
-const KINDS = [TILES, ITEMS, LIGHTS, ENEMIES]; // later: NPCs, from its own file
+const KINDS = [TILES, ITEMS, LIGHTS, ENEMIES, PEOPLE]; // people (NPCs) from their own file (D-490)
 // What a hero can wear (P3 to P6): not things in the world, so not in ALL or the dev spawn tool
 export const CLOAKS = LOOK_CLOAKS;
 export const EYES = LOOK_EYES;

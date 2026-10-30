@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.201, tap to set down.** A fix: on phones, tapping
+  a marked tile to set down the workbench, chest or torch missed (the
+  tap was read on the menus' picture, not the room's); now it sets it
+  there, as D-322 meant. Swipes worked already. Playtest:
+  https://claude.ai/artifact/Ci1dp4r6gTrT5DUwFWVWhp
 - **2026-10-30, 0.2.200, the wisp charm.** Step 10 goes on: the
   Wisp Charm, the first charm, is made at the workbench from 3 Gloam
   Wisp and 1 Copper Ore; Wear in the bag puts it on, free, and rare

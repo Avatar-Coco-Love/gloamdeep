@@ -20,9 +20,9 @@ export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0);
 // `home` is where the hero wakes after a fall: the room as it started (D-119).
 // One room on its own, as tests use it; makeWorld adds the other places.
 // `seed` sets every generated depth (D-148).
-export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1) {
-  const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items };
-  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {}, stashes: {} };
+export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1, people = []) {
+  const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items, people };
+  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], held: null, events: [], told: {}, stashes: {} };
 }
 
 // § world: every place, the hero in the first one. The others wait in
@@ -32,7 +32,7 @@ export function makeState(room, start = FIRST_START, lights = [], enemies = [], 
 // at New journey (D-334): gentle, normal or hardcore.
 export function makeWorld(first = 'first', seed = 1, mode = 'normal') {
   const begun = beginAll(seed);
-  const here = begun[first], state = makeState(here.room, here.start, here.lights, here.enemies, here.items, seed);
+  const here = begun[first], state = makeState(here.room, here.start, here.lights, here.enemies, here.items, seed, here.people);
   return { ...state, mode, place: first, found: [first], elsewhere: away(begun, first, {}), home: { ...state.home, place: first, places: begun } };
 }
 
@@ -48,7 +48,7 @@ function beginAll(seed) {
 function away(begun, here, seen) {
   const out = {};
   for (const [id, p] of Object.entries(begun)) {
-    if (id !== here) out[id] = { room: p.room, lights: p.lights, enemies: p.enemies, items: p.items || [], taken: [], seen: seen[id] || blankMemory(p.room) };
+    if (id !== here) out[id] = { room: p.room, lights: p.lights, enemies: p.enemies, items: p.items || [], people: p.people || [], taken: [], seen: seen[id] || blankMemory(p.room) };
   }
   return out;
 }

@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.204', date: '2026-10-30', title: 'The trapped peddler', lines: [
+    "In one room of depth 3, the seed picks which, a peddler is trapped in a ring of rubble: tall heaps of fallen rock fill every open tile around him. The rubble is solid, but your light passes over it, so you can see him through it.",
+    "Bump the rubble around him and he calls out to you, his lines taking turns. No turn passes. Rubble with no one behind it is only a heap of fallen rock.",
+    "He stands side-on with a big canvas pack on his back, and turns to face whichever side you are on. Freeing him comes next.",
+    "Behind the scenes, people are now their own kind, and each room keeps its people as it keeps its creatures. Your save is updated by itself; a room you have already seen stays as it was, so he waits only in a room not yet seen.",
+    "Decisions: D-489, D-490.",
+  ] },
   { v: '0.2.203', date: '2026-10-30', title: 'The bed', lines: [
     "Make a Bed at the workbench, the first home piece: bump the bench and choose its seventh slot. It costs 4 Wood and 2 Rat Tail, and Make is dim with too few. You carry one at a time.",
     "Choose it in the bag and press Set down to put it beside you on the surface, as the stash chest goes.",
