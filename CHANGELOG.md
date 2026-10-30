@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.201 (2026-10-30)
+- Tapping a marked tile now sets down the workbench, the stash chest or a torch, as it should. On phones the tap was read in the wrong place, missed the tile, and left the thing in the bag; swiping still worked.
+- Decisions: none (it was meant to work this way, D-322).
+
 ## 0.2.200 (2026-10-30)
 - Make a Wisp Charm at the workbench, the first charm: bump the bench and choose its fifth slot. It costs 3 Gloam Wisp and 1 Copper Ore, and Make is dim with too few. You have one at a time.
 - Choose the charm in the bag and press Wear: you put it on, and no turn passes. You can wear it and the vest together.
@@ -98,9 +102,3 @@ Entry format:
 - A Rat Tail is curled into a loop, the rat's pink with a grey stub. Choosing it in the bag says a line about it; it is for crafting later.
 - With every stack full it stays on the floor until you come back for it. It never grows back.
 - Decisions: D-474.
-
-## 0.2.188 (2026-10-30)
-- The scope's build order is set: creature drops come first, so today's five creatures leave materials to take home.
-- The first 8 steps: a rat's Rat Tail, the other common drops, the rare drops, a first recipe using one, torches to make and set down, a second weapon kind, a pick and the first ore, and the Growth tree.
-- Nothing in the game changes yet.
-- Decisions: D-473.

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.201', date: '2026-10-30', title: 'Tap to set down', lines: [
+    "Tapping a marked tile now sets down the workbench, the stash chest or a torch, as it should. On phones the tap was read in the wrong place, missed the tile, and left the thing in the bag; swiping still worked.",
+    "Decisions: none (it was meant to work this way, D-322).",
+  ] },
   { v: '0.2.200', date: '2026-10-30', title: 'The wisp charm', lines: [
     "Make a Wisp Charm at the workbench, the first charm: bump the bench and choose its fifth slot. It costs 3 Gloam Wisp and 1 Copper Ore, and Make is dim with too few. You have one at a time.",
     "Choose the charm in the bag and press Wear: you put it on, and no turn passes. You can wear it and the vest together.",
