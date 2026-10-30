@@ -5,6 +5,7 @@ import { TILES } from './tiles.js';
 import { ITEMS } from './items.js';
 import { LIGHTS } from './lights.js';
 import { ENEMIES } from './enemies.js';
+import { UPGRADES as GROWTH_UPGRADES } from './upgrades.js';
 import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES } from './looks.js';
 
 const KINDS = [TILES, ITEMS, LIGHTS, ENEMIES]; // later: NPCs, from its own file
@@ -13,6 +14,8 @@ export const CLOAKS = LOOK_CLOAKS;
 export const EYES = LOOK_EYES;
 export const TRIMS = LOOK_TRIMS;
 export const CLOTHES = LOOK_CLOTHES;
+// The Growth tree's upgrades (D-481): bought with embers, not things in the world either
+export const UPGRADES = GROWTH_UPGRADES;
 
 export const ALL = KINDS.flatMap((table) => Object.values(table));
 const BY_ID = new Map(ALL.map((e) => [e.id, e]));

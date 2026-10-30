@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.195 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.196 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 8 of the build order (D-473): the Growth tree, first with its
-three branches Light, Body and Hands, and today's bought hearts moved
-into Body (D-462). Propose how it looks and opens, with a mock-up.
+The first 8 steps of the build order (D-473) are done. Ask the owner
+the order of the rest (D-473): lantern parts, armour and charms, home
+pieces and rest, the first rescue, vendor and coins, garden, fishing,
+lore, relics, feats; the first Light and Hands upgrades may join it.
 Half and Automatic wait on Q-069. Upright play (Q-065) is tabled.
 
 ## Waiting on the owner
@@ -37,7 +38,7 @@ The scope, drops first (D-473):
 - [x] 5 Torches: made in the bag, set down on a tile, 0.2.193
 - [x] 6 The spear, hitting through; swapped in the bag, 0.2.194
 - [x] 7 A pick, and the first ore in the mines, 0.2.195
-- [ ] 8 The Growth tree: Light, Body, Hands; today's hearts in Body
+- [x] 8 The Growth tree: Light, Body, Hands; today's hearts in Body, 0.2.196
 Later, order asked then: lantern parts, armour and charms, home pieces
 and rest, the first rescue, vendor and coins, garden, fishing, lore,
 relics, feats.
@@ -50,6 +51,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-30, 0.2.196, the Growth tree.** Step 8: Growth is a
+  tree, look D of the mock-up: an ember at the root, limbs climbing
+  through Light, Body and Hands; the heart is Body's first, the rest to
+  come, a locked row above; pick a place, its words and button on the
+  right; any order (D-481). Playtest:
+  https://claude.ai/artifact/ProGVaa8ATkFjvdywoRNCh
 - **2026-10-30, 0.2.195, the pick and copper.** Step 7: the Stone
   Pick is made at the workbench from 2 Wood and 3 Stone and works from
   the bag; from depth 3, one boulder in each Cave room is a Copper vein,
@@ -60,8 +67,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   behind it for 1. A weapon found with one held goes into the bag, and
   Hold there swaps it into the hand, a turn (D-479). Playtest:
   https://claude.ai/artifact/2AAs6QhoWvosWacA7S1bTT
-- **2026-10-30, 0.2.193, torches.** Step 5: Make on Moth Dust turns
-  1 dust and 1 Wood into a torch, stacks of 5; Set down beside the hero
-  anywhere, the bench's way, on a stone foot, lighting 3 tiles; out
-  after 100 turns, bare floor left (D-478). Playtest:
-  https://claude.ai/artifact/3yLzsoqZpyuNzCZc7hYtMw

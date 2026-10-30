@@ -146,7 +146,7 @@ export function createFrame(app, ui) {
     else if (screen === 'trim') { titleScene(0, t); drawTrims(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.trim, app.clothes, app.chosen); }
     else if (screen === 'clothes') { titleScene(0, t); drawClothes(rc, view.w, view.h, heroIn, app.cloak, app.eyes, app.trim, app.clothes, app.chosen); }
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
-    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); } // the card on the title's scene (D-391)
+    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick); } // the card on the title's scene (D-391)
     else if (screen === 'title') { // laid out like a phone game's (D-401)
       const p = playing(app.profiles);
       titleScene(3, t);
@@ -292,7 +292,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
-    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still()); // a card on the room (D-391)
+    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
       drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)

@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
 // history-0.2-2.js (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.196', date: '2026-10-30', title: 'The Growth tree', lines: [
+    "The Journal's Growth tab is now a tree: an ember glows at its root, and three limbs climb from it, Light, Body and Hands. Each branch has a row of places, the first at the bottom.",
+    "Today's hearts are Body's first upgrade, with a row of small hearts for those bought. Light and Hands show dim places still to come, and a dim locked row above opens deeper down.",
+    "The arrows or a tap pick a place, outlined in gold. On the right it says your embers, the place's name and what it does, with its button and cost: ADD A HEART on the heart. Left past Light turns back to Records.",
+    "Embers buy any open upgrade, in any order; nothing you buy closes another.",
+    "Decisions: D-481.",
+  ] },
   { v: '0.2.195', date: '2026-10-30', title: 'The pick and copper', lines: [
     "Make a Stone Pick at the workbench: bump it and choose the new slot beside the stash chest. It costs 2 Wood and 3 Stone, and Make is dim with too few. You carry one at a time.",
     "Copper veins, grey boulders flecked with copper, are the first ore. From depth 3, one of the three boulders in each Cave room is a vein. Without the pick in your bag, bumping one says it is too hard to break by hand, and no turn passes.",

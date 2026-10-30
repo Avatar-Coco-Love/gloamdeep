@@ -1,8 +1,8 @@
 // § journal: one book with tabs (D-262, D-270). Records is the first tab, Growth
 // the second (D-293); later tabs join the row. Plain data, no drawing.
 import { playedText } from './profile.js';
-import { embers, canAddHeart, HEART_COST, HEARTS_MORE } from './growth.js';
-import { maxHealth, HERO_HEALTH } from './turn.js';
+import { embers, told, START_PICK } from './growth.js';
+import { BRANCHES } from './upgrades.js';
 
 export const TABS = [{ id: 'records', text: 'Records' }, { id: 'growth', text: 'Growth' }];
 
@@ -22,11 +22,11 @@ export const recordRows = (r, played = 0) => [
 const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
 export const journalWords = (r, played = 0) => `Journal, Records tab. ${recordRows(r, played).map((row) => `${row.text}, ${row.value}`).join('. ')}. ${TURN}`;
 
-// § growth: the Growth tab's rows, from the journey (D-293): the embers left and
-// the hearts in all; then Add a heart, a button that spends an ember on one more (D-391)
-export const growthRows = (state) => [
-  { text: 'Embers', value: String(embers(state)) },
-  { text: 'Hearts', value: `${maxHealth(state)} of ${HERO_HEALTH + HEARTS_MORE}` },
-];
-export const ADD_HEART = { text: 'Add a heart', cost: `${HEART_COST} ember each` };
-export const growthWords = (state) => `Journal, Growth tab. ${growthRows(state).map((row) => `${row.text}, ${row.value}`).join('. ')}. ${ADD_HEART.text}, ${ADD_HEART.cost}${canAddHeart(state) ? '' : ', not now'}. ${TURN}`;
+// § growth: the Growth tab, a tree (D-462, D-481): the embers left, then the picked place's
+// branch and what it says beside the tree (growth.js)
+const PICK = 'Arrows pick another place, Left past Light for Records.';
+export function growthWords(state, pick = START_PICK) {
+  const t = told(state, pick), b = t.button;
+  const parts = [`Embers, ${embers(state)}`, `${BRANCHES[pick.col].text}, row ${pick.row + 1}, ${t.name}`, t.value, t.words.replace(/\.$/, ''), b && `${b.text}, ${b.cost}${b.can ? '' : ', not now'}`].filter(Boolean);
+  return `Journal, Growth tab. ${parts.join('. ')}. ${PICK} Esc or the close button goes back.`;
+}
