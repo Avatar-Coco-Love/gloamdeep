@@ -56,7 +56,7 @@ header says when it moved and why.
 | `DECISIONS-HELP.md` | D-507, D-508 | the Basics page, the guide is not a faery | D-510 |
 | `DECISIONS-LINES.md` | D-509, D-510 | the text line's colours by source, no more for now | D-512 |
 | `DECISIONS-HERBS-LINED.md` | D-511, D-512 | a herb at full health goes in the bag, lined up with no overlaps | D-513 |
-| `DECISIONS-CHANGE-LOOK.md` | D-513 | the Change look button, taps big enough | D-516 |
+| `DECISIONS-CHANGE-LOOK.md` | D-513 to D-516 | the Change look button, taps big enough, the looks plan, the first patterns, Glints | D-516, D-525 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

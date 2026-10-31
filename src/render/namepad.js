@@ -74,7 +74,7 @@ export function drawNameCard(c, vw, vh, entry, chosen, t, still, renaming, hero 
   if (!renaming) drawDots(c, card, title, 0, 2); // a new hero's first step of two
   const pad = padAt(vw, vh), { x, y, w: fw } = pad;
   const stage = hero && stageAt(pad);
-  if (stage) { c.imageSmoothingEnabled = false; drawStage(c, hero, entry, '', stage); }
+  if (stage) { c.imageSmoothingEnabled = false; drawStage(c, hero, entry, '', stage, t, still); }
   c.fillStyle = K; c.fillRect(x, y, fw, FIELD_H);
   c.fillStyle = EMBER;
   c.fillRect(x + 1, y, fw - 2, 1); c.fillRect(x + 1, y + FIELD_H - 1, fw - 2, 1);

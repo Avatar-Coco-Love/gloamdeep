@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.231, RANDOM.** The hero creator's third step.
+  Picked: RANDOM at OK's left on both LOOK cards; a press rolls all
+  four parts from the free looks, and the flame stays on it (D-522).
+  Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK
 - **2026-10-31, 0.2.230, the tabs.** The hero creator's second step.
   Picked: one LOOK card, four tabs under its heading, the open one in
   ember; every tab's boxes show the whole hero 1×, named; OK finishes

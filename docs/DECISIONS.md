@@ -120,27 +120,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-514 · 2026-10-31 · More looks, the plan** (the owner's picks;
-builds D-280, D-418) Cloak patterns come first; then more clothes
-shapes and more colours. New look parts later, each its own step: a
-hood or hat, the lantern's style, a scarf or cape. A few new looks are
-free in the picker; the special ones, like patterns, wait for the look
-currency (Q-055). Change look grows into one card with a tab per part
-and the hero shown big. Which patterns, and which are free, is Q-073.
-
-**D-515 · 2026-10-31 · The first cloak patterns** (the owner's picks,
-all recommended, from a mock-up; answers Q-073, builds D-514) Zebra
-stripes, cow spots and camo, the three D-280 named. Each has its own
-colours, not the cloak's: zebra bone with dark stripes, cow bone with
-dark patches, camo moss with brown and deep green blotches. None is
-free; all three wait for the look currency (Q-055).
-
-**D-516 · 2026-10-31 · Glints, the look currency** (the owner's picks,
-both recommended; narrows Q-055, builds D-418, D-467) The look currency
-is called Glints. The Feats tiers pay them, and they are spent in the
-Look card: a locked look shows there with a lock and is bought there.
-Which Feats pay, how many Glints, and each look's price stay Q-055.
-
 **D-517 · 2026-10-31 · The hero creator, one card** (the owner's pick
 of A from a mock-up, with Claude's extras; builds D-514) After the
 name, a new hero gets one Look card, the same as Change look: the hero
@@ -209,3 +188,13 @@ Change look have none. The name card shows the hero as big as fits,
 its typed name over it: upright just under the top bar, as in mock-up
 A; sideways between the letter halves. RENAME shows the profile's own
 hero. Going back from LOOK keeps the look picked.
+
+**D-525 · 2026-10-31 · The hero creator, step 6: the crypt floor**
+(the owner's picks, both recommended, from a mock-up; builds D-517,
+D-520) The big hero on the name and LOOK cards stands on the crypt's
+own floor slabs, lit warm near the hero and fading into the card at
+the edges, with no frame. The hero stands still, not bobbing as in
+mock-up A, since heroes don't bob in the game; only the light flickers,
+with the lantern's own flicker, and stays steady when Motion is
+Reduced. The small choice boxes keep their speckled floor. D-514 to
+D-516 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
