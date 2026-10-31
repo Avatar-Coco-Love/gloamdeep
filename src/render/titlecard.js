@@ -2,7 +2,7 @@
 // phone game's, on the title's scene. The name at the top (title.js), one big ember button under
 // the hero: CONTINUE while a journey is saved, with New journey a grey line under it, else NEW
 // JOURNEY alone. Journal, How to play and Settings are round buttons top right, a 9 × 9 icon
-// in each (D-402) and its name under it; the profile in play is a glass chip top left, its hero, name and
+// in each (D-402) and its name under it, or upright in a row under the big button (D-506); the profile in play is a glass chip top left, its hero, name and
 // deepest depth, opening Profiles; the Seed Explorer a round button bottom left, its name beside
 // it. The chosen one is ember (the button, a round button's rim, the chip's edge) or gold with
 // the flame (the grey line). No sprites here, so the tests can load it.
@@ -21,6 +21,7 @@ const NAME_W = (textWidth(NAME) + 2) * NAME_SCALE;
 const BUTTON_TOP = 160, BUTTON_H = 19, BUTTON_PAD = 24; // the big button's top from the picture's, its height and the room either side of its word
 const LINE_GAP = 7; // from the big button's foot to New journey's top
 const R = 12, ROUND_GAP = 52, COLUMN_GAP = 40; // the round buttons' radius, and from one's middle to the next in a row, or in a column
+const UNDER = 10; // upright, from the big button's foot (or New journey's) to the round buttons' tops
 const TAP_PAD = 4;
 
 // § icons: 9 × 9 in the stone grey, one game pixel per dot like the hero's and the hearts' (D-402; were 5 × 5 drafts, doubled, D-401)
@@ -40,7 +41,9 @@ export const nameTop = (vh) => pictureTop(vh) + NAME_TOP; // the name's top on t
 export function titleLayout(vw, vh, menu, chip) {
   const cx = Math.floor(vw / 2), oy = pictureTop(vh), saved = menu.some((l) => l.id === 'continue');
   const top = oy + BUTTON_TOP;
-  // The round buttons in a row top right, or down the right where the row would reach the name
+  // The round buttons upright in a row under the big button, sideways in a row top right, or
+  // down the right where that row would reach the name
+  const upright = vh > vw, under = top + BUTTON_H + (saved ? LINE_GAP + FONT_H : 0) + UNDER + R;
   const row = vw - EDGE_GAP - (ROUNDS.length - 1) * ROUND_GAP - R - Math.ceil(textWidth(NAMES.howto) / 2) > cx + NAME_W / 2 + EDGE_GAP;
   return menu.map((l) => {
     if (l.id === 'continue' || (l.id === 'new' && !saved)) {
@@ -56,8 +59,8 @@ export function titleLayout(vw, vh, menu, chip) {
       return { id: l.id, kind: 'chip', x: EDGE_GAP, y: EDGE_GAP, w, h: BOX_H };
     }
     const i = ROUNDS.indexOf(l.id), word = NAMES[l.id], lw = textWidth(word);
-    const mx = i < 0 ? EDGE_GAP + R : row ? vw - EDGE_GAP - R - (ROUNDS.length - 1 - i) * ROUND_GAP : vw - EDGE_GAP - Math.ceil(textWidth(NAMES.howto) / 2);
-    const my = i < 0 ? vh - EDGE_GAP - R - 4 : EDGE_GAP + R + (row ? 0 : i * COLUMN_GAP); // the Explorer clear of the version under it
+    const mx = i < 0 ? EDGE_GAP + R : upright ? cx + (i - 1) * ROUND_GAP : row ? vw - EDGE_GAP - R - (ROUNDS.length - 1 - i) * ROUND_GAP : vw - EDGE_GAP - Math.ceil(textWidth(NAMES.howto) / 2);
+    const my = i < 0 ? vh - EDGE_GAP - R - 4 : upright ? under : EDGE_GAP + R + (row ? 0 : i * COLUMN_GAP); // the Explorer clear of the version under it
     const hit = i >= 0 ? { x: mx - Math.floor(Math.max(2 * R, lw) / 2), y: my - R, w: Math.max(2 * R, lw), h: 2 * R + 3 + FONT_H } // its name under it
       : { x: mx - R, y: my - R, w: 2 * R + 6 + lw, h: 2 * R }; // its name beside it
     return { id: l.id, kind: 'round', word, mx, my, x: mx - R, y: my - R, w: 2 * R, h: 2 * R, hit };

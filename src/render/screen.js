@@ -42,13 +42,17 @@ export function createScreen(canvas, list, room, hud) {
 }
 
 // § fit: the menus' picture gets the biggest zoom that fits the box, held
-// either way (D-505), clear of the buttons at the sides. The hearts, oil and
+// either way (D-505), clear of the buttons at the sides; upright, nothing
+// stands beside it, so it fills the width as play does, with FOOT left under
+// it for the title's row of round buttons and the Seed Explorer (D-506), and
+// as much over it, as it stands in the middle. The hearts, oil and
 // the creature list are on the room (D-378), so the list's row under the text
 // line stays hidden (D-357).
 // Each game pixel covers a whole number of screen pixels (2 or more), so
 // all are the same size. Below 2 the zoom is fractional instead, so very
 // small screens still fill the box.
-const pictureZoom = (bw, bh) => zoom(Math.min((bw - 2 * ROW) / W, bh / SCREEN_H));
+export const FOOT = 52; // upright, the room under the picture (D-506)
+const pictureZoom = (bw, bh) => bh > bw ? zoom(Math.min(bw / W, bh / (SCREEN_H + 2 * FOOT))) : zoom(Math.min((bw - 2 * ROW) / W, bh / SCREEN_H));
 function fitCanvas(canvas, list) {
   const box = canvas.parentElement, scale = pictureZoom(box.clientWidth, box.clientHeight);
   for (const c of [canvas, list]) { c.style.width = c.width * scale + 'px'; c.style.height = c.height * scale + 'px'; }

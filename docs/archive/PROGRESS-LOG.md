@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.217, the pond at home.** From a mock-up drawn by
+  the game's own code, the owner picked a pond of 5 to 9 tiles at home
+  in a seeded open spot, and, from their catch that the cave pool
+  bubbled like a hot spring, calmer rings on all still water (D-503).
+  Playtest: https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
 - **2026-10-31, 0.2.216, water on the map.** From a mock-up drawn by
   the game's own code, the owner picked water on the map first: a
   seen pool shows in its blue-grey, not as wall. A pond at home, in

@@ -21,6 +21,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.220 (2026-10-31)
+- Held upright, the title's screens are bigger: the title, Profiles, Settings, How to play and the name and seed pads fill the screen's width, the same size as the cards in play. Sideways nothing changed.
+- Upright, Journal, How to play and Settings stand in a row under the big button, in thumb reach.
+- Upright, the name pad's keys are square and sit at the bottom of the card, and the seed pad's keys fill the card's width at its bottom, their digits twice as big.
+- Behind the scenes: old decisions that 0.2.219 lost from the archive by mistake are back, word for word.
+- Decisions: D-506.
+
 ## 0.2.219 (2026-10-31)
 - You can now play holding your phone upright, not only sideways. Turn it any time, even in the middle of a fight or with the bag open: the game no longer pauses or asks you to turn it.
 - The tiles are the same size whichever way you hold it. Upright you see about 9 tiles across and more of the room above and below you; sideways, as before, more to the left and right.
