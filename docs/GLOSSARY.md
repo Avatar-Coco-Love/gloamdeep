@@ -33,6 +33,7 @@ this page and a decision disagree, the decision wins.
 ## The hero
 - **Hearts:** the hero's health, 5, and up to 5 more bought (D-115, D-293). **LV:** the level (D-246).
 - **Embers:** 1 for each level past the first, spent in Growth (D-293).
+- **Glints:** the look currency, paid by Feats, spent on looks (D-516).
 - **Experience:** a creature beaten gives its hearts and bite; a new room 1 (D-245, D-371).
 - **Lantern, oil:** the light the hero carries and what it burns.
 - **Flask:** oil to pour into the lantern, from the bag (D-247, D-249).

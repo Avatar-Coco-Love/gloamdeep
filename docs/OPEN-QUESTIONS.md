@@ -71,7 +71,8 @@ digits "COCO2". The owner is unsure and wants it kept for later.
 **Q-055 · The play-earned currency** (before the first unlock, D-280)
 Narrowed by D-418: it is the look currency, earned only from deeds,
 records and achievements, buying only looks; trade coins are separate.
-Still open: its name, which deeds pay, what it buys first and where.
+Narrowed by D-516: it is Glints, paid by the Feats tiers and spent in
+the Look card. Still open: which Feats pay, how many, and the prices.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
