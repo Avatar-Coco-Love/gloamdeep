@@ -180,12 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-513 · 2026-10-31 · Change look, and taps big enough** (the owner's
-picks, both recommended; builds D-289) The slot card's look button
-reads CHANGE LOOK, as a wide button of its own over RENAME at the left
-and DELETE at the right. The buttons look the same size, but each
-row's taps reach past them, at least 44 px tall on a phone.
-
 **D-514 · 2026-10-31 · More looks, the plan** (the owner's picks;
 builds D-280, D-418) Cloak patterns come first; then more clothes
 shapes and more colours. New look parts later, each its own step: a
@@ -200,3 +194,19 @@ stripes, cow spots and camo, the three D-280 named. Each has its own
 colours, not the cloak's: zebra bone with dark stripes, cow bone with
 dark patches, camo moss with brown and deep green blotches. None is
 free; all three wait for the look currency (Q-055).
+
+**D-516 · 2026-10-31 · Glints, the look currency** (the owner's picks,
+both recommended; narrows Q-055, builds D-418, D-467) The look currency
+is called Glints. The Feats tiers pay them, and they are spent in the
+Look card: a locked look shows there with a lock and is bought there.
+Which Feats pay, how many Glints, and each look's price stay Q-055.
+
+**D-517 · 2026-10-31 · The hero creator, one card** (the owner's pick
+of A from a mock-up, with Claude's extras; builds D-514) After the
+name, a new hero gets one Look card, the same as Change look: the hero
+big on a lit floor, its name over it and the choice's name under it;
+tabs for cloak, eyes, trim and clothes, each choice drawn on the whole
+hero with its name; RANDOM beside OK, rolling free looks only; locked
+looks in the grid with a lock. The name card shows the hero too, and
+dots show the steps left. Built in small steps after the seventh
+audit, which moves to 0.2.228.

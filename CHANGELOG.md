@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.227 (2026-10-31)
+- Behind the scenes: the look currency is named Glints. Feats will pay them, and they will be spent in the Look card, where a locked look shows with a lock.
+- Behind the scenes: making a hero gets one Look card after the name, the hero shown big with tabs for cloak, eyes, trim and clothes, each choice named, and a Random button. It will be built in small steps after the next tidy-up.
+- Decisions: D-516, D-517.
+
 ## 0.2.226 (2026-10-31)
 - Behind the scenes: the first cloak patterns are zebra stripes, cow spots and camo, the three named in D-280. Each has its own colours: zebra bone with dark stripes, cow bone with dark patches, camo moss with brown and deep green blotches. None is free; all three wait for the look currency.
 - Decisions: D-515. Question closed: Q-073.
@@ -94,8 +99,3 @@ Entry format:
 - The owner's ideas for how places are made are kept: pools, rivers above and below ground, different biomes, parts of a room you reach only through another door, and later debris and cobwebs.
 - Water comes next, before the garden and fishing. Nothing in the game changed.
 - Decisions: D-499. Questions opened: Q-071.
-
-## 0.2.212 (2026-10-30)
-- Clearing a corner heap of the rubble around the peddler no longer frees him: you can't reach him through a corner. He keeps cheering you on.
-- Clear a heap straight up, down, left or right of him to free him. His 5 turns start then, so you have time to step in and talk.
-- Decisions: D-498.

@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.227', date: '2026-10-31', title: 'Glints and the hero creator', lines: [
+    "Behind the scenes: the look currency is named Glints. Feats will pay them, and they will be spent in the Look card, where a locked look shows with a lock.",
+    "Behind the scenes: making a hero gets one Look card after the name, the hero shown big with tabs for cloak, eyes, trim and clothes, each choice named, and a Random button. It will be built in small steps after the next tidy-up.",
+    "Decisions: D-516, D-517.",
+  ] },
   { v: '0.2.226', date: '2026-10-31', title: 'Cloak patterns picked', lines: [
     "Behind the scenes: the first cloak patterns are zebra stripes, cow spots and camo, the three named in D-280. Each has its own colours: zebra bone with dark stripes, cow bone with dark patches, camo moss with brown and deep green blotches. None is free; all three wait for the look currency.",
     "Decisions: D-515. Question closed: Q-073.",

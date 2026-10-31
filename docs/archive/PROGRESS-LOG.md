@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.224, lined up.** The owner asked for a check of
+  every screen for overlaps. Found and fixed, all four picks
+  recommended (D-512): the version number on the card's corner, the
+  close cross touching the rule, the dev drawer over the hearts panel,
+  the panel's edge 4 px off the buttons'.
+  Playtest: https://claude.ai/artifact/3EH9LEF8TLsxzvJPFXG1Dy
 - **2026-10-31, 0.2.223, herbs in the bag.** The owner found a herb
   that wouldn't go at seed 27514, depth 2: at full hearts it stayed, silent
   (D-156). The owner picked the bag: at full health a herb goes in, 5 a
