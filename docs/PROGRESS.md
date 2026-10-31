@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.234 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.235 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The hero creator (D-517), step 5: the LOOK card's tabs and boxes across the card's full width, with no empty space on tall phones, proposed beside mock-up A (https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg) first; then step 14, the garden (Q-071).
+Step 14, the garden (Q-071), proposed first; the hero creator (D-517) is done.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.235, the LOOK card's full width.** Step 5. Plan
+  beside A: https://claude.ai/artifact/STBQKV8iEd8Jz315skwnXR. Picked
+  2: tabs and boxes across the card, the boxes' heroes 2× when they fit,
+  the hero as big as fits, its floor filling the height (D-526). D-520 to
+  D-522 archived. Playtest: https://claude.ai/artifact/ETLPgmmdEEmkjhFdcaUqiC
 - **2026-10-31, 0.2.234, the crypt floor.** The owner picked point 3
   of the last plan: the hero's backdrop, as crypt floor, with no bobbing.
   Mock-up: https://claude.ai/artifact/2vYtqzma7iMc643fQR8Spj. Picked:
@@ -54,7 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   new hero's cards, the hero under the name card's top bar, sideways
   between the letters, Rename too (D-524). D-336 moved to the audits
   archive. Playtest: https://claude.ai/artifact/WGkcsvyxoot2CuhFe4iH9T
-- **2026-10-31, 0.2.232, nearer the mock-up.** The owner had picked my
-  recommendations hoping for the mock-up's look; I listed where the card
-  drifted. Picked: the hero as big as fits (3× to 6×), RANDOM and OK a
-  row of big buttons, the tabs under the hero as in A (D-523). Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK

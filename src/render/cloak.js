@@ -3,9 +3,10 @@
 // its rule the hero big on the crypt floor, lit and flickering with no frame (D-525), the profile's name over it and the open tab's choice
 // under it (D-520). Under that four tabs, CLOAK, EYES, TRIM and CLOTHES, as wide as the boxes
 // under them (D-523), the open one filled in ember and framed in gold when the arrows are on
-// it; then the tab's choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
-// gold; sideways the big hero sits at the left of the tabs and boxes. The hero is as big as the card has
-// room for, 3× to 6× (D-523). RANDOM and OK are one row of two big buttons across the card's foot
+// it; then the tab's choices three to a row, each the whole hero 2× in it with its name (1× when the card is
+// too short), the picked one framed in gold; sideways the big hero sits at the left of the tabs and boxes.
+// The tabs and boxes span the card's width, the hero is as big as the rest has room for, and its floor grows
+// taller to fill what is left (D-526). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, tabOf } from '../core/looks.js';
@@ -15,8 +16,9 @@ import { drawSlab } from './slab.js';
 import { flicker } from './light.js';
 
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
-const BOX_W = 46, BOX_H = 30, GAP = 4, ROW_GAP = 2; // a hero's framed box, the hero 1× and its name (D-520); boxes' spacing
-const ZOOM_MIN = 3, ZOOM_MAX = 6; // the big hero's zoom, as big as fits (D-523)
+const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
+const boxH = (s) => 16 * s + 14; // a box's height with its hero s×: the hero, its name and the space round them
+const ZOOM_MIN = 3, ZOOM_MAX = 12, BIG_BOXES = 6; // the big hero's zoom, as big as fits (D-523, D-526); the least zoom that still lets the boxes be 2×
 const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor at zoom z
 const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
@@ -44,22 +46,26 @@ function tabsAt(x, y, w) {
   });
 }
 function boxesAt(vw, vh) {
-  const card = cardAt(vw, vh), w = COLS * BOX_W + (COLS - 1) * GAP, h = ROWS * BOX_H + (ROWS - 1) * ROW_GAP;
-  const row = lookRowAt(vw, vh), top = card.y + RULE + 2, room = row.ok.y - 4 - top; // the card stops over the buttons
-  const tall = isTall(vw, vh), at = { card, row }, H = TABS_H + h; // the tabs and the boxes under them
-  const place = (bx, by) => ({ ...at, x: bx, y: by + TABS_H, tabs: tabsAt(bx, by, w) });
+  const card = cardAt(vw, vh), inner = card.w - 2 * PAD, row = lookRowAt(vw, vh), top = card.y + RULE + 2, room = row.ok.y - 4 - top; // the card stops over the buttons
+  const tall = isTall(vw, vh), at = { card, row };
   const standH = (z) => LINE + stageH(z) + LINE; // the name, the hero, the choice's name
-  const fits = (z) => (tall ? stageW(z) <= card.w - 2 * PAD && standH(z) + 2 + H <= room : stageW(z) + 12 + w <= card.w - 2 * PAD && standH(z) <= room);
-  let z = ZOOM_MAX; while (z > ZOOM_MIN && !fits(z)) z--;
-  const sw = stageW(z), sh = standH(z);
+  const blockH = (s) => TABS_H + ROWS * boxH(s) + (ROWS - 1) * ROW_GAP; // the tabs and the boxes under them
+  const gridW = (w) => Math.max(COLS * BOX_W + (COLS - 1) * GAP, w); // the boxes across w, never narrower than today's
+  // The largest zoom that fits beside or over boxes s× high; then 2× boxes if the hero still gets BIG_BOXES (D-526)
+  const zoomFor = (s) => { let z = ZOOM_MAX; while (z > ZOOM_MIN && !(tall ? stageW(z) <= inner && standH(z) + 2 + blockH(s) <= room : stageW(z) + 12 + gridW(0) <= inner && standH(z) <= room)) z--; return z; };
+  let s = 2, z = zoomFor(2);
+  if (z < BIG_BOXES || (!tall && blockH(2) > room)) { s = 1; z = zoomFor(1); }
+  const sw = stageW(z), spare = Math.max(0, room - (tall ? standH(z) + 2 + blockH(s) : standH(z))); // the floor grows by this
+  const place = (gx, gw, gy) => { const bw = Math.floor((gw - (COLS - 1) * GAP) / COLS), w = COLS * bw + (COLS - 1) * GAP, x = gx + Math.floor((gw - w) / 2);
+    return { ...at, x, y: gy + TABS_H, bw, bh: boxH(s), s, tabs: tabsAt(x, gy, w) }; };
   if (tall) {
-    const y = top + Math.max(0, Math.floor((room - sh - 2 - H) / 2));
-    return { ...place(card.x + Math.floor((card.w - w) / 2), y + sh + 2), stage: { x: card.x + Math.floor((card.w - sw) / 2), y, z } };
+    const fw = Math.max(sw, Math.min(inner, sw + spare)), gw = gridW(inner); // the floor wider too as it grows, up to the card's width
+    return { ...place(card.x + Math.floor((card.w - gw) / 2), gw, top + standH(z) + spare + 2), stage: { x: card.x + Math.floor((card.w - fw) / 2), y: top, z, w: fw, h: stageH(z) + spare } };
   }
-  const all = sw + 12 + w, x = card.x + Math.floor((card.w - all) / 2);
-  return { ...place(x + sw + 12, top + Math.max(0, Math.floor((room - H) / 2))), stage: { x, y: top + Math.max(0, Math.floor((room - sh) / 2)), z } };
+  const gx = card.x + PAD + sw + 12, gw = gridW(card.x + card.w - PAD - gx), H = blockH(s);
+  return { ...place(gx, gw, top + Math.max(0, Math.floor((room - H) / 2))), stage: { x: card.x + PAD, y: top, z, h: stageH(z) + spare } };
 }
-const boxAt = (at, k) => ({ x: at.x + k.col * (BOX_W + GAP), y: at.y + (k.row - 1) * (BOX_H + ROW_GAP) });
+const boxAt = (at, k) => ({ x: at.x + k.col * (at.bw + GAP), y: at.y + (k.row - 1) * (at.bh + ROW_GAP) });
 const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b.y - pad && y < b.y + b.h + pad;
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks on the look card open on `tab`:
@@ -71,7 +77,7 @@ export function lookCardAt(x, y, vw, vh, tab = 'cloak') {
   const i = pad.findIndex((k) => {
     if (k.id === 'random' || k.id === 'ok') return within(x, y, row[k.id], ROW_SPLIT / 2); // half the gap each
     if (k.tab) return within(x, y, at.tabs[k.col], TAB_GAP / 2);
-    return within(x, y, { ...boxAt(at, k), w: BOX_W, h: BOX_H }, GAP / 2);
+    return within(x, y, { ...boxAt(at, k), w: at.bw, h: at.bh }, GAP / 2);
   });
   return i >= 0 ? { key: i } : null;
 }
@@ -91,7 +97,8 @@ function paint(w, h) {
     const n = (x * 37 + y * 91 + x * y * 13) % 29; // a fixed speckle, no randomness needed
     if (n === 0) { c.fillStyle = '#454c5e'; c.fillRect(x, y, 1, 1); } else if (n === 7) { c.fillStyle = '#22262f'; c.fillRect(x, y, 1, 1); }
   }
-  c.fillStyle = '#22262f'; c.fillRect(0, 13, w, 1); c.fillRect(0, 29, w, 1); c.fillRect(12, 0, 1, 13); c.fillRect(28, 14, 1, 15); c.fillRect(12, 30, 1, h - 30);
+  c.fillStyle = '#22262f'; // the slabs' joints, every 16, offset a half row by row (D-526: the same at 1×, carried on for bigger boxes)
+  for (let r = 0; r * 16 - 3 < h; r++) { const y0 = Math.max(0, r * 16 - 2); c.fillRect(0, r * 16 + 13, w, 1); for (let jx = 12 + 16 * (r % 2); jx < w; jx += 32) c.fillRect(jx, y0, 1, r * 16 + 13 - y0); }
   const glow = c.createRadialGradient(w / 2, h / 2, 2, w / 2, h / 2, w * 0.6);
   glow.addColorStop(0, 'rgba(255,214,107,.18)'); glow.addColorStop(1, 'rgba(14,12,22,.4)');
   c.fillStyle = glow; c.fillRect(0, 0, w, h);
@@ -111,16 +118,17 @@ function slabsOf(w, h) {
 }
 function litFloor(w, h, f) {
   const cv = (lit[`${w}x${h}`] ??= Object.assign(document.createElement('canvas'), { width: w, height: h })), c = cv.getContext('2d');
-  const cx = w / 2, cy = h / 2 + 4, r = w * 0.62 * f;
+  const cx = w / 2, cy = h / 2 + 4, r = w * 0.62 * f, k = Math.max(1, h / w); // a floor taller than wide lit in an oval (D-526)
   c.globalCompositeOperation = 'copy'; c.drawImage(slabsOf(w, h), 0, 0);
   c.globalCompositeOperation = 'source-over';
+  c.save(); c.translate(cx, cy); c.scale(1, k); c.translate(-cx, -cy);
   const warm = c.createRadialGradient(cx, cy, 2, cx, cy, r);
   warm.addColorStop(0, `rgba(255,214,107,${0.2 * f})`); warm.addColorStop(1, 'rgba(255,214,107,0)');
   c.fillStyle = warm; c.fillRect(0, 0, w, h);
   const fade = c.createRadialGradient(cx, cy, r * 0.6, cx, cy, r); // into the card's glass
   fade.addColorStop(0, 'rgba(0,0,0,1)'); fade.addColorStop(1, 'rgba(0,0,0,0)');
-  c.globalCompositeOperation = 'destination-in'; c.fillStyle = fade; c.fillRect(0, 0, w, h);
-  c.globalCompositeOperation = 'source-over';
+  c.globalCompositeOperation = 'destination-in'; c.fillStyle = fade; c.fillRect(0, -h, w, 3 * h);
+  c.restore(); c.globalCompositeOperation = 'source-over';
   return cv;
 }
 const frame = (c, x, y, w, h, colour) => {
@@ -135,15 +143,15 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
-  const at = boxesAt(vw, vh), ground = groundOf(BOX_W - 2, BOX_H - 2);
+  const at = boxesAt(vw, vh), ground = groundOf(at.bw - 2, at.bh - 2);
   c.imageSmoothingEnabled = false;
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
     const { x, y } = boxAt(at, k), picked = k.id === look[tab];
     c.drawImage(ground, x + 1, y + 1);
-    drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, picked);
-    frame(c, x, y, BOX_W, BOX_H, picked ? GOLD : DIM);
+    drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked);
+    frame(c, x, y, at.bw, at.bh, picked ? GOLD : DIM);
   });
   drawStage(c, wear(look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
 }
@@ -157,22 +165,24 @@ function drawTab(c, { x, y, w, h }, text, open, arrows) {
 // Text centred on x, its top at y
 const centred = (c, text, x, y, colour) => drawText(c, text, x - Math.floor(textWidth(text) / 2), y, colour);
 
-// A box: the hero 1× on its shadow, its name under it, gold when picked (D-520)
-function drawSmall(c, hero, name, x, y, picked) {
-  c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(x + BOX_W / 2 - 6, y + 18, 12, 2);
-  c.drawImage(hero, x + BOX_W / 2 - 8, y + 3);
-  centred(c, name, x + BOX_W / 2, y + 20, picked ? GOLD : GREY);
+// A box `bw` wide: the hero s× on its shadow, its name under it, gold when picked (D-520, D-526)
+function drawSmall(c, hero, name, x, y, { bw, s }, picked) {
+  const mid = x + Math.floor(bw / 2);
+  c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(mid - 6 * s, y + 3 + 15 * s, 12 * s, 2);
+  c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
+  centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY);
 }
 // The big hero z× on the crypt floor (D-525), `name` over it and the choice's name under it (D-520, D-523);
 // the name card draws it too, with no choice (D-517)
 export const stageSize = (z) => ({ w: stageW(z), h: LINE + stageH(z) });
-export function drawStage(c, hero, name, choice, { x, y, z }, t = 0, still = true) {
-  const w = stageW(z), h = stageH(z), hx = x + 8, hy = y + LINE + 1;
-  if (name) centred(c, name, x + w / 2, y, CORE);
+// The LOOK card may give the floor a width w and height h past the hero's own, the hero in its middle (D-526)
+export function drawStage(c, hero, name, choice, { x, y, z, w = stageW(z), h = stageH(z) }, t = 0, still = true) {
+  const hx = x + Math.floor((w - 16 * z) / 2), hy = y + LINE + 1 + Math.floor((h - stageH(z)) / 2);
+  if (name) centred(c, name, x + Math.floor(w / 2), y, CORE); // whole pixels, as the floor can be odd wide
   c.drawImage(litFloor(w, h, still ? 1 : flicker(t, 1.7, 0.035)), x, y + LINE);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(hx + 4 * z, hy + 15 * z, 8 * z, z + 1); c.fillRect(hx + 5 * z, hy + 16 * z + 1, 6 * z, 2); // its shadow
   c.drawImage(hero, hx, hy, 16 * z, 16 * z);
-  if (choice) centred(c, choice, x + w / 2, y + LINE + h + 2, GOLD);
+  if (choice) centred(c, choice, x + Math.floor(w / 2), y + LINE + h + 2, GOLD);
 }
 
 // § dots: a new hero's steps in the card's top bar, centred between its heading and the round
