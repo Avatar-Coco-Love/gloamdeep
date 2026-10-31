@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.210, the peddler lingers.** Freed, he stays and
+  thanks you; bumped, he talks, free. He fades away home 5 turns later,
+  or 3 after a bump, or when you leave the room (D-496; the beam look
+  chosen from a mock-up, built next). Playtest:
+  https://claude.ai/artifact/KnQkvXYZRJ1AQbzdNY6xwp
 - **2026-10-30, 0.2.209, buying from the peddler.** Step 13b ends step
   13: his card has Sell and Buy tabs, and he sells an oil flask for 3
   coins and a torch for 2, never running out, free, no turn (D-495).

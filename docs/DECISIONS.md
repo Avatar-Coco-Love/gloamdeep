@@ -198,3 +198,9 @@ down, left and right. Cleared, it says the rubble's own line, frees no
 one and starts no turns; he keeps cheering the digging on. A heap
 straight up, down, left or right of him frees him, as before. Also
 moved D-496 to the archive, word for word, as this file passed 12 KB.
+
+**D-499 · 2026-10-31 · Water first** (the owner's pick) Water, pools
+and rivers, above and below ground, comes next, before the garden
+(step 14) and fishing (step 15), which needs it. The rest of the
+owner's ideas for how places are made wait in `RESEARCH.md`. Whether
+water matters to the garden is Q-071.
