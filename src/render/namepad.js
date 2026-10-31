@@ -4,7 +4,8 @@
 // the card, the keys under it split for thumbs (D-420): A to M hugging the card's left side,
 // N to Z its right, the middle left open. Keys grow to fill the card, their letters and the
 // typed name twice as big; the chosen key ember and gold as a button that can be pressed,
-// the rest dim.
+// the rest dim. Upright (D-506), the keys are square and closer, the box and keys at the
+// card's foot, in thumb reach.
 import { NAME_PAD, NAME_ROWS, NAME_MAX } from '../core/namepad.js';
 import { drawText, textWidth } from './font.js';
 import { cardAt, drawCard, drawButton, inCard, onCross } from './bag.js';
@@ -17,21 +18,24 @@ const MID = 24; // the open middle between the halves, at least
 const MAX_W = 48, MAX_H = 32; // a key's largest width and height, on a big card
 const FIELD_H = 24, FIELD_GAP = 8; // the letters' box, and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
+const TALL = { side: 6, mid: 12, gap: 3, foot: 12 }; // upright: the insets, the open middle, between keys, and under the keys
 
 // § layout: the box's top left and width, the keys' top, a key's width and height and each
 // half's left, on a view `vw` × `vh`
 function padAt(vw, vh) {
-  const card = cardAt(vw, vh);
-  const room = card.h - RULE - 2 * TOP - FIELD_H - FIELD_GAP + GAP;
-  const keyH = Math.min(MAX_H, Math.floor(room / NAME_ROWS) - GAP);
-  const cell = Math.min(MAX_W, Math.floor((card.w - 2 * SIDE - MID - 6 * GAP) / 8));
-  const halfW = 4 * cell + 3 * GAP, x = card.x + SIDE, w = card.w - 2 * SIDE;
-  const y = card.y + RULE + TOP + Math.max(0, Math.floor((room - NAME_ROWS * (keyH + GAP)) / 2));
-  return { card, x, y, w, keysY: y + FIELD_H + FIELD_GAP, cell, keyH, lefts: [x, x + w - halfW] };
+  const card = cardAt(vw, vh), tall = card.tall;
+  const side = tall ? TALL.side : SIDE, mid = tall ? TALL.mid : MID, gap = tall ? TALL.gap : GAP;
+  const room = card.h - RULE - 2 * TOP - FIELD_H - FIELD_GAP + gap;
+  const cell = Math.min(MAX_W, Math.floor((card.w - 2 * side - mid - 6 * gap) / 8));
+  const keyH = Math.min(tall ? cell : MAX_H, Math.floor(room / NAME_ROWS) - gap);
+  const halfW = 4 * cell + 3 * gap, x = card.x + side, w = card.w - 2 * side;
+  const block = FIELD_H + FIELD_GAP + NAME_ROWS * (keyH + gap) - gap;
+  const y = tall ? card.y + card.h - TALL.foot - block : card.y + RULE + TOP + Math.max(0, Math.floor((room - NAME_ROWS * (keyH + GAP)) / 2));
+  return { card, x, y, w, gap, keysY: y + FIELD_H + FIELD_GAP, cell, keyH, lefts: [x, x + w - halfW] };
 }
 const keyBox = (pad, k) => {
   const side = k.col < 4 ? 0 : 1;
-  return { x: pad.lefts[side] + (k.col - 4 * side) * (pad.cell + GAP), y: pad.keysY + k.row * (pad.keyH + GAP), w: k.span * pad.cell + (k.span - 1) * GAP };
+  return { x: pad.lefts[side] + (k.col - 4 * side) * (pad.cell + pad.gap), y: pad.keysY + k.row * (pad.keyH + pad.gap), w: k.span * pad.cell + (k.span - 1) * pad.gap };
 };
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { key: i }, 'close' (the round
@@ -41,7 +45,7 @@ export function nameCardAt(x, y, vw, vh) {
   if (!inCard(pad.card, x, y)) return 'out';
   if (onCross(pad.card, x, y)) return 'close';
   const i = NAME_PAD.findIndex((k) => {
-    const b = keyBox(pad, k), half = GAP / 2;
+    const b = keyBox(pad, k), half = pad.gap / 2;
     return x >= b.x - half && x < b.x + b.w + half && y >= b.y - half && y < b.y + pad.keyH + half;
   });
   return i >= 0 ? { key: i } : null;

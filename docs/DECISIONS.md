@@ -180,14 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-504 · 2026-10-31 · Water done for now** (the owner's pick,
-recommended; the fourth step of D-499) Water stops at the still cave
-pools and the pond at home. Water comes back later (the owner's
-wish): streams, rivers above and below, oceans and more, kept in
-`RESEARCH.md`, with swimming (Q-039). The garden (step 14) is next,
-with Q-071. Also moved D-501 to the archive, word for word, as this
-file passed 12 KB.
-
 **D-505 · 2026-10-31 · Play upright too** (the owner's picks,
 recommended; answers Q-065; partly supersedes D-377: the game plays held
 either way, and nothing locks it sideways; the owner gave Claude the lead
@@ -203,3 +195,17 @@ the phone's own rotation lock does. Upright play comes in a few steps,
 one a conversation, before the garden: first playing upright (0.2.219),
 then polish from playtests. Also moved D-502 and D-503 to the archive,
 word for word, as this file passed 12 KB.
+
+**D-506 · 2026-10-31 · The title's screens upright** (the owner's
+picks, all recommended; the second step of D-505; from pictures drawn
+by the game's own code) Upright, the title's screens (the title,
+Profiles, Settings, How to play, the name and seed pads) fill the
+screen's width at play's size, not 2/3 of it, leaving room under the
+title's picture; sideways nothing changes. Upright, Journal, How to
+play and Settings stand in a row under the big button, in thumb reach.
+The name pad keeps its halves, its keys square and closer, at the
+card's foot; the seed pad's keys grow to fill the card's width, the
+digits twice as big, at its foot. Also put back, word for word, the
+archived D-474 to D-501 and D-502, which 0.2.219 lost by mistake from
+`archive/DECISIONS-DROPS.md`, and moved D-504 there as this file passed
+12 KB.
