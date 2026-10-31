@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.1, trim swatches.** Mock-up of three:
+  https://claude.ai/artifact/EXekhydkFasqSLVcD8fKsc. Claude recommended
+  C, a bigger lantern; the owner picked B: each TRIM box a square of the
+  cap shade over the base shade, with its name (D-529, closes Q-074).
+  Playtest: https://claude.ai/artifact/P8y8mti2QW9XUMfsYZdSGF
 - **2026-10-31, 0.3.0, eye swatches and version 0.3.** The owner found
   eye colours hard to see on the small heroes. Mock-up:
   https://claude.ai/artifact/R226GLArFBCpD1xtRUVKeb. Picked A: each EYES
