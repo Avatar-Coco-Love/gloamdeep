@@ -180,19 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-509 · 2026-10-31 · The text line's colours by source** (the owner's
-idea and picks, recommended) The text line colours a line by where it
-comes from: speech (what people say) in bone white `#efe6cc`, harm (a
-creature hurts you) in the hostile red `#e8786a`. Actions and the rest
-stay grey and warnings amber (D-097). Hints get a colour with the guide
-(Q-072). Built as its own step, next.
-
-**D-510 · 2026-10-31 · No more line colours for now** (the owner's picks,
-recommended) Beyond D-509, the text line's other lines stay grey: finds,
-rare finds, crafting, levels, refusals, and the low-oil line. A bite the
-vest turns stays grey too: red only when you are hurt. Asked again when
-lore, feats or the guide bring new kinds of lines.
-
 **D-511 · 2026-10-31 · A herb at full health goes in the bag** (the
 owner's idea and picks, recommended; supersedes D-156) Found at seed
 27514, depth 2: a herb walked onto at full hearts stayed silent and
@@ -201,3 +188,14 @@ stack, the potion's size; Eat there heals 2 with "You eat the herb and
 feel better.", or says "You aren't hurt." at full (D-308). Hurt, it is
 still eaten on the spot (D-155). With no room it stays: "Your bag is
 full."
+
+**D-512 · 2026-10-31 · Lined up, no overlaps** (the owner's picks, all
+recommended) From a check of every screen held both ways, on a tablet
+and on a PC: while the version number shows (the title's screens, the
+pause menu), a card's foot rises clear of it; a card's round cross sits
+in the middle of its title strip, as far in from the right edge as the
+title is from the left, and the rule under them stops short of it; the
+dev drawer starts under the hearts panel when that is lower than the
+wrench's row; the hearts panel stands 8 px in from the screen's edges,
+level with the round buttons. Big screens keep phone-sized buttons for
+now.

@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize } from './screen.js';
+import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize, edgeIn, panelFoot } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
@@ -253,8 +253,9 @@ export function createFrame(app, ui) {
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
     // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
     const n = list ? list.length : 0; // the panel's size is last frame's, near enough
+    const [ex, ey] = edgeIn(); // as far in as the round buttons (D-512)
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
-    const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
+    const shownN = plaquesShown(n, ex, ey + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
@@ -263,7 +264,7 @@ export function createFrame(app, ui) {
       return x < a.x + a.w && x + size > a.x && y < a.y + a.h && y + size > a.y;
     });
     const dt = Math.max(0, t - panel.t), fade = (alpha, goal) => (still() ? goal : alpha + Math.sign(goal - alpha) * Math.min(Math.abs(goal - alpha), dt / FADE_PANEL_MS));
-    panel.alpha = fade(panel.alpha, covers({ x: 2, y: 2, ...under }) ? UNDER_ALPHA : 1);
+    panel.alpha = fade(panel.alpha, covers({ x: ex, y: ey, ...under }) ? UNDER_ALPHA : 1);
     panel.t = t;
     // § round map: the floor around the hero, top right, fading the same way (D-383), and
     // pause and the wrench with it, the corner as one piece (D-442)
@@ -279,11 +280,12 @@ export function createFrame(app, ui) {
     const padOn = app.screen === 'play' && padShown(app.settings);
     padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
     arrowPad.show(padOn, padAlpha);
-    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, 2, 2, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    panelFoot.y = ey + panel.h;
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      row = { list, x: 2, y: 2 + panel.h + 2, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
+      row = { list, x: ex, y: ey + panel.h + 2, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
       hc.save(); hc.globalAlpha = panel.alpha;
       drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
       hc.restore();

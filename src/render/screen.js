@@ -18,8 +18,12 @@ export const ARC = 64; // from the lantern's middle to its arc's buttons' middle
 const ROW = BUTTON + BUTTON_GAP; // the buttons' column beside the picture (D-198, D-377)
 export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D-381)
 export const MIN_ROWS = 9; // a narrow room zooms in no further than this many tiles tall (D-444)
-export const view = { w: W, h: H, scale: 1 }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), and its zoom, set by the fit
-export const roomView = { w: W, h: H }; // the room canvas's size in game pixels, zoomed in for a narrow room (D-441)
+export const view = { w: W, h: H, scale: 1, left: 0, top: 0 }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), and its zoom, set by the fit
+export const roomView = { w: W, h: H };
+export const panelFoot = { y: 0 }; // the hearts panel's foot on the screen layer, in its game pixels, for the dev drawer under it (D-512)
+// The screen layer's game pixel nearest BUTTON_GAP CSS pixels in from the screen's left and top,
+// so the panel stands as far in as the round buttons (D-512)
+export const edgeIn = () => [Math.max(1, Math.round((BUTTON_GAP - view.left) / view.scale)), Math.max(1, Math.round((BUTTON_GAP - view.top) / view.scale))]; // the room canvas's size in game pixels, zoomed in for a narrow room (D-441)
 export const GLIDE_MS = 400; // the room's zoom glides to a new room's this long (D-448)
 const roomSize = { cols: 0, rows: 0 }; // the room in play, in tiles (0 on the title)
 let refit = null, titled = false; // the fit, and whether the room canvas is zoomed as the picture (the title's scene)
@@ -101,7 +105,7 @@ function fitLayer(c, cx, scale, size, picture) {
     w = Math.ceil((bw - left) / scale); h = Math.ceil((bh - top) / scale);
   }
   if (w !== c.width || h !== c.height) { c.width = w; c.height = h; cx.imageSmoothingEnabled = false; }
-  size.w = w; size.h = h; size.scale = scale;
+  size.w = w; size.h = h; size.scale = scale; size.left = left; size.top = top;
   const s = c.style;
   s.width = w * scale + 'px'; s.height = h * scale + 'px';
   s.left = left + 'px'; s.top = top + 'px';

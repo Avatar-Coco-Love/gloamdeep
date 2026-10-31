@@ -4,6 +4,12 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.224', date: '2026-10-31', title: 'Lined up', lines: [
+    "On the title's screens and the pause menu, the cards now end a little higher, so the version number in the bottom left corner no longer sits on the card's edge.",
+    "Every card's round close button now sits in the middle of the title's strip, as far from the right edge as the title is from the left, and the line under the title stops short of it instead of touching it.",
+    "The hearts panel now stands as far in from the screen's edges as the round buttons, its top level with theirs. The dev drawer opens under the hearts panel instead of over its foot.",
+    "Decisions: D-512.",
+  ] },
   { v: '0.2.223', date: '2026-10-31', title: 'Herbs in the bag', lines: [
     "Walk onto a healing herb with full hearts and it now goes into your bag, instead of staying on the floor without a word. Pick it in the bag and Eat to heal 2 hearts. Hurt, you still eat it on the spot.",
     "Herbs stack 5 to a slot. With no room in the bag, the herb stays where it lies and the game says \"Your bag is full.\"",

@@ -15,6 +15,7 @@ import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
 import { BAG_SLOTS, canCraft } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
+import { view } from './screen.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -40,6 +41,15 @@ const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? '
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
+// § cross's place: the round cross in the middle of the title's strip, as far in from the
+// card's right edge as the title is from its left (PAD); the rule under them stops short of it (D-512)
+const CROSS_R = 8;
+export const crossAt = (x, y, w) => ({ x: x + w - PAD - CROSS_R, y: y + 10, r: CROSS_R });
+// The rule under a card's title, from x + 8 to just short of the cross (or x + w - 8 without one)
+export function drawRule(c, x, y, w, ruleY, crossed = true) {
+  const end = crossed ? x + w - PAD - 2 * CROSS_R - 4 : x + w - 8;
+  c.fillRect(x + 8, y + ruleY, end - x - 8, 1);
+}
 
 // § tall: a view taller than wide, a phone held upright (D-505). A card's two sides
 // stand one above the other there, the line between them across the card
@@ -50,11 +60,19 @@ export const TALL_SPLIT_Y = GRID_Y + 2 * SLOT + SLOT_GAP + 12; // upright, the l
 export const detailAt = (card, vw, vh, left = DETAIL_X, top = HELD_Y, splitY = TALL_SPLIT_Y) => (isTall(vw, vh)
   ? { dx: card.x + PAD, dy: card.y + splitY + 10 } : { dx: card.x + left, dy: card.y + top });
 
+// § version's gap: while the version number shows in the screen's bottom left (the title's
+// screens and the pause menu, D-407), the card's foot rises clear of it, VERSION_CLEAR CSS
+// pixels from the screen's foot in all; screens.js turns it on and off with the number (D-512)
+const VERSION_CLEAR = 24;
+let clearVersion = false;
+export const setVersionGap = (on) => { clearVersion = on; };
+const footGap = () => (clearVersion ? Math.max(0, Math.ceil(VERSION_CLEAR / (view.scale || 1)) - EDGE_GAP) : 0);
+
 // § layout: the card and its parts on a view `vw` × `vh` game pixels
 export function cardAt(vw, vh) {
-  const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP);
+  const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP - footGap());
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
-  return { x, y, w, h, tall: isTall(vw, vh), close: { x: x + w - 12, y: y + 11, r: 8 }, button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
+  return { x, y, w, h, tall: isTall(vw, vh), close: crossAt(x, y, w), button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
 // `cols` wide (the stash chest's 4 × 3, D-387)
@@ -148,7 +166,7 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
   drawGlass(c, x, y, w, h);
   drawText(c, title, x + PAD, y + 7, EMBER);
   if (crossed) { round(c, close.x, close.y, close.r); cross(c, close.x, close.y); }
-  c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1);
+  c.fillStyle = LINE; drawRule(c, x, y, w, RULE_Y, crossed);
   if (split && isTall(vw, vh)) { if (splitY) c.fillRect(x + 8, y + splitY, w - 16, 1); }
   else if (split) c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
   return card;

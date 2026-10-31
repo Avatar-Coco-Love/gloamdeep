@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.223 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.224 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Playtest polish, if any; then step 14, the garden (Q-071).
+Playtest polish, if any (bigger round buttons on big screens can wait, D-512); then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,6 +44,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.224, lined up.** The owner asked for a check of
+  every screen for overlaps. Found and fixed, all four picks
+  recommended (D-512): the version number on the card's corner, the
+  close cross touching the rule, the dev drawer over the hearts panel,
+  the panel's edge 4 px off the buttons'.
+  Playtest: https://claude.ai/artifact/3EH9LEF8TLsxzvJPFXG1Dy
 - **2026-10-31, 0.2.223, herbs in the bag.** The owner found a herb
   that wouldn't go at seed 27514, depth 2: at full hearts it stayed, silent
   (D-156). The owner picked the bag: at full health a herb goes in, 5 a
@@ -54,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   warnings stay amber, the rest grey. The rest stay grey for now,
   a turned bite too (D-510).
   Playtest: https://claude.ai/artifact/W4GByW5DeuiAxvwCtkBTAH
-- **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
-  the lantern and on which way to go. The owner picked a first How to
-  play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,
-  oilcaps; the stairs stay a search (D-507). The guide won't be a faery
-  (D-508, Q-072). Line colours by source come next (D-509). Playtest: https://claude.ai/artifact/P2i44AezzV5VG1v9ixoKQy

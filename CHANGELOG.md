@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.224 (2026-10-31)
+- On the title's screens and the pause menu, the cards now end a little higher, so the version number in the bottom left corner no longer sits on the card's edge.
+- Every card's round close button now sits in the middle of the title's strip, as far from the right edge as the title is from the left, and the line under the title stops short of it instead of touching it.
+- The hearts panel now stands as far in from the screen's edges as the round buttons, its top level with theirs. The dev drawer opens under the hearts panel instead of over its foot.
+- Decisions: D-512.
+
 ## 0.2.223 (2026-10-31)
 - Walk onto a healing herb with full hearts and it now goes into your bag, instead of staying on the floor without a word. Pick it in the bag and Eat to heal 2 hearts. Hurt, you still eat it on the spot.
 - Herbs stack 5 to a slot. With no room in the bag, the herb stays where it lies and the game says "Your bag is full."
@@ -96,9 +102,3 @@ Entry format:
 - Left alone 5 turns, or 3 after your last bump, he says goodbye and fades away, heading home to the woods. Leave the room first and he goes home anyway.
 - Digging him out, his first call is for help; after that he cheers the digging on. Creatures no longer step onto a person.
 - Decisions: D-496.
-
-## 0.2.209 (2026-10-30)
-- Bump the peddler at home and his card now has two tabs, Sell and Buy. On Buy, his wares: an oil flask for 3 coins and a torch for 2. He never runs out.
-- Pick one, then Buy, Enter or Space to buy one, free, no turn. Buy is dim with too few coins or no room in your bag, and the card says why.
-- Tap a tab to turn it, or press Up from the top row of slots, then Left or Right. Step 13, the vendor and coins, is done.
-- Decisions: D-495.

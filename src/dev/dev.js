@@ -6,7 +6,7 @@ import { tileAt, depthOf } from '../core/room.js';
 import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
-import { TILE, BUTTON, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
+import { TILE, BUTTON, BUTTON_GAP, PAD_DISC, view, panelFoot } from '../render/screen.js';
 import { lineUp } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
@@ -47,12 +47,13 @@ export function createDev(stage, canvas, game, picture) {
   const readout = el('div', { id: 'dev-readout' });
   const tools = buildPanel(panel, opts, () => save(opts), game);
   document.body.append(button, panel, readout);
-  // § drawer: along the screen's left edge, from under the wrench's row down to
-  // the bottom (D-200). The stats line, small, sits bottom left just above the
+  // § drawer: along the screen's left edge, from under the wrench's row, or the
+  // hearts panel's foot when that is lower (D-512), down to the bottom (D-200). The stats line, small, sits bottom left just above the
   // text line's glass (D-382), or just above the arrow pad while it shows (D-412)
   let lineBottom = 0, padBottom = 0;
   const fitPanel = () => {
-    const top = parseFloat(button.style.top) + 52;
+    const foot = document.getElementById('hud').getBoundingClientRect().top + panelFoot.y * view.scale + BUTTON_GAP;
+    const top = Math.round(Math.max(parseFloat(button.style.top) + 52, foot));
     panel.style.top = top + 'px';
     panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
   };
@@ -66,6 +67,7 @@ export function createDev(stage, canvas, game, picture) {
   let open = false;
   const showPanel = (show) => {
     open = show;
+    if (show) fitPanel(); // under the hearts panel as it stands now (D-512)
     panel.style.transition = game.still() ? 'none' : ''; // the Motion switch (D-190)
     panel.classList.toggle('shut', !show);
     panel.inert = !show;

@@ -89,7 +89,7 @@ import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
-import { bagAt, twoButtons } from '../render/bag.js';
+import { bagAt, twoButtons, setVersionGap } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
@@ -139,6 +139,7 @@ export function createScreens(app, ui) {
     lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     version.hidden = !(onTitle() || next === 'paused'); // the version number on the title and the pause menu, not in play (D-407)
+    setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
