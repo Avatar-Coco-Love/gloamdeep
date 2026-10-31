@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.231 (2026-10-31)
+- The Look card has a RANDOM button at the left of OK. Each press gives your hero a whole new look, its cloak, eyes, trim and clothes all at once, and with the arrows you can keep pressing it until you like what you see. It works when making a hero and in Change look.
+- Decisions: D-522.
+
 ## 0.2.230 (2026-10-31)
 - Your hero's look is now one LOOK card with four tabs across its top: Cloak, Eyes, Trim and Clothes. The big hero shows everything you pick, and every choice shows your whole hero wearing it, with its name. OK finishes from any tab. With the arrows, go up onto the tabs and left or right to switch.
 - Decisions: D-521.

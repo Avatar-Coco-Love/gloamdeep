@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.230 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.231 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The hero creator (D-517), step 3: RANDOM beside OK on the LOOK card, rolling free looks only, proposed to the owner first; then the name card's hero and dots; then step 14, the garden (Q-071).
+The hero creator (D-517), step 4: the name card shows the hero, and dots show the steps left, proposed to the owner first; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.231, RANDOM.** The hero creator's third step.
+  Picked: RANDOM at OK's left on both LOOK cards; a press rolls all
+  four parts from the free looks, and the flame stays on it (D-522).
+  Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK
 - **2026-10-31, 0.2.230, the tabs.** The hero creator's second step.
   Picked: one LOOK card, four tabs under its heading, the open one in
   ember; every tab's boxes show the whole hero 1×, named; OK finishes
@@ -52,8 +56,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   with its name over it and the cloak's under it; the six boxes shorter,
   each hero 1× and named; sideways the hero sits at their left (D-520).
   Playtest: https://claude.ai/artifact/BVUiTGkevmsYfj4hZ1nZcv
-- **2026-10-31, 0.2.228, the seventh audit.** The owner asked if audits
-  help. They keep the start read near 11.5 KB, but the size test already
-  trims, and splits are outgrown; so every 40 versions now (D-518). Picked:
-  the hero slots move from `main.js` into `slots.js`; five audit records
-  archived; CHANGELOG keeps 3; ticked steps archived (D-519). Nothing visible.

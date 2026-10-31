@@ -5,6 +5,7 @@
 // the sprite's e; each trim is the sprite's T and t; each clothes' pixels are in sprites.js.
 // registry.js gathers these tables. Plain data, no drawing.
 import { moveOn } from './seedpad.js';
+import { pick } from './rng.js';
 
 export const CLOAKS = {
   teal: { id: 'teal', kind: 'cloak', name: 'Teal', shades: ['#a6e0e4', '#58a8b4', '#2f6a7c', '#1c3e4e'] }, // the study's
@@ -64,8 +65,8 @@ export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
 // § the look card (D-517, D-521): a tab for each part across its top, row 0; under it that
-// part's choices three to a row; then OK on its own row (the round cross does what Back did,
-// D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
+// part's choices three to a row; then RANDOM and OK on the last row, RANDOM under the first two
+// columns (D-522; the round cross does what Back did, D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
 // Down from a tab on the picked choice. The tabs are the same four keys, first, on every pad.
 export const LOOK_TABS = [
   { id: 'cloak', name: 'CLOAK', table: CLOAKS, ids: CLOAK_IDS },
@@ -77,7 +78,8 @@ export const CLOAK_COLS = 3;
 const lookPad = (ids) => [
   ...LOOK_TABS.map((t, col) => ({ id: t.id, tab: true, row: 0, col, span: 1 })),
   ...ids.map((id, i) => ({ id, row: 1 + Math.floor(i / CLOAK_COLS), col: i % CLOAK_COLS, span: 1 })),
-  { id: 'ok', row: 3, col: 0, span: CLOAK_COLS },
+  { id: 'random', row: 3, col: 0, span: CLOAK_COLS - 1 },
+  { id: 'ok', row: 3, col: CLOAK_COLS - 1, span: 1 },
 ];
 export const LOOK_PADS = Object.fromEntries(LOOK_TABS.map((t) => [t.id, lookPad(t.ids)]));
 export const tabOf = (id) => LOOK_TABS.find((t) => t.id === id);
@@ -88,3 +90,6 @@ export function moveLook(tab, i, dir, picked) {
   if (dir === 'down' && k.tab) return pad.findIndex((p) => !p.tab && p.id === picked);
   return moveOn(pad, i, dir);
 }
+// § roll: RANDOM (D-517, D-522): a whole new look, each part picked from its free choices with
+// r, a seeded rng (rng.js). No look is locked yet, so every choice is free.
+export const rollLook = (r) => Object.fromEntries(LOOK_TABS.map((t) => [t.id, pick(r, t.ids)]));

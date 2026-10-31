@@ -9,7 +9,7 @@ import { eventsSince, has } from './core/events.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
 import { beginPlace, depthOf } from './core/room.js';
-import { SEED_MAX } from './core/rng.js';
+import { SEED_MAX, rng } from './core/rng.js';
 import { createScreen, TILE } from './render/screen.js';
 import { reach, setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
@@ -82,6 +82,7 @@ const app = {
   cam: { x: 0, y: 0 }, // the room pixel at the screen's top-left (src/core/camera.js)
   bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
   framed: null, // the shown spot (foeAt) of the creature whose plaque was tapped (CL2, D-357)
+  lookRoll: rng(randomSeed()), // the look card's RANDOM, seeded once a visit (D-522)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
 };
 const newWorld = (mode) => {

@@ -5,7 +5,8 @@
 // profile's name over it and the open tab's choice under it (D-520); under that the tab's
 // choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
 // gold; sideways the big hero sits at the left of the boxes. OK a button in the bottom right
-// corner, ember when the arrows are on it; the round cross goes back, as Back did.
+// corner and RANDOM at its left (D-522), ember when the arrows are on it; the round cross goes
+// back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, tabOf } from '../core/looks.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, TAP_PAD, isTall } from './bag.js';
@@ -18,6 +19,8 @@ const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
 const TAB_H = 11, TAB_GAP = 2, TAB_PAD = 8; // a tab's height, the space between tabs, and its width past its name
 const TABS_H = 2 + TAB_H + 3; // the tabs' row with the space over and under it
+const RANDOM_W = textWidth('RANDOM') + 8, RANDOM_GAP = 4; // RANDOM's width, and its gap from OK
+const randomAt = ({ button }) => ({ x: button.x - RANDOM_GAP - RANDOM_W, y: button.y, w: RANDOM_W, h: BUTTON.h });
 
 const ROWS = 2, COLS = 3;
 // § layout: the tabs across under the rule; the boxes' top left on a view `vw` × `vh`, and the
@@ -42,12 +45,13 @@ const boxAt = (at, k) => ({ x: at.x + k.col * (BOX_W + GAP), y: at.y + (k.row - 
 const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b.y - pad && y < b.y + b.h + pad;
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks on the look card open on `tab`:
-// { key: i } (a tab, a choice or OK), 'close' (the round cross), or null; outside the card, 'out'
+// { key: i } (a tab, a choice, RANDOM or OK), 'close' (the round cross), or null; outside the card, 'out'
 export function lookCardAt(x, y, vw, vh, tab = 'cloak') {
   const pad = LOOK_PADS[tab], at = boxesAt(vw, vh), { card } = at, { button } = card;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const i = pad.findIndex((k) => {
+    if (k.id === 'random') return within(x, y, randomAt(card), RANDOM_GAP / 2); // half the gap each
     if (k.id === 'ok') return within(x, y, { ...button, ...BUTTON }, TAP_PAD);
     if (k.tab) return within(x, y, at.tabs[k.col], TAB_GAP / 2);
     return within(x, y, { ...boxAt(at, k), w: BOX_W, h: BOX_H }, GAP / 2);
@@ -92,6 +96,7 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '') {
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
     if (k.id === 'ok') { drawButton(c, button.x, button.y, 'OK', i !== chosen); return; }
+    if (k.id === 'random') { const r = randomAt(at.card); drawButton(c, r.x, r.y, 'RANDOM', i !== chosen, r.w); return; }
     const { x, y } = boxAt(at, k), picked = k.id === look[tab];
     c.drawImage(ground, x + 1, y + 1);
     drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, picked);
