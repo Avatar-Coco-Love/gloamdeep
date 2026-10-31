@@ -5,6 +5,7 @@ import { isWall, tileAt } from '../core/room.js';
 import { stairsFacing } from '../core/stairs.js';
 import { TILE as T } from './screen.js';
 import { drawRock, drawRockBeyond } from './rock.js';
+import { drawSlab } from './slab.js';
 import { drawWoods, drawTree, drawWoodsBeyond } from './woods.js';
 import { drawDeposit, drawBranch, drawStump, drawBench, SPRITES } from './sprites.js';
 import { formOf } from '../core/tiles.js';
@@ -19,27 +20,8 @@ const ink = (room, col) => (room.look !== 'dungeon' ? col : cold.get(col) || col
 
 // § floor: crypt floor slab, with an optional split, grit and a rare crack
 export function drawFloor(c, room, tx, ty) {
-  const x0 = tx * T, y0 = ty * T, r = hash(tx, ty, 1);
-  c.fillStyle = ink(room, '#3a4050'); c.fillRect(x0, y0, T, T);
-  c.fillStyle = ink(room, '#22262f'); c.fillRect(x0, y0, T, 1); c.fillRect(x0, y0, 1, T);
-  c.fillStyle = ink(room, '#454c5e'); c.fillRect(x0 + 1, y0 + 1, 13, 1); c.fillRect(x0 + 1, y0 + 2, 1, 9);
-  if (r < 0.4) { // split into two slabs
-    const j = 4 + Math.floor(hash(tx, ty, 2) * 8);
-    c.fillStyle = ink(room, '#22262f'); c.fillRect(x0, y0 + 8, T, 1); c.fillRect(x0 + j, y0 + 8, 1, 8);
-    c.fillStyle = ink(room, '#454c5e'); c.fillRect(x0 + 1, y0 + 9, j - 2, 1);
-  }
-  for (let i = 0; i < 9; i++) {
-    const nx = 1 + Math.floor(hash(tx, ty, 10 + i) * 14), ny = 1 + Math.floor(hash(tx, ty, 30 + i) * 14);
-    px(c, x0 + nx, y0 + ny, ink(room, hash(tx, ty, 50 + i) < 0.5 ? '#434a5b' : '#323744'));
-  }
-  if (hash(tx, ty, 3) < 0.16) { // crack
-    let cx = 3 + Math.floor(hash(tx, ty, 4) * 9), cy = 3 + Math.floor(hash(tx, ty, 5) * 5);
-    for (let i = 0; i < 7; i++) {
-      px(c, x0 + cx, y0 + cy, ink(room, '#262a34'));
-      cx += hash(tx, ty, 60 + i) < 0.5 ? 1 : 0; cy += 1;
-      if (cy > 14) break;
-    }
-  }
+  const x0 = tx * T, y0 = ty * T;
+  drawSlab(c, x0, y0, tx, ty, (col) => ink(room, col));
   const nearWall = isWall(room, tx - 1, ty) || isWall(room, tx + 1, ty) || isWall(room, tx, ty - 1) || isWall(room, tx, ty + 1);
   if (nearWall && hash(tx, ty, 6) < 0.3) { // moss
     const mx = 2 + Math.floor(hash(tx, ty, 7) * 9), my = 4 + Math.floor(hash(tx, ty, 8) * 8);

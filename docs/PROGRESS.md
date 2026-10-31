@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.233 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.234 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The hero creator (D-517), step 5: the LOOK card's tabs and boxes across the card's full width, with no empty space on tall phones, proposed beside mock-up A (https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg) first; then step 6, the hero on a dark brick wall in a flickering glow; then step 14, the garden (Q-071).
+The hero creator (D-517), step 5: the LOOK card's tabs and boxes across the card's full width, with no empty space on tall phones, proposed beside mock-up A (https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg) first; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.234, the crypt floor.** The owner picked point 3
+  of the last plan: the hero's backdrop, as crypt floor, with no bobbing.
+  Mock-up: https://claude.ai/artifact/2vYtqzma7iMc643fQR8Spj. Picked:
+  lit slabs fading into the card, no frame, the lantern's flicker; the
+  small boxes unchanged (D-525). D-514 to D-516 archived. Playtest:
+  https://claude.ai/artifact/HuuCCCr4oCmxaBtn4VkPNM
 - **2026-10-31, 0.2.233, dots and the name card's hero.** The owner
   asked for A's last five differences, one per PR. Plan shown beside A:
   https://claude.ai/artifact/776f8fTnQqjfb8B6Xsgmrj. Picked: dots on a
@@ -52,7 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   recommendations hoping for the mock-up's look; I listed where the card
   drifted. Picked: the hero as big as fits (3× to 6×), RANDOM and OK a
   row of big buttons, the tabs under the hero as in A (D-523). Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK
-- **2026-10-31, 0.2.231, RANDOM.** The hero creator's third step.
-  Picked: RANDOM at OK's left on both LOOK cards; a press rolls all
-  four parts from the free looks, and the flame stays on it (D-522).
-  Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK

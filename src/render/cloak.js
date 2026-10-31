@@ -1,6 +1,6 @@
 // § the look card (D-399, D-517, D-521; were dark pages, P3 to P6): choosing a profile's look,
 // a glass card like the name card (D-398) on the title's scene. LOOK in ember at its top; under
-// its rule the hero big on a lit floor, the profile's name over it and the open tab's choice
+// its rule the hero big on the crypt floor, lit and flickering with no frame (D-525), the profile's name over it and the open tab's choice
 // under it (D-520). Under that four tabs, CLOAK, EYES, TRIM and CLOTHES, as wide as the boxes
 // under them (D-523), the open one filled in ember and framed in gold when the arrows are on
 // it; then the tab's choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
@@ -11,6 +11,8 @@
 import { LOOK_PADS, tabOf } from '../core/looks.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
+import { drawSlab } from './slab.js';
+import { flicker } from './light.js';
 
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, BOX_H = 30, GAP = 4, ROW_GAP = 2; // a hero's framed box, the hero 1× and its name (D-520); boxes' spacing
@@ -74,8 +76,8 @@ export function lookCardAt(x, y, vw, vh, tab = 'cloak') {
   return i >= 0 ? { key: i } : null;
 }
 
-// § ground: the crypt floor under each hero, lit by its lantern, `w` × `h`; each size painted
-// once (TECH.md)
+// § ground: the speckled floor under each box's hero, lit by its lantern, `w` × `h`; each size
+// painted once (TECH.md)
 const grounds = {};
 function groundOf(w, h) {
   return (grounds[`${w}x${h}`] ??= paint(w, h));
@@ -95,6 +97,32 @@ function paint(w, h) {
   c.fillStyle = glow; c.fillRect(0, 0, w, h);
   return ground;
 }
+// § the big hero's floor (D-525): crypt floor slabs, warm near the hero and fading into the
+// card at the edges, with no frame; the warmth breathes with the lantern's flicker f (light.js),
+// steady when the game is still. The slabs are painted once a size, the light each frame
+const slabs = {}, lit = {};
+function slabsOf(w, h) {
+  return (slabs[`${w}x${h}`] ??= (() => {
+    const cv = document.createElement('canvas'), c = cv.getContext('2d');
+    cv.width = w; cv.height = h;
+    for (let ty = 0; ty * 16 < h + 16; ty++) for (let tx = 0; tx * 16 < w + 16; tx++) drawSlab(c, tx * 16 - 8, ty * 16 - 6, tx + 3, ty + 2);
+    return cv;
+  })());
+}
+function litFloor(w, h, f) {
+  const cv = (lit[`${w}x${h}`] ??= Object.assign(document.createElement('canvas'), { width: w, height: h })), c = cv.getContext('2d');
+  const cx = w / 2, cy = h / 2 + 4, r = w * 0.62 * f;
+  c.globalCompositeOperation = 'copy'; c.drawImage(slabsOf(w, h), 0, 0);
+  c.globalCompositeOperation = 'source-over';
+  const warm = c.createRadialGradient(cx, cy, 2, cx, cy, r);
+  warm.addColorStop(0, `rgba(255,214,107,${0.2 * f})`); warm.addColorStop(1, 'rgba(255,214,107,0)');
+  c.fillStyle = warm; c.fillRect(0, 0, w, h);
+  const fade = c.createRadialGradient(cx, cy, r * 0.6, cx, cy, r); // into the card's glass
+  fade.addColorStop(0, 'rgba(0,0,0,1)'); fade.addColorStop(1, 'rgba(0,0,0,0)');
+  c.globalCompositeOperation = 'destination-in'; c.fillStyle = fade; c.fillRect(0, 0, w, h);
+  c.globalCompositeOperation = 'source-over';
+  return cv;
+}
 const frame = (c, x, y, w, h, colour) => {
   c.fillStyle = colour;
   c.fillRect(x, y, w, 1); c.fillRect(x, y + h - 1, w, 1); c.fillRect(x, y, 1, h); c.fillRect(x + w - 1, y, 1, h);
@@ -103,7 +131,7 @@ const frame = (c, x, y, w, h, colour) => {
 // § draw: the look card on the room's canvas c, `vw` × `vh`. heroIn (sprites.js) draws a hero
 // in a look; look: { cloak, eyes, trim, clothes }; tab: the open one; chosen: the key the
 // arrows are on; name: the profile's, over the big hero
-export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false) {
+export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
@@ -117,7 +145,7 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
     drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, picked);
     frame(c, x, y, BOX_W, BOX_H, picked ? GOLD : DIM);
   });
-  drawStage(c, wear(look), name, table[look[tab]]?.name ?? '', at.stage);
+  drawStage(c, wear(look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
 }
 // A tab: the open one filled in ember, its name dark; the others framed dim; gold around it when
 // the arrows are on it
@@ -135,14 +163,13 @@ function drawSmall(c, hero, name, x, y, picked) {
   c.drawImage(hero, x + BOX_W / 2 - 8, y + 3);
   centred(c, name, x + BOX_W / 2, y + 20, picked ? GOLD : GREY);
 }
-// The big hero z× on its lit floor, `name` over it and the choice's name under it (D-520, D-523);
+// The big hero z× on the crypt floor (D-525), `name` over it and the choice's name under it (D-520, D-523);
 // the name card draws it too, with no choice (D-517)
 export const stageSize = (z) => ({ w: stageW(z), h: LINE + stageH(z) });
-export function drawStage(c, hero, name, choice, { x, y, z }) {
+export function drawStage(c, hero, name, choice, { x, y, z }, t = 0, still = true) {
   const w = stageW(z), h = stageH(z), hx = x + 8, hy = y + LINE + 1;
   if (name) centred(c, name, x + w / 2, y, CORE);
-  c.drawImage(groundOf(w, h), x, y + LINE);
-  frame(c, x - 1, y + LINE - 1, w + 2, h + 2, DIM);
+  c.drawImage(litFloor(w, h, still ? 1 : flicker(t, 1.7, 0.035)), x, y + LINE);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(hx + 4 * z, hy + 15 * z, 8 * z, z + 1); c.fillRect(hx + 5 * z, hy + 16 * z + 1, 6 * z, 2); // its shadow
   c.drawImage(hero, hx, hy, 16 * z, 16 * z);
   if (choice) centred(c, choice, x + w / 2, y + LINE + h + 2, GOLD);

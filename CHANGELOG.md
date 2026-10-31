@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.234 (2026-10-31)
+- The big hero on the name and Look cards now stands on the crypt's own stone floor, lit warm around it and fading into the card with no frame, and the light flickers like your lantern. With Motion set to Reduced, the light stays steady.
+- Decisions: D-525.
+
 ## 0.2.233 (2026-10-31)
 - When you make a new hero, the name card shows your hero big over the letters, with the name you type over it, and two dots in the top bar show it is the first of two steps; on the Look card both dots are lit. Rename shows your hero too. Going back from the Look card to the name keeps the look you picked.
 - Decisions: D-524.
