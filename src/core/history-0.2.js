@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.223', date: '2026-10-31', title: 'Herbs in the bag', lines: [
+    "Walk onto a healing herb with full hearts and it now goes into your bag, instead of staying on the floor without a word. Pick it in the bag and Eat to heal 2 hearts. Hurt, you still eat it on the spot.",
+    "Herbs stack 5 to a slot. With no room in the bag, the herb stays where it lies and the game says \"Your bag is full.\"",
+    "Decisions: D-511, which replaces D-156.",
+  ] },
   { v: '0.2.222', date: '2026-10-31', title: 'Line colours by source', lines: [
     "The text line now colours a line by where it comes from: what people say, like the trapped peddler's calls, is bone white, and a creature biting or stinging you is red. Warnings stay amber and everything else grey.",
     "Behind the scenes: every other line stays grey for now, and a bite your vest turns stays grey too. Older decisions moved to the archive, word for word. Decisions: D-510; this builds D-509.",

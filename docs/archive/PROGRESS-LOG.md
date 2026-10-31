@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.220, the title's screens upright.** From pictures
+  drawn by the game's own code, the owner picked every recommended
+  option: upright, the title's screens at play's size, the round
+  buttons in a row under the big button, the pads at the card's foot
+  with bigger keys (D-506). Also put back archived decisions 0.2.219
+  lost. Playtest: https://claude.ai/artifact/LNqiL9SKk7LWbCd7JHfYNh
 - **2026-10-31, 0.2.219, play upright too.** The owner's partner can't
   stand sideways, so the owner gave Claude the lead on upright play,
   taking every recommended option (D-505, answers Q-065). A phone plays

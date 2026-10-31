@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.222 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.223 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -44,6 +44,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.223, herbs in the bag.** The owner found a herb
+  that wouldn't go at seed 27514, depth 2: at full hearts it stayed, silent
+  (D-156). The owner picked the bag: at full health a herb goes in, 5 a
+  stack, Eat heals 2; hurt, eaten on the spot; no room, "Your bag is
+  full." (D-511). Playtest: https://claude.ai/artifact/WiVCQWcdY7EXNb3sCk9Ag6
 - **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
   peddler's words show bone white, a creature's bite or sting red;
   warnings stay amber, the rest grey. The rest stay grey for now,
@@ -54,9 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,
   oilcaps; the stairs stay a search (D-507). The guide won't be a faery
   (D-508, Q-072). Line colours by source come next (D-509). Playtest: https://claude.ai/artifact/P2i44AezzV5VG1v9ixoKQy
-- **2026-10-31, 0.2.220, the title's screens upright.** From pictures
-  drawn by the game's own code, the owner picked every recommended
-  option: upright, the title's screens at play's size, the round
-  buttons in a row under the big button, the pads at the card's foot
-  with bigger keys (D-506). Also put back archived decisions 0.2.219
-  lost. Playtest: https://claude.ai/artifact/LNqiL9SKk7LWbCd7JHfYNh

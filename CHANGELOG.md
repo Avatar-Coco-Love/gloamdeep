@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.223 (2026-10-31)
+- Walk onto a healing herb with full hearts and it now goes into your bag, instead of staying on the floor without a word. Pick it in the bag and Eat to heal 2 hearts. Hurt, you still eat it on the spot.
+- Herbs stack 5 to a slot. With no room in the bag, the herb stays where it lies and the game says "Your bag is full."
+- Decisions: D-511, which replaces D-156.
+
 ## 0.2.222 (2026-10-31)
 - The text line now colours a line by where it comes from: what people say, like the trapped peddler's calls, is bone white, and a creature biting or stinging you is red. Warnings stay amber and everything else grey.
 - Behind the scenes: every other line stays grey for now, and a bite your vest turns stays grey too. Older decisions moved to the archive, word for word. Decisions: D-510; this builds D-509.
@@ -97,9 +102,3 @@ Entry format:
 - Pick one, then Buy, Enter or Space to buy one, free, no turn. Buy is dim with too few coins or no room in your bag, and the card says why.
 - Tap a tab to turn it, or press Up from the top row of slots, then Left or Right. Step 13, the vendor and coins, is done.
 - Decisions: D-495.
-
-## 0.2.208 (2026-10-30)
-- Bump the peddler at home and, after his line, his card opens: your coins and your bag on the left, what he pays for the chosen thing on the right.
-- He buys creature materials, one at a time: 1 coin for a common one, 5 for a rare one. Pick a slot, then Sell, Enter or Space. No turn passes, and Sell is dim for what he doesn't buy.
-- Your coins are kept when you fall, except in Hardcore, where they go with the world. Buying from him comes later.
-- Decisions: D-494.

@@ -192,3 +192,12 @@ recommended) Beyond D-509, the text line's other lines stay grey: finds,
 rare finds, crafting, levels, refusals, and the low-oil line. A bite the
 vest turns stays grey too: red only when you are hurt. Asked again when
 lore, feats or the guide bring new kinds of lines.
+
+**D-511 · 2026-10-31 · A herb at full health goes in the bag** (the
+owner's idea and picks, recommended; supersedes D-156) Found at seed
+27514, depth 2: a herb walked onto at full hearts stayed silent and
+seemed broken. Now at full health it goes into the bag, silent, 5 a
+stack, the potion's size; Eat there heals 2 with "You eat the herb and
+feel better.", or says "You aren't hurt." at full (D-308). Hurt, it is
+still eaten on the spot (D-155). With no room it stays: "Your bag is
+full."

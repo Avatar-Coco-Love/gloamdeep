@@ -172,7 +172,7 @@ after them so the rest of each seed's room is unchanged. The first two
 rooms have none. The dev spawn tool lists it, as it lists every item.
 
 **D-156 · 2026-10-19 · A herb at full health stays** (step 30, owner's
-pick) At full health walking onto a herb does nothing: it stays on the
+pick) Superseded by D-511 (2026-10-31). At full health walking onto a herb does nothing: it stays on the
 floor for later (a flask is always used, D-078). Eaten, it says "You
 eat the herb and feel better."; a bite on the same turn replaces that
 line (D-117).
