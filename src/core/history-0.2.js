@@ -4,6 +4,10 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.230', date: '2026-10-31', title: 'Tabs on the Look card', lines: [
+    "Your hero's look is now one LOOK card with four tabs across its top: Cloak, Eyes, Trim and Clothes. The big hero shows everything you pick, and every choice shows your whole hero wearing it, with its name. OK finishes from any tab. With the arrows, go up onto the tabs and left or right to switch.",
+    "Decisions: D-521.",
+  ] },
   { v: '0.2.229', date: '2026-10-31', title: 'The big hero on the Cloak card', lines: [
     "The first step of the new hero creator: the Cloak card shows your hero big on a lit floor, its name over it and the cloak's name under it. The six cloaks below are smaller, each hero at its real size with its name. On a wide screen the big hero stands at the left of them.",
     "Decisions: D-520.",

@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.229 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.230 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The hero creator (D-517), step 2: eyes, trim and clothes join the Cloak card as tabs (one LOOK card), proposed to the owner first; then RANDOM, the name card's hero and dots; then step 14, the garden (Q-071).
+The hero creator (D-517), step 3: RANDOM beside OK on the LOOK card, rolling free looks only, proposed to the owner first; then the name card's hero and dots; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.230, the tabs.** The hero creator's second step.
+  Picked: one LOOK card, four tabs under its heading, the open one in
+  ember; every tab's boxes show the whole hero 1×, named; OK finishes
+  from any tab; the arrows go up onto the tabs (D-521).
+  Playtest: https://claude.ai/artifact/YNgYB724GTfCxqTybsduMc
 - **2026-10-31, 0.2.229, the big hero.** The first step of the hero
   creator. Picked: the Cloak card first, the hero 3× on a lit floor
   with its name over it and the cloak's under it; the six boxes shorter,
@@ -52,9 +57,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   trims, and splits are outgrown; so every 40 versions now (D-518). Picked:
   the hero slots move from `main.js` into `slots.js`; five audit records
   archived; CHANGELOG keeps 3; ticked steps archived (D-519). Nothing visible.
-- **2026-10-31, 0.2.227, Glints and the hero creator.** The owner asked
-  to talk about the look currency and to polish making a hero. Picked:
-  the name Glints, paid by Feats and spent in the Look card (D-516); and
-  from a mock-up of two layouts, one Look card with tabs and the hero
-  big, plus RANDOM (D-517). Docs only.
-  Mock-up: https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg

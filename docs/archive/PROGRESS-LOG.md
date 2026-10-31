@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.227, Glints and the hero creator.** The owner asked
+  to talk about the look currency and to polish making a hero. Picked:
+  the name Glints, paid by Feats and spent in the Look card (D-516); and
+  from a mock-up of two layouts, one Look card with tabs and the hero
+  big, plus RANDOM (D-517). Docs only.
+  Mock-up: https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg
 - **2026-10-31, 0.2.226, cloak patterns picked.** The owner asked to
   see cloak patterns. From a mock-up of six on the hero, the owner
   picked zebra, cow spots and camo, each in its own colours, none free

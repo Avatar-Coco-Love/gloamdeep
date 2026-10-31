@@ -54,10 +54,10 @@
 // opens the name pad (D-272), a card (D-398): letters typed, tapped or picked, Del, and OK makes the profile;
 // the round cross, a tap outside or Esc goes back to the slot screen with nothing made. Rename, then a profile's box, opens the
 // pad on its name; OK keeps the new name, Esc the old (D-273). Cancel, Esc or P stop picking.
-// After the name, a new profile chooses its cloak, its eyes, its lantern's trim, then its clothes;
-// Look, then a box, changes them later (P3 to P6). Arrows, swipes or a tap pick one, OK goes on,
-// and the round cross or a tap outside goes back a card (D-399); Esc or P after the cloak leave a
-// profile's old look as it was.
+// After the name, a new profile chooses its cloak, its eyes, its lantern's trim and its clothes on
+// one look card, a tab each; Look, then a box, changes them later (P3 to P6, D-521). Arrows,
+// swipes or a tap pick one, OK makes it, and the round cross, a tap outside, Esc or P go back
+// (D-399), leaving a profile's old look as it was.
 // Split from main.js (D-235): `app` holds what the screens share with play and drawing.
 import { depthOf, areaAt, tileAt } from '../core/room.js';
 import { lineAt, pauseTop } from '../render/menu.js';
@@ -71,7 +71,6 @@ import { nextPage, howtoWords } from '../core/howto.js';
 import { PAD, moveKey } from '../core/seedpad.js';
 import { NAME_PAD, moveName } from '../core/namepad.js';
 import { nameCardAt } from '../render/namepad.js';
-import { CLOAK_PAD, moveCloak, EYES_PAD, moveEyes, TRIM_PAD, moveTrim, CLOTHES_PAD, moveClothes } from '../core/looks.js';
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { lookCardAt } from '../render/cloak.js';
@@ -125,7 +124,7 @@ export function createScreens(app, ui) {
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'bed' ? SURE_MENU
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'eyes', 'trim', 'clothes', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488)
@@ -143,7 +142,7 @@ export function createScreens(app, ui) {
     app.spokenLine = null;
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
-      : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? cloakWords() : next === 'eyes' ? eyesWords() : next === 'trim' ? trimWords() : next === 'clothes' ? clothesWords()
+      : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? `${askOf(next).join(' ')} Yes or No.`
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : WORDS[next];
   }
@@ -238,9 +237,7 @@ export function createScreens(app, ui) {
     const id = linesNow()[i - SLOTS]?.id;
     if (id === 'rename' || id === 'look' || id === 'delete') { app.picking = app.picking === id ? null : id; spoken.textContent = slotsWords(); }
   }
-  const { nameWords, openName, closeName, pressName, cloakWords, openCloak, closeCloak, moveToCloak, pressCloak,
-    eyesWords, backToCloak, moveToEyes, pressEyes, escEyes, trimWords, backToEyes, moveToTrim, pressTrim, escTrim,
-    clothesWords, backToTrim, moveToClothes, pressClothes, escClothes } = createProfileScreens(app, ui, show); // the profile screens (D-421)
+  const { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook } = createProfileScreens(app, ui, show); // the profile screens (D-421)
   // After the question: back to the slot screen, the flame on the slot asked about
   function closeDrop(yes) {
     if (yes) ui.dropSlot(app.dropping);
@@ -424,9 +421,6 @@ export function createScreens(app, ui) {
     else if (app.screen === 'drop') closeDrop(false);
     else if (app.screen === 'name') closeName();
     else if (app.screen === 'cloak') closeCloak();
-    else if (app.screen === 'eyes') escEyes();
-    else if (app.screen === 'trim') escTrim();
-    else if (app.screen === 'clothes') escClothes();
     else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
     else if (app.screen === 'slots' && slotsBack()) titleAt('profiles');
   }
@@ -473,10 +467,7 @@ export function createScreens(app, ui) {
     const id = menuOf(app.screen)[i]?.id;
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
-    if (app.screen === 'cloak') { pressCloak(i); return; }
-    if (app.screen === 'eyes') { pressEyes(i); return; }
-    if (app.screen === 'trim') { pressTrim(i); return; }
-    if (app.screen === 'clothes') { pressClothes(i); return; }
+    if (app.screen === 'cloak') { pressLook(i); return; }
     if (app.screen === 'bag') { useChosen(); return; }
     if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
     if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
@@ -519,10 +510,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'map' || app.screen === 'explore') { if (how !== 'swipe') panMap(...{ up: [0, -PAN], down: [0, PAN], left: [-PAN, 0], right: [PAN, 0] }[dir]); return; }
     if (app.screen === 'seed') { app.chosen = moveKey(app.chosen, dir); return; }
     if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
-    if (app.screen === 'cloak') { moveToCloak(moveCloak(app.chosen, dir)); return; }
-    if (app.screen === 'eyes') { moveToEyes(moveEyes(app.chosen, dir)); return; }
-    if (app.screen === 'trim') { moveToTrim(moveTrim(app.chosen, dir)); return; }
-    if (app.screen === 'clothes') { moveToClothes(moveClothes(app.chosen, dir)); return; }
+    if (app.screen === 'cloak') { moveLookBy(dir); return; }
     if (app.screen === 'place') { setToward(dir); return; }
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
     if (app.screen === 'trade') { moveTrade(dir); return; } // the grid, the tabs above it (D-495)
@@ -640,12 +628,11 @@ export function createScreens(app, ui) {
       else if (at) { app.chosen = at.key; choose(at.key); }
       return;
     }
-    const looks = { cloak: [CLOAK_PAD, pressCloak, closeCloak], eyes: [EYES_PAD, pressEyes, backToCloak], trim: [TRIM_PAD, pressTrim, backToEyes], clothes: [CLOTHES_PAD, pressClothes, backToTrim] }[app.screen];
-    if (looks) {
+    if (app.screen === 'cloak') {
       if (held) return;
-      const [pad, press, back] = looks, at = lookCardAt(px, py, view.w, view.h, pad);
-      if (at === 'out' || at === 'close') back(); // the round cross goes back a card, as Back did (D-399)
-      else if (at) press(at.key, true);
+      const at = lookCardAt(px, py, view.w, view.h, app.lookTab);
+      if (at === 'out' || at === 'close') closeCloak(); // the round cross goes back, as Back did (D-399)
+      else if (at) pressLook(at.key, true);
       return;
     }
     if (app.screen === 'history') {

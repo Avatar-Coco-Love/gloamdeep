@@ -1,8 +1,8 @@
-// § profile screens: a new profile's name pad, then its cloak, eyes, trim and clothes, and
-// Rename and Look from the slot screen (D-272, D-273, P3 to P6). Split from screens.js at the
+// § profile screens: a new profile's name pad, then its look card, and Rename and Look from the
+// slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { CLOAKS, CLOAK_PAD, CLOAK_IDS, cloakOf, EYES, EYES_PAD, EYE_IDS, eyesOf, TRIMS, TRIM_PAD, TRIM_IDS, trimOf, CLOTHES, CLOTHES_PAD, CLOTHES_IDS, clothesOf } from '../core/looks.js';
+import { CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook } from '../core/looks.js';
 
 export function createProfileScreens(app, ui, show) {
   const { spoken } = ui;
@@ -18,83 +18,49 @@ export function createProfileScreens(app, ui, show) {
     else if (id === 'ok') openCloak(app.naming, true);
     else { app.entry = typeLetter(app.entry, id); spoken.textContent = app.entry || 'nothing typed'; }
   }
-  // § cloak (P3): a new profile's comes after its name; the cross returns to the name pad with the
-  // name kept. Look opens on the profile's own look, and the cross leaves it as it was. OK goes on
-  // to the eyes (P4).
-  const cloakWords = () => `Choose a cloak. ${CLOAKS[app.cloak].name} picked. ${CLOAK_IDS.map((id) => CLOAKS[id].name).join(', ')}. Arrows choose, then OK.`;
+  // § look (D-517, D-521; were four cards, P3 to P6): a new profile's comes after its name, open
+  // on the cloak; the cross returns to the name pad with the name kept. Look opens on the
+  // profile's own look, and the cross leaves it as it was. The flame on a tab opens it; on a
+  // choice, picks it. OK from any tab makes a new profile and opens the title, or keeps a
+  // profile's new look.
+  const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes });
+  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name).join(', ')}.`; };
+  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK.`;
   function openCloak(i, fresh) {
-    app.naming = i; app.cloakNew = fresh;
-    app.cloak = fresh ? CLOAK_IDS[0] : cloakOf(app.profiles.slots[i]);
-    app.eyes = fresh ? EYE_IDS[0] : eyesOf(app.profiles.slots[i]);
-    app.trim = fresh ? TRIM_IDS[0] : trimOf(app.profiles.slots[i]);
-    app.clothes = fresh ? CLOTHES_IDS[0] : clothesOf(app.profiles.slots[i]);
-    show('cloak', CLOAK_IDS.indexOf(app.cloak));
+    const p = app.profiles.slots[i];
+    app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak';
+    app.cloak = fresh ? CLOAK_IDS[0] : cloakOf(p);
+    app.eyes = fresh ? EYE_IDS[0] : eyesOf(p);
+    app.trim = fresh ? TRIM_IDS[0] : trimOf(p);
+    app.clothes = fresh ? CLOTHES_IDS[0] : clothesOf(p);
+    show('cloak', LOOK_PADS.cloak.findIndex((k) => !k.tab && k.id === app.cloak));
   }
   function closeCloak() {
     if (app.cloakNew) show('name', NAME_PAD.findIndex((k) => k.id === 'ok'));
     else { app.picking = null; show('slots', app.naming); }
   }
-  // The flame moves to key i; on a hero, that cloak is picked
-  function moveToCloak(i) {
+  // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
+  // choice is picked
+  function moveToLook(i) {
     app.chosen = i;
-    const id = CLOAK_PAD[i].id;
-    if (CLOAKS[id]) { app.cloak = id; spoken.textContent = `${CLOAKS[id].name} cloak`; } else spoken.textContent = 'OK';
+    const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
+    if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
+    else if (k.id === 'ok') spoken.textContent = 'OK';
+    else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
   }
-  function pressCloak(i, tapped = false) {
-    const id = CLOAK_PAD[i].id;
-    if (CLOAKS[id]) { moveToCloak(i); if (!tapped) moveToCloak(CLOAK_PAD.findIndex((k) => k.id === 'ok')); } // Enter on a hero goes on to OK
-    else show('eyes', EYE_IDS.indexOf(app.eyes));
+  // Enter on a tab goes down to its picked choice, on a hero on to OK; a tap stays where it was
+  function pressLook(i, tapped = false) {
+    const pad = LOOK_PADS[app.lookTab], k = pad[i];
+    if (k.id === 'ok' && !k.tab) {
+      if (app.cloakNew) { ui.useSlot(app.naming, app.entry, lookOf()); show('title'); }
+      else { ui.lookSlot(app.naming, lookOf()); closeCloak(); }
+      return;
+    }
+    moveToLook(i);
+    if (tapped) return;
+    if (k.tab) moveToLook(LOOK_PADS[k.id].findIndex((p) => !p.tab && p.id === app[k.id]));
+    else moveToLook(pad.findIndex((p) => p.id === 'ok'));
   }
-  // § eyes (P4): after the cloak, the same shape. OK goes on to the trim (P5); the cross returns
-  // to the cloak with the choices kept.
-  const eyesWords = () => `Choose your eyes. ${EYES[app.eyes].name} picked. ${EYE_IDS.map((id) => EYES[id].name).join(', ')}. Arrows choose, then OK.`;
-  const backToCloak = () => show('cloak', CLOAK_PAD.findIndex((k) => k.id === 'ok'));
-  function moveToEyes(i) {
-    app.chosen = i;
-    const id = EYES_PAD[i].id;
-    if (EYES[id]) { app.eyes = id; spoken.textContent = `${EYES[id].name} eyes`; } else spoken.textContent = 'OK';
-  }
-  function pressEyes(i, tapped = false) {
-    const id = EYES_PAD[i].id;
-    if (EYES[id]) { moveToEyes(i); if (!tapped) moveToEyes(EYES_PAD.findIndex((k) => k.id === 'ok')); }
-    else show('trim', TRIM_IDS.indexOf(app.trim));
-  }
-  // Esc or P: a new profile goes back to its cloak; a profile's Look ends with nothing changed
-  const escEyes = () => (app.cloakNew ? backToCloak() : closeCloak());
-  // § trim (P5): after the eyes, the same shape. OK goes on to the clothes (P6); the cross returns
-  // to the eyes with the choices kept.
-  const trimWords = () => `Choose a trim. ${TRIMS[app.trim].name} picked. ${TRIM_IDS.map((id) => TRIMS[id].name).join(', ')}. Arrows choose, then OK.`;
-  const backToEyes = () => show('eyes', EYES_PAD.findIndex((k) => k.id === 'ok'));
-  function moveToTrim(i) {
-    app.chosen = i;
-    const id = TRIM_PAD[i].id;
-    if (TRIMS[id]) { app.trim = id; spoken.textContent = `${TRIMS[id].name} trim`; } else spoken.textContent = 'OK';
-  }
-  function pressTrim(i, tapped = false) {
-    const id = TRIM_PAD[i].id;
-    if (TRIMS[id]) { moveToTrim(i); if (!tapped) moveToTrim(TRIM_PAD.findIndex((k) => k.id === 'ok')); }
-    else show('clothes', CLOTHES_IDS.indexOf(app.clothes));
-  }
-  // Esc or P: a new profile goes back to its eyes; a profile's Look ends with nothing changed
-  const escTrim = () => (app.cloakNew ? backToEyes() : closeCloak());
-  // § clothes (P6): after the trim, four heroes two to a row. OK makes a new profile and opens the
-  // title, or keeps a profile's new look; the cross returns to the trim with the choices kept.
-  const clothesWords = () => `Choose your clothes. ${CLOTHES[app.clothes].name} picked. ${CLOTHES_IDS.map((id) => CLOTHES[id].name).join(', ')}. Arrows choose, then OK.`;
-  const backToTrim = () => show('trim', TRIM_PAD.findIndex((k) => k.id === 'ok'));
-  function moveToClothes(i) {
-    app.chosen = i;
-    const id = CLOTHES_PAD[i].id;
-    if (CLOTHES[id]) { app.clothes = id; spoken.textContent = CLOTHES[id].name; } else spoken.textContent = 'OK';
-  }
-  function pressClothes(i, tapped = false) {
-    const id = CLOTHES_PAD[i].id, look = { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes };
-    if (CLOTHES[id]) { moveToClothes(i); if (!tapped) moveToClothes(CLOTHES_PAD.findIndex((k) => k.id === 'ok')); }
-    else if (app.cloakNew) { ui.useSlot(app.naming, app.entry, look); show('title'); }
-    else { ui.lookSlot(app.naming, look); closeCloak(); }
-  }
-  // Esc or P: a new profile goes back to its trim; a profile's Look ends with nothing changed
-  const escClothes = () => (app.cloakNew ? backToTrim() : closeCloak());
-  return { nameWords, openName, closeName, pressName, cloakWords, openCloak, closeCloak, moveToCloak, pressCloak,
-    eyesWords, backToCloak, moveToEyes, pressEyes, escEyes, trimWords, backToEyes, moveToTrim, pressTrim, escTrim,
-    clothesWords, backToTrim, moveToClothes, pressClothes, escClothes };
+  const moveLookBy = (dir) => moveToLook(moveLook(app.lookTab, app.chosen, dir, app[app.lookTab]));
+  return { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook };
 }

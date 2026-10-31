@@ -24,7 +24,8 @@ code; where this page and a decision disagree, the decision wins.
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,
   Short, Tattered), chosen after the name or with Change look (the CHANGE LOOK
   button) on the slot screen (D-275 to D-278, D-289, D-397, D-513); each a glass
-  card since D-399.
+  card since D-399, and one LOOK card with a tab each since D-521 (its
+  screen is still called `cloak` in the code).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).
