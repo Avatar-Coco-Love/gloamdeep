@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.235 (2026-10-31)
+- On the Look card, the tabs and choices now stretch across the whole card, and the heroes in the choices are twice as big when there is room. On tall phones your hero grows bigger and its lit stone floor fills the space that used to be empty.
+- Decisions: D-526.
+
 ## 0.2.234 (2026-10-31)
 - The big hero on the name and Look cards now stands on the crypt's own stone floor, lit warm around it and fading into the card with no frame, and the light flickers like your lantern. With Motion set to Reduced, the light stays steady.
 - Decisions: D-525.

@@ -147,31 +147,6 @@ entries; the build plan's ticked steps 13 and Water move to
 `archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
 follow at later audits; the next is at 0.2.268.
 
-**D-520 · 2026-10-31 · The hero creator, step 1: the big hero** (the
-owner's picks, both recommended; builds D-517) The Cloak card comes
-first: the hero 3× on a lit floor, the profile's name over it and the
-cloak's name under it, sideways at the left of the boxes. The six boxes
-stay three to a row, shorter: each hero 1× with its name. Eyes, trim and
-clothes join the card as tabs in the next steps.
-*Partly superseded by D-523 (2026-10-31): the hero as big as fits.*
-
-**D-521 · 2026-10-31 · The hero creator, step 2: the tabs** (the
-owner's picks, all recommended; builds D-517, D-520) One LOOK card:
-four tabs, CLOAK, EYES, TRIM and CLOTHES, in a row under its heading,
-the open one in ember. Every tab's boxes show the whole hero 1× in that
-choice, named; the big hero shows the details. OK finishes from any
-tab. The arrows go up onto the tabs, the flame on a tab opens it, and
-left and right walk them.
-
-**D-522 · 2026-10-31 · The hero creator, step 3: RANDOM** (the owner's
-picks, all recommended; builds D-517, D-521) RANDOM is a button at the
-left of OK on the LOOK card, on a new hero's and on Change look. One
-press rolls all four parts at once from the free looks (every look is
-free for now), and the flame stays on RANDOM to roll again; the open
-tab stays open. With the arrows, RANDOM sits under the first two
-columns and OK under the third.
-*Partly superseded by D-523 (2026-10-31): a row of big buttons.*
-
 **D-523 · 2026-10-31 · The LOOK card nearer the mock-up** (the owner's
 picks, both recommended; supersedes part of D-520 and D-522) The owner
 noticed the card had drifted from the mock-up. The big hero grows to the
@@ -179,6 +154,7 @@ largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
 two equal buttons across the card's foot, 18 tall with letters 2×. The
 tabs move under the hero, as wide as the boxes (changed after the owner
 pointed at A: they had stayed at the top). Boxes keep the whole hero.
+*Partly superseded by D-526 (2026-10-31): the hero past 6× when it fits.*
 
 **D-524 · 2026-10-31 · The hero creator, step 4: dots and the name
 card's hero** (the owner's picks, all recommended; builds D-517) Two
@@ -198,3 +174,14 @@ mock-up A, since heroes don't bob in the game; only the light flickers,
 with the lantern's own flicker, and stays steady when Motion is
 Reduced. The small choice boxes keep their speckled floor. D-514 to
 D-516 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-526 · 2026-10-31 · The hero creator, step 5: the LOOK card's full
+width** (the owner's pick of option 2, recommended, from a mock-up;
+supersedes part of D-520 and D-523) The tabs and boxes span the card's
+width. The boxes' heroes are 2× while the big hero still fits at 6× or
+more, else 1×. The big hero is as big as the rest has room for, past
+6×, and its crypt floor grows taller, and wider up to the card's width,
+to fill the height left, so tall phones have no empty space. Sideways,
+the tabs and boxes fill the width at the hero's right and the floor
+fills the height. D-520 to D-522 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
