@@ -6,7 +6,7 @@
 export const HISTORY_02 = [
   { v: '0.2.222', date: '2026-10-31', title: 'Line colours by source', lines: [
     "The text line now colours a line by where it comes from: what people say, like the trapped peddler's calls, is bone white, and a creature biting or stinging you is red. Warnings stay amber and everything else grey.",
-    "Decisions: none new; this builds D-509.",
+    "Behind the scenes: every other line stays grey for now, and a bite your vest turns stays grey too. Older decisions moved to the archive, word for word. Decisions: D-510; this builds D-509.",
   ] },
   { v: '0.2.221', date: '2026-10-31', title: 'A Basics page', lines: [
     "How to play has a new first tab, Basics, and now opens on it. It says what to aim for and how to keep your lantern lit: find the stairs down, searching each room for them; your lantern burns oil, and less oil means less light; pour a flask from the bag or the quick slot; 3 oilcaps make a flask; oilcaps are the amber mushrooms in rooms.",

@@ -46,7 +46,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
   peddler's words show bone white, a creature's bite or sting red;
-  warnings stay amber, the rest grey. A bite your vest turns stays grey.
+  warnings stay amber, the rest grey. The rest stay grey for now,
+  a turned bite too (D-510).
   Playtest: https://claude.ai/artifact/W4GByW5DeuiAxvwCtkBTAH
 - **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
   the lantern and on which way to go. The owner picked a first How to
