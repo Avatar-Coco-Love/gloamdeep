@@ -171,7 +171,7 @@ export function createScreens(app, ui) {
     app.state = s;
     spoken.textContent = journalPageWords();
   }
-  function openHowTo() { app.page = ui.input().kind(); show('howto'); }
+  function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)
   function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings); }
   const flipPage = (back = false) => openPage(nextPage(app.page, back));
 

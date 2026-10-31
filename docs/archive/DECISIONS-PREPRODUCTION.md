@@ -189,6 +189,7 @@ its portal sits in, with the same kinds of tiles and creatures, warped,
 and rarer loot.
 
 **D-034 · 2026-10-17 · The companion is a faery** (supersedes D-029, D-033)
+*Partly superseded by D-508 (2026-10-31): not a faery; what it is waits (Q-072).*
 The owner swapped the dog for a faery friend. It speaks, gives
 information and holds conversations. It is not bound to the grid: it
 flies freely around the hero and flies toward things when there is a

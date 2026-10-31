@@ -121,3 +121,9 @@ first), or drop them. The code that was built is easy to redo.
 The owner asks whether water matters to the garden. So far seeds just
 grow while the hero is below (D-452). It could: a pool at home, wet
 ground, water plants. Decided at the garden's step.
+
+**Q-072 · What the guide is** (raised 2026-10-31, D-508)
+The owner wants a companion who guides, but not a faery: something
+unique, not ordinary, not found in other games. What it is, how it
+looks, how it joins and what it does are all open. Asked when the
+owner wants the guide.

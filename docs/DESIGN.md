@@ -79,11 +79,12 @@ uncovering lore and secrets.
   fell, Hardcore is one life. [D-334]
 
 ## Company
-You start alone. In the first cave you rescue a **faery**, and it stays
+You start alone. In the first cave you rescue a **guide**, and it stays
 with you from then on. It flies freely around you, off the grid, and
 darts toward things worth noticing. It speaks up with hints, warnings and
 lore, and you can tap it to ask about things. It glows faintly but lights
-almost nothing, and it never fights: it guides. [D-023, D-034]
+almost nothing, and it never fights: it guides. It is not a faery: what
+it is waits (Q-072). [D-023, D-034, D-508]
 
 ## Look and feel
 Style study 1 is the look, and all of it stays: real light and shadows,

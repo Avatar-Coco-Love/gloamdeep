@@ -4,6 +4,12 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.221', date: '2026-10-31', title: 'A Basics page', lines: [
+    "How to play has a new first tab, Basics, and now opens on it. It says what to aim for and how to keep your lantern lit: find the stairs down, searching each room for them; your lantern burns oil, and less oil means less light; pour a flask from the bag or the quick slot; 3 oilcaps make a flask; oilcaps are the amber mushrooms in rooms.",
+    "Upright, How to play's tabs still take two rows: Basics, Touch and Mouse on top, Keyboard, Bag and Bench under them.",
+    "Behind the scenes: the guide who joins you later won't be a faery; what it is waits for the owner. Next, the text line will colour what people say white and harm red. Older decisions moved to the archive, word for word.",
+    "Decisions: D-507, D-508, D-509. Questions opened: Q-072.",
+  ] },
   { v: '0.2.220', date: '2026-10-31', title: "The title's screens upright", lines: [
     "Held upright, the title's screens are bigger: the title, Profiles, Settings, How to play and the name and seed pads fill the screen's width, the same size as the cards in play. Sideways nothing changed.",
     "Upright, Journal, How to play and Settings stand in a row under the big button, in thumb reach.",
