@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.214, the still pool.** About 1 grey-rock Cave room
+  in 2 holds a still blue-grey pool of 5 to 9 tiles, solid, rippling,
+  with the lantern's light on it, picked from a second mock-up drawn
+  by the game's own code (D-500). Playtest:
+  https://claude.ai/artifact/YVS5fApbj3trtEtLa9ZtfH
 - **2026-10-31, 0.2.213, water first.** The owner's ideas for how
   places are made go in the wish list: pools, rivers above and below
   ground, biomes, parts of rooms reached through another door, and

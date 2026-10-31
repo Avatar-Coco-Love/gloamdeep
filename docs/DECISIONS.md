@@ -180,20 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-500 · 2026-10-31 · The still pool** (the owner's picks, the first
-step of D-499; look 1 of 3 from the second mock-up) About 1 grey-rock
-Cave room in 2 (depths 2 to 4) holds a still pool of 5 to 9 water
-tiles, in a chamber at least 4 steps from the stairs and the way in,
-never on the edge or where something lies, stands or starts. The hero
-can't step in (bumping does nothing, no turn) and creatures can't
-cross it until swimming (Q-039); light passes over it; every dry tile
-can still be reached. Blue-grey, grown from the puddle's colours, its
-edge wobbling like the rock's, with a dark lip under the bank, a wet
-rim, a slow shimmer, rings that widen and fade, and the lantern's warm
-light on it; still with reduced motion. On the map it shows as wall
-for now. Also moved D-497 to the archive, word for word, as this file
-passed 12 KB.
-
 **D-501 · 2026-10-31 · The peddler stands still and faces forward**
 (the owner's catch and picks, all recommended; look A of the facing
 mock-up; changes D-490's idle bob and turning) He no longer bobs, which
@@ -211,3 +197,17 @@ seen, in the pool's blue-grey shimmer (#3f5175), not as wall. Next, a
 pond in the woods, in the cave pool's own blue-grey with a dark grassy
 lip under its bank. Also moved D-499 to the archive, word for word, as
 this file passed 12 KB.
+
+**D-503 · 2026-10-31 · The pond at home, and calmer rings** (the
+owner's picks, all recommended, from a mock-up drawn by the game's own
+code; the third step of D-499; answers the owner's catch that the cave
+pool bubbled like a hot spring) The home woods hold one pond of 5 to 9
+water tiles, the cave pool's size, grown round from a seeded open spot
+at least 2 tiles in from the edge and 4 steps from the start and the
+cave mouth, never where a stick lies and never cutting the woods in
+two; from its own seed, so the rest of each seed's woods stays as it
+was. It is the cave pool's water with a dark grassy lip in the woods'
+darkest greens. All still water ripples calmly (look R1; changes
+D-500's rings): a ring on about 1 tile in 5, every 7 seconds, not half
+the tiles every 2.6, and a slower shimmer. Also moved D-500 to the
+archive, word for word, as this file passed 12 KB.

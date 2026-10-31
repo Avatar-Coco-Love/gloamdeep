@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.217 (2026-10-31)
+- Home in the woods now has a pond: 5 to 9 tiles of the cave pool's blue-grey water, with a dark grassy lip under its bank, in an open spot away from where you start and the cave mouth. You can't step in yet. Only a new journey has it; a journey already started keeps its woods as they were.
+- Still water ripples calmly now: a ring widens on about 1 tile in 5, every 7 seconds, and the shimmer is slower, so the cave pool no longer bubbles like a hot spring.
+- Decisions: D-503.
+
 ## 0.2.216 (2026-10-31)
 - The map now shows a cave pool's water in its own blue-grey, once you've seen it, instead of as a wall.
 - Decisions: D-502.

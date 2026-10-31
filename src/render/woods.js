@@ -4,6 +4,7 @@ import { hash } from '../core/noise.js';
 import { tileAt } from '../core/room.js';
 import { TILE as T } from './screen.js';
 import { paintMouths } from './mouth.js';
+import { inPool, wetAt, water, GRASS_LIP } from './water.js';
 
 // Value noise: hash at whole points, mixed between them
 function noise(x, y, s) {
@@ -45,11 +46,23 @@ export function drawWoods(c, room) {
   const put = (x, y, hex) => { const [r, g, b] = rgb(hex), i = (y * w + x) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
   const shade = (x, y, k) => { const i = (y * w + x) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
   for (let y = 0; y < room.rows * T; y++) for (let x = 0; x < w; x++) grass(put, x, y);
+  paintPond(room, put, shade);
   for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
     if (tileAt(room, tx, ty).id === 'tree') paintTree(put, shade, tx, ty);
   }
   paintMouths(room, d, put, shade); // the cave mouth and its rocks (D-211)
   c.putImageData(img, 0, 0);
+}
+
+// § pond: the pond at home (D-503), the cave pool's water with a dark grassy lip under its
+// bank, the grass beside it darkened as the cave's damp stone is. A tree's tile is left to the tree.
+function paintPond(room, put, shade) {
+  if (!room.map.some((row) => row.includes('~'))) return;
+  for (let y = 0; y < room.rows * T; y++) for (let x = 0; x < room.cols * T; x++) {
+    if (tileAt(room, Math.floor(x / T), Math.floor(y / T)).id === 'tree') continue;
+    if (inPool(room, x, y)) put(x, y, water(room, x, y, GRASS_LIP));
+    else if (wetAt(room, x, y) > 0.22) shade(x, y, 0.82);
+  }
 }
 
 // § spawned: a tree the dev spawn tool puts in another room, on its floor

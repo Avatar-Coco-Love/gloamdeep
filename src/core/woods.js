@@ -1,7 +1,7 @@
 // § woods: a generated woods room on the surface (step 48, D-209), from one
 // seed. Plain data, no drawing. Same seed, same room. Trees stand thick at
 // the edges and thinner inside; every open tile is joined to the start.
-import { rng } from './rng.js';
+import { rng, int } from './rng.js';
 import { COLS, ROWS } from './cave.js';
 import { get } from './registry.js';
 
@@ -21,7 +21,8 @@ const BRANCHES = 1;
 // woods yet (starting-region.md, "Creatures and finds"); 3 sticks lie on open
 // tiles, picked after the trees so the rest of each seed's room stays as it
 // was, each one of Wood's looks, its `form` (D-314); then one fallen branch,
-// picked after the sticks for the same reason (D-316). The hero starts in
+// picked after the sticks for the same reason (D-316); then a pond, from its
+// own seed (D-503). The hero starts in
 // the middle. `mouth` (mouth.js), when given, opens the cave mouth in its
 // edge with a rock either side, the two tiles in front of it open and
 // joined to the start (D-211).
@@ -36,6 +37,7 @@ export function generateWoods(seed, mouth = null) {
   }
   const items = sticks(r, g, [start, ...front]);
   branches(r, g, start, [start, ...front, ...items]);
+  pond(seed, g, start, front, items);
   return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items };
 }
 
@@ -50,6 +52,39 @@ function branches(r, g, start, keep) {
     g[at.y][at.x] = 'F';
     if (joinedFrom(g, start)) placed++;
     else g[at.y][at.x] = '.';
+  }
+}
+
+// § pond: one pond of POND_MIN to POND_MAX water tiles ('~', D-503), the cave pool's
+// size, on open grass at least POND_IN tiles in from the edge and POND_CLEAR steps from
+// the start and the mouth's front, where no stick lies. It grows round from a seeded
+// spot, each next tile the one nearest that spot, with a little chance in it, and never
+// cuts the room in two. From its own seed, picked last, so the rest of each seed's room
+// stays as it was; none when no spot fits.
+export const POND_MIN = 5, POND_MAX = 9, POND_IN = 2, POND_CLEAR = 4;
+function pond(seed, g, start, front, items) {
+  const r = rng(seed ^ 0x3c6ef372), size = int(r, POND_MIN, POND_MAX), near = [start, ...front];
+  const free = (x, y) => g[y]?.[x] === '.' && depthIn(x, y) >= POND_IN && !items.some((t) => t.x === x && t.y === y)
+    && near.every((t) => Math.abs(t.x - x) + Math.abs(t.y - y) >= POND_CLEAR);
+  const spots = [];
+  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (free(x, y)) spots.push({ x, y });
+  while (spots.length) {
+    const at = spots.splice(Math.floor(r() * spots.length), 1)[0], wet = [at], jitter = new Map();
+    g[at.y][at.x] = '~';
+    while (wet.length < size) {
+      let best = null, bestD = Infinity;
+      for (const t of wet) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+        const x = t.x + dx, y = t.y + dy, k = y * COLS + x;
+        if (!free(x, y)) continue;
+        if (!jitter.has(k)) jitter.set(k, r() * 1.3);
+        const d = Math.hypot(x - at.x, (y - at.y) * 1.2) + jitter.get(k);
+        if (d < bestD) { bestD = d; best = { x, y }; }
+      }
+      if (!best) break;
+      g[best.y][best.x] = '~'; wet.push(best);
+    }
+    if (wet.length >= POND_MIN && joinedFrom(g, start)) return;
+    for (const t of wet) g[t.y][t.x] = '.';
   }
 }
 

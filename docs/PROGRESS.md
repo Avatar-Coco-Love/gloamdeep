@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.216 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.217 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Water's third step (D-502): a pond at home in the woods, in the cave
-pool's blue-grey with a dark grassy lip; propose its size and place.
+Water's fourth step (D-499): propose what comes next, such as a river
+above or below, or water done for now and on to the garden (step 14).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -30,7 +30,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
-- [ ] Water: pools and rivers, above and below (D-499; the still pool, 0.2.214; on the map, 0.2.216)
+- [ ] Water: pools and rivers, above and below (D-499; the still pool, 0.2.214; on the map, 0.2.216; the pond at home, 0.2.217)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.217, the pond at home.** From a mock-up drawn by
+  the game's own code, the owner picked a pond of 5 to 9 tiles at home
+  in a seeded open spot, and, from their catch that the cave pool
+  bubbled like a hot spring, calmer rings on all still water (D-503).
+  Playtest: https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
 - **2026-10-31, 0.2.216, water on the map.** From a mock-up drawn by
   the game's own code, the owner picked water on the map first: a
   seen pool shows in its blue-grey, not as wall. A pond at home, in
@@ -55,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   forward (look A of a mock-up), and turns to the hero only within 2
   tiles and not in his column (D-501). Playtest:
   https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
-- **2026-10-31, 0.2.214, the still pool.** About 1 grey-rock Cave room
-  in 2 holds a still blue-grey pool of 5 to 9 tiles, solid, rippling,
-  with the lantern's light on it, picked from a second mock-up drawn
-  by the game's own code (D-500). Playtest:
-  https://claude.ai/artifact/YVS5fApbj3trtEtLa9ZtfH
