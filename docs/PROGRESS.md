@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.227 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.228 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The seventh audit, at 0.2.228 (D-337, D-517). Then the one-card hero creator (D-517), a small step at a time; then step 14, the garden (Q-071).
+The one-card hero creator (D-517), a small step at a time, starting in `src/slots.js` and the profile screens; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,15 +28,13 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
-- [x] Water: pools for now, rivers wait for swimming (D-499, D-504; the still pool, 0.2.214; on the map, 0.2.216; the pond at home, 0.2.217; done for now, 0.2.218)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
 - [ ] 17 Relics
 - [ ] 18 Feats
 
-**Next audit: 0.2.228** (D-337, D-493, D-517).
+**Next audit: 0.2.268** (D-518, D-519).
 
 Ideas for later (and the owner's wish list in `RESEARCH.md`): gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
@@ -44,6 +42,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.228, the seventh audit.** The owner asked if audits
+  help. They keep the start read near 11.5 KB, but the size test already
+  trims, and splits are outgrown; so every 40 versions now (D-518). Picked:
+  the hero slots move from `main.js` into `slots.js`; five audit records
+  archived; CHANGELOG keeps 3; ticked steps archived (D-519). Nothing visible.
 - **2026-10-31, 0.2.227, Glints and the hero creator.** The owner asked
   to talk about the look currency and to polish making a hero. Picked:
   the name Glints, paid by Feats and spent in the Look card (D-516); and
@@ -55,8 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   picked zebra, cow spots and camo, each in its own colours, none free
   until the look currency (D-515, answers Q-073). Docs only.
   Mock-up: https://claude.ai/artifact/1HNPh6ZE2G9HTk9ua5F6GU
-- **2026-10-31, 0.2.225, Change Look.** The owner asked for a check of
-  the profile buttons' tap size: 42 px on most phones, under 44. Taps
-  now reach past them, and Look reads CHANGE LOOK on its own wide row
-  (D-513). Talked about more looks; the plan is D-514, patterns first.
-  Playtest: https://claude.ai/artifact/SVsVeHwFBftJTP89FSNnqx

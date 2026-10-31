@@ -82,24 +82,13 @@ the audit is Next up. Each audit also splits one big code file into
 smaller ones, nothing visible changed (order may change: `history-0.2.js`,
 `screens.js`, `turn.js`, `main.js`). The next audit is at 0.2.129.
 *Partly superseded by D-362 (2026-10-25): that audit came at 0.2.123, and
-the next is at 0.2.143.*
+the next is at 0.2.143; and by D-518 (2026-10-31): every 40 versions.*
 
 **D-338 · 2026-10-25 · Audits lose nothing** (the owner's wish) Nothing
 important, useful, educational or insightful is lost in a cleanup. Text is
 moved word for word, never cut; only pointers, indexes and rules may be
 reworded. Each audit compares every removed line with the whole repo and
 lists, in its PR, each line not found word for word, with why.
-
-**D-362 · 2026-10-25 · The second audit, early, turn.js split first** (the
-owner's picks, recommended; supersedes D-337's 0.2.129) The audit comes now, at 0.2.123,
-seven versions early, so things can go on being added cleanly and quickly;
-the next is at 0.2.143. Its split is `turn.js`, before the other big files:
-into `state.js`, `endturn.js`, `creatureturn.js`, `fall.js` and
-`bagturn.js`, with `turn.js` passing their rules on, so the rest of the
-game imports from it as before (the playtest packer learns that form).
-`history-0.2.js`, `screens.js` and `main.js` follow at later audits. The
-finished decisions D-332 to D-361 (but D-336 to D-338) moved unchanged to
-`archive/DECISIONS-GROWING-7.md` and `archive/DECISIONS-CREATURES.md`.
 
 **D-363 · 2026-10-25 · A content index and an adding checklist** (the
 owner's picks, both recommended) `docs/CONTENT.md` lists every creature,
@@ -108,40 +97,10 @@ decisions, so proposals build on what exists. `TECH.md`'s "Adding content"
 lists the files each kind of content touches. A PR that adds or changes
 content updates both.
 
-**D-392 · 2026-10-28 · The third audit: history-0.2.js split** (the
-owner's picks, all recommended) The audit at 0.2.143 splits
-`history-0.2.js` by version: new versions stay at its top, 0.2.60 to
-0.2.119 move to `history-0.2-2.js` and 0.2.0 to 0.2.59 to
-`history-0.2-1.js`, word for word, the Version history unchanged.
-D-378 to D-380 and D-385 to D-391, the corner HUD and the menu cards, all
-built, moved unchanged to `archive/DECISIONS-CARDS.md`. `CHANGELOG.md`
-keeps its newest 3 entries. `CLAUDE.md`'s pointers are tidied, its rules
-word for word. `screens.js` and `main.js` follow at later audits; the next
-is at 0.2.163.
-
-**D-421 · 2026-10-28 · The fourth audit, tiny** (the owner's picks, both
-recommended) The audit at 0.2.164 is kept small: the profile screens
-(name pad, cloak, eyes, trim, clothes, Rename and Look) move word for word
-from `screens.js` into `profilescreens.js`, nothing visible changed;
-`CHANGELOG.md` keeps its newest 3 entries; `CLAUDE.md`'s file table is
-tidied, its rules word for word. The rest of `screens.js` and `main.js`
-follow at later audits; the next is at 0.2.184.
-
 **D-431 · 2026-10-29 · How we work: one step a conversation** (the owner's
 pick, recommended) The owner keeps choosing every question. Each
 conversation does one step, ends with its handoff, and the next step
 starts in a fresh conversation, so less is read again each time.
-
-**D-468 · 2026-10-30 · The fifth audit: the world screens** (the
-owner's picks, all recommended but the glossary split) The audit
-at 0.2.186 moves the Seed Explorer, Settings' ways to play and the seed
-pad word for word from `screens.js` into `explorerscreens.js`, nothing
-visible changed. D-449 moves unchanged to `archive/DECISIONS-STEERING.md`
-and D-461 to D-467 to `archive/DECISIONS-SCOPE-2.md`; `CHANGELOG.md`
-keeps its newest 3 entries; `CLAUDE.md`'s pointers are tidied, its rules
-word for word; `GLOSSARY.md`'s "In the code" moves word for word to
-`GLOSSARY-CODE.md`. The rest of `screens.js` and `main.js` follow at
-later audits; the next is at 0.2.206.
 
 **D-473 · 2026-10-30 · The scope's build order** (the owner's picks,
 all recommended; answers the Next up of 0.2.187) Drops come first, so
@@ -169,16 +128,6 @@ step, with its names and numbers asked at its own step. The first
 Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
-
-**D-493 · 2026-10-30 · The sixth audit: the newer Version history**
-(the owner's picks, all recommended but CLAUDE.md's tidy) The audit at
-0.2.207 moves the Version history's 0.2.121 to 0.2.186 word for word
-from `history-0.2.js` into `history-0.2-3.js`, nothing visible
-changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
-`CHANGELOG.md` keeps its newest 3 entries; the build plan's ticked steps
-9 to 12 move to `archive/PROGRESS-LOG.md`. `CLAUDE.md` is left as it
-is. `screens.js` and `main.js` follow at later audits; the next is at
-0.2.227.
 
 **D-514 · 2026-10-31 · More looks, the plan** (the owner's picks;
 builds D-280, D-418) Cloak patterns come first; then more clothes
@@ -210,3 +159,20 @@ hero with its name; RANDOM beside OK, rolling free looks only; locked
 looks in the grid with a lock. The name card shows the hero too, and
 dots show the steps left. Built in small steps after the seventh
 audit, which moves to 0.2.228.
+
+**D-518 · 2026-10-31 · An audit every 40 versions** (the owner's pick,
+recommended; supersedes D-337's 20) The owner asked if audits help. The
+start-of-conversation read stays near 11.5 KB (17 KB before the first),
+but the size test already makes normal steps trim, and code splits are
+outgrown in an audit or two, while 20 versions is about a day. So an
+audit comes every 40 versions; the size test still guards in between.
+
+**D-519 · 2026-10-31 · The seventh audit: the hero slots** (the owner's
+picks, all recommended) The audit at 0.2.228 moves `main.js`'s slots
+(using, renaming, a new look and deleting a profile) into `slots.js`,
+nothing visible changed; the hero creator (D-517) is built there next.
+D-362, D-392, D-421, D-468 and D-493 move unchanged to
+`archive/DECISIONS-AUDITS.md`; `CHANGELOG.md` keeps its newest 3
+entries; the build plan's ticked steps 13 and Water move to
+`archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
+follow at later audits; the next is at 0.2.268.
