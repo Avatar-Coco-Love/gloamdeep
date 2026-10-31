@@ -194,3 +194,9 @@ oilcap and heartcap stay in the caves. To keep pages under 8 KB, the
 lights and places in `CONTENT.md` moved to `CONTENT-2.md`, and the
 creatures and people in `GLOSSARY.md` to a new `GLOSSARY-2.md`, word
 for word.
+
+**D-532 · 2026-10-31 · The bush rests on its shadow** (the owner's pick,
+recommended; a fix to D-531) The owner saw the gloamberry bush float
+over its shadow. Picked A of three: the bush is drawn 1 pixel lower,
+its base touching its shadow, and the shadow is 12 pixels wide, not
+14, as a deposit's is. Bare or full, the same.

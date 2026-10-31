@@ -186,9 +186,10 @@ const STUMPS = [
 ];
 
 // § gloamberry bush: a low round bush in the moss greens with dark blue berries, each lit at its
-// upper left (look A of the step 13b mock-up, D-531); bare, the same bush with no berries
+// upper left (look A of the step 13b mock-up, D-531); bare, the same bush with no berries. Its
+// base on row 14, as the deposit's, so it rests on its shadow (D-532)
 const BERRY_BUSH = { mirror: false, rows: [
-  '', '', '', '......kkkk......', '....kkggggkk....', '...kgggvuGGhk...', '..kggvuGGGGhhk..', '..kgGuuGGvuGhk..',
+  '', '', '', '', '......kkkk......', '....kkggggkk....', '...kgggvuGGhk...', '..kggvuGGGGhhk..', '..kgGuuGGvuGhk..',
   '.kgGGGGGGuuGhhk.', '.kGvuGGGGGGhhhk.', '.kGuuGGhGvuhhhk.', '.khGGGhhhuuhhIk.', '..khhhhhhhhhIk..', '...kkkkkkkkkk...'] };
 const BARE_BUSH = { mirror: false, rows: BERRY_BUSH.rows.map((r) => r.replace(/v/g, 'g').replace(/u/g, 'G')) };
 // § gloamberry: three of the bush's berries on a short green stem (D-531)

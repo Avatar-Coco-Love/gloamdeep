@@ -109,9 +109,9 @@ const DRAW = {
   branch: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBranch(c, x, y, formOf(get('branch'), x, y)); },
   // On the woods' grass, where a tree was felled; elsewhere on that room's floor (W3, D-317)
   stump: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawStump(c, x, y, formOf(get('stump'), x, y)); },
-  // On the woods' grass, drawn up 2 pixels on a wide shadow as the bench is; elsewhere on that room's floor (D-531)
-  berryBush: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.berryBush); },
-  bareBush: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bareBush); },
+  // On the woods' grass, drawn up 2 pixels resting on a 12-pixel shadow as a deposit is; elsewhere on that room's floor (D-531, D-532)
+  berryBush: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.berryBush); },
+  bareBush: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.bareBush); },
   // On the woods' grass, where it was set down; elsewhere on that room's floor (WB2, D-322)
   bench: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y); },
   stash: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.chest); }, // the bench's way (CH2, D-329)
