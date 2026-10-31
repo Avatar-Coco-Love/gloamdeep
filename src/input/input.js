@@ -17,7 +17,7 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // onChoose() for Enter; onPause() for Esc and P; onMap() for M; onBag() for I; onFloor(way) for < and > or Page Up and Page Down; onTab() for Tab, which returns true when it used the key; onType(key) for digits and Backspace (the seed pad, D-191), R, T and B (the Seed Explorer, D-214), C (the bag's Make, D-309) and letters (the name pad, D-272; P, M, I, L and WASD act as usual when it is shut),
 // which returns true when it used the key.
 // guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
-// kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opens on it, D-193).
+// kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opened on it, D-193, till Goals came first, D-507).
 export function createInput(area, canvas, { onDir, onPoint, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {

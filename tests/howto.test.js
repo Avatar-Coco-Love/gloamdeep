@@ -7,13 +7,14 @@ import { howtoAt } from '../src/render/howto.js';
 import { cardAt } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
 
-test('Touch, Mouse, Keyboard, Bag and Bench each have a page, and Left and Right flip round them (D-484)', () => {
-  assert.deepEqual(HOWTO_PAGES, ['touch', 'mouse', 'keyboard', 'bag', 'bench']);
+test('Goals, Touch, Mouse, Keyboard, Bag and Bench each have a page, and Left and Right flip round them (D-484, D-507)', () => {
+  assert.deepEqual(HOWTO_PAGES, ['goals', 'touch', 'mouse', 'keyboard', 'bag', 'bench']);
+  assert.equal(nextPage('goals'), 'touch');
   assert.equal(nextPage('touch'), 'mouse');
   assert.equal(nextPage('keyboard'), 'bag');
   assert.equal(nextPage('bag'), 'bench');
-  assert.equal(nextPage('bench'), 'touch');
-  assert.equal(nextPage('touch', true), 'bench');
+  assert.equal(nextPage('bench'), 'goals');
+  assert.equal(nextPage('goals', true), 'bench');
 });
 
 test('every controls page lists Walk, Wait, Lantern, Pause and Frame, and nothing else', () => {
@@ -54,7 +55,7 @@ test('every way fits the card beside its action, and the page fits under the tab
 
 test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390)', () => {
   const { x, y, w, close } = cardAt(VW, VH);
-  assert.deepEqual(howtoAt(x + 24, y + 30, VW, VH), { page: 'touch' });
+  assert.deepEqual(howtoAt(x + 24, y + 30, VW, VH), { page: 'goals' });
   assert.deepEqual(howtoAt(x + w - 24, y + 30, VW, VH), { page: 'bench' });
   assert.equal(howtoAt(close.x, close.y, VW, VH), 'close');
   assert.equal(howtoAt(2, 2, VW, VH), 'out');
@@ -73,7 +74,13 @@ test('a screen reader hears the page in words', () => {
   assert.match(howtoWords('keyboard', 'both'), /^How to play, Keyboard\. Walk: Arrows or WASD\. Wait: Space\..* Esc or the close button goes back\.$/);
 });
 
-test('the five tabs fit the narrowest card, one gap apart at least (D-484)', () => {
+test('the six tabs fit the narrowest card, one gap apart at least (D-484, D-507)', () => {
   const card = cardAt(VW, VH), ws = HOWTO_PAGES.map((p) => textWidth(pageName(p)));
   assert.ok(12 + 8 + ws.reduce((a, b) => a + b, 0) + 10 * (ws.length - 1) <= card.w - 12);
+});
+
+test('Goals says the aim and how to keep the lantern lit, whatever the Controls switch (D-507)', () => {
+  assert.deepEqual(howtoRows('goals', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Aim', 'Oil', 'Pour', 'Flask', 'Oilcap']);
+  assert.deepEqual(howtoRows('goals', { swipe: 'off', tap: 'walk' }), howtoRows('goals', { swipe: 'on', tap: 'walk' }));
+  assert.match(howtoWords('goals', 'both'), /^How to play, Goals\. Aim: Find the stairs down Search each room for them\./);
 });

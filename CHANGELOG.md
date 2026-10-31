@@ -21,6 +21,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.221 (2026-10-31)
+- How to play has a new first tab, Goals, and now opens on it. It says what to aim for and how to keep your lantern lit: find the stairs down, searching each room for them; your lantern burns oil, and less oil means less light; pour a flask from the bag or the quick slot; 3 oilcaps make a flask; oilcaps are the amber mushrooms in rooms.
+- Upright, How to play's tabs still take two rows: Goals, Touch and Mouse on top, Keyboard, Bag and Bench under them.
+- Behind the scenes: the guide who joins you later won't be a faery; what it is waits for the owner. Older decisions moved to the archive, word for word.
+- Decisions: D-507, D-508. Questions opened: Q-072.
+
 ## 0.2.220 (2026-10-31)
 - Held upright, the title's screens are bigger: the title, Profiles, Settings, How to play and the name and seed pads fill the screen's width, the same size as the cards in play. Sideways nothing changed.
 - Upright, Journal, How to play and Settings stand in a row under the big button, in thumb reach.
