@@ -63,19 +63,28 @@ export const CLOTHES_IDS = Object.keys(CLOTHES);
 export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
-// § look cards: the choices three to a row (the clothes two), then OK on its own row (the round
-// cross does what Back did, D-399); walked as the seed pad's keys are. The cloak, eyes and trim
-// cards share the shape.
-export const CLOAK_COLS = 3;
-const lookPad = (ids, cols = CLOAK_COLS) => [
-  ...ids.map((id, i) => ({ id, row: Math.floor(i / cols), col: i % cols, span: 1 })),
-  { id: 'ok', row: 2, col: 0, span: cols },
+// § the look card (D-517, D-521): a tab for each part across its top, row 0; under it that
+// part's choices three to a row; then OK on its own row (the round cross does what Back did,
+// D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
+// Down from a tab on the picked choice. The tabs are the same four keys, first, on every pad.
+export const LOOK_TABS = [
+  { id: 'cloak', name: 'CLOAK', table: CLOAKS, ids: CLOAK_IDS },
+  { id: 'eyes', name: 'EYES', table: EYES, ids: EYE_IDS },
+  { id: 'trim', name: 'TRIM', table: TRIMS, ids: TRIM_IDS },
+  { id: 'clothes', name: 'CLOTHES', table: CLOTHES, ids: CLOTHES_IDS },
 ];
-export const CLOAK_PAD = lookPad(CLOAK_IDS);
-export const EYES_PAD = lookPad(EYE_IDS);
-export const TRIM_PAD = lookPad(TRIM_IDS);
-export const CLOTHES_PAD = lookPad(CLOTHES_IDS, 2);
-export const moveCloak = (i, dir) => moveOn(CLOAK_PAD, i, dir);
-export const moveEyes = (i, dir) => moveOn(EYES_PAD, i, dir);
-export const moveTrim = (i, dir) => moveOn(TRIM_PAD, i, dir);
-export const moveClothes = (i, dir) => moveOn(CLOTHES_PAD, i, dir);
+export const CLOAK_COLS = 3;
+const lookPad = (ids) => [
+  ...LOOK_TABS.map((t, col) => ({ id: t.id, tab: true, row: 0, col, span: 1 })),
+  ...ids.map((id, i) => ({ id, row: 1 + Math.floor(i / CLOAK_COLS), col: i % CLOAK_COLS, span: 1 })),
+  { id: 'ok', row: 3, col: 0, span: CLOAK_COLS },
+];
+export const LOOK_PADS = Object.fromEntries(LOOK_TABS.map((t) => [t.id, lookPad(t.ids)]));
+export const tabOf = (id) => LOOK_TABS.find((t) => t.id === id);
+// Key i on tab `tab`'s pad moved `dir`; picked: the tab's choice now (look[tab])
+export function moveLook(tab, i, dir, picked) {
+  const pad = LOOK_PADS[tab], k = pad[i];
+  if (dir === 'up' && k.row === 1) return pad.findIndex((p) => p.tab && p.id === tab);
+  if (dir === 'down' && k.tab) return pad.findIndex((p) => !p.tab && p.id === picked);
+  return moveOn(pad, i, dir);
+}

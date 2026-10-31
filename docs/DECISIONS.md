@@ -183,3 +183,11 @@ first: the hero 3× on a lit floor, the profile's name over it and the
 cloak's name under it, sideways at the left of the boxes. The six boxes
 stay three to a row, shorter: each hero 1× with its name. Eyes, trim and
 clothes join the card as tabs in the next steps.
+
+**D-521 · 2026-10-31 · The hero creator, step 2: the tabs** (the
+owner's picks, all recommended; builds D-517, D-520) One LOOK card:
+four tabs, CLOAK, EYES, TRIM and CLOTHES, in a row under its heading,
+the open one in ember. Every tab's boxes show the whole hero 1× in that
+choice, named; the big hero shows the details. OK finishes from any
+tab. The arrows go up onto the tabs, the flame on a tab opens it, and
+left and right walk them.

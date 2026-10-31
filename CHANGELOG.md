@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.230 (2026-10-31)
+- Your hero's look is now one LOOK card with four tabs across its top: Cloak, Eyes, Trim and Clothes. The big hero shows everything you pick, and every choice shows your whole hero wearing it, with its name. OK finishes from any tab. With the arrows, go up onto the tabs and left or right to switch.
+- Decisions: D-521.
+
 ## 0.2.229 (2026-10-31)
 - The first step of the new hero creator: the Cloak card shows your hero big on a lit floor, its name over it and the cloak's name under it. The six cloaks below are smaller, each hero at its real size with its name. On a wide screen the big hero stands at the left of them.
 - Decisions: D-520.
