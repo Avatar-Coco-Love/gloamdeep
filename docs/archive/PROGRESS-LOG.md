@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.230, the tabs.** The hero creator's second step.
+  Picked: one LOOK card, four tabs under its heading, the open one in
+  ember; every tab's boxes show the whole hero 1×, named; OK finishes
+  from any tab; the arrows go up onto the tabs (D-521).
+  Playtest: https://claude.ai/artifact/YNgYB724GTfCxqTybsduMc
 - **2026-10-31, 0.2.229, the big hero.** The first step of the hero
   creator. Picked: the Cloak card first, the hero 3× on a lit floor
   with its name over it and the cloak's under it; the six boxes shorter,

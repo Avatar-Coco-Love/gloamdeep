@@ -103,9 +103,10 @@ const frame = (c, x, y, w, h, colour) => {
 // § draw: the look card on the room's canvas c, `vw` × `vh`. heroIn (sprites.js) draws a hero
 // in a look; look: { cloak, eyes, trim, clothes }; tab: the open one; chosen: the key the
 // arrows are on; name: the profile's, over the big hero
-export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '') {
+export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
-  drawCard(c, vw, vh, 'LOOK', 0);
+  const card = drawCard(c, vw, vh, 'LOOK', 0);
+  if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
   const at = boxesAt(vw, vh), ground = groundOf(BOX_W - 2, BOX_H - 2);
   c.imageSmoothingEnabled = false;
   pad.forEach((k, i) => {
@@ -134,13 +135,24 @@ function drawSmall(c, hero, name, x, y, picked) {
   c.drawImage(hero, x + BOX_W / 2 - 8, y + 3);
   centred(c, name, x + BOX_W / 2, y + 20, picked ? GOLD : GREY);
 }
-// The big hero z× on its lit floor, `name` over it and the choice's name under it (D-520, D-523)
-function drawStage(c, hero, name, choice, { x, y, z }) {
+// The big hero z× on its lit floor, `name` over it and the choice's name under it (D-520, D-523);
+// the name card draws it too, with no choice (D-517)
+export const stageSize = (z) => ({ w: stageW(z), h: LINE + stageH(z) });
+export function drawStage(c, hero, name, choice, { x, y, z }) {
   const w = stageW(z), h = stageH(z), hx = x + 8, hy = y + LINE + 1;
   if (name) centred(c, name, x + w / 2, y, CORE);
   c.drawImage(groundOf(w, h), x, y + LINE);
   frame(c, x - 1, y + LINE - 1, w + 2, h + 2, DIM);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(hx + 4 * z, hy + 15 * z, 8 * z, z + 1); c.fillRect(hx + 5 * z, hy + 16 * z + 1, 6 * z, 2); // its shadow
   c.drawImage(hero, hx, hy, 16 * z, 16 * z);
-  centred(c, choice, x + w / 2, y + LINE + h + 2, GOLD);
+  if (choice) centred(c, choice, x + w / 2, y + LINE + h + 2, GOLD);
+}
+
+// § dots: a new hero's steps in the card's top bar, centred between its heading and the round
+// cross, the steps done and this one gold, the ones left dim (D-517)
+const DOT = 4, DOT_GAP = 3;
+export function drawDots(c, card, title, step, steps) {
+  const left = card.x + PAD + textWidth(title), right = card.close.x - card.close.r, w = steps * DOT + (steps - 1) * DOT_GAP;
+  const x = Math.floor((left + right - w) / 2), y = card.close.y - DOT / 2;
+  for (let i = 0; i < steps; i++) { c.fillStyle = i <= step ? GOLD : DIM; c.fillRect(x + i * (DOT + DOT_GAP), y, DOT, DOT); }
 }
