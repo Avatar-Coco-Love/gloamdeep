@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.216, water on the map.** From a mock-up drawn by
+  the game's own code, the owner picked water on the map first: a
+  seen pool shows in its blue-grey, not as wall. A pond at home, in
+  the same blue-grey, comes next (D-502). Playtest:
+  https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
 - **2026-10-31, 0.2.215, feet on the ground.** The owner's catch: the
   peddler's bob lifted him off his shadow. He stands still now, faces
   forward (look A of a mock-up), and turns to the hero only within 2

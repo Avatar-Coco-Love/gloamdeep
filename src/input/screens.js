@@ -117,7 +117,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `setDown(slot, dir)`,
-// `takeDown(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goSideways()` from main.js.
+// `takeDown(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const version = document.getElementById('version');
@@ -134,7 +134,7 @@ export function createScreens(app, ui) {
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || next === 'journal') app.pageFrom = app.screen;
     const playing = next === 'play';
-    if (playing && (onTitle() || app.screen === 'paused')) ui.goSideways(); // Play, Continue or Resume: full screen, sideways (D-377)
+    if (playing && (onTitle() || app.screen === 'paused')) ui.goFullScreen(); // Play, Continue or Resume: full screen, held either way (D-377, D-505)
     app.screen = next; app.chosen = at;
     lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)

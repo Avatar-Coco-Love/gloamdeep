@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
+import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
@@ -9,7 +9,7 @@ import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
-import { LINE_UP } from './textline.js';
+import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawTitle, drawScene, drawName } from './title.js';
@@ -177,7 +177,7 @@ export function createFrame(app, ui) {
     let nx = 0, ny = 0;
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
-    fitRoomCols(s.room.cols, !still()); // a narrow room zooms in to fill the width, with a margin (D-441), gliding there (D-448)
+    fitRoomSize(s.room.cols, s.room.rows, !still()); // a narrow (upright: short) room zooms in to fill the long side, with a margin (D-441), gliding there (D-448)
     if (s.room !== drawnRoom) {
       drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
       base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
@@ -253,7 +253,7 @@ export function createFrame(app, ui) {
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
     // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
     const n = list ? list.length : 0; // the panel's size is last frame's, near enough
-    const end = view.h - LINE_UP - 2; // the creature list stops above the text line (D-381)
+    const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const shownN = plaquesShown(n, 2, 2 + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;

@@ -37,7 +37,7 @@ header says when it moved and why.
 | `DECISIONS-GROWING-7.md` | D-332, D-333, D-335, D-339, D-343, D-347, D-348, D-350, D-352 to D-355, D-360 | a fall keeps the world, bigger stacks, the Bestiary, Hearthwood | D-362 |
 | `DECISIONS-CREATURES.md` | D-349, D-351, D-356 to D-359, D-361 | every next move, the lampmoth, the creature list, framing | D-360, D-362 |
 | `DECISIONS-CREATURES-2.md` | D-364 to D-374 | more creatures, the flask mimic, the scorpion, varying creatures | D-379 |
-| `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only | D-386 |
+| `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only (partly superseded by D-505) | D-386 |
 | `DECISIONS-CORNER-HUD.md` | D-381 to D-384 | the room filling the screen, the stats switch, the round map and lantern | D-388 |
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |
 | `DECISIONS-CARDS-2.md` | D-393 to D-400 | more menus as cards, the asks | D-401 |
@@ -50,7 +50,7 @@ header says when it moved and why.
 | `DECISIONS-SCOPE.md` | D-413 to D-415, D-417 to D-419 | the scope in parts, its frame, crafts, drops, money, skills | D-445 |
 | `DECISIONS-CAMERA.md` | D-441 to D-448 | the camera's margin and zoom, the corner fade, plain dark past the edge | D-450 |
 | `DECISIONS-SCOPE-2.md` | D-450 to D-472 | the scope's parts 2 to 8: ore, tools, plants, fishing, farming, drops, making, gear, growth, collectables, home, trade | D-457, D-461, D-464, D-468, D-476 |
-| `DECISIONS-DROPS.md` | D-474 to D-481, D-483 to D-488, D-490 to D-492, D-494 to D-501 | the build order's steps 1 to 13a: the Rat Tail, the common and rare drops, the glass flask, torches, the spear, the pick, the Growth tree, the Copper Wick, the Rat Hide Vest, room on the crafting pages, the Wisp Charm, the Heart Charm, the bed, the trapped peddler, the rescue, the peddler at home, selling to him, buying from him, his lingering, the lantern beam home, only a side heap frees him, water first, the still pool, the peddler stands still | D-478, D-481, D-482, D-485, D-486, D-487, D-488, D-490, D-491, D-492, D-493, D-496, D-497, D-498, D-500, D-501, D-502, D-503, D-504 |
+| `DECISIONS-DROPS.md` | D-474 to D-481, D-483 to D-488, D-490 to D-492, D-494 to D-503 | the build order's steps 1 to 13a: the Rat Tail, the common and rare drops, the glass flask, torches, the spear, the pick, the Growth tree, the Copper Wick, the Rat Hide Vest, room on the crafting pages, the Wisp Charm, the Heart Charm, the bed, the trapped peddler, the rescue, the peddler at home, selling to him, buying from him, his lingering, the lantern beam home, only a side heap frees him, water first, the still pool, the peddler stands still, water on the map, the pond at home | D-478, D-481, D-482, D-485, D-486, D-487, D-488, D-490, D-491, D-492, D-493, D-496, D-497, D-498, D-500, D-501, D-502, D-503, D-504, D-505 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

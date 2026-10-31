@@ -21,6 +21,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.219 (2026-10-31)
+- You can now play holding your phone upright, not only sideways. Turn it any time, even in the middle of a fight or with the bag open: the game no longer pauses or asks you to turn it.
+- The tiles are the same size whichever way you hold it. Upright you see about 9 tiles across and more of the room above and below you; sideways, as before, more to the left and right.
+- Upright, the cards stack their two sides: the bag's item words under its slots, the pause card's journey facts under its lines, the stash chest's bag under the chest, and the workbench's and peddler's words under their slots. The Growth tree stands across the bottom of the Journal, its words above it.
+- Upright, How to play shows its tabs in two rows, long ways and long Settings values wrap onto a second line, and long version titles end in '..'. The text line stands above the bottom buttons instead of behind them.
+- Installed on a home screen, the game now turns with the phone. On Android, Play still goes full screen, but no longer locks it sideways.
+- Decisions: D-505. Questions closed: Q-065.
+
 ## 0.2.218 (2026-10-31)
 - Water is done for now: the still cave pools and the pond at home stay as they are. Water comes back later: streams, rivers above and below ground, oceans and more.
 - The garden comes next. Nothing in the game changed.

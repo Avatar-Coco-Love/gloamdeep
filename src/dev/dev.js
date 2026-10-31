@@ -7,7 +7,7 @@ import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
 import { TILE, BUTTON, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
-import { LINE_UP } from '../render/textline.js';
+import { lineUp } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
 import { setPixelText } from './pixeltext.js';
@@ -57,7 +57,7 @@ export function createDev(stage, canvas, game, picture) {
     panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
   };
   const wrench = keepFading(picture, button, -1, BUTTON, (top, left, room) => { // it fades with the round map (D-442)
-    lineBottom = innerHeight - room.bottom + (LINE_UP + 2) * (room.height / picture.height);
+    lineBottom = innerHeight - room.bottom + (lineUp() + 2) * (room.height / picture.height); // above it, upright too (D-505)
     padBottom = innerHeight - room.bottom + BUTTON_GAP + PAD_DISC + 6;
     readout.style.bottom = lineBottom + 'px';
     fitPanel();

@@ -9,7 +9,7 @@
 // or Space sell or buy one; the cross closes it.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, BUTTON, PAD, DETAIL_X, HELD_Y, LINE_H, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, LINE_H, TAP_PAD } from './bag.js';
 import { BAG_SLOTS, carried } from '../core/bag.js';
 import { coins, priceOf, priceWords, wares, cantBuy, costWords } from '../core/trade.js';
 import { get } from '../core/registry.js';
@@ -59,8 +59,8 @@ export function drawTradePanel(c, vw, vh, state, chosen, spriteOf, tab = 'sell',
   const picked = shown[chosen];
   drawButton(c, card.button.x, card.button.y, buying ? 'BUY' : 'SELL', buying ? !!cantBuy(state, chosen) : !(picked && priceOf(picked.id)));
   if (!picked) return;
-  const dx = x + DETAIL_X, dw = x + w - PAD - dx;
-  drawText(c, get(picked.id).name, dx, y + HELD_Y, CORE);
-  drawText(c, `${buying ? carried(bag, picked.id) : picked.n} carried`, dx, y + HELD_Y + LINE_H, GREY);
-  wrapWords(buying ? costWords(state, chosen) : priceWords(picked.id), dw).forEach((l, i) => drawText(c, l, dx, y + HELD_Y + 2.5 * LINE_H + i * LINE_H, GREY));
+  const { dx, dy } = detailAt(card, vw, vh), dw = x + w - PAD - dx; // upright, under the slots (D-505)
+  drawText(c, get(picked.id).name, dx, dy, CORE);
+  drawText(c, `${buying ? carried(bag, picked.id) : picked.n} carried`, dx, dy + LINE_H, GREY);
+  wrapWords(buying ? costWords(state, chosen) : priceWords(picked.id), dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
 }

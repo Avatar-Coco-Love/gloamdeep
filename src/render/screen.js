@@ -18,10 +18,11 @@ export const ARC = 64; // from the lantern's middle to its arc's buttons' middle
 const ROW = BUTTON + BUTTON_GAP; // the buttons' column beside the picture (D-198, D-377)
 export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D-381)
 export const MIN_ROWS = 9; // a narrow room zooms in no further than this many tiles tall (D-444)
-export const view = { w: W, h: H }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), set by the fit
+export const view = { w: W, h: H, scale: 1 }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), and its zoom, set by the fit
 export const roomView = { w: W, h: H }; // the room canvas's size in game pixels, zoomed in for a narrow room (D-441)
 export const GLIDE_MS = 400; // the room's zoom glides to a new room's this long (D-448)
-let refit = null, titled = false, roomCols = 0; // the fit, the room's width in tiles, and whether the room canvas is zoomed as the picture (the title's scene)
+const roomSize = { cols: 0, rows: 0 }; // the room in play, in tiles (0 on the title)
+let refit = null, titled = false; // the fit, and whether the room canvas is zoomed as the picture (the title's scene)
 let shownZoom = 0, glide = null; // the room canvas's zoom last fitted, and { from, start } while it glides (D-448)
 
 // (canvas, list, room, hud) → { ctx, listCtx, roomCtx, hudCtx }: the menus' picture, the list's row
@@ -40,11 +41,10 @@ export function createScreen(canvas, list, room, hud) {
   return { ctx, listCtx, roomCtx, hudCtx };
 }
 
-// § fit: the menus' picture gets the biggest zoom that fits the box, always
-// sideways (D-377; was upright or sideways, D-199), clear of the buttons at
-// the sides. The hearts, oil and the creature list are on the room (D-378),
-// so the list's row under the text line stays hidden (D-357). A phone held upright shows the picture
-// asking to turn it instead (src/input/upright.js).
+// § fit: the menus' picture gets the biggest zoom that fits the box, held
+// either way (D-505), clear of the buttons at the sides. The hearts, oil and
+// the creature list are on the room (D-378), so the list's row under the text
+// line stays hidden (D-357).
 // Each game pixel covers a whole number of screen pixels (2 or more), so
 // all are the same size. Below 2 the zoom is fractional instead, so very
 // small screens still fill the box.
@@ -60,18 +60,21 @@ function zoom(fitScale) {
 }
 
 // § room fit: the room fills the whole box behind the menus (D-381), zoomed so
-// about VIEW_ROWS tiles show from top to bottom; the width follows the screen.
-// A room narrower than that zooms in further, until it and a margin each side
-// fill the width (D-441), but never past MIN_ROWS tiles tall (D-444). The
-// screen layer keeps the VIEW_ROWS zoom, so the panel and cards keep their size.
+// about VIEW_ROWS tiles show across the screen's short side, however the phone
+// is held, so a tile is the same size upright and sideways (D-505); the long
+// side follows the screen. A room shorter than the long side zooms in further,
+// until it and a margin each end fill it (D-441), but never past MIN_ROWS
+// tiles across the short side (D-444): its width sideways, its height upright.
+// The screen layer keeps the VIEW_ROWS zoom, so the panel and cards keep their size.
 // The same whole-pixel zoom as the picture's, so a little more can show.
 // On the title's screens both take the picture's own zoom instead, so the
 // title's scene fills the whole screen, pixel for pixel with the picture.
 function fitRoom(room, roomCtx, hud, hudCtx, picture) {
   const box = room.parentElement, bw = box.clientWidth, bh = box.clientHeight;
-  const base = titled ? pictureZoom(bw, bh) : zoom(bh / (VIEW_ROWS * TILE));
-  const near = titled || !roomCols ? base
-    : zoom(Math.max(bh / (VIEW_ROWS * TILE), Math.min(bw / (roomCols * TILE + 2 * MARGIN), bh / (MIN_ROWS * TILE))));
+  const short = Math.min(bw, bh), long = Math.max(bw, bh), along = bw >= bh ? roomSize.cols : roomSize.rows;
+  const base = titled ? pictureZoom(bw, bh) : zoom(short / (VIEW_ROWS * TILE));
+  const near = titled || !along ? base
+    : zoom(Math.max(short / (VIEW_ROWS * TILE), Math.min(long / (along * TILE + 2 * MARGIN), short / (MIN_ROWS * TILE))));
   fitLayer(hud, hudCtx, base, view, picture);
   shownZoom = glidingTo(near);
   fitLayer(room, roomCtx, shownZoom, roomView, picture);
@@ -94,7 +97,7 @@ function fitLayer(c, cx, scale, size, picture) {
     w = Math.ceil((bw - left) / scale); h = Math.ceil((bh - top) / scale);
   }
   if (w !== c.width || h !== c.height) { c.width = w; c.height = h; cx.imageSmoothingEnabled = false; }
-  size.w = w; size.h = h;
+  size.w = w; size.h = h; size.scale = scale;
   const s = c.style;
   s.width = w * scale + 'px'; s.height = h * scale + 'px';
   s.left = left + 'px'; s.top = top + 'px';
@@ -104,15 +107,15 @@ function fitLayer(c, cx, scale, size, picture) {
 export function fitTitle(on) {
   if (on === titled) return;
   titled = on; glide = null;
-  if (on) roomCols = 0; // back in play, the room's zoom starts where it belongs, no glide
+  if (on) { roomSize.cols = 0; roomSize.rows = 0; } // back in play, the room's zoom starts where it belongs, no glide
   refit?.();
 }
 
-// § room width: the room in play, its width in tiles; the room canvas fits again when it changes
-// (D-441), its zoom gliding there unless `ease` is off (reduced motion), then every frame of the glide (D-448)
-export function fitRoomCols(cols, ease = true) {
-  if (cols === roomCols) { if (glide) refit?.(); return; }
-  glide = ease && roomCols && shownZoom ? { from: shownZoom, start: performance.now() } : null;
-  roomCols = cols;
+// § room size: the room in play, its width and height in tiles; the room canvas fits again when it changes
+// (D-441, D-505), its zoom gliding there unless `ease` is off (reduced motion), then every frame of the glide (D-448)
+export function fitRoomSize(cols, rows, ease = true) {
+  if (cols === roomSize.cols && rows === roomSize.rows) { if (glide) refit?.(); return; }
+  glide = ease && roomSize.cols && shownZoom ? { from: shownZoom, start: performance.now() } : null;
+  roomSize.cols = cols; roomSize.rows = rows;
   refit?.();
 }

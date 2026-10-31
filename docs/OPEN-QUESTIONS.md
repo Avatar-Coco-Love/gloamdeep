@@ -104,13 +104,6 @@ a narrow PC window, the bag's grid runs past the card's right edge.
 Still open: smaller slots there, the bag's grid under the chest's, or
 leave it while the game is phone first.
 
-**Q-065 · Playing upright too?** (raised 2026-10-28, D-377)
-A player close to the owner doesn't like the game forced sideways, though
-willing to try to get used to it. Still open: whether a phone held upright
-could play too, which needs a second layout for the play screen and every
-card. The owner's call (2026-10-28): look at it after the main menu revamp;
-then tabled for now (2026-10-28), after the room's edge and steering.
-
 **Q-066 · Rooms seen through the wall** (raised 2026-10-28, D-403)
 The owner's idea: past a small room's edge, a room on the same depth
 (reached another way) shows where it really lies, if the hero has been

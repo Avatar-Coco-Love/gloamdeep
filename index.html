@@ -130,10 +130,6 @@
   #dev-panel .dev-depth { align-self: center; justify-self: center; color: #ffd66b; }
   #dev-panel textarea { box-sizing: border-box; width: 100%; font: 11px/1.2 ui-monospace, "Courier New", monospace; color: inherit; background: #0e0c16; border: 1px solid #3f4656; border-radius: 4px; -webkit-user-select: text; user-select: text; resize: none; word-break: break-all; }
   #dev-panel textarea[hidden] { display: none; }
-  /* A phone held upright: the picture asking to turn it, over everything (src/input/upright.js, D-377). */
-  #upright { position: fixed; inset: 0; z-index: 3; display: grid; place-items: center; background: #0b0a10; touch-action: none; }
-  #upright[hidden] { display: none; }
-  #upright canvas { image-rendering: pixelated; image-rendering: crisp-edges; background: none; }
   /* the stats line, with the Stats switch on: small, bottom left, above the text line (bottom set by script, D-382) */
   #dev-readout {
     left: max(8px, env(safe-area-inset-left));
