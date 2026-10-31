@@ -2,14 +2,16 @@
 
 Newest first. Every PR adds exactly one entry, and that entry is the
 version bump. The same lines go, word for word, into the in-game Version
-history, `src/core/history-0.2.js` (D-254).
+history, `src/core/history-0.3.js` (D-254, D-528).
 
 Versions:
 - `0.0.x`: pre-production (decisions, docs, art studies). No playable game.
 - `0.1.x`: foundation. The first code, built up one small visible step at a time.
 - `0.2.x`: stage 0.2, from step 32: places with character, a dive worth
   repeating, and stronger, slowly (D-159).
-- Later minor versions (`0.3`…) are set when the build plan in
+- `0.3.x`: stage 0.3, the world (D-168), from 0.3.0, once stage 0.2's
+  last steps were done (D-528).
+- Later minor versions (`0.4`…) are set when the build plan in
   `docs/PROGRESS.md` defines the next stage.
 - `1.0.0`: the first release the owner calls finished.
 
@@ -20,6 +22,11 @@ Entry format:
 - One line per change, written so the owner can follow it.
 - Decisions: D-008. Questions closed: Q-001.
 ```
+
+## 0.3.0 (2026-10-31)
+- The Look card's Eyes tab now shows each eye colour as a big square of colour with its name, instead of a tiny hero whose eyes were hard to see. Your hero above still shows the eyes you pick.
+- The game moves to version 0.3: stage 0.2's last steps are all done, so the world stage now has its own numbers, starting here.
+- Decisions: D-527, D-528.
 
 ## 0.2.235 (2026-10-31)
 - On the Look card, the tabs and choices now stretch across the whole card, and the heroes in the choices are twice as big when there is room. On tall phones your hero grows bigger and its lit stone floor fills the space that used to be empty.

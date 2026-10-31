@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.233, dots and the name card's hero.** The owner
+  asked for A's last five differences, one per PR. Plan shown beside A:
+  https://claude.ai/artifact/776f8fTnQqjfb8B6Xsgmrj. Picked: dots on a
+  new hero's cards, the hero under the name card's top bar, sideways
+  between the letters, Rename too (D-524). D-336 moved to the audits
+  archive. Playtest: https://claude.ai/artifact/WGkcsvyxoot2CuhFe4iH9T
 - **2026-10-31, 0.2.232, nearer the mock-up.** The owner had picked my
   recommendations hoping for the mock-up's look; I listed where the card
   drifted. Picked: the hero as big as fits (3× to 6×), RANDOM and OK a
