@@ -14,7 +14,8 @@ neared 8 KB; the lights and places at 0.3.3 (D-531).
 ## The hero's looks (`src/core/looks.js`)
 
 6 cloaks, 6 eyes, 6 trims and 4 clothes; their names are in
-`GLOSSARY.md` (D-275 to D-278, D-289).
+`GLOSSARY.md` (D-275 to D-278, D-289). Also 3 locked cloak patterns,
+Zebra, Cow and Camo, shown but not yet bought (D-515, D-533).
 
 ## Growth upgrades (`src/core/upgrades.js`)
 

@@ -1,4 +1,4 @@
-# Change look (D-513 to D-516, D-520 to D-526)
+# Change look (D-513 to D-516, D-520 to D-527, D-529)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.227 (D-516), when it
 would pass 12 KB: the Change look button and taps big enough. D-514 to
@@ -6,7 +6,8 @@ D-516 (the looks plan, the first patterns, Glints) moved the same way at
 0.2.234 (D-525). D-520 to D-522 (the hero creator's steps 1 to 3)
 moved the same way at 0.2.235 (D-526). D-523 to D-526 (the LOOK
 card nearer the mock-up, the hero creator's steps 4 to 6) moved the
-same way at 0.3.2 (D-530). This is
+same way at 0.3.2 (D-530). D-527 and D-529 (eyes and trims as
+swatches) moved the same way at 0.3.5 (D-533). This is
 still in force unless marked superseded. Grep for an ID or topic;
 never read this whole.
 
@@ -103,3 +104,16 @@ to fill the height left, so tall phones have no empty space. Sideways,
 the tabs and boxes fill the width at the hero's right and the floor
 fills the height. D-520 to D-522 moved to
 `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-527 · 2026-10-31 · Eye colours as swatches** (the owner's picks,
+both recommended, of A from a mock-up; builds D-517) On the LOOK card's
+EYES tab each box shows a square of the eye colour with its name, in
+place of the small hero, whose two eye pixels were hard to see. The
+boxes, their moves and the big hero stay. Other tabs keep their heroes;
+trim gets its own look next (Q-074; changed after the owner asked).
+
+**D-529 · 2026-10-31 · Trims as swatches** (the owner's pick, B of three
+from a mock-up; Claude had recommended C, a bigger lantern; answers
+Q-074; builds D-527) On the LOOK card's TRIM tab each box shows a
+square of the trim's light cap shade over its dark base shade, with its
+name, in place of the small hero. The big hero stays.

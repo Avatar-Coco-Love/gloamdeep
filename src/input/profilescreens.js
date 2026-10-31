@@ -2,7 +2,7 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked } from '../core/looks.js';
 
 export function createProfileScreens(app, ui, show) {
   const { spoken } = ui;
@@ -29,12 +29,12 @@ export function createProfileScreens(app, ui, show) {
   // choice, picks it. RANDOM rolls all four parts and the flame stays on it (D-522). OK from any tab makes a new profile and opens the title, or keeps a
   // profile's new look.
   const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes });
-  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name).join(', ')}.`; };
+  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (t.table[id].locked ? ' locked' : '')).join(', ')}.`; };
   const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK. Random rolls a whole new look.`;
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
-    app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak';
+    app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak'; app.lookTry = null;
     if (!fresh) wearOf(p); // a new hero keeps the look picked before going back to its name (D-517)
     show('cloak', LOOK_PADS.cloak.findIndex((k) => !k.tab && k.id === app.cloak));
   }
@@ -44,10 +44,12 @@ export function createProfileScreens(app, ui, show) {
   }
   // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
   // choice is picked
+  // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays
   function moveToLook(i) {
-    app.chosen = i;
+    app.chosen = i; app.lookTry = null;
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
-    if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
+    if (!k.tab && isLocked(app.lookTab, k.id)) { app.lookTry = k.id; spoken.textContent = `${tab.table[k.id].name}, locked. It costs Glints, earned from Feats. Price not decided yet.`; }
+    else if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
     else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
@@ -61,9 +63,9 @@ export function createProfileScreens(app, ui, show) {
       else { ui.lookSlot(app.naming, lookOf()); closeCloak(); }
       return;
     }
-    if (k.id === 'random') { app.chosen = i; Object.assign(app, rollLook(app.lookRoll)); spoken.textContent = `Rolled: ${wornWords()}.`; return; }
+    if (k.id === 'random') { app.chosen = i; app.lookTry = null; Object.assign(app, rollLook(app.lookRoll)); spoken.textContent = `Rolled: ${wornWords()}.`; return; }
     moveToLook(i);
-    if (tapped) return;
+    if (tapped || app.lookTry) return; // the flame stays on a locked pattern, as it can't be picked
     if (k.tab) moveToLook(LOOK_PADS[k.id].findIndex((p) => !p.tab && p.id === app[k.id]));
     else moveToLook(pad.findIndex((p) => p.id === 'ok'));
   }

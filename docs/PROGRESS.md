@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.4 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.5 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.3.5, locked patterns shown.** The owner asked to see
+  the locked looks, pointing at mock-up A. Zebra, Cow and Camo are a
+  third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
+  hero with a Glints note; never kept or rolled (D-533). Playtest:
+  https://claude.ai/artifact/K5fADQ8q5pEEe157HPgKfd
 - **2026-10-31, 0.3.4, the bush on the ground.** The owner saw the
   gloamberry bush float over its shadow. Picked A of three: 1 pixel
   lower, resting on a 12-pixel shadow as a deposit does (D-532).
@@ -55,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   heart), bare for 300 turns; seed at the garden, recipe later; the herb
   and mushrooms stay below (D-531). Playtest:
   https://claude.ai/artifact/6xTVHBMapxBtQucinTF5ap
-- **2026-10-31, 0.3.2, wild harvestables first.** Docs only. The owner
-  asked about fruit bushes, flowers and more before the garden. Picked:
-  one wild surface plant first, giving the garden its first seed; all
-  four kinds in time, one step each; bushes stay bare, flowers and small
-  plants come back elsewhere (D-530).
