@@ -180,25 +180,15 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-507 · 2026-10-31 · A Basics page** (the owner's picks, all
-recommended; from a friend's playtest: lost on refilling the lantern and
-on which way to go) How to play gets a first tab, Basics, and opens on it
-(changed before merging: Goals → Basics, so Quests, a Journal tab later
-by D-262, can't be mixed up with it).
-Its rows: Aim, Find the stairs down, Search each room for them; Oil, Your
-lantern burns it, Less oil, less light; Pour, A flask from the bag, or
-the quick slot; Flask, 3 oilcaps make one; Oilcap, Amber mushrooms in
-rooms. The stairs stay a search (D-174): no hint shows them. Also moved
-D-505 and D-506 to the archive, word for word, as this file passed 12 KB.
-
-**D-508 · 2026-10-31 · The guide is not a faery** (the owner's wish;
-partly supersedes D-034) The owner still wants a companion who guides,
-but not a faery: something unique, not ordinary, and not found in other
-games. What it is waits (Q-072); the rest of D-034 stands till then.
-
 **D-509 · 2026-10-31 · The text line's colours by source** (the owner's
 idea and picks, recommended) The text line colours a line by where it
 comes from: speech (what people say) in bone white `#efe6cc`, harm (a
 creature hurts you) in the hostile red `#e8786a`. Actions and the rest
 stay grey and warnings amber (D-097). Hints get a colour with the guide
 (Q-072). Built as its own step, next.
+
+**D-510 · 2026-10-31 · No more line colours for now** (the owner's picks,
+recommended) Beyond D-509, the text line's other lines stay grey: finds,
+rare finds, crafting, levels, refusals, and the low-oil line. A bite the
+vest turns stays grey too: red only when you are hurt. Asked again when
+lore, feats or the guide bring new kinds of lines.
