@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.213, water first.** The owner's ideas for how
+  places are made go in the wish list: pools, rivers above and below
+  ground, biomes, parts of rooms reached through another door, and
+  dressing like cobwebs. Water comes next, before the garden (D-499).
+  Nothing visible changed.
 - **2026-10-30, 0.2.212, only a side heap frees him.** The owner's
   catch: a cleared corner heap freed the peddler and started his turns,
   though the hero couldn't reach him. Now only a heap straight beside

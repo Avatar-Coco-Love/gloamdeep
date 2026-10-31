@@ -180,12 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-499 · 2026-10-31 · Water first** (the owner's pick) Water, pools
-and rivers, above and below ground, comes next, before the garden
-(step 14) and fishing (step 15), which needs it. The rest of the
-owner's ideas for how places are made wait in `RESEARCH.md`. Whether
-water matters to the garden is Q-071.
-
 **D-500 · 2026-10-31 · The still pool** (the owner's picks, the first
 step of D-499; look 1 of 3 from the second mock-up) About 1 grey-rock
 Cave room in 2 (depths 2 to 4) holds a still pool of 5 to 9 water
@@ -209,3 +203,11 @@ rising behind his head, and turns left or right to face the hero only
 with the hero within 2 tiles, diagonals too, and not in his column.
 Also moved D-498 to the archive, word for word, as this file passed
 12 KB.
+
+**D-502 · 2026-10-31 · Water on the map, then a pond at home** (the
+owner's picks, all recommended, from a mock-up drawn by the game's own
+code; the second step of D-499) The map shows a pool's water, once
+seen, in the pool's blue-grey shimmer (#3f5175), not as wall. Next, a
+pond in the woods, in the cave pool's own blue-grey with a dark grassy
+lip under its bank. Also moved D-499 to the archive, word for word, as
+this file passed 12 KB.

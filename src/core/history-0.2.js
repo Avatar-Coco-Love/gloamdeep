@@ -4,6 +4,10 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.216', date: '2026-10-31', title: 'Water on the map', lines: [
+    "The map now shows a cave pool's water in its own blue-grey, once you've seen it, instead of as a wall.",
+    "Decisions: D-502.",
+  ] },
   { v: '0.2.215', date: '2026-10-31', title: 'Feet on the ground', lines: [
     "The peddler no longer floats: he stands still on his shadow, feet on the ground, as you do.",
     "He now faces forward, his hood face-on with two pale eyes and his bundle behind his head. He turns left or right to face you only when you're within 2 tiles and not straight above or below him.",
