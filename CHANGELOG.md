@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.215 (2026-10-31)
+- The peddler no longer floats: he stands still on his shadow, feet on the ground, as you do.
+- He now faces forward, his hood face-on with two pale eyes and his bundle behind his head. He turns left or right to face you only when you're within 2 tiles and not straight above or below him.
+- Decisions: D-501.
+
 ## 0.2.214 (2026-10-31)
 - About 1 grey-rock Cave room in 2, at depths 2 to 4, now has a still pool of blue-grey water, 5 to 9 tiles, in a chamber away from the stairs.
 - It ripples and shimmers, and your lantern's warm light shows on it. You can't step in yet, and creatures can't cross it. Light passes over it, and it never blocks the way.

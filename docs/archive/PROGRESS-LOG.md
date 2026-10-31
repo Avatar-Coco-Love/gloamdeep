@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.212, only a side heap frees him.** The owner's
+  catch: a cleared corner heap freed the peddler and started his turns,
+  though the hero couldn't reach him. Now only a heap straight beside
+  him frees him (D-498). Playtest:
+  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
 - **2026-10-30, 0.2.211, the lantern beam home.** The peddler leaves
   in look A's lantern beam, and beams in at home the first time the
   hero comes, once the room has faded in; at home he greets the hero

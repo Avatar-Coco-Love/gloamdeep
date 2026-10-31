@@ -1,4 +1,4 @@
-# The drops (D-474 to D-496)
+# The drops (D-474 to D-498)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -15,7 +15,8 @@ slots that grow, at 0.2.204 (D-490); D-488, step 11, the bed, at
 peddler at home, at 0.2.207, the sixth audit (D-493); D-494, step 13a,
 selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
 from him, at 0.2.211 (D-497); D-496, the peddler lingering, at
-0.2.212 (D-498).
+0.2.212 (D-498); D-497, the lantern beam home, at 0.2.214 (D-500);
+D-498, only a side heap frees him, at 0.2.215 (D-501).
 
 ---
 
@@ -279,3 +280,11 @@ you are, friend! Welcome!", drafted for the playtest. With reduced
 motion there is no beam, and the dev Go outside finds him there.
 Also moved D-495 to the archive, word for word, as this file passed
 12 KB.
+
+**D-498 · 2026-10-30 · Only a side heap frees the peddler** (the
+owner's catch and pick, recommended; changes D-491's "one heap
+cleared") A corner heap opens no way to him, as the hero steps only up,
+down, left and right. Cleared, it says the rubble's own line, frees no
+one and starts no turns; he keeps cheering the digging on. A heap
+straight up, down, left or right of him frees him, as before. Also
+moved D-496 to the archive, word for word, as this file passed 12 KB.
