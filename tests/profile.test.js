@@ -125,38 +125,48 @@ test('renaming changes only the name; nothing typed makes it unnamed; an empty s
   assert.equal(renamedSlot(ps, 1, 'TOM').slots[1], null);
 });
 
-test('the slots card: RENAME, LOOK, DELETE buttons, the one being done reads CANCEL (D-397)', () => {
+test('the slots card: RENAME, CHANGE LOOK, DELETE buttons, the one being done reads CANCEL (D-397, D-513)', () => {
   assert.deepEqual(slotLines(null).map((l) => l.text), ['Rename', 'Change look', 'Delete']);
-  assert.deepEqual(slotLines(null).map((l) => l.label), ['RENAME', 'LOOK', 'DELETE']);
-  assert.deepEqual(slotLines('rename').map((l) => l.label), ['CANCEL', 'LOOK', 'DELETE']);
+  assert.deepEqual(slotLines(null).map((l) => l.label), ['RENAME', 'CHANGE LOOK', 'DELETE']);
+  assert.deepEqual(slotLines('rename').map((l) => l.label), ['CANCEL', 'CHANGE LOOK', 'DELETE']);
   assert.deepEqual(slotLines('look').map((l) => l.text), ['Rename', 'Cancel', 'Delete']);
-  assert.deepEqual(slotLines('delete').map((l) => l.label), ['RENAME', 'LOOK', 'CANCEL']);
+  assert.deepEqual(slotLines('delete').map((l) => l.label), ['RENAME', 'CHANGE LOOK', 'CANCEL']);
   assert.equal(slotsHeading('rename'), 'Rename which?');
   assert.equal(slotsHeading('look'), 'Change whose look?');
   assert.equal(slotsHeading(null), 'Profiles');
 });
 
-test('the slots card: a tap picks a box, the nearest button in the row, or the cross only with a title to go back to', () => {
+test('the slots card: Change look over Rename and Delete, each tap band at least 22 game px (44 px at a zoom of 2, D-513)', () => {
   const lines = slotLines(null);
-  for (const [vw, vh] of [[176, 300], [300, 221]]) {
-    const { card, boxes, row } = slotsLayout(vw, vh, lines);
+  for (const [vw, vh] of [[176, 300], [180, 370], [300, 221]]) {
+    const { card, boxes, buttons } = slotsLayout(vw, vh, lines);
     boxes.forEach((b, i) => assert.equal(slotsAt(b.x + 20, b.y + 15, vw, vh, lines, true), i));
-    assert.ok(boxes[2].y + 30 < row.y, 'the boxes stay above the buttons');
-    row.buttons.forEach((b, i) => assert.equal(slotsAt(b.x + 2, row.y + 6, vw, vh, lines, true), lines[i].id));
-    assert.equal(slotsAt(card.x + 1, row.y + 6, vw, vh, lines, true), 'rename'); // nearest in the row
+    assert.ok(boxes[2].y + 30 < buttons[1].y, 'the boxes stay above the buttons');
+    assert.ok(buttons[0].x + buttons[0].w < buttons[2].x, 'Rename and Delete apart');
+    buttons.forEach((b, i) => assert.equal(slotsAt(b.x + 2, b.y + 6, vw, vh, lines, true), lines[i].id));
+    const band = (id, x) => { let n = 0; for (let y = card.y; y < card.y + card.h; y++) if (slotsAt(x, y, vw, vh, lines, true) === id) n++; return n; };
+    assert.ok(band('look', card.x + card.w / 2) >= 22, 'Change look\'s band');
+    assert.ok(band('rename', buttons[0].x + 4) >= 22, 'Rename\'s band');
+    assert.ok(band('delete', buttons[2].x + 4) >= 22, 'Delete\'s band');
+    assert.equal(slotsAt(card.x + 1, buttons[0].y + 6, vw, vh, lines, true), 'rename'); // nearest in the row
     assert.equal(slotsAt(card.x + card.w - 12, card.y + 11, vw, vh, lines, true), 'close');
     assert.notEqual(slotsAt(card.x + card.w - 12, card.y + 11, vw, vh, lines, false), 'close');
     assert.equal(slotsAt(2, 2, vw, vh, lines, false), 'out');
   }
 });
 
-test('the slots card\'s arrows: Up and Down through the boxes onto the row, Left and Right along it', () => {
+test('the slots card\'s arrows: Down through the boxes onto Change look, then Rename; Left and Right along the foot', () => {
   assert.equal(moveSlots(0, 'down'), 1);
-  assert.equal(moveSlots(2, 'down'), 3);
-  assert.equal(moveSlots(3, 'right'), 4);
-  assert.equal(moveSlots(5, 'right'), 5);
-  assert.equal(moveSlots(3, 'left'), 3);
+  assert.equal(moveSlots(2, 'down'), 4);
+  assert.equal(moveSlots(4, 'down'), 3);
   assert.equal(moveSlots(4, 'up'), 2);
+  assert.equal(moveSlots(4, 'left'), 4);
+  assert.equal(moveSlots(3, 'right'), 5);
+  assert.equal(moveSlots(5, 'right'), 5);
+  assert.equal(moveSlots(5, 'left'), 3);
+  assert.equal(moveSlots(3, 'left'), 3);
+  assert.equal(moveSlots(3, 'up'), 4);
+  assert.equal(moveSlots(5, 'up'), 4);
   assert.equal(moveSlots(0, 'up'), 0);
   assert.equal(moveSlots(1, 'left'), 1);
 });

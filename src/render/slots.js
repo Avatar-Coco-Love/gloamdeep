@@ -1,9 +1,10 @@
 // § slots card (D-397; was a dark page of its own, D-271): the slot screen opens as a glass card
 // like the settings card (D-389) on the title's scene, PROFILES in ember at its top. A framed box
 // for each of the 3 slots: a profile's hero in its look on a small lit patch of crypt floor, then
-// its name and its deepest depth, its play time at the right (D-290), or Empty (D-287). RENAME,
-// LOOK (Change look, P3, D-289) and DELETE as buttons along its foot (D-273), like the Explorer's
-// (D-395). While renaming or deleting, the card's title asks which, and that button reads CANCEL.
+// its name and its deepest depth, its play time at the right (D-290), or Empty (D-287).
+// CHANGE LOOK (P3, D-289) as a wide button over RENAME and DELETE at its foot (D-273, D-513), like
+// the Explorer's (D-395); each row's taps reach past its buttons, at least 44 px tall (D-513).
+// While renaming or deleting, the card's title asks which, and that button reads CANCEL.
 // The round cross goes back to the title, shown only when there is one to go back to. The question
 // after Delete, Delete …?, is the ask card (askcard.js, D-400).
 import { drawText, textWidth } from './font.js';
@@ -20,44 +21,49 @@ export const TEXT_X = PATCH_X + PATCH + 6; // a profile's name and depth, from i
 // text is said, label drawn. picking: null, 'rename', 'look' or 'delete'
 export const slotLines = (picking) => [
   { id: 'rename', text: picking === 'rename' ? 'Cancel' : 'Rename', label: picking === 'rename' ? 'CANCEL' : 'RENAME' },
-  { id: 'look', text: picking === 'look' ? 'Cancel' : 'Change look', label: picking === 'look' ? 'CANCEL' : 'LOOK' },
+  { id: 'look', text: picking === 'look' ? 'Cancel' : 'Change look', label: picking === 'look' ? 'CANCEL' : 'CHANGE LOOK' },
   { id: 'delete', text: picking === 'delete' ? 'Cancel' : 'Delete', label: picking === 'delete' ? 'CANCEL' : 'DELETE' },
 ];
 const HEADINGS = { rename: 'Rename which?', look: 'Change whose look?', delete: 'Delete which?' };
 export const slotsHeading = (picking) => HEADINGS[picking] ?? 'Profiles';
 
-// § layout: on a view `vw` × `vh`, the card, each slot's box { x, y, w } and the buttons' row:
-// { y, buttons: [{ x, w }] }, left, centred and right, each just wide enough for its word
+// § layout: on a view `vw` × `vh`, the card, each slot's box { x, y, w } and each line's button
+// { x, y, w }: Change look the boxes' width, over Rename at the left and Delete at the right (D-513)
+const ROW_GAP = 6; // between Change look and the foot's row
 export function slotsLayout(vw, vh, lines) {
   const card = cardAt(vw, vh), x = card.x + PAD, w = card.w - 2 * PAD;
   const boxes = Array.from({ length: SLOTS }, (_, i) => ({ x, y: card.y + BOX_Y + i * BOX_GAP, w }));
-  const ws = lines.map((l) => textWidth(l.label) + 8);
-  const xs = [x, card.x + Math.floor((card.w - ws[1]) / 2), x + w - ws[2]];
-  return { card, boxes, row: { y: card.y + card.h - PAD - BUTTON.h, buttons: ws.map((bw, i) => ({ x: xs[i], w: bw })) } };
+  const foot = card.y + card.h - PAD - BUTTON.h, ws = lines.map((l) => textWidth(l.label) + 8);
+  const buttons = [{ x, y: foot, w: ws[0] }, { x, y: foot - ROW_GAP - BUTTON.h, w }, { x: x + w - ws[2], y: foot, w: ws[2] }];
+  return { card, boxes, buttons };
 }
 
-// Arrows on the card: Up and Down through the boxes and onto the buttons' row, Left and Right
-// along it; chosen: a slot's number, else 3 and on for the buttons
+// Arrows on the card: Up and Down through the boxes, onto Change look, then the foot's row, Left
+// and Right along it; chosen: a slot's number, else 3 and on for the lines (Rename, Change look, Delete)
+const RENAME = SLOTS, LOOK = SLOTS + 1, DELETE = SLOTS + 2;
 export function moveSlots(i, dir) {
-  if (i < SLOTS) return dir === 'up' ? Math.max(0, i - 1) : dir === 'down' ? i + 1 : i;
-  if (dir === 'up') return SLOTS - 1;
-  if (dir === 'left') return Math.max(SLOTS, i - 1);
-  if (dir === 'right') return Math.min(SLOTS + 2, i + 1);
+  if (i < SLOTS) return dir === 'up' ? Math.max(0, i - 1) : dir === 'down' ? (i + 1 < SLOTS ? i + 1 : LOOK) : i;
+  if (i === LOOK) return dir === 'up' ? SLOTS - 1 : dir === 'down' ? RENAME : i;
+  if (dir === 'up') return LOOK;
+  if (dir === 'left') return RENAME;
+  if (dir === 'right') return DELETE;
   return i;
 }
 
-// What a tap at x, y on the room's canvas picks: a slot's number, a button's id (the nearest in
-// its row, so no tap is lost), 'close' (the round cross, when `back`), or null; outside the card, 'out'
+// What a tap at x, y on the room's canvas picks: a slot's number, a button's id, 'close' (the round
+// cross, when `back`), or null; outside the card, 'out'. Change look's band runs from a little over
+// it to halfway down the gap; under that to the card's foot, the nearest of Rename and Delete, so no
+// tap is lost and each band is at least 22 game pixels, 44 px at the phone's zoom of 2 (D-513)
 export function slotsAt(x, y, vw, vh, lines, back) {
-  const { card, boxes, row } = slotsLayout(vw, vh, lines);
+  const { card, boxes, buttons } = slotsLayout(vw, vh, lines);
   if (!inCard(card, x, y)) return 'out';
   if (back && onCross(card, x, y)) return 'close';
   const i = boxes.findIndex((b) => y >= b.y - 2 && y < b.y + BOX_H + 2);
   if (i >= 0) return i;
-  if (y < row.y - TAP_PAD || y >= row.y + BUTTON.h + TAP_PAD) return null;
-  const off = (b) => Math.abs(x - b.x - b.w / 2);
-  const near = row.buttons.reduce((a, b, j) => (off(b) < off(row.buttons[a]) ? j : a), 0);
-  return lines[near].id;
+  const look = buttons[1], split = look.y + BUTTON.h + ROW_GAP / 2;
+  if (y >= split) return Math.abs(x - buttons[0].x - buttons[0].w / 2) <= Math.abs(x - buttons[2].x - buttons[2].w / 2) ? lines[0].id : lines[2].id;
+  if (y >= look.y - 2 * TAP_PAD && y > boxes[SLOTS - 1].y + BOX_H + 2) return lines[1].id;
+  return null;
 }
 // § patch: a small square of crypt floor lit by the hero's lantern, as the Look boxes'; painted once (TECH.md)
 let patch = null;
@@ -87,7 +93,7 @@ export function drawPatchHero(c, hero, x, y) {
 // else 3 and on for the buttons; picking: as slotLines'; back: whether the round cross shows;
 // still: reduced motion
 export function drawSlots(c, vw, vh, ps, heroOf, chosen, picking, back, t, still) {
-  const lines = slotLines(picking), { boxes, row } = slotsLayout(vw, vh, lines);
+  const lines = slotLines(picking), { boxes, buttons } = slotsLayout(vw, vh, lines);
   drawCard(c, vw, vh, slotsHeading(picking).toUpperCase(), 0, back);
   ps.slots.forEach((p, i) => {
     const { x, y, w } = boxes[i], on = chosen === i;
@@ -102,6 +108,6 @@ export function drawSlots(c, vw, vh, ps, heroOf, chosen, picking, back, t, still
     } else drawText(c, 'Empty', x + Math.floor((w - textWidth('Empty')) / 2), y + 11, DIM);
     if (on) drawMarker(c, x - 7, y + 13, t, still);
   });
-  lines.forEach((l, i) => drawButton(c, row.buttons[i].x, row.y, l.label, chosen !== SLOTS + i && picking !== l.id, row.buttons[i].w)); // the chosen one ember, and the one being done
+  lines.forEach((l, i) => drawButton(c, buttons[i].x, buttons[i].y, l.label, chosen !== SLOTS + i && picking !== l.id, buttons[i].w)); // the chosen one ember, and the one being done
 }
 

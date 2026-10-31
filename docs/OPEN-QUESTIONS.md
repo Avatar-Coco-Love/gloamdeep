@@ -127,3 +127,8 @@ The owner wants a companion who guides, but not a faery: something
 unique, not ordinary, not found in other games. What it is, how it
 looks, how it joins and what it does are all open. Asked when the
 owner wants the guide.
+
+**Q-073 · The first cloak patterns** (raised 2026-10-31, D-514)
+Which patterns come first (D-280 named zebra stripes, cow spots and
+camo), their colours, and which are free before the look currency
+exists. Asked at the patterns' step.

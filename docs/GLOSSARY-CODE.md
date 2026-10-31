@@ -22,8 +22,8 @@ code; where this page and a decision disagree, the decision wins.
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero
   wears: the cloak's colour, the eyes' colour and the lantern's trim (its
   cap and base), six of each, and the clothes, four shapes (Cloak, Belted,
-  Short, Tattered), chosen after the name or with Change look (the LOOK
-  button) on the slot screen (D-275 to D-278, D-289, D-397); each a glass
+  Short, Tattered), chosen after the name or with Change look (the CHANGE LOOK
+  button) on the slot screen (D-275 to D-278, D-289, D-397, D-513); each a glass
   card since D-399.
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
