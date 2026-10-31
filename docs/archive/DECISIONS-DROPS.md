@@ -1,4 +1,4 @@
-# The drops (D-474 to D-500)
+# The drops (D-474 to D-501)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -17,7 +17,8 @@ selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
 from him, at 0.2.211 (D-497); D-496, the peddler lingering, at
 0.2.212 (D-498); D-497, the lantern beam home, at 0.2.214 (D-500);
 D-498, only a side heap frees him, at 0.2.215 (D-501); D-499, water
-first, at 0.2.216 (D-502); D-500, the still pool, at 0.2.217 (D-503).
+first, at 0.2.216 (D-502); D-500, the still pool, at 0.2.217 (D-503); D-501,
+the peddler stands still, at 0.2.218 (D-504).
 
 ---
 
@@ -309,3 +310,13 @@ rim, a slow shimmer, rings that widen and fade, and the lantern's warm
 light on it; still with reduced motion. On the map it shows as wall
 for now. Also moved D-497 to the archive, word for word, as this file
 passed 12 KB.
+
+**D-501 · 2026-10-31 · The peddler stands still and faces forward**
+(the owner's catch and picks, all recommended; look A of the facing
+mock-up; changes D-490's idle bob and turning) He no longer bobs, which
+lifted him off his shadow: he stands still on it, as the hero does.
+He faces forward, the hood face-on with two pale eyes and the bundle
+rising behind his head, and turns left or right to face the hero only
+with the hero within 2 tiles, diagonals too, and not in his column.
+Also moved D-498 to the archive, word for word, as this file passed
+12 KB.

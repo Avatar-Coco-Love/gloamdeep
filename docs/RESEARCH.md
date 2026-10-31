@@ -43,7 +43,7 @@ items: collectables, craftables, weapons and more. Where they stand:
   equipment to use when they allow it.
 - How places are made (2026-10-31): unique, even unusual layouts.
   Pools, and rivers above and below ground, leading to fishing (water
-  first, D-499); different biomes; part of a room cut off by water or
+  first, D-499); later streams, oceans and more (D-504); different biomes; part of a room cut off by water or
   something else, reached by going through another room and coming
   back in by a different door. Later, a pass that dresses rooms with
   debris, cobwebs and the like.
