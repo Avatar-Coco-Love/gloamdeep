@@ -4,6 +4,10 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.233', date: '2026-10-31', title: 'Your hero on the name card', lines: [
+    "When you make a new hero, the name card shows your hero big over the letters, with the name you type over it, and two dots in the top bar show it is the first of two steps; on the Look card both dots are lit. Rename shows your hero too. Going back from the Look card to the name keeps the look you picked.",
+    "Decisions: D-524.",
+  ] },
   { v: '0.2.232', date: '2026-10-31', title: 'A bigger hero, bigger buttons', lines: [
     "The Look card looks more like the first drawing of it: your hero is much bigger, the tabs sit between your hero and the choices, and RANDOM and OK are two big buttons side by side across the bottom.",
     "Decisions: D-523.",

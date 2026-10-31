@@ -67,15 +67,6 @@ builds on D-021) Players uncover the map as they explore. Dev tools get
 a switch that reveals the whole map, and a map mode, which may be the
 same map players see. Details are Q-042.
 
-**D-336 · 2026-10-25 · The first regular audit** (the owner's picks, all
-recommended) A conversation given to tidying, with nothing visible changed:
-`CLAUDE.md` loses its list of archive files, now one index in
-`archive/README.md`; `PROGRESS.md`'s ticked build steps move to the
-progress archive; `CHANGELOG.md` keeps its newest entries, the rest in
-`archive/CHANGELOG-STAGE-0.2-1.md`; and `tests/docs.test.js` fails when a
-doc passes its cap (8 KB; `DECISIONS.md` 12 KB; `PROGRESS.md` 4 KB, as before) or
-the archive index misses a file. The 0.2.1 setup script line is in place.
-
 **D-337 · 2026-10-25 · An audit every 20 versions** (the owner's picks, both
 recommended) `PROGRESS.md` names the next audit's version; when it comes,
 the audit is Next up. Each audit also splits one big code file into
@@ -209,3 +200,12 @@ largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
 two equal buttons across the card's foot, 18 tall with letters 2×. The
 tabs move under the hero, as wide as the boxes (changed after the owner
 pointed at A: they had stayed at the top). Boxes keep the whole hero.
+
+**D-524 · 2026-10-31 · The hero creator, step 4: dots and the name
+card's hero** (the owner's picks, all recommended; builds D-517) Two
+dots sit in the top bar between the heading and the cross on a new
+hero's cards: NAME one gold and one dim, LOOK both gold; Rename and
+Change look have none. The name card shows the hero as big as fits,
+its typed name over it: upright just under the top bar, as in mock-up
+A; sideways between the letter halves. RENAME shows the profile's own
+hero. Going back from LOOK keeps the look picked.

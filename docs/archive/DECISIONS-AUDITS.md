@@ -1,11 +1,21 @@
-# The audits (D-362, D-392, D-421, D-468, D-493)
+# The audits (D-336, D-362, D-392, D-421, D-468, D-493)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.228, the seventh audit
 (D-519), as it neared 12 KB: the second to sixth audits, each done.
+D-336, the first audit, followed at 0.2.233 (D-524).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
 ---
+
+**D-336 · 2026-10-25 · The first regular audit** (the owner's picks, all
+recommended) A conversation given to tidying, with nothing visible changed:
+`CLAUDE.md` loses its list of archive files, now one index in
+`archive/README.md`; `PROGRESS.md`'s ticked build steps move to the
+progress archive; `CHANGELOG.md` keeps its newest entries, the rest in
+`archive/CHANGELOG-STAGE-0.2-1.md`; and `tests/docs.test.js` fails when a
+doc passes its cap (8 KB; `DECISIONS.md` 12 KB; `PROGRESS.md` 4 KB, as before) or
+the archive index misses a file. The 0.2.1 setup script line is in place.
 
 **D-362 · 2026-10-25 · The second audit, early, turn.js split first** (the
 owner's picks, recommended; supersedes D-337's 0.2.129) The audit comes now, at 0.2.123,

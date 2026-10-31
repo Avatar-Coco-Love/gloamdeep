@@ -11,7 +11,12 @@ export function createProfileScreens(app, ui, show) {
   // screen with nothing made (D-398). Renaming (D-273) opens on the name kept; OK keeps the new one
   // (none: unnamed again) and goes back to the slot screen; the cross or Esc leaves the old name.
   const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, then OK. Esc or the close button goes back.` : 'Name your profile. Type up to 12 letters, then OK. Esc or the close button goes back.');
-  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; show('name'); }
+  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; wearOf(renaming && app.profiles.slots[i]); show('name'); }
+  // The look the name and look cards show: a profile's own, or a new hero's first free one (D-517)
+  function wearOf(p) {
+    app.cloak = p ? cloakOf(p) : CLOAK_IDS[0]; app.eyes = p ? eyesOf(p) : EYE_IDS[0];
+    app.trim = p ? trimOf(p) : TRIM_IDS[0]; app.clothes = p ? clothesOf(p) : CLOTHES_IDS[0];
+  }
   function closeName() { app.picking = null; show('slots', app.naming); }
   function pressName(id) {
     if (id === 'ok' && app.renaming) { ui.renameSlot(app.naming, app.entry); closeName(); }
@@ -30,10 +35,7 @@ export function createProfileScreens(app, ui, show) {
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
     app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak';
-    app.cloak = fresh ? CLOAK_IDS[0] : cloakOf(p);
-    app.eyes = fresh ? EYE_IDS[0] : eyesOf(p);
-    app.trim = fresh ? TRIM_IDS[0] : trimOf(p);
-    app.clothes = fresh ? CLOTHES_IDS[0] : clothesOf(p);
+    if (!fresh) wearOf(p); // a new hero keeps the look picked before going back to its name (D-517)
     show('cloak', LOOK_PADS.cloak.findIndex((k) => !k.tab && k.id === app.cloak));
   }
   function closeCloak() {

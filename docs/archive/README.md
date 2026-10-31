@@ -52,7 +52,7 @@ header says when it moved and why.
 | `DECISIONS-SCOPE-2.md` | D-450 to D-472 | the scope's parts 2 to 8: ore, tools, plants, fishing, farming, drops, making, gear, growth, collectables, home, trade | D-457, D-461, D-464, D-468, D-476 |
 | `DECISIONS-DROPS.md` | D-474 to D-481, D-483 to D-488, D-490 to D-492, D-494 to D-504 | the build order's steps 1 to 13a: the Rat Tail, the common and rare drops, the glass flask, torches, the spear, the pick, the Growth tree, the Copper Wick, the Rat Hide Vest, room on the crafting pages, the Wisp Charm, the Heart Charm, the bed, the trapped peddler, the rescue, the peddler at home, selling to him, buying from him, his lingering, the lantern beam home, only a side heap frees him, water first, the still pool, the peddler stands still, water on the map, the pond at home, water done for now | D-478, D-481, D-482, D-485, D-486, D-487, D-488, D-490, D-491, D-492, D-493, D-496, D-497, D-498, D-500, D-501, D-502, D-503, D-504, D-505, D-506 |
 | `DECISIONS-UPRIGHT.md` | D-505, D-506 | play upright, the title's screens upright | D-507 |
-| `DECISIONS-AUDITS.md` | D-362, D-392, D-421, D-468, D-493 | the second to sixth audits | D-519 |
+| `DECISIONS-AUDITS.md` | D-336, D-362, D-392, D-421, D-468, D-493 | the first to sixth audits | D-519, D-524 |
 | `DECISIONS-HELP.md` | D-507, D-508 | the Basics page, the guide is not a faery | D-510 |
 | `DECISIONS-LINES.md` | D-509, D-510 | the text line's colours by source, no more for now | D-512 |
 | `DECISIONS-HERBS-LINED.md` | D-511, D-512 | a herb at full health goes in the bag, lined up with no overlaps | D-513 |
