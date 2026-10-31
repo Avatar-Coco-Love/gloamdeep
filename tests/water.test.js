@@ -8,6 +8,7 @@ import { get } from '../src/core/registry.js';
 import { makeState, step } from '../src/core/turn.js';
 import { clearLine } from '../src/core/sight.js';
 import { POOL_MIN, POOL_MAX, POOL_CLEAR } from '../src/core/cave.js';
+import { markAt } from '../src/core/map.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const wet = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === '~' ? [{ x, y }] : [])));
@@ -65,4 +66,11 @@ test('water is solid: the hero bumps it and stays, no turn, and light passes ove
   assert.deepEqual(n.hero, { x: 5, y: 11 });
   assert.equal(n.turn, s.turn);
   assert.ok(clearLine(room, { x: 5, y: 11 }, { x: 5, y: 9 }));
+});
+
+test('the map shows a pool as water, not wall, once it is seen (D-502)', () => {
+  const { p } = rooms().find((r) => wet(r.p.map).length);
+  const room = makeRoom(p.map, undefined, 'rock'), [w] = wet(p.map), seen = new Uint8Array(room.cols * room.rows);
+  assert.equal(markAt(room, null, w.x, w.y), 'water');
+  assert.equal(markAt(room, seen, w.x, w.y), null);
 });

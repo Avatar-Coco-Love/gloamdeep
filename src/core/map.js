@@ -162,13 +162,14 @@ export function stairsIn(plan, roomId, id) {
 }
 
 // § marks: (room, seen, x, y) → what the map shows at that tile: 'stairs' for a
-// glowing tile, 'floor', 'wall' for a wall beside a floor (the rock behind it
-// stays dark, so rooms show as outlines), or null. Only remembered tiles show,
-// unless seen is null.
+// glowing tile, 'floor', 'water' for a pool's water (D-502), 'wall' for a wall beside a floor
+// (the rock behind it stays dark, so rooms show as outlines), or null. Only remembered tiles
+// show, unless seen is null.
 export function markAt(room, seen, x, y) {
   if (seen && !seen[y * room.cols + x]) return null;
   const t = tileAt(room, x, y);
   if (t.glow) return 'stairs';
+  if (t.id === 'water') return 'water';
   if (!t.solid) return 'floor';
   for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
     const nx = x + dx, ny = y + dy;

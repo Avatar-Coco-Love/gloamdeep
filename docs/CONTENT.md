@@ -79,7 +79,7 @@ mechanic and its own step.
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
 | `bedstead` | the bed: at night sleep till morning, healed, a gold heart; by day, Deconstruct bed? | | set down on the surface | D-488 |
 | `rubble` | solid, light passing over it; 3 bumps by hand clear it, nothing taken, never back; the person beside it calls out, then is freed | | a ring around the peddler, depth 3 | D-490, D-491 |
-| `water` | a still pool: solid, light passing over it | | about 1 grey-rock Cave room in 2, 5 to 9 tiles | D-500 |
+| `water` | a still pool: solid, light passing over it; on the map in its blue-grey (D-502) | | about 1 grey-rock Cave room in 2, 5 to 9 tiles | D-500, D-502 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 
 ## Lights (`src/core/lights.js`)

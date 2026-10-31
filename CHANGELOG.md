@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.216 (2026-10-31)
+- The map now shows a cave pool's water in its own blue-grey, once you've seen it, instead of as a wall.
+- Decisions: D-502.
+
 ## 0.2.215 (2026-10-31)
 - The peddler no longer floats: he stands still on his shadow, feet on the ground, as you do.
 - He now faces forward, his hood face-on with two pale eyes and his bundle behind his head. He turns left or right to face you only when you're within 2 tiles and not straight above or below him.

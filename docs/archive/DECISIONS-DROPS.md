@@ -1,4 +1,4 @@
-# The drops (D-474 to D-498)
+# The drops (D-474 to D-499)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -16,7 +16,8 @@ peddler at home, at 0.2.207, the sixth audit (D-493); D-494, step 13a,
 selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
 from him, at 0.2.211 (D-497); D-496, the peddler lingering, at
 0.2.212 (D-498); D-497, the lantern beam home, at 0.2.214 (D-500);
-D-498, only a side heap frees him, at 0.2.215 (D-501).
+D-498, only a side heap frees him, at 0.2.215 (D-501); D-499, water
+first, at 0.2.216 (D-502).
 
 ---
 
@@ -288,3 +289,9 @@ down, left and right. Cleared, it says the rubble's own line, frees no
 one and starts no turns; he keeps cheering the digging on. A heap
 straight up, down, left or right of him frees him, as before. Also
 moved D-496 to the archive, word for word, as this file passed 12 KB.
+
+**D-499 · 2026-10-31 · Water first** (the owner's pick) Water, pools
+and rivers, above and below ground, comes next, before the garden
+(step 14) and fishing (step 15), which needs it. The rest of the
+owner's ideas for how places are made wait in `RESEARCH.md`. Whether
+water matters to the garden is Q-071.

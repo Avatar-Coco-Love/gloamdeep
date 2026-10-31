@@ -3,7 +3,8 @@
 // closes it. Between them, centred, "DEPTH 3" and the area's name between an up arrow
 // and a down arrow that turn the map a floor, ember while there is a floor that way,
 // else greyed (D-206). Each room is
-// drawn small from the tiles remembered: floors in the floor's grey, walls
+// drawn small from the tiles remembered: floors in the floor's grey, a pool's water in
+// its blue-grey (D-502), walls
 // beside them in the brick's top edge, found stairs in their violet, the
 // hero a blinking gold dot on their own floor (still with reduced motion), each
 // bag where you fell a leather brown dot (MO3, D-345).
@@ -19,7 +20,7 @@ import { markAt, aroundHero } from '../core/map.js';
 import { areaAt } from '../core/room.js';
 
 const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
-const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0' }; // ART-DIRECTION.md
+const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3f5175' }; // ART-DIRECTION.md; water the pool's shimmer (D-502)
 // Walls in each room's own tone, and the heading's area name in its floor's (D-233):
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green
 const TONE = { crypt: '#69748b', rock: '#7a8396', earth: '#8e7a62', dungeon: '#4c5a84', woods: '#4f8a3f' };
