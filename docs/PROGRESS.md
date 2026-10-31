@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.221 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.222 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The text line's colours by source: speech white, harm red (D-509); then
-playtest polish, if any; then step 14, the garden (Q-071).
+Playtest polish, if any; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,6 +44,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
+  peddler's words show bone white, a creature's bite or sting red;
+  warnings stay amber, the rest grey. A bite your vest turns stays grey.
+  Playtest: https://claude.ai/artifact/W4GByW5DeuiAxvwCtkBTAH
 - **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
   the lantern and on which way to go. The owner picked a first How to
   play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,
@@ -56,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   buttons in a row under the big button, the pads at the card's foot
   with bigger keys (D-506). Also put back archived decisions 0.2.219
   lost. Playtest: https://claude.ai/artifact/LNqiL9SKk7LWbCd7JHfYNh
-- **2026-10-31, 0.2.219, play upright too.** The owner's partner can't
-  stand sideways, so the owner gave Claude the lead on upright play,
-  taking every recommended option (D-505, answers Q-065). A phone plays
-  held either way, the tiles the same size; cards stack their sides
-  upright. Playtest: https://claude.ai/artifact/LaTVrY7vcijxoRJtgKGJ4J

@@ -2,12 +2,14 @@
 // (D-381; was a strip under the room, D-094), upright above the corner pieces (D-505). It shows the core's shown
 // line (core/lines.js), centred; once its turns are used up it fades in half
 // a second, glass and all, or goes at once with reduced motion (D-095).
-// Ordinary lines are the study's grey, warnings amber (D-097).
+// Ordinary lines are the study's grey, warnings amber (D-097); speech bone white, harm red (D-509).
 import { view, LINE_H, BUTTON_GAP, PAD_DISC } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawGlass } from './glass.js';
 
 const GREY = '#9790a4', AMBER = '#ffc65c'; // the study's --muted and --amber
+const KIND = { speech: '#efe6cc', harm: '#e8786a' }; // bone white, the hostile red (D-509)
+export const lineColour = (line) => (line.warn ? AMBER : KIND[line.kind] ?? GREY);
 const FADE_MS = 500;
 const PAD = 3; // between the words and the glass's edge, as on the panel
 export const LINE_UP = LINE_H + 2; // the glass's height and the gap under it, kept clear by the creature list
@@ -25,7 +27,7 @@ export function createTextLine() {
     img.width = w + 2 * PAD; img.height = LINE_H;
     const c = img.getContext('2d');
     drawGlass(c, 0, 0, img.width, img.height);
-    drawText(c, line.text, PAD, Math.floor((LINE_H - FONT_H) / 2), line.warn ? AMBER : GREY);
+    drawText(c, line.text, PAD, Math.floor((LINE_H - FONT_H) / 2), lineColour(line));
   };
   return {
     // line: the shown line or null; reduce: prefers-reduced-motion

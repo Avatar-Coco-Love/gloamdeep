@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.219, play upright too.** The owner's partner can't
+  stand sideways, so the owner gave Claude the lead on upright play,
+  taking every recommended option (D-505, answers Q-065). A phone plays
+  held either way, the tiles the same size; cards stack their sides
+  upright. Playtest: https://claude.ai/artifact/LaTVrY7vcijxoRJtgKGJ4J
 - **2026-10-31, 0.2.218, water done for now.** The owner picked water
   done for now: the cave pools and the pond at home stay; streams,
   rivers, oceans and more come later. The garden is next (D-504). Nothing

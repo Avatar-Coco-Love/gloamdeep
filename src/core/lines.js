@@ -1,6 +1,8 @@
 // § lines: what the text line says, and when (D-094 to D-097). Plain data,
 // no drawing. A line is said on a turn and shows for LINE_TURNS turns.
 // The words are style study 1's (study lines 462, 482–483, Q-028).
+// A line's `kind` says where it comes from, for its colour (D-509): 'speech', what people
+// say; 'harm', a creature hurts you; none, the rest.
 
 export const LINES = {
   oilLow: { text: 'The flame is getting low.', warn: false },
@@ -9,19 +11,19 @@ export const LINES = {
   // Hurt, it stands its ground: the lines take turns (D-297, D-301)
   ratStands: { texts: ['The rat stands its ground.', 'The rat squeaks and bares its teeth.', 'The rat squeaks.'], warn: false },
   ratDie: { text: 'The rat squeaks and falls still.', warn: false }, // (D-112)
-  ratBite: { text: 'The rat bites you.', warn: false }, // (D-117)
+  ratBite: { text: 'The rat bites you.', warn: false, kind: 'harm' }, // (D-117)
   gloamlingHurt: { text: 'The gloamling hisses at you.', warn: false }, // (D-240)
   gloamlingDie: { text: 'The gloamling hisses and fades.', warn: false }, // (D-240)
-  gloamlingBite: { text: 'The gloamling bites you.', warn: false }, // (D-240)
+  gloamlingBite: { text: 'The gloamling bites you.', warn: false, kind: 'harm' }, // (D-240)
   lampmothDie: { text: 'The lampmoth flutters and falls.', warn: false }, // (D-356)
-  lampmothBite: { text: 'The lampmoth bites you.', warn: false }, // (D-356)
+  lampmothBite: { text: 'The lampmoth bites you.', warn: false, kind: 'harm' }, // (D-356)
   scorpionDie: { text: 'The scorpion curls up and falls still.', warn: false }, // (D-370)
-  scorpionBite: { text: 'The scorpion stings you.', warn: false }, // (D-370)
+  scorpionBite: { text: 'The scorpion stings you.', warn: false, kind: 'harm' }, // (D-370)
   flaskMimicWakes: { text: 'The flask opens its eyes!', warn: false }, // (D-368)
   flaskMimicHurt: { text: 'The flask mimic cracks.', warn: false }, // (D-369)
   flaskMimicSettles: { text: 'The flask mimic settles down.', warn: false }, // (D-368)
   flaskMimicDie: { text: 'The flask mimic cracks and falls still.', warn: false }, // (D-366)
-  flaskMimicBite: { text: 'The flask mimic bites you.', warn: false }, // (D-366)
+  flaskMimicBite: { text: 'The flask mimic bites you.', warn: false, kind: 'harm' }, // (D-366)
   fall: { text: 'You fall, and wake again.', warn: false }, // (D-119)
   anew: { text: 'The world begins again.', warn: false }, // a Hardcore fall (D-344)
   torchLit: { text: 'You light the torch.', warn: false }, // (D-124)
@@ -139,13 +141,13 @@ export const LINES = {
   bedSet: { text: 'You set down the bed.', warn: false }, // a turn
   bedTake: { text: 'You take down the bed.', warn: false }, // Yes on Deconstruct bed?, a turn
   // The trapped peddler's call through the rubble, the lines taking turns (step 12a, D-490); drafted for the playtest
-  peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false },
-  peddlerDigging: { texts: ['"I hear you! Keep digging!"', '"It moved! Keep going!"', '"I see your light! Keep at it!"'], warn: false }, // the rubble beside him being dug (D-496), drafted for the playtest
-  peddlerFreed: { text: '"I\'m free! Thank you, friend!"', warn: false }, // the rubble beside him cleared; he stays a little (D-491, D-496), drafted for the playtest
-  peddlerWaiting: { texts: ['"I thought I\'d never see light again."', '"Your lantern found me. I owe you."', '"I know the way up from here."'], warn: false }, // bumped, freed, still in the room (D-496), drafted for the playtest
-  peddlerLeaving: { text: '"Thank you! I\'ll head for the surface."', warn: false }, // the turns up, he goes home (D-496); the old freed line, drafted for the playtest
-  peddlerGreets: { text: '"There you are, friend! Welcome!"', warn: false }, // at home, the hero first within 2 tiles (D-496), drafted for the playtest
-  peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."', '"Let me unpack. I\'ll have wares soon."'], warn: false }, // at home in the woods (D-492), drafted for the playtest
+  peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false, kind: 'speech' },
+  peddlerDigging: { texts: ['"I hear you! Keep digging!"', '"It moved! Keep going!"', '"I see your light! Keep at it!"'], warn: false, kind: 'speech' }, // the rubble beside him being dug (D-496), drafted for the playtest
+  peddlerFreed: { text: '"I\'m free! Thank you, friend!"', warn: false, kind: 'speech' }, // the rubble beside him cleared; he stays a little (D-491, D-496), drafted for the playtest
+  peddlerWaiting: { texts: ['"I thought I\'d never see light again."', '"Your lantern found me. I owe you."', '"I know the way up from here."'], warn: false, kind: 'speech' }, // bumped, freed, still in the room (D-496), drafted for the playtest
+  peddlerLeaving: { text: '"Thank you! I\'ll head for the surface."', warn: false, kind: 'speech' }, // the turns up, he goes home (D-496); the old freed line, drafted for the playtest
+  peddlerGreets: { text: '"There you are, friend! Welcome!"', warn: false, kind: 'speech' }, // at home, the hero first within 2 tiles (D-496), drafted for the playtest
+  peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."', '"Let me unpack. I\'ll have wares soon."'], warn: false, kind: 'speech' }, // at home in the woods (D-492), drafted for the playtest
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
@@ -190,7 +192,7 @@ export function shownLine(state) {
   const entry = LINES[state.line.id];
   if (!entry) return null; // a line that isn't there, as an old save may hold, shows nothing (D-369)
   if (entry.texts) {
-    if (!filled.has(state.line)) filled.set(state.line, { text: entry.texts[state.line.i ?? 0], warn: entry.warn });
+    if (!filled.has(state.line)) filled.set(state.line, { ...entry, texts: undefined, text: entry.texts[state.line.i ?? 0] });
     return filled.get(state.line);
   }
   if (state.line.n === undefined) return entry;

@@ -71,3 +71,15 @@ test('a line that is not there is not said, and an old save holding one shows no
   assert.equal(say(s, undefined), s);
   assert.equal(shownLine({ ...s, line: { turn: s.turn } }), null);
 });
+
+// § colours by source (D-509): speech bone white, harm red, warnings amber, the rest grey
+test('what people say is bone white, a creature hurting you red', async () => {
+  const { lineColour } = await import('../src/render/textline.js');
+  const s = makeState(room);
+  assert.equal(lineColour(shownLine(say(s, 'peddlerCalls'))), '#efe6cc');
+  assert.equal(lineColour(shownLine(say(s, 'peddlerFreed'))), '#efe6cc');
+  for (const k of Object.keys(ENEMIES)) if (LINES[k + 'Bite']) assert.equal(lineColour(LINES[k + 'Bite']), '#e8786a', k);
+  assert.equal(lineColour(LINES.oilEmpty), '#ffc65c');
+  assert.equal(lineColour(LINES.glance), '#9790a4');
+  for (const [id, e] of Object.entries(LINES)) if ((e.text ?? e.texts[0]).startsWith('"')) assert.equal(e.kind, 'speech', id);
+});
