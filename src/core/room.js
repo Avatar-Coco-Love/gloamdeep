@@ -175,7 +175,7 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
-  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0 });
+  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock' });
   const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth', cell.seed) : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion', cell.seed) : made;
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const room = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;

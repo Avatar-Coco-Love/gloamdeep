@@ -9,6 +9,8 @@ const GLOW = { reach: 1, cr: 0.325, cg: 0.275, cb: 0.44 };
 
 export const TILES = {
   wall: { id: 'wall', kind: 'tile', letter: '#', name: 'Wall', solid: true, blocksLight: true },
+  // A still pool's water (D-500): solid until the hero can swim (Q-039), light passing over it
+  water: { id: 'water', kind: 'tile', letter: '~', name: 'Water', solid: true, blocksLight: false },
   floor: { id: 'floor', kind: 'tile', letter: '.', name: 'Floor', solid: false, blocksLight: false },
   // One round tree a tile, in the woods (D-209): solid, and the view stops at it.
   // Chopped as a deposit is mined (W3, D-317): 4 bumps fell it for 3 Wood, but never

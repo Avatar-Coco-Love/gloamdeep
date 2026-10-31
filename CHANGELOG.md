@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.214 (2026-10-31)
+- About 1 grey-rock Cave room in 2, at depths 2 to 4, now has a still pool of blue-grey water, 5 to 9 tiles, in a chamber away from the stairs.
+- It ripples and shimmers, and your lantern's warm light shows on it. You can't step in yet, and creatures can't cross it. Light passes over it, and it never blocks the way.
+- Decisions: D-500.
+
 ## 0.2.213 (2026-10-31)
 - The owner's ideas for how places are made are kept: pools, rivers above and below ground, different biomes, parts of a room you reach only through another door, and later debris and cobwebs.
 - Water comes next, before the garden and fishing. Nothing in the game changed.

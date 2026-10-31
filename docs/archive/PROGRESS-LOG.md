@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-30, 0.2.211, the lantern beam home.** The peddler leaves
+  in look A's lantern beam, and beams in at home the first time the
+  hero comes, once the room has faded in; at home he greets the hero
+  once, within 2 tiles (D-497). Playtest:
+  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
 - **2026-10-30, 0.2.210, the peddler lingers.** Freed, he stays and
   thanks you; bumped, he talks, free. He fades away home 5 turns later,
   or 3 after a bump, or when you leave the room (D-496; the beam look

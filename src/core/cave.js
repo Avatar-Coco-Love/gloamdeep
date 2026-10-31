@@ -23,12 +23,15 @@ export const HEARTCAP_ODDS = 0.5;
 // `ways.rats` is how many rats the room holds (D-231), and `ways.second` the
 // kind of creature that takes the extra ones' place (a gloamling, D-240), and
 // `ways.weapon` the weapon that lies there, if any: the knife (D-252) or the spear (D-479), `ways.deposits` how many deposits (D-311), and `ways.veins` how many of them are copper veins (D-480). `ways.up` and `ways.down` are where the stairs must be, as { x, y }, so
-// floors line up (D-202); true lets the room pick, null leaves them out.
-export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0 } = {}) {
+// floors line up (D-202); true lets the room pick, null leaves them out. `ways.pool`: whether a
+// still pool may lie there (D-500).
+export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false } = {}) {
   const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel;
   for (let i = 0; i < TRIES; i++) {
     const g = carve(r), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig), up, down, dig), up, down, rats, second, weapon);
-    if (room) return { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
+    if (!room) continue;
+    const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
+    return pool ? withPool(seed, made) : made;
   }
   return null;
 }
@@ -207,8 +210,8 @@ function withDeposits(r, room, count, veins = 0) {
   for (const at of veins ? placed.slice(-veins) : []) g[at.y][at.x] = 'V';
   return g.map((row) => row.join(''));
 }
-// Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V') or rubble ('U') counting as solid
-const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U'].includes(g[t.y][t.x]);
+// Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V'), rubble ('U') or water ('~') counting as solid
+const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U', '~'].includes(g[t.y][t.x]);
 function joined(g) {
   const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
   while (queue.length) {
@@ -219,6 +222,36 @@ function joined(g) {
     }
   }
   return seen.size === open.length;
+}
+
+// § pool: in about 1 room in 2, a still pool of 5 to 9 water tiles ('~', D-500), in a
+// chamber: it starts on floor with open floor all 8 tiles around, and grows over open
+// floor off the edge where nothing lies, stands or starts, every tile of it at least
+// POOL_CLEAR steps from the stairs and the way in. It never cuts the room in two. From its
+// own seed, so the rest of a seed's room stays as it was; the room as it was when none fits.
+export const POOL_ODDS = 0.5, POOL_MIN = 5, POOL_MAX = 9, POOL_CLEAR = 4;
+export function withPool(seed, room) {
+  const r = rng(seed ^ 0x6a09e667);
+  if (r() >= POOL_ODDS) return room;
+  const g = room.map.map((row) => [...row]), far = reach(g, room.start), size = int(r, POOL_MIN, POOL_MAX);
+  const things = [room.start, ...room.items, ...room.enemies];
+  const stairs = tilesWhere(g, (x, y) => g[y][x] === '<' || g[y][x] === '>');
+  const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(t) && !things.some((o) => same(o, t))
+    && far.get(key(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);
+  const spots = tilesWhere(g, (x, y) => free({ x, y }) && RING.every(([dx, dy]) => g[y + dy]?.[x + dx] === '.'));
+  while (spots.length) {
+    const pool = [spots.splice(int(r, 0, spots.length - 1), 1)[0]];
+    g[pool[0].y][pool[0].x] = '~';
+    while (pool.length < size) {
+      const next = pool.flatMap((t) => [[1, 0], [-1, 0], [0, 1], [0, -1]].map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }))).filter(free);
+      if (!next.length) break;
+      const n = next[int(r, 0, next.length - 1)];
+      g[n.y][n.x] = '~'; pool.push(n);
+    }
+    if (pool.length >= POOL_MIN && joined(g)) return { ...room, map: g.map((row) => row.join('')) };
+    for (const t of pool) g[t.y][t.x] = '.';
+  }
+  return room;
 }
 
 // § flask mimic: (seed, room) → the room with a flask mimic asleep where a flask

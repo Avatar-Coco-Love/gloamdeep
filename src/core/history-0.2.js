@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.214', date: '2026-10-31', title: 'The still pool', lines: [
+    "About 1 grey-rock Cave room in 2, at depths 2 to 4, now has a still pool of blue-grey water, 5 to 9 tiles, in a chamber away from the stairs.",
+    "It ripples and shimmers, and your lantern's warm light shows on it. You can't step in yet, and creatures can't cross it. Light passes over it, and it never blocks the way.",
+    "Decisions: D-500.",
+  ] },
   { v: '0.2.213', date: '2026-10-31', title: 'Water first', lines: [
     "The owner's ideas for how places are made are kept: pools, rivers above and below ground, different biomes, parts of a room you reach only through another door, and later debris and cobwebs.",
     "Water comes next, before the garden and fishing. Nothing in the game changed.",

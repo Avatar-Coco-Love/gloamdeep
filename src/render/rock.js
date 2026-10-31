@@ -92,6 +92,63 @@ function stone(x, y, tx, ty) {
   return px * px + py * py < 3 ? (py < 0 ? '#6a5848' : '#544435') : null;
 }
 
+// § water (D-500): a still pool, its edge rounding off and wandering like the rock's, in
+// 2-pixel steps. Blue-grey, grown from the puddle's colours, the owner's pick of three:
+// a dark lip in the bank's shadow, a wet rim catching the light, deeper in the middle.
+const WATER = { bank: ['#0d1119', '#151d2e'], rim: '#56688c', shallow: '#2c3a58', glint: '#3f5175', deep: '#1f2a44', body: '#25324f', ripple: ['#8aa2cc', '#62789f', '#45587c'] };
+const isWet = (room, tx, ty) => (tx >= 0 && ty >= 0 && tx < room.cols && ty < room.rows && tileAt(room, tx, ty).id === 'water' ? 1 : 0);
+function wetAt(room, x, y) { // tile middles 1 (water) or 0, mixed between them, as the rock's mask
+  const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
+  return (isWet(room, x0, y0) * (1 - ax) + isWet(room, x0 + 1, y0) * ax) * (1 - ay) + (isWet(room, x0, y0 + 1) * (1 - ax) + isWet(room, x0 + 1, y0 + 1) * ax) * ay;
+}
+function inPool(room, x, y) { // a dry tile's middle stays dry, so walking stays by tile
+  const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y);
+  if (!isWet(room, tx, ty) && ix > 3 && ix < 12 && iy > 3 && iy < 12) return false;
+  return wetAt(room, x, y) > 0.5 - (hash(floorDiv(x, 2), floorDiv(y, 2), 31) - 0.5) * 0.45;
+}
+function water(room, x, y) {
+  if (!inPool(room, x, y - 1)) return WATER.bank[0];
+  if (!inPool(room, x, y - 2)) return WATER.bank[1];
+  if (!inPool(room, x - 1, y) || !inPool(room, x + 1, y) || !inPool(room, x, y + 1)) return WATER.rim;
+  const v = wetAt(room, x, y);
+  if (v < 0.6) return WATER.shallow;
+  if (hash(floorDiv(x, 5) + (y % 4), y, 33) < 0.025) return WATER.glint;
+  return v > 0.9 ? WATER.deep : WATER.body;
+}
+
+// § ripples: drawn each frame over the still water, under the light. `lamp`, the lantern's
+// foot when lit, puts its warm light on the water below it, broken by the surface. Then a
+// slow shimmer, and on about half the tiles a ring that widens and fades. Still with reduced motion.
+export function drawRipples(c, room, t, still, lamp) {
+  if (lamp) {
+    let y0 = lamp.y;
+    while (y0 < lamp.y + 40 && !inPool(room, lamp.x, y0)) y0++;
+    if (inPool(room, lamp.x, y0)) for (let d = 3; d < 22; d += 2) {
+      const y = y0 + d, w = d < 8 ? 3 : 2, x = lamp.x - 1 + Math.round(still ? 0 : Math.sin(t / 380 + d * 0.9) * (1 + d / 10));
+      if (!inPool(room, x, y) || !inPool(room, x + w - 1, y) || !inPool(room, x, y - 3)) continue;
+      c.fillStyle = d < 7 ? '#ffd889' : d < 13 ? '#e0a050' : '#9a6234'; c.fillRect(x, y, w, 1);
+    }
+  }
+  for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
+    if (!isWet(room, tx, ty)) continue;
+    for (let i = 0; i < 2; i++) {
+      const bx = tx * T + 2 + (hash(tx, ty, 50 + i) * 10 | 0), by = ty * T + 4 + (hash(tx, ty, 60 + i) * 9 | 0), ph = hash(tx, ty, 70 + i) * 6.28;
+      const x = bx + Math.round(still ? 0 : Math.sin(t / 900 + ph) * 2), w = 2 + ((Math.sin(t / 700 + ph) + 1) * 1.5 | 0);
+      if (!inPool(room, x, by) || !inPool(room, x + w, by) || !inPool(room, x, by - 3)) continue;
+      c.fillStyle = WATER.glint; c.fillRect(x, by, w, 1);
+    }
+    if (hash(tx, ty, 44) < 0.45) continue;
+    const k = still ? 0.35 : (t / 2600 + hash(tx, ty, 43)) % 1;
+    if (k > 0.8) continue;
+    const cx = tx * T + 5 + (hash(tx, ty, 41) * 6 | 0), cy = ty * T + 6 + (hash(tx, ty, 42) * 5 | 0), r = 1 + k * 5, n = Math.max(6, Math.round(r * 6));
+    c.fillStyle = WATER.ripple[k < 0.35 ? 0 : k < 0.6 ? 1 : 2];
+    for (let i = 0; i < n; i++) {
+      const a = (i / n) * Math.PI * 2, x = Math.round(cx + Math.cos(a) * r), y = Math.round(cy + Math.sin(a) * r * 0.45);
+      if (inPool(room, x, y) && inPool(room, x, y - 2)) c.fillRect(x, y, 1, 1);
+    }
+  }
+}
+
 const rgb = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
 const RGB = new Map();
 const toRgb = (h) => RGB.get(h) || (RGB.set(h, rgb(h)), RGB.get(h));
@@ -123,8 +180,11 @@ function paint(c, room, win, walls, beyond) {
       while (down < FACE_H && y + down + 1 < Y0 + H && rock(x, y + down + 1)) down++;
       if (down < FACE_H && y + down + 1 < Y0 + H) col = down === FACE_H - 1 ? look.edge : down === 0 ? look.foot : look.face(x, y);
       else col = !rock(x - 1, y) || !rock(x + 1, y) || !rock(x, y - 1) ? look.edge : hash(x >> 1, y >> 1, 9) < 0.15 ? look.grit : look.cap;
+    } else if (!beyond && inPool(room, x, y)) {
+      col = water(room, x, y);
     } else {
       col = floor(look, x, y);
+      if (!beyond && wetAt(room, x, y) > 0.22) shade = 0.82; // damp stone at the water's edge
       for (let k = 1; k <= 4; k++) if (rock(x, y - k)) { shade = k <= 2 ? 0.55 : 0.78; break; } // shade under the face
     }
     const [r, g, b] = toRgb(col), k = ((y - Y0) * W + x - X0) * 4;

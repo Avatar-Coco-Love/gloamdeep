@@ -117,6 +117,7 @@ function drawSteps(c, room, tx, ty, up) {
 const WOODS = ['floor', 'tree', 'caveMouth', 'outcrop'];
 const DRAW = {
   wall: drawWall, floor: drawFloor, outcrop: drawWall,
+  water: (c, room, x, y) => { if (!['rock', 'earth'].includes(room.look)) { c.fillStyle = '#25324f'; c.fillRect(x * T, y * T, T, T); } }, // drawn with the rock (D-500); a plain pool elsewhere, set by dev tools
   tree: (c, room, x, y) => { drawFloor(c, room, x, y); drawTree(c, room, x, y); },
   caveMouth: (c, room, x, y) => { c.fillStyle = '#0c0b12'; c.fillRect(x * T, y * T, T, T); },
   // On the rock's own floor in a cave (D-310); a deposit spawned elsewhere stands on that room's floor
