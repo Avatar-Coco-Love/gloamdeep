@@ -16,10 +16,10 @@ import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
-import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, usingSlot, withoutSlot, renamedSlot, lookedSlot } from './core/profile.js';
+import { loadProfiles, saveProfiles, playing, withRecords, withPlayed } from './core/profile.js';
 import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
-import { loadJourney, saveJourney, dropJourney } from './core/save.js';
+import { loadJourney, saveJourney } from './core/save.js';
 import { moveStack } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
@@ -39,6 +39,7 @@ import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
+import { createSlots } from './slots.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
@@ -347,22 +348,8 @@ function newJourney(mode) {
   freshView();
   savedState = null; keepJourney(); // saved at once, so Continue is there before a first turn
 }
-// § slots (D-271): picking a slot plays as its profile, a new one in an empty slot, with its own journey;
-// a new one takes the name typed on the name pad (D-272) and the cloak, eyes, trim and clothes chosen after it (P3 to P6)
-function useSlot(i, name = '', look = {}) {
-  app.profiles = usingSlot(app.profiles, i, name, look); saveProfiles(app.profiles);
-  loadInto(i); savedState = app.state; freshView();
-}
-// Renaming a profile keeps all else, its journey too (D-273)
-function renameSlot(i, name) { app.profiles = renamedSlot(app.profiles, i, name); saveProfiles(app.profiles); }
-// A new look keeps all else too (P3)
-function lookSlot(i, look) { app.profiles = lookedSlot(app.profiles, i, look); saveProfiles(app.profiles); }
-// Deleting a profile drops its journey too; if it was in use, the next in use takes over
-function dropSlot(i) {
-  const was = app.profiles.current;
-  app.profiles = withoutSlot(app.profiles, i); saveProfiles(app.profiles); dropJourney(i);
-  if (app.profiles.current !== was) { loadInto(app.profiles.current); savedState = app.state; freshView(); }
-}
+// § slots: picking, making, renaming, a new look and deleting a profile are in slots.js (D-519)
+const { useSlot, renameSlot, lookSlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, dropSlot,

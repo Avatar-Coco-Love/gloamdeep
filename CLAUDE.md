@@ -99,7 +99,7 @@ Read the smallest file that answers the question.
   (`tests/docs.test.js`, D-336). Archive or split when a doc gets close.
   Nothing is deleted. Old material moves to `docs/archive/`, and
   `CHANGELOG.md` keeps only its newest entries the same way.
-- **An audit every 20 versions** (D-337): when the version in
+- **An audit every 40 versions** (D-518): when the version in
   `docs/PROGRESS.md`'s "Next audit" line comes, the audit is Next up. It
   measures what a conversation reads at its start, archives, trims, and
   splits one big code file, nothing visible changed, then sets the next.

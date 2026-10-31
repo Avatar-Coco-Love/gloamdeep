@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.228', date: '2026-10-31', title: 'The seventh tidy-up', lines: [
+    "Behind the scenes: the seventh tidy-up, nothing in the game changed. The code that picks, makes, renames and deletes a profile has its own file now, ready for the new hero creator.",
+    "Behind the scenes: tidy-ups now come every 40 versions instead of 20, as the size checks already keep the notes small in between.",
+    "Decisions: D-518, D-519.",
+  ] },
   { v: '0.2.227', date: '2026-10-31', title: 'Glints and the hero creator', lines: [
     "Behind the scenes: the look currency is named Glints. Feats will pay them, and they will be spent in the Look card, where a locked look shows with a lock.",
     "Behind the scenes: making a hero gets one Look card after the name, the hero shown big with tabs for cloak, eyes, trim and clothes, each choice named, and a Random button. It will be built in small steps after the next tidy-up.",

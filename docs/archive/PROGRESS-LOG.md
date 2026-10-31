@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.225, Change Look.** The owner asked for a check of
+  the profile buttons' tap size: 42 px on most phones, under 44. Taps
+  now reach past them, and Look reads CHANGE LOOK on its own wide row
+  (D-513). Talked about more looks; the plan is D-514, patterns first.
+  Playtest: https://claude.ai/artifact/SVsVeHwFBftJTP89FSNnqx
 - **2026-10-31, 0.2.224, lined up.** The owner asked for a check of
   every screen for overlaps. Found and fixed, all four picks
   recommended (D-512): the version number on the card's corner, the
@@ -1148,6 +1153,11 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 10 Armour and charms (the vest 0.2.199, the charms 0.2.200 and 0.2.202)
 - [x] 11 Home pieces and rest (the bed 0.2.203)
 - [x] 12 The first rescue (12a, the trapped peddler 0.2.204; 12b, the rescue 0.2.205; 12c, at home 0.2.206)
+
+Moved from `PROGRESS.md` at 0.2.228, the seventh audit (D-519):
+
+- [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
+- [x] Water: pools for now, rivers wait for swimming (D-499, D-504; the still pool, 0.2.214; on the map, 0.2.216; the pond at home, 0.2.217; done for now, 0.2.218)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 
