@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.235, the LOOK card's full width.** Step 5. Plan
+  beside A: https://claude.ai/artifact/STBQKV8iEd8Jz315skwnXR. Picked
+  2: tabs and boxes across the card, the boxes' heroes 2× when they fit,
+  the hero as big as fits, its floor filling the height (D-526). D-520 to
+  D-522 archived. Playtest: https://claude.ai/artifact/ETLPgmmdEEmkjhFdcaUqiC
 - **2026-10-31, 0.2.234, the crypt floor.** The owner picked point 3
   of the last plan: the hero's backdrop, as crypt floor, with no bobbing.
   Mock-up: https://claude.ai/artifact/2vYtqzma7iMc643fQR8Spj. Picked:

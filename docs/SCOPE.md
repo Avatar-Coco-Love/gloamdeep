@@ -37,6 +37,10 @@ what exists today.
 - **Fishing (D-452):** any water, surface and below, with the right tools.
 - **Farming (D-452):** a garden at home; seeds grow while the hero is
   below. Gardening away from home may come later.
+- **Wild harvestables (D-530):** one wild surface plant first, giving
+  the garden its first seed; then fruit bushes, flowers, cave plants at
+  home and water plants, each at its own step. A picked bush stays bare
+  and fills again; flowers and small plants come back elsewhere.
 
 ## Part 3: creature drops (settled)
 - **Chances (D-453):** the common material about 1 in 2; a rare one,

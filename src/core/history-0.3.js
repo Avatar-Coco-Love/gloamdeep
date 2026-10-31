@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.2', date: '2026-10-31', title: 'Wild harvestables first', lines: [
+    "Before the garden, a first wild plant comes to the surface woods, giving the garden its first seed; fruit bushes, flowers, cave plants grown at home and water plants follow, one at a time. Docs only.",
+    "Decisions: D-530.",
+  ] },
   { v: '0.3.1', date: '2026-10-31', title: 'Trim swatches', lines: [
     "The Look card's Trim tab now shows each lantern trim as a square of its two metal shades, the light cap over the dark base, with its name, instead of a tiny hero whose lantern was hard to see. Your hero above still carries the trim you pick.",
     "Decisions: D-529. Questions closed: Q-074.",

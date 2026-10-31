@@ -148,45 +148,6 @@ entries; the build plan's ticked steps 13 and Water move to
 `archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
 follow at later audits; the next is at 0.2.268.
 
-**D-523 · 2026-10-31 · The LOOK card nearer the mock-up** (the owner's
-picks, both recommended; supersedes part of D-520 and D-522) The owner
-noticed the card had drifted from the mock-up. The big hero grows to the
-largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
-two equal buttons across the card's foot, 18 tall with letters 2×. The
-tabs move under the hero, as wide as the boxes (changed after the owner
-pointed at A: they had stayed at the top). Boxes keep the whole hero.
-*Partly superseded by D-526 (2026-10-31): the hero past 6× when it fits.*
-
-**D-524 · 2026-10-31 · The hero creator, step 4: dots and the name
-card's hero** (the owner's picks, all recommended; builds D-517) Two
-dots sit in the top bar between the heading and the cross on a new
-hero's cards: NAME one gold and one dim, LOOK both gold; Rename and
-Change look have none. The name card shows the hero as big as fits,
-its typed name over it: upright just under the top bar, as in mock-up
-A; sideways between the letter halves. RENAME shows the profile's own
-hero. Going back from LOOK keeps the look picked.
-
-**D-525 · 2026-10-31 · The hero creator, step 6: the crypt floor**
-(the owner's picks, both recommended, from a mock-up; builds D-517,
-D-520) The big hero on the name and LOOK cards stands on the crypt's
-own floor slabs, lit warm near the hero and fading into the card at
-the edges, with no frame. The hero stands still, not bobbing as in
-mock-up A, since heroes don't bob in the game; only the light flickers,
-with the lantern's own flicker, and stays steady when Motion is
-Reduced. The small choice boxes keep their speckled floor. D-514 to
-D-516 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
-
-**D-526 · 2026-10-31 · The hero creator, step 5: the LOOK card's full
-width** (the owner's pick of option 2, recommended, from a mock-up;
-supersedes part of D-520 and D-523) The tabs and boxes span the card's
-width. The boxes' heroes are 2× while the big hero still fits at 6× or
-more, else 1×. The big hero is as big as the rest has room for, past
-6×, and its crypt floor grows taller, and wider up to the card's width,
-to fill the height left, so tall phones have no empty space. Sideways,
-the tabs and boxes fill the width at the hero's right and the floor
-fills the height. D-520 to D-522 moved to
-`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
-
 **D-527 · 2026-10-31 · Eye colours as swatches** (the owner's picks,
 both recommended, of A from a mock-up; builds D-517) On the LOOK card's
 EYES tab each box shows a square of the eye colour with its name, in
@@ -205,3 +166,16 @@ from a mock-up; Claude had recommended C, a bigger lantern; answers
 Q-074; builds D-527) On the LOOK card's TRIM tab each box shows a
 square of the trim's light cap shade over its dark base shade, with its
 name, in place of the small hero. The big hero stays.
+
+**D-530 · 2026-10-31 · Wild harvestables first** (the owner's picks,
+two of them recommended; builds D-451, D-452; changes the order in
+D-482) Before the garden, a small step adds one wild plant to the
+surface woods, which give only Wood today *(e.g. a berry bush)*; it
+also gives the garden its first seed. In time fruit bushes, flowers,
+cave plants grown at home and water plants (Q-071) all come, each at
+its own step, not all at once. The surface comes first; each biome
+below keeps its own 2 or 3 plants (D-451). Picked, a bush stays, bare,
+and its fruit grows back; flowers and small plants vanish and come
+back later somewhere else in the area. Names, uses and numbers are
+asked at each one's step. D-523 to D-526 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.

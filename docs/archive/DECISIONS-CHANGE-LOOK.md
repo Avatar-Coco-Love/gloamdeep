@@ -1,10 +1,12 @@
-# Change look (D-513 to D-516, D-520 to D-522)
+# Change look (D-513 to D-516, D-520 to D-526)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.227 (D-516), when it
 would pass 12 KB: the Change look button and taps big enough. D-514 to
 D-516 (the looks plan, the first patterns, Glints) moved the same way at
 0.2.234 (D-525). D-520 to D-522 (the hero creator's steps 1 to 3)
-moved the same way at 0.2.235 (D-526). This is
+moved the same way at 0.2.235 (D-526). D-523 to D-526 (the LOOK
+card nearer the mock-up, the hero creator's steps 4 to 6) moved the
+same way at 0.3.2 (D-530). This is
 still in force unless marked superseded. Grep for an ID or topic;
 never read this whole.
 
@@ -62,3 +64,42 @@ free for now), and the flame stays on RANDOM to roll again; the open
 tab stays open. With the arrows, RANDOM sits under the first two
 columns and OK under the third.
 *Partly superseded by D-523 (2026-10-31): a row of big buttons.*
+
+**D-523 · 2026-10-31 · The LOOK card nearer the mock-up** (the owner's
+picks, both recommended; supersedes part of D-520 and D-522) The owner
+noticed the card had drifted from the mock-up. The big hero grows to the
+largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
+two equal buttons across the card's foot, 18 tall with letters 2×. The
+tabs move under the hero, as wide as the boxes (changed after the owner
+pointed at A: they had stayed at the top). Boxes keep the whole hero.
+*Partly superseded by D-526 (2026-10-31): the hero past 6× when it fits.*
+
+**D-524 · 2026-10-31 · The hero creator, step 4: dots and the name
+card's hero** (the owner's picks, all recommended; builds D-517) Two
+dots sit in the top bar between the heading and the cross on a new
+hero's cards: NAME one gold and one dim, LOOK both gold; Rename and
+Change look have none. The name card shows the hero as big as fits,
+its typed name over it: upright just under the top bar, as in mock-up
+A; sideways between the letter halves. RENAME shows the profile's own
+hero. Going back from LOOK keeps the look picked.
+
+**D-525 · 2026-10-31 · The hero creator, step 6: the crypt floor**
+(the owner's picks, both recommended, from a mock-up; builds D-517,
+D-520) The big hero on the name and LOOK cards stands on the crypt's
+own floor slabs, lit warm near the hero and fading into the card at
+the edges, with no frame. The hero stands still, not bobbing as in
+mock-up A, since heroes don't bob in the game; only the light flickers,
+with the lantern's own flicker, and stays steady when Motion is
+Reduced. The small choice boxes keep their speckled floor. D-514 to
+D-516 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-526 · 2026-10-31 · The hero creator, step 5: the LOOK card's full
+width** (the owner's pick of option 2, recommended, from a mock-up;
+supersedes part of D-520 and D-523) The tabs and boxes span the card's
+width. The boxes' heroes are 2× while the big hero still fits at 6× or
+more, else 1×. The big hero is as big as the rest has room for, past
+6×, and its crypt floor grows taller, and wider up to the card's width,
+to fill the height left, so tall phones have no empty space. Sideways,
+the tabs and boxes fill the width at the hero's right and the floor
+fills the height. D-520 to D-522 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
