@@ -199,3 +199,9 @@ supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
+
+**D-529 · 2026-10-31 · Trims as swatches** (the owner's pick, B of three
+from a mock-up; Claude had recommended C, a bigger lantern; answers
+Q-074; builds D-527) On the LOOK card's TRIM tab each box shows a
+square of the trim's light cap shade over its dark base shade, with its
+name, in place of the small hero. The big hero stays.

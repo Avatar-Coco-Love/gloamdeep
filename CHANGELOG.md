@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.1 (2026-10-31)
+- The Look card's Trim tab now shows each lantern trim as a square of its two metal shades, the light cap over the dark base, with its name, instead of a tiny hero whose lantern was hard to see. Your hero above still carries the trim you pick.
+- Decisions: D-529. Questions closed: Q-074.
+
 ## 0.3.0 (2026-10-31)
 - The Look card's Eyes tab now shows each eye colour as a big square of colour with its name, instead of a tiny hero whose eyes were hard to see. Your hero above still shows the eyes you pick.
 - The game moves to version 0.3: stage 0.2's last steps are all done, so the world stage now has its own numbers, starting here.
