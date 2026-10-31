@@ -1,13 +1,13 @@
 // § how to play: the controls, one page per way of playing (D-179, D-193).
-// Goals first, the aim and the oil (D-507), then Touch, Mouse and Keyboard, then crafting's two, Bag and Bench (D-484); Left and Right flip between them.
+// Basics first, the aim and the oil (D-507), then Touch, Mouse and Keyboard, then crafting's two, Bag and Bench (D-484); Left and Right flip between them.
 // Walking by touch or mouse follows the Swipe and Tap lines, so only
 // what works is shown, and the arrow pad's line (D-189, D-408). Frame says how to frame a creature (D-359, D-361). Bag and
 // Bench say how making works, the same for every way (D-328): in the bag, and at the workbench.
 // Plain data, no drawing.
 import { swipesWalk, tapsWalk, tapsStep, padShown } from './settings.js';
 
-export const HOWTO_PAGES = ['goals', 'touch', 'mouse', 'keyboard', 'bag', 'bench'];
-const NAMES = { goals: 'Goals', touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', bag: 'Bag', bench: 'Bench' };
+export const HOWTO_PAGES = ['basics', 'touch', 'mouse', 'keyboard', 'bag', 'bench'];
+const NAMES = { basics: 'Basics', touch: 'Touch', mouse: 'Mouse', keyboard: 'Keyboard', bag: 'Bag', bench: 'Bench' };
 export const pageName = (id) => NAMES[id];
 
 // The next page, or the one before with back; it wraps round
@@ -30,7 +30,7 @@ function walkWays(settings, tap, swipe) {
 
 // The page's rows: [{ action, ways: [text, …] }], one text per drawn line
 export function howtoRows(page, settings) {
-  if (page === 'goals') { // the aim and the oil, for a first run (D-507); the stairs stay a search (D-174)
+  if (page === 'basics') { // the aim and the oil, for a first run (D-507); the stairs stay a search (D-174)
     return [
       { action: 'Aim', ways: ['Find the stairs down', 'Search each room for them'] },
       { action: 'Oil', ways: ['Your lantern burns it', 'Less oil, less light'] },

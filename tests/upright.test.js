@@ -29,10 +29,10 @@ test('stash chest: upright the bag is under the chest, sideways beside it', () =
   assert.deepEqual(chestAt(25, 40, ...UP), { slot: 0 });
 });
 
-test('how to play: upright the tabs take two rows, Keyboard under Goals (D-507)', () => {
+test('how to play: upright the tabs take two rows, Keyboard under Basics (D-507)', () => {
   assert.deepEqual(howtoAt(30, 54, ...UP), { page: 'keyboard' });
-  assert.deepEqual(howtoAt(30, 38, ...UP), { page: 'goals' });
-  assert.deepEqual(howtoAt(30, 38, ...SIDE), { page: 'goals' });
+  assert.deepEqual(howtoAt(30, 38, ...UP), { page: 'basics' });
+  assert.deepEqual(howtoAt(30, 38, ...SIDE), { page: 'basics' });
 });
 
 test('settings: a value too long for the card wraps, and the next row moves down', () => {

@@ -7,14 +7,14 @@ import { howtoAt } from '../src/render/howto.js';
 import { cardAt } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
 
-test('Goals, Touch, Mouse, Keyboard, Bag and Bench each have a page, and Left and Right flip round them (D-484, D-507)', () => {
-  assert.deepEqual(HOWTO_PAGES, ['goals', 'touch', 'mouse', 'keyboard', 'bag', 'bench']);
-  assert.equal(nextPage('goals'), 'touch');
+test('Basics, Touch, Mouse, Keyboard, Bag and Bench each have a page, and Left and Right flip round them (D-484, D-507)', () => {
+  assert.deepEqual(HOWTO_PAGES, ['basics', 'touch', 'mouse', 'keyboard', 'bag', 'bench']);
+  assert.equal(nextPage('basics'), 'touch');
   assert.equal(nextPage('touch'), 'mouse');
   assert.equal(nextPage('keyboard'), 'bag');
   assert.equal(nextPage('bag'), 'bench');
-  assert.equal(nextPage('bench'), 'goals');
-  assert.equal(nextPage('goals', true), 'bench');
+  assert.equal(nextPage('bench'), 'basics');
+  assert.equal(nextPage('basics', true), 'bench');
 });
 
 test('every controls page lists Walk, Wait, Lantern, Pause and Frame, and nothing else', () => {
@@ -55,7 +55,7 @@ test('every way fits the card beside its action, and the page fits under the tab
 
 test('a tap on a tab opens its page; the cross or a tap outside goes back (D-390)', () => {
   const { x, y, w, close } = cardAt(VW, VH);
-  assert.deepEqual(howtoAt(x + 24, y + 30, VW, VH), { page: 'goals' });
+  assert.deepEqual(howtoAt(x + 24, y + 30, VW, VH), { page: 'basics' });
   assert.deepEqual(howtoAt(x + w - 24, y + 30, VW, VH), { page: 'bench' });
   assert.equal(howtoAt(close.x, close.y, VW, VH), 'close');
   assert.equal(howtoAt(2, 2, VW, VH), 'out');
@@ -79,8 +79,8 @@ test('the six tabs fit the narrowest card, one gap apart at least (D-484, D-507)
   assert.ok(12 + 8 + ws.reduce((a, b) => a + b, 0) + 10 * (ws.length - 1) <= card.w - 12);
 });
 
-test('Goals says the aim and how to keep the lantern lit, whatever the Controls switch (D-507)', () => {
-  assert.deepEqual(howtoRows('goals', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Aim', 'Oil', 'Pour', 'Flask', 'Oilcap']);
-  assert.deepEqual(howtoRows('goals', { swipe: 'off', tap: 'walk' }), howtoRows('goals', { swipe: 'on', tap: 'walk' }));
-  assert.match(howtoWords('goals', 'both'), /^How to play, Goals\. Aim: Find the stairs down Search each room for them\./);
+test('Basics says the aim and how to keep the lantern lit, whatever the Controls switch (D-507)', () => {
+  assert.deepEqual(howtoRows('basics', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Aim', 'Oil', 'Pour', 'Flask', 'Oilcap']);
+  assert.deepEqual(howtoRows('basics', { swipe: 'off', tap: 'walk' }), howtoRows('basics', { swipe: 'on', tap: 'walk' }));
+  assert.match(howtoWords('basics', 'both'), /^How to play, Basics\. Aim: Find the stairs down Search each room for them\./);
 });

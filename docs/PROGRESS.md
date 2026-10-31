@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Polish from the owner's playtests (upright, D-505, D-506; the Goals page,
-D-507), if any; else step 14, the garden (Q-071).
+The text line's colours by source: speech white, harm red (D-509); then
+playtest polish, if any; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,11 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-10-31, 0.2.221, a Goals page.** A friend got lost on refilling
+- **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
   the lantern and on which way to go. The owner picked a first How to
-  play tab, Goals, which it opens on: the aim, the oil, pouring, flasks,
+  play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,
   oilcaps; the stairs stay a search (D-507). The guide won't be a faery
-  (D-508, Q-072). Playtest: https://claude.ai/artifact/P2i44AezzV5VG1v9ixoKQy
+  (D-508, Q-072). Line colours by source come next (D-509). Playtest: https://claude.ai/artifact/P2i44AezzV5VG1v9ixoKQy
 - **2026-10-31, 0.2.220, the title's screens upright.** From pictures
   drawn by the game's own code, the owner picked every recommended
   option: upright, the title's screens at play's size, the round
