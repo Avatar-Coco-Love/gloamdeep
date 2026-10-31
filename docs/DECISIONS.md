@@ -192,7 +192,7 @@ both recommended, of A from a mock-up; builds D-517) On the LOOK card's
 EYES tab each box shows a square of the eye colour with its name, in
 place of the small hero, whose two eye pixels were hard to see. The
 boxes, their moves and the big hero stay. Other tabs keep their heroes;
-trim may get swatches later, after a playtest.
+trim gets its own look next (Q-074; changed after the owner asked).
 
 **D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
 supersedes the version part of D-237) Stage 0.2's last steps are done,

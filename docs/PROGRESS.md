@@ -8,7 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Step 14, the garden (Q-071), proposed first. Trim swatches (D-527) only if the owner asks after playing.
+Trim on the LOOK card (Q-074): mock-ups first, the owner's idea (the
+lantern zoomed in with its name) and 1 or 2 others. Then step 14, the garden.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -21,6 +22,7 @@ Step 14, the garden (Q-071), proposed first. Trim swatches (D-527) only if the o
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
+- How trim shows on the LOOK card (Q-074), next, from mock-ups.
 - What the guide is, not a faery (Q-072), when the owner wants it.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
