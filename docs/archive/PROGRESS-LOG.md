@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.226, cloak patterns picked.** The owner asked to
+  see cloak patterns. From a mock-up of six on the hero, the owner
+  picked zebra, cow spots and camo, each in its own colours, none free
+  until the look currency (D-515, answers Q-073). Docs only.
+  Mock-up: https://claude.ai/artifact/1HNPh6ZE2G9HTk9ua5F6GU
 - **2026-10-31, 0.2.225, Change Look.** The owner asked for a check of
   the profile buttons' tap size: 42 px on most phones, under 44. Taps
   now reach past them, and Look reads CHANGE LOOK on its own wide row
