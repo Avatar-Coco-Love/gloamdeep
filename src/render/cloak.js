@@ -4,7 +4,7 @@
 // under it (D-520). Under that four tabs, CLOAK, EYES, TRIM and CLOTHES, as wide as the boxes
 // under them (D-523), the open one filled in ember and framed in gold when the arrows are on
 // it; then the tab's choices three to a row, each the whole hero 2× in it with its name (1× when the card is
-// too short), the eyes a swatch of their colour instead (D-527), the picked one framed in gold; sideways the big hero sits at the left of the tabs and boxes.
+// too short), the eyes a swatch of their colour instead (D-527), the trim its cap shade over its base (D-529), the picked one framed in gold; sideways the big hero sits at the left of the tabs and boxes.
 // The tabs and boxes span the card's width, the hero is as big as the rest has room for, and its floor grows
 // taller to fill what is left (D-526). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
@@ -149,7 +149,8 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
     const { x, y } = boxAt(at, k), picked = k.id === look[tab];
-    if (table[k.id].colour) drawSwatch(c, table[k.id], x, y, at, picked); // eyes: a swatch, as their two pixels are hard to see (D-527)
+    const swatch = swatchOf(table[k.id]);
+    if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
     else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : DIM);
   });
@@ -172,12 +173,16 @@ function drawSmall(c, hero, name, x, y, { bw, s }, picked) {
   c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
   centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY);
 }
-// A box `bw` wide for a one-colour choice, the eyes (D-527): dark, a square of the colour where the
-// hero would stand, its name under it as drawSmall's, gold when picked
-function drawSwatch(c, choice, x, y, { bw, bh, s }, picked) {
+// A choice's swatch colours: the eyes' one colour (D-527); the trim's cap shade over its base shade
+// (D-529); none for cloaks and clothes, which show the hero
+export const swatchOf = (choice) => (choice.colour ? [choice.colour] : choice.kind === 'trim' ? choice.shades : null);
+// A box `bw` wide for a swatch choice: dark, a square where the hero would stand, its colours in
+// bands top to bottom, its name under it as drawSmall's, gold when picked
+function drawSwatch(c, colours, name, x, y, { bw, bh, s }, picked) {
   c.fillStyle = K; c.fillRect(x + 1, y + 1, bw - 2, bh - 2);
-  c.fillStyle = choice.colour; c.fillRect(x + 5, y + 5, bw - 10, 16 * s - 4);
-  centred(c, choice.name, x + Math.floor(bw / 2), y + 16 * s + 4, picked ? GOLD : GREY);
+  const h = 16 * s - 4, band = Math.floor(h / colours.length);
+  colours.forEach((colour, i) => { c.fillStyle = colour; c.fillRect(x + 5, y + 5 + i * band, bw - 10, i === colours.length - 1 ? h - i * band : band); });
+  centred(c, name, x + Math.floor(bw / 2), y + 16 * s + 4, picked ? GOLD : GREY);
 }
 // The big hero z× on the crypt floor (D-525), `name` over it and the choice's name under it (D-520, D-523);
 // the name card draws it too, with no choice (D-517)

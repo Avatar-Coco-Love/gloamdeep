@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.0 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.1 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Trim on the LOOK card (Q-074): mock-ups first, the owner's idea (the
-lantern zoomed in with its name) and 1 or 2 others. Then step 14, the garden.
+Step 14, the garden: a plan first, and water and the garden (Q-071)
+asked at its start.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,7 +22,6 @@ lantern zoomed in with its name) and 1 or 2 others. Then step 14, the garden.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
-- How trim shows on the LOOK card (Q-074), next, from mock-ups.
 - What the guide is, not a faery (Q-072), when the owner wants it.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -44,6 +43,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.3.1, trim swatches.** Mock-up of three:
+  https://claude.ai/artifact/EXekhydkFasqSLVcD8fKsc. Claude recommended
+  C, a bigger lantern; the owner picked B: each TRIM box a square of the
+  cap shade over the base shade, with its name (D-529, closes Q-074).
+  Playtest: https://claude.ai/artifact/P8y8mti2QW9XUMfsYZdSGF
 - **2026-10-31, 0.3.0, eye swatches and version 0.3.** The owner found
   eye colours hard to see on the small heroes. Mock-up:
   https://claude.ai/artifact/R226GLArFBCpD1xtRUVKeb. Picked A: each EYES
@@ -55,9 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   2: tabs and boxes across the card, the boxes' heroes 2× when they fit,
   the hero as big as fits, its floor filling the height (D-526). D-520 to
   D-522 archived. Playtest: https://claude.ai/artifact/ETLPgmmdEEmkjhFdcaUqiC
-- **2026-10-31, 0.2.234, the crypt floor.** The owner picked point 3
-  of the last plan: the hero's backdrop, as crypt floor, with no bobbing.
-  Mock-up: https://claude.ai/artifact/2vYtqzma7iMc643fQR8Spj. Picked:
-  lit slabs fading into the card, no frame, the lantern's flicker; the
-  small boxes unchanged (D-525). D-514 to D-516 archived. Playtest:
-  https://claude.ai/artifact/HuuCCCr4oCmxaBtn4VkPNM

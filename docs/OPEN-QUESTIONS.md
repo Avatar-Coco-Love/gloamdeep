@@ -128,8 +128,3 @@ The owner wants a companion who guides, but not a faery: something
 unique, not ordinary, not found in other games. What it is, how it
 looks, how it joins and what it does are all open. Asked when the
 owner wants the guide.
-
-**Q-074 · Trim on the LOOK card** (raised 2026-10-31, D-527)
-The lantern's trim is only a few pixels on the small heroes. The owner
-wants it shown another way: their idea is the lantern zoomed in each
-box with the trim's name, or Claude's better idea. Mock-ups first.

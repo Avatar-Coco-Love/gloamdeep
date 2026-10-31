@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, moveLook, rollLook } from '../src/core/looks.js';
-import { lookCardAt, lookRowAt } from '../src/render/cloak.js';
+import { lookCardAt, lookRowAt, swatchOf } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 import { cardAt } from '../src/render/bag.js';
 import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIMS, CLOTHES as REGISTERED_CLOTHES, get } from '../src/core/registry.js';
@@ -159,4 +159,11 @@ test('RANDOM rolls a whole look from the free choices, the same seed the same lo
   }
   assert.deepEqual(Object.keys(looks[0]), ['cloak', 'eyes', 'trim', 'clothes']);
   assert.deepEqual(rollLook(rng(42)), rollLook(rng(42)));
+});
+
+test('eyes and trims show as swatches, cloaks and clothes as heroes (D-527, D-529)', () => {
+  assert.deepEqual(swatchOf(EYES.ice), ['#a6e0e4']);
+  assert.deepEqual(swatchOf(TRIMS.copper), ['#e8a07a', '#8a4630']); // the cap over the base
+  assert.equal(swatchOf(CLOAKS.teal), null);
+  assert.equal(swatchOf(CLOTHES.belted), null);
 });

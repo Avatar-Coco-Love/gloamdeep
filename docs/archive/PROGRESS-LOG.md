@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.234, the crypt floor.** The owner picked point 3
+  of the last plan: the hero's backdrop, as crypt floor, with no bobbing.
+  Mock-up: https://claude.ai/artifact/2vYtqzma7iMc643fQR8Spj. Picked:
+  lit slabs fading into the card, no frame, the lantern's flicker; the
+  small boxes unchanged (D-525). D-514 to D-516 archived. Playtest:
+  https://claude.ai/artifact/HuuCCCr4oCmxaBtn4VkPNM
 - **2026-10-31, 0.2.233, dots and the name card's hero.** The owner
   asked for A's last five differences, one per PR. Plan shown beside A:
   https://claude.ai/artifact/776f8fTnQqjfb8B6Xsgmrj. Picked: dots on a
