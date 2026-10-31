@@ -1,4 +1,4 @@
-# The drops (D-474 to D-499)
+# The drops (D-474 to D-500)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.193 (D-478), when it
 neared 12 KB: steps 1 to 3 of the build order (D-473), the Rat Tail, the
@@ -17,7 +17,7 @@ selling to the peddler, at 0.2.210 (D-496); D-495, step 13b, buying
 from him, at 0.2.211 (D-497); D-496, the peddler lingering, at
 0.2.212 (D-498); D-497, the lantern beam home, at 0.2.214 (D-500);
 D-498, only a side heap frees him, at 0.2.215 (D-501); D-499, water
-first, at 0.2.216 (D-502).
+first, at 0.2.216 (D-502); D-500, the still pool, at 0.2.217 (D-503).
 
 ---
 
@@ -295,3 +295,17 @@ and rivers, above and below ground, comes next, before the garden
 (step 14) and fishing (step 15), which needs it. The rest of the
 owner's ideas for how places are made wait in `RESEARCH.md`. Whether
 water matters to the garden is Q-071.
+
+**D-500 · 2026-10-31 · The still pool** (the owner's picks, the first
+step of D-499; look 1 of 3 from the second mock-up) About 1 grey-rock
+Cave room in 2 (depths 2 to 4) holds a still pool of 5 to 9 water
+tiles, in a chamber at least 4 steps from the stairs and the way in,
+never on the edge or where something lies, stands or starts. The hero
+can't step in (bumping does nothing, no turn) and creatures can't
+cross it until swimming (Q-039); light passes over it; every dry tile
+can still be reached. Blue-grey, grown from the puddle's colours, its
+edge wobbling like the rock's, with a dark lip under the bank, a wet
+rim, a slow shimmer, rings that widen and fade, and the lantern's warm
+light on it; still with reduced motion. On the map it shows as wall
+for now. Also moved D-497 to the archive, word for word, as this file
+passed 12 KB.

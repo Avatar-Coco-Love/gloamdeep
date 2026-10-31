@@ -54,6 +54,7 @@ this page and a decision disagree, the decision wins.
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
+- **Pond:** still water at home in the woods, 5 to 9 tiles (D-503).
 - **Pool:** still water in a Cave room; not yet to step in (D-500).
 - **Stone:** a small grey pebble from a deposit, for later crafts (D-312).
 - **Copper vein:** a deposit's boulder flecked with copper, one in each

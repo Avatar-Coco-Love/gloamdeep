@@ -3,7 +3,7 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
-import { drawRipples } from './rock.js';
+import { drawRipples } from './water.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
