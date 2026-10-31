@@ -129,20 +129,20 @@ test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; o
   assert.deepEqual([...new Set(foot)], [keyOf('cloak', 'random'), keyOf('cloak', 'ok')]); // RANDOM then OK, nothing else on that row (D-522)
   assert.ok(foot.length > (card.w - 24) * 0.8, 'the two buttons span the card (D-523)');
   assert.equal(row.random.w, row.ok.w);
-  const tabsY = card.y + 20 + 7, hit = (x, y, tab = 'cloak') => lookCardAt(x, y, vw, vh, tab)?.key;
+  const tabsY = Array.from({ length: vh }, (_, y) => y).find((y) => LOOK_PADS.cloak[lookCardAt(Math.floor(vw / 2), y, vw, vh)?.key]?.tab) + 3, hit = (x, y, tab = 'cloak') => lookCardAt(x, y, vw, vh, tab)?.key;
   const across = []; for (let x = card.x; x < card.x + card.w; x++) { const k = hit(x, tabsY); if (k !== undefined && !across.includes(k)) across.push(k); }
   assert.deepEqual(across, [0, 1, 2, 3]); // the four tabs left to right
-  assert.equal(lookCardAt(card.x + 3, tabsY + 40, vw, vh), null); // the glass beside the big hero
+  assert.equal(lookCardAt(card.x + 3, tabsY - 40, vw, vh), null); // the glass beside the big hero
 });
 
-test('the look card fits: the tabs, the big hero, then both rows clear of OK upright; the hero at their left sideways', () => {
+test('the look card fits: the big hero, the tabs, then both rows clear of the buttons upright; the hero at their left sideways', () => {
   const column = (x, vw, vh, tab) => { const hits = []; for (let y = 0; y < vh; y++) { const h = lookCardAt(x, y, vw, vh, tab); if (h?.key !== undefined) hits.push([y, LOOK_PADS[tab][h.key]]); } return hits; };
   for (const [vw, vh] of [[195, 422], [176, 221]]) { // a phone upright, and the smallest upright view
     const mid = Math.floor(vw / 2), { y } = cardAt(vw, vh), button = lookRowAt(vw, vh).ok;
     for (const tab of ['cloak', 'eyes', 'trim', 'clothes']) {
       const hits = column(mid, vw, vh, tab), tabs = hits.filter(([, k]) => k.tab), boxes = hits.filter(([, k]) => !k.tab && !['random', 'ok'].includes(k.id));
-      assert.ok(tabs.length && tabs[tabs.length - 1][0] < y + 40, `${vw}x${vh} ${tab}: the tabs under the rule`);
-      assert.ok(boxes[0][0] > tabs[tabs.length - 1][0] + 70, `${vw}x${vh} ${tab}: the big hero's room above the boxes`);
+      assert.ok(tabs.length && tabs[0][0] > y + 90, `${vw}x${vh} ${tab}: the big hero's room above the tabs`);
+      assert.ok(tabs[tabs.length - 1][0] < boxes[0][0], `${vw}x${vh} ${tab}: the tabs just over the boxes (D-523)`);
       assert.ok(boxes[boxes.length - 1][0] < button.y - 2, `${vw}x${vh} ${tab}: the boxes clear of the buttons`);
     }
   }

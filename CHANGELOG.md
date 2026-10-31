@@ -22,7 +22,7 @@ Entry format:
 ```
 
 ## 0.2.232 (2026-10-31)
-- The Look card looks more like the first drawing of it: your hero is much bigger, filling the top of the card, and RANDOM and OK are two big buttons side by side across the bottom.
+- The Look card looks more like the first drawing of it: your hero is much bigger, the tabs sit between your hero and the choices, and RANDOM and OK are two big buttons side by side across the bottom.
 - Decisions: D-523.
 
 ## 0.2.231 (2026-10-31)

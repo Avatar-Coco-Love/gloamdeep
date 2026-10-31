@@ -45,7 +45,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-10-31, 0.2.232, nearer the mock-up.** The owner had picked my
   recommendations hoping for the mock-up's look; I listed where the card
   drifted. Picked: the hero as big as fits (3× to 6×), RANDOM and OK a
-  row of big buttons (D-523). Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK
+  row of big buttons, the tabs under the hero as in A (D-523). Playtest: https://claude.ai/artifact/RKmFb81zXpsJfBYkuudxiK
 - **2026-10-31, 0.2.231, RANDOM.** The hero creator's third step.
   Picked: RANDOM at OK's left on both LOOK cards; a press rolls all
   four parts from the free looks, and the flame stays on it (D-522).

@@ -206,5 +206,6 @@ columns and OK under the third.
 picks, both recommended; supersedes part of D-520 and D-522) The owner
 noticed the card had drifted from the mock-up. The big hero grows to the
 largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
-two equal buttons across the card's foot, 18 tall with letters 2×.
-The tabs stay at the top and every box keeps the whole hero (D-521).
+two equal buttons across the card's foot, 18 tall with letters 2×. The
+tabs move under the hero, as wide as the boxes (changed after the owner
+pointed at A: they had stayed at the top). Boxes keep the whole hero.

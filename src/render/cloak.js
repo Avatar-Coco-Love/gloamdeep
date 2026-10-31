@@ -1,10 +1,10 @@
 // § the look card (D-399, D-517, D-521; were dark pages, P3 to P6): choosing a profile's look,
-// a glass card like the name card (D-398) on the title's scene. LOOK in ember at its top, and
-// under its rule four tabs, CLOAK, EYES, TRIM and CLOTHES, the open one filled in ember and
-// framed in gold when the arrows are on it. Under them the hero big (3×) on a lit floor, the
-// profile's name over it and the open tab's choice under it (D-520); under that the tab's
-// choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
-// gold; sideways the big hero sits at the left of the boxes. The hero is as big as the card has
+// a glass card like the name card (D-398) on the title's scene. LOOK in ember at its top; under
+// its rule the hero big on a lit floor, the profile's name over it and the open tab's choice
+// under it (D-520). Under that four tabs, CLOAK, EYES, TRIM and CLOTHES, as wide as the boxes
+// under them (D-523), the open one filled in ember and framed in gold when the arrows are on
+// it; then the tab's choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
+// gold; sideways the big hero sits at the left of the tabs and boxes. The hero is as big as the card has
 // room for, 3× to 6× (D-523). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
@@ -19,7 +19,7 @@ const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor 
 const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
 const TAB_H = 11, TAB_GAP = 2, TAB_PAD = 8; // a tab's height, the space between tabs, and its width past its name
-const TABS_H = 2 + TAB_H + 3; // the tabs' row with the space over and under it
+const TABS_H = TAB_H + 3; // the tabs' row with the space under it
 const ROW_H = 18, ROW_TEXT = 2, ROW_MAX_W = 80, ROW_SPLIT = 6, ROW_FOOT = 8; // the big buttons: height, letters' size, widest, gap between, inset from the card's foot (D-523)
 
 // § the foot row: RANDOM then OK, two equal buttons across the card's foot, centred (D-523)
@@ -30,27 +30,32 @@ export function lookRowAt(vw, vh) {
 }
 
 const ROWS = 2, COLS = 3;
-// § layout: the tabs across under the rule; the boxes' top left on a view `vw` × `vh`, and the
-// big hero's stage over them upright, or at their left sideways, all in the space above OK
-function tabsAt(card) {
+// § layout: the boxes' top left on a view `vw` × `vh`, the tabs over them, and the big hero's
+// stage over both upright, or at their left sideways, all in the space above the buttons
+// The tabs from x, at y, across `w`: each its name's width, the room left shared out (D-523)
+function tabsAt(x, y, w) {
   const tabs = LOOK_PADS.cloak.filter((k) => k.tab), ws = tabs.map((k) => textWidth(tabOf(k.id).name) + TAB_PAD);
-  let x = card.x + Math.floor((card.w - ws.reduce((a, w) => a + w, 0) - (tabs.length - 1) * TAB_GAP) / 2);
-  return tabs.map((k, i) => { const t = { id: k.id, x, y: card.y + RULE + 2, w: ws[i], h: TAB_H }; x += ws[i] + TAB_GAP; return t; });
+  const spare = Math.max(0, w - ws.reduce((a, v) => a + v, 0) - (tabs.length - 1) * TAB_GAP), each = Math.floor(spare / tabs.length);
+  return tabs.map((k, i) => {
+    const tw = ws[i] + each + (i === tabs.length - 1 ? spare - each * tabs.length : 0), t = { id: k.id, x, y, w: tw, h: TAB_H };
+    x += tw + TAB_GAP; return t;
+  });
 }
 function boxesAt(vw, vh) {
   const card = cardAt(vw, vh), w = COLS * BOX_W + (COLS - 1) * GAP, h = ROWS * BOX_H + (ROWS - 1) * ROW_GAP;
-  const row = lookRowAt(vw, vh), top = card.y + RULE + TABS_H, room = row.ok.y - 4 - top; // the card stops over the buttons
-  const tall = isTall(vw, vh), at = { card, tabs: tabsAt(card), row };
+  const row = lookRowAt(vw, vh), top = card.y + RULE + 2, room = row.ok.y - 4 - top; // the card stops over the buttons
+  const tall = isTall(vw, vh), at = { card, row }, H = TABS_H + h; // the tabs and the boxes under them
+  const place = (bx, by) => ({ ...at, x: bx, y: by + TABS_H, tabs: tabsAt(bx, by, w) });
   const standH = (z) => LINE + stageH(z) + LINE; // the name, the hero, the choice's name
-  const fits = (z) => (tall ? stageW(z) <= card.w - 2 * PAD && standH(z) + 2 + h <= room : stageW(z) + 12 + w <= card.w - 2 * PAD && standH(z) <= room);
+  const fits = (z) => (tall ? stageW(z) <= card.w - 2 * PAD && standH(z) + 2 + H <= room : stageW(z) + 12 + w <= card.w - 2 * PAD && standH(z) <= room);
   let z = ZOOM_MAX; while (z > ZOOM_MIN && !fits(z)) z--;
   const sw = stageW(z), sh = standH(z);
   if (tall) {
-    const y = top + Math.max(0, Math.floor((room - sh - 2 - h) / 2));
-    return { ...at, x: card.x + Math.floor((card.w - w) / 2), y: y + sh + 2, stage: { x: card.x + Math.floor((card.w - sw) / 2), y, z } };
+    const y = top + Math.max(0, Math.floor((room - sh - 2 - H) / 2));
+    return { ...place(card.x + Math.floor((card.w - w) / 2), y + sh + 2), stage: { x: card.x + Math.floor((card.w - sw) / 2), y, z } };
   }
   const all = sw + 12 + w, x = card.x + Math.floor((card.w - all) / 2);
-  return { ...at, x: x + sw + 12, y: top + Math.max(4, Math.floor((room - h) / 2)), stage: { x, y: top + Math.max(0, Math.floor((room - sh) / 2)), z } };
+  return { ...place(x + sw + 12, top + Math.max(0, Math.floor((room - H) / 2))), stage: { x, y: top + Math.max(0, Math.floor((room - sh) / 2)), z } };
 }
 const boxAt = (at, k) => ({ x: at.x + k.col * (BOX_W + GAP), y: at.y + (k.row - 1) * (BOX_H + ROW_GAP) });
 const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b.y - pad && y < b.y + b.h + pad;
