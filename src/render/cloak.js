@@ -9,7 +9,7 @@
 // taller to fill what is left (D-526). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
-import { LOOK_PADS, tabOf } from '../core/looks.js';
+import { LOOK_PADS, LOOK_ROWS, tabOf } from '../core/looks.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
@@ -18,7 +18,7 @@ import { flicker } from './light.js';
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
 const boxH = (s) => 16 * s + 14; // a box's height with its hero s×: the hero, its name and the space round them
-const ZOOM_MIN = 3, ZOOM_MAX = 12, BIG_BOXES = 6; // the big hero's zoom, as big as fits (D-523, D-526); the least zoom that still lets the boxes be 2×
+const ZOOM_MIN = 1, ZOOM_MAX = 12, BIG_BOXES = 6; // the big hero's zoom, as big as fits (D-523, D-526), under 3× only on the smallest views with the third row (D-533); the least zoom that still lets the boxes be 2×
 const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor at zoom z
 const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
@@ -33,7 +33,7 @@ export function lookRowAt(vw, vh) {
   return { random: { x, y, w, h: ROW_H }, ok: { x: x + w + ROW_SPLIT, y, w, h: ROW_H } };
 }
 
-const ROWS = 2, COLS = 3;
+const ROWS = LOOK_ROWS, COLS = 3; // every tab as many rows as the cloak's, so nothing moves between tabs (D-533)
 // § layout: the boxes' top left on a view `vw` × `vh`, the tabs over them, and the big hero's
 // stage over both upright, or at their left sideways, all in the space above the buttons
 // The tabs from x, at y, across `w`: each its name's width, the room left shared out (D-523)
@@ -139,7 +139,9 @@ const frame = (c, x, y, w, h, colour) => {
 // § draw: the look card on the room's canvas c, `vw` × `vh`. heroIn (sprites.js) draws a hero
 // in a look; look: { cloak, eyes, trim, clothes }; tab: the open one; chosen: the key the
 // arrows are on; name: the profile's, over the big hero
-export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true) {
+// trying: a locked pattern tried on the big hero, its choice's name staying the kept one's, a note
+// under or over the boxes' foot saying how it opens (D-533)
+export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
@@ -148,13 +150,28 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
-    const { x, y } = boxAt(at, k), picked = k.id === look[tab];
+    const { x, y } = boxAt(at, k), picked = k.id === look[tab], locked = table[k.id].locked;
     const swatch = swatchOf(table[k.id]);
     if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
-    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked); }
-    frame(c, x, y, at.bw, at.bh, picked ? GOLD : DIM);
+    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
+    frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
-  drawStage(c, wear(look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
+  drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
+  if (trying) drawNote(c, `${table[trying].name} costs Glints, earned from Feats. Price not decided yet.`, at);
+}
+// § note: a dark box under the boxes, or over their foot when there's no room, framed dim, its words wrapped to fit, the look's name in
+// gold, as in the mock-up (D-533)
+function drawNote(c, words, at) {
+  const w = COLS * at.bw + (COLS - 1) * GAP, lines = [];
+  for (const word of words.split(' ')) { const last = lines[lines.length - 1]; if (last && textWidth(`${last} ${word}`) <= w - 8) lines[lines.length - 1] = `${last} ${word}`; else lines.push(word); }
+  const h = lines.length * LINE + 4, foot = at.y + ROWS * at.bh + (ROWS - 1) * ROW_GAP, gold = words.split(' ')[0];
+  const y = Math.max(foot - h, Math.min(foot + 2, at.row.ok.y - 2 - h)); // under the boxes when there's room (sideways), else over their foot
+  c.fillStyle = K; c.fillRect(at.x, y, w, h); frame(c, at.x, y, w, h, DIM);
+  lines.forEach((line, i) => {
+    const ly = y + 3 + i * LINE;
+    if (i) { drawText(c, line, at.x + 4, ly, CORE); return; }
+    drawText(c, gold, at.x + 4, ly, GOLD); drawText(c, line.slice(gold.length), at.x + 4 + textWidth(gold), ly, CORE);
+  });
 }
 // A tab: the open one filled in ember, its name dark; the others framed dim; gold around it when
 // the arrows are on it
@@ -167,10 +184,14 @@ function drawTab(c, { x, y, w, h }, text, open, arrows) {
 const centred = (c, text, x, y, colour) => drawText(c, text, x - Math.floor(textWidth(text) / 2), y, colour);
 
 // A box `bw` wide: the hero s× on its shadow, its name under it, gold when picked (D-520, D-526)
-function drawSmall(c, hero, name, x, y, { bw, s }, picked) {
+// A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right
+function drawSmall(c, hero, name, x, y, { bw, s }, picked, locked = false) {
   const mid = x + Math.floor(bw / 2);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(mid - 6 * s, y + 3 + 15 * s, 12 * s, 2);
+  if (locked) c.globalAlpha = 0.45;
   c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
+  c.globalAlpha = 1;
+  if (locked) drawText(c, 'LOCK', x + bw - 3 - textWidth('LOCK'), y + 2, EMBER);
   centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY);
 }
 // A choice's swatch colours: the eyes' one colour (D-527); the trim's cap shade over its base shade

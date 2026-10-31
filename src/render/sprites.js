@@ -382,8 +382,29 @@ export function heroIn(cloak, eyes, trim, clothes = DEFAULT_CLOTHES) {
   if (!HEROES[key]) {
     const [C, c, B, b] = (CLOAKS[cloak] ?? CLOAKS.teal).shades, e = (EYES[eyes] ?? EYES.bone).colour, [T, t] = (TRIMS[trim] ?? TRIMS.brass).shades;
     HEROES[key] = spriteCanvas(dressed(clothes), null, { ...PAL, C, c, B, b, e, T, t });
+    if (CLOAKS[cloak]?.pattern) markPattern(HEROES[key], dressed(clothes), CLOAKS[cloak]);
   }
   return HEROES[key];
+}
+// § patterns (D-515, D-533): the marks over a patterned cloak's pixels, as in the patterns'
+// mock-up: each says, for a cloak pixel at x, y of the whole sprite, 0 (none), 1 (a mark) or 2 (a
+// second mark); a mark takes the light side's colour on C and c and the dark side's on B and b.
+const SIDE = { C: 0, c: 0, B: 1, b: 1 };
+// camo's noise, written as the mock-up's, so the blotches fall where they did there
+const patHash = (x, y) => { let h = x * 374761393 + y * 668265263; h = (h ^ (h >> 13)) * 1274126177; return ((h ^ (h >> 16)) >>> 0) / 4294967296; };
+const blobs = (spots) => (x, y) => (spots.some(([cx, cy, rx, ry]) => ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2 <= 1) ? 1 : 0);
+const MASKS = {
+  zebra: (x, y) => ((y + (Math.abs(x - 7.5) >> 1)) % 3 === 0 ? 1 : 0), // stripes dipping into a V down the middle
+  cow: blobs([[5, 3.5, 1.2, 1], [10, 6.5, 0.8, 1.1], [4.5, 9.5, 1.6, 1.4], [10.5, 12.2, 1.6, 1.3], [7, 13.5, 0.7, 0.6]]), // a few big patches, no two alike
+  camo: (x, y) => { const n = patHash(x >> 1, (y + 1) >> 1); return n < 0.3 ? 1 : n > 0.72 ? 2 : 0; }, // blotches in 2 × 2 chunks
+};
+function markPattern(cv, def, cloak) {
+  const c = cv.getContext('2d'), mask = MASKS[cloak.pattern];
+  build(def.rows, def.mirror).forEach((r, y) => [...r].forEach((ch, x) => {
+    const m = ch in SIDE ? mask(x, y) : 0;
+    if (!m) return;
+    c.fillStyle = (m === 2 && cloak.second ? cloak.second : cloak.marks)[SIDE[ch]]; c.fillRect(x, y, 1, 1);
+  }));
 }
 const bittenIn = (clothes) => (BITTEN[clothes] ??= spriteCanvas(dressed(clothes), PAL.p));
 let worn = SPRITES.hero, wornBitten = bittenIn(DEFAULT_CLOTHES);

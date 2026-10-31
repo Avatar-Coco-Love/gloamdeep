@@ -1,14 +1,16 @@
 // § looks: the cloak's colours (P3), the eyes (P4), the trim (P5), the clothes (P6), and the look card with a tab each (D-521)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, moveLook, rollLook } from '../src/core/looks.js';
+import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, LOOK_ROWS, isLocked, moveLook, rollLook } from '../src/core/looks.js';
 import { lookCardAt, lookRowAt, swatchOf } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 import { cardAt } from '../src/render/bag.js';
 import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIMS, CLOTHES as REGISTERED_CLOTHES, get } from '../src/core/registry.js';
 
-test('six cloaks, teal first, each with four shades; the registry has them', () => {
-  assert.deepEqual(CLOAK_IDS, ['teal', 'moss', 'heather', 'rust', 'indigo', 'sand']);
+test('six cloaks, teal first, then the three locked patterns, each with four shades; the registry has them', () => {
+  assert.deepEqual(CLOAK_IDS, ['teal', 'moss', 'heather', 'rust', 'indigo', 'sand', 'zebra', 'cow', 'camo']);
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked), ['zebra', 'cow', 'camo']); // D-515, D-533
+  for (const id of ['zebra', 'cow', 'camo']) { assert.equal(CLOAKS[id].pattern, id); assert.equal(CLOAKS[id].marks.length, 2); }
   assert.equal(REGISTERED, CLOAKS);
   for (const k of Object.values(CLOAKS)) {
     assert.equal(k.kind, 'cloak');
@@ -25,6 +27,7 @@ test('a profile from before P3, or with an unknown cloak, wears teal', () => {
   assert.equal(cloakOf({ look: { cloak: 'plaid' } }), 'teal');
   assert.equal(cloakOf(undefined), 'teal');
   assert.equal(cloakOf({ look: { cloak: 'heather' } }), 'heather');
+  assert.equal(cloakOf({ look: { cloak: 'zebra' } }), 'teal'); // locked, never worn (D-533)
 });
 
 test('six eye colours, bone first; the registry has them; none kept out', () => {
@@ -95,17 +98,21 @@ test('the look card: four tabs first on every pad, then the choices three to a r
     assert.deepEqual(pad.slice(-2).map((k) => k.id), ['random', 'ok']);
   }
   assert.deepEqual(LOOK_PADS.clothes.slice(4).map(({ row, col }) => [row, col]), [[1, 0], [1, 1], [1, 2], [2, 0], [3, 0], [3, 2]]);
+  assert.deepEqual(LOOK_PADS.cloak.slice(-5).map(({ id, row, col }) => [id, row, col]), [['zebra', 3, 0], ['cow', 3, 1], ['camo', 3, 2], ['random', 4, 0], ['ok', 4, 2]]); // the patterns a third row (D-533)
+  assert.equal(LOOK_ROWS, 3);
+  assert.ok(isLocked('cloak', 'cow') && !isLocked('cloak', 'sand') && !isLocked('eyes', 'bone'));
 });
 
 test('the arrows walk the look card: Up from a choice to the open tab, Down from a tab to the pick', () => {
   assert.equal(moveLook('cloak', keyOf('cloak', 'teal'), 'right'), keyOf('cloak', 'moss'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'heather'), 'right'), keyOf('cloak', 'heather')); // the row's end
   assert.equal(moveLook('cloak', keyOf('cloak', 'moss'), 'down'), keyOf('cloak', 'indigo'));
-  assert.equal(moveLook('cloak', keyOf('cloak', 'indigo'), 'down'), keyOf('cloak', 'random')); // RANDOM under the first two (D-522)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'sand'), 'down'), keyOf('cloak', 'ok'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'indigo'), 'down'), keyOf('cloak', 'cow')); // the locked row next (D-533)
+  assert.equal(moveLook('cloak', keyOf('cloak', 'cow'), 'down'), keyOf('cloak', 'random')); // RANDOM under the first two (D-522)
+  assert.equal(moveLook('cloak', keyOf('cloak', 'camo'), 'down'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'down'), keyOf('cloak', 'ok')); // no Back: the cross goes back (D-399)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), keyOf('cloak', 'sand'));
-  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), keyOf('cloak', 'rust'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), keyOf('cloak', 'camo'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), keyOf('cloak', 'zebra'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'right'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'left'), keyOf('cloak', 'random'));
   assert.equal(moveLook('eyes', keyOf('eyes', 'silver'), 'up'), keyOf('eyes', 'ice'));
@@ -141,7 +148,7 @@ test('the look card fits: the big hero, the tabs, then both rows clear of the bu
     const mid = Math.floor(vw / 2), { y } = cardAt(vw, vh), button = lookRowAt(vw, vh).ok;
     for (const tab of ['cloak', 'eyes', 'trim', 'clothes']) {
       const hits = column(mid, vw, vh, tab), tabs = hits.filter(([, k]) => k.tab), boxes = hits.filter(([, k]) => !k.tab && !['random', 'ok'].includes(k.id));
-      assert.ok(tabs.length && tabs[0][0] > y + 90, `${vw}x${vh} ${tab}: the big hero's room above the tabs`);
+      assert.ok(tabs.length && tabs[0][0] > y + (vh > 300 ? 90 : 60), `${vw}x${vh} ${tab}: the big hero's room above the tabs (less on the smallest view, with the third row, D-533)`);
       assert.ok(tabs[tabs.length - 1][0] < boxes[0][0], `${vw}x${vh} ${tab}: the tabs just over the boxes (D-523)`);
       assert.ok(boxes[boxes.length - 1][0] < button.y - 2, `${vw}x${vh} ${tab}: the boxes clear of the buttons`);
     }
@@ -154,8 +161,9 @@ test('the look card fits: the big hero, the tabs, then both rows clear of the bu
 test('RANDOM rolls a whole look from the free choices, the same seed the same look (D-522)', () => {
   const r = rng(7), looks = Array.from({ length: 200 }, () => rollLook(r));
   for (const t of LOOK_TABS) {
-    assert.ok(looks.every((l) => t.ids.includes(l[t.id])), t.id);
-    assert.deepEqual(new Set(looks.map((l) => l[t.id])).size, t.ids.length, `${t.id}: every choice comes up`);
+    const free = t.ids.filter((id) => !t.table[id].locked);
+    assert.ok(looks.every((l) => free.includes(l[t.id])), `${t.id}: never a locked one (D-533)`);
+    assert.deepEqual(new Set(looks.map((l) => l[t.id])).size, free.length, `${t.id}: every free choice comes up`);
   }
   assert.deepEqual(Object.keys(looks[0]), ['cloak', 'eyes', 'trim', 'clothes']);
   assert.deepEqual(rollLook(rng(42)), rollLook(rng(42)));

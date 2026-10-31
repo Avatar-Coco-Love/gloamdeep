@@ -148,24 +148,11 @@ entries; the build plan's ticked steps 13 and Water move to
 `archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
 follow at later audits; the next is at 0.2.268.
 
-**D-527 · 2026-10-31 · Eye colours as swatches** (the owner's picks,
-both recommended, of A from a mock-up; builds D-517) On the LOOK card's
-EYES tab each box shows a square of the eye colour with its name, in
-place of the small hero, whose two eye pixels were hard to see. The
-boxes, their moves and the big hero stay. Other tabs keep their heroes;
-trim gets its own look next (Q-074; changed after the owner asked).
-
 **D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
 supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
-
-**D-529 · 2026-10-31 · Trims as swatches** (the owner's pick, B of three
-from a mock-up; Claude had recommended C, a bigger lantern; answers
-Q-074; builds D-527) On the LOOK card's TRIM tab each box shows a
-square of the trim's light cap shade over its dark base shade, with its
-name, in place of the small hero. The big hero stays.
 
 **D-530 · 2026-10-31 · Wild harvestables first** (the owner's picks,
 two of them recommended; builds D-451, D-452; changes the order in
@@ -200,3 +187,15 @@ recommended; a fix to D-531) The owner saw the gloamberry bush float
 over its shadow. Picked A of three: the bush is drawn 1 pixel lower,
 its base touching its shadow, and the shadow is 12 pixels wide, not
 14, as a deposit's is. Bare or full, the same.
+
+**D-533 · 2026-10-31 · Locked patterns shown** (the owner's pick of A
+from the hero creator's mock-up, https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg;
+builds D-515, D-516, D-517) Zebra, Cow and Camo join the LOOK card's
+CLOAK tab as a third row, drawn as in the patterns' mock-up. Each box's
+hero is dim, with LOCK in ember at its top right. Tapping one, or the
+arrows on it, tries it on the big hero; the name under it stays the
+kept cloak's, and a note says "Zebra costs Glints, earned from Feats.
+Price not decided yet." OK keeps the free cloak; RANDOM never rolls a
+locked one. Every tab keeps three rows, so the card holds still; on the
+smallest upright view the big hero shrinks to fit (Claude's call). D-527
+and D-529 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.

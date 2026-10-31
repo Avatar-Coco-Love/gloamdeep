@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.2, wild harvestables first.** Docs only. The owner
+  asked about fruit bushes, flowers and more before the garden. Picked:
+  one wild surface plant first, giving the garden its first seed; all
+  four kinds in time, one step each; bushes stay bare, flowers and small
+  plants come back elsewhere (D-530).
 - **2026-10-31, 0.3.1, trim swatches.** Mock-up of three:
   https://claude.ai/artifact/EXekhydkFasqSLVcD8fKsc. Claude recommended
   C, a bigger lantern; the owner picked B: each TRIM box a square of the
