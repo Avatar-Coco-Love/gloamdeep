@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
+  peddler's words show bone white, a creature's bite or sting red;
+  warnings stay amber, the rest grey. The rest stay grey for now,
+  a turned bite too (D-510).
+  Playtest: https://claude.ai/artifact/W4GByW5DeuiAxvwCtkBTAH
 - **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
   the lantern and on which way to go. The owner picked a first How to
   play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,

@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.225 (2026-10-31)
+- On the Profiles card, the Look button now reads Change Look and has a wide button of its own, above Rename and Delete.
+- The Profiles card's buttons look the same size, but taps around them now count too, so each is at least 44 px tall on a phone, easier to hit.
+- Behind the scenes: a plan for more looks, cloak patterns first, then more clothes shapes and colours, hoods or hats, the lantern's style and a scarf or cape. Decisions: D-513, D-514. Question opened: Q-073.
+
 ## 0.2.224 (2026-10-31)
 - On the title's screens and the pause menu, the cards now end a little higher, so the version number in the bottom left corner no longer sits on the card's edge.
 - Every card's round close button now sits in the middle of the title's strip, as far from the right edge as the title is from the left, and the line under the title stops short of it instead of touching it.
@@ -96,9 +101,3 @@ Entry format:
 - Go home to the woods next and he beams in the same way beside the middle, once the room has faded in.
 - The first time you come within 2 tiles of him at home, he greets you, once.
 - Decisions: D-497.
-
-## 0.2.210 (2026-10-30)
-- Free the peddler and he no longer vanishes at once. He thanks you and stays where he stood. Bump him to talk: free, his lines taking turns.
-- Left alone 5 turns, or 3 after your last bump, he says goodbye and fades away, heading home to the woods. Leave the room first and he goes home anyway.
-- Digging him out, his first call is for help; after that he cheers the digging on. Creatures no longer step onto a person.
-- Decisions: D-496.

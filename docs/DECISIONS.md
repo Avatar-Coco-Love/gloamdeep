@@ -180,22 +180,16 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-511 · 2026-10-31 · A herb at full health goes in the bag** (the
-owner's idea and picks, recommended; supersedes D-156) Found at seed
-27514, depth 2: a herb walked onto at full hearts stayed silent and
-seemed broken. Now at full health it goes into the bag, silent, 5 a
-stack, the potion's size; Eat there heals 2 with "You eat the herb and
-feel better.", or says "You aren't hurt." at full (D-308). Hurt, it is
-still eaten on the spot (D-155). With no room it stays: "Your bag is
-full."
+**D-513 · 2026-10-31 · Change look, and taps big enough** (the owner's
+picks, both recommended; builds D-289) The slot card's look button
+reads CHANGE LOOK, as a wide button of its own over RENAME at the left
+and DELETE at the right. The buttons look the same size, but each
+row's taps reach past them, at least 44 px tall on a phone.
 
-**D-512 · 2026-10-31 · Lined up, no overlaps** (the owner's picks, all
-recommended) From a check of every screen held both ways, on a tablet
-and on a PC: while the version number shows (the title's screens, the
-pause menu), a card's foot rises clear of it; a card's round cross sits
-in the middle of its title strip, as far in from the right edge as the
-title is from the left, and the rule under them stops short of it; the
-dev drawer starts under the hearts panel when that is lower than the
-wrench's row; the hearts panel stands 8 px in from the screen's edges,
-level with the round buttons. Big screens keep phone-sized buttons for
-now.
+**D-514 · 2026-10-31 · More looks, the plan** (the owner's picks;
+builds D-280, D-418) Cloak patterns come first; then more clothes
+shapes and more colours. New look parts later, each its own step: a
+hood or hat, the lantern's style, a scarf or cape. A few new looks are
+free in the picker; the special ones, like patterns, wait for the look
+currency (Q-055). Change look grows into one card with a tab per part
+and the hero shown big. Which patterns, and which are free, is Q-073.

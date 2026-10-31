@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.225', date: '2026-10-31', title: 'Change Look', lines: [
+    "On the Profiles card, the Look button now reads Change Look and has a wide button of its own, above Rename and Delete.",
+    "The Profiles card's buttons look the same size, but taps around them now count too, so each is at least 44 px tall on a phone, easier to hit.",
+    "Behind the scenes: a plan for more looks, cloak patterns first, then more clothes shapes and colours, hoods or hats, the lantern's style and a scarf or cape. Decisions: D-513, D-514. Question opened: Q-073.",
+  ] },
   { v: '0.2.224', date: '2026-10-31', title: 'Lined up', lines: [
     "On the title's screens and the pause menu, the cards now end a little higher, so the version number in the bottom left corner no longer sits on the card's edge.",
     "Every card's round close button now sits in the middle of the title's strip, as far from the right edge as the title is from the left, and the line under the title stops short of it instead of touching it.",

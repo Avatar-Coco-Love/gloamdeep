@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.224 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.225 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Playtest polish, if any (bigger round buttons on big screens can wait, D-512); then step 14, the garden (Q-071).
+Cloak patterns, the first new looks (D-514): propose which, their colours and which are free (Q-073). Then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,6 +22,7 @@ Playtest polish, if any (bigger round buttons on big screens can wait, D-512); t
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
+- The first cloak patterns (Q-073), at the patterns' step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -44,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.225, Change Look.** The owner asked for a check of
+  the profile buttons' tap size: 42 px on most phones, under 44. Taps
+  now reach past them, and Look reads CHANGE LOOK on its own wide row
+  (D-513). Talked about more looks; the plan is D-514, patterns first.
+  Playtest: https://claude.ai/artifact/SVsVeHwFBftJTP89FSNnqx
 - **2026-10-31, 0.2.224, lined up.** The owner asked for a check of
   every screen for overlaps. Found and fixed, all four picks
   recommended (D-512): the version number on the card's corner, the
@@ -55,8 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-156). The owner picked the bag: at full health a herb goes in, 5 a
   stack, Eat heals 2; hurt, eaten on the spot; no room, "Your bag is
   full." (D-511). Playtest: https://claude.ai/artifact/WiVCQWcdY7EXNb3sCk9Ag6
-- **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
-  peddler's words show bone white, a creature's bite or sting red;
-  warnings stay amber, the rest grey. The rest stay grey for now,
-  a turned bite too (D-510).
-  Playtest: https://claude.ai/artifact/W4GByW5DeuiAxvwCtkBTAH
