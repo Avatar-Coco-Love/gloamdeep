@@ -39,12 +39,16 @@ function tabXs(card) {
 }
 
 // § tree's layout: the line between the tree and what is said (from the card's left), and each
-// place's box { col, row, x, y, w, h } and each branch's middle, from the card alone
+// place's box { col, row, x, y, w, h } and each branch's middle, from the card alone. Upright
+// (D-505) the tree spans the card's width, standing on the button's row, what is said above it
 const splitOf = (card) => card.w - PAD - INFO_W - 9;
+const TALL_LIFT = 18; // upright, how far above the card's bottom the tree stands, clear of the button
+const footOf = (card) => card.y + card.h - (card.tall ? TALL_LIFT : 0);
 function treeOf(card) {
-  const left = card.x + PAD, colW = (card.x + splitOf(card) - 8 - left) / BRANCHES.length, w = Math.min(BOX_W, Math.floor(colW) - 6);
+  const left = card.x + PAD, right = card.tall ? card.x + card.w - PAD + 8 : card.x + splitOf(card);
+  const colW = (right - 8 - left) / BRANCHES.length, w = Math.min(BOX_W, Math.floor(colW) - 6);
   const mids = BRANCHES.map((_, i) => Math.floor(left + colW * (i + 0.5)));
-  const row0 = card.y + card.h - ROW0_UP;
+  const row0 = footOf(card) - ROW0_UP;
   const boxes = mids.flatMap((mid, col) => Array.from({ length: ROWS }, (_, row) => ({ col, row, x: mid - Math.floor(w / 2), y: row0 - row * (BOX_H + BOX_GAP), w, h: BOX_H })));
   return { mids, boxes, row0 };
 }
@@ -94,7 +98,7 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
 
 // § tree: the root's glow and flame, the limbs, then each place over them
 function drawTree(c, card, state, pick, t, still) {
-  const { mids, boxes, row0 } = treeOf(card), mid = mids[1], bottom = card.y + card.h, root = bottom - ROOT_UP, fork = bottom - FORK_UP;
+  const { mids, boxes, row0 } = treeOf(card), mid = mids[1], bottom = footOf(card), root = bottom - ROOT_UP, fork = bottom - FORK_UP;
   const glow = c.createRadialGradient(mid, root + 3, 1, mid, root + 3, 16);
   glow.addColorStop(0, `rgba(${GLOW},.45)`); glow.addColorStop(1, `rgba(${GLOW},0)`);
   c.fillStyle = glow; c.fillRect(mid - 16, root - 13, 32, 32);
@@ -112,7 +116,7 @@ function drawTree(c, card, state, pick, t, still) {
     drawText(c, name, mids[i] - Math.floor(textWidth(name) / 2), namesY, i === pick.col ? GOLD : GREY);
   });
   for (const p of boxes) drawPlace(c, p, state, p.col === pick.col && p.row === pick.row);
-  drawTold(c, card, state, pick);
+  drawTold(c, card, state, pick, namesY - 8);
 }
 
 // § place: an upgrade in a box with its name, a heart's row of hearts bought; a place still to
@@ -140,10 +144,13 @@ function dashed(c, x, y, w, h, colour) {
 }
 
 // § told: right of the line, the embers left, then the picked place's name, value and words,
-// and its button with its cost grey beside it, dim while no ember can buy it
-function drawTold(c, card, state, pick) {
-  const { x, y, h } = card, split = splitOf(card), ix = x + split + 9, iw = x + card.w - PAD - ix, said = told(state, pick);
-  c.fillStyle = LINE; c.fillRect(x + split, y + TABS_RULE_Y + 6, 1, h - TABS_RULE_Y - 14);
+// and its button with its cost grey beside it, dim while no ember can buy it. Upright, over the
+// tree, the line across at `above`, the branches' names' top less a little (D-505)
+function drawTold(c, card, state, pick, above) {
+  const { x, y, h } = card, split = splitOf(card), ix = card.tall ? x + PAD : x + split + 9, iw = x + card.w - PAD - ix, said = told(state, pick);
+  c.fillStyle = LINE;
+  if (card.tall) c.fillRect(x + 8, above, card.w - 16, 1);
+  else c.fillRect(x + split, y + TABS_RULE_Y + 6, 1, h - TABS_RULE_Y - 14);
   drawText(c, 'Embers', ix, y + NAMES_Y, GREY);
   drawText(c, String(embers(state)), ix + textWidth('Embers') + 6, y + NAMES_Y, CORE);
   let ty = y + NAMES_Y + 16;

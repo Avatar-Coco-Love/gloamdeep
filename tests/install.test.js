@@ -14,7 +14,7 @@ test('the card has what browsers need to offer installing', () => {
   assert.equal(m.name, 'Gloamdeep');
   assert.equal(m.start_url, 'https://x.io/g/');
   assert.equal(m.display, 'standalone');
-  assert.equal(m.orientation, 'landscape'); // installed, it opens sideways (D-377)
+  assert.equal(m.orientation, 'any'); // installed, it turns with the phone (D-505)
   assert.deepEqual(m.icons.map((i) => i.sizes), ['192x192', '512x512']);
   assert.ok(m.icons.every((i) => i.type === 'image/png' && i.purpose === 'any'));
   assert.deepEqual(JSON.parse(decodeURIComponent(manifestHref(m).split(',')[1])), m);

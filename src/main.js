@@ -39,7 +39,7 @@ import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
-import { createUpright, goSideways } from './input/upright.js';
+import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
@@ -377,10 +377,8 @@ const screens = createScreens(app, {
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
-  goSideways,
+  goFullScreen,
 });
-// Held upright, play pauses behind the picture (D-377)
-createUpright({ onUpright: () => { if (app.screen === 'play') screens.pause(); } });
 // In play the Swipe switch can turn swipes off (D-189, D-408); off the room, the screens take them.
 // A key or swipe in play ends a walk to a tapped tile and steps itself.
 const onDir = (dir, how) => {

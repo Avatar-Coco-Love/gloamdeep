@@ -23,6 +23,8 @@ owner's notes from the Into the Breach talk, are kept for later; built,
 the Seed Explorer's title line becomes a tools menu for all three. The
 games, bosses and talks move to `RESEARCH-GAMES.md`.
 
+*Partly superseded by D-505 (2026-10-31): the game plays upright too, and nothing locks it sideways.*
+
 **D-377 · 2026-10-27 · Landscape only, full screen** (the owner's picks,
 recommended; supersedes `TECH.md`'s portrait and landscape) The game plays
 sideways on every screen, full screen. A phone held upright pauses the game

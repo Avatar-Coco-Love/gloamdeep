@@ -41,11 +41,20 @@ const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? '
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
 
+// § tall: a view taller than wide, a phone held upright (D-505). A card's two sides
+// stand one above the other there, the line between them across the card
+export const isTall = (vw, vh) => vh > vw;
+export const TALL_SPLIT_Y = GRID_Y + 2 * SLOT + SLOT_GAP + 12; // upright, the line under the bag's slots, from the card's top
+// Where the chosen thing's words start: right of the line sideways, `left` from the card's
+// left and `top` from its top; upright, under the line across, `splitY` from its top
+export const detailAt = (card, vw, vh, left = DETAIL_X, top = HELD_Y, splitY = TALL_SPLIT_Y) => (isTall(vw, vh)
+  ? { dx: card.x + PAD, dy: card.y + splitY + 10 } : { dx: card.x + left, dy: card.y + top });
+
 // § layout: the card and its parts on a view `vw` × `vh` game pixels
 export function cardAt(vw, vh) {
   const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP);
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
-  return { x, y, w, h, close: { x: x + w - 12, y: y + 11, r: 8 }, button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
+  return { x, y, w, h, tall: isTall(vw, vh), close: { x: x + w - 12, y: y + 11, r: 8 }, button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
 // `cols` wide (the stash chest's 4 × 3, D-387)
@@ -131,15 +140,17 @@ export function drawSlot(c, x, y, item, chosen, spriteOf) {
 // § card: the room nearly dark, the glass card on it with `title` in ember top left, the round
 // cross top right, a rule under them and the line between the slots and the item, `split` from
 // the card's left (none for 0, Settings' one column, D-389), the cross left out when `crossed` is
-// false (the profiles at the game's start, D-397); gives cardAt's card
-export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true) {
+// false (the profiles at the game's start, D-397); gives cardAt's card. Upright (isTall), the
+// line goes across instead, `splitY` from the card's top (D-505), none when that is 0
+export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, splitY = TALL_SPLIT_Y) {
   c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
   const card = cardAt(vw, vh), { x, y, w, h, close } = card;
   drawGlass(c, x, y, w, h);
   drawText(c, title, x + PAD, y + 7, EMBER);
   if (crossed) { round(c, close.x, close.y, close.r); cross(c, close.x, close.y); }
   c.fillStyle = LINE; c.fillRect(x + 8, y + RULE_Y, w - 16, 1);
-  if (split) c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
+  if (split && isTall(vw, vh)) { if (splitY) c.fillRect(x + 8, y + splitY, w - 16, 1); }
+  else if (split) c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
   return card;
 }
 
@@ -153,11 +164,11 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = fa
   for (let i = 0; i < BAG_SLOTS; i++) { const s = slotAt(card, i); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf); }
   const entry = bag[chosen] && get(bag[chosen].id);
   if (!entry) return;
-  const dx = x + DETAIL_X, dw = x + w - PAD - dx;
-  drawText(c, entry.name, dx, y + HELD_Y, CORE);
-  drawText(c, `${bag[chosen].n} carried`, dx, y + HELD_Y + LINE_H, GREY);
+  const { dx, dy } = detailAt(card, vw, vh), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
+  drawText(c, entry.name, dx, dy, CORE);
+  drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const look = lookLine(entry, told);
-  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, y + HELD_Y + 2.5 * LINE_H + i * LINE_H, GREY));
+  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
   const text = buttonText(entry);
   if (!text) return;
   const few = entry.craft && !canCraft(bag, chosen);

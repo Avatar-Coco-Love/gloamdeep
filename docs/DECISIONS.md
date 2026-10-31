@@ -180,28 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-502 · 2026-10-31 · Water on the map, then a pond at home** (the
-owner's picks, all recommended, from a mock-up drawn by the game's own
-code; the second step of D-499) The map shows a pool's water, once
-seen, in the pool's blue-grey shimmer (#3f5175), not as wall. Next, a
-pond in the woods, in the cave pool's own blue-grey with a dark grassy
-lip under its bank. Also moved D-499 to the archive, word for word, as
-this file passed 12 KB.
-
-**D-503 · 2026-10-31 · The pond at home, and calmer rings** (the
-owner's picks, all recommended, from a mock-up drawn by the game's own
-code; the third step of D-499; answers the owner's catch that the cave
-pool bubbled like a hot spring) The home woods hold one pond of 5 to 9
-water tiles, the cave pool's size, grown round from a seeded open spot
-at least 2 tiles in from the edge and 4 steps from the start and the
-cave mouth, never where a stick lies and never cutting the woods in
-two; from its own seed, so the rest of each seed's woods stays as it
-was. It is the cave pool's water with a dark grassy lip in the woods'
-darkest greens. All still water ripples calmly (look R1; changes
-D-500's rings): a ring on about 1 tile in 5, every 7 seconds, not half
-the tiles every 2.6, and a slower shimmer. Also moved D-500 to the
-archive, word for word, as this file passed 12 KB.
-
 **D-504 · 2026-10-31 · Water done for now** (the owner's pick,
 recommended; the fourth step of D-499) Water stops at the still cave
 pools and the pond at home. Water comes back later (the owner's
@@ -209,3 +187,19 @@ wish): streams, rivers above and below, oceans and more, kept in
 `RESEARCH.md`, with swimming (Q-039). The garden (step 14) is next,
 with Q-071. Also moved D-501 to the archive, word for word, as this
 file passed 12 KB.
+
+**D-505 · 2026-10-31 · Play upright too** (the owner's picks,
+recommended; answers Q-065; partly supersedes D-377: the game plays held
+either way, and nothing locks it sideways; the owner gave Claude the lead
+on the whole of upright play, taking every recommended option) A phone
+held upright plays: the "turn your phone" picture goes, and turning it
+never pauses. The room shows about 11 tiles across the screen's short
+side, so a tile is the same size held either way; a short room zooms in
+as a narrow one does sideways. Upright, a card's two sides stand one
+above the other, tabs and long words wrap, and the text line stands
+above the bottom corner pieces. Installed, the game turns with the
+phone; Android's Play still goes full screen. No setting picks the way:
+the phone's own rotation lock does. Upright play comes in a few steps,
+one a conversation, before the garden: first playing upright (0.2.219),
+then polish from playtests. Also moved D-502 and D-503 to the archive,
+word for word, as this file passed 12 KB.

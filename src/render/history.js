@@ -73,6 +73,14 @@ export function historyAt(x, y, vw, vh, scroll, count) {
   return row < count ? { row } : null;
 }
 
+// A title cut short with '..' where it would run into the sign, on a narrow card (upright, D-505)
+function fitTitle(title, width) {
+  if (textWidth(title) <= width) return title;
+  let n = title.length;
+  while (n > 1 && textWidth(`${title.slice(0, n).trimEnd()}..`) > width) n--;
+  return `${title.slice(0, n).trimEnd()}..`;
+}
+
 // § draw: c, the room's canvas, `vw` × `vh`; chosen: a version's index; still: reduced motion
 export function drawHistory(c, vw, vh, rows, open, scroll, chosen, t, still) {
   drawCard(c, vw, vh, 'VERSION HISTORY', 0);
@@ -85,7 +93,7 @@ export function drawHistory(c, vw, vh, rows, open, scroll, chosen, t, still) {
     const row = rows[r], e = HISTORY[row.i], on = row.i === chosen;
     if (row.kind === 'head') {
       drawText(c, e.v, numX, y, on ? GOLD : EMBER);
-      drawText(c, e.title, titleX, y, on ? GOLD : GREY);
+      drawText(c, fitTitle(e.title, signX - 6 - titleX), titleX, y, on ? GOLD : GREY);
       drawText(c, open.has(e.v) ? '-' : '+', signX, y, on ? GOLD : GREY);
       if (on) drawMarker(c, numX - 7, y + 1, t, still);
     } else if (row.kind === 'date') drawText(c, row.text, bodyX, y, GREY);

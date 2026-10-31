@@ -6,15 +6,16 @@
 // DECONSTRUCT is in the bottom left corner, the menus' flame beside it when chosen.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, BUTTON, PAD, HELD_Y, LINE_H, SLOT, SLOT_GAP, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, SLOT, SLOT_GAP, TAP_PAD } from './bag.js';
 import { BENCH_TAKE, BENCH_COLS, BENCH_SLOTS } from '../core/menu.js';
 import { get } from '../core/registry.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
 export const TAKE = 'DECONSTRUCT'; // the stash chest's card too (D-387)
 export const TAKE_W = textWidth(TAKE) + 8;
-const COST_Y = HELD_Y + LINE_H, COST_H = 18; // the cost rows under the name, a sprite each
+const COST_H = 18; // the cost rows under the name, a sprite each
 const TOP = 28, SPLIT = PAD + BENCH_COLS * (SLOT + SLOT_GAP) - SLOT_GAP + 12, DETAIL_X = SPLIT + 9; // the grid's top, the line beside it and the words' left, as the stash chest's
+export const TALL_SPLIT = TOP + (BENCH_SLOTS / BENCH_COLS) * (SLOT + SLOT_GAP) - SLOT_GAP + 10; // upright, the line under the grid (D-505), the stash chest's too
 export const take = (card) => ({ x: card.x + PAD, y: card.button.y });
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'make', 'take'
@@ -34,20 +35,20 @@ export function benchAt(x, y, vw, vh) {
 // c: the room's canvas, `vw` × `vh`; makes: benchMakes(bag) (core/menu.js); chosen: a slot
 // or BENCH_TAKE; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297)
 export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still) {
-  const card = drawCard(c, vw, vh, 'WORKBENCH', SPLIT), { x, y, w } = card, at = take(card);
+  const card = drawCard(c, vw, vh, 'WORKBENCH', SPLIT, true, TALL_SPLIT), { x, y, w } = card, at = take(card);
   for (let i = 0; i < BENCH_SLOTS; i++) { const s = slotAt(card, i, TOP, BENCH_COLS); drawSlot(c, s.x, s.y, makes[i] && { id: makes[i].item, n: 1 }, i === chosen, spriteOf); }
   drawButton(c, at.x, at.y, TAKE, false, TAKE_W);
   if (chosen === BENCH_TAKE) drawMarker(c, at.x - 7, at.y + 4, t, still);
   const make = makes[chosen], entry = make && get(make.item);
   if (!entry) return;
-  const dx = x + DETAIL_X, dw = x + w - PAD - dx;
-  drawText(c, entry.name, dx, y + HELD_Y, CORE);
+  const { dx, dy } = detailAt(card, vw, vh, DETAIL_X, HELD_Y, TALL_SPLIT), dw = x + w - PAD - dx; // upright, under the grid (D-505)
+  drawText(c, entry.name, dx, dy, CORE);
   make.cost.forEach(({ id, n, have }, i) => {
-    const cy = y + COST_Y + i * COST_H;
+    const cy = dy + LINE_H + i * COST_H;
     c.drawImage(spriteOf({ id, n }), dx, cy);
     drawText(c, `${n} / ${have} ${get(id).name}`, dx + 19, cy + 5, GREY);
   });
-  const look = lookLine(entry, told), top = y + COST_Y + make.cost.length * COST_H + 6;
+  const look = lookLine(entry, told), top = dy + LINE_H + make.cost.length * COST_H + 6;
   if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, top + i * LINE_H, GREY));
   drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
 }

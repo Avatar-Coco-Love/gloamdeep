@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.218 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.219 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Step 14, the garden (D-452, D-504): propose its first small step,
-and whether water matters to it (Q-071). Read `SCOPE.md`'s farming.
+Upright, part 2 (D-505): polish from the owner's playtest of 0.2.219,
+then the title's screens upright (a bigger picture, the name and seed
+pads). Claude leads (the owner's wish). Then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -19,10 +20,9 @@ and whether water matters to it (Q-071). Read `SCOPE.md`'s farming.
 - Achievements' records and numbers (Q-057), before the first one.
 - Creature materials: looks and recipes (Q-061), each at its own step.
 - The chest card on squarer screens (Q-064), any time.
-- Playing upright too (Q-065), tabled for now.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
-- Water and the garden (Q-071), at the garden's step, next.
+- Water and the garden (Q-071), at the garden's step, after upright.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.219, play upright too.** The owner's partner can't
+  stand sideways, so the owner gave Claude the lead on upright play,
+  taking every recommended option (D-505, answers Q-065). A phone plays
+  held either way, the tiles the same size; cards stack their sides
+  upright. Playtest: https://claude.ai/artifact/LaTVrY7vcijxoRJtgKGJ4J
 - **2026-10-31, 0.2.218, water done for now.** The owner picked water
   done for now: the cave pools and the pond at home stay; streams,
   rivers, oceans and more come later. The garden is next (D-504). Nothing
@@ -54,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   in a seeded open spot, and, from their catch that the cave pool
   bubbled like a hot spring, calmer rings on all still water (D-503).
   Playtest: https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
-- **2026-10-31, 0.2.216, water on the map.** From a mock-up drawn by
-  the game's own code, the owner picked water on the map first: a
-  seen pool shows in its blue-grey, not as wall. A pond at home, in
-  the same blue-grey, comes next (D-502). Playtest:
-  https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
