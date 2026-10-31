@@ -71,8 +71,9 @@ export function step(state, dir) {
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag
 // has no room (D-247), or with its full line when it holds some (D-250, D-333);
-// an oilcap the same, saying one of its lines as it goes in (D-296, D-297). A herb heals, never above full, and is gone with its
-// line; at full health it stays on the floor (D-155, D-156). A weapon goes
+// an oilcap the same, saying one of its lines as it goes in (D-296, D-297). A herb, hurt, heals, never above full, and is gone with its
+// line (D-155); at full health it goes into the bag, silent, and with no room it
+// stays, "Your bag is full." (D-511). A weapon goes
 // into an empty hand with its line (D-252); with one held, into the bag, 1 a
 // slot, with its `bagged` line, and with no room it stays, "Your bag is full."
 // (D-479). Taken is a `take` event, a herb eaten an `eat`.
@@ -82,6 +83,7 @@ function pickUp(state, found) {
   if (entry.fetch) return fetchBag(state, found);
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
+  if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.eats), 'eat', { id });
   if (entry.hold) {
     const bag = bagAdd(state.bag, id);
     return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
@@ -89,9 +91,9 @@ function pickUp(state, found) {
   if (entry.bag) {
     const bag = bagAdd(state.bag, id, found.form);
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
-    return state.bag.some((s) => s.id === id) && entry.full ? say(state, entry.full) : state;
+    if (state.bag.some((s) => s.id === id) && entry.full) return say(state, entry.full);
+    return entry.eatHurt ? say(state, 'bagFull') : state; // a herb says so (D-511)
   }
-  if (entry.heal && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.says), 'eat', { id });
   return state;
 }
 

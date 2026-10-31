@@ -54,7 +54,7 @@ test('taking one lowers the count; the last empties the slot and the rest move u
 });
 
 test('the flask and the mushrooms go in the bag', () => {
-  assert.deepEqual(byKind('item').filter((e) => e.bag).map((e) => e.id), ['flask', 'oilcap', 'heartcap', 'potion', 'stone', 'ratTail', 'mothDust', 'stinger', 'mimicGlass', 'gloamWisp', 'venomSac', 'mimicHeart', 'gloamEye', 'wood', 'workbench', 'chest', 'pick', 'copperOre', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'bagTorch']); // (D-296, D-303, D-309, O2, D-474, D-475, D-476, D-314, D-320, D-326, D-480, D-483, D-484, D-486, D-488, D-478)
+  assert.deepEqual(byKind('item').filter((e) => e.bag).map((e) => e.id), ['flask', 'herb', 'oilcap', 'heartcap', 'potion', 'stone', 'ratTail', 'mothDust', 'stinger', 'mimicGlass', 'gloamWisp', 'venomSac', 'mimicHeart', 'gloamEye', 'wood', 'workbench', 'chest', 'pick', 'copperOre', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'bagTorch']); // (D-511, D-296, D-303, D-309, O2, D-474, D-475, D-476, D-314, D-320, D-326, D-480, D-483, D-484, D-486, D-488, D-478)
 });
 
 test('the bag is kept in the save, and an older save gets an empty one', () => {

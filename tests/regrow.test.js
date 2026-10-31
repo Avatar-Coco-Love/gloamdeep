@@ -46,8 +46,9 @@ test('the knife is never on the taken list', () => {
   assert.deepEqual(n.taken, []);
 });
 
-test('a herb left at full health is not taken', () => {
-  const n = step(spawn({ ...makeState(room), health: HERO_HEALTH }, 'herb', 5, 10), 'up');
+test('a herb left with the bag full is not taken (D-511)', () => {
+  const bag = Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 }));
+  const n = step(spawn({ ...makeState(room), health: HERO_HEALTH, bag }, 'herb', 5, 10), 'up');
   assert.deepEqual(n.taken, []);
 });
 

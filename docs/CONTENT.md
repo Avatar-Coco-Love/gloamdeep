@@ -37,7 +37,7 @@ mechanic and its own step.
 | `flask` | 45% oil, poured from the bag or the quick slot | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps, or 1 Mimic Glass and 2 oilcaps; the peddler, 3 coins | D-078, D-149, D-247, D-299, D-384, D-477, D-495 |
 | `knife` | held, hits for 2; in the bag, Hold | held, or 1 a slot | never | the first room of depth 2 | D-252, D-347, D-479 |
 | `spear` | held, hits for 2 and the one behind for 1; in the bag, Hold | held, or 1 a slot | never | the first room of depth 3 | D-479 |
-| `herb` | heals 2 where it lies | none | 300 | each generated room | D-155, D-156 |
+| `herb` | heals 2 where it lies when hurt; at full health into the bag, Eat: 2 hearts | 5 | 300 | each generated room | D-155, D-511 |
 | `oilcap` | 3 make a flask | 20 | 300 | each generated room | D-296, D-299 |
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |

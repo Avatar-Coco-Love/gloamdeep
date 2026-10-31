@@ -1,4 +1,4 @@
-// § herb: walking onto a healing herb heals 2 hearts; at full health it stays (D-155, D-156)
+// § herb: walking onto a healing herb heals 2 hearts; at full health it goes in the bag (D-155, D-511)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
@@ -7,6 +7,8 @@ import { OIL } from '../src/core/oil.js';
 import { spawn } from '../src/core/spawn.js';
 import { shownLine } from '../src/core/lines.js';
 import { generateRoom } from '../src/core/cave.js';
+import { eat } from '../src/core/bagturn.js';
+import { BAG_SLOTS } from '../src/core/bag.js';
 
 const room = makeRoom(FIRST_ROOM);
 // The hero starts at 5,11, so a herb on 5,10 is one step up.
@@ -28,12 +30,31 @@ test('a herb never heals above full', () => {
   assert.deepEqual(n.items, []);
 });
 
-test('at full health a herb is left on the floor, with no line', () => {
+test('at full health a herb goes into the bag, silent, 5 a stack (D-511)', () => {
   const n = step(withHerb(HERO_HEALTH), 'up');
   assert.deepEqual(n.hero, { x: 5, y: 10 });
   assert.equal(n.health, HERO_HEALTH);
-  assert.equal(itemAt(n, 5, 10).id, 'herb');
+  assert.equal(itemAt(n, 5, 10), undefined);
+  assert.deepEqual(n.bag.filter((b) => b.id === 'herb'), [{ id: 'herb', n: 1 }]);
   assert.equal(shownLine(n), null);
+  const five = step({ ...withHerb(HERO_HEALTH), bag: [{ id: 'herb', n: 5 }] }, 'up');
+  assert.deepEqual(five.bag.filter((b) => b.id === 'herb'), [{ id: 'herb', n: 5 }, { id: 'herb', n: 1 }]);
+});
+
+test('with no room in the bag a herb stays: "Your bag is full." (D-511)', () => {
+  const bag = Array.from({ length: BAG_SLOTS }, () => ({ id: 'stone', n: 20 }));
+  const n = step({ ...withHerb(HERO_HEALTH), bag }, 'up');
+  assert.equal(itemAt(n, 5, 10).id, 'herb');
+  assert.deepEqual(n.bag, bag);
+  assert.equal(shownLine(n).text, 'Your bag is full.');
+});
+
+test('Eat on a herb in the bag heals 2 with its line; at full health "You aren\'t hurt." (D-511)', () => {
+  const s = { ...makeState(room), health: 2, bag: [{ id: 'herb', n: 2 }] }, n = eat(s, 0);
+  assert.equal(n.health, 4);
+  assert.deepEqual(n.bag, [{ id: 'herb', n: 1 }]);
+  assert.equal(shownLine(n).text, 'You eat the herb and feel better.');
+  assert.equal(shownLine(eat({ ...s, health: HERO_HEALTH }, 0)).text, "You aren't hurt.");
 });
 
 test('a bite on the same turn replaces the herb line, after the heal', () => {

@@ -73,7 +73,7 @@ test('items: a flask or the knife taken, a herb eaten', () => {
   assert.deepEqual(step(spawn(start(), 'flask', 5, 10), 'up').events, [{ type: 'step' }, { type: 'take', id: 'flask' }]);
   assert.deepEqual(step(spawn(start(), 'knife', 5, 10), 'up').events, [{ type: 'step' }, { type: 'take', id: 'knife' }]);
   assert.deepEqual(step(spawn({ ...start(), health: 3 }, 'herb', 5, 10), 'up').events, [{ type: 'step' }, { type: 'eat', id: 'herb' }]);
-  assert.deepEqual(step(spawn(start(), 'herb', 5, 10), 'up').events, [{ type: 'step' }]); // at full health it stays
+  assert.deepEqual(step(spawn(start(), 'herb', 5, 10), 'up').events, [{ type: 'step' }, { type: 'take', id: 'herb' }]); // at full health, into the bag (D-511)
 });
 
 test('a flask poured by hand, or by itself after the turn', () => {
