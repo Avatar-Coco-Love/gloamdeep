@@ -206,6 +206,11 @@ const RUBBLE = { mirror: false, rows: [
 const PEDDLER = { mirror: false, rows: [
   '', '.........kkkkk..', '.....kkkkAAAAAk.', '....kNNNkAwAAAAk', '...kNNNNkAAAAAAk', '...knnnNkAAOAAAk', '...knwnNkOOOOOOk', '...knnnNkAAOAAAk',
   '..kNNNNNkAAAAAAk', '..kWNNNNNkAAAAk.', '..kWWNNNNNkksk..', '..kWNNNNNNkkssk.', '..kNNNNnNNk.kk..', '..kNNnnnNNk.....', '...kknkknkk.....', '....kk..kk......'] };
+// § peddler forward: look A of the facing mock-up (D-501), the hood face-on with two pale eyes,
+// the canvas bundle rising behind his head and over both shoulders, its amber cord at each side
+const PEDDLER_FORWARD = { mirror: true, rows: [
+  '', '..kkkkkk', '.kAAAAAA', '.kAAkkkk', '.kAkNNNN', '.kOkNNnn', '.kAkNnwn', '.kAkNnnn',
+  '.kkNNNNN', '..kWNNNN', '..kWNNNN', '..kWNNNk', '..kNNNNn', '..kNNnnn', '...kknkk', '....kk..'] };
 // § bed: the bed (D-488), a wooden frame in the trunk's browns, a pale straw pillow at its
 // head and a grey rat hide blanket, a fold at each side, drafted for the playtest
 const BED = { mirror: false, rows: [
@@ -313,7 +318,7 @@ const HEART_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwYkYkOk...',
   '...kokYyYYkOk...', '...kokkYYkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -386,18 +391,22 @@ export function drawDeposit(c, tx, ty, sprite = SPRITES.deposit) {
   c.drawImage(sprite, x, y);
 }
 
-// § people: each drawn on its tile 2 pixels up with an idle bob, as creatures are, turned to
-// face the hero: drawn facing left, mirrored when the hero is to the right (D-490)
+// § people: each drawn on its tile 2 pixels up, standing still on their shadow as the hero does
+// (D-501). Facing forward; with the hero within 2 tiles and not in their column, turned to face
+// the hero: drawn facing left, mirrored when the hero is to the right (D-490, D-501).
+export const FACE_TILES = 2;
 const PEOPLE_RIGHT = {};
 export function personSprite(p, hero) {
-  if (hero.x <= p.x) return SPRITES[p.id];
+  const near = Math.max(Math.abs(p.x - hero.x), Math.abs(p.y - hero.y)) <= FACE_TILES;
+  if (!near || hero.x === p.x) return SPRITES[p.id + 'Forward'] ?? SPRITES[p.id];
+  if (hero.x < p.x) return SPRITES[p.id];
   return (PEOPLE_RIGHT[p.id] ??= mirrored(SPRITES[p.id]));
 }
-export function drawPeople(c, people, hero, t, still) {
+export function drawPeople(c, people, hero) {
   for (const p of people || []) {
-    const x = p.x * 16, y = p.y * 16, bob = still ? 0 : Math.floor(t / 600 + p.x) % 2;
+    const x = p.x * 16, y = p.y * 16;
     drawShadow(c, x, y, 8);
-    c.drawImage(personSprite(p, hero), x, y - 2 - bob);
+    c.drawImage(personSprite(p, hero), x, y - 2);
   }
 }
 

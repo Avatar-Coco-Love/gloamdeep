@@ -205,7 +205,7 @@ export function createFrame(app, ui) {
       drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
       drawItems(rc, s.items, t, still());
       const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
-      drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero, t, still()); // turned to face the hero (D-490)
+      drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
       drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
       drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
       // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)

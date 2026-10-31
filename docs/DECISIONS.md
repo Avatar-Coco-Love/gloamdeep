@@ -180,14 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-498 · 2026-10-30 · Only a side heap frees the peddler** (the
-owner's catch and pick, recommended; changes D-491's "one heap
-cleared") A corner heap opens no way to him, as the hero steps only up,
-down, left and right. Cleared, it says the rubble's own line, frees no
-one and starts no turns; he keeps cheering the digging on. A heap
-straight up, down, left or right of him frees him, as before. Also
-moved D-496 to the archive, word for word, as this file passed 12 KB.
-
 **D-499 · 2026-10-31 · Water first** (the owner's pick) Water, pools
 and rivers, above and below ground, comes next, before the garden
 (step 14) and fishing (step 15), which needs it. The rest of the
@@ -207,3 +199,13 @@ rim, a slow shimmer, rings that widen and fade, and the lantern's warm
 light on it; still with reduced motion. On the map it shows as wall
 for now. Also moved D-497 to the archive, word for word, as this file
 passed 12 KB.
+
+**D-501 · 2026-10-31 · The peddler stands still and faces forward**
+(the owner's catch and picks, all recommended; look A of the facing
+mock-up; changes D-490's idle bob and turning) He no longer bobs, which
+lifted him off his shadow: he stands still on it, as the hero does.
+He faces forward, the hood face-on with two pale eyes and the bundle
+rising behind his head, and turns left or right to face the hero only
+with the hero within 2 tiles, diagonals too, and not in his column.
+Also moved D-498 to the archive, word for word, as this file passed
+12 KB.

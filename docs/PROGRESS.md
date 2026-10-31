@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.214 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.215 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.215, feet on the ground.** The owner's catch: the
+  peddler's bob lifted him off his shadow. He stands still now, faces
+  forward (look A of a mock-up), and turns to the hero only within 2
+  tiles and not in his column (D-501). Playtest:
+  https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
 - **2026-10-31, 0.2.214, the still pool.** About 1 grey-rock Cave room
   in 2 holds a still blue-grey pool of 5 to 9 tiles, solid, rippling,
   with the lantern's light on it, picked from a second mock-up drawn
@@ -55,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   ground, biomes, parts of rooms reached through another door, and
   dressing like cobwebs. Water comes next, before the garden (D-499).
   Nothing visible changed.
-- **2026-10-30, 0.2.212, only a side heap frees him.** The owner's
-  catch: a cleared corner heap freed the peddler and started his turns,
-  though the hero couldn't reach him. Now only a heap straight beside
-  him frees him (D-498). Playtest:
-  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
