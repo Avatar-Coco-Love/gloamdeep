@@ -21,6 +21,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.218 (2026-10-31)
+- Water is done for now: the still cave pools and the pond at home stay as they are. Rivers and streams, above and below ground, wait for swimming.
+- The garden comes next. Nothing in the game changed.
+- Decisions: D-504.
+
 ## 0.2.217 (2026-10-31)
 - Home in the woods now has a pond: 5 to 9 tiles of the cave pool's blue-grey water, with a dark grassy lip under its bank, in an open spot away from where you start and the cave mouth. You can't step in yet. Only a new journey has it; a journey already started keeps its woods as they were.
 - Still water ripples calmly now: a ring widens on about 1 tile in 5, every 7 seconds, and the shimmer is slower, so the cave pool no longer bubbles like a hot spring.

@@ -180,16 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-501 · 2026-10-31 · The peddler stands still and faces forward**
-(the owner's catch and picks, all recommended; look A of the facing
-mock-up; changes D-490's idle bob and turning) He no longer bobs, which
-lifted him off his shadow: he stands still on it, as the hero does.
-He faces forward, the hood face-on with two pale eyes and the bundle
-rising behind his head, and turns left or right to face the hero only
-with the hero within 2 tiles, diagonals too, and not in his column.
-Also moved D-498 to the archive, word for word, as this file passed
-12 KB.
-
 **D-502 · 2026-10-31 · Water on the map, then a pond at home** (the
 owner's picks, all recommended, from a mock-up drawn by the game's own
 code; the second step of D-499) The map shows a pool's water, once
@@ -211,3 +201,10 @@ darkest greens. All still water ripples calmly (look R1; changes
 D-500's rings): a ring on about 1 tile in 5, every 7 seconds, not half
 the tiles every 2.6, and a slower shimmer. Also moved D-500 to the
 archive, word for word, as this file passed 12 KB.
+
+**D-504 · 2026-10-31 · Water done for now** (the owner's pick,
+recommended; the fourth step of D-499) Water stops at the still cave
+pools and the pond at home. Rivers and streams, above and below, wait
+in `RESEARCH.md` for swimming (Q-039). The garden (step 14) is next,
+with Q-071. Also moved D-501 to the archive, word for word, as this
+file passed 12 KB.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.215, feet on the ground.** The owner's catch: the
+  peddler's bob lifted him off his shadow. He stands still now, faces
+  forward (look A of a mock-up), and turns to the hero only within 2
+  tiles and not in his column (D-501). Playtest:
+  https://claude.ai/artifact/KNDjFEZgtMg8CJ9e7S27c4
 - **2026-10-31, 0.2.214, the still pool.** About 1 grey-rock Cave room
   in 2 holds a still blue-grey pool of 5 to 9 tiles, solid, rippling,
   with the lantern's light on it, picked from a second mock-up drawn
