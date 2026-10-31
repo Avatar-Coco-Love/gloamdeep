@@ -193,3 +193,10 @@ hood or hat, the lantern's style, a scarf or cape. A few new looks are
 free in the picker; the special ones, like patterns, wait for the look
 currency (Q-055). Change look grows into one card with a tab per part
 and the hero shown big. Which patterns, and which are free, is Q-073.
+
+**D-515 · 2026-10-31 · The first cloak patterns** (the owner's picks,
+all recommended, from a mock-up; answers Q-073, builds D-514) Zebra
+stripes, cow spots and camo, the three D-280 named. Each has its own
+colours, not the cloak's: zebra bone with dark stripes, cow bone with
+dark patches, camo moss with brown and deep green blotches. None is
+free; all three wait for the look currency (Q-055).

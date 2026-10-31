@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.225 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.226 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Cloak patterns, the first new looks (D-514): propose which, their colours and which are free (Q-073). Then step 14, the garden (Q-071).
+The seventh audit, at 0.2.227 (D-337). Then step 14, the garden (Q-071). The cloak patterns (D-515) wait for the look currency (Q-055).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,7 +22,6 @@ Cloak patterns, the first new looks (D-514): propose which, their colours and wh
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- The first cloak patterns (Q-073), at the patterns' step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -45,6 +44,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.226, cloak patterns picked.** The owner asked to
+  see cloak patterns. From a mock-up of six on the hero, the owner
+  picked zebra, cow spots and camo, each in its own colours, none free
+  until the look currency (D-515, answers Q-073). Docs only.
+  Mock-up: https://claude.ai/artifact/1HNPh6ZE2G9HTk9ua5F6GU
 - **2026-10-31, 0.2.225, Change Look.** The owner asked for a check of
   the profile buttons' tap size: 42 px on most phones, under 44. Taps
   now reach past them, and Look reads CHANGE LOOK on its own wide row
@@ -56,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   close cross touching the rule, the dev drawer over the hearts panel,
   the panel's edge 4 px off the buttons'.
   Playtest: https://claude.ai/artifact/3EH9LEF8TLsxzvJPFXG1Dy
-- **2026-10-31, 0.2.223, herbs in the bag.** The owner found a herb
-  that wouldn't go at seed 27514, depth 2: at full hearts it stayed, silent
-  (D-156). The owner picked the bag: at full health a herb goes in, 5 a
-  stack, Eat heals 2; hurt, eaten on the spot; no room, "Your bag is
-  full." (D-511). Playtest: https://claude.ai/artifact/WiVCQWcdY7EXNb3sCk9Ag6

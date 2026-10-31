@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.223, herbs in the bag.** The owner found a herb
+  that wouldn't go at seed 27514, depth 2: at full hearts it stayed, silent
+  (D-156). The owner picked the bag: at full health a herb goes in, 5 a
+  stack, Eat heals 2; hurt, eaten on the spot; no room, "Your bag is
+  full." (D-511). Playtest: https://claude.ai/artifact/WiVCQWcdY7EXNb3sCk9Ag6
 - **2026-10-31, 0.2.222, line colours by source.** Built D-509: the
   peddler's words show bone white, a creature's bite or sting red;
   warnings stay amber, the rest grey. The rest stay grey for now,

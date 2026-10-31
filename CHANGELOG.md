@@ -21,6 +21,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.2.226 (2026-10-31)
+- Behind the scenes: the first cloak patterns are zebra stripes, cow spots and camo, the three named in D-280. Each has its own colours: zebra bone with dark stripes, cow bone with dark patches, camo moss with brown and deep green blotches. None is free; all three wait for the look currency.
+- Decisions: D-515. Question closed: Q-073.
+
 ## 0.2.225 (2026-10-31)
 - On the Profiles card, the Look button now reads Change Look and has a wide button of its own, above Rename and Delete.
 - The Profiles card's buttons look the same size, but taps around them now count too, so each is at least 44 px tall on a phone, easier to hit.
@@ -95,9 +99,3 @@ Entry format:
 - Clearing a corner heap of the rubble around the peddler no longer frees him: you can't reach him through a corner. He keeps cheering you on.
 - Clear a heap straight up, down, left or right of him to free him. His 5 turns start then, so you have time to step in and talk.
 - Decisions: D-498.
-
-## 0.2.211 (2026-10-30)
-- Free the peddler and, when he heads home, a column of warm lantern light now drops onto him. He comes apart in thin bands that rise up the beam, then it goes out.
-- Go home to the woods next and he beams in the same way beside the middle, once the room has faded in.
-- The first time you come within 2 tiles of him at home, he greets you, once.
-- Decisions: D-497.

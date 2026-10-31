@@ -4,6 +4,10 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.226', date: '2026-10-31', title: 'Cloak patterns picked', lines: [
+    "Behind the scenes: the first cloak patterns are zebra stripes, cow spots and camo, the three named in D-280. Each has its own colours: zebra bone with dark stripes, cow bone with dark patches, camo moss with brown and deep green blotches. None is free; all three wait for the look currency.",
+    "Decisions: D-515. Question closed: Q-073.",
+  ] },
   { v: '0.2.225', date: '2026-10-31', title: 'Change Look', lines: [
     "On the Profiles card, the Look button now reads Change Look and has a wide button of its own, above Rename and Delete.",
     "The Profiles card's buttons look the same size, but taps around them now count too, so each is at least 44 px tall on a phone, easier to hit.",
