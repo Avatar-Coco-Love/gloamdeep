@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.213 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.214 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-Water first (D-499): propose how pools and rivers start, in small
-steps, with a mock-up. Swimming (Q-039) stays open.
+Water's next step (D-499): propose a pond at home in the woods, or
+water on the map, with a mock-up drawn by the game's own code.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -30,7 +30,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
-- [ ] Water: pools and rivers, above and below (D-499)
+- [ ] Water: pools and rivers, above and below (D-499; the still pool, 0.2.214)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.214, the still pool.** About 1 grey-rock Cave room
+  in 2 holds a still blue-grey pool of 5 to 9 tiles, solid, rippling,
+  with the lantern's light on it, picked from a second mock-up drawn
+  by the game's own code (D-500). Playtest:
+  https://claude.ai/artifact/YVS5fApbj3trtEtLa9ZtfH
 - **2026-10-31, 0.2.213, water first.** The owner's ideas for how
   places are made go in the wish list: pools, rivers above and below
   ground, biomes, parts of rooms reached through another door, and
@@ -54,9 +59,4 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   catch: a cleared corner heap freed the peddler and started his turns,
   though the hero couldn't reach him. Now only a heap straight beside
   him frees him (D-498). Playtest:
-  https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ
-- **2026-10-30, 0.2.211, the lantern beam home.** The peddler leaves
-  in look A's lantern beam, and beams in at home the first time the
-  hero comes, once the room has faded in; at home he greets the hero
-  once, within 2 tiles (D-497). Playtest:
   https://claude.ai/artifact/LDbwf2cERLWbWL7sCdf9zJ

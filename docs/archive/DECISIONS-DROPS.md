@@ -268,3 +268,14 @@ plain fade where he stood; the next draws look A, the lantern beam
 home when the hero comes within 2 tiles. His lines are drafted for the
 playtest. Also moved D-494 to the archive, word for word, as this file
 neared 12 KB.
+
+**D-497 · 2026-10-30 · The lantern beam home** (recommended; the
+second step of D-496) The beam is the mock-up's look A, one second.
+Leaving, it plays where he stood. Arriving, it plays the first time
+the hero comes into the woods after he went home, once the room has
+faded in; till then he isn't drawn. His greeting, said once, comes at
+the end of a turn with the hero within 2 tiles, diagonals too: "There
+you are, friend! Welcome!", drafted for the playtest. With reduced
+motion there is no beam, and the dev Go outside finds him there.
+Also moved D-495 to the archive, word for word, as this file passed
+12 KB.

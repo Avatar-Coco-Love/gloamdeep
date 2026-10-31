@@ -180,17 +180,6 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
 
-**D-497 · 2026-10-30 · The lantern beam home** (recommended; the
-second step of D-496) The beam is the mock-up's look A, one second.
-Leaving, it plays where he stood. Arriving, it plays the first time
-the hero comes into the woods after he went home, once the room has
-faded in; till then he isn't drawn. His greeting, said once, comes at
-the end of a turn with the hero within 2 tiles, diagonals too: "There
-you are, friend! Welcome!", drafted for the playtest. With reduced
-motion there is no beam, and the dev Go outside finds him there.
-Also moved D-495 to the archive, word for word, as this file passed
-12 KB.
-
 **D-498 · 2026-10-30 · Only a side heap frees the peddler** (the
 owner's catch and pick, recommended; changes D-491's "one heap
 cleared") A corner heap opens no way to him, as the hero steps only up,
@@ -204,3 +193,17 @@ and rivers, above and below ground, comes next, before the garden
 (step 14) and fishing (step 15), which needs it. The rest of the
 owner's ideas for how places are made wait in `RESEARCH.md`. Whether
 water matters to the garden is Q-071.
+
+**D-500 · 2026-10-31 · The still pool** (the owner's picks, the first
+step of D-499; look 1 of 3 from the second mock-up) About 1 grey-rock
+Cave room in 2 (depths 2 to 4) holds a still pool of 5 to 9 water
+tiles, in a chamber at least 4 steps from the stairs and the way in,
+never on the edge or where something lies, stands or starts. The hero
+can't step in (bumping does nothing, no turn) and creatures can't
+cross it until swimming (Q-039); light passes over it; every dry tile
+can still be reached. Blue-grey, grown from the puddle's colours, its
+edge wobbling like the rock's, with a dark lip under the bank, a wet
+rim, a slow shimmer, rings that widen and fade, and the lantern's warm
+light on it; still with reduced motion. On the map it shows as wall
+for now. Also moved D-497 to the archive, word for word, as this file
+passed 12 KB.

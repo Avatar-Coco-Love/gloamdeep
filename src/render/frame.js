@@ -3,6 +3,7 @@
 // the shown hero and enemies and takes the turns before each frame.
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomCols } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
+import { drawRipples } from './rock.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
@@ -200,6 +201,8 @@ export function createFrame(app, ui) {
     rc.drawImage(base, -cam.x, -cam.y);
     inRoom(() => {
       drawBrackets(rc, s.room, s.lights);
+      const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
+      drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
       drawItems(rc, s.items, t, still());
       const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
       drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero, t, still()); // turned to face the hero (D-490)
