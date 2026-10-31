@@ -32,6 +32,7 @@ file neared 12 KB. They stay in force.
 (owner's pick; supersedes the version part of D-168) Steps 36 to 41 are
 stage 0.2's last steps, built in the world stage 0.3 began. Versions stay
 0.2.x. `PROGRESS.md` says so in its Stage label.
+*Version part superseded by D-528 (2026-10-31): 0.3.x from 0.3.0.*
 
 **D-238 · 2026-10-22 · Saving the journey** (step 37, owner's picks)
 One journey is kept on this device, saved after every turn, and from the

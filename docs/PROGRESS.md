@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.235 · **Stage:** 0.2, the last steps (36 to 41), in the
-world of 0.3 (D-168, D-237)
+**Version:** 0.3.0 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+(D-528)
 
 ## Next up
-Step 14, the garden (Q-071), proposed first; the hero creator (D-517) is done.
+Trim on the LOOK card (Q-074): mock-ups first, the owner's idea (the
+lantern zoomed in with its name) and 1 or 2 others. Then step 14, the garden.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -21,6 +22,7 @@ Step 14, the garden (Q-071), proposed first; the hero creator (D-517) is done.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
+- How trim shows on the LOOK card (Q-074), next, from mock-ups.
 - What the guide is, not a faery (Q-072), when the owner wants it.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -34,7 +36,7 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 17 Relics
 - [ ] 18 Feats
 
-**Next audit: 0.2.268** (D-518, D-519).
+**Next audit: 0.3.32** (D-518, D-519, D-528).
 
 Ideas for later (and the owner's wish list in `RESEARCH.md`): gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
@@ -42,6 +44,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.3.0, eye swatches and version 0.3.** The owner found
+  eye colours hard to see on the small heroes. Mock-up:
+  https://claude.ai/artifact/R226GLArFBCpD1xtRUVKeb. Picked A: each EYES
+  box a square of the colour with its name; eyes only for now (D-527).
+  Versions move to 0.3.x here (D-528). Playtest:
+  https://claude.ai/artifact/3gsXELb7cQxurooDoCBZ1e
 - **2026-10-31, 0.2.235, the LOOK card's full width.** Step 5. Plan
   beside A: https://claude.ai/artifact/STBQKV8iEd8Jz315skwnXR. Picked
   2: tabs and boxes across the card, the boxes' heroes 2× when they fit,
@@ -53,9 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   lit slabs fading into the card, no frame, the lantern's flicker; the
   small boxes unchanged (D-525). D-514 to D-516 archived. Playtest:
   https://claude.ai/artifact/HuuCCCr4oCmxaBtn4VkPNM
-- **2026-10-31, 0.2.233, dots and the name card's hero.** The owner
-  asked for A's last five differences, one per PR. Plan shown beside A:
-  https://claude.ai/artifact/776f8fTnQqjfb8B6Xsgmrj. Picked: dots on a
-  new hero's cards, the hero under the name card's top bar, sideways
-  between the letters, Rename too (D-524). D-336 moved to the audits
-  archive. Playtest: https://claude.ai/artifact/WGkcsvyxoot2CuhFe4iH9T

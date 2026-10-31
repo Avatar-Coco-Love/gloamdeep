@@ -15,7 +15,8 @@ Format: `D-xxx · date · title`, then the decision and, where useful, why.
 world, made of regions, comes next as stage 0.3, starting with the
 starting region. Stage 0.2's steps not yet built (34 to 41) wait and are
 slotted in later. ~~Steps of stage 0.3 are versioned 0.3.x.~~ *That part
-superseded by D-237 (2026-10-22): versions stay 0.2.x.* The step list
+superseded by D-237 (2026-10-22): versions stay 0.2.x; 0.3.x from
+0.3.0 by D-528 (2026-10-31).* The step list
 is in `PROGRESS.md` and may change as we go.
 
 **D-169 · 2026-10-19 · Regions are grids of rooms** (the owner's idea)
@@ -185,3 +186,16 @@ to fill the height left, so tall phones have no empty space. Sideways,
 the tabs and boxes fill the width at the hero's right and the floor
 fills the height. D-520 to D-522 moved to
 `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-527 · 2026-10-31 · Eye colours as swatches** (the owner's picks,
+both recommended, of A from a mock-up; builds D-517) On the LOOK card's
+EYES tab each box shows a square of the eye colour with its name, in
+place of the small hero, whose two eye pixels were hard to see. The
+boxes, their moves and the big hero stay. Other tabs keep their heroes;
+trim gets its own look next (Q-074; changed after the owner asked).
+
+**D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
+supersedes the version part of D-237) Stage 0.2's last steps are done,
+so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
+world (D-168). New history goes in `history-0.3.js`. The next audit,
+0.2.268 (D-518, D-519), keeps its distance: 0.3.32.

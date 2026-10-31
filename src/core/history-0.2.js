@@ -1,6 +1,6 @@
 // § history 0.2: stage 0.2 (D-159), in the world of 0.3 (D-168, D-237). Newest first. Each line is the change's
 // line in CHANGELOG.md or its archive, word for word, without backticks (D-254);
-// tests/history.test.js checks every one. Plain data. New versions go at the top here; older ones are in
+// tests/history.test.js checks every one. Plain data. New versions go in history-0.3.js now (D-528); older ones are in
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
