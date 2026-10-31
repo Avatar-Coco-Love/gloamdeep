@@ -191,3 +191,11 @@ the open one in ember. Every tab's boxes show the whole hero 1× in that
 choice, named; the big hero shows the details. OK finishes from any
 tab. The arrows go up onto the tabs, the flame on a tab opens it, and
 left and right walk them.
+
+**D-522 · 2026-10-31 · The hero creator, step 3: RANDOM** (the owner's
+picks, all recommended; builds D-517, D-521) RANDOM is a button at the
+left of OK on the LOOK card, on a new hero's and on Change look. One
+press rolls all four parts at once from the free looks (every look is
+free for now), and the flame stays on RANDOM to roll again; the open
+tab stays open. With the arrows, RANDOM sits under the first two
+columns and OK under the third.

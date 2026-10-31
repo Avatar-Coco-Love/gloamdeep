@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.228, the seventh audit.** The owner asked if audits
+  help. They keep the start read near 11.5 KB, but the size test already
+  trims, and splits are outgrown; so every 40 versions now (D-518). Picked:
+  the hero slots move from `main.js` into `slots.js`; five audit records
+  archived; CHANGELOG keeps 3; ticked steps archived (D-519). Nothing visible.
 - **2026-10-31, 0.2.227, Glints and the hero creator.** The owner asked
   to talk about the look currency and to polish making a hero. Picked:
   the name Glints, paid by Feats and spent in the Look card (D-516); and

@@ -2,7 +2,7 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook } from '../core/looks.js';
 
 export function createProfileScreens(app, ui, show) {
   const { spoken } = ui;
@@ -21,11 +21,12 @@ export function createProfileScreens(app, ui, show) {
   // § look (D-517, D-521; were four cards, P3 to P6): a new profile's comes after its name, open
   // on the cloak; the cross returns to the name pad with the name kept. Look opens on the
   // profile's own look, and the cross leaves it as it was. The flame on a tab opens it; on a
-  // choice, picks it. OK from any tab makes a new profile and opens the title, or keeps a
+  // choice, picks it. RANDOM rolls all four parts and the flame stays on it (D-522). OK from any tab makes a new profile and opens the title, or keeps a
   // profile's new look.
   const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes });
   const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name).join(', ')}.`; };
-  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK.`;
+  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK. Random rolls a whole new look.`;
+  const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
     app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak';
@@ -46,9 +47,11 @@ export function createProfileScreens(app, ui, show) {
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
     if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
+    else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
   }
-  // Enter on a tab goes down to its picked choice, on a hero on to OK; a tap stays where it was
+  // Enter on a tab goes down to its picked choice, on a hero on to OK; a tap stays where it was;
+// RANDOM rolls and stays
   function pressLook(i, tapped = false) {
     const pad = LOOK_PADS[app.lookTab], k = pad[i];
     if (k.id === 'ok' && !k.tab) {
@@ -56,6 +59,7 @@ export function createProfileScreens(app, ui, show) {
       else { ui.lookSlot(app.naming, lookOf()); closeCloak(); }
       return;
     }
+    if (k.id === 'random') { app.chosen = i; Object.assign(app, rollLook(app.lookRoll)); spoken.textContent = `Rolled: ${wornWords()}.`; return; }
     moveToLook(i);
     if (tapped) return;
     if (k.tab) moveToLook(LOOK_PADS[k.id].findIndex((p) => !p.tab && p.id === app[k.id]));
