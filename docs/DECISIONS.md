@@ -183,6 +183,7 @@ first: the hero 3× on a lit floor, the profile's name over it and the
 cloak's name under it, sideways at the left of the boxes. The six boxes
 stay three to a row, shorter: each hero 1× with its name. Eyes, trim and
 clothes join the card as tabs in the next steps.
+*Partly superseded by D-523 (2026-10-31): the hero as big as fits.*
 
 **D-521 · 2026-10-31 · The hero creator, step 2: the tabs** (the
 owner's picks, all recommended; builds D-517, D-520) One LOOK card:
@@ -199,3 +200,11 @@ press rolls all four parts at once from the free looks (every look is
 free for now), and the flame stays on RANDOM to roll again; the open
 tab stays open. With the arrows, RANDOM sits under the first two
 columns and OK under the third.
+*Partly superseded by D-523 (2026-10-31): a row of big buttons.*
+
+**D-523 · 2026-10-31 · The LOOK card nearer the mock-up** (the owner's
+picks, both recommended; supersedes part of D-520 and D-522) The owner
+noticed the card had drifted from the mock-up. The big hero grows to the
+largest whole size that fits, 3× to 6×. RANDOM and OK become one row of
+two equal buttons across the card's foot, 18 tall with letters 2×.
+The tabs stay at the top and every box keeps the whole hero (D-521).

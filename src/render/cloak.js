@@ -4,23 +4,30 @@
 // framed in gold when the arrows are on it. Under them the hero big (3×) on a lit floor, the
 // profile's name over it and the open tab's choice under it (D-520); under that the tab's
 // choices three to a row, each the whole hero 1× in it with its name, the picked one framed in
-// gold; sideways the big hero sits at the left of the boxes. OK a button in the bottom right
-// corner and RANDOM at its left (D-522), ember when the arrows are on it; the round cross goes
-// back, as Back did.
+// gold; sideways the big hero sits at the left of the boxes. The hero is as big as the card has
+// room for, 3× to 6× (D-523). RANDOM and OK are one row of two big buttons across the card's foot
+// (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, tabOf } from '../core/looks.js';
-import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, TAP_PAD, isTall } from './bag.js';
+import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, BOX_H = 30, GAP = 4, ROW_GAP = 2; // a hero's framed box, the hero 1× and its name (D-520); boxes' spacing
-const STAGE_W = 64, STAGE_H = 52, BIG = 3; // the big hero's lit floor, and its zoom
+const ZOOM_MIN = 3, ZOOM_MAX = 6; // the big hero's zoom, as big as fits (D-523)
+const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor at zoom z
 const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
 const TAB_H = 11, TAB_GAP = 2, TAB_PAD = 8; // a tab's height, the space between tabs, and its width past its name
 const TABS_H = 2 + TAB_H + 3; // the tabs' row with the space over and under it
-const RANDOM_W = textWidth('RANDOM') + 8, RANDOM_GAP = 4; // RANDOM's width, and its gap from OK
-const randomAt = ({ button }) => ({ x: button.x - RANDOM_GAP - RANDOM_W, y: button.y, w: RANDOM_W, h: BUTTON.h });
+const ROW_H = 18, ROW_TEXT = 2, ROW_MAX_W = 80, ROW_SPLIT = 6, ROW_FOOT = 8; // the big buttons: height, letters' size, widest, gap between, inset from the card's foot (D-523)
+
+// § the foot row: RANDOM then OK, two equal buttons across the card's foot, centred (D-523)
+export function lookRowAt(vw, vh) {
+  const card = cardAt(vw, vh), w = Math.min(ROW_MAX_W, Math.floor((card.w - 2 * PAD - ROW_SPLIT) / 2));
+  const x = card.x + Math.floor((card.w - 2 * w - ROW_SPLIT) / 2), y = card.y + card.h - ROW_FOOT - ROW_H;
+  return { random: { x, y, w, h: ROW_H }, ok: { x: x + w + ROW_SPLIT, y, w, h: ROW_H } };
+}
 
 const ROWS = 2, COLS = 3;
 // § layout: the tabs across under the rule; the boxes' top left on a view `vw` × `vh`, and the
@@ -32,14 +39,18 @@ function tabsAt(card) {
 }
 function boxesAt(vw, vh) {
   const card = cardAt(vw, vh), w = COLS * BOX_W + (COLS - 1) * GAP, h = ROWS * BOX_H + (ROWS - 1) * ROW_GAP;
-  const top = card.y + RULE + TABS_H, room = card.button.y - 4 - top; // the card stops over OK
-  const stageH = LINE + STAGE_H + LINE, at = { card, tabs: tabsAt(card) }; // the name, the hero, the choice's name
-  if (isTall(vw, vh)) {
-    const y = top + Math.max(0, Math.floor((room - stageH - 2 - h) / 2));
-    return { ...at, x: card.x + Math.floor((card.w - w) / 2), y: y + stageH + 2, stage: { x: card.x + Math.floor((card.w - STAGE_W) / 2), y } };
+  const row = lookRowAt(vw, vh), top = card.y + RULE + TABS_H, room = row.ok.y - 4 - top; // the card stops over the buttons
+  const tall = isTall(vw, vh), at = { card, tabs: tabsAt(card), row };
+  const standH = (z) => LINE + stageH(z) + LINE; // the name, the hero, the choice's name
+  const fits = (z) => (tall ? stageW(z) <= card.w - 2 * PAD && standH(z) + 2 + h <= room : stageW(z) + 12 + w <= card.w - 2 * PAD && standH(z) <= room);
+  let z = ZOOM_MAX; while (z > ZOOM_MIN && !fits(z)) z--;
+  const sw = stageW(z), sh = standH(z);
+  if (tall) {
+    const y = top + Math.max(0, Math.floor((room - sh - 2 - h) / 2));
+    return { ...at, x: card.x + Math.floor((card.w - w) / 2), y: y + sh + 2, stage: { x: card.x + Math.floor((card.w - sw) / 2), y, z } };
   }
-  const all = STAGE_W + 12 + w, x = card.x + Math.floor((card.w - all) / 2);
-  return { ...at, x: x + STAGE_W + 12, y: top + Math.max(4, Math.floor((room - h) / 2)), stage: { x, y: top + Math.max(0, Math.floor((room - stageH) / 2)) } };
+  const all = sw + 12 + w, x = card.x + Math.floor((card.w - all) / 2);
+  return { ...at, x: x + sw + 12, y: top + Math.max(4, Math.floor((room - h) / 2)), stage: { x, y: top + Math.max(0, Math.floor((room - sh) / 2)), z } };
 }
 const boxAt = (at, k) => ({ x: at.x + k.col * (BOX_W + GAP), y: at.y + (k.row - 1) * (BOX_H + ROW_GAP) });
 const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b.y - pad && y < b.y + b.h + pad;
@@ -47,12 +58,11 @@ const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks on the look card open on `tab`:
 // { key: i } (a tab, a choice, RANDOM or OK), 'close' (the round cross), or null; outside the card, 'out'
 export function lookCardAt(x, y, vw, vh, tab = 'cloak') {
-  const pad = LOOK_PADS[tab], at = boxesAt(vw, vh), { card } = at, { button } = card;
+  const pad = LOOK_PADS[tab], at = boxesAt(vw, vh), { card, row } = at;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const i = pad.findIndex((k) => {
-    if (k.id === 'random') return within(x, y, randomAt(card), RANDOM_GAP / 2); // half the gap each
-    if (k.id === 'ok') return within(x, y, { ...button, ...BUTTON }, TAP_PAD);
+    if (k.id === 'random' || k.id === 'ok') return within(x, y, row[k.id], ROW_SPLIT / 2); // half the gap each
     if (k.tab) return within(x, y, at.tabs[k.col], TAB_GAP / 2);
     return within(x, y, { ...boxAt(at, k), w: BOX_W, h: BOX_H }, GAP / 2);
   });
@@ -91,12 +101,11 @@ const frame = (c, x, y, w, h, colour) => {
 export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '') {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   drawCard(c, vw, vh, 'LOOK', 0);
-  const at = boxesAt(vw, vh), { button } = at.card, ground = groundOf(BOX_W - 2, BOX_H - 2);
+  const at = boxesAt(vw, vh), ground = groundOf(BOX_W - 2, BOX_H - 2);
   c.imageSmoothingEnabled = false;
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
-    if (k.id === 'ok') { drawButton(c, button.x, button.y, 'OK', i !== chosen); return; }
-    if (k.id === 'random') { const r = randomAt(at.card); drawButton(c, r.x, r.y, 'RANDOM', i !== chosen, r.w); return; }
+    if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
     const { x, y } = boxAt(at, k), picked = k.id === look[tab];
     c.drawImage(ground, x + 1, y + 1);
     drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, picked);
@@ -120,13 +129,13 @@ function drawSmall(c, hero, name, x, y, picked) {
   c.drawImage(hero, x + BOX_W / 2 - 8, y + 3);
   centred(c, name, x + BOX_W / 2, y + 20, picked ? GOLD : GREY);
 }
-// The big hero 3× on its lit floor, `name` over it and the choice's name under it (D-520)
-function drawStage(c, hero, name, choice, { x, y }) {
-  if (name) centred(c, name, x + STAGE_W / 2, y, CORE);
-  const sy = y + LINE;
-  c.drawImage(groundOf(STAGE_W, STAGE_H), x, sy);
-  frame(c, x - 1, sy - 1, STAGE_W + 2, STAGE_H + 2, DIM);
-  c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(x + 20, sy + 46, 24, 4); c.fillRect(x + 23, sy + 50, 18, 2); // its shadow, 3×
-  c.drawImage(hero, x + (STAGE_W - 16 * BIG) / 2, sy + 1, 16 * BIG, 16 * BIG);
-  centred(c, choice, x + STAGE_W / 2, sy + STAGE_H + 2, GOLD);
+// The big hero z× on its lit floor, `name` over it and the choice's name under it (D-520, D-523)
+function drawStage(c, hero, name, choice, { x, y, z }) {
+  const w = stageW(z), h = stageH(z), hx = x + 8, hy = y + LINE + 1;
+  if (name) centred(c, name, x + w / 2, y, CORE);
+  c.drawImage(groundOf(w, h), x, y + LINE);
+  frame(c, x - 1, y + LINE - 1, w + 2, h + 2, DIM);
+  c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(hx + 4 * z, hy + 15 * z, 8 * z, z + 1); c.fillRect(hx + 5 * z, hy + 16 * z + 1, 6 * z, 2); // its shadow
+  c.drawImage(hero, hx, hy, 16 * z, 16 * z);
+  centred(c, choice, x + w / 2, y + LINE + h + 2, GOLD);
 }

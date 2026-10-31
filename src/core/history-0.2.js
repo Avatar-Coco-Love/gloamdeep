@@ -4,6 +4,10 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.232', date: '2026-10-31', title: 'A bigger hero, bigger buttons', lines: [
+    "The Look card looks more like the first drawing of it: your hero is much bigger, filling the top of the card, and RANDOM and OK are two big buttons side by side across the bottom.",
+    "Decisions: D-523.",
+  ] },
   { v: '0.2.231', date: '2026-10-31', title: 'Random on the Look card', lines: [
     "The Look card has a RANDOM button at the left of OK. Each press gives your hero a whole new look, its cloak, eyes, trim and clothes all at once, and with the arrows you can keep pressing it until you like what you see. It works when making a hero and in Change look.",
     "Decisions: D-522.",

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.229, the big hero.** The first step of the hero
+  creator. Picked: the Cloak card first, the hero 3× on a lit floor
+  with its name over it and the cloak's under it; the six boxes shorter,
+  each hero 1× and named; sideways the hero sits at their left (D-520).
+  Playtest: https://claude.ai/artifact/BVUiTGkevmsYfj4hZ1nZcv
 - **2026-10-31, 0.2.228, the seventh audit.** The owner asked if audits
   help. They keep the start read near 11.5 KB, but the size test already
   trims, and splits are outgrown; so every 40 versions now (D-518). Picked:

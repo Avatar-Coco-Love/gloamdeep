@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, moveLook, rollLook } from '../src/core/looks.js';
-import { lookCardAt } from '../src/render/cloak.js';
+import { lookCardAt, lookRowAt } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 import { cardAt } from '../src/render/bag.js';
 import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIMS, CLOTHES as REGISTERED_CLOTHES, get } from '../src/core/registry.js';
@@ -121,13 +121,14 @@ test('the arrows walk the look card: Up from a choice to the open tab, Down from
 });
 
 test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; outside it is out', () => {
-  const vw = 195, vh = 422, card = cardAt(vw, vh), { button, close } = card;
+  const vw = 195, vh = 422, card = cardAt(vw, vh), { close } = card, row = lookRowAt(vw, vh);
   assert.equal(lookCardAt(2, 2, vw, vh), 'out');
   assert.equal(lookCardAt(close.x, close.y, vw, vh), 'close');
-  for (const tab of ['cloak', 'clothes']) assert.deepEqual(lookCardAt(button.x + 2, button.y + 2, vw, vh, tab), { key: keyOf(tab, 'ok') });
-  for (const tab of ['cloak', 'clothes']) assert.deepEqual(lookCardAt(button.x - 8, button.y + 2, vw, vh, tab), { key: keyOf(tab, 'random') }); // RANDOM at OK's left (D-522)
-  const foot = []; for (let x = card.x; x < card.x + card.w; x++) { const k = lookCardAt(x, button.y + 2, vw, vh)?.key; if (k !== undefined && !foot.includes(k)) foot.push(k); }
-  assert.deepEqual(foot, [keyOf('cloak', 'random'), keyOf('cloak', 'ok')]); // RANDOM then OK, nothing else on that row
+  for (const tab of ['cloak', 'clothes']) for (const id of ['random', 'ok']) assert.deepEqual(lookCardAt(row[id].x + 2, row[id].y + 2, vw, vh, tab), { key: keyOf(tab, id) });
+  const foot = []; for (let x = card.x; x < card.x + card.w; x++) { const k = lookCardAt(x, row.ok.y + 9, vw, vh)?.key; if (k !== undefined) foot.push(k); }
+  assert.deepEqual([...new Set(foot)], [keyOf('cloak', 'random'), keyOf('cloak', 'ok')]); // RANDOM then OK, nothing else on that row (D-522)
+  assert.ok(foot.length > (card.w - 24) * 0.8, 'the two buttons span the card (D-523)');
+  assert.equal(row.random.w, row.ok.w);
   const tabsY = card.y + 20 + 7, hit = (x, y, tab = 'cloak') => lookCardAt(x, y, vw, vh, tab)?.key;
   const across = []; for (let x = card.x; x < card.x + card.w; x++) { const k = hit(x, tabsY); if (k !== undefined && !across.includes(k)) across.push(k); }
   assert.deepEqual(across, [0, 1, 2, 3]); // the four tabs left to right
@@ -137,12 +138,12 @@ test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; o
 test('the look card fits: the tabs, the big hero, then both rows clear of OK upright; the hero at their left sideways', () => {
   const column = (x, vw, vh, tab) => { const hits = []; for (let y = 0; y < vh; y++) { const h = lookCardAt(x, y, vw, vh, tab); if (h?.key !== undefined) hits.push([y, LOOK_PADS[tab][h.key]]); } return hits; };
   for (const [vw, vh] of [[195, 422], [176, 221]]) { // a phone upright, and the smallest upright view
-    const mid = Math.floor(vw / 2), { y, button } = cardAt(vw, vh);
+    const mid = Math.floor(vw / 2), { y } = cardAt(vw, vh), button = lookRowAt(vw, vh).ok;
     for (const tab of ['cloak', 'eyes', 'trim', 'clothes']) {
       const hits = column(mid, vw, vh, tab), tabs = hits.filter(([, k]) => k.tab), boxes = hits.filter(([, k]) => !k.tab && !['random', 'ok'].includes(k.id));
       assert.ok(tabs.length && tabs[tabs.length - 1][0] < y + 40, `${vw}x${vh} ${tab}: the tabs under the rule`);
       assert.ok(boxes[0][0] > tabs[tabs.length - 1][0] + 70, `${vw}x${vh} ${tab}: the big hero's room above the boxes`);
-      assert.ok(boxes[boxes.length - 1][0] < button.y - 2, `${vw}x${vh} ${tab}: the boxes clear of OK`);
+      assert.ok(boxes[boxes.length - 1][0] < button.y - 2, `${vw}x${vh} ${tab}: the boxes clear of the buttons`);
     }
   }
   const vw = 420, vh = 221, card = cardAt(vw, vh);
