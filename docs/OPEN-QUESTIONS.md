@@ -123,3 +123,8 @@ Half as D-432 says barely sped the light up. With the last pass faster,
 the lights' own work is a bigger share: measure again, then build Half
 and Automatic as decided, make Half do more (softer shadows, pictures
 first), or drop them. The code that was built is easy to redo.
+
+**Q-071 · Water and the garden** (raised 2026-10-31, D-499)
+The owner asks whether water matters to the garden. So far seeds just
+grow while the hero is below (D-452). It could: a pool at home, wet
+ground, water plants. Decided at the garden's step.

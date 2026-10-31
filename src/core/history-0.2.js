@@ -4,6 +4,11 @@
 // history-0.2-3.js (0.2.121 to 0.2.186), split at the sixth audit (D-493), and history-0.2-2.js
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
+  { v: '0.2.213', date: '2026-10-31', title: 'Water first', lines: [
+    "The owner's ideas for how places are made are kept: pools, rivers above and below ground, different biomes, parts of a room you reach only through another door, and later debris and cobwebs.",
+    "Water comes next, before the garden and fishing. Nothing in the game changed.",
+    "Decisions: D-499. Questions opened: Q-071.",
+  ] },
   { v: '0.2.212', date: '2026-10-30', title: 'Only a side heap frees him', lines: [
     "Clearing a corner heap of the rubble around the peddler no longer frees him: you can't reach him through a corner. He keeps cheering you on.",
     "Clear a heap straight up, down, left or right of him to free him. His 5 turns start then, so you have time to step in and talk.",
