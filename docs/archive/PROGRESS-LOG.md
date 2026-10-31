@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.2.221, a Basics page.** A friend got lost on refilling
+  the lantern and on which way to go. The owner picked a first How to
+  play tab, Basics, which it opens on: the aim, the oil, pouring, flasks,
+  oilcaps; the stairs stay a search (D-507). The guide won't be a faery
+  (D-508, Q-072). Line colours by source come next (D-509). Playtest: https://claude.ai/artifact/P2i44AezzV5VG1v9ixoKQy
 - **2026-10-31, 0.2.220, the title's screens upright.** From pictures
   drawn by the game's own code, the owner picked every recommended
   option: upright, the title's screens at play's size, the round
