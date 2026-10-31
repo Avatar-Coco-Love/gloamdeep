@@ -176,3 +176,10 @@ D-362, D-392, D-421, D-468 and D-493 move unchanged to
 entries; the build plan's ticked steps 13 and Water move to
 `archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
 follow at later audits; the next is at 0.2.268.
+
+**D-520 · 2026-10-31 · The hero creator, step 1: the big hero** (the
+owner's picks, both recommended; builds D-517) The Cloak card comes
+first: the hero 3× on a lit floor, the profile's name over it and the
+cloak's name under it, sideways at the left of the boxes. The six boxes
+stay three to a row, shorter: each hero 1× with its name. Eyes, trim and
+clothes join the card as tabs in the next steps.

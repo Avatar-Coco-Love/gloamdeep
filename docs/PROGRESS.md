@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.2.228 · **Stage:** 0.2, the last steps (36 to 41), in the
+**Version:** 0.2.229 · **Stage:** 0.2, the last steps (36 to 41), in the
 world of 0.3 (D-168, D-237)
 
 ## Next up
-The one-card hero creator (D-517), a small step at a time, starting in `src/slots.js` and the profile screens; then step 14, the garden (Q-071).
+The hero creator (D-517), step 2: eyes, trim and clothes join the Cloak card as tabs (one LOOK card), proposed to the owner first; then RANDOM, the name card's hero and dots; then step 14, the garden (Q-071).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.2.229, the big hero.** The first step of the hero
+  creator. Picked: the Cloak card first, the hero 3× on a lit floor
+  with its name over it and the cloak's under it; the six boxes shorter,
+  each hero 1× and named; sideways the hero sits at their left (D-520).
+  Playtest: https://claude.ai/artifact/BVUiTGkevmsYfj4hZ1nZcv
 - **2026-10-31, 0.2.228, the seventh audit.** The owner asked if audits
   help. They keep the start read near 11.5 KB, but the size test already
   trims, and splits are outgrown; so every 40 versions now (D-518). Picked:
@@ -53,8 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   from a mock-up of two layouts, one Look card with tabs and the hero
   big, plus RANDOM (D-517). Docs only.
   Mock-up: https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg
-- **2026-10-31, 0.2.226, cloak patterns picked.** The owner asked to
-  see cloak patterns. From a mock-up of six on the hero, the owner
-  picked zebra, cow spots and camo, each in its own colours, none free
-  until the look currency (D-515, answers Q-073). Docs only.
-  Mock-up: https://claude.ai/artifact/1HNPh6ZE2G9HTk9ua5F6GU

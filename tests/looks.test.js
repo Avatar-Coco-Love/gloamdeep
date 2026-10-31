@@ -128,8 +128,23 @@ test('a tap on a look card picks a box, OK, the cross, or nothing; outside it is
   assert.equal(lookCardAt(close.x, close.y, vw, vh), 'close');
   assert.deepEqual(lookCardAt(button.x + 2, button.y + 2, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'ok') });
   assert.deepEqual(lookCardAt(button.x + 2, button.y + 2, vw, vh, CLOTHES_PAD), { key: CLOTHES_PAD.findIndex((k) => k.id === 'ok') });
-  const mid = Math.floor(vw / 2), cy = Math.floor(vh / 2); // the middle box of the cloak card's top row sits just above the middle
-  assert.deepEqual(lookCardAt(mid, cy - 20, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'moss') });
-  assert.deepEqual(lookCardAt(mid, cy + 30, vw, vh), { key: CLOAK_PAD.findIndex((k) => k.id === 'indigo') });
-  assert.equal(lookCardAt(card.x + 14, cy, vw, vh), null); // the glass beside the boxes
+  const mid = Math.floor(vw / 2), cy = Math.floor(vh / 2); // the middle box of the eyes card's top row sits just above the middle
+  assert.deepEqual(lookCardAt(mid, cy - 20, vw, vh, EYES_PAD), { key: EYES_PAD.findIndex((k) => k.id === 'ice') });
+  assert.deepEqual(lookCardAt(mid, cy + 30, vw, vh, EYES_PAD), { key: EYES_PAD.findIndex((k) => k.id === 'silver') });
+  assert.equal(lookCardAt(card.x + 14, cy, vw, vh, EYES_PAD), null); // the glass beside the boxes
+});
+
+const SMALL = 28; // the boxes' height, less a hair
+test('the cloak card: the big hero over the boxes, upright; at their left, sideways (D-520)', () => {
+  const column = (x, vw, vh) => { const hits = []; for (let y = 0; y < vh; y++) { const h = lookCardAt(x, y, vw, vh); if (h?.key !== undefined) hits.push([y, CLOAK_PAD[h.key].id]); } return hits; };
+  for (const [vw, vh] of [[195, 422], [176, 221]]) { // a phone upright, and the smallest upright view
+    const mid = Math.floor(vw / 2), hits = column(mid, vw, vh), { button } = cardAt(vw, vh);
+    const moss = hits.find(([, id]) => id === 'moss')[0], indigo = hits.find(([, id]) => id === 'indigo')[0];
+    assert.ok(moss > cardAt(vw, vh).y + 20 + 70, `${vw}x${vh}: the big hero's room above the boxes`);
+    assert.ok(indigo > moss && indigo + SMALL < button.y, `${vw}x${vh}: both rows clear of OK`);
+    assert.deepEqual(lookCardAt(mid, moss - 30, vw, vh), null); // the big hero is not a choice
+  }
+  const vw = 420, vh = 221, mid = Math.floor(vw / 2), hits = column(mid + 20, vw, vh); // sideways: the boxes right of the middle
+  assert.ok(hits.some(([, id]) => id === 'moss') || hits.some(([, id]) => id === 'heather'));
+  assert.equal(column(cardAt(vw, vh).x + 60, vw, vh).length, 0); // the big hero at their left
 });
