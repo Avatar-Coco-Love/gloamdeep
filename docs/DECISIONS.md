@@ -204,7 +204,8 @@ archive, word for word, as this file passed 12 KB.
 
 **D-504 · 2026-10-31 · Water done for now** (the owner's pick,
 recommended; the fourth step of D-499) Water stops at the still cave
-pools and the pond at home. Rivers and streams, above and below, wait
-in `RESEARCH.md` for swimming (Q-039). The garden (step 14) is next,
+pools and the pond at home. Water comes back later (the owner's
+wish): streams, rivers above and below, oceans and more, kept in
+`RESEARCH.md`, with swimming (Q-039). The garden (step 14) is next,
 with Q-071. Also moved D-501 to the archive, word for word, as this
 file passed 12 KB.

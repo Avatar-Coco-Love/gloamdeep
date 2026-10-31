@@ -22,7 +22,7 @@ Entry format:
 ```
 
 ## 0.2.218 (2026-10-31)
-- Water is done for now: the still cave pools and the pond at home stay as they are. Rivers and streams, above and below ground, wait for swimming.
+- Water is done for now: the still cave pools and the pond at home stay as they are. Water comes back later: streams, rivers above and below ground, oceans and more.
 - The garden comes next. Nothing in the game changed.
 - Decisions: D-504.
 

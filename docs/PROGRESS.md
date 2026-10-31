@@ -46,8 +46,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 
 ## Log (last 3)
 - **2026-10-31, 0.2.218, water done for now.** The owner picked water
-  done for now: the cave pools and the pond at home stay, and rivers
-  and streams wait for swimming. The garden is next (D-504). Nothing
+  done for now: the cave pools and the pond at home stay; streams,
+  rivers, oceans and more come later. The garden is next (D-504). Nothing
   visible changed.
 - **2026-10-31, 0.2.217, the pond at home.** From a mock-up drawn by
   the game's own code, the owner picked a pond of 5 to 9 tiles at home

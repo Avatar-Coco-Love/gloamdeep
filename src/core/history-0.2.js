@@ -5,7 +5,7 @@
 // (0.2.60 to 0.2.119) and history-0.2-1.js (0.2.0 to 0.2.59), split at the third audit (D-337).
 export const HISTORY_02 = [
   { v: '0.2.218', date: '2026-10-31', title: 'Water done for now', lines: [
-    "Water is done for now: the still cave pools and the pond at home stay as they are. Rivers and streams, above and below ground, wait for swimming.",
+    "Water is done for now: the still cave pools and the pond at home stay as they are. Water comes back later: streams, rivers above and below ground, oceans and more.",
     "The garden comes next. Nothing in the game changed.",
     "Decisions: D-504.",
   ] },
