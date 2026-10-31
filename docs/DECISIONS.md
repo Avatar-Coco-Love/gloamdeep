@@ -179,3 +179,18 @@ and its fruit grows back; flowers and small plants vanish and come
 back later somewhere else in the area. Names, uses and numbers are
 asked at each one's step. D-523 to D-526 moved to
 `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-531 · 2026-10-31 · The gloamberry bush** (the owner's picks, all
+recommended but the uses; step 13b, builds D-530; mock-up:
+https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r) The first wild
+plant is look A, a low round bush with dark blue berries, the
+**Gloamberry**. One grows in each woods room, a solid tile light
+passes over. One bump picks 2 Gloamberries and leaves it bare; the
+bare bush fills again on its own tile 300 turns later, out of sight.
+Gloamberries stack to 20 and are eaten from the bag for 1 heart, as a
+heartcap is. They will also give a seed, at the garden's step, and be
+a crafting material, its recipe asked at a later step. The herb,
+oilcap and heartcap stay in the caves. To keep pages under 8 KB, the
+lights and places in `CONTENT.md` moved to `CONTENT-2.md`, and the
+creatures and people in `GLOSSARY.md` to a new `GLOSSARY-2.md`, word
+for word.

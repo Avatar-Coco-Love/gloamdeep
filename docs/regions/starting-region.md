@@ -57,5 +57,6 @@ Decided when the second region is designed (Q-037).
 - Lit rooms: none promised yet.
 
 ## Creatures and finds
-A pond at home in the woods, 5 to 9 tiles (D-503). The rest is not decided yet. Landmarks and special items are ideas for later (see
+A pond at home in the woods, 5 to 9 tiles (D-503). A gloamberry bush
+in each woods room (D-531). The rest is not decided yet. Landmarks and special items are ideas for later (see
 "Ideas for later" in `PROGRESS.md`).

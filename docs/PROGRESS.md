@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.2 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.3 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 13b, the first wild plant (D-530): one plant for the surface
-woods, a mock-up first, its name, look and use asked then, and whether
-today's herb, oilcap and heartcap come back elsewhere too.
+Step 14, the garden (D-452): a mock-up first, then where it sits at
+home, how a seed is planted and grows, and the gloamberry seed (D-531);
+water is Q-071.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -30,7 +30,7 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 13b The first wild plant (D-530)
+- [x] 13b The first wild plant, 0.3.3 (D-531)
 - [ ] 14 The garden
 - [ ] 15 Fishing
 - [ ] 16 Lore
@@ -45,6 +45,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-10-31, 0.3.3, the gloamberry bush.** Step 13b. Mock-up:
+  https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r. Picked A, a berry
+  bush: one in each woods room, a bump gives 2 Gloamberries (Eat: 1
+  heart), bare for 300 turns; seed at the garden, recipe later; the herb
+  and mushrooms stay below (D-531). Playtest:
+  https://claude.ai/artifact/6xTVHBMapxBtQucinTF5ap
 - **2026-10-31, 0.3.2, wild harvestables first.** Docs only. The owner
   asked about fruit bushes, flowers and more before the garden. Picked:
   one wild surface plant first, giving the garden its first seed; all
@@ -55,9 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   C, a bigger lantern; the owner picked B: each TRIM box a square of the
   cap shade over the base shade, with its name (D-529, closes Q-074).
   Playtest: https://claude.ai/artifact/P8y8mti2QW9XUMfsYZdSGF
-- **2026-10-31, 0.3.0, eye swatches and version 0.3.** The owner found
-  eye colours hard to see on the small heroes. Mock-up:
-  https://claude.ai/artifact/R226GLArFBCpD1xtRUVKeb. Picked A: each EYES
-  box a square of the colour with its name; eyes only for now (D-527).
-  Versions move to 0.3.x here (D-528). Playtest:
-  https://claude.ai/artifact/3gsXELb7cQxurooDoCBZ1e

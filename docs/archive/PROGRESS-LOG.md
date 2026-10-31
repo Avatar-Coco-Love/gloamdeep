@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.0, eye swatches and version 0.3.** The owner found
+  eye colours hard to see on the small heroes. Mock-up:
+  https://claude.ai/artifact/R226GLArFBCpD1xtRUVKeb. Picked A: each EYES
+  box a square of the colour with its name; eyes only for now (D-527).
+  Versions move to 0.3.x here (D-528). Playtest:
+  https://claude.ai/artifact/3gsXELb7cQxurooDoCBZ1e
 - **2026-10-31, 0.2.235, the LOOK card's full width.** Step 5. Plan
   beside A: https://claude.ai/artifact/STBQKV8iEd8Jz315skwnXR. Picked
   2: tabs and boxes across the card, the boxes' heroes 2× when they fit,

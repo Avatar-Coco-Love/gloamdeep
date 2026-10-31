@@ -57,6 +57,7 @@ export function step(state, dir) {
     if (tile.sleeps) return sleep(state); // the bed (D-488)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
+    if (tile.bump) return say(state, tile.bump); // a bare bush: its line, free (D-531)
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
   const foe = enemyAt(state, x, y);
@@ -193,7 +194,7 @@ function mine(state, x, y) {
   for (let more; taken < count && (more = bagAdd(bag, drops, form)); taken++) bag = more;
   if (!taken) return say(state, full || get(drops).full);
   const room = { ...withTile(state.room, x, y, after), chips: rest };
-  const left = spread({ ...state, room }, x, y, count - taken)
+  const left = spread({ ...state, room }, x, y, count - taken, after.solid) // never on a bare bush (D-531)
     .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
   const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n }), 'take', { id: drops });

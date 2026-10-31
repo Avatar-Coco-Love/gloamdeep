@@ -9,7 +9,7 @@
 // floor tile within `near` steps of where it stood (diagonals count), or its own
 // again, picked by the seed: off the edge, never cutting the room in two (D-313).
 // A tree comes back only on its own stump (`on`, W3, D-317), and waits while
-// that would cut the room.
+// that would cut the room; a gloamberry bush fills again on its bare bush (D-531).
 // Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
@@ -47,7 +47,7 @@ function spotNear(state, t, entry, came) {
   const { room } = state, near = entry.near ?? 0, spots = [];
   for (let y = t.y - near; y <= t.y + near; y++) for (let x = t.x - near; x <= t.x + near; x++) {
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2) continue;
-    if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came)) continue;
+    if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came, !!entry.on)) continue;
     if (joined(withTile(room, x, y, entry))) spots.push({ x, y });
   }
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
@@ -69,10 +69,10 @@ export function joined(room) {
   return seen.size === open.length;
 }
 
-// Its tile is open, nothing stands or lies on it, and it is out of sight
-function free(state, { x, y }, came) {
+// Its tile is open (or the kind's own `on` tile, a bare bush, D-531), nothing stands or lies on it, and it is out of sight
+function free(state, { x, y }, came, onOwn = false) {
   if (state.hero.x === x && state.hero.y === y) return false;
-  if (tileAt(state.room, x, y).solid) return false;
+  if (!onOwn && tileAt(state.room, x, y).solid) return false;
   const on = (list) => list.some((o) => o.x === x && o.y === y);
   if (on(state.enemies) || on(state.items) || on(state.people || [])) return false;
   return came || !litAt(state, x, y);

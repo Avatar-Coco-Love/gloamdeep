@@ -50,6 +50,7 @@ mechanic and its own step.
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
+| `gloamberry` | Eat: 1 heart; its seed and a recipe come later | 20 | never | a gloamberry bush, 2 a bump | D-530, D-531 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
@@ -73,6 +74,8 @@ mechanic and its own step.
 | `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees | D-209, D-317, D-321 |
 | `stump` | grows back into a tree | | where a tree was felled | D-317 |
 | `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods room | D-316 |
+| `berryBush` | 1 bump: 2 Gloamberries, leaves it bare | 300 | 1 in each woods room | D-531 |
+| `bareBush` | a picked bush, solid; fills again on its tile | | where a bush was picked | D-531 |
 | `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room | D-311, D-312 |
 | `vein` | with the pick in the bag, 4 bumps: 1 Copper Ore | 1800 | 1 of the 3 deposits in each Cave room from depth 3 | D-480 |
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
@@ -82,22 +85,8 @@ mechanic and its own step.
 | `water` | a still pool: solid, light passing over it; on the map in its blue-grey (D-502) | | about 1 grey-rock Cave room in 2, 5 to 9 tiles; a pond at home (D-503) | D-500, D-502, D-503 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 
-## Lights (`src/core/lights.js`)
-
-| id | What it does | Where | Decisions |
-| --- | --- | --- | --- |
-| `torch` | lights 3 tiles around, flickering | the first rooms; by the stairs up in generated rooms; on a torch stand, out after 100 turns | D-121, D-149, D-478 |
-| `unlitTorch` | lit for good by walking into its wall | the first rooms | D-121, D-122 |
-
-## Places (`src/core/room.js`)
-
-| Place | What it is | Decisions |
-| --- | --- | --- |
-| `first`, `second`, `south` | the hand-made rooms of the crypt | D-106, D-138, D-192 |
-| `woods` | the surface's generated woods rooms | D-209, D-233 |
-| generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
-
-Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
+## Lights, places
+Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531).
 
 ## People, the hero's looks, Growth upgrades
 In `CONTENT-2.md`.

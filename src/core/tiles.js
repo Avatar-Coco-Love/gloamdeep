@@ -44,6 +44,13 @@ export const TILES = {
   // tile as a stick that never grows back (`once`); with none, its `full` line, free.
   branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
     mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' } },
+  // A gloamberry bush in the woods (step 13b, D-531): solid, light passing over it. One
+  // bump picks its `n` 2 Gloamberries and `leaves` it bare, on its own tile; the bare bush
+  // fills again there (`on`) 300 turns later, out of sight. With no room, its `full` line, free.
+  berryBush: { id: 'berryBush', kind: 'tile', letter: 'G', name: 'Gloamberry bush', solid: true, blocksLight: false, regrow: DAY_TURNS, near: 0, on: 'bareBush',
+    mine: { hits: 1, chips: [], drops: 'gloamberry', n: 2, breaks: 'gloamberryTake', full: 'gloamberryFull', leaves: 'bareBush' } },
+  // A picked gloamberry bush (D-531): solid, light passing over it; a bump says its `bump` line, free.
+  bareBush: { id: 'bareBush', kind: 'tile', letter: 'H', name: 'Bare bush', solid: true, blocksLight: false, bump: 'bushBare' },
   // A workbench set down on the surface (WB2, D-322): solid like a tree, but light
   // passes over it, as over a deposit. Bumping it opens its `panel` (WB3, D-323), where
   // Deconstruct `takes` it back into the bag as the item `workbench`.
