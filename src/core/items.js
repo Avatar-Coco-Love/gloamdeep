@@ -66,6 +66,11 @@ export const ITEMS = {
   venomSac: { id: 'venomSac', kind: 'item', name: 'Venom Sac', bag: true, max: 20, says: 'venomSacTake', look: 'venomSacLook', full: 'venomSacFull', sells: 5 },
   mimicHeart: { id: 'mimicHeart', kind: 'item', name: 'Mimic Heart', bag: true, max: 20, says: 'mimicHeartTake', look: 'mimicHeartLook', full: 'mimicHeartFull', sells: 5 },
   gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull', sells: 5 },
+  // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
+  // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
+  // Its seed and its recipe come at later steps.
+  gloamberry: { id: 'gloamberry', kind: 'item', name: 'Gloamberry', bag: true, max: 20, look: 'gloamberryLook', full: 'gloamberryFull',
+    heal: 1, eats: 'gloamberryEat' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);

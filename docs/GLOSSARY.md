@@ -43,6 +43,10 @@ this page and a decision disagree, the decision wins.
   generated room; 3 make an oil flask (D-296, D-299).
 - **Heartcap:** a bright red mushroom in about half the rooms; Eat, in the
   bag, heals 1 heart (D-303, D-308); 3 make a healing potion (D-309).
+- **Gloamberry:** a dark blue berry picked from a gloamberry bush in
+  the woods, 2 a bump; Eat, in the bag, for 1 heart (D-531).
+- **Gloamberry bush:** a low round bush, one in each woods room; picked,
+  it stands **bare** and fills again 300 turns later (D-530, D-531).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
@@ -97,30 +101,9 @@ this page and a decision disagree, the decision wins.
 - **Heart Charm:** the second charm, worn beside it; worn, the oil
   burns a sixth slower (D-487).
 
-## Creatures
-- **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
-- **Gloamling:** chases, and shuns light (D-240).
-- **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
-- **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
-- **Scorpion:** drawn from above; chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370).
-- **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
-- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
-- **Next move:** what a seen creature does if the hero waits (D-349).
-- **Creature list:** the column of plaques under the glass panel, one for each
-  creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).
-  Tapping one **frames** its creature: amber corners, name and hearts (D-359).
-
-## People
-- **Peddler:** the first person, found trapped in a ring of rubble on
-  depth 3; freed by digging one heap, he stands at home in the woods,
-  and is the first vendor: bumped there, his card opens and he buys
-  creature materials and sells a flask and a torch (D-471, D-490,
-  D-491, D-492, D-494, D-495).
-- **Trade coins (coins):** earned only by selling to a vendor, 1 for a
-  common creature material, 5 for a rare one; kept on a fall, but not
-  when Hardcore starts over; spent at a vendor (D-472, D-494, D-495).
-- **Rubble:** a heap of fallen rock, solid, light passing over it; dug
-  away by hand in 3 bumps (D-490, D-491).
+## Creatures, people
+Moved to `GLOSSARY-2.md` word for word at 0.3.3 (D-531): creatures,
+colour sets, the creature list, the peddler, trade coins, rubble.
 
 ## Menus and tools
 Moved to `GLOSSARY-CODE.md` (D-490): glass panel, Journal, Bestiary,

@@ -13,6 +13,7 @@ const PAL = {
   g: '#6fb04e', G: '#3c6e3a', // moss (ART-DIRECTION.md palette)
   r: '#d8483c', R: '#8c2430', // the heartcap's bright red, light and shade (D-303)
   W: '#9a7350', N: '#6a4c36', n: '#3e2c20', // wood, light to dark, the trunk's browns (D-314)
+  h: '#2c5230', I: '#1d3620', u: '#3a4590', v: '#8a98e0', // the bush's shade greens, from the tree's crown; the gloamberry's blue, dark and light (D-531)
   H: '#6a7489', L: '#555e73', M: '#4b5468', D: '#434b5d', x: '#262a35', // grey rock's face, lit top to seam (D-311)
 };
 
@@ -184,6 +185,17 @@ const STUMPS = [
     '...kWNNnNNnnk...', '.kkWWNnNNnNnnkk.', 'kWNnkNnNNnNnkNnk', '.kk.kkkkkkkkk.kk'] },
 ];
 
+// § gloamberry bush: a low round bush in the moss greens with dark blue berries, each lit at its
+// upper left (look A of the step 13b mock-up, D-531); bare, the same bush with no berries
+const BERRY_BUSH = { mirror: false, rows: [
+  '', '', '', '......kkkk......', '....kkggggkk....', '...kgggvuGGhk...', '..kggvuGGGGhhk..', '..kgGuuGGvuGhk..',
+  '.kgGGGGGGuuGhhk.', '.kGvuGGGGGGhhhk.', '.kGuuGGhGvuhhhk.', '.khGGGhhhuuhhIk.', '..khhhhhhhhhIk..', '...kkkkkkkkkk...'] };
+const BARE_BUSH = { mirror: false, rows: BERRY_BUSH.rows.map((r) => r.replace(/v/g, 'g').replace(/u/g, 'G')) };
+// § gloamberry: three of the bush's berries on a short green stem (D-531)
+const GLOAMBERRY = { mirror: false, rows: [
+  '', '', '', '', '........kk......', '.......kgGk.....', '....kk.kGk......', '...kvuk.kk.kk...',
+  '...kuuukkkkvuk..', '....kkkvuk.kuuk.', '......kuuuk.kk..', '.......kkk......'] };
+
 // § workbench: planks on four legs, a grey vise on its top left corner and a
 // shelf between the legs, in the trunk's browns (WB1, D-320, look B of three)
 const WORKBENCH = { mirror: false, rows: [
@@ -318,7 +330,7 @@ const HEART_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwYkYkOk...',
   '...kokYyYYkOk...', '...kokkYYkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.

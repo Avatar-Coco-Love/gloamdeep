@@ -16,13 +16,15 @@ const TRIES = 200;
 const STICKS = 3;
 // § branch: how many fallen branches lie in each, as tiles (W2, D-316)
 const BRANCHES = 1;
+// § bush: how many gloamberry bushes grow in each, as tiles (D-531)
+const BUSHES = 1;
 
 // (seed, mouth) → { map, start, lights, enemies, items }. Nothing lives in the
 // woods yet (starting-region.md, "Creatures and finds"); 3 sticks lie on open
 // tiles, picked after the trees so the rest of each seed's room stays as it
 // was, each one of Wood's looks, its `form` (D-314); then one fallen branch,
 // picked after the sticks for the same reason (D-316); then a pond, from its
-// own seed (D-503). The hero starts in
+// own seed (D-503); then a gloamberry bush, from its own seed too (D-531). The hero starts in
 // the middle. `mouth` (mouth.js), when given, opens the cave mouth in its
 // edge with a rock either side, the two tiles in front of it open and
 // joined to the start (D-211).
@@ -38,6 +40,7 @@ export function generateWoods(seed, mouth = null) {
   const items = sticks(r, g, [start, ...front]);
   branches(r, g, start, [start, ...front, ...items]);
   pond(seed, g, start, front, items);
+  bush(seed, g, start, front, items);
   return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items };
 }
 
@@ -50,6 +53,21 @@ function branches(r, g, start, keep) {
   for (let placed = 0; placed < BRANCHES && open.length;) {
     const at = open.splice(Math.floor(r() * open.length), 1)[0];
     g[at.y][at.x] = 'F';
+    if (joinedFrom(g, start)) placed++;
+    else g[at.y][at.x] = '.';
+  }
+}
+
+// § bush: BUSHES gloamberry bushes ('G', D-531) on open grass off the edge, not on the start,
+// the mouth's front or a stick, each leaving every open tile joined to the start. From its own
+// seed, picked after the pond, so the rest of each seed's room stays as it was.
+function bush(seed, g, start, front, items) {
+  const r = rng(seed ^ 0x51ed27a3), keep = [start, ...front, ...items], open = [];
+  for (let y = 1; y < ROWS - 1; y++) for (let x = 1; x < COLS - 1; x++)
+    if (g[y][x] === '.' && !keep.some((t) => t.x === x && t.y === y)) open.push({ x, y });
+  for (let placed = 0; placed < BUSHES && open.length;) {
+    const at = open.splice(Math.floor(r() * open.length), 1)[0];
+    g[at.y][at.x] = 'G';
     if (joinedFrom(g, start)) placed++;
     else g[at.y][at.x] = '.';
   }

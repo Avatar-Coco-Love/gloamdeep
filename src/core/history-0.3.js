@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.3', date: '2026-10-31', title: 'The gloamberry bush', lines: [
+    "Gloamberry bushes now grow in the surface woods, one in each woods room: a low round bush with dark blue berries. Walk into one to pick 2 Gloamberries; the bush stands bare and fills again 300 turns later.",
+    "Gloamberries stack to 20 in the bag. Eat one for 1 heart, as a heartcap. Their seed comes with the garden, and a recipe later.",
+    "Decisions: D-531.",
+  ] },
   { v: '0.3.2', date: '2026-10-31', title: 'Wild harvestables first', lines: [
     "Before the garden, a first wild plant comes to the surface woods, giving the garden its first seed; fruit bushes, flowers, cave plants grown at home and water plants follow, one at a time. Docs only.",
     "Decisions: D-530.",

@@ -114,6 +114,11 @@ export const LINES = {
   gloamEyeLook: { texts: ['A gloam eye, for crafting later.', 'It still seems to watch you.', 'It blinks away from your light.'], warn: false },
   gloamEyeFull: { text: "You can't carry more gloam eyes.", warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
+  gloamberryTake: { texts: ['You pick two gloamberries.', 'Dark berries, cool to the touch.', 'The bush gives up its berries.'], warn: false }, // a full bush bumped (D-531)
+  gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)
+  gloamberryEat: { texts: ['You eat a gloamberry.', 'Sweet, and a little sour.', 'The berry bursts, dark and sweet.'], warn: false }, // eaten from the bag (D-531)
+  gloamberryLook: { texts: ['A dark blue berry from the woods.', 'It might mend a little.', 'Small, round and cool.'], warn: false },
+  bushBare: { text: 'The bush is bare. It will fill again.', warn: false }, // a picked bush bumped (D-531)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)
   branchTake: { texts: ['The branch snaps. You take wood.', 'It breaks apart. Wood for the bag.', 'Crack. You gather the wood.'], warn: false }, // the second
