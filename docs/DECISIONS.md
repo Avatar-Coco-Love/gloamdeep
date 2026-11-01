@@ -144,28 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-539 · 2026-11-01 · Bat guano** (the owner's idea; picks all
-recommended, with every use) Guano is a find of its own, built as the
-next step, apart from the bat: when a room is made, each bat gets one
-pile on an open floor tile close by, as each flask has its rat. It
-grows back, as the oilcap does (300 turns). It goes in the bag, sells
-to the peddler and is kept for the garden (step 14, its use decided
-there) and for crafts later. Its look, name and lines are asked at its
-step. D-517 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
-
-**D-540 · 2026-11-01 · Bat Guano's look, name and lines** (the owner's
-picks, all recommended; builds D-539; mock-up:
-https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV) Look A, a low mound
-of dark droppings in the bat's browns, lit on top, with a few pale
-flecks. Its name is **Bat Guano**, in stacks of 20, sold to the peddler
-for 1 coin. Its pile goes on an open floor tile next to its bat, or 2
-steps off when none is free. Its lines (Claude's, the owner may change
-them): "You scoop up the guano.", "You bag a handful of guano.", "It
-crumbles as you lift it."; looked at, "Bat guano. It smells sharp.",
-"Dry and crumbly, it reeks.", "Gardeners prize this."; full, "You
-can't carry more guano." D-534 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
 **D-541 · 2026-11-01 · The mole** (the owner's picks, all recommended;
 answers part of Q-076; builds D-365; mock-up:
 https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX) The third new kind,
@@ -209,3 +187,20 @@ snaps at you." D-537 and D-538 moved to
 **D-544 · 2026-11-01 · The snapcap's snap** (the owner's pick,
 recommended) Its bite is a soft wet squelch, then the quick snap of a
 cap closing. It is on the sound board.
+
+**D-545 · 2026-11-01 · Drop first, then bigger bags** (the owner's picks,
+all recommended; narrows D-418) Dropping things comes first, as its own
+step (D-546); bag upgrades are a later step. They come in two: a Pouch
+takes the bag from 6 slots to 9, then a Big Bag to 12, both made at the
+workbench from hides (*e.g.* Rat Tails, Mole Fur); recipes and looks are
+shown at that step.
+
+**D-546 · 2026-11-01 · Drop** (the owner's picks, all recommended) Every
+item in the bag has a Drop button, at the bottom left of the item's side
+(a row up when the card is too narrow), and X on a keyboard. It sets the
+whole chosen stack down on the hero's tile, free (no turn passes), with
+"You set it down." Stepping back onto it takes it all back, never eaten
+or held, and it never grows back; what doesn't fit stays, "Your bag is
+full." Dropped while standing on a find, the find comes into the bag in
+its place: a swap. D-539 and D-540 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, drop, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -360,6 +360,7 @@ const screens = createScreens(app, {
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
   wear: (slot) => { app.state = wear(app.state, slot); }, // armour put on, free (D-484)
+  drop: (slot) => { app.state = drop(app.state, slot); }, // a stack set down at the hero's feet, free (D-546)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)

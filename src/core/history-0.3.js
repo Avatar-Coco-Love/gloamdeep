@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.12', date: '2026-11-01', title: 'Drop', lines: [
+    "A new Drop button in the bag, for every item (or X on a keyboard), sets the chosen stack down at your feet, free, to make room. Walk back onto it to pick it all up again.",
+    "Drop while standing on something your full bag couldn't take, and the two swap: your stack goes down and the find comes into the bag.",
+    "Bigger bags come later: a Pouch for 9 slots, then a Big Bag for 12, made at the workbench.",
+    "Decisions: D-545, D-546.",
+  ] },
   { v: '0.3.11', date: '2026-11-01', title: 'The snapcap', lines: [
     "A new creature, the snapcap, now turns up from depth 2 down. It looks just like a heartcap until you stand beside it; then its eyes and teeth show.",
     "It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.",

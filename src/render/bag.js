@@ -9,7 +9,8 @@
 // one that pours, Make for one that crafts, dim with too few (D-299), or Eat
 // (Drink for a potion) for one that heals, dim at full health (D-308);
 // heartcaps both make and heal, so Make sits left of Eat (D-309). The
-// workbench has Set down, wider, at the same right end (WB2, D-322).
+// workbench has Set down, wider, at the same right end (WB2, D-322). Every
+// item has Drop at the item side's bottom left (D-546).
 import { drawText, textWidth } from './font.js';
 import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
 import { BAG_SLOTS, canCraft } from '../core/bag.js';
@@ -37,6 +38,7 @@ export const DETAIL_X = SPLIT_X + 9;
 // Make, for an item that also heals, just left of it
 export const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK'), textWidth('HOLD'), textWidth('FIT'), textWidth('WEAR')) + 8, h: 13 };
 const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
+export const DROP = 'DROP', DROP_W = textWidth(DROP) + 8; // Drop's, at the item side's bottom left, for every item (D-546)
 const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold ? 'HOLD' : entry.part ? 'FIT' : entry.wear ? 'WEAR' : null);
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
@@ -72,7 +74,9 @@ const footGap = () => (clearVersion ? Math.max(0, Math.ceil(VERSION_CLEAR / (vie
 export function cardAt(vw, vh) {
   const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP - footGap());
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
-  return { x, y, w, h, tall: isTall(vw, vh), close: crossAt(x, y, w), button: { x: bx, y: by }, make: { x: bx - 4 - BUTTON.w, y: by }, set: { x: bx + BUTTON.w - SET_W, y: by } };
+  const tall = isTall(vw, vh), make = { x: bx - 4 - BUTTON.w, y: by }, set = { x: bx + BUTTON.w - SET_W, y: by };
+  const dx = x + (tall ? PAD : DETAIL_X), cramped = dx + DROP_W + 4 > Math.min(make.x, set.x); // on a small screen, a row up
+  return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, drop: { x: dx, y: cramped ? by - BUTTON.h - 4 : by } };
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
 // `cols` wide (the stash chest's 4 × 3, D-387)
@@ -90,14 +94,16 @@ export const onCross = ({ close }, x, y) => Math.hypot(x - close.x, y - close.y)
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'act' (Pour,
 // Make, Eat, Drink, or Set down, when `wide`), 'make' (Make beside Eat, when `two`),
+// 'drop' (Drop, when `filled`: a filled slot is chosen, D-546),
 // 'close' (the round cross), or null; outside the card, 'out'
-export function bagAt(x, y, vw, vh, two = false, wide = false) {
-  const card = cardAt(vw, vh), { button, make, set } = card;
+export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false) {
+  const card = cardAt(vw, vh), { button, make, set, drop } = card;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const i = gridAt(card, x, y);
   if (i >= 0) return { slot: i };
   const foot = y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD;
+  if (filled && y >= drop.y - 2 && y < drop.y + BUTTON.h + 2 && x >= drop.x - TAP_PAD && x < drop.x + DROP_W + 2) return 'drop';
   if (foot && x >= (wide ? set.x : button.x) - (two ? 2 : TAP_PAD) && x < button.x + BUTTON.w + TAP_PAD) return 'act';
   if (two && foot && x >= make.x - TAP_PAD && x < button.x) return 'make';
   return null;
@@ -187,6 +193,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = fa
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const look = lookLine(entry, told);
   if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
+  drawButton(c, card.drop.x, card.drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (!text) return;
   const few = entry.craft && !canCraft(bag, chosen);

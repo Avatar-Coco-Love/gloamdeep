@@ -15,6 +15,7 @@
 // On oilcaps, Enter, Space or Make crafts a flask, a turn, and the bag stays open on it (D-299).
 // On heartcaps, Enter, Space or Eat eats one, a turn, and the bag stays open (D-308); C or
 // Make beside it makes a healing potion from 3, and Drink, on one, drinks it (D-309).
+// On any item, Drop or X sets its whole stack down at the hero's feet, free (D-546).
 // On the workbench, Enter, Space or Set down closes it and marks the sides it can go on;
 // an arrow, a swipe or a tap on a marked tile sets it there, a turn; Esc, P, I or a tap
 // elsewhere leave it in the bag (WB2, D-322).
@@ -115,7 +116,7 @@ const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `setDown(slot, dir)`,
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
@@ -301,6 +302,13 @@ export function createScreens(app, ui) {
   // Enter, Space or the button: pours a flask, makes one from oilcaps (D-299),
   // or eats a heartcap or drinks a potion, the bag staying open on what is left (D-308, D-309).
   // `make`: C or the Make beside Eat, which makes a potion from heartcaps (D-309)
+  // § drop: the chosen stack set down at the hero's feet, free, the bag kept open (D-546)
+  function dropChosen() {
+    if (!app.state.bag[app.chosen]) return;
+    ui.drop(app.chosen);
+    if (!app.state.bag[app.chosen]) app.chosen = Math.max(0, app.state.bag.length - 1);
+    spoken.textContent = slotWords(app.chosen);
+  }
   function useChosen(make = false) {
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
     if (make && !entry?.craft) return;
@@ -443,6 +451,7 @@ export function createScreens(app, ui) {
   // In the Explorer, R reseeds, T types a seed and B goes back (D-214); in the bag, C makes (D-309)
   const onType = (key) => {
     if (app.screen === 'bag' && key === 'c') { useChosen(true); return true; }
+    if (app.screen === 'bag' && key === 'x') { dropChosen(); return true; } // X drops (D-546)
     if (app.screen === 'explore') {
       const id = { r: 'reseed', t: 'type', b: 'back' }[key];
       if (id) pressBar(id);
@@ -608,8 +617,9 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'bag') {
       if (held) return;
-      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets));
+      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s);
       if (at === 'out' || at === 'close') show('play');
+      else if (at === 'drop') dropChosen();
       else if (at === 'act' || at === 'make') useChosen(at === 'make');
       else if (at) pickSlot(at.slot);
       return;

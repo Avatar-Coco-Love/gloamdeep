@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.11 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.12 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The next creature kind (Q-076), else step 14, the garden (D-452).
+The Pouch and the Big Bag (D-545): show recipes and looks; else the next
+creature kind (Q-076), else step 14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.12, Drop.** The owner asked to drop things and for
+  bigger bags. Picked all recommended: Drop first, a whole stack set at
+  your feet, free, "You set it down.", a swap on a find (D-546); later a
+  Pouch (9 slots) then a Big Bag (12) at the workbench (D-545). Playtest:
+  https://claude.ai/artifact/XWxaA1QkrjXiVBL1MQdu2p
 - **2026-11-01, 0.3.11, the snapcap.** The owner asked for more
   options, saw eight new kinds, and picked the snapcap: never moves,
   bites beside it, 2 hearts, from depth 2; a heartcap until you stand
@@ -60,8 +66,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX. Playtest:
   https://claude.ai/artifact/7Npqkio7kZ4ZXRmPh46jGT. Sounds:
   https://claude.ai/artifact/BG6ZtLKRcNYSCp1cquAAAG
-- **2026-11-01, 0.3.9, bat guano.** The owner picked all recommended:
-  look A (a dark mound), named Bat Guano, Claude's lines, sells for 1,
-  stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.
-  Mock-up: https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV. Playtest:
-  https://claude.ai/artifact/FQGRWMwADtGZwh46Msidsx
