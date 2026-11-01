@@ -174,6 +174,14 @@ export const LINES = {
   chestTake: { text: 'You take down the stash chest.', warn: false }, // Deconstruct chest, a turn (CH5)
   chestNotEmpty: { text: 'Empty the chest first.', warn: false }, // Deconstruct chest with anything inside, free (CH5)
   chestLook: { texts: ['A stash chest, empty.', 'Set it down on the surface.', "It keeps what the bag can't."], warn: false },
+  pouchMake: { text: 'Your bag holds 9 now.', warn: false }, // its line on the bench panel, a turn (D-547)
+  pouchFull: { text: 'Your bag already holds 9.', warn: false }, // free
+  pouchShort: { text: 'You need 4 Rat Tail and 2 Spider Silk.', warn: false }, // too few, free
+  pouchLook: { texts: ['A rat hide pouch. Your bag will hold 9.', 'Rat hide, sewn with spider silk.'], warn: false },
+  bigBagMake: { text: 'Your bag holds 12 now.', warn: false }, // after the Pouch, a turn (D-547)
+  bigBagFull: { text: 'Your bag already holds 12.', warn: false }, // free
+  bigBagShort: { text: 'You need 4 Mole Fur and 3 Spider Silk.', warn: false }, // too few, free
+  bigBagLook: { texts: ['A mole fur pack. Your bag will hold 12.', 'Mole fur, sewn with spider silk.'], warn: false },
   bedMake: { text: 'You make a bed.', warn: false }, // its line on the bench panel, a turn (D-488)
   bedFull: { text: 'You already carry a bed.', warn: false }, // only 1 is carried, free
   bedShort: { text: 'You need 4 Wood, 2 Rat Tail.', warn: false }, // too few, free

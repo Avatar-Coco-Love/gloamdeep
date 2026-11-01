@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.12 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.13 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Pouch and the Big Bag (D-545): show recipes and looks; else the next
-creature kind (Q-076), else step 14, the garden (D-452).
+The next creature kind (Q-076), else step 14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +45,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.13, the Pouch and the Big Bag.** All recommended:
+  the Pouch 4 Rat Tail, 2 Spider Silk; the Big Bag 4 Mole Fur, 3 Spider
+  Silk; looks A; grows at once, for good (D-547). Sideways, 3 rows of
+  slots didn't fit; the owner picked 3 × 3, then 4 × 3, with 26-pixel
+  slots (D-548). Mock-up: https://claude.ai/artifact/4aCZQTvAoyCAsaFCiu9jzh.
+  Playtest: https://claude.ai/artifact/7CngxjKsEPj5ymqKZR1jdN
 - **2026-11-01, 0.3.12, Drop.** The owner asked to drop things and for
   bigger bags. Picked all recommended: Drop first, a whole stack set at
   your feet, free, "You set it down.", a swap on a find (D-546); later a
@@ -59,10 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb. Playtest:
   https://claude.ai/artifact/Gk7byDKBXBdMTxKUDB8irN. Sounds:
   https://claude.ai/artifact/B4W1bSaPxXXiyQCCHfTQoz
-- **2026-11-01, 0.3.10, the mole.** Six kinds built from today's ways
-  were shown; the owner picked the mole, all recommended: chases, never
-  flees, 4 hearts, bite 1, from depth 5, Mole Fur and rare Mole Claw,
-  the mock-up's look, a snuffle and a scrape (D-541, D-542). Mock-up:
-  https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX. Playtest:
-  https://claude.ai/artifact/7Npqkio7kZ4ZXRmPh46jGT. Sounds:
-  https://claude.ai/artifact/BG6ZtLKRcNYSCp1cquAAAG

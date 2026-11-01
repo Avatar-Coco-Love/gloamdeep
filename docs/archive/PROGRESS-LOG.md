@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.10, the mole.** Six kinds built from today's ways
+  were shown; the owner picked the mole, all recommended: chases, never
+  flees, 4 hearts, bite 1, from depth 5, Mole Fur and rare Mole Claw,
+  the mock-up's look, a snuffle and a scrape (D-541, D-542). Mock-up:
+  https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX. Playtest:
+  https://claude.ai/artifact/7Npqkio7kZ4ZXRmPh46jGT. Sounds:
+  https://claude.ai/artifact/BG6ZtLKRcNYSCp1cquAAAG
 - **2026-11-01, 0.3.9, bat guano.** The owner picked all recommended:
   look A (a dark mound), named Bat Guano, Claude's lines, sells for 1,
   stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.

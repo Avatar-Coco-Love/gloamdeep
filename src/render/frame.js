@@ -37,7 +37,7 @@ import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
-import { flasksIn } from '../core/bag.js';
+import { flasksIn, bagSize } from '../core/bag.js';
 import { reach } from '../core/oil.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
@@ -302,15 +302,15 @@ export function createFrame(app, ui) {
     else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told); // a card on the room (D-385)
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, state.held, state.health >= maxHealth(state), state.told, bagSize(state)); // a card on the room (D-385)
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'bench') {
-      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
+      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag, bagSize(state)), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {
-      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still()); // a card on the room (D-387)
+      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still(), bagSize(state)); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "Your bag is full."
     }
     else if (app.screen === 'trade') {

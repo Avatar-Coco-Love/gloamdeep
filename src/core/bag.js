@@ -5,6 +5,12 @@
 import { get } from './registry.js';
 
 export const BAG_SLOTS = 6;
+// § size: the bag's slots, `state.bagSlots`, 6 until the Pouch (9) and the Big Bag (12)
+// are made at the workbench (D-545, D-547); a save from before it has 6. Its grid is
+// 3 wide, 4 wide for 12 (D-548)
+export const MAX_BAG = 12;
+export const bagSize = (state) => state.bagSlots ?? BAG_SLOTS;
+export const bagCols = (size) => (size > 9 ? 4 : 3);
 // A stack's most by kind, the registry's `max`: 20 of small finds, 5 of flasks
 // and potions, 1 workbench or stash chest (D-333)
 export const most = (id) => get(id)?.max ?? 1;

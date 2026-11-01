@@ -80,7 +80,7 @@ import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
-import { BAG_SLOTS, canCraft } from '../core/bag.js';
+import { bagSize, bagCols, canCraft } from '../core/bag.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
@@ -379,7 +379,8 @@ export function createScreens(app, ui) {
   function pickChest(i) { app.chosen = i; spoken.textContent = chestSlotWords(i); }
   // § trade card (D-494): it opens on the first thing he buys; the frame on a slot says it and its price
   function openTrade() { app.queued = null; app.tab = 'sell'; show('trade', Math.max(0, app.state.bag.findIndex((s) => priceOf(s.id)))); }
-  const tradeCount = () => (app.tab === 'buy' ? wares().length : BAG_SLOTS);
+  const tradeCount = () => (app.tab === 'buy' ? wares().length : bagSize(app.state));
+  const cols = () => bagCols(bagSize(app.state)); // the bag's grid, 3 wide, 4 for 12 (D-548)
   function pickTrade(i) {
     app.chosen = i;
     spoken.textContent = i < 0 ? `Tabs, ${app.tab === 'buy' ? 'Buy' : 'Sell'} open` : app.tab === 'buy' ? wareWords(app.state, i) : slotWords(app.state, i);
@@ -396,16 +397,16 @@ export function createScreens(app, ui) {
   }
   function moveTrade(dir) {
     if (app.chosen < 0) { if (dir === 'down') pickTrade(0); else if (dir !== 'up') turnTrade(dir === 'left' ? 'sell' : 'buy'); return; }
-    if (dir === 'up' && app.chosen < 3) { pickTrade(-1); return; } // the grid's top row: onto the tabs
-    const to = app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir];
-    pickTrade(to >= 0 && to < tradeCount() ? to : app.chosen); // a 3 × 2 grid, his wares fewer
+    if (dir === 'up' && app.chosen < cols()) { pickTrade(-1); return; } // the grid's top row: onto the tabs
+    const to = app.chosen + { left: -1, right: 1, up: -cols(), down: cols() }[dir];
+    pickTrade(to >= 0 && to < tradeCount() ? to : app.chosen); // the bag's grid, his wares fewer
   }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, ${c.have} carried`).join(' and ')}${m.dim ? ', too few' : ''}`;
-  const benchWords = () => `Workbench. ${benchMakes(app.state.bag).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
+  const benchWords = () => `Workbench. ${benchMakes(app.state.bag, bagSize(app.state)).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
   // § bench card (D-387): the frame on a slot says what is made there and its cost
   function pickBench(i) {
     app.chosen = i;
-    const m = benchMakes(app.state.bag)[i];
+    const m = benchMakes(app.state.bag, bagSize(app.state))[i];
     spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
   }
 
@@ -490,7 +491,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
     if (app.screen === 'trade') { tradeChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
-    if (app.screen === 'bench') { const m = benchMakes(app.state.bag)[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
+    if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
     else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)
@@ -521,10 +522,10 @@ export function createScreens(app, ui) {
     if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
     if (app.screen === 'cloak') { moveLookBy(dir); return; }
     if (app.screen === 'place') { setToward(dir); return; }
-    if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir)); return; }
+    if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir, bagSize(app.state))); return; }
     if (app.screen === 'trade') { moveTrade(dir); return; } // the grid, the tabs above it (D-495)
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
-    if (app.screen === 'bag') { pickSlot(Math.min(BAG_SLOTS - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -3, down: 3 }[dir]))); return; } // a 3 × 2 grid (D-385)
+    if (app.screen === 'bag') { pickSlot(Math.min(bagSize(app.state) - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -cols(), down: cols() }[dir]))); return; } // a 3 × 2 grid (D-385), bigger with the Pouch (D-548)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
     if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
@@ -571,7 +572,7 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'trade') {
       if (held) return;
-      const at = tradeAt(px, py, view.w, view.h, app.tab);
+      const at = tradeAt(px, py, view.w, view.h, app.tab, bagSize(app.state));
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'act') { if (app.chosen >= 0) tradeChosen(); }
       else if (at?.tab) turnTrade(at.tab, false);
@@ -580,7 +581,7 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'chest') {
       if (held) return;
-      const at = chestAt(px, py, view.w, view.h);
+      const at = chestAt(px, py, view.w, view.h, bagSize(app.state));
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'take') { app.chosen = CHEST_TAKE; choose(CHEST_TAKE); }
       else if (at) choose(at.slot);
@@ -617,7 +618,7 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'bag') {
       if (held) return;
-      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s);
+      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state));
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'drop') dropChosen();
       else if (at === 'act' || at === 'make') useChosen(at === 'make');

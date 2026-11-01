@@ -4,7 +4,7 @@ Moved unchanged from `docs/DECISIONS.md` at 0.2.129 (D-379), when it
 passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
-spider, at 0.3.10 (D-541).
+spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -165,3 +165,23 @@ crumbles as you lift it."; looked at, "Bat guano. It smells sharp.",
 "Dry and crumbly, it reeks.", "Gardeners prize this."; full, "You
 can't carry more guano." D-534 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-541 · 2026-11-01 · The mole** (the owner's picks, all recommended;
+answers part of Q-076; builds D-365; mock-up:
+https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX) The third new kind,
+the last but the snapcap of D-365's five, picked from six built only
+from today's ways: it chases and never flees. 4 hearts, a bite of 1, in
+the pool from depth 5 and below (D-365's warrens, as pools now run,
+D-534). Its drop is Mole Fur, about 1 in 2, sold for 1 coin, and as a
+creature of depth 3 or deeper, a rare Mole Claw, about 1 in 10, sold
+for 5 (D-453, D-494); both for crafts later. The mock-up's look, side
+on as the rat is, in the wood's browns, with pale claws and the pink
+eye and nose. The fur and the claw are Claude's drawings, the owner
+may change them. Its lines (Claude's, the owner may change them): "The
+mole grunts and digs in.", "The mole slumps and falls still." and "The
+mole claws you." D-535 and D-536 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-542 · 2026-11-01 · The mole's snuffle** (the owner's pick,
+recommended) Its bite is a short low snuffle, then one gritty scrape of
+claws in dirt. It is on the sound board.

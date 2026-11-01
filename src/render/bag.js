@@ -13,7 +13,7 @@
 // item has Drop at the item side's bottom left (D-546).
 import { drawText, textWidth } from './font.js';
 import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
-import { BAG_SLOTS, canCraft } from '../core/bag.js';
+import { BAG_SLOTS, bagCols, canCraft } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
 import { view } from './screen.js';
@@ -33,6 +33,16 @@ const GRID_W = COLS * SLOT + (COLS - 1) * SLOT_GAP;
 const HELD = 'HELD', HELD_X = PAD + textWidth(HELD) + 6;
 export const SPLIT_X = PAD + GRID_W + 12; // the line between the slots and the item, from the card's left
 export const DETAIL_X = SPLIT_X + 9;
+// § shape: a bag of `size` slots on a card (D-548): 6 a 3 × 2 grid of SLOT slots; 9 a 3 × 3
+// and 12 a 4 × 3 of SMALL ones, so three rows fit a sideways screen. Its grid's columns,
+// slot, width and height, and the line beside it (split), the words' left (detail) and,
+// upright, the line under it (tallSplit), from the card's left or top
+export const SMALL = 26;
+export function bagShape(size = BAG_SLOTS) {
+  const cols = bagCols(size), slot = size > BAG_SLOTS ? SMALL : SLOT, rows = Math.ceil(size / cols);
+  const w = cols * (slot + SLOT_GAP) - SLOT_GAP, h = rows * (slot + SLOT_GAP) - SLOT_GAP;
+  return { size, cols, slot, w, h, split: PAD + w + 12, detail: PAD + w + 21, tallSplit: GRID_Y + h + 12 };
+}
 // The button for an item: Pour, Make, Eat, Drink, Hold (a weapon, D-479), Fit (a lantern part, D-483) or Wear (armour, D-484),
 // the same size, in the bottom right corner;
 // Make, for an item that also heals, just left of it
@@ -71,21 +81,21 @@ export const setVersionGap = (on) => { clearVersion = on; };
 const footGap = () => (clearVersion ? Math.max(0, Math.ceil(VERSION_CLEAR / (view.scale || 1)) - EDGE_GAP) : 0);
 
 // § layout: the card and its parts on a view `vw` × `vh` game pixels
-export function cardAt(vw, vh) {
+export function cardAt(vw, vh, left = DETAIL_X) {
   const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP - footGap());
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
   const tall = isTall(vw, vh), make = { x: bx - 4 - BUTTON.w, y: by }, set = { x: bx + BUTTON.w - SET_W, y: by };
-  const dx = x + (tall ? PAD : DETAIL_X), cramped = dx + DROP_W + 4 > Math.min(make.x, set.x); // on a small screen, a row up
+  const dx = x + (tall ? PAD : left), cramped = dx + DROP_W + 4 > Math.min(make.x, set.x); // on a small screen, a row up
   return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, drop: { x: dx, y: cramped ? by - BUTTON.h - 4 : by } };
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
-// `cols` wide (the stash chest's 4 × 3, D-387)
-export const slotAt = (card, i, top = GRID_Y, cols = COLS, left = PAD) => ({ x: card.x + left + (i % cols) * (SLOT + SLOT_GAP), y: card.y + top + Math.floor(i / cols) * (SLOT + SLOT_GAP) });
+// `cols` wide (the stash chest's 4 × 3, D-387), its slots `size` wide (a bigger bag's, D-548)
+export const slotAt = (card, i, top = GRID_Y, cols = COLS, left = PAD, size = SLOT) => ({ x: card.x + left + (i % cols) * (size + SLOT_GAP), y: card.y + top + Math.floor(i / cols) * (size + SLOT_GAP) });
 // The grid's slot at x, y, or -1, for a grid of `count` slots
-export function gridAt(card, x, y, top = GRID_Y, cols = COLS, count = BAG_SLOTS, left = PAD) {
+export function gridAt(card, x, y, top = GRID_Y, cols = COLS, count = BAG_SLOTS, left = PAD, size = SLOT) {
   for (let i = 0; i < count; i++) {
-    const s = slotAt(card, i, top, cols, left), half = SLOT_GAP / 2;
-    if (x >= s.x - half && x < s.x + SLOT + half && y >= s.y - half && y < s.y + SLOT + half) return i;
+    const s = slotAt(card, i, top, cols, left, size), half = SLOT_GAP / 2;
+    if (x >= s.x - half && x < s.x + size + half && y >= s.y - half && y < s.y + size + half) return i;
   }
   return -1;
 }
@@ -95,12 +105,12 @@ export const onCross = ({ close }, x, y) => Math.hypot(x - close.x, y - close.y)
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, 'act' (Pour,
 // Make, Eat, Drink, or Set down, when `wide`), 'make' (Make beside Eat, when `two`),
 // 'drop' (Drop, when `filled`: a filled slot is chosen, D-546),
-// 'close' (the round cross), or null; outside the card, 'out'
-export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false) {
-  const card = cardAt(vw, vh), { button, make, set, drop } = card;
+// 'close' (the round cross), or null; outside the card, 'out'. size: the bag's slots (D-548)
+export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS) {
+  const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), { button, make, set, drop } = card;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
-  const i = gridAt(card, x, y);
+  const i = gridAt(card, x, y, GRID_Y, shape.cols, size, PAD, shape.slot);
   if (i >= 0) return { slot: i };
   const foot = y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD;
   if (filled && y >= drop.y - 2 && y < drop.y + BUTTON.h + 2 && x >= drop.x - TAP_PAD && x < drop.x + DROP_W + 2) return 'drop';
@@ -149,15 +159,16 @@ export function cross(c, cx, cy) {
   for (let i = 0; i < 5; i++) { c.fillRect(cx - 2 + i, cy - 2 + i, 1, 1); c.fillRect(cx + 2 - i, cy - 2 + i, 1, 1); }
 }
 
-export function drawSlot(c, x, y, item, chosen, spriteOf) {
-  c.fillStyle = SLOT_FILL; c.fillRect(x + 1, y + 1, SLOT - 2, SLOT - 2);
-  frame(c, x, y, SLOT, SLOT, chosen ? GOLD : LINE);
+export function drawSlot(c, x, y, item, chosen, spriteOf, size = SLOT) {
+  c.fillStyle = SLOT_FILL; c.fillRect(x + 1, y + 1, size - 2, size - 2);
+  frame(c, x, y, size, size, chosen ? GOLD : LINE);
   if (!item) return;
-  c.drawImage(spriteOf(item), x + 7, y + 7);
+  const at = Math.floor((size - 16) / 2); // the sprite in the middle, 7 in a 30 slot, 5 in a 26
+  c.drawImage(spriteOf(item), x + at, y + at);
   if (item.n > 1) {
     const n = String(item.n), nw = textWidth(n);
-    c.fillStyle = K; c.fillRect(x + SLOT - 4 - nw, y + SLOT - 11, nw + 2, 9);
-    drawText(c, n, x + SLOT - 3 - nw, y + SLOT - 10, CORE);
+    c.fillStyle = K; c.fillRect(x + size - 4 - nw, y + size - 11, nw + 2, 9);
+    drawText(c, n, x + size - 3 - nw, y + size - 10, CORE);
   }
 }
 
@@ -180,15 +191,17 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 
 // c: the room's canvas, `vw` × `vh`; bag: [{ id, n, form? }]; chosen: the slot picked;
 // spriteOf: a slot's or item's sprite (sprites.js); held: the weapon in hand's id, or
-// null; full: whether the hero is at full health; told: the state's told lines (D-297)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = false, told = {}) {
-  const card = drawCard(c, vw, vh, 'BAG'), { x, y, w } = card;
+// null; full: whether the hero is at full health; told: the state's told lines (D-297);
+// size: the bag's slots (D-548)
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = false, told = {}, size = BAG_SLOTS) {
+  const shape = bagShape(size);
+  const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   drawText(c, HELD, x + PAD, y + HELD_Y + 11, GREY);
   drawSlot(c, x + HELD_X, y + HELD_Y, held && { id: held, n: 1 }, false, spriteOf);
-  for (let i = 0; i < BAG_SLOTS; i++) { const s = slotAt(card, i); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf); }
+  for (let i = 0; i < size; i++) { const s = slotAt(card, i, GRID_Y, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
   const entry = bag[chosen] && get(bag[chosen].id);
   if (!entry) return;
-  const { dx, dy } = detailAt(card, vw, vh), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
+  const { dx, dy } = detailAt(card, vw, vh, shape.detail, HELD_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const look = lookLine(entry, told);
