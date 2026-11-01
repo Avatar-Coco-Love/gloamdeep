@@ -22,7 +22,8 @@ test('the Stone Pick is the bench\'s second slot: 2 Wood and 3 Stone, dim with t
 test('Make takes its cost for a pick, a turn; too few or one carried is free', () => {
   const s = { ...makeState(makeRoom(FIRST_ROOM)), bag: [{ id: 'wood', n: 3 }, { id: 'stone', n: 3 }] };
   const made = makeAt(s, 'pick');
-  assert.deepEqual(made.bag, [{ id: 'wood', n: 1 }, { id: 'pick', n: 1 }]);
+  assert.deepEqual(made.bag, [{ id: 'wood', n: 1 }]);
+  assert.equal(made.tool, 'pick'); // straight into the empty Tool slot (D-552)
   assert.equal(made.turn, s.turn + 1);
   assert.equal(shownLine(made).text, 'You make a stone pick.');
   const short = makeAt({ ...s, bag: [{ id: 'wood', n: 1 }] }, 'pick');
@@ -52,14 +53,15 @@ test('without the pick a vein holds, free, with its line', () => {
   assert.equal(shownLine(s).text, 'Too hard to break by hand.');
 });
 
-test('with the pick in the bag, 4 bumps break it for a Copper Ore, a turn each', () => {
-  let s = beside([{ id: 'pick', n: 1 }]);
+test('with the pick in the Tool slot, 4 bumps break it for a Copper Ore, a turn each', () => {
+  let s = { ...beside([{ id: 'pick', n: 1 }]), tool: 'pick' };
   const said = [];
   for (let i = 0; i < 4; i++) { s = step(s, 'up'); said.push(shownLine(s).text); }
   assert.equal(s.turn, 4);
   assert.deepEqual(said, ['Your pick bites the rock.', 'Chips of rock fly.', 'The vein cracks.', 'The rock gives. You take copper ore.']);
   assert.equal(tileAt(s.room, 5, 10).id, 'floor');
   assert.deepEqual(s.bag, [{ id: 'pick', n: 1 }, { id: 'copperOre', n: 1 }]);
+  assert.equal(shownLine(step(beside([{ id: 'pick', n: 1 }]), 'up')).text, 'Too hard to break by hand.'); // only in the bag, it holds (D-552)
   assert.equal(get('copperOre').max, 20);
   assert.ok(s.taken.some((t) => t.id === 'vein'));
 });

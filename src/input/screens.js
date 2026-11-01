@@ -98,6 +98,7 @@ import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { tradeAt } from '../render/tradepanel.js';
 import { tradeWords, slotWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
+import { gearWords } from '../core/gear.js';
 import { view } from '../render/screen.js';
 
 const WORDS = {
@@ -293,7 +294,7 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks, holds, fits or wears, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks, holds, fits or wears, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -314,7 +315,7 @@ export function createScreens(app, ui) {
     if (make && !entry?.craft) return;
     if (entry?.oil) { show('play'); ui.pour(app.chosen); return; }
     if (entry?.sets && !make) { startSetting(); return; }
-    if (entry?.hold && !make) { // a weapon into the hand, the one held into its slot, the bag kept open (D-479)
+    if ((entry?.hold || entry?.tool) && !make) { // a weapon into the hand or a tool into its slot, the one there into the bag slot, the bag kept open (D-479, D-552)
       ui.hold(app.chosen);
       if (app.fall) show('play'); else spoken.textContent = slotWords(app.chosen);
       return;

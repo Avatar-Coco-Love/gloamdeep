@@ -78,7 +78,7 @@ export const LINES = {
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
-  veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the bag, free (D-480)
+  veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
   veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)
   veinChip2: { text: 'Chips of rock fly.', warn: false }, // the second
   veinCrack: { text: 'The vein cracks.', warn: false }, // the third
@@ -88,7 +88,8 @@ export const LINES = {
   pickMake: { text: 'You make a stone pick.', warn: false }, // its line on the bench panel, a turn (D-480)
   pickFull: { text: 'You already carry a stone pick.', warn: false }, // only 1 is carried, free
   pickShort: { text: 'You need 2 Wood and 3 Stone.', warn: false }, // too few, free
-  pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Keep it in the bag to use it.', 'A sharp stone, lashed to a stick.'], warn: false },
+  pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Hold it to use it.', 'A sharp stone, lashed to a stick.'], warn: false }, // the second was "Keep it in the bag to use it." until D-552
+  pickHold: { text: 'You hold the stone pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-552)
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

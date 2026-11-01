@@ -44,15 +44,17 @@ export function craft(state, i) {
 // from the bag and puts one `id` in it, passing a turn, with its line (CH1, D-326).
 // With too few, its `short` line; with one already carried, its `full` line (or
 // "Your bag is full."); all free, and the bag stays as it was. A lantern part already
-// fitted, or a piece worn, counts as carried (D-483, D-484). A bag upgrade (`grows`)
+// fitted, a piece worn, or a tool in the Tool slot counts as carried (D-483, D-484, D-552);
+// a tool made with that slot empty goes straight into it. A bag upgrade (`grows`)
 // never goes in the bag: made, the bag holds its `grows.to` slots at once (D-547).
 export function makeAt(state, id) {
   const recipe = get(id)?.bench, grows = get(id)?.grows;
   if (!recipe) return state;
   if (grows) return growBag(state, id, recipe, grows);
-  if (isFitted(state, id) || isWorn(state, id)) return say(state, get(id).full);
+  if (isFitted(state, id) || isWorn(state, id) || state.tool === id) return say(state, get(id).full);
   if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
   const paid = bagPay(state.bag, recipe.of);
+  if (get(id).tool && !state.tool) return endTurn(state, say({ ...passTurn(state), bag: paid, tool: id }, recipe.says));
   const bag = bagAdd(paid, id, undefined, bagSize(state));
   if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
@@ -80,14 +82,15 @@ export function eat(state, i) {
   return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + entry.heal) });
 }
 
-// § hold: Hold on bag slot i puts its weapon in the hand, and the one held, if
-// any, in that slot; it passes a turn, like a pour, with its `holds` line (D-479).
-// A `hold` event.
+// § hold: Hold on bag slot i puts its weapon in the hand, or its tool in the Tool slot,
+// and the one there, if any, in that bag slot; it passes a turn, like a pour, with its
+// `holds` line (D-479, D-552). A `hold` event.
 export function hold(state, i) {
-  const s = state.bag[i], entry = s && get(s.id);
-  if (!entry?.hold) return state;
-  const bag = state.held ? state.bag.map((o, j) => (j === i ? { id: state.held, n: 1 } : o)) : bagTake(state.bag, i);
-  return endTurn(state, say(note(passTurn({ ...state, bag, held: s.id }), 'hold', { id: s.id }), entry.holds));
+  const s = state.bag[i], entry = s && get(s.id), key = entry?.tool ? 'tool' : entry?.hold ? 'held' : null;
+  if (!key) return state;
+  const was = state[key] ?? null;
+  const bag = was ? state.bag.map((o, j) => (j === i ? { id: was, n: 1 } : o)) : bagTake(state.bag, i);
+  return endTurn(state, say(note(passTurn({ ...state, bag, [key]: s.id }), 'hold', { id: s.id }), entry.holds));
 }
 
 // § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's

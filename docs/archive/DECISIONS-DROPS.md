@@ -91,7 +91,7 @@ the bag swaps it with the one in hand, a turn, the bag staying open.
 It looks as the step 6 mock-up drew it, a wooden shaft with a steel
 head. Its lines are drafted for the playtest.
 
-**D-480 · 2026-10-30 · The Stone Pick and copper** (the owner's picks,
+**D-480 · 2026-10-30 · The Stone Pick and copper** *Its "never held" and "with it in the bag" superseded by D-552 (2026-11-01): it works from the Tool slot.* (the owner's picks,
 all recommended; step 7 of D-473, builds D-450, D-455, D-451) The first
 pick is the Stone Pick, a second slot at the workbench: 2 Wood and 3
 Stone, dim with too few, one carried. It is never held; with it in the

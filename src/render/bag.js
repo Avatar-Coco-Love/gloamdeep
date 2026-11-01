@@ -1,11 +1,12 @@
 // § bag card: a glass card filling the room's canvas but for a thin edge, the
 // room nearly dark around it, so its buttons sit near the thumbs (D-385; was a
 // box over the room's foot, D-247). "BAG" in ember at its top left and a round
-// cross at its top right that closes it. On the left, the held slot with
-// "HELD" beside it, the weapon in hand (D-252), and the six slots in a 3 × 2
+// cross at its top right that closes it. Across its top, the gear row (D-552): Weapon,
+// Tool, Armour and two Charms, an empty one showing its kind faintly, "GEAR" after it
+// when there is room. Under it, on the left, the six slots in a 3 × 2
 // grid, each an item's sprite with its count when more than one, the chosen
 // slot framed in gold. On the right, the chosen item's name, how many are
-// carried and its Look line (D-297), and in the bottom right corner Pour for
+// carried and its Look line (D-297), from under the gear row, and in the bottom right corner Pour for
 // one that pours, Make for one that crafts, dim with too few (D-299), or Eat
 // (Drink for a potion) for one that heals, dim at full health (D-308);
 // heartcaps both make and heal, so Make sits left of Eat (D-309). The
@@ -16,6 +17,7 @@ import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
 import { BAG_SLOTS, bagCols, canCraft } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
+import { GEAR } from '../core/gear.js';
 import { view } from './screen.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
@@ -30,9 +32,12 @@ export const HELD_Y = 30; // the held slot's top, and the item's name's on the r
 export const LINE_H = 12;
 const RULE_Y = 20, GRID_Y = 70;
 const GRID_W = COLS * SLOT + (COLS - 1) * SLOT_GAP;
-const HELD = 'HELD', HELD_X = PAD + textWidth(HELD) + 6;
 export const SPLIT_X = PAD + GRID_W + 12; // the line between the slots and the item, from the card's left
 export const DETAIL_X = SPLIT_X + 9;
+// § gear row: its five slots, SMALL, from HELD_Y; GEAR_W wide, drawn PAD in from the card's
+// left, or in the middle when that leaves less than PAD on its right (upright, D-552)
+const GEAR_LABEL = 'GEAR', GEAR_W = GEAR.length * (26 + SLOT_GAP) - SLOT_GAP; // 26: SMALL, set below
+export const gearLeft = (w) => Math.min(PAD, Math.floor((w - GEAR_W) / 2));
 // § shape: a bag of `size` slots on a card (D-548): 6 a 3 × 2 grid of SLOT slots; 9 a 3 × 3
 // and 12 a 4 × 3 of SMALL ones, so three rows fit a sideways screen. Its grid's columns,
 // slot, width and height, and the line beside it (split), the words' left (detail) and,
@@ -43,13 +48,13 @@ export function bagShape(size = BAG_SLOTS) {
   const w = cols * (slot + SLOT_GAP) - SLOT_GAP, h = rows * (slot + SLOT_GAP) - SLOT_GAP;
   return { size, cols, slot, w, h, split: PAD + w + 12, detail: PAD + w + 21, tallSplit: GRID_Y + h + 12 };
 }
-// The button for an item: Pour, Make, Eat, Drink, Hold (a weapon, D-479), Fit (a lantern part, D-483) or Wear (armour, D-484),
+// The button for an item: Pour, Make, Eat, Drink, Hold (a weapon, D-479, or a tool, D-552), Fit (a lantern part, D-483) or Wear (armour, D-484),
 // the same size, in the bottom right corner;
 // Make, for an item that also heals, just left of it
 export const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK'), textWidth('HOLD'), textWidth('FIT'), textWidth('WEAR')) + 8, h: 13 };
 const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
 export const DROP = 'DROP', DROP_W = textWidth(DROP) + 8; // Drop's, at the item side's bottom left, for every item (D-546)
-const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold ? 'HOLD' : entry.part ? 'FIT' : entry.wear ? 'WEAR' : null);
+const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold || entry.tool ? 'HOLD' : entry.part ? 'FIT' : entry.wear ? 'WEAR' : null);
 // Whether an item shows Make beside its Eat
 export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
@@ -177,7 +182,8 @@ export function drawSlot(c, x, y, item, chosen, spriteOf, size = SLOT) {
 // the card's left (none for 0, Settings' one column, D-389), the cross left out when `crossed` is
 // false (the profiles at the game's start, D-397); gives cardAt's card. Upright (isTall), the
 // line goes across instead, `splitY` from the card's top (D-505), none when that is 0
-export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, splitY = TALL_SPLIT_Y) {
+// The line beside the slots starts `splitFrom` from the card's top (the bag's under its gear row)
+export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, splitY = TALL_SPLIT_Y, splitFrom = RULE_Y + 8) {
   c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
   const card = cardAt(vw, vh), { x, y, w, h, close } = card;
   drawGlass(c, x, y, w, h);
@@ -185,23 +191,22 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
   if (crossed) { round(c, close.x, close.y, close.r); cross(c, close.x, close.y); }
   c.fillStyle = LINE; drawRule(c, x, y, w, RULE_Y, crossed);
   if (split && isTall(vw, vh)) { if (splitY) c.fillRect(x + 8, y + splitY, w - 16, 1); }
-  else if (split) c.fillRect(x + split, y + RULE_Y + 8, 1, h - RULE_Y - 16);
+  else if (split) c.fillRect(x + split, y + splitFrom, 1, h - splitFrom - 8);
   return card;
 }
 
 // c: the room's canvas, `vw` × `vh`; bag: [{ id, n, form? }]; chosen: the slot picked;
-// spriteOf: a slot's or item's sprite (sprites.js); held: the weapon in hand's id, or
-// null; full: whether the hero is at full health; told: the state's told lines (D-297);
-// size: the bag's slots (D-548)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = false, told = {}, size = BAG_SLOTS) {
+// spriteOf: a slot's or item's sprite (sprites.js); gear: the gear row's ids, null for an
+// empty slot (gear.js); full: whether the hero is at full health; told: the state's told
+// lines (D-297); size: the bag's slots (D-548)
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS) {
   const shape = bagShape(size);
-  const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
-  drawText(c, HELD, x + PAD, y + HELD_Y + 11, GREY);
-  drawSlot(c, x + HELD_X, y + HELD_Y, held && { id: held, n: 1 }, false, spriteOf);
+  const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
+  drawGear(c, card, gear, spriteOf);
   for (let i = 0; i < size; i++) { const s = slotAt(card, i, GRID_Y, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
   const entry = bag[chosen] && get(bag[chosen].id);
   if (!entry) return;
-  const { dx, dy } = detailAt(card, vw, vh, shape.detail, HELD_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
+  const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const look = lookLine(entry, told);
@@ -213,6 +218,20 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, held = null, full = fa
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
   drawButton(c, card.button.x, card.button.y, text, entry.eats ? full : few);
   if (twoButtons(entry)) drawButton(c, card.make.x, card.make.y, 'MAKE', few);
+}
+
+// § gear: the row of five across the card's top; an empty slot shows its GEAR ghost faintly
+function drawGear(c, { x, y, w }, gear, spriteOf) {
+  const left = x + gearLeft(w);
+  GEAR.forEach((slot, i) => {
+    const sx = left + i * (SMALL + SLOT_GAP), id = gear[i];
+    drawSlot(c, sx, y + HELD_Y, id && { id, n: 1 }, false, spriteOf, SMALL);
+    if (id) return;
+    const at = Math.floor((SMALL - 16) / 2);
+    c.globalAlpha = 0.2; c.drawImage(spriteOf({ id: slot.ghost, n: 1 }), sx + at, y + HELD_Y + at); c.globalAlpha = 1;
+  });
+  const lx = left + GEAR_W + 8;
+  if (lx + textWidth(GEAR_LABEL) <= x + w - PAD - 20) drawText(c, GEAR_LABEL, lx, y + HELD_Y + 9, GREY);
 }
 
 // h and size: a taller button and bigger letters (the name pad's keys, D-420)
