@@ -144,26 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-535 · 2026-11-01 · The cave spider** (the owner's picks, all
-recommended but the look; answers part of Q-076) More creature kinds
-come one at a time, and each is fully in the game: its drops, lines,
-sound and pool. The first is the cave spider, from D-365's five: it
-shuns light only, so it never comes for the hero; it waits in the dark,
-backs out of light and bites only from the dark. 2 hearts, a bite of 1,
-in the pool from depth 2 and below. Its drop is Spider Silk, about 1 in
-2, sold for 1 coin, for crafts later; a depth 2 creature has no rare
-one (D-453). Seen from above, look A1 of the mock-up
-(https://claude.ai/artifact/S29P36PiMkbEeyfxBQc6vz), low and squat with
-its legs splayed flat on the ground (the owner saw look A float); one
-colour for now. The silk is a wound skein, look 1. Its lines (Claude's,
-the owner may change them): "The cave spider hisses.", "The cave spider
-falls still." and "The cave spider bites you." D-533 moved to
-`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
-
-**D-536 · 2026-11-01 · The cave spider's hiss** (the owner's pick,
-recommended) Its bite is a soft breathy hiss, then one dry click of
-fangs. It is on the sound board.
-
 **D-537 · 2026-11-01 · The bat** (the owner's picks, all recommended;
 answers part of Q-076; builds D-365) The second new kind, from D-365's
 five: it seeks light, as the lampmoth does, and once hurt it may flee,
@@ -204,3 +184,23 @@ crumbles as you lift it."; looked at, "Bat guano. It smells sharp.",
 "Dry and crumbly, it reeks.", "Gardeners prize this."; full, "You
 can't carry more guano." D-534 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-541 · 2026-11-01 · The mole** (the owner's picks, all recommended;
+answers part of Q-076; builds D-365; mock-up:
+https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX) The third new kind,
+the last but the snapcap of D-365's five, picked from six built only
+from today's ways: it chases and never flees. 4 hearts, a bite of 1, in
+the pool from depth 5 and below (D-365's warrens, as pools now run,
+D-534). Its drop is Mole Fur, about 1 in 2, sold for 1 coin, and as a
+creature of depth 3 or deeper, a rare Mole Claw, about 1 in 10, sold
+for 5 (D-453, D-494); both for crafts later. The mock-up's look, side
+on as the rat is, in the wood's browns, with pale claws and the pink
+eye and nose. The fur and the claw are Claude's drawings, the owner
+may change them. Its lines (Claude's, the owner may change them): "The
+mole grunts and digs in.", "The mole slumps and falls still." and "The
+mole claws you." D-535 and D-536 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-542 · 2026-11-01 · The mole's snuffle** (the owner's pick,
+recommended) Its bite is a short low snuffle, then one gritty scrape of
+claws in dirt. It is on the sound board.

@@ -34,6 +34,9 @@ export const ENEMIES = {
   // It seeks light, as the lampmoth does, and once hurt it may flee, as the rat does (D-365, D-537).
   // Its bite squeaks and flaps (D-538). Beaten, it may drop a Bat Wing, and now and then a Bat Fang (D-537).
   bat: { id: 'bat', kind: 'enemy', name: 'Bat', health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
+  // It chases and never flees, a tough one for the deep floors, 4 hearts (D-365, D-541). Its
+  // bite snuffles and scrapes (D-542). Beaten, it may drop Mole Fur, and now and then a Mole Claw (D-541).
+  mole: { id: 'mole', kind: 'enemy', name: 'Mole', health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -61,7 +64,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

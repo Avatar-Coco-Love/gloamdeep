@@ -34,6 +34,8 @@ const SOUNDS = [
   { label: 'Lantern hit, then a cave spider bites', play: 'later(0, () => { sound.hit(false); sound.hiss(true); })' },
   { label: 'A bat bites', play: 'later(0, () => sound.squeak(false))' },
   { label: 'Lantern hit, then a bat bites', play: 'later(0, () => { sound.hit(false); sound.squeak(true); })' },
+  { label: 'A mole bites', play: 'later(0, () => sound.snuffle(false))' },
+  { label: 'Lantern hit, then a mole bites', play: 'later(0, () => { sound.hit(false); sound.snuffle(true); })' },
 ];
 
 const out = process.argv[2];

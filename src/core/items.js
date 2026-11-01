@@ -63,6 +63,8 @@ export const ITEMS = {
   spiderSilk: { id: 'spiderSilk', kind: 'item', name: 'Spider Silk', bag: true, max: 20, says: 'spiderSilkTake', look: 'spiderSilkLook', full: 'spiderSilkFull', sells: 1 },
   // A bat's Bat Wing, taken and kept the same way (D-537).
   batWing: { id: 'batWing', kind: 'item', name: 'Bat Wing', bag: true, max: 20, says: 'batWingTake', look: 'batWingLook', full: 'batWingFull', sells: 1 },
+  // A mole's Mole Fur, taken and kept the same way (D-541).
+  moleFur: { id: 'moleFur', kind: 'item', name: 'Mole Fur', bag: true, max: 20, says: 'moleFurTake', look: 'moleFurLook', full: 'moleFurFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.
@@ -76,6 +78,8 @@ export const ITEMS = {
   gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull', sells: 5 },
   // A bat's rare Bat Fang, from depth 3 down, taken and kept the same way (D-537).
   batFang: { id: 'batFang', kind: 'item', name: 'Bat Fang', bag: true, max: 20, says: 'batFangTake', look: 'batFangLook', full: 'batFangFull', sells: 5 },
+  // A mole's rare Mole Claw, from depth 5 down, taken and kept the same way (D-541).
+  moleClaw: { id: 'moleClaw', kind: 'item', name: 'Mole Claw', bag: true, max: 20, says: 'moleClawTake', look: 'moleClawLook', full: 'moleClawFull', sells: 5 },
   // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
   // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
   // Its seed and its recipe come at later steps.

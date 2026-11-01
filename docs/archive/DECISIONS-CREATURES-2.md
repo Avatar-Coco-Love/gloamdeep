@@ -3,7 +3,8 @@
 Moved unchanged from `docs/DECISIONS.md` at 0.2.129 (D-379), when it
 passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
-D-534, mixed creatures, joined at 0.3.9 (D-540).
+D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
+spider, at 0.3.10 (D-541).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -103,3 +104,23 @@ the others are picked from the pool by the seed, and every room holds
 at least two kinds. The flask mimic stays as it was (D-366). New kinds
 and stronger creatures come later, each its own step. D-531 and D-532
 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
+
+**D-535 · 2026-11-01 · The cave spider** (the owner's picks, all
+recommended but the look; answers part of Q-076) More creature kinds
+come one at a time, and each is fully in the game: its drops, lines,
+sound and pool. The first is the cave spider, from D-365's five: it
+shuns light only, so it never comes for the hero; it waits in the dark,
+backs out of light and bites only from the dark. 2 hearts, a bite of 1,
+in the pool from depth 2 and below. Its drop is Spider Silk, about 1 in
+2, sold for 1 coin, for crafts later; a depth 2 creature has no rare
+one (D-453). Seen from above, look A1 of the mock-up
+(https://claude.ai/artifact/S29P36PiMkbEeyfxBQc6vz), low and squat with
+its legs splayed flat on the ground (the owner saw look A float); one
+colour for now. The silk is a wound skein, look 1. Its lines (Claude's,
+the owner may change them): "The cave spider hisses.", "The cave spider
+falls still." and "The cave spider bites you." D-533 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-536 · 2026-11-01 · The cave spider's hiss** (the owner's pick,
+recommended) Its bite is a soft breathy hiss, then one dry click of
+fangs. It is on the sound board.
