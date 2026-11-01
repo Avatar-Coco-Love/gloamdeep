@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.14 (2026-11-01)
+- A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.
+- It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.
+- Beaten, it may leave a Mimic Leaf, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-549, D-550.
+
 ## 0.3.13 (2026-11-01)
 - The workbench can make a Pouch, from 4 Rat Tail and 2 Spider Silk. Make it and your bag holds 9 things instead of 6, for good.
 - Once you have the Pouch, the workbench offers the Big Bag, from 4 Mole Fur and 3 Spider Silk, and your bag holds 12.
@@ -110,11 +116,3 @@ Entry format:
 ## 0.2.232 (2026-10-31)
 - The Look card looks more like the first drawing of it: your hero is much bigger, the tabs sit between your hero and the choices, and RANDOM and OK are two big buttons side by side across the bottom.
 - Decisions: D-523.
-
-## 0.2.231 (2026-10-31)
-- The Look card has a RANDOM button at the left of OK. Each press gives your hero a whole new look, its cloak, eyes, trim and clothes all at once, and with the arrows you can keep pressing it until you like what you see. It works when making a hero and in Change look.
-- Decisions: D-522.
-
-## 0.2.230 (2026-10-31)
-- Your hero's look is now one LOOK card with four tabs across its top: Cloak, Eyes, Trim and Clothes. The big hero shows everything you pick, and every choice shows your whole hero wearing it, with its name. OK finishes from any tab. With the arrows, go up onto the tabs and left or right to switch.
-- Decisions: D-521.

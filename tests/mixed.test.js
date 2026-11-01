@@ -9,11 +9,11 @@ const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const DEPTHS = [2, 3, 4, 5, 6, 8, 12];
 const kinds = (id, seed) => placeFor(id, seed).enemies.filter((e) => e.id !== 'flaskMimic');
 
-test('the pool: rat, lampmoth, cave spider and snapcap at depth 2, the scorpion and the bat from 3, the gloamling and the mole from 5, none ever leaving', () => {
+test('the pool: rat, lampmoth, cave spider and snapcap at depth 2, the scorpion, the bat and the herb mimic from 3, the gloamling and the mole from 5, none ever leaving', () => {
   assert.deepEqual(poolAt(2), ['rat', 'lampmoth', 'caveSpider', 'snapcap']); // (D-535, D-543)
-  assert.deepEqual(poolAt(3), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap']); // (D-537)
-  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap']);
-  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'gloamling', 'mole', 'snapcap']); // (D-541)
+  assert.deepEqual(poolAt(3), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap', 'herbMimic']); // (D-537, D-549)
+  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap', 'herbMimic']);
+  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'gloamling', 'mole', 'snapcap', 'herbMimic']); // (D-541)
   assert.deepEqual(poolAt(12), poolAt(5));
 });
 
@@ -42,5 +42,5 @@ test('the same seed gives the same mix, and every kind turns up deep down', () =
     assert.deepEqual(kinds(c.id, seed), kinds(c.id, seed));
     kinds(c.id, seed).forEach((e) => seen.add(e.id));
   }
-  assert.deepEqual([...seen].sort(), ['bat', 'caveSpider', 'gloamling', 'lampmoth', 'mole', 'rat', 'scorpion', 'snapcap']);
+  assert.deepEqual([...seen].sort(), ['bat', 'caveSpider', 'gloamling', 'herbMimic', 'lampmoth', 'mole', 'rat', 'scorpion', 'snapcap']);
 });

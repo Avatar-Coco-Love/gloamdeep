@@ -1,7 +1,7 @@
 // § room: a room written as a text map, one string per row, one letter per
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
-import { byLetter } from './registry.js';
+import { byLetter, get } from './registry.js';
 import { generateRoom, withMimic, withTrapped } from './cave.js';
 import { withGuano } from './guano.js';
 import { generateWoods } from './woods.js';
@@ -125,6 +125,7 @@ const POOL = [
   { id: 'gloamling', from: 5 },
   { id: 'mole', from: 5 }, // (D-541)
   { id: 'snapcap', from: 2 }, // (D-543)
+  { id: 'herbMimic', from: 3 }, // (D-549)
 ];
 export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);
 // § mixing: the rat by the flask stays a rat; each other creature is picked from
@@ -136,7 +137,7 @@ export function mixed(room, seed, depth) {
   const pool = poolAt(depth), others = pool.filter((id) => id !== 'rat'), r = rng(seed ^ 0x1f83d9ab);
   const ids = room.enemies.map((e, i) => (i === 0 ? e.id : pool[Math.floor(r() * pool.length)]));
   if (ids.length > 1 && ids.every((id) => id === 'rat')) ids[1 + Math.floor(r() * (ids.length - 1))] = others[Math.floor(r() * others.length)];
-  return { ...room, enemies: toned(seed, coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] })))) }; // a snapcap in a heartcap's tone (D-543)
+  return { ...room, enemies: toned(seed, coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i], ...(get(ids[i]).looksLike && { asleep: true }) })))) }; // a snapcap in a heartcap's tone (D-543); a herb mimic asleep (D-549)
 }
 // § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
 // a flask mimic as well as all it holds (D-366)

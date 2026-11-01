@@ -1,4 +1,4 @@
-// § drops: the other common materials (D-454, D-535, D-537, D-541, D-543), dropped, taken and kept the
+// § drops: the other common materials (D-454, D-535, D-537, D-541, D-543, D-549), dropped, taken and kept the
 // Rat Tail's way (D-475); the Rat Tail's own tests are in rattail.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -8,7 +8,7 @@ import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
 
 const room = makeRoom(FIRST_ROOM);
-const DROPS = { lampmoth: 'mothDust', scorpion: 'stinger', flaskMimic: 'mimicGlass', gloamling: 'gloamWisp', caveSpider: 'spiderSilk', bat: 'batWing', mole: 'moleFur', snapcap: 'snapcapGill' };
+const DROPS = { lampmoth: 'mothDust', scorpion: 'stinger', flaskMimic: 'mimicGlass', gloamling: 'gloamWisp', caveSpider: 'spiderSilk', bat: 'batWing', mole: 'moleFur', snapcap: 'snapcapGill', herbMimic: 'mimicLeaf' };
 const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, for crafting later.', "You can't carry more moth dust."],
   stinger: ['You pick up the stinger.', 'A stinger, for crafting later.', "You can't carry more stingers."],
   mimicGlass: ['You pick up the mimic glass.', 'Mimic glass. With 2 oilcaps, a flask.', "You can't carry more mimic glass."],
@@ -16,7 +16,8 @@ const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, for crafting
   spiderSilk: ['You pick up the spider silk.', 'Spider silk, for crafting later.', "You can't carry more spider silk."],
   batWing: ['You pick up the bat wing.', 'A bat wing, for crafting later.', "You can't carry more bat wings."],
   moleFur: ['You pick up the mole fur.', 'Mole fur, for crafting later.', "You can't carry more mole fur."],
-  snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, for crafting later.', "You can't carry more snapcap gills."] };
+  snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, for crafting later.', "You can't carry more snapcap gills."],
+  mimicLeaf: ['You pick up the mimic leaf.', 'A mimic leaf, for crafting later.', "You can't carry more mimic leaves."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.
 const beat = (id, seed, s = makeState(room)) => step({ ...s, seed, hero: { x: 5, y: 11 }, items: [],
   enemies: [{ id, x: 5, y: 10, health: 1, chasing: true }] }, 'up');

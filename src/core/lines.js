@@ -28,6 +28,11 @@ export const LINES = {
   snapcapHurt: { text: 'The snapcap squelches and snaps.', warn: false }, // it never moves (D-543)
   snapcapDie: { text: 'The snapcap splits and falls still.', warn: false },
   snapcapBite: { text: 'The snapcap snaps at you.', warn: false, kind: 'harm' },
+  herbMimicWakes: { text: 'The herb opens its eyes!', warn: false }, // (D-549)
+  herbMimicHurt: { text: 'The herb mimic rustles.', warn: false },
+  herbMimicSettles: { text: 'The herb mimic settles down.', warn: false },
+  herbMimicDie: { text: 'The herb mimic wilts and falls still.', warn: false },
+  herbMimicBite: { text: 'The herb mimic bites you.', warn: false, kind: 'harm' },
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -129,6 +134,9 @@ export const LINES = {
   snapcapGillTake: { texts: ['You pick up the snapcap gill.', 'Soft pink frills, still damp.', 'The snapcap gill goes in your bag.'], warn: false }, // (D-543)
   snapcapGillLook: { texts: ['A snapcap gill, for crafting later.', 'Pale pink, fine as paper.', 'It smells faintly sweet.'], warn: false },
   snapcapGillFull: { text: "You can't carry more snapcap gills.", warn: false },
+  mimicLeafTake: { texts: ['You pick up the mimic leaf.', 'A leaf with a pink spot, like an eye.', 'The mimic leaf goes in your bag.'], warn: false }, // (D-549)
+  mimicLeafLook: { texts: ['A mimic leaf, for crafting later.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
+  mimicLeafFull: { text: "You can't carry more mimic leaves.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

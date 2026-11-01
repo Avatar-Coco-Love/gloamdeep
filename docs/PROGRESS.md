@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.13 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.14 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The next creature kind (Q-076), else step 14, the garden (D-452).
+The bone rat, the sixth new kind (D-549, Q-076), else step 14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,7 +22,8 @@ The next creature kind (Q-076), else step 14, the garden (D-452).
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- The next creature kind (Q-076), next.
+- The bone rat's numbers, look and drop (Q-076, D-549), next.
+- The herb mimic's rare drop (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -45,6 +46,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.14, the herb mimic.** Seven kinds on today's ways
+  were shown; the owner picked the herb mimic, then the bone rat, the
+  rest recommended: asleep as a herb, wakes on a bump, chases 6 turns,
+  2 hearts, bite 1, from depth 3, Mimic Leaf, a rustle and a snap
+  (D-549, D-550). Mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT.
+  Playtest: https://claude.ai/artifact/3wSG25LpD5MwMzi2BbTXnM. Sounds:
+  https://claude.ai/artifact/DL5j2U4roVWoE2dvTYuxoa
 - **2026-11-01, 0.3.13, the Pouch and the Big Bag.** All recommended:
   the Pouch 4 Rat Tail, 2 Spider Silk; the Big Bag 4 Mole Fur, 3 Spider
   Silk; looks A; grows at once, for good (D-547). Sideways, 3 rows of
@@ -56,11 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   your feet, free, "You set it down.", a swap on a find (D-546); later a
   Pouch (9 slots) then a Big Bag (12) at the workbench (D-545). Playtest:
   https://claude.ai/artifact/XWxaA1QkrjXiVBL1MQdu2p
-- **2026-11-01, 0.3.11, the snapcap.** The owner asked for more
-  options, saw eight new kinds, and picked the snapcap: never moves,
-  bites beside it, 2 hearts, from depth 2; a heartcap until you stand
-  beside it, then eyes and teeth (look B); Snapcap Gill; a wet snap
-  (D-543, D-544). Mock-up:
-  https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb. Playtest:
-  https://claude.ai/artifact/Gk7byDKBXBdMTxKUDB8irN. Sounds:
-  https://claude.ai/artifact/B4W1bSaPxXXiyQCCHfTQoz
