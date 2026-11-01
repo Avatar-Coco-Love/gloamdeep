@@ -57,9 +57,11 @@ export const LINES = {
   knifeTake: { text: 'You take the knife.', warn: false }, // into the held slot (D-252)
   knifeBag: { text: 'The knife goes in your bag.', warn: false }, // found with a weapon held (D-479)
   knifeHold: { text: 'You hold the knife.', warn: false }, // Hold in the bag (D-479)
+  knifeAway: { text: 'You put the knife away.', warn: false }, // Take off, into the bag, free (D-554)
   spearTake: { text: 'You take the spear.', warn: false }, // into the held slot (D-479)
   spearBag: { text: 'The spear goes in your bag.', warn: false }, // found with a weapon held (D-479)
   spearHold: { text: 'You hold the spear.', warn: false }, // Hold in the bag (D-479)
+  spearAway: { text: 'You put the spear away.', warn: false }, // Take off, into the bag, free (D-554)
   flaskMake: { text: 'You make an oil flask.', warn: false }, // 3 oilcaps crafted (D-299)
   glassFlaskMake: { text: 'You make a flask from the glass.', warn: false }, // 1 mimic glass, 2 oilcaps (D-477)
   oilcapFull: { text: "You can't carry more oilcaps.", warn: false }, // every stack full, no slot free (D-250, D-296, D-333)
@@ -90,6 +92,7 @@ export const LINES = {
   pickShort: { text: 'You need 2 Wood and 3 Stone.', warn: false }, // too few, free
   pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Hold it to use it.', 'A sharp stone, lashed to a stick.'], warn: false }, // the second was "Keep it in the bag to use it." until D-552
   pickHold: { text: 'You hold the stone pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-552)
+  pickAway: { text: 'You put the stone pick away.', warn: false }, // Take off, into the bag, free (D-554)
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

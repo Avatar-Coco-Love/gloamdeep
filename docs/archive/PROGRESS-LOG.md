@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.14, the herb mimic.** Seven kinds on today's ways
+  were shown; the owner picked the herb mimic, then the bone rat, the
+  rest recommended: asleep as a herb, wakes on a bump, chases 6 turns,
+  2 hearts, bite 1, from depth 3, Mimic Leaf, a rustle and a snap
+  (D-549, D-550). Mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT.
+  Playtest: https://claude.ai/artifact/3wSG25LpD5MwMzi2BbTXnM. Sounds:
+  https://claude.ai/artifact/DL5j2U4roVWoE2dvTYuxoa
 - **2026-11-01, 0.3.13, the Pouch and the Big Bag.** All recommended:
   the Pouch 4 Rat Tail, 2 Spider Silk; the Big Bag 4 Mole Fur, 3 Spider
   Silk; looks A; grows at once, for good (D-547). Sideways, 3 rows of

@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.17 (2026-11-01)
+- Choose the Weapon or Tool slot in the bag's gear row and press Take off: the spear, knife or Stone Pick goes back into your bag, and no turn passes. With the bag full it stays put. Worn pieces show their words but can't come off.
+- On a keyboard, press Up from the bag's top row to reach the gear row; Enter takes off.
+- Decisions: D-554.
+
 ## 0.3.16 (2026-11-01)
 - The bag shows a row of five gear slots across its top: Weapon, Tool, Armour and two Charms. Empty ones show faintly what goes there, and what you wear is now always in view.
 - The Stone Pick has its own Tool slot. Choose it in the bag and press Hold to put it there (a turn); it breaks copper veins only from that slot. A pick you make goes straight into an empty Tool slot, and one already in your bag moves there by itself.
@@ -111,11 +116,3 @@ Entry format:
 - The Look card's Eyes tab now shows each eye colour as a big square of colour with its name, instead of a tiny hero whose eyes were hard to see. Your hero above still shows the eyes you pick.
 - The game moves to version 0.3: stage 0.2's last steps are all done, so the world stage now has its own numbers, starting here.
 - Decisions: D-527, D-528.
-
-## 0.2.235 (2026-10-31)
-- On the Look card, the tabs and choices now stretch across the whole card, and the heroes in the choices are twice as big when there is room. On tall phones your hero grows bigger and its lit stone floor fills the space that used to be empty.
-- Decisions: D-526.
-
-## 0.2.234 (2026-10-31)
-- The big hero on the name and Look cards now stands on the crypt's own stone floor, lit warm around it and fading into the card with no frame, and the light flickers like your lantern. With Motion set to Reduced, the light stays steady.
-- Decisions: D-525.

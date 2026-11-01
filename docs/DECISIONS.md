@@ -185,3 +185,14 @@ moving every bag stack whose kind the chest holds onto it; a Sort
 button in the bag, lining it up by kind and joining half stacks; and
 crafting at the workbench from chests standing on the surface. One
 visible change per step (D-018).
+
+**D-554 · 2026-11-01 · Take off** (the owner's picks, all recommended;
+the first step of D-553, builds D-552) A gear slot is chosen by a tap,
+framed in gold as a bag slot is, its piece's name, its slot's name and
+its Look line on the item side. The Weapon's and the Tool's show TAKE
+OFF in the bottom right corner: the piece goes back into the bag, free,
+"You put the spear away." (knife, stone pick alike), "Your bag is full."
+with no room, the slot kept chosen. A worn piece chosen shows its words
+and no button (D-484). On a keyboard, Up from the bag's top row reaches
+the gear row, Left and Right move along it, Down goes back, Enter takes
+off. With the hand empty the hero hits with the lantern, as before.

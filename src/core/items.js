@@ -18,10 +18,10 @@ export const ITEMS = {
   // while the hero has one (cave.js, stairs.js). Found with a weapon held, it
   // goes into the bag with its `bagged` line, 1 a slot; Hold there swaps it into
   // the hand with its `holds` line (D-479).
-  knife: { id: 'knife', kind: 'item', name: 'Knife', hit: 2, hold: true, says: 'knifeTake', bagged: 'knifeBag', holds: 'knifeHold' },
+  knife: { id: 'knife', kind: 'item', name: 'Knife', hit: 2, hold: true, says: 'knifeTake', bagged: 'knifeBag', holds: 'knifeHold', away: 'knifeAway' },
   // The second weapon (D-479): it hits a creature for `hit` and the one awake
   // behind it, in a line, for `through`. It lies only in depth 3's first room.
-  spear: { id: 'spear', kind: 'item', name: 'Spear', hit: 2, through: 1, hold: true, says: 'spearTake', bagged: 'spearBag', holds: 'spearHold' },
+  spear: { id: 'spear', kind: 'item', name: 'Spear', hit: 2, through: 1, hold: true, says: 'spearTake', bagged: 'spearBag', holds: 'spearHold', away: 'spearAway' },
   // Walking onto a herb hurt eats it on the spot (`eatHurt`); at full health it goes
   // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156).
   herb: { id: 'herb', kind: 'item', name: 'Healing herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS },
@@ -113,7 +113,7 @@ export const ITEMS = {
   // is carried. A `tool`: Hold, in the bag, puts it in the Tool slot, a turn, and only there does
   // a copper vein break (D-552, which supersedes D-480's "never held"). Made with that slot
   // empty, it goes straight into it.
-  pick: { id: 'pick', kind: 'item', name: 'Stone Pick', bag: true, max: 1, tool: true, holds: 'pickHold', look: 'pickLook', full: 'pickFull',
+  pick: { id: 'pick', kind: 'item', name: 'Stone Pick', bag: true, max: 1, tool: true, holds: 'pickHold', away: 'pickAway', look: 'pickLook', full: 'pickFull',
     bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
   // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
   copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },

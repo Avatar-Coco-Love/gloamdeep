@@ -19,6 +19,7 @@ import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed } from './core/profile.js';
 import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
+import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
 import { moveStack } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
@@ -361,6 +362,8 @@ const screens = createScreens(app, {
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
   wear: (slot) => { app.state = wear(app.state, slot); }, // armour put on, free (D-484)
   drop: (slot) => { app.state = drop(app.state, slot); }, // a stack set down at the hero's feet, free (D-546)
+  takeOff: (g) => { app.state = takeOff(app.state, g); }, // the weapon or the tool back into the bag, free (D-554)
+  lookGear: (g) => { app.state = lookGear(app.state, g); }, // a gear slot's Look line, free (D-554)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)

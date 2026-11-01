@@ -89,7 +89,7 @@ import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
-import { bagAt, twoButtons, setVersionGap } from '../render/bag.js';
+import { bagAt, twoButtons, setVersionGap, gearChosen } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
@@ -98,7 +98,7 @@ import { chestAt } from '../render/chestpanel.js';
 import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { tradeAt } from '../render/tradepanel.js';
 import { tradeWords, slotWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
-import { gearWords } from '../core/gear.js';
+import { gearWords, GEAR, gearRow, canTakeOff } from '../core/gear.js';
 import { view } from '../render/screen.js';
 
 const WORDS = {
@@ -294,12 +294,34 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Enter pours, makes, eats, drinks, holds, fits or wears, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
   }
   function pickSlot(i) { app.chosen = i; spoken.textContent = slotWords(i); ui.lookAt(i); } // choosing says an item's look line (D-297)
+  // § gear choice: gear slot g chosen is app.chosen -1 - g; its words and Look line, and Take
+  // off, the Weapon's or the Tool's piece back in the bag, free, the slot kept chosen (D-554)
+  const gearSlotWords = (g) => { const id = gearRow(app.state)[g]; return `${GEAR[g].name}: ${id ? get(id).name : 'empty'}${canTakeOff(app.state, g) ? '. Enter takes it off' : ''}`; };
+  function pickGear(g) { app.chosen = -1 - g; spoken.textContent = gearSlotWords(g); ui.lookGear(g); }
+  function takeOffChosen() {
+    const g = gearChosen(app.chosen);
+    if (!canTakeOff(app.state, g)) return;
+    ui.takeOff(g);
+    spoken.textContent = gearSlotWords(g);
+  }
+  // The arrows on the bag: Up from its top row onto the gear row, Left and Right along it,
+  // Down back to the bag's top row (D-554)
+  function moveBag(dir) {
+    const g = gearChosen(app.chosen), c = cols();
+    if (g >= 0) {
+      if (dir === 'down') pickSlot(Math.min(g, c - 1, bagSize(app.state) - 1));
+      else if (dir !== 'up') pickGear(Math.min(GEAR.length - 1, Math.max(0, g + (dir === 'left' ? -1 : 1))));
+      return;
+    }
+    if (dir === 'up' && app.chosen < c) { pickGear(Math.min(app.chosen, GEAR.length - 1)); return; }
+    pickSlot(Math.min(bagSize(app.state) - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -c, down: c }[dir])));
+  }
   // Enter, Space or the button: pours a flask, makes one from oilcaps (D-299),
   // or eats a heartcap or drinks a potion, the bag staying open on what is left (D-308, D-309).
   // `make`: C or the Make beside Eat, which makes a potion from heartcaps (D-309)
@@ -311,6 +333,7 @@ export function createScreens(app, ui) {
     spoken.textContent = slotWords(app.chosen);
   }
   function useChosen(make = false) {
+    if (gearChosen(app.chosen) >= 0) { if (!make) takeOffChosen(); return; }
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
     if (make && !entry?.craft) return;
     if (entry?.oil) { show('play'); ui.pour(app.chosen); return; }
@@ -526,7 +549,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir, bagSize(app.state))); return; }
     if (app.screen === 'trade') { moveTrade(dir); return; } // the grid, the tabs above it (D-495)
     if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
-    if (app.screen === 'bag') { pickSlot(Math.min(bagSize(app.state) - 1, Math.max(0, app.chosen + { left: -1, right: 1, up: -cols(), down: cols() }[dir]))); return; } // a 3 × 2 grid (D-385), bigger with the Pouch (D-548)
+    if (app.screen === 'bag') { moveBag(dir); return; } // a 3 × 2 grid (D-385), bigger with the Pouch (D-548), the gear row above it (D-554)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
     if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
@@ -619,10 +642,12 @@ export function createScreens(app, ui) {
     }
     if (app.screen === 'bag') {
       if (held) return;
-      const s = app.state.bag[app.chosen], at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state));
+      const s = app.state.bag[app.chosen], g = gearChosen(app.chosen); // a gear slot chosen: only Take off's corner (D-554)
+      const at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state), g >= 0);
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'drop') dropChosen();
       else if (at === 'act' || at === 'make') useChosen(at === 'make');
+      else if (at?.gear !== undefined) pickGear(at.gear);
       else if (at) pickSlot(at.slot);
       return;
     }

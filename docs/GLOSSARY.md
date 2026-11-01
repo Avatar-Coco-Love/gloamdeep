@@ -96,7 +96,7 @@ this page and a decision disagree, the decision wins.
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
-- **Gear, held:** what the hero holds in hand, first the knife (D-252), then the spear, which hits through to the creature behind (D-479). **Hold**, in the bag, swaps a weapon into the hand, or a tool into the Tool slot (D-552).
+- **Gear, held:** what the hero holds in hand, first the knife (D-252), then the spear, which hits through to the creature behind (D-479). **Hold**, in the bag, swaps a weapon into the hand, or a tool into the Tool slot (D-552). **Take off**, on the Weapon or Tool slot chosen in the gear row, puts it back in the bag, free (D-554).
 - **Gear slots:** the row of five across the bag's top: Weapon, Tool, Armour, Charm, Charm (D-552). A tool works only from the **Tool slot**: the Stone Pick breaks copper there.
 - **Armour, charm, lantern part:** gear to come: one armour piece and two
   charms worn, parts in the lantern's slots (D-458, D-459).
