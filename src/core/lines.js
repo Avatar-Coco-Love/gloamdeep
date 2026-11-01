@@ -22,6 +22,10 @@ export const LINES = {
   caveSpiderHurt: { text: 'The cave spider hisses.', warn: false }, // (D-535)
   caveSpiderDie: { text: 'The cave spider falls still.', warn: false }, // (D-535)
   caveSpiderBite: { text: 'The cave spider bites you.', warn: false, kind: 'harm' }, // (D-535)
+  batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
+  batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
+  batDie: { text: 'The bat flutters and falls still.', warn: false },
+  batBite: { text: 'The bat bites you.', warn: false, kind: 'harm' },
   flaskMimicWakes: { text: 'The flask opens its eyes!', warn: false }, // (D-368)
   flaskMimicHurt: { text: 'The flask mimic cracks.', warn: false }, // (D-369)
   flaskMimicSettles: { text: 'The flask mimic settles down.', warn: false }, // (D-368)
@@ -110,6 +114,9 @@ export const LINES = {
   spiderSilkTake: { texts: ['You pick up the spider silk.', 'You wind up the silk.', 'The spider silk goes in your bag.'], warn: false }, // (D-535)
   spiderSilkLook: { texts: ['Spider silk, for crafting later.', 'Fine, pale and very strong.', 'It is still a little sticky.'], warn: false },
   spiderSilkFull: { text: "You can't carry more spider silk.", warn: false },
+  batWingTake: { texts: ['You pick up the bat wing.', 'Thin leather, light as paper.', 'The bat wing goes in your bag.'], warn: false }, // (D-537)
+  batWingLook: { texts: ['A bat wing, for crafting later.', 'Thin dark leather on fine bones.', 'It folds up small.'], warn: false },
+  batWingFull: { text: "You can't carry more bat wings.", warn: false },
   venomSacTake: { texts: ['A venom sac! A rare find.', 'You lift the sac gently. It sloshes.', 'The venom sac goes in your bag.'], warn: false }, // (D-476)
   venomSacLook: { texts: ['A venom sac, for crafting later.', 'Green venom, sealed in a thin skin.', 'Best not to squeeze it.'], warn: false },
   venomSacFull: { text: "You can't carry more venom sacs.", warn: false },
@@ -119,6 +126,9 @@ export const LINES = {
   gloamEyeTake: { texts: ['A gloam eye! A rare find.', 'The eye is cold and smooth.', 'The gloam eye goes in your bag.'], warn: false },
   gloamEyeLook: { texts: ['A gloam eye, for crafting later.', 'It still seems to watch you.', 'It blinks away from your light.'], warn: false },
   gloamEyeFull: { text: "You can't carry more gloam eyes.", warn: false },
+  batFangTake: { texts: ['A bat fang! A rare find.', 'A tiny fang, needle sharp.', 'The bat fang goes in your bag.'], warn: false }, // (D-537)
+  batFangLook: { texts: ['A bat fang, for crafting later.', 'Small, white and very sharp.', 'Mind your fingers.'], warn: false },
+  batFangFull: { text: "You can't carry more bat fangs.", warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   gloamberryTake: { texts: ['You pick two gloamberries.', 'Dark berries, cool to the touch.', 'The bush gives up its berries.'], warn: false }, // a full bush bumped (D-531)
   gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)

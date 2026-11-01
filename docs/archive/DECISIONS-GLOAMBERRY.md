@@ -1,11 +1,25 @@
-# The gloamberry bush (D-531, D-532)
+# The gloamberry bush (D-530 to D-532)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.6 (D-534), when it
 would pass 12 KB: the gloamberry bush, and resting it on its shadow.
+D-530, wild harvestables first, joined at 0.3.8 (D-537).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
 ---
+
+**D-530 · 2026-10-31 · Wild harvestables first** (the owner's picks,
+two of them recommended; builds D-451, D-452; changes the order in
+D-482) Before the garden, a small step adds one wild plant to the
+surface woods, which give only Wood today *(e.g. a berry bush)*; it
+also gives the garden its first seed. In time fruit bushes, flowers,
+cave plants grown at home and water plants (Q-071) all come, each at
+its own step, not all at once. The surface comes first; each biome
+below keeps its own 2 or 3 plants (D-451). Picked, a bush stays, bare,
+and its fruit grows back; flowers and small plants vanish and come
+back later somewhere else in the area. Names, uses and numbers are
+asked at each one's step. D-523 to D-526 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
 
 **D-531 · 2026-10-31 · The gloamberry bush** (the owner's picks, all
 recommended but the uses; step 13b, builds D-530; mock-up:

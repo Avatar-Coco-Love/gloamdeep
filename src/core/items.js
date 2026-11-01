@@ -61,6 +61,8 @@ export const ITEMS = {
   gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull', sells: 1 },
   // A cave spider's Spider Silk, taken and kept the same way (D-535).
   spiderSilk: { id: 'spiderSilk', kind: 'item', name: 'Spider Silk', bag: true, max: 20, says: 'spiderSilkTake', look: 'spiderSilkLook', full: 'spiderSilkFull', sells: 1 },
+  // A bat's Bat Wing, taken and kept the same way (D-537).
+  batWing: { id: 'batWing', kind: 'item', name: 'Bat Wing', bag: true, max: 20, says: 'batWingTake', look: 'batWingLook', full: 'batWingFull', sells: 1 },
   // Each common material `sells` to the peddler for 1 trade coin, each rare one for 5 (step 13a, D-494).
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic
@@ -68,6 +70,8 @@ export const ITEMS = {
   venomSac: { id: 'venomSac', kind: 'item', name: 'Venom Sac', bag: true, max: 20, says: 'venomSacTake', look: 'venomSacLook', full: 'venomSacFull', sells: 5 },
   mimicHeart: { id: 'mimicHeart', kind: 'item', name: 'Mimic Heart', bag: true, max: 20, says: 'mimicHeartTake', look: 'mimicHeartLook', full: 'mimicHeartFull', sells: 5 },
   gloamEye: { id: 'gloamEye', kind: 'item', name: 'Gloam Eye', bag: true, max: 20, says: 'gloamEyeTake', look: 'gloamEyeLook', full: 'gloamEyeFull', sells: 5 },
+  // A bat's rare Bat Fang, from depth 3 down, taken and kept the same way (D-537).
+  batFang: { id: 'batFang', kind: 'item', name: 'Bat Fang', bag: true, max: 20, says: 'batFangTake', look: 'batFangLook', full: 'batFangFull', sells: 5 },
   // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
   // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
   // Its seed and its recipe come at later steps.
