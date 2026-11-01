@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The next creature kind (Q-076, D-535): the owner picks from the list,
-then its looks, numbers, drops and pool, one kind a step; else step 14,
-the garden (D-452).
+Bat guano (D-539), 0.3.9: a pile by each bat, growing back; its look,
+name and lines first. Then the next creature kind (Q-076), else step
+14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,7 +50,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
   recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
   bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak
-  and a flap (D-537, D-538). Mock-up:
+  and a flap (D-537, D-538). Guano, the owner's idea, is next (D-539).
+  Mock-up:
   https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia. Playtest:
   https://claude.ai/artifact/CNTdjSLwEc5vnGhP29N6JQ. Sounds:
   https://claude.ai/artifact/VjNdUfqWDZsPX5j2S4p2bd

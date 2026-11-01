@@ -121,16 +121,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-517 · 2026-10-31 · The hero creator, one card** (the owner's pick
-of A from a mock-up, with Claude's extras; builds D-514) After the
-name, a new hero gets one Look card, the same as Change look: the hero
-big on a lit floor, its name over it and the choice's name under it;
-tabs for cloak, eyes, trim and clothes, each choice drawn on the whole
-hero with its name; RANDOM beside OK, rolling free looks only; locked
-looks in the grid with a lock. The name card shows the hero too, and
-dots show the steps left. Built in small steps after the seventh
-audit, which moves to 0.2.228.
-
 **D-518 · 2026-10-31 · An audit every 40 versions** (the owner's pick,
 recommended; supersedes D-337's 20) The owner asked if audits help. The
 start-of-conversation read stays near 11.5 KB (17 KB before the first),
@@ -205,3 +195,12 @@ you." D-530 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
 **D-538 · 2026-11-01 · The bat's squeak** (the owner's pick,
 recommended) Its bite is a quick high squeak, then one soft leathery
 flap of wings. It is on the sound board.
+
+**D-539 · 2026-11-01 · Bat guano** (the owner's idea; picks all
+recommended, with every use) Guano is a find of its own, built as the
+next step, apart from the bat: when a room is made, each bat gets one
+pile on an open floor tile close by, as each flask has its rat. It
+grows back, as the oilcap does (300 turns). It goes in the bag, sells
+to the peddler and is kept for the garden (step 14, its use decided
+there) and for crafts later. Its look, name and lines are asked at its
+step. D-517 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
