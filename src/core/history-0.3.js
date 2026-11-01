@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.14', date: '2026-11-01', title: 'The herb mimic', lines: [
+    "A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.",
+    "It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.",
+    "Beaten, it may leave a Mimic Leaf, which the peddler buys for 1 coin; its recipes come later.",
+    "Decisions: D-549, D-550.",
+  ] },
   { v: '0.3.13', date: '2026-11-01', title: 'The Pouch and the Big Bag', lines: [
     "The workbench can make a Pouch, from 4 Rat Tail and 2 Spider Silk. Make it and your bag holds 9 things instead of 6, for good.",
     "Once you have the Pouch, the workbench offers the Big Bag, from 4 Mole Fur and 3 Spider Silk, and your bag holds 12.",

@@ -44,6 +44,11 @@ export const ENEMIES = {
   // hero stands beside it; then its eyes and teeth show. Its bite is a wet snap (D-544).
   // Beaten, it may drop a Snapcap Gill; a creature of depth 2, it has no rare one (D-453).
   snapcap: { id: 'snapcap', kind: 'enemy', name: 'Snapcap', health: 2, bite: 1, drops: 'snapcapGill', ways: [], shutAs: 'heartcap', tone: MUSHROOM_TONE, hurt: 'snapcapHurt', die: 'snapcapDie', bites: 'snapcapBite', sound: 'snap' },
+  // A herb with eyes and teeth (D-549): asleep it looks just like the herb it `looksLike`, as
+  // the flask mimic does (D-368); a bump, or a step to heal, wakes it with no harm, and it chases
+  // for `awakeTurns` turns. Its bite rustles, then snaps (D-550). Beaten, it may drop a Mimic Leaf;
+  // its rare one waits on the owner (Q-077).
+  herbMimic: { id: 'herbMimic', kind: 'enemy', name: 'Herb mimic', health: 2, bite: 1, drops: 'mimicLeaf', ways: ['chases'], looksLike: 'herb', awakeTurns: 6, hurt: 'herbMimicHurt', wakes: 'herbMimicWakes', settles: 'herbMimicSettles', die: 'herbMimicDie', bites: 'herbMimicBite', sound: 'rustle' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -71,7 +76,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544), the herb mimic's a rustle (D-550).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), and the snapcap's snap (D-544).
+// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), the snapcap's snap (D-544), and the herb mimic's rustle (D-550).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -63,6 +63,12 @@ const SNUFFLE = {
 const SNAP = {
   squelch: { freq: 900, sweepTo: 260, ring: 3, gain: 0.08, attack: 0.006, end: 0.09, from: 0.35 },
   shut: { from: 1400, to: 520, gain: 0.05, attack: 0.002, end: 0.035 }, click: { freq: 2600, ring: 4, gain: 0.05, attack: 0.002, end: 0.025, from: 0.8 }, shutAt: 0.06,
+};
+// A rustle: a dry leafy rustle, then the rat's snap of teeth, the herb mimic's.
+// Each varies a little, like the hit (hertz, seconds)
+const RUSTLE = {
+  leaf: { freq: 4200, sweepTo: 2800, ring: 1.2, gain: 0.05, attack: 0.004, end: 0.05, from: 0.2 }, leaves: [0, 0.04, 0.075],
+  snapAt: 0.13,
 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
@@ -206,5 +212,14 @@ export function createSound(isOn) {
     tone(t + SNAP.shutAt, { ...shut, from: shut.from * p, to: shut.to * p, gain: shut.gain * loud });
     slice(t + SNAP.shutAt, { type: 'bandpass', ...click, freq: click.freq * p, gain: click.gain * loud });
   }
-  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap };
+  // § rustle: the herb mimic's, dry leaves and a snap of teeth; `afterHit` as for teeth
+  function rustle(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { leaf } = RUSTLE, { snap } = TEETH;
+    for (const d of RUSTLE.leaves) slice(t + d, { type: 'bandpass', ...leaf, freq: leaf.freq * p, sweepTo: leaf.sweepTo * p, gain: leaf.gain * loud, from: leaf.from + d });
+    for (const d of TEETH.snaps) slice(t + RUSTLE.snapAt + d, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud, from: snap.from + d });
+  }
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle };
 }

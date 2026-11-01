@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.11, the snapcap.** The owner asked for more
+  options, saw eight new kinds, and picked the snapcap: never moves,
+  bites beside it, 2 hearts, from depth 2; a heartcap until you stand
+  beside it, then eyes and teeth (look B); Snapcap Gill; a wet snap
+  (D-543, D-544). Mock-up:
+  https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb. Playtest:
+  https://claude.ai/artifact/Gk7byDKBXBdMTxKUDB8irN. Sounds:
+  https://claude.ai/artifact/B4W1bSaPxXXiyQCCHfTQoz
 - **2026-11-01, 0.3.10, the mole.** Six kinds built from today's ways
   were shown; the owner picked the mole, all recommended: chases, never
   flees, 4 hearts, bite 1, from depth 5, Mole Fur and rare Mole Claw,

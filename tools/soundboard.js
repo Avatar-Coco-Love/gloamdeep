@@ -38,6 +38,8 @@ const SOUNDS = [
   { label: 'Lantern hit, then a mole bites', play: 'later(0, () => { sound.hit(false); sound.snuffle(true); })' },
   { label: 'A snapcap bites', play: 'later(0, () => sound.snap(false))' },
   { label: 'Lantern hit, then a snapcap bites', play: 'later(0, () => { sound.hit(false); sound.snap(true); })' },
+  { label: 'A herb mimic bites', play: 'later(0, () => sound.rustle(false))' },
+  { label: 'Lantern hit, then a herb mimic bites', play: 'later(0, () => { sound.hit(false); sound.rustle(true); })' },
 ];
 
 const out = process.argv[2];

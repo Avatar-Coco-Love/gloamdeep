@@ -4,11 +4,36 @@ Moved unchanged from `docs/DECISIONS.md` at 0.2.129 (D-379), when it
 passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
-spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547).
+spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
+snapcap, at 0.3.14 (D-549).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
 ---
+
+**D-543 · 2026-11-01 · The snapcap** (the owner's picks: the snapcap
+from a list of today's ways and new ones, over the recommended rim
+lurker; its eyes open up close over the recommended pink eyes always;
+the rest recommended; answers part of Q-076; builds D-365; mock-up:
+https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb) The fourth new kind,
+the last of D-365's five: a heartcap that bites. It has no ways, so it
+never moves or notices, and bites whoever stands beside it, lit or not.
+2 hearts, a bite of 1, in the pool from depth 2 and below (D-365's
+depths 2 to 4, as pools now run, D-534). It is drawn just as a heartcap,
+in a heartcap's tone (D-305), until the hero stands beside it, four
+ways, where it can bite; then look B shows, two pale eyes with pink
+pupils on its cap and a row of pale teeth under the rim, and it shuts
+again when they step away. Its drop is a Snapcap Gill, look 1, a fan of
+pale pink gills under a strip of red cap, about 1 in 2, sold for 1
+coin, for crafts later; as a creature of depth 2, no rare one (D-453).
+Its lines (Claude's, the owner may change them): "The snapcap squelches
+and snaps.", "The snapcap splits and falls still." and "The snapcap
+snaps at you." D-537 and D-538 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-544 · 2026-11-01 · The snapcap's snap** (the owner's pick,
+recommended) Its bite is a soft wet squelch, then the quick snap of a
+cap closing. It is on the sound board.
 
 **D-364 · 2026-10-25 · More creatures next** (the owner's pick,
 recommended) After the audit, the next content is more creatures for the

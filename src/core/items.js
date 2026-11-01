@@ -67,6 +67,8 @@ export const ITEMS = {
   moleFur: { id: 'moleFur', kind: 'item', name: 'Mole Fur', bag: true, max: 20, says: 'moleFurTake', look: 'moleFurLook', full: 'moleFurFull', sells: 1 },
   // A snapcap's Snapcap Gill, taken and kept the same way (D-543).
   snapcapGill: { id: 'snapcapGill', kind: 'item', name: 'Snapcap Gill', bag: true, max: 20, says: 'snapcapGillTake', look: 'snapcapGillLook', full: 'snapcapGillFull', sells: 1 },
+  // A herb mimic's Mimic Leaf, taken and kept the same way (D-549).
+  mimicLeaf: { id: 'mimicLeaf', kind: 'item', name: 'Mimic Leaf', bag: true, max: 20, says: 'mimicLeafTake', look: 'mimicLeafLook', full: 'mimicLeafFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.

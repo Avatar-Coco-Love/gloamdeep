@@ -144,30 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-543 · 2026-11-01 · The snapcap** (the owner's picks: the snapcap
-from a list of today's ways and new ones, over the recommended rim
-lurker; its eyes open up close over the recommended pink eyes always;
-the rest recommended; answers part of Q-076; builds D-365; mock-up:
-https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb) The fourth new kind,
-the last of D-365's five: a heartcap that bites. It has no ways, so it
-never moves or notices, and bites whoever stands beside it, lit or not.
-2 hearts, a bite of 1, in the pool from depth 2 and below (D-365's
-depths 2 to 4, as pools now run, D-534). It is drawn just as a heartcap,
-in a heartcap's tone (D-305), until the hero stands beside it, four
-ways, where it can bite; then look B shows, two pale eyes with pink
-pupils on its cap and a row of pale teeth under the rim, and it shuts
-again when they step away. Its drop is a Snapcap Gill, look 1, a fan of
-pale pink gills under a strip of red cap, about 1 in 2, sold for 1
-coin, for crafts later; as a creature of depth 2, no rare one (D-453).
-Its lines (Claude's, the owner may change them): "The snapcap squelches
-and snaps.", "The snapcap splits and falls still." and "The snapcap
-snaps at you." D-537 and D-538 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
-**D-544 · 2026-11-01 · The snapcap's snap** (the owner's pick,
-recommended) Its bite is a soft wet squelch, then the quick snap of a
-cap closing. It is on the sound board.
-
 **D-545 · 2026-11-01 · Drop first, then bigger bags** (the owner's picks,
 all recommended; narrows D-418) Dropping things comes first, as its own
 step (D-546); bag upgrades are a later step. They come in two: a Pouch
@@ -205,3 +181,24 @@ three rows of today's slots don't fit a sideways screen) The Pouch's 9 slots are
 each slot is 26 pixels, not 30, the sprites the same size; the held slot
 stays where it is. It is the same on the bag's, chest's and peddler's
 cards.
+
+**D-549 · 2026-11-01 · The herb mimic, then the bone rat** (the
+owner's picks: the herb mimic and the bone rat from seven kinds built on
+today's ways, the herb mimic first; the rest recommended; answers part of
+Q-076; mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT) The
+fifth new kind: a herb with eyes and teeth. It sleeps drawn just as a
+herb, as the flask mimic sleeps as a flask (D-368); a bump, or a hurt
+hero's step to heal, wakes it with no harm and no healing, and it chases
+for 6 turns, then settles back down. 2 hearts, a bite of 1, worth 3, in
+the pool from depth 3. Awake, pink eyes on its two side leaves and a row
+of pale teeth. Its drop is a Mimic Leaf, a leaf with a pink spot, about
+1 in 2, sold for 1 coin, for crafts later; its rare one is Q-061. Its
+lines (Claude's, the owner may change them): "The herb opens its eyes!",
+"The herb mimic rustles.", "The herb mimic settles down.", "The herb
+mimic wilts and falls still." and "The herb mimic bites you." The bone
+rat is the sixth, at its own step. D-543 and D-544 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-550 · 2026-11-01 · The herb mimic's rustle** (the owner's go, as
+recommended) Its bite is a dry leafy rustle, then the rat's snap of
+teeth. It is on the sound board.
