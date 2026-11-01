@@ -143,3 +143,25 @@ you." D-530 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
 **D-538 · 2026-11-01 · The bat's squeak** (the owner's pick,
 recommended) Its bite is a quick high squeak, then one soft leathery
 flap of wings. It is on the sound board.
+
+**D-539 · 2026-11-01 · Bat guano** (the owner's idea; picks all
+recommended, with every use) Guano is a find of its own, built as the
+next step, apart from the bat: when a room is made, each bat gets one
+pile on an open floor tile close by, as each flask has its rat. It
+grows back, as the oilcap does (300 turns). It goes in the bag, sells
+to the peddler and is kept for the garden (step 14, its use decided
+there) and for crafts later. Its look, name and lines are asked at its
+step. D-517 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-540 · 2026-11-01 · Bat Guano's look, name and lines** (the owner's
+picks, all recommended; builds D-539; mock-up:
+https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV) Look A, a low mound
+of dark droppings in the bat's browns, lit on top, with a few pale
+flecks. Its name is **Bat Guano**, in stacks of 20, sold to the peddler
+for 1 coin. Its pile goes on an open floor tile next to its bat, or 2
+steps off when none is free. Its lines (Claude's, the owner may change
+them): "You scoop up the guano.", "You bag a handful of guano.", "It
+crumbles as you lift it."; looked at, "Bat guano. It smells sharp.",
+"Dry and crumbly, it reeks.", "Gardeners prize this."; full, "You
+can't carry more guano." D-534 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

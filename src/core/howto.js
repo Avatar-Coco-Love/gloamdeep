@@ -42,6 +42,7 @@ export function howtoRows(page, settings) {
   if (page === 'bag') {
     return [
       { action: 'Make', ways: ['Pick a stack in the bag', 'then press Make'] },
+      { action: 'Drop', ways: ['Sets a stack at your feet', 'Walk on it to take it back'] },
       { action: 'Oilcap', ways: ['3 make an oil flask'] },
       { action: 'Glass', ways: ['With 2 oilcaps, a flask'] },
       { action: 'Dust', ways: ['With 1 wood, a torch'] },

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.9, bat guano.** The owner picked all recommended:
+  look A (a dark mound), named Bat Guano, Claude's lines, sells for 1,
+  stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.
+  Mock-up: https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV. Playtest:
+  https://claude.ai/artifact/FQGRWMwADtGZwh46Msidsx
 - **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
   recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
   bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak

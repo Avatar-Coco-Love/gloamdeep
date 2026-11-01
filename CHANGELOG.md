@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.12 (2026-11-01)
+- A new Drop button in the bag, for every item (or X on a keyboard), sets the chosen stack down at your feet, free, to make room. Walk back onto it to pick it all up again.
+- Drop while standing on something your full bag couldn't take, and the two swap: your stack goes down and the find comes into the bag.
+- Bigger bags come later: a Pouch for 9 slots, then a Big Bag for 12, made at the workbench.
+- Decisions: D-545, D-546.
+
 ## 0.3.11 (2026-11-01)
 - A new creature, the snapcap, now turns up from depth 2 down. It looks just like a heartcap until you stand beside it; then its eyes and teeth show.
 - It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.
@@ -110,8 +116,3 @@ Entry format:
 ## 0.2.229 (2026-10-31)
 - The first step of the new hero creator: the Cloak card shows your hero big on a lit floor, its name over it and the cloak's name under it. The six cloaks below are smaller, each hero at its real size with its name. On a wide screen the big hero stands at the left of them.
 - Decisions: D-520.
-
-## 0.2.228 (2026-10-31)
-- Behind the scenes: the seventh tidy-up, nothing in the game changed. The code that picks, makes, renames and deletes a profile has its own file now, ready for the new hero creator.
-- Behind the scenes: tidy-ups now come every 40 versions instead of 20, as the size checks already keep the notes small in between.
-- Decisions: D-518, D-519.

@@ -82,6 +82,7 @@ export function step(state, dir) {
 function pickUp(state, found) {
   const entry = get(found.id), id = found.id;
   if (entry.fetch) return fetchBag(state, found);
+  if (found.dropped) return takeBack(state, found);
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
   if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.eats), 'eat', { id });
@@ -96,6 +97,29 @@ function pickUp(state, found) {
     return entry.eatHurt ? say(state, 'bagFull') : state; // a herb says so (D-511)
   }
   return state;
+}
+
+// § take back: a stack the hero dropped goes back in whole, silent, never eaten
+// or held, and never grows back; what doesn't fit stays, "Your bag is full." (D-546)
+function takeBack(state, found) {
+  let bag = state.bag, n = 0;
+  for (let b; n < found.n && (b = bagAdd(bag, found.id, found.form)); n++) bag = b;
+  if (!n) return say(state, 'bagFull');
+  const items = state.items.filter((it) => it !== found), left = n < found.n ? [{ ...found, n: found.n - n }] : [];
+  const next = note({ ...state, bag, items: [...items, ...left] }, 'take', { id: found.id });
+  return left.length ? say(next, 'bagFull') : next;
+}
+
+// § drop: Drop on bag slot i sets its whole stack down on the hero's tile, free,
+// "You set it down." (D-546). What already lay there comes into the bag in its
+// place, as a step onto it would take it: a swap.
+export function drop(state, i) {
+  const s = state.bag[i];
+  if (!s) return state;
+  const pile = { ...s, x: state.hero.x, y: state.hero.y, dropped: true }, here = state.items.filter((it) => it.x === pile.x && it.y === pile.y);
+  let next = say(fresh({ ...state, bag: state.bag.filter((o, j) => j !== i), items: [...state.items, pile] }), 'setDown');
+  for (const found of here) next = pickUp(next, found);
+  return next;
 }
 
 // § attack: the hero swings the lantern at the foe and stays put (D-109),
