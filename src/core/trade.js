@@ -6,7 +6,7 @@
 // are `state.coins`, kept on a fall in Gentle and Normal, gone with the world in
 // Hardcore (D-472, D-494). An older save has none yet (`coins ?? 0`). Plain data, no drawing.
 import { get } from './registry.js';
-import { bagAdd } from './bag.js';
+import { bagAdd, bagSize } from './bag.js';
 import { note, fresh } from './events.js';
 import { personAt } from './people.js';
 
@@ -49,14 +49,14 @@ export function cantBuy(state, i) {
   const w = wares()[i];
   if (!w) return 'none';
   if (coins(state) < w.price) return 'coins';
-  return bagAdd(state.bag, w.id) ? null : 'room';
+  return bagAdd(state.bag, w.id, undefined, bagSize(state)) ? null : 'room';
 }
 // The state after buying one of ware i: the coins less by its price, one more in the bag;
 // unchanged when it can't be bought
 export function buy(state, i) {
   if (cantBuy(state, i)) return state;
   const w = wares()[i];
-  return note(fresh({ ...state, bag: bagAdd(state.bag, w.id), coins: coins(state) - w.price }), 'buy', { id: w.id, coins: w.price });
+  return note(fresh({ ...state, bag: bagAdd(state.bag, w.id, undefined, bagSize(state)), coins: coins(state) - w.price }), 'buy', { id: w.id, coins: w.price });
 }
 const CANT = { coins: 'You have too few coins.', room: 'Your bag has no room for it.' };
 export const costWords = (state, i) => [`It costs ${coinWords(wares()[i].price)}.`, CANT[cantBuy(state, i)]].filter(Boolean).join(' ');

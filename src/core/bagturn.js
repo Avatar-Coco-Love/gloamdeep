@@ -6,7 +6,7 @@ import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay, canCraft } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize } from './bag.js';
 import { note } from './events.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash } from './chest.js';
@@ -35,7 +35,7 @@ export function craft(state, i) {
   const s = state.bag[i], recipe = s && get(s.id).craft;
   if (!canCraft(state.bag, i)) return state;
   const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, recipe.of) : bagPay(state.bag, recipe.of);
-  const bag = bagAdd(paid, recipe.into);
+  const bag = bagAdd(paid, recipe.into, undefined, bagSize(state));
   if (!bag) return say(state, get(recipe.into).full);
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
 }
@@ -44,16 +44,28 @@ export function craft(state, i) {
 // from the bag and puts one `id` in it, passing a turn, with its line (CH1, D-326).
 // With too few, its `short` line; with one already carried, its `full` line (or
 // "Your bag is full."); all free, and the bag stays as it was. A lantern part already
-// fitted, or a piece worn, counts as carried (D-483, D-484).
+// fitted, or a piece worn, counts as carried (D-483, D-484). A bag upgrade (`grows`)
+// never goes in the bag: made, the bag holds its `grows.to` slots at once (D-547).
 export function makeAt(state, id) {
-  const recipe = get(id)?.bench;
+  const recipe = get(id)?.bench, grows = get(id)?.grows;
   if (!recipe) return state;
+  if (grows) return growBag(state, id, recipe, grows);
   if (isFitted(state, id) || isWorn(state, id)) return say(state, get(id).full);
   if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
   const paid = bagPay(state.bag, recipe.of);
-  const bag = bagAdd(paid, id);
+  const bag = bagAdd(paid, id, undefined, bagSize(state));
   if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+}
+// § grow: the Pouch takes a bag of `grows.from` slots to `grows.to`, the Big Bag 9 to 12,
+// a turn passing, with its line; one already that big says its `full` line, and one too
+// small (the Big Bag before the Pouch) changes nothing; all free (D-545, D-547)
+function growBag(state, id, recipe, { from, to }) {
+  const size = bagSize(state);
+  if (size >= to) return say(state, get(id).full);
+  if (size !== from) return state;
+  if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
+  return endTurn(state, say({ ...passTurn(state), bag: bagPay(state.bag, recipe.of), bagSlots: to }, recipe.says));
 }
 
 // § eat: Eat on bag slot i eats one of its item, healing its `heal` hearts,
@@ -105,7 +117,7 @@ export function takeDown(state, x, y) {
   const takes = tileAt(state.room, x, y).takes;
   if (!takes) return state;
   if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
-  const bag = bagAdd(state.bag, takes.item);
+  const bag = bagAdd(state.bag, takes.item, undefined, bagSize(state));
   if (!bag) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
   const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
   const next = note(passTurn({ ...state, room, bag, ...(stashes && { stashes }) }), 'take', { id: takes.item });

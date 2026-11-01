@@ -4,7 +4,7 @@ import { arrive, stepAside, fresh as freshPlace } from './stairs.js';
 import { OIL } from './oil.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
-import { bagAdd } from './bag.js';
+import { bagAdd, bagSize } from './bag.js';
 import { note } from './events.js';
 import { makeWorld, maxHealth } from './state.js';
 
@@ -16,7 +16,7 @@ export function fetchBag(state, found) {
   let bag = state.bag;
   for (const s of found.holds || []) {
     let n = 0;
-    for (let b; n < s.n && (b = bagAdd(bag, s.id, s.form)); n++) bag = b;
+    for (let b; n < s.n && (b = bagAdd(bag, s.id, s.form, bagSize(state))); n++) bag = b;
     if (n < s.n) left.push({ ...s, n: s.n - n });
   }
   const items = state.items.filter((it) => it !== found);

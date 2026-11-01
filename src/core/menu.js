@@ -75,11 +75,14 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // The workbench's card (WB3, D-323; a card, D-387): each thing made at it is a slot,
 // in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds;
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488)
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'pouch', 'bigBag']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and the Big Bag (D-547)
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
 export const BENCH_TAKE = BENCH_SLOTS;
-export const benchMakes = (bag) => BENCH_MAKES.map((id) => {
+// A bag upgrade shows only while the bag is its `grows.from`: the Pouch at 6 slots, the
+// Big Bag at 9; both made, neither shows (D-547). size: the bag's slots
+const offered = (id, size) => { const g = get(id).grows; return !g || g.from === size; };
+export const benchMakes = (bag, size = 6) => BENCH_MAKES.filter((id) => offered(id, size)).map((id) => {
   const of = get(id).bench.of;
   return { item: id, cost: Object.entries(of).map(([at, n]) => ({ id: at, n, have: carried(bag, at) })), dim: !bagHas(bag, of) };
 });

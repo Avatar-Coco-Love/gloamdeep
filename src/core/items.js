@@ -135,6 +135,12 @@ export const ITEMS = {
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',
     bench: { of: { wood: 4, ratTail: 2 }, says: 'bedMake', short: 'bedShort' }, sets: { tile: 'bedstead', says: 'bedSet' } },
+  // The bag upgrades (D-545, D-547): made at the workbench, never found, never in the bag.
+  // Made, the bag `grows` from 6 slots to 9 (the Pouch), then 9 to 12 (the Big Bag), for good.
+  pouch: { id: 'pouch', kind: 'item', name: 'Pouch', max: 1, look: 'pouchLook', full: 'pouchFull',
+    bench: { of: { ratTail: 4, spiderSilk: 2 }, says: 'pouchMake', short: 'pouchShort' }, grows: { from: 6, to: 9 } },
+  bigBag: { id: 'bigBag', kind: 'item', name: 'Big Bag', max: 1, look: 'bigBagLook', full: 'bigBagFull',
+    bench: { of: { moleFur: 4, spiderSilk: 3 }, says: 'bigBagMake', short: 'bigBagShort' }, grows: { from: 9, to: 12 } },
   // Made from Moth Dust and Wood in the bag, never found (D-478), in stacks of 5. Set down
   // anywhere, the bench's way, it `sets` the torch's stone foot with a lit torch on it that
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).

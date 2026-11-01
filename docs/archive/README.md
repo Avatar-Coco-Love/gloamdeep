@@ -36,7 +36,7 @@ header says when it moved and why.
 | `DECISIONS-MODES.md` | D-334, D-341, D-342, D-344 to D-346 | the three ways to play, MO1 to MO4 | D-355 |
 | `DECISIONS-GROWING-7.md` | D-332, D-333, D-335, D-339, D-343, D-347, D-348, D-350, D-352 to D-355, D-360 | a fall keeps the world, bigger stacks, the Bestiary, Hearthwood | D-362 |
 | `DECISIONS-CREATURES.md` | D-349, D-351, D-356 to D-359, D-361 | every next move, the lampmoth, the creature list, framing | D-360, D-362 |
-| `DECISIONS-CREATURES-2.md` | D-364 to D-374, D-534 to D-540 | more creatures, the flask mimic, the scorpion, varying creatures; mixed creatures, the cave spider, the bat, bat guano | D-379, D-540, D-541, D-543, D-546 |
+| `DECISIONS-CREATURES-2.md` | D-364 to D-374, D-534 to D-542 | more creatures, the flask mimic, the scorpion, varying creatures; mixed creatures, the cave spider, the bat, bat guano, the mole | D-379, D-540, D-541, D-543, D-546, D-547 |
 | `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only (partly superseded by D-505) | D-386 |
 | `DECISIONS-CORNER-HUD.md` | D-381 to D-384 | the room filling the screen, the stats switch, the round map and lantern | D-388 |
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |

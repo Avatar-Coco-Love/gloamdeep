@@ -18,7 +18,7 @@ import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
 import { offEdge, walkOff } from './openings.js';
 import { xpOf, gain } from './xp.js';
-import { bagAdd } from './bag.js';
+import { bagAdd, bagSize } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
 import { DIRS, passTurn, maxHealth } from './state.js';
@@ -87,11 +87,11 @@ function pickUp(state, found) {
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
   if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.eats), 'eat', { id });
   if (entry.hold) {
-    const bag = bagAdd(state.bag, id);
+    const bag = bagAdd(state.bag, id, undefined, bagSize(state));
     return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
   }
   if (entry.bag) {
-    const bag = bagAdd(state.bag, id, found.form);
+    const bag = bagAdd(state.bag, id, found.form, bagSize(state));
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
     if (state.bag.some((s) => s.id === id) && entry.full) return say(state, entry.full);
     return entry.eatHurt ? say(state, 'bagFull') : state; // a herb says so (D-511)
@@ -103,7 +103,7 @@ function pickUp(state, found) {
 // or held, and never grows back; what doesn't fit stays, "Your bag is full." (D-546)
 function takeBack(state, found) {
   let bag = state.bag, n = 0;
-  for (let b; n < found.n && (b = bagAdd(bag, found.id, found.form)); n++) bag = b;
+  for (let b; n < found.n && (b = bagAdd(bag, found.id, found.form, bagSize(state))); n++) bag = b;
   if (!n) return say(state, 'bagFull');
   const items = state.items.filter((it) => it !== found), left = n < found.n ? [{ ...found, n: found.n - n }] : [];
   const next = note({ ...state, bag, items: [...items, ...left] }, 'take', { id: found.id });
@@ -215,7 +215,7 @@ function mine(state, x, y) {
   const after = get(leaves), looks = tile.forms ? tile : after.forms ? after : null;
   const form = looks ? formOf(looks, x, y) : undefined;
   let bag = state.bag, taken = 0;
-  for (let more; taken < count && (more = bagAdd(bag, drops, form)); taken++) bag = more;
+  for (let more; taken < count && (more = bagAdd(bag, drops, form, bagSize(state))); taken++) bag = more;
   if (!taken) return say(state, full || get(drops).full);
   const room = { ...withTile(state.room, x, y, after), chips: rest };
   const left = spread({ ...state, room }, x, y, count - taken, after.solid) // never on a bare bush (D-531)

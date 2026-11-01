@@ -107,10 +107,10 @@ test('a set-down chest frees the bag, so another can be made', () => {
 });
 
 // § card (CH3, D-330; a card, D-387): 12 slots in a 4 × 3 grid, the bag's 3 × 2 beside them, Deconstruct
-test('its card has 12 slots, the bag\'s 6, and Deconstruct after them', () => {
+test('its card has 12 slots, the bag\'s 6 to 12, and Deconstruct after them (D-548)', () => {
   assert.equal(CHEST_SLOTS, 12);
   assert.equal(CHEST_BAG, 12);
-  assert.equal(CHEST_TAKE, 18);
+  assert.equal(CHEST_TAKE, 24);
   assert.equal(chestWords([]), 'Stash chest. 12 slots, all empty. Bag on the right. Deconstruct chest, or Close.');
   assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash chest. 1 of 12 slots used. Bag on the right. Deconstruct chest, or Close.');
 });

@@ -144,26 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-541 · 2026-11-01 · The mole** (the owner's picks, all recommended;
-answers part of Q-076; builds D-365; mock-up:
-https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX) The third new kind,
-the last but the snapcap of D-365's five, picked from six built only
-from today's ways: it chases and never flees. 4 hearts, a bite of 1, in
-the pool from depth 5 and below (D-365's warrens, as pools now run,
-D-534). Its drop is Mole Fur, about 1 in 2, sold for 1 coin, and as a
-creature of depth 3 or deeper, a rare Mole Claw, about 1 in 10, sold
-for 5 (D-453, D-494); both for crafts later. The mock-up's look, side
-on as the rat is, in the wood's browns, with pale claws and the pink
-eye and nose. The fur and the claw are Claude's drawings, the owner
-may change them. Its lines (Claude's, the owner may change them): "The
-mole grunts and digs in.", "The mole slumps and falls still." and "The
-mole claws you." D-535 and D-536 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
-**D-542 · 2026-11-01 · The mole's snuffle** (the owner's pick,
-recommended) Its bite is a short low snuffle, then one gritty scrape of
-claws in dirt. It is on the sound board.
-
 **D-543 · 2026-11-01 · The snapcap** (the owner's picks: the snapcap
 from a list of today's ways and new ones, over the recommended rim
 lurker; its eyes open up close over the recommended pink eyes always;
@@ -204,3 +184,24 @@ or held, and it never grows back; what doesn't fit stays, "Your bag is
 full." Dropped while standing on a find, the find comes into the bag in
 its place: a swap. D-539 and D-540 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-547 · 2026-11-01 · The Pouch and the Big Bag** (the owner's picks,
+all recommended; builds D-545; mock-up: https://claude.ai/artifact/4aCZQTvAoyCAsaFCiu9jzh) The Pouch takes 4 Rat Tail
+and 2 Spider Silk, the Big Bag 4 Mole Fur and 3 Spider Silk. The Pouch
+is a round rat hide pouch tied with a grey cord, the Big Bag a mole fur
+backpack with a copper buckle (look A of each). Made at the workbench,
+it never goes in the bag: the bag grows at once, a turn passing, with
+"Your bag holds 9 now." (12 for the Big Bag), and stays that size for
+good. The Big Bag's line shows on the workbench only once the Pouch is
+made; with both made, neither shows (Claude's choice, the owner may
+change it). The other lines are Claude's, the owner may change them.
+D-541 and D-542 moved to `archive/DECISIONS-CREATURES-2.md`, word for
+word.
+
+**D-548 · 2026-11-01 · Fitting a bigger bag** (the owner's pick,
+recommended, over the 3-wide grid first picked; found while planning:
+three rows of today's slots don't fit a sideways screen) The Pouch's 9 slots are a
+3 × 3 grid, the Big Bag's 12 a 4 × 3, the chest's shape. Above 6 slots,
+each slot is 26 pixels, not 30, the sprites the same size; the held slot
+stays where it is. It is the same on the bag's, chest's and peddler's
+cards.
