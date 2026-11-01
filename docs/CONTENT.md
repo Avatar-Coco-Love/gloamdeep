@@ -25,6 +25,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `mole` | 4 | 1 | chases, never flees | the pool from depth 5 | D-365, D-541, D-542 |
 | `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
+| `boneRat` | 3 | 1 | chases, never flees | the pool from depth 4 | D-549, D-551 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
@@ -32,7 +33,7 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch)
 (D-269, D-351). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373).
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549).
+Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 
@@ -57,6 +58,7 @@ mechanic and its own step.
 | `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
+| `ratBone` | for crafts later | 20 | never | a beaten bone rat, about 1 in 2 | D-551 |
 | `batGuano` | for the garden and crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
@@ -65,19 +67,10 @@ mechanic and its own step.
 | `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
 | `gloamberry` | Eat: 1 heart; its seed and a recipe come later | 20 | never | a gloamberry bush, 2 a bump | D-530, D-531 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
-| `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
-| `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
-| `pick` | the Stone Pick: in the bag, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone | D-480 |
-| `copperOre` | the first ore: the wick, the charm | 20 | never | a copper vein | D-480 |
-| `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
-| `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |
-| `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |
-| `heartCharm` | Wear in the bag: the second charm, a full tank about 70 turns, not 60 | 1 | never | the workbench: 1 Mimic Heart, 1 Copper Ore | D-487 |
-| `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
-| `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
-| `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
-| `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
-| `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
+
+
+The workbench and the things made after it, from `workbench` to `lostbag`,
+moved to `CONTENT-2.md` word for word at 0.3.15.
 
 ## Tiles
 Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535).

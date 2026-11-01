@@ -60,7 +60,7 @@ this page and a decision disagree, the decision wins.
   the bat's Bat Wing and rare Bat Fang the tenth and eleventh (D-537);
   the mole's Mole Fur and rare Mole Claw the twelfth and thirteenth (D-541);
   the snapcap's Snapcap Gill the fourteenth (D-543); the herb mimic's Mimic
-  Leaf the fifteenth (D-549).
+  Leaf the fifteenth (D-549); the bone rat's Rat Bone the sixteenth (D-551).
 - **Bat Guano:** a pile of bat droppings, one beside each bat as a room
   is made; it grows back, and is kept for the garden (D-539, D-540).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).

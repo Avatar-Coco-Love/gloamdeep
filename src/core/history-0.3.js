@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.15', date: '2026-11-01', title: 'The bone rat', lines: [
+    "A new creature, the bone rat, now turns up from depth 4 down: a rat with nothing left but bone. It chases you and never runs away.",
+    "It has 3 hearts and bites for 1, with a dry clatter of bones and a snap of teeth.",
+    "Beaten, it may leave a Rat Bone, which the peddler buys for 1 coin; its recipes come later.",
+    "Decisions: D-551.",
+  ] },
   { v: '0.3.14', date: '2026-11-01', title: 'The herb mimic', lines: [
     "A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.",
     "It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.",

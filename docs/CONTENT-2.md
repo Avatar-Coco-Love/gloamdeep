@@ -5,6 +5,25 @@ turns up and the decisions behind it. The hero's looks and Growth
 upgrades moved here word for word at 0.2.204 (D-490), as that page
 neared 8 KB; the lights and places at 0.3.3 (D-531); the tiles at 0.3.7 (D-535).
 
+## Things made, from the workbench on (`src/core/items.js`)
+Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there.
+
+| id | What it does | Stack | Grows back | Where, or how made | Decisions |
+| --- | --- | --- | --- | --- | --- |
+| `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
+| `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
+| `pick` | the Stone Pick: in the bag, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone | D-480 |
+| `copperOre` | the first ore: the wick, the charm | 20 | never | a copper vein | D-480 |
+| `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
+| `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |
+| `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |
+| `heartCharm` | Wear in the bag: the second charm, a full tank about 70 turns, not 60 | 1 | never | the workbench: 1 Mimic Heart, 1 Copper Ore | D-487 |
+| `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
+| `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
+| `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
+| `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
+| `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
+
 ## People (`src/core/people.js`)
 
 | id | What it does | Where | Decisions |

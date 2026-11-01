@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.14 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.15 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bone rat, the sixth new kind (D-549, Q-076), else step 14, the garden (D-452).
+The owner's pick: another new kind (Q-076), or step 14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,8 +22,8 @@ The bone rat, the sixth new kind (D-549, Q-076), else step 14, the garden (D-452
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- The bone rat's numbers, look and drop (Q-076, D-549), next.
-- The herb mimic's rare drop (Q-061), any time.
+- Another new kind, or the garden first (Q-076), next.
+- The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -46,6 +46,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.15, the bone rat.** All recommended: chases, never
+  flees, 3 hearts, bite 1, from depth 4; all bone (look A); a Rat Bone;
+  its rare one waits; a rattle and a snap (D-551). D-545 to D-548
+  archived. Mock-up: https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj.
+  Playtest: https://claude.ai/artifact/GNmkbD1ed1WPfuUh8WnYWQ. Sounds:
+  https://claude.ai/artifact/Co55jj7q34wGiXsWMLTS6Z
 - **2026-11-01, 0.3.14, the herb mimic.** Seven kinds on today's ways
   were shown; the owner picked the herb mimic, then the bone rat, the
   rest recommended: asleep as a herb, wakes on a bump, chases 6 turns,
@@ -59,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   slots didn't fit; the owner picked 3 × 3, then 4 × 3, with 26-pixel
   slots (D-548). Mock-up: https://claude.ai/artifact/4aCZQTvAoyCAsaFCiu9jzh.
   Playtest: https://claude.ai/artifact/7CngxjKsEPj5ymqKZR1jdN
-- **2026-11-01, 0.3.12, Drop.** The owner asked to drop things and for
-  bigger bags. Picked all recommended: Drop first, a whole stack set at
-  your feet, free, "You set it down.", a swap on a find (D-546); later a
-  Pouch (9 slots) then a Big Bag (12) at the workbench (D-545). Playtest:
-  https://claude.ai/artifact/XWxaA1QkrjXiVBL1MQdu2p
