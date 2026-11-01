@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.9 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.10 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -45,6 +45,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.10, the mole.** Six kinds built from today's ways
+  were shown; the owner picked the mole, all recommended: chases, never
+  flees, 4 hearts, bite 1, from depth 5, Mole Fur and rare Mole Claw,
+  the mock-up's look, a snuffle and a scrape (D-541, D-542). Mock-up:
+  https://claude.ai/artifact/U3QqnHUik4qPJTNddiNjUX. Playtest:
+  https://claude.ai/artifact/7Npqkio7kZ4ZXRmPh46jGT. Sounds:
+  https://claude.ai/artifact/BG6ZtLKRcNYSCp1cquAAAG
 - **2026-11-01, 0.3.9, bat guano.** The owner picked all recommended:
   look A (a dark mound), named Bat Guano, Claude's lines, sells for 1,
   stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.
@@ -58,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia. Playtest:
   https://claude.ai/artifact/CNTdjSLwEc5vnGhP29N6JQ. Sounds:
   https://claude.ai/artifact/VjNdUfqWDZsPX5j2S4p2bd
-- **2026-11-01, 0.3.7, the cave spider.** The owner asked for many new
-  creature kinds (26 shown) and picked the cave spider first, each kind
-  fully in the game: a lurker that shuns light, from depth 2, 2 hearts,
-  bite 1, Spider Silk, look A1 grounded, a hiss (D-535, D-536).
-  Playtest: https://claude.ai/artifact/89dXV4VC3oPHfW22UC9ekL

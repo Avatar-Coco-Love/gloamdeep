@@ -1,4 +1,4 @@
-// § rare drops: the rare materials (D-454, D-537), about 1 in 10 on a coin of their own,
+// § rare drops: the rare materials (D-454, D-537, D-541), about 1 in 10 on a coin of their own,
 // beside the common one when both fall (D-476)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -8,11 +8,12 @@ import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
 
 const room = makeRoom(FIRST_ROOM);
-const RARES = { scorpion: 'venomSac', flaskMimic: 'mimicHeart', gloamling: 'gloamEye', bat: 'batFang' };
+const RARES = { scorpion: 'venomSac', flaskMimic: 'mimicHeart', gloamling: 'gloamEye', bat: 'batFang', mole: 'moleClaw' };
 const FIRST = { venomSac: ['A venom sac! A rare find.', 'A venom sac, for crafting later.', "You can't carry more venom sacs."],
   mimicHeart: ['A mimic heart! A rare find.', 'A mimic heart, for crafting later.', "You can't carry more mimic hearts."],
   gloamEye: ['A gloam eye! A rare find.', 'A gloam eye, for crafting later.', "You can't carry more gloam eyes."],
-  batFang: ['A bat fang! A rare find.', 'A bat fang, for crafting later.', "You can't carry more bat fangs."] };
+  batFang: ['A bat fang! A rare find.', 'A bat fang, for crafting later.', "You can't carry more bat fangs."],
+  moleClaw: ['A mole claw! A rare find.', 'A mole claw, for crafting later.', "You can't carry more mole claws."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.
 const beat = (id, seed, s = makeState(room)) => step({ ...s, seed, hero: { x: 5, y: 11 }, items: [],
   enemies: [{ id, x: 5, y: 10, health: 1, chasing: true }] }, 'up');

@@ -22,6 +22,9 @@ export const LINES = {
   caveSpiderHurt: { text: 'The cave spider hisses.', warn: false }, // (D-535)
   caveSpiderDie: { text: 'The cave spider falls still.', warn: false }, // (D-535)
   caveSpiderBite: { text: 'The cave spider bites you.', warn: false, kind: 'harm' }, // (D-535)
+  moleHurt: { text: 'The mole grunts and digs in.', warn: false }, // hurt, it keeps coming (D-541)
+  moleDie: { text: 'The mole slumps and falls still.', warn: false },
+  moleBite: { text: 'The mole claws you.', warn: false, kind: 'harm' },
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -117,6 +120,9 @@ export const LINES = {
   batWingTake: { texts: ['You pick up the bat wing.', 'Thin leather, light as paper.', 'The bat wing goes in your bag.'], warn: false }, // (D-537)
   batWingLook: { texts: ['A bat wing, for crafting later.', 'Thin dark leather on fine bones.', 'It folds up small.'], warn: false },
   batWingFull: { text: "You can't carry more bat wings.", warn: false },
+  moleFurTake: { texts: ['You pick up the mole fur.', 'Soft as velvet, and warm.', 'The mole fur goes in your bag.'], warn: false }, // (D-541)
+  moleFurLook: { texts: ['Mole fur, for crafting later.', 'Dark, short and very soft.', 'It smells of earth.'], warn: false },
+  moleFurFull: { text: "You can't carry more mole fur.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },
@@ -132,6 +138,9 @@ export const LINES = {
   batFangTake: { texts: ['A bat fang! A rare find.', 'A tiny fang, needle sharp.', 'The bat fang goes in your bag.'], warn: false }, // (D-537)
   batFangLook: { texts: ['A bat fang, for crafting later.', 'Small, white and very sharp.', 'Mind your fingers.'], warn: false },
   batFangFull: { text: "You can't carry more bat fangs.", warn: false },
+  moleClawTake: { texts: ['A mole claw! A rare find.', 'A broad claw, made for digging.', 'The mole claw goes in your bag.'], warn: false }, // (D-541)
+  moleClawLook: { texts: ['A mole claw, for crafting later.', 'Wide, pale and blunt-tipped.', 'Still gritty with earth.'], warn: false },
+  moleClawFull: { text: "You can't carry more mole claws.", warn: false },
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   gloamberryTake: { texts: ['You pick two gloamberries.', 'Dark berries, cool to the touch.', 'The bush gives up its berries.'], warn: false }, // a full bush bumped (D-531)
   gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.7, the cave spider.** The owner asked for many new
+  creature kinds (26 shown) and picked the cave spider first, each kind
+  fully in the game: a lurker that shuns light, from depth 2, 2 hearts,
+  bite 1, Spider Silk, look A1 grounded, a hiss (D-535, D-536).
+  Playtest: https://claude.ai/artifact/89dXV4VC3oPHfW22UC9ekL
 - **2026-11-01, 0.3.6, mixed creatures.** A playtester found one kind
   a floor empty and easy. The owner picked 2, 3, then 4 creatures a
   room by depth, each depth's pool (the old kinds keep going), at least

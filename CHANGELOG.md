@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.10 (2026-11-01)
+- A new creature, the mole, now turns up from depth 5 down. It chases you once it sees you in the light, and it never flees.
+- It has 4 hearts, the most of any creature so far, and bites for 1, with a low snuffle and a scrape of claws.
+- Beaten, it may leave Mole Fur, which the peddler buys for 1 coin, and now and then a rare Mole Claw, which the peddler buys for 5; their recipes come later.
+- Decisions: D-541, D-542.
+
 ## 0.3.9 (2026-11-01)
 - Bat Guano now lies in the caves: as each room is made, every bat gets a pile on the floor beside it. Walk onto it to put it in your bag, in stacks of 20.
 - It grows back a day after you take it, out of sight. The peddler buys it for 1 coin, and it is kept for the garden and for crafts later.
