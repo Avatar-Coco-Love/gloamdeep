@@ -1,11 +1,10 @@
 // § lampmoth: the creature drawn to light (D-351, D-356)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, lampmothRooms, gloamlingRooms } from '../src/core/room.js';
+import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
 import { makeState, step, wait, switchLantern, FIRST_START } from '../src/core/turn.js';
 import { get } from '../src/core/registry.js';
 import { LINES } from '../src/core/lines.js';
-const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 
 const room = makeRoom(FIRST_ROOM);
 const torch44 = FIRST_LIGHTS.filter((l) => l.x === 4 && l.y === 4);
@@ -50,12 +49,4 @@ test('one lantern hit kills it', () => {
   const n = step(at(5, 10), 'up');
   assert.deepEqual(n.enemies, []);
   assert.equal(n.line.id, 'lampmothDie');
-});
-
-test('one room a floor holds a lampmoth on depths 2 to 4, none above or below', () => {
-  for (const seed of SEEDS) {
-    for (const d of [2, 3, 4]) assert.equal(lampmothRooms(seed, d).length, 1, `seed ${seed}, depth ${d}`);
-    for (const d of [0, 1, 5, 8]) assert.deepEqual(lampmothRooms(seed, d), []);
-    assert.deepEqual(gloamlingRooms(seed, 3), []);
-  }
 });

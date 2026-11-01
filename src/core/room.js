@@ -110,40 +110,29 @@ export const PLACES = {
 // depth laid out as a grid (region.js, D-201) adds rooms depth2:x,y beside
 // depth2, which holds its stairs up.
 const DEEPER = 'second';
-// § more rats deeper: one rat a room, two from depth 5, where the warrens
-// start (step 34, D-231)
-export const MORE_RATS = 5;
-export const ratsAt = (depth) => (depth >= MORE_RATS ? 2 : 1);
-// § gloamlings: on each floor from depth 5 down, three rooms the seed picks
-// hold a gloamling in place of their second rat (D-240, D-244)
-const GLOAMLING_ROOMS = 3;
-export function gloamlingRooms(seed, depth) {
-  if (depth < MORE_RATS) return [];
-  const ids = layoutAt(seed, depth).cells.map((c) => c.id), r = rng(seedAt(seed, depth) ^ 0x6a09e667), out = [];
-  while (out.length < Math.min(GLOAMLING_ROOMS, ids.length)) out.push(...ids.splice(Math.floor(r() * ids.length), 1));
-  return out;
+// § creatures in a room (D-534, supersedes how many from D-231 and where from D-240,
+// D-244, D-356, D-370): 2 at depth 2, 3 at depths 3 and 4, 4 from depth 5
+export const creaturesAt = (depth) => (depth >= 5 ? 4 : depth >= 3 ? 3 : 2);
+// § the pool: the creatures each depth can hold; each starts at its usual depth
+// and keeps turning up below it (D-534). The flask mimic stays apart (D-366).
+const POOL = [
+  { id: 'rat', from: 2 },
+  { id: 'lampmoth', from: 2 },
+  { id: 'scorpion', from: 3 },
+  { id: 'gloamling', from: 5 },
+];
+export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);
+// § mixing: the rat by the flask stays a rat; each other creature is picked from
+// the pool by the room's seed, and a room of rats alone gets one of them swapped
+// for another kind, so every room holds at least two kinds (D-534). Its own
+// draws, so the rest of a seed's room stays where it was.
+export function mixed(room, seed, depth) {
+  if (!room) return room;
+  const pool = poolAt(depth), others = pool.filter((id) => id !== 'rat'), r = rng(seed ^ 0x1f83d9ab);
+  const ids = room.enemies.map((e, i) => (i === 0 ? e.id : pool[Math.floor(r() * pool.length)]));
+  if (ids.length > 1 && ids.every((id) => id === 'rat')) ids[1 + Math.floor(r() * (ids.length - 1))] = others[Math.floor(r() * others.length)];
+  return { ...room, enemies: coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] }))) };
 }
-// § lampmoths: on each floor of depths 2 to 4, one room the seed picks holds a
-// lampmoth in place of its rat (D-356)
-const LAMPMOTH_ROOMS = 1, LAMPMOTH_FROM = 2;
-export function lampmothRooms(seed, depth) {
-  if (depth < LAMPMOTH_FROM || depth >= MORE_RATS) return [];
-  const ids = layoutAt(seed, depth).cells.map((c) => c.id), r = rng(seedAt(seed, depth) ^ 0x3c6ef372), out = [];
-  while (out.length < Math.min(LAMPMOTH_ROOMS, ids.length)) out.push(...ids.splice(Math.floor(r() * ids.length), 1));
-  return out;
-}
-// § scorpions: on each floor of depths 3 and 4, one room the seed picks, never the
-// lampmoth's, holds a scorpion in place of its rat (D-370)
-const SCORPION_ROOMS = 1, SCORPION_FROM = 3;
-export function scorpionRooms(seed, depth) {
-  if (depth < SCORPION_FROM || depth >= MORE_RATS) return [];
-  const moths = lampmothRooms(seed, depth), ids = layoutAt(seed, depth).cells.map((c) => c.id).filter((id) => !moths.includes(id));
-  const r = rng(seedAt(seed, depth) ^ 0xa54ff53a), out = [];
-  while (out.length < Math.min(SCORPION_ROOMS, ids.length)) out.push(...ids.splice(Math.floor(r() * ids.length), 1));
-  return out;
-}
-// A room with its rat swapped for another creature, in its own colours (D-373)
-const ratAs = (room, id, seed) => room && { ...room, enemies: coloured(seed, room.enemies.map((e) => (e.id === 'rat' ? { ...e, id } : e))) };
 // § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
 // a flask mimic as well as all it holds (D-366)
 const MIMIC_ODDS = 0.25, MIMIC_FROM = 3, MIMIC_TO = 5;
@@ -175,8 +164,8 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
-  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: ratsAt(depth), second: gloamlingRooms(seed, depth).includes(id) ? 'gloamling' : 'rat', weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock' });
-  const moth = lampmothRooms(seed, depth).includes(id) ? ratAs(made, 'lampmoth', cell.seed) : scorpionRooms(seed, depth).includes(id) ? ratAs(made, 'scorpion', cell.seed) : made;
+  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock' });
+  const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const room = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };

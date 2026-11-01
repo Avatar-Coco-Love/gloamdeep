@@ -1,18 +1,18 @@
-// § more rats deeper: one rat a room, two from depth 5 (step 34, D-231)
+// § more creatures deeper: the extra ones sit by the rat's rules (D-231); how many, D-534
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateRoom } from '../src/core/cave.js';
-import { placeFor, ratsAt } from '../src/core/room.js';
+import { placeFor, creaturesAt } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 
 const SEEDS = Array.from({ length: 30 }, (_, i) => i + 1);
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 const where = (map, ch) => map.flatMap((row, y) => [...row].map((c, x) => (c === ch ? { x, y } : null))).filter(Boolean);
 
-test('one rat a room at depths 2 to 4, two from depth 5', () => {
-  assert.deepEqual([2, 3, 4, 5, 7, 8, 12].map(ratsAt), [1, 1, 1, 2, 2, 2, 2]);
+test('two creatures a room at depth 2, three at depths 3 and 4, four from depth 5 (D-534)', () => {
+  assert.deepEqual([2, 3, 4, 5, 7, 8, 12].map(creaturesAt), [2, 3, 3, 4, 4, 4, 4]);
   for (const seed of SEEDS.slice(0, 10)) for (const depth of [2, 4, 5, 8]) for (const c of layoutAt(seed, depth).cells) {
-    assert.equal(placeFor(c.id, seed).enemies.filter((e) => e.id !== 'flaskMimic').length, ratsAt(depth), `seed ${seed} ${c.id}`); // a flask mimic stands as well (D-366)
+    assert.equal(placeFor(c.id, seed).enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth), `seed ${seed} ${c.id}`); // a flask mimic stands as well (D-366)
   }
 });
 

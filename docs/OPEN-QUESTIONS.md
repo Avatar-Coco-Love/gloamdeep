@@ -128,3 +128,12 @@ The owner wants a companion who guides, but not a faery: something
 unique, not ordinary, not found in other games. What it is, how it
 looks, how it joins and what it does are all open. Asked when the
 owner wants the guide.
+
+**Q-075 · A flask left unguarded?** (raised 2026-11-01, D-534)
+Today a rat always waits by each room's flask. The owner would like a
+chance that it isn't guarded. How likely, and from which depth?
+
+**Q-076 · New creature kinds** (raised 2026-11-01, D-534)
+The owner wants more kinds, and to talk them over first. Four were shown
+and not picked (snapcap, mole, bat, cave spider, `RESEARCH.md`); which,
+or others, and in which pools?

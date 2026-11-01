@@ -1,7 +1,7 @@
 // § scorpion: the creature with the hard sting (D-370)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, placeFor, lampmothRooms, scorpionRooms } from '../src/core/room.js';
+import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, placeFor } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { makeState, step, wait, FIRST_START } from '../src/core/turn.js';
 import { biteSound } from '../src/core/enemies.js';
@@ -38,30 +38,12 @@ test('one lantern hit kills it, worth 3', () => {
   assert.equal(n.xp, 3);
 });
 
-test('one room a floor holds a scorpion on depths 3 and 4, never the lampmoth\'s; none above or below', () => {
-  for (const seed of SEEDS) {
-    for (const d of [3, 4]) {
-      const ids = scorpionRooms(seed, d);
-      assert.equal(ids.length, 1, `seed ${seed}, depth ${d}`);
-      assert.ok(!lampmothRooms(seed, d).includes(ids[0]));
-    }
-    for (const d of [0, 1, 2, 5, 8]) assert.deepEqual(scorpionRooms(seed, d), []);
-  }
-});
-
-test('the scorpion stands in place of its room\'s rat', () => {
-  for (const seed of SEEDS.slice(0, 20)) {
-    const [id] = scorpionRooms(seed, 3), others = layoutAt(seed, 3).cells.map((c) => c.id).filter((c) => c !== id);
-    const ids = placeFor(id, seed).enemies.map((e) => e.id).filter((e) => e !== 'flaskMimic');
-    assert.deepEqual(ids, ['scorpion'], `seed ${seed}`);
-    for (const o of others) assert.ok(!placeFor(o, seed).enemies.some((e) => e.id === 'scorpion'));
-  }
-});
-
 test('each scorpion a room lays out wears one of its 5 colour sets, the same for the same seed (D-373)', () => {
   const seen = new Set();
   for (const seed of SEEDS) {
-    const [id] = scorpionRooms(seed, 3), s = placeFor(id, seed).enemies.find((e) => e.id === 'scorpion');
+    const id = layoutAt(seed, 3).cells.map((c) => c.id).find((c) => placeFor(c, seed).enemies.some((e) => e.id === 'scorpion'));
+    if (!id) continue;
+    const s = placeFor(id, seed).enemies.find((e) => e.id === 'scorpion');
     assert.ok(Number.isInteger(s.colour) && s.colour >= 0 && s.colour < get('scorpion').colours, `seed ${seed}`);
     assert.equal(placeFor(id, seed).enemies.find((e) => e.id === 'scorpion').colour, s.colour);
     seen.add(s.colour);

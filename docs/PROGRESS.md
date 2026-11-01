@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.5 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.6 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 14, the garden (D-452): a mock-up first, then where it sits at
+After a playtest of the mix: new creature kinds (Q-076) if the owner
+wants them next, else step 14, the garden (D-452): a mock-up first, then where it sits at
 home, how a seed is planted and grows, and the gloamberry seed (D-531);
 water is Q-071.
 
@@ -24,6 +25,8 @@ water is Q-071.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
+- New creature kinds to talk over (Q-076), next if the owner likes.
+- A chance of an unguarded flask (Q-075), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -45,6 +48,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.6, mixed creatures.** A playtester found one kind
+  a floor empty and easy. The owner picked 2, 3, then 4 creatures a
+  room by depth, each depth's pool (the old kinds keep going), at least
+  two kinds a room, the flask's rat kept (D-534). New kinds are Q-076.
+  Playtest: https://claude.ai/artifact/97LxbnLug9r5StTeFAMNwr
 - **2026-10-31, 0.3.5, locked patterns shown.** The owner asked to see
   the locked looks, pointing at mock-up A. Zebra, Cow and Camo are a
   third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
@@ -54,9 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   gloamberry bush float over its shadow. Picked A of three: 1 pixel
   lower, resting on a 12-pixel shadow as a deposit does (D-532).
   Playtest: https://claude.ai/artifact/HsxNVKoPepVFccmbGj74Cx
-- **2026-10-31, 0.3.3, the gloamberry bush.** Step 13b. Mock-up:
-  https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r. Picked A, a berry
-  bush: one in each woods room, a bump gives 2 Gloamberries (Eat: 1
-  heart), bare for 300 turns; seed at the garden, recipe later; the herb
-  and mushrooms stay below (D-531). Playtest:
-  https://claude.ai/artifact/6xTVHBMapxBtQucinTF5ap

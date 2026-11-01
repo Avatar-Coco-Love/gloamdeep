@@ -5,7 +5,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { layoutAt } from '../src/core/region.js';
 import { seedFor } from '../src/core/rng.js';
-import { placeFor, placeBeside, tileAt, depthOf, gloamlingRooms, lampmothRooms } from '../src/core/room.js';
+import { placeFor, placeBeside, tileAt, depthOf, poolAt } from '../src/core/room.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth } from '../src/core/stairs.js';
 
@@ -61,7 +61,8 @@ test('every warren room is made, not the fallback, with its stairs and contents'
     assert.equal(p.map.length, 20, `seed ${seed} ${c.id}`);
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
-    assert.deepEqual(p.enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic'), ['rat', gloamlingRooms(seed, depth).includes(c.id) ? 'gloamling' : 'rat']);
+    const ids = p.enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic');
+    assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(depth).includes(id))); // the mix (D-534)
   }
 });
 
@@ -92,14 +93,15 @@ test('every opening is open on both sides, at the same spot', () => {
   }
 });
 
-test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat (or the lampmoth, D-356, or the scorpion, D-370) and a herb', () => {
+test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat by it and a herb; the creatures mixed (D-534)', () => {
   for (const seed of SEEDS) for (const c of layoutAt(seed, 2).cells) {
     const p = placeFor(c.id, seed), all = p.map.join('');
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
     assert.equal(p.lights.length, c.up ? 1 : 0);
     assert.deepEqual(p.items.map((it) => it.id).filter((id) => id !== 'heartcap'), c.up ? ['flask', 'herb', 'knife', 'oilcap'] : ['flask', 'herb', 'oilcap']); // an oilcap in each (D-296) // the knife by the stairs up (D-252)
-    assert.deepEqual(p.enemies.map((e) => e.id), [lampmothRooms(seed, 2).includes(c.id) ? 'lampmoth' : 'rat']);
+    const ids = p.enemies.map((e) => e.id);
+    assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(2).includes(id)));
   }
 });
 

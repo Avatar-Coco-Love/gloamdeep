@@ -82,7 +82,7 @@ counts it: the owner likes gloamlings lurking at the edges of light.
 **D-244 · 2026-10-22 · More gloamlings, all the way down** (owner's
 picks; supersedes D-242) On every floor from depth 5 down, warrens and
 dungeon alike, three rooms the seed picks hold a gloamling in place of
-their second rat, on the same tile.
+their second rat, on the same tile. *Where and how many superseded by D-534 (2026-11-01).*
 
 **D-245 · 2026-10-22 · Experience** (step 39, owner's picks; builds
 D-038) *Superseded in part by D-371 (2026-10-26): a creature beaten now

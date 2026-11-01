@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.3, the gloamberry bush.** Step 13b. Mock-up:
+  https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r. Picked A, a berry
+  bush: one in each woods room, a bump gives 2 Gloamberries (Eat: 1
+  heart), bare for 300 turns; seed at the garden, recipe later; the herb
+  and mushrooms stay below (D-531). Playtest:
+  https://claude.ai/artifact/6xTVHBMapxBtQucinTF5ap
 - **2026-10-31, 0.3.2, wild harvestables first.** Docs only. The owner
   asked about fruit bushes, flowers and more before the garden. Picked:
   one wild surface plant first, giving the garden its first seed; all

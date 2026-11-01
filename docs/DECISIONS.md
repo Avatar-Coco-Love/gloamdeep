@@ -167,27 +167,6 @@ back later somewhere else in the area. Names, uses and numbers are
 asked at each one's step. D-523 to D-526 moved to
 `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
 
-**D-531 · 2026-10-31 · The gloamberry bush** (the owner's picks, all
-recommended but the uses; step 13b, builds D-530; mock-up:
-https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r) The first wild
-plant is look A, a low round bush with dark blue berries, the
-**Gloamberry**. One grows in each woods room, a solid tile light
-passes over. One bump picks 2 Gloamberries and leaves it bare; the
-bare bush fills again on its own tile 300 turns later, out of sight.
-Gloamberries stack to 20 and are eaten from the bag for 1 heart, as a
-heartcap is. They will also give a seed, at the garden's step, and be
-a crafting material, its recipe asked at a later step. The herb,
-oilcap and heartcap stay in the caves. To keep pages under 8 KB, the
-lights and places in `CONTENT.md` moved to `CONTENT-2.md`, and the
-creatures and people in `GLOSSARY.md` to a new `GLOSSARY-2.md`, word
-for word.
-
-**D-532 · 2026-10-31 · The bush rests on its shadow** (the owner's pick,
-recommended; a fix to D-531) The owner saw the gloamberry bush float
-over its shadow. Picked A of three: the bush is drawn 1 pixel lower,
-its base touching its shadow, and the shadow is 12 pixels wide, not
-14, as a deposit's is. Bare or full, the same.
-
 **D-533 · 2026-10-31 · Locked patterns shown** (the owner's pick of A
 from the hero creator's mock-up, https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg;
 builds D-515, D-516, D-517) Zebra, Cow and Camo join the LOOK card's
@@ -199,3 +178,16 @@ Price not decided yet." OK keeps the free cloak; RANDOM never rolls a
 locked one. Every tab keeps three rows, so the card holds still; on the
 smallest upright view the big hero shrinks to fit (Claude's call). D-527
 and D-529 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-534 · 2026-11-01 · Mixed creatures, more of them** (the owner's
+picks, from a playtester's note that one kind a floor felt empty and
+easy; supersedes where and how many in D-231, D-244, D-356, D-370) Each
+generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, and
+4 from depth 5; the rooms are big, and it can be pulled back if too
+hard. Each depth has a pool: the rat and lampmoth from depth 2, the
+scorpion from 3, the gloamling from 5, and none stops lower down. The
+rat by the flask stays a rat for now (a chance of no guard is Q-075);
+the others are picked from the pool by the seed, and every room holds
+at least two kinds. The flask mimic stays as it was (D-366). New kinds
+and stronger creatures come later, each its own step. D-531 and D-532
+moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
