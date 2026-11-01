@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), and the mole's snuffle (D-542).
+// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), and the snapcap's snap (D-544).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -57,6 +57,12 @@ const SQUEAK = {
 const SNUFFLE = {
   sniff: { freq: 500, sweepTo: 800, ring: 2, gain: 0.07, attack: 0.01, end: 0.07, from: 0.6 }, sniffs: [0, 0.05],
   scrape: { freq: 1500, sweepTo: 900, ring: 1.5, gain: 0.06, attack: 0.008, end: 0.12, from: 0.1, rate: 0.6 }, scrapeAt: 0.13,
+};
+// A snap: a soft wet squelch, then the quick snap of a cap closing, the snapcap's.
+// Each varies a little, like the hit (hertz, seconds)
+const SNAP = {
+  squelch: { freq: 900, sweepTo: 260, ring: 3, gain: 0.08, attack: 0.006, end: 0.09, from: 0.35 },
+  shut: { from: 1400, to: 520, gain: 0.05, attack: 0.002, end: 0.035 }, click: { freq: 2600, ring: 4, gain: 0.05, attack: 0.002, end: 0.025, from: 0.8 }, shutAt: 0.06,
 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
@@ -190,5 +196,15 @@ export function createSound(isOn) {
     for (const d of SNUFFLE.sniffs) slice(t + d, { type: 'bandpass', ...sniff, freq: sniff.freq * p, sweepTo: sniff.sweepTo * p, gain: sniff.gain * loud, from: sniff.from + d });
     slice(t + SNUFFLE.scrapeAt, { type: 'bandpass', ...scrape, freq: scrape.freq * p, sweepTo: scrape.sweepTo * p, gain: scrape.gain * loud });
   }
-  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle };
+  // § snap: the snapcap's, a wet squelch and the snap of its cap; `afterHit` as for teeth
+  function snap(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { squelch, shut, click } = SNAP;
+    slice(t, { type: 'lowpass', ...squelch, freq: squelch.freq * p, sweepTo: squelch.sweepTo * p, gain: squelch.gain * loud });
+    tone(t + SNAP.shutAt, { ...shut, from: shut.from * p, to: shut.to * p, gain: shut.gain * loud });
+    slice(t + SNAP.shutAt, { type: 'bandpass', ...click, freq: click.freq * p, gain: click.gain * loud });
+  }
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap };
 }

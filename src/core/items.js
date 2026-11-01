@@ -4,7 +4,7 @@
 // sight (regrow.js): a day for mushrooms and herbs, three for a flask (D-306).
 import { DAY_TURNS } from './daytime.js';
 // How far a mushroom's tone may shift (D-305, the owner's pick of three)
-const MUSHROOM_TONE = { hue: 12, light: 7 };
+export const MUSHROOM_TONE = { hue: 12, light: 7 };
 export const ITEMS = {
   // Walking onto it puts it in the bag; poured from there into the lantern,
   // never above full (D-078, D-247). With every flask stack full and no slot free
@@ -65,6 +65,8 @@ export const ITEMS = {
   batWing: { id: 'batWing', kind: 'item', name: 'Bat Wing', bag: true, max: 20, says: 'batWingTake', look: 'batWingLook', full: 'batWingFull', sells: 1 },
   // A mole's Mole Fur, taken and kept the same way (D-541).
   moleFur: { id: 'moleFur', kind: 'item', name: 'Mole Fur', bag: true, max: 20, says: 'moleFurTake', look: 'moleFurLook', full: 'moleFurFull', sells: 1 },
+  // A snapcap's Snapcap Gill, taken and kept the same way (D-543).
+  snapcapGill: { id: 'snapcapGill', kind: 'item', name: 'Snapcap Gill', bag: true, max: 20, says: 'snapcapGillTake', look: 'snapcapGillLook', full: 'snapcapGillFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.

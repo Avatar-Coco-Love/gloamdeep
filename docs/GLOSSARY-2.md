@@ -14,6 +14,7 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Cave spider:** drawn from above, low and squat; shuns light only, so it waits in the dark and bites only from there; from depth 2 (D-535).
 - **Bat:** drawn from above, wings spread; seeks light, and once hurt flees for 4 turns or stands, on a coin toss; from depth 3 (D-537).
 - **Mole:** drawn side on, as the rat is; chases and never flees, 4 hearts; from depth 5 (D-541).
+- **Snapcap:** a heartcap that bites; never moves, looks just like a heartcap until the hero stands beside it, then shows eyes and teeth; 2 hearts; from depth 2 (D-543).
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 - **Next move:** what a seen creature does if the hero waits (D-349).

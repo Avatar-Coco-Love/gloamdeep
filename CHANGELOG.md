@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.11 (2026-11-01)
+- A new creature, the snapcap, now turns up from depth 2 down. It looks just like a heartcap until you stand beside it; then its eyes and teeth show.
+- It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.
+- Beaten, it may leave a Snapcap Gill, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-543, D-544.
+
 ## 0.3.10 (2026-11-01)
 - A new creature, the mole, now turns up from depth 5 down. It chases you once it sees you in the light, and it never flees.
 - It has 4 hearts, the most of any creature so far, and bites for 1, with a low snuffle and a scrape of claws.
@@ -109,8 +115,3 @@ Entry format:
 - Behind the scenes: the seventh tidy-up, nothing in the game changed. The code that picks, makes, renames and deletes a profile has its own file now, ready for the new hero creator.
 - Behind the scenes: tidy-ups now come every 40 versions instead of 20, as the size checks already keep the notes small in between.
 - Decisions: D-518, D-519.
-
-## 0.2.227 (2026-10-31)
-- Behind the scenes: the look currency is named Glints. Feats will pay them, and they will be spent in the Look card, where a locked look shows with a lock.
-- Behind the scenes: making a hero gets one Look card after the name, the hero shown big with tabs for cloak, eyes, trim and clothes, each choice named, and a Random button. It will be built in small steps after the next tidy-up.
-- Decisions: D-516, D-517.
