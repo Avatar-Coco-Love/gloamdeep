@@ -4,13 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.8 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.9 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Bat guano (D-539), 0.3.9: a pile by each bat, growing back; its look,
-name and lines first. Then the next creature kind (Q-076), else step
-14, the garden (D-452).
+The next creature kind (Q-076), else step 14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.9, bat guano.** The owner picked all recommended:
+  look A (a dark mound), named Bat Guano, Claude's lines, sells for 1,
+  stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.
+  Mock-up: https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV. Playtest:
+  https://claude.ai/artifact/FQGRWMwADtGZwh46Msidsx
 - **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
   recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
   bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak
@@ -60,8 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   fully in the game: a lurker that shuns light, from depth 2, 2 hearts,
   bite 1, Spider Silk, look A1 grounded, a hiss (D-535, D-536).
   Playtest: https://claude.ai/artifact/89dXV4VC3oPHfW22UC9ekL
-- **2026-11-01, 0.3.6, mixed creatures.** A playtester found one kind
-  a floor empty and easy. The owner picked 2, 3, then 4 creatures a
-  room by depth, each depth's pool (the old kinds keep going), at least
-  two kinds a room, the flask's rat kept (D-534). New kinds are Q-076.
-  Playtest: https://claude.ai/artifact/97LxbnLug9r5StTeFAMNwr

@@ -57,6 +57,8 @@ this page and a decision disagree, the decision wins.
   Heart, Gloam Eye (D-453, D-454). All eight are in the game (D-474
   to D-476). The cave spider's Spider Silk is the ninth (D-535);
   the bat's Bat Wing and rare Bat Fang the tenth and eleventh (D-537).
+- **Bat Guano:** a pile of bat droppings, one beside each bat as a room
+  is made; it grows back, and is kept for the garden (D-539, D-540).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
