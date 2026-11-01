@@ -63,7 +63,7 @@ look: amber-brown and side on → from above, in its colour set, D-373;
 1 heart and a bite of 2, the first creature to bite that hard; it chases
 (the Chases way), so one hit of anything kills it. On each floor of
 depths 3 and 4, one room the seed picks, never the lampmoth's, holds a
-scorpion in place of its rat. Its lines: "The scorpion stings you." and
+scorpion in place of its rat. *Where and how many superseded by D-534 (2026-11-01).* Its lines: "The scorpion stings you." and
 "The scorpion curls up and falls still." Its sting is its own sound, a
 dry double click of claws, then a short sharp stab; it is on the sound
 board.

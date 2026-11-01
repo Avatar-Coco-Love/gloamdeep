@@ -1,10 +1,9 @@
 // § gloamling: the second creature, light-shy (step 38, D-240)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, gloamlingRooms, placeFor } from '../src/core/room.js';
+import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
 import { makeState, step, wait, switchLantern, FIRST_START } from '../src/core/turn.js';
 import { generateRoom } from '../src/core/cave.js';
-import { layoutAt } from '../src/core/region.js';
 import { setOil } from '../src/core/oil.js';
 import { litAt } from '../src/core/sight.js';
 import { get } from '../src/core/registry.js';
@@ -82,20 +81,6 @@ test('a hit says it hisses, a kill that it fades', () => {
   const g = hit.enemies[0], again = step({ ...hit, hero: { x: g.x, y: g.y + 1 } }, 'up');
   assert.equal(again.enemies.length, 0);
   assert.equal(shownLine(again), LINES.gloamlingDie);
-});
-
-test('three rooms on each floor from depth 5 down hold one, in place of their second rat (D-244)', () => {
-  for (const seed of [1, 2, 3, 4, 5]) {
-    for (const depth of [2, 3, 4]) assert.deepEqual(gloamlingRooms(seed, depth), []);
-    for (const depth of [5, 6, 7, 8, 9, 12]) {
-      const ids = gloamlingRooms(seed, depth);
-      assert.equal(new Set(ids).size, 3);
-      for (const c of layoutAt(seed, depth).cells) {
-        const kinds = placeFor(c.id, seed).enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic'); // a flask mimic stands as well (D-366)
-        assert.deepEqual(kinds, ['rat', ids.includes(c.id) ? 'gloamling' : 'rat'], `seed ${seed} ${c.id}`);
-      }
-    }
-  }
 });
 
 test('it sits where the second rat would have, the rest of the room unchanged', () => {

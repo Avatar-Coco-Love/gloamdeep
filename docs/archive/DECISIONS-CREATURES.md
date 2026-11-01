@@ -31,7 +31,7 @@ wings with an amber spot like a flame, a dark body and the pink hostile eyes
 Seeks light, needs no noticing: it walks toward the hero while the lantern is
 lit, from anywhere in the room, else toward the nearest lit torch, and stays
 by it; with neither it stays. On each floor of depths 2 to 4 one room the
-seed picks holds a lampmoth in place of its rat. It bites silently for now.
+seed picks holds a lampmoth in place of its rat. It bites silently for now. *Where and how many superseded by D-534 (2026-11-01).*
 
 **D-357 · 2026-10-25 · The creature list** (the owner's idea and picks,
 all recommended; builds D-349) After two rounds of on-field marks (an arrow,

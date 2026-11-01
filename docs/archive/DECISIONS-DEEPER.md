@@ -112,7 +112,7 @@ depth 5 down two, so a warren floor has 10 and a dungeon floor 12. It
 stays at two until the hero can grow stronger. The first rat guards the
 flask as before; the second sits anywhere open by the same rules (at
 least 5 steps in, 3 tiles from the stairs, out of the torch's light), and
-the rest of a seed's room doesn't change.
+the rest of a seed's room doesn't change. *Where and how many superseded by D-534 (2026-11-01).*
 
 **D-232 · 2026-10-21 · Deepest depth kept** *Superseded in part by D-260 (2026-10-23): the line is off the title screen; the record is still kept.* (step 35, owner's picks;
 builds D-021) The deepest depth the hero has walked to is kept on this
