@@ -26,6 +26,10 @@ export const ENEMIES = {
   // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
   // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
   // Beaten, it may drop a Stinger, always in Sand (D-475), and now and then a Venom Sac (D-476).
+  // It shuns light only, so it never comes for the hero: it waits in the dark, backs out of
+  // light, and bites only from the dark (D-535). Its bite hisses and clicks (D-536).
+  // Beaten, it may drop Spider Silk (D-535); a creature of depth 2, it has no rare one (D-453).
+  caveSpider: { id: 'caveSpider', kind: 'enemy', name: 'Cave spider', health: 2, bite: 1, drops: 'spiderSilk', ways: ['shunsLight'], hurt: 'caveSpiderHurt', die: 'caveSpiderDie', bites: 'caveSpiderBite', sound: 'hiss' },
   scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
 };
 
@@ -54,7 +58,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

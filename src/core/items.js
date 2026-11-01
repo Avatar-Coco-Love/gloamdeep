@@ -59,6 +59,8 @@ export const ITEMS = {
   mimicGlass: { id: 'mimicGlass', kind: 'item', name: 'Mimic Glass', bag: true, max: 20, says: 'mimicGlassTake', look: 'mimicGlassLook', full: 'mimicGlassFull', sells: 1,
     craft: { into: 'flask', of: { mimicGlass: 1, oilcap: 2 }, says: 'glassFlaskMake' } },
   gloamWisp: { id: 'gloamWisp', kind: 'item', name: 'Gloam Wisp', bag: true, max: 20, says: 'gloamWispTake', look: 'gloamWispLook', full: 'gloamWispFull', sells: 1 },
+  // A cave spider's Spider Silk, taken and kept the same way (D-535).
+  spiderSilk: { id: 'spiderSilk', kind: 'item', name: 'Spider Silk', bag: true, max: 20, says: 'spiderSilkTake', look: 'spiderSilkLook', full: 'spiderSilkFull', sells: 1 },
   // Each common material `sells` to the peddler for 1 trade coin, each rare one for 5 (step 13a, D-494).
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic

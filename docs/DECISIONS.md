@@ -167,18 +167,6 @@ back later somewhere else in the area. Names, uses and numbers are
 asked at each one's step. D-523 to D-526 moved to
 `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
 
-**D-533 · 2026-10-31 · Locked patterns shown** (the owner's pick of A
-from the hero creator's mock-up, https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg;
-builds D-515, D-516, D-517) Zebra, Cow and Camo join the LOOK card's
-CLOAK tab as a third row, drawn as in the patterns' mock-up. Each box's
-hero is dim, with LOCK in ember at its top right. Tapping one, or the
-arrows on it, tries it on the big hero; the name under it stays the
-kept cloak's, and a note says "Zebra costs Glints, earned from Feats.
-Price not decided yet." OK keeps the free cloak; RANDOM never rolls a
-locked one. Every tab keeps three rows, so the card holds still; on the
-smallest upright view the big hero shrinks to fit (Claude's call). D-527
-and D-529 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
-
 **D-534 · 2026-11-01 · Mixed creatures, more of them** (the owner's
 picks, from a playtester's note that one kind a floor felt empty and
 easy; supersedes where and how many in D-231, D-244, D-356, D-370) Each
@@ -191,3 +179,23 @@ the others are picked from the pool by the seed, and every room holds
 at least two kinds. The flask mimic stays as it was (D-366). New kinds
 and stronger creatures come later, each its own step. D-531 and D-532
 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
+
+**D-535 · 2026-11-01 · The cave spider** (the owner's picks, all
+recommended but the look; answers part of Q-076) More creature kinds
+come one at a time, and each is fully in the game: its drops, lines,
+sound and pool. The first is the cave spider, from D-365's five: it
+shuns light only, so it never comes for the hero; it waits in the dark,
+backs out of light and bites only from the dark. 2 hearts, a bite of 1,
+in the pool from depth 2 and below. Its drop is Spider Silk, about 1 in
+2, sold for 1 coin, for crafts later; a depth 2 creature has no rare
+one (D-453). Seen from above, look A1 of the mock-up
+(https://claude.ai/artifact/S29P36PiMkbEeyfxBQc6vz), low and squat with
+its legs splayed flat on the ground (the owner saw look A float); one
+colour for now. The silk is a wound skein, look 1. Its lines (Claude's,
+the owner may change them): "The cave spider hisses.", "The cave spider
+falls still." and "The cave spider bites you." D-533 moved to
+`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-536 · 2026-11-01 · The cave spider's hiss** (the owner's pick,
+recommended) Its bite is a soft breathy hiss, then one dry click of
+fangs. It is on the sound board.

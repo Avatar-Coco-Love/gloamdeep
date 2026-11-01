@@ -30,6 +30,8 @@ const SOUNDS = [
   { label: 'Lantern hit, then a flask mimic bites', play: 'later(0, () => { sound.hit(false); sound.glass(true); })' },
   { label: 'A scorpion stings', play: 'later(0, () => sound.sting(false))' },
   { label: 'Lantern hit, then a scorpion stings', play: 'later(0, () => { sound.hit(false); sound.sting(true); })' },
+  { label: 'A cave spider bites', play: 'later(0, () => sound.hiss(false))' },
+  { label: 'Lantern hit, then a cave spider bites', play: 'later(0, () => { sound.hit(false); sound.hiss(true); })' },
 ];
 
 const out = process.argv[2];

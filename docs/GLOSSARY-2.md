@@ -11,6 +11,7 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
 - **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
 - **Scorpion:** drawn from above; chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370).
+- **Cave spider:** drawn from above, low and squat; shuns light only, so it waits in the dark and bites only from there; from depth 2 (D-535).
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
 - **Next move:** what a seen creature does if the hero waits (D-349).

@@ -19,6 +19,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `gloamling` | 2 | 1 | chases, shunsLight | the pool from depth 5 | D-240, D-244, D-475, D-476, D-534 |
 | `lampmoth` | 1 | 1 | seeksLight | the pool from depth 2 | D-351, D-356, D-475, D-534 |
 | `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369, D-475, D-476 |
+| `caveSpider` | 2 | 1 | shunsLight only, so it never comes: waits in the dark, backs out of light, bites only from the dark | the pool from depth 2 | D-365, D-535, D-536 |
 | `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | the pool from depth 3 | D-370, D-373, D-475, D-476, D-534 |
 
 The ways so far: **chases** (notices in light along a clear line, then
@@ -27,7 +28,7 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch)
 (D-269, D-351). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373).
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534).
+Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 
@@ -48,6 +49,7 @@ mechanic and its own step.
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
 | `mimicGlass` | with 2 oilcaps makes a flask | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475, D-477 |
 | `gloamWisp` | 3 with 1 Copper Ore make the Wisp Charm | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475, D-486 |
+| `spiderSilk` | for crafts later | 20 | never | a beaten cave spider, about 1 in 2 | D-535 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
@@ -65,26 +67,8 @@ mechanic and its own step.
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 
-## Tiles (`src/core/tiles.js`)
-
-| id | What it does | Grows back | Where | Decisions |
-| --- | --- | --- | --- | --- |
-| `wall`, `floor` | solid and open ground | | everywhere | the style study |
-| `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface | D-209 |
-| `stairsDown`, `stairsUp` | lead between depths | | each floor | D-132, D-174 |
-| `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees | D-209, D-317, D-321 |
-| `stump` | grows back into a tree | | where a tree was felled | D-317 |
-| `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods room | D-316 |
-| `berryBush` | 1 bump: 2 Gloamberries, leaves it bare | 300 | 1 in each woods room | D-531 |
-| `bareBush` | a picked bush, solid; fills again on its tile | | where a bush was picked | D-531 |
-| `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room | D-311, D-312 |
-| `vein` | with the pick in the bag, 4 bumps: 1 Copper Ore | 1800 | 1 of the 3 deposits in each Cave room from depth 3 | D-480 |
-| `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
-| `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
-| `bedstead` | the bed: at night sleep till morning, healed, a gold heart; by day, Deconstruct bed? | | set down on the surface | D-488 |
-| `rubble` | solid, light passing over it; 3 bumps by hand clear it, nothing taken, never back; the person beside it calls out, then is freed | | a ring around the peddler, depth 3 | D-490, D-491 |
-| `water` | a still pool: solid, light passing over it; on the map in its blue-grey (D-502) | | about 1 grey-rock Cave room in 2, 5 to 9 tiles; a pond at home (D-503) | D-500, D-502, D-503 |
-| `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
+## Tiles
+Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535).
 
 ## Lights, places
 Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531).

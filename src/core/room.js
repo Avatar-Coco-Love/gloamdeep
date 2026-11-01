@@ -118,6 +118,7 @@ export const creaturesAt = (depth) => (depth >= 5 ? 4 : depth >= 3 ? 3 : 2);
 const POOL = [
   { id: 'rat', from: 2 },
   { id: 'lampmoth', from: 2 },
+  { id: 'caveSpider', from: 2 }, // (D-535)
   { id: 'scorpion', from: 3 },
   { id: 'gloamling', from: 5 },
 ];

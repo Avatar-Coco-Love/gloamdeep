@@ -19,6 +19,9 @@ export const LINES = {
   lampmothBite: { text: 'The lampmoth bites you.', warn: false, kind: 'harm' }, // (D-356)
   scorpionDie: { text: 'The scorpion curls up and falls still.', warn: false }, // (D-370)
   scorpionBite: { text: 'The scorpion stings you.', warn: false, kind: 'harm' }, // (D-370)
+  caveSpiderHurt: { text: 'The cave spider hisses.', warn: false }, // (D-535)
+  caveSpiderDie: { text: 'The cave spider falls still.', warn: false }, // (D-535)
+  caveSpiderBite: { text: 'The cave spider bites you.', warn: false, kind: 'harm' }, // (D-535)
   flaskMimicWakes: { text: 'The flask opens its eyes!', warn: false }, // (D-368)
   flaskMimicHurt: { text: 'The flask mimic cracks.', warn: false }, // (D-369)
   flaskMimicSettles: { text: 'The flask mimic settles down.', warn: false }, // (D-368)
@@ -104,6 +107,9 @@ export const LINES = {
   gloamWispTake: { texts: ['You catch the gloam wisp.', 'The wisp is cold in your hand.', 'The gloam wisp goes in your bag.'], warn: false },
   gloamWispLook: { texts: ['A gloam wisp, for crafting later.', 'It shrinks from your light.', 'A scrap of living shadow.'], warn: false },
   gloamWispFull: { text: "You can't carry more gloam wisps.", warn: false },
+  spiderSilkTake: { texts: ['You pick up the spider silk.', 'You wind up the silk.', 'The spider silk goes in your bag.'], warn: false }, // (D-535)
+  spiderSilkLook: { texts: ['Spider silk, for crafting later.', 'Fine, pale and very strong.', 'It is still a little sticky.'], warn: false },
+  spiderSilkFull: { text: "You can't carry more spider silk.", warn: false },
   venomSacTake: { texts: ['A venom sac! A rare find.', 'You lift the sac gently. It sloshes.', 'The venom sac goes in your bag.'], warn: false }, // (D-476)
   venomSacLook: { texts: ['A venom sac, for crafting later.', 'Green venom, sealed in a thin skin.', 'Best not to squeeze it.'], warn: false },
   venomSacFull: { text: "You can't carry more venom sacs.", warn: false },
