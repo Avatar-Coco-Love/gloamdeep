@@ -201,11 +201,11 @@ function lightTorch(state, x, y) {
 // Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
 // cracks, before that, stay until it breaks.
 // Each bump is a `chip` event, and the drops a `take`. One that `needs` a tool (a
-// copper vein, the pick, D-480) is bumped only with it in the bag; without, its
-// `hard` line, free.
+// copper vein, the pick, D-480) is bumped only with it in the Tool slot (D-552);
+// without, its `hard` line, free.
 function mine(state, x, y) {
   const tile = tileAt(state.room, x, y), { hits, chips, drops, n: count = 1, breaks, full, leaves = 'floor', needs, hard } = tile.mine;
-  if (needs && !state.bag.some((s) => s.id === needs)) return say(state, hard);
+  if (needs && state.tool !== needs) return say(state, hard);
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
   if (n < hits) {

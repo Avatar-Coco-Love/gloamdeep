@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -210,3 +210,24 @@ mole claws you." D-535 and D-536 moved to
 **D-542 · 2026-11-01 · The mole's snuffle** (the owner's pick,
 recommended) Its bite is a short low snuffle, then one gritty scrape of
 claws in dirt. It is on the sound board.
+
+**D-549 · 2026-11-01 · The herb mimic, then the bone rat** (the
+owner's picks: the herb mimic and the bone rat from seven kinds built on
+today's ways, the herb mimic first; the rest recommended; answers part of
+Q-076; mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT) The
+fifth new kind: a herb with eyes and teeth. It sleeps drawn just as a
+herb, as the flask mimic sleeps as a flask (D-368); a bump, or a hurt
+hero's step to heal, wakes it with no harm and no healing, and it chases
+for 6 turns, then settles back down. 2 hearts, a bite of 1, worth 3, in
+the pool from depth 3. Awake, pink eyes on its two side leaves and a row
+of pale teeth. Its drop is a Mimic Leaf, a leaf with a pink spot, about
+1 in 2, sold for 1 coin, for crafts later; its rare one is Q-061. Its
+lines (Claude's, the owner may change them): "The herb opens its eyes!",
+"The herb mimic rustles.", "The herb mimic settles down.", "The herb
+mimic wilts and falls still." and "The herb mimic bites you." The bone
+rat is the sixth, at its own step. D-543 and D-544 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-550 · 2026-11-01 · The herb mimic's rustle** (the owner's go, as
+recommended) Its bite is a dry leafy rustle, then the rat's snap of
+teeth. It is on the sound board.

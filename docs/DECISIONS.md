@@ -144,27 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-549 · 2026-11-01 · The herb mimic, then the bone rat** (the
-owner's picks: the herb mimic and the bone rat from seven kinds built on
-today's ways, the herb mimic first; the rest recommended; answers part of
-Q-076; mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT) The
-fifth new kind: a herb with eyes and teeth. It sleeps drawn just as a
-herb, as the flask mimic sleeps as a flask (D-368); a bump, or a hurt
-hero's step to heal, wakes it with no harm and no healing, and it chases
-for 6 turns, then settles back down. 2 hearts, a bite of 1, worth 3, in
-the pool from depth 3. Awake, pink eyes on its two side leaves and a row
-of pale teeth. Its drop is a Mimic Leaf, a leaf with a pink spot, about
-1 in 2, sold for 1 coin, for crafts later; its rare one is Q-061. Its
-lines (Claude's, the owner may change them): "The herb opens its eyes!",
-"The herb mimic rustles.", "The herb mimic settles down.", "The herb
-mimic wilts and falls still." and "The herb mimic bites you." The bone
-rat is the sixth, at its own step. D-543 and D-544 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
-**D-550 · 2026-11-01 · The herb mimic's rustle** (the owner's go, as
-recommended) Its bite is a dry leafy rustle, then the rat's snap of
-teeth. It is on the sound board.
-
 **D-551 · 2026-11-01 · The bone rat** (the owner's picks, all
 recommended; builds D-549, answers part of Q-076; mock-up:
 https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj) The sixth new kind, a
@@ -178,3 +157,31 @@ the sound board. Its lines are Claude's, the owner may change them: "The
 bone rat rattles and keeps coming.", "The bone rat falls apart." and
 "The bone rat bites you." D-545 to D-548 moved to
 `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-552 · 2026-11-01 · Gear slots and the Tool slot** (the owner's ask
+and picks, all recommended; builds D-252, D-458, D-479; supersedes
+D-480's "never held"; mock-up: https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg)
+The hero has five gear slots: Weapon (the hand), Tool, Armour and two
+Charms, the owner's list, with D-458's one armour piece and two charms.
+They are one row of small slots across the top of the bag's card, where
+HELD was (layout A); an empty one shows its kind faintly (a knife, the
+pick, the vest, a charm), with "GEAR" after the row when there is room.
+The item's words start under the row; the bag's slots keep their size.
+The Stone Pick goes in the Tool slot: Hold on it in the bag puts it
+there, a turn, "You hold the stone pick.", the one there swapping into
+its bag slot, as a weapon does; made with the slot empty it goes
+straight in. A copper vein breaks only with the pick in that slot. Its
+second Look line becomes "Hold it to use it." A save upgrades with its
+pick moved from the bag into the slot (format 9 to 10). Tapping the row
+does nothing yet. D-549 and D-550 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-553 · 2026-11-01 · Inventory steps to come** (the owner's picks,
+the recommended ones and craft from chests) After the gear row, each
+its own step: Take off, choosing a gear slot and pressing it to put the
+piece back in the bag, free, "Your bag is full." with no room (worn
+pieces can't come off today, D-484); Store matching on the chest's card,
+moving every bag stack whose kind the chest holds onto it; a Sort
+button in the bag, lining it up by kind and joining half stacks; and
+crafting at the workbench from chests standing on the surface. One
+visible change per step (D-018).

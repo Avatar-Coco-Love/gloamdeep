@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.13, the Pouch and the Big Bag.** All recommended:
+  the Pouch 4 Rat Tail, 2 Spider Silk; the Big Bag 4 Mole Fur, 3 Spider
+  Silk; looks A; grows at once, for good (D-547). Sideways, 3 rows of
+  slots didn't fit; the owner picked 3 × 3, then 4 × 3, with 26-pixel
+  slots (D-548). Mock-up: https://claude.ai/artifact/4aCZQTvAoyCAsaFCiu9jzh.
+  Playtest: https://claude.ai/artifact/7CngxjKsEPj5ymqKZR1jdN
 - **2026-11-01, 0.3.12, Drop.** The owner asked to drop things and for
   bigger bags. Picked all recommended: Drop first, a whole stack set at
   your feet, free, "You set it down.", a swap on a find (D-546); later a
