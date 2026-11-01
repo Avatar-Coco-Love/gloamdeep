@@ -33,6 +33,9 @@ export const LINES = {
   herbMimicSettles: { text: 'The herb mimic settles down.', warn: false },
   herbMimicDie: { text: 'The herb mimic wilts and falls still.', warn: false },
   herbMimicBite: { text: 'The herb mimic bites you.', warn: false, kind: 'harm' },
+  boneRatHurt: { text: 'The bone rat rattles and keeps coming.', warn: false }, // hurt, it never flees (D-551)
+  boneRatDie: { text: 'The bone rat falls apart.', warn: false },
+  boneRatBite: { text: 'The bone rat bites you.', warn: false, kind: 'harm' },
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -137,6 +140,9 @@ export const LINES = {
   mimicLeafTake: { texts: ['You pick up the mimic leaf.', 'A leaf with a pink spot, like an eye.', 'The mimic leaf goes in your bag.'], warn: false }, // (D-549)
   mimicLeafLook: { texts: ['A mimic leaf, for crafting later.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
   mimicLeafFull: { text: "You can't carry more mimic leaves.", warn: false },
+  ratBoneTake: { texts: ['You pick up the rat bone.', 'A small pale bone with knobbed ends.', 'The rat bone goes in your bag.'], warn: false }, // (D-551)
+  ratBoneLook: { texts: ['A rat bone, for crafting later.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },
+  ratBoneFull: { text: "You can't carry more rat bones.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

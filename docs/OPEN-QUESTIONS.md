@@ -90,8 +90,8 @@ gear, potions, lampcraft, trophies and trade (D-417). Names and chances
 are settled (D-453, D-454), and where things are made (D-455, D-456).
 Still open: each material's look (all eight are D-474 to D-476) and the
 recipes it goes into (Mimic Glass's first is D-477, Rat Tail's D-484), at each one's own
-step; a new mechanic, its own step. Also the herb mimic's rare one, as a
-creature from depth 3 (D-453, D-549).
+step; a new mechanic, its own step. Also the herb mimic's and the bone
+rat's rare ones, as creatures from depth 3 down (D-453, D-549, D-551).
 
 **Q-063 · The start-up screens** (before 1.0, D-377)
 The owner wants the game to load like other games: a maker's name, then
@@ -137,8 +137,8 @@ chance that it isn't guarded. How likely, and from which depth?
 **Q-076 · New creature kinds** (raised 2026-11-01, D-534)
 The owner wants more kinds, and to talk them over first, then keeps
 adding them one at a time, each fully in the game (D-535). The cave
-spider is the first (D-535), the bat the second (D-537), the mole the third (D-541), the snapcap the fourth (D-543), the herb mimic the fifth and the bone rat
-next (D-549). A list of 26 was shown in chat: from
+spider is the first (D-535), the bat the second (D-537), the mole the third (D-541), the snapcap the fourth (D-543), the herb mimic the fifth (D-549), the bone
+rat the sixth (D-551). A list of 26 was shown in chat: from
 today's ways, snapcap, mole, bat, herb mimic, oilcap mimic, shade
 hound, bone rat; with a new way each, wicksucker, snuffer, glowworm,
 wraith, burrower, centipede, mudcrawler, pebble thrower, slime, shell

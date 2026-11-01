@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.15 (2026-11-01)
+- A new creature, the bone rat, now turns up from depth 4 down: a rat with nothing left but bone. It chases you and never runs away.
+- It has 3 hearts and bites for 1, with a dry clatter of bones and a snap of teeth.
+- Beaten, it may leave a Rat Bone, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-551.
+
 ## 0.3.14 (2026-11-01)
 - A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.
 - It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.
@@ -112,7 +118,3 @@ Entry format:
 ## 0.2.233 (2026-10-31)
 - When you make a new hero, the name card shows your hero big over the letters, with the name you type over it, and two dots in the top bar show it is the first of two steps; on the Look card both dots are lit. Rename shows your hero too. Going back from the Look card to the name keeps the look you picked.
 - Decisions: D-524.
-
-## 0.2.232 (2026-10-31)
-- The Look card looks more like the first drawing of it: your hero is much bigger, the tabs sit between your hero and the choices, and RANDOM and OK are two big buttons side by side across the bottom.
-- Decisions: D-523.

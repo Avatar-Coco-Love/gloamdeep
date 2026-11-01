@@ -126,6 +126,7 @@ const POOL = [
   { id: 'mole', from: 5 }, // (D-541)
   { id: 'snapcap', from: 2 }, // (D-543)
   { id: 'herbMimic', from: 3 }, // (D-549)
+  { id: 'boneRat', from: 4 }, // (D-551)
 ];
 export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);
 // § mixing: the rat by the flask stays a rat; each other creature is picked from

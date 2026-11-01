@@ -69,6 +69,8 @@ export const ITEMS = {
   snapcapGill: { id: 'snapcapGill', kind: 'item', name: 'Snapcap Gill', bag: true, max: 20, says: 'snapcapGillTake', look: 'snapcapGillLook', full: 'snapcapGillFull', sells: 1 },
   // A herb mimic's Mimic Leaf, taken and kept the same way (D-549).
   mimicLeaf: { id: 'mimicLeaf', kind: 'item', name: 'Mimic Leaf', bag: true, max: 20, says: 'mimicLeafTake', look: 'mimicLeafLook', full: 'mimicLeafFull', sells: 1 },
+  // A bone rat's Rat Bone, taken and kept the same way (D-551).
+  ratBone: { id: 'ratBone', kind: 'item', name: 'Rat Bone', bag: true, max: 20, says: 'ratBoneTake', look: 'ratBoneLook', full: 'ratBoneFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.

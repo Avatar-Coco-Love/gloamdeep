@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.12, Drop.** The owner asked to drop things and for
+  bigger bags. Picked all recommended: Drop first, a whole stack set at
+  your feet, free, "You set it down.", a swap on a find (D-546); later a
+  Pouch (9 slots) then a Big Bag (12) at the workbench (D-545). Playtest:
+  https://claude.ai/artifact/XWxaA1QkrjXiVBL1MQdu2p
+
 - **2026-11-01, 0.3.11, the snapcap.** The owner asked for more
   options, saw eight new kinds, and picked the snapcap: never moves,
   bites beside it, 2 hearts, from depth 2; a heartcap until you stand
