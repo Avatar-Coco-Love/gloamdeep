@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.4, the bush on the ground.** The owner saw the
+  gloamberry bush float over its shadow. Picked A of three: 1 pixel
+  lower, resting on a 12-pixel shadow as a deposit does (D-532).
+  Playtest: https://claude.ai/artifact/HsxNVKoPepVFccmbGj74Cx
 - **2026-10-31, 0.3.3, the gloamberry bush.** Step 13b. Mock-up:
   https://claude.ai/artifact/4oBJgBEVRAQpon2868dR8r. Picked A, a berry
   bush: one in each woods room, a bump gives 2 Gloamberries (Eat: 1

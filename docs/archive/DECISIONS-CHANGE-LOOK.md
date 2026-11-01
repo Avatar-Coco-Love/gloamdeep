@@ -1,4 +1,4 @@
-# Change look (D-513 to D-516, D-520 to D-527, D-529)
+# Change look (D-513 to D-516, D-520 to D-527, D-529, D-533)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.227 (D-516), when it
 would pass 12 KB: the Change look button and taps big enough. D-514 to
@@ -7,7 +7,8 @@ D-516 (the looks plan, the first patterns, Glints) moved the same way at
 moved the same way at 0.2.235 (D-526). D-523 to D-526 (the LOOK
 card nearer the mock-up, the hero creator's steps 4 to 6) moved the
 same way at 0.3.2 (D-530). D-527 and D-529 (eyes and trims as
-swatches) moved the same way at 0.3.5 (D-533). This is
+swatches) moved the same way at 0.3.5 (D-533). D-533 (locked patterns
+shown) moved the same way at 0.3.7 (D-535). This is
 still in force unless marked superseded. Grep for an ID or topic;
 never read this whole.
 
@@ -117,3 +118,15 @@ from a mock-up; Claude had recommended C, a bigger lantern; answers
 Q-074; builds D-527) On the LOOK card's TRIM tab each box shows a
 square of the trim's light cap shade over its dark base shade, with its
 name, in place of the small hero. The big hero stays.
+
+**D-533 · 2026-10-31 · Locked patterns shown** (the owner's pick of A
+from the hero creator's mock-up, https://claude.ai/artifact/2eVYiVprEVqqg1y42AC9Fg;
+builds D-515, D-516, D-517) Zebra, Cow and Camo join the LOOK card's
+CLOAK tab as a third row, drawn as in the patterns' mock-up. Each box's
+hero is dim, with LOCK in ember at its top right. Tapping one, or the
+arrows on it, tries it on the big hero; the name under it stays the
+kept cloak's, and a note says "Zebra costs Glints, earned from Feats.
+Price not decided yet." OK keeps the free cloak; RANDOM never rolls a
+locked one. Every tab keeps three rows, so the card holds still; on the
+smallest upright view the big hero shrinks to fit (Claude's call). D-527
+and D-529 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.

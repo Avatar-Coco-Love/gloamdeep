@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370).
+// scorpion's sting (D-370), and the cave spider's hiss (D-536).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -39,6 +39,12 @@ const GLASS = {
 const STING = {
   click: { freq: 2400, ring: 6, gain: 0.06, attack: 0.001, end: 0.012, from: 0.15 }, clicks: [0, 0.035],
   stab: { freq: 1800, sweepTo: 700, ring: 4, gain: 0.08, attack: 0.002, end: 0.06, from: 0.55 }, stabAt: 0.08,
+};
+// A hiss: a soft breathy hiss rising and falling, then one dry click of fangs, the
+// cave spider's. Each varies a little, like the hit (hertz, seconds)
+const HISS = {
+  hiss: { freq: 5200, sweepTo: 3800, ring: 1.2, gain: 0.05, attack: 0.03, end: 0.16, from: 0.45 },
+  click: { freq: 2000, ring: 6, gain: 0.07, attack: 0.001, end: 0.015, from: 0.8 }, clickAt: 0.13,
 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
@@ -145,5 +151,14 @@ export function createSound(isOn) {
     for (const d of STING.clicks) slice(t + d, { type: 'bandpass', ...click, freq: click.freq * p, gain: click.gain * loud, from: click.from + d });
     slice(t + STING.stabAt, { type: 'bandpass', ...stab, freq: stab.freq * p, sweepTo: stab.sweepTo * p, gain: stab.gain * loud });
   }
-  return { footstep, lantern, hit, teeth, glass, sting };
+  // § hiss: the cave spider's, a soft hiss and a click; `afterHit` as for teeth
+  function hiss(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { hiss: h, click } = HISS;
+    slice(t, { type: 'bandpass', ...h, freq: h.freq * p, sweepTo: h.sweepTo * p, gain: h.gain * loud });
+    slice(t + HISS.clickAt, { type: 'bandpass', ...click, freq: click.freq * p, gain: click.gain * loud });
+  }
+  return { footstep, lantern, hit, teeth, glass, sting, hiss };
 }

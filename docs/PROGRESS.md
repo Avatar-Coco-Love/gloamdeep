@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.6 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.7 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-After a playtest of the mix: new creature kinds (Q-076) if the owner
-wants them next, else step 14, the garden (D-452): a mock-up first, then where it sits at
-home, how a seed is planted and grows, and the gloamberry seed (D-531);
-water is Q-071.
+The next creature kind (Q-076, D-535): the owner picks from the list,
+then its looks, numbers, drops and pool, one kind a step; else step 14,
+the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -25,7 +24,7 @@ water is Q-071.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- New creature kinds to talk over (Q-076), next if the owner likes.
+- The next creature kind (Q-076), next.
 - A chance of an unguarded flask (Q-075), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -48,6 +47,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.7, the cave spider.** The owner asked for many new
+  creature kinds (26 shown) and picked the cave spider first, each kind
+  fully in the game: a lurker that shuns light, from depth 2, 2 hearts,
+  bite 1, Spider Silk, look A1 grounded, a hiss (D-535, D-536).
+  Playtest: https://claude.ai/artifact/89dXV4VC3oPHfW22UC9ekL
 - **2026-11-01, 0.3.6, mixed creatures.** A playtester found one kind
   a floor empty and easy. The owner picked 2, 3, then 4 creatures a
   room by depth, each depth's pool (the old kinds keep going), at least
@@ -58,7 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
   hero with a Glints note; never kept or rolled (D-533). Playtest:
   https://claude.ai/artifact/K5fADQ8q5pEEe157HPgKfd
-- **2026-10-31, 0.3.4, the bush on the ground.** The owner saw the
-  gloamberry bush float over its shadow. Picked A of three: 1 pixel
-  lower, resting on a 12-pixel shadow as a deposit does (D-532).
-  Playtest: https://claude.ai/artifact/HsxNVKoPepVFccmbGj74Cx

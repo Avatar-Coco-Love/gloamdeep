@@ -55,7 +55,7 @@ this page and a decision disagree, the decision wins.
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic
   Heart, Gloam Eye (D-453, D-454). All eight are in the game (D-474
-  to D-476).
+  to D-476). The cave spider's Spider Silk is the ninth (D-535).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
