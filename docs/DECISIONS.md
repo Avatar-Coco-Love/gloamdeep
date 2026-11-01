@@ -144,19 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-534 · 2026-11-01 · Mixed creatures, more of them** (the owner's
-picks, from a playtester's note that one kind a floor felt empty and
-easy; supersedes where and how many in D-231, D-244, D-356, D-370) Each
-generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, and
-4 from depth 5; the rooms are big, and it can be pulled back if too
-hard. Each depth has a pool: the rat and lampmoth from depth 2, the
-scorpion from 3, the gloamling from 5, and none stops lower down. The
-rat by the flask stays a rat for now (a chance of no guard is Q-075);
-the others are picked from the pool by the seed, and every room holds
-at least two kinds. The flask mimic stays as it was (D-366). New kinds
-and stronger creatures come later, each its own step. D-531 and D-532
-moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
-
 **D-535 · 2026-11-01 · The cave spider** (the owner's picks, all
 recommended but the look; answers part of Q-076) More creature kinds
 come one at a time, and each is fully in the game: its drops, lines,
@@ -204,3 +191,16 @@ grows back, as the oilcap does (300 turns). It goes in the bag, sells
 to the peddler and is kept for the garden (step 14, its use decided
 there) and for crafts later. Its look, name and lines are asked at its
 step. D-517 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.
+
+**D-540 · 2026-11-01 · Bat Guano's look, name and lines** (the owner's
+picks, all recommended; builds D-539; mock-up:
+https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV) Look A, a low mound
+of dark droppings in the bat's browns, lit on top, with a few pale
+flecks. Its name is **Bat Guano**, in stacks of 20, sold to the peddler
+for 1 coin. Its pile goes on an open floor tile next to its bat, or 2
+steps off when none is free. Its lines (Claude's, the owner may change
+them): "You scoop up the guano.", "You bag a handful of guano.", "It
+crumbles as you lift it."; looked at, "Bat guano. It smells sharp.",
+"Dry and crumbly, it reeks.", "Gardeners prize this."; full, "You
+can't carry more guano." D-534 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

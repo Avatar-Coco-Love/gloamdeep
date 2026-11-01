@@ -52,6 +52,7 @@ mechanic and its own step.
 | `gloamWisp` | 3 with 1 Copper Ore make the Wisp Charm | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475, D-486 |
 | `spiderSilk` | for crafts later | 20 | never | a beaten cave spider, about 1 in 2 | D-535 |
 | `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
+| `batGuano` | for the garden and crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |

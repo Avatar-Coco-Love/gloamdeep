@@ -63,6 +63,10 @@ export const ITEMS = {
   spiderSilk: { id: 'spiderSilk', kind: 'item', name: 'Spider Silk', bag: true, max: 20, says: 'spiderSilkTake', look: 'spiderSilkLook', full: 'spiderSilkFull', sells: 1 },
   // A bat's Bat Wing, taken and kept the same way (D-537).
   batWing: { id: 'batWing', kind: 'item', name: 'Bat Wing', bag: true, max: 20, says: 'batWingTake', look: 'batWingLook', full: 'batWingFull', sells: 1 },
+  // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
+  // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
+  // for the garden (step 14) and crafts later.
+  batGuano: { id: 'batGuano', kind: 'item', name: 'Bat Guano', bag: true, max: 20, says: 'batGuanoTake', look: 'batGuanoLook', full: 'batGuanoFull', sells: 1, regrow: DAY_TURNS },
   // Each common material `sells` to the peddler for 1 trade coin, each rare one for 5 (step 13a, D-494).
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic

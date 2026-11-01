@@ -3,6 +3,7 @@
 Moved unchanged from `docs/DECISIONS.md` at 0.2.129 (D-379), when it
 passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
+D-534, mixed creatures, joined at 0.3.9 (D-540).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -89,3 +90,16 @@ never the oil's amber. One the dev tools place wears the first, Sand.
 **D-374 · 2026-10-26 · Each creature varies its own way** (the owner's
 answer) Whether a creature varies, and how, is decided creature by
 creature: colours, or its shape itself. Ideas kept in `RESEARCH.md`.
+
+**D-534 · 2026-11-01 · Mixed creatures, more of them** (the owner's
+picks, from a playtester's note that one kind a floor felt empty and
+easy; supersedes where and how many in D-231, D-244, D-356, D-370) Each
+generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, and
+4 from depth 5; the rooms are big, and it can be pulled back if too
+hard. Each depth has a pool: the rat and lampmoth from depth 2, the
+scorpion from 3, the gloamling from 5, and none stops lower down. The
+rat by the flask stays a rat for now (a chance of no guard is Q-075);
+the others are picked from the pool by the seed, and every room holds
+at least two kinds. The flask mimic stays as it was (D-366). New kinds
+and stronger creatures come later, each its own step. D-531 and D-532
+moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.

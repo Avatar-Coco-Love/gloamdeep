@@ -3,6 +3,7 @@
 import { OUTSIDE } from './tiles.js';
 import { byLetter } from './registry.js';
 import { generateRoom, withMimic, withTrapped } from './cave.js';
+import { withGuano } from './guano.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -169,7 +170,8 @@ export function placeFor(id, seed = 1) {
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock' });
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
-  const room = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;
+  const trapped = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;
+  const room = trapped && withGuano(cell.seed, trapped); // a pile by each bat, placed last (D-539)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };
 }
 

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.6, mixed creatures.** A playtester found one kind
+  a floor empty and easy. The owner picked 2, 3, then 4 creatures a
+  room by depth, each depth's pool (the old kinds keep going), at least
+  two kinds a room, the flask's rat kept (D-534). New kinds are Q-076.
+  Playtest: https://claude.ai/artifact/97LxbnLug9r5StTeFAMNwr
 - **2026-10-31, 0.3.5, locked patterns shown.** The owner asked to see
   the locked looks, pointing at mock-up A. Zebra, Cow and Camo are a
   third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
