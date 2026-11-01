@@ -121,16 +121,6 @@ Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
 
-**D-517 · 2026-10-31 · The hero creator, one card** (the owner's pick
-of A from a mock-up, with Claude's extras; builds D-514) After the
-name, a new hero gets one Look card, the same as Change look: the hero
-big on a lit floor, its name over it and the choice's name under it;
-tabs for cloak, eyes, trim and clothes, each choice drawn on the whole
-hero with its name; RANDOM beside OK, rolling free looks only; locked
-looks in the grid with a lock. The name card shows the hero too, and
-dots show the steps left. Built in small steps after the seventh
-audit, which moves to 0.2.228.
-
 **D-518 · 2026-10-31 · An audit every 40 versions** (the owner's pick,
 recommended; supersedes D-337's 20) The owner asked if audits help. The
 start-of-conversation read stays near 11.5 KB (17 KB before the first),
@@ -153,19 +143,6 @@ supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
-
-**D-530 · 2026-10-31 · Wild harvestables first** (the owner's picks,
-two of them recommended; builds D-451, D-452; changes the order in
-D-482) Before the garden, a small step adds one wild plant to the
-surface woods, which give only Wood today *(e.g. a berry bush)*; it
-also gives the garden its first seed. In time fruit bushes, flowers,
-cave plants grown at home and water plants (Q-071) all come, each at
-its own step, not all at once. The surface comes first; each biome
-below keeps its own 2 or 3 plants (D-451). Picked, a bush stays, bare,
-and its fruit grows back; flowers and small plants vanish and come
-back later somewhere else in the area. Names, uses and numbers are
-asked at each one's step. D-523 to D-526 moved to
-`archive/DECISIONS-CHANGE-LOOK.md`, word for word.
 
 **D-534 · 2026-11-01 · Mixed creatures, more of them** (the owner's
 picks, from a playtester's note that one kind a floor felt empty and
@@ -199,3 +176,31 @@ falls still." and "The cave spider bites you." D-533 moved to
 **D-536 · 2026-11-01 · The cave spider's hiss** (the owner's pick,
 recommended) Its bite is a soft breathy hiss, then one dry click of
 fangs. It is on the sound board.
+
+**D-537 · 2026-11-01 · The bat** (the owner's picks, all recommended;
+answers part of Q-076; builds D-365) The second new kind, from D-365's
+five: it seeks light, as the lampmoth does, and once hurt it may flee,
+as the rat does, both ways already in the game. 2 hearts, a bite of 1,
+in the pool from depth 3 and below (D-365's depths 3 and 4, as pools
+now run, D-534). Its drop is a Bat Wing, about 1 in 2, sold for 1 coin,
+and as a creature of depth 3, a rare Bat Fang, about 1 in 10, sold for
+5 (D-453, D-494); both for crafts later. Look A of the mock-up
+(https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia), seen from above,
+wings spread wide, in the wood's browns. The wing and the fang are
+Claude's drawings, the owner may change them. Its lines (Claude's, the
+owner may change them): "The bat shrieks and flees.", "The bat squeaks
+and circles.", "The bat flutters and falls still." and "The bat bites
+you." D-530 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
+
+**D-538 · 2026-11-01 · The bat's squeak** (the owner's pick,
+recommended) Its bite is a quick high squeak, then one soft leathery
+flap of wings. It is on the sound board.
+
+**D-539 · 2026-11-01 · Bat guano** (the owner's idea; picks all
+recommended, with every use) Guano is a find of its own, built as the
+next step, apart from the bat: when a room is made, each bat gets one
+pile on an open floor tile close by, as each flask has its rat. It
+grows back, as the oilcap does (300 turns). It goes in the bag, sells
+to the peddler and is kept for the garden (step 14, its use decided
+there) and for crafts later. Its look, name and lines are asked at its
+step. D-517 moved to `archive/DECISIONS-CHANGE-LOOK.md`, word for word.

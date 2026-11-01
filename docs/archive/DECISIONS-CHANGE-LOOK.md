@@ -1,4 +1,4 @@
-# Change look (D-513 to D-516, D-520 to D-527, D-529, D-533)
+# Change look (D-513 to D-517, D-520 to D-527, D-529, D-533)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.227 (D-516), when it
 would pass 12 KB: the Change look button and taps big enough. D-514 to
@@ -8,7 +8,8 @@ moved the same way at 0.2.235 (D-526). D-523 to D-526 (the LOOK
 card nearer the mock-up, the hero creator's steps 4 to 6) moved the
 same way at 0.3.2 (D-530). D-527 and D-529 (eyes and trims as
 swatches) moved the same way at 0.3.5 (D-533). D-533 (locked patterns
-shown) moved the same way at 0.3.7 (D-535). This is
+shown) moved the same way at 0.3.7 (D-535). D-517 (the hero creator,
+one card) moved the same way at 0.3.8 (D-539). This is
 still in force unless marked superseded. Grep for an ID or topic;
 never read this whole.
 
@@ -40,6 +41,16 @@ both recommended; narrows Q-055, builds D-418, D-467) The look currency
 is called Glints. The Feats tiers pay them, and they are spent in the
 Look card: a locked look shows there with a lock and is bought there.
 Which Feats pay, how many Glints, and each look's price stay Q-055.
+
+**D-517 · 2026-10-31 · The hero creator, one card** (the owner's pick
+of A from a mock-up, with Claude's extras; builds D-514) After the
+name, a new hero gets one Look card, the same as Change look: the hero
+big on a lit floor, its name over it and the choice's name under it;
+tabs for cloak, eyes, trim and clothes, each choice drawn on the whole
+hero with its name; RANDOM beside OK, rolling free looks only; locked
+looks in the grid with a lock. The name card shows the hero too, and
+dots show the steps left. Built in small steps after the seventh
+audit, which moves to 0.2.228.
 
 **D-520 · 2026-10-31 · The hero creator, step 1: the big hero** (the
 owner's picks, both recommended; builds D-517) The Cloak card comes

@@ -120,6 +120,7 @@ const POOL = [
   { id: 'lampmoth', from: 2 },
   { id: 'caveSpider', from: 2 }, // (D-535)
   { id: 'scorpion', from: 3 },
+  { id: 'bat', from: 3 }, // (D-537)
   { id: 'gloamling', from: 5 },
 ];
 export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);

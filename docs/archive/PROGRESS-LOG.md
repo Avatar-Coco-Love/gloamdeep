@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-10-31, 0.3.5, locked patterns shown.** The owner asked to see
+  the locked looks, pointing at mock-up A. Zebra, Cow and Camo are a
+  third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
+  hero with a Glints note; never kept or rolled (D-533). Playtest:
+  https://claude.ai/artifact/K5fADQ8q5pEEe157HPgKfd
 - **2026-10-31, 0.3.4, the bush on the ground.** The owner saw the
   gloamberry bush float over its shadow. Picked A of three: 1 pixel
   lower, resting on a 12-pixel shadow as a deposit does (D-532).

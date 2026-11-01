@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.7 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.8 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The next creature kind (Q-076, D-535): the owner picks from the list,
-then its looks, numbers, drops and pool, one kind a step; else step 14,
-the garden (D-452).
+Bat guano (D-539), 0.3.9: a pile by each bat, growing back; its look,
+name and lines first. Then the next creature kind (Q-076), else step
+14, the garden (D-452).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +47,14 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
+  recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
+  bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak
+  and a flap (D-537, D-538). Guano, the owner's idea, is next (D-539).
+  Mock-up:
+  https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia. Playtest:
+  https://claude.ai/artifact/CNTdjSLwEc5vnGhP29N6JQ. Sounds:
+  https://claude.ai/artifact/VjNdUfqWDZsPX5j2S4p2bd
 - **2026-11-01, 0.3.7, the cave spider.** The owner asked for many new
   creature kinds (26 shown) and picked the cave spider first, each kind
   fully in the game: a lurker that shuns light, from depth 2, 2 hearts,
@@ -57,8 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   room by depth, each depth's pool (the old kinds keep going), at least
   two kinds a room, the flask's rat kept (D-534). New kinds are Q-076.
   Playtest: https://claude.ai/artifact/97LxbnLug9r5StTeFAMNwr
-- **2026-10-31, 0.3.5, locked patterns shown.** The owner asked to see
-  the locked looks, pointing at mock-up A. Zebra, Cow and Camo are a
-  third row on the CLOAK tab, dim with LOCK; tapped, tried on the big
-  hero with a Glints note; never kept or rolled (D-533). Playtest:
-  https://claude.ai/artifact/K5fADQ8q5pEEe157HPgKfd

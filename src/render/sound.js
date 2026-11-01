@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370), and the cave spider's hiss (D-536).
+// scorpion's sting (D-370), the cave spider's hiss (D-536), and the bat's squeak (D-538).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -45,6 +45,12 @@ const STING = {
 const HISS = {
   hiss: { freq: 5200, sweepTo: 3800, ring: 1.2, gain: 0.05, attack: 0.03, end: 0.16, from: 0.45 },
   click: { freq: 2000, ring: 6, gain: 0.07, attack: 0.001, end: 0.015, from: 0.8 }, clickAt: 0.13,
+};
+// A squeak: a quick high chirp rising in pitch, then one soft leathery flap of
+// wings, the bat's. Each varies a little, like the hit (hertz, seconds)
+const SQUEAK = {
+  chirp: { from: 3800, to: 5200, gain: 0.04, attack: 0.004, end: 0.06 },
+  flap: { freq: 900, sweepTo: 400, ring: 0.8, gain: 0.06, attack: 0.01, end: 0.09, from: 0.25 }, flapAt: 0.08,
 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
@@ -160,5 +166,14 @@ export function createSound(isOn) {
     slice(t, { type: 'bandpass', ...h, freq: h.freq * p, sweepTo: h.sweepTo * p, gain: h.gain * loud });
     slice(t + HISS.clickAt, { type: 'bandpass', ...click, freq: click.freq * p, gain: click.gain * loud });
   }
-  return { footstep, lantern, hit, teeth, glass, sting, hiss };
+  // § squeak: the bat's, a chirp and a flap; `afterHit` as for teeth
+  function squeak(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { chirp, flap } = SQUEAK;
+    tone(t, { ...chirp, from: chirp.from * p, to: chirp.to * p, gain: chirp.gain * loud });
+    slice(t + SQUEAK.flapAt, { type: 'lowpass', ...flap, freq: flap.freq * p, sweepTo: flap.sweepTo * p, gain: flap.gain * loud });
+  }
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak };
 }

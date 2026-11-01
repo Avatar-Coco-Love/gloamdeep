@@ -123,6 +123,6 @@ Each built only from the ways creatures have
 - **Snapcap:** a heartcap look-alike with pink eyes; no ways, so it never
   moves and bites whoever stands next to it. 2 hearts, bite 1, depths 2 to 4.
 - **Mole:** chases and never flees. 4 hearts, bite 1, the Warren.
-- **Bat:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
+- **Bat** (picked, built at 0.3.8, D-537)**:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
 - **Cave spider** (picked, built at 0.3.7, D-535)**:** shuns light only, so it waits in the dark, backs out of
   light and bites when the lantern is off. 2 hearts, bite 1, depths 2 to 4.

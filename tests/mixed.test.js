@@ -9,11 +9,11 @@ const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const DEPTHS = [2, 3, 4, 5, 6, 8, 12];
 const kinds = (id, seed) => placeFor(id, seed).enemies.filter((e) => e.id !== 'flaskMimic');
 
-test('the pool: rat, lampmoth and cave spider at depth 2, the scorpion from 3, the gloamling from 5, none ever leaving', () => {
+test('the pool: rat, lampmoth and cave spider at depth 2, the scorpion and the bat from 3, the gloamling from 5, none ever leaving', () => {
   assert.deepEqual(poolAt(2), ['rat', 'lampmoth', 'caveSpider']); // (D-535)
-  assert.deepEqual(poolAt(3), ['rat', 'lampmoth', 'caveSpider', 'scorpion']);
-  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion']);
-  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'gloamling']);
+  assert.deepEqual(poolAt(3), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat']); // (D-537)
+  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat']);
+  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'gloamling']);
   assert.deepEqual(poolAt(12), poolAt(5));
 });
 
@@ -42,5 +42,5 @@ test('the same seed gives the same mix, and every kind turns up deep down', () =
     assert.deepEqual(kinds(c.id, seed), kinds(c.id, seed));
     kinds(c.id, seed).forEach((e) => seen.add(e.id));
   }
-  assert.deepEqual([...seen].sort(), ['caveSpider', 'gloamling', 'lampmoth', 'rat', 'scorpion']);
+  assert.deepEqual([...seen].sort(), ['bat', 'caveSpider', 'gloamling', 'lampmoth', 'rat', 'scorpion']);
 });
