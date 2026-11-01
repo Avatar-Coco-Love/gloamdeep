@@ -7,6 +7,8 @@
 // or 'right', drawn facing right until it walks, D-158), and `colour`, the set it
 // wears, for a kind with `colours` (D-373). `ways` names how it
 // acts, from behaviours.js (D-269).
+import { MUSHROOM_TONE } from './items.js';
+
 export const ENEMIES = {
   // Two lantern hits kill it (D-109, D-110); it bites for 1 when next to the hero (D-114)
   // and chases them once it notices them (D-126). Once hurt, it may flee (D-292, D-301).
@@ -37,6 +39,11 @@ export const ENEMIES = {
   // It chases and never flees, a tough one for the deep floors, 4 hearts (D-365, D-541). Its
   // bite snuffles and scrapes (D-542). Beaten, it may drop Mole Fur, and now and then a Mole Claw (D-541).
   mole: { id: 'mole', kind: 'enemy', name: 'Mole', health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
+  // A heartcap that bites (D-365, D-543): no ways, so it never moves or notices, and bites
+  // whoever stands beside it. Drawn `shutAs` a heartcap, in a heartcap's `tone`, until the
+  // hero stands beside it; then its eyes and teeth show. Its bite is a wet snap (D-544).
+  // Beaten, it may drop a Snapcap Gill; a creature of depth 2, it has no rare one (D-453).
+  snapcap: { id: 'snapcap', kind: 'enemy', name: 'Snapcap', health: 2, bite: 1, drops: 'snapcapGill', ways: [], shutAs: 'heartcap', tone: MUSHROOM_TONE, hurt: 'snapcapHurt', die: 'snapcapDie', bites: 'snapcapBite', sound: 'snap' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -64,7 +71,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;

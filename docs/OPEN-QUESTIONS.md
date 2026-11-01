@@ -136,9 +136,11 @@ chance that it isn't guarded. How likely, and from which depth?
 **Q-076 · New creature kinds** (raised 2026-11-01, D-534)
 The owner wants more kinds, and to talk them over first, then keeps
 adding them one at a time, each fully in the game (D-535). The cave
-spider is the first (D-535), the bat the second (D-537), the mole the third (D-541). A list of 26 was shown in chat: from
+spider is the first (D-535), the bat the second (D-537), the mole the third (D-541), the snapcap the fourth (D-543). A list of 26 was shown in chat: from
 today's ways, snapcap, mole, bat, herb mimic, oilcap mimic, shade
 hound, bone rat; with a new way each, wicksucker, snuffer, glowworm,
 wraith, burrower, centipede, mudcrawler, pebble thrower, slime, shell
 beetle, pilferer, puffball, web spider, howler, tender, pool eel, night
-prowler, rift creatures. Which next, and in which pools?
+prowler, rift creatures; then new ones: rim lurker, gloamberry mimic,
+skulker crab; with a new way, false light, brood mother, still one, rat
+pack, dozing brute. Which next, and in which pools?

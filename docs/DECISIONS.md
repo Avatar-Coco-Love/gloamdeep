@@ -144,25 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-537 · 2026-11-01 · The bat** (the owner's picks, all recommended;
-answers part of Q-076; builds D-365) The second new kind, from D-365's
-five: it seeks light, as the lampmoth does, and once hurt it may flee,
-as the rat does, both ways already in the game. 2 hearts, a bite of 1,
-in the pool from depth 3 and below (D-365's depths 3 and 4, as pools
-now run, D-534). Its drop is a Bat Wing, about 1 in 2, sold for 1 coin,
-and as a creature of depth 3, a rare Bat Fang, about 1 in 10, sold for
-5 (D-453, D-494); both for crafts later. Look A of the mock-up
-(https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia), seen from above,
-wings spread wide, in the wood's browns. The wing and the fang are
-Claude's drawings, the owner may change them. Its lines (Claude's, the
-owner may change them): "The bat shrieks and flees.", "The bat squeaks
-and circles.", "The bat flutters and falls still." and "The bat bites
-you." D-530 moved to `archive/DECISIONS-GLOAMBERRY.md`, word for word.
-
-**D-538 · 2026-11-01 · The bat's squeak** (the owner's pick,
-recommended) Its bite is a quick high squeak, then one soft leathery
-flap of wings. It is on the sound board.
-
 **D-539 · 2026-11-01 · Bat guano** (the owner's idea; picks all
 recommended, with every use) Guano is a find of its own, built as the
 next step, apart from the bat: when a room is made, each bat gets one
@@ -204,3 +185,27 @@ mole claws you." D-535 and D-536 moved to
 **D-542 · 2026-11-01 · The mole's snuffle** (the owner's pick,
 recommended) Its bite is a short low snuffle, then one gritty scrape of
 claws in dirt. It is on the sound board.
+
+**D-543 · 2026-11-01 · The snapcap** (the owner's picks: the snapcap
+from a list of today's ways and new ones, over the recommended rim
+lurker; its eyes open up close over the recommended pink eyes always;
+the rest recommended; answers part of Q-076; builds D-365; mock-up:
+https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb) The fourth new kind,
+the last of D-365's five: a heartcap that bites. It has no ways, so it
+never moves or notices, and bites whoever stands beside it, lit or not.
+2 hearts, a bite of 1, in the pool from depth 2 and below (D-365's
+depths 2 to 4, as pools now run, D-534). It is drawn just as a heartcap,
+in a heartcap's tone (D-305), until the hero stands beside it, four
+ways, where it can bite; then look B shows, two pale eyes with pink
+pupils on its cap and a row of pale teeth under the rim, and it shuts
+again when they step away. Its drop is a Snapcap Gill, look 1, a fan of
+pale pink gills under a strip of red cap, about 1 in 2, sold for 1
+coin, for crafts later; as a creature of depth 2, no rare one (D-453).
+Its lines (Claude's, the owner may change them): "The snapcap squelches
+and snaps.", "The snapcap splits and falls still." and "The snapcap
+snaps at you." D-537 and D-538 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-544 · 2026-11-01 · The snapcap's snap** (the owner's pick,
+recommended) Its bite is a soft wet squelch, then the quick snap of a
+cap closing. It is on the sound board.

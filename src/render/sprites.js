@@ -330,6 +330,15 @@ const MOLE_FUR = { mirror: false, rows: [
 const MOLE_CLAW = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.....kkk........', '....kNNwk.......', '....kNwwak......', '.....kwwaAk.....', '......kwaAk.....',
   '.......kaAk.....', '.......kAk......', '......kAk.......', '......kk........'] };
+// § snapcap: look B of its mock-up (D-543), the heartcap (D-303) awake: two pale eyes with
+// pink pupils on its cap and a row of pale teeth under the rim; toned as a heartcap is
+const SNAPCAP = { mirror: false, toned: 'rR', rows: [
+  '', '', '', '.....kkkkkk.....', '....krrwrrrk....', '...krrrrrwRRk...', '...kwrwwrwwRk...', '..krrrwprwpRRk..', '..krrrrrrwrRRk..',
+  '..kkwkwkwkwkkk..', '......kwak......', '......kwak......', '.....kwwak......', '.....kwwaak.....', '.....kkkkkk.....'] };
+// § snapcap gill: look 1 of its mock-up (D-543), a fan of pale pink gills under a strip of red cap
+const SNAPCAP_GILL = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '......kkkk......', '....kkrrrrkk....', '...kRrrrrrrRk...', '..kpwpwpwpwpwk..',
+  '..kwpwpwpwpwpk..', '...kpwpwpwpwk...', '....kkkkkkkk....'] };
 const SCORPION_COLOURS = [
   { o: '#d9c48e', O: '#9a8458', a: '#efe6cc' }, { o: '#d0603a', O: '#7e3020', a: '#e8d5a0' },
   { o: '#5e5870', O: '#302c3c', a: '#b9ab88' }, { o: '#a9a65a', O: '#64612e', a: '#e8d5a0' },
@@ -374,8 +383,8 @@ const HEART_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwYkYkOk...',
   '...kokYyYYkOk...', '...kokkYYkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
-const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP };
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), snapcap: spriteCanvas(SNAPCAP), snapcapGill: spriteCanvas(SNAPCAP_GILL), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), lostbag: spriteCanvas(LOSTBAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }) }; // keyed by registry id
+const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP, snapcap: SNAPCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
 function shifted(hex, hue, light) {
@@ -400,7 +409,7 @@ export function spriteOf(it) {
   }
   return TONED[key];
 }
-const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff'), scorpion: spriteCanvas(SCORPION, '#ffffff'), caveSpider: spriteCanvas(CAVE_SPIDER, '#ffffff'), bat: spriteCanvas(BAT, '#ffffff'), mole: spriteCanvas(MOLE, '#ffffff') };
+const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff'), scorpion: spriteCanvas(SCORPION, '#ffffff'), caveSpider: spriteCanvas(CAVE_SPIDER, '#ffffff'), bat: spriteCanvas(BAT, '#ffffff'), mole: spriteCanvas(MOLE, '#ffffff'), snapcap: spriteCanvas(SNAPCAP, '#ffffff') };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');
@@ -544,16 +553,21 @@ export function drawItems(c, items, t, still) {
 // One that walked left is drawn mirrored (D-158).
 // A creature's sprite, facing the way it faces, for its plaque (D-357)
 export const faceOf = (e) => dressedIn(e, e.facing === 'left');
-export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e) {
+// `hero`: where the hero stands; a snapcap is drawn shut, as the find it is `shutAs`, unless
+// the hero stands beside it, four ways, where it can bite (D-543).
+export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero = null) {
   const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
-  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e));
-  for (const h of hits) if (!enemies.some((e) => e.x === h.x && e.y === h.y)) drawEnemy(c, h, h, t, still, true);
+  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e), hero);
+  for (const h of hits) if (!enemies.some((e) => e.x === h.x && e.y === h.y)) drawEnemy(c, h, h, t, still, true, hero);
 }
-function drawEnemy(c, e, p, t, still, flash) {
+const beside = (e, hero) => !!hero && Math.abs(e.x - hero.x) + Math.abs(e.y - hero.y) === 1;
+function drawEnemy(c, e, p, t, still, flash, hero) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);
   if (e.asleep && !flash) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
+  const shutAs = get(e.id)?.shutAs;
+  if (shutAs && !flash && !beside(e, hero)) return drawItems(c, [{ id: shutAs, tone: e.tone, x: p.x, y: p.y }], t, still); // shut, a heartcap in its tone (D-543)
   const bob = still ? 0 : Math.floor(t / 520 + e.x) % 2;
   drawShadow(c, x, y, 8);
   const left = e.facing === 'left';
-  c.drawImage(flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : dressedIn(e, left), x, y - 2 - bob);
+  c.drawImage(flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left), x, y - 2 - bob);
 }

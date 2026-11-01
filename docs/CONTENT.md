@@ -23,6 +23,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | the pool from depth 3 | D-370, D-373, D-475, D-476, D-534 |
 | `bat` | 2 | 1 | seeksLight, fleesHurt | the pool from depth 3 | D-365, D-537, D-538 |
 | `mole` | 4 | 1 | chases, never flees | the pool from depth 5 | D-365, D-541, D-542 |
+| `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
@@ -30,7 +31,7 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch)
 (D-269, D-351). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373).
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541).
+Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 

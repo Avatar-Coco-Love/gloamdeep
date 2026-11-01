@@ -7,7 +7,7 @@ import { withGuano } from './guano.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
-import { coloured } from './tones.js';
+import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
 
@@ -124,6 +124,7 @@ const POOL = [
   { id: 'bat', from: 3 }, // (D-537)
   { id: 'gloamling', from: 5 },
   { id: 'mole', from: 5 }, // (D-541)
+  { id: 'snapcap', from: 2 }, // (D-543)
 ];
 export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);
 // § mixing: the rat by the flask stays a rat; each other creature is picked from
@@ -135,7 +136,7 @@ export function mixed(room, seed, depth) {
   const pool = poolAt(depth), others = pool.filter((id) => id !== 'rat'), r = rng(seed ^ 0x1f83d9ab);
   const ids = room.enemies.map((e, i) => (i === 0 ? e.id : pool[Math.floor(r() * pool.length)]));
   if (ids.length > 1 && ids.every((id) => id === 'rat')) ids[1 + Math.floor(r() * (ids.length - 1))] = others[Math.floor(r() * others.length)];
-  return { ...room, enemies: coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] }))) };
+  return { ...room, enemies: toned(seed, coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] })))) }; // a snapcap in a heartcap's tone (D-543)
 }
 // § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
 // a flask mimic as well as all it holds (D-366)

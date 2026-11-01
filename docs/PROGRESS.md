@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.10 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.11 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -45,6 +45,14 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.11, the snapcap.** The owner asked for more
+  options, saw eight new kinds, and picked the snapcap: never moves,
+  bites beside it, 2 hearts, from depth 2; a heartcap until you stand
+  beside it, then eyes and teeth (look B); Snapcap Gill; a wet snap
+  (D-543, D-544). Mock-up:
+  https://claude.ai/artifact/62BSTiPir5vyHCCaM3W9gb. Playtest:
+  https://claude.ai/artifact/Gk7byDKBXBdMTxKUDB8irN. Sounds:
+  https://claude.ai/artifact/B4W1bSaPxXXiyQCCHfTQoz
 - **2026-11-01, 0.3.10, the mole.** Six kinds built from today's ways
   were shown; the owner picked the mole, all recommended: chases, never
   flees, 4 hearts, bite 1, from depth 5, Mole Fur and rare Mole Claw,
@@ -57,11 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   stacks of 20 (D-540). A pile by each bat, growing back in 300 turns.
   Mock-up: https://claude.ai/artifact/Y8Pt2B2hgFQgKTPmfVN4nV. Playtest:
   https://claude.ai/artifact/FQGRWMwADtGZwh46Msidsx
-- **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
-  recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
-  bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak
-  and a flap (D-537, D-538). Guano, the owner's idea, is next (D-539).
-  Mock-up:
-  https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia. Playtest:
-  https://claude.ai/artifact/CNTdjSLwEc5vnGhP29N6JQ. Sounds:
-  https://claude.ai/artifact/VjNdUfqWDZsPX5j2S4p2bd

@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.8, the bat.** The owner picked the bat next, all
+  recommended: seeks light, flees when hurt, from depth 3, 2 hearts,
+  bite 1, Bat Wing and rare Bat Fang, look A (wings spread), a squeak
+  and a flap (D-537, D-538). Guano, the owner's idea, is next (D-539).
+  Mock-up:
+  https://claude.ai/artifact/3SJV4uumpRGnnzwkHrTeia. Playtest:
+  https://claude.ai/artifact/CNTdjSLwEc5vnGhP29N6JQ. Sounds:
+  https://claude.ai/artifact/VjNdUfqWDZsPX5j2S4p2bd
 - **2026-11-01, 0.3.7, the cave spider.** The owner asked for many new
   creature kinds (26 shown) and picked the cave spider first, each kind
   fully in the game: a lurker that shuns light, from depth 2, 2 hearts,

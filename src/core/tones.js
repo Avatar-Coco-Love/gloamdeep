@@ -20,7 +20,8 @@ export function coloured(seed, enemies) {
   });
 }
 
-// (seed, items) → the items, each kind with a tone given its own
+// (seed, items) → the items, each kind with a tone given its own; creatures too, for
+// the snapcap, shut in a heartcap's tone (D-543)
 export function toned(seed, items) {
   return items.map((it) => {
     const tone = get(it.id)?.tone;

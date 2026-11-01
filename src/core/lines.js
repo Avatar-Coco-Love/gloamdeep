@@ -25,6 +25,9 @@ export const LINES = {
   moleHurt: { text: 'The mole grunts and digs in.', warn: false }, // hurt, it keeps coming (D-541)
   moleDie: { text: 'The mole slumps and falls still.', warn: false },
   moleBite: { text: 'The mole claws you.', warn: false, kind: 'harm' },
+  snapcapHurt: { text: 'The snapcap squelches and snaps.', warn: false }, // it never moves (D-543)
+  snapcapDie: { text: 'The snapcap splits and falls still.', warn: false },
+  snapcapBite: { text: 'The snapcap snaps at you.', warn: false, kind: 'harm' },
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -123,6 +126,9 @@ export const LINES = {
   moleFurTake: { texts: ['You pick up the mole fur.', 'Soft as velvet, and warm.', 'The mole fur goes in your bag.'], warn: false }, // (D-541)
   moleFurLook: { texts: ['Mole fur, for crafting later.', 'Dark, short and very soft.', 'It smells of earth.'], warn: false },
   moleFurFull: { text: "You can't carry more mole fur.", warn: false },
+  snapcapGillTake: { texts: ['You pick up the snapcap gill.', 'Soft pink frills, still damp.', 'The snapcap gill goes in your bag.'], warn: false }, // (D-543)
+  snapcapGillLook: { texts: ['A snapcap gill, for crafting later.', 'Pale pink, fine as paper.', 'It smells faintly sweet.'], warn: false },
+  snapcapGillFull: { text: "You can't carry more snapcap gills.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

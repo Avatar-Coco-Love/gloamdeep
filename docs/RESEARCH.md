@@ -120,7 +120,7 @@ talks to hear, and the sources.
 ## Creatures shown, not picked (2026-10-25, D-365; the scorpion picked next, D-370)
 Each built only from the ways creatures have
 ([mock-up](https://claude.ai/artifact/Cqxg6k5PnvFDNfqnbaTiQh)):
-- **Snapcap:** a heartcap look-alike with pink eyes; no ways, so it never
+- **Snapcap** (picked, built at 0.3.11, D-543)**:** a heartcap look-alike with pink eyes; no ways, so it never
   moves and bites whoever stands next to it. 2 hearts, bite 1, depths 2 to 4.
 - **Mole** (picked, built at 0.3.10, D-541)**:** chases and never flees. 4 hearts, bite 1, the Warren.
 - **Bat** (picked, built at 0.3.8, D-537)**:** seeks light, flees when hurt. 2 hearts, bite 1, depths 3 and 4.
