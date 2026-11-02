@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.39', date: '2026-11-02', title: 'The eighth audit, part 8', lines: [
+    "Behind the scenes, nothing you see has changed: the eighth audit, part 8, its last. The profiles, the name pad, the look card, the seed pad, the Seed Explorer and the map now have their own small files in the card table, so every screen goes through it.",
+    "Decisions: D-578.",
+  ] },
   { v: '0.3.38', date: '2026-11-02', title: 'The eighth audit, part 7', lines: [
     "Behind the scenes, nothing you see has changed: the eighth audit, part 7. The pages (how to play, the version history and the journal) now have their own small files in the card table.",
     "Decisions: D-577.",

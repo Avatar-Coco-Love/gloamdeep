@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.36, the eighth audit, part 5.** All recommended: the
+  bed's ask, Start over?, Delete …? and Play …? each get a file in
+  `src/input/cards/`, sharing `cards/ask.js`, moved word for word; the
+  test checks each card's way back and an ask's YES and NO; 3 parts are
+  left (D-575). Nothing visible.
 - **2026-11-02, 0.3.35, the eighth audit, part 4.** All recommended: the
   bag's card and setting down get their own files in `src/input/cards/`,
   moved word for word; C, X and spoken words stay where they are; the
