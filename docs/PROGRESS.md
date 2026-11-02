@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.16 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.17 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Take off, the next inventory step (D-553): choose a gear slot, press Take off.
-Then Store matching, Sort, crafting from chests; Q-076 waits after.
+Store matching, the next inventory step (D-553): on the chest's card, move
+every bag stack whose kind the chest holds onto it. Then Sort, crafting from
+chests; Q-076 waits after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +48,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-01, 0.3.17, Take off.** All recommended: tap a gear slot
+  to choose it, TAKE OFF in the corner for the Weapon and the Tool, free,
+  "You put the spear away."; worn pieces show words, no button; Up from
+  the bag's top row reaches the row (D-554). Playtest:
+  https://claude.ai/artifact/HjsVEEC6ZJdPiLhsEsuoGn
 - **2026-11-01, 0.3.16, gear slots.** The owner asked for weapon, tool,
   armour and charm spots; all recommended: one gear row of five where
   HELD was, the pick works only from the Tool slot (D-552); next Take
@@ -59,10 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   archived. Mock-up: https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj.
   Playtest: https://claude.ai/artifact/GNmkbD1ed1WPfuUh8WnYWQ. Sounds:
   https://claude.ai/artifact/Co55jj7q34wGiXsWMLTS6Z
-- **2026-11-01, 0.3.14, the herb mimic.** Seven kinds on today's ways
-  were shown; the owner picked the herb mimic, then the bone rat, the
-  rest recommended: asleep as a herb, wakes on a bump, chases 6 turns,
-  2 hearts, bite 1, from depth 3, Mimic Leaf, a rustle and a snap
-  (D-549, D-550). Mock-up: https://claude.ai/artifact/Tqfeun2sCz72hbhteMc9JT.
-  Playtest: https://claude.ai/artifact/3wSG25LpD5MwMzi2BbTXnM. Sounds:
-  https://claude.ai/artifact/DL5j2U4roVWoE2dvTYuxoa
