@@ -136,3 +136,13 @@ plan, in this order: smaller shallow floors (D-580), the waystones
 (D-579), the drifting motes (D-581). Then the new creature kind
 (Q-076), fishing, lore, relics and feats. Digging up stumps with the
 right tool, so the home can be shaped freely, goes to the wish list.
+
+**D-583 · 2026-11-02 · Boons at the home waystone** (the owner's idea
+and picks; builds on D-579 and the shrine idea in `RESEARCH.md`) Each
+time the hero sets out from the home waystone, it offers 3 boons drawn
+at random from a pool, and the hero picks 1. A boon lasts until the
+hero is home again or falls. The pool holds all four kinds: light and
+oil, hearts and fighting, finding things, and getting around. The
+exact boons and their numbers are shown to the owner as a list before
+anything is built (Q-077). Boons are their own step, right after the
+waystones.
