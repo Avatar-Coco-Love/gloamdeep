@@ -32,6 +32,8 @@ owner's picks) Fishing works in any water, on the surface and below,
 with the right tools. Farming is a garden at home: seeds planted on the
 surface grow over turns while the hero is below. Gardening away from
 home may come later. How each works is asked at its own step.
+Partly superseded by D-567 (2026-11-02): seeds grow every turn, on the
+surface too.
 
 **D-453 · 2026-10-30 · The scope, part 3: drop chances** (the owner's
 picks, all recommended; builds D-417, narrows Q-061) A beaten creature

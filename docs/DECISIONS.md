@@ -169,17 +169,6 @@ surface the chest's and bed's way, holding one plant. Costs, names,
 looks, lines and numbers are asked at each step. D-553 and D-555 moved
 to `archive/DECISIONS-BAGS.md`, word for word.
 
-**D-564 · 2026-11-02 · The Gloamberry Seed** (the owner's picks, all
-recommended; garden step 1, builds D-562) Make, in the bag, turns 3
-Gloamberries into 1 **Gloamberry Seed**, a turn, the heartcap's way:
-Make sits left of Eat, C makes. The full name keeps it apart from a
-world's seed. It is look C, a brown pip with a tiny green shoot, in
-stacks of 20, never found. Make says "You make a gloamberry seed.";
-chosen, it says "A seed from the gloamberry.", "It wants soft ground."
-or "Something might grow from this." With no room, "You can't carry
-more seeds." (short, to fit the line). D-558 and D-559 moved to
-`archive/DECISIONS-BAGS.md`, word for word.
-
 **D-565 · 2026-11-02 · The garden bed** (the owner's picks, all
 recommended; garden step 2, builds D-562; mock-up:
 https://claude.ai/artifact/37qinvZtXiBapZfNzFvDKU) The place to plant is
@@ -208,3 +197,15 @@ sprout grows here." instead of "Nothing grows here yet." Deconstruct
 takes the bed back with no further ask, a turn; a planted one gives back
 its seed too, when the bag has room, else the seed is lost. D-563 moved
 to `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-567 · 2026-11-02 · Growing** (the owner's picks, three recommended;
+garden step 4, builds D-562, D-566, partly supersedes D-452; mock-up:
+https://claude.ai/artifact/1qvVPSZohApfe2vV1De75i) A planted sprout
+grows a day after planting, 300 turns, the wild bush's time. Every turn
+counts, on the surface too, not only below: the owner's wish, so a plant
+watched never stalls. Grown, it is look A, a small gloamberry bush with
+ripe berries over the bed's rim, and its card's note is "Gloamberries grow
+here."; Plant stays dim. Taken down, it gives back the bed and the seed, as
+a sprout does. Dev mode's Room section gets Grow, every planted bed's time
+up, one in this room growing at once. D-564 moved to
+`archive/DECISIONS-GLOAMBERRY.md`, word for word.

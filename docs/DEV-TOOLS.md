@@ -53,6 +53,8 @@ tools to be chosen together later.
   Go outside goes to the woods, depth 0, the same way (D-209); the cave
   mouth there leads back into the crypt (D-211). TIME: +10 and +50
   move the clock only; the status line shows the turn of the day (D-217).
+  GARDEN: Grow makes every planted garden bed's time up, one in this
+  room growing at once; no turn passes (D-567). Code: `src/core/garden.js`.
 - Copy room: the room and the hero's tile to the clipboard as one line,
   to hand to Claude (D-051, D-052). Code: `src/core/roomcode.js`.
 - Seed Explorer, the title menu's last line: any seed's map, every floor

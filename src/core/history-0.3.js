@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.29', date: '2026-11-02', title: 'Growing', lines: [
+    "A planted sprout grows now: 300 turns after planting it becomes a small gloamberry bush with ripe berries. Every turn counts, on the surface and below.",
+    "The grown bed's card says \"Gloamberries grow here.\" Picking the berries comes at the next step.",
+    "Deconstruct a grown bed and the bed and its seed come back, as with a sprout.",
+    "Dev mode: the Room section has a new Grow button that grows every planted garden bed at once.",
+    "Decisions: D-567.",
+  ] },
   { v: '0.3.28', date: '2026-11-02', title: 'Planting', lines: [
     "Plant your Gloamberry Seeds now: walk into a garden bed and its card shows PLANT and DECONSTRUCT. Plant puts one seed in the bed. It takes a turn.",
     "A planted bed shows a sprout, two round leaves on a short stem, and its card says \"A sprout grows here.\" Growing comes at the next step.",

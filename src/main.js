@@ -26,6 +26,7 @@ import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
 import { inDaylight, passTime } from './core/daytime.js';
+import { growAll } from './core/garden.js';
 import { lanternFrom } from './core/sight.js';
 import { mouthLight } from './core/mouth.js';
 import { wayTo, stopsWalk } from './core/walk.js';
@@ -416,6 +417,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   setOil: (oil) => setOil(app.state, oil),
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
+  grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
   goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
