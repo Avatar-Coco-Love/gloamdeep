@@ -119,6 +119,7 @@ const DRAW = {
   bedstead: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bed); }, // the bench's way (D-488)
   plot: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.gardenBed); }, // the bed's way (D-565)
   sprout: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.sproutedBed); }, // a seed planted in it (D-566)
+  fedSprout: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.fedBed); }, // guano on its soil (D-569)
   berryBed: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.berryBed); }, // grown (D-567)
   // On the room's own ground; its stone foot is drawn with the torches, before the light (D-478)
   torchStand: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); },

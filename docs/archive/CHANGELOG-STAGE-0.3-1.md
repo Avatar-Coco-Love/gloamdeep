@@ -1,7 +1,19 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
-Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30 (the 8 KB cap).
+Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.15 (2026-11-01)
+- A new creature, the bone rat, now turns up from depth 4 down: a rat with nothing left but bone. It chases you and never runs away.
+- It has 3 hearts and bites for 1, with a dry clatter of bones and a snap of teeth.
+- Beaten, it may leave a Rat Bone, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-551.
+
+## 0.3.14 (2026-11-01)
+- A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.
+- It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.
+- Beaten, it may leave a Mimic Leaf, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-549, D-550.
 
 ## 0.3.13 (2026-11-01)
 - The workbench can make a Pouch, from 4 Rat Tail and 2 Spider Silk. Make it and your bag holds 9 things instead of 6, for good.

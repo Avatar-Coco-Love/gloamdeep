@@ -59,7 +59,7 @@ mechanic and its own step.
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a beaten bone rat, about 1 in 2 | D-551 |
-| `batGuano` | for the garden and crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540 |
+| `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |

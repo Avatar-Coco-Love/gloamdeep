@@ -165,6 +165,20 @@ export function pick(state, x, y) {
   const next = note(passTurn(sow({ ...state, room, bag, items: [...state.items, ...left] }, x, y)), 'take', { id: picks.drops });
   return endTurn(state, say(next, picks.says));
 }
+// § feed: Feed on the card of the sprout at x, y spreads 1 of its `feeds` item, Bat Guano,
+// from the bag on its soil, the sprout becoming its `into` tile, fed, that grows in half the
+// time on the same clock, and passes a turn, with its line (garden step 6, D-569). With no
+// guano, or a sprout already fed, nothing changes. A `feed` event.
+export function feed(state, x, y) {
+  const feeds = tileAt(state.room, x, y).feeds, i = feeds ? state.bag.findIndex((s) => s.id === feeds.item) : -1;
+  if (i < 0) return state;
+  const room = withTile(state.room, x, y, get(feeds.into));
+  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'feed', { id: feeds.item }); // the planting's clock kept
+  return endTurn(state, say(next, feeds.says));
+}
+// Whether the sprout at x, y can be fed now: not fed yet, with guano in the bag
+export const canFeed = (state, x, y) => { const feeds = tileAt(state.room, x, y).feeds; return !!feeds && state.bag.some((s) => s.id === feeds.item); };
+
 // Whether the garden bed at x, y has something to pick: grown
 export const canPick = (state, x, y) => !!tileAt(state.room, x, y).picks;
 

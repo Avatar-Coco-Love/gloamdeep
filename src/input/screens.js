@@ -81,7 +81,7 @@ import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floors
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { bagSize, bagCols, canCraft } from '../core/bag.js';
-import { setSides, canPlant, canPick, DIRS } from '../core/turn.js';
+import { setSides, canPlant, canPick, canFeed, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
@@ -118,7 +118,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
-// `takeDown(x, y)`, `plant(x, y)`, `pick(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
+// `takeDown(x, y)`, `plant(x, y)`, `pick(x, y)`, `feed(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const version = document.getElementById('version');
@@ -132,7 +132,7 @@ export function createScreens(app, ui) {
   const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488), or the garden bed's (D-565)
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
   // and grown, Pick in Plant's place (D-568)
-  const bedMenu = () => { const { x, y } = app.bench; return tileAt(app.state.room, x, y).garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y)) : SURE_MENU; };
+  const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : SURE_MENU; }; // a sprout's Feed (D-569)
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id] : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
@@ -411,6 +411,7 @@ export function createScreens(app, ui) {
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   function plantBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   function pickBed() { show('play'); ui.pick(app.bench.x, app.bench.y); } // the grown bed's berries (D-568)
+  function feedBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {
@@ -531,7 +532,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'ways') { pickWay(id); return; }
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
-    if (app.screen === 'bed') { if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'plant') plantBed(); else if (id === 'pick') pickBed(); else show('play'); return; }
+    if (app.screen === 'bed') { if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'plant') plantBed(); else if (id === 'pick') pickBed(); else if (id === 'feed') feedBed(); else show('play'); return; }
     if (app.screen === 'trade') { tradeChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else if (i === CHEST_STORE) ui.store(app.bench.x, app.bench.y); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
