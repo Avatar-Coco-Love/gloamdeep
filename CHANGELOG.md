@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.44 (2026-11-02)
+- The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.
+- A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.
+- Decisions: D-586. Questions closed: Q-079.
+
 ## 0.3.43 (2026-11-02)
 - Fixed: now and then a dungeon room deep down came out as a small crypt room instead, so its openings and stairs didn't line up. Those rooms are now made properly; every other room stays exactly as it was.
 - A journey saved with one of those crypt rooms has just that room made again, once. If you were in it, you stand on that floor's stairs up.
@@ -33,7 +38,3 @@ Entry format:
 - The peddler on depth 3 is always there: his room is made again until his ring of rubble fits.
 - A journey saved before this has its caves, warrens and dungeon made again at the new sizes, once, from the same seed. If you were down there, you stand on that floor's stairs up; a bag you left there waits on them; a peddler you freed stays freed.
 - Decisions: D-584. Questions raised: Q-078.
-
-## 0.3.41 (2026-11-02)
-- Plans only, nothing you see has changed: boons. Each time you set out from the home waystone, you will pick 1 of 3 random boons, small helps for light and oil, hearts and fighting, finding things or getting around, kept until you are home again. They come right after the waystones, and the list of boons is shown first.
-- Decisions: D-583.

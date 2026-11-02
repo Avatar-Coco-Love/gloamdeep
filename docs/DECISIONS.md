@@ -172,3 +172,16 @@ room stays exactly as it was; no room falls back in seeds 1 to 6000 at
 depths 8 to 20. A save holding a stand-in has just those rooms made
 again, once, from their seeds; a hero in one goes to that floor's
 stairs up.
+
+**D-586 · 2026-11-02 · The peddler's spot, looser** (the owner's picks,
+recommended; raised and answered as Q-079, before the waystones; changes
+the spot rule of D-490 and D-580) Measured over 6000 depth-3 rooms,
+seeds 1 to 2000: his spot fitted 84% of rooms on the first try, and what
+ruled spots out was mostly a creature, find or the way in on or beside
+the ring, not the walls. Now at least 4 of the 8 tiles around him are
+open, each turned to rubble, and a wall stands on one straight side at
+most (no more nooks); corners may be wall. A creature or find on or
+around his ring moves to the nearest free floor; the way in, stairs,
+openings, deposits and veins still keep him away. His spot fits 95% of
+rooms on the first try, with 4 to 8 heaps to dig. A room already made in
+a save stays as it was.

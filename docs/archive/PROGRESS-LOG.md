@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.41, boons.** Docs only. The owner's idea: each time
+  the hero sets out from the home waystone, pick 1 of 3 random boons,
+  kept until home again or a fall; all four kinds in the pool; built
+  right after the waystones, the list shown first (D-583, Q-077).
+  Nothing visible.
 - **2026-11-02, 0.3.40, getting around.** Docs only. All recommended:
   waystones to wake for fast travel, one near the home room's centre and
   one at the top of each band of floors (D-579); floors grow with depth,

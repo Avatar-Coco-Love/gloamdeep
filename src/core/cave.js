@@ -308,20 +308,22 @@ export function withMimic(seed, room) {
 }
 
 // § trapped: (seed, room, id) → the room with person `id` trapped in a ring of rubble
-// ('U', D-490): on open floor at least 5 steps from the way in, with at least 5 of its
-// 8 tiles around open, every open one turned to rubble, the walls doing the rest. Off
-// the edge, with no stairs or opening beside, nothing lying, standing or starting on it or
-// around it, and never cutting the room in two. Placed last, from its own seed, so the
-// rest of a seed's room stays as it was; the room as it was when no tile fits.
+// ('U', D-490): on open floor at least 5 steps from the way in, with at least 4 of its
+// 8 tiles around open and a wall on one straight side at most (D-586), every open one
+// turned to rubble, the walls doing the rest. Off the edge, with no stairs or opening
+// beside, the way in not on it or around it, and never cutting the room in two. A creature
+// or find on it or around it moves to the nearest free floor (D-586). Placed last, from its
+// own seed, so the rest of a seed's room stays as it was; the room as it was when no tile fits.
 export const RING = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
+const STRAIGHT = [[0, -1], [-1, 0], [1, 0], [0, 1]];
+export const RING_OPEN = 4, RING_WALLS = 1; // open tiles around him at least; straight sides walled at most
 export function withTrapped(seed, room, id) {
   const r = rng(seed ^ 0x1f83d9ab), g = room.map.map((row) => [...row]), far = reach(g, room.start);
-  const things = [room.start, ...room.items, ...room.enemies];
   const ring = (t) => RING.map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
   const fits = (t) => {
     const around = ring(t);
-    return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(g, n)) && around.filter((n) => g[n.y][n.x] === '.').length >= 5
-      && ![t, ...around].some((n) => things.some((o) => same(o, n)));
+    return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(g, n)) && around.filter((n) => g[n.y][n.x] === '.').length >= RING_OPEN
+      && STRAIGHT.filter(([dx, dy]) => g[t.y + dy][t.x + dx] === '#').length <= RING_WALLS && ![t, ...around].some((n) => same(room.start, n));
   };
   const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(key(t)) >= 5 && fits(t));
   while (spots.length) {
@@ -329,11 +331,28 @@ export function withTrapped(seed, room, id) {
     for (const n of [at, ...open]) g[n.y][n.x] = 'U';
     if (joined(g)) {
       g[at.y][at.x] = '.';
-      return { ...room, map: g.map((row) => row.join('')), people: [...(room.people || []), { id, x: at.x, y: at.y }] };
+      const block = [at, ...ring(at)], taken = [room.start, ...room.items, ...room.enemies].filter((o) => !block.some((b) => same(b, o)));
+      const aside = (o) => (block.some((b) => same(b, o)) ? { ...o, ...nearestFree(g, o, block, taken) } : o);
+      const items = room.items.map(aside), enemies = room.enemies.map(aside);
+      return { ...room, map: g.map((row) => row.join('')), items, enemies, people: [...(room.people || []), { id, x: at.x, y: at.y }] };
     }
     for (const n of [at, ...open]) g[n.y][n.x] = '.';
   }
   return room;
+}
+// The open floor tile nearest `from` by steps, off the edge, outside `block` and with
+// nothing in `taken` on it, which it then joins; steps go over floor and rubble
+function nearestFree(g, from, block, taken) {
+  const seen = new Set([key(from)]), queue = [from];
+  while (queue.length) {
+    const t = queue.shift();
+    if (g[t.y][t.x] === '.' && !onEdge(g, t) && !block.some((b) => same(b, t)) && !taken.some((o) => same(o, t))) { taken.push(t); return { x: t.x, y: t.y }; }
+    for (const [dx, dy] of WAYS) {
+      const n = { x: t.x + dx, y: t.y + dy };
+      if ((g[n.y]?.[n.x] === '.' || g[n.y]?.[n.x] === 'U') && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
+    }
+  }
+  return from;
 }
 
 // § chambers: 5 to 10 roundish chambers, their middles well apart (D-162);

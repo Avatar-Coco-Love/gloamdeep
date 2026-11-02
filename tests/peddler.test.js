@@ -34,7 +34,18 @@ test('on depth 3, one room the seed picks holds him, every open tile around him 
     assert.equal(him.id, 'peddler');
     assert.equal(p.map[him.y][him.x], '.');
     assert.ok(around.every((ch) => ch === 'U' || ch === '#'), `seed ${seed}`);
-    assert.ok(around.filter((ch) => ch === 'U').length >= 5, `seed ${seed}`);
+    assert.ok(around.filter((ch) => ch === 'U').length >= 4, `seed ${seed}`);
+  }
+});
+
+test('his spot: a wall on one straight side at most, and nothing on or around him, things moved aside (D-586)', () => {
+  for (let seed = 1; seed <= 300; seed++) {
+    const p = placeFor(peddlerRoom(seed), seed), [him] = p.people, near = (o) => Math.abs(o.x - him.x) <= 1 && Math.abs(o.y - him.y) <= 1;
+    assert.ok([[0, -1], [-1, 0], [1, 0], [0, 1]].filter(([dx, dy]) => p.map[him.y + dy][him.x + dx] === '#').length <= 1, `seed ${seed}`);
+    assert.ok(![p.start, ...p.items, ...p.enemies].filter(Boolean).some(near), `seed ${seed}`);
+    for (const o of [...p.items, ...p.enemies]) assert.equal(p.map[o.y][o.x], '.', `seed ${seed} ${o.id}`);
+    const at = [...p.items, ...p.enemies].map((o) => `${o.x},${o.y}`);
+    assert.equal(new Set(at).size, at.length, `seed ${seed}: two things on one tile`);
   }
 });
 
