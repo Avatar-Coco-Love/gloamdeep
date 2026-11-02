@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.22 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.23 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Crafting from chests (D-553, D-555): propose which chests the
-workbench reads (standing on the surface, how near), how its card shows
-what they hold, and which it takes from first. Q-076 waits after.
+The inventory steps of D-553 are done. Ask Q-076: another new creature
+kind, or the garden first (step 14).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -48,6 +47,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.23, Crafting from chests.** All recommended: the
+  workbench reads the chests in STORE's reach; one total per cost on its
+  card; the bag first, then the nearest chest (D-560). Playtest:
+  https://claude.ai/artifact/6xbg7u4n69kZfomy1NVUVF
 - **2026-11-02, 0.3.22, Sort in the bag.** All recommended: a small
   SORT left of the bag's STORE, or beside the cross alone; the game's
   own list; full stacks first; free, "You sort the bag." (D-559).
@@ -57,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   within 6 tiles (a square); nearest chest first; Up from the gear row
   reaches it; "Chests full." to fit the line (D-558). Playtest:
   https://claude.ai/artifact/BQPBVMTTv7WBmYDyst5A8o
-- **2026-11-02, 0.3.20, No freeze at a fall.** A friend's playtest:
-  a fall on a floor of several rooms froze the game (the round map
-  broke on the fall's picture). Both recommended: the picture keeps
-  the world as it was, and a safety net keeps frames coming (D-557).
-  Playtest: https://claude.ai/artifact/RFZrt5Hp7otSPN7o2xkTDx

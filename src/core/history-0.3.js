@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.23', date: '2026-11-02', title: 'Crafting from chests', lines: [
+    "The workbench now uses what is in your stash chests too: on the surface, every chest within 6 tiles of you counts, as for the bag's Store button.",
+    "Its card shows one total for each cost, what your bag and those chests hold together, as \"3 / 5 Wood\", and Make is dim only when they all hold too few.",
+    "Make takes from your bag first, then from the nearest chest, then the next.",
+    "Decisions: D-560.",
+  ] },
   { v: '0.3.22', date: '2026-11-02', title: 'Sort in the bag', lines: [
     "A small Sort button sits in the bag's title strip, always: just left of Store, or beside the cross when Store is hidden. It lines your bag up in the game's own order (oil and healing first, things you made last) and joins half stacks, the full ones first, free.",
     "It says \"You sort the bag.\", or \"The bag is in order.\" when nothing would change.",

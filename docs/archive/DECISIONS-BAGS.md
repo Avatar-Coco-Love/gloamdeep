@@ -1,10 +1,10 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552, D-554)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552, D-554, D-556)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
 fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
-moved the same way at 0.3.20 (D-557), and D-554, Take off, at 0.3.22
-(D-559).
+moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
+(D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -76,3 +76,11 @@ with no room, the slot kept chosen. A worn piece chosen shows its words
 and no button (D-484). On a keyboard, Up from the bag's top row reaches
 the gear row, Left and Right move along it, Down goes back, Enter takes
 off. With the hand empty the hero hits with the lantern, as before.
+
+**D-556 · 2026-11-02 · Store on the chest's card** (the owner's picks,
+all recommended; the first button of D-555) STORE sits in the chest
+card's bottom right corner, where Take off is on the bag's, apart from
+DECONSTRUCT. It moves as much as fits; when some must stay in the bag,
+"You store 2 stacks. The chest is full." On a keyboard, Down from the
+bag's bottom row reaches STORE (from the chest's, DECONSTRUCT), Up goes
+back, Left and Right go between the two buttons.

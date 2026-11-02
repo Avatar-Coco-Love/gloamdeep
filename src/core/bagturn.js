@@ -9,7 +9,7 @@ import { offEdge } from './openings.js';
 import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag } from './bag.js';
 import { note } from './events.js';
 import { joined } from './regrow.js';
-import { stashAt, withoutStash } from './chest.js';
+import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
 import { endTurn } from './endturn.js';
@@ -47,17 +47,20 @@ export function craft(state, i) {
 // fitted, a piece worn, or a tool in the Tool slot counts as carried (D-483, D-484, D-552);
 // a tool made with that slot empty goes straight into it. A bag upgrade (`grows`)
 // never goes in the bag: made, the bag holds its `grows.to` slots at once (D-547).
+// The cost counts the chests in STORE's reach too, taken from the bag first, then the
+// nearest chest (D-560).
+const canPay = (state, of) => bagHas([...state.bag, ...nearStacks(state)], of);
 export function makeAt(state, id) {
   const recipe = get(id)?.bench, grows = get(id)?.grows;
   if (!recipe) return state;
   if (grows) return growBag(state, id, recipe, grows);
   if (isFitted(state, id) || isWorn(state, id) || state.tool === id) return say(state, get(id).full);
-  if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
-  const paid = bagPay(state.bag, recipe.of);
-  if (get(id).tool && !state.tool) return endTurn(state, say({ ...passTurn(state), bag: paid, tool: id }, recipe.says));
+  if (!canPay(state, recipe.of)) return say(state, recipe.short);
+  const { bag: paid, stashes } = payNear(state, recipe.of);
+  if (get(id).tool && !state.tool) return endTurn(state, say({ ...passTurn(state), bag: paid, stashes, tool: id }, recipe.says));
   const bag = bagAdd(paid, id, undefined, bagSize(state));
   if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
-  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+  return endTurn(state, say({ ...passTurn(state), bag, stashes }, recipe.says));
 }
 // § grow: the Pouch takes a bag of `grows.from` slots to `grows.to`, the Big Bag 9 to 12,
 // a turn passing, with its line; one already that big says its `full` line, and one too
@@ -66,8 +69,9 @@ function growBag(state, id, recipe, { from, to }) {
   const size = bagSize(state);
   if (size >= to) return say(state, get(id).full);
   if (size !== from) return state;
-  if (!bagHas(state.bag, recipe.of)) return say(state, recipe.short);
-  return endTurn(state, say({ ...passTurn(state), bag: bagPay(state.bag, recipe.of), bagSlots: to }, recipe.says));
+  if (!canPay(state, recipe.of)) return say(state, recipe.short);
+  const { bag, stashes } = payNear(state, recipe.of);
+  return endTurn(state, say({ ...passTurn(state), bag, stashes, bagSlots: to }, recipe.says));
 }
 
 // § eat: Eat on bag slot i eats one of its item, healing its `heal` hearts,

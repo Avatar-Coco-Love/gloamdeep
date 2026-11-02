@@ -2,7 +2,7 @@
 // are a 4 × 3 grid, the bag's beside them (6 a 3 × 2 grid, 9 a 3 × 3, 12 a 4 × 3, D-548);
 // `chosen` is a chest slot, 0 to 11, a bag slot, from 12 (CHEST_BAG + i), or CHEST_TAKE
 // for its Deconstruct button (CH5), CHEST_STORE for its Store (D-556). Plain data, no drawing.
-import { MAX_BAG, bagAdd, bagSize, bagCols } from './bag.js';
+import { MAX_BAG, bagAdd, bagSize, bagCols, bagPay, carried } from './bag.js';
 import { say } from './lines.js';
 import { tileAt } from './room.js';
 
@@ -128,6 +128,24 @@ export function storeNearby(state) {
   near.forEach(({ x, y }, k) => { if (stashes[k].length) kept[keyOf(state, x, y)] = stashes[k]; });
   const moved = { ...state, bag: bag.filter(Boolean), stashes: kept };
   return say(moved, `store${stored === 1 ? 'One' : 'Some'}${full ? (many ? 'Fulls' : 'Full') : ''}`, stored);
+}
+
+// § craft from chests: the workbench reads the chests STORE reaches (D-553, D-560).
+// nearStacks: every stack in them, nearest chest first, for the bench card's counts.
+// payNear: `of`, { itemId: n }, taken from the bag first, then the nearest chest, then
+// the next; the caller checks there is enough first. Returns { bag, stashes }.
+export const nearStacks = (state) => chestsNear(state).flatMap(({ x, y }) => stashAt(state, x, y));
+export function payNear(state, of) {
+  const bag = bagPay(state.bag, of), stashes = { ...state.stashes };
+  let owed = Object.fromEntries(Object.entries(of).map(([id, n]) => [id, Math.max(0, n - carried(state.bag, id))]));
+  for (const { x, y } of chestsNear(state)) {
+    if (!Object.values(owed).some(Boolean)) break;
+    const st = stashAt(state, x, y), take = Object.fromEntries(Object.entries(owed).map(([id, n]) => [id, Math.min(n, carried(st, id))]));
+    if (!Object.values(take).some(Boolean)) continue;
+    stashes[keyOf(state, x, y)] = bagPay(st, take);
+    owed = Object.fromEntries(Object.entries(owed).map(([id, n]) => [id, n - take[id]]));
+  }
+  return { bag, stashes };
 }
 
 // A state from a save older than the stash chest's things gets none kept (D-331)

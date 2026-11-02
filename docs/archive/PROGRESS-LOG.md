@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.20, No freeze at a fall.** A friend's playtest:
+  a fall on a floor of several rooms froze the game (the round map
+  broke on the fall's picture). Both recommended: the picture keeps
+  the world as it was, and a safety net keeps frames coming (D-557).
+  Playtest: https://claude.ai/artifact/RFZrt5Hp7otSPN7o2xkTDx
 - **2026-11-02, 0.3.19, Store on the chest.** All recommended: STORE in
   the chest card's bottom right, apart from DECONSTRUCT; what fits
   moves, "You store 2 stacks. The chest is full."; Down from the bag's
