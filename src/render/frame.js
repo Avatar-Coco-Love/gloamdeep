@@ -31,7 +31,7 @@ import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
 import { drawWays } from './ways.js';
-import { stashAt, chestsNear } from '../core/chest.js';
+import { stashAt, chestsNear, nearStacks } from '../core/chest.js';
 import { gearRow } from '../core/gear.js';
 import { padShown } from '../core/settings.js';
 import { jabAt } from './jab.js';
@@ -307,7 +307,7 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'bench') {
-      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag, bagSize(state)), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
+      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag, bagSize(state), nearStacks(state)), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {

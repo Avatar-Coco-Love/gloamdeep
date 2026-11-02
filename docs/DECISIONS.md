@@ -164,14 +164,6 @@ moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
 crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
 word for word.
 
-**D-556 · 2026-11-02 · Store on the chest's card** (the owner's picks,
-all recommended; the first button of D-555) STORE sits in the chest
-card's bottom right corner, where Take off is on the bag's, apart from
-DECONSTRUCT. It moves as much as fits; when some must stay in the bag,
-"You store 2 stacks. The chest is full." On a keyboard, Down from the
-bag's bottom row reaches STORE (from the chest's, DECONSTRUCT), Up goes
-back, Left and Right go between the two buttons.
-
 **D-557 · 2026-11-02 · No freeze at a fall** (the owner's picks, both
 recommended, from a friend's playtest) A fall on a floor of several
 rooms froze the game: the round map read the floor's other rooms from
@@ -201,3 +193,11 @@ stack's look. Free: "You sort the bag.", or "The bag is in order." when
 nothing would change. On a keyboard, Up from the gear row reaches STORE
 when it shows, else SORT; Left and Right go between them, Down goes
 back. D-554 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-560 · 2026-11-02 · Crafting from chests** (the owner's picks, all
+recommended; the last of D-553) The workbench reads the chests in
+STORE's reach (D-558): on the surface, a 13 × 13 square round the hero.
+Its card shows one total per cost, "3 / 5 Wood", the bag and those
+chests together, and MAKE is dim only when all of them hold too few.
+Make takes from the bag first, then the nearest chest, then the next.
+D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.

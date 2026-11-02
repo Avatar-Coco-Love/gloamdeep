@@ -95,7 +95,7 @@ import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
-import { CHEST_BAG, CHEST_TAKE, CHEST_STORE, chestWords, moveChest, stashAt, chestsNear } from '../core/chest.js';
+import { CHEST_BAG, CHEST_TAKE, CHEST_STORE, chestWords, moveChest, stashAt, chestsNear, nearStacks } from '../core/chest.js';
 import { tradeAt } from '../render/tradepanel.js';
 import { tradeWords, slotWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
 import { gearWords, GEAR, gearRow, canTakeOff } from '../core/gear.js';
@@ -438,12 +438,12 @@ export function createScreens(app, ui) {
     const to = app.chosen + { left: -1, right: 1, up: -cols(), down: cols() }[dir];
     pickTrade(to >= 0 && to < tradeCount() ? to : app.chosen); // the bag's grid, his wares fewer
   }
-  const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, ${c.have} carried`).join(' and ')}${m.dim ? ', too few' : ''}`;
-  const benchWords = () => `Workbench. ${benchMakes(app.state.bag, bagSize(app.state)).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
+  const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, you have ${c.have}`).join(' and ')}${m.dim ? ', too few' : ''}`;
+  const benchWords = () => `Workbench. ${benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state)).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
   // § bench card (D-387): the frame on a slot says what is made there and its cost
   function pickBench(i) {
     app.chosen = i;
-    const m = benchMakes(app.state.bag, bagSize(app.state))[i];
+    const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i];
     spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
   }
 
@@ -528,7 +528,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
     if (app.screen === 'trade') { tradeChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else if (i === CHEST_STORE) ui.store(app.bench.x, app.bench.y); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
-    if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
+    if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
     else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)

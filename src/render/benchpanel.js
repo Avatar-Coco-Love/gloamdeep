@@ -1,7 +1,8 @@
 // § bench card (WB3, D-323; a card, D-387): bumping a set-down workbench opens a glass
 // card on the room as the bag's (D-385), "WORKBENCH" at its top. On the left, each thing
 // made at it is a slot in a 4 × 3 grid, the stash chest's (D-484), the chosen one framed in gold. On the
-// right, its name, a row per cost with its sprite and "3 / 5 Wood" (needed / carried),
+// right, its name, a row per cost with its sprite and "3 / 5 Wood" (needed / in the bag and
+// the chests in reach, D-560),
 // its Look line, and MAKE in the bottom right corner, dim with too few (CH1, D-326).
 // DECONSTRUCT is in the bottom left corner, the menus' flame beside it when chosen.
 import { drawText, textWidth } from './font.js';
