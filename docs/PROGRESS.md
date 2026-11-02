@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.17 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.18 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Store matching, the next inventory step (D-553): on the chest's card, move
-every bag stack whose kind the chest holds onto it. Then Sort, crafting from
-chests; Q-076 waits after.
+Store matching on the chest's card, the next inventory step (D-553, D-555):
+its STORE moves every bag stack whose kind that chest holds onto it. Then
+the bag's STORE for chests within 6 tiles, Sort, crafting from chests;
+Q-076 waits after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -48,6 +49,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.18, Store from the bag, too.** The owner asked for
+  a bag button for nearby chests as well as one per chest: STORE on a
+  chest's card first, then a small STORE in the bag's title strip for
+  chests within 6 tiles, both free, "You store 3 stacks." (D-555).
+  Docs only.
 - **2026-11-01, 0.3.17, Take off.** All recommended: tap a gear slot
   to choose it, TAKE OFF in the corner for the Weapon and the Tool, free,
   "You put the spear away."; worn pieces show words, no button; Up from
@@ -59,9 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   off, Store matching, Sort, crafting from chests (D-553). Mock-up:
   https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg. Playtest:
   https://claude.ai/artifact/8FAsTFTqy5e9yiQMpB5EjH
-- **2026-11-01, 0.3.15, the bone rat.** All recommended: chases, never
-  flees, 3 hearts, bite 1, from depth 4; all bone (look A); a Rat Bone;
-  its rare one waits; a rattle and a snap (D-551). D-545 to D-548
-  archived. Mock-up: https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj.
-  Playtest: https://claude.ai/artifact/GNmkbD1ed1WPfuUh8WnYWQ. Sounds:
-  https://claude.ai/artifact/Co55jj7q34wGiXsWMLTS6Z

@@ -144,20 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-551 · 2026-11-01 · The bone rat** (the owner's picks, all
-recommended; builds D-549, answers part of Q-076; mock-up:
-https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj) The sixth new kind, a
-rat with nothing left but bone. It chases and never flees, as the mole
-does: 3 hearts, a bite of 1, worth 4, in the pool from depth 4. It is
-the rat's shape in pale bone, its pink eye and tail tip kept (look A).
-Its drop is a Rat Bone, a small pale bone with knobbed ends, about 1 in
-2, sold for 1 coin, for crafts later; its rare one waits (Q-061). Its
-bite is a dry clatter of bones, then the rat's snap of teeth; it is on
-the sound board. Its lines are Claude's, the owner may change them: "The
-bone rat rattles and keeps coming.", "The bone rat falls apart." and
-"The bone rat bites you." D-545 to D-548 moved to
-`archive/DECISIONS-BAGS.md`, word for word.
-
 **D-552 · 2026-11-01 · Gear slots and the Tool slot** (the owner's ask
 and picks, all recommended; builds D-252, D-458, D-479; supersedes
 D-480's "never held"; mock-up: https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg)
@@ -196,3 +182,13 @@ with no room, the slot kept chosen. A worn piece chosen shows its words
 and no button (D-484). On a keyboard, Up from the bag's top row reaches
 the gear row, Left and Right move along it, Down goes back, Enter takes
 off. With the hand empty the hero hits with the lantern, as before.
+
+**D-555 · 2026-11-02 · Store from the bag, too** (the owner's ask and
+picks; adds to D-553) Store matching comes in two buttons, each its own
+step: first STORE on a chest's card, filling that chest only; then a
+small STORE in the bag's title strip, showing only on the surface with
+a stash chest within 6 tiles of the hero, sending each bag stack to the
+chests in reach that hold its kind. Both are free and say how much
+moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
+crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
+word for word.

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.18 (2026-11-02)
+- Storing what matches will come as two buttons: first Store on a chest's card, filling just that chest, then a small Store in the bag, sending your stacks to every stash chest within 6 tiles that already holds that kind. Both free. Docs only.
+- Decisions: D-555.
+
 ## 0.3.17 (2026-11-01)
 - Choose the Weapon or Tool slot in the bag's gear row and press Take off: the spear, knife or Stone Pick goes back into your bag, and no turn passes. With the bag full it stays put. Worn pieces show their words but can't come off.
 - On a keyboard, press Up from the bag's top row to reach the gear row; Enter takes off.
@@ -111,8 +115,3 @@ Entry format:
 ## 0.3.1 (2026-10-31)
 - The Look card's Trim tab now shows each lantern trim as a square of its two metal shades, the light cap over the dark base, with its name, instead of a tiny hero whose lantern was hard to see. Your hero above still carries the trim you pick.
 - Decisions: D-529. Questions closed: Q-074.
-
-## 0.3.0 (2026-10-31)
-- The Look card's Eyes tab now shows each eye colour as a big square of colour with its name, instead of a tiny hero whose eyes were hard to see. Your hero above still shows the eyes you pick.
-- The game moves to version 0.3: stage 0.2's last steps are all done, so the world stage now has its own numbers, starting here.
-- Decisions: D-527, D-528.

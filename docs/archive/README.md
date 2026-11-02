@@ -36,7 +36,7 @@ header says when it moved and why.
 | `DECISIONS-MODES.md` | D-334, D-341, D-342, D-344 to D-346 | the three ways to play, MO1 to MO4 | D-355 |
 | `DECISIONS-GROWING-7.md` | D-332, D-333, D-335, D-339, D-343, D-347, D-348, D-350, D-352 to D-355, D-360 | a fall keeps the world, bigger stacks, the Bestiary, Hearthwood | D-362 |
 | `DECISIONS-CREATURES.md` | D-349, D-351, D-356 to D-359, D-361 | every next move, the lampmoth, the creature list, framing | D-360, D-362 |
-| `DECISIONS-CREATURES-2.md` | D-364 to D-374, D-534 to D-544, D-549, D-550 | more creatures, the flask mimic, the scorpion, varying creatures; mixed creatures, the cave spider, the bat, bat guano, the mole, the snapcap, the herb mimic | D-379, D-540, D-541, D-543, D-546, D-547, D-549, D-552 |
+| `DECISIONS-CREATURES-2.md` | D-364 to D-374, D-534 to D-544, D-549 to D-551 | more creatures, the flask mimic, the scorpion, varying creatures; mixed creatures, the cave spider, the bat, bat guano, the mole, the snapcap, the herb mimic, the bone rat | D-379, D-540, D-541, D-543, D-546, D-547, D-549, D-552, D-555 |
 | `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only (partly superseded by D-505) | D-386 |
 | `DECISIONS-CORNER-HUD.md` | D-381 to D-384 | the room filling the screen, the stats switch, the round map and lantern | D-388 |
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |
@@ -70,6 +70,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
 | `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.235 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, at 0.2.202, at 0.2.203, at 0.2.204, at 0.2.205, at 0.2.207, D-493, at 0.2.221, at 0.2.222, at 0.2.223, at 0.2.224, at 0.2.225, at 0.3.11, at 0.3.12, at 0.3.13, at 0.3.14, at 0.3.15, at 0.3.16, and at 0.3.17) |
+| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 (moved at 0.3.18) |
 
 ## Progress
 
