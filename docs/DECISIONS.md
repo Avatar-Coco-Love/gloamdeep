@@ -148,3 +148,15 @@ each card in its own small file, saying its own keys, taps and picks,
 file, not three. No decisions finder: one grep (`grep -rn "D-412 ·"
 docs`) already finds any decision, and an index is one more file to keep.
 Q-076 waits until they are done.
+
+**D-572 · 2026-11-02 · The record-keeping tool** (the owner's picks, all
+recommended; part 2 of D-571) The new top entries of `CHANGELOG.md` and
+`PROGRESS.md`'s log are written by hand; `node tools/release.js` then sets
+`VERSION` from the changelog heading, copies its lines into the in-game
+history with the log entry's title (run again, it replaces them), keeps
+the newest 3 changelog entries and log entries, moving older ones word
+for word to the top of their archive files and updating the archive
+index. Decisions it only suggests: past 11 KB it names the superseded
+and oldest ones, and Claude proposes the move. `npm test` runs
+`node tools/release.js --check`, which changes nothing and fails if
+anything is out of step. `tools/` is for playtests and record-keeping.

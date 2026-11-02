@@ -64,7 +64,9 @@ Read the smallest file that answers the question.
 ## PRs: read `docs/PR-CHECKLIST.md` first
 
 Before making or updating a PR, read `docs/PR-CHECKLIST.md`: what every
-PR updates (changelog, in-game history, progress, decisions), naming PRs
+PR updates (changelog, in-game history, progress, decisions; write the
+changelog and log entries, then run `node tools/release.js` for the rest,
+D-572), naming PRs
 by version, playtest and sound board Artifacts, and the handoff. Never
 push to `main`; one PR per conversation; merging is the owner's call.
 
@@ -89,7 +91,7 @@ push to `main`; one PR per conversation; merging is the owner's call.
 ## Hard technical rules (details in `docs/TECH.md`)
 
 - No external assets: no image, audio or font files, no CDNs, no frameworks,
-  no build step (`tools/` is only for playtests). One exception: `share.png`,
+  no build step (`tools/` is only for playtests and record-keeping, D-572). One exception: `share.png`,
   the share card, drawn by `tools/sharecard.js` (D-425). Visuals use Canvas 2D. Sound uses the Web Audio API.
 - Phone first. Everything works with touch, mouse and keyboard.
 - Game state is kept separate from drawing. All content (items, enemies,

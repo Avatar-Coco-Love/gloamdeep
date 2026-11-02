@@ -82,6 +82,7 @@ tools/playtest.js   packs the game into one page for playtests (D-073);
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 tools/perf.js       times play on a simulated slow phone (D-430); Playwright
+tools/release.js    the record-keeping tool: VERSION, history, archive (D-572)
 ```
 ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.
