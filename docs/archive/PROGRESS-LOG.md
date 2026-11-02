@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.15, the bone rat.** All recommended: chases, never
+  flees, 3 hearts, bite 1, from depth 4; all bone (look A); a Rat Bone;
+  its rare one waits; a rattle and a snap (D-551). D-545 to D-548
+  archived. Mock-up: https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj.
+  Playtest: https://claude.ai/artifact/GNmkbD1ed1WPfuUh8WnYWQ. Sounds:
+  https://claude.ai/artifact/Co55jj7q34wGiXsWMLTS6Z
 - **2026-11-01, 0.3.14, the herb mimic.** Seven kinds on today's ways
   were shown; the owner picked the herb mimic, then the bone rat, the
   rest recommended: asleep as a herb, wakes on a bump, chases 6 turns,

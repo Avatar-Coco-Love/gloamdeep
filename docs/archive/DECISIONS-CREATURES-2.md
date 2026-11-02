@@ -231,3 +231,17 @@ rat is the sixth, at its own step. D-543 and D-544 moved to
 **D-550 · 2026-11-01 · The herb mimic's rustle** (the owner's go, as
 recommended) Its bite is a dry leafy rustle, then the rat's snap of
 teeth. It is on the sound board.
+
+**D-551 · 2026-11-01 · The bone rat** (the owner's picks, all
+recommended; builds D-549, answers part of Q-076; mock-up:
+https://claude.ai/artifact/LViHbmJ9KryR487A6Be8kj) The sixth new kind, a
+rat with nothing left but bone. It chases and never flees, as the mole
+does: 3 hearts, a bite of 1, worth 4, in the pool from depth 4. It is
+the rat's shape in pale bone, its pink eye and tail tip kept (look A).
+Its drop is a Rat Bone, a small pale bone with knobbed ends, about 1 in
+2, sold for 1 coin, for crafts later; its rare one waits (Q-061). Its
+bite is a dry clatter of bones, then the rat's snap of teeth; it is on
+the sound board. Its lines are Claude's, the owner may change them: "The
+bone rat rattles and keeps coming.", "The bone rat falls apart." and
+"The bone rat bites you." D-545 to D-548 moved to
+`archive/DECISIONS-BAGS.md`, word for word.
