@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.23, Crafting from chests.** All recommended: the
+  workbench reads the chests in STORE's reach; one total per cost on its
+  card; the bag first, then the nearest chest (D-560). Playtest:
+  https://claude.ai/artifact/6xbg7u4n69kZfomy1NVUVF
 - **2026-11-02, 0.3.22, Sort in the bag.** All recommended: a small
   SORT left of the bag's STORE, or beside the cross alone; the game's
   own list; full stacks first; free, "You sort the bag." (D-559).

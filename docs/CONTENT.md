@@ -65,7 +65,8 @@ mechanic and its own step.
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
 | `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
-| `gloamberry` | Eat: 1 heart; its seed and a recipe come later | 20 | never | a gloamberry bush, 2 a bump | D-530, D-531 |
+| `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump | D-530, D-531, D-564 |
+| `gloamberrySeed` | to plant in a garden bed, at a later step | 20 | never | made from 3 Gloamberries | D-562, D-564 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 
 

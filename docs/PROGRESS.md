@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.25 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.26 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Garden step 1 (D-562): the Gloamberry seed, made in the bag. Propose
-how many berries make one, its name, look and lines.
+Garden step 2 (D-562): the garden bed, made at the workbench and set
+down on the surface. Propose its cost, look, name and lines.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +47,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.26, The Gloamberry Seed.** All recommended: Make
+  turns 3 Gloamberries into 1 Gloamberry Seed, a brown pip with a green
+  shoot, in stacks of 20 (D-564). Playtest:
+  https://claude.ai/artifact/1xPog1qmk8VWqznTk9Qjh4
 - **2026-11-02, 0.3.25, Creatures on the ground.** No creature bobs;
   each stands on its shadow, the bat and lampmoth held 2 pixels up; a
   disguised one bobs as its find (D-563). Playtest:
@@ -54,7 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-02, 0.3.24, The garden next.** Docs only. The garden comes
   before another creature (D-561), in six steps; the seed made in the
   bag, a garden bed set down at home (D-562).
-- **2026-11-02, 0.3.23, Crafting from chests.** All recommended: the
-  workbench reads the chests in STORE's reach; one total per cost on its
-  card; the bag first, then the nearest chest (D-560). Playtest:
-  https://claude.ai/artifact/6xbg7u4n69kZfomy1NVUVF

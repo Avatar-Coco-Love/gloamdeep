@@ -45,7 +45,11 @@ this page and a decision disagree, the decision wins.
 - **Heartcap:** a bright red mushroom in about half the rooms; Eat, in the
   bag, heals 1 heart (D-303, D-308); 3 make a healing potion (D-309).
 - **Gloamberry:** a dark blue berry picked from a gloamberry bush in
-  the woods, 2 a bump; Eat, in the bag, for 1 heart (D-531).
+  the woods, 2 a bump; Eat, in the bag, for 1 heart (D-531); 3 make a
+  Gloamberry Seed (D-564).
+- **Gloamberry Seed:** a brown pip with a tiny green shoot, made in the
+  bag from 3 Gloamberries; planted in the garden, at a later step (D-564).
+  Not a world's **Seed**.
 - **Gloamberry bush:** a low round bush, one in each woods room; picked,
   it stands **bare** and fills again 300 turns later (D-530, D-531).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the

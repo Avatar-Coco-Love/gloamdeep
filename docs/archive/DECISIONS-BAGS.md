@@ -1,11 +1,12 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556, D-558, D-559)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
 fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
 moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
 (D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560). D-553, the inventory steps,
-and D-555, Store from the bag too, at 0.3.24 (D-562).
+and D-555, Store from the bag too, at 0.3.24 (D-562). D-558, Store from
+the bag, and D-559, Sort in the bag, at 0.3.26 (D-564).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -105,3 +106,24 @@ chests in reach that hold its kind. Both are free and say how much
 moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
 crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
 word for word.
+
+**D-558 · 2026-11-02 · Store from the bag** (the owner's picks, all
+recommended; the second button of D-555) The bag's small STORE sits in
+its title strip just left of the cross. Its reach is a 13 × 13 square
+round the hero, 6 tiles across, down or diagonally; the nearest chest
+holding a stack's kind fills first, then the next. When some must stay,
+"You store 3 stacks. Chests full." with more than one chest in reach
+(short, to fit the text line; "The chests are full." when nothing
+fits), "The chest is full." with one. On a keyboard, Up from the gear row reaches STORE,
+Down goes back.
+
+**D-559 · 2026-11-02 · Sort in the bag** (the owner's picks, all
+recommended; the Sort of D-553) A small SORT sits in the bag's title
+strip, always: just left of STORE, or in its place beside the cross
+when STORE is hidden. It lines the bag up by kind in the game's own list
+(items.js's order: oil and healing first, things made last) and joins a
+kind's half stacks, full ones first and the rest last, keeping the first
+stack's look. Free: "You sort the bag.", or "The bag is in order." when
+nothing would change. On a keyboard, Up from the gear row reaches STORE
+when it shows, else SORT; Left and Right go between them, Down goes
+back. D-554 moved to `archive/DECISIONS-BAGS.md`, word for word.

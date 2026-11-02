@@ -153,27 +153,6 @@ has a safety net: an error in one frame is logged once and the next
 frame still comes. The bag's STORE for nearby chests (D-555) stays
 Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
 
-**D-558 · 2026-11-02 · Store from the bag** (the owner's picks, all
-recommended; the second button of D-555) The bag's small STORE sits in
-its title strip just left of the cross. Its reach is a 13 × 13 square
-round the hero, 6 tiles across, down or diagonally; the nearest chest
-holding a stack's kind fills first, then the next. When some must stay,
-"You store 3 stacks. Chests full." with more than one chest in reach
-(short, to fit the text line; "The chests are full." when nothing
-fits), "The chest is full." with one. On a keyboard, Up from the gear row reaches STORE,
-Down goes back.
-
-**D-559 · 2026-11-02 · Sort in the bag** (the owner's picks, all
-recommended; the Sort of D-553) A small SORT sits in the bag's title
-strip, always: just left of STORE, or in its place beside the cross
-when STORE is hidden. It lines the bag up by kind in the game's own list
-(items.js's order: oil and healing first, things made last) and joins a
-kind's half stacks, full ones first and the rest last, keeping the first
-stack's look. Free: "You sort the bag.", or "The bag is in order." when
-nothing would change. On a keyboard, Up from the gear row reaches STORE
-when it shows, else SORT; Left and Right go between them, Down goes
-back. D-554 moved to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-560 · 2026-11-02 · Crafting from chests** (the owner's picks, all
 recommended; the last of D-553) The workbench reads the chests in
 STORE's reach (D-558): on the surface, a 13 × 13 square round the hero.
@@ -206,3 +185,14 @@ mimic 2. The flyers, the
 bat and the lampmoth, are held a fixed 2 pixels above their shadow
 (registry `flies`). A sleeping mimic or a shut snapcap still bobs as the
 find it copies does, keeping its disguise (D-368, D-543).
+
+**D-564 · 2026-11-02 · The Gloamberry Seed** (the owner's picks, all
+recommended; garden step 1, builds D-562) Make, in the bag, turns 3
+Gloamberries into 1 **Gloamberry Seed**, a turn, the heartcap's way:
+Make sits left of Eat, C makes. The full name keeps it apart from a
+world's seed. It is look C, a brown pip with a tiny green shoot, in
+stacks of 20, never found. Make says "You make a gloamberry seed.";
+chosen, it says "A seed from the gloamberry.", "It wants soft ground."
+or "Something might grow from this." With no room, "You can't carry
+more seeds." (short, to fit the line). D-558 and D-559 moved to
+`archive/DECISIONS-BAGS.md`, word for word.
