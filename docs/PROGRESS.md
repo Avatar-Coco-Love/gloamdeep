@@ -52,6 +52,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.44, the peddler's spot.** Raised as Q-079 with a
+  measure of 6000 rooms: the spot fitted 84% first try, blocked mostly by
+  things beside him. All recommended: at least 4 open tiles, a wall on
+  one straight side at most, things beside him moved aside; 95% now
+  (D-586). Playtest:
+  https://claude.ai/artifact/7JSk2mDi767FmbNfdWmia6
 - **2026-11-02, 0.3.43, no more stand-in rooms.** All recommended: a
   second round of up to 400 tries, only for a room whose 200 all fail,
   with the corridors kept clear of the stairs up; no room falls back in
@@ -64,8 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   get every generated room made again once, at the new size (D-584).
   Q-078 raised. Playtest:
   https://claude.ai/artifact/VsyYCiVhrS4FPBnGcBG93Q
-- **2026-11-02, 0.3.41, boons.** Docs only. The owner's idea: each time
-  the hero sets out from the home waystone, pick 1 of 3 random boons,
-  kept until home again or a fall; all four kinds in the pool; built
-  right after the waystones, the list shown first (D-583, Q-077).
-  Nothing visible.

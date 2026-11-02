@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.44', date: '2026-11-02', title: 'The peddler\'s spot', lines: [
+    "The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.",
+    "A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.",
+    "Decisions: D-586. Questions closed: Q-079.",
+  ] },
   { v: '0.3.43', date: '2026-11-02', title: 'No more stand-in rooms', lines: [
     "Fixed: now and then a dungeon room deep down came out as a small crypt room instead, so its openings and stairs didn't line up. Those rooms are now made properly; every other room stays exactly as it was.",
     "A journey saved with one of those crypt rooms has just that room made again, once. If you were in it, you stand on that floor's stairs up.",
