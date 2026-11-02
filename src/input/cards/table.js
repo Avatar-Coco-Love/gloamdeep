@@ -17,8 +17,11 @@ import { settingsCard } from './settings.js';
 import { waysCard } from './ways.js';
 import { modeCard } from './mode.js';
 import { endedCard } from './ended.js';
+import { howtoCard } from './howto.js';
+import { historyCard } from './history.js';
+import { journalCard } from './journal.js';
 
-export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard };
+export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard, howto: howtoCard, history: historyCard, journal: journalCard };
 
 // Every card made once, sharing `app`, `ui`, `show` and the helpers `c` from cardscreens.js and screens.js
 export const makeCards = (app, ui, show, c) => Object.fromEntries(Object.entries(CARD_TABLE).map(([id, make]) => [id, make(app, ui, show, c)]));

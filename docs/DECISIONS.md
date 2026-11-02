@@ -202,3 +202,10 @@ the settings changes, moved word for word. `menuOf` and `chip` stay in
 `screens.js`; so does `menuTop`, as `render/title.js` needs a page. The
 test learns each menu's way back (none on the title) and checks the
 arrows. Next, part 7 the pages.
+
+**D-577 · 2026-11-02 · The table of screens, part 7** (the owner's picks,
+all recommended; as D-573) How to play, version history and the journal
+each get a file in `src/input/cards/`, their helpers moved word for word.
+Opening, closing and `journalPageWords` stay in `screens.js`, reached
+through `c`; the history card's `page` takes `turnMap`'s Page Up and
+Down. The test checks each page's way back and arrows. Next, part 8.

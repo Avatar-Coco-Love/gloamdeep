@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.35, the eighth audit, part 4.** All recommended: the
+  bag's card and setting down get their own files in `src/input/cards/`,
+  moved word for word; C, X and spoken words stay where they are; the
+  test checks setting down by itself (D-574). Nothing visible.
 - **2026-11-02, 0.3.34, the eighth audit, part 3.** All recommended: the
   workbench, chest and peddler cards each get a file in
   `src/input/cards/` with pick, arrows, tap and close, moved word for

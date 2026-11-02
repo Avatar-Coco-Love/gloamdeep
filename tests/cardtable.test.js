@@ -1,6 +1,6 @@
-// § card table (D-573, D-575, D-576): every card screen in the table answers a pick, an arrow,
+// § card table (D-573, D-575, D-576, D-577): every card screen in the table answers a pick, an arrow,
 // a tap and Esc or P, and a tap outside its card or Esc takes its own way back: play, or for the
-// title's asks the title or their own close, or for the menus their own (none on the title)
+// title's asks the title or their own close, or for the menus and pages their own (none on the title)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CARD_TABLE, makeCards } from '../src/input/cards/table.js';
@@ -10,6 +10,11 @@ import { loadSettings, swipeText } from '../src/core/settings.js';
 import { MENUS } from '../src/input/cards/menu.js';
 import { askCardAt } from '../src/render/askcard.js';
 import { view } from '../src/render/screen.js';
+import { historyRows, historyLayout } from '../src/render/history.js';
+import { HISTORY } from '../src/core/history.js';
+import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
+import { makeState, maxHealth, HERO_HEALTH } from '../src/core/turn.js';
+import { START_PICK } from '../src/core/growth.js';
 
 const ASK = ['Start over?', 'Your saved journey is lost.']; // any question and note
 // Each screen's lines, as screens.js's menuOf gives them: a journey saved, Settings from the title
@@ -19,14 +24,15 @@ const LINES = { title: titleMenu(true), paused: PAUSE_MENU, settings: settingsMe
 const made = (screen) => {
   const shown = [], calls = [], ui = { spoken: { textContent: '' }, reduceMotion: { matches: false } };
   const helpers = new Proxy({}, { get: (_, k) => (k === 'askOf' ? () => ASK : k === 'menuOf' ? (sc) => LINES[sc] ?? SURE_MENU : (...a) => { calls.push([k, ...a]); }) });
-  const app = { screen, tab: 'sell', chosen: 0, bench: { x: 1, y: 1 }, state: { bag: [] }, settings, saved: true };
+  const app = { screen, tab: 'sell', chosen: 0, bench: { x: 1, y: 1 }, state: { bag: [] }, settings, saved: true, page: 'basics', opened: new Set(), scroll: 0 };
+  app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW); // as openHistory makes them
   return { app, ui, shown, calls, cards: makeCards(app, ui, (sc, at) => shown.push(at === undefined ? sc : [sc, at]), helpers) };
 };
 // Where Esc, the cross and a tap outside lead, when not back to play: a helper's call
-const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false], settings: ['closeSettings'], ways: ['closeWays'], mode: ['titleAt', 'new'] };
+const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false], settings: ['closeSettings'], ways: ['closeWays'], mode: ['titleAt', 'new'], howto: ['closeHowTo'], history: ['closeHistory'], journal: ['closeJournal'] };
 
-test('the table holds the bag, place, bench, chest and trade cards, the four asks and the six menus', () => {
-  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'chest', 'drop', 'easier', 'ended', 'mode', 'paused', 'place', 'settings', 'sure', 'title', 'trade', 'ways']);
+test('the table holds the bag, place, bench, chest and trade cards, the four asks, the six menus and the three pages', () => {
+  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'chest', 'drop', 'easier', 'ended', 'history', 'howto', 'journal', 'mode', 'paused', 'place', 'settings', 'sure', 'title', 'trade', 'ways']);
   for (const id of [...ASKS, ...MENUS]) assert.ok(CARD_TABLE[id], id);
 });
 
@@ -111,4 +117,46 @@ test('Settings: Left or Right on a switch changes it and says its new words', ()
   assert.equal(app.chosen, 0);
   cards.settings.dir('left');
   assert.equal(app.settings.swipe, was);
+});
+
+test('how to play: Left and Right turn its tab and say it, Up and Down do nothing, Enter turns to the next', () => {
+  const { app, ui, cards } = made('howto');
+  cards.howto.dir('right');
+  const next = app.page;
+  assert.notEqual(next, 'basics');
+  assert.ok(ui.spoken.textContent);
+  cards.howto.dir('left');
+  assert.equal(app.page, 'basics');
+  cards.howto.dir('down');
+  assert.equal(app.page, 'basics');
+  cards.howto.pick(0);
+  assert.equal(app.page, next);
+});
+
+test('version history: Down chooses the next version, Right opens it, Left closes it, Page Down scrolls', () => {
+  const { app, ui, cards } = made('history');
+  cards.history.dir('down');
+  assert.equal(app.chosen, 1);
+  assert.ok(ui.spoken.textContent.includes(HISTORY[1].v));
+  cards.history.dir('right');
+  assert.ok(app.opened.has(HISTORY[1].v));
+  cards.history.dir('left');
+  assert.equal(app.opened.size, 0);
+  cards.history.page(1);
+  assert.ok(app.scroll > 0);
+});
+
+test('the journal: Right turns to Growth, and Enter there buys the heart', () => {
+  const { app, calls, cards } = made('journal');
+  app.tab = 'records';
+  app.growthPick = START_PICK;
+  app.state = { ...makeState(makeRoom(FIRST_ROOM), undefined, FIRST_LIGHTS, []), xp: 10 }; // an ember to spend
+  cards.journal.dir('right');
+  assert.equal(app.tab, 'growth');
+  cards.journal.pick(0);
+  assert.equal(maxHealth(app.state), HERO_HEALTH + 1);
+  assert.equal(calls.filter((c) => c[0] === 'journalPageWords').length, 2); // its words said each time
+  cards.journal.dir('left'); // Left past Light: back to Records
+  cards.journal.dir('left');
+  assert.equal(app.tab, 'records');
 });
