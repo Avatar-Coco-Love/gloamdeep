@@ -2,6 +2,7 @@
 // take down and look (split from turn.js, D-362)
 import { tileAt, withTile } from './room.js';
 import { sow, unsow } from './garden.js';
+import { spread } from './spread.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
@@ -147,6 +148,25 @@ export function plant(state, x, y) {
 }
 // Whether the garden bed at x, y can be planted now: empty, with a seed in the bag
 export const canPlant = (state, x, y) => { const plants = tileAt(state.room, x, y).plants; return !!plants && state.bag.some((s) => s.id === plants.seed); };
+
+// § pick: Pick on the card of the grown garden bed at x, y puts its `picks` berries in the
+// bag, the bed going back to a sprout whose clock starts again, and passes a turn, with
+// its line (garden step 5, D-568). With room for none, its `full` line, free, and it keeps
+// them; with room for fewer, the rest lies on the nearest open tiles, the wild bush's way
+// (D-316). A `take` event.
+export function pick(state, x, y) {
+  const picks = tileAt(state.room, x, y).picks;
+  if (!picks) return state;
+  let bag = state.bag, taken = 0;
+  for (let more; taken < picks.n && (more = bagAdd(bag, picks.drops, undefined, bagSize(state))); taken++) bag = more;
+  if (!taken) return say(state, picks.full);
+  const room = withTile(state.room, x, y, get(picks.into));
+  const left = spread({ ...state, room }, x, y, picks.n - taken, true).map((at) => ({ id: picks.drops, ...at, once: true }));
+  const next = note(passTurn(sow({ ...state, room, bag, items: [...state.items, ...left] }, x, y)), 'take', { id: picks.drops });
+  return endTurn(state, say(next, picks.says));
+}
+// Whether the garden bed at x, y has something to pick: grown
+export const canPick = (state, x, y) => !!tileAt(state.room, x, y).picks;
 
 // The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null.
 // The bed opens its card only by day; at night a bump sleeps (D-488), unless `any`.

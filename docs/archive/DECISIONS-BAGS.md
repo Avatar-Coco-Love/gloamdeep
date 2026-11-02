@@ -1,4 +1,4 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556, D-558 to D-560)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-560)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
@@ -7,7 +7,7 @@ moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
 (D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560). D-553, the inventory steps,
 and D-555, Store from the bag too, at 0.3.24 (D-562). D-558, Store from
 the bag, and D-559, Sort in the bag, at 0.3.26 (D-564). D-560, crafting from
-chests, at 0.3.27 (D-565).
+chests, at 0.3.27 (D-565). D-557, no freeze at a fall, at 0.3.30 (D-568).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -136,3 +136,12 @@ Its card shows one total per cost, "3 / 5 Wood", the bag and those
 chests together, and MAKE is dim only when all of them hold too few.
 Make takes from the bag first, then the nearest chest, then the next.
 D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-557 · 2026-11-02 · No freeze at a fall** (the owner's picks, both
+recommended, from a friend's playtest) A fall on a floor of several
+rooms froze the game: the round map read the floor's other rooms from
+the fall's picture, which kept none. The fall's picture now keeps the
+world as it was (only on screen, not in the save), and the main loop
+has a safety net: an error in one frame is logged once and the next
+frame still comes. The bag's STORE for nearby chests (D-555) stays
+Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.

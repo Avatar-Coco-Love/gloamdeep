@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.30 (2026-11-02)
+- Pick your garden's berries now: walk into a grown garden bed and its card shows PICK and DECONSTRUCT. Pick gives 3 Gloamberries, one more than a wild bush. It takes a turn.
+- After picking, the bed holds a sprout again, and it grows new berries 300 turns later. Plant a seed once and pick again and again.
+- With a full bag you keep nothing and the berries stay on the bush. With room for only some, the rest drop on the ground nearby, as at a wild bush.
+- Decisions: D-568.
+
 ## 0.3.29 (2026-11-02)
 - A planted sprout grows now: 300 turns after planting it becomes a small gloamberry bush with ripe berries. Every turn counts, on the surface and below.
 - The grown bed's card says "Gloamberries grow here." Picking the berries comes at the next step.
@@ -111,9 +117,3 @@ Entry format:
 - It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.
 - Beaten, it may leave a Mimic Leaf, which the peddler buys for 1 coin; its recipes come later.
 - Decisions: D-549, D-550.
-
-## 0.3.13 (2026-11-01)
-- The workbench can make a Pouch, from 4 Rat Tail and 2 Spider Silk. Make it and your bag holds 9 things instead of 6, for good.
-- Once you have the Pouch, the workbench offers the Big Bag, from 4 Mole Fur and 3 Spider Silk, and your bag holds 12.
-- A bigger bag shows as a 3 × 3 grid, then 4 × 3, with slightly smaller slots so it fits a sideways screen, in the bag, the chest and the peddler's card.
-- Decisions: D-547, D-548.
