@@ -125,8 +125,9 @@ The study's lighting code is at lines 309–338, plus the light setup inside
 - 16 × 16 pixel maps written as strings, one character per palette colour.
   Symmetric sprites store the left half and mirror it. See lines 129–176.
 - Each sprite has a white silhouette copy for the hit flash.
-- Idle life: 2-frame bob (monsters about 0.4–0.5 s, the hero 0.6 s), and a
-  walking bob.
+- Idle life: ~~2-frame bob (monsters about 0.4–0.5 s, the hero 0.6 s), and a
+  walking bob.~~ No creature bobs: each stands with its lowest pixel on its
+  shadow, a flyer held 2 pixels above it (D-563). Finds still bob.
 - Creature list (D-357): plaques under the room, a creature's face and a
   small action icon in the hostile pink; the tapped one gets an amber edge.
   A plaque is 22 × 13 with a 1 px edge (#3a3448 on #1b1824), 2 apart; the

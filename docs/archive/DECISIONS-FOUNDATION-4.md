@@ -72,9 +72,9 @@ Enemies are their own kind in the registry, with their own list in the
 game state, like items and lights. The rat is redrawn from the study's
 (option A, owner approved the picture): side on, ~~facing right~~
 *(superseded by D-158, 2026-10-19: it faces the way it walks)*, grey with
-a pink hostile eye, ear, nose, feet and tail, and a shaded belly. It
+a pink hostile eye, ear, nose, feet and tail, and a shaded belly. ~~It
 bobs a pixel about every half second, as the study's did (0.52 s), still
-with reduced motion.
+with reduced motion.~~ *(superseded by D-563, 2026-11-02: no creature bobs)*
 
 **D-106 · 2026-10-18 · The rat is seen only in light** (step 20)
 Lantern or torch light shows the rat, shaded like the floor around it.

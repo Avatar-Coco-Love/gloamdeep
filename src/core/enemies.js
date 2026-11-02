@@ -18,7 +18,7 @@ export const ENEMIES = {
   // and now and then its `rare` Gloam Eye (D-476).
   gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
   // It seeks light (D-351); one hit of anything kills it (D-356). It may drop Moth Dust (D-475).
-  lampmoth: { id: 'lampmoth', kind: 'enemy', name: 'Lampmoth', health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
+  lampmoth: { id: 'lampmoth', kind: 'enemy', flies: true, name: 'Lampmoth', health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
   // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
   // `looksLike` and hidden from the creature list; a bump wakes it, with no
   // harm, and it chases for `awakeTurns` turns, then settles back down where
@@ -35,7 +35,7 @@ export const ENEMIES = {
   scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
   // It seeks light, as the lampmoth does, and once hurt it may flee, as the rat does (D-365, D-537).
   // Its bite squeaks and flaps (D-538). Beaten, it may drop a Bat Wing, and now and then a Bat Fang (D-537).
-  bat: { id: 'bat', kind: 'enemy', name: 'Bat', health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
+  bat: { id: 'bat', kind: 'enemy', flies: true, name: 'Bat', health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
   // It chases and never flees, a tough one for the deep floors, 4 hearts (D-365, D-541). Its
   // bite snuffles and scrapes (D-542). Beaten, it may drop Mole Fur, and now and then a Mole Claw (D-541).
   mole: { id: 'mole', kind: 'enemy', name: 'Mole', health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },

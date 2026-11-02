@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.25 (2026-11-02)
+- Creatures no longer bob. Each one stands with its feet on its shadow: the cave spider, the snapcap and the mole no longer float, and an awake flask mimic or herb mimic sits on the floor.
+- The bat and the lampmoth fly, so they hover a little above their shadow, held still.
+- A sleeping mimic or a shut snapcap still bobs like the find it pretends to be.
+- Decisions: D-563.
+
 ## 0.3.24 (2026-11-02)
 - Nothing changes in the game. The garden comes next, before another new creature, in six small steps: a Gloamberry seed, made in the bag; a garden bed, made at the workbench and set down at home; planting; growing while you are below; picking; then guano and water.
 - Decisions: D-561, D-562.
