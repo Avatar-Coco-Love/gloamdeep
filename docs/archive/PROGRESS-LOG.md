@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.21, Store from the bag.** All recommended: a
+  small STORE left of the bag's cross, on the surface with a chest
+  within 6 tiles (a square); nearest chest first; Up from the gear row
+  reaches it; "Chests full." to fit the line (D-558). Playtest:
+  https://claude.ai/artifact/BQPBVMTTv7WBmYDyst5A8o
 - **2026-11-02, 0.3.20, No freeze at a fall.** A friend's playtest:
   a fall on a floor of several rooms froze the game (the round map
   broke on the fall's picture). Both recommended: the picture keeps

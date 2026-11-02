@@ -144,26 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-553 · 2026-11-01 · Inventory steps to come** (the owner's picks,
-the recommended ones and craft from chests) After the gear row, each
-its own step: Take off, choosing a gear slot and pressing it to put the
-piece back in the bag, free, "Your bag is full." with no room (worn
-pieces can't come off today, D-484); Store matching on the chest's card,
-moving every bag stack whose kind the chest holds onto it; a Sort
-button in the bag, lining it up by kind and joining half stacks; and
-crafting at the workbench from chests standing on the surface. One
-visible change per step (D-018).
-
-**D-555 · 2026-11-02 · Store from the bag, too** (the owner's ask and
-picks; adds to D-553) Store matching comes in two buttons, each its own
-step: first STORE on a chest's card, filling that chest only; then a
-small STORE in the bag's title strip, showing only on the surface with
-a stash chest within 6 tiles of the hero, sending each bag stack to the
-chests in reach that hold its kind. Both are free and say how much
-moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
-crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
-word for word.
-
 **D-557 · 2026-11-02 · No freeze at a fall** (the owner's picks, both
 recommended, from a friend's playtest) A fall on a floor of several
 rooms froze the game: the round map read the floor's other rooms from
@@ -201,3 +181,19 @@ Its card shows one total per cost, "3 / 5 Wood", the bag and those
 chests together, and MAKE is dim only when all of them hold too few.
 Make takes from the bag first, then the nearest chest, then the next.
 D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-561 · 2026-11-02 · The garden next** (the owner's pick, recommended;
+answers part of Q-076) With the inventory steps done, the garden (step
+14) comes before another new creature kind. Which kind comes after it
+stays open in Q-076.
+
+**D-562 · 2026-11-02 · The garden in six steps** (the owner's picks, all
+recommended; builds D-452, D-530, D-531) Each its own step, one visible
+change each, starting in the next conversation: a Gloamberry seed; a
+place to plant it; planting, a sprout showing; growing while the hero
+is below; picking what grew; then guano (D-539) and water (Q-071). The
+seed is made in the bag from Gloamberries with Make, the oilcap's way.
+The place is a garden bed, made at the workbench and set down on the
+surface the chest's and bed's way, holding one plant. Costs, names,
+looks, lines and numbers are asked at each step. D-553 and D-555 moved
+to `archive/DECISIONS-BAGS.md`, word for word.
