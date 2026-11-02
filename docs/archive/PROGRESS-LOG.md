@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.29, Growing.** Three picks recommended; the owner
+  chose every turn counting, the surface too: a sprout becomes a small
+  gloamberry bush (look A) 300 turns after planting, its card "Gloamberries
+  grow here."; dev mode's Grow (D-567). Playtest:
+  https://claude.ai/artifact/7i3qhZvGPKrhTJ95MnTgSr
 - **2026-11-02, 0.3.28, Planting.** All recommended: the garden bed's
   card shows Plant and Deconstruct; Plant puts in 1 Gloamberry Seed, a
   sprout showing (look A); taken down, the seed comes back (D-566).
@@ -1361,6 +1366,11 @@ Moved from `PROGRESS.md` at 0.2.228, the seventh audit (D-519):
 
 - [x] 13 The vendor and coins (13a selling, 0.2.208; 13b buying, 0.2.209)
 - [x] Water: pools for now, rivers wait for swimming (D-499, D-504; the still pool, 0.2.214; on the map, 0.2.216; the pond at home, 0.2.217; done for now, 0.2.218)
+
+Moved from `PROGRESS.md` at 0.3.32, the eighth audit (D-570):
+
+- [x] 13b The first wild plant, 0.3.3 (D-531)
+- [x] 14 The garden: seed, bed, planting, growing, picking, guano, 0.3.31 (D-562, D-569)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

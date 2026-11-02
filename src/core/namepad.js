@@ -5,7 +5,6 @@
 import { moveOn } from './seedpad.js';
 
 export const NAME_MAX = 12;
-export const NAME_COLS = 8; // two halves of 4; the drawing leaves a gap between them
 export const NAME_ROWS = 4;
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const half = (letters, left, last) => [
