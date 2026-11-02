@@ -39,6 +39,11 @@ export function fall(state) {
   const woke = place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
   return note(say({ ...woke, fell, health: maxHealth(state), oil: OIL.start }, 'fall'), 'fall');
 }
+// § fall view: the room as the hero fell in it (`fell`), with the rest of the world as it was
+// just before (`elsewhere`), for the fall's picture and the round map beside it. The map
+// reads the floor's other rooms from `elsewhere`; without them it broke and the game
+// froze at every fall on a floor of several rooms (D-557). Kept out of the saved state.
+export const fallView = (before, after) => ({ ...after.fell, elsewhere: before.elsewhere });
 // In Normal the bag stays where the hero fell, its stacks in it, and they wake
 // with it empty (MO3, D-334, D-345). The hand keeps its weapon.
 const dropBag = (state) => ({ ...state, bag: [], items: [...state.items, { id: 'lostbag', x: state.hero.x, y: state.hero.y, holds: state.bag }] });

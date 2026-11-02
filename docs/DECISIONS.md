@@ -144,24 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-552 · 2026-11-01 · Gear slots and the Tool slot** (the owner's ask
-and picks, all recommended; builds D-252, D-458, D-479; supersedes
-D-480's "never held"; mock-up: https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg)
-The hero has five gear slots: Weapon (the hand), Tool, Armour and two
-Charms, the owner's list, with D-458's one armour piece and two charms.
-They are one row of small slots across the top of the bag's card, where
-HELD was (layout A); an empty one shows its kind faintly (a knife, the
-pick, the vest, a charm), with "GEAR" after the row when there is room.
-The item's words start under the row; the bag's slots keep their size.
-The Stone Pick goes in the Tool slot: Hold on it in the bag puts it
-there, a turn, "You hold the stone pick.", the one there swapping into
-its bag slot, as a weapon does; made with the slot empty it goes
-straight in. A copper vein breaks only with the pick in that slot. Its
-second Look line becomes "Hold it to use it." A save upgrades with its
-pick moved from the bag into the slot (format 9 to 10). Tapping the row
-does nothing yet. D-549 and D-550 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
 **D-553 · 2026-11-01 · Inventory steps to come** (the owner's picks,
 the recommended ones and craft from chests) After the gear row, each
 its own step: Take off, choosing a gear slot and pressing it to put the
@@ -200,3 +182,12 @@ DECONSTRUCT. It moves as much as fits; when some must stay in the bag,
 "You store 2 stacks. The chest is full." On a keyboard, Down from the
 bag's bottom row reaches STORE (from the chest's, DECONSTRUCT), Up goes
 back, Left and Right go between the two buttons.
+
+**D-557 · 2026-11-02 · No freeze at a fall** (the owner's picks, both
+recommended, from a friend's playtest) A fall on a floor of several
+rooms froze the game: the round map read the floor's other rooms from
+the fall's picture, which kept none. The fall's picture now keeps the
+world as it was (only on screen, not in the save), and the main loop
+has a safety net: an error in one frame is logged once and the next
+frame still comes. The bag's STORE for nearby chests (D-555) stays
+Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.

@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.20 (2026-11-02)
+- Falling on a floor of several rooms, from depth 2 down, no longer freezes the game: the small round map broke while showing the fall, and stopped everything. Thanks to a friend's playtest.
+- If anything else ever goes wrong while the screen is drawn, the game now carries on instead of freezing.
+- Decisions: D-557.
+
 ## 0.3.19 (2026-11-02)
 - A stash chest's card has a Store button in its bottom right corner: every stack in your bag of a kind the chest already holds goes onto it, free. It says how many stacks moved, "Nothing to store." when none match, and that the chest is full when some had to stay in your bag.
 - On a keyboard, press Down from the bag's bottom row to reach Store.
@@ -112,7 +117,3 @@ Entry format:
 - Gloamberry bushes now grow in the surface woods, one in each woods room: a low round bush with dark blue berries. Walk into one to pick 2 Gloamberries; the bush stands bare and fills again 300 turns later.
 - Gloamberries stack to 20 in the bag. Eat one for 1 heart, as a heartcap. Their seed comes with the garden, and a recipe later.
 - Decisions: D-531.
-
-## 0.3.2 (2026-10-31)
-- Before the garden, a first wild plant comes to the surface woods, giving the garden its first seed; fruit bushes, flowers, cave plants grown at home and water plants follow, one at a time. Docs only.
-- Decisions: D-530.

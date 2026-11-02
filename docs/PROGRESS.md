@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.19 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.20 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -49,6 +49,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.20, No freeze at a fall.** A friend's playtest:
+  a fall on a floor of several rooms froze the game (the round map
+  broke on the fall's picture). Both recommended: the picture keeps
+  the world as it was, and a safety net keeps frames coming (D-557).
+  Playtest: https://claude.ai/artifact/RFZrt5Hp7otSPN7o2xkTDx
 - **2026-11-02, 0.3.19, Store on the chest.** All recommended: STORE in
   the chest card's bottom right, apart from DECONSTRUCT; what fits
   moves, "You store 2 stacks. The chest is full."; Down from the bag's
@@ -59,8 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   chest's card first, then a small STORE in the bag's title strip for
   chests within 6 tiles, both free, "You store 3 stacks." (D-555).
   Docs only.
-- **2026-11-01, 0.3.17, Take off.** All recommended: tap a gear slot
-  to choose it, TAKE OFF in the corner for the Weapon and the Tool, free,
-  "You put the spear away."; worn pieces show words, no button; Up from
-  the bag's top row reaches the row (D-554). Playtest:
-  https://claude.ai/artifact/HjsVEEC6ZJdPiLhsEsuoGn
