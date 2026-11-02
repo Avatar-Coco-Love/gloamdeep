@@ -11,8 +11,8 @@ const made = () => {
   return { shown, cards: makeCards(app, { spoken: { textContent: '' } }, (sc) => shown.push(sc), helpers) };
 };
 
-test('the table holds the bench, chest and trade cards', () => {
-  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bench', 'chest', 'trade']);
+test('the table holds the bag, place, bench, chest and trade cards', () => {
+  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bench', 'chest', 'place', 'trade']);
 });
 
 for (const id of Object.keys(CARD_TABLE)) {
@@ -20,6 +20,7 @@ for (const id of Object.keys(CARD_TABLE)) {
     const card = made().cards[id];
     for (const k of ['pick', 'dir', 'tap', 'close']) assert.equal(typeof card[k], 'function', k);
   });
+  if (id === 'place') continue; // setting down has its own checks below: a tap anywhere goes to tapSide
   test(`a tap outside the ${id} card, or Esc, goes back to play`, () => {
     const { shown, cards } = made();
     cards[id].tap(-10, -10, false);
@@ -30,3 +31,18 @@ for (const id of Object.keys(CARD_TABLE)) {
     assert.deepEqual(shown, ['play', 'play']);
   });
 }
+
+test('setting down: Enter does nothing, an arrow sets it, a tap goes to tapSide, Esc goes back to play', () => {
+  const calls = [], shown = [];
+  const app = { chosen: 0, state: { bag: [] } };
+  const place = makeCards(app, {}, (sc) => shown.push(sc), { setToward: (d) => calls.push(['set', d]), tapSide: (x, y) => calls.push(['tap', x, y]) }).place;
+  place.pick(0);
+  assert.deepEqual(calls, []);
+  place.dir('left');
+  place.tap(5, 6, true); // a held press does nothing
+  place.tap(5, 6, false);
+  assert.deepEqual(calls, [['set', 'left'], ['tap', 5, 6]]);
+  assert.deepEqual(shown, []);
+  place.close();
+  assert.deepEqual(shown, ['play']);
+});
