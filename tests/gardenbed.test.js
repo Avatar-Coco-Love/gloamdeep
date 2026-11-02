@@ -33,9 +33,9 @@ test('it is set down on the surface as the garden bed tile, solid, and taken dow
   assert.equal(shownLine(back).text, 'You take down the garden bed.');
 });
 
-test('bumped, day or night, it opens its ask card, Deconstruct garden bed?', () => {
+test('bumped, day or night, it opens its card: Garden bed, Plant and Deconstruct (D-566)', () => {
   const set = setDown(outside(), 0, 'right');
   for (const turn of [0, 200]) assert.deepEqual(panelBeside({ ...set, turn }, 'right'), { x: 3, y: 2 });
   assert.equal(get('plot').panel, 'bed');
-  assert.deepEqual(TAKE_ASKS.plot, ['Deconstruct garden bed?', 'Nothing grows here yet.']);
+  assert.deepEqual(TAKE_ASKS.plot, ['Garden bed', 'Nothing grows here yet.']);
 });

@@ -116,7 +116,8 @@ export function setDown(state, i, dir) {
 }
 
 // § take down: Deconstruct on the panel of the tile at x, y (the bench or a stash
-// chest) puts it back in the bag whole as its `takes` item, floor left where it stood,
+// chest) puts it back in the bag whole as its `takes` item, and its `also` item when
+// there is room (a planted garden bed's seed, D-566), floor left where it stood,
 // and passes a turn, with its line (WB3, D-323; CH5). A chest holding anything says
 // its `empty` line instead. With one already carried, that item's `full` line; with
 // every slot taken, "Your bag is full."; all free, and it stays. A `take` event.
@@ -124,12 +125,27 @@ export function takeDown(state, x, y) {
   const takes = tileAt(state.room, x, y).takes;
   if (!takes) return state;
   if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
-  const bag = bagAdd(state.bag, takes.item, undefined, bagSize(state));
-  if (!bag) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
+  const bed = bagAdd(state.bag, takes.item, undefined, bagSize(state));
+  if (!bed) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
+  const bag = (takes.also && bagAdd(bed, takes.also, undefined, bagSize(state))) || bed; // the seed planted too, when it fits (D-566)
   const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
   const next = note(passTurn({ ...state, room, bag, ...(stashes && { stashes }) }), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
+
+// § plant: Plant on the card of the garden bed at x, y puts one of its `plants` seed from
+// the bag in it, the bed becoming its `into` tile, a sprout showing, and passes a turn,
+// with its line (garden step 3, D-566). With no seed, or nothing to plant in, nothing
+// changes. A `plant` event.
+export function plant(state, x, y) {
+  const plants = tileAt(state.room, x, y).plants, i = plants ? state.bag.findIndex((s) => s.id === plants.seed) : -1;
+  if (i < 0) return state;
+  const room = withTile(state.room, x, y, get(plants.into));
+  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'plant', { id: plants.seed });
+  return endTurn(state, say(next, plants.says));
+}
+// Whether the garden bed at x, y can be planted now: empty, with a seed in the bag
+export const canPlant = (state, x, y) => { const plants = tileAt(state.room, x, y).plants; return !!plants && state.bag.some((s) => s.id === plants.seed); };
 
 // The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null.
 // The bed opens its card only by day; at night a bump sleeps (D-488), unless `any`.

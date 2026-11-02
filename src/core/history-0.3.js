@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.28', date: '2026-11-02', title: 'Planting', lines: [
+    "Plant your Gloamberry Seeds now: walk into a garden bed and its card shows PLANT and DECONSTRUCT. Plant puts one seed in the bed. It takes a turn.",
+    "A planted bed shows a sprout, two round leaves on a short stem, and its card says \"A sprout grows here.\" Growing comes at the next step.",
+    "Plant is grey when you carry no seed, or when the bed already holds one.",
+    "Deconstruct takes the bed back straight away. If a seed was planted, it comes back to your bag too, when there is room.",
+    "Decisions: D-566.",
+  ] },
   { v: '0.3.27', date: '2026-11-02', title: 'The garden bed', lines: [
     "You can make a garden bed now: it is the last slot on the workbench's card, from 3 Wood and 2 Stone. It takes a turn.",
     "Set it down on the surface from the bag, as you do the bed. It is a low wooden box of dark soil, a place to plant your Gloamberry Seeds at the next step.",

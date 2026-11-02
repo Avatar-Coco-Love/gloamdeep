@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.25, Creatures on the ground.** No creature bobs;
+  each stands on its shadow, the bat and lampmoth held 2 pixels up; a
+  disguised one bobs as its find (D-563). Playtest:
+  https://claude.ai/artifact/Nw66jKVFvpB2LUhXcJPnnN
 - **2026-11-02, 0.3.24, The garden next.** Docs only. The garden comes
   before another creature (D-561), in six steps; the seed made in the
   bag, a garden bed set down at home (D-562).

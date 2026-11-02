@@ -169,15 +169,6 @@ surface the chest's and bed's way, holding one plant. Costs, names,
 looks, lines and numbers are asked at each step. D-553 and D-555 moved
 to `archive/DECISIONS-BAGS.md`, word for word.
 
-**D-563 · 2026-11-02 · Creatures stand on the ground** (the owner's
-picks; supersedes D-104's bob) No creature bobs. Each is drawn with its
-lowest pixel resting on its shadow, so none looks off the ground; before,
-the cave spider and snapcap floated 1 pixel, the mole and an awake
-mimic 2. The flyers, the
-bat and the lampmoth, are held a fixed 2 pixels above their shadow
-(registry `flies`). A sleeping mimic or a shut snapcap still bobs as the
-find it copies does, keeping its disguise (D-368, D-543).
-
 **D-564 · 2026-11-02 · The Gloamberry Seed** (the owner's picks, all
 recommended; garden step 1, builds D-562) Make, in the bag, turns 3
 Gloamberries into 1 **Gloamberry Seed**, a turn, the heartcap's way:
@@ -203,3 +194,17 @@ garden bed.", "You need 3 Wood, 2 Stone."; chosen in the bag, "A box of
 soft soil.", "Set it down on the surface." or "Seeds grow in it." The
 workbench, chest and bed in `GLOSSARY.md` moved to `GLOSSARY-2.md`,
 word for word, and D-560 to `archive/DECISIONS-BAGS.md`.
+
+**D-566 · 2026-11-02 · Planting** (the owner's picks, all recommended;
+garden step 3, builds D-562, D-565; mock-up:
+https://claude.ai/artifact/QueSWrh1aiDsgA8eCocXqB) Bumped, day or night,
+the garden bed opens its card, now named "Garden bed", with PLANT and
+DECONSTRUCT in place of Yes and No, Plant picked; the buttons widen to
+fit. Plant puts 1 Gloamberry Seed from the bag in the bed, a turn,
+saying "You plant a gloamberry seed."; with no seed, or one already in,
+Plant is dim and does nothing. A planted bed shows a sprout, look A, two
+round leaves on a short stem above the rim, and its card's note is "A
+sprout grows here." instead of "Nothing grows here yet." Deconstruct
+takes the bed back with no further ask, a turn; a planted one gives back
+its seed too, when the bag has room, else the seed is lost. D-563 moved
+to `archive/DECISIONS-CREATURES-2.md`, word for word.

@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.27 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.28 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Garden step 3 (D-562): planting a Gloamberry Seed in the garden bed,
-a sprout showing. Propose how planting works, the sprout's look and
-its lines.
+Garden step 4 (D-562): the sprout growing while the hero is below.
+Propose how long it takes, what counts as below, its looks as it grows
+and its lines.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -48,6 +48,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.28, Planting.** All recommended: the garden bed's
+  card shows Plant and Deconstruct; Plant puts in 1 Gloamberry Seed, a
+  sprout showing (look A); taken down, the seed comes back (D-566).
+  Playtest: https://claude.ai/artifact/AntuPniJT53jAiH6RfstKD
 - **2026-11-02, 0.3.27, The garden bed.** All recommended: the Garden
   Bed, a plank box of soil, the workbench's last slot from 3 Wood and
   2 Stone, set down on the surface; bumped, Deconstruct garden bed?
@@ -56,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   turns 3 Gloamberries into 1 Gloamberry Seed, a brown pip with a green
   shoot, in stacks of 20 (D-564). Playtest:
   https://claude.ai/artifact/1xPog1qmk8VWqznTk9Qjh4
-- **2026-11-02, 0.3.25, Creatures on the ground.** No creature bobs;
-  each stands on its shadow, the bat and lampmoth held 2 pixels up; a
-  disguised one bobs as its find (D-563). Playtest:
-  https://claude.ai/artifact/Nw66jKVFvpB2LUhXcJPnnN

@@ -26,6 +26,7 @@
 //   set { id }           tile `id` was set down from the bag, the workbench's bench (WB2)
 //   hold { id }          weapon `id` went from the bag into the hand (D-479)
 //   sell { id, coins }   one of item `id` was sold at home for `coins`, free (D-494)
+//   plant { id }         seed `id` was planted in a garden bed (D-566)
 
 // (state, type, details) → the state with that event added to this turn's list
 export const note = (state, type, details) => ({ ...state, events: [...state.events, { type, ...details }] });
