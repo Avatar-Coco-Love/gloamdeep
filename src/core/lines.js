@@ -223,6 +223,11 @@ export const LINES = {
   setDown: { text: 'You set it down.', warn: false }, // Drop in the bag, free (D-546)
   bagBack: { text: 'You take back your bag.', warn: false }, // all of the bag where you fell, back in (MO3, D-345)
   stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)
+  storeOne: { text: 'You store 1 stack.', warn: false }, // Store on the chest's card, free (D-556)
+  storeSome: { text: 'You store {n} stacks.', warn: false }, // the same, {n} bag stacks moved (D-555)
+  storeOneFull: { text: 'You store 1 stack. The chest is full.', warn: false }, // the same, some left in the bag (D-556)
+  storeSomeFull: { text: 'You store {n} stacks. The chest is full.', warn: false },
+  storeNone: { text: 'Nothing to store.', warn: false }, // Store with no bag stack the chest holds (D-555)
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   torchMake: { text: 'You make a torch.', warn: false }, // 1 moth dust, 1 wood (D-478)
   bagTorchLook: { texts: ['A torch. Set it down to light the way.', 'Moth dust packed round a stick.', 'It burns for a while, then goes out.'], warn: false },

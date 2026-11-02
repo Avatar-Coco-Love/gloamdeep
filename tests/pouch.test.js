@@ -8,7 +8,7 @@ import { benchMakes } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { spawn } from '../src/core/spawn.js';
 import { bagSize, bagCols } from '../src/core/bag.js';
-import { moveChest, CHEST_BAG, CHEST_TAKE } from '../src/core/chest.js';
+import { moveChest, CHEST_BAG, CHEST_STORE } from '../src/core/chest.js';
 
 const start = (bag, more = {}) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag, ...more });
 const pouchCost = [{ id: 'ratTail', n: 4 }, { id: 'spiderSilk', n: 2 }];
@@ -68,11 +68,11 @@ test('a bigger bag takes a find a 6-slot bag has no room for', () => {
 
 test('on the chest\'s card the arrows follow the bag\'s grid, 3 × 3 or 4 × 3 (D-548)', () => {
   assert.equal(moveChest(CHEST_BAG + 3, 'down', 9), CHEST_BAG + 6);
-  assert.equal(moveChest(CHEST_BAG + 6, 'down', 9), CHEST_TAKE);
+  assert.equal(moveChest(CHEST_BAG + 6, 'down', 9), CHEST_STORE);
   assert.equal(moveChest(CHEST_BAG + 2, 'down', 6), CHEST_BAG + 5);
   assert.equal(moveChest(CHEST_BAG + 3, 'right', 12), CHEST_BAG + 3);
   assert.equal(moveChest(CHEST_BAG + 2, 'right', 12), CHEST_BAG + 3);
   assert.equal(moveChest(11, 'right', 12), CHEST_BAG + 8);
   assert.equal(moveChest(CHEST_BAG + 8, 'left', 12), 11);
-  assert.equal(moveChest(CHEST_BAG + 8, 'down', 12), CHEST_TAKE);
+  assert.equal(moveChest(CHEST_BAG + 8, 'down', 12), CHEST_STORE);
 });

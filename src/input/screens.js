@@ -95,7 +95,7 @@ import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
 import { chestAt } from '../render/chestpanel.js';
-import { CHEST_BAG, CHEST_TAKE, chestWords, moveChest, stashAt } from '../core/chest.js';
+import { CHEST_BAG, CHEST_TAKE, CHEST_STORE, chestWords, moveChest, stashAt } from '../core/chest.js';
 import { tradeAt } from '../render/tradepanel.js';
 import { tradeWords, slotWords, priceOf, wares, wareWords, buyWords } from '../core/trade.js';
 import { gearWords, GEAR, gearRow, canTakeOff } from '../core/gear.js';
@@ -397,6 +397,7 @@ export function createScreens(app, ui) {
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {
     if (i === CHEST_TAKE) return 'Deconstruct chest';
+    if (i === CHEST_STORE) return 'Store matching';
     const out = i < CHEST_BAG, s = out ? stashAt(app.state, app.bench.x, app.bench.y)[i] : app.state.bag[i - CHEST_BAG];
     return `${out ? 'Chest' : 'Bag'}: ${s ? `${get(s.id).name}, ${s.n}` : 'empty'}`;
   };
@@ -514,7 +515,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
     if (app.screen === 'trade') { tradeChosen(); return; }
-    if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
+    if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else if (i === CHEST_STORE) ui.store(app.bench.x, app.bench.y); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
@@ -608,6 +609,7 @@ export function createScreens(app, ui) {
       const at = chestAt(px, py, view.w, view.h, bagSize(app.state));
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'take') { app.chosen = CHEST_TAKE; choose(CHEST_TAKE); }
+      else if (at === 'store') { pickChest(CHEST_STORE); choose(CHEST_STORE); }
       else if (at) choose(at.slot);
       return;
     }

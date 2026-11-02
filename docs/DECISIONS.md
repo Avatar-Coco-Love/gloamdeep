@@ -192,3 +192,11 @@ chests in reach that hold its kind. Both are free and say how much
 moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
 crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
 word for word.
+
+**D-556 · 2026-11-02 · Store on the chest's card** (the owner's picks,
+all recommended; the first button of D-555) STORE sits in the chest
+card's bottom right corner, where Take off is on the bag's, apart from
+DECONSTRUCT. It moves as much as fits; when some must stay in the bag,
+"You store 2 stacks. The chest is full." On a keyboard, Down from the
+bag's bottom row reaches STORE (from the chest's, DECONSTRUCT), Up goes
+back, Left and Right go between the two buttons.

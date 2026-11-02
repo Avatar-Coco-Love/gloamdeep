@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.19', date: '2026-11-02', title: 'Store on the chest', lines: [
+    "A stash chest's card has a Store button in its bottom right corner: every stack in your bag of a kind the chest already holds goes onto it, free. It says how many stacks moved, \"Nothing to store.\" when none match, and that the chest is full when some had to stay in your bag.",
+    "On a keyboard, press Down from the bag's bottom row to reach Store.",
+    "Decisions: D-556.",
+  ] },
   { v: '0.3.18', date: '2026-11-02', title: 'Store from the bag, too', lines: [
     "Storing what matches will come as two buttons: first Store on a chest's card, filling just that chest, then a small Store in the bag, sending your stacks to every stash chest within 6 tiles that already holds that kind. Both free. Docs only.",
     "Decisions: D-555.",

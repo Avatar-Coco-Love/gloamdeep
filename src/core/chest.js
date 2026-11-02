@@ -1,31 +1,34 @@
 // § chest: the stash chest's card (CH3, D-325, D-330; a card, D-387). Its 12 slots
 // are a 4 × 3 grid, the bag's beside them (6 a 3 × 2 grid, 9 a 3 × 3, 12 a 4 × 3, D-548);
 // `chosen` is a chest slot, 0 to 11, a bag slot, from 12 (CHEST_BAG + i), or CHEST_TAKE
-// for its Deconstruct button (CH5). Plain data, no drawing.
+// for its Deconstruct button (CH5), CHEST_STORE for its Store (D-556). Plain data, no drawing.
 import { MAX_BAG, bagAdd, bagSize, bagCols } from './bag.js';
 import { say } from './lines.js';
 
 export const CHEST_SLOTS = 12;
 export const CHEST_BAG = CHEST_SLOTS; // the bag's first slot on the card (CH4, D-331)
 export const CHEST_TAKE = CHEST_BAG + MAX_BAG; // Deconstruct, under the chest's grid (CH5)
+export const CHEST_STORE = CHEST_TAKE + 1; // Store, in the card's bottom right corner (D-556)
 const COLS = 4, ROWS = 3;
 
 // What a screen reader hears as the card opens
-export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag on the right. Deconstruct chest, or Close.`;
+export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag on the right. Deconstruct chest, Store matching, or Close.`;
 
 // Where an arrow moves the gold frame: around the chest's grid, Right from its right
 // column to the bag's grid, Left from the bag's left column back; Down from the bottom
-// row of either to Deconstruct, Up from it to the chest's bottom row (D-387). `size`: the
-// bag's slots (D-548)
+// row of the chest to Deconstruct, Up from it to the chest's bottom row (D-387); Down
+// from the bag's bottom row to Store, Up from it to the bag's bottom row, Left and Right
+// between the two buttons (D-556). `size`: the bag's slots (D-548)
 export function moveChest(i, dir, size = 6) {
-  if (i === CHEST_TAKE) return dir === 'up' ? (ROWS - 1) * COLS : i;
   const bc = bagCols(size), bagRows = Math.ceil(size / bc);
+  if (i === CHEST_TAKE) return dir === 'up' ? (ROWS - 1) * COLS : dir === 'right' ? CHEST_STORE : i;
+  if (i === CHEST_STORE) return dir === 'up' ? CHEST_BAG + (bagRows - 1) * bc : dir === 'left' ? CHEST_TAKE : i;
   const bag = i >= CHEST_BAG, j = bag ? i - CHEST_BAG : i, cols = bag ? bc : COLS, rows = bag ? bagRows : ROWS;
   const col = j % cols, row = Math.floor(j / cols);
   if (dir === 'left') return col > 0 ? i - 1 : bag ? Math.min(row, ROWS - 1) * COLS + COLS - 1 : i;
   if (dir === 'right') return col < cols - 1 && (!bag || j + 1 < size) ? i + 1 : bag ? i : CHEST_BAG + Math.min(row, bagRows - 1) * bc;
   if (dir === 'up') return row > 0 ? i - cols : i;
-  if (dir === 'down') return row < rows - 1 && (!bag || j + cols < size) ? i + cols : CHEST_TAKE;
+  if (dir === 'down') return row < rows - 1 && (!bag || j + cols < size) ? i + cols : bag ? CHEST_STORE : CHEST_TAKE;
   return i;
 }
 
@@ -63,6 +66,24 @@ export function moveStack(state, x, y, i) {
   const [bag, kept] = out ? [to, rest] : [rest, to];
   const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: kept } };
   return left ? say(moved, out ? 'bagFull' : 'stashFull') : moved;
+}
+
+// § store: Store on the chest's card moves every bag stack whose kind the chest already
+// holds onto it, as much as fits, free: "You store 3 stacks.", "Nothing to store.", and
+// "The chest is full." after the count when some had to stay in the bag (D-555, D-556)
+export function storeMatching(state, x, y) {
+  let stash = stashAt(state, x, y), stored = 0, full = false;
+  const kinds = new Set(stash.map((s) => s.id)), bag = [];
+  for (const s of state.bag) {
+    if (!kinds.has(s.id)) { bag.push(s); continue; }
+    const { to, left } = put(stash, s, CHEST_SLOTS);
+    if (left < s.n) stored++;
+    if (left) { full = true; bag.push(left === s.n ? s : { ...s, n: left }); }
+    stash = to;
+  }
+  if (!stored) return say(state, full ? 'stashFull' : 'storeNone');
+  const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: stash } };
+  return say(moved, `store${stored === 1 ? 'One' : 'Some'}${full ? 'Full' : ''}`, stored);
 }
 
 // A state from a save older than the stash chest's things gets none kept (D-331)
