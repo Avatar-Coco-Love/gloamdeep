@@ -7,8 +7,12 @@ import { placeCard } from './place.js';
 import { benchCard } from './bench.js';
 import { chestCard } from './chest.js';
 import { tradeCard } from './trade.js';
+import { bedCard } from './bed.js';
+import { sureCard } from './sure.js';
+import { dropCard } from './drop.js';
+import { easierCard } from './easier.js';
 
-export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard };
+export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard };
 
-// Every card made once, sharing `app`, `ui`, `show` and cardscreens.js's helpers `c`
+// Every card made once, sharing `app`, `ui`, `show` and the helpers `c` from cardscreens.js and screens.js
 export const makeCards = (app, ui, show, c) => Object.fromEntries(Object.entries(CARD_TABLE).map(([id, make]) => [id, make(app, ui, show, c)]));

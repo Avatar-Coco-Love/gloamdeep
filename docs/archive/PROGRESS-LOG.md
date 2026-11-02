@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.33, the eighth audit, part 2.** All recommended:
+  `node tools/release.js` sets VERSION, copies the changelog into the
+  history (its title from this log), keeps the changelog and this log at
+  3, and only suggests moving decisions, past 11 KB; `npm test` runs its
+  `--check` (D-572). Next: the table of screens. Nothing visible.
 - **2026-11-02, 0.3.32, the eighth audit, part 1.** Picked, all
   recommended: the audit spans several PRs. Here: the cards move from
   `screens.js` to `cardscreens.js`; the cave test 20 s to 7 s; two unused

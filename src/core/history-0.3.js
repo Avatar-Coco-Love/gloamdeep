@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.36', date: '2026-11-02', title: 'The eighth audit, part 5', lines: [
+    "Behind the scenes, nothing you see has changed: the eighth audit, part 5. The bed's card and the three questions that ask Yes or No (Start over?, Delete…? and the easier way to play) now have their own small files in the card table, sharing their arrows and taps.",
+    "Decisions: D-575.",
+  ] },
   { v: '0.3.35', date: '2026-11-02', title: 'The eighth audit, part 4', lines: [
     "Behind the scenes, nothing you see has changed: the eighth audit, part 4. The bag's card and setting something down now have their own small files too, in the same table as the workbench, chest and peddler.",
     "Decisions: D-574.",
