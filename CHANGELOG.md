@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.19 (2026-11-02)
+- A stash chest's card has a Store button in its bottom right corner: every stack in your bag of a kind the chest already holds goes onto it, free. It says how many stacks moved, "Nothing to store." when none match, and that the chest is full when some had to stay in your bag.
+- On a keyboard, press Down from the bag's bottom row to reach Store.
+- Decisions: D-556.
+
 ## 0.3.18 (2026-11-02)
 - Storing what matches will come as two buttons: first Store on a chest's card, filling just that chest, then a small Store in the bag, sending your stacks to every stash chest within 6 tiles that already holds that kind. Both free. Docs only.
 - Decisions: D-555.
@@ -111,7 +116,3 @@ Entry format:
 ## 0.3.2 (2026-10-31)
 - Before the garden, a first wild plant comes to the surface woods, giving the garden its first seed; fruit bushes, flowers, cave plants grown at home and water plants follow, one at a time. Docs only.
 - Decisions: D-530.
-
-## 0.3.1 (2026-10-31)
-- The Look card's Trim tab now shows each lantern trim as a square of its two metal shades, the light cap over the dark base, with its name, instead of a tiny hero whose lantern was hard to see. Your hero above still carries the trim you pick.
-- Decisions: D-529. Questions closed: Q-074.

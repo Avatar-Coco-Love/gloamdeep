@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.16, gear slots.** The owner asked for weapon, tool,
+  armour and charm spots; all recommended: one gear row of five where
+  HELD was, the pick works only from the Tool slot (D-552); next Take
+  off, Store matching, Sort, crafting from chests (D-553). Mock-up:
+  https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg. Playtest:
+  https://claude.ai/artifact/8FAsTFTqy5e9yiQMpB5EjH
 - **2026-11-01, 0.3.15, the bone rat.** All recommended: chases, never
   flees, 3 hearts, bite 1, from depth 4; all bone (look A); a Rat Bone;
   its rare one waits; a rattle and a snap (D-551). D-545 to D-548

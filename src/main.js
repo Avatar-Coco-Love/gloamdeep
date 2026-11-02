@@ -21,7 +21,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
-import { moveStack } from './core/chest.js';
+import { moveStack, storeMatching } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
 import { remember, rememberAll, forget } from './core/fog.js';
@@ -366,6 +366,7 @@ const screens = createScreens(app, {
   lookGear: (g) => { app.state = lookGear(app.state, g); }, // a gear slot's Look line, free (D-554)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
+  store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below

@@ -70,7 +70,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
 | `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.235 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, at 0.2.202, at 0.2.203, at 0.2.204, at 0.2.205, at 0.2.207, D-493, at 0.2.221, at 0.2.222, at 0.2.223, at 0.2.224, at 0.2.225, at 0.3.11, at 0.3.12, at 0.3.13, at 0.3.14, at 0.3.15, at 0.3.16, and at 0.3.17) |
-| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 (moved at 0.3.18) |
+| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 and 0.3.1 (moved at 0.3.18 and 0.3.19) |
 
 ## Progress
 
