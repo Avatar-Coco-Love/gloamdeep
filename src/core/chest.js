@@ -4,6 +4,7 @@
 // for its Deconstruct button (CH5), CHEST_STORE for its Store (D-556). Plain data, no drawing.
 import { MAX_BAG, bagAdd, bagSize, bagCols } from './bag.js';
 import { say } from './lines.js';
+import { tileAt } from './room.js';
 
 export const CHEST_SLOTS = 12;
 export const CHEST_BAG = CHEST_SLOTS; // the bag's first slot on the card (CH4, D-331)
@@ -84,6 +85,49 @@ export function storeMatching(state, x, y) {
   if (!stored) return say(state, full ? 'stashFull' : 'storeNone');
   const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: stash } };
   return say(moved, `store${stored === 1 ? 'One' : 'Some'}${full ? 'Full' : ''}`, stored);
+}
+
+// § store nearby: the bag's own STORE (D-555, D-558) shows on the surface with a stash chest
+// within REACH tiles of the hero, across, down or diagonally (a 13 × 13 square); chestsNear
+// lists them nearest first. storeNearby sends each bag stack to the chests in reach that
+// already hold its kind, the nearest first, as much as fits, free. When some must stay,
+// "The chests are full." with more than one chest in reach, "The chest is full." with one
+export const REACH = 6;
+export function chestsNear(state) {
+  const { room, hero } = state;
+  if (!room?.dark?.sky) return [];
+  const near = [];
+  for (let y = Math.max(0, hero.y - REACH); y <= Math.min(room.rows - 1, hero.y + REACH); y++) {
+    for (let x = Math.max(0, hero.x - REACH); x <= Math.min(room.cols - 1, hero.x + REACH); x++) {
+      if (tileAt(room, x, y).id === 'stash') near.push({ x, y, d: Math.max(Math.abs(x - hero.x), Math.abs(y - hero.y)) });
+    }
+  }
+  return near.sort((a, b) => a.d - b.d).map(({ x, y }) => ({ x, y }));
+}
+export function storeNearby(state) {
+  const near = chestsNear(state);
+  if (!near.length) return state;
+  const stashes = near.map(({ x, y }) => stashAt(state, x, y)), kinds = stashes.map((st) => new Set(st.map((s) => s.id)));
+  let stored = 0, full = false;
+  const bag = [];
+  for (const s of state.bag) {
+    let left = s.n;
+    stashes.forEach((st, k) => {
+      if (!left || !kinds[k].has(s.id)) return;
+      const r = put(st, { ...s, n: left }, CHEST_SLOTS);
+      stashes[k] = r.to; left = r.left;
+    });
+    const held = kinds.some((k) => k.has(s.id));
+    if (held && left < s.n) stored++;
+    if (held && left) full = true;
+    bag.push(left === s.n ? s : left ? { ...s, n: left } : null);
+  }
+  const many = near.length > 1, fullLine = many ? 'chestsFull' : 'stashFull';
+  if (!stored) return say(state, full ? fullLine : 'storeNone');
+  const kept = { ...state.stashes };
+  near.forEach(({ x, y }, k) => { if (stashes[k].length) kept[keyOf(state, x, y)] = stashes[k]; });
+  const moved = { ...state, bag: bag.filter(Boolean), stashes: kept };
+  return say(moved, `store${stored === 1 ? 'One' : 'Some'}${full ? (many ? 'Fulls' : 'Full') : ''}`, stored);
 }
 
 // A state from a save older than the stash chest's things gets none kept (D-331)

@@ -191,3 +191,13 @@ world as it was (only on screen, not in the save), and the main loop
 has a safety net: an error in one frame is logged once and the next
 frame still comes. The bag's STORE for nearby chests (D-555) stays
 Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-558 · 2026-11-02 · Store from the bag** (the owner's picks, all
+recommended; the second button of D-555) The bag's small STORE sits in
+its title strip just left of the cross. Its reach is a 13 × 13 square
+round the hero, 6 tiles across, down or diagonally; the nearest chest
+holding a stack's kind fills first, then the next. When some must stay,
+"You store 3 stacks. Chests full." with more than one chest in reach
+(short, to fit the text line; "The chests are full." when nothing
+fits), "The chest is full." with one. On a keyboard, Up from the gear row reaches STORE,
+Down goes back.

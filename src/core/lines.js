@@ -227,6 +227,9 @@ export const LINES = {
   storeSome: { text: 'You store {n} stacks.', warn: false }, // the same, {n} bag stacks moved (D-555)
   storeOneFull: { text: 'You store 1 stack. The chest is full.', warn: false }, // the same, some left in the bag (D-556)
   storeSomeFull: { text: 'You store {n} stacks. The chest is full.', warn: false },
+  storeOneFulls: { text: 'You store 1 stack. Chests full.', warn: false }, // the bag's Store, more than one chest in reach (D-558)
+  storeSomeFulls: { text: 'You store {n} stacks. Chests full.', warn: false }, // short, to fit the strip (D-558)
+  chestsFull: { text: 'The chests are full.', warn: false }, // the same, nothing fitting anywhere (D-558)
   storeNone: { text: 'Nothing to store.', warn: false }, // Store with no bag stack the chest holds (D-555)
   notSurface: { text: 'Only on the surface.', warn: false }, // Set down under a roof, free
   torchMake: { text: 'You make a torch.', warn: false }, // 1 moth dust, 1 wood (D-478)

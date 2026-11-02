@@ -1,7 +1,16 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
-Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20 (the 8 KB cap).
+Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21 (the 8 KB cap).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.4 (2026-10-31)
+- The gloamberry bush no longer looks like it floats: it sits 1 pixel lower, resting on its shadow, and the shadow is now as wide as its base.
+- Decisions: D-532.
+
+## 0.3.3 (2026-10-31)
+- Gloamberry bushes now grow in the surface woods, one in each woods room: a low round bush with dark blue berries. Walk into one to pick 2 Gloamberries; the bush stands bare and fills again 300 turns later.
+- Gloamberries stack to 20 in the bag. Eat one for 1 heart, as a heartcap. Their seed comes with the garden, and a recipe later.
+- Decisions: D-531.
 
 ## 0.3.2 (2026-10-31)
 - Before the garden, a first wild plant comes to the surface woods, giving the garden its first seed; fruit bushes, flowers, cave plants grown at home and water plants follow, one at a time. Docs only.
