@@ -178,3 +178,17 @@ bag's C and X stay in `onType`, and spoken words stay in `show()` for
 now. The test checks setting down by itself: Enter does nothing, an
 arrow sets it, a tap goes to `tapSide`, Esc goes back to play. Next, the
 bed, then the menus.
+
+**D-575 · 2026-11-02 · The table of screens, part 5** (the owner's picks,
+all recommended; part 5 of D-571, as D-573) All four asks move together:
+the bed's, Start over?, Delete …? and Play …? each get a file in
+`src/input/cards/` with its pick and close, sharing `cards/ask.js`, which
+holds `ASKS`, the YES and NO arrows and the ask card's tap, moved word
+for word; `askOf` and `menuOf` stay in `screens.js` (drawing and spoken
+words use them) and reach the cards through `c`. The test learns each
+card's way back (play; the title for Start over?; `closeDrop`,
+`closeEasier`) and checks an ask's arrows and a tap on YES or NO. The
+rest of the audit takes 3 parts: 6 the menus (title, pause, settings,
+ways to play, mode, journey ends); 7 the pages (how to play, version
+history, journal); 8 the profile and map screens (profiles, name, look,
+seed pad, Explorer, map). Then Q-076.

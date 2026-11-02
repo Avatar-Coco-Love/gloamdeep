@@ -85,7 +85,6 @@ import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { canPlant, canPick, canFeed } from '../core/turn.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
-import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
@@ -125,7 +124,6 @@ export function createScreens(app, ui) {
   const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
-  const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488), or the garden bed's (D-565)
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
   // and grown, Pick in Plant's place (D-568)
   const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : SURE_MENU; }; // a sprout's Feed (D-569)
@@ -293,27 +291,25 @@ export function createScreens(app, ui) {
   }
 
   const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide }); // the card table (D-573)
 
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier }); // the card table (D-573, D-575)
   function pause() {
     if (cards[app.screen]) cards[app.screen].close(); // the card table (D-573)
-    else if (app.screen === 'map' || app.screen === 'bed') show('play');
+    else if (app.screen === 'map') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
     else if (app.screen === 'settings') closeSettings();
     else if (app.screen === 'ways') closeWays();
-    else if (app.screen === 'easier') closeEasier(false);
     else if (app.screen === 'seed') closePad();
     else if (app.screen === 'howto') closeHowTo();
     else if (app.screen === 'history') closeHistory();
     else if (app.screen === 'journal') closeJournal();
-    else if (app.screen === 'sure' || app.screen === 'mode') titleAt('new');
+    else if (app.screen === 'mode') titleAt('new');
     else if (app.screen === 'ended') titleAt('continue'); // the world begun again is saved, for Continue (D-344)
-    else if (app.screen === 'drop') closeDrop(false);
     else if (app.screen === 'name') closeName();
     else if (app.screen === 'cloak') closeCloak();
     else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
@@ -368,16 +364,12 @@ export function createScreens(app, ui) {
     if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
     if (app.screen === 'journal') { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); return; } // Enter turns to Growth, and there buys the picked upgrade
     if (app.screen === 'slots') { chooseSlot(i); return; }
-    if (app.screen === 'drop') { closeDrop(id === 'yes'); return; }
     if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
     if (app.screen === 'ways') { pickWay(id); return; }
-    if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
-    if (app.screen === 'bed') { if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'plant') plantBed(); else if (id === 'pick') pickBed(); else if (id === 'feed') feedBed(); else show('play'); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
-    else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)
-    else if (id === 'no') titleAt('new');
+    else if (id === 'new') show('mode', MODE_FIRST); // the way to play asked first (D-334)
     else if (id === 'resume' || id === 'continue') show('play');
     else if (id === 'title') show('title');
     else if (id === 'settings') show('settings');
@@ -406,7 +398,6 @@ export function createScreens(app, ui) {
     if (app.screen === 'cloak') { moveLookBy(dir); return; }
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
-    if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
     if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
     if (app.screen === 'history') {
       fitHistory();
@@ -505,13 +496,6 @@ export function createScreens(app, ui) {
       else if (at === 'buy') buyPicked();
       else if (at?.pick) pickGrowth(at.pick);
       else if (at) turnTab(at.tab);
-      return;
-    }
-    if (ASKS.has(app.screen)) {
-      if (held) return;
-      const at = askCardAt(px, py, view.w, view.h, ...askOf(app.screen), menuOf(app.screen));
-      if (at === 'out' || at === 'close') pause(); // the round cross means No (D-400)
-      else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }
     if (app.screen === 'slots') {
