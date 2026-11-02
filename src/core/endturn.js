@@ -3,6 +3,7 @@ import { say, oilLine } from './lines.js';
 import { discover, levelOf } from './xp.js';
 import { note } from './events.js';
 import { regrow } from './regrow.js';
+import { grow } from './garden.js';
 import { passTurn } from './state.js';
 import { enemiesAct } from './creatureturn.js';
 import { get } from './registry.js';
@@ -22,7 +23,8 @@ export const wait = (state) => endTurn(state, passTurn(state));
 // event, a new one a `found` too, and a level reached a `level`. Last, what
 // was taken here and is due grows back out of sight, or anywhere in a room
 // just come into, as it grew while the hero was away (regrow.js, D-307), and a torch
-// set down whose time is up goes out (D-478).
+// set down whose time is up goes out (D-478), and a planted garden bed whose time is up grows
+// (garden.js, D-567).
 export const endTurn = (before, after) => {
   const id = oilLine(before.oil, after.oil), place = after.place;
   let found = discover(before, id ? say(after, id) : after);
@@ -31,7 +33,7 @@ export const endTurn = (before, after) => {
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
-  const next = burnOut(regrow(moved ? done : enemiesAct(done), moved), moved);
+  const next = grow(burnOut(regrow(moved ? done : enemiesAct(done), moved), moved));
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return greet(arrive(sent)); // one gone home beams in as the hero comes, and greets the hero once, near (D-496)
 };

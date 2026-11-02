@@ -17,7 +17,7 @@ export const BED_HEADING = 'Deconstruct bed?';
 export const BED_NOTE = "You aren't tired.";
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
-export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'] };
+export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'] };
 export const GARDEN_MENU = [{ id: 'plant', text: 'Plant' }, { id: 'take', text: 'Deconstruct' }];
 export const gardenMenu = (canPlant) => GARDEN_MENU.map((l) => (l.id === 'plant' && !canPlant ? { ...l, dim: true } : l));
 export const SURE_HEADING = 'Start over?';

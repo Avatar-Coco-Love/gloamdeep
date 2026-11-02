@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.28 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.29 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Garden step 4 (D-562): the sprout growing while the hero is below.
-Propose how long it takes, what counts as below, its looks as it grows
-and its lines.
+Garden step 5 (D-562): picking what grew from the grown garden bed.
+Propose how many Gloamberries it gives, whether the bed goes back to a
+sprout or empty, the card's button and its lines.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -48,6 +48,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.29, Growing.** Three picks recommended; the owner
+  chose every turn counting, the surface too: a sprout becomes a small
+  gloamberry bush (look A) 300 turns after planting, its card "Gloamberries
+  grow here."; dev mode's Grow (D-567). Playtest:
+  https://claude.ai/artifact/7i3qhZvGPKrhTJ95MnTgSr
 - **2026-11-02, 0.3.28, Planting.** All recommended: the garden bed's
   card shows Plant and Deconstruct; Plant puts in 1 Gloamberry Seed, a
   sprout showing (look A); taken down, the seed comes back (D-566).
@@ -56,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   Bed, a plank box of soil, the workbench's last slot from 3 Wood and
   2 Stone, set down on the surface; bumped, Deconstruct garden bed?
   (D-565). Playtest: https://claude.ai/artifact/53Vjm3UGUbD7Azj8nZXLML
-- **2026-11-02, 0.3.26, The Gloamberry Seed.** All recommended: Make
-  turns 3 Gloamberries into 1 Gloamberry Seed, a brown pip with a green
-  shoot, in stacks of 20 (D-564). Playtest:
-  https://claude.ai/artifact/1xPog1qmk8VWqznTk9Qjh4

@@ -35,8 +35,8 @@ what exists today.
 - **Growing back (D-451):** today's speeds (D-306): plants 300 turns,
   trees and deposits 900, rarer things slower.
 - **Fishing (D-452):** any water, surface and below, with the right tools.
-- **Farming (D-452):** a garden at home; seeds grow while the hero is
-  below. Gardening away from home may come later.
+- **Farming (D-452, D-567):** a garden at home; seeds grow over turns,
+  every turn counting. Gardening away from home may come later.
 - **Wild harvestables (D-530):** one wild surface plant first, giving
   the garden its first seed; then fruit bushes, flowers, cave plants at
   home and water plants, each at its own step. A picked bush stays bare

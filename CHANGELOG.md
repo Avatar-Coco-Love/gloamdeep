@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.29 (2026-11-02)
+- A planted sprout grows now: 300 turns after planting it becomes a small gloamberry bush with ripe berries. Every turn counts, on the surface and below.
+- The grown bed's card says "Gloamberries grow here." Picking the berries comes at the next step.
+- Deconstruct a grown bed and the bed and its seed come back, as with a sprout.
+- Dev mode: the Room section has a new Grow button that grows every planted garden bed at once.
+- Decisions: D-567.
+
 ## 0.3.28 (2026-11-02)
 - Plant your Gloamberry Seeds now: walk into a garden bed and its card shows PLANT and DECONSTRUCT. Plant puts one seed in the bed. It takes a turn.
 - A planted bed shows a sprout, two round leaves on a short stem, and its card says "A sprout grows here." Growing comes at the next step.
@@ -110,9 +117,3 @@ Entry format:
 - Once you have the Pouch, the workbench offers the Big Bag, from 4 Mole Fur and 3 Spider Silk, and your bag holds 12.
 - A bigger bag shows as a 3 × 3 grid, then 4 × 3, with slightly smaller slots so it fits a sideways screen, in the bag, the chest and the peddler's card.
 - Decisions: D-547, D-548.
-
-## 0.3.12 (2026-11-01)
-- A new Drop button in the bag, for every item (or X on a keyboard), sets the chosen stack down at your feet, free, to make room. Walk back onto it to pick it all up again.
-- Drop while standing on something your full bag couldn't take, and the two swap: your stack goes down and the find comes into the bag.
-- Bigger bags come later: a Pouch for 9 slots, then a Big Bag for 12, made at the workbench.
-- Decisions: D-545, D-546.

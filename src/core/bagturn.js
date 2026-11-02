@@ -1,6 +1,7 @@
 // § bag turn: what the bag's buttons and the panels do: pour, make, eat, hold, set down,
 // take down and look (split from turn.js, D-362)
 import { tileAt, withTile } from './room.js';
+import { sow, unsow } from './garden.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
@@ -129,7 +130,7 @@ export function takeDown(state, x, y) {
   if (!bed) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
   const bag = (takes.also && bagAdd(bed, takes.also, undefined, bagSize(state))) || bed; // the seed planted too, when it fits (D-566)
   const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
-  const next = note(passTurn({ ...state, room, bag, ...(stashes && { stashes }) }), 'take', { id: takes.item });
+  const next = note(passTurn(unsow({ ...state, room, bag, ...(stashes && { stashes }) }, x, y)), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
 
@@ -141,7 +142,7 @@ export function plant(state, x, y) {
   const plants = tileAt(state.room, x, y).plants, i = plants ? state.bag.findIndex((s) => s.id === plants.seed) : -1;
   if (i < 0) return state;
   const room = withTile(state.room, x, y, get(plants.into));
-  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'plant', { id: plants.seed });
+  const next = note(passTurn(sow({ ...state, room, bag: bagTake(state.bag, i) }, x, y)), 'plant', { id: plants.seed }); // its clock starts (D-567)
   return endTurn(state, say(next, plants.says));
 }
 // Whether the garden bed at x, y can be planted now: empty, with a seed in the bag

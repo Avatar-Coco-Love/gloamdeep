@@ -53,6 +53,8 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   each; bumped, its card, Plant or Deconstruct (D-562, D-565, D-566).
 - **Plant, sprout:** Plant on the garden bed's card puts a Gloamberry
   Seed in it; a planted bed shows a sprout until it grows (D-566).
+- **Grow:** a sprout grows into a small gloamberry bush 300 turns after
+  planting, every turn counting (D-567).
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455). Not in
   the game yet.

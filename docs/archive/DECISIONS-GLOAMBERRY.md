@@ -41,3 +41,14 @@ recommended; a fix to D-531) The owner saw the gloamberry bush float
 over its shadow. Picked A of three: the bush is drawn 1 pixel lower,
 its base touching its shadow, and the shadow is 12 pixels wide, not
 14, as a deposit's is. Bare or full, the same.
+
+**D-564 · 2026-11-02 · The Gloamberry Seed** (the owner's picks, all
+recommended; garden step 1, builds D-562) Make, in the bag, turns 3
+Gloamberries into 1 **Gloamberry Seed**, a turn, the heartcap's way:
+Make sits left of Eat, C makes. The full name keeps it apart from a
+world's seed. It is look C, a brown pip with a tiny green shoot, in
+stacks of 20, never found. Make says "You make a gloamberry seed.";
+chosen, it says "A seed from the gloamberry.", "It wants soft ground."
+or "Something might grow from this." With no room, "You can't carry
+more seeds." (short, to fit the line). D-558 and D-559 moved to
+`archive/DECISIONS-BAGS.md`, word for word.
