@@ -61,9 +61,9 @@
 // (D-399), leaving a profile's old look as it was.
 // Split from main.js (D-235): `app` holds what the screens share with play and drawing.
 import { depthOf, areaAt, tileAt } from '../core/room.js';
-import { lineAt, pauseTop } from '../render/menu.js';
+import { pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
-import { titleCardAt, chipOf } from '../render/titlecard.js';
+import { chipOf } from '../render/titlecard.js';
 import { seedCardAt } from '../render/seedpad.js';
 import { howtoAt } from '../render/howto.js';
 import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
@@ -77,8 +77,7 @@ import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
-import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
@@ -89,9 +88,6 @@ import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { setVersionGap } from '../render/bag.js';
-import { pauseCardAt } from '../render/pausecard.js';
-import { settingsCardAt } from '../render/settingscard.js';
-import { waysAt } from '../render/ways.js';
 import { chestWords, stashAt } from '../core/chest.js';
 import { tradeWords } from '../core/trade.js';
 import { view } from '../render/screen.js';
@@ -295,41 +291,20 @@ export function createScreens(app, ui) {
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier }); // the card table (D-573, D-575)
   function pause() {
     if (cards[app.screen]) cards[app.screen].close(); // the card table (D-573)
     else if (app.screen === 'map') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
-    else if (app.screen === 'paused') show('play'); // Esc or P again resumes
-    else if (app.screen === 'settings') closeSettings();
-    else if (app.screen === 'ways') closeWays();
     else if (app.screen === 'seed') closePad();
     else if (app.screen === 'howto') closeHowTo();
     else if (app.screen === 'history') closeHistory();
     else if (app.screen === 'journal') closeJournal();
-    else if (app.screen === 'mode') titleAt('new');
-    else if (app.screen === 'ended') titleAt('continue'); // the world begun again is saved, for Continue (D-344)
     else if (app.screen === 'name') closeName();
     else if (app.screen === 'cloak') closeCloak();
     else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
     else if (app.screen === 'slots' && slotsBack()) titleAt('profiles');
   }
-  function change(key, next, words) {
-    app.settings = { ...app.settings, [key]: next };
-    saveSettings(app.settings);
-    spoken.textContent = words;
-  }
-  const changeSwipe = () => { const o = nextOnOff(app.settings.swipe); change('swipe', o, swipeText(o)); };
-  const changeTap = (back = false) => { const o = nextTap(app.settings.tap, back); change('tap', o, tapText(o)); };
-  const changePad = () => { const o = nextOnOff(app.settings.pad); change('pad', o, padText(o)); };
-  const changeStop = () => { const o = nextStop(app.settings.stop); change('stop', o, stopText(o)); };
-  const changeMotion = () => { const m = nextMotion(app.settings.motion, reduceMotion.matches); change('motion', m, motionText(m, reduceMotion.matches)); };
-  const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
-  const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
-  const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
-  const changeStats = () => { const o = nextOnOff(app.settings.stats); change('stats', o, statsText(o)); };
-
   // Digits and Backspace type on the seed pad from a keyboard; the flame moves to OK, so Enter keeps it
   // In the Explorer, R reseeds, T types a seed and B goes back (D-214); in the bag, C makes (D-309)
   const onType = (key) => {
@@ -352,11 +327,9 @@ export function createScreens(app, ui) {
     return true;
   };
 
-  // § choosing: a menu line picked; New journey starts in a new world (D-187), asking first
-  // while one is saved; Continue and Back to title keep the journey (D-238)
+  // § choosing: a line picked on a screen not in the card table
   function choose(i = app.chosen) {
     if (cards[app.screen]) { cards[app.screen].pick(i); return; } // the card table (D-573)
-    const id = menuOf(app.screen)[i]?.id;
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
     if (app.screen === 'cloak') { pressLook(i); return; }
@@ -364,30 +337,6 @@ export function createScreens(app, ui) {
     if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
     if (app.screen === 'journal') { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); return; } // Enter turns to Growth, and there buys the picked upgrade
     if (app.screen === 'slots') { chooseSlot(i); return; }
-    if (app.screen === 'mode') { ui.newJourney(id); show('play'); return; }
-    if (app.screen === 'ways') { pickWay(id); return; }
-    if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
-    if (id === 'profiles') openSlots(true);
-    else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
-    else if (id === 'new') show('mode', MODE_FIRST); // the way to play asked first (D-334)
-    else if (id === 'resume' || id === 'continue') show('play');
-    else if (id === 'title') show('title');
-    else if (id === 'settings') show('settings');
-    else if (id === 'journal') openJournal();
-    else if (id === 'howto') openHowTo();
-    else if (id === 'explore') openExplorer();
-    else if (id === 'swipe') changeSwipe();
-    else if (id === 'tap') changeTap();
-    else if (id === 'pad') changePad();
-    else if (id === 'stop') changeStop();
-    else if (id === 'motion') changeMotion();
-    else if (id === 'seed') openPad();
-    else if (id === 'mode') openWays();
-    else if (id === 'lantern') changeLantern();
-    else if (id === 'flasks') changeFlasks();
-    else if (id === 'sound') changeSound();
-    else if (id === 'stats') changeStats();
-    else if (id === 'history') openHistory();
   }
   // Arrows and swipes off the room: menus take swipes always (D-189)
   const onDir = (dir, how) => {
@@ -406,17 +355,6 @@ export function createScreens(app, ui) {
       else pickVersion(moveChoice(app.chosen, dir, HISTORY.length));
       return;
     }
-    const id = menuOf(app.screen)[app.chosen]?.id;
-    if (id === 'swipe' && (dir === 'left' || dir === 'right')) changeSwipe();
-    else if (id === 'tap' && (dir === 'left' || dir === 'right')) changeTap(dir === 'left');
-    else if (id === 'pad' && (dir === 'left' || dir === 'right')) changePad();
-    else if (id === 'stop' && (dir === 'left' || dir === 'right')) changeStop();
-    else if (id === 'motion' && (dir === 'left' || dir === 'right')) changeMotion();
-    else if (id === 'lantern' && (dir === 'left' || dir === 'right')) changeLantern();
-    else if (id === 'flasks' && (dir === 'left' || dir === 'right')) changeFlasks();
-    else if (id === 'sound' && (dir === 'left' || dir === 'right')) changeSound();
-    else if (id === 'stats' && (dir === 'left' || dir === 'right')) changeStats();
-    else app.chosen = moveChoice(app.chosen, dir, menuOf(app.screen).length);
   };
   // A tap or click off the room
   const onPoint = (px, py, held) => {
@@ -428,28 +366,6 @@ export function createScreens(app, ui) {
       else if (at === 'out' || at === 'close') pause(); // closes the map, or the Explorer to the title
       else if (at) pressBar(at);
       else if (py < win().y + win().h) tapStairs(px, py); // not through the Explorer's row
-      return;
-    }
-    if (app.screen === 'paused') {
-      if (held) return;
-      const at = pauseCardAt(px, py, view.w, view.h, PAUSE_MENU.length);
-      if (at === 'out' || at === 'close') show('play'); // the round cross resumes (D-388)
-      else if (at) { app.chosen = at.line; choose(at.line); }
-      return;
-    }
-    if (app.screen === 'settings') {
-      if (held) return;
-      const at = settingsCardAt(px, py, view.w, view.h, menuOf('settings'));
-      if (at === 'out' || at === 'close') closeSettings(); // the round cross goes back (D-389)
-      else if (at === 'history') { app.chosen = menuOf('settings').length - 1; openHistory(); }
-      else if (at) { app.chosen = at.line; choose(at.line); }
-      return;
-    }
-    if (app.screen === 'mode' || app.screen === 'ways') {
-      if (held) return;
-      const at = waysAt(px, py, view.w, view.h, menuOf(app.screen));
-      if (at === 'out' || at === 'close') pause(); // the round cross goes back (D-396)
-      else if (at) { app.chosen = at.line; choose(at.line); }
       return;
     }
     if (app.screen === 'howto') {
@@ -505,12 +421,10 @@ export function createScreens(app, ui) {
       else if (at !== null && at !== 'out') { const i = typeof at === 'number' ? at : SLOTS + linesNow().findIndex((l) => l.id === at); app.chosen = i; chooseSlot(i); }
       return;
     }
-    const i = app.screen === 'title' ? titleCardAt(px, py, view.w, view.h, menuOf('title'), chip()) // the title's buttons (D-401)
-      : lineAt(py, menuOf(app.screen).length, menuTop());
-    if (i >= 0) { app.chosen = i; choose(i); }
   };
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory }); // the card table (D-573, D-575, D-576)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)

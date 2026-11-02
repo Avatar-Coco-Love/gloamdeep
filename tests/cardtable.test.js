@@ -1,28 +1,33 @@
-// § card table (D-573, D-575): every card screen in the table answers a pick, an arrow, a tap
-// and Esc or P, and a tap outside its card or Esc takes its own way back: play, or for the
-// title's asks the title or their own close
+// § card table (D-573, D-575, D-576): every card screen in the table answers a pick, an arrow,
+// a tap and Esc or P, and a tap outside its card or Esc takes its own way back: play, or for the
+// title's asks the title or their own close, or for the menus their own (none on the title)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CARD_TABLE, makeCards } from '../src/input/cards/table.js';
 import { ASKS } from '../src/input/cards/ask.js';
-import { SURE_MENU, MODE_FIRST } from '../src/core/menu.js';
+import { SURE_MENU, MODE_FIRST, titleMenu, PAUSE_MENU, MODE_MENU, easeMenu, ENDED_MENU, settingsMenu } from '../src/core/menu.js';
+import { loadSettings, swipeText } from '../src/core/settings.js';
+import { MENUS } from '../src/input/cards/menu.js';
 import { askCardAt } from '../src/render/askcard.js';
 import { view } from '../src/render/screen.js';
 
 const ASK = ['Start over?', 'Your saved journey is lost.']; // any question and note
+// Each screen's lines, as screens.js's menuOf gives them: a journey saved, Settings from the title
+const settings = loadSettings();
+const LINES = { title: titleMenu(true), paused: PAUSE_MENU, settings: settingsMenu(settings), mode: MODE_MENU, ways: easeMenu('normal'), ended: ENDED_MENU };
 // The helpers from cardscreens.js and screens.js, each noting its call; askOf and menuOf answer
 const made = (screen) => {
-  const shown = [], calls = [];
-  const helpers = new Proxy({}, { get: (_, k) => (k === 'askOf' ? () => ASK : k === 'menuOf' ? () => SURE_MENU : (...a) => { calls.push([k, ...a]); }) });
-  const app = { screen, tab: 'sell', chosen: 0, bench: { x: 1, y: 1 }, state: { bag: [] } };
-  return { app, shown, calls, cards: makeCards(app, { spoken: { textContent: '' } }, (sc, at) => shown.push(at === undefined ? sc : [sc, at]), helpers) };
+  const shown = [], calls = [], ui = { spoken: { textContent: '' }, reduceMotion: { matches: false } };
+  const helpers = new Proxy({}, { get: (_, k) => (k === 'askOf' ? () => ASK : k === 'menuOf' ? (sc) => LINES[sc] ?? SURE_MENU : (...a) => { calls.push([k, ...a]); }) });
+  const app = { screen, tab: 'sell', chosen: 0, bench: { x: 1, y: 1 }, state: { bag: [] }, settings, saved: true };
+  return { app, ui, shown, calls, cards: makeCards(app, ui, (sc, at) => shown.push(at === undefined ? sc : [sc, at]), helpers) };
 };
 // Where Esc, the cross and a tap outside lead, when not back to play: a helper's call
-const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false] };
+const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false], settings: ['closeSettings'], ways: ['closeWays'], mode: ['titleAt', 'new'] };
 
-test('the table holds the bag, place, bench, chest and trade cards, and the four asks', () => {
-  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'chest', 'drop', 'easier', 'place', 'sure', 'trade']);
-  for (const id of ASKS) assert.ok(CARD_TABLE[id], id);
+test('the table holds the bag, place, bench, chest and trade cards, the four asks and the six menus', () => {
+  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'chest', 'drop', 'easier', 'ended', 'mode', 'paused', 'place', 'settings', 'sure', 'title', 'trade', 'ways']);
+  for (const id of [...ASKS, ...MENUS]) assert.ok(CARD_TABLE[id], id);
 });
 
 for (const id of Object.keys(CARD_TABLE)) {
@@ -30,7 +35,7 @@ for (const id of Object.keys(CARD_TABLE)) {
     const card = made(id).cards[id];
     for (const k of ['pick', 'dir', 'tap', 'close']) assert.equal(typeof card[k], 'function', k);
   });
-  if (id === 'place') continue; // setting down has its own checks below: a tap anywhere goes to tapSide
+  if (id === 'place' || id === 'title' || id === 'ended') continue; // setting down, the title and the journey's end have their own checks below
   const back = BACK[id];
   test(`a tap outside the ${id} card, or Esc, goes ${back ? `to ${back[0]}` : 'back to play'}`, () => {
     const { shown, calls, cards } = made(id);
@@ -75,4 +80,35 @@ test('an ask: an arrow moves between YES and NO, a tap on a button picks it', ()
   cards.sure.tap(...on(0), false); // YES: the way to play asked
   assert.equal(app.chosen, 0);
   assert.deepEqual(shown, [['mode', MODE_FIRST]]);
+});
+
+test('the title: Esc or P do nothing; the journey ends: Esc or P go to the title, on Continue', () => {
+  const title = made('title');
+  title.cards.title.close();
+  assert.deepEqual([title.shown, title.calls], [[], []]);
+  const ended = made('ended');
+  ended.cards.ended.tap(5, 0, false); // above its lines: nothing
+  ended.cards.ended.close();
+  assert.deepEqual([ended.shown, ended.calls.filter((c) => c[0] === 'titleAt')], [[], [['titleAt', 'continue']]]);
+});
+
+for (const id of MENUS) {
+  test(`the ${id} menu: Up and Down move the flame`, () => {
+    const { app, cards } = made(id);
+    cards[id].dir('down');
+    assert.equal(app.chosen, 1);
+    cards[id].dir('up');
+    assert.equal(app.chosen, 0);
+  });
+}
+
+test('Settings: Left or Right on a switch changes it and says its new words', () => {
+  const { app, ui, cards } = made('settings');
+  const was = app.settings.swipe;
+  cards.settings.dir('right');
+  assert.notEqual(app.settings.swipe, was);
+  assert.equal(ui.spoken.textContent, swipeText(app.settings.swipe));
+  assert.equal(app.chosen, 0);
+  cards.settings.dir('left');
+  assert.equal(app.settings.swipe, was);
 });

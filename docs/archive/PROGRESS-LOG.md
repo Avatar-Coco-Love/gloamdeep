@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.34, the eighth audit, part 3.** All recommended: the
+  workbench, chest and peddler cards each get a file in
+  `src/input/cards/` with pick, arrows, tap and close, moved word for
+  word; `screens.js` asks `cards/table.js` first; a test checks every
+  card in it answers all four and closes (D-573). Nothing visible.
 - **2026-11-02, 0.3.33, the eighth audit, part 2.** All recommended:
   `node tools/release.js` sets VERSION, copies the changelog into the
   history (its title from this log), keeps the changelog and this log at

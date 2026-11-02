@@ -192,3 +192,13 @@ rest of the audit takes 3 parts: 6 the menus (title, pause, settings,
 ways to play, mode, journey ends); 7 the pages (how to play, version
 history, journal); 8 the profile and map screens (profiles, name, look,
 seed pad, Explorer, map). Then Q-076.
+
+**D-576 · 2026-11-02 · The table of screens, part 6** (the owner's picks,
+all recommended; part 6 of D-571, as D-573) All six menus move together:
+the title, pause, Settings, the ways to play, the way to play asked first
+and the journey's end each get a file in `src/input/cards/`, sharing
+`cards/menu.js`, which holds the menu lines' long id chain, the arrows and
+the settings changes, moved word for word. `menuOf` and `chip` stay in
+`screens.js`; so does `menuTop`, as `render/title.js` needs a page. The
+test learns each menu's way back (none on the title) and checks the
+arrows. Next, part 7 the pages.

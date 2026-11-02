@@ -8,10 +8,10 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The eighth audit, part 6 (D-571, D-573, D-575): the menus into
-`src/input/cards/` (title, pause, settings, ways to play, mode, journey
-ends), nothing visible changed; then part 7 the pages, part 8 the
-profile and map screens; after them, Q-076.
+The eighth audit, part 7 (D-571, D-573, D-576): the pages into
+`src/input/cards/` (how to play, version history, journal), nothing
+visible changed; then part 8 the profile and map screens; after them,
+Q-076.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +47,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.37, the eighth audit, part 6.** All recommended: the
+  six menus each get a file in `src/input/cards/`, sharing
+  `cards/menu.js` (the lines, arrows and settings changes), moved word for
+  word; the test checks each menu's way back and its arrows (D-576).
+  Nothing visible.
 - **2026-11-02, 0.3.36, the eighth audit, part 5.** All recommended: the
   bed's ask, Start over?, Delete …? and Play …? each get a file in
   `src/input/cards/`, sharing `cards/ask.js`, moved word for word; the
@@ -56,8 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   bag's card and setting down get their own files in `src/input/cards/`,
   moved word for word; C, X and spoken words stay where they are; the
   test checks setting down by itself (D-574). Nothing visible.
-- **2026-11-02, 0.3.34, the eighth audit, part 3.** All recommended: the
-  workbench, chest and peddler cards each get a file in
-  `src/input/cards/` with pick, arrows, tap and close, moved word for
-  word; `screens.js` asks `cards/table.js` first; a test checks every
-  card in it answers all four and closes (D-573). Nothing visible.
