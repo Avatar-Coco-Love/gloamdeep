@@ -70,6 +70,8 @@ talks to hear, and the sources.
 - **Rising sparks for a death** (the owner, 2026-10-30, D-496): look B
   of the peddler's mock-up, a person's pixels drifting up as amber
   sparks, played more slowly, when an important NPC dies.
+- **Digging up stumps** (the owner, 2026-11-02, D-582): with the right
+  tool, so the home can be shaped freely around the trees.
 - **Crafting and a home town**: craft from things you find (mushrooms,
   moss, oil; the Depth Meter could be crafted), and rescued NPCs move to
   the home base and give it a real use.

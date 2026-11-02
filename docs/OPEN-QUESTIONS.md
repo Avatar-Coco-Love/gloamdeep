@@ -27,6 +27,7 @@ the generated caves are 17 × 20 and the crypt rooms 11 × 13 (D-195).
 Narrowed by D-223: each kind of place has its own rules, and deeper
 floors become grids; which rules each kind has is still open. Burrow
 floors are warrens (D-227), and from depth 8 dungeon halls (D-228).
+Sizes by depth for the caves, warrens and dungeon: D-580.
 
 **Q-052 · Play data: kept on the device, or sent?** (near 1.0)
 Telemetry sends how people play (falls, depths, journey length) to a
