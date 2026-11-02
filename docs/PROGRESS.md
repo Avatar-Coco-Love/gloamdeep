@@ -52,7 +52,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-02, 0.3.19, Store on the chest.** All recommended: STORE in
   the chest card's bottom right, apart from DECONSTRUCT; what fits
   moves, "You store 2 stacks. The chest is full."; Down from the bag's
-  bottom row reaches it (D-556). Playtest: PLAYTEST
+  bottom row reaches it (D-556). Playtest:
+  https://claude.ai/artifact/7raQQTtqjoLL1Gs3PYMDCP
 - **2026-11-02, 0.3.18, Store from the bag, too.** The owner asked for
   a bag button for nearby chests as well as one per chest: STORE on a
   chest's card first, then a small STORE in the bag's title strip for
