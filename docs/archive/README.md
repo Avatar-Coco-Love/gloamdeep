@@ -58,7 +58,7 @@ header says when it moved and why.
 | `DECISIONS-HERBS-LINED.md` | D-511, D-512 | a herb at full health goes in the bag, lined up with no overlaps | D-513 |
 | `DECISIONS-CHANGE-LOOK.md` | D-513 to D-517, D-520 to D-527, D-529, D-533 | the Change look button, taps big enough, the looks plan, the first patterns, Glints; the hero creator's steps 1 to 6; eyes and trims as swatches; locked patterns shown | D-516, D-525, D-526, D-530, D-533, D-535, D-539 |
 | `DECISIONS-GLOAMBERRY.md` | D-530 to D-532 | wild harvestables first, the gloamberry bush, resting on its shadow | D-534, D-537 |
-| `DECISIONS-BAGS.md` | D-545 to D-548, D-552 | Drop first, the Pouch and the Big Bag, fitting a bigger bag; gear slots and the Tool slot | D-551, D-557 |
+| `DECISIONS-BAGS.md` | D-545 to D-548, D-552, D-554 | Drop first, the Pouch and the Big Bag, fitting a bigger bag; gear slots and the Tool slot; Take off | D-551, D-557, D-559 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)
@@ -70,7 +70,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
 | `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.235 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, at 0.2.202, at 0.2.203, at 0.2.204, at 0.2.205, at 0.2.207, D-493, at 0.2.221, at 0.2.222, at 0.2.223, at 0.2.224, at 0.2.225, at 0.3.11, at 0.3.12, at 0.3.13, at 0.3.14, at 0.3.15, at 0.3.16, and at 0.3.17) |
-| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.2 (moved at 0.3.18, 0.3.19 and 0.3.20) |
+| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.6 (moved at 0.3.18 to 0.3.22) |
 
 ## Progress
 

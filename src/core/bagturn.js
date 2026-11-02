@@ -6,7 +6,7 @@ import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag } from './bag.js';
 import { note } from './events.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash } from './chest.js';
@@ -167,4 +167,11 @@ export function pourByItself(before, after) {
   const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + get(after.bag[i].id).oil) }, 'pour', { id: after.bag[i].id, by: 'self' });
   const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);
   return other ? poured : say(poured, 'flaskPour');
+}
+
+// § sort: the bag's SORT lines it up by kind and joins half stacks (sortBag, D-559), free:
+// "You sort the bag.", or "The bag is in order." when nothing would change
+export function sortTheBag(state) {
+  const bag = sortBag(state.bag);
+  return sameBag(bag, state.bag) ? say(state, 'sortNone') : say({ ...state, bag }, 'sortDone');
 }

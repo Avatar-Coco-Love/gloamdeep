@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, drop, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -366,6 +366,7 @@ const screens = createScreens(app, {
   lookGear: (g) => { app.state = lookGear(app.state, g); }, // a gear slot's Look line, free (D-554)
   ease: (mode) => { app.state = easeMode(app.state, mode); }, // the way to play made easier, saved with the journey (MO4, D-346)
   stash: (x, y, slot) => { app.state = moveStack(app.state, x, y, slot); }, // a stack into or out of a stash chest, free (CH4, D-331)
+  sortBag: () => { app.state = sortTheBag(app.state); }, // the bag's SORT: lined up by kind, half stacks joined, free (D-559)
   storeNear: () => { app.state = storeNearby(app.state); }, // the bag's STORE: each bag stack to the chests in reach holding its kind, nearest first, free (D-558)
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)

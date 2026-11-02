@@ -70,6 +70,13 @@ export const STORE = 'STORE';
 export const STORE_W = textWidth(STORE) + 8;
 export const BAG_STORE = -99;
 export const storeAt = (card) => ({ x: card.close.x - CROSS_R - 6 - STORE_W, y: card.y + 4 });
+// § bag's sort: the small SORT, always shown, just left of STORE, or in its place beside the
+// cross when it is hidden (D-559); chosen, app.chosen is BAG_SORT. The gap leaves room for
+// STORE's marker
+export const SORT = 'SORT';
+export const SORT_W = textWidth(SORT) + 8;
+export const BAG_SORT = -98;
+export const sortAt = (card, store) => { const st = storeAt(card); return { x: (store ? st.x - 8 : st.x + STORE_W) - SORT_W, y: st.y }; };
 // The rule under a card's title, from x + 8 to just short of the cross (or x + w - 8 without one)
 export function drawRule(c, x, y, w, ruleY, crossed = true) {
   const end = crossed ? x + w - PAD - 2 * CROSS_R - 4 : x + w - 8;
@@ -114,7 +121,7 @@ export function gearAt(card, x, y) {
   return -1;
 }
 // A gear slot chosen is app.chosen -1 - g, under the bag's slots' 0 and up (D-554)
-export const gearChosen = (chosen) => (chosen < 0 && chosen !== BAG_STORE ? -1 - chosen : -1);
+export const gearChosen = (chosen) => (chosen < 0 && chosen !== BAG_STORE && chosen !== BAG_SORT ? -1 - chosen : -1);
 // The grid's slot at x, y, or -1, for a grid of `count` slots
 export function gridAt(card, x, y, top = GRID_Y, cols = COLS, count = BAG_SLOTS, left = PAD, size = SLOT) {
   for (let i = 0; i < count; i++) {
@@ -130,13 +137,15 @@ export const onCross = ({ close }, x, y) => Math.hypot(x - close.x, y - close.y)
 // Make, Eat, Drink, or Set down, when `wide`), 'make' (Make beside Eat, when `two`),
 // 'drop' (Drop, when `filled`: a filled slot is chosen, D-546), { gear: g } (a gear slot, D-554),
 // 'act' too for Take off, when `off` (a Weapon or Tool chosen, filled),
-// 'close' (the round cross), or null; outside the card, 'out'. size: the bag's slots (D-548)
+// 'store' and 'sort' (the title strip's buttons, D-558, D-559), 'close' (the round cross), or null; outside the card, 'out'. size: the bag's slots (D-548)
 export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS, off = false, store = false) {
   const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), { button, make, set, drop } = card;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const st = storeAt(card);
-  if (store && y >= st.y - TAP_PAD && y < st.y + BUTTON.h + TAP_PAD && x >= st.x - TAP_PAD && x < st.x + STORE_W + 2) return 'store';
+  if (store && y >= st.y - TAP_PAD && y < st.y + BUTTON.h + TAP_PAD && x >= st.x - 3 && x < st.x + STORE_W + 2) return 'store';
+  const so = sortAt(card, store);
+  if (y >= so.y - TAP_PAD && y < so.y + BUTTON.h + TAP_PAD && x >= so.x - TAP_PAD && x < so.x + SORT_W + (store ? 3 : 2)) return 'sort';
   const i = gridAt(card, x, y, GRID_Y, shape.cols, size, PAD, shape.slot);
   if (i >= 0) return { slot: i };
   const g = gearAt(card, x, y);
@@ -224,7 +233,7 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // spriteOf: a slot's or item's sprite (sprites.js); gear: the gear row's ids, null for an
 // empty slot (gear.js); full: whether the hero is at full health; told: the state's told
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
-// still for its marker when chosen (D-558)
+// still for its marker when chosen (D-558); SORT always shows (D-559)
 export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true) {
   const shape = bagShape(size);
   const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
@@ -233,6 +242,9 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
     drawButton(c, st.x, st.y, STORE, false, STORE_W);
     if (chosen === BAG_STORE) drawMarker(c, st.x - 7, st.y + 4, t, still); // no item words then: bag[BAG_STORE] is none
   }
+  const so = sortAt(card, store);
+  drawButton(c, so.x, so.y, SORT, false, SORT_W);
+  if (chosen === BAG_SORT) drawMarker(c, so.x - 7, so.y + 4, t, still); // nor for bag[BAG_SORT]
   drawGear(c, card, gear, spriteOf, gearChosen(chosen));
   for (let i = 0; i < size; i++) { const s = slotAt(card, i, GRID_Y, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
   const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
