@@ -170,6 +170,9 @@ export const LINES = {
   gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)
   gloamberryEat: { texts: ['You eat a gloamberry.', 'Sweet, and a little sour.', 'The berry bursts, dark and sweet.'], warn: false }, // eaten from the bag (D-531)
   gloamberryLook: { texts: ['A dark blue berry from the woods.', 'It might mend a little.', 'Small, round and cool.'], warn: false },
+  gloamberrySeedMake: { text: 'You make a gloamberry seed.', warn: false }, // 3 Gloamberries crafted (D-564)
+  gloamberrySeedFull: { text: "You can't carry more seeds.", warn: false }, // no room for the seed made (D-564)
+  gloamberrySeedLook: { texts: ['A seed from the gloamberry.', 'It wants soft ground.', 'Something might grow from this.'], warn: false }, // chosen in the bag (D-564)
   bushBare: { text: 'The bush is bare. It will fill again.', warn: false }, // a picked bush bumped (D-531)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)

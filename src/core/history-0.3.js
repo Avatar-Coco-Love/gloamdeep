@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.26', date: '2026-11-02', title: 'The Gloamberry Seed', lines: [
+    "Gloamberries make a seed now: choose them in the bag and press Make (or C) to turn 3 Gloamberries into 1 Gloamberry Seed. It takes a turn, as making a potion does.",
+    "The Gloamberry Seed is a small brown pip with a tiny green shoot. It stacks to 20. It does nothing yet: the garden bed to plant it in comes at the next step.",
+    "Decisions: D-564.",
+  ] },
   { v: '0.3.25', date: '2026-11-02', title: 'Creatures on the ground', lines: [
     "Creatures no longer bob. Each one stands with its feet on its shadow: the cave spider, the snapcap and the mole no longer float, and an awake flask mimic or herb mimic sits on the floor.",
     "The bat and the lampmoth fly, so they hover a little above their shadow, held still.",

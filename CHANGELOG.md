@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.26 (2026-11-02)
+- Gloamberries make a seed now: choose them in the bag and press Make (or C) to turn 3 Gloamberries into 1 Gloamberry Seed. It takes a turn, as making a potion does.
+- The Gloamberry Seed is a small brown pip with a tiny green shoot. It stacks to 20. It does nothing yet: the garden bed to plant it in comes at the next step.
+- Decisions: D-564.
+
 ## 0.3.25 (2026-11-02)
 - Creatures no longer bob. Each one stands with its feet on its shadow: the cave spider, the snapcap and the mole no longer float, and an awake flask mimic or herb mimic sits on the floor.
 - The bat and the lampmoth fly, so they hover a little above their shadow, held still.
@@ -110,8 +115,3 @@ Entry format:
 - It has 4 hearts, the most of any creature so far, and bites for 1, with a low snuffle and a scrape of claws.
 - Beaten, it may leave Mole Fur, which the peddler buys for 1 coin, and now and then a rare Mole Claw, which the peddler buys for 5; their recipes come later.
 - Decisions: D-541, D-542.
-
-## 0.3.9 (2026-11-01)
-- Bat Guano now lies in the caves: as each room is made, every bat gets a pile on the floor beside it. Walk onto it to put it in your bag, in stacks of 20.
-- It grows back a day after you take it, out of sight. The peddler buys it for 1 coin, and it is kept for the garden and for crafts later.
-- Decisions: D-540.

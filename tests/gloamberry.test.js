@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { generateWoods } from '../src/core/woods.js';
 import { makeRoom, tileAt, withTile, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, step } from '../src/core/turn.js';
-import { eat } from '../src/core/bagturn.js';
+import { eat, craft } from '../src/core/bagturn.js';
 import { regrow } from '../src/core/regrow.js';
 import { get } from '../src/core/registry.js';
 
@@ -92,4 +92,15 @@ test('a gloamberry is eaten from the bag for 1 heart, a turn, only when hurt', (
   assert.equal(n.line.id, 'gloamberryEat');
   assert.equal(eat(s, 0).line.id, 'notHurt');
   assert.equal(get('gloamberry').max, 20);
+});
+
+test('Make turns 3 Gloamberries into a Gloamberry Seed, a turn; with 2, nothing (garden step 1, D-564)', () => {
+  const seed = get('gloamberrySeed');
+  assert.deepEqual([seed.kind, seed.name, seed.bag, seed.max], ['item', 'Gloamberry Seed', true, 20]);
+  const s = { ...besideBush(), bag: [{ id: 'gloamberry', n: 4 }] }, n = craft(s, 0);
+  assert.deepEqual(n.bag, [{ id: 'gloamberry', n: 1 }, { id: 'gloamberrySeed', n: 1 }]);
+  assert.equal(n.turn, s.turn + 1);
+  assert.equal(n.line.id, 'gloamberrySeedMake');
+  const few = { ...s, bag: [{ id: 'gloamberry', n: 2 }] };
+  assert.equal(craft(few, 0), few);
 });
