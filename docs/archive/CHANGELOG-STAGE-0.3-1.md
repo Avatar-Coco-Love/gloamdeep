@@ -1,7 +1,13 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
-Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26 (the 8 KB cap).
+Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27 (the 8 KB cap).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.10 (2026-11-01)
+- A new creature, the mole, now turns up from depth 5 down. It chases you once it sees you in the light, and it never flees.
+- It has 4 hearts, the most of any creature so far, and bites for 1, with a low snuffle and a scrape of claws.
+- Beaten, it may leave Mole Fur, which the peddler buys for 1 coin, and now and then a rare Mole Claw, which the peddler buys for 5; their recipes come later.
+- Decisions: D-541, D-542.
 
 ## 0.3.9 (2026-11-01)
 - Bat Guano now lies in the caves: as each room is made, every bat gets a pile on the floor beside it. Walk onto it to put it in your bag, in stacks of 20.

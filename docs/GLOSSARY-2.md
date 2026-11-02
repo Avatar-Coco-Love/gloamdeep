@@ -3,7 +3,7 @@
 `GLOSSARY.md` continued, under its rules: use these words in the game,
 the docs and the code; where this page and a decision disagree, the
 decision wins. Creatures and people moved here word for word at 0.3.3
-(D-531), as that page neared 8 KB.
+(D-531), as that page neared 8 KB; the home pieces at 0.3.27 (D-565).
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
@@ -35,3 +35,22 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   when Hardcore starts over; spent at a vendor (D-472, D-494, D-495).
 - **Rubble:** a heap of fallen rock, solid, light passing over it; dug
   away by hand in 3 bumps (D-490, D-491).
+
+## Home
+- **Workbench:** made in the bag from 3 Wood, set down on the surface;
+  bigger things are made at it, on its panel, from the bag and chests near
+  (D-560), where Deconstruct workbench puts it back in the bag (D-314,
+  D-319, D-320, D-322, D-323).
+- **Stash chest:** made at the workbench from 3 Wood and 3 Stone, set down
+  on the surface, opened by walking into it; each one keeps 12 slots of its
+  own, a picked stack moving between it and the bag, and taken down only
+  when empty (D-021, D-324, D-325, D-326, D-330, D-331, D-340).
+- **Bed, sleep, rested:** the first home piece, from the workbench, set
+  down on the surface; bumped from dusk, the hero sleeps until morning
+  and wakes healed and rested, a gold heart after the red (D-488).
+- **Garden bed:** made at the workbench from 3 Wood and 2 Stone, set
+  down on the surface; a box of soil where a seed is planted, one plant
+  each, at a later step; bumped, Deconstruct garden bed? (D-562, D-565).
+- **Station:** a place to make one bigger craft family, built at home on
+  the surface: forge, kitchen fire, power bench, altar (D-455). Not in
+  the game yet.

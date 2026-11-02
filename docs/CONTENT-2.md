@@ -19,6 +19,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |
 | `heartCharm` | Wear in the bag: the second charm, a full tank about 70 turns, not 60 | 1 | never | the workbench: 1 Mimic Heart, 1 Copper Ore | D-487 |
 | `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
+| `gardenBed` | set down as the garden bed tile, one plant at a later step | 1 | never | the workbench: 3 Wood, 2 Stone | D-562, D-565 |
 | `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
 | `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
@@ -59,6 +60,7 @@ Hands: none yet.
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
 | `bedstead` | the bed: at night sleep till morning, healed, a gold heart; by day, Deconstruct bed? | | set down on the surface | D-488 |
+| `plot` | the garden bed: bumped, Deconstruct garden bed?; planting comes next | | set down on the surface | D-565 |
 | `rubble` | solid, light passing over it; 3 bumps by hand clear it, nothing taken, never back; the person beside it calls out, then is freed | | a ring around the peddler, depth 3 | D-490, D-491 |
 | `water` | a still pool: solid, light passing over it; on the map in its blue-grey (D-502) | | about 1 grey-rock Cave room in 2, 5 to 9 tiles; a pond at home (D-503) | D-500, D-502, D-503 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |

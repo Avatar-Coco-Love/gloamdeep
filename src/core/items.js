@@ -93,7 +93,7 @@ export const ITEMS = {
   gloamberry: { id: 'gloamberry', kind: 'item', name: 'Gloamberry', bag: true, max: 20, look: 'gloamberryLook', full: 'gloamberryFull',
     heal: 1, eats: 'gloamberryEat', craft: { into: 'gloamberrySeed', of: 3, says: 'gloamberrySeedMake' } },
   // Made from 3 Gloamberries in the bag, never found (garden step 1, D-564), in stacks of
-  // 20; choosing it says one of its `look` lines. Planted in a garden bed at a later step.
+  // 20; choosing it says one of its `look` lines. Planted in a garden bed at a later step (D-565).
   gloamberrySeed: { id: 'gloamberrySeed', kind: 'item', name: 'Gloamberry Seed', bag: true, max: 20, look: 'gloamberrySeedLook', full: 'gloamberrySeedFull' },
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
@@ -145,6 +145,10 @@ export const ITEMS = {
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',
     bench: { of: { wood: 4, ratTail: 2 }, says: 'bedMake', short: 'bedShort' }, sets: { tile: 'bedstead', says: 'bedSet' } },
+  // The place to plant (garden step 2, D-565): made at the workbench, never found, set down on the
+  // surface the bed's way as the garden bed tile, holding one plant at a later step.
+  gardenBed: { id: 'gardenBed', kind: 'item', name: 'Garden Bed', bag: true, max: 1, look: 'gardenBedLook', full: 'gardenBedFull',
+    bench: { of: { wood: 3, stone: 2 }, says: 'gardenBedMake', short: 'gardenBedShort' }, sets: { tile: 'plot', says: 'gardenBedSet' } },
   // The bag upgrades (D-545, D-547): made at the workbench, never found, never in the bag.
   // Made, the bag `grows` from 6 slots to 9 (the Pouch), then 9 to 12 (the Big Bag), for good.
   pouch: { id: 'pouch', kind: 'item', name: 'Pouch', max: 1, look: 'pouchLook', full: 'pouchFull',

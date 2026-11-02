@@ -208,6 +208,11 @@ export const LINES = {
   bedShort: { text: 'You need 4 Wood, 2 Rat Tail.', warn: false }, // too few, free
   bedSet: { text: 'You set down the bed.', warn: false }, // a turn
   bedTake: { text: 'You take down the bed.', warn: false }, // Yes on Deconstruct bed?, a turn
+  gardenBedMake: { text: 'You make a garden bed.', warn: false }, // its line on the bench panel, a turn (D-565)
+  gardenBedFull: { text: 'You already carry a garden bed.', warn: false }, // only 1 is carried, free
+  gardenBedShort: { text: 'You need 3 Wood, 2 Stone.', warn: false }, // too few, free
+  gardenBedSet: { text: 'You set down the garden bed.', warn: false }, // a turn
+  gardenBedTake: { text: 'You take down the garden bed.', warn: false }, // Yes on Deconstruct garden bed?, a turn
   // The trapped peddler's call through the rubble, the lines taking turns (step 12a, D-490); drafted for the playtest
   peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false, kind: 'speech' },
   peddlerDigging: { texts: ['"I hear you! Keep digging!"', '"It moved! Keep going!"', '"I see your light! Keep at it!"'], warn: false, kind: 'speech' }, // the rubble beside him being dug (D-496), drafted for the playtest
@@ -220,6 +225,7 @@ export const LINES = {
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
   bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
+  gardenBedLook: { texts: ['A box of soft soil.', 'Set it down on the surface.', 'Seeds grow in it.'], warn: false }, // (D-565)
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331), or the bag where you fell (D-345)

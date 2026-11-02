@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.24, The garden next.** Docs only. The garden comes
+  before another creature (D-561), in six steps; the seed made in the
+  bag, a garden bed set down at home (D-562).
 - **2026-11-02, 0.3.23, Crafting from chests.** All recommended: the
   workbench reads the chests in STORE's reach; one total per cost on its
   card; the bag first, then the nearest chest (D-560). Playtest:
