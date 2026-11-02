@@ -145,6 +145,10 @@ export const ITEMS = {
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',
     bench: { of: { wood: 4, ratTail: 2 }, says: 'bedMake', short: 'bedShort' }, sets: { tile: 'bedstead', says: 'bedSet' } },
+  // The garden bed (D-565, garden step 2 of D-562): made at the workbench from 4 Wood, never found,
+  // set down on the surface the bed's way. It holds one plant; planting comes at the next step.
+  gardenBed: { id: 'gardenBed', kind: 'item', name: 'Garden Bed', bag: true, max: 1, look: 'gardenBedLook', full: 'gardenBedFull',
+    bench: { of: { wood: 4 }, says: 'gardenBedMake', short: 'gardenBedShort' }, sets: { tile: 'plot', says: 'gardenBedSet' } },
   // The bag upgrades (D-545, D-547): made at the workbench, never found, never in the bag.
   // Made, the bag `grows` from 6 slots to 9 (the Pouch), then 9 to 12 (the Big Bag), for good.
   pouch: { id: 'pouch', kind: 'item', name: 'Pouch', max: 1, look: 'pouchLook', full: 'pouchFull',

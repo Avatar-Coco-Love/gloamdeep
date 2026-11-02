@@ -220,6 +220,12 @@ export const LINES = {
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
   bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
+  gardenBedMake: { text: 'You make a garden bed.', warn: false }, // its line on the bench panel, a turn (D-565)
+  gardenBedFull: { text: 'You already carry a garden bed.', warn: false }, // only 1 is carried, free
+  gardenBedShort: { text: 'You need 4 Wood.', warn: false }, // too few, free
+  gardenBedSet: { text: 'You set down the garden bed.', warn: false }, // a turn
+  gardenBedTake: { text: 'You take down the garden bed.', warn: false }, // Yes on Deconstruct garden bed?, a turn
+  gardenBedLook: { texts: ['A garden bed, in planks.', 'Set it down on the surface.', 'A seed could grow in it.'], warn: false },
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331), or the bag where you fell (D-345)

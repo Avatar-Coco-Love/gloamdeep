@@ -63,6 +63,10 @@ export const TILES = {
   // Bumped at night it `sleeps` (sleep.js); by day it opens its ask card, Deconstruct bed?,
   // where Yes `takes` it back into the bag.
   bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
+  // A garden bed set down on the surface, the bed's way (D-565): solid, light passing over it.
+  // Bumped, it opens the same ask card with its own words, Deconstruct garden bed?, where Yes
+  // `takes` it back into the bag. Planting in it comes at the next step (D-562).
+  plot: { id: 'plot', kind: 'tile', letter: 'P', name: 'Garden bed', solid: true, blocksLight: false, panel: 'bed', ask: 'garden', takes: { item: 'gardenBed', says: 'gardenBedTake' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

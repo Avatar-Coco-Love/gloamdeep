@@ -58,6 +58,7 @@ export function howtoRows(page, settings) {
       { action: 'Vest', ways: ['Wear it from the bag'] },
       { action: 'Charm', ways: ['Wear two from the bag'] },
       { action: 'Bed', ways: ['Bump it at night to sleep'] },
+      { action: 'Garden', ways: ['Set it down for seeds'] },
     ];
   }
   if (page === 'keyboard') {

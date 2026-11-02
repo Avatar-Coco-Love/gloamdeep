@@ -153,14 +153,6 @@ has a safety net: an error in one frame is logged once and the next
 frame still comes. The bag's STORE for nearby chests (D-555) stays
 Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
 
-**D-560 · 2026-11-02 · Crafting from chests** (the owner's picks, all
-recommended; the last of D-553) The workbench reads the chests in
-STORE's reach (D-558): on the surface, a 13 × 13 square round the hero.
-Its card shows one total per cost, "3 / 5 Wood", the bag and those
-chests together, and MAKE is dim only when all of them hold too few.
-Make takes from the bag first, then the nearest chest, then the next.
-D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-561 · 2026-11-02 · The garden next** (the owner's pick, recommended;
 answers part of Q-076) With the inventory steps done, the garden (step
 14) comes before another new creature kind. Which kind comes after it
@@ -196,3 +188,15 @@ chosen, it says "A seed from the gloamberry.", "It wants soft ground."
 or "Something might grow from this." With no room, "You can't carry
 more seeds." (short, to fit the line). D-558 and D-559 moved to
 `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-565 · 2026-11-02 · The garden bed** (the owner's picks, all
+recommended; garden step 2, builds D-562) The **Garden Bed** is made at
+the workbench from 4 Wood, its slot after the bed's, so it stays put
+when the Pouch and Big Bag are made. One is carried, set down on the
+surface the bed's way. Its look is a low frame of planks round dark
+tilled soil with furrows. Bumped, it opens the bed's ask card in its
+own words, Deconstruct garden bed?, "Nothing grows here yet.", Yes
+taking it back into the bag, No picked; planting replaces this at the
+next step. Its lines, "You make a garden bed." and the rest, are
+drafted for the playtest. D-560 moved to `archive/DECISIONS-BAGS.md`,
+word for word.

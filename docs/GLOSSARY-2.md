@@ -35,3 +35,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   when Hardcore starts over; spent at a vendor (D-472, D-494, D-495).
 - **Rubble:** a heap of fallen rock, solid, light passing over it; dug
   away by hand in 3 bumps (D-490, D-491).
+
+## The garden
+- **Garden bed:** a low frame of planks round tilled soil, made at the
+  workbench from 4 Wood and set down on the surface; it holds one plant,
+  planted at the next step (D-562, D-565). In the code, the item
+  `gardenBed`, set down as the tile `plot`.

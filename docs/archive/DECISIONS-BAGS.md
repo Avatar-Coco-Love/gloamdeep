@@ -1,4 +1,4 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556, D-558, D-559)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556, D-558 to D-560)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
@@ -6,7 +6,8 @@ fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
 moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
 (D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560). D-553, the inventory steps,
 and D-555, Store from the bag too, at 0.3.24 (D-562). D-558, Store from
-the bag, and D-559, Sort in the bag, at 0.3.26 (D-564).
+the bag, and D-559, Sort in the bag, at 0.3.26 (D-564). D-560, crafting
+from chests, at 0.3.27 (D-565).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -127,3 +128,11 @@ stack's look. Free: "You sort the bag.", or "The bag is in order." when
 nothing would change. On a keyboard, Up from the gear row reaches STORE
 when it shows, else SORT; Left and Right go between them, Down goes
 back. D-554 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-560 · 2026-11-02 · Crafting from chests** (the owner's picks, all
+recommended; the last of D-553) The workbench reads the chests in
+STORE's reach (D-558): on the surface, a 13 × 13 square round the hero.
+Its card shows one total per cost, "3 / 5 Wood", the bag and those
+chests together, and MAKE is dim only when all of them hold too few.
+Make takes from the bag first, then the nearest chest, then the next.
+D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.
