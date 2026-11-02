@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.30', date: '2026-11-02', title: 'Picking', lines: [
+    "Pick your garden's berries now: walk into a grown garden bed and its card shows PICK and DECONSTRUCT. Pick gives 3 Gloamberries, one more than a wild bush. It takes a turn.",
+    "After picking, the bed holds a sprout again, and it grows new berries 300 turns later. Plant a seed once and pick again and again.",
+    "With a full bag you keep nothing and the berries stay on the bush. With room for only some, the rest drop on the ground nearby, as at a wild bush.",
+    "Decisions: D-568.",
+  ] },
   { v: '0.3.29', date: '2026-11-02', title: 'Growing', lines: [
     "A planted sprout grows now: 300 turns after planting it becomes a small gloamberry bush with ripe berries. Every turn counts, on the surface and below.",
     "The grown bed's card says \"Gloamberries grow here.\" Picking the berries comes at the next step.",

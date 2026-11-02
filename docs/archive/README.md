@@ -58,7 +58,7 @@ header says when it moved and why.
 | `DECISIONS-HERBS-LINED.md` | D-511, D-512 | a herb at full health goes in the bag, lined up with no overlaps | D-513 |
 | `DECISIONS-CHANGE-LOOK.md` | D-513 to D-517, D-520 to D-527, D-529, D-533 | the Change look button, taps big enough, the looks plan, the first patterns, Glints; the hero creator's steps 1 to 6; eyes and trims as swatches; locked patterns shown | D-516, D-525, D-526, D-530, D-533, D-535, D-539 |
 | `DECISIONS-GLOAMBERRY.md` | D-530 to D-532, D-564 | wild harvestables first, the gloamberry bush, resting on its shadow; the Gloamberry Seed | D-534, D-537, D-567 |
-| `DECISIONS-BAGS.md` | D-545 to D-548, D-552 to D-556, D-558 to D-560 | Drop first, the Pouch and the Big Bag, fitting a bigger bag; gear slots and the Tool slot; the inventory steps; Take off; Store on the chest's card and from the bag; Sort; crafting from chests | D-551, D-557, D-559, D-560, D-562, D-564, D-565 |
+| `DECISIONS-BAGS.md` | D-545 to D-548, D-552 to D-560 | Drop first, the Pouch and the Big Bag, fitting a bigger bag; gear slots and the Tool slot; the inventory steps; Take off; Store on the chest's card and from the bag; no freeze at a fall; Sort; crafting from chests | D-551, D-557, D-559, D-560, D-562, D-564, D-565, D-568 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

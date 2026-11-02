@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.27, The garden bed.** All recommended: the Garden
+  Bed, a plank box of soil, the workbench's last slot from 3 Wood and
+  2 Stone, set down on the surface; bumped, Deconstruct garden bed?
+  (D-565). Playtest: https://claude.ai/artifact/53Vjm3UGUbD7Azj8nZXLML
 - **2026-11-02, 0.3.26, The Gloamberry Seed.** All recommended: Make
   turns 3 Gloamberries into 1 Gloamberry Seed, a brown pip with a green
   shoot, in stacks of 20 (D-564). Playtest:

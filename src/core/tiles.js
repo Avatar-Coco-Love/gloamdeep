@@ -76,7 +76,10 @@ export const TILES = {
     grows: { into: 'berryBed', turns: DAY_TURNS } },
   // The sprout grown, a small gloamberry bush in the bed, its berries ripe (garden step 4,
   // D-567). The same card; taken down, it gives back the bed and the seed, as the sprout does.
-  berryBed: { id: 'berryBed', kind: 'tile', letter: 'K', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' } },
+  // Its card's Pick `picks` its `n` 3 Gloamberries, the bed going back `into` a sprout that
+  // grows again (garden step 5, D-568); with no room, the wild bush's `full` line.
+  berryBed: { id: 'berryBed', kind: 'tile', letter: 'K', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
+    picks: { drops: 'gloamberry', n: 3, into: 'sprout', says: 'gardenBedPick', full: 'gloamberryFull' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

@@ -21,6 +21,7 @@ import { xpOf, gain } from './xp.js';
 import { bagAdd, bagSize } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
+import { spread } from './spread.js';
 import { DIRS, passTurn, maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
 import { fleeOrStand } from './creatureturn.js';
@@ -33,7 +34,7 @@ export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';
-export { pour, craft, makeAt, eat, hold, setDown, takeDown, plant, canPlant, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
+export { pour, craft, makeAt, eat, hold, setDown, takeDown, plant, canPlant, pick, canPick, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid
 // changes nothing and passes no turn, so the same state comes back (D-043).
@@ -230,16 +231,6 @@ function mine(state, x, y) {
 function minable(room, x, y) {
   const m = tileAt(room, x, y).mine;
   return !!m && !(m.inner && (x === 0 || y === 0 || x === room.cols - 1 || y === room.rows - 1));
-}
-
-// k tiles for what didn't fit: x, y first, then the nearest open ones around it with
-// nothing on them and no hero, sides before corners; x, y again when none is left.
-// With `free`, x, y too only when nothing lies on it (a drop, D-474).
-function spread(state, x, y, k, free = false) {
-  const around = [[0, 0], [0, 1], [-1, 0], [1, 0], [0, -1], [-1, 1], [1, 1], [-1, -1], [1, -1]].map(([dx, dy]) => ({ x: x + dx, y: y + dy }));
-  const open = around.filter((t) => (!free && t.x === x && t.y === y) || (!tileAt(state.room, t.x, t.y).solid
-    && !(t.x === state.hero.x && t.y === state.hero.y) && !state.items.some((o) => o.x === t.x && o.y === t.y)));
-  return Array.from({ length: k }, (_, i) => open[i] || { x, y });
 }
 
 // § switch: the lantern on or off, whenever the player likes. It is free:

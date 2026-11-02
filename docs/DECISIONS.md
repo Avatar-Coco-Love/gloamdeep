@@ -144,15 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-557 · 2026-11-02 · No freeze at a fall** (the owner's picks, both
-recommended, from a friend's playtest) A fall on a floor of several
-rooms froze the game: the round map read the floor's other rooms from
-the fall's picture, which kept none. The fall's picture now keeps the
-world as it was (only on screen, not in the save), and the main loop
-has a safety net: an error in one frame is logged once and the next
-frame still comes. The bag's STORE for nearby chests (D-555) stays
-Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-561 · 2026-11-02 · The garden next** (the owner's pick, recommended;
 answers part of Q-076) With the inventory steps done, the garden (step
 14) comes before another new creature kind. Which kind comes after it
@@ -209,3 +200,13 @@ here."; Plant stays dim. Taken down, it gives back the bed and the seed, as
 a sprout does. Dev mode's Room section gets Grow, every planted bed's time
 up, one in this room growing at once. D-564 moved to
 `archive/DECISIONS-GLOAMBERRY.md`, word for word.
+
+**D-568 · 2026-11-02 · Picking** (the owner's picks, all recommended;
+garden step 5, builds D-562, D-567) The grown bed's card shows PICK and
+DECONSTRUCT, Pick picked, in place of Plant. Pick gives 3 Gloamberries,
+one more than a wild bush, a turn, saying "You pick three
+gloamberries."; the bed goes back to a sprout that grows again 300
+turns later, so a seed is planted once. With no room, the wild bush's
+"You can't carry more gloamberries.", free, the berries kept; with room
+for fewer, the rest lies on the nearest open tiles, the wild bush's way.
+D-557 moved to `archive/DECISIONS-BAGS.md`, word for word.

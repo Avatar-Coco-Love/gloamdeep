@@ -214,6 +214,7 @@ export const LINES = {
   gardenBedSet: { text: 'You set down the garden bed.', warn: false }, // a turn
   gardenBedTake: { text: 'You take down the garden bed.', warn: false }, // Deconstruct on its card, a turn
   gardenBedPlant: { text: 'You plant a gloamberry seed.', warn: false }, // Plant on its card, a turn (D-566)
+  gardenBedPick: { text: 'You pick three gloamberries.', warn: false }, // Pick on the grown bed's card, a turn (D-568)
   // The trapped peddler's call through the rubble, the lines taking turns (step 12a, D-490); drafted for the playtest
   peddlerCalls: { texts: ['"Is someone there? I\'m stuck in here!"', '"The roof fell in. I can\'t get out!"', '"Please, dig me out of here!"'], warn: false, kind: 'speech' },
   peddlerDigging: { texts: ['"I hear you! Keep digging!"', '"It moved! Keep going!"', '"I see your light! Keep at it!"'], warn: false, kind: 'speech' }, // the rubble beside him being dug (D-496), drafted for the playtest
