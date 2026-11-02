@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.18, Store from the bag, too.** The owner asked for
+  a bag button for nearby chests as well as one per chest: STORE on a
+  chest's card first, then a small STORE in the bag's title strip for
+  chests within 6 tiles, both free, "You store 3 stacks." (D-555).
+  Docs only.
 - **2026-11-01, 0.3.17, Take off.** All recommended: tap a gear slot
   to choose it, TAKE OFF in the corner for the Weapon and the Tool, free,
   "You put the spear away."; worn pieces show words, no button; Up from

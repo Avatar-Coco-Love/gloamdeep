@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.21', date: '2026-11-02', title: 'Store from the bag', lines: [
+    "A small Store button sits in the bag's title strip, just left of the cross, when you are on the surface with a stash chest within 6 tiles. It sends each stack in your bag to the chests nearby that already hold that kind, the nearest chest first, free.",
+    "It says how many stacks moved, \"Nothing to store.\" when none match, and \"Chests full.\" after the count when some had to stay in your bag (\"The chest is full.\" with only one chest nearby).",
+    "On a keyboard, press Up from the gear row to reach Store, and Down to go back.",
+    "Decisions: D-558.",
+  ] },
   { v: '0.3.20', date: '2026-11-02', title: 'No freeze at a fall', lines: [
     "Falling on a floor of several rooms, from depth 2 down, no longer freezes the game: the small round map broke while showing the fall, and stopped everything. Thanks to a friend's playtest.",
     "If anything else ever goes wrong while the screen is drawn, the game now carries on instead of freezing.",

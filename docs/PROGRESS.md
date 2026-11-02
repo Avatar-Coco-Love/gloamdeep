@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.20 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.21 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bag's STORE for chests within 6 tiles (D-555): a small STORE in the
-bag's title strip, on the surface with a stash chest within 6 tiles,
-sending each bag stack to the chests in reach that hold its kind. Then
-Sort, crafting from chests; Q-076 waits after.
+Sort in the bag (D-553, D-555): propose where its button sits, the
+order it lines the bag up in, and how it joins half stacks. Then
+crafting from chests; Q-076 waits after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -49,6 +48,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.21, Store from the bag.** All recommended: a
+  small STORE left of the bag's cross, on the surface with a chest
+  within 6 tiles (a square); nearest chest first; Up from the gear row
+  reaches it; "Chests full." to fit the line (D-558). Playtest:
+  https://claude.ai/artifact/BQPBVMTTv7WBmYDyst5A8o
 - **2026-11-02, 0.3.20, No freeze at a fall.** A friend's playtest:
   a fall on a floor of several rooms froze the game (the round map
   broke on the fall's picture). Both recommended: the picture keeps
@@ -59,8 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   moves, "You store 2 stacks. The chest is full."; Down from the bag's
   bottom row reaches it (D-556). Playtest:
   https://claude.ai/artifact/7raQQTtqjoLL1Gs3PYMDCP
-- **2026-11-02, 0.3.18, Store from the bag, too.** The owner asked for
-  a bag button for nearby chests as well as one per chest: STORE on a
-  chest's card first, then a small STORE in the bag's title strip for
-  chests within 6 tiles, both free, "You store 3 stacks." (D-555).
-  Docs only.
