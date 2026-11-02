@@ -1,9 +1,10 @@
-# The audits (D-336, D-362, D-392, D-421, D-468, D-493, D-519)
+# The audits (D-336, D-362, D-392, D-421, D-468, D-493, D-519, D-570 to D-578)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.228, the seventh audit
 (D-519), as it neared 12 KB: the second to sixth audits, each done.
 D-336, the first audit, followed at 0.2.233 (D-524), and D-519, the
-seventh, at 0.3.32, the eighth (D-570).
+seventh, at 0.3.32, the eighth (D-570). D-570 to D-578, the eighth
+audit's parts, followed at 0.3.39, the audit done (D-578).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -78,3 +79,106 @@ D-362, D-392, D-421, D-468 and D-493 move unchanged to
 entries; the build plan's ticked steps 13 and Water move to
 `archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
 follow at later audits; the next is at 0.2.268.
+
+**D-570 · 2026-11-02 · The eighth audit, part 1** (the owner's picks,
+all recommended) The audit at 0.3.32 spans several PRs, one a
+conversation, nothing visible changed in any (D-571 has the rest). Here:
+the bag, Drop, setting down, and the bench, chest, bed and trade cards
+move word for word from `screens.js` into `cardscreens.js`; the cave test
+makes its 2000 rooms once, not three times (that file 20 s to 7 s, the
+whole run 22 s to 16 s); the unused map icon and `NAME_COLS` go;
+`CLAUDE.md`'s "Keeping track" and "Git and PRs" move word for word to
+`docs/PR-CHECKLIST.md` (8.0 KB to 5.9 KB); the outside-places questions
+move to `OPEN-QUESTIONS-2.md`. A bug found is fixed with a test: since
+0.2.219 the peddler's Sell side read every slot "Empty" to a screen
+reader; it says the slot's name, count and price again. D-473, D-519
+and the garden (D-562, D-566 to D-569) move to the archive word for word;
+`CHANGELOG.md` keeps its newest 3; ticked steps 13b and 14 are archived.
+The next audit is at 0.3.72.
+
+**D-571 · 2026-11-02 · The eighth audit's next parts** (the owner's
+picks, recommended; the last two left to Claude's judgment) Part 2,
+`node tools/release.js`: one command sets `VERSION`, copies the top
+changelog entry into the in-game history, moves what passes a cap to
+the archive word for word, and keeps `PROGRESS.md`'s log at 3; `tools/`
+is then for playtests and record-keeping. Part 3 on, a table of screens:
+each card in its own small file, saying its own keys, taps and picks,
+`screens.js` looking them up, a few cards a PR, so a new card touches one
+file, not three. No decisions finder: one grep (`grep -rn "D-412 ·"
+docs`) already finds any decision, and an index is one more file to keep.
+Q-076 waits until they are done.
+
+**D-573 · 2026-11-02 · The table of screens** (the owner's picks, all
+recommended; part 3 of D-571) Each card's file in `src/input/cards/`
+returns `{ pick, dir, tap, close }`: Enter or a picked slot, an arrow or
+swipe, a tap, and Esc or P. `cards/table.js` lists them by screen name,
+and `screens.js` asks it first in `choose`, `onDir`, `onPoint` and
+`pause`; spoken words and drawing stay where they are for now. First the
+workbench, chest and peddler cards, moved word for word. A test checks
+every card in the table has all four and that a tap outside or Esc
+closes it.
+
+**D-572 · 2026-11-02 · The record-keeping tool** (the owner's picks, all
+recommended; part 2 of D-571) The new top entries of `CHANGELOG.md` and
+`PROGRESS.md`'s log are written by hand; `node tools/release.js` then sets
+`VERSION` from the changelog heading, copies its lines into the in-game
+history with the log entry's title (run again, it replaces them), keeps
+the newest 3 changelog entries and log entries, moving older ones word
+for word to the top of their archive files and updating the archive
+index. Decisions it only suggests: past 11 KB it names the superseded
+and oldest ones, and Claude proposes the move. `npm test` runs
+`node tools/release.js --check`, which changes nothing and fails if
+anything is out of step. `tools/` is for playtests and record-keeping.
+
+**D-574 · 2026-11-02 · The table of screens, part 4** (the owner's picks,
+all recommended; part 4 of D-571, as D-573) The bag's card and setting
+down move word for word into `cards/bag.js` and `cards/place.js`; the
+bag's C and X stay in `onType`, and spoken words stay in `show()` for
+now. The test checks setting down by itself: Enter does nothing, an
+arrow sets it, a tap goes to `tapSide`, Esc goes back to play. Next, the
+bed, then the menus.
+
+**D-575 · 2026-11-02 · The table of screens, part 5** (the owner's picks,
+all recommended; part 5 of D-571, as D-573) All four asks move together:
+the bed's, Start over?, Delete …? and Play …? each get a file in
+`src/input/cards/` with its pick and close, sharing `cards/ask.js`, which
+holds `ASKS`, the YES and NO arrows and the ask card's tap, moved word
+for word; `askOf` and `menuOf` stay in `screens.js` (drawing and spoken
+words use them) and reach the cards through `c`. The test learns each
+card's way back (play; the title for Start over?; `closeDrop`,
+`closeEasier`) and checks an ask's arrows and a tap on YES or NO. The
+rest of the audit takes 3 parts: 6 the menus (title, pause, settings,
+ways to play, mode, journey ends); 7 the pages (how to play, version
+history, journal); 8 the profile and map screens (profiles, name, look,
+seed pad, Explorer, map). Then Q-076.
+
+**D-576 · 2026-11-02 · The table of screens, part 6** (the owner's picks,
+all recommended; part 6 of D-571, as D-573) All six menus move together:
+the title, pause, Settings, the ways to play, the way to play asked first
+and the journey's end each get a file in `src/input/cards/`, sharing
+`cards/menu.js`, which holds the menu lines' long id chain, the arrows and
+the settings changes, moved word for word. `menuOf` and `chip` stay in
+`screens.js`; so does `menuTop`, as `render/title.js` needs a page. The
+test learns each menu's way back (none on the title) and checks the
+arrows. Next, part 7 the pages.
+
+**D-577 · 2026-11-02 · The table of screens, part 7** (the owner's picks,
+all recommended; as D-573) How to play, version history and the journal
+each get a file in `src/input/cards/`, their helpers moved word for word.
+Opening, closing and `journalPageWords` stay in `screens.js`, reached
+through `c`; the history card's `page` takes `turnMap`'s Page Up and
+Down. The test checks each page's way back and arrows. Next, part 8.
+
+**D-578 · 2026-11-02 · The table of screens, part 8** (the owner's picks,
+all recommended; as D-573) The profiles, the name pad, the look card, the
+seed pad, the Seed Explorer and the map each get a file in
+`src/input/cards/`, the map and the Explorer sharing `cards/map.js`, moved
+word for word; `profilescreens.js` and `explorerscreens.js` stay as
+helpers reached through `c`. A card may return `type(key)` for its typed
+keys (the bag's C and X move there too) and `page(by)` for Page Up and
+Down, which `turnMap` asks. The map's drags, pinches, wheel and floors
+stay in `screens.js`, as `render/map.js` needs a page. The test checks
+each card's way back, the pads' arrows and keys, and taps placed by each
+card's own layout. D-168 and D-337 move to the superseded archive, the
+eighth audit's decisions to `DECISIONS-AUDITS.md`. The audit is done;
+next, Q-076.

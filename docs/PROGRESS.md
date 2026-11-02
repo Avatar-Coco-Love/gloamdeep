@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The eighth audit, part 8 (D-571, D-573, D-577): the profile and map
-screens into `src/input/cards/` (profiles, name, look, seed pad,
-Explorer, map), nothing visible changed; after it, Q-076.
+Which new creature kind next (Q-076): read `OPEN-QUESTIONS.md`'s Q-076,
+`CONTENT.md` and `SCOPE*.md`, and propose 2 or 3 kinds.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -24,7 +23,7 @@ Explorer, map), nothing visible changed; after it, Q-076.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- Which new creature kind next (Q-076), after the audit.
+- Which new creature kind next (Q-076), Next up.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 
@@ -46,6 +45,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.39, the eighth audit, part 8.** All recommended: the
+  profiles, name pad, look card, seed pad, Explorer and map each get a
+  file in `src/input/cards/` (the map and the Explorer share one), moved
+  word for word; cards may return `type` for typed keys (the bag's C and
+  X too) and `page`; the map's drags, pinches and wheel stay in
+  `screens.js`; D-168, D-337 and the eighth audit's decisions are
+  archived; the audit is done (D-578). Nothing visible.
 - **2026-11-02, 0.3.38, the eighth audit, part 7.** All recommended: how
   to play, version history and the journal each get a file in
   `src/input/cards/`, their helpers moved word for word; opening, closing
@@ -57,8 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   `cards/menu.js` (the lines, arrows and settings changes), moved word for
   word; the test checks each menu's way back and its arrows (D-576).
   Nothing visible.
-- **2026-11-02, 0.3.36, the eighth audit, part 5.** All recommended: the
-  bed's ask, Start over?, Delete …? and Play …? each get a file in
-  `src/input/cards/`, sharing `cards/ask.js`, moved word for word; the
-  test checks each card's way back and an ask's YES and NO; 3 parts are
-  left (D-575). Nothing visible.

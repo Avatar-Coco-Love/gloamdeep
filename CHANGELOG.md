@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.39 (2026-11-02)
+- Behind the scenes, nothing you see has changed: the eighth audit, part 8, its last. The profiles, the name pad, the look card, the seed pad, the Seed Explorer and the map now have their own small files in the card table, so every screen goes through it.
+- Decisions: D-578.
+
 ## 0.3.38 (2026-11-02)
 - Behind the scenes, nothing you see has changed: the eighth audit, part 7. The pages (how to play, the version history and the journal) now have their own small files in the card table.
 - Decisions: D-577.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.37 (2026-11-02)
 - Behind the scenes, nothing you see has changed: the eighth audit, part 6. The menus (the title, the pause menu, Settings, the ways to play, choosing a way to play and the journey's end) now have their own small files in the card table, sharing their lines and arrows.
 - Decisions: D-576.
-
-## 0.3.36 (2026-11-02)
-- Behind the scenes, nothing you see has changed: the eighth audit, part 5. The bed's card and the three questions that ask Yes or No (Start over?, Delete…? and the easier way to play) now have their own small files in the card table, sharing their arrows and taps.
-- Decisions: D-575.

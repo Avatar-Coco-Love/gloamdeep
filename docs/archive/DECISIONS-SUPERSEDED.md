@@ -42,3 +42,19 @@ audit part superseded by D-492 (2026-10-30).* (the
 owner's picks, both recommended) Step 11 ends with the bed: the first
 rescue, step 12, comes next, and more home pieces can come later, once
 there are reasons to build them. The sixth audit stays at 0.2.206.
+
+**D-168 · 2026-10-19 · Stage 0.3: the world, next** (owner's pick) The
+world, made of regions, comes next as stage 0.3, starting with the
+starting region. Stage 0.2's steps not yet built (34 to 41) wait and are
+slotted in later. ~~Steps of stage 0.3 are versioned 0.3.x.~~ *That part
+superseded by D-237 (2026-10-22): versions stay 0.2.x; 0.3.x from
+0.3.0 by D-528 (2026-10-31).* The step list
+is in `PROGRESS.md` and may change as we go.
+
+**D-337 · 2026-10-25 · An audit every 20 versions** (the owner's picks, both
+recommended) `PROGRESS.md` names the next audit's version; when it comes,
+the audit is Next up. Each audit also splits one big code file into
+smaller ones, nothing visible changed (order may change: `history-0.2.js`,
+`screens.js`, `turn.js`, `main.js`). The next audit is at 0.2.129.
+*Partly superseded by D-362 (2026-10-25): that audit came at 0.2.123, and
+the next is at 0.2.143; and by D-518 (2026-10-31): every 40 versions.*

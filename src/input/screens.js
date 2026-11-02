@@ -64,25 +64,20 @@ import { depthOf, areaAt, tileAt } from '../core/room.js';
 import { pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
 import { chipOf } from '../render/titlecard.js';
-import { seedCardAt } from '../render/seedpad.js';
 import { historyRows, historyLayout } from '../render/history.js';
 import { HISTORY } from '../core/history.js';
 import { howtoWords } from '../core/howto.js';
-import { PAD, moveKey } from '../core/seedpad.js';
-import { NAME_PAD, moveName } from '../core/namepad.js';
-import { nameCardAt } from '../render/namepad.js';
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
-import { lookCardAt } from '../render/cloak.js';
 import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { canPlant, canPick, canFeed } from '../core/turn.js';
-import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
-import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
+import { playing as inPlay, slotName, playedText } from '../core/profile.js';
+import { slotLines, slotsHeading } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { START_PICK } from '../core/growth.js';
 import { setVersionGap } from '../render/bag.js';
@@ -102,7 +97,6 @@ const WORDS = {
 const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Esc or the close button goes back.`;
 const SEED_WORDS = 'Seed. Type up to 5 digits, then OK. Random gives a new world each journey. Esc leaves it unchanged.';
 const EXPLORE_PAD_WORDS = 'Seed. Type up to 5 digits, then OK to see that seed. Random shows a random one. Esc leaves it unchanged.';
-const PAN = 8; // game pixels an arrow key scrolls the map
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
@@ -159,20 +153,6 @@ export function createScreens(app, ui) {
   const profileWords = (p, i) => (p ? `${slotName(p, i)}, deepest ${p.records.deepest}, played ${playedText(p.played)}` : 'Empty');
   const slotsWords = () => `${app.picking ? slotsHeading(app.picking) : 'Profiles. Pick one to play.'} ${app.profiles.slots.map(profileWords).join('. ')}. ${linesNow().map((l) => l.text).join('. ')}${slotsBack() ? '. Back' : ''}.`;
   function openSlots(back) { app.picking = null; app.slotsBack = back; show('slots', app.profiles.current ?? 0); }
-  function chooseSlot(i) {
-    if (i < SLOTS) {
-      const p = app.profiles.slots[i];
-      if (!app.picking && !p) openName(i, false);
-      else if (!app.picking) { ui.useSlot(i); show('title'); }
-      else if (!p) return; // an Empty box can't be renamed or deleted
-      else if (app.picking === 'rename') openName(i, true);
-      else if (app.picking === 'look') openCloak(i, false);
-      else { app.dropping = i; show('drop', SURE_MENU.findIndex((l) => l.id === 'no')); }
-      return;
-    }
-    const id = linesNow()[i - SLOTS]?.id;
-    if (id === 'rename' || id === 'look' || id === 'delete') { app.picking = app.picking === id ? null : id; spoken.textContent = slotsWords(); }
-  }
   const { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook } = createProfileScreens(app, ui, show); // the profile screens (D-421)
   // After the question: back to the slot screen, the flame on the slot asked about
   function closeDrop(yes) {
@@ -210,9 +190,9 @@ export function createScreens(app, ui) {
     show('map');
     mapFloor(depthOf(app.state.place));
   }
-  function turnMap(way) {
-    if (app.screen === 'history') { cards.history.page(way === 'up' ? -1 : 1); return; }
-    if (app.screen !== 'map' && app.screen !== 'explore') return;
+  // Page Up and Page Down, < and >: the open card's page, the history's or the map's (D-578)
+  function turnMap(way) { cards[app.screen]?.page?.(way === 'up' ? -1 : 1); }
+  function turnFloor(way) {
     const to = turnFrom(app.floors, app.plan.depth, way);
     if (to !== null) mapFloor(to); // the surface is 0, a floor too (D-395)
   }
@@ -233,98 +213,22 @@ export function createScreens(app, ui) {
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
     if (cards[app.screen]) cards[app.screen].close(); // the card table (D-573)
-    else if (app.screen === 'map') show('play');
-    else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
-    else if (app.screen === 'seed') closePad();
-    else if (app.screen === 'name') closeName();
-    else if (app.screen === 'cloak') closeCloak();
-    else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
-    else if (app.screen === 'slots' && slotsBack()) titleAt('profiles');
   }
-  // Digits and Backspace type on the seed pad from a keyboard; the flame moves to OK, so Enter keeps it
-  // In the Explorer, R reseeds, T types a seed and B goes back (D-214); in the bag, C makes (D-309)
-  const onType = (key) => {
-    if (app.screen === 'bag' && key === 'c') { useChosen(true); return true; }
-    if (app.screen === 'bag' && key === 'x') { dropChosen(); return true; } // X drops (D-546)
-    if (app.screen === 'explore') {
-      const id = { r: 'reseed', t: 'type', b: 'back' }[key];
-      if (id) pressBar(id);
-      return !!id;
-    }
-    if (app.screen === 'name') {
-      if (key !== 'backspace' && !/^[a-z]$/.test(key)) return false;
-      pressName(key === 'backspace' ? 'del' : key);
-      app.chosen = NAME_PAD.findIndex((k) => k.id === 'ok');
-      return true;
-    }
-    if (app.screen !== 'seed' || !/^[0-9]$|^backspace$/.test(key)) return false;
-    pressKey(key === 'backspace' ? 'del' : key);
-    app.chosen = PAD.findIndex((k) => k.id === 'ok');
-    return true;
-  };
+  // A key typed: the open card's own, if it has any (D-578): the bag's C and X, the name pad's
+  // letters, the seed pad's digits and the Explorer's R, T and B
+  const onType = (key) => cards[app.screen]?.type?.(key) ?? false;
 
-  // § choosing: a line picked on a screen not in the card table
-  function choose(i = app.chosen) {
-    if (cards[app.screen]) { cards[app.screen].pick(i); return; } // the card table (D-573)
-    if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
-    if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
-    if (app.screen === 'cloak') { pressLook(i); return; }
-    if (app.screen === 'slots') { chooseSlot(i); return; }
-  }
+  // § choosing: a line picked, an arrow or a swipe, a tap or click off the room, each the open
+  // card's in the card table (D-573, D-578)
+  function choose(i = app.chosen) { cards[app.screen]?.pick(i); }
   // Arrows and swipes off the room: menus take swipes always (D-189)
-  const onDir = (dir, how) => {
-    if (cards[app.screen]) { cards[app.screen].dir(dir, how); return; } // the card table (D-573)
-    if (app.screen === 'map' || app.screen === 'explore') { if (how !== 'swipe') panMap(...{ up: [0, -PAN], down: [0, PAN], left: [-PAN, 0], right: [PAN, 0] }[dir]); return; }
-    if (app.screen === 'seed') { app.chosen = moveKey(app.chosen, dir); return; }
-    if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
-    if (app.screen === 'cloak') { moveLookBy(dir); return; }
-    if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
-  };
-  // A tap or click off the room
-  const onPoint = (px, py, held) => {
-    if (cards[app.screen]) { cards[app.screen].tap(px, py, held); return; } // the card table (D-573)
-    if (app.screen === 'map' || app.screen === 'explore') {
-      if (held || ui.mapMoves().dragged()) return;
-      const at = mapCardAt(px, py, view.w, view.h, app.screen === 'explore');
-      if (at === 'up' || at === 'down') turnMap(at);
-      else if (at === 'out' || at === 'close') pause(); // closes the map, or the Explorer to the title
-      else if (at) pressBar(at);
-      else if (py < win().y + win().h) tapStairs(px, py); // not through the Explorer's row
-      return;
-    }
-    if (app.screen === 'seed') {
-      if (held) return;
-      const at = seedCardAt(px, py, view.w, view.h);
-      if (at === 'out' || at === 'close') closePad(); // the round cross goes back (D-394)
-      else if (at) { app.chosen = at.key; choose(at.key); }
-      return;
-    }
-    if (app.screen === 'name') {
-      if (held) return;
-      const at = nameCardAt(px, py, view.w, view.h);
-      if (at === 'out' || at === 'close') closeName(); // the round cross goes back (D-398)
-      else if (at) { app.chosen = at.key; choose(at.key); }
-      return;
-    }
-    if (app.screen === 'cloak') {
-      if (held) return;
-      const at = lookCardAt(px, py, view.w, view.h, app.lookTab);
-      if (at === 'out' || at === 'close') closeCloak(); // the round cross goes back, as Back did (D-399)
-      else if (at) pressLook(at.key, true);
-      return;
-    }
-    if (app.screen === 'slots') {
-      if (held) return;
-      const at = slotsAt(px, py, view.w, view.h, linesNow(), slotsBack());
-      if (at === 'close' || (at === 'out' && slotsBack())) titleAt('profiles'); // the round cross goes back (D-397)
-      else if (at !== null && at !== 'out') { const i = typeof at === 'number' ? at : SLOTS + linesNow().findIndex((l) => l.id === at); app.chosen = i; chooseSlot(i); }
-      return;
-    }
-  };
+  const onDir = (dir, how) => { cards[app.screen]?.dir(dir, how); };
+  const onPoint = (px, py, held) => { cards[app.screen]?.tap(px, py, held); };
+
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords }); // the card table (D-573, D-575, D-576, D-577)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
