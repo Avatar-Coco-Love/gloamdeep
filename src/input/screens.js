@@ -65,10 +65,9 @@ import { pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
 import { chipOf } from '../render/titlecard.js';
 import { seedCardAt } from '../render/seedpad.js';
-import { howtoAt } from '../render/howto.js';
-import { historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../render/history.js';
-import { HISTORY, versionWords, scrollToShow, clampScroll } from '../core/history.js';
-import { nextPage, howtoWords } from '../core/howto.js';
+import { historyRows, historyLayout } from '../render/history.js';
+import { HISTORY } from '../core/history.js';
+import { howtoWords } from '../core/howto.js';
 import { PAD, moveKey } from '../core/seedpad.js';
 import { NAME_PAD, moveName } from '../core/namepad.js';
 import { nameCardAt } from '../render/namepad.js';
@@ -77,7 +76,7 @@ import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
@@ -85,8 +84,7 @@ import { canPlant, canPick, canFeed } from '../core/turn.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
-import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
-import { journalAt } from '../render/journal.js';
+import { START_PICK } from '../core/growth.js';
 import { setVersionGap } from '../render/bag.js';
 import { chestWords, stashAt } from '../core/chest.js';
 import { tradeWords } from '../core/trade.js';
@@ -148,69 +146,11 @@ export function createScreens(app, ui) {
   // Growth opens on Body's heart (D-481).
   const journalPageWords = () => (app.tab === 'growth' ? growthWords(app.state, app.growthPick) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
   function openJournal() { app.tab = 'records'; app.growthPick = START_PICK; show('journal'); }
-  function turnTab(id) {
-    if (id === app.tab) return;
-    app.tab = id;
-    spoken.textContent = journalPageWords();
-  }
-  // An arrow or a tap moves Growth's gold outline; Left past Light turns back to Records
-  function pickGrowth(pick) {
-    if (!pick) { turnTab('records'); return; }
-    app.growthPick = pick;
-    spoken.textContent = journalPageWords();
-  }
-  // The picked place's button: today only the heart has one (D-481)
-  function buyPicked() {
-    if (!told(app.state, app.growthPick).button) return;
-    const s = addHeart(app.state);
-    if (s === app.state) return;
-    app.state = s;
-    spoken.textContent = journalPageWords();
-  }
   function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)
-  function openPage(id) { app.page = id; spoken.textContent = howtoWords(app.page, app.settings); }
-  const flipPage = (back = false) => openPage(nextPage(app.page, back));
 
   // § version history (D-254): opens with every version closed, on the newest, on a card (D-393)
-  const listH = () => historyLayout(view.w, view.h).h; // the card's window, as tall as the screen lets it be
   function openHistory() { app.opened = new Set(); app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW); app.scroll = 0; show('history'); }
   const closeHistory = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'history'));
-  const shownRows = () => clampScroll(app.scroll, app.rows.length * ROW_H, listH());
-  // The rows wrapped again when the card's width has changed since (the screen turned or resized)
-  function fitHistory() {
-    const w = historyLayout(view.w, view.h).bodyW;
-    if (app.rows.w !== w) { app.rows = historyRows(app.opened, w); app.scroll = shownRows(); }
-  }
-  // Choose version i, its row scrolled into view
-  function pickVersion(i) {
-    app.chosen = i;
-    const e = HISTORY[i];
-    const r = headRow(app.rows, i);
-    app.scroll = scrollToShow(app.scroll, r, r, ROW_H, listH(), app.rows.length);
-    spoken.textContent = versionWords(e, app.opened.has(e.v));
-  }
-  // Open or close version i; an opened one shows as much of itself as fits
-  function openVersion(i, open = !app.opened.has(HISTORY[i]?.v)) {
-    const e = HISTORY[i];
-    if (!e || open === app.opened.has(e.v)) return;
-    if (open) app.opened.add(e.v); else app.opened.delete(e.v);
-    app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW);
-    app.scroll = shownRows();
-    pickVersion(i);
-    if (open) app.scroll = scrollToShow(app.scroll, headRow(app.rows, i), lastRow(app.rows, i), ROW_H, listH(), app.rows.length);
-  }
-  // Scroll a page down (by > 0) or up; the flame moves to the top version shown if it scrolled away
-  function pageHistory(by) {
-    fitHistory();
-    const h = listH();
-    app.scroll = clampScroll(app.scroll + by * (h - ROW_H), app.rows.length * ROW_H, h);
-    const top = Math.floor(app.scroll / ROW_H), bottom = Math.floor((app.scroll + h) / ROW_H) - 1;
-    const shown = (r) => r >= top && r <= bottom;
-    if (!app.rows.some((row, r) => row.i === app.chosen && shown(r))) {
-      app.chosen = app.rows[top].i;
-      spoken.textContent = versionWords(HISTORY[app.chosen], app.opened.has(HISTORY[app.chosen].v));
-    }
-  }
 
   // § slots (D-271, a card D-397): the flame starts on the profile in use; the round cross only once
   // there is a title to go back to
@@ -271,7 +211,7 @@ export function createScreens(app, ui) {
     mapFloor(depthOf(app.state.place));
   }
   function turnMap(way) {
-    if (app.screen === 'history') { pageHistory(way === 'up' ? -1 : 1); return; }
+    if (app.screen === 'history') { cards.history.page(way === 'up' ? -1 : 1); return; }
     if (app.screen !== 'map' && app.screen !== 'explore') return;
     const to = turnFrom(app.floors, app.plan.depth, way);
     if (to !== null) mapFloor(to); // the surface is 0, a floor too (D-395)
@@ -297,9 +237,6 @@ export function createScreens(app, ui) {
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'seed') closePad();
-    else if (app.screen === 'howto') closeHowTo();
-    else if (app.screen === 'history') closeHistory();
-    else if (app.screen === 'journal') closeJournal();
     else if (app.screen === 'name') closeName();
     else if (app.screen === 'cloak') closeCloak();
     else if (app.screen === 'slots' && app.picking) { app.picking = null; spoken.textContent = slotsWords(); } // Cancel
@@ -333,9 +270,6 @@ export function createScreens(app, ui) {
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
     if (app.screen === 'cloak') { pressLook(i); return; }
-    if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
-    if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
-    if (app.screen === 'journal') { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); return; } // Enter turns to Growth, and there buys the picked upgrade
     if (app.screen === 'slots') { chooseSlot(i); return; }
   }
   // Arrows and swipes off the room: menus take swipes always (D-189)
@@ -345,16 +279,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'seed') { app.chosen = moveKey(app.chosen, dir); return; }
     if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
     if (app.screen === 'cloak') { moveLookBy(dir); return; }
-    if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
-    if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
     if (app.screen === 'slots') { app.chosen = moveSlots(app.chosen, dir); return; } // the boxes, then the buttons' row (D-397)
-    if (app.screen === 'history') {
-      fitHistory();
-      if (dir === 'left' || dir === 'right') openVersion(app.chosen, dir === 'right');
-      else if (how === 'swipe') pageHistory(dir === 'up' ? 1 : -1); // the list follows the finger
-      else pickVersion(moveChoice(app.chosen, dir, HISTORY.length));
-      return;
-    }
   };
   // A tap or click off the room
   const onPoint = (px, py, held) => {
@@ -366,13 +291,6 @@ export function createScreens(app, ui) {
       else if (at === 'out' || at === 'close') pause(); // closes the map, or the Explorer to the title
       else if (at) pressBar(at);
       else if (py < win().y + win().h) tapStairs(px, py); // not through the Explorer's row
-      return;
-    }
-    if (app.screen === 'howto') {
-      if (held) return;
-      const at = howtoAt(px, py, view.w, view.h);
-      if (at === 'out' || at === 'close') closeHowTo(); // the round cross goes back (D-390)
-      else if (at) openPage(at.page);
       return;
     }
     if (app.screen === 'seed') {
@@ -396,24 +314,6 @@ export function createScreens(app, ui) {
       else if (at) pressLook(at.key, true);
       return;
     }
-    if (app.screen === 'history') {
-      if (held) return;
-      fitHistory();
-      const at = historyAt(px, py, view.w, view.h, app.scroll, app.rows.length);
-      if (at === 'out' || at === 'close') closeHistory(); // the round cross goes back (D-393)
-      else if (at && app.rows[at.row].kind === 'head') openVersion(app.rows[at.row].i);
-      else if (at) pickVersion(app.rows[at.row].i);
-      return;
-    }
-    if (app.screen === 'journal') {
-      if (held) return;
-      const at = journalAt(px, py, view.w, view.h, app.tab, app.state, app.growthPick);
-      if (at === 'out' || at === 'close') closeJournal(); // the round cross goes back (D-391)
-      else if (at === 'buy') buyPicked();
-      else if (at?.pick) pickGrowth(at.pick);
-      else if (at) turnTab(at.tab);
-      return;
-    }
     if (app.screen === 'slots') {
       if (held) return;
       const at = slotsAt(px, py, view.w, view.h, linesNow(), slotsBack());
@@ -424,7 +324,7 @@ export function createScreens(app, ui) {
   };
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory }); // the card table (D-573, D-575, D-576)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords }); // the card table (D-573, D-575, D-576, D-577)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
