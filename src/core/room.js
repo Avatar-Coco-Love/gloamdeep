@@ -2,7 +2,7 @@
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
 import { byLetter, get } from './registry.js';
-import { generateRoom, withMimic, withTrapped } from './cave.js';
+import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
@@ -171,11 +171,11 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
-  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock' });
+  const trapped = depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? 'peddler' : null; // the room made so his ring fits (D-580)
+  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped });
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
-  const trapped = mimicked && depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? withTrapped(cell.seed, mimicked, 'peddler') : mimicked;
-  const room = trapped && withGuano(cell.seed, trapped); // a pile by each bat, placed last (D-539)
+  const room = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };
 }
 

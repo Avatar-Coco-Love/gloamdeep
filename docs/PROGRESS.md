@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Smaller shallow floors (D-580, D-582): read `WORLD.md`'s "Shapes and
-sizes" and the room code it names, and propose how to build it.
+Waystones (D-579, D-582): read D-579 and `WORLD.md`'s map section, and
+propose how waking one looks and sounds, and the map's travel card.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -27,13 +27,14 @@ sizes" and the room code it names, and propose how to build it.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - The boon list and numbers (Q-077), before the boons step.
+- Rare fallback rooms in the dungeon (Q-078), any time.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 Getting around first (D-582), then boons (D-583):
-- [ ] 15 Smaller shallow floors (D-580)
+- [x] 15 Smaller shallow floors (D-580), 0.3.42
 - [ ] 16 Waystones (D-579)
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
@@ -52,6 +53,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.42, smaller floors.** All recommended, and the
+  owner's idea: both bands at once, the chambers and digging shrunk with
+  the area; the peddler's room made again until his ring fits; old saves
+  get every generated room made again once, at the new size (D-584).
+  Q-078 raised. Playtest: PLAYTEST_LINK
 - **2026-11-02, 0.3.41, boons.** Docs only. The owner's idea: each time
   the hero sets out from the home waystone, pick 1 of 3 random boons,
   kept until home again or a fall; all four kinds in the pool; built
@@ -62,10 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   one at the top of each band of floors (D-579); floors grow with depth,
   13 × 15, 15 × 17, 17 × 20 (D-580); faint motes drift toward the stairs
   (D-581); these three come first, then Q-076 (D-582). Nothing visible.
-- **2026-11-02, 0.3.39, the eighth audit, part 8.** All recommended: the
-  profiles, name pad, look card, seed pad, Explorer and map each get a
-  file in `src/input/cards/` (the map and the Explorer share one), moved
-  word for word; cards may return `type` for typed keys (the bag's C and
-  X too) and `page`; the map's drags, pinches and wheel stay in
-  `screens.js`; D-168, D-337 and the eighth audit's decisions are
-  archived; the audit is done (D-578). Nothing visible.

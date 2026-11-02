@@ -5,7 +5,7 @@ import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, makeAt } from '../src/core/turn.js';
 import { hold } from '../src/core/bagturn.js';
 import { GEAR, gearRow, gearWords, withTool, takeOff, canTakeOff } from '../src/core/gear.js';
-import { upgradeState, FORMAT } from '../src/core/save.js';
+import { UPGRADES, FORMAT } from '../src/core/save.js';
 import { shownLine } from '../src/core/lines.js';
 import { bagAt, cardAt, bagShape, gearSlotAt, gearChosen, BUTTON, OFF_W } from '../src/render/bag.js';
 
@@ -41,10 +41,10 @@ test('a pick made with one in the Tool slot is already carried, free', () => {
 });
 
 test('an older save moves its pick from the bag into the Tool slot', () => {
-  assert.equal(FORMAT, 10);
+  assert.ok(FORMAT >= 10);
   const old = { ...fresh(), bag: [{ id: 'wood', n: 1 }, { id: 'pick', n: 1 }] };
   delete old.tool;
-  const s = upgradeState(9, old);
+  const s = UPGRADES[9](old); // its own step, 9 → 10
   assert.equal(s.tool, 'pick');
   assert.deepEqual(s.bag, [{ id: 'wood', n: 1 }]);
   const none = { ...old, bag: [] };

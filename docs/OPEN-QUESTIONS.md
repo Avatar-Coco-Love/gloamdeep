@@ -27,7 +27,7 @@ the generated caves are 17 × 20 and the crypt rooms 11 × 13 (D-195).
 Narrowed by D-223: each kind of place has its own rules, and deeper
 floors become grids; which rules each kind has is still open. Burrow
 floors are warrens (D-227), and from depth 8 dungeon halls (D-228).
-Sizes by depth for the caves, warrens and dungeon: D-580.
+Sizes by depth for the caves, warrens and dungeon: D-580, built in D-584.
 
 **Q-052 · Play data: kept on the device, or sent?** (near 1.0)
 Telemetry sends how people play (falls, depths, journey length) to a
@@ -124,3 +124,9 @@ Which boons go in the home waystone's pool, with their numbers, across
 light and oil, hearts and fighting, finding things and getting around?
 How the choice looks and sounds is asked too. Shown as a list before
 the boons step.
+
+**Q-078 · Rare fallback rooms in the dungeon** (raised 2026-11-02, found
+at 0.3.42) When a dungeon room can't be made from its seed in 200 tries,
+the crypt's second room stands in for it, which breaks that floor's
+openings. Before and after 0.3.42, about 1 seed in 180 has one at depth 8
+or 9. More tries, a looser fit, or another fix?

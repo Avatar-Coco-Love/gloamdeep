@@ -11,6 +11,9 @@
 // picks, which the floor below then fits. Under the crypt the seed picks the
 // cell. The room with the stairs up keeps the depth's own id (depth2), the
 // others are depth2:x,y.
+// § sizes (D-580): the rooms grow with depth, 13 × 15 on the caves' floors,
+// 15 × 17 on the warrens', 17 × 20 on the dungeon's. Floors only grow going
+// down, so the stairs down always fit the floor below.
 // § seeds: the depths moved up one (D-212), but every place below the
 // surface keeps the numbers of its old depth, so a seed keeps its rooms (D-213).
 import { rng, int, pick, seedFor } from './rng.js';
@@ -25,8 +28,10 @@ const DUNGEONS = 8, DUNGEON = { size: 3, rooms: 6 };
 // The first generated depth, and the crypt's stairs down above it (SECOND_ROOM in room.js)
 const FIRST = 2;
 const CRYPT_DOWN = { x: 1, y: 11 };
+// A generated depth's room size (D-580), as { cols, rows }
+export const sizeAt = (depth) => (depth >= DUNGEONS ? { cols: COLS, rows: ROWS } : depth >= WARRENS ? { cols: 15, rows: 17 } : { cols: 13, rows: 15 });
 
-// (seed, depth) → { cells: [{ id, x, y, seed, up, down, doors, sides }], up,
+// (seed, depth) → { cells: [{ id, x, y, seed, up, down, doors, sides, cols, rows }], up,
 // down }, or null above the generated depths. `up` and `down` are the stairs
 // tiles, in a cell's own `up` or `down` (null when it has none) and for the
 // whole floor as { x, y, cell }. `doors` are a room's openings, as { dir, at }
@@ -43,24 +48,25 @@ export function layoutAt(seed, depth) {
 
 function lay(seed, depth) {
   const base = seedAt(seed, depth), r = rng(base ^ 0x2c1b3c6d), above = layoutAt(seed, depth - 1);
-  const upAt = above ? above.down : CRYPT_DOWN, under = above?.down.cell;
+  const upAt = above ? above.down : CRYPT_DOWN, under = above?.down.cell, { cols, rows } = sizeAt(depth);
   const warren = depth >= WARRENS;
   const { cells, ups, joins } = depth >= DUNGEONS ? dungeonCells(r, under) : warren ? warrenCells(r, under, WARREN) : ellCells(r, under);
   ups.up = tile(upAt);
   cells.forEach((c, i) => {
     c.id = c === ups ? `depth${depth}` : `depth${depth}:${c.x},${c.y}`;
     c.seed = c === ups ? base : (base + 1 + i) >>> 0;
+    c.cols = cols; c.rows = rows;
   });
   // § joins: the opening's spot kept 2 tiles from the corners, and clear of the stairs up
   for (const [a, b] of joins) {
-    if (b.x === a.x + 1) join(a, b, 'right', 'left', door(r, ROWS, a, b, (n) => [{ x: COLS - 2, y: n }, { x: 1, y: n }]));
-    else join(a, b, 'down', 'up', door(r, COLS, a, b, (n) => [{ x: n, y: ROWS - 2 }, { x: n, y: 1 }]));
+    if (b.x === a.x + 1) join(a, b, 'right', 'left', door(r, rows, a, b, (n) => [{ x: cols - 2, y: n }, { x: 1, y: n }]));
+    else join(a, b, 'down', 'up', door(r, cols, a, b, (n) => [{ x: n, y: rows - 2 }, { x: n, y: 1 }]));
   }
   // § stairs down: in another room than the stairs up, anywhere 2 tiles in from
   // its edges; in a warren or a dungeon, the room farthest from the stairs up
   // (D-227, D-228)
   const downs = pick(r, warren ? farthest(cells, joins, ups) : cells.filter((c) => c !== ups));
-  downs.down = spot(r, () => false);
+  downs.down = spot(r, cols, rows, () => false);
   return { cells, up: { ...tile(upAt), cell: tile(ups) }, down: { ...downs.down, cell: tile(downs) } };
 }
 
@@ -140,9 +146,9 @@ function join(a, b, out, back, at) {
 }
 
 // A tile 2 in from the room's edges, redrawn while `bad` holds
-function spot(r, bad) {
+function spot(r, cols, rows, bad) {
   let t;
-  do t = { x: int(r, 2, COLS - 3), y: int(r, 2, ROWS - 3) };
+  do t = { x: int(r, 2, cols - 3), y: int(r, 2, rows - 3) };
   while (bad(t));
   return t;
 }

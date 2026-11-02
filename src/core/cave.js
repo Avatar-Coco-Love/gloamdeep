@@ -8,12 +8,19 @@ import { toned } from './tones.js';
 // follows the hero (D-195). The chambers (D-162): how many, their half-widths
 // and half-heights in tiles, and how far apart their middles are. Counts of
 // chambers and open tiles grew with the room's area from the 11 × 13 ones.
+// A room may be smaller, as the shallow floors are (D-580, region.js): the
+// counts of chambers and open tiles, and the burrows' dig, shrink with its
+// area, rounded (`byArea`).
 export const COLS = 17;
 export const ROWS = 20;
 const CAVES = [5, 10], CAVE_R = [1.3, 3], CAVE_GAP = 4;
 // At least this many open tiles, 45 in an 11 × 13 room (D-147)
 const MIN_OPEN = 107;
+// A count for a 17 × 20 room, for a room of `cols` × `rows`
+export const byArea = (n, cols, rows) => Math.round((n * cols * rows) / (COLS * ROWS));
 const TRIES = 200;
+// A room with someone trapped in it gets more tries, since a spot for the ring is rarer (D-580)
+const TRAPPED_TRIES = 600;
 // The share of rooms with a heartcap (D-303)
 export const HEARTCAP_ODDS = 0.5;
 
@@ -24,14 +31,19 @@ export const HEARTCAP_ODDS = 0.5;
 // kind of creature that takes the extra ones' place (a gloamling, D-240), and
 // `ways.weapon` the weapon that lies there, if any: the knife (D-252) or the spear (D-479), `ways.deposits` how many deposits (D-311), and `ways.veins` how many of them are copper veins (D-480). `ways.up` and `ways.down` are where the stairs must be, as { x, y }, so
 // floors line up (D-202); true lets the room pick, null leaves them out. `ways.pool`: whether a
-// still pool may lie there (D-500).
-export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false } = {}) {
+// still pool may lie there (D-500). `ways.cols` and `ways.rows`: the room's size (D-580).
+// `ways.trapped`: the person trapped in a ring of rubble there, if any (D-490); a
+// try with no spot for the ring is made again, so the room always has one (D-580).
+export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false, cols = COLS, rows = ROWS, trapped = null } = {}) {
   const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel;
-  for (let i = 0; i < TRIES; i++) {
-    const g = carve(r), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig), up, down, dig), up, down, rats, second, weapon);
+  for (let i = 0; i < (trapped ? TRAPPED_TRIES : TRIES); i++) {
+    const g = carve(r, cols, rows), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig), up, down, dig), up, down, rats, second, weapon);
     if (!room) continue;
     const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
-    return pool ? withPool(seed, made) : made;
+    const done = pool ? withPool(seed, made) : made;
+    if (!trapped) return done;
+    const held = withTrapped(seed, done, trapped);
+    if (held !== done) return held;
   }
   return null;
 }
@@ -39,12 +51,12 @@ export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, 
 // § doors: each opening is a gap in the edge, with a tunnel in from it to the
 // nearest open tile (D-201), straight in halls (D-228). The tile just inside
 // is where the hero comes in.
-const EDGE = { up: (at) => [{ x: at, y: 0 }, { x: at, y: 1 }], down: (at) => [{ x: at, y: ROWS - 1 }, { x: at, y: ROWS - 2 }],
-  left: (at) => [{ x: 0, y: at }, { x: 1, y: at }], right: (at) => [{ x: COLS - 1, y: at }, { x: COLS - 2, y: at }] };
+const EDGE = { up: (at) => [{ x: at, y: 0 }, { x: at, y: 1 }], down: (at, w, h) => [{ x: at, y: h - 1 }, { x: at, y: h - 2 }],
+  left: (at) => [{ x: 0, y: at }, { x: 1, y: at }], right: (at, w) => [{ x: w - 1, y: at }, { x: w - 2, y: at }] };
 function openDoors(r, g, doors, dig) {
   const inside = tilesWhere(g, (x, y) => g[y][x] === '.');
   const out = doors.map(({ dir, at }) => {
-    const [edge, inner] = EDGE[dir](at), to = inside.reduce((a, b) => (dist(b, inner) < dist(a, inner) ? b : a));
+    const [edge, inner] = EDGE[dir](at, g[0].length, g.length), to = inside.reduce((a, b) => (dist(b, inner) < dist(a, inner) ? b : a));
     g[edge.y][edge.x] = '.'; g[inner.y][inner.x] = '.';
     dig(r, g, inner, to);
     return inner;
@@ -67,9 +79,9 @@ function openStairs(r, g, up, down, dig) {
 }
 
 // Round chambers joined by tunnels, as a grid of '#' and '.', or null
-function chambers(r) {
-  let g = walls();
-  const caves = placeCaves(r);
+function chambers(r, cols, rows) {
+  let g = walls(cols, rows);
+  const caves = placeCaves(r, cols, rows);
   if (caves.length < 2) return null;
   for (const c of caves) carveCave(r, g, c);
   g = smooth(g);
@@ -85,14 +97,14 @@ function chambers(r) {
 // stands for them (D-201), and there is no torch.
 function fill(r, g, up = true, down = true, rats = 1, second = 'rat', weapon = null) {
   const floors = tilesWhere(g, (x, y) => g[y][x] === '.');
-  if (floors.length < MIN_OPEN) return null;
+  if (floors.length < byArea(MIN_OPEN, g[0].length, g.length)) return null;
   const doors = g.doors || [];
 
   // § stairs: up on a floor tile with wall above, so the steps sink into it
   // (D-143); down as far along the way as can be, unless set. Neither may cut
   // the room in two, so the hero never has to cross a stair to get somewhere.
   const free = (x, y, cut) => reach(g, floors.find((f) => !cut.some((c) => c.x === f.x && c.y === f.y)), cut).size === floors.length - cut.length;
-  const canUp = (f) => !onEdge(f) && g[f.y - 1][f.x] === '#' && free(f.x, f.y, [f]);
+  const canUp = (f) => !onEdge(g, f) && g[f.y - 1][f.x] === '#' && free(f.x, f.y, [f]);
   let at = null;
   if (up === true) {
     const ups = floors.filter(canUp);
@@ -105,7 +117,7 @@ function fill(r, g, up = true, down = true, rats = 1, second = 'rat', weapon = n
   const from = at || doors[0], far = reach(g, from), cut = at ? [at] : [];
   let to = null;
   if (down === true) {
-    const downs = floors.filter((f) => !onEdge(f) && far.get(key(f)) >= 8 && free(f.x, f.y, [...cut, f]));
+    const downs = floors.filter((f) => !onEdge(g, f) && far.get(key(f)) >= 8 && free(f.x, f.y, [...cut, f]));
     if (!downs.length) return null;
     const most = Math.max(...downs.map((f) => far.get(key(f))));
     to = pick(r, downs.filter((f) => far.get(key(f)) >= most - 2));
@@ -120,7 +132,7 @@ function fill(r, g, up = true, down = true, rats = 1, second = 'rat', weapon = n
   // § torch: on a wall face near the stairs up, not right above them, and
   // not on the top row, where the hearts, depth and oil bar boxes could hide
   // it wherever the camera stands (D-101, D-195)
-  const faces = tilesWhere(g, (x, y) => g[y][x] === '#' && y > 0 && y + 1 < ROWS && g[y + 1][x] === '.');
+  const faces = tilesWhere(g, (x, y) => g[y][x] === '#' && y > 0 && y + 1 < g.length && g[y + 1][x] === '.');
   const near = faces.filter((t) => dist(t, at) <= 3 && !(t.x === at.x && t.y === at.y - 1));
   if (!near.length) return null;
   const torch = pick(r, near);
@@ -135,7 +147,7 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
   // at least 5 steps from the stairs up, and 3 tiles off counting across walls.
   // It starts in the dark, as the second room's does: out of the torch's
   // light (3 tiles, D-098) and the stairs' glow (1.5, D-134).
-  const open = floors.filter((f) => !onEdge(f) && !same(f, up) && !(down && same(f, down)) && !doors.some((d) => same(f, d)));
+  const open = floors.filter((f) => !onEdge(g, f) && !same(f, up) && !(down && same(f, down)) && !doors.some((d) => same(f, d)));
   const flasks = open.filter((f) => far.get(key(f)) >= 5);
   if (!flasks.length) return null;
   const flask = pick(r, flasks);
@@ -199,7 +211,7 @@ function withDeposits(r, room, count, veins = 0) {
   const g = room.map.map((row) => [...row]), things = [room.start, ...room.items, ...room.enemies];
   const all = tilesWhere(g, (x, y) => walkable(g, { x, y })), placed = [];
   for (let i = 0; i < count; i++) {
-    const spots = all.filter((t) => g[t.y][t.x] === '.' && !onEdge(t) && !things.some((o) => same(o, t)));
+    const spots = all.filter((t) => g[t.y][t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t)));
     while (spots.length) {
       const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
       g[at.y][at.x] = 'O';
@@ -236,7 +248,7 @@ export function withPool(seed, room) {
   const g = room.map.map((row) => [...row]), far = reach(g, room.start), size = int(r, POOL_MIN, POOL_MAX);
   const things = [room.start, ...room.items, ...room.enemies];
   const stairs = tilesWhere(g, (x, y) => g[y][x] === '<' || g[y][x] === '>');
-  const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(t) && !things.some((o) => same(o, t))
+  const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t))
     && far.get(key(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);
   const spots = tilesWhere(g, (x, y) => free({ x, y }) && RING.every(([dx, dy]) => g[y + dy]?.[x + dx] === '.'));
   while (spots.length) {
@@ -262,12 +274,12 @@ export function withPool(seed, room) {
 // as it was when no tile fits.
 export function withMimic(seed, room) {
   const r = rng(seed ^ 0x510e527f), g = room.map.map((row) => [...row]), far = reach(g, room.start);
-  const things = [room.start, ...room.items, ...room.enemies];
+  const things = [room.start, ...room.items, ...room.enemies, ...(room.people || [])];
   const beside = (t) => [[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dy]) => {
     const n = { x: t.x + dx, y: t.y + dy }, ch = g[n.y]?.[n.x];
-    return ch === '<' || ch === '>' || (ch === '.' && onEdge(n));
+    return ch === '<' || ch === '>' || (ch === '.' && onEdge(g, n));
   });
-  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(t) && far.get(key(t)) >= 5 && !beside(t) && !things.some((o) => same(o, t)));
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(key(t)) >= 5 && !beside(t) && !things.some((o) => same(o, t)));
   while (spots.length) {
     const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
     g[at.y][at.x] = 'O';
@@ -291,10 +303,10 @@ export function withTrapped(seed, room, id) {
   const ring = (t) => RING.map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }));
   const fits = (t) => {
     const around = ring(t);
-    return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(n)) && around.filter((n) => g[n.y][n.x] === '.').length >= 5
+    return around.every((n) => (g[n.y][n.x] === '.' || g[n.y][n.x] === '#') && !onEdge(g, n)) && around.filter((n) => g[n.y][n.x] === '.').length >= 5
       && ![t, ...around].some((n) => things.some((o) => same(o, n)));
   };
-  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(t) && far.get(key(t)) >= 5 && fits(t));
+  const spots = tilesWhere(g, (x, y) => g[y][x] === '.').filter((t) => !onEdge(g, t) && far.get(key(t)) >= 5 && fits(t));
   while (spots.length) {
     const at = spots.splice(int(r, 0, spots.length - 1), 1)[0], open = ring(at).filter((n) => g[n.y][n.x] === '.');
     for (const n of [at, ...open]) g[n.y][n.x] = 'U';
@@ -307,11 +319,12 @@ export function withTrapped(seed, room, id) {
   return room;
 }
 
-// § chambers: 5 to 10 roundish chambers, their middles well apart (D-162)
-function placeCaves(r) {
-  const want = int(r, CAVES[0], CAVES[1]), caves = [];
+// § chambers: 5 to 10 roundish chambers, their middles well apart (D-162);
+// 3 to 6 in a 13 × 15 room (D-580)
+function placeCaves(r, cols, rows) {
+  const want = int(r, byArea(CAVES[0], cols, rows), byArea(CAVES[1], cols, rows)), caves = [];
   for (let i = 0; i < 60 && caves.length < want; i++) {
-    const c = { x: int(r, 2, COLS - 3), y: int(r, 2, ROWS - 3), rx: size(r), ry: size(r) };
+    const c = { x: int(r, 2, cols - 3), y: int(r, 2, rows - 3), rx: size(r), ry: size(r) };
     if (!caves.some((o) => Math.hypot(o.x - c.x, o.y - c.y) < CAVE_GAP)) caves.push(c);
   }
   return caves;
@@ -321,7 +334,7 @@ const size = (r) => CAVE_R[0] + r() * (CAVE_R[1] - CAVE_R[0]);
 // § lumpy: a chamber's oval as floor, each edge tile in or out by chance (D-162)
 const LUMPY = 0.9;
 function carveCave(r, g, c) {
-  for (let y = 1; y < ROWS - 1; y++) for (let x = 1; x < COLS - 1; x++) {
+  for (let y = 1; y < g.length - 1; y++) for (let x = 1; x < g[0].length - 1; x++) {
     const d = ((x - c.x) / c.rx) ** 2 + ((y - c.y) / c.ry) ** 2;
     if (d <= 1 + (r() - 0.5) * LUMPY) g[y][x] = '.';
   }
@@ -332,7 +345,7 @@ function carveCave(r, g, c) {
 // before the tunnels, which it would close.
 function smooth(g) {
   return g.map((row, y) => row.map((ch, x) => {
-    if (x === 0 || y === 0 || x === COLS - 1 || y === ROWS - 1) return '#';
+    if (onEdge(g, { x, y })) return '#';
     let walls = 0;
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) if (g[y + dy][x + dx] === '#') walls++;
     return walls >= 5 ? '#' : '.';
@@ -358,7 +371,7 @@ function tunnel(r, g, from, to) {
   for (let s = 0; s < 200 && (x !== to.x || y !== to.y); s++) {
     if (r() < WANDER) {
       const [dx, dy] = pick(r, [[1, 0], [-1, 0], [0, 1], [0, -1]]);
-      if (x + dx > 0 && x + dx < COLS - 1 && y + dy > 0 && y + dy < ROWS - 1) { x += dx; y += dy; }
+      if (inside(g, x + dx, y + dy)) { x += dx; y += dy; }
     } else if (x !== to.x && (y === to.y || r() < 0.5)) x += Math.sign(to.x - x);
     else y += Math.sign(to.y - y);
     g[y][x] = '.';
@@ -367,17 +380,19 @@ function tunnel(r, g, from, to) {
 
 // § burrows: a digger starts near the middle and wanders, mostly keeping its
 // way, carving as it goes until 119 to 138 tiles are open (50 to 58 in an
-// 11 × 13 room): twisty tunnels, loops and dead ends (D-163, D-165, D-195).
-// Its path is one piece, so all is joined.
+// 11 × 13 room, 89 to 104 in a 15 × 17 one): twisty tunnels, loops and dead
+// ends (D-163, D-165, D-195, D-580). It starts at least 5 tiles in from the
+// left and top, and 6 from the right and bottom. Its path is one piece, so
+// all is joined.
 const DIG_OPEN = [119, 138], DIG_TURN = 0.35, DIG_STEPS = 4000;
 const WAYS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-function burrows(r) {
-  const g = walls(), want = int(r, DIG_OPEN[0], DIG_OPEN[1]);
-  let x = int(r, 5, 11), y = int(r, 5, 14), [dx, dy] = pick(r, WAYS), open = 0;
+function burrows(r, cols, rows) {
+  const g = walls(cols, rows), want = int(r, byArea(DIG_OPEN[0], cols, rows), byArea(DIG_OPEN[1], cols, rows));
+  let x = int(r, 5, cols - 6), y = int(r, 5, rows - 6), [dx, dy] = pick(r, WAYS), open = 0;
   for (let i = 0; i < DIG_STEPS && open < want; i++) {
     if (g[y][x] === '#') { g[y][x] = '.'; open++; }
     if (r() < DIG_TURN) [dx, dy] = pick(r, WAYS);
-    if (x + dx > 0 && x + dx < COLS - 1 && y + dy > 0 && y + dy < ROWS - 1) { x += dx; y += dy; } else [dx, dy] = pick(r, WAYS);
+    if (inside(g, x + dx, y + dy)) { x += dx; y += dy; } else [dx, dy] = pick(r, WAYS);
   }
   return g;
 }
@@ -386,11 +401,11 @@ function burrows(r) {
 // with wall between them, each joined to the one before by a one-tile
 // corridor that turns once (D-228). Built stone, so nothing wanders.
 const HALLS = [3, 4], HALL_W = [4, 7], HALL_H = [4, 6];
-function halls(r) {
-  const g = walls(), want = int(r, HALLS[0], HALLS[1]), hs = [];
+function halls(r, cols, rows) {
+  const g = walls(cols, rows), want = int(r, HALLS[0], HALLS[1]), hs = [];
   for (let i = 0; i < 100 && hs.length < want; i++) {
     const w = int(r, HALL_W[0], HALL_W[1]), h = int(r, HALL_H[0], HALL_H[1]);
-    const hall = { x: int(r, 2, COLS - 2 - w), y: int(r, 2, ROWS - 2 - h), w, h };
+    const hall = { x: int(r, 2, cols - 2 - w), y: int(r, 2, rows - 2 - h), w, h };
     if (!hs.some((o) => hall.x <= o.x + o.w && o.x <= hall.x + hall.w && hall.y <= o.y + o.h && o.y <= hall.y + hall.h)) hs.push(hall);
   }
   if (hs.length < HALLS[0]) return null;
@@ -418,14 +433,16 @@ function lane(r, g, from, to) {
 const SHAPES = { chambers, burrows, halls };
 
 // § helpers
-const walls = () => Array.from({ length: ROWS }, () => Array(COLS).fill('#'));
-const key = (t) => t.y * COLS + t.x;
-const onEdge = (t) => t.x === 0 || t.y === 0 || t.x === COLS - 1 || t.y === ROWS - 1;
+// The grid's size comes from the grid itself, rows of tiles or strings
+const walls = (cols, rows) => Array.from({ length: rows }, () => Array(cols).fill('#'));
+const key = (t) => t.y * 64 + t.x; // a tile's key, one number for each tile of any room up to 64 wide
+const onEdge = (g, t) => t.x === 0 || t.y === 0 || t.x === g[0].length - 1 || t.y === g.length - 1;
+const inside = (g, x, y) => x > 0 && y > 0 && x < g[0].length - 1 && y < g.length - 1; // off the edge
 const same = (a, b) => a.x === b.x && a.y === b.y;
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 function tilesWhere(g, test) {
   const out = [];
-  for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (test(x, y)) out.push({ x, y });
+  for (let y = 0; y < g.length; y++) for (let x = 0; x < g[0].length; x++) if (test(x, y)) out.push({ x, y });
   return out;
 }
 // Steps from `from` to every floor tile it can walk to, not through `cut`
