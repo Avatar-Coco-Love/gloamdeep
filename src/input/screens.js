@@ -75,8 +75,9 @@ import { nameCardAt } from '../render/namepad.js';
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
+import { makeCards } from './cards/table.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
@@ -91,13 +92,10 @@ import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
 import { bagAt, twoButtons, setVersionGap, gearChosen } from '../render/bag.js';
-import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
-import { chestAt } from '../render/chestpanel.js';
-import { CHEST_TAKE, CHEST_STORE, chestWords, moveChest, stashAt, nearStacks } from '../core/chest.js';
-import { tradeAt } from '../render/tradepanel.js';
+import { chestWords, stashAt } from '../core/chest.js';
 import { tradeWords } from '../core/trade.js';
 import { view } from '../render/screen.js';
 
@@ -297,12 +295,14 @@ export function createScreens(app, ui) {
   }
 
   const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade }); // the card table (D-573)
 
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
-    if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bench' || app.screen === 'chest' || app.screen === 'trade' || app.screen === 'bed') show('play');
+    if (cards[app.screen]) cards[app.screen].close(); // the card table (D-573)
+    else if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bed') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -362,6 +362,7 @@ export function createScreens(app, ui) {
   // while one is saved; Continue and Back to title keep the journey (D-238)
   function choose(i = app.chosen) {
     if (app.screen === 'place') return; // Enter and Space don't pick a side
+    if (cards[app.screen]) { cards[app.screen].pick(i); return; } // the card table (D-573)
     const id = menuOf(app.screen)[i]?.id;
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
@@ -377,9 +378,6 @@ export function createScreens(app, ui) {
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
     if (app.screen === 'bed') { if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'plant') plantBed(); else if (id === 'pick') pickBed(); else if (id === 'feed') feedBed(); else show('play'); return; }
-    if (app.screen === 'trade') { tradeChosen(); return; }
-    if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else if (i === CHEST_STORE) ui.store(app.bench.x, app.bench.y); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
-    if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
     if (id === 'profiles') openSlots(true);
     else if (id === 'new' && app.saved) show('sure', SURE_MENU.findIndex((l) => l.id === 'no'));
     else if (id === 'new' || id === 'yes') show('mode', MODE_FIRST); // the way to play asked first (D-334)
@@ -405,14 +403,12 @@ export function createScreens(app, ui) {
   }
   // Arrows and swipes off the room: menus take swipes always (D-189)
   const onDir = (dir, how) => {
+    if (cards[app.screen]) { cards[app.screen].dir(dir, how); return; } // the card table (D-573)
     if (app.screen === 'map' || app.screen === 'explore') { if (how !== 'swipe') panMap(...{ up: [0, -PAN], down: [0, PAN], left: [-PAN, 0], right: [PAN, 0] }[dir]); return; }
     if (app.screen === 'seed') { app.chosen = moveKey(app.chosen, dir); return; }
     if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
     if (app.screen === 'cloak') { moveLookBy(dir); return; }
     if (app.screen === 'place') { setToward(dir); return; }
-    if (app.screen === 'chest') { pickChest(moveChest(app.chosen, dir, bagSize(app.state))); return; }
-    if (app.screen === 'trade') { moveTrade(dir); return; } // the grid, the tabs above it (D-495)
-    if (app.screen === 'bench') { pickBench(moveBench(app.chosen, dir)); return; } // the bag's grid, Deconstruct under it (D-387)
     if (app.screen === 'bag') { moveBag(dir); return; } // a 3 × 2 grid (D-385), bigger with the Pouch (D-548), the gear row above it (D-554)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
@@ -439,6 +435,7 @@ export function createScreens(app, ui) {
   };
   // A tap or click off the room
   const onPoint = (px, py, held) => {
+    if (cards[app.screen]) { cards[app.screen].tap(px, py, held); return; } // the card table (D-573)
     if (app.screen === 'map' || app.screen === 'explore') {
       if (held || ui.mapMoves().dragged()) return;
       const at = mapCardAt(px, py, view.w, view.h, app.screen === 'explore');
@@ -449,33 +446,6 @@ export function createScreens(app, ui) {
       return;
     }
     if (app.screen === 'place') { if (!held) tapSide(px, py); return; }
-    if (app.screen === 'bench') {
-      if (held) return;
-      const at = benchAt(px, py, view.w, view.h);
-      if (at === 'out' || at === 'close') show('play');
-      else if (at === 'make' && app.chosen !== BENCH_TAKE) choose(app.chosen); // Make shows only for a slot
-      else if (at === 'take') { app.chosen = BENCH_TAKE; choose(BENCH_TAKE); }
-      else if (at) pickBench(at.slot);
-      return;
-    }
-    if (app.screen === 'trade') {
-      if (held) return;
-      const at = tradeAt(px, py, view.w, view.h, app.tab, bagSize(app.state));
-      if (at === 'out' || at === 'close') show('play');
-      else if (at === 'act') { if (app.chosen >= 0) tradeChosen(); }
-      else if (at?.tab) turnTrade(at.tab, false);
-      else if (at) pickTrade(at.slot);
-      return;
-    }
-    if (app.screen === 'chest') {
-      if (held) return;
-      const at = chestAt(px, py, view.w, view.h, bagSize(app.state));
-      if (at === 'out' || at === 'close') show('play');
-      else if (at === 'take') { app.chosen = CHEST_TAKE; choose(CHEST_TAKE); }
-      else if (at === 'store') { pickChest(CHEST_STORE); choose(CHEST_STORE); }
-      else if (at) choose(at.slot);
-      return;
-    }
     if (app.screen === 'paused') {
       if (held) return;
       const at = pauseCardAt(px, py, view.w, view.h, PAUSE_MENU.length);

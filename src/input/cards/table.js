@@ -1,0 +1,12 @@
+// § card table (D-573): each card screen's own file, by its screen's name. screens.js asks
+// the table first for a pick (choose), an arrow or swipe (onDir), a tap (onPoint) and Esc
+// or P (pause). A new card is one file here and one line below. Every card returns
+// { pick(i), dir(dir, how), tap(px, py, held), close() }; tests/cardtable.test.js checks it.
+import { benchCard } from './bench.js';
+import { chestCard } from './chest.js';
+import { tradeCard } from './trade.js';
+
+export const CARD_TABLE = { bench: benchCard, chest: chestCard, trade: tradeCard };
+
+// Every card made once, sharing `app`, `ui`, `show` and cardscreens.js's helpers `c`
+export const makeCards = (app, ui, show, c) => Object.fromEntries(Object.entries(CARD_TABLE).map(([id, make]) => [id, make(app, ui, show, c)]));

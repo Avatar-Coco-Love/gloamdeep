@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.34 (2026-11-02)
+- Behind the scenes, nothing you see has changed: the eighth audit, part 3. The workbench, chest and peddler cards each have their own small file for their keys, taps and picks, and the game looks them up in a table, so a new card is one file.
+- Decisions: D-573.
+
 ## 0.3.33 (2026-11-02)
 - Behind the scenes, nothing you see has changed: the eighth audit, part 2. A new tool keeps the game's records: one command sets the version number, copies these notes into the Version history, and moves older notes to the archive.
 - Decisions: D-572.
@@ -32,10 +36,3 @@ Entry format:
 - For screen readers: on the peddler's Sell side, each bag slot is read with its name, how many and its price again, not "Empty". It had been wrong since 0.2.219.
 - Tests run faster (22 s to 16 s), two unused pieces of code are gone, and the notes for making changes are tidier.
 - Decisions: D-570, D-571.
-
-## 0.3.31 (2026-11-02)
-- Feed your garden now: walk into a sprout and its card shows FEED and DECONSTRUCT. Feed puts 1 Bat Guano on the soil. It takes a turn.
-- A fed sprout shows a few flecks of guano on its soil and grows in 150 turns from planting instead of 300. Fed after that, it grows at once.
-- Once is enough: with no guano, or already fed, Feed is dim. After picking, the sprout needs feeding again. Taken down, the guano is spent.
-- Water doesn't matter to the garden yet; it waits for a way to carry water.
-- Decisions: D-569.

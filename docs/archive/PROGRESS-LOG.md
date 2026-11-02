@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.31, Feeding.** All recommended: a sprout's card
+  shows Feed and Deconstruct; Feed puts 1 Bat Guano on its soil, flecks
+  showing, and it grows 150 turns from planting, not 300, once; water
+  waits (D-569). Playtest: https://claude.ai/artifact/1KgLfT9bYKdDWKnnD2CWKE
 - **2026-11-02, 0.3.30, Picking.** All recommended: the grown bed's
   card shows Pick and Deconstruct; Pick gives 3 Gloamberries, a turn,
   "You pick three gloamberries.", the bed back to a sprout that grows
