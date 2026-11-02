@@ -12,7 +12,7 @@ import { endTurn } from '../src/core/endturn.js';
 import { passTurn } from '../src/core/state.js';
 import { send } from '../src/core/homeward.js';
 import { shownLine, LINES } from '../src/core/lines.js';
-import { readJourney, journeyText, upgradeState } from '../src/core/save.js';
+import { readJourney, journeyText, UPGRADES } from '../src/core/save.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const AROUND = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
@@ -35,6 +35,14 @@ test('on depth 3, one room the seed picks holds him, every open tile around him 
     assert.equal(p.map[him.y][him.x], '.');
     assert.ok(around.every((ch) => ch === 'U' || ch === '#'), `seed ${seed}`);
     assert.ok(around.filter((ch) => ch === 'U').length >= 5, `seed ${seed}`);
+  }
+});
+
+test('every journey has him: his room is made again until his ring fits, even the smaller rooms (D-580)', () => {
+  for (let seed = 1; seed <= 300; seed++) {
+    const p = placeFor(peddlerRoom(seed), seed);
+    assert.deepEqual(p.people.map((q) => q.id), ['peddler'], `seed ${seed}`);
+    assert.equal(p.map.length, 15, `seed ${seed}`); // the room itself, not the fallback
   }
 });
 
@@ -129,7 +137,7 @@ test('his room keeps him when left and gone back to, and a kept journey keeps hi
 
 test('a format 8 save gets an empty people list in every room, a room seen staying as it was', () => {
   const old = { place: 'first', elsewhere: { depth3: { room: 1, items: [] } } };
-  const up = upgradeState(8, old);
+  const up = UPGRADES[8](old); // its own step, 8 → 9
   assert.deepEqual(up.people, []);
   assert.deepEqual(up.elsewhere.depth3, { room: 1, items: [], people: [] });
 });

@@ -146,3 +146,16 @@ oil, hearts and fighting, finding things, and getting around. The
 exact boons and their numbers are shown to the owner as a list before
 anything is built (Q-077). Boons are their own step, right after the
 waystones.
+
+**D-584 · 2026-11-02 · Smaller floors, built** (the owner's picks,
+recommended; builds on D-580) Both shallow bands shrink in one step.
+Inside, the counts shrink with the room's area, as in D-195: 3 to 6
+chambers and at least 61 open tiles in a 13 × 15 cave, 89 to 104 tiles
+dug in a 15 × 17 warren; creatures and finds stay as they are, and pools
+fit less often (about 1 cave room in 3, not 4 in 9). The peddler's room
+is made again until his ring of rubble fits, so every journey has him
+(the owner's idea). A save from before is brought up to date once: every
+generated room is made again from the same seed at its new size, the
+dungeon's too, since its stairs hang from the floor above; a hero down
+there stands on that floor's stairs up, a bag left there lies on them,
+and a peddler already freed stays freed.

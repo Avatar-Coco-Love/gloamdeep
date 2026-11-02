@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.39, the eighth audit, part 8.** All recommended: the
+  profiles, name pad, look card, seed pad, Explorer and map each get a
+  file in `src/input/cards/` (the map and the Explorer share one), moved
+  word for word; cards may return `type` for typed keys (the bag's C and
+  X too) and `page`; the map's drags, pinches and wheel stay in
+  `screens.js`; D-168, D-337 and the eighth audit's decisions are
+  archived; the audit is done (D-578). Nothing visible.
 - **2026-11-02, 0.3.38, the eighth audit, part 7.** All recommended: how
   to play, version history and the journal each get a file in
   `src/input/cards/`, their helpers moved word for word; opening, closing
