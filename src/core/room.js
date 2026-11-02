@@ -107,7 +107,8 @@ export const PLACES = {
 // woods, the second room depth 1 (D-212); a depth's stairs lead to its first
 // place, so the crypt is listed before the woods. Below the second room every
 // depth is generated, with ids depth2, depth3…, from the game's seed (D-147,
-// D-148); the second room is the fallback if a seed ever gives no room. A
+// D-148); the second room is the fallback if a seed ever gives no room, which
+// no seed checked does since the second round of tries (cave.js, D-585). A
 // depth laid out as a grid (region.js, D-201) adds rooms depth2:x,y beside
 // depth2, which holds its stairs up.
 const DEEPER = 'second';
