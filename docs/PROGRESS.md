@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The eighth audit, part 4 on (D-571, D-573): more cards into
-`src/input/cards/`, a few a PR (the bag and setting down, the bed, the
-menus), nothing visible changed; after them, Q-076.
+The eighth audit, part 5 on (D-571, D-573, D-574): more cards into
+`src/input/cards/`, a few a PR (the bed, then the menus), nothing visible
+changed; after them, Q-076.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.35, the eighth audit, part 4.** All recommended: the
+  bag's card and setting down get their own files in `src/input/cards/`,
+  moved word for word; C, X and spoken words stay where they are; the
+  test checks setting down by itself (D-574). Nothing visible.
 - **2026-11-02, 0.3.34, the eighth audit, part 3.** All recommended: the
   workbench, chest and peddler cards each get a file in
   `src/input/cards/` with pick, arrows, tap and close, moved word for
@@ -56,9 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   history (its title from this log), keeps the changelog and this log at
   3, and only suggests moving decisions, past 11 KB; `npm test` runs its
   `--check` (D-572). Next: the table of screens. Nothing visible.
-- **2026-11-02, 0.3.32, the eighth audit, part 1.** Picked, all
-  recommended: the audit spans several PRs. Here: the cards move from
-  `screens.js` to `cardscreens.js`; the cave test 20 s to 7 s; two unused
-  pieces gone; the PR checklist leaves `CLAUDE.md` (8.0 to 5.9 KB); the
-  peddler's Sell slots read aloud again (D-570). Next: a record-keeping
-  tool, then a table of screens (D-571). Nothing visible.

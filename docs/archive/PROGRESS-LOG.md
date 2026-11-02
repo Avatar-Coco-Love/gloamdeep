@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.32, the eighth audit, part 1.** Picked, all
+  recommended: the audit spans several PRs. Here: the cards move from
+  `screens.js` to `cardscreens.js`; the cave test 20 s to 7 s; two unused
+  pieces gone; the PR checklist leaves `CLAUDE.md` (8.0 to 5.9 KB); the
+  peddler's Sell slots read aloud again (D-570). Next: a record-keeping
+  tool, then a table of screens (D-571). Nothing visible.
 - **2026-11-02, 0.3.31, Feeding.** All recommended: a sprout's card
   shows Feed and Deconstruct; Feed puts 1 Bat Guano on its soil, flecks
   showing, and it grows 150 turns from planting, not 300, once; water

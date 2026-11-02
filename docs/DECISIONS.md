@@ -170,3 +170,11 @@ index. Decisions it only suggests: past 11 KB it names the superseded
 and oldest ones, and Claude proposes the move. `npm test` runs
 `node tools/release.js --check`, which changes nothing and fails if
 anything is out of step. `tools/` is for playtests and record-keeping.
+
+**D-574 · 2026-11-02 · The table of screens, part 4** (the owner's picks,
+all recommended; part 4 of D-571, as D-573) The bag's card and setting
+down move word for word into `cards/bag.js` and `cards/place.js`; the
+bag's C and X stay in `onType`, and spoken words stay in `show()` for
+now. The test checks setting down by itself: Enter does nothing, an
+arrow sets it, a tap goes to `tapSide`, Esc goes back to play. Next, the
+bed, then the menus.

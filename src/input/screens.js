@@ -82,16 +82,14 @@ import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
-import { bagSize } from '../core/bag.js';
 import { canPlant, canPick, canFeed } from '../core/turn.js';
-import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
 import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
-import { bagAt, twoButtons, setVersionGap, gearChosen } from '../render/bag.js';
+import { setVersionGap } from '../render/bag.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
 import { waysAt } from '../render/ways.js';
@@ -295,14 +293,14 @@ export function createScreens(app, ui) {
   }
 
   const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade }); // the card table (D-573)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide }); // the card table (D-573)
 
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
     pressKey } = createWorldScreens(app, ui, show, mapFloor, menuOf, titleAt); // the world screens (D-468)
   function pause() {
     if (cards[app.screen]) cards[app.screen].close(); // the card table (D-573)
-    else if (app.screen === 'map' || app.screen === 'bag' || app.screen === 'place' || app.screen === 'bed') show('play');
+    else if (app.screen === 'map' || app.screen === 'bed') show('play');
     else if (app.screen === 'explore') closeExplorer();
     else if (app.screen === 'play') { app.queued = null; show('paused'); } // a step waiting in line is dropped
     else if (app.screen === 'paused') show('play'); // Esc or P again resumes
@@ -361,13 +359,11 @@ export function createScreens(app, ui) {
   // § choosing: a menu line picked; New journey starts in a new world (D-187), asking first
   // while one is saved; Continue and Back to title keep the journey (D-238)
   function choose(i = app.chosen) {
-    if (app.screen === 'place') return; // Enter and Space don't pick a side
     if (cards[app.screen]) { cards[app.screen].pick(i); return; } // the card table (D-573)
     const id = menuOf(app.screen)[i]?.id;
     if (app.screen === 'seed') { pressKey(PAD[i].id); return; }
     if (app.screen === 'name') { pressName(NAME_PAD[i].id); return; }
     if (app.screen === 'cloak') { pressLook(i); return; }
-    if (app.screen === 'bag') { useChosen(); return; }
     if (app.screen === 'howto') { flipPage(); return; } // Enter turns to the next tab
     if (app.screen === 'history') { fitHistory(); openVersion(i); return; }
     if (app.screen === 'journal') { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); return; } // Enter turns to Growth, and there buys the picked upgrade
@@ -408,8 +404,6 @@ export function createScreens(app, ui) {
     if (app.screen === 'seed') { app.chosen = moveKey(app.chosen, dir); return; }
     if (app.screen === 'name') { app.chosen = moveName(app.chosen, dir); return; }
     if (app.screen === 'cloak') { moveLookBy(dir); return; }
-    if (app.screen === 'place') { setToward(dir); return; }
-    if (app.screen === 'bag') { moveBag(dir); return; } // a 3 × 2 grid (D-385), bigger with the Pouch (D-548), the gear row above it (D-554)
     if (app.screen === 'howto') { if (dir === 'left' || dir === 'right') flipPage(dir === 'left'); return; } // the tabs (D-390)
     if (app.screen === 'journal') { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); return; } // the tabs (D-391), on Growth its tree (D-481)
     if (ASKS.has(app.screen)) { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); return; } // YES and NO side by side (D-400)
@@ -445,7 +439,6 @@ export function createScreens(app, ui) {
       else if (py < win().y + win().h) tapStairs(px, py); // not through the Explorer's row
       return;
     }
-    if (app.screen === 'place') { if (!held) tapSide(px, py); return; }
     if (app.screen === 'paused') {
       if (held) return;
       const at = pauseCardAt(px, py, view.w, view.h, PAUSE_MENU.length);
@@ -473,19 +466,6 @@ export function createScreens(app, ui) {
       const at = howtoAt(px, py, view.w, view.h);
       if (at === 'out' || at === 'close') closeHowTo(); // the round cross goes back (D-390)
       else if (at) openPage(at.page);
-      return;
-    }
-    if (app.screen === 'bag') {
-      if (held) return;
-      const s = app.state.bag[app.chosen], g = gearChosen(app.chosen); // a gear slot chosen: only Take off's corner (D-554)
-      const at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state), g >= 0, canStore());
-      if (at === 'out' || at === 'close') show('play');
-      else if (at === 'store') { pickStore(); storeNear(); }
-      else if (at === 'sort') { pickSort(); sortBag(); }
-      else if (at === 'drop') dropChosen();
-      else if (at === 'act' || at === 'make') useChosen(at === 'make');
-      else if (at?.gear !== undefined) pickGear(at.gear);
-      else if (at) pickSlot(at.slot);
       return;
     }
     if (app.screen === 'seed') {
