@@ -153,14 +153,6 @@ has a safety net: an error in one frame is logged once and the next
 frame still comes. The bag's STORE for nearby chests (D-555) stays
 Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
 
-**D-560 · 2026-11-02 · Crafting from chests** (the owner's picks, all
-recommended; the last of D-553) The workbench reads the chests in
-STORE's reach (D-558): on the surface, a 13 × 13 square round the hero.
-Its card shows one total per cost, "3 / 5 Wood", the bag and those
-chests together, and MAKE is dim only when all of them hold too few.
-Make takes from the bag first, then the nearest chest, then the next.
-D-556 moved to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-561 · 2026-11-02 · The garden next** (the owner's pick, recommended;
 answers part of Q-076) With the inventory steps done, the garden (step
 14) comes before another new creature kind. Which kind comes after it
@@ -196,3 +188,18 @@ chosen, it says "A seed from the gloamberry.", "It wants soft ground."
 or "Something might grow from this." With no room, "You can't carry
 more seeds." (short, to fit the line). D-558 and D-559 moved to
 `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-565 · 2026-11-02 · The garden bed** (the owner's picks, all
+recommended; garden step 2, builds D-562; mock-up:
+https://claude.ai/artifact/37qinvZtXiBapZfNzFvDKU) The place to plant is
+the **Garden Bed**, look A, a low plank box in the trunk's browns with
+rows of dark soil in the earth's colours. It is the workbench's last
+slot, made from 3 Wood and 2 Stone, a turn; one is carried, set down on
+the surface the bed's way. Bumped, day or night, it opens the bed's ask
+card, "Deconstruct garden bed?", "Nothing grows here yet.", Yes taking
+it back, No picked. Its lines: "You make a garden bed.", "You set down
+the garden bed.", "You take down the garden bed.", "You already carry a
+garden bed.", "You need 3 Wood, 2 Stone."; chosen in the bag, "A box of
+soft soil.", "Set it down on the surface." or "Seeds grow in it." The
+workbench, chest and bed in `GLOSSARY.md` moved to `GLOSSARY-2.md`,
+word for word, and D-560 to `archive/DECISIONS-BAGS.md`.

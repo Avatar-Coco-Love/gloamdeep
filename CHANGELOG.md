@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.27 (2026-11-02)
+- You can make a garden bed now: it is the last slot on the workbench's card, from 3 Wood and 2 Stone. It takes a turn.
+- Set it down on the surface from the bag, as you do the bed. It is a low wooden box of dark soil, a place to plant your Gloamberry Seeds at the next step.
+- Walk into it to take it back: a card asks "Deconstruct garden bed?" with "Nothing grows here yet." Yes puts it back in your bag.
+- Decisions: D-565.
+
 ## 0.3.26 (2026-11-02)
 - Gloamberries make a seed now: choose them in the bag and press Make (or C) to turn 3 Gloamberries into 1 Gloamberry Seed. It takes a turn, as making a potion does.
 - The Gloamberry Seed is a small brown pip with a tiny green shoot. It stacks to 20. It does nothing yet: the garden bed to plant it in comes at the next step.
@@ -109,9 +115,3 @@ Entry format:
 - It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.
 - Beaten, it may leave a Snapcap Gill, which the peddler buys for 1 coin; its recipes come later.
 - Decisions: D-543, D-544.
-
-## 0.3.10 (2026-11-01)
-- A new creature, the mole, now turns up from depth 5 down. It chases you once it sees you in the light, and it never flees.
-- It has 4 hearts, the most of any creature so far, and bites for 1, with a low snuffle and a scrape of claws.
-- Beaten, it may leave Mole Fur, which the peddler buys for 1 coin, and now and then a rare Mole Claw, which the peddler buys for 5; their recipes come later.
-- Decisions: D-541, D-542.

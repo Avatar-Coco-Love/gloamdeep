@@ -84,20 +84,6 @@ this page and a decision disagree, the decision wins.
   break it for 2 Wood (D-316).
 - **Stump:** what a chopped tree leaves; four bumps fell a tree for 3 Wood,
   and the stump grows back into it (D-317).
-- **Workbench:** made in the bag from 3 Wood, set down on the surface;
-  bigger things are made at it, on its panel, from the bag and chests near
-  (D-560), where Deconstruct workbench puts it back in the bag (D-314,
-  D-319, D-320, D-322, D-323).
-- **Stash chest:** made at the workbench from 3 Wood and 3 Stone, set down
-  on the surface, opened by walking into it; each one keeps 12 slots of its
-  own, a picked stack moving between it and the bag, and taken down only
-  when empty (D-021, D-324, D-325, D-326, D-330, D-331, D-340).
-- **Bed, sleep, rested:** the first home piece, from the workbench, set
-  down on the surface; bumped from dusk, the hero sleeps until morning
-  and wakes healed and rested, a gold heart after the red (D-488).
-- **Station:** a place to make one bigger craft family, built at home on
-  the surface: forge, kitchen fire, power bench, altar (D-455). Not in
-  the game yet.
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299).
@@ -113,6 +99,10 @@ this page and a decision disagree, the decision wins.
   come about 1 in 5 (D-486).
 - **Heart Charm:** the second charm, worn beside it; worn, the oil
   burns a sixth slower (D-487).
+
+## Home
+Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,
+stash chest, bed, station; the garden bed joined them there.
 
 ## Creatures, people
 Moved to `GLOSSARY-2.md` word for word at 0.3.3 (D-531): creatures,
