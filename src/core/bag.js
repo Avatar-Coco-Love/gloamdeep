@@ -2,7 +2,7 @@
 // kind of item, as a stack with its count: [{ id, n }]. Items with `bag` in
 // the registry go into it when walked onto. The weapon in hand is apart from
 // it, in `state.held`: an item id, or null (D-252). Plain data, no drawing.
-import { get } from './registry.js';
+import { get, byKind } from './registry.js';
 
 export const BAG_SLOTS = 6;
 // § size: the bag's slots, `state.bagSlots`, 6 until the Pouch (9) and the Big Bag (12)
@@ -69,6 +69,22 @@ export function bagPay(bag, of) {
     return b;
   }, bag);
 }
+
+// § sort: the bag lined up by kind in the game's own list, items.js's order (D-559); a
+// kind's stacks joined, full ones first and the rest last (D-333), each kind keeping its
+// first stack's look (D-314). An id the list lacks goes last, in the order it was in
+const ORDER = new Map(byKind('item').map((e, i) => [e.id, i]));
+export function sortBag(bag) {
+  const at = (id) => ORDER.get(id) ?? ORDER.size;
+  const kinds = [...new Set(bag.map((s) => s.id))].sort((a, b) => at(a) - at(b));
+  return kinds.flatMap((id) => {
+    const { form } = bag.find((s) => s.id === id), shown = form === undefined ? {} : { form }, out = [];
+    for (let left = carried(bag, id); left > 0; left -= most(id)) out.push({ id, n: Math.min(left, most(id)), ...shown });
+    return out;
+  });
+}
+// Whether two bags hold the same stacks in the same order
+export const sameBag = (a, b) => a.length === b.length && a.every((s, i) => s.id === b[i].id && s.n === b[i].n && s.form === b[i].form);
 
 // A state from a save older than the bag gets an empty one, and one older
 // than the held slot an empty hand (D-252)

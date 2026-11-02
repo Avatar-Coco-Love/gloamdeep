@@ -154,17 +154,6 @@ button in the bag, lining it up by kind and joining half stacks; and
 crafting at the workbench from chests standing on the surface. One
 visible change per step (D-018).
 
-**D-554 · 2026-11-01 · Take off** (the owner's picks, all recommended;
-the first step of D-553, builds D-552) A gear slot is chosen by a tap,
-framed in gold as a bag slot is, its piece's name, its slot's name and
-its Look line on the item side. The Weapon's and the Tool's show TAKE
-OFF in the bottom right corner: the piece goes back into the bag, free,
-"You put the spear away." (knife, stone pick alike), "Your bag is full."
-with no room, the slot kept chosen. A worn piece chosen shows its words
-and no button (D-484). On a keyboard, Up from the bag's top row reaches
-the gear row, Left and Right move along it, Down goes back, Enter takes
-off. With the hand empty the hero hits with the lantern, as before.
-
 **D-555 · 2026-11-02 · Store from the bag, too** (the owner's ask and
 picks; adds to D-553) Store matching comes in two buttons, each its own
 step: first STORE on a chest's card, filling that chest only; then a
@@ -201,3 +190,14 @@ holding a stack's kind fills first, then the next. When some must stay,
 (short, to fit the text line; "The chests are full." when nothing
 fits), "The chest is full." with one. On a keyboard, Up from the gear row reaches STORE,
 Down goes back.
+
+**D-559 · 2026-11-02 · Sort in the bag** (the owner's picks, all
+recommended; the Sort of D-553) A small SORT sits in the bag's title
+strip, always: just left of STORE, or in its place beside the cross
+when STORE is hidden. It lines the bag up by kind in the game's own list
+(items.js's order: oil and healing first, things made last) and joins a
+kind's half stacks, full ones first and the rest last, keeping the first
+stack's look. Free: "You sort the bag.", or "The bag is in order." when
+nothing would change. On a keyboard, Up from the gear row reaches STORE
+when it shows, else SORT; Left and Right go between them, Down goes
+back. D-554 moved to `archive/DECISIONS-BAGS.md`, word for word.

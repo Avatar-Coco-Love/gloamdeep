@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.22', date: '2026-11-02', title: 'Sort in the bag', lines: [
+    "A small Sort button sits in the bag's title strip, always: just left of Store, or beside the cross when Store is hidden. It lines your bag up in the game's own order (oil and healing first, things you made last) and joins half stacks, the full ones first, free.",
+    "It says \"You sort the bag.\", or \"The bag is in order.\" when nothing would change.",
+    "On a keyboard, press Up from the gear row to reach Sort (Store when it shows, then Left for Sort), and Down to go back.",
+    "Decisions: D-559.",
+  ] },
   { v: '0.3.21', date: '2026-11-02', title: 'Store from the bag', lines: [
     "A small Store button sits in the bag's title strip, just left of the cross, when you are on the surface with a stash chest within 6 tiles. It sends each stack in your bag to the chests nearby that already hold that kind, the nearest chest first, free.",
     "It says how many stacks moved, \"Nothing to store.\" when none match, and \"Chests full.\" after the count when some had to stay in your bag (\"The chest is full.\" with only one chest nearby).",

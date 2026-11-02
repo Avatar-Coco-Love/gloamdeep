@@ -38,7 +38,7 @@ this page and a decision disagree, the decision wins.
 - **Lantern, oil:** the light the hero carries and what it burns.
 - **Flask:** oil to pour into the lantern, from the bag (D-247, D-249).
 - **Quick slot:** the round button left of the lantern that pours a flask (D-384).
-- **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339). A Pouch makes it 9 slots, then a Big Bag 12, made at the workbench (D-545, D-547).
+- **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339). A Pouch makes it 9 slots, then a Big Bag 12, made at the workbench (D-545, D-547). **Store** sends its stacks to chests nearby (D-558); **Sort** lines it up by kind and joins half stacks, free (D-559).
 - **Drop:** the bag's button that sets the chosen stack down at the hero's feet, free, to take back by stepping on it; on a find, a swap (D-546).
 - **Oilcap:** an amber mushroom, the first resource, one in every
   generated room; 3 make an oil flask (D-296, D-299).

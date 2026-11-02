@@ -1,9 +1,10 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552, D-554)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
 fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
-moved the same way at 0.3.20 (D-557).
+moved the same way at 0.3.20 (D-557), and D-554, Take off, at 0.3.22
+(D-559).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -64,3 +65,14 @@ second Look line becomes "Hold it to use it." A save upgrades with its
 pick moved from the bag into the slot (format 9 to 10). Tapping the row
 does nothing yet. D-549 and D-550 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-554 · 2026-11-01 · Take off** (the owner's picks, all recommended;
+the first step of D-553, builds D-552) A gear slot is chosen by a tap,
+framed in gold as a bag slot is, its piece's name, its slot's name and
+its Look line on the item side. The Weapon's and the Tool's show TAKE
+OFF in the bottom right corner: the piece goes back into the bag, free,
+"You put the spear away." (knife, stone pick alike), "Your bag is full."
+with no room, the slot kept chosen. A worn piece chosen shows its words
+and no button (D-484). On a keyboard, Up from the bag's top row reaches
+the gear row, Left and Right move along it, Down goes back, Enter takes
+off. With the hand empty the hero hits with the lantern, as before.

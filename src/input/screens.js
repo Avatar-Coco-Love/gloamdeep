@@ -89,7 +89,7 @@ import { askCardAt } from '../render/askcard.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { addHeart, movePick, told, START_PICK } from '../core/growth.js';
 import { journalAt } from '../render/journal.js';
-import { bagAt, twoButtons, setVersionGap, gearChosen, BAG_STORE } from '../render/bag.js';
+import { bagAt, twoButtons, setVersionGap, gearChosen, BAG_STORE, BAG_SORT } from '../render/bag.js';
 import { benchAt } from '../render/benchpanel.js';
 import { pauseCardAt } from '../render/pausecard.js';
 import { settingsCardAt } from '../render/settingscard.js';
@@ -294,7 +294,7 @@ export function createScreens(app, ui) {
 
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear${canStore() ? ', Up again Store, for the chests nearby' : ''}, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -312,17 +312,20 @@ export function createScreens(app, ui) {
   }
   // The arrows on the bag: Up from its top row onto the gear row, Left and Right along it,
   // Down back to the bag's top row (D-554)
-  // Up from the gear row reaches the bag's STORE when it shows, Down from it the gear row's
-  // right end, under it (D-558)
+  // Up from the gear row reaches the bag's STORE when it shows, else its SORT; Left and Right
+  // go between them; Down from either the gear row's right end, under them (D-558, D-559)
   const canStore = () => chestsNear(app.state).length > 0;
   function pickStore() { app.chosen = BAG_STORE; spoken.textContent = 'Store, in the chests nearby'; }
   function storeNear() { ui.storeNear(); spoken.textContent = 'Store, in the chests nearby'; }
+  function pickSort() { app.chosen = BAG_SORT; spoken.textContent = 'Sort the bag'; }
+  function sortBag() { ui.sortBag(); spoken.textContent = `Sorted. ${app.state.bag.map((s, i) => slotWords(i)).join('. ') || 'Empty'}`; }
   function moveBag(dir) {
     const g = gearChosen(app.chosen), c = cols();
-    if (app.chosen === BAG_STORE) { if (dir === 'down') pickGear(GEAR.length - 1); return; }
+    if (app.chosen === BAG_STORE) { if (dir === 'down') pickGear(GEAR.length - 1); else if (dir === 'left') pickSort(); return; }
+    if (app.chosen === BAG_SORT) { if (dir === 'down') pickGear(GEAR.length - 1); else if (dir === 'right' && canStore()) pickStore(); return; }
     if (g >= 0) {
       if (dir === 'down') pickSlot(Math.min(g, c - 1, bagSize(app.state) - 1));
-      else if (dir === 'up') { if (canStore()) pickStore(); }
+      else if (dir === 'up') { if (canStore()) pickStore(); else pickSort(); }
       else pickGear(Math.min(GEAR.length - 1, Math.max(0, g + (dir === 'left' ? -1 : 1))));
       return;
     }
@@ -341,6 +344,7 @@ export function createScreens(app, ui) {
   }
   function useChosen(make = false) {
     if (app.chosen === BAG_STORE) { if (!make) storeNear(); return; }
+    if (app.chosen === BAG_SORT) { if (!make) sortBag(); return; }
     if (gearChosen(app.chosen) >= 0) { if (!make) takeOffChosen(); return; }
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
     if (make && !entry?.craft) return;
@@ -656,6 +660,7 @@ export function createScreens(app, ui) {
       const at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state), g >= 0, canStore());
       if (at === 'out' || at === 'close') show('play');
       else if (at === 'store') { pickStore(); storeNear(); }
+      else if (at === 'sort') { pickSort(); sortBag(); }
       else if (at === 'drop') dropChosen();
       else if (at === 'act' || at === 'make') useChosen(at === 'make');
       else if (at?.gear !== undefined) pickGear(at.gear);

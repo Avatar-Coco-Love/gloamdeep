@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.21 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.22 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sort in the bag (D-553, D-555): propose where its button sits, the
-order it lines the bag up in, and how it joins half stacks. Then
-crafting from chests; Q-076 waits after.
+Crafting from chests (D-553, D-555): propose which chests the
+workbench reads (standing on the surface, how near), how its card shows
+what they hold, and which it takes from first. Q-076 waits after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -48,6 +48,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.22, Sort in the bag.** All recommended: a small
+  SORT left of the bag's STORE, or beside the cross alone; the game's
+  own list; full stacks first; free, "You sort the bag." (D-559).
+  Playtest: https://claude.ai/artifact/Lg6Dt44EDhCF73s9BSgpX5
 - **2026-11-02, 0.3.21, Store from the bag.** All recommended: a
   small STORE left of the bag's cross, on the surface with a chest
   within 6 tiles (a square); nearest chest first; Up from the gear row
@@ -58,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   broke on the fall's picture). Both recommended: the picture keeps
   the world as it was, and a safety net keeps frames coming (D-557).
   Playtest: https://claude.ai/artifact/RFZrt5Hp7otSPN7o2xkTDx
-- **2026-11-02, 0.3.19, Store on the chest.** All recommended: STORE in
-  the chest card's bottom right, apart from DECONSTRUCT; what fits
-  moves, "You store 2 stacks. The chest is full."; Down from the bag's
-  bottom row reaches it (D-556). Playtest:
-  https://claude.ai/artifact/7raQQTtqjoLL1Gs3PYMDCP
