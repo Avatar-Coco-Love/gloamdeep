@@ -66,6 +66,7 @@ src/input/screens.js  the title, menus, map and Seed Explorer (D-235)
 src/input/profilescreens.js  a new profile's name and look, Rename, Look (D-421)
 src/input/explorerscreens.js the Seed Explorer, the ways to play, the seed pad (D-468)
 src/input/cardscreens.js  the bag, Drop, setting down, the bench, chest, bed and trade cards (D-570)
+src/input/cards/    a card's keys, taps and picks, one file each, in table.js (D-573)
 src/render/frame.js   draws each frame from the shared `app` (D-235)
 src/core/           rules, state, rng, registry, noise (no DOM);
                     one file per content kind, gathered by registry.js (D-048)

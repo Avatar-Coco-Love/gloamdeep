@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.33 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.34 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The eighth audit, part 3 on (D-571): the table of screens, each card in
-its own small file, a few cards a PR, nothing visible changed; after
-them, Q-076.
+The eighth audit, part 4 on (D-571, D-573): more cards into
+`src/input/cards/`, a few a PR (the bag and setting down, the bed, the
+menus), nothing visible changed; after them, Q-076.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.34, the eighth audit, part 3.** All recommended: the
+  workbench, chest and peddler cards each get a file in
+  `src/input/cards/` with pick, arrows, tap and close, moved word for
+  word; `screens.js` asks `cards/table.js` first; a test checks every
+  card in it answers all four and closes (D-573). Nothing visible.
 - **2026-11-02, 0.3.33, the eighth audit, part 2.** All recommended:
   `node tools/release.js` sets VERSION, copies the changelog into the
   history (its title from this log), keeps the changelog and this log at
@@ -57,7 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   pieces gone; the PR checklist leaves `CLAUDE.md` (8.0 to 5.9 KB); the
   peddler's Sell slots read aloud again (D-570). Next: a record-keeping
   tool, then a table of screens (D-571). Nothing visible.
-- **2026-11-02, 0.3.31, Feeding.** All recommended: a sprout's card
-  shows Feed and Deconstruct; Feed puts 1 Bat Guano on its soil, flecks
-  showing, and it grows 150 turns from planting, not 300, once; water
-  waits (D-569). Playtest: https://claude.ai/artifact/1KgLfT9bYKdDWKnnD2CWKE

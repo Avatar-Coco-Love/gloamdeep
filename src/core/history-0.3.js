@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.34', date: '2026-11-02', title: 'The eighth audit, part 3', lines: [
+    "Behind the scenes, nothing you see has changed: the eighth audit, part 3. The workbench, chest and peddler cards each have their own small file for their keys, taps and picks, and the game looks them up in a table, so a new card is one file.",
+    "Decisions: D-573.",
+  ] },
   { v: '0.3.33', date: '2026-11-02', title: 'The eighth audit, part 2', lines: [
     "Behind the scenes, nothing you see has changed: the eighth audit, part 2. A new tool keeps the game's records: one command sets the version number, copies these notes into the Version history, and moves older notes to the archive.",
     "Decisions: D-572.",

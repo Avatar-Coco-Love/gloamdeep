@@ -149,6 +149,16 @@ file, not three. No decisions finder: one grep (`grep -rn "D-412 ·"
 docs`) already finds any decision, and an index is one more file to keep.
 Q-076 waits until they are done.
 
+**D-573 · 2026-11-02 · The table of screens** (the owner's picks, all
+recommended; part 3 of D-571) Each card's file in `src/input/cards/`
+returns `{ pick, dir, tap, close }`: Enter or a picked slot, an arrow or
+swipe, a tap, and Esc or P. `cards/table.js` lists them by screen name,
+and `screens.js` asks it first in `choose`, `onDir`, `onPoint` and
+`pause`; spoken words and drawing stay where they are for now. First the
+workbench, chest and peddler cards, moved word for word. A test checks
+every card in the table has all four and that a tap outside or Esc
+closes it.
+
 **D-572 · 2026-11-02 · The record-keeping tool** (the owner's picks, all
 recommended; part 2 of D-571) The new top entries of `CHANGELOG.md` and
 `PROGRESS.md`'s log are written by hand; `node tools/release.js` then sets
