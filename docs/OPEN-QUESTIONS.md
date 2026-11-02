@@ -124,9 +124,3 @@ Which boons go in the home waystone's pool, with their numbers, across
 light and oil, hearts and fighting, finding things and getting around?
 How the choice looks and sounds is asked too. Shown as a list before
 the boons step.
-
-**Q-078 · Rare fallback rooms in the dungeon** (raised 2026-11-02, found
-at 0.3.42) When a dungeon room can't be made from its seed in 200 tries,
-the crypt's second room stands in for it, which breaks that floor's
-openings. Before and after 0.3.42, about 1 seed in 180 has one at depth 8
-or 9. More tries, a looser fit, or another fix?

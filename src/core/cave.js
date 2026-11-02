@@ -21,6 +21,10 @@ export const byArea = (n, cols, rows) => Math.round((n * cols * rows) / (COLS * 
 const TRIES = 200;
 // A room with someone trapped in it gets more tries, since a spot for the ring is rarer (D-580)
 const TRAPPED_TRIES = 600;
+// § second round: when every try fails, up to this many more, in which the corridors keep
+// clear of the stairs up and the wall above them, so a doorway beside them still joins up
+// (D-585). Only rooms no first-round try could make reach it, so every other room stays as it was.
+const MORE_TRIES = 400;
 // The share of rooms with a heartcap (D-303)
 export const HEARTCAP_ODDS = 0.5;
 
@@ -35,9 +39,10 @@ export const HEARTCAP_ODDS = 0.5;
 // `ways.trapped`: the person trapped in a ring of rubble there, if any (D-490); a
 // try with no spot for the ring is made again, so the room always has one (D-580).
 export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false, cols = COLS, rows = ROWS, trapped = null } = {}) {
-  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel;
-  for (let i = 0; i < (trapped ? TRAPPED_TRIES : TRIES); i++) {
-    const g = carve(r, cols, rows), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig), up, down, dig), up, down, rats, second, weapon);
+  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel, first = trapped ? TRAPPED_TRIES : TRIES;
+  for (let i = 0; i < first + MORE_TRIES; i++) {
+    const clear = i >= first && up && typeof up === 'object' ? [up, { x: up.x, y: up.y - 1 }] : null; // the stairs up and the wall above them
+    const g = carve(r, cols, rows), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig, clear), up, down, dig, clear), up, down, rats, second, weapon);
     if (!room) continue;
     const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
     const done = pool ? withPool(seed, made) : made;
@@ -50,29 +55,41 @@ export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, 
 
 // § doors: each opening is a gap in the edge, with a tunnel in from it to the
 // nearest open tile (D-201), straight in halls (D-228). The tile just inside
-// is where the hero comes in.
+// is where the hero comes in. In the second round, `clear` holds the stairs up and the
+// wall above them: no tunnel heads for them, and an opening beside that wall first
+// takes one step away from the stairs (D-585).
 const EDGE = { up: (at) => [{ x: at, y: 0 }, { x: at, y: 1 }], down: (at, w, h) => [{ x: at, y: h - 1 }, { x: at, y: h - 2 }],
   left: (at) => [{ x: 0, y: at }, { x: 1, y: at }], right: (at, w) => [{ x: w - 1, y: at }, { x: w - 2, y: at }] };
-function openDoors(r, g, doors, dig) {
-  const inside = tilesWhere(g, (x, y) => g[y][x] === '.');
+function openDoors(r, g, doors, dig, clear = null) {
+  const inside = tilesWhere(g, (x, y) => g[y][x] === '.' && !(clear || []).some((c) => same(c, { x, y })));
   const out = doors.map(({ dir, at }) => {
     const [edge, inner] = EDGE[dir](at, g[0].length, g.length), to = inside.reduce((a, b) => (dist(b, inner) < dist(a, inner) ? b : a));
     g[edge.y][edge.x] = '.'; g[inner.y][inner.x] = '.';
-    dig(r, g, inner, to);
+    dig(r, g, clear && dist(inner, clear[1]) === 1 ? stepAway(g, inner, clear) : inner, to, clear);
     return inner;
   });
   g.doors = out;
   return g;
 }
+// The tile beside `inner`, off the edge and not touching the stairs, farthest from them,
+// opened; `inner` itself when there is none
+function stepAway(g, inner, [stairs, above]) {
+  const ns = WAYS.map(([dx, dy]) => ({ x: inner.x + dx, y: inner.y + dy })).filter((n) => !onEdge(g, n) && !same(n, above) && dist(n, stairs) > 1);
+  if (!ns.length) return inner;
+  const at = ns.reduce((a, b) => (dist(b, stairs) > dist(a, stairs) ? b : a));
+  g[at.y][at.x] = '.';
+  return at;
+}
 
 // § stairs to fit: each stairs tile set is opened, with a tunnel to the
-// nearest open tile, and the stairs up get their wall above (D-143, D-202)
-function openStairs(r, g, up, down, dig) {
+// nearest open tile, and the stairs up get their wall above (D-143, D-202); in the second
+// round the tunnel from the stairs up keeps off that wall (D-585)
+function openStairs(r, g, up, down, dig, clear = null) {
   for (const t of [up, down]) {
     if (typeof t !== 'object' || !t) continue;
     const inside = tilesWhere(g, (x, y) => g[y][x] === '.' && !same({ x, y }, t));
     g[t.y][t.x] = '.';
-    if (inside.length) dig(r, g, t, inside.reduce((a, b) => (dist(b, t) < dist(a, t) ? b : a)));
+    if (inside.length) dig(r, g, t, inside.reduce((a, b) => (dist(b, t) < dist(a, t) ? b : a)), clear && t === up ? [clear[1]] : null);
   }
   if (up && typeof up === 'object') g[up.y - 1][up.x] = '#';
   return g;
@@ -417,10 +434,12 @@ function halls(r, cols, rows) {
   return g;
 }
 
-// A one-tile corridor from `from` to `to`, along one way and then the other
-function lane(r, g, from, to) {
-  let { x, y } = from;
-  const across = r() < 0.5;
+// A one-tile corridor from `from` to `to`, along one way and then the other; the other
+// way round when the first would cross a tile in `avoid` and the other wouldn't (D-585)
+function lane(r, g, from, to, avoid = null) {
+  let { x, y } = from, across = r() < 0.5;
+  const crosses = (way) => lanePath(from, to, way).some((t) => avoid.some((a) => same(a, t)));
+  if (avoid?.length && crosses(across) && !crosses(!across)) across = !across;
   for (const way of across ? ['x', 'y'] : ['y', 'x']) {
     while (way === 'x' ? x !== to.x : y !== to.y) {
       g[y][x] = '.';
@@ -428,6 +447,19 @@ function lane(r, g, from, to) {
     }
   }
   g[y][x] = '.';
+}
+
+// The tiles a lane from `from` to `to` passes, after `from`
+function lanePath(from, to, across) {
+  let { x, y } = from;
+  const out = [];
+  for (const way of across ? ['x', 'y'] : ['y', 'x']) {
+    while (way === 'x' ? x !== to.x : y !== to.y) {
+      if (way === 'x') x += Math.sign(to.x - x); else y += Math.sign(to.y - y);
+      out.push({ x, y });
+    }
+  }
+  return out;
 }
 
 const SHAPES = { chambers, burrows, halls };

@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.43', date: '2026-11-02', title: 'No more stand-in rooms', lines: [
+    "Fixed: now and then a dungeon room deep down came out as a small crypt room instead, so its openings and stairs didn't line up. Those rooms are now made properly; every other room stays exactly as it was.",
+    "A journey saved with one of those crypt rooms has just that room made again, once. If you were in it, you stand on that floor's stairs up.",
+    "Decisions: D-585. Questions closed: Q-078.",
+  ] },
   { v: '0.3.42', date: '2026-11-02', title: 'Smaller floors', lines: [
     "Smaller shallow floors: the caves on depths 2 to 4 are now 13 × 15 tiles and the warrens on 5 to 7 are 15 × 17, so the stairs are closer and the oil goes further. The dungeon from depth 8 stays 17 × 20. Fewer chambers and tunnels fill the smaller rooms; what lies in them stays the same, and still pools turn up a little less often.",
     "The peddler on depth 3 is always there: his room is made again until his ring of rubble fits.",

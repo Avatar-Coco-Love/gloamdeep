@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.40, getting around.** Docs only. All recommended:
+  waystones to wake for fast travel, one near the home room's centre and
+  one at the top of each band of floors (D-579); floors grow with depth,
+  13 × 15, 15 × 17, 17 × 20 (D-580); faint motes drift toward the stairs
+  (D-581); these three come first, then Q-076 (D-582). Nothing visible.
 - **2026-11-02, 0.3.39, the eighth audit, part 8.** All recommended: the
   profiles, name pad, look card, seed pad, Explorer and map each get a
   file in `src/input/cards/` (the map and the Explorer share one), moved

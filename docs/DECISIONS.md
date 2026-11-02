@@ -159,3 +159,16 @@ generated room is made again from the same seed at its new size, the
 dungeon's too, since its stairs hang from the floor above; a hero down
 there stands on that floor's stairs up, a bag left there lies on them,
 and a peddler already freed stays freed.
+
+**D-585 · 2026-11-02 · No more stand-in rooms** (the owner's picks,
+recommended; answers Q-078) A dungeon room fell back to the crypt's
+second room when a doorway lay diagonally above its stairs up, beside
+the wall above them, mostly in a corner: 62 rooms in seeds 1 to 2000 at
+depths 8 to 20. When all of a room's 200 tries (600 for the peddler's)
+fail, a second round of up to 400 more runs, in which the corridors keep
+clear of the stairs up and that wall, and such a doorway first steps one
+tile away from them. Only rooms that fell back reach it, so every other
+room stays exactly as it was; no room falls back in seeds 1 to 6000 at
+depths 8 to 20. A save holding a stand-in has just those rooms made
+again, once, from their seeds; a hero in one goes to that floor's
+stairs up.
