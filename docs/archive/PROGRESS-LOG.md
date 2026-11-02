@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.22, Sort in the bag.** All recommended: a small
+  SORT left of the bag's STORE, or beside the cross alone; the game's
+  own list; full stacks first; free, "You sort the bag." (D-559).
+  Playtest: https://claude.ai/artifact/Lg6Dt44EDhCF73s9BSgpX5
 - **2026-11-02, 0.3.21, Store from the bag.** All recommended: a
   small STORE left of the bag's cross, on the surface with a chest
   within 6 tiles (a square); nearest chest first; Up from the gear row

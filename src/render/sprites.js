@@ -570,8 +570,9 @@ export function drawItems(c, items, t, still) {
   }
 }
 
-// § enemies: like items, 2 pixels up on a shadow. The rat bobs 1 pixel every
-// 0.52 s, each column in its own beat; still with reduced motion (study line 378).
+// § enemies: on a shadow, standing still with no bob, each sprite moved down so its lowest pixel
+// rests just above its shadow, as the rat's feet do; one that `flies` held a fixed FLY_LIFT
+// higher (D-563). Asleep or shut, it bobs as the find it copies does (D-368, D-543).
 // `hits`: the enemies flashing white just now, the spear's two at most (D-105, D-479). A hit that
 // killed it still flashes it once, then it is gone (D-113).
 // `at`: (enemy) → the tile it is shown on, part way along while it slides (D-128).
@@ -591,8 +592,20 @@ function drawEnemy(c, e, p, t, still, flash, hero) {
   if (e.asleep && !flash) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
   const shutAs = get(e.id)?.shutAs;
   if (shutAs && !flash && !beside(e, hero)) return drawItems(c, [{ id: shutAs, tone: e.tone, x: p.x, y: p.y }], t, still); // shut, a heartcap in its tone (D-543)
-  const bob = still ? 0 : Math.floor(t / 520 + e.x) % 2;
   drawShadow(c, x, y, 8);
   const left = e.facing === 'left';
-  c.drawImage(flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left), x, y - 2 - bob);
+  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left);
+  c.drawImage(sprite, x, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
+}
+const FLY_LIFT = 2; // pixels a flyer is held above its shadow (D-563)
+// the lowest row with a pixel in it, read once per sprite
+const LOWEST = new WeakMap();
+function lowest(sprite) {
+  if (!LOWEST.has(sprite)) {
+    const d = sprite.getContext('2d').getImageData(0, 0, 16, 16).data;
+    let row = 15;
+    while (row > 0 && !Array.from({ length: 16 }, (_, x) => d[(row * 16 + x) * 4 + 3]).some(Boolean)) row--;
+    LOWEST.set(sprite, row);
+  }
+  return LOWEST.get(sprite);
 }

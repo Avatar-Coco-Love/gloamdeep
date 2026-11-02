@@ -197,3 +197,12 @@ The place is a garden bed, made at the workbench and set down on the
 surface the chest's and bed's way, holding one plant. Costs, names,
 looks, lines and numbers are asked at each step. D-553 and D-555 moved
 to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-563 · 2026-11-02 · Creatures stand on the ground** (the owner's
+picks; supersedes D-104's bob) No creature bobs. Each is drawn with its
+lowest pixel resting on its shadow, so none looks off the ground; before,
+the cave spider and snapcap floated 1 pixel, the mole and an awake
+mimic 2. The flyers, the
+bat and the lampmoth, are held a fixed 2 pixels above their shadow
+(registry `flies`). A sleeping mimic or a shut snapcap still bobs as the
+find it copies does, keeping its disguise (D-368, D-543).
