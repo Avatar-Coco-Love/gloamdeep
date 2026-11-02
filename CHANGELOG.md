@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.33 (2026-11-02)
+- Behind the scenes, nothing you see has changed: the eighth audit, part 2. A new tool keeps the game's records: one command sets the version number, copies these notes into the Version history, and moves older notes to the archive.
+- Decisions: D-572.
+
 ## 0.3.32 (2026-11-02)
 - Behind the scenes, nothing you see has changed: the eighth audit, part 1. The bag, Drop, setting down, and the workbench, chest, bed and peddler cards moved into their own file of the code.
 - For screen readers: on the peddler's Sell side, each bag slot is read with its name, how many and its price again, not "Empty". It had been wrong since 0.2.219.
@@ -35,16 +39,3 @@ Entry format:
 - Once is enough: with no guano, or already fed, Feed is dim. After picking, the sprout needs feeding again. Taken down, the guano is spent.
 - Water doesn't matter to the garden yet; it waits for a way to carry water.
 - Decisions: D-569.
-
-## 0.3.30 (2026-11-02)
-- Pick your garden's berries now: walk into a grown garden bed and its card shows PICK and DECONSTRUCT. Pick gives 3 Gloamberries, one more than a wild bush. It takes a turn.
-- After picking, the bed holds a sprout again, and it grows new berries 300 turns later. Plant a seed once and pick again and again.
-- With a full bag you keep nothing and the berries stay on the bush. With room for only some, the rest drop on the ground nearby, as at a wild bush.
-- Decisions: D-568.
-
-## 0.3.29 (2026-11-02)
-- A planted sprout grows now: 300 turns after planting it becomes a small gloamberry bush with ripe berries. Every turn counts, on the surface and below.
-- The grown bed's card says "Gloamberries grow here." Picking the berries comes at the next step.
-- Deconstruct a grown bed and the bed and its seed come back, as with a sprout.
-- Dev mode: the Room section has a new Grow button that grows every planted garden bed at once.
-- Decisions: D-567.

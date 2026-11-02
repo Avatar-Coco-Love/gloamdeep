@@ -6,6 +6,17 @@ or updating a PR.
 
 ## Keeping track: every PR does all of these
 
+- **Run `node tools/release.js`** (D-572) once the new top entries of
+  `CHANGELOG.md` and the `docs/PROGRESS.md` log are written by hand (the
+  log entry's `- **date, version, title.**` gives the history its title).
+  It sets `VERSION`, copies the changelog lines into the in-game history,
+  keeps the newest 3 changelog and log entries and moves older ones to
+  the archive word for word (with the archive index), and warns when
+  `DECISIONS.md` passes 11 KB. Run it again after any edit to either
+  entry. `npm test` runs `node tools/release.js --check` and fails if
+  anything is out of step. The rest of this list is still done by hand
+  where the tool doesn't reach.
+
 - **CHANGELOG.md**: add a new version entry at the top (the format is in its
   header). Each PR has exactly one version. Add the same lines, with a
   short title, at the top of `src/core/history-0.3.js`, the in-game

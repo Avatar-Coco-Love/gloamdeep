@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.32 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.33 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The eighth audit, part 2 (D-571): the record-keeping tool,
-`node tools/release.js`, nothing visible changed. Then part 3 on, the
-table of screens, a few cards a PR; after them, Q-076.
+The eighth audit, part 3 on (D-571): the table of screens, each card in
+its own small file, a few cards a PR, nothing visible changed; after
+them, Q-076.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.33, the eighth audit, part 2.** All recommended:
+  `node tools/release.js` sets VERSION, copies the changelog into the
+  history (its title from this log), keeps the changelog and this log at
+  3, and only suggests moving decisions, past 11 KB; `npm test` runs its
+  `--check` (D-572). Next: the table of screens. Nothing visible.
 - **2026-11-02, 0.3.32, the eighth audit, part 1.** Picked, all
   recommended: the audit spans several PRs. Here: the cards move from
   `screens.js` to `cardscreens.js`; the cave test 20 s to 7 s; two unused
@@ -56,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   shows Feed and Deconstruct; Feed puts 1 Bat Guano on its soil, flecks
   showing, and it grows 150 turns from planting, not 300, once; water
   waits (D-569). Playtest: https://claude.ai/artifact/1KgLfT9bYKdDWKnnD2CWKE
-- **2026-11-02, 0.3.30, Picking.** All recommended: the grown bed's
-  card shows Pick and Deconstruct; Pick gives 3 Gloamberries, a turn,
-  "You pick three gloamberries.", the bed back to a sprout that grows
-  again (D-568). Playtest: https://claude.ai/artifact/8FWgwParz9sbM6tyFea5FH
