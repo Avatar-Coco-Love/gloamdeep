@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, drop, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, panelBeside, look, drop, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -202,7 +202,7 @@ function tryStep(dir) {
   const events = eventsSince(before, state);
   hear(events);
   keepRecords(events);
-  if (fell) fallDown(state.fell);
+  if (fell) fallDown(fallView(before, state)); // the floor's other rooms too, for the round map (D-557)
   const went = !fell && state.place !== before.place;
   if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
     const now = performance.now();
@@ -466,11 +466,18 @@ function update(t) {
     else if (app.hold && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; holdStep(); }
   }
 }
+// § safety net (D-557): an error in one frame is logged, once for each message, and the
+// next frame still comes, so a bug can't freeze the game
+const logged = new Set();
 function loop(t) {
-  if (!screens.onTitle()) update(t);
-  keepJourney();
-  keepPlayed(t);
-  frame.draw(t);
+  try {
+    if (!screens.onTitle()) update(t);
+    keepJourney();
+    keepPlayed(t);
+    frame.draw(t);
+  } catch (err) {
+    if (!logged.has(err?.message)) { logged.add(err?.message); console.error(err); }
+  }
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);

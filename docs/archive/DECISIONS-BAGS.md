@@ -1,8 +1,9 @@
-# Drop and bigger bags (D-545 to D-548)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
-fitting a bigger bag on screen.
+fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
+moved the same way at 0.3.20 (D-557).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -45,3 +46,21 @@ three rows of today's slots don't fit a sideways screen) The Pouch's 9 slots are
 each slot is 26 pixels, not 30, the sprites the same size; the held slot
 stays where it is. It is the same on the bag's, chest's and peddler's
 cards.
+
+**D-552 · 2026-11-01 · Gear slots and the Tool slot** (the owner's ask
+and picks, all recommended; builds D-252, D-458, D-479; supersedes
+D-480's "never held"; mock-up: https://claude.ai/artifact/B9shG61XbWhyfXUBiyyYAg)
+The hero has five gear slots: Weapon (the hand), Tool, Armour and two
+Charms, the owner's list, with D-458's one armour piece and two charms.
+They are one row of small slots across the top of the bag's card, where
+HELD was (layout A); an empty one shows its kind faintly (a knife, the
+pick, the vest, a charm), with "GEAR" after the row when there is room.
+The item's words start under the row; the bag's slots keep their size.
+The Stone Pick goes in the Tool slot: Hold on it in the bag puts it
+there, a turn, "You hold the stone pick.", the one there swapping into
+its bag slot, as a weapon does; made with the slot empty it goes
+straight in. A copper vein breaks only with the pick in that slot. Its
+second Look line becomes "Hold it to use it." A save upgrades with its
+pick moved from the bag into the slot (format 9 to 10). Tapping the row
+does nothing yet. D-549 and D-550 moved to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

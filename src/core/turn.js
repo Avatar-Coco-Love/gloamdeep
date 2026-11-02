@@ -32,7 +32,7 @@ import { dig, talk } from './rescue.js';
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
-export { startOver } from './fall.js';
+export { startOver, fallView } from './fall.js';
 export { pour, craft, makeAt, eat, hold, setDown, takeDown, panelBeside, setSides, look, pourByItself } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid

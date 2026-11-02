@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-01, 0.3.17, Take off.** All recommended: tap a gear slot
+  to choose it, TAKE OFF in the corner for the Weapon and the Tool, free,
+  "You put the spear away."; worn pieces show words, no button; Up from
+  the bag's top row reaches the row (D-554). Playtest:
+  https://claude.ai/artifact/HjsVEEC6ZJdPiLhsEsuoGn
 - **2026-11-01, 0.3.16, gear slots.** The owner asked for weapon, tool,
   armour and charm spots; all recommended: one gear row of five where
   HELD was, the pick works only from the Tool slot (D-552); next Take
