@@ -1,10 +1,11 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552, D-554, D-556)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-556)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
 fitting a bigger bag on screen. D-552, gear slots and the Tool slot,
 moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
-(D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560).
+(D-559), and D-556, Store on the chest's card, at 0.3.23 (D-560). D-553, the inventory steps,
+and D-555, Store from the bag too, at 0.3.24 (D-562).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -84,3 +85,23 @@ DECONSTRUCT. It moves as much as fits; when some must stay in the bag,
 "You store 2 stacks. The chest is full." On a keyboard, Down from the
 bag's bottom row reaches STORE (from the chest's, DECONSTRUCT), Up goes
 back, Left and Right go between the two buttons.
+
+**D-553 · 2026-11-01 · Inventory steps to come** (the owner's picks,
+the recommended ones and craft from chests) After the gear row, each
+its own step: Take off, choosing a gear slot and pressing it to put the
+piece back in the bag, free, "Your bag is full." with no room (worn
+pieces can't come off today, D-484); Store matching on the chest's card,
+moving every bag stack whose kind the chest holds onto it; a Sort
+button in the bag, lining it up by kind and joining half stacks; and
+crafting at the workbench from chests standing on the surface. One
+visible change per step (D-018).
+
+**D-555 · 2026-11-02 · Store from the bag, too** (the owner's ask and
+picks; adds to D-553) Store matching comes in two buttons, each its own
+step: first STORE on a chest's card, filling that chest only; then a
+small STORE in the bag's title strip, showing only on the surface with
+a stash chest within 6 tiles of the hero, sending each bag stack to the
+chests in reach that hold its kind. Both are free and say how much
+moved, "You store 3 stacks.", or "Nothing to store." Then Sort, then
+crafting from chests. D-551 moved to `archive/DECISIONS-CREATURES-2.md`,
+word for word.

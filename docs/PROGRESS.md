@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.23 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.24 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The inventory steps of D-553 are done. Ask Q-076: another new creature
-kind, or the garden first (step 14).
+Garden step 1 (D-562): the Gloamberry seed, made in the bag. Propose
+how many berries make one, its name, look and lines.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -23,7 +23,7 @@ kind, or the garden first (step 14).
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), at the garden's step, after upright.
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- Another new kind, or the garden first (Q-076), after the inventory steps.
+- Which new creature kind next (Q-076), after the garden.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 
@@ -33,7 +33,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [x] 13b The first wild plant, 0.3.3 (D-531)
-- [ ] 14 The garden
+- [ ] 14 The garden: seed, bed, planting, growing, picking, guano and water (D-562)
 - [ ] 15 Fishing
 - [ ] 16 Lore
 - [ ] 17 Relics
@@ -47,6 +47,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.24, The garden next.** Docs only. The garden comes
+  before another creature (D-561), in six steps; the seed made in the
+  bag, a garden bed set down at home (D-562).
 - **2026-11-02, 0.3.23, Crafting from chests.** All recommended: the
   workbench reads the chests in STORE's reach; one total per cost on its
   card; the bag first, then the nearest chest (D-560). Playtest:
@@ -55,8 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   SORT left of the bag's STORE, or beside the cross alone; the game's
   own list; full stacks first; free, "You sort the bag." (D-559).
   Playtest: https://claude.ai/artifact/Lg6Dt44EDhCF73s9BSgpX5
-- **2026-11-02, 0.3.21, Store from the bag.** All recommended: a
-  small STORE left of the bag's cross, on the surface with a chest
-  within 6 tiles (a square); nearest chest first; Up from the gear row
-  reaches it; "Chests full." to fit the line (D-558). Playtest:
-  https://claude.ai/artifact/BQPBVMTTv7WBmYDyst5A8o

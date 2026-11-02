@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.24', date: '2026-11-02', title: 'The garden next', lines: [
+    "Nothing changes in the game. The garden comes next, before another new creature, in six small steps: a Gloamberry seed, made in the bag; a garden bed, made at the workbench and set down at home; planting; growing while you are below; picking; then guano and water.",
+    "Decisions: D-561, D-562.",
+  ] },
   { v: '0.3.23', date: '2026-11-02', title: 'Crafting from chests', lines: [
     "The workbench now uses what is in your stash chests too: on the surface, every chest within 6 tiles of you counts, as for the bag's Store button.",
     "Its card shows one total for each cost, what your bag and those chests hold together, as \"3 / 5 Wood\", and Make is dim only when they all hold too few.",
