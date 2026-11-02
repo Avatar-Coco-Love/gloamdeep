@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.28 (2026-11-02)
+- Plant your Gloamberry Seeds now: walk into a garden bed and its card shows PLANT and DECONSTRUCT. Plant puts one seed in the bed. It takes a turn.
+- A planted bed shows a sprout, two round leaves on a short stem, and its card says "A sprout grows here." Growing comes at the next step.
+- Plant is grey when you carry no seed, or when the bed already holds one.
+- Deconstruct takes the bed back straight away. If a seed was planted, it comes back to your bag too, when there is room.
+- Decisions: D-566.
+
 ## 0.3.27 (2026-11-02)
 - You can make a garden bed now: it is the last slot on the workbench's card, from 3 Wood and 2 Stone. It takes a turn.
 - Set it down on the surface from the bag, as you do the bed. It is a low wooden box of dark soil, a place to plant your Gloamberry Seeds at the next step.
@@ -109,9 +116,3 @@ Entry format:
 - Drop while standing on something your full bag couldn't take, and the two swap: your stack goes down and the find comes into the bag.
 - Bigger bags come later: a Pouch for 9 slots, then a Big Bag for 12, made at the workbench.
 - Decisions: D-545, D-546.
-
-## 0.3.11 (2026-11-01)
-- A new creature, the snapcap, now turns up from depth 2 down. It looks just like a heartcap until you stand beside it; then its eyes and teeth show.
-- It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.
-- Beaten, it may leave a Snapcap Gill, which the peddler buys for 1 coin; its recipes come later.
-- Decisions: D-543, D-544.

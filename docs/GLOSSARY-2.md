@@ -50,7 +50,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   and wakes healed and rested, a gold heart after the red (D-488).
 - **Garden bed:** made at the workbench from 3 Wood and 2 Stone, set
   down on the surface; a box of soil where a seed is planted, one plant
-  each, at a later step; bumped, Deconstruct garden bed? (D-562, D-565).
+  each; bumped, its card, Plant or Deconstruct (D-562, D-565, D-566).
+- **Plant, sprout:** Plant on the garden bed's card puts a Gloamberry
+  Seed in it; a planted bed shows a sprout until it grows (D-566).
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455). Not in
   the game yet.

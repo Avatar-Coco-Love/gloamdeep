@@ -75,13 +75,13 @@ import { nameCardAt } from '../render/namepad.js';
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { lookCardAt } from '../render/cloak.js';
-import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, benchMakes, BENCH_TAKE, moveBench, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, MODE_FIRST, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, moveChoice } from '../core/menu.js';
 import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText } from '../core/settings.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { bagSize, bagCols, canCraft } from '../core/bag.js';
-import { setSides, DIRS } from '../core/turn.js';
+import { setSides, canPlant, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { playing as inPlay, SLOTS, slotName, playedText } from '../core/profile.js';
 import { slotLines, slotsAt, slotsHeading, moveSlots } from '../render/slots.js';
@@ -118,18 +118,21 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
-// `takeDown(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
+// `takeDown(x, y)`, `plant(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
-    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'bed' ? SURE_MENU
+    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU : sc === 'bed' ? bedMenu()
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488), or the garden bed's (D-565)
+  // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566)
+  const bedMenu = () => (tileAt(app.state.room, app.bench.x, app.bench.y).garden ? gardenMenu(canPlant(app.state, app.bench.x, app.bench.y)) : SURE_MENU);
+  const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id] : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
@@ -145,7 +148,7 @@ export function createScreens(app, ui) {
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
-      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? `${askOf(next).join(' ')} Yes or No.`
+      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? askWords(next)
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
@@ -402,9 +405,10 @@ export function createScreens(app, ui) {
   // § bench panel (WB3, D-323): `app.bench` is the bench's tile. Deconstruct closes the
   // panel whatever happens, so its line shows, taken down or not; the chest's too (CH5). A stash chest's tile
   // opens the chest's panel instead, on its first slot (CH3, D-330).
-  // The bed's by day is an ask, No picked (D-488).
-  function openPanel(at) { const panel = tileAt(app.state.room, at.x, at.y).panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
+  // The bed's by day is an ask, No picked (D-488); the garden bed's card, Plant picked (D-566).
+  function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
+  function plantBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {
@@ -525,7 +529,7 @@ export function createScreens(app, ui) {
     if (app.screen === 'ways') { pickWay(id); return; }
     if (app.screen === 'easier') { closeEasier(id === 'yes'); return; }
     if (app.screen === 'ended') { ui.beginAgain(id === 'other'); show('play'); return; }
-    if (app.screen === 'bed') { if (id === 'yes') takeDownBench(); else show('play'); return; }
+    if (app.screen === 'bed') { if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'plant') plantBed(); else show('play'); return; }
     if (app.screen === 'trade') { tradeChosen(); return; }
     if (app.screen === 'chest') { if (i === CHEST_TAKE) takeDownBench(); else if (i === CHEST_STORE) ui.store(app.bench.x, app.bench.y); else { ui.stash(app.bench.x, app.bench.y, i); pickChest(i); } return; }
     if (app.screen === 'bench') { const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); return; }
@@ -708,7 +712,7 @@ export function createScreens(app, ui) {
     }
     if (ASKS.has(app.screen)) {
       if (held) return;
-      const at = askCardAt(px, py, view.w, view.h, ...askOf(app.screen));
+      const at = askCardAt(px, py, view.w, view.h, ...askOf(app.screen), menuOf(app.screen));
       if (at === 'out' || at === 'close') pause(); // the round cross means No (D-400)
       else if (at) { app.chosen = at.line; choose(at.line); }
       return;

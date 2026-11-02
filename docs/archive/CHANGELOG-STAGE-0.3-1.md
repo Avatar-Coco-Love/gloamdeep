@@ -1,7 +1,13 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
-Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27 (the 8 KB cap).
+Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28 (the 8 KB cap).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.11 (2026-11-01)
+- A new creature, the snapcap, now turns up from depth 2 down. It looks just like a heartcap until you stand beside it; then its eyes and teeth show.
+- It never moves. It bites for 1 whoever stands beside it, light or dark, with a wet squelch and a snap, and it has 2 hearts.
+- Beaten, it may leave a Snapcap Gill, which the peddler buys for 1 coin; its recipes come later.
+- Decisions: D-543, D-544.
 
 ## 0.3.10 (2026-11-01)
 - A new creature, the mole, now turns up from depth 5 down. It chases you once it sees you in the light, and it never flees.

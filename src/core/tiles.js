@@ -64,9 +64,14 @@ export const TILES = {
   // where Yes `takes` it back into the bag.
   bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
   // A garden bed set down on the surface, the bed's way (garden step 2, D-565): solid, light
-  // passing over it. Bumped, it opens the bed's ask card, Deconstruct garden bed?, where Yes
-  // `takes` it back into the bag. Planting in it comes at the next step.
-  plot: { id: 'plot', kind: 'tile', letter: 'P', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', takes: { item: 'gardenBed', says: 'gardenBedTake' } },
+  // passing over it. Bumped, it opens the bed's card (D-566): Plant `plants` a Gloamberry
+  // Seed from the bag, turning it into the sprout's tile; Deconstruct `takes` it back. A
+  // `garden` tile's card shows Plant and Deconstruct, not Yes and No.
+  plot: { id: 'plot', kind: 'tile', letter: 'P', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake' },
+    plants: { seed: 'gloamberrySeed', into: 'sprout', says: 'gardenBedPlant' } },
+  // A garden bed with a seed planted, a sprout showing (garden step 3, D-566). Its card's
+  // Deconstruct gives back the bed and `also` the seed, when the bag has room for it.
+  sprout: { id: 'sprout', kind: 'tile', letter: 'Q', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },
