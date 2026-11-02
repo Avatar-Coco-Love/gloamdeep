@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.32', date: '2026-11-02', title: 'The eighth audit, part 1', lines: [
+    "Behind the scenes, nothing you see has changed: the eighth audit, part 1. The bag, Drop, setting down, and the workbench, chest, bed and peddler cards moved into their own file of the code.",
+    "For screen readers: on the peddler's Sell side, each bag slot is read with its name, how many and its price again, not \"Empty\". It had been wrong since 0.2.219.",
+    "Tests run faster (22 s to 16 s), two unused pieces of code are gone, and the notes for making changes are tidier.",
+    "Decisions: D-570, D-571.",
+  ] },
   { v: '0.3.31', date: '2026-11-02', title: 'Feeding', lines: [
     "Feed your garden now: walk into a sprout and its card shows FEED and DECONSTRUCT. Feed puts 1 Bat Guano on the soil. It takes a turn.",
     "A fed sprout shows a few flecks of guano on its soil and grows in 150 turns from planting instead of 300. Fed after that, it grows at once.",

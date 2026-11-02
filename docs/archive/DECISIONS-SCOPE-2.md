@@ -1,4 +1,4 @@
-# The scope, parts 2 to 8 (D-450 to D-472)
+# The scope, parts 2 to 8 (D-450 to D-473)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.183 (D-457), when it
 neared 12 KB: ore and tools, plants, wood and oil, fishing and farming,
@@ -6,7 +6,8 @@ drop chances, today's creature materials; D-455 and D-456, where
 things are made and the ladder, at 0.2.184 (D-461); D-457 to D-460,
 gear, at 0.2.185 (D-464); D-461 to D-467, growth and collectables, at
 0.2.186 (D-468); D-469 to D-472, home and trade, at 0.2.191
-(D-476). These are still in force
+(D-476); D-473, the scope's first build order, all built, at 0.3.32
+(D-570). These are still in force
 unless marked superseded. Grep for an ID or topic; never read this
 whole.
 
@@ -181,3 +182,16 @@ picks, recommended, and kept on falling added after the PR opened;
 builds D-418) Trade coins come only from selling to vendors: creatures
 never drop them and none are found below, so finds stay the reward.
 Coins are kept when the hero falls. The look currency stays earned by deeds only (Q-055).
+
+**D-473 · 2026-10-30 · The scope's build order** (the owner's picks,
+all recommended; answers the Next up of 0.2.187) Drops come first, so
+the five creatures of today reward the hero and the loop deeper → find
+→ craft → deeper closes soonest. The first 8 steps, each one small
+visible change, with names and numbers asked at each one's own step:
+a beaten rat leaves a Rat Tail (D-453, D-454); the other four common
+drops; the rare drops; a first recipe using a creature material;
+torches made and set down (D-459); a second weapon kind and the swap
+(D-457); a pick and the first ore (D-450); the Growth tree, today's
+hearts in Body (D-462). The rest follows later, in an order asked
+then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
+(Q-069) stay waiting, outside the order.

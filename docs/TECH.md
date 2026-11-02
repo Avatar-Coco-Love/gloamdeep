@@ -22,7 +22,8 @@ at build plan step 7 (D-039).
   slow phone (the processor 4× slower); a PR that changes drawing runs it
   before and after and gives both. At 0.2.168: about 20 ms a frame, the
   light 16.5 ms, about 45 fps. At 0.2.171 (another day, the same machine
-  slower): walking about 27 ms a frame, the light 19.5 ms, about 31 fps.
+  slower): walking about 27 ms a frame, the light 19.5 ms, about 31 fps. At 0.3.32:
+  walking 18.5 ms a frame, the light 12.1 ms, 43 fps; standing 46 fps.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - No blue flash on tap (D-011). Set `-webkit-tap-highlight-color:
@@ -64,6 +65,7 @@ src/slots.js        picking, making, renaming and deleting a profile (D-519)
 src/input/screens.js  the title, menus, map and Seed Explorer (D-235)
 src/input/profilescreens.js  a new profile's name and look, Rename, Look (D-421)
 src/input/explorerscreens.js the Seed Explorer, the ways to play, the seed pad (D-468)
+src/input/cardscreens.js  the bag, Drop, setting down, the bench, chest, bed and trade cards (D-570)
 src/render/frame.js   draws each frame from the shared `app` (D-235)
 src/core/           rules, state, rng, registry, noise (no DOM);
                     one file per content kind, gathered by registry.js (D-048)
@@ -74,7 +76,7 @@ src/core/turn.js    the turn rules' front door: the hero's step, hit, torch
 src/render/         drawing, lighting, sprites, and sound (D-255)
 src/input/          tap, mouse, keyboard
 src/dev/            dev mode (see DEV-TOOLS.md)
-tests/              node --test, for core/ only
+tests/              node --test, for core/ (and input/ files that load without a page, D-570)
 tools/playtest.js   packs the game into one page for playtests (D-073);
                     not part of the game, which has no build step
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)

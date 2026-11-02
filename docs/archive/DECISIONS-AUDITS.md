@@ -1,8 +1,9 @@
-# The audits (D-336, D-362, D-392, D-421, D-468, D-493)
+# The audits (D-336, D-362, D-392, D-421, D-468, D-493, D-519)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.228, the seventh audit
 (D-519), as it neared 12 KB: the second to sixth audits, each done.
-D-336, the first audit, followed at 0.2.233 (D-524).
+D-336, the first audit, followed at 0.2.233 (D-524), and D-519, the
+seventh, at 0.3.32, the eighth (D-570).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -67,3 +68,13 @@ changed. D-491 and D-492 move unchanged to `archive/DECISIONS-DROPS.md`;
 9 to 12 move to `archive/PROGRESS-LOG.md`. `CLAUDE.md` is left as it
 is. `screens.js` and `main.js` follow at later audits; the next is at
 0.2.227.
+
+**D-519 · 2026-10-31 · The seventh audit: the hero slots** (the owner's
+picks, all recommended) The audit at 0.2.228 moves `main.js`'s slots
+(using, renaming, a new look and deleting a profile) into `slots.js`,
+nothing visible changed; the hero creator (D-517) is built there next.
+D-362, D-392, D-421, D-468 and D-493 move unchanged to
+`archive/DECISIONS-AUDITS.md`; `CHANGELOG.md` keeps its newest 3
+entries; the build plan's ticked steps 13 and Water move to
+`archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
+follow at later audits; the next is at 0.2.268.

@@ -10,6 +10,10 @@ import { litAt } from '../src/core/sight.js';
 const SEEDS = Array.from({ length: 2000 }, (_, i) => i + 1);
 const count = (map, ch) => map.join('').split(ch).length - 1;
 const near = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+// Each seed's room, made once and shared by the tests below (D-570: the three
+// used to make all 2000 each, 20 s of the whole run's 22)
+let made;
+const rooms = () => (made ??= SEEDS.map((seed) => { const g = generateRoom(seed); return { seed, g, room: g && makeRoom(g.map) }; }));
 
 // Every floor-like tile the hero can walk to from `from`, never stepping onto
 // stairs on the way (stepping onto stairs takes them)
@@ -43,10 +47,8 @@ test('the same seed gives the same room', () => {
 });
 
 test('every seed gives a 17 × 20 room, bigger than the screen (D-195), with one stairs up and one stairs down', () => {
-  for (const seed of SEEDS) {
-    const g = generateRoom(seed);
-    assert.ok(g, `seed ${seed} gave no room`);
-    const room = makeRoom(g.map); // checks the size and the letters
+  for (const { seed, g, room } of rooms()) {
+    assert.ok(g, `seed ${seed} gave no room`); // makeRoom checked the size and the letters
     assert.equal(room.cols, 17); assert.equal(room.rows, 20);
     assert.equal(count(g.map, '<'), 1); assert.equal(count(g.map, '>'), 1);
     assert.equal(tileAt(room, g.start.x, g.start.y).id, 'stairsUp');
@@ -55,16 +57,15 @@ test('every seed gives a 17 × 20 room, bigger than the screen (D-195), with one
 });
 
 test('from the stairs up, the hero reaches every tile without crossing a stair', () => {
-  for (const seed of SEEDS) {
-    const g = generateRoom(seed), room = makeRoom(g.map), seen = walk(room, g.start);
+  for (const { seed, g, room } of rooms()) {
+    const seen = walk(room, g.start);
     const open = count(g.map, '.') + 2;
     assert.equal(seen.size, open, `seed ${seed}`);
   }
 });
 
 test('a torch sits by the stairs up; a flask and a rat beside it lie well away, the rat in the dark', () => {
-  for (const seed of SEEDS) {
-    const g = generateRoom(seed), room = makeRoom(g.map);
+  for (const { seed, g, room } of rooms()) {
     const [torch] = g.lights, [flask] = g.items, [rat] = g.enemies;
     assert.equal(torch.id, 'torch'); assert.equal(mountAt(room, torch.x, torch.y), 'face');
     assert.ok(near(torch, g.start) <= 3);

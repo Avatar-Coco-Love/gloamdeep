@@ -2,7 +2,7 @@
 
 Every settled decision, oldest first. IDs are permanent. To change a
 decision, add a new one that supersedes it and mark the old one (see
-`CLAUDE.md`, "Keeping track"). Superseded entries move to
+`PR-CHECKLIST.md`, "Keeping track"). Superseded entries move to
 `archive/DECISIONS-SUPERSEDED.md` once this file passes 12 KB.
 Older decisions are archived but still in force: `archive/README.md`
 says which file holds which IDs; grep there for an ID or topic.
@@ -94,19 +94,6 @@ pick, recommended) The owner keeps choosing every question. Each
 conversation does one step, ends with its handoff, and the next step
 starts in a fresh conversation, so less is read again each time.
 
-**D-473 · 2026-10-30 · The scope's build order** (the owner's picks,
-all recommended; answers the Next up of 0.2.187) Drops come first, so
-the five creatures of today reward the hero and the loop deeper → find
-→ craft → deeper closes soonest. The first 8 steps, each one small
-visible change, with names and numbers asked at each one's own step:
-a beaten rat leaves a Rat Tail (D-453, D-454); the other four common
-drops; the rare drops; a first recipe using a creature material;
-torches made and set down (D-459); a second weapon kind and the swap
-(D-457); a pick and the first ore (D-450); the Growth tree, today's
-hearts in Body (D-462). The rest follows later, in an order asked
-then. The plan lists only those 8 in `PROGRESS.md`. Half and Automatic
-(Q-069) stay waiting, outside the order.
-
 **D-482 · 2026-10-30 · The rest of the build order** (the owner's picks,
 all recommended; answers the Next up of 0.2.196) Lantern parts come
 next: Copper Ore, mined since step 7, gets its first use, and the
@@ -128,77 +115,36 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-519 · 2026-10-31 · The seventh audit: the hero slots** (the owner's
-picks, all recommended) The audit at 0.2.228 moves `main.js`'s slots
-(using, renaming, a new look and deleting a profile) into `slots.js`,
-nothing visible changed; the hero creator (D-517) is built there next.
-D-362, D-392, D-421, D-468 and D-493 move unchanged to
-`archive/DECISIONS-AUDITS.md`; `CHANGELOG.md` keeps its newest 3
-entries; the build plan's ticked steps 13 and Water move to
-`archive/PROGRESS-LOG.md`. `screens.js` and the rest of `main.js`
-follow at later audits; the next is at 0.2.268.
-
 **D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
 supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-562 · 2026-11-02 · The garden in six steps** (the owner's picks, all
-recommended; builds D-452, D-530, D-531) Each its own step, one visible
-change each, starting in the next conversation: a Gloamberry seed; a
-place to plant it; planting, a sprout showing; growing while the hero
-is below; picking what grew; then guano (D-539) and water (Q-071). The
-seed is made in the bag from Gloamberries with Make, the oilcap's way.
-The place is a garden bed, made at the workbench and set down on the
-surface the chest's and bed's way, holding one plant. Costs, names,
-looks, lines and numbers are asked at each step. D-553 and D-555 moved
-to `archive/DECISIONS-BAGS.md`, word for word.
+**D-570 · 2026-11-02 · The eighth audit, part 1** (the owner's picks,
+all recommended) The audit at 0.3.32 spans several PRs, one a
+conversation, nothing visible changed in any (D-571 has the rest). Here:
+the bag, Drop, setting down, and the bench, chest, bed and trade cards
+move word for word from `screens.js` into `cardscreens.js`; the cave test
+makes its 2000 rooms once, not three times (that file 20 s to 7 s, the
+whole run 22 s to 16 s); the unused map icon and `NAME_COLS` go;
+`CLAUDE.md`'s "Keeping track" and "Git and PRs" move word for word to
+`docs/PR-CHECKLIST.md` (8.0 KB to 5.9 KB); the outside-places questions
+move to `OPEN-QUESTIONS-2.md`. A bug found is fixed with a test: since
+0.2.219 the peddler's Sell side read every slot "Empty" to a screen
+reader; it says the slot's name, count and price again. D-473, D-519
+and the garden (D-562, D-566 to D-569) move to the archive word for word;
+`CHANGELOG.md` keeps its newest 3; ticked steps 13b and 14 are archived.
+The next audit is at 0.3.72.
 
-**D-566 · 2026-11-02 · Planting** (the owner's picks, all recommended;
-garden step 3, builds D-562, D-565; mock-up:
-https://claude.ai/artifact/QueSWrh1aiDsgA8eCocXqB) Bumped, day or night,
-the garden bed opens its card, now named "Garden bed", with PLANT and
-DECONSTRUCT in place of Yes and No, Plant picked; the buttons widen to
-fit. Plant puts 1 Gloamberry Seed from the bag in the bed, a turn,
-saying "You plant a gloamberry seed."; with no seed, or one already in,
-Plant is dim and does nothing. A planted bed shows a sprout, look A, two
-round leaves on a short stem above the rim, and its card's note is "A
-sprout grows here." instead of "Nothing grows here yet." Deconstruct
-takes the bed back with no further ask, a turn; a planted one gives back
-its seed too, when the bag has room, else the seed is lost. D-563 moved
-to `archive/DECISIONS-CREATURES-2.md`, word for word.
-
-**D-567 · 2026-11-02 · Growing** (the owner's picks, three recommended;
-garden step 4, builds D-562, D-566, partly supersedes D-452; mock-up:
-https://claude.ai/artifact/1qvVPSZohApfe2vV1De75i) A planted sprout
-grows a day after planting, 300 turns, the wild bush's time. Every turn
-counts, on the surface too, not only below: the owner's wish, so a plant
-watched never stalls. Grown, it is look A, a small gloamberry bush with
-ripe berries over the bed's rim, and its card's note is "Gloamberries grow
-here."; Plant stays dim. Taken down, it gives back the bed and the seed, as
-a sprout does. Dev mode's Room section gets Grow, every planted bed's time
-up, one in this room growing at once. D-564 moved to
-`archive/DECISIONS-GLOAMBERRY.md`, word for word.
-
-**D-568 · 2026-11-02 · Picking** (the owner's picks, all recommended;
-garden step 5, builds D-562, D-567) The grown bed's card shows PICK and
-DECONSTRUCT, Pick picked, in place of Plant. Pick gives 3 Gloamberries,
-one more than a wild bush, a turn, saying "You pick three
-gloamberries."; the bed goes back to a sprout that grows again 300
-turns later, so a seed is planted once. With no room, the wild bush's
-"You can't carry more gloamberries.", free, the berries kept; with room
-for fewer, the rest lies on the nearest open tiles, the wild bush's way.
-D-557 moved to `archive/DECISIONS-BAGS.md`, word for word.
-
-**D-569 · 2026-11-02 · Guano feeds the garden** (the owner's picks, all
-recommended; garden step 6, builds D-539, D-562, D-567) A sprout's card
-shows FEED and DECONSTRUCT, Feed picked, in place of Plant. Feed puts 1
-Bat Guano from the bag on its soil, a turn, saying "You feed the soil
-with guano."; the fed sprout shows a few guano flecks on the soil and
-grows in half the time, 150 turns, counted from planting, so fed late it
-grows at once. With no guano, or fed already, Feed is dim and does
-nothing. It lasts one growing: picked, the bed is a plain sprout again.
-Taken down, the guano is spent. Water waits for a way to carry it (Q-071
-stays open), and the garden is done for now. D-561 and D-565 moved to
-`archive/DECISIONS-GLOAMBERRY.md`, word for word.
+**D-571 · 2026-11-02 · The eighth audit's next parts** (the owner's
+picks, recommended; the last two left to Claude's judgment) Part 2,
+`node tools/release.js`: one command sets `VERSION`, copies the top
+changelog entry into the in-game history, moves what passes a cap to
+the archive word for word, and keeps `PROGRESS.md`'s log at 3; `tools/`
+is then for playtests and record-keeping. Part 3 on, a table of screens:
+each card in its own small file, saying its own keys, taps and picks,
+`screens.js` looking them up, a few cards a PR, so a new card touches one
+file, not three. No decisions finder: one grep (`grep -rn "D-412 ·"
+docs`) already finds any decision, and an index is one more file to keep.
+Q-076 waits until they are done.
