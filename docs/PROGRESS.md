@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.38 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.41 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -26,14 +26,16 @@ sizes" and the room code it names, and propose how to build it.
 - Which new creature kind next (Q-076), after the three steps of D-582.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
+- The boon list and numbers (Q-077), before the boons step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
-Getting around first (D-582):
+Getting around first (D-582), then boons (D-583):
 - [ ] 15 Smaller shallow floors (D-580)
 - [ ] 16 Waystones (D-579)
+- [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -50,6 +52,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.41, boons.** Docs only. The owner's idea: each time
+  the hero sets out from the home waystone, pick 1 of 3 random boons,
+  kept until home again or a fall; all four kinds in the pool; built
+  right after the waystones, the list shown first (D-583, Q-077).
+  Nothing visible.
 - **2026-11-02, 0.3.40, getting around.** Docs only. All recommended:
   waystones to wake for fast travel, one near the home room's centre and
   one at the top of each band of floors (D-579); floors grow with depth,
@@ -62,9 +69,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   X too) and `page`; the map's drags, pinches and wheel stay in
   `screens.js`; D-168, D-337 and the eighth audit's decisions are
   archived; the audit is done (D-578). Nothing visible.
-- **2026-11-02, 0.3.38, the eighth audit, part 7.** All recommended: how
-  to play, version history and the journal each get a file in
-  `src/input/cards/`, their helpers moved word for word; opening, closing
-  and spoken words stay in `screens.js`; the history card's `page` takes
-  Page Up and Page Down; the test checks each page's way back and arrows
-  (D-577). Nothing visible.

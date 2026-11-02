@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.38, the eighth audit, part 7.** All recommended: how
+  to play, version history and the journal each get a file in
+  `src/input/cards/`, their helpers moved word for word; opening, closing
+  and spoken words stay in `screens.js`; the history card's `page` takes
+  Page Up and Page Down; the test checks each page's way back and arrows
+  (D-577). Nothing visible.
 - **2026-11-02, 0.3.37, the eighth audit, part 6.** All recommended: the
   six menus each get a file in `src/input/cards/`, sharing
   `cards/menu.js` (the lines, arrows and settings changes), moved word for
