@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.30 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.31 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Garden step 6 (D-562): guano (D-539) and water (Q-071). Propose what
-bat guano does for a garden bed, and whether water matters to it.
+The eighth audit, at 0.3.32 (D-518): measure what a conversation reads
+at its start, archive, trim, and split one big code file, nothing
+visible changed; then set the next. After it, Q-076.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -21,9 +22,9 @@ bat guano does for a garden bed, and whether water matters to it.
 - The chest card on squarer screens (Q-064), any time.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
-- Water and the garden (Q-071), at the garden's step, after upright.
+- Water and the garden (Q-071), once water can be carried (D-569).
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- Which new creature kind next (Q-076), after the garden.
+- Which new creature kind next (Q-076), after the audit.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 
@@ -33,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [x] 13b The first wild plant, 0.3.3 (D-531)
-- [ ] 14 The garden: seed, bed, planting, growing, picking, guano and water (D-562)
+- [x] 14 The garden: seed, bed, planting, growing, picking, guano, 0.3.31 (D-562, D-569)
 - [ ] 15 Fishing
 - [ ] 16 Lore
 - [ ] 17 Relics
@@ -47,6 +48,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-02, 0.3.31, Feeding.** All recommended: a sprout's card
+  shows Feed and Deconstruct; Feed puts 1 Bat Guano on its soil, flecks
+  showing, and it grows 150 turns from planting, not 300, once; water
+  waits (D-569). Playtest: https://claude.ai/artifact/1KgLfT9bYKdDWKnnD2CWKE
 - **2026-11-02, 0.3.30, Picking.** All recommended: the grown bed's
   card shows Pick and Deconstruct; Pick gives 3 Gloamberries, a turn,
   "You pick three gloamberries.", the bed back to a sprout that grows
@@ -56,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   gloamberry bush (look A) 300 turns after planting, its card "Gloamberries
   grow here."; dev mode's Grow (D-567). Playtest:
   https://claude.ai/artifact/7i3qhZvGPKrhTJ95MnTgSr
-- **2026-11-02, 0.3.28, Planting.** All recommended: the garden bed's
-  card shows Plant and Deconstruct; Plant puts in 1 Gloamberry Seed, a
-  sprout showing (look A); taken down, the seed comes back (D-566).
-  Playtest: https://claude.ai/artifact/AntuPniJT53jAiH6RfstKD

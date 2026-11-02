@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.31 (2026-11-02)
+- Feed your garden now: walk into a sprout and its card shows FEED and DECONSTRUCT. Feed puts 1 Bat Guano on the soil. It takes a turn.
+- A fed sprout shows a few flecks of guano on its soil and grows in 150 turns from planting instead of 300. Fed after that, it grows at once.
+- Once is enough: with no guano, or already fed, Feed is dim. After picking, the sprout needs feeding again. Taken down, the guano is spent.
+- Water doesn't matter to the garden yet; it waits for a way to carry water.
+- Decisions: D-569.
+
 ## 0.3.30 (2026-11-02)
 - Pick your garden's berries now: walk into a grown garden bed and its card shows PICK and DECONSTRUCT. Pick gives 3 Gloamberries, one more than a wild bush. It takes a turn.
 - After picking, the bed holds a sprout again, and it grows new berries 300 turns later. Plant a seed once and pick again and again.
@@ -105,15 +112,3 @@ Entry format:
 - The bag shows a row of five gear slots across its top: Weapon, Tool, Armour and two Charms. Empty ones show faintly what goes there, and what you wear is now always in view.
 - The Stone Pick has its own Tool slot. Choose it in the bag and press Hold to put it there (a turn); it breaks copper veins only from that slot. A pick you make goes straight into an empty Tool slot, and one already in your bag moves there by itself.
 - Decisions: D-552, D-553.
-
-## 0.3.15 (2026-11-01)
-- A new creature, the bone rat, now turns up from depth 4 down: a rat with nothing left but bone. It chases you and never runs away.
-- It has 3 hearts and bites for 1, with a dry clatter of bones and a snap of teeth.
-- Beaten, it may leave a Rat Bone, which the peddler buys for 1 coin; its recipes come later.
-- Decisions: D-551.
-
-## 0.3.14 (2026-11-01)
-- A new creature, the herb mimic, now turns up from depth 3 down. Asleep, it looks just like a herb; bump it, or step on it to heal, and it opens its eyes and chases you for 6 turns.
-- It has 2 hearts and bites for 1, with a dry rustle of leaves and a snap. Stepping on it never heals you.
-- Beaten, it may leave a Mimic Leaf, which the peddler buys for 1 coin; its recipes come later.
-- Decisions: D-549, D-550.

@@ -73,7 +73,12 @@ export const TILES = {
   // Deconstruct gives back the bed and `also` the seed, when the bag has room for it.
   // It `grows` into the grown bed a day of turns after planting, every turn counting (garden.js, D-567).
   sprout: { id: 'sprout', kind: 'tile', letter: 'Q', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
-    grows: { into: 'berryBed', turns: DAY_TURNS } },
+    grows: { into: 'berryBed', turns: DAY_TURNS }, feeds: { item: 'batGuano', into: 'fedSprout', says: 'gardenBedFeed' } },
+  // A sprout fed 1 Bat Guano from its card's Feed (garden step 6, D-569), a few dark flecks on its
+  // soil: it grows in half the time, counted from planting, the same clock. Once is enough, so
+  // Feed is dim on it; picked, it goes back to a plain sprout that needs feeding again.
+  fedSprout: { id: 'fedSprout', kind: 'tile', letter: 'J', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, fed: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
+    grows: { into: 'berryBed', turns: DAY_TURNS / 2 } },
   // The sprout grown, a small gloamberry bush in the bed, its berries ripe (garden step 4,
   // D-567). The same card; taken down, it gives back the bed and the seed, as the sprout does.
   // Its card's Pick `picks` its `n` 3 Gloamberries, the bed going back `into` a sprout that

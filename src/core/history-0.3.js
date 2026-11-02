@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.31', date: '2026-11-02', title: 'Feeding', lines: [
+    "Feed your garden now: walk into a sprout and its card shows FEED and DECONSTRUCT. Feed puts 1 Bat Guano on the soil. It takes a turn.",
+    "A fed sprout shows a few flecks of guano on its soil and grows in 150 turns from planting instead of 300. Fed after that, it grows at once.",
+    "Once is enough: with no guano, or already fed, Feed is dim. After picking, the sprout needs feeding again. Taken down, the guano is spent.",
+    "Water doesn't matter to the garden yet; it waits for a way to carry water.",
+    "Decisions: D-569.",
+  ] },
   { v: '0.3.30', date: '2026-11-02', title: 'Picking', lines: [
     "Pick your garden's berries now: walk into a grown garden bed and its card shows PICK and DECONSTRUCT. Pick gives 3 Gloamberries, one more than a wild bush. It takes a turn.",
     "After picking, the bed holds a sprout again, and it grows new berries 300 turns later. Plant a seed once and pick again and again.",

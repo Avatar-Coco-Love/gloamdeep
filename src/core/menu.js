@@ -17,11 +17,15 @@ export const BED_HEADING = 'Deconstruct bed?';
 export const BED_NOTE = "You aren't tired.";
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
-export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'] };
+export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'] };
 // Grown, Pick takes Plant's place, picked (D-568)
 export const GARDEN_MENU = [{ id: 'plant', text: 'Plant' }, { id: 'take', text: 'Deconstruct' }];
 export const PICK_MENU = [{ id: 'pick', text: 'Pick' }, { id: 'take', text: 'Deconstruct' }];
-export const gardenMenu = (canPlant, canPick = false) => (canPick ? PICK_MENU : GARDEN_MENU.map((l) => (l.id === 'plant' && !canPlant ? { ...l, dim: true } : l)));
+// A sprout's card shows Feed in Plant's place, picked, dim with no guano or once fed (D-569):
+// `canFeed` is true or false on a sprout, left out on any other bed
+export const FEED_MENU = [{ id: 'feed', text: 'Feed' }, { id: 'take', text: 'Deconstruct' }];
+const dimFirst = (menu, can) => menu.map((l, i) => (i === 0 && !can ? { ...l, dim: true } : l));
+export const gardenMenu = (canPlant, canPick = false, canFeed) => (canPick ? PICK_MENU : canFeed !== undefined ? dimFirst(FEED_MENU, canFeed) : dimFirst(GARDEN_MENU, canPlant));
 export const SURE_HEADING = 'Start over?';
 export const SURE_NOTE = 'The saved journey is lost.';
 // Deleting a profile asks the same way, No picked (D-271)

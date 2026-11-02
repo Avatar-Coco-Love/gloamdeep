@@ -144,11 +144,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-561 · 2026-11-02 · The garden next** (the owner's pick, recommended;
-answers part of Q-076) With the inventory steps done, the garden (step
-14) comes before another new creature kind. Which kind comes after it
-stays open in Q-076.
-
 **D-562 · 2026-11-02 · The garden in six steps** (the owner's picks, all
 recommended; builds D-452, D-530, D-531) Each its own step, one visible
 change each, starting in the next conversation: a Gloamberry seed; a
@@ -159,21 +154,6 @@ The place is a garden bed, made at the workbench and set down on the
 surface the chest's and bed's way, holding one plant. Costs, names,
 looks, lines and numbers are asked at each step. D-553 and D-555 moved
 to `archive/DECISIONS-BAGS.md`, word for word.
-
-**D-565 · 2026-11-02 · The garden bed** (the owner's picks, all
-recommended; garden step 2, builds D-562; mock-up:
-https://claude.ai/artifact/37qinvZtXiBapZfNzFvDKU) The place to plant is
-the **Garden Bed**, look A, a low plank box in the trunk's browns with
-rows of dark soil in the earth's colours. It is the workbench's last
-slot, made from 3 Wood and 2 Stone, a turn; one is carried, set down on
-the surface the bed's way. Bumped, day or night, it opens the bed's ask
-card, "Deconstruct garden bed?", "Nothing grows here yet.", Yes taking
-it back, No picked. Its lines: "You make a garden bed.", "You set down
-the garden bed.", "You take down the garden bed.", "You already carry a
-garden bed.", "You need 3 Wood, 2 Stone."; chosen in the bag, "A box of
-soft soil.", "Set it down on the surface." or "Seeds grow in it." The
-workbench, chest and bed in `GLOSSARY.md` moved to `GLOSSARY-2.md`,
-word for word, and D-560 to `archive/DECISIONS-BAGS.md`.
 
 **D-566 · 2026-11-02 · Planting** (the owner's picks, all recommended;
 garden step 3, builds D-562, D-565; mock-up:
@@ -210,3 +190,15 @@ turns later, so a seed is planted once. With no room, the wild bush's
 "You can't carry more gloamberries.", free, the berries kept; with room
 for fewer, the rest lies on the nearest open tiles, the wild bush's way.
 D-557 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-569 · 2026-11-02 · Guano feeds the garden** (the owner's picks, all
+recommended; garden step 6, builds D-539, D-562, D-567) A sprout's card
+shows FEED and DECONSTRUCT, Feed picked, in place of Plant. Feed puts 1
+Bat Guano from the bag on its soil, a turn, saying "You feed the soil
+with guano."; the fed sprout shows a few guano flecks on the soil and
+grows in half the time, 150 turns, counted from planting, so fed late it
+grows at once. With no guano, or fed already, Feed is dim and does
+nothing. It lasts one growing: picked, the bed is a plain sprout again.
+Taken down, the guano is spent. Water waits for a way to carry it (Q-071
+stays open), and the garden is done for now. D-561 and D-565 moved to
+`archive/DECISIONS-GLOAMBERRY.md`, word for word.

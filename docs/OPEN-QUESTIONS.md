@@ -122,7 +122,7 @@ first), or drop them. The code that was built is easy to redo.
 **Q-071 · Water and the garden** (raised 2026-10-31, D-499)
 The owner asks whether water matters to the garden. So far seeds just
 grow over turns (D-452, D-567). It could: a pool at home, wet
-ground, water plants. Decided at the garden's step.
+ground, water plants. Waits for a way to carry water (D-569).
 
 **Q-072 · What the guide is** (raised 2026-10-31, D-508)
 The owner wants a companion who guides, but not a faery: something

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.28, Planting.** All recommended: the garden bed's
+  card shows Plant and Deconstruct; Plant puts in 1 Gloamberry Seed, a
+  sprout showing (look A); taken down, the seed comes back (D-566).
+  Playtest: https://claude.ai/artifact/AntuPniJT53jAiH6RfstKD
 - **2026-11-02, 0.3.27, The garden bed.** All recommended: the Garden
   Bed, a plank box of soil, the workbench's last slot from 3 Wood and
   2 Stone, set down on the surface; bumped, Deconstruct garden bed?
