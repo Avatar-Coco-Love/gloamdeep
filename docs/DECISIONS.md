@@ -104,3 +104,35 @@ supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
+
+**D-579 · 2026-11-02 · Waystones for fast travel** (the owner's picks,
+recommended, from their wish list; the Core Keeper way in Gloamdeep's
+own form) Waystones are found out in the world and woken by walking up
+to one. One stands near the centre of the home room. The others stand
+at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8
+(the dungeon), then every 4th depth (12, 16, 20…), and at the top of
+any band added later. Standing on a woken waystone, the hero picks
+another woken one on the map and goes there. A pocket waystone, to
+travel from anywhere, comes later as a craft. How waking looks and
+sounds, and the map's travel card, are asked at its step.
+
+**D-580 · 2026-11-02 · Floors grow with depth** (the owner's pick,
+recommended; answers the sizes part of Q-038) The owner found the
+floors too big for the oil carried (a full lantern lasts 60 turns) and
+the stairs hard to find. Rooms are 13 × 15 tiles at depths 2 to 4 (the
+caves), 15 × 17 at depths 5 to 7 (the warrens) and 17 × 20, today's
+size, from depth 8 (the dungeon). Room counts stay 3, 5 and 6.
+
+**D-581 · 2026-11-02 · A draft toward the stairs** (the owner's picks,
+recommended; builds on D-174) Stairs still must be found, with a clue:
+a few faint motes drift in the lantern light toward the stairs down.
+If the motes don't work or aren't enough, the lantern's flame leans
+toward the way down instead. The Depth Meter (the owner's idea) stays
+a later find or craft that points the way.
+
+**D-582 · 2026-11-02 · Getting around comes first** (the owner's
+picks, recommended) Three steps come before the rest of the build
+plan, in this order: smaller shallow floors (D-580), the waystones
+(D-579), the drifting motes (D-581). Then the new creature kind
+(Q-076), fishing, lore, relics and feats. Digging up stumps with the
+right tool, so the home can be shaped freely, goes to the wish list.

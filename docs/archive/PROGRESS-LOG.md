@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.37, the eighth audit, part 6.** All recommended: the
+  six menus each get a file in `src/input/cards/`, sharing
+  `cards/menu.js` (the lines, arrows and settings changes), moved word for
+  word; the test checks each menu's way back and its arrows (D-576).
+  Nothing visible.
 - **2026-11-02, 0.3.36, the eighth audit, part 5.** All recommended: the
   bed's ask, Start over?, Delete …? and Play …? each get a file in
   `src/input/cards/`, sharing `cards/ask.js`, moved word for word; the

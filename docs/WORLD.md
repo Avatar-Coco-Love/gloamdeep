@@ -68,7 +68,8 @@ an L; the seed picks the stairs room (D-201, `src/core/region.js`).
 Rooms differ in shape and size by kind: tunnels are narrow, deserts are
 vast. A room bigger than the screen scrolls: the camera keeps the hero in
 the middle and stops at the room's edges (D-195). The crypt rooms are
-11 × 13 tiles, one screen; the generated caves are 17 × 20 (D-195). Which kinds, how big, and
+11 × 13 tiles, one screen; the generated caves are 17 × 20 (D-195). Floors grow with depth:
+13 × 15 at depths 2 to 4, 15 × 17 at 5 to 7, 17 × 20 from 8 (D-580). Which kinds, how big, and
 whether shapes come from hand-made templates or are generated: Q-038.
 
 ## Light between rooms (D-173)
