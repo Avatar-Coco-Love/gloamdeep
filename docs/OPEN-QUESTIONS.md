@@ -124,3 +124,11 @@ Which boons go in the home waystone's pool, with their numbers, across
 light and oil, hearts and fighting, finding things and getting around?
 How the choice looks and sounds is asked too. Shown as a list before
 the boons step.
+
+**Q-080 · The waystone's details** (raised 2026-11-03, D-579, D-587)
+Asked at each step, with mock-ups at
+https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU : the colour it wakes
+to; how waking looks and sounds; the travel card; whether travel costs
+anything or is barred with a creature beside you; where the hero
+arrives and how the card opens; which room on the floor holds it;
+whether its corners block light. Claude's leanings are on the page.

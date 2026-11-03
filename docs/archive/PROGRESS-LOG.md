@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.42, smaller floors.** All recommended, and the
+  owner's idea: both bands at once, the chambers and digging shrunk with
+  the area; the peddler's room made again until his ring fits; old saves
+  get every generated room made again once, at the new size (D-584).
+  Q-078 raised. Playtest:
+  https://claude.ai/artifact/VsyYCiVhrS4FPBnGcBG93Q
 - **2026-11-02, 0.3.41, boons.** Docs only. The owner's idea: each time
   the hero sets out from the home waystone, pick 1 of 3 random boons,
   kept until home again or a fall; all four kinds in the pool; built
