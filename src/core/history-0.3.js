@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.45', date: '2026-11-03', title: 'Waystone plans', lines: [
+    "Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.",
+    "Decisions: D-587. Questions raised: Q-080.",
+  ] },
   { v: '0.3.44', date: '2026-11-02', title: 'The peddler\'s spot', lines: [
     "The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.",
     "A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.",

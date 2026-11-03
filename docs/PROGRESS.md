@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Waystones (D-579, D-582): read D-579 and `WORLD.md`'s map section, and
-propose how waking one looks and sounds, and the map's travel card.
+Waystones, first step (D-579, D-587): the home waystone stands in the
+woods, 5 × 5 and asleep. Ask Q-080's parts as each step needs them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -27,6 +27,7 @@ propose how waking one looks and sounds, and the map's travel card.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - The boon list and numbers (Q-077), before the boons step.
+- The waystone's details (Q-080), at each waystone step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -34,7 +35,8 @@ when merged, with its version, and move ticked steps there at each audit.
 
 Getting around first (D-582), then boons (D-583):
 - [x] 15 Smaller shallow floors (D-580), 0.3.42
-- [ ] 16 Waystones (D-579)
+- [ ] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
+  depth 2; travel card; the other depths
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
@@ -52,6 +54,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-03, 0.3.45, waystone plans.** Talk and mock-ups only: the
+  owner's 5 × 5 waystone with a walkable cross, and landmarks as data
+  placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
+  https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU
 - **2026-11-02, 0.3.44, the peddler's spot.** Raised as Q-079 with a
   measure of 6000 rooms: the spot fitted 84% first try, blocked mostly by
   things beside him. All recommended: at least 4 open tiles, a wall on
@@ -64,9 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   6000 seeds, every other room unchanged; an old save's stand-ins made
   again once (D-585, answers Q-078). Playtest:
   https://claude.ai/artifact/MN8eL9Kfcux4MSVA4z1B7R
-- **2026-11-02, 0.3.42, smaller floors.** All recommended, and the
-  owner's idea: both bands at once, the chambers and digging shrunk with
-  the area; the peddler's room made again until his ring fits; old saves
-  get every generated room made again once, at the new size (D-584).
-  Q-078 raised. Playtest:
-  https://claude.ai/artifact/VsyYCiVhrS4FPBnGcBG93Q

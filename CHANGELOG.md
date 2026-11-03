@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.45 (2026-11-03)
+- Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.
+- Decisions: D-587. Questions raised: Q-080.
+
 ## 0.3.44 (2026-11-02)
 - The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.
 - A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.
@@ -32,9 +36,3 @@ Entry format:
 - Fixed: now and then a dungeon room deep down came out as a small crypt room instead, so its openings and stairs didn't line up. Those rooms are now made properly; every other room stays exactly as it was.
 - A journey saved with one of those crypt rooms has just that room made again, once. If you were in it, you stand on that floor's stairs up.
 - Decisions: D-585. Questions closed: Q-078.
-
-## 0.3.42 (2026-11-02)
-- Smaller shallow floors: the caves on depths 2 to 4 are now 13 × 15 tiles and the warrens on 5 to 7 are 15 × 17, so the stairs are closer and the oil goes further. The dungeon from depth 8 stays 17 × 20. Fewer chambers and tunnels fill the smaller rooms; what lies in them stays the same, and still pools turn up a little less often.
-- The peddler on depth 3 is always there: his room is made again until his ring of rubble fits.
-- A journey saved before this has its caves, warrens and dungeon made again at the new sizes, once, from the same seed. If you were down there, you stand on that floor's stairs up; a bag you left there waits on them; a peddler you freed stays freed.
-- Decisions: D-584. Questions raised: Q-078.

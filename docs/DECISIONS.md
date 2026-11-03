@@ -185,3 +185,16 @@ around his ring moves to the nearest free floor; the way in, stairs,
 openings, deposits and veins still keep him away. His spot fits 95% of
 rooms on the first try, with 4 to 8 heaps to dig. A room already made in
 a save stays as it was.
+
+**D-587 · 2026-11-03 · Landmarks made from data** (the owner's idea and
+picks, recommended; builds on D-579) A waystone is 5 × 5 tiles: a cross
+through the middle is walkable, the four 2 × 2 corners are not, and the
+centre tile is the plate where it is used. Landmarks bigger than one
+tile are registry entries: a small text plan, where they join tunnels,
+where they stand and what they block. One shared stamper sets the plan
+aside before a room is dug, digs around it, joins its tunnels, checks
+everything is still reached, tries again if not, and uses its own seed
+so rooms without one stay as they are. Tests build many rooms for every
+landmark; dev mode can drop one in and show the set-aside patches. The
+stamper comes with its first use, a waystone at depth 2, and only
+places it. The rest is asked at each step (Q-080).
