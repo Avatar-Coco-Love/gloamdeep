@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.43 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.46 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -54,6 +54,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-03, 0.3.46, pictures after the background.** The owner's
+  fix: on Android the hero and tiles came back blank after the app was
+  in the background. Every kept picture is drawn again when the browser
+  hands it back, and checked when the page shows; a simulated wipe comes
+  back pixel for pixel (D-588). Nothing visible changed. Playtest:
+  https://claude.ai/artifact/HeRQjmE7n3E7VoAgqktpHD
 - **2026-11-03, 0.3.45, waystone plans.** Talk and mock-ups only: the
   owner's 5 × 5 waystone with a walkable cross, and landmarks as data
   placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
@@ -64,9 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   one straight side at most, things beside him moved aside; 95% now
   (D-586). Playtest:
   https://claude.ai/artifact/7JSk2mDi767FmbNfdWmia6
-- **2026-11-02, 0.3.43, no more stand-in rooms.** All recommended: a
-  second round of up to 400 tries, only for a room whose 200 all fail,
-  with the corridors kept clear of the stairs up; no room falls back in
-  6000 seeds, every other room unchanged; an old save's stand-ins made
-  again once (D-585, answers Q-078). Playtest:
-  https://claude.ai/artifact/MN8eL9Kfcux4MSVA4z1B7R

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.46 (2026-11-03)
+- Fixed: on Android, the hero and the tiles could come back blank after the game had been in the background. Every picture the game keeps is now drawn again when the phone wipes it.
+- Decisions: D-588.
+
 ## 0.3.45 (2026-11-03)
 - Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.
 - Decisions: D-587. Questions raised: Q-080.
@@ -31,8 +35,3 @@ Entry format:
 - The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.
 - A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.
 - Decisions: D-586. Questions closed: Q-079.
-
-## 0.3.43 (2026-11-02)
-- Fixed: now and then a dungeon room deep down came out as a small crypt room instead, so its openings and stairs didn't line up. Those rooms are now made properly; every other room stays exactly as it was.
-- A journey saved with one of those crypt rooms has just that room made again, once. If you were in it, you stand on that floor's stairs up.
-- Decisions: D-585. Questions closed: Q-078.

@@ -9,6 +9,7 @@ import { drawPlan, drawRoundMap } from '../render/map.js';
 import { floorPlan } from '../core/map.js';
 import { MAP_DISC } from '../render/screen.js';
 import { keepFading } from './lantern.js';
+import { onWipe } from '../render/wipe.js';
 
 const K = 3; // pixels a tile: about 17 tiles across, near the room's own pixel size
 
@@ -27,6 +28,7 @@ export function createMapButton(canvas, { onMap }) {
   // The plan worked out again only when the state or the reveal changes, and drawn once
   const drawn = document.createElement('canvas'), c = map.getContext('2d');
   let planFor = null, revealed = null, plan = null;
+  onWipe(() => { planFor = null; }); // drawn again on the next frame (D-588)
   return {
     hide(on) { button.style.display = on ? 'none' : ''; },
     show(state, reveal, t, still, alpha) {

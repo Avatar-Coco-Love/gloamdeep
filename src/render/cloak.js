@@ -14,6 +14,7 @@ import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './ba
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
 import { flicker } from './light.js';
+import { onWipe } from './wipe.js';
 
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
@@ -108,6 +109,7 @@ function paint(w, h) {
 // card at the edges, with no frame; the warmth breathes with the lantern's flicker f (light.js),
 // steady when the game is still. The slabs are painted once a size, the light each frame
 const slabs = {}, lit = {};
+onWipe(() => { for (const all of [grounds, slabs]) for (const k of Object.keys(all)) delete all[k]; }); // painted again when next shown (D-588)
 function slabsOf(w, h) {
   return (slabs[`${w}x${h}`] ??= (() => {
     const cv = document.createElement('canvas'), c = cv.getContext('2d');

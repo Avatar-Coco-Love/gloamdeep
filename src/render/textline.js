@@ -6,6 +6,7 @@
 import { view, LINE_H, BUTTON_GAP, PAD_DISC } from './screen.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawGlass } from './glass.js';
+import { onWipe } from './wipe.js';
 
 const GREY = '#9790a4', AMBER = '#ffc65c'; // the study's --muted and --amber
 const KIND = { speech: '#efe6cc', harm: '#e8786a' }; // bone white, the hostile red (D-509)
@@ -21,6 +22,7 @@ export const lineUp = () => view.h - lineTop(); // from the line's top to the sc
 
 export function createTextLine() {
   let drawn = null, img = null, fadeFrom = 0; // the last line, its pixels, when its fade began
+  onWipe(() => { if (drawn) paint(drawn); }); // painted again after a wipe (D-588)
   const paint = (line) => { // once per line, not every frame (TECH.md)
     const w = textWidth(line.text);
     img = document.createElement('canvas');

@@ -198,3 +198,10 @@ so rooms without one stay as they are. Tests build many rooms for every
 landmark; dev mode can drop one in and show the set-aside patches. The
 stamper comes with its first use, a waystone at depth 2, and only
 places it. The rest is asked at each step (Q-080).
+
+**D-588 · 2026-11-03 · Pictures drawn again after a wipe** (the owner's
+fix, ahead of D-587's first step) On Android the hero and the tiles came
+back blank after the app was in the background: the browser wipes kept
+canvases. Every canvas drawn once and kept is now drawn again when the
+browser hands it back (contextrestored), and checked when the page shows
+again (visibilitychange). Nothing visible changed.

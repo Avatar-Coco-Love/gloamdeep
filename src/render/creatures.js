@@ -7,6 +7,7 @@
 // plaque has an amber edge (CL2).
 import { drawText, textWidth } from './font.js';
 import { faceOf } from './sprites.js';
+import { onWipe } from './wipe.js';
 
 export const PLAQUE_W = 22;
 export const PLAQUE_H = 13;
@@ -29,7 +30,8 @@ function turned(dx, dy) {
   const col = (i) => ARROW.map((r) => r[i]).join('');
   return [0, 1, 2].map((i) => col(dy === 1 ? i : 2 - i));
 }
-let ICONS; // made on first draw, once
+let ICONS; // made on first draw, once, and again after a wipe (D-588)
+onWipe(() => { ICONS = null; });
 function icons() {
   ICONS = { bite: shape(FANGS) };
   for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) ICONS[`${dx},${dy}`] = shape(turned(dx, dy));

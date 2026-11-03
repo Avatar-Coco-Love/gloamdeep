@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.43, no more stand-in rooms.** All recommended: a
+  second round of up to 400 tries, only for a room whose 200 all fail,
+  with the corridors kept clear of the stairs up; no room falls back in
+  6000 seeds, every other room unchanged; an old save's stand-ins made
+  again once (D-585, answers Q-078). Playtest:
+  https://claude.ai/artifact/MN8eL9Kfcux4MSVA4z1B7R
 - **2026-11-02, 0.3.42, smaller floors.** All recommended, and the
   owner's idea: both bands at once, the chambers and digging shrunk with
   the area; the peddler's room made again until his ring fits; old saves

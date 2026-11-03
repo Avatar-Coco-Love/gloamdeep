@@ -5,6 +5,7 @@
 import { drawFlaskSlot } from '../render/hud.js';
 import { keepFading } from './lantern.js';
 import { BUTTON } from '../render/screen.js';
+import { onWipe } from '../render/wipe.js';
 
 export function createQuickSlot(canvas, { onPour }) {
   const button = document.createElement('button');
@@ -17,6 +18,7 @@ export function createQuickSlot(canvas, { onPour }) {
   document.body.append(button);
   const { area, fade } = keepFading(canvas, button, 4, BUTTON);
   let shown = null;
+  onWipe(() => { shown = null; }); // drawn again on the next frame (D-588)
   return {
     area, fade, // its corner's fade (D-442)
     hide(on) { button.style.display = on ? 'none' : ''; },

@@ -11,6 +11,7 @@
 import { drawArrowPad } from '../render/hud.js';
 import { PAD_DISC as SIZE } from '../render/screen.js';
 import { keepPlaced } from './lantern.js';
+import { onWipe } from '../render/wipe.js';
 
 const MIDDLE = 10; // CSS px round the middle where no quarter is pressed
 const RING = 32; // CSS px round the disc, about a thumb wide, where taps don't walk (D-422)
@@ -49,7 +50,7 @@ export function createArrowPad(canvas, { onPress }) {
   const lift = (ev) => { if (ev.pointerId !== finger) return; finger = null; press(null); };
   pad.addEventListener('pointerup', lift);
   pad.addEventListener('pointercancel', lift);
-  draw();
+  draw(); onWipe(draw); // and again after a wipe (D-588)
   return {
     show(on, alpha) {
       if (on !== shown) { shown = on; pad.style.display = on ? '' : 'none'; if (!on && held) { finger = null; press(null); } }
