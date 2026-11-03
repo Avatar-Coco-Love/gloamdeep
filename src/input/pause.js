@@ -4,6 +4,7 @@
 import { drawPauseIcon } from '../render/hud.js';
 import { keepFading } from './lantern.js';
 import { BUTTON } from '../render/screen.js';
+import { keep } from '../render/wipe.js';
 
 export function createPauseButton(canvas, { onPause }) {
   const button = document.createElement('button');
@@ -13,7 +14,7 @@ export function createPauseButton(canvas, { onPause }) {
   button.setAttribute('aria-label', 'Pause');
   const icon = document.createElement('canvas');
   icon.width = icon.height = 5;
-  drawPauseIcon(icon.getContext('2d'));
+  keep(icon, () => drawPauseIcon(icon.getContext('2d'))); // and again after a wipe (D-588)
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onPause(); }); // Enter then picks a menu line, not the button again
   document.body.append(button);

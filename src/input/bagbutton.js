@@ -4,6 +4,7 @@
 import { drawBagIcon } from '../render/hud.js';
 import { keepFading } from './lantern.js';
 import { BUTTON } from '../render/screen.js';
+import { keep } from '../render/wipe.js';
 
 export function createBagButton(canvas, { onBag }) {
   const button = document.createElement('button');
@@ -13,7 +14,7 @@ export function createBagButton(canvas, { onBag }) {
   button.setAttribute('aria-label', 'Bag');
   const icon = document.createElement('canvas');
   icon.width = icon.height = 5;
-  drawBagIcon(icon.getContext('2d'));
+  keep(icon, () => drawBagIcon(icon.getContext('2d'))); // and again after a wipe (D-588)
   button.append(icon);
   button.addEventListener('click', () => { button.blur(); onBag(); });
   document.body.append(button);

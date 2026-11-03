@@ -5,6 +5,7 @@
 // and fade(alpha) are for its corner's fade (D-442).
 import { drawLanternIcon } from '../render/hud.js';
 import { BUTTON as SIZE, BUTTON_GAP as GAP, MAP_DISC as DISC, PAD_DISC, LANTERN, ARC } from '../render/screen.js';
+import { onWipe } from '../render/wipe.js';
 
 // § place: the button's spot (D-199, D-377, D-381, D-383, D-384): slot 0 the
 // lantern, 1 the pause button, 2 the round map (D-205), 3 the bag (D-247), 4
@@ -66,6 +67,7 @@ export function createLanternButton(canvas, { onSwitch }) {
   const { area, fade } = keepFading(canvas, button, 0, LANTERN);
 
   let shown = null;
+  onWipe(() => { shown = null; }); // drawn again on the next frame (D-588)
   return {
     area, fade, // its corner's fade (D-442)
     hide(on) { button.style.display = on ? 'none' : ''; },

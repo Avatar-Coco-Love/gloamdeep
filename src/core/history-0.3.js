@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.46', date: '2026-11-03', title: 'Pictures after the background', lines: [
+    "Fixed: on Android, the hero and the tiles could come back blank after the game had been in the background. Every picture the game keeps is now drawn again when the phone wipes it.",
+    "Decisions: D-588.",
+  ] },
   { v: '0.3.45', date: '2026-11-03', title: 'Waystone plans', lines: [
     "Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.",
     "Decisions: D-587. Questions raised: Q-080.",

@@ -26,6 +26,7 @@ at build plan step 7 (D-039).
   walking 18.5 ms a frame, the light 12.1 ms, 43 fps; standing 46 fps.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
+- A canvas drawn once and kept is drawn through `render/wipe.js` (`keep`, or `onWipe` to empty a cache), so it comes back after Android wipes it in the background (D-588).
 - No blue flash on tap (D-011). Set `-webkit-tap-highlight-color:
   transparent` on the page, and don't let taps select text on the game
   screen. Keep a visible focus outline for keyboard users. Style study 1

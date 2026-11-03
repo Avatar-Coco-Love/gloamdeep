@@ -53,6 +53,7 @@ import { playing, slotName } from '../core/profile.js';
 import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways, widen } from '../core/openings.js';
+import { watch, onWipe, onCheck, blankAt } from './wipe.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
 
@@ -78,6 +79,9 @@ export function createFrame(app, ui) {
   // Past a small room's edge its rock or trees go on (D-403): drawn onto `around`, mx tiles
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas');
+  watch(base); watch(around);
+  onWipe(() => { drawnRoom = null; }); // both drawn again on the next frame (D-588)
+  onCheck(() => drawnRoom !== null && blankAt(base, 0, 0));
   let wide = null, mx = 0, my = 0;
   const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)

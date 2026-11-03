@@ -14,6 +14,7 @@ import { setPixelText } from './pixeltext.js';
 import { keepFading } from '../input/lantern.js';
 import { DAY_TURNS } from '../core/daytime.js';
 import { statsShown, padShown } from '../core/settings.js';
+import { keep } from '../render/wipe.js';
 
 const KEY = 'gloamdeep-dev'; // localStorage: the switches and the open sections
 
@@ -41,7 +42,7 @@ export function createDev(stage, canvas, game, picture) {
   button.setAttribute('aria-label', 'Dev tools');
   button.setAttribute('aria-expanded', 'false');
   const icon = el('canvas', { width: 12, height: 12 });
-  drawWrench(icon.getContext('2d'));
+  keep(icon, () => drawWrench(icon.getContext('2d'))); // and again after a wipe (D-588)
   button.append(icon);
   const panel = el('div', { id: 'dev-panel', className: 'shut', inert: true });
   const readout = el('div', { id: 'dev-readout' });

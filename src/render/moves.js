@@ -8,6 +8,7 @@ const ARROW = ['oo...', 'o#o..', 'o##o.', 'o###o', 'o##o.', 'o#o..', 'oo...']; /
 const FANGS = ['ooooooo', 'o#####o', 'o#o.o#o', 'ooo.ooo']; // pointing down
 
 // The arrow's rows turned to point dx, dy; the fangs only flip to point up
+import { onWipe } from './wipe.js';
 function turned(rows, dx, dy) {
   const w = rows[0].length, col = (i) => rows.map((r) => r[i]).join('');
   if (dx === 1) return rows;
@@ -25,7 +26,8 @@ function shape(rows) {
 }
 const key = (dx, dy) => `${dx},${dy}`;
 const WAYS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-let ARROWS, BITES; // made on first draw, once
+let ARROWS, BITES; // made on first draw, once, and again after a wipe (D-588)
+onWipe(() => { ARROWS = null; });
 function make() {
   ARROWS = {}; BITES = {};
   for (const [dx, dy] of WAYS) { ARROWS[key(dx, dy)] = shape(turned(ARROW, dx, dy)); BITES[key(dx, dy)] = shape(dy === -1 ? [...FANGS].reverse() : FANGS); }

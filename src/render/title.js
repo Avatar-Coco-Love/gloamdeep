@@ -12,6 +12,7 @@ import { drawLight, flicker } from './light.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawLines, drawHeading, LINE_GAP } from './menu.js';
 import { NAME, NAME_TOP, NAME_SCALE } from './titlecard.js';
+import { onWipe } from './wipe.js';
 
 const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', CORE = '#fff5d6', GREY = '#9790a4';
 const HERO = { x: 5, y: 6 }; // the middle of the room, in tiles
@@ -26,6 +27,7 @@ export const heroRow = (count) => HERO.y - Math.max(0, count - 5);
 // only the light shows it. It fills the whole room canvas behind the picture
 // (`view`), its tiles lined up with the picture's, so no box shows around it.
 let scene = null, name = null;
+onWipe(() => { scene = name = null; }); // drawn again when next shown (D-588)
 function paint(cols, rows) {
   const room = makeRoom(Array.from({ length: rows }, () => '.'.repeat(cols)));
   const floor = document.createElement('canvas');

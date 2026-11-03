@@ -11,6 +11,7 @@ import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { SLOTS, slotName, playedText } from '../core/profile.js';
+import { onWipe } from './wipe.js';
 
 const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
 export const BOX_H = 30; const BOX_Y = 30, BOX_GAP = 34; // each slot's box; the first box's top inside the card, and from one box's top to the next
@@ -67,6 +68,7 @@ export function slotsAt(x, y, vw, vh, lines, back) {
 }
 // § patch: a small square of crypt floor lit by the hero's lantern, as the Look boxes'; painted once (TECH.md)
 let patch = null;
+onWipe(() => { patch = null; }); // painted again when next shown (D-588)
 function paint() {
   patch = document.createElement('canvas');
   patch.width = PATCH; patch.height = PATCH;

@@ -3,6 +3,7 @@
 // lines 121–176, ART-DIRECTION.md "Sprites").
 import { CLOAKS, EYES, TRIMS, get } from '../core/registry.js';
 import { DEFAULT_CLOTHES } from '../core/looks.js';
+import { keep } from './wipe.js';
 
 const PAL = {
   k: '#0e0c16', w: '#efe6cc', C: '#a6e0e4', c: '#58a8b4', B: '#2f6a7c', b: '#1c3e4e',
@@ -404,16 +405,20 @@ function build(rows, mirror) {
 
 // flash: the silhouette for a hit flash, white (ART-DIRECTION.md, "Sprites"),
 // or the hostile red when the hero is bitten (D-118); pal: the colours, as PAL
-function spriteCanvas(def, flash = null, pal = PAL) {
-  const cv = document.createElement('canvas');
+// after(cv): drawn over it, every time it is painted. Painted again after a wipe (D-588).
+function spriteCanvas(def, flash = null, pal = PAL, after = null) {
+  const cv = document.createElement('canvas'), rows = build(def.rows, def.mirror);
   cv.width = cv.height = 16;
-  const c = cv.getContext('2d');
-  build(def.rows, def.mirror).forEach((r, y) => [...r].forEach((ch, x) => {
-    if (!pal[ch]) return;
-    c.fillStyle = flash || pal[ch]; c.fillRect(x, y, 1, 1);
-  }));
-  for (const [x, y, ch] of def.extra || []) { c.fillStyle = flash || pal[ch]; c.fillRect(x, y, 1, 1); }
-  return cv;
+  const y = rows.findIndex((r) => [...r].some((ch) => pal[ch])), at = y >= 0 ? [[...rows[y]].findIndex((ch) => pal[ch]), y] : null;
+  return keep(cv, () => {
+    const c = cv.getContext('2d');
+    rows.forEach((r, y) => [...r].forEach((ch, x) => {
+      if (!pal[ch]) return;
+      c.fillStyle = flash || pal[ch]; c.fillRect(x, y, 1, 1);
+    }));
+    for (const [x, y, ch] of def.extra || []) { c.fillStyle = flash || pal[ch]; c.fillRect(x, y, 1, 1); }
+    if (after) after(cv);
+  }, at);
 }
 
 // § torch: the torch in the bag, its stone foot and flame as set down (D-478)
@@ -463,9 +468,10 @@ const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLO
 function mirrored(cv) {
   const out = document.createElement('canvas');
   out.width = out.height = 16;
-  const c = out.getContext('2d');
-  c.scale(-1, 1); c.drawImage(cv, -16, 0);
-  return out;
+  return keep(out, () => {
+    const c = out.getContext('2d');
+    c.save(); c.scale(-1, 1); c.drawImage(cv, -16, 0); c.restore();
+  });
 }
 const LEFT = {}, LEFT_FLASHES = {};
 for (const id of Object.keys(FLASHES)) { LEFT[id] = mirrored(SPRITES[id]); LEFT_FLASHES[id] = mirrored(FLASHES[id]); }
@@ -482,8 +488,8 @@ export function heroIn(cloak, eyes, trim, clothes = DEFAULT_CLOTHES) {
   const key = `${cloak}/${eyes}/${trim}/${clothes}`;
   if (!HEROES[key]) {
     const [C, c, B, b] = (CLOAKS[cloak] ?? CLOAKS.teal).shades, e = (EYES[eyes] ?? EYES.bone).colour, [T, t] = (TRIMS[trim] ?? TRIMS.brass).shades;
-    HEROES[key] = spriteCanvas(dressed(clothes), null, { ...PAL, C, c, B, b, e, T, t });
-    if (CLOAKS[cloak]?.pattern) markPattern(HEROES[key], dressed(clothes), CLOAKS[cloak]);
+    const def = dressed(clothes), pattern = CLOAKS[cloak]?.pattern ? (cv) => markPattern(cv, def, CLOAKS[cloak]) : null;
+    HEROES[key] = spriteCanvas(def, null, { ...PAL, C, c, B, b, e, T, t }, pattern);
   }
   return HEROES[key];
 }

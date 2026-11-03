@@ -18,6 +18,7 @@ import { drawText, textWidth } from './font.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, PAD } from './bag.js';
 import { markAt, aroundHero } from '../core/map.js';
 import { areaAt } from '../core/room.js';
+import { onWipe } from './wipe.js';
 
 const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
 const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3f5175' }; // ART-DIRECTION.md; water the pool's shimmer (D-502)
@@ -66,6 +67,7 @@ function arrow(c, x, y, down, colour) { // 5 × 3, pointing up or down
 // The plan drawn into its own canvas at k pixels per tile, again when k changes
 const drawn = document.createElement('canvas');
 let plan = null, k = 0;
+onWipe(() => { k = 0; }); // drawn again when next shown (D-588)
 export function setMap(next) { plan = next; k = 0; }
 function redraw(at) { k = at; drawPlan(drawn, plan, k); }
 // A plan's rooms and doorways drawn into canvas `into`, sized to it, at k pixels per tile;
