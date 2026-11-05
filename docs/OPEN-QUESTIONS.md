@@ -139,4 +139,5 @@ the scope map) The four biomes (D-028) and every per-biome rule (ore,
 plants, woods, skills: D-450, D-451, D-456, D-462) need to know where
 each biome starts. Today the whole underground is the first cave (D-175):
 is it the mines-and-caves biome, and where do the fungal caverns and the
-sunken ruins begin? Needed before the scope map is filled in.
+sunken ruins begin? Needed before the scope map is filled in. The map:
+https://claude.ai/artifact/EsjRCxsuS8G2zgkyucqMYV
