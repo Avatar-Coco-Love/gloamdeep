@@ -1,11 +1,12 @@
 // § travel: going from one woken waystone to another (D-579, D-593). Standing on a woken
 // plate, the wait (a tap on the hero, Space) or Enter opens the travel card (main.js); it
-// lists every waystone, home first, then by depth. One not yet woken shows as ???. Picking a
+// lists the waystones, home first, then by depth, down to the next one below the deepest floor
+// the hero has reached (D-594). One not yet woken shows as ???. Picking a
 // woken one goes there at once, onto its plate. It is free: no turn passes and no oil burns,
 // so the creatures there can't act before the hero's first move. It is barred while a
 // creature awake stands beside the hero or chases them, with its line, so it is no free
 // escape. Plain data, no drawing.
-import { tileAt, stoneRoom, areaAt, STONE_DEPTH } from './room.js';
+import { tileAt, stoneRoom, areaAt, depthOf, nextStoneDepth, STONE_DEPTH } from './room.js';
 import { arrive, fresh as freshPlace } from './stairs.js';
 import { endTurn } from './endturn.js';
 import { say } from './lines.js';
@@ -13,16 +14,23 @@ import { note, fresh } from './events.js';
 
 const WOKEN = 'A'; // the woken plate's letter (tiles.js)
 
-// Every waystone's place, home first, then by depth: the woods' (D-589) and depth 2's (D-592)
-export const stonePlaces = (seed) => ['woods', stoneRoom(seed)].filter(Boolean);
+// The waystones' places the card lists, home first, then by depth: the woods' (D-589), then each
+// stone down to the next one below `deepest`, the deepest floor reached (D-592, D-594)
+export function stonePlaces(seed, deepest = 0) {
+  const depths = [];
+  for (let d = STONE_DEPTH, last = nextStoneDepth(Math.max(deepest, STONE_DEPTH - 1)); d <= last; d = nextStoneDepth(d)) depths.push(d);
+  return ['woods', ...depths.map((d) => stoneRoom(seed, d))].filter(Boolean);
+}
+// The deepest floor the journey has reached: the deepest of the places stood in and left
+export const deepestOf = (state) => Math.max(0, ...[state.place, ...Object.keys(state.elsewhere || {})].map(depthOf).filter(Number.isFinite));
 
 // The room of place `id` as the state holds it: the one stood in, one left, or none yet
 const roomOf = (state, id) => (id === state.place ? state.room : state.elsewhere?.[id]?.room);
 const wokenIn = (room) => !!room && room.map.some((line) => line.includes(WOKEN));
 
 // (state) → [{ place, depth, woken, here }], one for each waystone
-export const stonesOf = (state) => stonePlaces(state.seed).map((place) => ({
-  place, depth: place === 'woods' ? 0 : STONE_DEPTH, woken: wokenIn(roomOf(state, place)), here: place === state.place,
+export const stonesOf = (state) => stonePlaces(state.seed, deepestOf(state)).map((place) => ({
+  place, depth: depthOf(place), woken: wokenIn(roomOf(state, place)), here: place === state.place,
 }));
 
 // Whether the hero stands on a woken plate

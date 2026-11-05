@@ -10,7 +10,7 @@
 // § which rooms: every generated one by default; `remake` (id, place) picks fewer, as
 // the step that makes again only the crypt rooms standing in for dungeon rooms (D-585),
 // and then the hero goes to their floor's stairs up as that room was kept, if it was.
-import { isGenerated, depthOf, placeAt, tileAt, withTile, peddlerRoom, stoneRoom } from './room.js';
+import { isGenerated, depthOf, placeAt, tileAt, withTile, peddlerRoom, stoneRoom, isStoneDepth } from './room.js';
 import { fresh } from './stairs.js';
 import { goHome } from './homeward.js';
 import { get } from './registry.js';
@@ -27,6 +27,9 @@ const fits = (room, depth) => !room || (room.cols === sizeAt(depth).cols && room
 // other room stays as it was. A hero in it goes to the floor's stairs up, a bag left there too.
 const STONED = /[ZA]/; // the plate, asleep or woken
 export const restone = (s) => refloor(s, (id, p) => id === stoneRoom(s.seed) && !!p.room && !p.room.map.some((l) => STONED.test(l)));
+// § the deeper waystones: the same, once, for the room the seed picks on each other depth that holds
+// one, 5, 8, then every 4th (D-594); a room that already has its stone stays as it was
+export const restones = (s) => refloor(s, (id, p) => isGenerated(id) && isStoneDepth(depthOf(id)) && id === stoneRoom(s.seed, depthOf(id)) && !!p.room && !p.room.map.some((l) => STONED.test(l)));
 
 export function refloor(s, remake = isGenerated) {
   const away = Object.entries(s.elsewhere || {}), here = remake(s.place, s);

@@ -73,15 +73,18 @@ Ideas per kind, for the owner to pick from (no numbers yet):
 ## The code for the next steps
 - **The stamper (built, D-592):** `stamper.js` `spotIn`, `setAside`,
   `stampIn`, called from `cave.js` `generateRoom` (`ways.landmark`); the
-  room and spot are `room.js` `stoneAt`. The other depths add their depth
-  there. Old saves: `refloor.js` `restone`.
+  room and spot are `room.js` `stoneAt(seed, depth)`; which depths hold
+  one is `isStoneDepth` (D-594). Old saves: `refloor.js` `restone` (depth
+  2) and `restones` (the others).
 - **Later looks (the owner's wish, D-592):** waystones in different art
   and ways of building, by region or depth.
 - **The travel card:** cards are listed in `input/cards/table.js` and
   drawn with `render/bag.js`'s helpers (`ways.js` is the simplest list); a
   new card is added in `frame.js` (`CLEAR_OVER`, `CARDS`, its draw),
   `main.js`'s tap list and `screens.js`'s `onTitle` list.
-- **Travel (built, D-593):** `travel.js`. Before it: `stairs.js` `arrive(state, to, there, spot)` moves the
+- **Travel (built, D-593):** `travel.js`; the card's list is `stonePlaces`,
+  down to the stone below `deepestOf` (D-594). The scroll to come can
+  follow `render/history.js`. Before it: `stairs.js` `arrive(state, to, there, spot)` moves the
   hero between rooms and floors; travel would call it with the plate as
   the spot, inside a turn as `turn.js` does.
 - **Waking (built, D-591):** a tile with `wakes` turns into that tile when

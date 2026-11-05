@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Waystones, last step (D-579): the waystones on the other depths (5, 8,
-then every 4th), placed as depth 2's (D-592). Ask whether all come at
-once or depth 5 first; code map in `RESEARCH-TRAVEL.md`.
+The travel card's list scrolls inside the card, like the version
+history's (D-594), since sideways it fits 5 rows. Then boons (16b).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -37,8 +36,8 @@ when merged, with its version, and move ticked steps there at each audit.
 
 Getting around first (D-582), then boons (D-583):
 - [x] 15 Smaller shallow floors (D-580), 0.3.42
-- [ ] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
-  depth 2 (0.3.49); travel card (0.3.50); the other depths
+- [x] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
+  depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51)
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
@@ -56,6 +55,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.51, the deeper waystones.** All
+  recommended: 5, 8, then every 4th, at once; the card lists down to the
+  next stone below the deepest floor; old saves' rooms made again once.
+  The card scrolls next (D-594). Playtest: https://claude.ai/artifact/JSGRtQ6BdMvMR1FBvH2nNN
 - **2026-11-05, 0.3.50, travel between waystones.** All recommended: a
   short list card, opened by a tap on the hero, Space or Enter on a woken
   plate; free, barred with a creature near; you arrive on the plate
@@ -65,7 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   recommended: one room the seed picks, not the one with the stairs up,
   near its middle; the shared stamper sets it aside; old saves have that
   room made again once (D-592). Other looks later (the owner's wish). Playtest: https://claude.ai/artifact/Q2kv6qX8SS23zGGCfZLSRV
-- **2026-11-05, 0.3.48, waking the home waystone.** All recommended:
-  its plate wakes it, violet with a faint glow, a ring and three bells
-  (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.
-  Playtest: https://claude.ai/artifact/YN81sb9ToTBNv749BHhCva

@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { layoutAt } from '../src/core/region.js';
-import { placeFor, makeRoom, PLACES, isGenerated, tileAt } from '../src/core/room.js';
+import { placeFor, makeRoom, PLACES, isGenerated, tileAt, stoneRoom } from '../src/core/room.js';
 import { upgradeState, UPGRADES } from '../src/core/save.js';
 import { restand } from '../src/core/refloor.js';
 import { makeWorld } from '../src/core/turn.js';
@@ -30,11 +30,12 @@ test('no dungeon room falls back, seeds 1 to 300, depths 8 to 20', () => {
 });
 
 test('rooms that were made before come out exactly as they did', () => {
-  let h = 0; // a fingerprint of 360 rooms, taken at 0.3.42
+  let h = 0; // a fingerprint of 360 rooms, taken at 0.3.42, less the waystones' rooms on 8 and 20 (0.3.51, D-594)
   for (let seed = 1; seed <= 20; seed++) for (const d of [8, 14, 20]) for (const c of layoutAt(seed, d).cells) {
+    if (c.id === stoneRoom(seed, d)) continue; // made with its stone, every other room as before
     for (const ch of JSON.stringify(placeFor(c.id, seed))) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   }
-  assert.equal(h, 1386175474);
+  assert.equal(h, 508387350);
 });
 
 test('an old save\'s stand-in is made again, and the rooms that fit stay as they were', () => {

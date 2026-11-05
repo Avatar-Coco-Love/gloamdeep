@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeWorld } from '../src/core/turn.js';
-import { goToPlace } from '../src/core/stairs.js';
+import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { stoneAt, withTile, tileAt } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { stonesOf, travel, onWokenPlate, creatureNear, stoneName, stoneNote } from '../src/core/travel.js';
@@ -25,9 +25,22 @@ test('travel: the card lists home first, then depth 2, ??? until woken', () => {
   assert.deepEqual(rows.map((r) => r.place), ['woods', stoneAt(SEED).id]);
   assert.ok(rows.every((r) => !r.woken));
   assert.deepEqual(rows.map(stoneName), ['???', '???']);
-  const both = stonesOf(bothWoken());
-  assert.deepEqual(both.map(stoneName), ['Home', 'Depth 2']);
-  assert.deepEqual(both.map(stoneNote), ['The surface.', 'You are here.']);
+  const both = stonesOf(bothWoken()); // on depth 2: the next stone, depth 5's, shows too
+  assert.deepEqual(both.map(stoneName), ['Home', 'Depth 2', '???']);
+  assert.deepEqual(both.map(stoneNote), ['The surface.', 'You are here.', 'Not yet woken.']);
+});
+
+test('travel: the card lists down to the next stone below the deepest floor reached (D-594)', () => {
+  const at = (d) => stonesOf(goToDepth(makeWorld('first', SEED), d)).map((r) => r.depth);
+  assert.deepEqual(at(1), [0, 2]);
+  assert.deepEqual(at(3), [0, 2, 5]);
+  assert.deepEqual(at(5), [0, 2, 5, 8]);
+  assert.deepEqual(at(9), [0, 2, 5, 8, 12]);
+  assert.deepEqual(at(12), [0, 2, 5, 8, 12, 16]);
+  const back = goToPlace(goToDepth(makeWorld('first', SEED), 9), 'woods'); // home again, the deepest kept
+  assert.deepEqual(stonesOf(back).map((r) => r.depth), [0, 2, 5, 8, 12]);
+  const woken = onStone(goToDepth(makeWorld('first', SEED), 8), stoneAt(SEED, 8).id);
+  assert.deepEqual(stonesOf(woken).filter((r) => r.woken).map((r) => [stoneName(r), stoneNote(r)]), [['Depth 8', 'You are here.']]);
 });
 
 test('travel: picking home goes onto its plate, free: no turn, no oil, no creature moves', () => {

@@ -6,13 +6,13 @@ import { withXp } from './xp.js';
 import { withBag } from './bag.js';
 import { withStashes } from './chest.js';
 import { withTool } from './gear.js';
-import { refloor, restand, restone } from './refloor.js';
+import { refloor, restand, restone, restones } from './refloor.js';
 import { withHomeStone } from './homestone.js';
 
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 14;
+export const FORMAT = 15;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -27,6 +27,7 @@ export const UPGRADES = {
   11: restand, // 11 → 12: a crypt room standing in for a dungeon room made again from its seed (D-585)
   12: withHomeStone, // 12 → 13: the home waystone set in the woods, nothing of the hero's moved (D-589)
   13: restone, // 13 → 14: the depth 2 room the seed picks for the waystone made again with it (D-592)
+  14: restones, // 14 → 15: the room the seed picks for each deeper waystone made again with it (D-594)
 };
 // Every room's taken list, empty (regrow.js)
 function withTaken(s) {
