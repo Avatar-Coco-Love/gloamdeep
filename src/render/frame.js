@@ -10,6 +10,8 @@ import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
+import { drawMarks, marksSize, markAt } from './marks.js';
+import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
@@ -88,6 +90,7 @@ export function createFrame(app, ui) {
   const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
+  let markRow = null; // the marks as last drawn, for taps (D-604)
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
   let roundAlpha = 1, lanternAlpha = 1, padAlpha = 1; // the top right corner's fade (D-383, D-442), the bottom right's (D-442), and the arrow pad's (D-406)
@@ -261,8 +264,10 @@ export function createFrame(app, ui) {
     const n = list ? list.length : 0; // the panel's size is last frame's, near enough
     const [ex, ey] = edgeIn(); // as far in as the round buttons (D-512)
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
-    const shownN = plaquesShown(n, ex, ey + panel.h + 2, false, end), more = shownN < n ? 1 : 0;
-    const under = { w: Math.max(panel.w, n ? PLAQUE_W : 0), h: panel.h + (shownN + more) * (PLAQUE_H + 2) };
+    const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
+    const mk = marksSize(marks.length), listY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0); // the marks under the panel, the list under them
+    const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
+    const under = { w: Math.max(panel.w, mk.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
     const covers = (a) => spots.some(([px, py]) => { // on the screen layer, where the panel and the corner pieces are (D-444)
@@ -286,12 +291,14 @@ export function createFrame(app, ui) {
     const padOn = app.screen === 'play' && padShown(app.settings);
     padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
     arrowPad.show(padOn, padAlpha);
-    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), boon: boonOf(state)?.name }, ex, ey, panel.alpha)); // the boon held's name (D-596) // the fall's picture keeps no xp, and a fall keeps it all (D-245)
-    panelFoot.y = ey + panel.h;
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
+    markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
+    panelFoot.y = ey + panel.h + (mk.h ? mk.h + 2 : 0);
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
-      row = { list, x: ex, y: ey + panel.h + 2, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
+      row = { list, x: ex, y: listY, across: false, end }; // where the list sits, in the screen layer's pixels (D-444)
       hc.save(); hc.globalAlpha = panel.alpha;
       drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
       hc.restore();
@@ -340,6 +347,8 @@ export function createFrame(app, ui) {
     const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px, py);
     return i < 0 ? null : foeAt(row.list[i].e);
   }
+  // § marks for taps (D-604): the id of the boon whose mark is under px, py on the screen layer, or null
+  const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);
-  return { draw, redraw, plaqueSpot, plaqueSpots };
+  return { draw, redraw, plaqueSpot, plaqueSpots, markSpot };
 }

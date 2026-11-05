@@ -7,26 +7,23 @@ import { drawGlass } from './glass.js';
 import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
-// the boon held, if any (D-596), then the depth, as in the D-378 mock-up. Drawn in game pixels: a see-through
+// the depth, as in the D-378 mock-up; the boon held is a mark under it (D-604). Drawn in game pixels: a see-through
 // night fill and a soft light edge, its corner pixels left out so it looks
 // round (pixel glass, D-380). `alpha` fades it while the hero is under it.
 // Gives the panel's { w, h }, for the creature list under it (D-357).
 const PAD = 3, LINE = 7, GAP_Y = 3;
-const BOON_GOLD = '#e8d5a0'; // the boon's name, the lantern's warm cream
-export function drawStatus(c, { oil, health, max, depth, level, boon = null }, x, y, alpha = 1) {
+export function drawStatus(c, { oil, health, max, depth, level }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
   const shown = Math.max(max, health); // a gold heart past the most (D-488)
-  const named = boon ? boon.toUpperCase() : null, boonH = named ? LINE + 2 : 0; // the boon's name, its own line
-  const top = Math.max(heartsH(shown), LINE), w = 2 * PAD + Math.max(heartsW(shown) + 4 + textWidth(lv), BAR_W, textWidth(where), named ? textWidth(named) : 0);
-  const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + boonH + LINE;
+  const top = Math.max(heartsH(shown), LINE), w = 2 * PAD + Math.max(heartsW(shown) + 4 + textWidth(lv), BAR_W, textWidth(where));
+  const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + LINE;
   c.save();
   c.globalAlpha = alpha;
   drawGlass(c, x, y, w, h);
   drawHearts(c, health, max, x + PAD, y + PAD + (top > LINE ? 0 : 1));
   drawText(c, lv, x + w - PAD - textWidth(lv), y + PAD, '#9790a4'); // the study's --muted
   drawOilBar(c, oil, x + PAD, y + PAD + top + GAP_Y);
-  if (named) drawText(c, named, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, BOON_GOLD);
-  drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y + boonH, '#9790a4');
+  drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, '#9790a4');
   c.restore();
   return { w, h };
 }

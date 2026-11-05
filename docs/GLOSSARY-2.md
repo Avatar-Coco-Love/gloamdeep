@@ -69,3 +69,6 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   hero sets out; it lasts until home again or a fall (D-583). Stepping
   onto the woken home plate offers 3, each of a different kind; the list
   is `src/core/boons.js` (D-596).
+- **Mark:** a small glass square under the hearts panel with a picture:
+  the boon held, its kind's from its card; tapped, it says what it is
+  (D-604, `src/render/marks.js`).

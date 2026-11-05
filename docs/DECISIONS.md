@@ -185,15 +185,7 @@ with none held opens the card, the travel card's rows: 3 boons, each
 of a different kind; the cross skips. A soft two-bell chime, the line
 "The waystone grants you …", its name on the panel under the oil bar.
 Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
-The card's look superseded by D-603 (2026-11-05).
-
-**D-602 · 2026-11-05 · Far Sight** (the owner's picks, all recommended;
-builds on D-596) While Far Sight is held, arriving in a room never seen
-shows the third of its floor nearest the hero, counted in steps, with
-the walls and water beside it. It is remembered as if the lantern had
-found it, and stays when the boon ends; stairs in it count as found, so
-their glow lights (D-194). A room with anything remembered is unchanged.
-No sound and no line. All 14 boons are built. D-600 archived.
+The card's look superseded by D-603 (2026-11-05); the name on the panel by D-604 (2026-11-05).
 
 **D-603 · 2026-11-05 · The boon cards, and waking first** (the owner's
 fix and picks, recommended; supersedes D-596's card look) The step that
@@ -207,3 +199,12 @@ line. The chosen one lifts and turns gold; Left and Right choose too.
 "Lasts until you are home." under them. Dealing them face down, then
 turning them, is its own later step. D-601 archived. Mock-ups:
 https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA
+
+**D-604 · 2026-11-05 · The boon's mark** (the owner's idea and picks,
+all recommended; supersedes D-596's name on the panel) The boon held is
+no longer named on the panel. Its kind's picture and colour from its
+card show in a small glass square under the panel, the creature list
+under it; later, what else the hero carries for a while lines up beside
+it. A tap on it, or the mouse coming onto it, says the boon's name and
+its card's line; no turn passes and the hero stays. A line too wide
+for the screen wraps onto more rows, growing upward. D-602 archived.

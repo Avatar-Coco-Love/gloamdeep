@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.58, Waymark.** All recommended: the floor's stairs
+  down on the map from arriving, pulsing violet, on the round map when
+  near, gone when the boon ends (D-601).
+  Playtest: https://claude.ai/artifact/QSVBDxYVAZmJsQPw5zLt1u
 - **2026-11-05, 0.3.57, Soft Step.** Both recommended: the lantern's
   last tile of light wakes no one; torches, glows, daylight and the shy
   ones as before (D-600).

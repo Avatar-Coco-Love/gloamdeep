@@ -14,6 +14,7 @@ import { createScreen, TILE } from './render/screen.js';
 import { setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
+import { BOONS } from './core/registry.js';
 import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed } from './core/profile.js';
@@ -272,6 +273,18 @@ function nudgeToward(dir) {
   const [dx, dy] = DIRS[dir];
   app.nudge = { dx, dy, until: performance.now() + 90 };
 }
+// § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
+// name and its card's line; no turn passes
+const tellMark = (picX, picY) => {
+  const b = BOONS[frame.markSpot(...toLayer([picX, picY]))];
+  if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
+};
+let hovered = null; // the mark under the mouse, said once as it comes onto it
+const onHover = (picX, picY) => {
+  const id = app.screen === 'play' ? frame.markSpot(...toLayer([picX, picY])) : null;
+  if (id && id !== hovered) tellMark(picX, picY);
+  hovered = id;
+};
 // § tap: a tap on the hero waits a turn (D-085); a tap on a tile beside them steps
 // there, which bites, mines or opens as a step does; one further off walks there
 // at once (D-406), or with Tap on Step steps once toward it, along the farther side (D-042, D-449).
@@ -282,6 +295,7 @@ function nudgeToward(dir) {
 // or on Step keeps stepping toward the finger (holdStep below)
 // picX, picY: on the menus' picture, in its pixels
 const stepToward = (picX, picY, held = false) => {
+  if (frame.markSpot(...toLayer([picX, picY]))) { if (!held) tellMark(picX, picY); return; } // a mark tells what it is; no turn passes (D-604)
   const spot = frame.plaqueSpot(...toLayer([picX, picY])); // a plaque frames its creature, or lets it go; no turn passes (CL2)
   if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
   if (app.walk && !held) { app.walk = null; return; }
@@ -412,7 +426,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
+  onDir, onPoint, onHover, onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
 });
 const mapMoves = createMapMoves(stage, hudCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
