@@ -28,6 +28,6 @@ export const BOONS = {
   luckyFind: { id: 'luckyFind', kind: 'boon', sort: 'finding', name: 'Lucky Find', words: 'Rare drops come more often.', rare: 0.25 },
   greedyHands: { id: 'greedyHands', kind: 'boon', sort: 'finding', name: 'Greedy Hands', words: 'Creatures always drop their part, but the oil burns faster.', drop: 1, burn: 1.25 },
   softStep: { id: 'softStep', kind: 'boon', sort: 'around', name: 'Soft Step', words: 'Creatures notice you 1 tile later.', notice: 1 },
-  waymark: { id: 'waymark', kind: 'boon', sort: 'around', name: 'Waymark', words: 'Each room shows its way down on the map.', stairs: true },
+  waymark: { id: 'waymark', kind: 'boon', sort: 'around', name: 'Waymark', words: 'Each floor\'s stairs down show on the map.', stairs: true },
   farSight: { id: 'farSight', kind: 'boon', sort: 'around', name: 'Far Sight', words: 'Each room shows more of its map as you enter.', shows: 1 / 3, soon: true },
 };

@@ -200,5 +200,6 @@ the map from the moment the hero arrives, in a room not yet entered too,
 the room around them still dark. They are the found stairs' violet,
 slowly pulsing (steady with reduced motion), on the big map and on the
 round map when near. Stairs the hero has seen show as found stairs. The
-marks are never remembered: they go when the boon ends. D-599
+marks are never remembered: they go when the boon ends. Its line on
+the card: "Each floor's stairs down show on the map." D-599
 archived.
