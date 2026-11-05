@@ -7,6 +7,7 @@ import { say } from './lines.js';
 import { enemyAt, biters } from './enemies.js';
 import { traits } from './behaviours.js';
 import { litAt, clearLine } from './sight.js';
+import { boonNotice } from './boon.js';
 import { note } from './events.js';
 import { DIRS, passTurn, itemAt } from './state.js';
 import { fall } from './fall.js';
@@ -102,15 +103,18 @@ function ahead(state) {
 // a lit tile; caught in light, it backs away, into the dark if it can.
 // One fleeing steps away from the hero instead (D-292), for its `flees`
 // turns; then it stops and has to notice them again (D-301).
+// With Soft Step (D-600) one that notices by light needs the lantern's light 1 tile short of its
+// reach; torches, glows, daylight and the shy ones' sight are as they were.
 // One that seeks light (D-351) needs no noticing: it steps toward the hero
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
 function enemiesMove(state) {
   let enemies = state.enemies;
+  const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of state.enemies) {
     if (still(e)) continue;
     const t = traits(get(e.id)), lit = litAt(state, e.x, e.y);
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
-    const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit);
+    const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
     const chasing = !seeks && (e.chasing || (sees && clearLine(state.room, e, state.hero)));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
