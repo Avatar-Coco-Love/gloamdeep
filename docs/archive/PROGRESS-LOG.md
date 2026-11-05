@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.60, Boon cards.** The owner's fix: waking the home
+  stone opens no boon card. The owner's picks, recommended: the boon
+  card as three cards with kind colours; dealing them later (D-603).
+  Playtest: https://claude.ai/artifact/Jo5D8sM42QC5WG7xWgSqTC
 - **2026-11-05, 0.3.59, Far Sight.** All recommended: a new room's
   third nearest the hero remembered on arriving, kept after the boon,
   its stairs found; no sound or line; all 14 boons built (D-602).

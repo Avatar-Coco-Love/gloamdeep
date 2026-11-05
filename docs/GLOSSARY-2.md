@@ -17,8 +17,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Snapcap:** a heartcap that bites; never moves, looks just like a heartcap until the hero stands beside it, then shows eyes and teeth; 2 hearts; from depth 2 (D-543).
 - **Herb mimic:** looks just like a herb until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; 2 hearts; from depth 3 (D-549).
 - **Bone rat:** a rat with nothing left but bone; chases and never flees, 3 hearts; from depth 4 (D-549, D-551).
+- **Oil tick:** a round tick swollen with amber oil; chases, and beside the hero drinks 5% of the lantern's oil instead of biting, biting only once it is empty; 2 hearts; from depth 3 (D-606). The wicksucker of the list, named the oil tick for now.
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
-- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351).
+- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606).
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the column of plaques under the glass panel, one for each
   creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).
