@@ -1,4 +1,4 @@
-# The waystones' first steps (D-589, D-591, D-592, D-593, D-594)
+# The waystones' first steps (D-589, D-591 to D-595)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.50 (D-593), when it neared
 12 KB: the home waystone asleep, waking it, and the sleeping waystone at
@@ -6,6 +6,7 @@ depth 2 (step 16's first three parts). Still in force.
 
 D-593 and D-594 moved unchanged at 0.3.52 (D-595): travel between woken
 waystones and the waystones on the other depths, step 16's last parts.
+D-595 moved unchanged at 0.3.56 (D-599): the travel card scrolls.
 
 **D-589 · 2026-11-05 · The home waystone, asleep** (the owner's picks,
 all recommended; step 16's first part, builds on D-579 and D-587) The
@@ -72,3 +73,12 @@ saved journey that has seen a room now holding a stone has it made again
 once, as D-592's; every other room stays exactly as it was. Sideways the
 card fits 5 rows, so from depth 12 its list scrolls inside the card, like
 the version history (the owner's pick), built as its own next step.
+
+**D-595 · 2026-11-05 · The travel card scrolls** (the owner's picks, all
+recommended; builds on D-593 and D-594) When the waystones don't all fit,
+the travel card's list scrolls inside the card as the version history's:
+it opens on the first woken stone not stood on, scrolled into view; Up and
+Down keep the chosen row whole in view; a swipe, Page Up or Page Down
+turns a page, the flame moving to the top row shown if it scrolled away;
+a thin bar at the card's right shows where the list is. Only whole rows
+show while it scrolls, 5 sideways. D-593 and D-594 archived.

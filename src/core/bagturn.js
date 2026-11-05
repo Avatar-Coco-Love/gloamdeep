@@ -10,6 +10,7 @@ import { personAt } from './people.js';
 import { offEdge } from './openings.js';
 import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag } from './bag.js';
 import { note } from './events.js';
+import { pourOf, healOf } from './boon.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
@@ -25,7 +26,7 @@ export function pour(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.oil) return state;
   const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand' });
-  return endTurn(state, { ...next, bag: bagTake(state.bag, i), oil: Math.min(1, next.oil + entry.oil) });
+  return endTurn(state, { ...next, bag: bagTake(state.bag, i), oil: Math.min(1, next.oil + pourOf(state, entry)) });
 }
 
 // § craft: Make on bag slot i turns its item's `craft.of` into one
@@ -85,7 +86,7 @@ export function eat(state, i) {
   if (!entry?.eats) return state;
   if (state.health >= maxHealth(state)) return say(state, 'notHurt');
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
-  return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + entry.heal) });
+  return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + healOf(state, entry)) });
 }
 
 // § hold: Hold on bag slot i puts its weapon in the hand, or its tool in the Tool slot,
@@ -212,14 +213,14 @@ export function look(state, i) {
 
 // § pour by itself: with Flasks set to By itself (D-249), after a turn has
 // passed, the first flask in the bag pours once none of it would be wasted
-// (at 55% oil or lower, D-248). It is free: no turn passes. "You pour a
+// (at 55% oil or lower, D-248; 40% with Deep Pour, D-599). It is free: no turn passes. "You pour a
 // flask." is said, unless another line was said this turn (an oil line aside).
 // It adds a `pour` event, by itself, to the turn's.
 export function pourByItself(before, after) {
   if (after.turn === before.turn || after.fell !== before.fell) return after;
-  const i = after.bag.findIndex((s) => get(s.id)?.oil && after.oil + get(s.id).oil <= 1 + 1e-9);
+  const i = after.bag.findIndex((s) => get(s.id)?.oil && after.oil + pourOf(after, get(s.id)) <= 1 + 1e-9);
   if (i < 0) return after;
-  const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + get(after.bag[i].id).oil) }, 'pour', { id: after.bag[i].id, by: 'self' });
+  const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self' });
   const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);
   return other ? poured : say(poured, 'flaskPour');
 }

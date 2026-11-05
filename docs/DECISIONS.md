@@ -168,15 +168,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-595 · 2026-11-05 · The travel card scrolls** (the owner's picks, all
-recommended; builds on D-593 and D-594) When the waystones don't all fit,
-the travel card's list scrolls inside the card as the version history's:
-it opens on the first woken stone not stood on, scrolled into view; Up and
-Down keep the chosen row whole in view; a swipe, Page Up or Page Down
-turns a page, the flame moving to the top row shown if it scrolled away;
-a thin bar at the card's right shows where the list is. Only whole rows
-show while it scrolls, 5 sideways. D-593 and D-594 archived.
-
 **D-596 · 2026-11-05 · The boon list, and the boon card** (the owner's
 picks, answers Q-077; builds on D-583) The pool holds 14 boons, all in
 the registry (`src/core/boons.js`), one line each, so the owner can add,
@@ -207,3 +198,11 @@ light while there is oil, the empty ember stays; burns half again as
 fast, with gear) and Reckless (+1 on every hit, the spear's second hit
 too; 2 fewer hearts, any above the new most cut as it is taken, and back
 empty when it ends).
+
+**D-599 · 2026-11-05 · Deep Pour, Kind Herbs and Lucky Find** (the
+owner's picks, all recommended; builds on D-596) Built next: Deep Pour
+(a flask pours 60%; by itself it waits until none is wasted, at 40% or
+lower), Kind Herbs (anything eaten or drunk heals 1 heart more, walked
+onto or from the bag, never above full) and Lucky Find (rare drops 25%;
+it stacks with the Wisp Charm, each adding its part above the usual
+10%: 35% with both). D-595 archived.
