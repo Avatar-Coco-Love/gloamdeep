@@ -46,7 +46,7 @@ function withWaymarks(state, reveal, { cells, ...plan }) {
   return { ...plan, waymarks };
 }
 // The stairs down in a room, as its tiles [{ x, y }]
-function downsOf(room) {
+export function downsOf(room) {
   const found = [];
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (tileAt(room, x, y).id === 'stairsDown') found.push({ x, y });
   return found;
@@ -70,7 +70,7 @@ function withBags(state, plan) {
 // The part of floor `depth` that holds room `start`, laid out on its grid,
 // with `seams`: every seam tile between two cells side by side, and the edge
 // tile on each side of it, whether those rooms are known or not
-function partPlan(state, reveal, depth, start) {
+export function partPlan(state, reveal, depth, start) {
   const cells = new Map([[start, { x: 0, y: 0 }]]), todo = [start];
   while (todo.length) {
     const id = todo.shift(), at = cells.get(id);
