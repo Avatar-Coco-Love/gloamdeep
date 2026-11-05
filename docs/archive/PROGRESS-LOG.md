@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.49, the sleeping waystone at depth 2.** All
+  recommended: one room the seed picks, not the one with the stairs up,
+  near its middle; the shared stamper sets it aside; old saves have that
+  room made again once (D-592). Other looks later (the owner's wish). Playtest: https://claude.ai/artifact/Q2kv6qX8SS23zGGCfZLSRV
 - **2026-11-05, 0.3.48, waking the home waystone.** All recommended:
   its plate wakes it, violet with a faint glow, a ring and three bells
   (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.

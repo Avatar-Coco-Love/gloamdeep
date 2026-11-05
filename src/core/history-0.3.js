@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.52', date: '2026-11-05', title: 'The travel card scrolls', lines: [
+    "The travel card's list now scrolls inside the card when the waystones don't all fit, as the version history's does. Sideways it shows 5 whole rows.",
+    "It opens on the first woken stone you aren't standing on. Up and Down keep the chosen stone in view; a swipe, Page Up or Page Down turns a page, and a thin bar at the card's right shows where you are in the list.",
+    "Decisions: D-595.",
+  ] },
   { v: '0.3.51', date: '2026-11-05', title: 'The deeper waystones', lines: [
     "Waystones now stand asleep deeper down too: on depth 5, the top of the warrens; depth 8, the top of the dungeon; then every 4th depth, 12, 16, 20 and on. Each is placed like depth 2's, in a room the seed picks, never the one with the stairs up, near its middle.",
     "Step onto one and it wakes, as the others do, and you can travel to it from any woken stone.",

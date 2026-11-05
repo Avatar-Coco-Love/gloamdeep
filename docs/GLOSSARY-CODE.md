@@ -39,7 +39,8 @@ code; where this page and a decision disagree, the decision wins.
 - **Travel, travel card:** `src/core/travel.js` lists the waystones
   (`stonesOf`) and goes to a woken one (`travel`); the card is the
   `travel` screen, `src/input/cards/travel.js`, drawn as the way to play
-  card's rows (D-593).
+  card's rows (D-593); its list scrolls with `waysScrollTo` and
+  `waysPage` in `src/render/ways.js` (D-595).
 
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the
