@@ -36,6 +36,10 @@ code; where this page and a decision disagree, the decision wins.
   of tile letters, and `stamp` sets it on a room (D-587, D-589).
 - **Stamper:** `src/core/stamper.js`, which finds a landmark's spot in a
   generated room and sets it aside as the room is dug (D-587, D-592).
+- **Travel, travel card:** `src/core/travel.js` lists the waystones
+  (`stonesOf`) and goes to a woken one (`travel`); the card is the
+  `travel` screen, `src/input/cards/travel.js`, drawn as the way to play
+  card's rows (D-593).
 
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the

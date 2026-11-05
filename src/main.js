@@ -47,6 +47,7 @@ import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
+import { travel, onWokenPlate, creatureNear } from './core/travel.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -178,7 +179,10 @@ function tryStep(dir) {
   if (!settled()) { app.queued = dir; return; }
   const before = app.state;
   let to = before.hero;
-  if (dir === 'wait') app.state = wait(app.state); // standing still, one turn (D-084)
+  if (dir.travel !== undefined) app.state = travel(app.state, dir.travel); // to another woken waystone, free (D-593)
+  else if (dir === 'wait' && onWokenPlate(before) && !creatureNear(before)) { screens.openTravel(); return; } // the wait on a woken plate opens the travel card (D-593)
+  else if (dir === 'wait' && onWokenPlate(before)) app.state = say(app.state, 'stoneNear'); // barred, free (D-593)
+  else if (dir === 'wait') app.state = wait(app.state); // standing still, one turn (D-084)
   else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn (D-247)
   else if (dir.craft !== undefined) app.state = craft(app.state, dir.craft); // a flask from 3 oilcaps, one turn (D-299)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
@@ -379,6 +383,7 @@ const screens = createScreens(app, {
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
+  goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
   goFullScreen,
 });
@@ -390,7 +395,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
@@ -400,7 +405,7 @@ const onTab = () => {
   app.framed = spots[i + 1] || null;
   return spots.length > 0;
 };
-const onChoose = () => { if (app.screen !== 'play' && !screens.onMapScreen()) screens.choose(); };
+const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
   onDir, onPoint, onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)

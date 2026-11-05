@@ -49,6 +49,8 @@ export const LINES = {
   anew: { text: 'The world begins again.', warn: false }, // a Hardcore fall (D-344)
   torchLit: { text: 'You light the torch.', warn: false }, // (D-124)
   stoneWakes: { text: 'The waystone wakes.', warn: false }, // (D-591)
+  stoneTravel: { text: 'The waystone carries you.', warn: false }, // (D-593)
+  stoneNear: { text: 'Not with a creature so near.', warn: false }, // travel barred (D-593)
   lanternDark: { text: 'Your lantern is dark.', warn: false }, // (D-124)
   stairsDown: { text: 'You go down the stairs.', warn: false }, // (D-135)
   stairsUp: { text: 'You go up the stairs.', warn: false }, // (D-135)

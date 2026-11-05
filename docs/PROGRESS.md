@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.48 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.50 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Waystones, fourth step (D-579): the travel card and travel. Ask Q-080's
-parts; code map in `RESEARCH-TRAVEL.md`. First archive some of
-`DECISIONS.md` (11.7 of 12 KB).
+Waystones, last step (D-579): the waystones on the other depths (5, 8,
+then every 4th), placed as depth 2's (D-592). Ask whether all come at
+once or depth 5 first; code map in `RESEARCH-TRAVEL.md`.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,7 +28,6 @@ parts; code map in `RESEARCH-TRAVEL.md`. First archive some of
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - The boon list and numbers (Q-077), before the boons step.
-- The waystone's details (Q-080), at each waystone step.
 - Begin a journey on the surface (Q-081), as its own small step.
 - Which depths are which biome (Q-082), before the scope map is filled.
 
@@ -39,7 +38,7 @@ when merged, with its version, and move ticked steps there at each audit.
 Getting around first (D-582), then boons (D-583):
 - [x] 15 Smaller shallow floors (D-580), 0.3.42
 - [ ] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
-  depth 2 (0.3.49); travel card; the other depths
+  depth 2 (0.3.49); travel card (0.3.50); the other depths
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
@@ -57,6 +56,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.50, travel between waystones.** All recommended: a
+  short list card, opened by a tap on the hero, Space or Enter on a woken
+  plate; free, barred with a creature near; you arrive on the plate
+  (D-593). Three waystone decisions archived. Playtest:
+  https://claude.ai/artifact/HZxTXgJKmsDsqVEeu6QAwG
 - **2026-11-05, 0.3.49, the sleeping waystone at depth 2.** All
   recommended: one room the seed picks, not the one with the stairs up,
   near its middle; the shared stamper sets it aside; old saves have that
@@ -65,8 +69,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   its plate wakes it, violet with a faint glow, a ring and three bells
   (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.
   Playtest: https://claude.ai/artifact/YN81sb9ToTBNv749BHhCva
-- **2026-11-05, 0.3.47, the home waystone.** All recommended: it stands
-  asleep north of the woods' middle, its stones blocking light; old saves
-  get it at the nearest clear spot (D-589). Research helpers; the Play
-  checklist in `STORE.md` (D-590). Playtest:
-  https://claude.ai/artifact/XZ1f81fhWadFexEdF1xCXQ

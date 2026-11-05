@@ -160,19 +160,6 @@ canvases. Every canvas drawn once and kept is now drawn again when the
 browser hands it back (contextrestored), and checked when the page shows
 again (visibilitychange). Nothing visible changed.
 
-**D-589 · 2026-11-05 · The home waystone, asleep** (the owner's picks,
-all recommended; step 16's first part, builds on D-579 and D-587) The
-home waystone stands in the woods with its plate 3 tiles north of the
-room's middle, the trees one tile around it cleared, so the middle is at
-the foot of its south arm. It looks like a small henge: a tall grey
-standing stone on each 2 × 2 corner, worn flagstones on the cross and a
-round carved plate in the middle, its rune cut but dark. The corner
-stones block light and sight, like rock. A save that already has a home
-gets it once, at the nearest spot to there where none of the hero's
-built things, the pond, the cave mouth, a person or the hero stand; only
-trees, stumps, branches and bushes there are cleared, and nothing of the
-hero's moves. A new journey still begins in the crypt (Q-081).
-
 **D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
 Research helpers work beside each build step and report to Claude, who
 brings options; only one conversation builds Gloamdeep at a time. The
@@ -181,26 +168,20 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-591 · 2026-11-05 · Waking the home waystone** (the owner's picks, all
-recommended; step 16's second part, builds on D-579 and D-589; answers
-part of Q-080) The home waystone wakes the first time the hero steps onto
-its plate; the step is the turn, and waking costs nothing more. It wakes
-to the stairs' violet: the plate's rune lights for good, with the stairs'
-faint glow around it. As it wakes, the rune lights from the bottom up and
-one soft violet ring spreads over the cross and fades (none with reduced
-motion), three soft bell notes rise, and the line says "The waystone
-wakes." It stays woken in its room's map, so a saved journey keeps it.
-Mock-ups: https://claude.ai/artifact/GB96WARVCRASKzX81XUwJ4
-
-**D-592 · 2026-11-05 · The sleeping waystone at depth 2** (the owner's
-picks, all recommended; step 16's third part, builds on D-579, D-587 and
-D-591; answers part of Q-080) On depth 2, one room the seed picks holds a
-waystone asleep: never the room with the stairs up, and only a room where
-it fits clear of the stairs down. It stands at the spot nearest the
-room's middle, with one tile of open floor around it; no deposit or pool
-goes there. The shared stamper (`stamper.js`) sets it aside as each try
-of the room is dug and tries again if anything is cut off. It looks just
-like the home stone for now; later, waystones get different art and ways
-of building (the owner's wish). A saved journey that has seen that room
-has it made again once, with the stone; a hero in it goes to the floor's
-stairs up. Dev mode's tools for landmarks come at their own step.
+**D-593 · 2026-11-05 · Travel between woken waystones** (the owner's
+picks, all recommended; step 16's fourth part, builds on D-579, D-591 and
+D-592; answers Q-080) Standing on a woken plate, a tap on the hero, Space
+or Enter opens the travel card; walking over the plate never opens it.
+The card is a short list on glass, "WAYSTONES": home first, then each
+stone by depth, its name and a note under it ("Home", "The surface.";
+"Depth 2", "The caves."). One not yet woken shows as ???, "Not yet
+woken.", dim, so the player knows it is there; the one stood on is dim,
+"You are here." Tapping or picking a woken one goes there at once, onto
+its plate, with the stairs' fade: "The waystone carries you." Travel is
+free: no turn passes and no oil burns, so the oil where the hero arrives
+is the pressure, and the creatures there can't act before the hero's
+first move. It is barred while a creature awake stands beside the hero,
+corners too, or chases them: "Not with a creature so near." and no turn
+passes. The lines are Claude's wording, to change at the playtest. To
+keep this file small, D-589, D-591 and D-592 moved to
+`archive/DECISIONS-WAYSTONES.md`.

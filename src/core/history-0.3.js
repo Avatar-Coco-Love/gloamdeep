@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.50', date: '2026-11-05', title: 'Travel between waystones', lines: [
+    "You can now travel between waystones you have woken. Stand on a woken plate and tap the hero, or press Space or Enter, and the travel card opens. Walking over the plate never opens it.",
+    "The card lists every waystone, home first, then by depth. One you haven't woken shows as ???, and the one you stand on is greyed out. Pick a woken one and you arrive on its plate.",
+    "Travel is free: no turn passes and no oil burns, and creatures where you arrive can't move before you do. You can't travel with a creature awake beside you or chasing you.",
+    "Decisions: D-593. Questions closed: Q-080.",
+  ] },
   { v: '0.3.49', date: '2026-11-05', title: 'The sleeping waystone at depth 2', lines: [
     "A second waystone now stands asleep on depth 2, the top of the caves: in one of the two rooms away from the stairs up, the seed's pick, near the room's middle with open floor all around it.",
     "It looks like the home stone for now. Step onto its plate and it wakes, just as the home one does. Travelling between them comes next.",

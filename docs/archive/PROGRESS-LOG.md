@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.47, the home waystone.** All recommended: it stands
+  asleep north of the woods' middle, its stones blocking light; old saves
+  get it at the nearest clear spot (D-589). Research helpers; the Play
+  checklist in `STORE.md` (D-590). Playtest:
+  https://claude.ai/artifact/XZ1f81fhWadFexEdF1xCXQ
 - **2026-11-03, 0.3.46, pictures after the background.** The owner's
   fix: on Android the hero and tiles came back blank after the app was
   in the background. Every kept picture is drawn again when the browser
