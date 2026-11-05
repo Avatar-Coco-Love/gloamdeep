@@ -3,6 +3,8 @@
 // a rat guarding it (D-149), a herb (D-155), an oilcap (D-296) and, in about half the rooms, a heartcap (D-303), each mushroom its own tone (D-305), and deposits when asked (D-311). Plain data, no drawing. Same seed, same room.
 import { rng, int, pick } from './rng.js';
 import { toned } from './tones.js';
+import { setAside, stampIn, RING as AROUND } from './stamper.js';
+import { around } from './landmarks.js';
 
 // § sizes: about 1.5 screens, 17 × 20, bigger than the screen, so the camera
 // follows the hero (D-195). The chambers (D-162): how many, their half-widths
@@ -38,14 +40,21 @@ export const HEARTCAP_ODDS = 0.5;
 // still pool may lie there (D-500). `ways.cols` and `ways.rows`: the room's size (D-580).
 // `ways.trapped`: the person trapped in a ring of rubble there, if any (D-490); a
 // try with no spot for the ring is made again, so the room always has one (D-580).
-export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false, cols = COLS, rows = ROWS, trapped = null } = {}) {
-  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel, first = trapped ? TRAPPED_TRIES : TRIES;
+// `ways.landmark`: a landmark set aside there, as { mark, at } (stamper.js, D-587); a try
+// that leaves anything cut off is made again.
+export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false, cols = COLS, rows = ROWS, trapped = null, landmark = null } = {}) {
+  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel, first = trapped || landmark ? TRAPPED_TRIES : TRIES;
+  const lr = landmark && rng(seed ^ 0x3c6ef372); // the landmark's own seed, for its tunnel
   for (let i = 0; i < first + MORE_TRIES; i++) {
     const clear = i >= first && up && typeof up === 'object' ? [up, { x: up.x, y: up.y - 1 }] : null; // the stairs up and the wall above them
-    const g = carve(r, cols, rows), room = g && fill(r, openStairs(r, openDoors(r, g, doors, dig, clear), up, down, dig, clear), up, down, rats, second, weapon);
+    const carved = carve(r, cols, rows), g = carved && landmark ? setAside(lr, carved, landmark.mark, landmark.at, dig) : carved;
+    const dug = g && openStairs(r, openDoors(r, g, doors, dig, clear), up, down, dig, clear);
+    const room = dug && fill(r, landmark ? stampIn(dug, landmark.mark, landmark.at) : dug, up, down, rats, second, weapon);
     if (!room) continue;
-    const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
-    const done = pool ? withPool(seed, made) : made;
+    const keep = landmark ? around(landmark.mark, landmark.at.x, landmark.at.y, AROUND) : []; // no deposit or pool on it or its ring
+    const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins, keep) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
+    const done = pool ? withPool(seed, made, keep) : made;
+    if (landmark && !joined(done.map)) continue;
     if (!trapped) return done;
     const held = withTrapped(seed, done, trapped);
     if (held !== done) return held;
@@ -220,12 +229,12 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
 }
 
 // § deposits: `count` deposits on open floor, off the edge, where nothing lies,
-// stands or starts (D-311). Each one must leave every open tile reachable, so a
+// stands or starts, or a landmark keeps clear (D-311, D-592). Each one must leave every open tile reachable, so a
 // deposit never cuts the room in two; one that can't fit is left out. Placed
 // after everything else, so the rest of a seed's room stays as it was. The last
 // `veins` placed become copper veins ('V', D-480), so every deposit stays where it was.
-function withDeposits(r, room, count, veins = 0) {
-  const g = room.map.map((row) => [...row]), things = [room.start, ...room.items, ...room.enemies];
+function withDeposits(r, room, count, veins = 0, keep = []) {
+  const g = room.map.map((row) => [...row]), things = [room.start, ...room.items, ...room.enemies, ...keep];
   const all = tilesWhere(g, (x, y) => walkable(g, { x, y })), placed = [];
   for (let i = 0; i < count; i++) {
     const spots = all.filter((t) => g[t.y][t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t)));
@@ -239,8 +248,8 @@ function withDeposits(r, room, count, veins = 0) {
   for (const at of veins ? placed.slice(-veins) : []) g[at.y][at.x] = 'V';
   return g.map((row) => row.join(''));
 }
-// Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V'), rubble ('U') or water ('~') counting as solid
-const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U', '~'].includes(g[t.y][t.x]);
+// Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V'), rubble ('U'), water ('~') or standing stone ('Y') counting as solid
+const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U', '~', 'Y'].includes(g[t.y][t.x]);
 function joined(g) {
   const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
   while (queue.length) {
@@ -255,15 +264,15 @@ function joined(g) {
 
 // § pool: in about 1 room in 2, a still pool of 5 to 9 water tiles ('~', D-500), in a
 // chamber: it starts on floor with open floor all 8 tiles around, and grows over open
-// floor off the edge where nothing lies, stands or starts, every tile of it at least
+// floor off the edge where nothing lies, stands or starts or a landmark keeps clear, every tile of it at least
 // POOL_CLEAR steps from the stairs and the way in. It never cuts the room in two. From its
 // own seed, so the rest of a seed's room stays as it was; the room as it was when none fits.
 export const POOL_ODDS = 0.5, POOL_MIN = 5, POOL_MAX = 9, POOL_CLEAR = 4;
-export function withPool(seed, room) {
+export function withPool(seed, room, keep = []) {
   const r = rng(seed ^ 0x6a09e667);
   if (r() >= POOL_ODDS) return room;
   const g = room.map.map((row) => [...row]), far = reach(g, room.start), size = int(r, POOL_MIN, POOL_MAX);
-  const things = [room.start, ...room.items, ...room.enemies];
+  const things = [room.start, ...room.items, ...room.enemies, ...keep];
   const stairs = tilesWhere(g, (x, y) => g[y][x] === '<' || g[y][x] === '>');
   const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t))
     && far.get(key(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);

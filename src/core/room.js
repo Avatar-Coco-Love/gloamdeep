@@ -1,7 +1,7 @@
 // § room: a room written as a text map, one string per row, one letter per
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
-import { byLetter, get } from './registry.js';
+import { byLetter, get, LANDMARKS } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { generateWoods } from './woods.js';
@@ -10,6 +10,7 @@ import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
+import { spotIn } from './stamper.js';
 
 // § first room: the shape of style study 1's room (study lines 96–110), with
 // its water as floor, and the study's stairs down at 1,1 (D-130). The gap in
@@ -156,6 +157,18 @@ export function peddlerRoom(seed) {
   const ids = layoutAt(seed, PEDDLER_DEPTH).cells.map((c) => c.id), r = rng(seedAt(seed, PEDDLER_DEPTH) ^ 0x5be0cd19);
   return ids[Math.floor(r() * ids.length)];
 }
+// § the waystone: on depth 2, the top of the caves (D-579), one room the seed picks holds a
+// waystone asleep, never the room with the stairs up, and only one where it fits clear of the
+// stairs down; it stands at the spot nearest the room's middle (stamper.js)
+export const STONE_DEPTH = 2;
+export function stoneAt(seed, depth = STONE_DEPTH) {
+  if (depth !== STONE_DEPTH) return null;
+  const mark = LANDMARKS.waystone, fits = layoutAt(seed, depth).cells.filter((c) => c.id !== placeAt(depth))
+    .map((c) => ({ id: c.id, at: spotIn(mark, c.cols, c.rows, c.down ? [c.down] : []) })).filter((c) => c.at);
+  const r = rng(seedAt(seed, depth) ^ 0x6d2b79f5);
+  return fits.length ? fits[Math.floor(r() * fits.length)] : null;
+}
+export const stoneRoom = (seed) => stoneAt(seed)?.id ?? null;
 // § weapons: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;
@@ -173,7 +186,8 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
   const trapped = depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? 'peddler' : null; // the room made so his ring fits (D-580)
-  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped });
+  const stone = stoneAt(seed, depth), landmark = stone?.id === id ? { mark: LANDMARKS.waystone, at: stone.at } : null; // (D-587)
+  const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped, landmark });
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const room = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)

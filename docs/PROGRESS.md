@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Waystones, third step (D-587): the stamper places a sleeping waystone
-at depth 2. Ask Q-080's part (which room holds it); code map in
-`RESEARCH-TRAVEL.md`.
+Waystones, fourth step (D-579): the travel card and travel. Ask Q-080's
+parts; code map in `RESEARCH-TRAVEL.md`. First archive some of
+`DECISIONS.md` (11.7 of 12 KB).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -39,7 +39,7 @@ when merged, with its version, and move ticked steps there at each audit.
 Getting around first (D-582), then boons (D-583):
 - [x] 15 Smaller shallow floors (D-580), 0.3.42
 - [ ] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
-  depth 2; travel card; the other depths
+  depth 2 (0.3.49); travel card; the other depths
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
@@ -57,6 +57,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.49, the sleeping waystone at depth 2.** All
+  recommended: one room the seed picks, not the one with the stairs up,
+  near its middle; the shared stamper sets it aside; old saves have that
+  room made again once (D-592). Other looks later (the owner's wish). Playtest: https://claude.ai/artifact/Q2kv6qX8SS23zGGCfZLSRV
 - **2026-11-05, 0.3.48, waking the home waystone.** All recommended:
   its plate wakes it, violet with a faint glow, a ring and three bells
   (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.
@@ -66,9 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   get it at the nearest clear spot (D-589). Research helpers; the Play
   checklist in `STORE.md` (D-590). Playtest:
   https://claude.ai/artifact/XZ1f81fhWadFexEdF1xCXQ
-- **2026-11-03, 0.3.46, pictures after the background.** The owner's
-  fix: on Android the hero and tiles came back blank after the app was
-  in the background. Every kept picture is drawn again when the browser
-  hands it back, and checked when the page shows; a simulated wipe comes
-  back pixel for pixel (D-588). Nothing visible changed. Playtest:
-  https://claude.ai/artifact/HeRQjmE7n3E7VoAgqktpHD

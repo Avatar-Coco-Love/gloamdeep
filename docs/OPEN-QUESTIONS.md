@@ -129,9 +129,9 @@ the boons step.
 Asked at each step, with mock-ups at
 https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU : the travel card; whether travel costs
 anything or is barred with a creature beside you; where the hero
-arrives and how the card opens; which room on the floor holds it.
+arrives and how the card opens.
 Claude's leanings are on the page. Where the home stone stands, its
-look asleep and its light: D-589. Its colour and waking: D-591. Research
+look asleep and its light: D-589. Its colour and waking: D-591. Its room at depth 2: D-592. Research
 for the rest: `RESEARCH-TRAVEL.md`.
 
 **Q-082 · Which depths belong to which biome?** (raised 2026-11-05, from

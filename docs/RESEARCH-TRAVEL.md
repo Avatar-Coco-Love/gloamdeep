@@ -71,12 +71,12 @@ Ideas per kind, for the owner to pick from (no numbers yet):
   dimmer light.
 
 ## The code for the next steps
-- **The stamper (depth 2):** `landmarks.js` has the plan and `stamp`,
-  `around`; the woods do it in `woods.js` (`joinedFrom` checks it is all
-  reached). Cave rooms: `cave.js` `generateRoom`, its extras each on their
-  own seed (`withPool`, `withMimic`); rooms are put together in `room.js`
-  `placeFor`; a floor's rooms in `region.js` `layoutAt`; pick the room as
-  `peddlerRoom` and `mimicRooms` do.
+- **The stamper (built, D-592):** `stamper.js` `spotIn`, `setAside`,
+  `stampIn`, called from `cave.js` `generateRoom` (`ways.landmark`); the
+  room and spot are `room.js` `stoneAt`. The other depths add their depth
+  there. Old saves: `refloor.js` `restone`.
+- **Later looks (the owner's wish, D-592):** waystones in different art
+  and ways of building, by region or depth.
 - **The travel card:** cards are listed in `input/cards/table.js` and
   drawn with `render/bag.js`'s helpers (`ways.js` is the simplest list); a
   new card is added in `frame.js` (`CLEAR_OVER`, `CARDS`, its draw),

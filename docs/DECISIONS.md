@@ -191,3 +191,16 @@ one soft violet ring spreads over the cross and fades (none with reduced
 motion), three soft bell notes rise, and the line says "The waystone
 wakes." It stays woken in its room's map, so a saved journey keeps it.
 Mock-ups: https://claude.ai/artifact/GB96WARVCRASKzX81XUwJ4
+
+**D-592 · 2026-11-05 · The sleeping waystone at depth 2** (the owner's
+picks, all recommended; step 16's third part, builds on D-579, D-587 and
+D-591; answers part of Q-080) On depth 2, one room the seed picks holds a
+waystone asleep: never the room with the stairs up, and only a room where
+it fits clear of the stairs down. It stands at the spot nearest the
+room's middle, with one tile of open floor around it; no deposit or pool
+goes there. The shared stamper (`stamper.js`) sets it aside as each try
+of the room is dug and tries again if anything is cut off. It looks just
+like the home stone for now; later, waystones get different art and ways
+of building (the owner's wish). A saved journey that has seen that room
+has it made again once, with the stone; a hero in it goes to the floor's
+stairs up. Dev mode's tools for landmarks come at their own step.

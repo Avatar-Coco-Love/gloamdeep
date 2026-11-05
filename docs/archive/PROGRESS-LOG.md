@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-03, 0.3.46, pictures after the background.** The owner's
+  fix: on Android the hero and tiles came back blank after the app was
+  in the background. Every kept picture is drawn again when the browser
+  hands it back, and checked when the page shows; a simulated wipe comes
+  back pixel for pixel (D-588). Nothing visible changed. Playtest:
+  https://claude.ai/artifact/HeRQjmE7n3E7VoAgqktpHD
 - **2026-11-03, 0.3.45, waystone plans.** Talk and mock-ups only: the
   owner's 5 × 5 waystone with a walkable cross, and landmarks as data
   placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
