@@ -1,8 +1,8 @@
-# The boons' first steps (D-597 to D-602)
+# The boons' first steps (D-597 to D-603)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), and D-602 at 0.3.61 (D-604).
+(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), D-602 at 0.3.61 (D-604), and D-603 at 0.3.62 (D-605).
 
 ---
 
@@ -52,3 +52,16 @@ the walls and water beside it. It is remembered as if the lantern had
 found it, and stays when the boon ends; stairs in it count as found, so
 their glow lights (D-194). A room with anything remembered is unchanged.
 No sound and no line. All 14 boons are built. D-600 archived.
+
+**D-603 · 2026-11-05 · The boon cards, and waking first** (the owner's
+fix and picks, recommended; supersedes D-596's card look) The step that
+wakes the home waystone only wakes it, so the waking is seen; the hero
+steps off and back on for a boon. The card is three upright cards side
+by side under "PICK A BOON", with the round cross. Each has its kind's
+picture and colour in a band at its top (a flame, amber: light and oil;
+a heart, red: hearts and fighting; a gem, bone: finding things;
+footsteps, violet: getting around), its name and, under a rule, its
+line. The chosen one lifts and turns gold; Left and Right choose too.
+"Lasts until you are home." under them. Dealing them face down, then
+turning them, is its own later step. D-601 archived. Mock-ups:
+https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA

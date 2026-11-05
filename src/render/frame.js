@@ -9,6 +9,8 @@ import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
+import { drawMotes } from './motes.js';
+import { draftTo } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { drawMarks, marksSize, markAt } from './marks.js';
 import { KIND_LOOKS } from './boons.js';
@@ -235,6 +237,7 @@ export function createFrame(app, ui) {
     }
     inRoom(() => {
       drawFlames(rc, s.room, s.lights, t, still());
+      drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
       drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
       if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
       drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.59, Far Sight.** All recommended: a new room's
+  third nearest the hero remembered on arriving, kept after the boon,
+  its stairs found; no sound or line; all 14 boons built (D-602).
+  Playtest: https://claude.ai/artifact/Fu7NSBKVkumaYq44mBpyGs
 - **2026-11-05, 0.3.58, Waymark.** All recommended: the floor's stairs
   down on the map from arriving, pulsing violet, on the round map when
   near, gone when the boon ends (D-601).

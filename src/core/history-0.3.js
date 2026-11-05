@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.62', date: '2026-11-05', title: 'Drifting motes', lines: [
+    "A few faint pale motes now drift slowly in your lantern light, straight toward the floor's stairs down, even through walls, like a draft. They only show where the light falls, and stop once you have seen the stairs. None with the lantern out, or with reduced motion on.",
+    "Decisions: D-605.",
+  ] },
   { v: '0.3.61', date: '2026-11-05', title: 'The boon\'s mark', lines: [
     "The boon you hold is no longer named on the panel. Its card's picture, in its colour, now shows in a small square under the panel, and the creature list moves down under it. Tap it, or put the mouse over it, to see the boon's name and what it does. No turn passes.",
     "A line at the bottom too long for the screen now wraps onto two rows instead of running off the edge.",

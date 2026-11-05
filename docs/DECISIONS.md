@@ -187,19 +187,6 @@ of a different kind; the cross skips. A soft two-bell chime, the line
 Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
 The card's look superseded by D-603 (2026-11-05); the name on the panel by D-604 (2026-11-05).
 
-**D-603 · 2026-11-05 · The boon cards, and waking first** (the owner's
-fix and picks, recommended; supersedes D-596's card look) The step that
-wakes the home waystone only wakes it, so the waking is seen; the hero
-steps off and back on for a boon. The card is three upright cards side
-by side under "PICK A BOON", with the round cross. Each has its kind's
-picture and colour in a band at its top (a flame, amber: light and oil;
-a heart, red: hearts and fighting; a gem, bone: finding things;
-footsteps, violet: getting around), its name and, under a rule, its
-line. The chosen one lifts and turns gold; Left and Right choose too.
-"Lasts until you are home." under them. Dealing them face down, then
-turning them, is its own later step. D-601 archived. Mock-ups:
-https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA
-
 **D-604 · 2026-11-05 · The boon's mark** (the owner's idea and picks,
 all recommended; supersedes D-596's name on the panel) The boon held is
 no longer named on the panel. Its kind's picture and colour from its
@@ -208,3 +195,12 @@ under it; later, what else the hero carries for a while lines up beside
 it. A tap on it, or the mouse coming onto it, says the boon's name and
 its card's line; no turn passes and the hero stays. A line too wide
 for the screen wraps onto more rows, growing upward. D-602 archived.
+
+**D-605 · 2026-11-05 · Drifting motes** (the owner's picks, all
+recommended; builds on D-581) About 5 faint pale motes at once drift
+slowly in the lantern light, with a little wobble, fading in and out,
+straight across the floor at its nearest stairs down, through walls
+like a draft. They show only where the light falls, dimmer where it is
+dim. None once any of the floor's stairs down is remembered, with the
+lantern out, or with reduced motion. D-603 archived. Mock-up:
+https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X

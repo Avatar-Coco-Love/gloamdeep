@@ -160,6 +160,17 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
     }
   }
   ctx.putImageData(img, 0, 0);
+  last.w = W; last.h = H; last.cam = cam;
+}
+
+// § lit at: how much light the last drawLight added at room pixel x, y, about 0 to 1;
+// for the motes, which only show where there is light (ART-DIRECTION.md, D-605)
+const last = { w: 0, h: 0, cam: NO_SHIFT };
+export function litAt(x, y) {
+  const sx = x - last.cam.x, sy = y - last.cam.y;
+  if (sx < 0 || sy < 0 || sx >= last.w || sy >= last.h || sx < spanLo[sy] || sx > spanHi[sy]) return 0;
+  const j = sy * last.w + sx;
+  return (addR[j] + addG[j] + addB[j]) / 3;
 }
 
 // § flicker: a sum of three sine waves, about ±3.5% for the lantern, ±9% for torches (study line 333)

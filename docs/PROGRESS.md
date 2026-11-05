@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.60 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.62 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Drifting motes toward the stairs (17, D-581); read D-581 and ask how
-it looks.
+The new creature kind (Q-076, D-582), now the three getting-around
+steps are done; read Q-076 and ask which.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -23,7 +23,7 @@ it looks.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- Which new creature kind next (Q-076), after the three steps of D-582.
+- Which new creature kind next (Q-076), now (D-582).
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
@@ -40,7 +40,7 @@ Getting around first (D-582), then boons (D-583):
   the card scrolls (0.3.52)
 - [x] 16b Boons at the home waystone (D-583, D-596): the card and the
   first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60); the mark (0.3.61)
-- [ ] 17 Drifting motes toward the stairs (D-581)
+- [x] 17 Drifting motes toward the stairs (D-581, D-605), 0.3.62
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 18 Fishing
@@ -56,6 +56,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.62, Drifting motes.** All recommended: about 5 faint
+  pale motes drift in the lantern light straight at the floor's stairs
+  down, through walls; only where the light falls; gone once the stairs
+  are seen, or with reduced motion (D-605).
+  Playtest: https://claude.ai/artifact/Y6kJu7Hv1yanQhavJgAebj
 - **2026-11-05, 0.3.61, The boon's mark.** The owner's idea, all picks
   recommended: the boon held as its card's picture in a small glass
   square under the panel, tap or mouse-over for its name and line; long
@@ -65,7 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   stone opens no boon card. The owner's picks, recommended: the boon
   card as three cards with kind colours; dealing them later (D-603).
   Playtest: https://claude.ai/artifact/Jo5D8sM42QC5WG7xWgSqTC
-- **2026-11-05, 0.3.59, Far Sight.** All recommended: a new room's
-  third nearest the hero remembered on arriving, kept after the boon,
-  its stairs found; no sound or line; all 14 boons built (D-602).
-  Playtest: https://claude.ai/artifact/Fu7NSBKVkumaYq44mBpyGs
