@@ -8,6 +8,7 @@ import { drawMarker } from './menu.js';
 import { cardAt, drawCard, inCard, onCross, wrapWords, PAD } from './bag.js';
 
 export const WAYS_TITLE = 'WAY TO PLAY';
+export const TRAVEL_TITLE = 'WAYSTONES'; // the travel card (D-593)
 const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', DIM = '#5c566a', DIM_GOLD = '#a08548';
 const ROWS_Y = 30; // the first row's top inside the card
 const LINE = 11; // from the name's top to its note's, and between the note's lines
@@ -34,9 +35,10 @@ export function waysAt(x, y, vw, vh, menu) {
 }
 
 // c: the room's canvas, `vw` × `vh`; menu: [{ text, note, dim }], each with the note it shows;
-// chosen: its line picked; still: prefers-reduced-motion
-export function drawWays(c, vw, vh, menu, chosen, t, still) {
-  const card = drawCard(c, vw, vh, WAYS_TITLE, 0), nx = card.x + PAD + MARK_W;
+// chosen: its line picked; still: prefers-reduced-motion; title: the card's name, as the travel
+// card's, which shares its rows (D-593)
+export function drawWays(c, vw, vh, menu, chosen, t, still, title = WAYS_TITLE) {
+  const card = drawCard(c, vw, vh, title, 0), nx = card.x + PAD + MARK_W;
   rowsAt(card, menu).forEach((row, i) => {
     const on = i === chosen, dim = menu[i].dim;
     drawText(c, menu[i].text, nx, row.y, on ? (dim ? DIM_GOLD : GOLD) : dim ? DIM : GREY);

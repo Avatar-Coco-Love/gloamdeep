@@ -23,7 +23,7 @@ decided, and no number here is the game's.
 - **Shattered Pixel Dungeon:** Lloyd's Beacon returns to a saved depth, with
   charges; it lands on the nearest open tile beside the spot.
 
-What this suggests for Gloamdeep's open parts of Q-080:
+What this suggested for Q-080's parts (settled in D-593):
 - **The card:** a depth column (home at the top, then 2, 5, 8, every 4th),
   big for thumbs; or a plain list with unfound stones as "???" or greyed;
   or the real map with stone marks (fiddly on a phone).
@@ -81,7 +81,7 @@ Ideas per kind, for the owner to pick from (no numbers yet):
   drawn with `render/bag.js`'s helpers (`ways.js` is the simplest list); a
   new card is added in `frame.js` (`CLEAR_OVER`, `CARDS`, its draw),
   `main.js`'s tap list and `screens.js`'s `onTitle` list.
-- **Travel itself:** `stairs.js` `arrive(state, to, there, spot)` moves the
+- **Travel (built, D-593):** `travel.js`. Before it: `stairs.js` `arrive(state, to, there, spot)` moves the
   hero between rooms and floors; travel would call it with the plate as
   the spot, inside a turn as `turn.js` does.
 - **Waking (built, D-591):** a tile with `wakes` turns into that tile when
