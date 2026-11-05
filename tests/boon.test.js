@@ -1,14 +1,14 @@
 // § boons: the home waystone's 1 of 3 (D-583, D-596)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeWorld, maxHealth, step, wait, heroHit, HERO_HEALTH, LANTERN_HIT } from '../src/core/turn.js';
+import { makeWorld, maxHealth, step, wait, heroHit, pour, eat, pourByItself, HERO_HEALTH, LANTERN_HIT } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
 import { get, BOONS, BOON_SORTS } from '../src/core/registry.js';
-import { offer, offerable, takeBoon, offersBoons, onHomePlate, dropOf, boonRow, lanternReach, boonBurn, OFFERED } from '../src/core/boon.js';
+import { offer, offerable, takeBoon, offersBoons, onHomePlate, dropOf, pourOf, healOf, rareChance, boonRow, lanternReach, boonBurn, OFFERED } from '../src/core/boon.js';
 import { fall } from '../src/core/fall.js';
 import { OIL, reach } from '../src/core/oil.js';
-import { DROP_CHANCE } from '../src/core/enemies.js';
+import { DROP_CHANCE, RARE_CHANCE } from '../src/core/enemies.js';
 
 const SEED = 5;
 const plate = (room) => { for (let y = 0; y < room.rows; y++) { const x = room.map[y].search(/[ZA]/); if (x >= 0) return { x, y }; } return null; };
@@ -25,7 +25,7 @@ test('boons: every entry has a known kind, a name and one short line', () => {
     assert.equal(b.kind, 'boon');
   }
   assert.equal(Object.keys(BOONS).length, 14); // the owner's list (D-596)
-  assert.deepEqual(offerable().map((b) => b.id).sort(), ['greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'reckless', 'slowWick', 'stoutHeart', 'wideGlow']); // built so far
+  assert.deepEqual(offerable().map((b) => b.id).sort(), ['deepPour', 'greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'kindHerbs', 'luckyFind', 'reckless', 'slowWick', 'stoutHeart', 'wideGlow']); // built so far
 });
 
 test('boons: the offer is 3, each of a different kind, the same for the same seed and turn', () => {
@@ -47,7 +47,7 @@ test('boons: the woken home plate offers them while none is held', () => {
   assert.ok(held.events.some((e) => e.type === 'boon'));
   assert.ok(!offersBoons(held));
   assert.equal(takeBoon(held, 'slowWick'), held); // only one at a time
-  assert.equal(takeBoon(s, 'deepPour'), s); // not built yet, never taken
+  assert.equal(takeBoon(s, 'softStep'), s); // not built yet, never taken
   const away = goToDepth(s, 2);
   assert.ok(!offersBoons(away));
 });
@@ -132,4 +132,31 @@ test('boons: Reckless hits for 1 more, the spear\'s second too, and takes 2 hear
   const fell = fall({ ...r, health: 1 }); // a fall heals in full, the boon gone
   assert.ok(!fell.boon);
   assert.equal(fell.health, maxHealth(s));
+});
+
+test('boons: Deep Pour pours 60% from a flask, by hand or by itself once none is wasted', () => {
+  const s = { ...onHome(), oil: 0.3, bag: [{ id: 'flask', n: 2 }] }, deep = takeBoon(s, 'deepPour');
+  assert.equal(pourOf(deep, get('flask')), 0.6);
+  assert.equal(pourOf(s, get('flask')), get('flask').oil);
+  assert.ok(Math.abs(pour(deep, 0).oil - (wait(deep).oil + 0.6)) < 1e-9);
+  const at = (state, oil) => pourByItself(state, { ...state, oil, turn: state.turn + 1 });
+  assert.equal(at(deep, 0.5).bag[0].n, 2); // at 50% a 60% pour would spill: it waits
+  assert.equal(at(deep, 0.4).bag[0].n, 1);
+  assert.equal(at(s, 0.5).bag[0].n, 1); // without, 45% pours at 50%
+});
+
+test('boons: Kind Herbs heals 1 heart more from anything eaten, never above full', () => {
+  const s = { ...onHome(), health: 1, bag: [{ id: 'potion', n: 1 }, { id: 'heartcap', n: 1 }] }, kind = takeBoon(s, 'kindHerbs');
+  for (const id of ['herb', 'heartcap', 'potion', 'gloamberry']) assert.equal(healOf(kind, get(id)), get(id).heal + 1, id);
+  assert.equal(eat(kind, 1).health, 1 + 2);
+  assert.equal(eat(kind, 0).health, maxHealth(kind)); // 1 + 5, cut to full
+  assert.equal(eat(s, 1).health, 1 + 1);
+});
+
+test('boons: Lucky Find makes rare drops 1 in 4, 35 in 100 with the Wisp Charm', () => {
+  const s = onHome(), lucky = takeBoon(s, 'luckyFind'), charm = { worn: { charm: ['wispCharm'] } };
+  assert.equal(rareChance(s, RARE_CHANCE), RARE_CHANCE);
+  assert.ok(Math.abs(rareChance(lucky, RARE_CHANCE) - 0.25) < 1e-9);
+  assert.ok(Math.abs(rareChance({ ...s, ...charm }, RARE_CHANCE) - 0.2) < 1e-9);
+  assert.ok(Math.abs(rareChance({ ...lucky, ...charm }, RARE_CHANCE) - 0.35) < 1e-9);
 });

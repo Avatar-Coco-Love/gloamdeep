@@ -10,6 +10,7 @@ import { say } from './lines.js';
 import { note } from './events.js';
 import { reach } from './oil.js';
 import { maxHealth } from './state.js';
+import { rareOf } from './worn.js';
 
 export const HOME = 'woods'; // where the home waystone stands (D-589)
 export const OFFERED = 3;
@@ -26,6 +27,13 @@ export const lanternReach = (state) => reach(state.oil) + (state.oil > 0 ? boonR
 export const boonHit = (state) => boonOf(state)?.hit ?? 0;
 // A beaten creature's chance to drop its part: the boon's (Keen Eye), or `base`
 export const dropOf = (state, base) => Math.max(base, boonOf(state)?.drop ?? 0);
+// The oil an item pours into the lantern: Deep Pour's `pour` for a flask, else its `oil`, 0 for none
+export const pourOf = (state, entry) => (entry?.oil ? Math.max(entry.oil, boonOf(state)?.pour ?? 0) : 0);
+// The hearts an eaten item heals: its `heal`, and Kind Herbs' 1 more (D-599)
+export const healOf = (state, entry) => (entry?.heal ?? 0) + (boonOf(state)?.heal ?? 0);
+// A beaten creature's chance to leave its rare one: the worn charm's, and Lucky Find's part above
+// `base` added on top, so both stack (D-599: 10% + 10 + 15 = 35%)
+export const rareChance = (state, base) => rareOf(state, base) + Math.max(0, (boonOf(state)?.rare ?? base) - base);
 
 // The boons that can be offered: every one built (not `soon`)
 export const offerable = () => Object.values(BOONS).filter((b) => !b.soon);

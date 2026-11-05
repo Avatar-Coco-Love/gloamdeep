@@ -10,8 +10,7 @@ import { formOf } from './tiles.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt, hitEnemy, DROP_CHANCE, RARE_CHANCE } from './enemies.js';
-import { rareOf } from './worn.js';
-import { dropOf, boonHit } from './boon.js';
+import { dropOf, boonHit, healOf, rareChance } from './boon.js';
 import { rng, seedFor } from './rng.js';
 import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
@@ -89,7 +88,7 @@ function pickUp(state, found) {
   if (found.dropped) return takeBack(state, found);
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
-  if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + entry.heal) }, entry.eats), 'eat', { id });
+  if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + healOf(state, entry)) }, entry.eats), 'eat', { id });
   if (entry.hold) {
     const bag = bagAdd(state.bag, id, undefined, bagSize(state));
     return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
@@ -164,10 +163,10 @@ function strike(state, foe, damage) {
 // tile where it fell (creatures never stand on items), else the nearest open one. The coin is seeded, as a
 // flee's is, from the seed, the turn and its tile (D-474), so a replay drops the same.
 // Its `rare` one has a coin of its own from the same seed, about 1 in 10; with both,
-// the rare lies on the nearest open tile (D-476); Keen Eye makes the part 3 in 4 (D-596); a worn charm makes it about 1 in 5 (D-486). It never grows back, so it lies there until taken (D-474).
+// the rare lies on the nearest open tile (D-476); Keen Eye makes the part 3 in 4 (D-596); a worn charm makes it about 1 in 5 (D-486), Lucky Find adds 15 in 100 (D-599). It never grows back, so it lies there until taken (D-474).
 function dropFrom(state, foe, entry) {
   const r = rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y + 4096));
-  const ids = [entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareOf(state, RARE_CHANCE) && entry.rare].filter(Boolean);
+  const ids = [entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
   const at = spread(state, foe.x, foe.y, ids.length, true);
   return [...state.items, ...ids.map((id, i) => ({ id, ...at[i] }))];
 }

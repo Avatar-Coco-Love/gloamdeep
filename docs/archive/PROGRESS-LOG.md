@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.53, the first boons.** The owner took all 14 boons
+  and numbers shown, stacking with gear, kept in one registry list; the
+  card opens on the home plate, the travel card's look, a chime, the name
+  on the panel (D-596). Slow Wick, Stout Heart, Keen Eye built.
+  Playtest: https://claude.ai/artifact/BR31Yt2cxojGbFJYGGzkXv
 - **2026-11-05, 0.3.52, the travel card scrolls.** All recommended: it
   opens on the first woken stone, scrolls like the version history, 5
   whole rows sideways (D-595). Step 16 done; D-593, D-594 archived.
