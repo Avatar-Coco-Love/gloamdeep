@@ -1,5 +1,5 @@
 // § boon: the home waystone's boons (D-583, D-596). Stepping onto the woken home plate with
-// no boon held offers 3, each of a different kind, drawn from the boons built so far; the
+// no boon held offers 3 (never on the step that wakes it, D-603), each of a different kind, drawn from the boons built so far; the
 // hero picks 1, or the cross skips it. `state.boon` holds its id until the hero is back in the
 // woods, by stairs or travel, or falls (withoutBoon, state.js). Its effects stack with gear.
 // The boons and their numbers are data (boons.js). Plain data, no drawing.
@@ -44,6 +44,12 @@ export const offerable = () => Object.values(BOONS).filter((b) => !b.soon);
 export const onHomePlate = (state) => state.place === HOME && tileAt(state.room, state.hero.x, state.hero.y).id === 'wokenPlate';
 // Whether the plate offers boons now: on it, holding none
 export const offersBoons = (state) => onHomePlate(state) && !state.boon;
+// Whether a step from `before` to `state` opens the boon card: the hero moved onto the plate
+// and it was woken already, so the step that wakes it only wakes it, and the hero steps off
+// and back on for a boon (D-603)
+export const stepOffersBoons = (before, state) => state.place === before.place
+  && (state.hero.x !== before.hero.x || state.hero.y !== before.hero.y) && offersBoons(state)
+  && tileAt(before.room, state.hero.x, state.hero.y).id === 'wokenPlate';
 
 // § offer: (state) → up to OFFERED boon ids, each of a different kind, seeded by the seed and
 // the turn, so a replay draws the same

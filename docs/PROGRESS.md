@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.58 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.60 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -39,7 +39,7 @@ Getting around first (D-582), then boons (D-583):
   depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
   the card scrolls (0.3.52)
 - [x] 16b Boons at the home waystone (D-583, D-596): the card and the
-  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59)
+  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -50,12 +50,16 @@ The rest of the scope, proposed (D-482; may change):
 
 **Next audit: 0.3.72** (D-518, D-570).
 
-Ideas for later (and the owner's wish list in `RESEARCH.md`): gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
+Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
 low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.60, Boon cards.** The owner's fix: waking the home
+  stone opens no boon card. The owner's picks, recommended: the boon
+  card as three cards with kind colours; dealing them later (D-603).
+  Playtest: https://claude.ai/artifact/Jo5D8sM42QC5WG7xWgSqTC
 - **2026-11-05, 0.3.59, Far Sight.** All recommended: a new room's
   third nearest the hero remembered on arriving, kept after the boon,
   its stairs found; no sound or line; all 14 boons built (D-602).
@@ -64,7 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   down on the map from arriving, pulsing violet, on the round map when
   near, gone when the boon ends (D-601).
   Playtest: https://claude.ai/artifact/QSVBDxYVAZmJsQPw5zLt1u
-- **2026-11-05, 0.3.57, Soft Step.** Both recommended: the lantern's
-  last tile of light wakes no one; torches, glows, daylight and the shy
-  ones as before (D-600).
-  Playtest: https://claude.ai/artifact/B6NnWoxpH5pGnvubJFvp8n

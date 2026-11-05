@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.57, Soft Step.** Both recommended: the lantern's
+  last tile of light wakes no one; torches, glows, daylight and the shy
+  ones as before (D-600).
+  Playtest: https://claude.ai/artifact/B6NnWoxpH5pGnvubJFvp8n
 - **2026-11-05, 0.3.56, Eleven boons.** All
   recommended: by itself a 60% flask waits until none spills; Kind Herbs
   for anything eaten; Lucky Find stacks with the charm, 35% (D-599).

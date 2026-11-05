@@ -5,7 +5,7 @@ import { makeWorld, maxHealth, step, wait, heroHit, pour, eat, pourByItself, HER
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
 import { get, BOONS, BOON_SORTS } from '../src/core/registry.js';
-import { offer, offerable, takeBoon, offersBoons, onHomePlate, dropOf, pourOf, healOf, rareChance, boonRow, lanternReach, boonBurn, OFFERED } from '../src/core/boon.js';
+import { offer, offerable, takeBoon, offersBoons, stepOffersBoons, onHomePlate, dropOf, pourOf, healOf, rareChance, boonRow, lanternReach, boonBurn, OFFERED } from '../src/core/boon.js';
 import { fall } from '../src/core/fall.js';
 import { OIL, reach } from '../src/core/oil.js';
 import { DROP_CHANCE, RARE_CHANCE } from '../src/core/enemies.js';
@@ -90,6 +90,17 @@ test('boons: stepping off the plate and back on offers again only with none held
   assert.ok(!onHomePlate(off));
   assert.ok(offersBoons(step(off, 'up')));
   assert.ok(!offersBoons(step(step(takeBoon(s, 'slowWick'), 'down'), 'up')));
+});
+
+test('boons: the step that wakes the home plate only wakes it; off and back on offers them (D-603)', () => {
+  const home = onHome(), at = home.hero;
+  const asleep = { ...home, room: withTile(home.room, at.x, at.y, get('waystonePlate')), hero: { x: at.x, y: at.y + 1 } };
+  const woke = step(asleep, 'up');
+  assert.ok(onHomePlate(woke) && offersBoons(woke)); // woken, the hero on it
+  assert.ok(!stepOffersBoons(asleep, woke)); // but the waking step opens no card
+  const off = step(woke, 'down'), back = step(off, 'up');
+  assert.ok(stepOffersBoons(off, back));
+  assert.ok(!stepOffersBoons(back, wait(back))); // standing still doesn't
 });
 
 test('boons: Wide Glow reaches 1 tile farther, but not the empty ember', () => {

@@ -48,7 +48,7 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
-import { offersBoons, takeBoon, lanternReach } from './core/boon.js';
+import { stepOffersBoons, takeBoon, lanternReach } from './core/boon.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -226,8 +226,8 @@ function tryStep(dir) {
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now() };
-  // Stepping onto the woken home plate with no boon held offers the boon card (D-596)
-  if (!went && !fell && (state.hero.x !== before.hero.x || state.hero.y !== before.hero.y) && offersBoons(state)) { app.walk = null; screens.openBoons(); }
+  // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
+  if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
 }
 // The fall is shown in the room where it happened, then the hero wakes at the start (D-234)
 function fallDown(from) {
