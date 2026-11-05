@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.49', date: '2026-11-05', title: 'The sleeping waystone at depth 2', lines: [
+    "A second waystone now stands asleep on depth 2, the top of the caves: in one of the two rooms away from the stairs up, the seed's pick, near the room's middle with open floor all around it.",
+    "It looks like the home stone for now. Step onto its plate and it wakes, just as the home one does. Travelling between them comes next.",
+    "A journey already saved gets it too: if you have been in its room, that room is made again once, with the stone. If you are standing in it, you start on that floor's stairs up.",
+    "Decisions: D-592.",
+  ] },
   { v: '0.3.48', date: '2026-11-05', title: 'Waking the home waystone', lines: [
     "Step onto the home waystone's plate and it wakes: its rune lights violet from the bottom up, a soft ring of light spreads over the cross, and three soft bells ring. \"The waystone wakes.\"",
     "Once woken it stays woken, its rune lit with a faint violet glow you can find at night, like the stairs. Waking costs nothing more than the step. Travelling between waystones comes later.",

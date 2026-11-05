@@ -211,7 +211,7 @@ test('in real cave rooms, a deposit grown back never cuts the room in two', asyn
   };
   for (const seed of [1, 2, 3, 4, 5]) for (const { id } of layoutAt(seed, 2).cells) {
     const p = placeFor(id, seed), cave = roomOf(p.map), d = depositsIn(cave)[0];
-    const s = { ...makeState(withTile(cave, d.x, d.y, get('floor')), p.start), seed, lit: false, turn: 900, taken: [{ id: 'deposit', x: d.x, y: d.y, at: 0 }] };
+    const s = { ...makeState(withTile(cave, d.x, d.y, get('floor')), p.start), seed, place: id, lit: false, turn: 900, taken: [{ id: 'deposit', x: d.x, y: d.y, at: 0 }] };
     const n = regrow(s);
     assert.equal(depositsIn(n.room).length, 3, `seed ${seed}, ${id}`);
     assert.ok(joined(n.room), `seed ${seed}, ${id}`);
