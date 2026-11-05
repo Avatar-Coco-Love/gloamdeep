@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-More boons (16b, D-596): ask which of the 11 listed come next, a few
-at a time, then build them.
+More boons (16b, D-596, D-597): Deep Pour, Kind Herbs, Hungry Flame,
+Reckless, Lucky Find; ask which come next. Getting around after those.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -39,7 +39,7 @@ Getting around first (D-582), then boons (D-583):
   depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
   the card scrolls (0.3.52)
 - [ ] 16b Boons at the home waystone (D-583, D-596): the card and the
-  first 3 (0.3.53)
+  first 3 (0.3.53); 3 more (0.3.54)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -56,6 +56,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.54, three more boons.** All recommended: Wide Glow,
+  Hard Blow, Greedy Hands; getting around after the small ones (D-597).
+  Playtest: https://claude.ai/artifact/DRnnPoiT5XALN6FHSbsKaY
 - **2026-11-05, 0.3.53, the first boons.** The owner took all 14 boons
   and numbers shown, stacking with gear, kept in one registry list; the
   card opens on the home plate, the travel card's look, a chime, the name
@@ -65,7 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   opens on the first woken stone, scrolls like the version history, 5
   whole rows sideways (D-595). Step 16 done; D-593, D-594 archived.
   Playtest: https://claude.ai/artifact/Wmc2MU1uNxn6fLjYXCz8Qx
-- **2026-11-05, 0.3.51, the deeper waystones.** All
-  recommended: 5, 8, then every 4th, at once; the card lists down to the
-  next stone below the deepest floor; old saves' rooms made again once.
-  The card scrolls next (D-594). Playtest: https://claude.ai/artifact/JSGRtQ6BdMvMR1FBvH2nNN

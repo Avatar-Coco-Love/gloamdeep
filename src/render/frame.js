@@ -32,7 +32,7 @@ import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
 import { drawWays, TRAVEL_TITLE, BOONS_TITLE } from './ways.js';
-import { boonOf } from '../core/boon.js';
+import { boonOf, lanternReach } from '../core/boon.js';
 import { stashAt, chestsNear, nearStacks } from '../core/chest.js';
 import { gearRow } from '../core/gear.js';
 import { padShown } from '../core/settings.js';
@@ -41,7 +41,6 @@ import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn, bagSize } from '../core/bag.js';
-import { reach } from '../core/oil.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
 import { depthOf } from '../core/room.js';
@@ -222,7 +221,7 @@ export function createFrame(app, ui) {
     // Switched off, the lantern gives no light: only torchlight and remembered tiles show (D-082, D-101).
     const lx = sx + nx + LANTERN_AT.x, ly = sy + ny - 2 + LANTERN_AT.y;
     if (lightOn) {
-      const r = s.lit ? reach(s.oil) * (still() ? 1 : flicker(t, 1.7, 0.035)) * (1 - dark) : 0;
+      const r = s.lit ? lanternReach(s) * (still() ? 1 : flicker(t, 1.7, 0.035)) * (1 - dark) : 0;
       lights[0] = { ...LANTERN, x: lx, y: ly, r };
       lights.length = 1;
       lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));

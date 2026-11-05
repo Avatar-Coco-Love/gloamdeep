@@ -11,7 +11,7 @@ import { get } from './registry.js';
 import { say } from './lines.js';
 import { enemyAt, hitEnemy, DROP_CHANCE, RARE_CHANCE } from './enemies.js';
 import { rareOf } from './worn.js';
-import { dropOf } from './boon.js';
+import { dropOf, boonHit } from './boon.js';
 import { rng, seedFor } from './rng.js';
 import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
@@ -135,7 +135,7 @@ export function drop(state, i) {
 // A weapon that hits `through` (the spear) hits the creature awake behind the foe too,
 // in the line from the hero, for that much; the foe's line is the one said (D-479).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
-export const heroHit = (state) => (state.held && get(state.held)?.hit) || LANTERN_HIT;
+export const heroHit = (state) => ((state.held && get(state.held)?.hit) || LANTERN_HIT) + boonHit(state);
 // The creature awake behind `foe`, seen from the hero, that the weapon held hits too, or null
 export function behind(state, foe) {
   if (!(state.held && get(state.held)?.through)) return null;
@@ -145,7 +145,7 @@ export function behind(state, foe) {
 function attack(state, foe) {
   if (foe.asleep) return wake(state, foe);
   const back = behind(state, foe), first = strike(state, foe, heroHit(state));
-  const both = back ? strike(first.state, back, get(state.held).through) : null;
+  const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
   let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
   for (const id of [first.beaten, both?.beaten].filter(Boolean)) next = note(gain(next, xpOf(get(id))), 'beat', { id });

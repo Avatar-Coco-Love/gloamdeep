@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.51, the deeper waystones.** All
+  recommended: 5, 8, then every 4th, at once; the card lists down to the
+  next stone below the deepest floor; old saves' rooms made again once.
+  The card scrolls next (D-594). Playtest: https://claude.ai/artifact/JSGRtQ6BdMvMR1FBvH2nNN
 - **2026-11-05, 0.3.50, travel between waystones.** All recommended: a
   short list card, opened by a tap on the hero, Space or Enter on a woken
   plate; free, barred with a creature near; you arrive on the plate

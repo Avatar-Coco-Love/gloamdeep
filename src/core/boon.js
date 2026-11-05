@@ -8,6 +8,7 @@ import { tileAt } from './room.js';
 import { rng, seedFor } from './rng.js';
 import { say } from './lines.js';
 import { note } from './events.js';
+import { reach } from './oil.js';
 
 export const HOME = 'woods'; // where the home waystone stands (D-589)
 export const OFFERED = 3;
@@ -18,6 +19,12 @@ export const boonOf = (state) => (state.boon && BOONS[state.boon]) || null;
 export const boonHearts = (state) => boonOf(state)?.hearts ?? 0;
 // What it multiplies a lit turn's oil by (Slow Wick), 1 without
 export const boonBurn = (state) => boonOf(state)?.burn ?? 1;
+// The tiles more the lantern's light reaches (Wide Glow), 0 without
+export const boonReach = (state) => boonOf(state)?.reach ?? 0;
+// The lantern's light reach in pixels, with the boon's tiles; the empty ember stays as it is
+export const lanternReach = (state) => reach(state.oil) + (state.oil > 0 ? boonReach(state) * 16 : 0);
+// What it adds to every hit the hero lands (Hard Blow), 0 without
+export const boonHit = (state) => boonOf(state)?.hit ?? 0;
 // A beaten creature's chance to drop its part: the boon's (Keen Eye), or `base`
 export const dropOf = (state, base) => Math.max(base, boonOf(state)?.drop ?? 0);
 

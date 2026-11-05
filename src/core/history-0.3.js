@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.54', date: '2026-11-05', title: 'Three more boons', lines: [
+    "Three more boons can now be offered at the home waystone: Wide Glow (the lantern's light reaches 1 tile farther while it has oil), Hard Blow (every hit you land does 1 more, the spear's second hit too) and Greedy Hands (creatures always drop their part, but the lantern burns a quarter faster).",
+    "Six of the 14 boons work now. Getting around has none yet, so the card still shows 3, one from each of the other kinds.",
+    "Decisions: D-597.",
+  ] },
   { v: '0.3.53', date: '2026-11-05', title: 'The first boons', lines: [
     "Boons: stepping onto the woken home waystone's plate, with no boon held, opens a card of 3 boons, each of a different kind. Pick 1, or close the card to go without. A soft two-bell chime plays, the text line says \"The waystone grants you …\", and the boon's name shows on the panel under the oil bar.",
     "A boon lasts until you are home in the woods again, by stairs or waystone, or fall.",

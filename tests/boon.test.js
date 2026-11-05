@@ -1,13 +1,13 @@
 // § boons: the home waystone's 1 of 3 (D-583, D-596)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeWorld, maxHealth, step, wait, HERO_HEALTH } from '../src/core/turn.js';
+import { makeWorld, maxHealth, step, wait, heroHit, HERO_HEALTH, LANTERN_HIT } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
 import { get, BOONS, BOON_SORTS } from '../src/core/registry.js';
-import { offer, offerable, takeBoon, offersBoons, onHomePlate, dropOf, boonRow, OFFERED } from '../src/core/boon.js';
+import { offer, offerable, takeBoon, offersBoons, onHomePlate, dropOf, boonRow, lanternReach, boonBurn, OFFERED } from '../src/core/boon.js';
 import { fall } from '../src/core/fall.js';
-import { OIL } from '../src/core/oil.js';
+import { OIL, reach } from '../src/core/oil.js';
 import { DROP_CHANCE } from '../src/core/enemies.js';
 
 const SEED = 5;
@@ -25,7 +25,7 @@ test('boons: every entry has a known kind, a name and one short line', () => {
     assert.equal(b.kind, 'boon');
   }
   assert.equal(Object.keys(BOONS).length, 14); // the owner's list (D-596)
-  assert.deepEqual(offerable().map((b) => b.id).sort(), ['keenEye', 'slowWick', 'stoutHeart']); // built so far
+  assert.deepEqual(offerable().map((b) => b.id).sort(), ['greedyHands', 'hardBlow', 'keenEye', 'slowWick', 'stoutHeart', 'wideGlow']); // built so far
 });
 
 test('boons: the offer is 3, each of a different kind, the same for the same seed and turn', () => {
@@ -47,7 +47,7 @@ test('boons: the woken home plate offers them while none is held', () => {
   assert.ok(held.events.some((e) => e.type === 'boon'));
   assert.ok(!offersBoons(held));
   assert.equal(takeBoon(held, 'slowWick'), held); // only one at a time
-  assert.equal(takeBoon(s, 'wideGlow'), s); // not built yet, never taken
+  assert.equal(takeBoon(s, 'deepPour'), s); // not built yet, never taken
   const away = goToDepth(s, 2);
   assert.ok(!offersBoons(away));
 });
@@ -90,4 +90,23 @@ test('boons: stepping off the plate and back on offers again only with none held
   assert.ok(!onHomePlate(off));
   assert.ok(offersBoons(step(off, 'up')));
   assert.ok(!offersBoons(step(step(takeBoon(s, 'slowWick'), 'down'), 'up')));
+});
+
+test('boons: Wide Glow reaches 1 tile farther, but not the empty ember', () => {
+  const s = onHome(), glow = takeBoon(s, 'wideGlow');
+  assert.equal(lanternReach(glow), reach(glow.oil) + 16);
+  assert.equal(lanternReach({ ...glow, oil: 0 }), reach(0));
+  assert.equal(lanternReach(s), reach(s.oil));
+});
+
+test('boons: Hard Blow hits for 1 more, with the lantern or a weapon', () => {
+  const s = onHome(), hard = takeBoon(s, 'hardBlow');
+  assert.equal(heroHit(hard), LANTERN_HIT + 1);
+  assert.equal(heroHit({ ...hard, held: 'spear' }), heroHit({ ...s, held: 'spear' }) + 1);
+});
+
+test('boons: Greedy Hands always drops the part, and burns a quarter faster', () => {
+  const g = takeBoon(onHome(), 'greedyHands');
+  assert.equal(dropOf(g, DROP_CHANCE), 1);
+  assert.equal(boonBurn(g), 1.25);
 });
