@@ -194,3 +194,9 @@ with none held opens the card, the travel card's rows: 3 boons, each
 of a different kind; the cross skips. A soft two-bell chime, the line
 "The waystone grants you …", its name on the panel under the oil bar.
 Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
+
+**D-597 · 2026-11-05 · The next boons** (the owner's picks, recommended;
+builds on D-596) Built next: Wide Glow (+1 tile of light while there is
+oil; the empty ember stays), Hard Blow (+1 on every hit, the spear's
+second hit too) and Greedy Hands. Getting around waits until after the
+small ones, each of its boons its own step.

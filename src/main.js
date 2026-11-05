@@ -11,7 +11,7 @@ import { send, arrive } from './core/homeward.js';
 import { beginPlace, depthOf } from './core/room.js';
 import { SEED_MAX, rng } from './core/rng.js';
 import { createScreen, TILE } from './render/screen.js';
-import { reach, setOil } from './core/oil.js';
+import { setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
@@ -48,7 +48,7 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
-import { offersBoons, takeBoon } from './core/boon.js';
+import { offersBoons, takeBoon, lanternReach } from './core/boon.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -455,9 +455,9 @@ function rememberHere() {
   const sun = mouthLight(state), when = state.place + ',' + state.turn;
   if (sun && (when !== sunAt || state.seen !== sunSeen)) { state = app.state = remember(state, sun); sunAt = when; sunSeen = state.seen; }
   if (!state.lit) { rememberedAt = null; return; }
-  const key = state.hero.x + ',' + state.hero.y + ',' + state.oil;
+  const key = state.hero.x + ',' + state.hero.y + ',' + state.oil + ',' + state.boon;
   if (key === rememberedAt && state.seen === rememberedSeen) return;
-  app.state = remember(state, { ...lanternFrom(state.hero.x, state.hero.y), r: reach(state.oil) });
+  app.state = remember(state, { ...lanternFrom(state.hero.x, state.hero.y), r: lanternReach(state) });
   rememberedAt = key; rememberedSeen = app.state.seen;
 }
 

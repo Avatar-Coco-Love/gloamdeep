@@ -4,7 +4,7 @@
 // the light reaches its centre, inside 95% of its reach. Torches count at
 // their full reach, without their flicker.
 import { CELL, LANTERN_AT, seenCells } from './light.js';
-import { reach } from './oil.js';
+import { lanternReach } from './boon.js';
 import { get } from './registry.js';
 import { mountAt } from './mount.js';
 import { LIGHT_AT } from './lights.js';
@@ -21,7 +21,7 @@ export const lanternFrom = (x, y) => ({ x: x * TILE_SIZE + LANTERN_AT.x, y: y * 
 
 // § sources: every light shining now, as { x, y, r } in pixels
 export function lightsNow(state) {
-  const out = state.lit ? [{ ...lanternFrom(state.hero.x, state.hero.y), r: reach(state.oil) }] : [];
+  const out = state.lit ? [{ ...lanternFrom(state.hero.x, state.hero.y), r: lanternReach(state) }] : [];
   for (const l of state.lights) {
     const r = get(l.id).reach, m = mountAt(state.room, l.x, l.y);
     if (!r || !m) continue;
