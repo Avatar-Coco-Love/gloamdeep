@@ -8,8 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Waystones, first step (D-579, D-587): the home waystone stands in the
-woods, 5 × 5 and asleep. Ask Q-080's parts as each step needs them.
+Waystones, second step (D-579, D-587, D-589): waking the home waystone
+by walking up to it. Ask Q-080's parts it needs (the colour, how waking
+looks and sounds).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,6 +29,8 @@ woods, 5 × 5 and asleep. Ask Q-080's parts as each step needs them.
 - A chance of an unguarded flask (Q-075), any time.
 - The boon list and numbers (Q-077), before the boons step.
 - The waystone's details (Q-080), at each waystone step.
+- Begin a journey on the surface (Q-081), as its own small step.
+- Which depths are which biome (Q-082), before the scope map is filled.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -54,6 +57,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.47, the home waystone.** All recommended: it stands
+  asleep north of the woods' middle, its stones blocking light; old saves
+  get it at the nearest clear spot (D-589). Research helpers; the Play
+  checklist in `STORE.md` (D-590). Playtest:
+  https://claude.ai/artifact/XZ1f81fhWadFexEdF1xCXQ
 - **2026-11-03, 0.3.46, pictures after the background.** The owner's
   fix: on Android the hero and tiles came back blank after the app was
   in the background. Every kept picture is drawn again when the browser
@@ -64,9 +72,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   owner's 5 × 5 waystone with a walkable cross, and landmarks as data
   placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
   https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU
-- **2026-11-02, 0.3.44, the peddler's spot.** Raised as Q-079 with a
-  measure of 6000 rooms: the spot fitted 84% first try, blocked mostly by
-  things beside him. All recommended: at least 4 open tiles, a wall on
-  one straight side at most, things beside him moved aside; 95% now
-  (D-586). Playtest:
-  https://claude.ai/artifact/7JSk2mDi767FmbNfdWmia6

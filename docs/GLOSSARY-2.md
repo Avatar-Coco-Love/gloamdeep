@@ -60,6 +60,10 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455). Not in
   the game yet.
+- **Waystone:** a 5 × 5 standing-stone circle: a walkable cross, a stone
+  on each 2 × 2 corner, the plate in the middle (D-579, D-587). The home
+  waystone stands in the woods, asleep for now (D-589); waking and travel
+  come next.
 - **Boon:** a small help picked, 1 of 3, at the home waystone as the
   hero sets out; it lasts until home again or a fall (D-583). Not in the
   game yet.

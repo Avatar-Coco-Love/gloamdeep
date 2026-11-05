@@ -57,6 +57,7 @@ Read the smallest file that answers the question.
 | `docs/ART-DIRECTION.md` | the visual rules from the style study | before any drawing code |
 | `docs/TECH.md` | architecture, code rules, adding content | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
+| `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
 | `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |

@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.47', date: '2026-11-05', title: 'The home waystone', lines: [
+    "The home waystone now stands in the woods, just north of the middle: four tall standing stones around a cross of flagstones, with a carved plate in the middle. It is asleep for now; waking it and travelling come in the next steps.",
+    "The standing stones block your light and sight, like rock. You can walk the cross and stand on the plate.",
+    "A journey already saved gets the stone once, at the nearest clear spot to there. Only trees, stumps, branches and bushes are cleared; nothing you built moves.",
+    "Decisions: D-589, D-590. Questions raised: Q-081, Q-082.",
+  ] },
   { v: '0.3.46', date: '2026-11-03', title: 'Pictures after the background', lines: [
     "Fixed: on Android, the hero and the tiles could come back blank after the game had been in the background. Every picture the game keeps is now drawn again when the phone wipes it.",
     "Decisions: D-588.",

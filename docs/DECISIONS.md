@@ -116,13 +116,6 @@ another woken one on the map and goes there. A pocket waystone, to
 travel from anywhere, comes later as a craft. How waking looks and
 sounds, and the map's travel card, are asked at its step.
 
-**D-580 · 2026-11-02 · Floors grow with depth** (the owner's pick,
-recommended; answers the sizes part of Q-038) The owner found the
-floors too big for the oil carried (a full lantern lasts 60 turns) and
-the stairs hard to find. Rooms are 13 × 15 tiles at depths 2 to 4 (the
-caves), 15 × 17 at depths 5 to 7 (the warrens) and 17 × 20, today's
-size, from depth 8 (the dungeon). Room counts stay 3, 5 and 6.
-
 **D-581 · 2026-11-02 · A draft toward the stairs** (the owner's picks,
 recommended; builds on D-174) Stairs still must be found, with a clue:
 a few faint motes drift in the lantern light toward the stairs down.
@@ -147,45 +140,6 @@ exact boons and their numbers are shown to the owner as a list before
 anything is built (Q-077). Boons are their own step, right after the
 waystones.
 
-**D-584 · 2026-11-02 · Smaller floors, built** (the owner's picks,
-recommended; builds on D-580) Both shallow bands shrink in one step.
-Inside, the counts shrink with the room's area, as in D-195: 3 to 6
-chambers and at least 61 open tiles in a 13 × 15 cave, 89 to 104 tiles
-dug in a 15 × 17 warren; creatures and finds stay as they are, and pools
-fit less often (about 1 cave room in 3, not 4 in 9). The peddler's room
-is made again until his ring of rubble fits, so every journey has him
-(the owner's idea). A save from before is brought up to date once: every
-generated room is made again from the same seed at its new size, the
-dungeon's too, since its stairs hang from the floor above; a hero down
-there stands on that floor's stairs up, a bag left there lies on them,
-and a peddler already freed stays freed.
-
-**D-585 · 2026-11-02 · No more stand-in rooms** (the owner's picks,
-recommended; answers Q-078) A dungeon room fell back to the crypt's
-second room when a doorway lay diagonally above its stairs up, beside
-the wall above them, mostly in a corner: 62 rooms in seeds 1 to 2000 at
-depths 8 to 20. When all of a room's 200 tries (600 for the peddler's)
-fail, a second round of up to 400 more runs, in which the corridors keep
-clear of the stairs up and that wall, and such a doorway first steps one
-tile away from them. Only rooms that fell back reach it, so every other
-room stays exactly as it was; no room falls back in seeds 1 to 6000 at
-depths 8 to 20. A save holding a stand-in has just those rooms made
-again, once, from their seeds; a hero in one goes to that floor's
-stairs up.
-
-**D-586 · 2026-11-02 · The peddler's spot, looser** (the owner's picks,
-recommended; raised and answered as Q-079, before the waystones; changes
-the spot rule of D-490 and D-580) Measured over 6000 depth-3 rooms,
-seeds 1 to 2000: his spot fitted 84% of rooms on the first try, and what
-ruled spots out was mostly a creature, find or the way in on or beside
-the ring, not the walls. Now at least 4 of the 8 tiles around him are
-open, each turned to rubble, and a wall stands on one straight side at
-most (no more nooks); corners may be wall. A creature or find on or
-around his ring moves to the nearest free floor; the way in, stairs,
-openings, deposits and veins still keep him away. His spot fits 95% of
-rooms on the first try, with 4 to 8 heaps to dig. A room already made in
-a save stays as it was.
-
 **D-587 · 2026-11-03 · Landmarks made from data** (the owner's idea and
 picks, recommended; builds on D-579) A waystone is 5 × 5 tiles: a cross
 through the middle is walkable, the four 2 × 2 corners are not, and the
@@ -205,3 +159,24 @@ back blank after the app was in the background: the browser wipes kept
 canvases. Every canvas drawn once and kept is now drawn again when the
 browser hands it back (contextrestored), and checked when the page shows
 again (visibilitychange). Nothing visible changed.
+
+**D-589 · 2026-11-05 · The home waystone, asleep** (the owner's picks,
+all recommended; step 16's first part, builds on D-579 and D-587) The
+home waystone stands in the woods with its plate 3 tiles north of the
+room's middle, the trees one tile around it cleared, so the middle is at
+the foot of its south arm. It looks like a small henge: a tall grey
+standing stone on each 2 × 2 corner, worn flagstones on the cross and a
+round carved plate in the middle, its rune cut but dark. The corner
+stones block light and sight, like rock. A save that already has a home
+gets it once, at the nearest spot to there where none of the hero's
+built things, the pond, the cave mouth, a person or the hero stand; only
+trees, stumps, branches and bushes there are cleared, and nothing of the
+hero's moves. A new journey still begins in the crypt (Q-081).
+
+**D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
+Research helpers work beside each build step and report to Claude, who
+brings options; only one conversation builds Gloamdeep at a time. The
+whole game's scope is shown as one visual map, then filled in piece by
+piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
+piece built when it is due, so nothing blocks it later. Better level
+making, as data in named passes, is planned before it is built.

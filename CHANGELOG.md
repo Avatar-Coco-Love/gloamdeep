@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.47 (2026-11-05)
+- The home waystone now stands in the woods, just north of the middle: four tall standing stones around a cross of flagstones, with a carved plate in the middle. It is asleep for now; waking it and travelling come in the next steps.
+- The standing stones block your light and sight, like rock. You can walk the cross and stand on the plate.
+- A journey already saved gets the stone once, at the nearest clear spot to there. Only trees, stumps, branches and bushes are cleared; nothing you built moves.
+- Decisions: D-589, D-590. Questions raised: Q-081, Q-082.
+
 ## 0.3.46 (2026-11-03)
 - Fixed: on Android, the hero and the tiles could come back blank after the game had been in the background. Every picture the game keeps is now drawn again when the phone wipes it.
 - Decisions: D-588.
@@ -30,8 +36,3 @@ Entry format:
 ## 0.3.45 (2026-11-03)
 - Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.
 - Decisions: D-587. Questions raised: Q-080.
-
-## 0.3.44 (2026-11-02)
-- The trapped peddler on depth 3 can now stand in more places: at least 4 heaps of rubble around him (not 5), and never in a nook with walls on two sides.
-- A creature or find that stood on or beside his spot now moves to the nearest free floor instead of ruling the spot out, so his room comes out as the seed made it far more often.
-- Decisions: D-586. Questions closed: Q-079.

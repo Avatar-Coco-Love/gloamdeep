@@ -66,6 +66,7 @@ Hands: none yet.
 | `berryBed` | the sprout grown, a small gloamberry bush, its card "Gloamberries grow here."; Pick gives 3 Gloamberries, a sprout again; Deconstruct gives back the seed too | | 300 turns after planting, every turn counting | D-567, D-568 |
 | `rubble` | solid, light passing over it; 3 bumps by hand clear it, nothing taken, never back; the person beside it calls out, then is freed | | a ring around the peddler, depth 3: at least 4 heaps, a wall on one straight side at most | D-490, D-491, D-586 |
 | `water` | a still pool: solid, light passing over it; on the map in its blue-grey (D-502) | | about 1 grey-rock Cave room in 2, 5 to 9 tiles; a pond at home (D-503) | D-500, D-502, D-503 |
+| `standingStone`, `waystonePath`, `waystonePlate` | the home waystone, asleep, 5 × 5 from its plan (`landmarks.js`): standing stones on the corners, solid and blocking light like rock; flagstones on the cross and the plate in the middle, walked on; nothing happens on them yet | | the woods, 3 tiles north of the middle; in an old save, the nearest clear spot | D-579, D-587, D-589 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 
 ## Lights (`src/core/lights.js`)

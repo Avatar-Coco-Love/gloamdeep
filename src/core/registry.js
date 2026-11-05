@@ -7,6 +7,7 @@ import { LIGHTS } from './lights.js';
 import { ENEMIES } from './enemies.js';
 import { PEOPLE } from './people.js';
 import { UPGRADES as GROWTH_UPGRADES } from './upgrades.js';
+import { LANDMARKS as LANDMARK_TABLE } from './landmarks.js';
 import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES } from './looks.js';
 
 const KINDS = [TILES, ITEMS, LIGHTS, ENEMIES, PEOPLE]; // people (NPCs) from their own file (D-490)
@@ -17,6 +18,8 @@ export const TRIMS = LOOK_TRIMS;
 export const CLOTHES = LOOK_CLOTHES;
 // The Growth tree's upgrades (D-481): bought with embers, not things in the world either
 export const UPGRADES = GROWTH_UPGRADES;
+// Landmarks bigger than one tile (D-587): plans of tiles, not things in the world one at a time
+export const LANDMARKS = LANDMARK_TABLE;
 
 export const ALL = KINDS.flatMap((table) => Object.values(table));
 const BY_ID = new Map(ALL.map((e) => [e.id, e]));

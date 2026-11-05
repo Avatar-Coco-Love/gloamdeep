@@ -3,7 +3,8 @@
 // the edges and thinner inside; every open tile is joined to the start.
 import { rng, int } from './rng.js';
 import { COLS, ROWS } from './cave.js';
-import { get } from './registry.js';
+import { get, LANDMARKS } from './registry.js';
+import { stamp, around } from './landmarks.js';
 
 // § trees: the chance a tile holds a tree, by how many tiles in from the edge
 // it is: the edge itself is always trees; deeper in than the list, the last one
@@ -18,6 +19,10 @@ const STICKS = 3;
 const BRANCHES = 1;
 // § bush: how many gloamberry bushes grow in each, as tiles (D-531)
 const BUSHES = 1;
+// § waystone: the home waystone's middle, STONE_UP tiles north of the room's middle, the
+// trees one tile around it cleared, so a hero there stands at the foot of its south arm (D-589)
+export const STONE_UP = 3;
+export const STONE_RING = 1;
 
 // (seed, mouth) → { map, start, lights, enemies, items }. Nothing lives in the
 // woods yet (starting-region.md, "Creatures and finds"); 3 sticks lie on open
@@ -27,20 +32,24 @@ const BUSHES = 1;
 // own seed (D-503); then a gloamberry bush, from its own seed too (D-531). The hero starts in
 // the middle. `mouth` (mouth.js), when given, opens the cave mouth in its
 // edge with a rock either side, the two tiles in front of it open and
-// joined to the start (D-211).
+// joined to the start (D-211). The home waystone stands just north of the
+// middle, set after the trees and before the rest, which keeps clear of it (D-589).
 export function generateWoods(seed, mouth = null) {
   const r = rng(seed), start = { x: COLS >> 1, y: ROWS >> 1 }, front = mouth ? inFront(mouth) : [];
   let g = null;
   for (let i = 0; i < TRIES && !g; i++) g = grow(r, start, front);
   g = g || Array.from({ length: ROWS }, (_, y) => Array.from({ length: COLS }, (_, x) => (depthIn(x, y) === 0 ? 'T' : '.')));
+  const stone = { x: start.x, y: start.y - STONE_UP }, ring = around(LANDMARKS.waystone, stone.x, stone.y, STONE_RING);
+  for (const t of ring) g[t.y][t.x] = '.';
+  stamp(g, LANDMARKS.waystone, stone.x, stone.y);
   if (mouth) {
     const { tile: t, dir } = mouth, [ax, ay] = dir === 'up' || dir === 'down' ? [1, 0] : [0, 1];
     g[t.y][t.x] = 'M'; g[t.y - ay][t.x - ax] = 'R'; g[t.y + ay][t.x + ax] = 'R';
   }
   const items = sticks(r, g, [start, ...front]);
-  branches(r, g, start, [start, ...front, ...items]);
-  pond(seed, g, start, front, items);
-  bush(seed, g, start, front, items);
+  branches(r, g, start, [start, ...front, ...items, ...ring]);
+  pond(seed, g, start, front, items, ring);
+  bush(seed, g, start, front, [...items, ...ring]);
   return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items };
 }
 
@@ -80,9 +89,9 @@ function bush(seed, g, start, front, items) {
 // cuts the room in two. From its own seed, picked last, so the rest of each seed's room
 // stays as it was; none when no spot fits.
 export const POND_MIN = 5, POND_MAX = 9, POND_IN = 2, POND_CLEAR = 4;
-function pond(seed, g, start, front, items) {
+function pond(seed, g, start, front, items, ring = []) {
   const r = rng(seed ^ 0x3c6ef372), size = int(r, POND_MIN, POND_MAX), near = [start, ...front];
-  const free = (x, y) => g[y]?.[x] === '.' && depthIn(x, y) >= POND_IN && !items.some((t) => t.x === x && t.y === y)
+  const free = (x, y) => g[y]?.[x] === '.' && depthIn(x, y) >= POND_IN && ![...items, ...ring].some((t) => t.x === x && t.y === y)
     && near.every((t) => Math.abs(t.x - x) + Math.abs(t.y - y) >= POND_CLEAR);
   const spots = [];
   for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (free(x, y)) spots.push({ x, y });
@@ -106,9 +115,10 @@ function pond(seed, g, start, front, items) {
   }
 }
 
-// Whether every open tile of g, the cave mouth too, can be walked to from `start`
+// Whether every open tile of g, the cave mouth and the waystone's cross too, can be walked to from `start`
+const WALKED = new Set(['.', 'M', 'X', 'Z']);
 function joinedFrom(g, start) {
-  const walk = (x, y) => g[y]?.[x] === '.' || g[y]?.[x] === 'M';
+  const walk = (x, y) => WALKED.has(g[y]?.[x]);
   let all = 0;
   for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (walk(x, y)) all++;
   const seen = new Set([start.y * COLS + start.x]), queue = [start];

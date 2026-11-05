@@ -130,5 +130,13 @@ Asked at each step, with mock-ups at
 https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU : the colour it wakes
 to; how waking looks and sounds; the travel card; whether travel costs
 anything or is barred with a creature beside you; where the hero
-arrives and how the card opens; which room on the floor holds it;
-whether its corners block light. Claude's leanings are on the page.
+arrives and how the card opens; which room on the floor holds it.
+Claude's leanings are on the page. Where the home stone stands, its
+look asleep and its light: D-589.
+
+**Q-082 · Which depths belong to which biome?** (raised 2026-11-05, from
+the scope map) The four biomes (D-028) and every per-biome rule (ore,
+plants, woods, skills: D-450, D-451, D-456, D-462) need to know where
+each biome starts. Today the whole underground is the first cave (D-175):
+is it the mines-and-caves biome, and where do the fungal caverns and the
+sunken ruins begin? Needed before the scope map is filled in.

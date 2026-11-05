@@ -94,6 +94,12 @@ export const TILES = {
   // (rescue.js, D-491); it never comes back.
   rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, blocksLight: false,
     dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' } },
+  // The waystone's tiles (D-579, D-587), set by its plan (landmarks.js): a tall standing
+  // stone on each 2 × 2 corner, solid and blocking light like rock; flagstones on the cross
+  // and the plate in its middle, walked on. Asleep for now: nothing happens on them (D-589).
+  standingStone: { id: 'standingStone', kind: 'tile', letter: 'Y', name: 'Waystone', solid: true, blocksLight: true },
+  waystonePath: { id: 'waystonePath', kind: 'tile', letter: 'X', name: 'Waystone', solid: false, blocksLight: false },
+  waystonePlate: { id: 'waystonePlate', kind: 'tile', letter: 'Z', name: 'Waystone', solid: false, blocksLight: false },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },
