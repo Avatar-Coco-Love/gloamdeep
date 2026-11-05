@@ -52,6 +52,7 @@ export const LINES = {
   stoneTravel: { text: 'The waystone carries you.', warn: false }, // (D-593)
   stoneNear: { text: 'Not with a creature so near.', warn: false }, // travel barred (D-593)
   boonTake: { text: 'The waystone grants you {n}.', warn: false }, // a boon picked, {n} its name (D-596)
+  boonHeld: { text: '{n}', warn: false }, // a tap on the boon's mark, {n} its name and card line (D-604)
   lanternDark: { text: 'Your lantern is dark.', warn: false }, // (D-124)
   stairsDown: { text: 'You go down the stairs.', warn: false }, // (D-135)
   stairsUp: { text: 'You go up the stairs.', warn: false }, // (D-135)

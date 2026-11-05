@@ -39,7 +39,7 @@ Getting around first (D-582), then boons (D-583):
   depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
   the card scrolls (0.3.52)
 - [x] 16b Boons at the home waystone (D-583, D-596): the card and the
-  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60)
+  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60); the mark (0.3.61)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -56,6 +56,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.61, The boon's mark.** The owner's idea, all picks
+  recommended: the boon held as its card's picture in a small glass
+  square under the panel, tap or mouse-over for its name and line; long
+  lines wrap (D-604).
+  Playtest: https://claude.ai/artifact/SCGhhLXxmPW9qfk9qZJmmt
 - **2026-11-05, 0.3.60, Boon cards.** The owner's fix: waking the home
   stone opens no boon card. The owner's picks, recommended: the boon
   card as three cards with kind colours; dealing them later (D-603).
@@ -64,7 +69,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   third nearest the hero remembered on arriving, kept after the boon,
   its stairs found; no sound or line; all 14 boons built (D-602).
   Playtest: https://claude.ai/artifact/Fu7NSBKVkumaYq44mBpyGs
-- **2026-11-05, 0.3.58, Waymark.** All recommended: the floor's stairs
-  down on the map from arriving, pulsing violet, on the round map when
-  near, gone when the boon ends (D-601).
-  Playtest: https://claude.ai/artifact/QSVBDxYVAZmJsQPw5zLt1u

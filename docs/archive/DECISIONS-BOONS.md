@@ -1,8 +1,8 @@
-# The boons' first steps (D-597 to D-600)
+# The boons' first steps (D-597 to D-602)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601), D-600 at 0.3.59 (D-602), and D-601 at 0.3.60 (D-603).
+(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), and D-602 at 0.3.61 (D-604).
 
 ---
 
@@ -44,3 +44,11 @@ round map when near. Stairs the hero has seen show as found stairs. The
 marks are never remembered: they go when the boon ends. Its line on
 the card: "Each floor's stairs down show on the map." D-599
 archived.
+
+**D-602 · 2026-11-05 · Far Sight** (the owner's picks, all recommended;
+builds on D-596) While Far Sight is held, arriving in a room never seen
+shows the third of its floor nearest the hero, counted in steps, with
+the walls and water beside it. It is remembered as if the lantern had
+found it, and stays when the boon ends; stairs in it count as found, so
+their glow lights (D-194). A room with anything remembered is unchanged.
+No sound and no line. All 14 boons are built. D-600 archived.

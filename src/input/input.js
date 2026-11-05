@@ -10,7 +10,7 @@ const KEYS = {
 const SWIPE_PX = 24; // a finger moving this far (CSS px) is a swipe, not a tap
 const HOLD_MS = 250; // a still finger held this long walks to the tile under it, as a tap does (D-408)
 
-// onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Swipe switch, D-189, D-408); onPoint(x, y, held) for taps, and
+// onHover(x, y) as the mouse moves with no button down (D-604); onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Swipe switch, D-189, D-408); onPoint(x, y, held) for taps, and
 // once for a finger or button held still, held then true, in game pixels; onHold([x, y]) as a held
 // finger slides, and onHold(null) when it lifts (Tap: Step keeps stepping toward it, D-449);
 // onLantern() for the L key; onWait() for Space, which repeats while held, like the arrows;
@@ -18,7 +18,7 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // which returns true when it used the key.
 // guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opened on it, D-193, till Basics came first, D-507).
-export function createInput(area, canvas, { onDir, onPoint, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, guarded = () => false }) {
+export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -57,6 +57,7 @@ export function createInput(area, canvas, { onDir, onPoint, onHold = () => {}, o
     press.timer = setTimeout(() => { if (press && !press.swiped && !press.guard) { press.held = true; onPoint(...gamePoint(press), true); } }, HOLD_MS);
   });
   area.addEventListener('pointermove', (ev) => {
+    if (!press && ev.pointerType === 'mouse') { onHover(...gamePoint({ x: ev.clientX, y: ev.clientY })); return; } // the mouse over a mark (D-604)
     if (!press || ev.pointerId !== press.id) return;
     press.x = ev.clientX; press.y = ev.clientY;
     if (press.held) { onHold(gamePoint(press)); return; }
