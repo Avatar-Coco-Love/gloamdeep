@@ -70,6 +70,9 @@ Ideas per kind, for the owner to pick from (no numbers yet):
   once a trip, back to the last waystone; *(with a cost)* faster, but a
   dimmer light.
 
+## The owner's wish (D-596)
+More boon variety later, some of it needing new content first.
+
 ## The code for the next steps
 - **The stamper (built, D-592):** `stamper.js` `spotIn`, `setAside`,
   `stampIn`, called from `cave.js` `generateRoom` (`ways.landmark`); the

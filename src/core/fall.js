@@ -6,7 +6,7 @@ import { get } from './registry.js';
 import { say } from './lines.js';
 import { bagAdd, bagSize } from './bag.js';
 import { note } from './events.js';
-import { makeWorld, maxHealth } from './state.js';
+import { makeWorld, maxHealth, withoutBoon } from './state.js';
 
 // § fetch: walking onto the bag where you fell puts back what fits, a stack at a
 // time, kinds topping up their stacks first; all back, it is gone with "You take
@@ -36,8 +36,8 @@ export function fall(state) {
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = state.home;
-  const woke = place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero);
-  return note(say({ ...woke, fell, health: maxHealth(state), oil: OIL.start }, 'fall'), 'fall');
+  const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
+  return note(say({ ...woke, fell, health: maxHealth(woke), oil: OIL.start }, 'fall'), 'fall');
 }
 // § fall view: the room as the hero fell in it (`fell`), with the rest of the world as it was
 // just before (`elsewhere`), for the fall's picture and the round map beside it. The map

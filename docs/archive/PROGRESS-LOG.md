@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.50, travel between waystones.** All recommended: a
+  short list card, opened by a tap on the hero, Space or Enter on a woken
+  plate; free, barred with a creature near; you arrive on the plate
+  (D-593). Three waystone decisions archived. Playtest:
+  https://claude.ai/artifact/HZxTXgJKmsDsqVEeu6QAwG
 - **2026-11-05, 0.3.49, the sleeping waystone at depth 2.** All
   recommended: one room the seed picks, not the one with the stairs up,
   near its middle; the shared stamper sets it aside; old saves have that

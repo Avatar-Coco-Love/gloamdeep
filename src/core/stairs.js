@@ -7,6 +7,8 @@ import { placeBeside, placeAt, placeFor, beginPlace, tileAt, isWall } from './ro
 import { blankMemory } from './fog.js';
 import { say } from './lines.js';
 import { get } from './registry.js';
+import { withoutBoon } from './state.js';
+import { HOME } from './boon.js';
 
 // § take: (state) → the state in the room the stairs under the hero lead to,
 // standing on its matching stair, with the stairs' line said. Null when the
@@ -37,7 +39,7 @@ export function goToPlace(state, to) {
 // No weapon like one the hero has, held or in the bag, lies there (D-252, D-479). An enemy still fleeing
 // calms as the hero leaves: it has to notice them again, as after its turns (D-302),
 // and one awake from its disguise settles back down asleep (D-368).
-// Each room's taken list goes with it (regrow.js).
+// Each room's taken list goes with it (regrow.js). Back home in the woods, a boon ends (D-583).
 export function arrive(state, to, there, spot) {
   const enemies = state.enemies.map((e) => (e.flees > 0 ? { ...e, flees: 0, chasing: false } : e))
     .map(({ awake, ...e }) => (awake ? { ...e, chasing: false, asleep: true } : e)); // one awake settles back down (D-368)
@@ -46,7 +48,8 @@ export function arrive(state, to, there, spot) {
   delete elsewhere[to];
   const has = [state.held, ...(state.bag || []).map((s) => s.id)].filter((id) => id && get(id)?.hold);
   const items = there.items.filter((it) => !has.includes(it.id));
-  return stepAside({ ...state, ...there, items, people: there.people || [], taken: there.taken || [], place: to, elsewhere, hero: spot });
+  const out = stepAside({ ...state, ...there, items, people: there.people || [], taken: there.taken || [], place: to, elsewhere, hero: spot });
+  return to === HOME ? withoutBoon(out) : out;
 }
 
 // § step aside: a creature standing where the hero arrives or wakes, as one that chased

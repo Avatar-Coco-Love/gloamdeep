@@ -5,6 +5,7 @@ import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
 import { fresh } from './events.js';
 import { burnOf } from './parts.js';
+import { boonHearts, boonBurn } from './boon.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -13,9 +14,12 @@ export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 export const FIRST_START = PLACES.first.start;
 
 // The hero's health: 5, and a rat's bite takes 1 (D-115). Hearts bought with
-// embers add to it (growth.js, D-293).
+// embers add to it (growth.js, D-293), and so does a boon's (Stout Heart, D-596).
 export const HERO_HEALTH = 5;
-export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0);
+export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0) + boonHearts(state);
+// § without boon: the boon ends as the hero is home again or falls (D-583): its hearts go,
+// any health above the most without it with them (boon.js)
+export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, health: Math.min(state.health, maxHealth({ ...state, boon: null })) } : state);
 
 // `home` is where the hero wakes after a fall: the room as it started (D-119).
 // One room on its own, as tests use it; makeWorld adds the other places.
@@ -54,7 +58,7 @@ function away(begun, here, seen) {
 }
 
 // A passed turn starts a new list of events (events.js)
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit ? burnOil(state.oil, burnOf(state)) : state.oil });
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit ? burnOil(state.oil, burnOf(state) * boonBurn(state)) : state.oil });
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

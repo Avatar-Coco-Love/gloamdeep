@@ -28,8 +28,9 @@ import { lookCard } from './look.js';
 import { seedCard } from './seed.js';
 import { mapCard } from './map.js';
 import { travelCard } from './travel.js';
+import { boonsCard } from './boons.js';
 
-export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard, howto: howtoCard, history: historyCard, journal: journalCard, slots: slotsCard, name: nameCard, cloak: lookCard, seed: seedCard, map: mapCard, explore: mapCard, travel: travelCard };
+export const CARD_TABLE = { bag: bagCard, place: placeCard, bench: benchCard, chest: chestCard, trade: tradeCard, bed: bedCard, sure: sureCard, drop: dropCard, easier: easierCard, title: titleCard, paused: pausedCard, settings: settingsCard, ways: waysCard, mode: modeCard, ended: endedCard, howto: howtoCard, history: historyCard, journal: journalCard, slots: slotsCard, name: nameCard, cloak: lookCard, seed: seedCard, map: mapCard, explore: mapCard, travel: travelCard, boons: boonsCard };
 
 // Every card made once, sharing `app`, `ui`, `show` and the helpers `c` from cardscreens.js and screens.js
 export const makeCards = (app, ui, show, c) => Object.fromEntries(Object.entries(CARD_TABLE).map(([id, make]) => [id, make(app, ui, show, c)]));
