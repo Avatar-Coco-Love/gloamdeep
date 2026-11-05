@@ -11,10 +11,11 @@
 import { sidesOf, depthOf, tileAt, placeAt, placeBeside } from './room.js';
 import { mouthSpot, mouthOf } from './mouth.js';
 import { fresh } from './stairs.js';
+import { boonOf } from './boon.js';
 
 const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 
-// (state, reveal, depth) → { depth, cols, rows, rooms: [{ id, x, y, room, seen }], hero, doors, bags }.
+// (state, reveal, depth) → { depth, cols, rows, rooms: [{ id, x, y, room, seen }], hero, doors, bags, waymarks }.
 // A room's x, y is its top-left tile on the whole floor; cols, rows the floor's
 // size in tiles, seams included. `doors` are the seam tiles a found doorway
 // bridges, [{ x, y }]. `seen` is null when everything shows (reveal). `hero` is the
@@ -23,11 +24,39 @@ const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 // opens on the part its stairs lead to, if seen, else on a part that is.
 export function floorPlan(state, reveal = false, depth = depthOf(state.place)) {
   const both = depth === 0 && joinedSurface(state, reveal);
-  if (both) return withBags(state, withDoors(both));
+  if (both) return withWaymarks(state, reveal, withBags(state, withDoors(both)));
   const seen = (id) => reveal || state.elsewhere[id]?.seen.some(Boolean);
   const start = depth === depthOf(state.place) ? state.place
     : [placeAt(depth), ...Object.keys(state.elsewhere)].find((id) => depthOf(id) === depth && seen(id)) || placeAt(depth);
-  return withBags(state, withDoors(partPlan(state, reveal, depth, start)));
+  return withWaymarks(state, reveal, withBags(state, withDoors(partPlan(state, reveal, depth, start))));
+}
+
+// § waymarks: the plan with its `waymarks`, while Waymark is held (D-601): the stairs down in
+// every room of the part shown, rooms not yet entered too, as floor tiles [{ x, y }], but not
+// those already remembered, which show as found stairs. Drawn pulsing over the map, never
+// written into the memory, so they go when the boon does. None with the map revealed. The
+// plan's `cells` (every room's corner, entered or not) are used here and dropped.
+function withWaymarks(state, reveal, { cells, ...plan }) {
+  if (reveal || !boonOf(state)?.stairs) return { ...plan, waymarks: [] };
+  const known = (id) => (id === state.place ? state : state.elsewhere[id]);
+  const waymarks = cells.flatMap(({ id, x, y }) => {
+    const p = known(id), cols = p ? p.room.cols : 0;
+    return (p ? downsOf(p.room) : downsAt(id, state.seed)).filter((d) => !p?.seen[d.y * cols + d.x]).map((d) => ({ x: x + d.x, y: y + d.y }));
+  });
+  return { ...plan, waymarks };
+}
+// The stairs down in a room, as its tiles [{ x, y }]
+function downsOf(room) {
+  const found = [];
+  for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (tileAt(room, x, y).id === 'stairsDown') found.push({ x, y });
+  return found;
+}
+// The same for a room not yet entered, from how it begins, worked out once per seed and room
+const begun = new Map();
+function downsAt(id, seed) {
+  const k = `${seed}:${id}`;
+  if (!begun.has(k)) begun.set(k, downsOf(fresh(id, seed).room));
+  return begun.get(k);
 }
 
 // The plan with its `bags`: each bag where you fell on the floor's tiles, [{ x, y }],
@@ -67,6 +96,7 @@ function partPlan(state, reveal, depth, start) {
   }
   return {
     depth, cols: (x1 - x0 + 1) * (w + 1) - 1, rows: (y1 - y0 + 1) * (h + 1) - 1, rooms, seams,
+    cells: all.map(({ id, at }) => ({ id, x: left(at), y: top(at) })),
     hero: here ? { x: here.x + state.hero.x, y: here.y + state.hero.y } : null,
   };
 }
@@ -114,7 +144,7 @@ function joinedSurface(state, reveal) {
   const whole = surfaceParts(state);
   const rooms = whole.rooms.filter((r) => reveal || been(r.id)).map((r) => ({ ...r, seen: reveal ? null : been(r.id).seen }));
   const here = rooms.find((r) => r.id === state.place);
-  return { ...whole, rooms, hero: here ? { x: here.x + state.hero.x, y: here.y + state.hero.y } : null };
+  return { ...whole, rooms, cells: whole.rooms, hero: here ? { x: here.x + state.hero.x, y: here.y + state.hero.y } : null };
 }
 
 // § floors: the depths the map can turn to (D-206), shallowest first: the

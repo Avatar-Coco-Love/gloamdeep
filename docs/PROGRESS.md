@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.55 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.58 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The last getting-around boons (16b, D-597): Waymark, Far Sight, each
-its own step; ask which first.
+The last boon (16b, D-596): Far Sight, a third of a room's map shown
+as you enter; ask how.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -39,7 +39,7 @@ Getting around first (D-582), then boons (D-583):
   depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
   the card scrolls (0.3.52)
 - [ ] 16b Boons at the home waystone (D-583, D-596): the card and the
-  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57)
+  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -56,6 +56,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.58, Waymark.** All recommended: the floor's stairs
+  down on the map from arriving, pulsing violet, on the round map when
+  near, gone when the boon ends (D-601).
+  Playtest: https://claude.ai/artifact/QSVBDxYVAZmJsQPw5zLt1u
 - **2026-11-05, 0.3.57, Soft Step.** Both recommended: the lantern's
   last tile of light wakes no one; torches, glows, daylight and the shy
   ones as before (D-600).
@@ -64,7 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   recommended: by itself a 60% flask waits until none spills; Kind Herbs
   for anything eaten; Lucky Find stacks with the charm, 35% (D-599).
   Playtest: https://claude.ai/artifact/Ho58RCMMFanjncithrXw9P
-- **2026-11-05, 0.3.55, Hungry Flame and Reckless.** All recommended:
-  Hungry Flame's glow only while there is oil; Reckless cuts full hearts
-  at once, they come back empty, the spear's second hit too (D-598).
-  Playtest: https://claude.ai/artifact/FNbh3tRM2qQ5dFmCeYKCWG

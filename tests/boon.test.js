@@ -25,7 +25,7 @@ test('boons: every entry has a known kind, a name and one short line', () => {
     assert.equal(b.kind, 'boon');
   }
   assert.equal(Object.keys(BOONS).length, 14); // the owner's list (D-596)
-  assert.deepEqual(offerable().map((b) => b.id).sort(), ['deepPour', 'greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'kindHerbs', 'luckyFind', 'reckless', 'slowWick', 'softStep', 'stoutHeart', 'wideGlow']); // built so far
+  assert.deepEqual(offerable().map((b) => b.id).sort(), ['deepPour', 'greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'kindHerbs', 'luckyFind', 'reckless', 'slowWick', 'softStep', 'stoutHeart', 'waymark', 'wideGlow']); // built so far
 });
 
 test('boons: the offer is 3, each of a different kind, the same for the same seed and turn', () => {
@@ -47,7 +47,7 @@ test('boons: the woken home plate offers them while none is held', () => {
   assert.ok(held.events.some((e) => e.type === 'boon'));
   assert.ok(!offersBoons(held));
   assert.equal(takeBoon(held, 'slowWick'), held); // only one at a time
-  assert.equal(takeBoon(s, 'waymark'), s); // not built yet, never taken
+  assert.equal(takeBoon(s, 'farSight'), s); // not built yet, never taken
   const away = goToDepth(s, 2);
   assert.ok(!offersBoons(away));
 });
