@@ -79,6 +79,8 @@ const RATTLE = {
 // The waystone waking (D-591, sound A): three soft bell notes rising, C, E and G, each a pure
 // tone with two faint higher partials that ring out sooner, like a small bell (hertz, seconds)
 const BELLS = { notes: [523, 659, 784], apart: 0.17, gain: 0.07, attack: 0.008, end: 1.3, partials: [[2.76, 0.25], [5.4, 0.08]] };
+// A boon picked (D-596): two of the same bells, G then the C above, softer and quicker
+const CHIME = { ...BELLS, notes: [784, 1047], apart: 0.12, gain: 0.05, end: 1 };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
 const between = (r, lo, hi) => lo + r() * (hi - lo);
@@ -240,14 +242,16 @@ export function createSound(isOn) {
     for (const d of TEETH.snaps) slice(t + RATTLE.snapAt + d, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud, from: snap.from + d });
   }
   // § bells: the waystone waking, three notes rising
-  function bells() {
+  function bells(b = BELLS) {
     if (!ready()) return;
-    const t = ac.currentTime, { attack, end } = BELLS;
-    BELLS.notes.forEach((f, i) => {
-      const at = t + i * BELLS.apart;
-      tone(at, { from: f, to: f, gain: BELLS.gain, attack, end });
-      for (const [m, k] of BELLS.partials) tone(at, { from: f * m, to: f * m, gain: BELLS.gain * k, attack, end: end / m ** 0.4 });
+    const t = ac.currentTime, { attack, end } = b;
+    b.notes.forEach((f, i) => {
+      const at = t + i * b.apart;
+      tone(at, { from: f, to: f, gain: b.gain, attack, end });
+      for (const [m, k] of b.partials) tone(at, { from: f * m, to: f * m, gain: b.gain * k, attack, end: end / m ** 0.4 });
     });
   }
-  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, bells };
+  // § chime: a boon picked, two bells rising (D-596)
+  const chime = () => bells(CHIME);
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, bells: () => bells(), chime };
 }

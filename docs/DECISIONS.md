@@ -176,3 +176,21 @@ Down keep the chosen row whole in view; a swipe, Page Up or Page Down
 turns a page, the flame moving to the top row shown if it scrolled away;
 a thin bar at the card's right shows where the list is. Only whole rows
 show while it scrolls, 5 sideways. D-593 and D-594 archived.
+
+**D-596 · 2026-11-05 · The boon list, and the boon card** (the owner's
+picks, answers Q-077; builds on D-583) The pool holds 14 boons, all in
+the registry (`src/core/boons.js`), one line each, so the owner can add,
+drop or change any at any time. Light and oil: Slow Wick (burns a
+quarter slower), Wide Glow (+1 tile of light), Deep Pour (a flask pours
+60%), Hungry Flame (+2 tiles, burns half again as fast). Hearts and
+fighting: Stout Heart (+2 hearts, full), Hard Blow (+1 on every hit),
+Kind Herbs (heal 1 more), Reckless (+1 hit, 2 fewer hearts). Finding:
+Keen Eye (parts drop 75%), Lucky Find (rare drops 25%), Greedy Hands
+(parts always drop, burns a quarter faster). Getting around: Soft Step
+(noticed 1 tile later), Waymark (the way down shown), Far Sight (a third
+of a room's map shown). Boons stack with gear (Slow Wick and the Copper
+Wick: 100 steps); still 1 a trip. Stepping onto the woken home plate
+with none held opens the card, the travel card's rows: 3 boons, each
+of a different kind; the cross skips. A soft two-bell chime, the line
+"The waystone grants you …", its name on the panel under the oil bar.
+Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.

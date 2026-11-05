@@ -48,6 +48,7 @@ import { createSound } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
+import { offersBoons, takeBoon } from './core/boon.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -225,6 +226,8 @@ function tryStep(dir) {
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now() };
+  // Stepping onto the woken home plate with no boon held offers the boon card (D-596)
+  if (!went && !fell && (state.hero.x !== before.hero.x || state.hero.y !== before.hero.y) && offersBoons(state)) { app.walk = null; screens.openBoons(); }
 }
 // The fall is shown in the room where it happened, then the hero wakes at the start (D-234)
 function fallDown(from) {
@@ -332,6 +335,7 @@ function hear(events) {
   if (bite) sound[bite](!!hit);
   if (has(events, 'step') && !has(events, 'fall')) sound.footstep();
   if (has(events, 'wake')) sound.bells(); // the waystone wakes (D-591)
+  if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
@@ -383,6 +387,7 @@ const screens = createScreens(app, {
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
+  takeBoon: (id) => { const before = app.state; app.state = takeBoon(before, id); hear(eventsSince(before, app.state)); }, // the boon card's pick, free (D-596)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
   goFullScreen,
@@ -395,7 +400,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)

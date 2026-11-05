@@ -44,6 +44,7 @@ const SOUNDS = [
   { label: 'Lantern hit, then a bone rat bites', play: 'later(0, () => { sound.hit(false); sound.rattle(true); })' },
   { label: 'A waystone wakes', play: 'later(0, () => sound.bells())' },
   { label: 'Two steps, then a waystone wakes', play: 'later(0, () => sound.footstep()); later(250, () => sound.footstep()); later(250, () => sound.bells())' },
+  { label: 'A boon picked (the chime)', play: 'later(0, () => sound.chime())' },
 ];
 
 const out = process.argv[2];

@@ -119,12 +119,6 @@ prowler, rift creatures; then new ones: rim lurker, gloamberry mimic,
 skulker crab; with a new way, false light, brood mother, still one, rat
 pack, dozing brute. Which next, and in which pools?
 
-**Q-077 · The boon list** (raised 2026-11-02, D-583)
-Which boons go in the home waystone's pool, with their numbers, across
-light and oil, hearts and fighting, finding things and getting around?
-How the choice looks and sounds is asked too. Shown as a list before
-the boons step.
-
 **Q-082 · Which depths belong to which biome?** (raised 2026-11-05, from
 the scope map) The four biomes (D-028) and every per-biome rule (ore,
 plants, woods, skills: D-450, D-451, D-456, D-462) need to know where

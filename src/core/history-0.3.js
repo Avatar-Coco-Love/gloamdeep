@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.53', date: '2026-11-05', title: 'The first boons', lines: [
+    "Boons: stepping onto the woken home waystone's plate, with no boon held, opens a card of 3 boons, each of a different kind. Pick 1, or close the card to go without. A soft two-bell chime plays, the text line says \"The waystone grants you …\", and the boon's name shows on the panel under the oil bar.",
+    "A boon lasts until you are home in the woods again, by stairs or waystone, or fall.",
+    "Three boons work so far: Slow Wick (the lantern burns a quarter slower, and with the Copper Wick a tank lasts 100 steps), Stout Heart (2 more hearts, full as you set out) and Keen Eye (creatures drop their part 3 times in 4). The other 11 are listed, with their numbers, and come a few at a time.",
+    "Decisions: D-596. Questions closed: Q-077.",
+  ] },
   { v: '0.3.52', date: '2026-11-05', title: 'The travel card scrolls', lines: [
     "The travel card's list now scrolls inside the card when the waystones don't all fit, as the version history's does. Sideways it shows 5 whole rows.",
     "It opens on the first woken stone you aren't standing on. Up and Down keep the chosen stone in view; a swipe, Page Up or Page Down turns a page, and a thin bar at the card's right shows where you are in the list.",
