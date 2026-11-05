@@ -8,9 +8,9 @@
 // tiles more light (not the empty ember), `hit` more on every hit, the spear's second too,
 // `pour` of a tank a flask pours, `heal` more hearts healed by anything eaten, `rare` the rare
 // drop's chance (its part above the usual adds to a charm's, D-599).
+// `notice` the tiles short of the lantern's reach a creature must stand to notice by its light (D-600).
 // One marked `soon` isn't built yet, so it is never offered; its numbers wait here:
-// `notice` tiles later a creature
-// notices, `stairs` the way down shown, `shows` the part of a room's map shown.
+// `stairs` the way down shown, `shows` the part of a room's map shown.
 
 export const BOON_SORTS = { light: 'Light and oil', hearts: 'Hearts and fighting', finding: 'Finding things', around: 'Getting around' };
 
@@ -26,7 +26,7 @@ export const BOONS = {
   keenEye: { id: 'keenEye', kind: 'boon', sort: 'finding', name: 'Keen Eye', words: 'Creatures drop their part more often.', drop: 0.75 },
   luckyFind: { id: 'luckyFind', kind: 'boon', sort: 'finding', name: 'Lucky Find', words: 'Rare drops come more often.', rare: 0.25 },
   greedyHands: { id: 'greedyHands', kind: 'boon', sort: 'finding', name: 'Greedy Hands', words: 'Creatures always drop their part, but the oil burns faster.', drop: 1, burn: 1.25 },
-  softStep: { id: 'softStep', kind: 'boon', sort: 'around', name: 'Soft Step', words: 'Creatures notice you 1 tile later.', notice: 1, soon: true },
+  softStep: { id: 'softStep', kind: 'boon', sort: 'around', name: 'Soft Step', words: 'Creatures notice you 1 tile later.', notice: 1 },
   waymark: { id: 'waymark', kind: 'boon', sort: 'around', name: 'Waymark', words: 'Each room shows its way down on the map.', stairs: true, soon: true },
   farSight: { id: 'farSight', kind: 'boon', sort: 'around', name: 'Far Sight', words: 'Each room shows more of its map as you enter.', shows: 1 / 3, soon: true },
 };

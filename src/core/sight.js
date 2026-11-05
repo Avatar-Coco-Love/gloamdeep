@@ -19,9 +19,11 @@ const NEAR = 0.95;
 // The lantern's flame over the hero standing on x, y: the sprite sits 2 pixels up.
 export const lanternFrom = (x, y) => ({ x: x * TILE_SIZE + LANTERN_AT.x, y: y * TILE_SIZE - 2 + LANTERN_AT.y });
 
-// § sources: every light shining now, as { x, y, r } in pixels
-export function lightsNow(state) {
-  const out = state.lit ? [{ ...lanternFrom(state.hero.x, state.hero.y), r: lanternReach(state) }] : [];
+// § sources: every light shining now, as { x, y, r } in pixels; `less` tiles off the lantern's
+// reach only, for noticing with Soft Step (D-600), none left when it would reach no farther
+export function lightsNow(state, less = 0) {
+  const r = lanternReach(state) - less * TILE_SIZE;
+  const out = state.lit && r > 0 ? [{ ...lanternFrom(state.hero.x, state.hero.y), r }] : [];
   for (const l of state.lights) {
     const r = get(l.id).reach, m = mountAt(state.room, l.x, l.y);
     if (!r || !m) continue;
@@ -33,13 +35,14 @@ export function lightsNow(state) {
   return out.concat(glowsIn(state.room, state.seen)); // a glow not yet found is no light (D-194)
 }
 
-// § lit: (state, x, y) → true when any light shining now reaches tile x, y
-export function litAt(state, x, y) {
+// § lit: (state, x, y, less) → true when any light shining now reaches tile x, y, the
+// lantern's `less` tiles shorter (D-600)
+export function litAt(state, x, y, less = 0) {
   if (inDaylight(state)) return true; // daylight lights every tile (D-209), until dusk (D-217)
   const { room } = state, cw = room.cols * TILE_SIZE / CELL;
   const mx = x * TILE_SIZE + TILE_SIZE / 2, my = y * TILE_SIZE + TILE_SIZE / 2;
   const cell = (my / CELL | 0) * cw + (mx / CELL | 0);
-  return lightsNow(state).some((L) => {
+  return lightsNow(state, less).some((L) => {
     if (Math.hypot(mx - L.x, my - L.y) >= L.r * NEAR) return false;
     return seenCells(room, L.x, L.y, L.r, new Uint8Array(cw * room.rows * TILE_SIZE / CELL))[cell] === 1;
   });

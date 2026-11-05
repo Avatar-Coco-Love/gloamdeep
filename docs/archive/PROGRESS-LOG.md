@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.54, three more boons.** All recommended: Wide Glow,
+  Hard Blow, Greedy Hands; getting around after the small ones (D-597).
+  Playtest: https://claude.ai/artifact/DRnnPoiT5XALN6FHSbsKaY
 - **2026-11-05, 0.3.53, the first boons.** The owner took all 14 boons
   and numbers shown, stacking with gear, kept in one registry list; the
   card opens on the home plate, the travel card's look, a chime, the name

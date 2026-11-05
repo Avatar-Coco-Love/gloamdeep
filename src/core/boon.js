@@ -23,6 +23,8 @@ export { boonHearts, boonBurn } from './state.js';
 export const boonReach = (state) => boonOf(state)?.reach ?? 0;
 // The lantern's light reach in pixels, with the boon's tiles; the empty ember stays as it is
 export const lanternReach = (state) => reach(state.oil) + (state.oil > 0 ? boonReach(state) * 16 : 0);
+// The tiles shorter the lantern's light is for a creature noticing the hero (Soft Step), 0 without
+export const boonNotice = (state) => boonOf(state)?.notice ?? 0;
 // What it adds to every hit the hero lands (Hard Blow), 0 without
 export const boonHit = (state) => boonOf(state)?.hit ?? 0;
 // A beaten creature's chance to drop its part: the boon's (Keen Eye), or `base`
