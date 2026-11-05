@@ -34,7 +34,8 @@ test('woods: 17 × 20, trees all round the edge, every open tile joined to the s
     for (let y = 0; y < ROWS; y++) assert.ok(w.map[y][0] === 'T' && w.map[y][COLS - 1] === 'T');
     const open = w.map.join('').split('.').length - 1;
     assert.ok(open >= 107, `seed ${seed}: ${open} open`);
-    assert.equal(walk(room, w.start).size, open, `seed ${seed}`);
+    const cross = w.map.join('').split(/[XZ]/).length - 1; // the waystone's walked tiles (D-589)
+    assert.equal(walk(room, w.start).size, open + cross, `seed ${seed}`);
     assert.equal(tileAt(room, w.start.x, w.start.y).id, 'floor');
   }
 });

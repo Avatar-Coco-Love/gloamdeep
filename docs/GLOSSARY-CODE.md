@@ -31,6 +31,9 @@ code; where this page and a decision disagree, the decision wins.
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).
+- **Landmark, plan, stamp:** a place bigger than one tile, as data in
+  `src/core/landmarks.js` (`LANDMARKS` in the registry): its `plan` is rows
+  of tile letters, and `stamp` sets it on a room (D-587, D-589).
 
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the

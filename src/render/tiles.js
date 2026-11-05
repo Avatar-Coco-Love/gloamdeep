@@ -10,6 +10,7 @@ import { drawWoods, drawTree, drawWoodsBeyond } from './woods.js';
 import { drawDeposit, drawBranch, drawStump, drawBench, SPRITES } from './sprites.js';
 import { formOf } from '../core/tiles.js';
 import { get } from '../core/registry.js';
+import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waystone.js';
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
 // The dungeon (D-228) is the crypt drawn deeper and bluer: each colour's red,
@@ -123,6 +124,10 @@ const DRAW = {
   berryBed: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.berryBed); }, // grown (D-567)
   // On the room's own ground; its stone foot is drawn with the torches, before the light (D-478)
   torchStand: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); },
+  // The home waystone (D-589): on the woods' grass; spawned elsewhere, on that room's floor
+  standingStone: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawStandingStone(c, room, x, y); },
+  waystonePath: (c, room, x, y) => drawWaystonePath(c, x, y),
+  waystonePlate: (c, room, x, y) => drawWaystonePlate(c, x, y),
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

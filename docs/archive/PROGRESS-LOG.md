@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-02, 0.3.44, the peddler's spot.** Raised as Q-079 with a
+  measure of 6000 rooms: the spot fitted 84% first try, blocked mostly by
+  things beside him. All recommended: at least 4 open tiles, a wall on
+  one straight side at most, things beside him moved aside; 95% now
+  (D-586). Playtest:
+  https://claude.ai/artifact/7JSk2mDi767FmbNfdWmia6
 - **2026-11-02, 0.3.43, no more stand-in rooms.** All recommended: a
   second round of up to 400 tries, only for a room whose 200 all fail,
   with the corridors kept clear of the stairs up; no room falls back in
