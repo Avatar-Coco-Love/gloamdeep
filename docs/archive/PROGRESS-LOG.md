@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.56, Eleven boons.** All
+  recommended: by itself a 60% flask waits until none spills; Kind Herbs
+  for anything eaten; Lucky Find stacks with the charm, 35% (D-599).
+  Playtest: https://claude.ai/artifact/Ho58RCMMFanjncithrXw9P
 - **2026-11-05, 0.3.55, Hungry Flame and Reckless.** All recommended:
   Hungry Flame's glow only while there is oil; Reckless cuts full hearts
   at once, they come back empty, the spear's second hit too (D-598).

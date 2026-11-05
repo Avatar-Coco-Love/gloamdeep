@@ -186,14 +186,6 @@ of a different kind; the cross skips. A soft two-bell chime, the line
 "The waystone grants you …", its name on the panel under the oil bar.
 Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
 
-**D-600 · 2026-11-05 · Soft Step** (the owner's picks, both recommended;
-builds on D-596) A creature that notices by light needs the lantern's
-light 1 tile short of its reach: the last tile of light wakes no one, so
-a rat at its edge stays put until it is 1 tile further in. Torches, the
-stairs' glow and daylight wake as before, and the gloamling and the cave
-spider, who see along any clear line, are unchanged. D-597 and D-598
-archived.
-
 **D-601 · 2026-11-05 · Waymark** (the owner's picks, all recommended;
 builds on D-596) While Waymark is held, the floor's stairs down show on
 the map from the moment the hero arrives, in a room not yet entered too,
@@ -203,3 +195,11 @@ round map when near. Stairs the hero has seen show as found stairs. The
 marks are never remembered: they go when the boon ends. Its line on
 the card: "Each floor's stairs down show on the map." D-599
 archived.
+
+**D-602 · 2026-11-05 · Far Sight** (the owner's picks, all recommended;
+builds on D-596) While Far Sight is held, arriving in a room never seen
+shows the third of its floor nearest the hero, counted in steps, with
+the walls and water beside it. It is remembered as if the lantern had
+found it, and stays when the boon ends; stairs in it count as found, so
+their glow lights (D-194). A room with anything remembered is unchanged.
+No sound and no line. All 14 boons are built. D-600 archived.
