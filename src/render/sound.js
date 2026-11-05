@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), the snapcap's snap (D-544), the herb mimic's rustle (D-550), and the bone rat's rattle (D-551).
+// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), the snapcap's snap (D-544), the herb mimic's rustle (D-550), and the bone rat's rattle (D-551); the waystone's bells as it wakes (D-591).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -76,6 +76,9 @@ const RATTLE = {
   knock: { freq: 1700, ring: 9, gain: 0.07, attack: 0.001, end: 0.02, from: 0.3 }, knocks: [0, 0.03, 0.055, 0.085], drop: 0.9,
   snapAt: 0.14,
 };
+// The waystone waking (D-591, sound A): three soft bell notes rising, C, E and G, each a pure
+// tone with two faint higher partials that ring out sooner, like a small bell (hertz, seconds)
+const BELLS = { notes: [523, 659, 784], apart: 0.17, gain: 0.07, attack: 0.008, end: 1.3, partials: [[2.76, 0.25], [5.4, 0.08]] };
 const NOISE_S = 1; // the noise's length, in seconds
 const SEED = 255; // the noise and the steps' variety, the same on every visit
 const between = (r, lo, hi) => lo + r() * (hi - lo);
@@ -236,5 +239,15 @@ export function createSound(isOn) {
     RATTLE.knocks.forEach((d, i) => slice(t + d, { type: 'bandpass', ...knock, freq: knock.freq * p * RATTLE.drop ** i, gain: knock.gain * loud, from: knock.from + d }));
     for (const d of TEETH.snaps) slice(t + RATTLE.snapAt + d, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud, from: snap.from + d });
   }
-  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle };
+  // § bells: the waystone waking, three notes rising
+  function bells() {
+    if (!ready()) return;
+    const t = ac.currentTime, { attack, end } = BELLS;
+    BELLS.notes.forEach((f, i) => {
+      const at = t + i * BELLS.apart;
+      tone(at, { from: f, to: f, gain: BELLS.gain, attack, end });
+      for (const [m, k] of BELLS.partials) tone(at, { from: f * m, to: f * m, gain: BELLS.gain * k, attack, end: end / m ** 0.4 });
+    });
+  }
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, bells };
 }

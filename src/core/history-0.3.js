@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.48', date: '2026-11-05', title: 'Waking the home waystone', lines: [
+    "Step onto the home waystone's plate and it wakes: its rune lights violet from the bottom up, a soft ring of light spreads over the cross, and three soft bells ring. \"The waystone wakes.\"",
+    "Once woken it stays woken, its rune lit with a faint violet glow you can find at night, like the stairs. Waking costs nothing more than the step. Travelling between waystones comes later.",
+    "Decisions: D-591.",
+  ] },
   { v: '0.3.47', date: '2026-11-05', title: 'The home waystone', lines: [
     "The home waystone now stands in the woods, just north of the middle: four tall standing stones around a cross of flagstones, with a carved plate in the middle. It is asleep for now; waking it and travelling come in the next steps.",
     "The standing stones block your light and sight, like rock. You can walk the cross and stand on the plate.",

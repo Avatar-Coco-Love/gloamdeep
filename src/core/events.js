@@ -28,6 +28,7 @@
 //   sell { id, coins }   one of item `id` was sold at home for `coins`, free (D-494)
 //   plant { id }         seed `id` was planted in a garden bed (D-566)
 //   feed { id }          `id`, Bat Guano, was fed to a sprout in a garden bed (D-569)
+//   wake { x, y }        the waystone's plate at x, y woke as the hero stepped on it (D-591)
 
 // (state, type, details) → the state with that event added to this turn's list
 export const note = (state, type, details) => ({ ...state, events: [...state.events, { type, ...details }] });

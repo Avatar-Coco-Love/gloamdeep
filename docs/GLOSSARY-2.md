@@ -62,8 +62,8 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   the game yet.
 - **Waystone:** a 5 × 5 standing-stone circle: a walkable cross, a stone
   on each 2 × 2 corner, the plate in the middle (D-579, D-587). The home
-  waystone stands in the woods, asleep for now (D-589); waking and travel
-  come next.
+  waystone stands in the woods, asleep until the hero steps on its
+  plate; woken, its rune is lit violet (D-589, D-591). Travel comes next.
 - **Boon:** a small help picked, 1 of 3, at the home waystone as the
   hero sets out; it lasts until home again or a fall (D-583). Not in the
   game yet.

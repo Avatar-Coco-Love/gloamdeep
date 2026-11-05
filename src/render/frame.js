@@ -7,6 +7,7 @@ import { drawRipples } from './water.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
+import { drawKindle, drawRing } from './kindle.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawStatus } from './hud.js';
 import { lineTop } from './textline.js';
@@ -205,6 +206,7 @@ export function createFrame(app, ui) {
       drawBrackets(rc, s.room, s.lights);
       const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
       drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
+      drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
       drawItems(rc, s.items, t, still());
       const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
       drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
@@ -229,6 +231,7 @@ export function createFrame(app, ui) {
     }
     inRoom(() => {
       drawFlames(rc, s.room, s.lights, t, still());
+      drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
       if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
       drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
       const framed = list?.find((a) => foeAt(a.e) === app.framed);

@@ -70,3 +70,43 @@ test('waystone: in the woods, the hero is never under the stone', () => {
   assert.ok(at);
   assert.ok(Math.abs(at.x - cx) > 2 || Math.abs(at.y - cy) > 2);
 });
+
+// § waking: stepping onto the plate wakes it, for good (D-591)
+import { step } from '../src/core/turn.js';
+import { glowsIn } from '../src/core/stairs.js';
+import { shownLine } from '../src/core/lines.js';
+
+// The home woods with the hero just below the plate, at the foot of the cross's middle
+const belowPlate = () => {
+  const s = goToPlace(makeWorld('first', 5), 'woods'), at = plateIn(s.room);
+  return { ...s, hero: { x: at.x, y: at.y + 1 }, enemies: [], events: [] };
+};
+
+test('waking: a step onto the sleeping plate wakes it, its line said, in one turn', () => {
+  const s = belowPlate(), at = plateIn(s.room), out = step(s, 'up');
+  assert.deepEqual(out.hero, at);
+  assert.equal(tileAt(out.room, at.x, at.y).id, 'wokenPlate');
+  assert.equal(out.turn, s.turn + 1); // the step is the turn, nothing more
+  assert.deepEqual(out.events.filter((e) => e.type === 'wake'), [{ type: 'wake', ...at }]);
+  assert.equal(shownLine(out)?.text, 'The waystone wakes.');
+});
+
+test('waking: a woken plate stays woken, walkable, and wakes no more', () => {
+  const s = belowPlate(), woke = step(s, 'up'), off = step(woke, 'down'), back = step(off, 'up');
+  assert.equal(tileAt(back.room, back.hero.x, back.hero.y).id, 'wokenPlate');
+  assert.ok(!back.events.some((e) => e.type === 'wake'));
+  assert.ok(!get('wokenPlate').solid && !get('wokenPlate').blocksLight);
+  assert.equal(get('wokenPlate').name, 'Waystone');
+});
+
+test('waking: a woken plate glows faintly, like the stairs; a sleeping one gives no light', () => {
+  const s = belowPlate(), at = plateIn(s.room), woke = step(s, 'up');
+  assert.ok(!glowsIn(s.room, null).some((g) => g.x === at.x * 16 + 8 && g.y === at.y * 16 + 8));
+  const g = glowsIn(woke.room, null).find((l) => l.x === at.x * 16 + 8 && l.y === at.y * 16 + 8);
+  assert.deepEqual(g && [g.r, g.cr, g.cg, g.cb], [16, get('stairsDown').glow.cr, get('stairsDown').glow.cg, get('stairsDown').glow.cb]);
+});
+
+test('waking: the woods keeps it woken after going away and coming back', () => {
+  const woke = step(belowPlate(), 'up'), at = woke.hero, away = goToPlace(woke, 'first'), back = goToPlace(away, 'woods');
+  assert.equal(tileAt(back.room, at.x, at.y).id, 'wokenPlate');
+});

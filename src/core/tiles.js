@@ -99,7 +99,10 @@ export const TILES = {
   // and the plate in its middle, walked on. Asleep for now: nothing happens on them (D-589).
   standingStone: { id: 'standingStone', kind: 'tile', letter: 'Y', name: 'Waystone', solid: true, blocksLight: true },
   waystonePath: { id: 'waystonePath', kind: 'tile', letter: 'X', name: 'Waystone', solid: false, blocksLight: false },
-  waystonePlate: { id: 'waystonePlate', kind: 'tile', letter: 'Z', name: 'Waystone', solid: false, blocksLight: false },
+  // Asleep, the plate `wakes` when the hero steps on it (D-591): its rune lit violet for good,
+  // with the stairs' faint glow, the same in every room (wake.js)
+  waystonePlate: { id: 'waystonePlate', kind: 'tile', letter: 'Z', name: 'Waystone', solid: false, blocksLight: false, wakes: 'wokenPlate' },
+  wokenPlate: { id: 'wokenPlate', kind: 'tile', letter: 'A', name: 'Waystone', solid: false, blocksLight: false, glow: GLOW },
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },

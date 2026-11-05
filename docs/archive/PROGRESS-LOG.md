@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-03, 0.3.45, waystone plans.** Talk and mock-ups only: the
+  owner's 5 × 5 waystone with a walkable cross, and landmarks as data
+  placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
+  https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU
 - **2026-11-02, 0.3.44, the peddler's spot.** Raised as Q-079 with a
   measure of 6000 rooms: the spot fitted 84% first try, blocked mostly by
   things beside him. All recommended: at least 4 open tiles, a wall on

@@ -180,3 +180,14 @@ whole game's scope is shown as one visual map, then filled in piece by
 piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
+
+**D-591 · 2026-11-05 · Waking the home waystone** (the owner's picks, all
+recommended; step 16's second part, builds on D-579 and D-589; answers
+part of Q-080) The home waystone wakes the first time the hero steps onto
+its plate; the step is the turn, and waking costs nothing more. It wakes
+to the stairs' violet: the plate's rune lights for good, with the stairs'
+faint glow around it. As it wakes, the rune lights from the bottom up and
+one soft violet ring spreads over the cross and fades (none with reduced
+motion), three soft bell notes rise, and the line says "The waystone
+wakes." It stays woken in its room's map, so a saved journey keeps it.
+Mock-ups: https://claude.ai/artifact/GB96WARVCRASKzX81XUwJ4

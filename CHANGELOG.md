@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.48 (2026-11-05)
+- Step onto the home waystone's plate and it wakes: its rune lights violet from the bottom up, a soft ring of light spreads over the cross, and three soft bells ring. "The waystone wakes."
+- Once woken it stays woken, its rune lit with a faint violet glow you can find at night, like the stairs. Waking costs nothing more than the step. Travelling between waystones comes later.
+- Decisions: D-591.
+
 ## 0.3.47 (2026-11-05)
 - The home waystone now stands in the woods, just north of the middle: four tall standing stones around a cross of flagstones, with a carved plate in the middle. It is asleep for now; waking it and travelling come in the next steps.
 - The standing stones block your light and sight, like rock. You can walk the cross and stand on the plate.
@@ -32,7 +37,3 @@ Entry format:
 ## 0.3.46 (2026-11-03)
 - Fixed: on Android, the hero and the tiles could come back blank after the game had been in the background. Every picture the game keeps is now drawn again when the phone wipes it.
 - Decisions: D-588.
-
-## 0.3.45 (2026-11-03)
-- Planning only, nothing in the game changed: waystones will be 5 × 5, with a walkable cross and a plate in the middle, and big landmarks like them will be placed by one shared tool from simple plans.
-- Decisions: D-587. Questions raised: Q-080.

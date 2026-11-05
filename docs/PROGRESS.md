@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.46 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.48 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Waystones, second step (D-579, D-587, D-589): waking the home waystone
-by walking up to it. Ask Q-080's parts it needs (the colour, how waking
-looks and sounds).
+Waystones, third step (D-587): the stamper places a sleeping waystone
+at depth 2. Ask Q-080's part (which room holds it); code map in
+`RESEARCH-TRAVEL.md`.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -57,6 +57,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.48, waking the home waystone.** All recommended:
+  its plate wakes it, violet with a faint glow, a ring and three bells
+  (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.
+  Playtest: https://claude.ai/artifact/YN81sb9ToTBNv749BHhCva
 - **2026-11-05, 0.3.47, the home waystone.** All recommended: it stands
   asleep north of the woods' middle, its stones blocking light; old saves
   get it at the nearest clear spot (D-589). Research helpers; the Play
@@ -68,7 +72,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   hands it back, and checked when the page shows; a simulated wipe comes
   back pixel for pixel (D-588). Nothing visible changed. Playtest:
   https://claude.ai/artifact/HeRQjmE7n3E7VoAgqktpHD
-- **2026-11-03, 0.3.45, waystone plans.** Talk and mock-ups only: the
-  owner's 5 × 5 waystone with a walkable cross, and landmarks as data
-  placed by one stamper (D-587); the details wait as Q-080. Mock-ups:
-  https://claude.ai/artifact/CtMCJdnjtw6PL9yoKaQvAU

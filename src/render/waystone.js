@@ -40,13 +40,15 @@ export function drawWaystonePath(c, tx, ty) {
   }
 }
 
-// § plate: a round carved plate on the flagstones, its rune cut but dark while asleep
-const RUNE = [[7, 4], [8, 4], [7, 5], [6, 6], [7, 6], [9, 6], [7, 7], [8, 8], [7, 9], [8, 9]];
-export function drawWaystonePlate(c, tx, ty) {
+// § plate: a round carved plate on the flagstones, its rune cut but dark while asleep;
+// woken, the rune is the stairs' violet (D-591, mock-up A)
+export const RUNE = [[7, 4], [8, 4], [7, 5], [6, 6], [7, 6], [9, 6], [7, 7], [8, 8], [7, 9], [8, 9]];
+export const AWAKE = '#a58ce0';
+export function drawWaystonePlate(c, tx, ty, woken = false) {
   const x = tx * T, y = ty * T;
   drawWaystonePath(c, tx, ty);
   rect(c, x + 2, y + 3, 12, 10, OUT); rect(c, x + 3, y + 2, 10, 12, OUT);
   rect(c, x + 3, y + 3, 10, 10, STONE);
   rect(c, x + 3, y + 3, 10, 1, LIT); rect(c, x + 3, y + 3, 1, 10, LIT);
-  for (const [rx, ry] of RUNE) rect(c, x + rx, y + ry + 1, 1, 1, CUT);
+  for (const [rx, ry] of RUNE) rect(c, x + rx, y + ry + 1, 1, 1, woken ? AWAKE : CUT);
 }

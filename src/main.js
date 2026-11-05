@@ -159,6 +159,7 @@ Object.assign(app, {
   hit: null, // { enemy, until, shakeUntil } after attacking an enemy (D-105, D-109)
   jab: null, // { dx, dy, start } after a hit with a weapon held (D-253)
   beam: null, // { id, x, y, start, arriving } a freed person beamed home, or in at home (D-496)
+  kindle: null, // { x, y, start } the waystone's rune lighting as it wakes (D-591)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
   fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
@@ -216,6 +217,8 @@ function tryStep(dir) {
   // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)
   const beam = events.find((e) => e.type === 'leave' || e.type === 'arrive');
   if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
+  const woke = events.find((e) => e.type === 'wake'); // the rune kindles (D-591)
+  if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now() };
 }
@@ -317,13 +320,14 @@ function walkOn() {
 
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
-// and a tile walked, unless the hero fell (D-255)
+// a tile walked, unless the hero fell (D-255), and a waystone's bells as it wakes (D-591)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events);
   if (hit) sound.hit(!!hit.held);
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);
   if (has(events, 'step') && !has(events, 'fall')) sound.footstep();
+  if (has(events, 'wake')) sound.bells(); // the waystone wakes (D-591)
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
@@ -339,7 +343,7 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => { const i = firstFl
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.beam = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
