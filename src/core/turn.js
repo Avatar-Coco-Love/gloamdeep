@@ -16,6 +16,7 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
+import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
 import { xpOf, gain } from './xp.js';
 import { bagAdd, bagSize } from './bag.js';
@@ -41,7 +42,8 @@ export { pour, craft, makeAt, eat, hold, setDown, takeDown, plant, canPlant, pic
 // A passed turn burns oil while the lantern is lit (D-037, D-026). An item on
 // the new tile is then picked up (pickUp). The oil lines look at the oil after
 // both (D-096). Walking into an enemy attacks it (D-017), and into an unlit
-// torch's wall lights it (D-121). Stepping onto stairs takes them, before the
+// torch's wall lights it (D-121). Stepping onto a sleeping waystone's plate
+// wakes it (D-591). Stepping onto stairs takes them, before the
 // enemies left behind can act (D-132). Walking off an edge through an
 // opening does the same, into the room beyond (D-197); elsewhere the edge is
 // wall. Every passed turn ends with the enemies' turn (D-114), in the room
@@ -68,7 +70,7 @@ export function step(state, dir) {
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   for (const found of state.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
-  return endTurn(state, takeStairs(next) || next);
+  return endTurn(state, takeStairs(next) || wakeStone(next));
 }
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag

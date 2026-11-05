@@ -50,7 +50,7 @@ Read the smallest file that answers the question.
 | `docs/GLOSSARY.md` | the game's words (D-264); the code's and menus' in `GLOSSARY-CODE.md` | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile, place (D-363), people in `CONTENT-2.md`; the plan in `SCOPE*.md` (D-413) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md` | when a step touches one |
-| `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md` | when proposing a feature |
+| `docs/RESEARCH.md` | the owner's wish list, ideas kept; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md` | when proposing a feature |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |

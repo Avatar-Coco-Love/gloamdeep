@@ -128,6 +128,7 @@ const DRAW = {
   standingStone: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawStandingStone(c, room, x, y); },
   waystonePath: (c, room, x, y) => drawWaystonePath(c, x, y),
   waystonePlate: (c, room, x, y) => drawWaystonePlate(c, x, y),
+  wokenPlate: (c, room, x, y) => drawWaystonePlate(c, x, y, true), // its rune lit (D-591)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
