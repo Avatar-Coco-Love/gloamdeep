@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.55', date: '2026-11-05', title: 'Hungry Flame and Reckless', lines: [
+    "Two more boons can now be offered at the home waystone: Hungry Flame (the lantern's light reaches 2 tiles farther while it has oil, but burns half again as fast) and Reckless (every hit you land does 1 more, the spear's second hit too, but you have 2 fewer hearts: full hearts drop to the new most as you take it, and the 2 come back empty when you are home).",
+    "Eight of the 14 boons work now.",
+    "Decisions: D-598.",
+  ] },
   { v: '0.3.54', date: '2026-11-05', title: 'Three more boons', lines: [
     "Three more boons can now be offered at the home waystone: Wide Glow (the lantern's light reaches 1 tile farther while it has oil), Hard Blow (every hit you land does 1 more, the spear's second hit too) and Greedy Hands (creatures always drop their part, but the lantern burns a quarter faster).",
     "Six of the 14 boons work now. Getting around has none yet, so the card still shows 3, one from each of the other kinds.",

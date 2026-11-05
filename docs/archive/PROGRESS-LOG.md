@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.52, the travel card scrolls.** All recommended: it
+  opens on the first woken stone, scrolls like the version history, 5
+  whole rows sideways (D-595). Step 16 done; D-593, D-594 archived.
+  Playtest: https://claude.ai/artifact/Wmc2MU1uNxn6fLjYXCz8Qx
 - **2026-11-05, 0.3.51, the deeper waystones.** All
   recommended: 5, 8, then every 4th, at once; the card lists down to the
   next stone below the deepest floor; old saves' rooms made again once.
