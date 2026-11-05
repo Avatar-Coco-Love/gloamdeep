@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.55, Hungry Flame and Reckless.** All recommended:
+  Hungry Flame's glow only while there is oil; Reckless cuts full hearts
+  at once, they come back empty, the spear's second hit too (D-598).
+  Playtest: https://claude.ai/artifact/FNbh3tRM2qQ5dFmCeYKCWG
 - **2026-11-05, 0.3.54, three more boons.** All recommended: Wide Glow,
   Hard Blow, Greedy Hands; getting around after the small ones (D-597).
   Playtest: https://claude.ai/artifact/DRnnPoiT5XALN6FHSbsKaY

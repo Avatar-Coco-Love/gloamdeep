@@ -7,7 +7,8 @@
 // its blue-grey (D-502), walls
 // beside them in the brick's top edge, found stairs in their violet, the
 // hero a blinking gold dot on their own floor (still with reduced motion), each
-// bag where you fell a leather brown dot (MO3, D-345).
+// bag where you fell a leather brown dot (MO3, D-345); with Waymark, stairs down not yet
+// seen in their violet, slowly pulsing (steady with reduced motion, D-601).
 // Rooms sit a tile apart, a dark seam between them, and a pale blue line
 // bridges each doorway found (D-224). It scrolls and zooms in its window under the
 // card's rule (the view, core/map.js).
@@ -84,8 +85,13 @@ export function drawPlan(into, plan, k) {
   c.fillStyle = DOOR;
   for (const { x, y } of plan.doors) c.fillRect(x * k, y * k, k, k);
 }
-// The hero's blinking gold dot and each bag where you fell, on a plan drawn at mx, my, k pixels a tile
+// The hero's blinking gold dot, each bag where you fell and Waymark's stairs, on a plan drawn
+// at mx, my, k pixels a tile
 function drawMarks(c, plan, mx, my, k, t, still) {
+  c.fillStyle = SHOWN.stairs;
+  c.globalAlpha = still ? 1 : 0.35 + 0.65 * (Math.sin(t / 400) + 1) / 2;
+  for (const w of plan.waymarks || []) c.fillRect(mx + w.x * k, my + w.y * k, k, k);
+  c.globalAlpha = 1;
   c.fillStyle = BAG;
   for (const b of plan.bags || []) c.fillRect(mx + b.x * k, my + b.y * k, k, k);
   if (plan.hero && (still || Math.floor(t / 400) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(mx + plan.hero.x * k, my + plan.hero.y * k, k, k); }
