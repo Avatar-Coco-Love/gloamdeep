@@ -9,16 +9,15 @@ import { rng, seedFor } from './rng.js';
 import { say } from './lines.js';
 import { note } from './events.js';
 import { reach } from './oil.js';
+import { maxHealth } from './state.js';
 
 export const HOME = 'woods'; // where the home waystone stands (D-589)
 export const OFFERED = 3;
 
 // The boon held, its registry entry, or null
 export const boonOf = (state) => (state.boon && BOONS[state.boon]) || null;
-// Its hearts added to the most (Stout Heart), 0 without
-export const boonHearts = (state) => boonOf(state)?.hearts ?? 0;
-// What it multiplies a lit turn's oil by (Slow Wick), 1 without
-export const boonBurn = (state) => boonOf(state)?.burn ?? 1;
+// Its hearts added to the most, and what it multiplies a lit turn's oil by (state.js)
+export { boonHearts, boonBurn } from './state.js';
 // The tiles more the lantern's light reaches (Wide Glow), 0 without
 export const boonReach = (state) => boonOf(state)?.reach ?? 0;
 // The lantern's light reach in pixels, with the boon's tiles; the empty ember stays as it is
@@ -46,12 +45,13 @@ export function offer(state) {
 }
 
 // § take: (state, id) → the state holding that boon, with its line and a `boon` event; its
-// hearts are full as the hero sets out. Free: no turn passes. One held, or not on offer: as it was
+// hearts are full as the hero sets out, and hearts it takes (Reckless) are cut to the new most. Free: no turn passes. One held, or not on offer: as it was
 export function takeBoon(state, id) {
   const b = BOONS[id];
   if (!b || b.soon || state.boon) return state;
-  const health = state.health + Math.max(0, b.hearts ?? 0);
-  return note(say({ ...state, boon: id, health }, 'boonTake', b.name), 'boon', { id });
+  const held = { ...state, boon: id }, more = b.hearts ?? 0;
+  const health = more > 0 ? state.health + more : Math.min(state.health, maxHealth(held));
+  return note(say({ ...held, health }, 'boonTake', b.name), 'boon', { id });
 }
 
 // A boon's row on the card: its name, its kind and its line

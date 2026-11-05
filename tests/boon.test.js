@@ -25,7 +25,7 @@ test('boons: every entry has a known kind, a name and one short line', () => {
     assert.equal(b.kind, 'boon');
   }
   assert.equal(Object.keys(BOONS).length, 14); // the owner's list (D-596)
-  assert.deepEqual(offerable().map((b) => b.id).sort(), ['greedyHands', 'hardBlow', 'keenEye', 'slowWick', 'stoutHeart', 'wideGlow']); // built so far
+  assert.deepEqual(offerable().map((b) => b.id).sort(), ['greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'reckless', 'slowWick', 'stoutHeart', 'wideGlow']); // built so far
 });
 
 test('boons: the offer is 3, each of a different kind, the same for the same seed and turn', () => {
@@ -109,4 +109,27 @@ test('boons: Greedy Hands always drops the part, and burns a quarter faster', ()
   const g = takeBoon(onHome(), 'greedyHands');
   assert.equal(dropOf(g, DROP_CHANCE), 1);
   assert.equal(boonBurn(g), 1.25);
+});
+
+test('boons: Hungry Flame reaches 2 tiles farther, not the empty ember, and burns half again as fast', () => {
+  const s = onHome(), hungry = takeBoon(s, 'hungryFlame');
+  assert.equal(lanternReach(hungry), reach(hungry.oil) + 32);
+  assert.equal(lanternReach({ ...hungry, oil: 0 }), reach(0));
+  assert.equal(boonBurn(hungry), 1.5);
+  assert.ok(wait(hungry).oil < wait(s).oil);
+});
+
+test('boons: Reckless hits for 1 more, the spear\'s second too, and takes 2 hearts, cut at once', () => {
+  const s = onHome(), r = takeBoon(s, 'reckless');
+  assert.equal(heroHit(r), LANTERN_HIT + 1);
+  assert.equal(heroHit({ ...r, held: 'spear' }), heroHit({ ...s, held: 'spear' }) + 1);
+  assert.equal(maxHealth(r), maxHealth(s) - 2);
+  assert.equal(r.health, maxHealth(r)); // 5 of 5 becomes 3 of 3
+  assert.equal(takeBoon({ ...s, health: 2 }, 'reckless').health, 2); // fewer than the new most: as it was
+  const home = goToPlace(goToDepth(r, 1), 'woods'); // the hearts come back empty
+  assert.equal(maxHealth(home), maxHealth(s));
+  assert.equal(home.health, maxHealth(r));
+  const fell = fall({ ...r, health: 1 }); // a fall heals in full, the boon gone
+  assert.ok(!fell.boon);
+  assert.equal(fell.health, maxHealth(s));
 });

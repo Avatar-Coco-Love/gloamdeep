@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.53 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.55 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-More boons (16b, D-596, D-597): Deep Pour, Kind Herbs, Hungry Flame,
-Reckless, Lucky Find; ask which come next. Getting around after those.
+More boons (16b, D-596, D-597): Deep Pour, Kind Herbs, Lucky Find; ask
+which come next. Getting around after those.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -39,7 +39,7 @@ Getting around first (D-582), then boons (D-583):
   depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
   the card scrolls (0.3.52)
 - [ ] 16b Boons at the home waystone (D-583, D-596): the card and the
-  first 3 (0.3.53); 3 more (0.3.54)
+  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
 The rest of the scope, proposed (D-482; may change):
@@ -56,6 +56,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.55, Hungry Flame and Reckless.** All recommended:
+  Hungry Flame's glow only while there is oil; Reckless cuts full hearts
+  at once, they come back empty, the spear's second hit too (D-598).
+  Playtest: https://claude.ai/artifact/FNbh3tRM2qQ5dFmCeYKCWG
 - **2026-11-05, 0.3.54, three more boons.** All recommended: Wide Glow,
   Hard Blow, Greedy Hands; getting around after the small ones (D-597).
   Playtest: https://claude.ai/artifact/DRnnPoiT5XALN6FHSbsKaY
@@ -64,7 +68,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   card opens on the home plate, the travel card's look, a chime, the name
   on the panel (D-596). Slow Wick, Stout Heart, Keen Eye built.
   Playtest: https://claude.ai/artifact/BR31Yt2cxojGbFJYGGzkXv
-- **2026-11-05, 0.3.52, the travel card scrolls.** All recommended: it
-  opens on the first woken stone, scrolls like the version history, 5
-  whole rows sideways (D-595). Step 16 done; D-593, D-594 archived.
-  Playtest: https://claude.ai/artifact/Wmc2MU1uNxn6fLjYXCz8Qx
