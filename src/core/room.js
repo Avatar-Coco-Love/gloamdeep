@@ -157,18 +157,28 @@ export function peddlerRoom(seed) {
   const ids = layoutAt(seed, PEDDLER_DEPTH).cells.map((c) => c.id), r = rng(seedAt(seed, PEDDLER_DEPTH) ^ 0x5be0cd19);
   return ids[Math.floor(r() * ids.length)];
 }
-// § the waystone: on depth 2, the top of the caves (D-579), one room the seed picks holds a
-// waystone asleep, never the room with the stairs up, and only one where it fits clear of the
-// stairs down; it stands at the spot nearest the room's middle (stamper.js)
-export const STONE_DEPTH = 2;
+// § the waystones: at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8 (the
+// dungeon), and of any band added later, then every 4th depth, 12, 16, 20… (D-579, D-594). On
+// each, one room the seed picks holds a waystone asleep, never the room with the stairs up, and
+// only one where it fits clear of the stairs down; it stands at the spot nearest the room's
+// middle (stamper.js, D-592)
+export const STONE_DEPTH = 2; // the first, the top of the caves
+const STONE_EVERY = 4, DEEP_FROM = 12; // every 4th depth from 12
+export const isStoneDepth = (depth) => KINDS.some((k) => k.from === depth) || (depth >= DEEP_FROM && depth % STONE_EVERY === 0);
+// The first depth below `depth` that holds a waystone
+export function nextStoneDepth(depth) {
+  let d = depth + 1;
+  while (!isStoneDepth(d)) d++;
+  return d;
+}
 export function stoneAt(seed, depth = STONE_DEPTH) {
-  if (depth !== STONE_DEPTH) return null;
+  if (!isStoneDepth(depth)) return null;
   const mark = LANDMARKS.waystone, fits = layoutAt(seed, depth).cells.filter((c) => c.id !== placeAt(depth))
     .map((c) => ({ id: c.id, at: spotIn(mark, c.cols, c.rows, c.down ? [c.down] : []) })).filter((c) => c.at);
   const r = rng(seedAt(seed, depth) ^ 0x6d2b79f5);
   return fits.length ? fits[Math.floor(r() * fits.length)] : null;
 }
-export const stoneRoom = (seed) => stoneAt(seed)?.id ?? null;
+export const stoneRoom = (seed, depth = STONE_DEPTH) => stoneAt(seed, depth)?.id ?? null;
 // § weapons: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;

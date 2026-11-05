@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.48, waking the home waystone.** All recommended:
+  its plate wakes it, violet with a faint glow, a ring and three bells
+  (D-591). Research on travel, boons, code: `RESEARCH-TRAVEL.md`.
+  Playtest: https://claude.ai/artifact/YN81sb9ToTBNv749BHhCva
 - **2026-11-05, 0.3.47, the home waystone.** All recommended: it stands
   asleep north of the woods' middle, its stones blocking light; old saves
   get it at the nearest clear spot (D-589). Research helpers; the Play

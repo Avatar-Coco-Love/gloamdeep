@@ -1,8 +1,8 @@
-// § stamper: the depth 2 waystone, set aside by the shared stamper in a room the seed picks
+// § stamper: the waystones on depth 2, 5, 8, then every 4th (D-594), each set aside by the shared stamper in a room the seed picks
 // (D-579, D-587, D-592); many rooms built, and old saves brought up to date once
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { placeFor, stoneAt, stoneRoom, placeAt, makeRoom, tileAt, STONE_DEPTH } from '../src/core/room.js';
+import { placeFor, stoneAt, stoneRoom, placeAt, makeRoom, tileAt, isStoneDepth, nextStoneDepth, STONE_DEPTH } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { LANDMARKS } from '../src/core/registry.js';
 import { around } from '../src/core/landmarks.js';
@@ -62,16 +62,33 @@ test('stamper: the spot keeps clear of the stairs, and none is found where they 
   }
 });
 
-test('stamper: no other depth has one yet', () => {
-  for (const depth of [3, 4, 5, 8]) assert.equal(stoneAt(1, depth), null);
+test('stamper: a stone at the top of each band, then every 4th depth, none between (D-594)', () => {
+  const holds = Array.from({ length: 30 }, (_, d) => d).filter(isStoneDepth);
+  assert.deepEqual(holds, [2, 5, 8, 12, 16, 20, 24, 28]);
+  assert.deepEqual([1, 2, 5, 8, 11, 12].map(nextStoneDepth), [2, 5, 8, 12, 12, 16]);
+  for (const depth of [3, 4, 6, 7, 9, 13]) assert.equal(stoneAt(1, depth), null);
   for (const seed of SEEDS.slice(0, 40)) {
     for (const c of layoutAt(seed, 3).cells) assert.equal(platesIn(placeFor(c.id, seed).map).length, 0);
   }
 });
 
+test('stamper: deeper stones, 100 seeds on 5, 8, 12 and 16: one room each, one stone, all reached', () => {
+  for (const depth of [5, 8, 12, 16]) for (const seed of SEEDS.slice(0, 100)) {
+    const { id, at } = stoneAt(seed, depth), p = placeFor(id, seed), room = makeRoom(p.map, undefined, p.look);
+    assert.notEqual(id, placeAt(depth), `depth ${depth} seed ${seed}`);
+    assert.deepEqual(platesIn(p.map), [at], `depth ${depth} seed ${seed}`);
+    const reached = walked(room, p.start);
+    for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
+      if (!tileAt(room, x, y).solid) assert.ok(reached.has(`${x},${y}`), `depth ${depth} seed ${seed}: ${x},${y} cut off`);
+    }
+    const others = layoutAt(seed, depth).cells.filter((c) => c.id !== id).slice(0, 2);
+    for (const c of others) assert.equal(platesIn(placeFor(c.id, seed).map).length, 0);
+  }
+});
+
 // § old saves: the stone's room made again once, every other room kept (D-592)
 import { UPGRADES, upgradeState } from '../src/core/save.js';
-import { restone } from '../src/core/refloor.js';
+import { restone, restones } from '../src/core/refloor.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
 
@@ -79,7 +96,10 @@ const SEED = 7;
 // A save from before the stone: its room as an old one would be, the plan grassed over to floor
 const unstoned = (p) => ({ ...p, room: { ...p.room, map: p.room.map.map((l) => l.replace(/[XYZA]/g, '.')) } });
 
-test('stamper: the step from format 13 is the restone', () => assert.equal(UPGRADES[13], restone));
+test('stamper: the step from format 13 is the restone, from 14 the deeper ones', () => {
+  assert.equal(UPGRADES[13], restone);
+  assert.equal(UPGRADES[14], restones);
+});
 
 test('stamper: an old save has the stone\'s room made again with it, the others kept as they were', () => {
   const id = stoneRoom(SEED), w = goToPlace(goToDepth(makeWorld('first', SEED), 2), id), w2 = goToPlace(w, 'first');
@@ -103,4 +123,22 @@ test('stamper: a woken plate is kept as it is', () => {
   const id = stoneRoom(SEED), w = goToPlace(goToPlace(goToDepth(makeWorld('first', SEED), 2), id), 'first'), p = w.elsewhere[id];
   const woken = { ...w, elsewhere: { ...w.elsewhere, [id]: { ...p, room: { ...p.room, map: p.room.map.map((l) => l.replace('Z', 'A')) } } } };
   assert.deepEqual(restone(woken), woken);
+});
+
+test('stamper: an old save has each deeper stone\'s room made again once, the others kept (D-594)', () => {
+  let w = makeWorld('first', SEED);
+  for (const d of [5, 8]) w = goToPlace(goToPlace(goToDepth(w, d), stoneRoom(SEED, d)), placeAt(d));
+  const old = { ...w, elsewhere: Object.fromEntries(Object.entries(w.elsewhere).map(([id, p]) => [id, id === stoneRoom(SEED, 5) || id === stoneRoom(SEED, 8) ? unstoned(p) : p])) };
+  const s = upgradeState(14, old);
+  for (const d of [5, 8]) { // forgotten, to be made again with its stone on arrival
+    const id = stoneRoom(SEED, d);
+    assert.ok(old.elsewhere[id] && !s.elsewhere[id], `depth ${d}`);
+    assert.equal(platesIn(placeFor(id, SEED).map).length, 1, `depth ${d}`);
+  }
+  const remade = new Set([stoneRoom(SEED, 5), stoneRoom(SEED, 8)]);
+  assert.ok(Object.keys(old.elsewhere).filter((id) => !remade.has(id))
+    .every((id) => JSON.stringify(s.elsewhere[id]) === JSON.stringify(old.elsewhere[id]))); // every other room kept
+  assert.deepEqual(s.room, old.room); // the hero's room kept, and the hero in it
+  assert.deepEqual(s.hero, old.hero);
+  assert.deepEqual(restones(s), s); // once
 });

@@ -185,3 +185,14 @@ corners too, or chases them: "Not with a creature so near." and no turn
 passes. The lines are Claude's wording, to change at the playtest. To
 keep this file small, D-589, D-591 and D-592 moved to
 `archive/DECISIONS-WAYSTONES.md`.
+
+**D-594 · 2026-11-05 · The waystones on the other depths** (the owner's
+picks, all recommended; step 16's last part, builds on D-579, D-592 and
+D-593) All at once: a sleeping waystone on depths 5, 8, then every 4th
+(12, 16, 20…), and at the top of any band added later, each placed as
+depth 2's. The travel card lists home, then every stone down to the next
+one below the deepest floor the journey has reached, that one as ???. A
+saved journey that has seen a room now holding a stone has it made again
+once, as D-592's; every other room stays exactly as it was. Sideways the
+card fits 5 rows, so from depth 12 its list scrolls inside the card, like
+the version history (the owner's pick), built as its own next step.

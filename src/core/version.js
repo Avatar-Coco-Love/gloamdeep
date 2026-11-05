@@ -1,2 +1,2 @@
 // § version: must match the top entry in CHANGELOG.md (checked by tests/version.test.js)
-export const VERSION = '0.3.50';
+export const VERSION = '0.3.51';
