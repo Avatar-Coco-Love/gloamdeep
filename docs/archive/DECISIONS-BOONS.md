@@ -1,8 +1,8 @@
-# The boons' first steps (D-597 to D-599)
+# The boons' first steps (D-597 to D-600)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601).
+(D-601), and D-600 at 0.3.59 (D-602).
 
 ---
 
@@ -26,3 +26,11 @@ lower), Kind Herbs (anything eaten or drunk heals 1 heart more, walked
 onto or from the bag, never above full) and Lucky Find (rare drops 25%;
 it stacks with the Wisp Charm, each adding its part above the usual
 10%: 35% with both). D-595 archived.
+
+**D-600 · 2026-11-05 · Soft Step** (the owner's picks, both recommended;
+builds on D-596) A creature that notices by light needs the lantern's
+light 1 tile short of its reach: the last tile of light wakes no one, so
+a rat at its edge stays put until it is 1 tile further in. Torches, the
+stairs' glow and daylight wake as before, and the gloamling and the cave
+spider, who see along any clear line, are unchanged. D-597 and D-598
+archived.
