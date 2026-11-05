@@ -31,7 +31,8 @@ import { drawChestPanel } from './chestpanel.js';
 import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
-import { drawWays, TRAVEL_TITLE, BOONS_TITLE } from './ways.js';
+import { drawWays, TRAVEL_TITLE } from './ways.js';
+import { drawBoons } from './boons.js';
 import { boonOf, lanternReach } from '../core/boon.js';
 import { stashAt, chestsNear, nearStacks } from '../core/chest.js';
 import { gearRow } from '../core/gear.js';
@@ -304,7 +305,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
     else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
-    else if (app.screen === 'boons') drawWays(hc, view.w, view.h, screens.menuOf('boons'), app.chosen, t, still(), BOONS_TITLE, app.scroll); // the boon card, the same rows (D-596)
+    else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
     else if (app.screen === 'easier' || app.screen === 'bed') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)

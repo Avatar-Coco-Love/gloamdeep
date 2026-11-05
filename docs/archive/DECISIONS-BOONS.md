@@ -2,7 +2,7 @@
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601), and D-600 at 0.3.59 (D-602).
+(D-601), D-600 at 0.3.59 (D-602), and D-601 at 0.3.60 (D-603).
 
 ---
 
@@ -33,4 +33,14 @@ light 1 tile short of its reach: the last tile of light wakes no one, so
 a rat at its edge stays put until it is 1 tile further in. Torches, the
 stairs' glow and daylight wake as before, and the gloamling and the cave
 spider, who see along any clear line, are unchanged. D-597 and D-598
+archived.
+
+**D-601 · 2026-11-05 · Waymark** (the owner's picks, all recommended;
+builds on D-596) While Waymark is held, the floor's stairs down show on
+the map from the moment the hero arrives, in a room not yet entered too,
+the room around them still dark. They are the found stairs' violet,
+slowly pulsing (steady with reduced motion), on the big map and on the
+round map when near. Stairs the hero has seen show as found stairs. The
+marks are never remembered: they go when the boon ends. Its line on
+the card: "Each floor's stairs down show on the map." D-599
 archived.

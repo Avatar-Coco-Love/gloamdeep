@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.60', date: '2026-11-05', title: 'Boon cards', lines: [
+    "The home waystone no longer offers a boon on the step that wakes it, so you see it wake. Step off the plate and back on for your boon.",
+    "The boon card is now three cards side by side. Each shows its kind's picture and colour at its top (an amber flame for light and oil, a red heart for hearts and fighting, a bone-white gem for finding things, violet footsteps for getting around), then its name and its line. The chosen card lifts and turns gold. Left and Right choose too.",
+    "Decisions: D-603.",
+  ] },
   { v: '0.3.59', date: '2026-11-05', title: 'Far Sight', lines: [
     "The last boon can now be offered at the home waystone: Far Sight. While you hold it, the first time you enter a room, the third of its floor nearest you shows at once, with the walls beside it, as if your lantern had already been there. It stays remembered after the boon ends, and stairs in it count as found, so their glow lights up. Rooms you have already seen any of are left as they are.",
     "All 14 boons work now.",
