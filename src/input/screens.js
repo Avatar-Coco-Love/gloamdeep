@@ -85,6 +85,7 @@ import { chestWords, stashAt } from '../core/chest.js';
 import { tradeWords } from '../core/trade.js';
 import { stonesOf, stoneName, stoneNote } from '../core/travel.js';
 import { view } from '../render/screen.js';
+import { waysScrollTo } from '../render/ways.js';
 
 const WORDS = {
   title: 'Gloamdeep. New journey, Journal, How to play, Settings, Profiles or Seed Explorer: press Enter, or tap one.',
@@ -119,7 +120,11 @@ export function createScreens(app, ui) {
   // § the travel card (D-593): a row for each waystone, dim when not woken or stood on
   const travelMenu = () => stonesOf(app.state).map((s) => ({ id: s.place, text: stoneName(s), note: stoneNote(s), dim: !s.woken || s.here }));
   const travelWords = () => `Waystones. ${travelMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} Pick one to go there. Esc or the close button goes back.`;
-  const openTravel = () => { app.queued = null; show('travel', Math.max(0, travelMenu().findIndex((l) => !l.dim))); };
+  function openTravel() { // on the first woken stone not stood on, scrolled into view (D-594)
+    app.queued = null;
+    const at = Math.max(0, travelMenu().findIndex((l) => !l.dim));
+    show('travel', at); app.scroll = waysScrollTo(0, at, view.w, view.h, travelMenu());
+  }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id] : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;

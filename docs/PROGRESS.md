@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The travel card's list scrolls inside the card, like the version
-history's (D-594), since sideways it fits 5 rows. Then boons (16b).
+Boons at the home waystone (16b, D-583): first ask the boon list and
+its numbers (Q-077), then build the first small step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -26,7 +26,7 @@ history's (D-594), since sideways it fits 5 rows. Then boons (16b).
 - Which new creature kind next (Q-076), after the three steps of D-582.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
-- The boon list and numbers (Q-077), before the boons step.
+- The boon list and numbers (Q-077), next (the boons step).
 - Begin a journey on the surface (Q-081), as its own small step.
 - Which depths are which biome (Q-082), before the scope map is filled.
 
@@ -37,7 +37,8 @@ when merged, with its version, and move ticked steps there at each audit.
 Getting around first (D-582), then boons (D-583):
 - [x] 15 Smaller shallow floors (D-580), 0.3.42
 - [x] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
-  depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51)
+  depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
+  the card scrolls (0.3.52)
 - [ ] 16b Boons at the home waystone (D-583)
 - [ ] 17 Drifting motes toward the stairs (D-581)
 
@@ -55,6 +56,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.52, the travel card scrolls.** All recommended: it
+  opens on the first woken stone, scrolls like the version history, 5
+  whole rows sideways (D-595). Step 16 done; D-593, D-594 archived.
+  Playtest: https://claude.ai/artifact/Wmc2MU1uNxn6fLjYXCz8Qx
 - **2026-11-05, 0.3.51, the deeper waystones.** All
   recommended: 5, 8, then every 4th, at once; the card lists down to the
   next stone below the deepest floor; old saves' rooms made again once.
@@ -64,7 +69,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   plate; free, barred with a creature near; you arrive on the plate
   (D-593). Three waystone decisions archived. Playtest:
   https://claude.ai/artifact/HZxTXgJKmsDsqVEeu6QAwG
-- **2026-11-05, 0.3.49, the sleeping waystone at depth 2.** All
-  recommended: one room the seed picks, not the one with the stairs up,
-  near its middle; the shared stamper sets it aside; old saves have that
-  room made again once (D-592). Other looks later (the owner's wish). Playtest: https://claude.ai/artifact/Q2kv6qX8SS23zGGCfZLSRV

@@ -168,31 +168,11 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-593 · 2026-11-05 · Travel between woken waystones** (the owner's
-picks, all recommended; step 16's fourth part, builds on D-579, D-591 and
-D-592; answers Q-080) Standing on a woken plate, a tap on the hero, Space
-or Enter opens the travel card; walking over the plate never opens it.
-The card is a short list on glass, "WAYSTONES": home first, then each
-stone by depth, its name and a note under it ("Home", "The surface.";
-"Depth 2", "The caves."). One not yet woken shows as ???, "Not yet
-woken.", dim, so the player knows it is there; the one stood on is dim,
-"You are here." Tapping or picking a woken one goes there at once, onto
-its plate, with the stairs' fade: "The waystone carries you." Travel is
-free: no turn passes and no oil burns, so the oil where the hero arrives
-is the pressure, and the creatures there can't act before the hero's
-first move. It is barred while a creature awake stands beside the hero,
-corners too, or chases them: "Not with a creature so near." and no turn
-passes. The lines are Claude's wording, to change at the playtest. To
-keep this file small, D-589, D-591 and D-592 moved to
-`archive/DECISIONS-WAYSTONES.md`.
-
-**D-594 · 2026-11-05 · The waystones on the other depths** (the owner's
-picks, all recommended; step 16's last part, builds on D-579, D-592 and
-D-593) All at once: a sleeping waystone on depths 5, 8, then every 4th
-(12, 16, 20…), and at the top of any band added later, each placed as
-depth 2's. The travel card lists home, then every stone down to the next
-one below the deepest floor the journey has reached, that one as ???. A
-saved journey that has seen a room now holding a stone has it made again
-once, as D-592's; every other room stays exactly as it was. Sideways the
-card fits 5 rows, so from depth 12 its list scrolls inside the card, like
-the version history (the owner's pick), built as its own next step.
+**D-595 · 2026-11-05 · The travel card scrolls** (the owner's picks, all
+recommended; builds on D-593 and D-594) When the waystones don't all fit,
+the travel card's list scrolls inside the card as the version history's:
+it opens on the first woken stone not stood on, scrolled into view; Up and
+Down keep the chosen row whole in view; a swipe, Page Up or Page Down
+turns a page, the flame moving to the top row shown if it scrolled away;
+a thin bar at the card's right shows where the list is. Only whole rows
+show while it scrolls, 5 sideways. D-593 and D-594 archived.
