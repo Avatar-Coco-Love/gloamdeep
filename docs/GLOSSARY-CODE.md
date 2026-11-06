@@ -41,6 +41,12 @@ code; where this page and a decision disagree, the decision wins.
   `travel` screen, `src/input/cards/travel.js`, drawn as the way to play
   card's rows (D-593); its list scrolls with `waysScrollTo` and
   `waysPage` in `src/render/ways.js` (D-595).
+- **Checker:** `tests/checker.test.js`, which names any piece a registry
+  entry still lacks and the file to fix (D-621).
+- **Maker, blank:** `tools/make.js`, which writes a new creature's,
+  find's, tile's or person's empty pieces; each piece still waiting on
+  real numbers, words or art is a blank, marked `/* blank */` or
+  `// blank:`, and the grey "?" picture is `BLANK` (D-622).
 
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the

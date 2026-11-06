@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.74, Research kept, the light kept.** Both
+  recommended: one PR; the research pages in `RESEARCH-PAGES.md`;
+  two docs split, five fixed; shadows cast only when a light moves
+  (D-619). No playtest: nothing to see.
 - **2026-11-06, 0.3.73, The cave pools' fish.** All recommended: the
   Blind Cavefish, look A, 20% oil, 1 heart, 2 coins, a fifth zone (D-618).
   Fishing done. Playtest: https://claude.ai/artifact/64U9aJSEzwtGdzFLzmCyQ6

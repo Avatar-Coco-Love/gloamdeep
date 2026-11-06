@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.77 (2026-11-06)
+- Behind the scenes: a new maker tool. One command writes every empty piece of a new creature, find, tile or person, with a grey "?" picture until it is drawn, and the checker then names each number, line and picture still to fill. New things reach the game faster.
+- Nothing in the game changes.
+- Decisions: D-622. D-613 and D-614 moved to the archive, word for word.
+
 ## 0.3.76 (2026-11-06)
 - Behind the scenes: a new checker runs with the tests. For every creature, find, tile and person it names any missing piece (a line, a picture, a hit flash, a sound, where it lives, a test or its row in the docs) and the file to fix, so new things reach the game faster and with fewer bugs.
 - It found the Snapcap Gill missing from the content list; it is listed now. Nothing in the game changes.
@@ -33,8 +38,3 @@ Entry format:
 - They look older too: each stone a little different, with a rough top, moss and a crack, grass at its foot in the woods, and flagstones with rounded corners set into the ground.
 - The home waystone now stands 2 tiles north of the woods' middle, so the middle is still at the foot of its south arm. In a saved game every waystone is made 3 × 3 where it stands, asleep or woken as it was.
 - Decisions: D-620. D-610 moved to the archive, word for word.
-
-## 0.3.74 (2026-11-06)
-- The light works out its shadows only when a light moves or the room changes, not every frame: standing still, it takes about 15% less time on a slow phone. The picture is exactly the same.
-- Behind the scenes: the research pages are kept in the docs, two nearly full docs are split, and five docs that no longer matched the game are fixed.
-- Decisions: D-619.

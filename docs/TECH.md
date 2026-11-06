@@ -93,6 +93,12 @@ themselves. Each kind also touches:
   `tests/registry.test.js` and the room tests, where they change.
   `npm test` runs the checker, `tests/checker.test.js` (D-621): it names
   any piece above still missing, and the file to fix.
+- **The maker** (D-622): `node tools/make.js creature glowWorm "Glow worm"`
+  (or `find`, `tile`, `person`; `--check` first to see the plan) writes
+  every piece above, empty: blanks marked `/* blank */` or `// blank:`,
+  the grey "?" picture, a creature `from: Infinity` (dev tools only). The
+  checker then names each blank left. Fill each and drop its mark; a
+  sound, a way or a place of its own is still written by hand.
 
 ## Versioning in code
 Once code exists, `src/core/version.js` exports `VERSION`, and it must match
