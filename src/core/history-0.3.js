@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.76', date: '2026-11-06', title: 'The checker', lines: [
+    "Behind the scenes: a new checker runs with the tests. For every creature, find, tile and person it names any missing piece (a line, a picture, a hit flash, a sound, where it lives, a test or its row in the docs) and the file to fix, so new things reach the game faster and with fewer bugs.",
+    "It found the Snapcap Gill missing from the content list; it is listed now. Nothing in the game changes.",
+    "Decisions: D-621. D-611 and D-612 moved to the archive, word for word.",
+  ] },
   { v: '0.3.75', date: '2026-11-06', title: 'The waystone 3 × 3', lines: [
     "Waystones are smaller, 3 × 3 instead of 5 × 5, and sit on the grid: each corner stone stands in its own tile.",
     "They look older too: each stone a little different, with a rough top, moss and a crack, grass at its foot in the woods, and flagstones with rounded corners set into the ground.",

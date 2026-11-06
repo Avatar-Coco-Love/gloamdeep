@@ -47,6 +47,16 @@ items: collectables, craftables, weapons and more. Where they stand:
   something else, reached by going through another room and coming
   back in by a different door. Later, a pass that dresses rooms with
   debris, cobwebs and the like.
+- Stories (2026-11-06; for later, D-621): a main menu of stories, each
+  a game within the game, with its own generated world, lore, people,
+  role, start (perhaps a higher level, gear, skills already picked) and
+  a base generated to match, an introduction and journal entries, its
+  own quests and feats, and perhaps a new mechanic to announce. Each
+  keeps replay after its end until a new chapter. Real-time mini-games
+  are welcome when fun and rewarding, such as a terminal opening a
+  puzzle of mirrors bending light onto a crystal. Weigh against D-019
+  (one journey), D-036 (the lamplighter) and the pillars. First, one
+  story, much bigger and polished.
 
 ## The games, bosses and talks
 `RESEARCH-GAMES.md` (D-376): what similar games do, how they do bosses,

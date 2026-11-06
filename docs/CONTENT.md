@@ -58,6 +58,7 @@ mechanic and its own step.
 | `spiderSilk` | 2 in the Pouch, 3 in the Big Bag | 20 | never | a beaten cave spider, about 1 in 2 | D-535 |
 | `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
+| `snapcapGill` | for crafts later | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a beaten bone rat, about 1 in 2 | D-551 |
 | `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |

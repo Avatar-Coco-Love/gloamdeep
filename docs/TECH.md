@@ -91,6 +91,8 @@ themselves. Each kind also touches:
   `CONTENT-2.md` (D-490), or `CONTENT-3.md` for tiles, lights and places (D-618).
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in
   `tests/registry.test.js` and the room tests, where they change.
+  `npm test` runs the checker, `tests/checker.test.js` (D-621): it names
+  any piece above still missing, and the file to fix.
 
 ## Versioning in code
 Once code exists, `src/core/version.js` exports `VERSION`, and it must match
