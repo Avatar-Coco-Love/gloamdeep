@@ -50,11 +50,11 @@ Read the smallest file that answers the question.
 | `docs/GLOSSARY.md` | the game's words (D-264); finds in `GLOSSARY-FINDS.md`; the code's and menus' in `GLOSSARY-CODE.md` | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile, place (D-363), people in `CONTENT-2.md`, tiles and places in `CONTENT-3.md`; the plan in `SCOPE*.md` (D-413) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md` | when a step touches one |
-| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md` | when proposing a feature |
+| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md` | when proposing a feature |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms, the map (D-170) | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
-| `docs/ART-DIRECTION.md` | the visual rules from the style study | before any drawing code |
+| `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
 | `docs/TECH.md` | architecture, code rules, adding content; the layout in `TECH-2.md` | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |

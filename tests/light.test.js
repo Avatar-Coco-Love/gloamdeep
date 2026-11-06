@@ -2,7 +2,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { CELL, seenCells } from '../src/core/light.js';
+import { CELL, seenCells, keptCells } from '../src/core/light.js';
+import { generateRoom } from '../src/core/cave.js';
 import { reach } from '../src/core/oil.js';
 
 const room = makeRoom(FIRST_ROOM);
@@ -33,4 +34,21 @@ test('a seen wall is lit as a whole tile, with no teeth (D-058)', () => {
 test('nothing is lit beyond the radius', () => {
   const v = seenCells(room, 1 * 16 + 8, 11 * 16 + 8, 20, cells());
   assert.equal(cellAt(v, 9 * 16 + 8, 1 * 16 + 8), 0);
+});
+
+test('a kept cast gives the same cells as casting again, as the light flickers, moves and changes room (D-619)', () => {
+  const rooms = [room, ...[4127, 77].map((seed) => makeRoom(generateRoom(seed).map))];
+  const keep = {}, mismatches = [];
+  for (const rm of rooms) {
+    const size = rm.cols * 16 / CELL * (rm.rows * 16 / CELL), out = new Uint8Array(size), fresh = new Uint8Array(size);
+    for (let ty = 1; ty < rm.rows - 1; ty += 3) for (let tx = 1; tx < rm.cols - 1; tx += 2) {
+      const x = tx * 16 + 13, y = ty * 16 + 7.5;
+      for (let f = 0; f < 12; f++) { // a reach that flickers up and down, and once grows past the cast
+        const r = reach(1) * (1 + 0.09 * Math.sin(f * 1.7)) * (f === 11 ? 1.5 : 1);
+        keptCells(keep, rm, x, y, r, out); seenCells(rm, x, y, r, fresh);
+        if (!out.every((v, i) => v === fresh[i])) mismatches.push(`${tx},${ty} r ${r.toFixed(2)}`);
+      }
+    }
+  }
+  assert.deepEqual(mismatches, []);
 });

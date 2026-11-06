@@ -45,3 +45,26 @@ export function seenCells(room, x, y, r, out) {
   }
   return out;
 }
+
+// § kept (D-619): the same cells as seenCells, cast again only when the light
+// moves, the room changes, or the reach grows past the last cast's. A cell is
+// seen at reach r when it is seen at any larger reach and its centre is within
+// r, so the cast is kept at a little more than the reach and only cut to it
+// each frame, the picture unchanged. `keep`: one object per light, kept by the
+// caller between frames.
+const KEEP_MORE = 1.2; // the cast's reach over the light's: room for the flicker
+export function keptCells(keep, room, x, y, r, out) {
+  if (keep.room !== room || keep.x !== x || keep.y !== y || r > keep.r || keep.cells?.length !== out.length) {
+    keep.room = room; keep.x = x; keep.y = y; keep.r = r * KEEP_MORE;
+    keep.cells = seenCells(room, x, y, keep.r, keep.cells?.length === out.length ? keep.cells : new Uint8Array(out.length));
+  }
+  const cw = room.cols * TILE_SIZE / CELL, ch = room.rows * TILE_SIZE / CELL, cast = keep.cells;
+  out.fill(0);
+  const cx0 = Math.max(0, Math.floor((x - r) / CELL)), cx1 = Math.min(cw - 1, Math.floor((x + r) / CELL));
+  const cy0 = Math.max(0, Math.floor((y - r) / CELL)), cy1 = Math.min(ch - 1, Math.floor((y + r) / CELL));
+  for (let cy = cy0; cy <= cy1; cy++) for (let cx = cx0; cx <= cx1; cx++) {
+    const i = cy * cw + cx;
+    if (cast[i] && !(Math.hypot(cx * CELL + 2 - x, cy * CELL + 2 - y) > r)) out[i] = 1;
+  }
+  return out;
+}

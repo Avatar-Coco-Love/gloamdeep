@@ -68,7 +68,7 @@ an L; the seed picks the stairs room (D-201, `src/core/region.js`).
 Rooms differ in shape and size by kind: tunnels are narrow, deserts are
 vast. A room bigger than the screen scrolls: the camera keeps the hero in
 the middle and stops at the room's edges (D-195). The crypt rooms are
-11 × 13 tiles, one screen; the generated caves are 17 × 20 (D-195). Floors grow with depth:
+11 × 13 tiles, one screen; the generated caves were 17 × 20 at first (D-195). Floors grow with depth:
 13 × 15 at depths 2 to 4, 15 × 17 at 5 to 7, 17 × 20 from 8 (D-580), built at 0.3.42
 (D-584; `sizeAt` in `src/core/region.js`). Which kinds, how big, and
 whether shapes come from hand-made templates or are generated: Q-038.
@@ -99,7 +99,7 @@ tools get a switch to reveal the whole map, and a map mode, which may be
 the same map players see. Built at step 47 (D-205): the map button or M
 shows the floor the hero is on, on its grid, each room from the tiles
 remembered, in a box that scrolls and zooms; dev Reveal map shows the
-whole floor (`src/core/map.js`). Next it turns between floors (D-206).
+whole floor (`src/core/map.js`). It turns between floors (D-206).
 Since 0.2.133 a round map top right shows the floor around the hero, and a
 tap on it opens the full map (D-383). Since 0.2.146 the full map, and the
 Seed Explorer, is a glass card like the bag's (D-395).
@@ -114,8 +114,8 @@ step (D-185, D-354).
 ## The first outside room (D-209)
 A woods room, 17 × 20, made from the seed (`src/core/woods.js`): one
 round tree a tile, thick at the edges. Plain daylight shows and
-remembers it whole. It is depth 0, called SURFACE for now; only dev Go
-outside leads there until the cave mouth (step 49).
+remembers it whole. It is depth 0, called SURFACE for now; the cave mouth
+leads there (step 49, `src/core/mouth.js`), and dev Go outside.
 Day and night pass with the turns, 300 to a day, with dusk and dawn
 fades; at night it is dark like a cave, memory a moonlit blue (D-217,
 `src/core/daytime.js`).

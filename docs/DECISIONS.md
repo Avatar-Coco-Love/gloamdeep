@@ -176,3 +176,16 @@ in pools come at a later step. "Fishing comes soon." is gone (supersedes
 that part of D-609 and D-610). Claude's, the owner may change them: the
 lines. `CONTENT-2.md`'s tiles, lights and places moved to `CONTENT-3.md`,
 word for word.
+
+**D-619 · 2026-11-06 · Research kept, docs tidied, the light kept** (the
+owner's picks, both recommended; nothing visible changes) One PR holds
+all three. The three research pages (lore, room making, the 0.3.73
+health check) and their open suggestions are kept in a new
+`RESEARCH-PAGES.md`. `ART-DIRECTION.md`'s generated places' colours move
+to `ART-DIRECTION-2.md`, and `SCOPE.md`'s parts 6 to 8 to `SCOPE-2.md`,
+word for word; five docs that no longer matched the code are fixed. The
+light keeps each light's shadow cast between frames, at a little more
+than its reach, and casts again only when the light moves, the room
+changes or the reach grows past it (`keptCells`, `src/core/light.js`):
+the picture is the same pixel for pixel, the light about 15% quicker
+standing still.
