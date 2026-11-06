@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.65', date: '2026-11-06', title: 'Cast, wait, pull', lines: [
+    "Fishing at the pond at home: with the Wooden Rod held, bump the water to cast, a turn. A small red-and-white float lands on that tile and bobs gently.",
+    "Each turn the line waits, a fish bites about 1 time in 6: a \"!\" over the float, which dips, and \"Something bites!\". Bump the water again on your next turn to catch a Pond Minnow, a small silver fish, into the bag in stacks of 20. Too slow, and it gets away, the float still waiting.",
+    "Walking off, or holding another tool, reels the line in. With the bag full, the minnow slips away. Cave pools still say \"Fishing comes soon.\"",
+    "Decisions: D-610. D-607 moved to the archive, word for word.",
+  ] },
   { v: '0.3.64', date: '2026-11-06', title: 'The Wooden Rod', lines: [
     "Fishing begins: make a Wooden Rod at the workbench from 2 Wood and 2 Spider Silk. It's a plain wooden pole with a silk line and a red-and-white float.",
     "The rod is a tool: Hold it in the bag to put it in the Tool slot, a turn, swapping it with the Stone Pick there. Made with the Tool slot empty, it goes straight in.",

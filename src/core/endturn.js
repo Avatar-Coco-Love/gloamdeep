@@ -9,6 +9,7 @@ import { enemiesAct } from './creatureturn.js';
 import { get } from './registry.js';
 import { withTile } from './room.js';
 import { leave, send, arrive, greet } from './homeward.js';
+import { fishTurn } from './fishing.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -24,9 +25,9 @@ export const wait = (state) => endTurn(state, passTurn(state));
 // was taken here and is due grows back out of sight, or anywhere in a room
 // just come into, as it grew while the hero was away (regrow.js, D-307), and a torch
 // set down whose time is up goes out (D-478), and a planted garden bed whose time is up grows
-// (garden.js, D-567).
-export const endTurn = (before, after) => {
-  const id = oilLine(before.oil, after.oil), place = after.place;
+// (garden.js, D-567). First of all, a line out waits for a bite, or reels in (fishing.js, D-610).
+export const endTurn = (before, cast) => {
+  const after = fishTurn(before, cast), id = oilLine(before.oil, after.oil), place = after.place;
   let found = discover(before, id ? say(after, id) : after);
   if (place !== before.place) found = note(found, 'enter', { place });
   if (found.found.length > after.found.length) found = note(found, 'found', { place });

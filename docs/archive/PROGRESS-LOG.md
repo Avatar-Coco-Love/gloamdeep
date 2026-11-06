@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.62, Drifting motes.** All recommended: about 5 faint
+  pale motes drift in the lantern light straight at the floor's stairs
+  down, through walls; only where the light falls; gone once the stairs
+  are seen, or with reduced motion (D-605).
+  Playtest: https://claude.ai/artifact/Y6kJu7Hv1yanQhavJgAebj
 - **2026-11-05, 0.3.61, The boon's mark.** The owner's idea, all picks
   recommended: the boon held as its card's picture in a small glass
   square under the panel, tap or mouse-over for its name and line; long

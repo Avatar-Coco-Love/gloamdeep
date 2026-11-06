@@ -108,7 +108,15 @@ export const LINES = {
   rodLook: { texts: ['A wooden rod, strung with spider silk.', 'Hold it to use it.', 'A red and white float bobs on it.'], warn: false },
   rodHold: { text: 'You hold the wooden rod.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-609)
   rodAway: { text: 'You put the wooden rod away.', warn: false }, // Take off, into the bag, free
-  waterCast: { text: 'The water is still. Fishing comes soon.', warn: false }, // bumping water with the rod held, free (D-609)
+  waterCast: { text: 'The water is still. Fishing comes soon.', warn: false }, // bumping a cave pool with the rod held, free (D-609)
+  castLine: { text: 'You cast the line.', warn: false }, // bumping the home pond with the rod held, a turn (D-610)
+  fishBite: { text: 'Something bites!', warn: false }, // 1 waiting turn in 6, the "!" over the float
+  fishCatch: { text: 'You catch a pond minnow.', warn: false }, // bumping the water again within its turn
+  fishAway: { text: 'It got away.', warn: false }, // a bite not pulled in its turn; the float stays
+  fishSlip: { text: 'No room. The minnow slips away.', warn: false }, // a catch with no room
+  reelIn: { text: 'You reel in the line.', warn: false }, // walking off, or another tool held
+  pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Its uses come soon.'], warn: false },
+  pondMinnowFull: { text: "You can't carry more minnows.", warn: false },
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

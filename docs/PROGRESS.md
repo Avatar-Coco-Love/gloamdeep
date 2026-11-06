@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.63 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.65 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Fishing step 2 (D-608): cast, wait, pull at the home pond, catching
-the Pond Minnow; ask its look, the float's and the "!".
+Fishing step 3 (D-608): the Pond Minnow's first use, lantern oil (15%
+of a tank); ask how it is poured.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,7 +44,7 @@ Getting around first (D-582), then boons (D-583):
 - [x] The new kind: the oil tick (D-606), 0.3.63
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 18 Fishing (D-608): the rod (0.3.64)
+- [ ] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65)
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -57,13 +57,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.65, Cast, wait, pull.** All recommended: at the home
+  pond, cast, a bite 1 turn in 6 with a "!" over the float, pull for a
+  Pond Minnow, looks A (D-610). Playtest: https://claude.ai/artifact/RK6ojNs3RGp8NHBM4pyjw3
 - **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: fishing is
   cast, wait, pull (D-608); the rod, in the Tool slot (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
 - **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
   new way, a tick drinking 5% oil instead of biting, from depth 3
   (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU
-- **2026-11-05, 0.3.62, Drifting motes.** All recommended: about 5 faint
-  pale motes drift in the lantern light straight at the floor's stairs
-  down, through walls; only where the light falls; gone once the stairs
-  are seen, or with reduced motion (D-605).
-  Playtest: https://claude.ai/artifact/Y6kJu7Hv1yanQhavJgAebj

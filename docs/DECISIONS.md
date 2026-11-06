@@ -168,16 +168,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-607 · 2026-11-05 · The creature plan** (the owner's picks, all
-recommended; builds on D-534 and Q-076) Each biome has about 12 to 15
-creature kinds in the end, so the first cave takes 1 to 4 more after
-its 11; some kinds carry on deeper. New ways come next, light and oil
-ones first (the oil tick, D-606, then others from the list: the
-snuffer, glowworm, false light, wraith, still one and night prowler
-were shown). After the new ways, in this order: showing every
-creature's next move (D-349), the bestiary and trophies (D-466), packs
-and the brood, then varying creatures and injuries (D-374).
-
 **D-608 · 2026-11-06 · How fishing plays** (the owner's picks, all
 recommended but where; builds D-452, D-460; step 18) Cast, wait, pull:
 bumping water with the rod held casts the line; each turn it waits, a
@@ -199,4 +189,17 @@ with the Stone Pick. Look A, a plain wooden pole with a silk line and
 a red-and-white float. Held, bumping water says "The water is still.
 Fishing comes soon.", free. D-605 moved to
 `archive/DECISIONS-GETTING-AROUND.md` and D-606 to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-610 · 2026-11-06 · Cast, wait, pull at the pond** (the owner's
+picks, all recommended; fishing step 2 of D-608; mock-up:
+https://claude.ai/artifact/PdTsChn8We8fRc5Py7VQRe) At the home pond,
+bumping water with the rod held casts, a turn, the float on that tile.
+The Pond Minnow, look A: a grey back, a pale
+teal stripe, a cream belly. The float, look A: a small red-over-white
+bob that bobs a pixel every 2 seconds. A bite, look A: the hero's
+amber "!" over it, the float dipped. Minnows go into the bag in stacks
+of 20; with no room, the catch slips back. Cave pools keep their line
+until their step. Claude's, the owner may change them: the lines; a
+bump with no bite casts again; holding another tool reels in. D-607 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
