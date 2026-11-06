@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.69, The strike meter.** All recommended: look A, back
+  and forth 3 passes, a miss brings the line in (D-614). Playtest: https://claude.ai/artifact/SvXSvLfy2h7NES27drBewA
 - **2026-11-06, 0.3.68, The nibble.** All recommended: a nibble 1 turn
   in 6, the bite the turn after; the float shakes; plop A on the cast,
   splash A on the catch (D-613). Playtest: https://claude.ai/artifact/6bY69ibSBreQRk4XjahfZv
@@ -1544,6 +1546,18 @@ Moved from `PROGRESS.md` at 0.3.32, the eighth audit (D-570):
 
 - [x] 13b The first wild plant, 0.3.3 (D-531)
 - [x] 14 The garden: seed, bed, planting, growing, picking, guano, 0.3.31 (D-562, D-569)
+
+Moved from `PROGRESS.md` at 0.3.72, the ninth audit (D-617):
+
+Getting around first (D-582), then boons (D-583):
+- [x] 15 Smaller shallow floors (D-580), 0.3.42
+- [x] 16 Waystones (D-579, D-587): home stone; waking; the stamper at
+  depth 2 (0.3.49); travel card (0.3.50); the other depths (0.3.51);
+  the card scrolls (0.3.52)
+- [x] 16b Boons at the home waystone (D-583, D-596): the card and the
+  first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60); the mark (0.3.61)
+- [x] 17 Drifting motes toward the stairs (D-581, D-605), 0.3.62
+- [x] The new kind: the oil tick (D-606), 0.3.63
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

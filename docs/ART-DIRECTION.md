@@ -141,7 +141,7 @@ drift.
 
 ## Weak spots to fix (D-009)
 - **The rat sprite** was the weakest piece. Redrawn at step 20 (option A,
-  approved by the owner, D-104). Code: `src/render/sprites.js`.
+  approved by the owner, D-104). Code: `src/render/sprites.js`, the pictures in `pictures.js` (D-617).
 - **Shadow edges** stepped in 4-pixel blocks. Fixed at step 12: edges blend
   over one cell into the dithered bands (D-053). Code: `src/render/light.js`.
 

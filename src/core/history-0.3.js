@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.72', date: '2026-11-06', title: 'The ninth audit', lines: [
+    "The ninth audit: tidying behind the scenes, nothing in the game changed. The pixel pictures moved into their own file, three nearly full notes were split, and older decisions and finished steps were archived.",
+    "Decisions: D-617. D-169 to D-176 moved to the archive, word for word.",
+  ] },
   { v: '0.3.71', date: '2026-11-06', title: 'Selling a minnow', lines: [
     "The peddler now buys Pond Minnows: 1 coin each, the same as a common material. Pick one on his Sell tab, then Sell, Enter or Space. No turn passes.",
     "Decisions: D-616. D-609 moved to the archive, word for word.",

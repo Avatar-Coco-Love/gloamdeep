@@ -11,55 +11,6 @@ Format: `D-xxx · date · title`, then the decision and, where useful, why.
 
 ---
 
-**D-169 · 2026-10-19 · Regions are grids of rooms** (the owner's idea)
-The world, surface and below, is split into regions joined to each
-other. Each region is a grid of cells (a 3 × 3 marsh has 9), and not
-every cell must be used. Each region has its own rule sheet for how it
-generates, including promises that hold for every seed: a special room
-with its own rules, a single secret entrance to it from a side that
-changes with the seed, or a special item that must appear in a named
-room or building. Each cave follows its own rules too. Generated once
-per save, as D-019.
-
-**D-170 · 2026-10-19 · Where the world is written down** (owner's pick)
-`docs/WORLD.md` holds how the world works, under 8 KB. Each region gets
-its own rule sheet in `docs/regions/`, one file per region, made when the
-region is designed. Undecided details are open questions.
-
-**D-171 · 2026-10-19 · Ways between rooms** (the owner's idea) Rooms
-join by stairs up and down, by openings at their sides into the room
-beside them, by water for a hero who can swim (Q-039), and by secret
-entrances. Both sides of a way line up exactly, and each room is made to
-fit the ways into it.
-
-**D-172 · 2026-10-19 · Rooms of every shape and size** (the owner's idea
-and pick) Rooms differ in shape and size by their kind: tunnels are
-narrow, deserts are vast. A room bigger than the screen scrolls, with the
-camera following the hero. The kinds and sizes are Q-038.
-
-**D-173 · 2026-10-19 · Light comes through openings** (the owner's idea)
-A doorway, cave mouth or stairs lets in the light of the place beyond.
-Daylight shines in behind you by day, less in rain or snow, not at
-night, following the time of day (D-025) and the weather (Q-035). An
-open way into a lit room not yet found glows, so you can tell a lit
-space lies ahead. Details are Q-040.
-
-**D-174 · 2026-10-19 · Stairs must be found** (the owner's idea,
-supersedes part of D-134) The stairs' glow is dimmer and shows only where
-the fog of war has lifted, so stairs and doors must be found, unless
-other light reveals them. Some underground places are brightly lit.
-How dim is Q-041.
-
-**D-175 · 2026-10-19 · Today's game becomes the first cave** (owner's
-pick) The two crypt rooms and the generated depths below them become the
-first cave under the starting region, reached from a cave entrance on
-the surface. Q-043 asks whether it gets a bottom.
-
-**D-176 · 2026-10-19 · A world map to uncover** (the owner's idea,
-builds on D-021) Players uncover the map as they explore. Dev tools get
-a switch that reveals the whole map, and a map mode, which may be the
-same map players see. Details are Q-042.
-
 **D-338 · 2026-10-25 · Audits lose nothing** (the owner's wish) Nothing
 important, useful, educational or insightful is lost in a cleanup. Text is
 moved word for word, never cut; only pointers, indexes and rules may be
@@ -200,3 +151,15 @@ for 1 coin, a common material's price, kept as its `sells`: 3 sold buy
 a flask, as 3 poured make a flask's oil. Nothing else changes: it
 sells the materials' way, no line, free, no turn. D-609 moved to
 `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-617 · 2026-11-06 · The ninth audit** (the owner's picks, all
+recommended) At 0.3.72, nothing visible changed. A conversation's start
+reads 10.1 KB (CLAUDE.md 6.2, PROGRESS.md 3.9), down from 11.5 KB.
+`sprites.js`'s pixel pictures (48 KB, 667 lines) move word for word into
+`src/render/pictures.js`; `sprites.js` keeps the making and drawing
+(16 KB). Three docs at 98% of 8 KB split a whole topic each, word for
+word: `GLOSSARY.md`'s finds to `GLOSSARY-FINDS.md`, `TECH.md`'s layout
+to `TECH-2.md`, `RESEARCH.md`'s ideas kept for later to `RESEARCH-2.md`.
+D-169 to D-176, the world's first decisions, move to
+`archive/DECISIONS-WORLD.md`; ticked steps 15 to 17 and the oil tick are
+archived. The next audit is at 0.3.112.

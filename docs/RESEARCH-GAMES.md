@@ -2,7 +2,7 @@
 
 Split from `RESEARCH.md` on 2026-10-27 (D-376); "The games" and
 "Sources" moved word for word. **Nothing here is decided.** The owner's
-ideas from these go to `RESEARCH.md`, "Ideas the owner wants kept".
+ideas from these go to `RESEARCH-2.md`, "Ideas the owner wants kept".
 
 ## The games
 **Hoplite** (phone, turn-based, hex grid; from the 2013 7-Day Roguelike)
