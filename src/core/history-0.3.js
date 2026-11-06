@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.86', date: '2026-11-06', title: 'How it acts', lines: [
+    "Each creature in the Bestiary has its own page: tap its row, or pick it with Up or Down and press Enter. The page shows its drawing twice as big, its name and counts, and, once you have beaten one, a sentence or two on how it acts. Before that it says \"Beat one to learn how it acts.\" Esc, the round cross or Left goes back to the table.",
+    "Decisions: D-631. D-622 moved to the archive, word for word.",
+  ] },
   { v: '0.3.85', date: '2026-11-06', title: 'The Bestiary tab', lines: [
     "The Journal has a third tab, Bestiary, after Growth: a table of the creatures you have met, each with its drawing, its name, and how many you have met and beaten. A creature counts as met the first time your light reaches it; a mimic or a snapcap only once it shows itself, and one beaten in the dark counts too. The counts stay with your profile through falls and new journeys, starting from zero now.",
     "Decisions: D-630. D-621 moved to the archive, word for word.",

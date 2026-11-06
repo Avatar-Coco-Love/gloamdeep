@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
 import { makeState, step, wait, switchLantern, FIRST_START } from '../src/core/turn.js';
-import { meet, booked, bestiaryRows, bestiaryWords } from '../src/core/bestiary.js';
+import { meet, booked, bestiaryRows, bestiaryWords, pageOf, pageWords, movePickRow, HINT } from '../src/core/bestiary.js';
 import { newProfile, unpackProfiles } from '../src/core/profile.js';
 import { journalAt, bestiaryTables } from '../src/render/journal.js';
 import { cardAt } from '../src/render/bag.js';
@@ -50,7 +50,8 @@ test('the book counts meets and beats, and a dev jump counts nothing', () => {
 test('the tab lists those met in the registry\'s order, and says so for the screen reader', () => {
   const book = { bat: { met: 1, beaten: 0 }, rat: { met: 3, beaten: 2 } };
   assert.deepEqual(bestiaryRows(book).map((r) => r.name), ['Rat', 'Bat']);
-  assert.equal(bestiaryWords(book), 'Journal, Bestiary tab. Rat, 3 met, 2 beaten. Bat, 1 met, 0 beaten. Left for Growth. Esc or the close button goes back.');
+  assert.equal(bestiaryWords(book), 'Journal, Bestiary tab. Rat, 3 met, 2 beaten. Bat, 1 met, 0 beaten. Picked, Rat. Up or Down picks another, Enter opens its page. Left for Growth. Esc or the close button goes back.');
+  assert.match(bestiaryWords(book, 1), /Picked, Bat\./);
   assert.equal(bestiaryWords({}), 'Journal, Bestiary tab. No creatures met yet. Left for Growth. Esc or the close button goes back.');
 });
 
@@ -69,4 +70,24 @@ test('the Bestiary tab is tapped as the others; all twelve fit upright in one ta
   assert.equal(bestiaryTables(cardAt(390, 208), 12).xs.length, 2);
   const tabs = [...Array(card.w).keys()].map((x) => journalAt(card.x + x, card.y + 32, 176, 370)).filter((a) => a?.tab).map((a) => a.tab);
   assert.equal(tabs.at(-1), 'bestiary');
+});
+
+// § pages (D-352, D-631): how it acts shows once one is beaten, before that a grey hint
+test('a page says how the creature acts once one is beaten, and a hint before', () => {
+  const book = { bat: { met: 1, beaten: 0 }, rat: { met: 3, beaten: 2 } };
+  assert.deepEqual(pageOf(book, 'bat'), { id: 'bat', name: 'Bat', counts: '1 met, 0 beaten', known: false, acts: HINT });
+  assert.equal(pageOf(book, 'rat').acts, 'Comes at you once it sees you in the light. Hurt, it often turns and runs.');
+  assert.equal(pageWords(book, 'rat'), 'Journal, Bestiary, Rat. 3 met, 2 beaten. Comes at you once it sees you in the light. Hurt, it often turns and runs. Esc or the close button goes back to the Bestiary.');
+  assert.equal(HINT, 'Beat one to learn how it acts.');
+});
+
+test('Up and Down pick a row inside the rows met; a tap on a row picks its page', () => {
+  const book = { rat: { met: 1, beaten: 0 }, bat: { met: 1, beaten: 0 }, mole: { met: 1, beaten: 1 } };
+  assert.equal(movePickRow(book, 0, -1), 0);
+  assert.equal(movePickRow(book, 1, 1), 2);
+  assert.equal(movePickRow(book, 2, 1), 2);
+  const card = cardAt(176, 370);
+  assert.deepEqual(journalAt(card.x + 30, card.y + 62 + 18 + 5, 176, 370, 'bestiary', null, null, book), { beast: 1 });
+  assert.equal(journalAt(card.x + 30, card.y + 62 + 18 * 3 + 5, 176, 370, 'bestiary', null, null, book), null);
+  assert.equal(journalAt(card.x + 30, card.y + 62 + 5, 176, 370, 'bestiary', null, null, book, 'rat'), null);
 });

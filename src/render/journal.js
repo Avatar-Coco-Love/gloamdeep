@@ -8,7 +8,9 @@
 // the bottom; the picked place outlined gold, and what it says on the right, past a line, with
 // its button in the bottom right corner, as Make on the bag's card. The Bestiary (D-630) is a
 // table of the creatures met: each one's drawing and name, its met and beaten counts in two
-// columns under grey headings, in two tables side by side when one is too tall for the card.
+// columns under grey headings, in two tables side by side when one is too tall for the card;
+// the picked row's name gold. A creature's page (D-631): its drawing twice as big, its name and
+// counts beside it, and under them how it acts, or a grey hint until one is beaten.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
@@ -16,7 +18,7 @@ import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON
 import { TABS, recordRows } from '../core/journal.js';
 import { ROWS, ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
-import { bestiaryRows, NONE } from '../core/bestiary.js';
+import { bestiaryRows, pageOf, NONE } from '../core/bestiary.js';
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
@@ -62,9 +64,11 @@ const buttonOf = (card, text) => { const w = textWidth(text) + 8; return { x: ca
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { tab } for a tab (anywhere from
 // halfway to the tab before to halfway to the next, between the two rules), on Growth { pick }
-// for a place on the tree and 'buy' for its button, 'close' (the round cross), or null; outside
-// the card, 'out'. tab: the one open; state and pick: the journey and the place picked.
-export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null) {
+// for a place on the tree and 'buy' for its button, on the Bestiary's table { beast } for a row's
+// index, 'close' (the round cross), or null; outside the card, 'out'. tab: the one open; state
+// and pick: the journey and the place picked; book: the profile's Bestiary; page: the creature
+// whose page is open, if one is.
+export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null) {
   const card = cardAt(vw, vh);
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
@@ -73,6 +77,11 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
     if (at && x >= at.x - TAP_PAD && x < at.x + at.w + TAP_PAD && y >= at.y - TAP_PAD && y < at.y + BUTTON.h + TAP_PAD) return 'buy';
     const box = treeOf(card).boxes.find((p) => x >= p.x - TAP_PAD && x < p.x + p.w + TAP_PAD && y >= p.y - TAP_PAD && y < p.y + p.h + TAP_PAD);
     if (box) return { pick: { col: box.col, row: box.row } };
+  }
+  if (tab === 'bestiary' && !page) {
+    const n = bestiaryRows(book).length, { per, w, xs } = bestiaryTables(card, n);
+    const i = xs.findIndex((tx) => x >= tx && x < tx + w), j = Math.floor((y - card.y - BEASTS_Y) / BEAST_H);
+    if (i >= 0 && j >= 0 && j < per && i * per + j < n) return { beast: i * per + j };
   }
   if (y < card.y + TABS_Y - 8 || y >= card.y + TABS_RULE_Y) return null;
   const xs = tabXs(card);
@@ -83,8 +92,9 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 
 // c: the room's canvas, `vw` × `vh`; records and played, the profile's; state, the journey's;
 // tab, the one open; pick, Growth's picked place; still: prefers-reduced-motion; book, the
-// profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630)
-export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}) {
+// profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630); beast, the
+// Bestiary's picked row, and page the creature whose page is open, if one is (D-631)
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null) {
   const growth = tab === 'growth', card = drawCard(c, vw, vh, 'JOURNAL', 0), { x, y, w } = card, xs = tabXs(card);
   TABS.forEach((s, i) => {
     const on = s.id === tab;
@@ -95,7 +105,7 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
   });
   c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y, w - 16, 1);
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
-  if (tab === 'bestiary') { drawBestiary(c, card, book, sprites); return; }
+  if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
   rows.forEach((row, i) => {
@@ -181,7 +191,7 @@ export function bestiaryTables(card, n) {
   const w = Math.floor((card.w - 2 * PAD - (tables - 1) * TABLE_GAP) / tables);
   return { per: tables === 2 ? Math.ceil(n / 2) : n, w, xs: Array.from({ length: tables }, (_, i) => card.x + PAD + i * (w + TABLE_GAP)) };
 }
-function drawBestiary(c, card, book, sprites) {
+function drawBestiary(c, card, book, sprites, beast) {
   const rows = bestiaryRows(book), { y } = card;
   if (!rows.length) { drawText(c, NONE, tabsLeft(card), y + HEADS_Y + 2, GREY); return; }
   const { per, w, xs } = bestiaryTables(card, rows.length), beatenW = textWidth('Beaten');
@@ -194,9 +204,20 @@ function drawBestiary(c, card, book, sprites) {
     part.forEach((r, j) => {
       const ry = y + BEASTS_Y + j * BEAST_H, img = sprites[r.id];
       if (img) c.drawImage(img, tx, ry);
-      drawText(c, r.name, tx + SPRITE_W + NAME_GAP, ry + 5, CORE);
+      drawText(c, r.name, tx + SPRITE_W + NAME_GAP, ry + 5, i * per + j === beast ? GOLD : CORE);
       drawText(c, String(r.met), mx - textWidth(String(r.met)), ry + 5, CORE);
       drawText(c, String(r.beaten), bx - textWidth(String(r.beaten)), ry + 5, CORE);
     });
   });
+}
+
+// § page: one creature's page (D-631), under the tabs: its drawing at twice the size, its name
+// and counts beside it, then how it acts in light words, or the hint in grey
+const PAGE_Y = 54, BIG = 2 * SPRITE_W, ACTS_GAP = 12;
+function drawPage(c, card, p, img) {
+  const x = card.x + PAD, y = card.y + PAGE_Y, nx = x + BIG + 8;
+  if (img) { c.save(); c.imageSmoothingEnabled = false; c.drawImage(img, x, y, BIG, BIG); c.restore(); }
+  drawText(c, p.name, nx, y + 6, CORE);
+  drawText(c, p.counts, nx, y + 18, GREY);
+  wrapWords(p.acts, card.w - 2 * PAD).forEach((l, i) => drawText(c, l, x, y + BIG + ACTS_GAP + i * 11, p.known ? CORE : GREY));
 }
