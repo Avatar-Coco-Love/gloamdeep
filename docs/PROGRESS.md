@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Step 18b, the maker tool (D-621); propose first.
+Step 18b, the dev panel as a bottom sheet (D-621); propose first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -35,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
-- [ ] 18b Faster making (D-621): the checker (0.3.76); the maker;
+- [ ] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
   the dev panel as a bottom sheet; god mode; test spots
 - [ ] 19 Lore
 - [ ] 20 Relics
@@ -49,6 +49,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.77, The maker.** All recommended: one line,
+  `node tools/make.js <kind> <id> "<Name>"`; marked blanks the checker
+  names; a grey "?" picture; the content row only (D-622). No playtest:
+  nothing to see.
 - **2026-11-06, 0.3.76, The checker.** All recommended: stories wait;
   faster making first, the checker now, then the maker, the dev panel
   as a bottom sheet, god mode and test spots (D-621). No playtest:
@@ -56,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-06, 0.3.75, The waystone 3 × 3.** The owner's idea; all
   recommended: look B, old and mossy; old saves made 3 × 3; the home plate
   2 tiles north (D-620). Playtest: https://claude.ai/artifact/9ZHzxkeg64ELoupXWicPgr
-- **2026-11-06, 0.3.74, Research kept, the light kept.** Both
-  recommended: one PR; the research pages in `RESEARCH-PAGES.md`;
-  two docs split, five fixed; shadows cast only when a light moves
-  (D-619). No playtest: nothing to see.

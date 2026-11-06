@@ -17,6 +17,13 @@ const PAL = {
   E: '#6c5b48', F: '#4a3d30', f: '#2a221b', // soil, from the earth's colours (ART-DIRECTION-2.md "Earth"), the garden bed's (D-565)
 };
 
+// § blank: the grey "?" a thing made by tools/make.js wears until it is drawn (D-622): plainly
+// unfinished, a light grey "?" on a dark grey square, outlined
+const BLANK = { mirror: false, rows: [
+  '', '.kkkkkkkkkkkkkk.', '.kddddddddddddk.', '.kddddddddddddk.', '.kddddSSSSddddk.', '.kdddSSddSSdddk.',
+  '.kdddddddSSdddk.', '.kddddddSSddddk.', '.kdddddSSdddddk.', '.kdddddSSdddddk.', '.kddddddddddddk.',
+  '.kdddddSSdddddk.', '.kddddddddddddk.', '.kkkkkkkkkkkkkk.'] };
+
 // § hero: the study's hero, with the lantern held out to its right (D-042, D-056).
 // `extra` pixels are drawn over the mirrored rows: [x, y, colour letter].
 const HERO = { mirror: true, rows: [

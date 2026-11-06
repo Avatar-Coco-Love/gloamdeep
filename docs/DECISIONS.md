@@ -76,30 +76,6 @@ material. In steps: the rod; the cast at the pond, catching the minnow;
 its uses one a step (oil, eating, selling; the recipe when one needs it);
 then the cave pools.
 
-**D-613 · 2026-11-06 · The nibble, the plop and the splash** (the
-owner's picks, all recommended; fishing polish 2 of D-612; mock-up:
-https://claude.ai/artifact/WCdMEXxBYnY1MA5TofV7E5) Each waiting turn,
-1 in 6 is a nibble, "A nibble...", and the next turn is always the bite
-(supersedes D-610's bite 1 turn in 6). A bump on a nibble waits. The
-float's twitch, look A: it stops bobbing and jerks a pixel left, right,
-left, once each 1.2 seconds; with reduced motion it holds a pixel left.
-The cast plays plop A, a round bloop rising; the catch plays splash A,
-a burst of water and three drops. Claude's, the owner may change them:
-no splash when the minnow slips back or gets away.
-
-**D-614 · 2026-11-06 · The strike meter** (the owner's picks, all
-recommended; fishing polish 3 of D-612; mock-up:
-https://claude.ai/artifact/Dheoy99waUcNaBdgB5snwo) Pulling on a bite,
-a turn, opens a card with the world paused: STRIKE! in ember, "Tap in
-the light" in grey, a dark bar in a grey frame with an amber zone a
-quarter wide, placed by the seed, and a cream needle with an ember tip.
-The needle goes back and forth at a steady second a pass; a tap
-anywhere, Space or Enter strikes, free. In the zone the minnow lands
-with splash A; a miss, or 3 passes with no tap, "It got away." and the
-line comes in (an unpulled bite still leaves the float out). No cross;
-reduced motion keeps the needle moving. D-581 and D-582 moved to
-`archive/DECISIONS-GETTING-AROUND.md`, word for word.
-
 **D-615 · 2026-11-06 · Eating a minnow** (the owner's picks, all
 recommended; fishing step 4 of D-608) In the bag, a Pond Minnow's Eat
 sits left of its Pour, the way Make sits beside a heartcap's Eat: a
@@ -188,3 +164,18 @@ change it: plug-in slots for systems come with the next new system
 is weighed again at the audit, 0.3.112. The checker found the Snapcap
 Gill with no content row; it has one now. D-611 and D-612 moved to
 `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-622 · 2026-11-06 · The maker** (the owner's picks, all recommended;
+step 18b, after the checker, D-621) `node tools/make.js <kind> <id> "<Name>"`,
+everything on one line, kind one of creature, find, tile or person;
+`--check` lists what it would write and writes nothing; an id or name
+already taken is refused; undo with git. It writes every empty piece
+(TECH.md, "Adding content"): the entry, its lines, its picture and
+sprite, a creature's hit flash, a tile's drawing, where it lives, its
+test and its content row. What needs the owner's numbers, words and
+art is a marked blank (`/* blank */` or `// blank:`), which the game
+still runs with: numbers 1, a line its own name in brackets, a creature
+`from: Infinity` (only the dev tools), and a grey "?" picture; the
+checker names each blank left and its file. It writes the content row
+only, of `?`s; the glossary word and the decision stay by hand.
+D-613 and D-614 moved to `archive/DECISIONS-FISHING.md`, word for word.

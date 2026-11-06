@@ -91,6 +91,26 @@ test('every entry is named in a test', () => {
   report(gaps, 'Name these in a test, tests/<id>.test.js for a new one');
 });
 
+// § blanks: what tools/make.js left for real numbers, words and art (D-622): a `/* blank */`
+// after a value, a `// blank:` note, or a content row of `?`s. Fill each, then drop its mark.
+function blanksIn(path) {
+  return read(path).split('\n').flatMap((l, i) => {
+    const at = `${path}:${i + 1}`, note = l.match(/\/\/ blank: (.*)/);
+    if (note) return [`${note[1]} (${at})`];
+    if (path.endsWith('.md')) return /^\| `(\w+)` .*\| \? \|/.test(l) ? [`${l.match(/`(\w+)`/)[1]}, its content row (${at})`] : [];
+    const fields = [...l.matchAll(/(\w+): [^,{}]*?\/\* blank \*\//g)].map((m) => m[1]);
+    const id = l.match(/id: '(\w+)'/)?.[1] ?? l.match(/^\s*(\w+):/)?.[1];
+    return fields.length ? [`${id}: ${fields.join(', ')} (${at})`] : [];
+  });
+}
+const walk = (dir) => readdirSync(new URL(`../${dir}`, import.meta.url), { withFileTypes: true })
+  .flatMap((d) => (d.isDirectory() ? walk(`${dir}/${d.name}`) : d.name.endsWith('.js') ? [`${dir}/${d.name}`] : []));
+
+test('nothing the maker left is still blank', () => {
+  const gaps = [...walk('src'), 'docs/CONTENT.md', 'docs/CONTENT-2.md', 'docs/CONTENT-3.md'].flatMap(blanksIn);
+  report(gaps, 'Fill these blanks from tools/make.js with real numbers, words and art (and their decisions)');
+});
+
 test('every entry has a row in the content index', () => {
   const docs = ['CONTENT.md', 'CONTENT-2.md', 'CONTENT-3.md'].map((f) => read(`docs/${f}`)).join('\n');
   const gaps = ALL.filter((e) => !docs.includes(e.id)).map(who);

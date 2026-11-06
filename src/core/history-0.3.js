@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.77', date: '2026-11-06', title: 'The maker', lines: [
+    "Behind the scenes: a new maker tool. One command writes every empty piece of a new creature, find, tile or person, with a grey \"?\" picture until it is drawn, and the checker then names each number, line and picture still to fill. New things reach the game faster.",
+    "Nothing in the game changes.",
+    "Decisions: D-622. D-613 and D-614 moved to the archive, word for word.",
+  ] },
   { v: '0.3.76', date: '2026-11-06', title: 'The checker', lines: [
     "Behind the scenes: a new checker runs with the tests. For every creature, find, tile and person it names any missing piece (a line, a picture, a hit flash, a sound, where it lives, a test or its row in the docs) and the file to fix, so new things reach the game faster and with fewer bugs.",
     "It found the Snapcap Gill missing from the content list; it is listed now. Nothing in the game changes.",
