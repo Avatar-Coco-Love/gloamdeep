@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.65 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.68 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Fishing polish 2 (D-612): the nibble turn, the plop and the splash;
-show the twitch and play the sounds on the sound board first.
+Fishing polish 3 (D-612): the strike meter, a needle swept across a
+bar on its own card with the world paused; mock-up first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,7 +45,7 @@ Getting around first (D-582), then boons (D-583):
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
-  clear turns (D-612, 0.3.67); nibble and sounds; strike meter; then food
+  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter; then food
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -58,11 +58,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.68, The nibble.** All recommended: a nibble 1 turn
+  in 6, the bite the turn after; the float shakes; plop A on the cast,
+  splash A on the catch (D-613). Playtest: https://claude.ai/artifact/6bY69ibSBreQRk4XjahfZv
 - **2026-11-06, 0.3.67, Fishing made clear.** All recommended: clear turns,
   a nibble, a strike meter; bumping waits; WAIT / PULL (D-612). Playtest: https://claude.ai/artifact/NJVYQ9g12RQiqwvCAxPMwQ
 - **2026-11-06, 0.3.66, The minnow's oil.** All recommended: POUR in the
   bag, a turn, 15%; by hand only, not with Deep Pour, not counted in
   Flasks poured (D-611). Playtest: https://claude.ai/artifact/JjsRQ8U8i7cVk2uKYFvHey
-- **2026-11-06, 0.3.65, Cast, wait, pull.** All recommended: at the home
-  pond, cast, a bite 1 turn in 6 with a "!" over the float, pull for a
-  Pond Minnow, looks A (D-610). Playtest: https://claude.ai/artifact/RK6ojNs3RGp8NHBM4pyjw3

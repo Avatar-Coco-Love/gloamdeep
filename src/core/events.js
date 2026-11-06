@@ -28,6 +28,8 @@
 //   hold { id }          weapon `id` went from the bag into the hand (D-479)
 //   sell { id, coins }   one of item `id` was sold at home for `coins`, free (D-494)
 //   plant { id }         seed `id` was planted in a garden bed (D-566)
+//   cast                 the fishing line was cast, with a plop (D-613)
+//   catch { id }         fish `id` was pulled from the water, with a splash (D-613)
 //   feed { id }          `id`, Bat Guano, was fed to a sprout in a garden bed (D-569)
 //   wake { x, y }        the waystone's plate at x, y woke as the hero stepped on it (D-591)
 //   travel { place }     the hero went by waystone to place `place`, free (D-593)

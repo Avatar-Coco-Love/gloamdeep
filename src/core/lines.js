@@ -110,7 +110,8 @@ export const LINES = {
   rodAway: { text: 'You put the wooden rod away.', warn: false }, // Take off, into the bag, free
   waterCast: { text: 'The water is still. Fishing comes soon.', warn: false }, // bumping a cave pool with the rod held, free (D-609)
   castLine: { text: 'You cast the line.', warn: false }, // bumping the home pond with the rod held, a turn (D-610)
-  fishBite: { text: 'Something bites!', warn: false }, // 1 waiting turn in 6, the "!" over the float
+  fishNibble: { text: 'A nibble...', warn: false }, // 1 waiting turn in 6, the float twitching; the bite next turn (D-613)
+  fishBite: { text: 'Something bites!', warn: false }, // the turn after a nibble, the "!" over the float
   fishCatch: { text: 'You catch a pond minnow.', warn: false }, // bumping the water again within its turn
   fishAway: { text: 'It got away.', warn: false }, // a bite not pulled in its turn; the float stays
   fishSlip: { text: 'No room. The minnow slips away.', warn: false }, // a catch with no room

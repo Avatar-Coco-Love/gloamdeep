@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.68 (2026-11-06)
+- A fish nibbles before it bites: the float shakes and the line reads "A nibble...". The next turn it always bites, so wait for the "!" and then pull.
+- Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.
+- Decisions: D-613.
+
 ## 0.3.67 (2026-11-06)
 - Fishing is easier to follow: with the line out, bump the water again to wait a turn. The float stays where it is, so keep bumping until something bites, then bump once more to pull.
 - While a line is out, the flask button beside the lantern reads WAIT, and PULL in amber when a fish bites. A tap does the same as bumping the water. The flask comes back once the line is in.
@@ -33,9 +38,3 @@ Entry format:
 - The Pond Minnow's first use: choose it in the bag and press POUR, like a flask. It takes a turn and gives the lantern 15% of a tank, never past full.
 - Only by hand: the flask button and "Flasks: By itself" still pour only flasks, Deep Pour makes only flasks pour more, and Records' "Flasks poured" counts only flasks.
 - Decisions: D-611. D-588 moved to the archive, word for word.
-
-## 0.3.65 (2026-11-06)
-- Fishing at the pond at home: with the Wooden Rod held, bump the water to cast, a turn. A small red-and-white float lands on that tile and bobs gently.
-- Each turn the line waits, a fish bites about 1 time in 6: a "!" over the float, which dips, and "Something bites!". Bump the water again on your next turn to catch a Pond Minnow, a small silver fish, into the bag in stacks of 20. Too slow, and it gets away, the float still waiting.
-- Walking off, or holding another tool, reels the line in. With the bag full, the minnow slips away. Cave pools still say "Fishing comes soon."
-- Decisions: D-610. D-607 moved to the archive, word for word.

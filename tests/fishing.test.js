@@ -5,7 +5,8 @@ import { makeRoom, FIRST_ROOM, withTile } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, step, wait } from '../src/core/turn.js';
 import { shownLine } from '../src/core/lines.js';
-import { BITE_CHANCE } from '../src/core/fishing.js';
+import { NIBBLE_CHANCE } from '../src/core/fishing.js';
+import { shakeAt } from '../src/render/float.js';
 
 // The hero at 5,11 at home, the pond's water just above, the rod held
 const beside = (place = 'woods', tool = 'rod') => ({ ...makeState(withTile(makeRoom(FIRST_ROOM), 5, 10, get('water'))), hero: { x: 5, y: 11 }, tool, place, enemies: [] });
@@ -16,7 +17,7 @@ test('bumping the home pond with the rod casts the line, a turn, the float on th
   const s = cast();
   assert.equal(s.turn, 1);
   assert.deepEqual(s.hero, { x: 5, y: 11 });
-  assert.deepEqual(s.float, { x: 5, y: 10, at: 1, bite: false });
+  assert.deepEqual(s.float, { x: 5, y: 10, at: 1, bite: false, nibble: false });
   assert.equal(shownLine(s).text, 'You cast the line.');
 });
 
@@ -28,15 +29,39 @@ test('a cave pool still says its line, free; without the rod, nothing is cast', 
   assert.equal(cast(beside('woods', 'pick')).float, null);
 });
 
-test('waiting, a fish bites about 1 turn in 6, never on the cast\'s own turn', () => {
-  assert.equal(BITE_CHANCE, 1 / 6);
-  let bites = 0, turns = 0;
+test('waiting, a fish nibbles about 1 turn in 6, never on the cast\'s own turn, and always bites the turn after (D-613)', () => {
+  assert.equal(NIBBLE_CHANCE, 1 / 6);
+  let nibbles = 0, turns = 0;
   for (let seed = 1; seed <= 40; seed++) {
     let s = cast({ ...beside(), seed });
-    assert.equal(s.float.bite, false);
-    for (let i = 0; i < 30; i++, turns++) { s = wait(s); if (s.float.bite) { bites++; s = wait(s); } }
+    assert.equal(s.float.nibble, false);
+    for (let i = 0; i < 30; i++, turns++) {
+      const was = s; s = wait(s);
+      if (s.float.bite) assert.equal(was.float.nibble, true); // no bite without a nibble first
+      if (s.float.nibble) { nibbles++; assert.equal(shownLine(s).text, 'A nibble...'); s = wait(s); assert.equal(s.float.bite, true); s = wait(s); }
+    }
   }
-  assert.ok(bites / turns > 0.1 && bites / turns < 0.22, `${bites} in ${turns}`);
+  assert.ok(nibbles / turns > 0.08 && nibbles / turns < 0.22, `${nibbles} in ${turns}`);
+});
+
+test('bumping the water on a nibble waits, the bite still coming next turn (D-613)', () => {
+  let s = cast();
+  for (let i = 0; i < 200 && !s.float.nibble; i++) s = wait(s);
+  const bumped = step(s, 'up');
+  assert.equal(bumped.float.bite, true);
+  assert.deepEqual(bumped.bag, s.bag);
+});
+
+test('the cast plops and the catch splashes, as events (D-613)', () => {
+  assert.ok(cast().events.some((e) => e.type === 'cast'));
+  const caught = step(untilBite(cast()), 'up');
+  assert.ok(caught.events.some((e) => e.type === 'catch' && e.id === 'pondMinnow'));
+  assert.ok(!step(cast(), 'up').events.some((e) => e.type === 'cast')); // a bump while waiting is no new cast
+});
+
+test('the nibbling float shakes a pixel left, right, left, then rests; held left with reduced motion', () => {
+  assert.deepEqual([0, 80, 160, 240, 600].map((t) => shakeAt(t, false)), [-1, 1, -1, 0, 0]);
+  assert.equal(shakeAt(500, true), -1);
 });
 
 test('a bite shows its line; bumping within its turn lands a Pond Minnow, into the bag, the line in', () => {
@@ -53,7 +78,7 @@ test('a bite shows its line; bumping within its turn lands a Pond Minnow, into t
 test('too slow, it gets away and the float stays; with no room, it slips back', () => {
   const bit = untilBite(cast());
   const away = wait(bit);
-  assert.deepEqual(away.float, { ...bit.float, bite: false });
+  assert.deepEqual(away.float, { ...bit.float, bite: false, nibble: false });
   assert.equal(shownLine(away).text, 'It got away.');
   const full = step({ ...bit, bag: Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 })) }, 'up');
   assert.equal(full.float, null);

@@ -166,7 +166,7 @@ https://claude.ai/artifact/PdTsChn8We8fRc5Py7VQRe) At the home pond,
 bumping water with the rod held casts, a turn, the float on that tile.
 The Pond Minnow, look A: a grey back, a pale
 teal stripe, a cream belly. The float, look A: a small red-over-white
-bob that bobs a pixel every 2 seconds. A bite, look A: the hero's
+bob that bobs a pixel every 2 seconds. A bite (1 turn in 6 superseded by D-613), look A: the hero's
 amber "!" over it, the float dipped. Minnows go into the bag in stacks
 of 20; with no room, the catch slips back. Cave pools keep their line
 until their step. Claude's, the owner may change them: the lines; a
@@ -195,3 +195,14 @@ the float where it is (supersedes that part of D-610). While a line is
 out, the quick slot (D-384) reads WAIT, or PULL in amber with a bite, and
 a tap bumps the float's tile; the flask comes back with the line in.
 D-579 and D-587 moved to `archive/DECISIONS-WAYSTONES.md`, word for word.
+
+**D-613 · 2026-11-06 · The nibble, the plop and the splash** (the
+owner's picks, all recommended; fishing polish 2 of D-612; mock-up:
+https://claude.ai/artifact/WCdMEXxBYnY1MA5TofV7E5) Each waiting turn,
+1 in 6 is a nibble, "A nibble...", and the next turn is always the bite
+(supersedes D-610's bite 1 turn in 6). A bump on a nibble waits. The
+float's twitch, look A: it stops bobbing and jerks a pixel left, right,
+left, once each 1.2 seconds; with reduced motion it holds a pixel left.
+The cast plays plop A, a round bloop rising; the catch plays splash A,
+a burst of water and three drops. Claude's, the owner may change them:
+no splash when the minnow slips back or gets away.
