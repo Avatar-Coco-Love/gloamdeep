@@ -1,4 +1,4 @@
-# The waystones' first steps (D-589, D-591 to D-595)
+# The waystones' first steps (D-588, D-589, D-591 to D-595)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.50 (D-593), when it neared
 12 KB: the home waystone asleep, waking it, and the sleeping waystone at
@@ -7,6 +7,14 @@ depth 2 (step 16's first three parts). Still in force.
 D-593 and D-594 moved unchanged at 0.3.52 (D-595): travel between woken
 waystones and the waystones on the other depths, step 16's last parts.
 D-595 moved unchanged at 0.3.56 (D-599): the travel card scrolls.
+D-588 moved unchanged at 0.3.66 (D-611): pictures drawn again after a wipe.
+
+**D-588 · 2026-11-03 · Pictures drawn again after a wipe** (the owner's
+fix, ahead of D-587's first step) On Android the hero and the tiles came
+back blank after the app was in the background: the browser wipes kept
+canvases. Every canvas drawn once and kept is now drawn again when the
+browser hands it back (contextrestored), and checked when the page shows
+again (visibilitychange). Nothing visible changed.
 
 **D-589 · 2026-11-05 · The home waystone, asleep** (the owner's picks,
 all recommended; step 16's first part, builds on D-579 and D-587) The

@@ -153,13 +153,6 @@ landmark; dev mode can drop one in and show the set-aside patches. The
 stamper comes with its first use, a waystone at depth 2, and only
 places it. The rest is asked at each step (Q-080).
 
-**D-588 · 2026-11-03 · Pictures drawn again after a wipe** (the owner's
-fix, ahead of D-587's first step) On Android the hero and the tiles came
-back blank after the app was in the background: the browser wipes kept
-canvases. Every canvas drawn once and kept is now drawn again when the
-browser hands it back (contextrestored), and checked when the page shows
-again (visibilitychange). Nothing visible changed.
-
 **D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
 Research helpers work beside each build step and report to Claude, who
 brings options; only one conversation builds Gloamdeep at a time. The
@@ -203,3 +196,12 @@ of 20; with no room, the catch slips back. Cave pools keep their line
 until their step. Claude's, the owner may change them: the lines; a
 bump with no bite casts again; holding another tool reels in. D-607 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-611 · 2026-11-06 · The minnow's oil** (the owner's picks, all
+recommended; fishing step 3 of D-608) In the bag, a Pond Minnow's
+button reads POUR, the flask's way: a turn, 15% of a tank, never above
+full. By hand only: the flask button and By itself pass minnows by.
+Deep Pour is for flasks; a minnow always pours 15%. It plays the
+flask's pour sound and is not counted in Flasks poured. Claude's, the
+owner may change it: its look line. D-588 moved to
+`archive/DECISIONS-WAYSTONES.md`, word for word.

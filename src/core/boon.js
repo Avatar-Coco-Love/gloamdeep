@@ -29,8 +29,9 @@ export const boonNotice = (state) => boonOf(state)?.notice ?? 0;
 export const boonHit = (state) => boonOf(state)?.hit ?? 0;
 // A beaten creature's chance to drop its part: the boon's (Keen Eye), or `base`
 export const dropOf = (state, base) => Math.max(base, boonOf(state)?.drop ?? 0);
-// The oil an item pours into the lantern: Deep Pour's `pour` for a flask, else its `oil`, 0 for none
-export const pourOf = (state, entry) => (entry?.oil ? Math.max(entry.oil, boonOf(state)?.pour ?? 0) : 0);
+// The oil an item pours into the lantern: Deep Pour's `pour` for a flask, else its `oil`, 0 for none;
+// a by-hand item's (a minnow's) is always its own `oil` (D-611)
+export const pourOf = (state, entry) => (entry?.oil ? Math.max(entry.oil, entry.byHand ? 0 : boonOf(state)?.pour ?? 0) : 0);
 // The hearts an eaten item heals: its `heal`, and Kind Herbs' 1 more (D-599)
 export const healOf = (state, entry) => (entry?.heal ?? 0) + (boonOf(state)?.heal ?? 0);
 // A beaten creature's chance to leave its rare one: the worn charm's, and Lucky Find's part above

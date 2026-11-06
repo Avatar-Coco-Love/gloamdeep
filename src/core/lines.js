@@ -115,7 +115,7 @@ export const LINES = {
   fishAway: { text: 'It got away.', warn: false }, // a bite not pulled in its turn; the float stays
   fishSlip: { text: 'No room. The minnow slips away.', warn: false }, // a catch with no room
   reelIn: { text: 'You reel in the line.', warn: false }, // walking off, or another tool held
-  pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Its uses come soon.'], warn: false },
+  pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Poured, it gives the lantern a little oil.'], warn: false },
   pondMinnowFull: { text: "You can't carry more minnows.", warn: false },
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free

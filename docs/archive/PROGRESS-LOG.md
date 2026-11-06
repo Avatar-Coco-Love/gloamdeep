@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
+  new way, a tick drinking 5% oil instead of biting, from depth 3
+  (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU
 - **2026-11-05, 0.3.62, Drifting motes.** All recommended: about 5 faint
   pale motes drift in the lantern light straight at the floor's stairs
   down, through walls; only where the light falls; gone once the stairs

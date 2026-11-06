@@ -45,9 +45,10 @@ export function canCraft(bag, i) {
 }
 
 // § flasks: the first slot holding oil to pour, or -1, and how many flasks are
-// carried in all, for the quick slot (D-384)
-export const firstFlask = (bag) => bag.findIndex((s) => get(s.id)?.oil);
-export const flasksIn = (bag) => bag.reduce((a, s) => a + (get(s.id)?.oil ? s.n : 0), 0);
+// carried in all, for the quick slot (D-384); oil poured only by hand, a minnow's, is not a flask (D-611)
+export const isFlask = (id) => !!get(id)?.oil && !get(id).byHand;
+export const firstFlask = (bag) => bag.findIndex((s) => isFlask(s.id));
+export const flasksIn = (bag) => bag.reduce((a, s) => a + (isFlask(s.id) ? s.n : 0), 0);
 
 // The bag with n (one unless said) taken from slot i; an emptied slot is
 // gone, and the ones after it move up

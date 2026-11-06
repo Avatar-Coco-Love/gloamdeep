@@ -129,8 +129,10 @@ export const ITEMS = {
   rod: { id: 'rod', kind: 'item', name: 'Wooden Rod', bag: true, max: 1, tool: true, holds: 'rodHold', away: 'rodAway', look: 'rodLook', full: 'rodFull',
     bench: { of: { wood: 2, spiderSilk: 2 }, says: 'rodMake', short: 'rodShort' } },
   // The first fish (D-608, D-610): caught at the home pond with the rod, never found, into the bag
-  // in stacks of 20; its uses come one a step.
-  pondMinnow: { id: 'pondMinnow', kind: 'item', name: 'Pond Minnow', bag: true, max: 20, look: 'pondMinnowLook', full: 'pondMinnowFull' },
+  // in stacks of 20; its uses come one a step. Poured from the bag, a turn, it gives the lantern
+  // `oil`, the flask's way (D-611); `byHand`: never by the quick slot or by itself, never more with
+  // Deep Pour, and not counted in Flasks poured.
+  pondMinnow: { id: 'pondMinnow', kind: 'item', name: 'Pond Minnow', bag: true, max: 20, oil: 0.15, byHand: true, look: 'pondMinnowLook', full: 'pondMinnowFull' },
   // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
   copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },
   // The first lantern part (D-483): made at the workbench, never found. Fit, in the bag, puts it
