@@ -10,7 +10,7 @@ import { BITE_CHANCE } from '../src/core/fishing.js';
 // The hero at 5,11 at home, the pond's water just above, the rod held
 const beside = (place = 'woods', tool = 'rod') => ({ ...makeState(withTile(makeRoom(FIRST_ROOM), 5, 10, get('water'))), hero: { x: 5, y: 11 }, tool, place, enemies: [] });
 const cast = (s = beside()) => step(s, 'up');
-const untilBite = (s) => { for (let i = 0; i < 200 && !s.float?.bite; i++) s = wait(s); return s; };
+const untilBite = (s, next = wait) => { for (let i = 0; i < 200 && !s.float?.bite; i++) s = next(s); return s; };
 
 test('bumping the home pond with the rod casts the line, a turn, the float on that tile', () => {
   const s = cast();
@@ -66,4 +66,14 @@ test('walking off, or holding another tool, reels the line in', () => {
   assert.equal(off.float, null);
   assert.equal(shownLine(off).text, 'You reel in the line.');
   assert.equal(wait({ ...cast(), tool: 'pick' }).float, null);
+});
+
+test('with the line out and no bite, bumping the water waits, a turn, the float where it is (D-612)', () => {
+  const s = cast(), bumped = step(s, 'up');
+  assert.equal(bumped.turn, s.turn + 1);
+  assert.deepEqual(bumped.hero, s.hero);
+  assert.equal(bumped.float.x, s.float.x); assert.equal(bumped.float.y, s.float.y); assert.equal(bumped.float.at, s.float.at);
+  const byBumps = untilBite(s, (x) => step(x, 'up')), byWaits = untilBite(s);
+  assert.equal(byBumps.turn, byWaits.turn); // a bump waits just as a wait does, so the bite comes on the same turn
+  assert.equal(byBumps.float.bite, true);
 });

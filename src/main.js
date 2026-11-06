@@ -363,8 +363,14 @@ const lanternButton = createLanternButton(hudCanvas, { onSwitch: switchIt });
 const pauseButton = createPauseButton(hudCanvas, { onPause: () => screens.pause() });
 const mapButton = createMapButton(hudCanvas, { onMap: () => screens.toggleMap() });
 const bagButton = createBagButton(hudCanvas, { onBag: () => screens.toggleBag() });
-// § quick slot: pours the first flask in the bag, one turn, like the bag's Pour (D-384)
-const quickSlot = createQuickSlot(hudCanvas, { onPour: () => { const i = firstFlask(app.state.bag); if (app.screen === 'play' && i >= 0) tryStep({ pour: i }); } });
+// § quick slot: pours the first flask in the bag, one turn, like the bag's Pour (D-384);
+// while a line is out, a bump of the float's tile beside the hero instead: wait, or pull (D-612)
+const towardFloat = ({ hero, float }) => Object.keys(DIRS).find((d) => hero.x + DIRS[d][0] === float.x && hero.y + DIRS[d][1] === float.y);
+const quickSlot = createQuickSlot(hudCanvas, { onPour: () => {
+  if (app.screen !== 'play') return;
+  const s = app.state, i = firstFlask(s.bag);
+  if (s.float) { const d = towardFloat(s); if (d) tryStep(d); } else if (i >= 0) tryStep({ pour: i });
+} });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {

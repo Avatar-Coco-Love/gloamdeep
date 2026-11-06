@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: fishing is
+  cast, wait, pull (D-608); the rod, in the Tool slot (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
 - **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
   new way, a tick drinking 5% oil instead of biting, from depth 3
   (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU

@@ -314,7 +314,7 @@ export function createFrame(app, ui) {
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
-    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag));
+    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)

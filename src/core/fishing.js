@@ -17,10 +17,11 @@ export const fishable = (state) => state.place === HOME;
 
 // § bump: bumping water with the rod held, a turn (endTurn follows, in turn.js). With a fish
 // on the line it lands, into the bag, the line coming in with it; with no room it slips
-// back (D-610). Otherwise the line is cast, the float landing on the bumped tile; cast
-// again, it moves there.
+// back (D-610). With the line out and no bite, the bump waits, the float where it is
+// (D-612). Otherwise the line is cast, the float landing on the bumped tile.
 export function bumpWater(state, x, y) {
   const next = passTurn(state);
+  if (state.float && !state.float.bite) return next;
   if (!state.float?.bite) return say({ ...next, float: { x, y, at: next.turn, bite: false } }, 'castLine');
   const bag = bagAdd(state.bag, POND_FISH, undefined, bagSize(state));
   if (!bag) return say({ ...next, float: null }, 'fishSlip');

@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.67 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.66 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.65 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.64 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -36,6 +37,13 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.64 (2026-11-06)
+- Fishing begins: make a Wooden Rod at the workbench from 2 Wood and 2 Spider Silk. It's a plain wooden pole with a silk line and a red-and-white float.
+- The rod is a tool: Hold it in the bag to put it in the Tool slot, a turn, swapping it with the Stone Pick there. Made with the Tool slot empty, it goes straight in.
+- Bump the pond, or a cave pool, with the rod held and the line says "The water is still. Fishing comes soon." No turn passes. Casting comes next.
+- How fishing will play: cast, wait for a bite (about 1 turn in 6), then pull within a turn. The first fish is the Pond Minnow, from the pond at home; later every pool has its own fish and finds. A fish will give oil, hearts and coins, and go into recipes.
+- Decisions: D-608, D-609.
 
 ## 0.3.63 (2026-11-05)
 - A new creature, the oil tick, now turns up from depth 3 down: a round tick swollen with amber oil. It chases you, and beside you it drinks 5% of your lantern's oil instead of biting, about 3 turns of light, even with the lantern off. Once the lantern is empty, it bites for 1.

@@ -88,6 +88,14 @@ export function drawFlaskSlot(c, n) {
   drawText(c, text, x, y, '#efe6cc');
 }
 
+// The quick slot while the line is out (D-612): WAIT in cream, or PULL in amber with a fish
+// on the line, like the bite's "!", in the same 20 × 16 icon
+export function drawFishSlot(c, bite) {
+  const text = bite ? 'PULL' : 'WAIT';
+  c.clearRect(0, 0, 20, 16);
+  drawText(c, text, Math.floor((20 - textWidth(text)) / 2), 4, bite ? '#ffc65c' : '#efe6cc');
+}
+
 // § arrow pad: the round pad's face (D-406), drawn at its own size, `size` CSS
 // pixels: faint lines between its quarters, the pressed quarter lit, and each
 // quarter's arrow, a 9 × 9 icon at 3 px a dot, stone grey, gold while pressed
