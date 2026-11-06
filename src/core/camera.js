@@ -8,12 +8,17 @@
 // put it on half a pixel, and the light can't be worked there (D-434).
 const TILE_SIZE = 16;
 export const MARGIN = 24; // 1½ tiles (D-441)
+const NONE = { x: 0, y: 0 }; // nothing covered
 
 // (hero's top-left in room pixels, room, screen width and height in pixels)
 // → { x, y }, the room pixel at the screen's top-left corner (below 0 when
 // the room is centred in a wider or taller screen, or the hero is near its edge)
-export function cameraAt(hx, hy, room, w, h) {
+// `cover`: how much of the screen the dev sheet hides, in screen pixels, along its
+// left side (x) or its foot (y); the same rules then work in the rest, so the hero
+// stays in the middle of what is still seen (D-623)
+export function cameraAt(hx, hy, room, w, h, cover = NONE) {
   const along = (p, size, view) => (size + 2 * MARGIN <= view ? Math.floor((size - view) / 2)
     : Math.max(-MARGIN, Math.min(size + MARGIN - view, Math.floor(p + TILE_SIZE / 2 - view / 2))));
-  return { x: along(hx, room.cols * TILE_SIZE, w), y: along(hy, room.rows * TILE_SIZE, h) };
+  const cx = Math.round(cover.x), cy = Math.round(cover.y);
+  return { x: along(hx, room.cols * TILE_SIZE, w - cx) - cx, y: along(hy, room.rows * TILE_SIZE, h - cy) };
 }

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.75, The waystone 3 × 3.** The owner's idea; all
+  recommended: look B, old and mossy; old saves made 3 × 3; the home plate
+  2 tiles north (D-620). Playtest: https://claude.ai/artifact/9ZHzxkeg64ELoupXWicPgr
 - **2026-11-06, 0.3.74, Research kept, the light kept.** Both
   recommended: one PR; the research pages in `RESEARCH-PAGES.md`;
   two docs split, five fixed; shadows cast only when a light moves

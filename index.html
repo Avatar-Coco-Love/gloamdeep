@@ -88,31 +88,36 @@
   #dev-readout.short { max-width: 50%; }
   #dev-readout[hidden] { display: none; }
   .px-said { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  /* the drawer: along the left edge, from under the wrench down to the stats
-     line (height set by script); tabs in a column, the open section beside */
+  /* the sheet: along the foot from the left, half the screen tall (width and
+     most height set by script); icon tabs in a row across its top, the open
+     section's name and tools under them (D-623) */
   #dev-panel {
-    left: max(8px, env(safe-area-inset-left)); box-sizing: border-box; padding: 6px;
-    display: grid; grid-template-columns: 72px auto; grid-template-rows: minmax(0, 1fr); gap: 6px;
-    border: 1px solid #3a3446; border-left: 2px solid #a58ce0; border-radius: 6px; background: rgba(14,12,22,.95);
-    box-shadow: 0 6px 20px rgba(0,0,0,.55);
+    left: 0; bottom: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px;
+    padding: 6px max(6px, env(safe-area-inset-right)) max(8px, env(safe-area-inset-bottom)) max(6px, env(safe-area-inset-left));
+    border-top: 2px solid #a58ce0; border-radius: 12px 12px 0 0; background: rgba(14,12,22,.97);
+    box-shadow: 0 -6px 18px rgba(0,0,0,.6);
     transition: transform .14s ease-out;
   }
-  #dev-panel.shut { transform: translateX(calc(-100% - 16px)); visibility: hidden; transition: transform .14s ease-in, visibility 0s .14s; }
+  #dev-panel.has-body { height: 100%; } /* filled to its most while a section is open */
+  #dev-panel.shut { transform: translateY(calc(100% + 16px)); visibility: hidden; transition: transform .14s ease-in, visibility 0s .14s; }
   @media (prefers-reduced-motion: reduce) { #dev-panel, #dev-panel.shut { transition: none; } }
   #dev-panel button { min-height: 44px; padding: 0 8px; color: inherit; border-radius: 4px; cursor: pointer; }
   #dev-panel button:active { transform: translateY(1px); }
-  /* tabs: violet words stacked on the drawer's darkest ground */
-  #dev-panel .dev-tabs { display: flex; flex-direction: column; gap: 4px; min-height: 0; overflow-y: auto; } /* scrolls when short, as sideways */
-  #dev-panel .dev-tab { flex: none; color: #a99cc9; background: #1b1728; border: 1px solid #332b4a; text-align: left; }
+  #dev-panel .dev-grab { flex: none; align-self: center; width: 36px; height: 4px; border-radius: 2px; background: #4a4260; }
+  /* tabs: violet icons in a row on the sheet's darkest ground */
+  #dev-panel .dev-tabs { flex: none; display: flex; gap: 4px; }
+  #dev-panel .dev-tab { flex: 1; min-width: 0; display: grid; place-items: center; padding: 0; color: #a99cc9; background: #1b1728; border: 1px solid #332b4a; }
   #dev-panel .dev-tab:hover { border-color: #5c4d86; }
   #dev-panel .dev-tab[aria-expanded="true"] { color: #f0eaff; background: #3a2f5c; border-color: #a58ce0; }
-  /* the open section: a stone-coloured column of tools, scrolling when long */
+  #dev-panel .dev-head { flex: none; color: #f0eaff; padding: 0 2px; }
+  #dev-panel .dev-head[hidden] { display: none; }
+  /* the open section: stone-coloured tools, scrolling when long */
   #dev-panel .dev-body {
-    width: 148px; box-sizing: border-box; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 6px; padding: 6px;
+    flex: 1; min-height: 0; box-sizing: border-box; display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: 6px; padding: 6px;
     overflow-y: auto; background: #1d212b; border: 1px solid #2b303c; border-radius: 4px;
   }
   #dev-panel .dev-body[hidden] { display: none; }
-  #dev-panel .dev-row { display: grid; grid-template-columns: 1fr; gap: 4px; }
+  #dev-panel .dev-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 4px; }
   #dev-panel .dev-kind { color: #7d869c; margin-top: 2px; }
   #dev-panel .dev-body button { color: #d3d7e0; background: #2b303c; border: 1px solid #3f4656; }
   #dev-panel .dev-body button:hover { border-color: #69748b; }

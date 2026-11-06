@@ -1,12 +1,12 @@
 // § dev: dev tools (DEV-TOOLS.md), on for everyone on every build (D-086).
-// A wrench button slides out the drawer (panel.js); a stats line sits at the
+// A wrench button slides up the sheet (panel.js, D-623); a stats line sits at the
 // bottom left (D-088), or a short one with Settings' Stats line (D-412); on a
 // PC, keys work the drawer (D-090). Words are in the game's pixel font (D-200).
 import { tileAt, depthOf } from '../core/room.js';
 import { get } from '../core/registry.js';
 import { itemAt } from '../core/turn.js';
 import { spawn } from '../core/spawn.js';
-import { TILE, BUTTON, BUTTON_GAP, PAD_DISC, view, panelFoot } from '../render/screen.js';
+import { TILE, BUTTON, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
 import { lineUp } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
 import { buildPanel, el } from './panel.js';
@@ -16,7 +16,9 @@ import { DAY_TURNS } from '../core/daytime.js';
 import { statsShown, padShown } from '../core/settings.js';
 import { keep } from '../render/wipe.js';
 
+const NONE = { x: 0, y: 0 };
 const KEY = 'gloamdeep-dev'; // localStorage: the switches and the open sections
+const SHEET_W = 420, SHEET_SHORT = 300; // the sheet's widest, and its least height before two thirds (D-623)
 
 // § storage: wrapped in try/catch, the game works without it (TECH.md)
 function load() {
@@ -48,15 +50,14 @@ export function createDev(stage, canvas, game, picture) {
   const readout = el('div', { id: 'dev-readout' });
   const tools = buildPanel(panel, opts, () => save(opts), game);
   document.body.append(button, panel, readout);
-  // § drawer: along the screen's left edge, from under the wrench's row, or the
-  // hearts panel's foot when that is lower (D-512), down to the bottom (D-200). The stats line, small, sits bottom left just above the
-  // text line's glass (D-382), or just above the arrow pad while it shows (D-412)
+  // § sheet: along the screen's foot from the left, half the screen tall and at most
+  // SHEET_W wide; on a short screen taller, up to two thirds, so the tools still
+  // fit (D-623). Folded, it is only its tabs. The stats line, small, sits bottom left just above the
+  // text line's glass (D-382), or just above the arrow pad while it shows (D-412), or the sheet while it is up
   let lineBottom = 0, padBottom = 0;
   const fitPanel = () => {
-    const foot = document.getElementById('hud').getBoundingClientRect().top + panelFoot.y * view.scale + BUTTON_GAP;
-    const top = Math.round(Math.max(parseFloat(button.style.top) + 52, foot));
-    panel.style.top = top + 'px';
-    panel.style.height = Math.max(88, innerHeight - 8 - top) + 'px';
+    panel.style.width = Math.min(innerWidth, SHEET_W) + 'px';
+    panel.style.maxHeight = Math.round(Math.max(innerHeight / 2, Math.min(innerHeight * 2 / 3, SHEET_SHORT))) + 'px';
   };
   const wrench = keepFading(picture, button, -1, BUTTON, (top, left, room) => { // it fades with the round map (D-442)
     lineBottom = innerHeight - room.bottom + (lineUp() + 2) * (room.height / picture.height); // above it, upright too (D-505)
@@ -64,11 +65,12 @@ export function createDev(stage, canvas, game, picture) {
     readout.style.bottom = lineBottom + 'px';
     fitPanel();
   });
+  addEventListener('resize', fitPanel);
 
   let open = false;
   const showPanel = (show) => {
     open = show;
-    if (show) fitPanel(); // under the hearts panel as it stands now (D-512)
+    if (show) fitPanel();
     panel.style.transition = game.still() ? 'none' : ''; // the Motion switch (D-190)
     panel.classList.toggle('shut', !show);
     panel.inert = !show;
@@ -116,8 +118,20 @@ export function createDev(stage, canvas, game, picture) {
     frames++;
     if (now - since >= 500) { fps = Math.round((frames * 1000) / (now - since)); frames = 0; since = now; }
   }
+  // § cover: what the open sheet hides of the room's canvas, in its pixels: along
+  // its foot when that leaves more of the room seen, else along its left side,
+  // so the camera keeps the hero in what is left (D-623)
+  const cover = () => {
+    if (!open || hidden) return NONE;
+    const r = canvas.getBoundingClientRect(), w = panel.offsetWidth, h = panel.offsetHeight;
+    if (!r.width || !r.height) return NONE;
+    if (innerWidth * (innerHeight - h) >= (innerWidth - w) * innerHeight) return { x: 0, y: Math.max(0, r.bottom - (innerHeight - h)) * canvas.height / r.height };
+    return { x: Math.max(0, w - r.left) * canvas.width / r.width, y: 0 };
+  };
+
   return {
     hide,
+    cover,
     wrench, // area() and fade(alpha), for the top right corner's fade (D-442)
     armed: () => tools.picked() !== null,
     lightOff: () => opts.noLight, // see the whole room, lit or not (D-057)
@@ -144,7 +158,7 @@ export function createDev(stage, canvas, game, picture) {
       readout.hidden = !full && !short;
       if (readout.hidden) return;
       readout.classList.toggle('short', short);
-      readout.style.bottom = (padShown(game.settings()) ? Math.max(lineBottom, padBottom) : lineBottom) + 'px';
+      readout.style.bottom = (open ? panel.offsetHeight + 6 : padShown(game.settings()) ? Math.max(lineBottom, padBottom) : lineBottom) + 'px'; // above the sheet while it is up (D-623)
       const h = state.hero, picked = tools.picked(), day = `day ${state.turn % DAY_TURNS}/${DAY_TURNS}`;
       let next = short
         ? `fps ${fps} · turn ${state.turn} · ${day} · xp ${state.xp} · hero ${h.x},${h.y} · seed ${state.seed}`

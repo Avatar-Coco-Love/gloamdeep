@@ -22,9 +22,11 @@ tools to be chosen together later.
 - The panel has sections, View, Spawn, Room, Oil, Hero, Share, one open
   at a time, remembered (D-087). Colours: D-093. Code: `src/dev/panel.js`. **A new tool
   goes into a section there**, or a new section.
-- It is a drawer along the left edge, from under the wrench's row down to
-  the bottom; tabs in a column, the open section's tools beside them;
-  all words in the pixel font (D-200). Code: `src/dev/pixeltext.js`.
+- It is a sheet along the screen's foot, half its height, the room
+  sliding clear above it; icon tabs in a row across its top, the open
+  section's name and tools under them; on wide screens at most 420 px
+  wide, at the bottom left (D-623, was a drawer, D-200). All words are
+  in the pixel font (D-200). Code: `src/dev/pixeltext.js`.
 - The wrench stands left of the pause button, top right (D-381).
 - Stats line, with the Stats switch in View on (off at first, D-382), small,
   bottom left above the text line: frames a second (fps, D-294), turn, oil %, lit or dark, hero tile, then the
@@ -61,10 +63,8 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
-- Coming, in order (D-621): the panel as a bottom sheet with pictures
-  (half height, the room seen above it, icon tabs, a search box, Spawn
-  a grid of sprites by kind); then god mode, and saving and loading
-  test spots.
+- Coming, in order (D-621, D-623): Spawn a grid of sprites by kind,
+  with a search box; then god mode, and saving and loading test spots.
 
 ## Candidates (the owner picks; record each pick as a decision)
 - God mode (no damage); the owner wants it next (D-154), picked (D-621)

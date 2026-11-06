@@ -20,7 +20,6 @@ export const VIEW_ROWS = 11; // the room's view is about this many tiles tall (D
 export const MIN_ROWS = 9; // a narrow room zooms in no further than this many tiles tall (D-444)
 export const view = { w: W, h: H, scale: 1, left: 0, top: 0 }; // the screen layer's size in game pixels: the panel, plaques, text line and cards (D-444), and its zoom, set by the fit
 export const roomView = { w: W, h: H };
-export const panelFoot = { y: 0 }; // the hearts panel's foot on the screen layer, in its game pixels, for the dev drawer under it (D-512)
 // The screen layer's game pixel nearest BUTTON_GAP CSS pixels in from the screen's left and top,
 // so the panel stands as far in as the round buttons (D-512)
 export const edgeIn = () => [Math.max(1, Math.round((BUTTON_GAP - view.left) / view.scale)), Math.max(1, Math.round((BUTTON_GAP - view.top) / view.scale))]; // the room canvas's size in game pixels, zoomed in for a narrow room (D-441)
