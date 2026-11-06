@@ -75,10 +75,21 @@ test('the Bestiary tab is tapped as the others; all twelve fit upright in one ta
 // § pages (D-352, D-631): how it acts shows once one is beaten, before that a grey hint
 test('a page says how the creature acts once one is beaten, and a hint before', () => {
   const book = { bat: { met: 1, beaten: 0 }, rat: { met: 3, beaten: 2 } };
-  assert.deepEqual(pageOf(book, 'bat'), { id: 'bat', name: 'Bat', counts: '1 met, 0 beaten', known: false, acts: HINT });
+  assert.deepEqual(pageOf(book, 'bat'), { id: 'bat', name: 'Bat', counts: '1 met, 0 beaten', known: false, acts: HINT, skilled: false, fights: 'Beat 3 to learn how to fight it.' });
   assert.equal(pageOf(book, 'rat').acts, 'Comes at you once it sees you in the light. Hurt, it often turns and runs.');
-  assert.equal(pageWords(book, 'rat'), 'Journal, Bestiary, Rat. 3 met, 2 beaten. Comes at you once it sees you in the light. Hurt, it often turns and runs. Esc or the close button goes back to the Bestiary.');
+  assert.equal(pageWords(book, 'rat'), 'Journal, Bestiary, Rat. 3 met, 2 beaten. Comes at you once it sees you in the light. Hurt, it often turns and runs. How to fight it: Beat 1 more to learn how to fight it. Esc or the close button goes back to the Bestiary.');
   assert.equal(HINT, 'Beat one to learn how it acts.');
+});
+
+// § fighting (D-352, D-632): how to fight it once 3 are beaten, before that a grey count down
+test('a page says how to fight the creature once 3 are beaten, counting down before', () => {
+  const at = (beaten) => pageOf({ mole: { met: 5, beaten } }, 'mole');
+  assert.equal(at(1).fights, 'Beat 2 more to learn how to fight it.');
+  assert.equal(at(2).fights, 'Beat 1 more to learn how to fight it.');
+  assert.equal(at(2).skilled, false);
+  assert.equal(at(3).skilled, true);
+  assert.equal(at(3).fights, 'Four lantern swings or two knife blows. Wait for it to come to you, and start with your hearts full.');
+  assert.equal(at(4).fights, at(3).fights);
 });
 
 test('Up and Down pick a row inside the rows met; a tap on a row picks its page', () => {

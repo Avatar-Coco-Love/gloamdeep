@@ -80,7 +80,7 @@ function addRow(f, p, heading, id, cells) {
 // § kinds: what each writes (docs/TECH.md, "Adding content")
 const MAKE = {
   creature(f, id, name) {
-    insert(f, 'src/core/enemies.js', 'export const ENEMIES = {', '\n};', `\n  // ${name}: made by tools/make.js (D-622); a sound of its own is optional (sound.js)\n  ${id}: { id: ${q(id)}, kind: 'enemy', name: ${q(name)}, health: 1 ${B}, bite: 1 ${B}, ways: [] ${B}, acts: '' ${B}, die: '${id}Die', bites: '${id}Bite' },`);
+    insert(f, 'src/core/enemies.js', 'export const ENEMIES = {', '\n};', `\n  // ${name}: made by tools/make.js (D-622); a sound of its own is optional (sound.js)\n  ${id}: { id: ${q(id)}, kind: 'enemy', name: ${q(name)}, health: 1 ${B}, bite: 1 ${B}, ways: [] ${B}, acts: '' ${B}, fights: '' ${B}, die: '${id}Die', bites: '${id}Bite' },`);
     addLines(f, [[`${id}Die`, `${name}: dies`], [`${id}Bite`, `${name}: bites`, ", kind: 'harm'"]]);
     addArt(f, id, true);
     insert(f, 'src/core/room.js', 'const POOL = [', '\n];', `\n  { id: ${q(id)}, from: Infinity ${B} }, // made by tools/make.js: only the dev tools until its depth is chosen`);

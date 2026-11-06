@@ -18,7 +18,7 @@ import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON
 import { TABS, recordRows } from '../core/journal.js';
 import { ROWS, ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
-import { bestiaryRows, pageOf, NONE } from '../core/bestiary.js';
+import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
@@ -212,12 +212,17 @@ function drawBestiary(c, card, book, sprites, beast) {
 }
 
 // § page: one creature's page (D-631), under the tabs: its drawing at twice the size, its name
-// and counts beside it, then how it acts in light words, or the hint in grey
-const PAGE_Y = 54, BIG = 2 * SPRITE_W, ACTS_GAP = 12;
+// and counts beside it, then how it acts in light words, or the hint in grey; under a gold
+// heading, how to fight it, or its count down in grey (D-632)
+const PAGE_Y = 54, BIG = 2 * SPRITE_W, ACTS_GAP = 12, LINE_H = 11, FIGHT_GAP = 8;
 function drawPage(c, card, p, img) {
-  const x = card.x + PAD, y = card.y + PAGE_Y, nx = x + BIG + 8;
+  const x = card.x + PAD, y = card.y + PAGE_Y, nx = x + BIG + 8, w = card.w - 2 * PAD;
   if (img) { c.save(); c.imageSmoothingEnabled = false; c.drawImage(img, x, y, BIG, BIG); c.restore(); }
   drawText(c, p.name, nx, y + 6, CORE);
   drawText(c, p.counts, nx, y + 18, GREY);
-  wrapWords(p.acts, card.w - 2 * PAD).forEach((l, i) => drawText(c, l, x, y + BIG + ACTS_GAP + i * 11, p.known ? CORE : GREY));
+  const acts = wrapWords(p.acts, w), ay = y + BIG + ACTS_GAP;
+  acts.forEach((l, i) => drawText(c, l, x, ay + i * LINE_H, p.known ? CORE : GREY));
+  const fy = ay + acts.length * LINE_H + FIGHT_GAP;
+  drawText(c, FIGHT_HEADING, x, fy, GOLD);
+  wrapWords(p.fights, w).forEach((l, i) => drawText(c, l, x, fy + LINE_H + 2 + i * LINE_H, p.skilled ? CORE : GREY));
 }

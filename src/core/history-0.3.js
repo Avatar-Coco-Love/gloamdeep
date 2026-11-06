@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.87', date: '2026-11-06', title: 'How to fight it', lines: [
+    "A creature's Bestiary page now ends with how to fight it, under a gold heading, once you have beaten 3 of them. Before that it says in grey how many more to beat: \"Beat 2 more to learn how to fight it.\" Each creature has a tip or two of its own, such as waiting for it to step up to you so you strike first.",
+    "Decisions: D-632. D-623 moved to the archive, word for word.",
+  ] },
   { v: '0.3.86', date: '2026-11-06', title: 'How it acts', lines: [
     "Each creature in the Bestiary has its own page: tap its row, or pick it with Up or Down and press Enter. The page shows its drawing twice as big, its name and counts, and, once you have beaten one, a sentence or two on how it acts. Before that it says \"Beat one to learn how it acts.\" Esc, the round cross or Left goes back to the table.",
     "Decisions: D-631. D-622 moved to the archive, word for word.",

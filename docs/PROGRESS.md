@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Step 19, Lore: the Bestiary's last piece, "how to fight it" on a page
-once 3 are beaten (D-352), Claude drafting the words for the owner to
-edit (D-630); the owner's lore ideas still come before the lore lines (D-629).
+Step 19, Lore: the Bestiary is done; next, the owner's lore ideas, then
+a lore line per creature, or the first quests, a list of goals (D-629).
 
 ## Waiting on the owner
 - Your own lore ideas, before the Bestiary lines (D-629).
@@ -41,7 +40,7 @@ The rest of the scope, proposed (D-482; may change):
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
   the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
-- [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86)
+- [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87)
 - [ ] 20 Relics
 - [ ] 21 Feats
 
@@ -53,11 +52,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
+  tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
 - **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's
   lines as drafted, on a page per creature opened from its row, a grey
   hint until one is beaten (D-631). Playtest: https://claude.ai/artifact/24JKyL2uLVyg6nTZKCxTEw
 - **2026-11-06, 0.3.85, The Bestiary tab.** All recommended: a Journal
   tab of creatures met and beaten, met when first lit (D-630). Playtest: https://claude.ai/artifact/Nc7T1rXqUHtMGK3SNhWH8k
-- **2026-11-06, 0.3.84, Special creatures.** Docs only: the owner's
-  idea of bosses, rare named creatures and wanderers with histories and
-  a Feat each is saved as Q-083, in a new `OPEN-QUESTIONS-3.md`.

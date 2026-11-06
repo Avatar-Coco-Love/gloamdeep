@@ -56,7 +56,7 @@ code; where this page and a decision disagree, the decision wins.
 - **Journal:** one book with tabs: Records first, then Growth, later
   quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
 - **Bestiary:** the Journal's third tab, a table of the creatures met, how many met and
-  beaten (D-630); more of a page shows the more you meet and fight that creature (D-350).
+  beaten (D-630); more of a page shows the more you meet and fight that creature (D-350): how it acts after one is beaten, how to fight it after 3 (D-631, D-632).
 - **Met:** a creature lit for the first time, showing itself, each one once (D-630).
 - **Growth:** the Journal's tab for spending embers (D-293), a tree with
   three branches, Light, Body and Hands (D-462, D-481).

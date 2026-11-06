@@ -40,11 +40,15 @@ export const bestiaryRows = (book) => ALL.filter((c) => c.kind === 'enemy' && bo
 // One row's counts, as written under its name
 export const countsText = (row) => `${row.met} met, ${row.beaten} beaten`;
 // § page: one creature's page (D-350, D-631): its counts, and once one is beaten how it acts
-// (D-352), before that a grey hint. `known` says which.
+// (D-352), before that a grey hint. `known` says which. Then how to fight it, once 3 are beaten
+// (D-632), before that a grey count down; `skilled` says which.
 export const HINT = 'Beat one to learn how it acts.';
+export const FIGHT_HEADING = 'How to fight it';
+export const FIGHT_AT = 3;
+export const fightHint = (beaten) => (beaten ? `Beat ${FIGHT_AT - beaten} more to learn how to fight it.` : `Beat ${FIGHT_AT} to learn how to fight it.`);
 export function pageOf(book, id) {
-  const c = get(id), n = { met: 0, beaten: 0, ...book[id] }, known = n.beaten > 0;
-  return { id, name: c.name, counts: countsText(n), known, acts: known ? c.acts : HINT };
+  const c = get(id), n = { met: 0, beaten: 0, ...book[id] }, known = n.beaten > 0, skilled = n.beaten >= FIGHT_AT;
+  return { id, name: c.name, counts: countsText(n), known, acts: known ? c.acts : HINT, skilled, fights: skilled ? c.fights : fightHint(n.beaten) };
 }
 // The picked row's index kept inside the rows there are, d steps on (Up -1, Down +1)
 export const movePickRow = (book, pick, d) => Math.max(0, Math.min(bestiaryRows(book).length - 1, pick + d));
@@ -58,5 +62,5 @@ export function bestiaryWords(book, pick = 0) {
 }
 export function pageWords(book, id) {
   const p = pageOf(book, id);
-  return `Journal, Bestiary, ${p.name}. ${p.counts}. ${p.acts} Esc or the close button goes back to the Bestiary.`;
+  return `Journal, Bestiary, ${p.name}. ${p.counts}. ${p.acts} ${FIGHT_HEADING}: ${p.fights} Esc or the close button goes back to the Bestiary.`;
 }
