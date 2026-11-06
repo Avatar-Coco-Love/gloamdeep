@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.84', date: '2026-11-06', title: 'Special creatures', lines: [
+    "Nothing in the game changed. The owner's idea is saved as a question: bosses, rare named creatures and unique wanderers with histories of their own, told in lore pages, on their Bestiary page and by the guide or people, each with a Feat for beating it.",
+    "Questions opened: Q-083.",
+  ] },
   { v: '0.3.83', date: '2026-11-06', title: 'The first words', lines: [
     "A new journey now opens with its first words, on a card in the middle of the dim crypt: \"You wake in the dark of the crypt. Your lantern still burns, but its oil will not last. Something waits below.\" Begin, or a tap anywhere, starts the journey.",
     "Decisions: D-628, D-629. D-620 moved to the archive, word for word.",

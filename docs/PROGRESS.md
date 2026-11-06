@@ -29,6 +29,7 @@ Bestiary line for each creature (D-629).
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
 - Which depths are which biome (Q-082), before the scope map is filled.
+- Special creatures with histories (Q-083), at their own step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -51,6 +52,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.84, Special creatures.** Docs only: the owner's
+  idea of bosses, rare named creatures and wanderers with histories and
+  a Feat each is saved as Q-083, in a new `OPEN-QUESTIONS-3.md`.
 - **2026-11-06, 0.3.83, The first words.** The owner's picks: a card
   in the room with three sentences opens a new journey (D-628); lore
   starts with Bestiary lines after the owner's ideas; quests later as
@@ -58,7 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-06, 0.3.82, Test spots.** All recommended: three slots on
   this device in a new Spots section; Load is a dev jump (D-627). Step
   18b is done. Playtest: https://claude.ai/artifact/EHsrMWYnTsnevjbP8AmzF8
-- **2026-11-06, 0.3.81, Endless oil.** All recommended: lit turns burn
-  nothing and an oil tick's drink takes nothing, still shown; the oil
-  stays where it is; under Refill and Empty, kept in the save (D-626).
-  Playtest: https://claude.ai/artifact/6NcqvqPzQxCQjnCC3ef9Xe
