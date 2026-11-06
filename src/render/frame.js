@@ -45,7 +45,7 @@ import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawFloat, drawBite } from './float.js';
 import { drawStrikeCard } from './strikecard.js';
-import { needleAt } from '../core/fishing.js';
+import { needleAt, zoneWidth } from '../core/fishing.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn, bagSize } from '../core/bag.js';
@@ -322,7 +322,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
     else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
-    else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t))); // the strike meter, the room paused (D-614)
+    else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float)); // the strike meter, the room paused (D-614)
     else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
     else if (app.screen === 'easier' || app.screen === 'bed') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)

@@ -51,6 +51,10 @@ function wrap({ file, text, imports }) {
     body = body.replace(line, fields.length ? `const { ${fields.join(', ')} } = __gd['${dep}'];` : '');
     if (kind === 'export') exported.push(...list); // passed on; a name also imported is bound once
   }
+  body = body.replace(/^export\s*\{([^}]*)\};?[ \t]*$/gm, (_, names) => { // a plain list, `export { a, b };` (pictures.js, D-617)
+    exported.push(...names.split(',').map((n) => n.trim()).filter(Boolean));
+    return '';
+  });
   body = body.replace(/^export\s+(const|function)\s+(\w+)/gm, (_, kind, name) => {
     exported.push(name);
     return `${kind} ${name}`;

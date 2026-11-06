@@ -108,8 +108,7 @@ export const LINES = {
   rodLook: { texts: ['A wooden rod, strung with spider silk.', 'Hold it to use it.', 'A red and white float bobs on it.'], warn: false },
   rodHold: { text: 'You hold the wooden rod.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-609)
   rodAway: { text: 'You put the wooden rod away.', warn: false }, // Take off, into the bag, free
-  waterCast: { text: 'The water is still. Fishing comes soon.', warn: false }, // bumping a cave pool with the rod held, free (D-609)
-  castLine: { text: 'You cast the line.', warn: false }, // bumping the home pond with the rod held, a turn (D-610)
+  castLine: { text: 'You cast the line.', warn: false }, // bumping water with the rod held, a turn (D-610, D-618)
   fishNibble: { text: 'A nibble...', warn: false }, // 1 waiting turn in 6, the float twitching; the bite next turn (D-613)
   fishBite: { text: 'Something bites!', warn: false }, // the turn after a nibble, the "!" over the float
   fishCatch: { text: 'You catch a pond minnow.', warn: false }, // a strike in the strike meter's zone (D-614)
@@ -119,6 +118,11 @@ export const LINES = {
   pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Poured, it gives the lantern a little oil.'], warn: false },
   pondMinnowFull: { text: "You can't carry more minnows.", warn: false },
   minnowEat: { text: 'You eat the minnow. Cold, but filling.', warn: false }, // eaten from the bag, 1 heart (D-615)
+  cavefishCatch: { text: 'You catch a blind cavefish.', warn: false }, // a cave pool's catch (D-618)
+  cavefishSlip: { text: 'No room. The cavefish slips away.', warn: false },
+  blindCavefishLook: { texts: ['A blind cavefish, pale as bone.', 'It has never seen light.', 'Poured, it gives the lantern more oil.'], warn: false },
+  blindCavefishFull: { text: "You can't carry more cavefish.", warn: false },
+  cavefishEat: { text: 'You eat the cavefish. Cold, but filling.', warn: false }, // eaten from the bag, 1 heart (D-618)
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

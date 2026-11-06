@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.73', date: '2026-11-06', title: 'The cave pools\' fish', lines: [
+    "Cave pools can be fished now: with the Wooden Rod held, bump a cave pool's water to cast, wait for the nibble and the bite, and strike in the light, just as at the pond at home.",
+    "A cave pool's fish is the Blind Cavefish: pale and eyeless, bone and cream with a faint pink gill. Poured it gives the lantern 20% of a tank, eaten it heals 1 heart, and the peddler pays 2 coins. Its strike zone is a fifth of the bar, a little smaller than the minnow's quarter.",
+    "\"Fishing comes soon.\" is gone. Finds caught in pools come at a later step.",
+    "Decisions: D-618.",
+  ] },
   { v: '0.3.72', date: '2026-11-06', title: 'The ninth audit', lines: [
     "The ninth audit: tidying behind the scenes, nothing in the game changed. The pixel pictures moved into their own file, three nearly full notes were split, and older decisions and finished steps were archived.",
     "Decisions: D-617. D-169 to D-176 moved to the archive, word for word.",

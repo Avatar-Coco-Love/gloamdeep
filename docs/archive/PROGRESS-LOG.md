@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.70, Eating a minnow.** All recommended: 1 heart, Eat
+  left of Pour, E eats, its line (D-615). Playtest: https://claude.ai/artifact/6pEFSgijeiyzFsXSM9fJMJ
 - **2026-11-06, 0.3.69, The strike meter.** All recommended: look A, back
   and forth 3 passes, a miss brings the line in (D-614). Playtest: https://claude.ai/artifact/SvXSvLfy2h7NES27drBewA
 - **2026-11-06, 0.3.68, The nibble.** All recommended: a nibble 1 turn

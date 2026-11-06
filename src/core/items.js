@@ -125,14 +125,18 @@ export const ITEMS = {
     bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
   // The first rod, fishing's first step (D-609): made at the workbench as the pick is, never
   // found. A `tool` like the pick, held in the Tool slot, swapped with the pick there. Held,
-  // bumping a cave pool says its `cast` line, free; the home pond is fished (fishing.js, D-610).
+  // bumping water fishes it: the home pond and the cave pools (fishing.js, D-610, D-618).
   rod: { id: 'rod', kind: 'item', name: 'Wooden Rod', bag: true, max: 1, tool: true, holds: 'rodHold', away: 'rodAway', look: 'rodLook', full: 'rodFull',
     bench: { of: { wood: 2, spiderSilk: 2 }, says: 'rodMake', short: 'rodShort' } },
   // The first fish (D-608, D-610): caught at the home pond with the rod, never found, into the bag
   // in stacks of 20; its uses come one a step. Poured from the bag, a turn, it gives the lantern
   // `oil`, the flask's way (D-611); `byHand`: never by the quick slot or by itself, never more with
-  // Deep Pour, and not counted in Flasks poured.
-  pondMinnow: { id: 'pondMinnow', kind: 'item', name: 'Pond Minnow', bag: true, max: 20, oil: 0.15, byHand: true, heal: 1, eats: 'minnowEat', look: 'pondMinnowLook', full: 'pondMinnowFull', sells: 1 },
+  // Deep Pour, and not counted in Flasks poured. A fish's `caught` and `slips` lines are said as it
+  // lands or, with no room, slips back; its `zone`, the strike meter's, a quarter when unset.
+  pondMinnow: { id: 'pondMinnow', kind: 'item', name: 'Pond Minnow', bag: true, max: 20, oil: 0.15, byHand: true, heal: 1, eats: 'minnowEat', look: 'pondMinnowLook', full: 'pondMinnowFull', sells: 1, caught: 'fishCatch', slips: 'fishSlip' },
+  // The cave pools' fish (D-618), the minnow's way, a little better: 20% oil, 1 heart, 2 coins,
+  // its strike zone a fifth of the bar.
+  blindCavefish: { id: 'blindCavefish', kind: 'item', name: 'Blind Cavefish', bag: true, max: 20, oil: 0.2, byHand: true, heal: 1, eats: 'cavefishEat', look: 'blindCavefishLook', full: 'blindCavefishFull', sells: 2, zone: 1 / 5, caught: 'cavefishCatch', slips: 'cavefishSlip' },
   // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
   copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },
   // The first lantern part (D-483): made at the workbench, never found. Fit, in the bag, puts it

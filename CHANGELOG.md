@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.73 (2026-11-06)
+- Cave pools can be fished now: with the Wooden Rod held, bump a cave pool's water to cast, wait for the nibble and the bite, and strike in the light, just as at the pond at home.
+- A cave pool's fish is the Blind Cavefish: pale and eyeless, bone and cream with a faint pink gill. Poured it gives the lantern 20% of a tank, eaten it heals 1 heart, and the peddler pays 2 coins. Its strike zone is a fifth of the bar, a little smaller than the minnow's quarter.
+- "Fishing comes soon." is gone. Finds caught in pools come at a later step.
+- Decisions: D-618.
+
 ## 0.3.72 (2026-11-06)
 - The ninth audit: tidying behind the scenes, nothing in the game changed. The pixel pictures moved into their own file, three nearly full notes were split, and older decisions and finished steps were archived.
 - Decisions: D-617. D-169 to D-176 moved to the archive, word for word.
@@ -30,7 +36,3 @@ Entry format:
 ## 0.3.71 (2026-11-06)
 - The peddler now buys Pond Minnows: 1 coin each, the same as a common material. Pick one on his Sell tab, then Sell, Enter or Space. No turn passes.
 - Decisions: D-616. D-609 moved to the archive, word for word.
-
-## 0.3.70 (2026-11-06)
-- A Pond Minnow can now be eaten: in the bag, EAT sits beside POUR and heals 1 heart, taking a turn. It is dim when you aren't hurt. The E key eats; Enter still pours.
-- Decisions: D-615. D-583 moved to the archive, word for word.

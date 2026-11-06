@@ -83,7 +83,7 @@ themselves. Each kind also touches:
 - **A person:** its entry in `src/core/people.js` (its `calls` line); its
   lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`, drawn facing left; where
   it stands in `cave.js` (like `withTrapped`) or `room.js`; its row in
-  `CONTENT-2.md` (D-490).
+  `CONTENT-2.md` (D-490), or `CONTENT-3.md` for tiles, lights and places (D-618).
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in
   `tests/registry.test.js` and the room tests, where they change.
 

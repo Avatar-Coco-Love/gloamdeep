@@ -49,6 +49,7 @@ neared 8 KB.
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
 - **Pond Minnow:** the first fish, from the pond at home; poured for 15% oil, or eaten for 1 heart (D-608, D-610, D-611, D-615).
+- **Blind Cavefish:** the cave pools' fish, pale and eyeless; poured for 20% oil, eaten for 1 heart, sold for 2 coins (D-618).
 - **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).
 - **Nibble:** the turn before a bite, the float shaking, "A nibble..." (D-613).
 - **Strike meter:** the card a pulled bite opens, a needle swept across a bar; tap in the amber zone to land the fish (D-614).

@@ -30,7 +30,7 @@ import { fetchBag } from './fall.js';
 import { sleep } from './sleep.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
-import { fishable, bumpWater } from './fishing.js';
+import { bumpWater } from './fishing.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -61,7 +61,7 @@ export function step(state, dir) {
     if (tile.sleeps) return sleep(state); // the bed (D-488)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
-    if (tile.cast && state.tool === 'rod') return fishable(state) ? endTurn(state, bumpWater(state, x, y)) : say(state, tile.cast); // the home pond: cast or pull, a turn (D-610); elsewhere its line, free (D-609)
+    if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)
     if (tile.bump) return say(state, tile.bump); // a bare bush: its line, free (D-531)
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }

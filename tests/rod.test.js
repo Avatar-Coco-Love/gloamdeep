@@ -44,11 +44,11 @@ test('Hold on the rod swaps it with the pick in the Tool slot, a turn', () => {
 // The hero at 5,11 in the first room, water just above
 const beside = (tool) => ({ ...makeState(withTile(makeRoom(FIRST_ROOM), 5, 10, get('water'))), hero: { x: 5, y: 11 }, tool });
 
-test('bumping water with the rod held says its line, free; without it, nothing', () => {
+test('bumping a cave pool with the rod held casts, a turn; without it, nothing (D-618)', () => {
   const s = step(beside('rod'), 'up');
-  assert.equal(s.turn, 0);
+  assert.equal(s.turn, 1);
   assert.equal(tileAt(s.room, 5, 10).id, 'water');
   assert.deepEqual(s.hero, { x: 5, y: 11 });
-  assert.equal(shownLine(s).text, 'The water is still. Fishing comes soon.');
-  for (const tool of [null, 'pick']) assert.notEqual(shownLine(step(beside(tool), 'up'))?.text, 'The water is still. Fishing comes soon.');
+  assert.equal(shownLine(s).text, 'You cast the line.');
+  for (const tool of [null, 'pick']) assert.equal(step(beside(tool), 'up').float, null);
 });
