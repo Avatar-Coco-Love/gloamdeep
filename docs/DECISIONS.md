@@ -168,3 +168,15 @@ crypt floor; a torch on a wall's face; anything with no picture yet
 shows a grey "?"; the box's letters are not the game's keys, and Esc
 leaves it. D-617 moved to `archive/DECISIONS-AUDITS.md` and D-618 to
 `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-625 · 2026-11-06 · God mode** (the owner's picks, all recommended;
+step 18b, after Spawn's grid, D-621, D-154) A God mode switch in the dev
+panel's Hero section, under Refill hearts. While it is on a creature
+still bites, with its line, its sound and the hero's red flash, but
+takes no heart, so the hero never falls from a bite. It is kept on the
+state, so in the save, until switched off; a new game starts with it
+off. It guards hearts only: the oil tick still drinks. The owner's idea:
+the oil gets its own switch in the Oil section, Endless oil, the next
+step: the lantern never runs down and the tick's sip takes nothing.
+Claude's, the owner may change it: armour's glance still shows its own
+line; records count as usual; nothing shows god mode but the switch.

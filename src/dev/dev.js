@@ -30,9 +30,10 @@ function save(opts) {
 
 // `game` gives tools the state: get() reads it, set(s) replaces it, reset()
 // gives the state with the starting room back, forget() with a blank memory,
-// setOil(amount) with that much oil, heal() with full hearts; still() is
-// true when motion is reduced (D-190); settings() are Settings' switches; camera() is the
-// room pixel at the screen's top-left (D-195). `picture` is the room's
+// setOil(amount) with that much oil, heal() with full hearts, setGod(on) with god
+// mode on or off (D-625); still() is true when motion is reduced (D-190);
+// settings() are Settings' switches; camera() is the room pixel at the
+// screen's top-left (D-195). `picture` is the room's
 // canvas; the wrench stands left of its top (D-199).
 export function createDev(stage, canvas, game, picture) {
   // every switch starts off (D-047); only View starts open (D-087)

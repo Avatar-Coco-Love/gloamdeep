@@ -212,8 +212,8 @@ function tryStep(dir) {
   app.state = byItself(before, app.state);
   if (app.settings.flasks === 'self') app.state = pourByItself(before, app.state);
   const { state } = app, fell = state.fell !== before.fell;
-  if (fell || state.health < before.health) app.bitten = flashFor();
   const events = eventsSince(before, state);
+  if (fell || state.health < before.health || events.some((e) => e.type === 'bite' && e.hurt > 0)) app.bitten = flashFor(); // in god mode too (D-625)
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
   keepRecords(events);
@@ -470,6 +470,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   forget: () => forget(app.state),
   setOil: (oil) => setOil(app.state, oil),
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
+  setGod: (on) => ({ ...app.state, god: on }), // bites take no hearts (D-625)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)

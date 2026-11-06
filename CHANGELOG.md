@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.80 (2026-11-06)
+- The dev panel's Hero section has a God mode switch. While it is on, creatures still bite, with their line, sound and red flash, but take no hearts, so you never fall. It stays on in this game until you switch it off; a new game starts with it off.
+- Decisions: D-625.
+
 ## 0.3.79 (2026-11-06)
 - Spawn in the dev panel is a grid of pictures now, one for every creature, find, tile, torch and person, under its kind's heading; the picked one's name shows above them.
 - A search box over the grid narrows it with each letter typed, so anything is a few taps away.
@@ -32,8 +36,3 @@ Entry format:
 - The dev panel is a bottom sheet now: half the screen tall, along its foot, with a row of icon tabs across its top (an eye, a sparkle, a door, a drop, a heart, an arrow) and the open section's name above its tools.
 - While it is up the room slides clear above it, so the hero stays in sight; tap the open tab again and the sheet folds to its tabs. On a sideways phone or a PC it sits at the bottom left and the room slides right instead.
 - Decisions: D-623. D-615 and D-616 moved to the archive, word for word.
-
-## 0.3.77 (2026-11-06)
-- Behind the scenes: a new maker tool. One command writes every empty piece of a new creature, find, tile or person, with a grey "?" picture until it is drawn, and the checker then names each number, line and picture still to fill. New things reach the game faster.
-- Nothing in the game changes.
-- Decisions: D-622. D-613 and D-614 moved to the archive, word for word.
