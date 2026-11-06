@@ -119,6 +119,16 @@
   #dev-panel .dev-body[hidden] { display: none; }
   #dev-panel .dev-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 4px; }
   #dev-panel .dev-kind { color: #7d869c; margin-top: 2px; }
+  /* Spawn: the search box, then each kind's pictures, 16 px drawn at 32 (D-624) */
+  #dev-panel .dev-finder { display: flex; gap: 4px; }
+  #dev-panel .dev-find { flex: 1; min-width: 0; min-height: 44px; box-sizing: border-box; padding: 0 8px; font: 16px monospace; color: #d3d7e0; background: #14171e; border: 1px solid #3f4656; border-radius: 4px; }
+  #dev-panel .dev-find:focus { outline: none; border-color: #a58ce0; }
+  #dev-panel .dev-find::-webkit-search-cancel-button { display: none; }
+  #dev-panel .dev-body .dev-clear { flex: none; width: 44px; }
+  #dev-panel .dev-grid { display: grid; grid-template-columns: repeat(auto-fill, 44px); gap: 4px; }
+  #dev-panel .dev-body .dev-cell { width: 44px; height: 44px; padding: 0; display: grid; place-items: center; }
+  #dev-panel .dev-grid[hidden], #dev-panel .dev-kind[hidden], #dev-panel .dev-body .dev-cell[hidden] { display: none; }
+  #dev-panel .dev-cell canvas { width: 32px; height: 32px; image-rendering: pixelated; pointer-events: none; }
   #dev-panel .dev-body button { color: #d3d7e0; background: #2b303c; border: 1px solid #3f4656; }
   #dev-panel .dev-body button:hover { border-color: #69748b; }
   #dev-panel .dev-body button[aria-pressed="true"] { color: #ffd66b; background: #3a2e18; border-color: #f39a3b; }

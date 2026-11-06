@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.76, The checker.** All recommended: stories wait;
+  faster making first, the checker now, then the maker, the dev panel
+  as a bottom sheet, god mode and test spots (D-621). No playtest:
+  nothing to see.
 - **2026-11-06, 0.3.75, The waystone 3 × 3.** The owner's idea; all
   recommended: look B, old and mossy; old saves made 3 × 3; the home plate
   2 tiles north (D-620). Playtest: https://claude.ai/artifact/9ZHzxkeg64ELoupXWicPgr

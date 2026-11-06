@@ -182,3 +182,15 @@ each card's way back, the pads' arrows and keys, and taps placed by each
 card's own layout. D-168 and D-337 move to the superseded archive, the
 eighth audit's decisions to `DECISIONS-AUDITS.md`. The audit is done;
 next, Q-076.
+
+**D-617 · 2026-11-06 · The ninth audit** (the owner's picks, all
+recommended) At 0.3.72, nothing visible changed. A conversation's start
+reads 10.1 KB (CLAUDE.md 6.2, PROGRESS.md 3.9), down from 11.5 KB.
+`sprites.js`'s pixel pictures (48 KB, 667 lines) move word for word into
+`src/render/pictures.js`; `sprites.js` keeps the making and drawing
+(16 KB). Three docs at 98% of 8 KB split a whole topic each, word for
+word: `GLOSSARY.md`'s finds to `GLOSSARY-FINDS.md`, `TECH.md`'s layout
+to `TECH-2.md`, `RESEARCH.md`'s ideas kept for later to `RESEARCH-2.md`.
+D-169 to D-176, the world's first decisions, move to
+`archive/DECISIONS-WORLD.md`; ticked steps 15 to 17 and the oil tick are
+archived. The next audit is at 0.3.112.

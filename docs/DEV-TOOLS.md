@@ -35,8 +35,10 @@ tools to be chosen together later.
   short one at full size, without oil, lit, health and depth (D-412).
 - PC keys: ` the panel; G, C, R the View switches (D-090).
 - Grid and coordinates overlay (D-046); both move with the camera (D-195). Drawing: `src/render/overlay.js`.
-- Spawn: chips grouped by registry kind; tap one, then tap tiles; tap it
-  again to drop it (D-048 to D-050, D-079, D-089). Torches, lit or unlit (D-123), go only where
+- Spawn: a grid of pictures under each kind's heading, 32 px, the
+  pick's name in the section's name line, and a search box that narrows
+  them by name (D-624, were chips, D-089); tap one, then tap tiles; tap it
+  again to drop it (D-048 to D-050, D-079). Pictures: `src/render/thumbs.js`. Torches, lit or unlit (D-123), go only where
   they can sit (D-100, D-102). Stairs can be spawned; they lead only where
   the room's place has a room that way (D-130). Rules: `src/core/spawn.js`.
 - Lighting off: a panel switch that shows the room unlit (D-057).
@@ -63,8 +65,7 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
-- Coming, in order (D-621, D-623): Spawn a grid of sprites by kind,
-  with a search box; then god mode, and saving and loading test spots.
+- Coming, in order (D-621): god mode, then saving and loading test spots.
 
 ## Candidates (the owner picks; record each pick as a decision)
 - God mode (no damage); the owner wants it next (D-154), picked (D-621)
@@ -78,7 +79,7 @@ tools to be chosen together later.
   under one title-menu tools line (the owner's idea, D-376)
 
 ## Next
-Items, enemies and NPCs join the spawn chips as each arrives in the
+Items, enemies and NPCs join the spawn grid as each arrives in the
 registry (a new kind gets its own group by itself), each with its dev
 hook in the same PR. Likely new sections: Enemies (step one turn), Seed,
 Saves.
