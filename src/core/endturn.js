@@ -10,6 +10,7 @@ import { get } from './registry.js';
 import { withTile } from './room.js';
 import { leave, send, arrive, greet } from './homeward.js';
 import { fishTurn } from './fishing.js';
+import { meet } from './bestiary.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -25,7 +26,7 @@ export const wait = (state) => endTurn(state, passTurn(state));
 // was taken here and is due grows back out of sight, or anywhere in a room
 // just come into, as it grew while the hero was away (regrow.js, D-307), and a torch
 // set down whose time is up goes out (D-478), and a planted garden bed whose time is up grows
-// (garden.js, D-567). First of all, a line out waits for a bite, or reels in (fishing.js, D-610).
+// (garden.js, D-567). At the very end, each creature lit and showing is met (bestiary.js, D-630). First of all, a line out waits for a bite, or reels in (fishing.js, D-610).
 export const endTurn = (before, cast) => {
   const after = fishTurn(before, cast), id = oilLine(before.oil, after.oil), place = after.place;
   let found = discover(before, id ? say(after, id) : after);
@@ -36,7 +37,7 @@ export const endTurn = (before, cast) => {
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
   const next = grow(burnOut(regrow(moved ? done : enemiesAct(done), moved), moved));
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
-  return greet(arrive(sent)); // one gone home beams in as the hero comes, and greets the hero once, near (D-496)
+  return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)
 };
 
 // § burn out: a torch set down goes out on its `out` turn, leaving bare floor where its

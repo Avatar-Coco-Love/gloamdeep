@@ -4,6 +4,7 @@
 import { addHeart, movePick, told } from '../../core/growth.js';
 import { journalAt } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
+import { BRANCHES } from '../../core/upgrades.js';
 
 export function journalCard(app, ui, show, c) {
   const { spoken } = ui;
@@ -27,8 +28,13 @@ export function journalCard(app, ui, show, c) {
     app.state = s;
     spoken.textContent = journalPageWords();
   }
-  const pick = () => { if (app.tab === 'growth') buyPicked(); else turnTab('growth'); }; // Enter turns to Growth, and there buys the picked upgrade
-  const dir = (dir) => { if (app.tab === 'growth') pickGrowth(movePick(app.growthPick, dir)); else if (dir === 'right') turnTab('growth'); }; // the tabs (D-391), on Growth its tree (D-481)
+  const pick = () => { if (app.tab === 'growth') buyPicked(); else if (app.tab === 'records') turnTab('growth'); }; // Enter turns to Growth, and there buys the picked upgrade
+  // The tabs (D-391), on Growth its tree (D-481): Right past Hands for the Bestiary, and Left there back to Growth (D-630)
+  function dir(d) {
+    if (app.tab === 'growth') { if (d === 'right' && app.growthPick.col === BRANCHES.length - 1) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d)); }
+    else if (app.tab === 'bestiary') { if (d === 'left') turnTab('growth'); }
+    else if (d === 'right') turnTab('growth');
+  }
   function tap(px, py, held) {
     if (held) return;
     const at = journalAt(px, py, view.w, view.h, app.tab, app.state, app.growthPick);

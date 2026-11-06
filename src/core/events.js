@@ -7,7 +7,8 @@
 // The kinds, each { type, ...details }:
 //   step                 the hero walked onto a new tile
 //   hit { id, held }     the hero hit creature `id`, with the item held (or null, the lantern)
-//   beat { id }          that creature was beaten
+//   beat { id, unmet }   that creature was beaten; `unmet` when not met before, in the dark (D-630)
+//   meet { id }          creature `id` was met: lit and showing itself for the first time (D-630)
 //   bite { id, hurt }    creature `id` bit, taking `hurt` hearts (god mode keeps them, D-625)
 //   drink { id, oil }    creature `id` drank `oil` from the lantern instead of biting (D-606; Endless oil keeps it, D-626)
 //   wake { id }          the hero bumped creature `id` awake from its disguise (D-368)

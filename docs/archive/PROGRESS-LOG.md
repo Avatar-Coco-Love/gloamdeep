@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.82, Test spots.** All recommended: three slots on
+  this device in a new Spots section; Load is a dev jump (D-627). Step
+  18b is done. Playtest: https://claude.ai/artifact/EHsrMWYnTsnevjbP8AmzF8
 - **2026-11-06, 0.3.81, Endless oil.** All recommended: lit turns burn
   nothing and an oil tick's drink takes nothing, still shown; the oil
   stays where it is; under Refill and Empty, kept in the save (D-626).

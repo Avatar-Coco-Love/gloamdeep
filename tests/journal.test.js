@@ -11,13 +11,13 @@ import { textWidth } from '../src/render/font.js';
 
 const records = { deepest: 3, beaten: 12, falls: 4, found: 27, steps: 1843, poured: 6, torches: 2 };
 
-test('Records is the first tab, Growth the second (D-293)', () => {
-  assert.deepEqual(TABS.map((t) => t.text), ['Records', 'Growth']);
+test('Records is the first tab, Growth the second (D-293), the Bestiary the third (D-630)', () => {
+  assert.deepEqual(TABS.map((t) => t.text), ['Records', 'Growth', 'Bestiary']);
 });
 
 test('the Growth tab says the embers left, then the picked place: Body\'s heart first (D-293, D-481)', () => {
   const s = { xp: 30, hearts: 1, health: 6 }; // level 3: two embers, one spent
-  const tail = 'Arrows pick another place, Left past Light for Records. Esc or the close button goes back.';
+  const tail = 'Arrows pick another place, Left past Light for Records, Right past Hands for the Bestiary. Esc or the close button goes back.';
   assert.equal(growthWords(s), `Journal, Growth tab. Embers, 1. Body, row 1, Heart. Hearts 6 of 10. One more heart for good, arriving full. Add a heart, 1 ember. ${tail}`);
   assert.equal(growthWords({ xp: 0, health: 5 }, START_PICK), `Journal, Growth tab. Embers, 0. Body, row 1, Heart. Hearts 5 of 10. One more heart for good, arriving full. Add a heart, 1 ember, not now. ${tail}`);
   assert.equal(growthWords(s, { col: 0, row: 0 }), `Journal, Growth tab. Embers, 1. Light, row 1, To come. More to grow here later. ${tail}`);

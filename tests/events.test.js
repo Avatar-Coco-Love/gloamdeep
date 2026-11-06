@@ -10,10 +10,11 @@ import { goToPlace } from '../src/core/stairs.js';
 import { passTime } from '../src/core/daytime.js';
 
 const room = makeRoom(FIRST_ROOM);
-const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES);
+// The first room's creatures met already, so the Bestiary's meet events (D-630) don't join these lists
+const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES.map((e) => ({ ...e, met: true })));
 const at = (x, y, s = start()) => ({ ...s, hero: { x, y } });
 // The rat sits at 2,10, so the hero on 3,10 stands next to it.
-const nextToRat = (health) => ({ ...at(3, 10), enemies: [{ id: 'rat', x: 2, y: 10, health }] });
+const nextToRat = (health) => ({ ...at(3, 10), enemies: [{ id: 'rat', x: 2, y: 10, health, met: true }] });
 const types = (s) => s.events.map((e) => e.type);
 
 test('a journey starts with no events', () => {

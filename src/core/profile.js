@@ -6,15 +6,16 @@
 export const SLOTS = 3;
 // A new profile: no name or look chosen yet, no Records. Records: the deepest depth,
 // creatures beaten, falls, rooms found, steps walked, flasks poured and torches lit,
-// on all its journeys (D-262, D-270, D-283, D-285, D-286); played: whole seconds in its journeys (D-290)
+// on all its journeys (D-262, D-270, D-283, D-285, D-286); played: whole seconds in its journeys (D-290);
+// bestiary: each creature met, { [id]: { met, beaten } } (bestiary.js, D-630)
 export const COUNTS = ['beaten', 'falls', 'found', 'steps', 'poured', 'torches'];
-export const newProfile = (deepest = 0) => ({ name: '', look: {}, records: { deepest, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0 });
+export const newProfile = (deepest = 0) => ({ name: '', look: {}, records: { deepest, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {} });
 // The profiles at the start: the first slot in use, the others empty
 export const newProfiles = (deepest = 0) => ({ current: 0, slots: [newProfile(deepest), ...Array(SLOTS - 1).fill(null)] });
 
 // § upgrades: as the journey save's (D-266). When the profiles' shape changes,
 // raise FORMAT and add the step from the old number to the new; never edit a merged step.
-export const FORMAT = 6;
+export const FORMAT = 7;
 export const UPGRADES = {
   // 1 → 2: the Records' counts, none yet (D-270)
   1: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { ...p, records: { beaten: 0, falls: 0, found: 0, ...p.records } }) }),
@@ -26,12 +27,15 @@ export const UPGRADES = {
   4: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { ...p, records: { torches: 0, ...p.records } }) }),
   // 5 → 6: play time, none yet (D-290)
   5: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { played: 0, ...p }) }),
+  // 6 → 7: the Bestiary, no creature met yet (D-630)
+  6: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { bestiary: {}, ...p }) }),
 };
 
 // § reading: a kept profile list, checked and upgraded, or null when it can't be read
 const isCount = (n) => Number.isInteger(n) && n >= 0;
 const isProfile = (p) => typeof p?.name === 'string' && typeof p.look === 'object' && p.look !== null
-  && ['deepest', ...COUNTS].every((k) => isCount(p.records?.[k])) && isCount(p.played);
+  && ['deepest', ...COUNTS].every((k) => isCount(p.records?.[k])) && isCount(p.played) && isBook(p.bestiary);
+const isBook = (b) => typeof b === 'object' && b !== null && !Array.isArray(b) && Object.values(b).every((c) => isCount(c?.met) && isCount(c?.beaten));
 export function unpackProfiles(kept) {
   if (!Number.isInteger(kept?.format) || kept.format < 1 || kept.format > FORMAT) return null;
   let ps = kept.profiles;
@@ -49,6 +53,8 @@ export const withPlaying = (ps, p) => ({ ...ps, slots: ps.slots.map((q, i) => (i
 export const withDeepest = (ps, deepest) => withRecords(ps, { ...playing(ps).records, deepest });
 // The profiles with the Records of the profile in play replaced
 export const withRecords = (ps, records) => withPlaying(ps, { ...playing(ps), records });
+// The profiles with the Bestiary of the profile in play replaced (D-630)
+export const withBestiary = (ps, bestiary) => withPlaying(ps, { ...playing(ps), bestiary });
 // § play time (D-290): the profiles with seconds more played by the profile in play, and how it is
 // written in its box: hours and minutes, 1h 23m, or only minutes under an hour, 23m
 export const withPlayed = (ps, seconds) => withPlaying(ps, { ...playing(ps), played: playing(ps).played + seconds });

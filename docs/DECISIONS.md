@@ -77,24 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-621 · 2026-11-06 · Faster from idea to game** (the owner's picks,
-all recommended) Other stories, each with its own world, role and
-start, wait for later; first, story 1 grows much bigger. To make that
-quicker, plug-in systems come before Lore. First a checker,
-`tests/checker.test.js`, that names every piece a registry entry still
-lacks (a line, a sprite, a hit flash, a sound, a way, where it lives, a
-test, a content row) and the file to fix (this version). Then a maker, a
-tool that writes a new creature's, find's, tile's or person's empty
-pieces and its test. Then the dev panel as a bottom sheet with
-pictures: half height, the room still seen above it, icon tabs, a
-search box, Spawn a grid of sprites by kind. Then god mode, and saving
-and loading test spots; more tools later. Claude's, the owner may
-change it: plug-in slots for systems come with the next new system
-(such as a light puzzle), shaped by a real use; one folder per thing
-is weighed again at the audit, 0.3.112. The checker found the Snapcap
-Gill with no content row; it has one now. D-611 and D-612 moved to
-`archive/DECISIONS-FISHING.md`, word for word.
-
 **D-622 · 2026-11-06 · The maker** (the owner's picks, all recommended;
 step 18b, after the checker, D-621) `node tools/make.js <kind> <id> "<Name>"`,
 everything on one line, kind one of creature, find, tile or person;
@@ -192,3 +174,17 @@ lore ideas, which come first. Quests come in three kinds, not all at once
 *(order Claude's, the owner may change it)*: a list of goals made from
 what is already in the game (recommended), then a main story line, then
 people's requests, such as the peddler asking for things.
+
+**D-630 · 2026-11-06 · The Bestiary tab** (the owner's picks, all
+recommended; step 19's first piece; builds D-350, D-352) The Journal gets
+a third tab, Bestiary, after Growth: a table of the creatures met, each
+one's drawing and name, how many met and how many beaten. A creature is
+met the first time a light reaches it, each one once; a mimic asleep or a
+snapcap shut is not met until it shows itself, and one beaten in the dark
+is met then too. The counts are kept in the profile, as Records are,
+through falls and new journeys; play before this step isn't known, so all
+start at zero. "How it acts" and "how to fight it" come at later steps,
+Claude drafting them and the owner editing. Claude's, the owner may change
+it: the headings Met and Beaten; "No creatures met yet." with none;
+Right past Hands on Growth turns to it; sideways, two tables side by side.
+D-621 moved to `archive/DECISIONS-MAKING.md`, word for word.

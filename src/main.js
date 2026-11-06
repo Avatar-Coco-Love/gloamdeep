@@ -18,7 +18,8 @@ import { say } from './core/lines.js';
 import { BOONS } from './core/registry.js';
 import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
-import { loadProfiles, saveProfiles, playing, withRecords, withPlayed } from './core/profile.js';
+import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary } from './core/profile.js';
+import { booked } from './core/bestiary.js';
 import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
@@ -120,7 +121,10 @@ function keepRecords(events) {
   const was = playing(app.profiles).records, d = deeper(was.deepest, depthOf(app.state.place), app.jumped);
   let records = counted(was, events, app.jumped);
   if (d !== records.deepest) records = { ...records, deepest: d };
-  if (records !== was) { app.profiles = withRecords(app.profiles, records); saveProfiles(app.profiles); }
+  if (records !== was) app.profiles = withRecords(app.profiles, records);
+  const book = playing(app.profiles).bestiary, met = booked(book, events, app.jumped); // the Bestiary's counts (D-630)
+  if (met !== book) app.profiles = withBestiary(app.profiles, met);
+  if (records !== was || met !== book) saveProfiles(app.profiles);
 }
 // § play time (D-290): the time on the play screen counts, kept in whole seconds every 10 and when
 // the page is hidden; a long gap between frames (the page hidden, the phone locked) counts as one frame
