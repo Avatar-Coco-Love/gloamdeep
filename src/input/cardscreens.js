@@ -17,7 +17,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   const { spoken } = ui;
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, E eats a minnow, I or Esc closes.`;
   function toggleBag() {
     if (app.screen === 'bag' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
@@ -57,7 +57,8 @@ export function createCardScreens(app, ui, show, menuOf) {
   }
   // Enter, Space or the button: pours a flask, makes one from oilcaps (D-299),
   // or eats a heartcap or drinks a potion, the bag staying open on what is left (D-308, D-309).
-  // `make`: C or the Make beside Eat, which makes a potion from heartcaps (D-309)
+  // `make`: C or the Make beside Eat, which makes a potion from heartcaps (D-309); for a
+  // minnow, E or the Eat beside Pour, which eats it (D-615)
   // § drop: the chosen stack set down at the hero's feet, free, the bag kept open (D-546)
   function dropChosen() {
     if (!app.state.bag[app.chosen]) return;
@@ -70,8 +71,8 @@ export function createCardScreens(app, ui, show, menuOf) {
     if (app.chosen === BAG_SORT) { if (!make) sortBag(); return; }
     if (gearChosen(app.chosen) >= 0) { if (!make) takeOffChosen(); return; }
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
-    if (make && !entry?.craft) return;
-    if (entry?.oil) { show('play'); ui.pour(app.chosen); return; }
+    if (make && !entry?.craft && !entry?.eats) return;
+    if (entry?.oil && !make) { show('play'); ui.pour(app.chosen); return; }
     if (entry?.sets && !make) { startSetting(); return; }
     if ((entry?.hold || entry?.tool) && !make) { // a weapon into the hand or a tool into its slot, the one there into the bag slot, the bag kept open (D-479, D-552)
       ui.hold(app.chosen);
@@ -84,7 +85,7 @@ export function createCardScreens(app, ui, show, menuOf) {
       spoken.textContent = slotWords(app.chosen);
       return;
     }
-    if (entry?.eats && !make) {
+    if (entry?.eats && (!make || entry.oil)) { // a minnow's second button eats (D-615)
       ui.eat(app.chosen);
       if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
       if (!app.state.bag[app.chosen]) app.chosen = Math.max(0, app.state.bag.length - 1); // the last one eaten

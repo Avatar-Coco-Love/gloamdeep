@@ -14,7 +14,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
 | `pick` | the Stone Pick: in the Tool slot, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone | D-480, D-552 |
 | `rod` | the Wooden Rod: in the Tool slot; bumping the home pond casts, a cave pool says a line | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610 |
-| `pondMinnow` | the first fish: poured, 15% oil, by hand only; its other uses one a step | 20 | never | caught at the home pond with the rod | D-608, D-610, D-611 |
+| `pondMinnow` | the first fish: poured, 15% oil, by hand only; Eat: 1 heart; its other uses one a step | 20 | never | caught at the home pond with the rod | D-608, D-610, D-611, D-615 |
 | `copperOre` | the first ore: the wick, the charm | 20 | never | a copper vein | D-480 |
 | `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
 | `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |

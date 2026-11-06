@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.70 (2026-11-06)
+- A Pond Minnow can now be eaten: in the bag, EAT sits beside POUR and heals 1 heart, taking a turn. It is dim when you aren't hurt. The E key eats; Enter still pours.
+- Decisions: D-615. D-583 moved to the archive, word for word.
+
 ## 0.3.69 (2026-11-06)
 - Pulling on a bite opens the strike meter: a needle sweeps back and forth across a bar, and you tap while it is in the amber zone to land the fish. The world waits while it is open.
 - Miss, or let the needle pass 3 times, and the fish gets away with the line coming in.
@@ -32,9 +36,3 @@ Entry format:
 - A fish nibbles before it bites: the float shakes and the line reads "A nibble...". The next turn it always bites, so wait for the "!" and then pull.
 - Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.
 - Decisions: D-613.
-
-## 0.3.67 (2026-11-06)
-- Fishing is easier to follow: with the line out, bump the water again to wait a turn. The float stays where it is, so keep bumping until something bites, then bump once more to pull.
-- While a line is out, the flask button beside the lantern reads WAIT, and PULL in amber when a fish bites. A tap does the same as bumping the water. The flask comes back once the line is in.
-- Planned next for fishing: a nibble turn before each bite, with a plop and a splash, then a short timed strike when a fish bites, played with the world paused.
-- Decisions: D-612. D-579 and D-587 moved to the archive, word for word.

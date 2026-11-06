@@ -118,6 +118,7 @@ export const LINES = {
   reelIn: { text: 'You reel in the line.', warn: false }, // walking off, or another tool held
   pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Poured, it gives the lantern a little oil.'], warn: false },
   pondMinnowFull: { text: "You can't carry more minnows.", warn: false },
+  minnowEat: { text: 'You eat the minnow. Cold, but filling.', warn: false }, // eaten from the bag, 1 heart (D-615)
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.70', date: '2026-11-06', title: 'Eating a minnow', lines: [
+    "A Pond Minnow can now be eaten: in the bag, EAT sits beside POUR and heals 1 heart, taking a turn. It is dim when you aren't hurt. The E key eats; Enter still pours.",
+    "Decisions: D-615. D-583 moved to the archive, word for word.",
+  ] },
   { v: '0.3.69', date: '2026-11-06', title: 'The strike meter', lines: [
     "Pulling on a bite opens the strike meter: a needle sweeps back and forth across a bar, and you tap while it is in the amber zone to land the fish. The world waits while it is open.",
     "Miss, or let the needle pass 3 times, and the fish gets away with the line coming in.",
