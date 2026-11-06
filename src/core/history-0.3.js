@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.67', date: '2026-11-06', title: 'Fishing made clear', lines: [
+    "Fishing is easier to follow: with the line out, bump the water again to wait a turn. The float stays where it is, so keep bumping until something bites, then bump once more to pull.",
+    "While a line is out, the flask button beside the lantern reads WAIT, and PULL in amber when a fish bites. A tap does the same as bumping the water. The flask comes back once the line is in.",
+    "Planned next for fishing: a nibble turn before each bite, with a plop and a splash, then a short timed strike when a fish bites, played with the world paused.",
+    "Decisions: D-612. D-579 and D-587 moved to the archive, word for word.",
+  ] },
   { v: '0.3.66', date: '2026-11-06', title: 'The minnow\'s oil', lines: [
     "The Pond Minnow's first use: choose it in the bag and press POUR, like a flask. It takes a turn and gives the lantern 15% of a tank, never past full.",
     "Only by hand: the flask button and \"Flasks: By itself\" still pour only flasks, Deep Pour makes only flasks pour more, and Records' \"Flasks poured\" counts only flasks.",

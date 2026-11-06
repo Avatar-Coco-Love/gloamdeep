@@ -1,4 +1,4 @@
-# The waystones' first steps (D-588, D-589, D-591 to D-595)
+# The waystones' first steps (D-579, D-587 to D-589, D-591 to D-595)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.50 (D-593), when it neared
 12 KB: the home waystone asleep, waking it, and the sleeping waystone at
@@ -8,6 +8,32 @@ D-593 and D-594 moved unchanged at 0.3.52 (D-595): travel between woken
 waystones and the waystones on the other depths, step 16's last parts.
 D-595 moved unchanged at 0.3.56 (D-599): the travel card scrolls.
 D-588 moved unchanged at 0.3.66 (D-611): pictures drawn again after a wipe.
+D-579 and D-587 moved unchanged at 0.3.67 (D-612): waystones for fast
+travel, and landmarks made from data.
+
+**D-579 · 2026-11-02 · Waystones for fast travel** (the owner's picks,
+recommended, from their wish list; the Core Keeper way in Gloamdeep's
+own form) Waystones are found out in the world and woken by walking up
+to one. One stands near the centre of the home room. The others stand
+at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8
+(the dungeon), then every 4th depth (12, 16, 20…), and at the top of
+any band added later. Standing on a woken waystone, the hero picks
+another woken one on the map and goes there. A pocket waystone, to
+travel from anywhere, comes later as a craft. How waking looks and
+sounds, and the map's travel card, are asked at its step.
+
+**D-587 · 2026-11-03 · Landmarks made from data** (the owner's idea and
+picks, recommended; builds on D-579) A waystone is 5 × 5 tiles: a cross
+through the middle is walkable, the four 2 × 2 corners are not, and the
+centre tile is the plate where it is used. Landmarks bigger than one
+tile are registry entries: a small text plan, where they join tunnels,
+where they stand and what they block. One shared stamper sets the plan
+aside before a room is dug, digs around it, joins its tunnels, checks
+everything is still reached, tries again if not, and uses its own seed
+so rooms without one stay as they are. Tests build many rooms for every
+landmark; dev mode can drop one in and show the set-aside patches. The
+stamper comes with its first use, a waystone at depth 2, and only
+places it. The rest is asked at each step (Q-080).
 
 **D-588 · 2026-11-03 · Pictures drawn again after a wipe** (the owner's
 fix, ahead of D-587's first step) On Android the hero and the tiles came

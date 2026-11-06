@@ -105,17 +105,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-579 · 2026-11-02 · Waystones for fast travel** (the owner's picks,
-recommended, from their wish list; the Core Keeper way in Gloamdeep's
-own form) Waystones are found out in the world and woken by walking up
-to one. One stands near the centre of the home room. The others stand
-at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8
-(the dungeon), then every 4th depth (12, 16, 20…), and at the top of
-any band added later. Standing on a woken waystone, the hero picks
-another woken one on the map and goes there. A pocket waystone, to
-travel from anywhere, comes later as a craft. How waking looks and
-sounds, and the map's travel card, are asked at its step.
-
 **D-581 · 2026-11-02 · A draft toward the stairs** (the owner's picks,
 recommended; builds on D-174) Stairs still must be found, with a clue:
 a few faint motes drift in the lantern light toward the stairs down.
@@ -139,19 +128,6 @@ oil, hearts and fighting, finding things, and getting around. The
 exact boons and their numbers are shown to the owner as a list before
 anything is built (Q-077). Boons are their own step, right after the
 waystones.
-
-**D-587 · 2026-11-03 · Landmarks made from data** (the owner's idea and
-picks, recommended; builds on D-579) A waystone is 5 × 5 tiles: a cross
-through the middle is walkable, the four 2 × 2 corners are not, and the
-centre tile is the plate where it is used. Landmarks bigger than one
-tile are registry entries: a small text plan, where they join tunnels,
-where they stand and what they block. One shared stamper sets the plan
-aside before a room is dug, digs around it, joins its tunnels, checks
-everything is still reached, tries again if not, and uses its own seed
-so rooms without one stay as they are. Tests build many rooms for every
-landmark; dev mode can drop one in and show the set-aside patches. The
-stamper comes with its first use, a waystone at depth 2, and only
-places it. The rest is asked at each step (Q-080).
 
 **D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
 Research helpers work beside each build step and report to Claude, who
@@ -194,7 +170,7 @@ bob that bobs a pixel every 2 seconds. A bite, look A: the hero's
 amber "!" over it, the float dipped. Minnows go into the bag in stacks
 of 20; with no room, the catch slips back. Cave pools keep their line
 until their step. Claude's, the owner may change them: the lines; a
-bump with no bite casts again; holding another tool reels in. D-607 moved to
+bump with no bite casts again (superseded by D-612); holding another tool reels in. D-607 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
 
 **D-611 · 2026-11-06 · The minnow's oil** (the owner's picks, all
@@ -205,3 +181,17 @@ Deep Pour is for flasks; a minnow always pours 15%. It plays the
 flask's pour sound and is not counted in Flasks poured. Claude's, the
 owner may change it: its look line. D-588 moved to
 `archive/DECISIONS-WAYSTONES.md`, word for word.
+
+**D-612 · 2026-11-06 · Fishing made clear** (the owner's picks, all
+recommended; the owner found fishing hard to follow; mock-up:
+https://claude.ai/artifact/VFR7NPEBVEV3dsMutucZuZ) Before fishing step 4,
+three polish steps: clear turns; a nibble turn (the float twitches, "A
+nibble...", then the bite) with a plop on the cast and a splash on the
+catch; then a strike meter, a needle swept across a bar on its own card
+with the world paused, tapped in the bright zone, smaller for bigger fish.
+Real-time waiting is not used, as turns pass only when you act (D-016).
+This step: with the line out and no bite, bumping the water waits a turn,
+the float where it is (supersedes that part of D-610). While a line is
+out, the quick slot (D-384) reads WAIT, or PULL in amber with a bite, and
+a tap bumps the float's tile; the flask comes back with the line in.
+D-579 and D-587 moved to `archive/DECISIONS-WAYSTONES.md`, word for word.
