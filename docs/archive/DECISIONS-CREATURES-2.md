@@ -271,3 +271,13 @@ in 10, sold for 5, both for crafts later. Claude's, the owner may
 change them: the drop drawings, the lines, the dry bite of teeth, and
 that armour can't turn a drink aside. Nothing more once full, for now.
 D-596 and D-604 moved to `archive/DECISIONS-BOONS.md`, word for word.
+
+**D-607 · 2026-11-05 · The creature plan** (the owner's picks, all
+recommended; builds on D-534 and Q-076) Each biome has about 12 to 15
+creature kinds in the end, so the first cave takes 1 to 4 more after
+its 11; some kinds carry on deeper. New ways come next, light and oil
+ones first (the oil tick, D-606, then others from the list: the
+snuffer, glowworm, false light, wraith, still one and night prowler
+were shown). After the new ways, in this order: showing every
+creature's next move (D-349), the bestiary and trophies (D-466), packs
+and the brood, then varying creatures and injuries (D-374).

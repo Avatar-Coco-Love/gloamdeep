@@ -81,7 +81,8 @@ this page and a decision disagree, the decision wins.
   Tool slot, where it breaks copper (D-480, D-552).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
-- **Pond Minnow:** the first fish, from the pond at home (D-608).
+- **Pond Minnow:** the first fish, from the pond at home (D-608, D-610).
+- **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).
 - **Wood:** sticks, branches and trees all give it, for crafts and building;
   sticks lie in the woods in three looks (D-314, D-315).
 - **Fallen branch:** one in each woods room, blocking a tile; two bumps

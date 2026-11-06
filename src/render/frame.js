@@ -43,6 +43,7 @@ import { gearRow } from '../core/gear.js';
 import { padShown } from '../core/settings.js';
 import { jabAt } from './jab.js';
 import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
+import { drawFloat, drawBite } from './float.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn, bagSize } from '../core/bag.js';
@@ -213,6 +214,7 @@ export function createFrame(app, ui) {
       drawBrackets(rc, s.room, s.lights);
       const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
       drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
+      drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
       drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
       drawItems(rc, s.items, t, still());
       const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
@@ -246,6 +248,7 @@ export function createFrame(app, ui) {
       if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
       if (walk && !travel) { drawDots(rc, walk.way, walk.tx, walk.ty); drawMark(rc, walk.tx, walk.ty, t, still()); } // the walk to a tapped tile (D-406)
       if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
+      drawBite(rc, s.float); // a fish on the line: the "!" over its float (D-610)
       if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
       else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
     });

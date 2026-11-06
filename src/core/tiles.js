@@ -10,7 +10,7 @@ const GLOW = { reach: 1, cr: 0.325, cg: 0.275, cb: 0.44 };
 export const TILES = {
   wall: { id: 'wall', kind: 'tile', letter: '#', name: 'Wall', solid: true, blocksLight: true },
   // A still pool's water (D-500): solid until the hero can swim (Q-039), light passing over it
-  // Bumped with the rod in the Tool slot, its `cast` line, free (D-609)
+  // Bumped with the rod in the Tool slot: the home pond is fished (D-610); a cave pool says its `cast` line, free (D-609)
   water: { id: 'water', kind: 'tile', letter: '~', name: 'Water', solid: true, blocksLight: false, cast: 'waterCast' },
   floor: { id: 'floor', kind: 'tile', letter: '.', name: 'Floor', solid: false, blocksLight: false },
   // One round tree a tile, in the woods (D-209): solid, and the view stops at it.
