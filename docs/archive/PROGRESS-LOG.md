@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.84, Special creatures.** Docs only: the owner's
+  idea of bosses, rare named creatures and wanderers with histories and
+  a Feat each is saved as Q-083, in a new `OPEN-QUESTIONS-3.md`.
 - **2026-11-06, 0.3.83, The first words.** The owner's picks: a card
   in the room with three sentences opens a new journey (D-628); lore
   starts with Bestiary lines after the owner's ideas; quests later as

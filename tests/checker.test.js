@@ -62,6 +62,10 @@ test('every creature acts in ways that exist', () => {
 test('every creature says how it acts', () => {
   report(byKind('enemy').filter((e) => typeof e.acts !== 'string').map(who), 'Add `acts`, how it acts in words, to these in src/core/enemies.js');
 });
+// And how to fight it, once 3 are beaten (D-352, D-632)
+test('every creature says how to fight it', () => {
+  report(byKind('enemy').filter((e) => typeof e.fights !== 'string').map(who), 'Add `fights`, how to fight it in words, to these in src/core/enemies.js');
+});
 
 test('every creature sound is in sound.js', () => {
   const gaps = [];

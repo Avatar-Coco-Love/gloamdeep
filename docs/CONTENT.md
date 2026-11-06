@@ -35,7 +35,7 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 (D-269, D-351). One that `drinks` takes that much oil instead of biting, lit or not (D-606). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563).
 Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551), the oil tick at depth 3 (D-606).
-Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631).
+Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 

@@ -77,22 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-623 · 2026-11-06 · The dev panel as a bottom sheet** (the owner's
-picks, all recommended; step 18b, after the maker, D-621) Look A of the
-mock-up: the panel is a sheet along the screen's foot, half its height,
-a row of icon tabs across its top (an eye for View, a sparkle for
-Spawn, a door for Room, a drop for Oil, a heart for Hero, an arrow for
-Share; 8 × 8 pixels) and the open section's name above its tools. While
-it is up the room slides clear, so the hero stays in the middle of what
-is still seen. On a sideways phone or a PC it is at most 420 px wide,
-at the bottom left, and on a short screen taller, up to two thirds; the
-room then slides right instead, whichever leaves more of it seen. Two
-steps: the sheet now, its tools as they were; next, Spawn a grid of
-sprites by kind with the search box. Claude's, the owner may change
-it: a folded sheet is only its tabs; its handle is a look only, and
-does not drag; the stats line sits above it while it is up. D-615 and
-D-616 moved to `archive/DECISIONS-FISHING.md`, word for word.
-
 **D-624 · 2026-11-06 · Spawn as a grid of pictures** (the owner's
 picks, all recommended; step 18b, after the bottom sheet, D-623) Spawn
 is a grid of pictures, one per registry entry, each 16 × 16 drawn at
@@ -186,3 +170,17 @@ how it acts." Claude's, the owner may change it: the picked row's name
 gold; Esc, the round cross or Left goes back to the table. The maker
 leaves `acts` a blank, and the checker asks every creature for it.
 D-622 moved to `archive/DECISIONS-MAKING.md`, word for word.
+
+**D-632 · 2026-11-06 · How to fight it** (the owner's picks, all
+recommended; step 19's last Bestiary piece; builds D-352, D-631) Each
+creature's Bestiary page ends with how to fight it, in Claude's words,
+which the owner took as drafted and may still change: one or two
+sentences each, kept in the registry as `fights`, on tactics from the
+rules as they are (one that steps beside the hero bites only next turn,
+so waiting gives the first blow; a mimic's waking bump is a free turn).
+It sits under "how it acts", below a gold heading, "How to fight it".
+Until 3 are beaten it says in grey how many more: "Beat 2 more to learn
+how to fight it." Claude's, the owner may change it: with none beaten,
+"Beat 3 to learn how to fight it." The maker leaves `fights` a blank,
+and the checker asks every creature for it. D-623 moved to
+`archive/DECISIONS-MAKING.md`, word for word.

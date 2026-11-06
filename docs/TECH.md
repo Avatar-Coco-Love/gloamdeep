@@ -73,7 +73,7 @@ tool, the creature list, saves and the bag read the registry by
 themselves. Each kind also touches:
 
 - **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
-  line ids, `acts` for its Bestiary page, D-631); its lines in `src/core/lines.js`; its picture in
+  line ids, `acts` and `fights` for its Bestiary page, D-631, D-632); its lines in `src/core/lines.js`; its picture in
   `src/render/pictures.js` (D-617), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
   flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (its `POOL` entry, like `{ id: 'lampmoth', from: 2 }`; a mimic through `mimicRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
