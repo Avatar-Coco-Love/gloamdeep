@@ -61,8 +61,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455). Not in
   the game yet.
-- **Waystone:** a 5 × 5 standing-stone circle: a walkable cross, a stone
-  on each 2 × 2 corner, the plate in the middle (D-579, D-587). The home
+- **Waystone:** a 3 × 3 standing-stone circle: a walkable cross, an old
+  mossy stone in each corner tile, the plate in the middle (D-579, D-587,
+  D-620). The home
   waystone stands in the woods, asleep until the hero steps on its
   plate; woken, its rune is lit violet (D-589, D-591). Another sleeps on
   depth 2 (D-592). On a woken plate, the travel card goes to another (D-593).

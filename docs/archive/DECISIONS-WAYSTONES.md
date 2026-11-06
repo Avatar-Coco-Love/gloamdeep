@@ -33,7 +33,8 @@ everything is still reached, tries again if not, and uses its own seed
 so rooms without one stay as they are. Tests build many rooms for every
 landmark; dev mode can drop one in and show the set-aside patches. The
 stamper comes with its first use, a waystone at depth 2, and only
-places it. The rest is asked at each step (Q-080).
+places it. The rest is asked at each step (Q-080). Its size superseded
+by D-620 (2026-11-06): 3 × 3, a stone in each corner tile.
 
 **D-588 · 2026-11-03 · Pictures drawn again after a wipe** (the owner's
 fix, ahead of D-587's first step) On Android the hero and the tiles came
@@ -53,7 +54,8 @@ stones block light and sight, like rock. A save that already has a home
 gets it once, at the nearest spot to there where none of the hero's
 built things, the pond, the cave mouth, a person or the hero stand; only
 trees, stumps, branches and bushes there are cleared, and nothing of the
-hero's moves. A new journey still begins in the crypt (Q-081).
+hero's moves. A new journey still begins in the crypt (Q-081). Its
+plate's place (2 tiles north) and look superseded by D-620 (2026-11-06).
 
 **D-591 · 2026-11-05 · Waking the home waystone** (the owner's picks, all
 recommended; step 16's second part, builds on D-579 and D-589; answers

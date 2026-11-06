@@ -124,14 +124,16 @@ const DRAW = {
   berryBed: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.berryBed); }, // grown (D-567)
   // On the room's own ground; its stone foot is drawn with the torches, before the light (D-478)
   torchStand: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); },
-  // The home waystone (D-589): on the woods' grass; spawned elsewhere, on that room's floor
-  standingStone: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawStandingStone(c, room, x, y); },
-  waystonePath: (c, room, x, y) => drawWaystonePath(c, x, y),
-  waystonePlate: (c, room, x, y) => drawWaystonePlate(c, x, y),
-  wokenPlate: (c, room, x, y) => drawWaystonePlate(c, x, y, true), // its rune lit (D-591)
+  // The home waystone (D-589): on the woods' grass or a cave's rock, drawn whole first, as a deposit
+  // is; elsewhere on that room's floor. Its flagstones' rounded corners show that ground (D-620)
+  standingStone: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawStandingStone(c, room, x, y); },
+  waystonePath: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePath(c, x, y); },
+  waystonePlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y); },
+  wokenPlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y, true); }, // its rune lit (D-591)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
+const OWN_GROUND = ['rock', 'earth', 'woods']; // looks drawn whole under their tiles (D-164, D-165, D-209)
 export function drawRoom(c, room) {
   const woods = room.look === 'woods';
   if (woods) drawWoods(c, room);

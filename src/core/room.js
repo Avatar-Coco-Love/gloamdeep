@@ -10,7 +10,7 @@ import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
-import { spotIn } from './stamper.js';
+import { spotIn, unpad } from './stamper.js';
 
 // § first room: the shape of style study 1's room (study lines 96–110), with
 // its water as floor, and the study's stairs down at 1,1 (D-130). The gap in
@@ -201,7 +201,8 @@ export function placeFor(id, seed = 1) {
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped, landmark });
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
-  const room = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
+  const guanoed = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
+  const room = guanoed && landmark ? { ...guanoed, map: unpad(guanoed.map, landmark.mark, landmark.at) } : guanoed; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };
 }
 

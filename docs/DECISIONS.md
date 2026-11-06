@@ -76,19 +76,6 @@ material. In steps: the rod; the cast at the pond, catching the minnow;
 its uses one a step (oil, eating, selling; the recipe when one needs it);
 then the cave pools.
 
-**D-610 · 2026-11-06 · Cast, wait, pull at the pond** (the owner's
-picks, all recommended; fishing step 2 of D-608; mock-up:
-https://claude.ai/artifact/PdTsChn8We8fRc5Py7VQRe) At the home pond,
-bumping water with the rod held casts, a turn, the float on that tile.
-The Pond Minnow, look A: a grey back, a pale
-teal stripe, a cream belly. The float, look A: a small red-over-white
-bob that bobs a pixel every 2 seconds. A bite (1 turn in 6 superseded by D-613), look A: the hero's
-amber "!" over it, the float dipped. Minnows go into the bag in stacks
-of 20; with no room, the catch slips back. Cave pools keep their line
-until their step (superseded by D-618). Claude's, the owner may change them: the lines; a
-bump with no bite casts again (superseded by D-612); holding another tool reels in. D-607 moved to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
 **D-611 · 2026-11-06 · The minnow's oil** (the owner's picks, all
 recommended; fishing step 3 of D-608) In the bag, a Pond Minnow's
 button reads POUR, the flask's way: a turn, 15% of a tank, never above
@@ -189,3 +176,20 @@ than its reach, and casts again only when the light moves, the room
 changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
+
+**D-620 · 2026-11-06 · The waystone 3 × 3** (the owner's idea and
+picks, all recommended; mock-up:
+https://claude.ai/artifact/D4Bum5CsmzF7mR86DyciML) A waystone is 3 × 3:
+the walkable cross, a standing stone in each corner tile, the plate in the
+middle (supersedes D-587's 5 × 5 and four 2 × 2 corners). Look B, old and
+mossy: each stone fits its own tile, resting 2 pixels up on its shadow,
+9 to 11 pixels wide with a rough rounded top, some leaning a pixel, moss
+on its lit top left, a crack, and in the woods grass at its foot; the
+flagstones' rounded corners show the ground; the plate is as before. The
+home plate stands 2 tiles north of the woods' middle (supersedes D-589's
+3), the middle still at the foot of its south arm. In a cave room the old
+5 × 5 patch stays open floor (`pad`), so every depth's stone keeps its
+room and spot, and each room comes out as before but for the stone. Old
+saves have every waystone made 3 × 3 where it stands, once, asleep or
+woken as it was. D-610 moved to `archive/DECISIONS-FISHING.md`, word for
+word.

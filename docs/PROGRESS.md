@@ -47,6 +47,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.75, The waystone 3 × 3.** The owner's idea; all
+  recommended: look B, old and mossy; old saves made 3 × 3; the home plate
+  2 tiles north (D-620). Playtest: https://claude.ai/artifact/9ZHzxkeg64ELoupXWicPgr
 - **2026-11-06, 0.3.74, Research kept, the light kept.** Both
   recommended: one PR; the research pages in `RESEARCH-PAGES.md`;
   two docs split, five fixed; shadows cast only when a light moves
@@ -54,6 +57,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-06, 0.3.73, The cave pools' fish.** All recommended: the
   Blind Cavefish, look A, 20% oil, 1 heart, 2 coins, a fifth zone (D-618).
   Fishing done. Playtest: https://claude.ai/artifact/64U9aJSEzwtGdzFLzmCyQ6
-- **2026-11-06, 0.3.72, The ninth audit.** All recommended: the pixel
-  pictures to `pictures.js`; GLOSSARY, TECH and RESEARCH split; D-169 to
-  D-176 archived (D-617). Start read 10.1 KB. No playtest: nothing to play.

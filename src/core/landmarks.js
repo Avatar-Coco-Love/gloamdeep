@@ -5,9 +5,10 @@
 // waystone; for now only the home waystone uses a plan (D-589). Plain data, no drawing.
 
 export const LANDMARKS = {
-  // A cross through the middle is walked on, the four 2 × 2 corners are standing stones,
-  // and the middle is the plate (D-587).
-  waystone: { id: 'waystone', kind: 'landmark', name: 'Waystone', plan: ['YYXYY', 'YYXYY', 'XXZXX', 'YYXYY', 'YYXYY'] },
+  // A cross through the middle is walked on, a standing stone in each corner, and the middle
+  // is the plate (D-587), 3 × 3 (D-620). `pad`: tiles more kept open around it in a generated
+  // room (stamper.js), so each depth's stone stays in the room and spot it had at 5 × 5.
+  waystone: { id: 'waystone', kind: 'landmark', name: 'Waystone', plan: ['YXY', 'XZX', 'YXY'], pad: 1 },
 };
 
 // § stamp: the landmark's plan set on g (rows of letters, as arrays), its middle at x, y
