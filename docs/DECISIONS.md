@@ -77,23 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-620 · 2026-11-06 · The waystone 3 × 3** (the owner's idea and
-picks, all recommended; mock-up:
-https://claude.ai/artifact/D4Bum5CsmzF7mR86DyciML) A waystone is 3 × 3:
-the walkable cross, a standing stone in each corner tile, the plate in the
-middle (supersedes D-587's 5 × 5 and four 2 × 2 corners). Look B, old and
-mossy: each stone fits its own tile, resting 2 pixels up on its shadow,
-9 to 11 pixels wide with a rough rounded top, some leaning a pixel, moss
-on its lit top left, a crack, and in the woods grass at its foot; the
-flagstones' rounded corners show the ground; the plate is as before. The
-home plate stands 2 tiles north of the woods' middle (supersedes D-589's
-3), the middle still at the foot of its south arm. In a cave room the old
-5 × 5 patch stays open floor (`pad`), so every depth's stone keeps its
-room and spot, and each room comes out as before but for the stone. Old
-saves have every waystone made 3 × 3 where it stands, once, asleep or
-woken as it was. D-610 moved to `archive/DECISIONS-FISHING.md`, word for
-word.
-
 **D-621 · 2026-11-06 · Faster from idea to game** (the owner's picks,
 all recommended) Other stories, each with its own world, role and
 start, wait for later; first, story 1 grows much bigger. To make that
@@ -190,3 +173,22 @@ journey, so one kept before a change of the state's shape still loads;
 Save writes over a full slot without asking; Load is greyed while a
 slot is empty. D-608 moved to `archive/DECISIONS-FISHING.md`, word for
 word.
+
+**D-628 · 2026-11-06 · The first words** (the owner's picks; step 19,
+Lore, its first piece) A new journey opens on a glass card in the middle
+of the room, the crypt dim around it, after the way to play is picked:
+"You wake in the dark of the crypt. Your lantern still burns, but its oil
+will not last. Something waits below." It shows once, and BEGIN, Enter,
+Space, Esc or a tap anywhere begins play. Claude's, the owner may change
+it: each sentence its own paragraph, bone white and centred; no cross,
+as there is only one way on; not shown again after a Hardcore fall's
+Same world or New world. D-620 moved to `archive/DECISIONS-WAYSTONES.md`,
+word for word.
+
+**D-629 · 2026-11-06 · Lore and quests, the plan** (the owner's picks,
+recommended where marked) Lore starts with a line for each creature in
+the Bestiary (recommended), written once the owner has shared their own
+lore ideas, which come first. Quests come in three kinds, not all at once
+*(order Claude's, the owner may change it)*: a list of goals made from
+what is already in the game (recommended), then a main story line, then
+people's requests, such as the peddler asking for things.

@@ -8,7 +8,7 @@ import { makeMenu } from './menu.js';
 export function modeCard(app, ui, show, c) {
   const { menuOf, titleAt } = c;
   const { menuDir } = makeMenu(app, ui, show, c);
-  function pick(i) { const id = menuOf(app.screen)[i]?.id; ui.newJourney(id); show('play'); }
+  function pick(i) { const id = menuOf(app.screen)[i]?.id; ui.newJourney(id); show('opening'); } // the first words' card first (D-628)
   const close = () => titleAt('new'); // Esc or P
   function tap(px, py, held) {
     if (held) return;

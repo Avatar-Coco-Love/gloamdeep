@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.83', date: '2026-11-06', title: 'The first words', lines: [
+    "A new journey now opens with its first words, on a card in the middle of the dim crypt: \"You wake in the dark of the crypt. Your lantern still burns, but its oil will not last. Something waits below.\" Begin, or a tap anywhere, starts the journey.",
+    "Decisions: D-628, D-629. D-620 moved to the archive, word for word.",
+  ] },
   { v: '0.3.82', date: '2026-11-06', title: 'Test spots', lines: [
     "The dev panel has a new Spots section, its tab a bookmark, with three test spots kept on this device. Save puts the game as it is now into a slot; Load brings it back at once, no turn passed. Each slot's line says what it holds, like 1 · DEPTH 3 · TURN 120, or EMPTY. A loaded spot counts as a dev jump, so that journey's records stop counting.",
     "Decisions: D-627. D-608 moved to the archive, word for word.",
