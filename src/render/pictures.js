@@ -14,7 +14,7 @@ const PAL = {
   q: '#5d5672', Q: '#3a344b', // the cave spider's dusky violet-grey, light and shade (D-535)
   h: '#2c5230', I: '#1d3620', u: '#3a4590', v: '#8a98e0', // the bush's shade greens, from the tree's crown; the gloamberry's blue, dark and light (D-531)
   H: '#6a7489', L: '#555e73', M: '#4b5468', D: '#434b5d', x: '#262a35', // grey rock's face, lit top to seam (D-311)
-  E: '#6c5b48', F: '#4a3d30', f: '#2a221b', // soil, from the earth's colours (ART-DIRECTION.md "Earth"), the garden bed's (D-565)
+  E: '#6c5b48', F: '#4a3d30', f: '#2a221b', // soil, from the earth's colours (ART-DIRECTION-2.md "Earth"), the garden bed's (D-565)
 };
 
 // § hero: the study's hero, with the lantern held out to its right (D-042, D-056).

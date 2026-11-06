@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.71, Selling a minnow.** All recommended: 1 coin, the
+  materials' way, nothing else (D-616). Playtest: https://claude.ai/artifact/WGf4UMknUGFQtTzCWBLezL
 - **2026-11-06, 0.3.70, Eating a minnow.** All recommended: 1 heart, Eat
   left of Pour, E eats, its line (D-615). Playtest: https://claude.ai/artifact/6pEFSgijeiyzFsXSM9fJMJ
 - **2026-11-06, 0.3.69, The strike meter.** All recommended: look A, back

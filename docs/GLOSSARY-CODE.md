@@ -47,7 +47,7 @@ code; where this page and a decision disagree, the decision wins.
   hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
 - **Journal:** one book with tabs: Records first, then Growth, later
   quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
-- **Bestiary:** the Journal's tab of creatures met; more of a page shows
+- **Bestiary (to come):** the Journal's tab of creatures met; more of a page shows
   the more you meet and fight that creature (D-350).
 - **Growth:** the Journal's tab for spending embers (D-293), a tree with
   three branches, Light, Body and Hands (D-462, D-481).

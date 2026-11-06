@@ -7,7 +7,7 @@
 // edges, a room widened by openings.js is lit like the room: as remembered as
 // the nearest edge tile, and lights reach on only down a doorway's passage
 // (D-403). A room not widened keeps the deepest dark there (D-381).
-import { CELL, seenCells } from '../core/light.js';
+import { CELL, keptCells } from '../core/light.js';
 import { tileAt } from '../core/room.js';
 import { TILE, roomView as view } from './screen.js';
 
@@ -46,6 +46,7 @@ function blendPast(cells, x, y) { // any pixel, past the edge too
 // `lamp`: how much the lights add, less as daylight outshines them (D-217).
 const NO_SHIFT = { x: 0, y: 0 }; // a screen-sized room, as on the title, lit whole
 let seenBy = []; // one cell buffer per light, reused every frame
+let keepBy = []; // per light, its last shadow cast, kept while it stays put (D-619)
 // § speed (D-427): the same picture as working every light at every pixel, in less
 // time. A tile whose neighbours are all remembered, or all not, needs no blend, nor
 // does a pixel past the edge beside such a tile;
@@ -64,7 +65,7 @@ const EDGE = 4, SW = (RW) => RW + 2 * EDGE;
 export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room.dark, lamp = 1) {
   if (room.cols * TILE / CELL !== CW || room.rows * TILE / CELL !== CH) { // a new room size: new buffers
     CW = room.cols * TILE / CELL; CH = room.rows * TILE / CELL;
-    known = new Uint8Array(CW * CH); seenBy = [];
+    known = new Uint8Array(CW * CH); seenBy = []; keepBy = [];
     even = new Uint8Array(room.cols * room.rows); evenBy = NONE;
     const RW = CW * CELL, RH = CH * CELL, cell = (c, n) => (c < 0 ? 0 : c >= n ? n - 1 : c);
     shade = new Uint8Array(SW(RW) * (RH + 2 * EDGE));
@@ -76,7 +77,7 @@ export function drawLight(ctx, room, lights, memory, cam = NO_SHIFT, dark = room
   for (const L of lights) {
     if (L.r <= 0) continue;
     const cells = seenBy[lit.length] || (seenBy[lit.length] = new Uint8Array(CW * CH));
-    seenCells(room, L.x, L.y, L.r, cells);
+    keptCells(keepBy[lit.length] || (keepBy[lit.length] = {}), room, L.x, L.y, L.r, cells);
     lit.push({ L, cells });
   }
   const RW = CW * CELL, RH = CH * CELL;

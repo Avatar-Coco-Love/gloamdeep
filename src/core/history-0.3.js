@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.74', date: '2026-11-06', title: 'Research kept, the light kept', lines: [
+    "The light works out its shadows only when a light moves or the room changes, not every frame: standing still, it takes about 15% less time on a slow phone. The picture is exactly the same.",
+    "Behind the scenes: the research pages are kept in the docs, two nearly full docs are split, and five docs that no longer matched the game are fixed.",
+    "Decisions: D-619.",
+  ] },
   { v: '0.3.73', date: '2026-11-06', title: 'The cave pools\' fish', lines: [
     "Cave pools can be fished now: with the Wooden Rod held, bump a cave pool's water to cast, wait for the nibble and the bite, and strike in the light, just as at the pond at home.",
     "A cave pool's fish is the Blind Cavefish: pale and eyeless, bone and cream with a faint pink gill. Poured it gives the lantern 20% of a tank, eaten it heals 1 heart, and the peddler pays 2 coins. Its strike zone is a fifth of the bar, a little smaller than the minnow's quarter.",

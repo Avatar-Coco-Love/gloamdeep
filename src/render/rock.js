@@ -13,7 +13,7 @@ import { TILE as T } from './screen.js';
 import { inPool, wetAt, water } from './water.js';
 
 // § palette: grey is the study's cool blue-greys, as rock; earth is packed
-// brown earth with banded strata (ART-DIRECTION.md)
+// brown earth with banded strata (ART-DIRECTION-2.md)
 const LOOKS = {
   rock: {
     cap: '#1c1f28', grit: '#252935', edge: '#5a6478', foot: '#14161d', wobble: 0.55, // wobble: how far an edge wanders, as a share of half a tile

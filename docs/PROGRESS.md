@@ -22,7 +22,7 @@ Step 19, Lore; propose first.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- The next creature (Q-076, D-607), after fishing.
+- The next creature (Q-076, D-607), due now: fishing is done.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
@@ -44,14 +44,16 @@ The rest of the scope, proposed (D-482; may change):
 Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
 low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
-(D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
+(D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.74, Research kept, the light kept.** Both
+  recommended: one PR; the research pages in `RESEARCH-PAGES.md`;
+  two docs split, five fixed; shadows cast only when a light moves
+  (D-619). No playtest: nothing to see.
 - **2026-11-06, 0.3.73, The cave pools' fish.** All recommended: the
   Blind Cavefish, look A, 20% oil, 1 heart, 2 coins, a fifth zone (D-618).
   Fishing done. Playtest: https://claude.ai/artifact/64U9aJSEzwtGdzFLzmCyQ6
 - **2026-11-06, 0.3.72, The ninth audit.** All recommended: the pixel
   pictures to `pictures.js`; GLOSSARY, TECH and RESEARCH split; D-169 to
   D-176 archived (D-617). Start read 10.1 KB. No playtest: nothing to play.
-- **2026-11-06, 0.3.71, Selling a minnow.** All recommended: 1 coin, the
-  materials' way, nothing else (D-616). Playtest: https://claude.ai/artifact/WGf4UMknUGFQtTzCWBLezL

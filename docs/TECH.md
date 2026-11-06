@@ -23,7 +23,10 @@ at build plan step 7 (D-039).
   before and after and gives both. At 0.2.168: about 20 ms a frame, the
   light 16.5 ms, about 45 fps. At 0.2.171 (another day, the same machine
   slower): walking about 27 ms a frame, the light 19.5 ms, about 31 fps. At 0.3.32:
-  walking 18.5 ms a frame, the light 12.1 ms, 43 fps; standing 46 fps.
+  walking 18.5 ms a frame, the light 12.1 ms, 43 fps; standing 46 fps. At
+  0.3.74 (another machine, faster): standing 60 fps, about 10 ms a frame,
+  the light 8.5 ms, 7.3 ms with the kept shadows (D-619); walking 59 fps,
+  11 ms a frame, the light 7.5 ms either way.
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - A canvas drawn once and kept is drawn through `render/wipe.js` (`keep`, or `onWipe` to empty a cache), so it comes back after Android wipes it in the background (D-588).
@@ -53,7 +56,9 @@ at build plan step 7 (D-039).
 - **Seeded RNG.** All randomness comes from one seeded generator, so a
   seed reproduces a run exactly ("load seed 4127 and watch the bug happen").
   It is `src/core/rng.js`, arriving with the generated rooms (D-147,
-  D-148); only the page's boot uses `Math.random`, to pick the first seed.
+  D-148); only `randomSeed` in `src/main.js` uses `Math.random`, for a new
+  journey's seed, the Seed Explorer's Reseed and the look card's RANDOM,
+  never the rules.
 - **Turn rules are pure functions:** `(state, action) → new state`. That
   makes them easy to test and to undo in dev mode.
 
@@ -70,7 +75,7 @@ themselves. Each kind also touches:
 - **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
   line ids); its lines in `src/core/lines.js`; its picture in
   `src/render/pictures.js` (D-617), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
-  flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (like `lampmothRooms`) or
+  flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (its `POOL` entry, like `{ id: 'lampmoth', from: 2 }`; a mimic through `mimicRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
   the sound board). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
