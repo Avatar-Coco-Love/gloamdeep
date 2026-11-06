@@ -95,6 +95,7 @@ const WORDS = {
   mode: `${MODE_HEADING}. ${MODE_MENU.map((l) => `${l.text}: ${l.note}`).join(' ')}`,
   ended: `${ENDED_HEADING} Same world or New world.`,
   paused: 'Paused. Resume, Journal, Settings, How to play, or Back to title.',
+  strike: 'Strike! A needle sweeps across the bar. Press Enter or Space, or tap, when it is in the light.',
   play: '',
 };
 const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Esc or the close button goes back.`;
@@ -112,7 +113,7 @@ export function createScreens(app, ui) {
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
-  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'travel', 'boons'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (!['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'travel', 'boons', 'strike'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
@@ -129,6 +130,8 @@ export function createScreens(app, ui) {
   // § the boon card (D-596): the home plate's 3 boons, one row each, drawn as the card opens
   const boonsMenu = () => (app.offer || []).map(boonRow);
   const boonsWords = () => `Pick a boon. ${boonsMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} It lasts until you are home again. Esc or the close button goes on without one.`;
+  // § the strike card (D-614): opened on the pull, its clock started
+  function openStrike() { app.queued = null; app.strike = { start: performance.now() }; show('strike'); }
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id] : [easeHeading(app.easier), EASE_NOTE]);
@@ -248,5 +251,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

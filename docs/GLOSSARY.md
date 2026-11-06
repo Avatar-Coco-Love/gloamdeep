@@ -84,6 +84,7 @@ this page and a decision disagree, the decision wins.
 - **Pond Minnow:** the first fish, from the pond at home; poured into the lantern for 15% oil (D-608, D-610, D-611).
 - **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).
 - **Nibble:** the turn before a bite, the float shaking, "A nibble..." (D-613).
+- **Strike meter:** the card a pulled bite opens, a needle swept across a bar; tap in the amber zone to land the fish (D-614).
 - **Wood:** sticks, branches and trees all give it, for crafts and building;
   sticks lie in the woods in three looks (D-314, D-315).
 - **Fallen branch:** one in each woods room, blocking a tile; two bumps

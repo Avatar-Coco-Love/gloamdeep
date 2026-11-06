@@ -43,7 +43,7 @@ const made = (screen) => {
 const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false], settings: ['closeSettings'], ways: ['closeWays'], mode: ['titleAt', 'new'], howto: ['closeHowTo'], history: ['closeHistory'], journal: ['closeJournal'], slots: ['titleAt', 'profiles'], name: ['closeName'], cloak: ['closeCloak'], seed: ['closePad'], explore: ['closeExplorer'] };
 
 test('the table holds the bag, place, bench, chest and trade cards, the four asks, the six menus, the three pages and the profile and map screens', () => {
-  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'boons', 'chest', 'cloak', 'drop', 'easier', 'ended', 'explore', 'history', 'howto', 'journal', 'map', 'mode', 'name', 'paused', 'place', 'seed', 'settings', 'slots', 'sure', 'title', 'trade', 'travel', 'ways']);
+  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'boons', 'chest', 'cloak', 'drop', 'easier', 'ended', 'explore', 'history', 'howto', 'journal', 'map', 'mode', 'name', 'paused', 'place', 'seed', 'settings', 'slots', 'strike', 'sure', 'title', 'trade', 'travel', 'ways']);
   for (const id of [...ASKS, ...MENUS]) assert.ok(CARD_TABLE[id], id);
 });
 
@@ -52,7 +52,7 @@ for (const id of Object.keys(CARD_TABLE)) {
     const card = made(id).cards[id];
     for (const k of ['pick', 'dir', 'tap', 'close']) assert.equal(typeof card[k], 'function', k);
   });
-  if (id === 'place' || id === 'title' || id === 'ended') continue; // setting down, the title and the journey's end have their own checks below
+  if (id === 'place' || id === 'title' || id === 'ended' || id === 'strike') continue; // setting down, the title, the journey's end and the strike card have their own checks below
   const back = BACK[id];
   test(`a tap outside the ${id} card, or Esc, goes ${back ? `to ${back[0]}` : 'back to play'}`, () => {
     const { shown, calls, cards } = made(id);
@@ -67,6 +67,16 @@ for (const id of Object.keys(CARD_TABLE)) {
     if (back) assert.deepEqual(shown, []);
   });
 }
+
+test('the strike card: a tap anywhere, Enter or Space strikes; a held press, an arrow and Esc do nothing (D-614)', () => {
+  const { ui, shown, cards } = made('strike');
+  let struck = 0; ui.strike = () => struck++;
+  cards.strike.tap(-10, -10, false); cards.strike.tap(50, 50, false); cards.strike.pick(0);
+  assert.equal(struck, 3);
+  cards.strike.tap(50, 50, true); cards.strike.dir('left'); cards.strike.close();
+  assert.equal(struck, 3);
+  assert.deepEqual(shown, []);
+});
 
 test('setting down: Enter does nothing, an arrow sets it, a tap goes to tapSide, Esc goes back to play', () => {
   const calls = [], shown = [];

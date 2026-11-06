@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.69 (2026-11-06)
+- Pulling on a bite opens the strike meter: a needle sweeps back and forth across a bar, and you tap while it is in the amber zone to land the fish. The world waits while it is open.
+- Miss, or let the needle pass 3 times, and the fish gets away with the line coming in.
+- Decisions: D-614.
+
 ## 0.3.68 (2026-11-06)
 - A fish nibbles before it bites: the float shakes and the line reads "A nibble...". The next turn it always bites, so wait for the "!" and then pull.
 - Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.
@@ -33,8 +38,3 @@ Entry format:
 - While a line is out, the flask button beside the lantern reads WAIT, and PULL in amber when a fish bites. A tap does the same as bumping the water. The flask comes back once the line is in.
 - Planned next for fishing: a nibble turn before each bite, with a plop and a splash, then a short timed strike when a fish bites, played with the world paused.
 - Decisions: D-612. D-579 and D-587 moved to the archive, word for word.
-
-## 0.3.66 (2026-11-06)
-- The Pond Minnow's first use: choose it in the bag and press POUR, like a flask. It takes a turn and gives the lantern 15% of a tank, never past full.
-- Only by hand: the flask button and "Flasks: By itself" still pour only flasks, Deep Pour makes only flasks pour more, and Records' "Flasks poured" counts only flasks.
-- Decisions: D-611. D-588 moved to the archive, word for word.

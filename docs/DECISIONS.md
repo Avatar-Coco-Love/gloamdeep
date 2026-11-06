@@ -105,20 +105,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-581 · 2026-11-02 · A draft toward the stairs** (the owner's picks,
-recommended; builds on D-174) Stairs still must be found, with a clue:
-a few faint motes drift in the lantern light toward the stairs down.
-If the motes don't work or aren't enough, the lantern's flame leans
-toward the way down instead. The Depth Meter (the owner's idea) stays
-a later find or craft that points the way.
-
-**D-582 · 2026-11-02 · Getting around comes first** (the owner's
-picks, recommended) Three steps come before the rest of the build
-plan, in this order: smaller shallow floors (D-580), the waystones
-(D-579), the drifting motes (D-581). Then the new creature kind
-(Q-076), fishing, lore, relics and feats. Digging up stumps with the
-right tool, so the home can be shaped freely, goes to the wish list.
-
 **D-583 · 2026-11-02 · Boons at the home waystone** (the owner's idea
 and picks; builds on D-579 and the shrine idea in `RESEARCH.md`) Each
 time the hero sets out from the home waystone, it offers 3 boons drawn
@@ -206,3 +192,16 @@ left, once each 1.2 seconds; with reduced motion it holds a pixel left.
 The cast plays plop A, a round bloop rising; the catch plays splash A,
 a burst of water and three drops. Claude's, the owner may change them:
 no splash when the minnow slips back or gets away.
+
+**D-614 · 2026-11-06 · The strike meter** (the owner's picks, all
+recommended; fishing polish 3 of D-612; mock-up:
+https://claude.ai/artifact/Dheoy99waUcNaBdgB5snwo) Pulling on a bite,
+a turn, opens a card with the world paused: STRIKE! in ember, "Tap in
+the light" in grey, a dark bar in a grey frame with an amber zone a
+quarter wide, placed by the seed, and a cream needle with an ember tip.
+The needle goes back and forth at a steady second a pass; a tap
+anywhere, Space or Enter strikes, free. In the zone the minnow lands
+with splash A; a miss, or 3 passes with no tap, "It got away." and the
+line comes in (an unpulled bite still leaves the float out). No cross;
+reduced motion keeps the needle moving. D-581 and D-582 moved to
+`archive/DECISIONS-GETTING-AROUND.md`, word for word.

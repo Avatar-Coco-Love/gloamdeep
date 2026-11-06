@@ -5,12 +5,13 @@ import { makeRoom, FIRST_ROOM, withTile } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, step, wait } from '../src/core/turn.js';
 import { shownLine } from '../src/core/lines.js';
-import { NIBBLE_CHANCE } from '../src/core/fishing.js';
+import { NIBBLE_CHANCE, STRIKE_ZONE, STRIKE_PASSES, STRIKE_PASS_MS, needleAt, inZone, strikeFish } from '../src/core/fishing.js';
 import { shakeAt } from '../src/render/float.js';
 
 // The hero at 5,11 at home, the pond's water just above, the rod held
 const beside = (place = 'woods', tool = 'rod') => ({ ...makeState(withTile(makeRoom(FIRST_ROOM), 5, 10, get('water'))), hero: { x: 5, y: 11 }, tool, place, enemies: [] });
 const cast = (s = beside()) => step(s, 'up');
+const hit = (s) => strikeFish(s, s.float.strike + STRIKE_ZONE / 2); // a strike in the middle of the zone
 const untilBite = (s, next = wait) => { for (let i = 0; i < 200 && !s.float?.bite; i++) s = next(s); return s; };
 
 test('bumping the home pond with the rod casts the line, a turn, the float on that tile', () => {
@@ -54,7 +55,7 @@ test('bumping the water on a nibble waits, the bite still coming next turn (D-61
 
 test('the cast plops and the catch splashes, as events (D-613)', () => {
   assert.ok(cast().events.some((e) => e.type === 'cast'));
-  const caught = step(untilBite(cast()), 'up');
+  const caught = hit(step(untilBite(cast()), 'up'));
   assert.ok(caught.events.some((e) => e.type === 'catch' && e.id === 'pondMinnow'));
   assert.ok(!step(cast(), 'up').events.some((e) => e.type === 'cast')); // a bump while waiting is no new cast
 });
@@ -64,23 +65,51 @@ test('the nibbling float shakes a pixel left, right, left, then rests; held left
   assert.equal(shakeAt(500, true), -1);
 });
 
-test('a bite shows its line; bumping within its turn lands a Pond Minnow, into the bag, the line in', () => {
+test('a bite shows its line; pulling it, a turn, opens the strike meter, its zone placed by the seed (D-614)', () => {
   const bit = untilBite(cast());
   assert.equal(shownLine(bit).text, 'Something bites!');
-  const caught = step(bit, 'up');
-  assert.equal(caught.turn, bit.turn + 1);
+  const pulled = step(bit, 'up');
+  assert.equal(pulled.turn, bit.turn + 1);
+  assert.equal(pulled.float.bite, false);
+  assert.ok(pulled.float.strike >= 0 && pulled.float.strike <= 1 - STRIKE_ZONE);
+  assert.equal(step(bit, 'up').float.strike, pulled.float.strike); // the same seed, the same zone
+  assert.deepEqual(pulled.bag, bit.bag);
+});
+
+test('a strike in the zone lands a Pond Minnow, free, into the bag, the line in (D-614)', () => {
+  const pulled = step(untilBite(cast()), 'up'), caught = hit(pulled);
+  assert.equal(caught.turn, pulled.turn);
   assert.equal(caught.float, null);
   assert.deepEqual(caught.bag, [{ id: 'pondMinnow', n: 1 }]);
   assert.equal(shownLine(caught).text, 'You catch a pond minnow.');
   assert.equal(get('pondMinnow').max, 20);
 });
 
-test('too slow, it gets away and the float stays; with no room, it slips back', () => {
+test('a strike missed, or the needle run out, gets away and the line comes in, with no splash (D-614)', () => {
+  const pulled = step(untilBite(cast()), 'up'), z = pulled.float.strike;
+  for (const n of [z > 0.5 ? 0 : 1, null]) {
+    const missed = strikeFish(pulled, n);
+    assert.equal(missed.float, null);
+    assert.deepEqual(missed.bag, pulled.bag);
+    assert.equal(shownLine(missed).text, 'It got away.');
+    assert.ok(!missed.events.some((e) => e.type === 'catch'));
+  }
+  assert.equal(wait(pulled).float, null); // a turn passing under the meter, as after loading: gone
+});
+
+test('the needle sweeps left to right, back, and again, a second a pass, then is done; the zone a quarter', () => {
+  assert.equal(STRIKE_ZONE, 1 / 4); assert.equal(STRIKE_PASSES, 3); assert.equal(STRIKE_PASS_MS, 1000);
+  assert.deepEqual([0, 500, 1000, 1500, 2000, 2500].map(needleAt), [0, 0.5, 1, 0.5, 0, 0.5]);
+  assert.equal(needleAt(3000), null);
+  assert.ok(inZone(0.5, 0.5) && inZone(0.5, 0.75) && !inZone(0.5, 0.76) && !inZone(0.5, null));
+});
+
+test('too slow on a bite, it gets away and the float stays; a strike with no room slips back', () => {
   const bit = untilBite(cast());
   const away = wait(bit);
   assert.deepEqual(away.float, { ...bit.float, bite: false, nibble: false });
   assert.equal(shownLine(away).text, 'It got away.');
-  const full = step({ ...bit, bag: Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 })) }, 'up');
+  const full = hit(step({ ...bit, bag: Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 })) }, 'up'));
   assert.equal(full.float, null);
   assert.equal(full.bag.some((b) => b.id === 'pondMinnow'), false);
   assert.equal(shownLine(full).text, 'No room. The minnow slips away.');

@@ -6,6 +6,7 @@ import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown,
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
+import { strikeFish, needleAt } from './core/fishing.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
 import { beginPlace, depthOf } from './core/room.js';
@@ -233,6 +234,15 @@ function tryStep(dir) {
   // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
   if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
 }
+// § strike (D-614): the strike card's tap, or its needle run out (null), free; the catch's
+// splash and its records as any turn's, then back to play
+function strikeAt(n) {
+  const before = app.state;
+  app.state = strikeFish(before, n);
+  const events = eventsSince(before, app.state);
+  hear(events); keepRecords(events);
+  app.strike = null; screens.show('play');
+}
 // The fall is shown in the room where it happened, then the hero wakes at the start (D-234)
 function fallDown(from) {
   const now = performance.now();
@@ -415,6 +425,7 @@ const screens = createScreens(app, {
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
   takeBoon: (id) => { const before = app.state; app.state = takeBoon(before, id); hear(eventsSince(before, app.state)); }, // the boon card's pick, free (D-596)
+  strike: () => strikeAt(needleAt(performance.now() - app.strike.start)), // the strike card's tap (D-614)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
   goFullScreen,
@@ -427,7 +438,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'strike', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); };
 // Tab frames the first plaque, then the next, then none (CL2)
@@ -506,6 +517,8 @@ function update(t) {
   shown.y = approach(shown.y, s.hero.y, dt);
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
   if (app.screen !== 'play') app.walk = app.padDir = app.hold = null; // a card or menu ends a walk, the pad's and a hold's
+  if (app.screen === 'strike' && needleAt(t - app.strike.start) === null) strikeAt(null); // too slow: gone (D-614)
+  if (settled() && app.screen === 'play' && app.state.float?.strike !== undefined) screens.openStrike(); // pulled on a bite, once the hero is still; after loading too (D-614)
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }
