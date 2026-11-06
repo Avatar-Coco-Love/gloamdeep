@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.69', date: '2026-11-06', title: 'The strike meter', lines: [
+    "Pulling on a bite opens the strike meter: a needle sweeps back and forth across a bar, and you tap while it is in the amber zone to land the fish. The world waits while it is open.",
+    "Miss, or let the needle pass 3 times, and the fish gets away with the line coming in.",
+    "Decisions: D-614.",
+  ] },
   { v: '0.3.68', date: '2026-11-06', title: 'The nibble', lines: [
     "A fish nibbles before it bites: the float shakes and the line reads \"A nibble...\". The next turn it always bites, so wait for the \"!\" and then pull.",
     "Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.",

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.66, The minnow's oil.** All recommended: POUR in the
+  bag, a turn, 15%; by hand only, not with Deep Pour, not counted in
+  Flasks poured (D-611). Playtest: https://claude.ai/artifact/JjsRQ8U8i7cVk2uKYFvHey
 - **2026-11-06, 0.3.65, Cast, wait, pull.** All recommended: at the home
   pond, cast, a bite 1 turn in 6 with a "!" over the float, pull for a
   Pond Minnow, looks A (D-610). Playtest: https://claude.ai/artifact/RK6ojNs3RGp8NHBM4pyjw3

@@ -77,6 +77,20 @@ stats line too, is in the game's pixel font at double size; the stats
 line stays at the bottom left. When the drawer is short (sideways) the
 tabs and tools scroll. D-093's colours stay.
 
+**D-581 · 2026-11-02 · A draft toward the stairs** (the owner's picks,
+recommended; builds on D-174) Stairs still must be found, with a clue:
+a few faint motes drift in the lantern light toward the stairs down.
+If the motes don't work or aren't enough, the lantern's flame leans
+toward the way down instead. The Depth Meter (the owner's idea) stays
+a later find or craft that points the way.
+
+**D-582 · 2026-11-02 · Getting around comes first** (the owner's
+picks, recommended) Three steps come before the rest of the build
+plan, in this order: smaller shallow floors (D-580), the waystones
+(D-579), the drifting motes (D-581). Then the new creature kind
+(Q-076), fishing, lore, relics and feats. Digging up stumps with the
+right tool, so the home can be shaped freely, goes to the wish list.
+
 **D-605 · 2026-11-05 · Drifting motes** (the owner's picks, all
 recommended; builds on D-581) About 5 faint pale motes at once drift
 slowly in the lantern light, with a little wobble, fading in and out,

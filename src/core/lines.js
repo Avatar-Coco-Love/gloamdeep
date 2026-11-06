@@ -112,8 +112,8 @@ export const LINES = {
   castLine: { text: 'You cast the line.', warn: false }, // bumping the home pond with the rod held, a turn (D-610)
   fishNibble: { text: 'A nibble...', warn: false }, // 1 waiting turn in 6, the float twitching; the bite next turn (D-613)
   fishBite: { text: 'Something bites!', warn: false }, // the turn after a nibble, the "!" over the float
-  fishCatch: { text: 'You catch a pond minnow.', warn: false }, // bumping the water again within its turn
-  fishAway: { text: 'It got away.', warn: false }, // a bite not pulled in its turn; the float stays
+  fishCatch: { text: 'You catch a pond minnow.', warn: false }, // a strike in the strike meter's zone (D-614)
+  fishAway: { text: 'It got away.', warn: false }, // a bite not pulled in its turn, the float staying; or a strike missed, the line in (D-614)
   fishSlip: { text: 'No room. The minnow slips away.', warn: false }, // a catch with no room
   reelIn: { text: 'You reel in the line.', warn: false }, // walking off, or another tool held
   pondMinnowLook: { texts: ['A pond minnow, small and silver.', 'It still smells of the pond.', 'Poured, it gives the lantern a little oil.'], warn: false },
