@@ -8,9 +8,11 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Step 19, Lore; propose first.
+Step 19, Lore: the owner shares their own lore ideas first; then a
+Bestiary line for each creature (D-629).
 
 ## Waiting on the owner
+- Your own lore ideas, before the Bestiary lines (D-629).
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
 - Glints: which Feats pay, how many, the prices (Q-055), before the first unlock.
@@ -37,7 +39,7 @@ The rest of the scope, proposed (D-482; may change):
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
   the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
-- [ ] 19 Lore
+- [ ] 19 Lore (D-629): the first words (0.3.83)
 - [ ] 20 Relics
 - [ ] 21 Feats
 
@@ -49,6 +51,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.83, The first words.** The owner's picks: a card
+  in the room with three sentences opens a new journey (D-628); lore
+  starts with Bestiary lines after the owner's ideas; quests later as
+  goals, a story line and requests (D-629). Playtest: https://claude.ai/artifact/2Hfq1gy4rza4be73tr8kaD
 - **2026-11-06, 0.3.82, Test spots.** All recommended: three slots on
   this device in a new Spots section; Load is a dev jump (D-627). Step
   18b is done. Playtest: https://claude.ai/artifact/EHsrMWYnTsnevjbP8AmzF8
@@ -56,7 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   nothing and an oil tick's drink takes nothing, still shown; the oil
   stays where it is; under Refill and Empty, kept in the save (D-626).
   Playtest: https://claude.ai/artifact/6NcqvqPzQxCQjnCC3ef9Xe
-- **2026-11-06, 0.3.80, God mode.** All recommended: bites still bite,
-  no harm; in the Hero section, kept in the save. The oil tick still
-  drinks: the owner's idea, Endless oil in the Oil section, comes next
-  (D-625). Playtest: https://claude.ai/artifact/EK5CHZHBjnQeiV1k3mk9Cx

@@ -118,3 +118,20 @@ Down keep the chosen row whole in view; a swipe, Page Up or Page Down
 turns a page, the flame moving to the top row shown if it scrolled away;
 a thin bar at the card's right shows where the list is. Only whole rows
 show while it scrolls, 5 sideways. D-593 and D-594 archived.
+
+**D-620 · 2026-11-06 · The waystone 3 × 3** (the owner's idea and
+picks, all recommended; mock-up:
+https://claude.ai/artifact/D4Bum5CsmzF7mR86DyciML) A waystone is 3 × 3:
+the walkable cross, a standing stone in each corner tile, the plate in the
+middle (supersedes D-587's 5 × 5 and four 2 × 2 corners). Look B, old and
+mossy: each stone fits its own tile, resting 2 pixels up on its shadow,
+9 to 11 pixels wide with a rough rounded top, some leaning a pixel, moss
+on its lit top left, a crack, and in the woods grass at its foot; the
+flagstones' rounded corners show the ground; the plate is as before. The
+home plate stands 2 tiles north of the woods' middle (supersedes D-589's
+3), the middle still at the foot of its south arm. In a cave room the old
+5 × 5 patch stays open floor (`pad`), so every depth's stone keeps its
+room and spot, and each room comes out as before but for the stone. Old
+saves have every waystone made 3 × 3 where it stands, once, asleep or
+woken as it was. D-610 moved to `archive/DECISIONS-FISHING.md`, word for
+word.

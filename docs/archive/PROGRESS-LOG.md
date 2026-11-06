@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.80, God mode.** All recommended: bites still bite,
+  no harm; in the Hero section, kept in the save. The oil tick still
+  drinks: the owner's idea, Endless oil in the Oil section, comes next
+  (D-625). Playtest: https://claude.ai/artifact/EK5CHZHBjnQeiV1k3mk9Cx
 - **2026-11-06, 0.3.79, Spawn as pictures.** All recommended: 32 px
   pictures, the pick's name in the head; headings in one list; the
   device keyboard, filtering live; tiles in their real drawing (D-624). Playtest: https://claude.ai/artifact/2cVv3J9v8ekzj44aTBE9UR

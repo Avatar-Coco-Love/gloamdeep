@@ -27,6 +27,7 @@ import { drawHistory } from './history.js';
 import { drawJournal } from './journal.js';
 import { drawSlots } from './slots.js';
 import { drawAskCard } from './askcard.js';
+import { drawOpening } from './openingcard.js';
 import { drawLook } from './cloak.js';
 import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
@@ -75,8 +76,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -325,6 +326,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
     else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float)); // the strike meter, the room paused (D-614)
+    else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
     else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
     else if (app.screen === 'easier' || app.screen === 'bed') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
