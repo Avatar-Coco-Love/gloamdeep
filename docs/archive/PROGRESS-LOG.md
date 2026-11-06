@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.83, The first words.** The owner's picks: a card
+  in the room with three sentences opens a new journey (D-628); lore
+  starts with Bestiary lines after the owner's ideas; quests later as
+  goals, a story line and requests (D-629). Playtest: https://claude.ai/artifact/2Hfq1gy4rza4be73tr8kaD
 - **2026-11-06, 0.3.82, Test spots.** All recommended: three slots on
   this device in a new Spots section; Load is a dev jump (D-627). Step
   18b is done. Playtest: https://claude.ai/artifact/EHsrMWYnTsnevjbP8AmzF8

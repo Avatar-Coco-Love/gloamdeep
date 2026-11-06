@@ -58,6 +58,11 @@ test('every creature acts in ways that exist', () => {
   report(gaps, 'Add these ways to src/core/behaviours.js');
 });
 
+// The words on its Bestiary page once one is beaten (D-352, D-631); the maker leaves them blank
+test('every creature says how it acts', () => {
+  report(byKind('enemy').filter((e) => typeof e.acts !== 'string').map(who), 'Add `acts`, how it acts in words, to these in src/core/enemies.js');
+});
+
 test('every creature sound is in sound.js', () => {
   const gaps = [];
   for (const e of byKind('enemy')) {

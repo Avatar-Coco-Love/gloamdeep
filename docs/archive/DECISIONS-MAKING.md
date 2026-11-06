@@ -1,7 +1,7 @@
 # Faster making (D-621)
 
 Moved word for word from `DECISIONS.md` at 0.3.85 (D-630), as that file
-neared 12 KB. In force.
+neared 12 KB, and D-622 at 0.3.86 (D-631). In force.
 
 ---
 
@@ -22,3 +22,18 @@ change it: plug-in slots for systems come with the next new system
 is weighed again at the audit, 0.3.112. The checker found the Snapcap
 Gill with no content row; it has one now. D-611 and D-612 moved to
 `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-622 · 2026-11-06 · The maker** (the owner's picks, all recommended;
+step 18b, after the checker, D-621) `node tools/make.js <kind> <id> "<Name>"`,
+everything on one line, kind one of creature, find, tile or person;
+`--check` lists what it would write and writes nothing; an id or name
+already taken is refused; undo with git. It writes every empty piece
+(TECH.md, "Adding content"): the entry, its lines, its picture and
+sprite, a creature's hit flash, a tile's drawing, where it lives, its
+test and its content row. What needs the owner's numbers, words and
+art is a marked blank (`/* blank */` or `// blank:`), which the game
+still runs with: numbers 1, a line its own name in brackets, a creature
+`from: Infinity` (only the dev tools), and a grey "?" picture; the
+checker names each blank left and its file. It writes the content row
+only, of `?`s; the glossary word and the decision stay by hand.
+D-613 and D-614 moved to `archive/DECISIONS-FISHING.md`, word for word.

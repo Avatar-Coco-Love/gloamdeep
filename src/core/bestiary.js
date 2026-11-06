@@ -39,10 +39,24 @@ export function booked(book, events, jumped = false) {
 export const bestiaryRows = (book) => ALL.filter((c) => c.kind === 'enemy' && book[c.id]?.met).map((c) => ({ id: c.id, name: c.name, met: book[c.id].met, beaten: book[c.id].beaten }));
 // One row's counts, as written under its name
 export const countsText = (row) => `${row.met} met, ${row.beaten} beaten`;
+// § page: one creature's page (D-350, D-631): its counts, and once one is beaten how it acts
+// (D-352), before that a grey hint. `known` says which.
+export const HINT = 'Beat one to learn how it acts.';
+export function pageOf(book, id) {
+  const c = get(id), n = { met: 0, beaten: 0, ...book[id] }, known = n.beaten > 0;
+  return { id, name: c.name, counts: countsText(n), known, acts: known ? c.acts : HINT };
+}
+// The picked row's index kept inside the rows there are, d steps on (Up -1, Down +1)
+export const movePickRow = (book, pick, d) => Math.max(0, Math.min(bestiaryRows(book).length - 1, pick + d));
 // § words: for the screen reader
 export const NONE = 'No creatures met yet.';
 const TURN = 'Left for Growth. Esc or the close button goes back.';
-export function bestiaryWords(book) {
-  const rows = bestiaryRows(book);
-  return `Journal, Bestiary tab. ${rows.length ? rows.map((r) => `${r.name}, ${countsText(r)}`).join('. ') + '.' : NONE} ${TURN}`;
+const PICK = 'Up or Down picks another, Enter opens its page.';
+export function bestiaryWords(book, pick = 0) {
+  const rows = bestiaryRows(book), picked = rows[pick] ?? rows[0];
+  return `Journal, Bestiary tab. ${rows.length ? `${rows.map((r) => `${r.name}, ${countsText(r)}`).join('. ')}. Picked, ${picked.name}. ${PICK}` : NONE} ${TURN}`;
+}
+export function pageWords(book, id) {
+  const p = pageOf(book, id);
+  return `Journal, Bestiary, ${p.name}. ${p.counts}. ${p.acts} Esc or the close button goes back to the Bestiary.`;
 }

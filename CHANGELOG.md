@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.86 (2026-11-06)
+- Each creature in the Bestiary has its own page: tap its row, or pick it with Up or Down and press Enter. The page shows its drawing twice as big, its name and counts, and, once you have beaten one, a sentence or two on how it acts. Before that it says "Beat one to learn how it acts." Esc, the round cross or Left goes back to the table.
+- Decisions: D-631. D-622 moved to the archive, word for word.
+
 ## 0.3.85 (2026-11-06)
 - The Journal has a third tab, Bestiary, after Growth: a table of the creatures you have met, each with its drawing, its name, and how many you have met and beaten. A creature counts as met the first time your light reaches it; a mimic or a snapcap only once it shows itself, and one beaten in the dark counts too. The counts stay with your profile through falls and new journeys, starting from zero now.
 - Decisions: D-630. D-621 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.84 (2026-11-06)
 - Nothing in the game changed. The owner's idea is saved as a question: bosses, rare named creatures and unique wanderers with histories of their own, told in lore pages, on their Bestiary page and by the guide or people, each with a Feat for beating it.
 - Questions opened: Q-083.
-
-## 0.3.83 (2026-11-06)
-- A new journey now opens with its first words, on a card in the middle of the dim crypt: "You wake in the dark of the crypt. Your lantern still burns, but its oil will not last. Something waits below." Begin, or a tap anywhere, starts the journey.
-- Decisions: D-628, D-629. D-620 moved to the archive, word for word.

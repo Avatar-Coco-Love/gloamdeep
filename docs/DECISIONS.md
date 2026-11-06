@@ -77,21 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-622 · 2026-11-06 · The maker** (the owner's picks, all recommended;
-step 18b, after the checker, D-621) `node tools/make.js <kind> <id> "<Name>"`,
-everything on one line, kind one of creature, find, tile or person;
-`--check` lists what it would write and writes nothing; an id or name
-already taken is refused; undo with git. It writes every empty piece
-(TECH.md, "Adding content"): the entry, its lines, its picture and
-sprite, a creature's hit flash, a tile's drawing, where it lives, its
-test and its content row. What needs the owner's numbers, words and
-art is a marked blank (`/* blank */` or `// blank:`), which the game
-still runs with: numbers 1, a line its own name in brackets, a creature
-`from: Infinity` (only the dev tools), and a grey "?" picture; the
-checker names each blank left and its file. It writes the content row
-only, of `?`s; the glossary word and the decision stay by hand.
-D-613 and D-614 moved to `archive/DECISIONS-FISHING.md`, word for word.
-
 **D-623 · 2026-11-06 · The dev panel as a bottom sheet** (the owner's
 picks, all recommended; step 18b, after the maker, D-621) Look A of the
 mock-up: the panel is a sheet along the screen's foot, half its height,
@@ -188,3 +173,16 @@ Claude drafting them and the owner editing. Claude's, the owner may change
 it: the headings Met and Beaten; "No creatures met yet." with none;
 Right past Hands on Growth turns to it; sideways, two tables side by side.
 D-621 moved to `archive/DECISIONS-MAKING.md`, word for word.
+
+**D-631 · 2026-11-06 · How it acts** (the owner's picks, all recommended;
+step 19; builds D-352, D-630) Each creature's Bestiary page says how it
+acts, in Claude's words, which the owner took as drafted and may still
+change: one or two sentences each, kept in the registry as `acts`, on
+behaviour only, the fighting tips waiting for "how to fight it". A tap on
+a row of the Bestiary's table, or Up or Down and Enter, opens that
+creature's page: its drawing twice as big, its name and counts, then how
+it acts. Before one is beaten the page says, in grey, "Beat one to learn
+how it acts." Claude's, the owner may change it: the picked row's name
+gold; Esc, the round cross or Left goes back to the table. The maker
+leaves `acts` a blank, and the checker asks every creature for it.
+D-622 moved to `archive/DECISIONS-MAKING.md`, word for word.

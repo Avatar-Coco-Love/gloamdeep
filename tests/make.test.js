@@ -38,7 +38,7 @@ test('the checker there passes all but its blanks, and names each made thing in 
   const failed = [...out.matchAll(/^not ok \d+ - (.*)$/gm)].map((m) => m[1]);
   assert.deepEqual(failed, ['nothing the maker left is still blank']);
   for (const [, id] of MADE) assert.match(out, new RegExp(`${id}, its picture`), id);
-  assert.match(out, /glowWorm: health, bite, ways \(src\/core\/enemies\.js:\d+\)/);
+  assert.match(out, /glowWorm: health, bite, ways, acts \(src\/core\/enemies\.js:\d+\)/);
   assert.match(out, /glowWorm: from \(src\/core\/room\.js:\d+\)/);
   assert.match(out, /mossPatch, its drawing/);
   assert.match(out, /oldMiner, its content row \(docs\/CONTENT-2\.md:\d+\)/);

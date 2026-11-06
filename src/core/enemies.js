@@ -6,58 +6,59 @@
 // turn it wakes and `awake`, the turns it has left to chase (D-368), and `facing` ('left'
 // or 'right', drawn facing right until it walks, D-158), and `colour`, the set it
 // wears, for a kind with `colours` (D-373). `ways` names how it
-// acts, from behaviours.js (D-269).
+// acts, from behaviours.js (D-269); `acts` says it in words, on its Bestiary page once one
+// is beaten (D-352, D-631).
 import { MUSHROOM_TONE } from './items.js';
 
 export const ENEMIES = {
   // Two lantern hits kill it (D-109, D-110); it bites for 1 when next to the hero (D-114)
   // and chases them once it notices them (D-126). Once hurt, it may flee (D-292, D-301).
   // Its bite sounds of teeth (D-259). Beaten, it `drops` a Rat Tail now and then (D-453, D-454).
-  rat: { id: 'rat', kind: 'enemy', name: 'Rat', health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
+  rat: { id: 'rat', kind: 'enemy', name: 'Rat', acts: "Comes at you once it sees you in the light. Hurt, it often turns and runs.", health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
   // It chases, and shuns light (D-240). Beaten, it may drop a Gloam Wisp (D-475),
   // and now and then its `rare` Gloam Eye (D-476).
-  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
+  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', acts: "Hunts you from the dark, but will not step into the light. When the light finds it, it backs away.", health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
   // It seeks light (D-351); one hit of anything kills it (D-356). It may drop Moth Dust (D-475).
-  lampmoth: { id: 'lampmoth', kind: 'enemy', flies: true, name: 'Lampmoth', health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
+  lampmoth: { id: 'lampmoth', kind: 'enemy', flies: true, name: 'Lampmoth', acts: "Flies straight for your lantern's flame, or the nearest lit torch when your lantern is out.", health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
   // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
   // `looksLike` and hidden from the creature list; a bump wakes it, with no
   // harm, and it chases for `awakeTurns` turns, then settles back down where
   // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
   // Beaten, it may drop Mimic Glass (D-475), and now and then a Mimic Heart (D-476).
-  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', health: 3, bite: 1, drops: 'mimicGlass', rare: 'mimicHeart', ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
+  flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', acts: "Sleeps looking like a flask of oil. Bump it and it wakes and chases you, then settles down again.", health: 3, bite: 1, drops: 'mimicGlass', rare: 'mimicHeart', ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
   // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
   // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
   // Beaten, it may drop a Stinger, always in Sand (D-475), and now and then a Venom Sac (D-476).
   // It shuns light only, so it never comes for the hero: it waits in the dark, backs out of
   // light, and bites only from the dark (D-535). Its bite hisses and clicks (D-536).
   // Beaten, it may drop Spider Silk (D-535); a creature of depth 2, it has no rare one (D-453).
-  caveSpider: { id: 'caveSpider', kind: 'enemy', name: 'Cave spider', health: 2, bite: 1, drops: 'spiderSilk', ways: ['shunsLight'], hurt: 'caveSpiderHurt', die: 'caveSpiderDie', bites: 'caveSpiderBite', sound: 'hiss' },
-  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
+  caveSpider: { id: 'caveSpider', kind: 'enemy', name: 'Cave spider', acts: "Waits in the dark and never comes to you. It backs out of the light and bites only from the shadows.", health: 2, bite: 1, drops: 'spiderSilk', ways: ['shunsLight'], hurt: 'caveSpiderHurt', die: 'caveSpiderDie', bites: 'caveSpiderBite', sound: 'hiss' },
+  scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', acts: "Comes at you once it sees you in the light. Its sting takes two hearts. Its shell comes in many colours.", health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['chases'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', sound: 'sting' },
   // It seeks light, as the lampmoth does, and once hurt it may flee, as the rat does (D-365, D-537).
   // Its bite squeaks and flaps (D-538). Beaten, it may drop a Bat Wing, and now and then a Bat Fang (D-537).
-  bat: { id: 'bat', kind: 'enemy', flies: true, name: 'Bat', health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
+  bat: { id: 'bat', kind: 'enemy', flies: true, name: 'Bat', acts: "Flies to the light, as a lampmoth does. Hurt, it often flutters away.", health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
   // It chases and never flees, a tough one for the deep floors, 4 hearts (D-365, D-541). Its
   // bite snuffles and scrapes (D-542). Beaten, it may drop Mole Fur, and now and then a Mole Claw (D-541).
-  mole: { id: 'mole', kind: 'enemy', name: 'Mole', health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
+  mole: { id: 'mole', kind: 'enemy', name: 'Mole', acts: "Tough, and it never runs. Once it sees you in the light, it keeps coming.", health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
   // A heartcap that bites (D-365, D-543): no ways, so it never moves or notices, and bites
   // whoever stands beside it. Drawn `shutAs` a heartcap, in a heartcap's `tone`, until the
   // hero stands beside it; then its eyes and teeth show. Its bite is a wet snap (D-544).
   // Beaten, it may drop a Snapcap Gill; a creature of depth 2, it has no rare one (D-453).
-  snapcap: { id: 'snapcap', kind: 'enemy', name: 'Snapcap', health: 2, bite: 1, drops: 'snapcapGill', ways: [], shutAs: 'heartcap', tone: MUSHROOM_TONE, hurt: 'snapcapHurt', die: 'snapcapDie', bites: 'snapcapBite', sound: 'snap' },
+  snapcap: { id: 'snapcap', kind: 'enemy', name: 'Snapcap', acts: "Looks like a heartcap until you stand beside it. It never moves, but it bites anyone next to it.", health: 2, bite: 1, drops: 'snapcapGill', ways: [], shutAs: 'heartcap', tone: MUSHROOM_TONE, hurt: 'snapcapHurt', die: 'snapcapDie', bites: 'snapcapBite', sound: 'snap' },
   // A herb with eyes and teeth (D-549): asleep it looks just like the herb it `looksLike`, as
   // the flask mimic does (D-368); a bump, or a step to heal, wakes it with no harm, and it chases
   // for `awakeTurns` turns. Its bite rustles, then snaps (D-550). Beaten, it may drop a Mimic Leaf;
   // its rare one waits on the owner (Q-077).
-  herbMimic: { id: 'herbMimic', kind: 'enemy', name: 'Herb mimic', health: 2, bite: 1, drops: 'mimicLeaf', ways: ['chases'], looksLike: 'herb', awakeTurns: 6, hurt: 'herbMimicHurt', wakes: 'herbMimicWakes', settles: 'herbMimicSettles', die: 'herbMimicDie', bites: 'herbMimicBite', sound: 'rustle' },
+  herbMimic: { id: 'herbMimic', kind: 'enemy', name: 'Herb mimic', acts: "Sleeps looking like a herb. Bump it and it wakes and chases you, then settles down again.", health: 2, bite: 1, drops: 'mimicLeaf', ways: ['chases'], looksLike: 'herb', awakeTurns: 6, hurt: 'herbMimicHurt', wakes: 'herbMimicWakes', settles: 'herbMimicSettles', die: 'herbMimicDie', bites: 'herbMimicBite', sound: 'rustle' },
   // A rat with nothing left but bone (D-549, D-551): it chases and never flees, as the mole does,
   // a tougher rat for the middle depths. Its bite rattles, then snaps (D-551). Beaten, it may drop
   // a Rat Bone; its rare one waits on the owner (Q-061).
-  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
+  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', acts: "A rat with nothing left to fear. It chases you and never runs.", health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
   // A tick swollen with the oil it drank (D-606, the first light way, Q-076): it chases, and
   // beside the hero it `drinks` 5% of the lantern's oil instead of biting, with a wet sip; with
   // the lantern empty it bites for 1, of teeth. Beaten, it may drop a Tick Shell, and now and
   // then an Oil Bladder.
-  oilTick: { id: 'oilTick', kind: 'enemy', name: 'Oil tick', health: 2, bite: 1, drinks: 0.05, drops: 'tickShell', rare: 'oilBladder', ways: ['chases'], hurt: 'oilTickHurt', die: 'oilTickDie', bites: 'oilTickBite', drinksSay: 'oilTickDrinks', sound: 'teeth', sips: 'sip' },
+  oilTick: { id: 'oilTick', kind: 'enemy', name: 'Oil tick', acts: "Chases you in the light. Beside you it drinks your lantern's oil, and it bites once the lantern is dry.", health: 2, bite: 1, drinks: 0.05, drops: 'tickShell', rare: 'oilBladder', ways: ['chases'], hurt: 'oilTickHurt', die: 'oilTickDie', bites: 'oilTickBite', drinksSay: 'oilTickDrinks', sound: 'teeth', sips: 'sip' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
