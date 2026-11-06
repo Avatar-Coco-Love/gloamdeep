@@ -26,14 +26,15 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
 | `boneRat` | 3 | 1 | chases, never flees | the pool from depth 4 | D-549, D-551 |
+| `oilTick` | 2 | 1 | chases; beside the hero `drinks` 5% oil instead of biting, biting once the lantern is empty | the pool from depth 3 | D-606, D-607 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch)
-(D-269, D-351). A creature that `looksLike` a find sleeps in its disguise
+(D-269, D-351). One that `drinks` takes that much oil instead of biting, lit or not (D-606). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563).
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551).
+Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551), the oil tick at depth 3 (D-606).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
 
@@ -59,12 +60,14 @@ mechanic and its own step.
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a beaten bone rat, about 1 in 2 | D-551 |
+| `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | `venomSac` | for crafts later | 20 | never | a beaten scorpion, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
 | `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
+| `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |

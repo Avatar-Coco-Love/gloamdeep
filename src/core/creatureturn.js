@@ -23,20 +23,35 @@ import { glanceOf } from './worn.js';
 // Then the others come one tile closer (D-126 to D-129).
 // Each bite is a `bite` event, in the order they bite. Worn armour turns some aside:
 // each bite has its `glance` chance, from the seed, to hurt nothing, and when none
-// hurts, the glance line shows (D-484).
+// hurts, the glance line shows (D-484). One that `drinks` takes oil instead of
+// a heart while the lantern holds any, a `drink` event (D-606).
 export function enemiesAct(state) {
   return settle(act(state));
 }
 function act(state) {
   const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
-  const hurts = bites.map((e) => (glances(state, e) ? 0 : get(e.id).bite)), first = hurts.findIndex((n) => n > 0);
+  const drank = drinks(state, bites);
+  const hurts = bites.map((e, i) => (drank[i] > 0 || glances(state, e) ? 0 : get(e.id).bite)), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
   const health = Math.max(0, state.health - hurts.reduce((sum, n) => sum + n, 0));
+  const oil = Math.max(0, state.oil - drank.reduce((sum, n) => sum + n, 0));
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
-  let bitten = stood ? { ...state, health, enemies } : say({ ...state, health, enemies }, first < 0 ? 'glance' : get(bites[first].id).bites);
-  bites.forEach((e, i) => { bitten = note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });
+  const said = first < 0 ? 'glance' : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;
+  let bitten = stood ? { ...state, health, oil, enemies } : say({ ...state, health, oil, enemies }, said);
+  bites.forEach((e, i) => { bitten = drank[i] > 0 ? note(bitten, 'drink', { id: e.id, oil: drank[i] }) : note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });
   return health > 0 ? enemiesMove(bitten) : fall(bitten);
+}
+// § drinks: (state, bites) → the oil each creature beside the hero drinks this turn, in turn
+// order. One that `drinks` takes that much from the lantern, lit or not, instead of biting;
+// with the lantern empty it bites as others do. Armour can't turn a drink aside (D-606).
+function drinks(state, bites) {
+  let left = state.oil;
+  return bites.map((e) => {
+    const want = get(e.id).drinks || 0, d = left > 0 ? Math.min(want, left) : 0;
+    left -= d;
+    return d;
+  });
 }
 // Whether creature e's bite this turn glances off the hero's armour (D-484)
 const glances = (state, e) => { const g = glanceOf(state); return g > 0 && rng(seedFor(state.seed ^ state.turn, GLANCE_SALT + e.x * 64 + e.y))() < g; };

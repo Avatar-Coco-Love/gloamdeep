@@ -53,6 +53,11 @@ export const ENEMIES = {
   // a tougher rat for the middle depths. Its bite rattles, then snaps (D-551). Beaten, it may drop
   // a Rat Bone; its rare one waits on the owner (Q-061).
   boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
+  // A tick swollen with the oil it drank (D-606, the first light way, Q-076): it chases, and
+  // beside the hero it `drinks` 5% of the lantern's oil instead of biting, with a wet sip; with
+  // the lantern empty it bites for 1, of teeth. Beaten, it may drop a Tick Shell, and now and
+  // then an Oil Bladder.
+  oilTick: { id: 'oilTick', kind: 'enemy', name: 'Oil tick', health: 2, bite: 1, drinks: 0.05, drops: 'tickShell', rare: 'oilBladder', ways: ['chases'], hurt: 'oilTickHurt', die: 'oilTickDie', bites: 'oilTickBite', drinksSay: 'oilTickDrinks', sound: 'teeth', sips: 'sip' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -80,8 +85,10 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
 // A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
-// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544), the herb mimic's a rustle (D-550), the bone rat's a rattle (D-551).
+// The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544), the herb mimic's a rustle (D-550), the bone rat's a rattle (D-551). The oil tick's drink is a sip (drinkSound, D-606).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);
   return (events.some((e) => e.type === 'fall') ? kinds.find((k) => k?.sound) : kinds[0])?.sound;
 }
+// § drink sound: (events) → the sound of this turn's drink, or undefined: the first drinker's `sips` (D-606)
+export const drinkSound = (events) => ENEMIES[events.find((e) => e.type === 'drink')?.id]?.sips;

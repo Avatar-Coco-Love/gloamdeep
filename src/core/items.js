@@ -71,6 +71,8 @@ export const ITEMS = {
   mimicLeaf: { id: 'mimicLeaf', kind: 'item', name: 'Mimic Leaf', bag: true, max: 20, says: 'mimicLeafTake', look: 'mimicLeafLook', full: 'mimicLeafFull', sells: 1 },
   // A bone rat's Rat Bone, taken and kept the same way (D-551).
   ratBone: { id: 'ratBone', kind: 'item', name: 'Rat Bone', bag: true, max: 20, says: 'ratBoneTake', look: 'ratBoneLook', full: 'ratBoneFull', sells: 1 },
+  // An oil tick's Tick Shell, taken and kept the same way (D-606).
+  tickShell: { id: 'tickShell', kind: 'item', name: 'Tick Shell', bag: true, max: 20, says: 'tickShellTake', look: 'tickShellLook', full: 'tickShellFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.
@@ -86,6 +88,8 @@ export const ITEMS = {
   batFang: { id: 'batFang', kind: 'item', name: 'Bat Fang', bag: true, max: 20, says: 'batFangTake', look: 'batFangLook', full: 'batFangFull', sells: 5 },
   // A mole's rare Mole Claw, from depth 5 down, taken and kept the same way (D-541).
   moleClaw: { id: 'moleClaw', kind: 'item', name: 'Mole Claw', bag: true, max: 20, says: 'moleClawTake', look: 'moleClawLook', full: 'moleClawFull', sells: 5 },
+  // An oil tick's rare Oil Bladder, from depth 3 down, taken and kept the same way (D-606).
+  oilBladder: { id: 'oilBladder', kind: 'item', name: 'Oil Bladder', bag: true, max: 20, says: 'oilBladderTake', look: 'oilBladderLook', full: 'oilBladderFull', sells: 5 },
   // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
   // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
   // Make turns 3 into a Gloamberry Seed, the heartcap's way (garden step 1, D-564).

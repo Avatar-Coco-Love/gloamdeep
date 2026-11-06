@@ -42,6 +42,8 @@ const SOUNDS = [
   { label: 'Lantern hit, then a herb mimic bites', play: 'later(0, () => { sound.hit(false); sound.rustle(true); })' },
   { label: 'A bone rat bites', play: 'later(0, () => sound.rattle(false))' },
   { label: 'Lantern hit, then a bone rat bites', play: 'later(0, () => { sound.hit(false); sound.rattle(true); })' },
+  { label: 'An oil tick drinks your oil', play: 'later(0, () => sound.sip(false))' },
+  { label: 'Lantern hit, then an oil tick drinks', play: 'later(0, () => { sound.hit(false); sound.sip(true); })' },
   { label: 'A waystone wakes', play: 'later(0, () => sound.bells())' },
   { label: 'Two steps, then a waystone wakes', play: 'later(0, () => sound.footstep()); later(250, () => sound.footstep()); later(250, () => sound.bells())' },
   { label: 'A boon picked (the chime)', play: 'later(0, () => sound.chime())' },

@@ -9,6 +9,7 @@
 //   hit { id, held }     the hero hit creature `id`, with the item held (or null, the lantern)
 //   beat { id }          that creature was beaten
 //   bite { id, hurt }    creature `id` bit, taking `hurt` hearts
+//   drink { id, oil }    creature `id` drank `oil` from the lantern instead of biting (D-606)
 //   wake { id }          the hero bumped creature `id` awake from its disguise (D-368)
 //   fall                 the hero fell (D-119)
 //   lantern { lit }      the lantern went on or off

@@ -4,7 +4,7 @@
 import { VERSION } from './core/version.js';
 import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
-import { enemyAt, biteSound } from './core/enemies.js';
+import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
@@ -164,11 +164,13 @@ Object.assign(app, {
   beam: null, // { id, x, y, start, arriving } a freed person beamed home, or in at home (D-496)
   kindle: null, // { x, y, start } the waystone's rune lighting as it wakes (D-591)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
+  drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
   fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
 });
 const ALERT_MS = 900;
 const HIT_FLASH_MS = 140, SHAKE_MS = 120; // the study's (study line 470)
+const DRINK_FLASH_MS = 420; // the oil bar's flicker as a creature drinks: pale, dark, pale (D-606)
 // A fall (D-234): the hero lies down, the light closes to the deepest dark over about a
 // second, stays dark a moment, then opens on the start. With reduced motion, only the dark.
 const FALL = { lie: 120, dark: 1000, wake: 1300, end: 1800 }, FALL_STILL_MS = 800;
@@ -211,6 +213,7 @@ function tryStep(dir) {
   const { state } = app, fell = state.fell !== before.fell;
   if (fell || state.health < before.health) app.bitten = flashFor();
   const events = eventsSince(before, state);
+  if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
   keepRecords(events);
   if (fell) fallDown(fallView(before, state)); // the floor's other rooms too, for the round map (D-557)
@@ -343,8 +346,9 @@ function walkOn() {
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
 // a tile walked, unless the hero fell (D-255), and a waystone's bells as it wakes (D-591)
 function hear(events) {
-  const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events);
+  const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
+  if (drink) sound[drink](!!hit); // the oil tick's sip (D-606)
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);
   if (has(events, 'step') && !has(events, 'fall')) sound.footstep();
@@ -365,7 +369,7 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => { const i = firstFl
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.travel = app.fall = app.gain = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it

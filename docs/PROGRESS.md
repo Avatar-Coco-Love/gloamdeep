@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.62 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.63 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The new creature kind (Q-076, D-582), now the three getting-around
-steps are done; read Q-076 and ask which.
+Fishing (step 18, D-582); read `SCOPE.md` part 2 and D-452, and ask
+how it plays.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -23,7 +23,7 @@ steps are done; read Q-076 and ask which.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - What the guide is, not a faery (Q-072), when the owner wants it.
-- Which new creature kind next (Q-076), now (D-582).
+- The next creature (Q-076, D-607), after fishing.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
@@ -41,6 +41,7 @@ Getting around first (D-582), then boons (D-583):
 - [x] 16b Boons at the home waystone (D-583, D-596): the card and the
   first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60); the mark (0.3.61)
 - [x] 17 Drifting motes toward the stairs (D-581, D-605), 0.3.62
+- [x] The new kind: the oil tick (D-606), 0.3.63
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 18 Fishing
@@ -56,6 +57,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
+  new way, a tick drinking 5% oil instead of biting, from depth 3
+  (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU
 - **2026-11-05, 0.3.62, Drifting motes.** All recommended: about 5 faint
   pale motes drift in the lantern light straight at the floor's stairs
   down, through walls; only where the light falls; gone once the stairs
@@ -66,7 +70,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   square under the panel, tap or mouse-over for its name and line; long
   lines wrap (D-604).
   Playtest: https://claude.ai/artifact/SCGhhLXxmPW9qfk9qZJmmt
-- **2026-11-05, 0.3.60, Boon cards.** The owner's fix: waking the home
-  stone opens no boon card. The owner's picks, recommended: the boon
-  card as three cards with kind colours; dealing them later (D-603).
-  Playtest: https://claude.ai/artifact/Jo5D8sM42QC5WG7xWgSqTC

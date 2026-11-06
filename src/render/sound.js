@@ -2,7 +2,7 @@
 // The first is the footstep (D-255): a soft tap each time the hero moves a tile;
 // then the lantern's tick, on or off (D-257), the hit on a creature (D-258) and
 // a rat's bite, of teeth (D-259), the flask mimic's, of glass (D-367), and the
-// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), the snapcap's snap (D-544), the herb mimic's rustle (D-550), and the bone rat's rattle (D-551); the waystone's bells as it wakes (D-591).
+// scorpion's sting (D-370), the cave spider's hiss (D-536), the bat's squeak (D-538), the mole's snuffle (D-542), the snapcap's snap (D-544), the herb mimic's rustle (D-550), and the bone rat's rattle (D-551); the oil tick's sip as it drinks (D-606); the waystone's bells as it wakes (D-591).
 // A browser plays sound only after a tap, click or key, so the sound maker starts
 // on the first one; until then, and with Sound: Off, nothing plays.
 import { rng } from '../core/rng.js';
@@ -69,6 +69,12 @@ const SNAP = {
 const RUSTLE = {
   leaf: { freq: 4200, sweepTo: 2800, ring: 1.2, gain: 0.05, attack: 0.004, end: 0.05, from: 0.2 }, leaves: [0, 0.04, 0.075],
   snapAt: 0.13,
+};
+// A sip: a wet slurp of noise sweeping up, then a soft rising gulp, the oil tick drinking
+// the lantern's oil (D-606). Each varies a little, like the hit (hertz, seconds)
+const SIP = {
+  slurp: { freq: 380, sweepTo: 1400, ring: 4, gain: 0.08, attack: 0.02, end: 0.16, from: 0.5 },
+  gulp: { from: 180, to: 320, gain: 0.07, attack: 0.008, end: 0.07 }, gulpAt: 0.15,
 };
 // A rattle: a dry clatter of little bones, each knock a touch lower, then the rat's
 // snap of teeth, the bone rat's. Each varies a little, like the hit (hertz, seconds)
@@ -241,6 +247,15 @@ export function createSound(isOn) {
     RATTLE.knocks.forEach((d, i) => slice(t + d, { type: 'bandpass', ...knock, freq: knock.freq * p * RATTLE.drop ** i, gain: knock.gain * loud, from: knock.from + d }));
     for (const d of TEETH.snaps) slice(t + RATTLE.snapAt + d, { type: 'bandpass', ...snap, freq: snap.freq * p, gain: snap.gain * loud, from: snap.from + d });
   }
+  // § sip: the oil tick's drink, a wet slurp and a gulp (D-606); it comes a moment after a hit, like a bite
+  function sip(afterHit) {
+    if (!ready()) return;
+    const t = ac.currentTime + (afterHit ? TEETH.afterHit : 0);
+    const p = between(varyBite, 1 - HIT.pitch, 1 + HIT.pitch), loud = between(varyBite, HIT.quiet, 1);
+    const { slurp, gulp } = SIP;
+    slice(t, { type: 'bandpass', ...slurp, freq: slurp.freq * p, sweepTo: slurp.sweepTo * p, gain: slurp.gain * loud });
+    tone(t + SIP.gulpAt, { ...gulp, from: gulp.from * p, to: gulp.to * p, gain: gulp.gain * loud });
+  }
   // § bells: the waystone waking, three notes rising
   function bells(b = BELLS) {
     if (!ready()) return;
@@ -253,5 +268,5 @@ export function createSound(isOn) {
   }
   // § chime: a boon picked, two bells rising (D-596)
   const chime = () => bells(CHIME);
-  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, bells: () => bells(), chime };
+  return { footstep, lantern, hit, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells: () => bells(), chime };
 }

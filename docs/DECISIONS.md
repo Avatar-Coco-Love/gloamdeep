@@ -168,34 +168,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-596 · 2026-11-05 · The boon list, and the boon card** (the owner's
-picks, answers Q-077; builds on D-583) The pool holds 14 boons, all in
-the registry (`src/core/boons.js`), one line each, so the owner can add,
-drop or change any at any time. Light and oil: Slow Wick (burns a
-quarter slower), Wide Glow (+1 tile of light), Deep Pour (a flask pours
-60%), Hungry Flame (+2 tiles, burns half again as fast). Hearts and
-fighting: Stout Heart (+2 hearts, full), Hard Blow (+1 on every hit),
-Kind Herbs (heal 1 more), Reckless (+1 hit, 2 fewer hearts). Finding:
-Keen Eye (parts drop 75%), Lucky Find (rare drops 25%), Greedy Hands
-(parts always drop, burns a quarter faster). Getting around: Soft Step
-(noticed 1 tile later), Waymark (the way down shown), Far Sight (a third
-of a room's map shown). Boons stack with gear (Slow Wick and the Copper
-Wick: 100 steps); still 1 a trip. Stepping onto the woken home plate
-with none held opens the card, the travel card's rows: 3 boons, each
-of a different kind; the cross skips. A soft two-bell chime, the line
-"The waystone grants you …", its name on the panel under the oil bar.
-Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
-The card's look superseded by D-603 (2026-11-05); the name on the panel by D-604 (2026-11-05).
-
-**D-604 · 2026-11-05 · The boon's mark** (the owner's idea and picks,
-all recommended; supersedes D-596's name on the panel) The boon held is
-no longer named on the panel. Its kind's picture and colour from its
-card show in a small glass square under the panel, the creature list
-under it; later, what else the hero carries for a while lines up beside
-it. A tap on it, or the mouse coming onto it, says the boon's name and
-its card's line; no turn passes and the hero stays. A line too wide
-for the screen wraps onto more rows, growing upward. D-602 archived.
-
 **D-605 · 2026-11-05 · Drifting motes** (the owner's picks, all
 recommended; builds on D-581) About 5 faint pale motes at once drift
 slowly in the lantern light, with a little wobble, fading in and out,
@@ -204,3 +176,30 @@ like a draft. They show only where the light falls, dimmer where it is
 dim. None once any of the floor's stairs down is remembered, with the
 lantern out, or with reduced motion. D-603 archived. Mock-up:
 https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X
+
+**D-606 · 2026-11-05 · The oil tick** (the owner's picks, all
+recommended but its name; answers part of Q-076; builds on D-607;
+mock-ups: https://claude.ai/artifact/3aeCewHHKFMpabVHRtJPbN and
+https://claude.ai/artifact/X1VUa6CHqzHStodYEHsecs) The seventh new kind
+and the first new way, the wicksucker of the list, called the oil tick
+for now (the owner's choice). It chases. Beside the hero it drinks 5% of
+the lantern's oil, about 3 turns of light, instead of biting, lit or
+not; with the lantern empty it bites for 1. 2 hearts, worth 3, in the
+pool from depth 3. Look B, a round tick swollen with amber oil. Its
+drink shows a line, "The oil tick drinks your oil.", the oil bar
+flickering pale, and its own wet sip, on the sound board. Its drop is a
+Tick Shell, about 1 in 2, sold for 1, and a rare Oil Bladder, about 1
+in 10, sold for 5, both for crafts later. Claude's, the owner may
+change them: the drop drawings, the lines, the dry bite of teeth, and
+that armour can't turn a drink aside. Nothing more once full, for now.
+D-596 and D-604 moved to `archive/DECISIONS-BOONS.md`, word for word.
+
+**D-607 · 2026-11-05 · The creature plan** (the owner's picks, all
+recommended; builds on D-534 and Q-076) Each biome has about 12 to 15
+creature kinds in the end, so the first cave takes 1 to 4 more after
+its 11; some kinds carry on deeper. New ways come next, light and oil
+ones first (the oil tick, D-606, then others from the list: the
+snuffer, glowworm, false light, wraith, still one and night prowler
+were shown). After the new ways, in this order: showing every
+creature's next move (D-349), the bestiary and trophies (D-466), packs
+and the brood, then varying creatures and injuries (D-374).

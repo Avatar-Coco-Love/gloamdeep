@@ -36,6 +36,10 @@ export const LINES = {
   boneRatHurt: { text: 'The bone rat rattles and keeps coming.', warn: false }, // hurt, it never flees (D-551)
   boneRatDie: { text: 'The bone rat falls apart.', warn: false },
   boneRatBite: { text: 'The bone rat bites you.', warn: false, kind: 'harm' },
+  oilTickHurt: { text: 'The oil tick squirts and keeps coming.', warn: false }, // (D-606)
+  oilTickDie: { text: 'The oil tick bursts and falls still.', warn: false },
+  oilTickDrinks: { text: 'The oil tick drinks your oil.', warn: false, kind: 'harm' }, // instead of a bite, while there is oil (D-606)
+  oilTickBite: { text: 'The oil tick bites you.', warn: false, kind: 'harm' }, // with the lantern empty
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -152,6 +156,12 @@ export const LINES = {
   ratBoneTake: { texts: ['You pick up the rat bone.', 'A small pale bone with knobbed ends.', 'The rat bone goes in your bag.'], warn: false }, // (D-551)
   ratBoneLook: { texts: ['A rat bone, for crafting later.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },
   ratBoneFull: { text: "You can't carry more rat bones.", warn: false },
+  tickShellTake: { texts: ['You pick up the tick shell.', 'A split dusky shell, light as paper.', 'The tick shell goes in your bag.'], warn: false }, // (D-606)
+  tickShellLook: { texts: ['A tick shell, for crafting later.', 'Thin, dark and a little oily.', 'It smells faintly of the lantern.'], warn: false },
+  tickShellFull: { text: "You can't carry more tick shells.", warn: false },
+  oilBladderTake: { texts: ['You pick up an oil bladder.', 'The sac the tick kept its oil in.', 'The oil bladder goes in your bag.'], warn: false }, // (D-606)
+  oilBladderLook: { texts: ['An oil bladder, for crafting later.', 'Amber oil sloshes inside.', 'It is warm, and full.'], warn: false },
+  oilBladderFull: { text: "You can't carry more oil bladders.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

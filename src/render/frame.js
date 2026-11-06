@@ -63,6 +63,7 @@ import { watch, onWipe, onCheck, blankAt } from './wipe.js';
 
 export const FADE_MS = 200; // each way, taking stairs (D-135)
 
+const DRINK_BLINK_MS = 140; // each pale or dark beat of the oil bar's flicker (D-606)
 // 0 before a, 1 after b, and evenly between; a jump at a when b is not after it
 const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (t - a) / (b - a))));
 
@@ -294,7 +295,8 @@ export function createFrame(app, ui) {
     const padOn = app.screen === 'play' && padShown(app.settings);
     padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
     arrowPad.show(padOn, padAlpha);
-    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp) }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
     markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
     panelFoot.y = ey + panel.h + (mk.h ? mk.h + 2 : 0);

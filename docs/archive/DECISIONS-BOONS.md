@@ -1,8 +1,8 @@
-# The boons' first steps (D-597 to D-603)
+# The boons' first steps (D-596 to D-604)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), D-602 at 0.3.61 (D-604), and D-603 at 0.3.62 (D-605).
+(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), D-602 at 0.3.61 (D-604), and D-603 at 0.3.62 (D-605). D-596 and D-604 moved the same way at 0.3.63 (D-606), after the rest.
 
 ---
 
@@ -65,3 +65,31 @@ line. The chosen one lifts and turns gold; Left and Right choose too.
 "Lasts until you are home." under them. Dealing them face down, then
 turning them, is its own later step. D-601 archived. Mock-ups:
 https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA
+
+**D-596 · 2026-11-05 · The boon list, and the boon card** (the owner's
+picks, answers Q-077; builds on D-583) The pool holds 14 boons, all in
+the registry (`src/core/boons.js`), one line each, so the owner can add,
+drop or change any at any time. Light and oil: Slow Wick (burns a
+quarter slower), Wide Glow (+1 tile of light), Deep Pour (a flask pours
+60%), Hungry Flame (+2 tiles, burns half again as fast). Hearts and
+fighting: Stout Heart (+2 hearts, full), Hard Blow (+1 on every hit),
+Kind Herbs (heal 1 more), Reckless (+1 hit, 2 fewer hearts). Finding:
+Keen Eye (parts drop 75%), Lucky Find (rare drops 25%), Greedy Hands
+(parts always drop, burns a quarter faster). Getting around: Soft Step
+(noticed 1 tile later), Waymark (the way down shown), Far Sight (a third
+of a room's map shown). Boons stack with gear (Slow Wick and the Copper
+Wick: 100 steps); still 1 a trip. Stepping onto the woken home plate
+with none held opens the card, the travel card's rows: 3 boons, each
+of a different kind; the cross skips. A soft two-bell chime, the line
+"The waystone grants you …", its name on the panel under the oil bar.
+Built first: Slow Wick, Stout Heart, Keen Eye; the rest a few at a time.
+The card's look superseded by D-603 (2026-11-05); the name on the panel by D-604 (2026-11-05).
+
+**D-604 · 2026-11-05 · The boon's mark** (the owner's idea and picks,
+all recommended; supersedes D-596's name on the panel) The boon held is
+no longer named on the panel. Its kind's picture and colour from its
+card show in a small glass square under the panel, the creature list
+under it; later, what else the hero carries for a while lines up beside
+it. A tap on it, or the mouse coming onto it, says the boon's name and
+its card's line; no turn passes and the hero stays. A line too wide
+for the screen wraps onto more rows, growing upward. D-602 archived.
