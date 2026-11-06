@@ -1,7 +1,7 @@
 // § bag card (D-247, D-385, D-546, D-548, D-554, D-558, D-559): the bag's card, its pick,
 // arrows, taps and close, moved word for word from screens.js at the eighth audit (D-573).
 // `c` holds cardscreens.js's helpers: useChosen, moveBag, canStore, pickStore, storeNear,
-// pickSort, sortBag, dropChosen, pickGear and pickSlot. Its C and X keys moved from onType (D-578).
+// pickSort, sortBag, dropChosen, pickGear and pickSlot. Its C and X keys moved from onType (D-578); E eats a minnow (D-615).
 import { bagSize } from '../../core/bag.js';
 import { get } from '../../core/registry.js';
 import { bagAt, twoButtons, gearChosen } from '../../render/bag.js';
@@ -24,9 +24,11 @@ export function bagCard(app, ui, show, c) {
     else if (at) pickSlot(at.slot);
   }
   const close = () => show('play'); // Esc or P
-  // C makes (D-309), X drops (D-546)
+  // C makes (D-309), E eats a minnow (D-615), X drops (D-546)
+  const chosen = () => { const s = app.state.bag[app.chosen]; return s && get(s.id); };
   function type(key) {
-    if (key === 'c') { useChosen(true); return true; }
+    if (key === 'c') { if (!chosen()?.oil) useChosen(true); return true; } // C never eats a minnow
+    if (key === 'e') { if (chosen()?.oil && chosen().eats) useChosen(true); return true; }
     if (key === 'x') { dropChosen(); return true; }
     return false;
   }

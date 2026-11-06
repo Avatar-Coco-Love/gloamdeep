@@ -253,3 +253,13 @@ test('the bag: C makes and X drops; a card with no keys of its own has no type',
   assert.deepEqual(calls, [['useChosen', true], ['dropChosen']]);
   assert.equal(cards.paused.type, undefined);
 });
+
+test('the bag: E eats a minnow, and C does not (D-615)', () => {
+  const { app, calls, cards } = made('bag');
+  assert.equal(cards.bag.type('e'), true);
+  assert.deepEqual(calls, [], 'nothing chosen: E does nothing');
+  app.state.bag = [{ id: 'pondMinnow', n: 2 }];
+  cards.bag.type('c');
+  cards.bag.type('e');
+  assert.deepEqual(calls, [['useChosen', true]]);
+});

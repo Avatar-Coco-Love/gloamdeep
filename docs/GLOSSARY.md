@@ -56,7 +56,7 @@ this page and a decision disagree, the decision wins.
   bag, heals 4 hearts (D-309).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
   floor tile anywhere; it burns 100 turns, then goes out (D-478).
-- **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309).
+- **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309); a minnow's Eat sits left of its Pour (D-615).
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic
   Heart, Gloam Eye (D-453, D-454). All eight are in the game (D-474
@@ -81,7 +81,7 @@ this page and a decision disagree, the decision wins.
   Tool slot, where it breaks copper (D-480, D-552).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
-- **Pond Minnow:** the first fish, from the pond at home; poured into the lantern for 15% oil (D-608, D-610, D-611).
+- **Pond Minnow:** the first fish, from the pond at home; poured for 15% oil, or eaten for 1 heart (D-608, D-610, D-611, D-615).
 - **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).
 - **Nibble:** the turn before a bite, the float shaking, "A nibble..." (D-613).
 - **Strike meter:** the card a pulled bite opens, a needle swept across a bar; tap in the amber zone to land the fish (D-614).

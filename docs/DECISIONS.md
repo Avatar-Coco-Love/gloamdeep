@@ -105,16 +105,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-583 · 2026-11-02 · Boons at the home waystone** (the owner's idea
-and picks; builds on D-579 and the shrine idea in `RESEARCH.md`) Each
-time the hero sets out from the home waystone, it offers 3 boons drawn
-at random from a pool, and the hero picks 1. A boon lasts until the
-hero is home again or falls. The pool holds all four kinds: light and
-oil, hearts and fighting, finding things, and getting around. The
-exact boons and their numbers are shown to the owner as a list before
-anything is built (Q-077). Boons are their own step, right after the
-waystones.
-
 **D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
 Research helpers work beside each build step and report to Claude, who
 brings options; only one conversation builds Gloamdeep at a time. The
@@ -205,3 +195,12 @@ with splash A; a miss, or 3 passes with no tap, "It got away." and the
 line comes in (an unpulled bite still leaves the float out). No cross;
 reduced motion keeps the needle moving. D-581 and D-582 moved to
 `archive/DECISIONS-GETTING-AROUND.md`, word for word.
+
+**D-615 · 2026-11-06 · Eating a minnow** (the owner's picks, all
+recommended; fishing step 4 of D-608) In the bag, a Pond Minnow's Eat
+sits left of its Pour, the way Make sits beside a heartcap's Eat: a
+turn, 1 heart, never above full, dim at full health, where "You aren't
+hurt." is said, free. Enter still pours; E eats. Kind Herbs adds its 1
+heart, as for anything eaten (D-599). Claude's, the owner may change
+it: its line, "You eat the minnow. Cold, but filling." D-583 moved to
+`archive/DECISIONS-BOONS.md`, word for word.

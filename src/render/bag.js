@@ -9,7 +9,8 @@
 // carried and its Look line (D-297), from under the gear row, and in the bottom right corner Pour for
 // one that pours, Make for one that crafts, dim with too few (D-299), or Eat
 // (Drink for a potion) for one that heals, dim at full health (D-308);
-// heartcaps both make and heal, so Make sits left of Eat (D-309). The
+// heartcaps both make and heal, so Make sits left of Eat (D-309); a minnow both pours
+// and heals, so Eat sits left of Pour (D-615). The
 // workbench has Set down, wider, at the same right end (WB2, D-322). Every
 // item has Drop at the item side's bottom left (D-546).
 import { drawText, textWidth } from './font.js';
@@ -57,8 +58,10 @@ const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
 export const DROP = 'DROP', DROP_W = textWidth(DROP) + 8; // Drop's, at the item side's bottom left, for every item (D-546)
 export const OFF = 'TAKE OFF', OFF_W = textWidth(OFF) + 8; // Take off's, at the same right end, for a gear slot chosen (D-554)
 const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold || entry.tool ? 'HOLD' : entry.part ? 'FIT' : entry.wear ? 'WEAR' : null);
-// Whether an item shows Make beside its Eat
-export const twoButtons = (entry) => !!(entry?.craft && entry.eats);
+// The second button, left of the first: Make beside a heartcap's Eat (D-309), Eat beside a
+// minnow's Pour (D-615), or none
+export const secondText = (entry) => (entry?.eats ? (entry.craft ? 'MAKE' : entry.oil ? 'EAT' : null) : null);
+export const twoButtons = (entry) => !!secondText(entry);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
 // § cross's place: the round cross in the middle of the title's strip, as far in from the
 // card's right edge as the title is from its left (PAD); the rule under them stops short of it (D-512)
@@ -261,8 +264,9 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (!text) return;
   const few = entry.craft && !canCraft(bag, chosen);
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
-  drawButton(c, card.button.x, card.button.y, text, entry.eats ? full : few);
-  if (twoButtons(entry)) drawButton(c, card.make.x, card.make.y, 'MAKE', few);
+  drawButton(c, card.button.x, card.button.y, text, entry.eats && !entry.oil ? full : few);
+  const second = secondText(entry);
+  if (second) drawButton(c, card.make.x, card.make.y, second, second === 'EAT' ? full : few);
 }
 
 // § gear's words: a gear slot chosen, its piece's name, its slot's name and its Look line, as

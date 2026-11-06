@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.67, Fishing made clear.** All recommended: clear turns,
+  a nibble, a strike meter; bumping waits; WAIT / PULL (D-612). Playtest: https://claude.ai/artifact/NJVYQ9g12RQiqwvCAxPMwQ
 - **2026-11-06, 0.3.66, The minnow's oil.** All recommended: POUR in the
   bag, a turn, 15%; by hand only, not with Deep Pour, not counted in
   Flasks poured (D-611). Playtest: https://claude.ai/artifact/JjsRQ8U8i7cVk2uKYFvHey

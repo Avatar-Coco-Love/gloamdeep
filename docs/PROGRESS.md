@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Fishing step 4 (D-608): eating a Pond Minnow for hearts; propose first.
+Fishing step 5 (D-608): selling a Pond Minnow to the peddler; propose first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,7 +44,7 @@ Getting around first (D-582), then boons (D-583):
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
-  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); then food
+  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); then selling
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -57,10 +57,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.70, Eating a minnow.** All recommended: 1 heart, Eat
+  left of Pour, E eats, its line (D-615). Playtest: https://claude.ai/artifact/6pEFSgijeiyzFsXSM9fJMJ
 - **2026-11-06, 0.3.69, The strike meter.** All recommended: look A, back
   and forth 3 passes, a miss brings the line in (D-614). Playtest: https://claude.ai/artifact/SvXSvLfy2h7NES27drBewA
 - **2026-11-06, 0.3.68, The nibble.** All recommended: a nibble 1 turn
   in 6, the bite the turn after; the float shakes; plop A on the cast,
   splash A on the catch (D-613). Playtest: https://claude.ai/artifact/6bY69ibSBreQRk4XjahfZv
-- **2026-11-06, 0.3.67, Fishing made clear.** All recommended: clear turns,
-  a nibble, a strike meter; bumping waits; WAIT / PULL (D-612). Playtest: https://claude.ai/artifact/NJVYQ9g12RQiqwvCAxPMwQ

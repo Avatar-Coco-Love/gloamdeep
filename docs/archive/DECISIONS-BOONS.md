@@ -2,7 +2,7 @@
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.57 (D-600), so it
 stays under 12 KB. Still in force. D-599 moved the same way at 0.3.58
-(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), D-602 at 0.3.61 (D-604), and D-603 at 0.3.62 (D-605). D-596 and D-604 moved the same way at 0.3.63 (D-606), after the rest.
+(D-601), D-600 at 0.3.59 (D-602), D-601 at 0.3.60 (D-603), D-602 at 0.3.61 (D-604), and D-603 at 0.3.62 (D-605). D-596 and D-604 moved the same way at 0.3.63 (D-606), after the rest, and D-583 at 0.3.70 (D-615), last.
 
 ---
 
@@ -93,3 +93,13 @@ under it; later, what else the hero carries for a while lines up beside
 it. A tap on it, or the mouse coming onto it, says the boon's name and
 its card's line; no turn passes and the hero stays. A line too wide
 for the screen wraps onto more rows, growing upward. D-602 archived.
+
+**D-583 · 2026-11-02 · Boons at the home waystone** (the owner's idea
+and picks; builds on D-579 and the shrine idea in `RESEARCH.md`) Each
+time the hero sets out from the home waystone, it offers 3 boons drawn
+at random from a pool, and the hero picks 1. A boon lasts until the
+hero is home again or falls. The pool holds all four kinds: light and
+oil, hearts and fighting, finding things, and getting around. The
+exact boons and their numbers are shown to the owner as a list before
+anything is built (Q-077). Boons are their own step, right after the
+waystones.
