@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.79, Spawn as pictures.** All recommended: 32 px
+  pictures, the pick's name in the head; headings in one list; the
+  device keyboard, filtering live; tiles in their real drawing (D-624). Playtest: https://claude.ai/artifact/2cVv3J9v8ekzj44aTBE9UR
 - **2026-11-06, 0.3.78, The dev bottom sheet.** All recommended: look A,
   icon tabs in a row; the room slides clear; two steps, the sheet first;
   phone-wide at the bottom left on wide screens (D-623). Playtest: https://claude.ai/artifact/1dxqLd1kCST3uCopND9q4q

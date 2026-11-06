@@ -1,13 +1,26 @@
-# Fishing's finished steps (D-609 to D-616)
+# Fishing's finished steps (D-608 to D-616)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.71 (D-616), so it
 stays under 12 KB. Still in force.
 
 D-610 moved unchanged at 0.3.75 (D-620), D-611 and D-612 at 0.3.76 (D-621),
 D-613 and D-614 at 0.3.77 (D-622),
-D-615 and D-616 at 0.3.78 (D-623).
+D-615 and D-616 at 0.3.78 (D-623),
+D-608 at 0.3.82 (D-627).
 
 ---
+
+**D-608 · 2026-11-06 · How fishing plays** (the owner's picks, all
+recommended but where; builds D-452, D-460; step 18) Cast, wait, pull:
+bumping water with the rod held casts the line; each turn it waits, a
+fish bites about 1 time in 6, a "!" over the float, and bumping again
+within 1 turn lands it, else it gets away; walking off reels it in.
+The home pond first, then every pool of water, each with its own fish
+and even some finds. The first fish is the Pond Minnow. A fish is lantern
+oil (15% of a tank), food (hearts), sold to the peddler and a recipe
+material. In steps: the rod; the cast at the pond, catching the minnow;
+its uses one a step (oil, eating, selling; the recipe when one needs it);
+then the cave pools.
 
 **D-609 · 2026-11-06 · The Wooden Rod** (the owner's picks, all
 recommended; fishing step 1 of D-608; mock-up:
