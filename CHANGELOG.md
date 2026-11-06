@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.71 (2026-11-06)
+- The peddler now buys Pond Minnows: 1 coin each, the same as a common material. Pick one on his Sell tab, then Sell, Enter or Space. No turn passes.
+- Decisions: D-616. D-609 moved to the archive, word for word.
+
 ## 0.3.70 (2026-11-06)
 - A Pond Minnow can now be eaten: in the bag, EAT sits beside POUR and heals 1 heart, taking a turn. It is dim when you aren't hurt. The E key eats; Enter still pours.
 - Decisions: D-615. D-583 moved to the archive, word for word.
@@ -31,8 +35,3 @@ Entry format:
 - Pulling on a bite opens the strike meter: a needle sweeps back and forth across a bar, and you tap while it is in the amber zone to land the fish. The world waits while it is open.
 - Miss, or let the needle pass 3 times, and the fish gets away with the line coming in.
 - Decisions: D-614.
-
-## 0.3.68 (2026-11-06)
-- A fish nibbles before it bites: the float shakes and the line reads "A nibble...". The next turn it always bites, so wait for the "!" and then pull.
-- Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.
-- Decisions: D-613.

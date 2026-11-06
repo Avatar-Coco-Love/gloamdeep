@@ -125,17 +125,6 @@ material. In steps: the rod; the cast at the pond, catching the minnow;
 its uses one a step (oil, eating, selling; the recipe when one needs it);
 then the cave pools.
 
-**D-609 · 2026-11-06 · The Wooden Rod** (the owner's picks, all
-recommended; fishing step 1 of D-608; mock-up:
-https://claude.ai/artifact/VK92apzUbqbHbsRB8AyCpm) Made at the
-workbench from 2 Wood and 2 Spider Silk, the bench's last slot, a
-turn; only 1 carried. A tool, held in the Tool slot, swapped there
-with the Stone Pick. Look A, a plain wooden pole with a silk line and
-a red-and-white float. Held, bumping water says "The water is still.
-Fishing comes soon.", free. D-605 moved to
-`archive/DECISIONS-GETTING-AROUND.md` and D-606 to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
 **D-610 · 2026-11-06 · Cast, wait, pull at the pond** (the owner's
 picks, all recommended; fishing step 2 of D-608; mock-up:
 https://claude.ai/artifact/PdTsChn8We8fRc5Py7VQRe) At the home pond,
@@ -204,3 +193,10 @@ hurt." is said, free. Enter still pours; E eats. Kind Herbs adds its 1
 heart, as for anything eaten (D-599). Claude's, the owner may change
 it: its line, "You eat the minnow. Cold, but filling." D-583 moved to
 `archive/DECISIONS-BOONS.md`, word for word.
+
+**D-616 · 2026-11-06 · Selling a minnow** (the owner's picks, all
+recommended; fishing step 5 of D-608) The peddler buys a Pond Minnow
+for 1 coin, a common material's price, kept as its `sells`: 3 sold buy
+a flask, as 3 poured make a flask's oil. Nothing else changes: it
+sells the materials' way, no line, free, no turn. D-609 moved to
+`archive/DECISIONS-FISHING.md`, word for word.
