@@ -61,12 +61,17 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
+- Coming, in order (D-621): the panel as a bottom sheet with pictures
+  (half height, the room seen above it, icon tabs, a search box, Spawn
+  a grid of sprites by kind); then god mode, and saving and loading
+  test spots.
+
 ## Candidates (the owner picks; record each pick as a decision)
-- God mode (no damage); the owner wants it next (D-154)
+- God mode (no damage); the owner wants it next (D-154), picked (D-621)
 - Step enemies one turn at a time
 - Collision overlay (the grid and coordinates part is built, D-046)
 - Show light radius and line-of-sight overlay
-- Save and load test situations
+- Save and load test situations, picked (D-621)
 - Seed load (the display is built, D-150)
 - Speed up or slow down animations
 - A combat sandbox and a seeded puzzle tester, with the Seed Explorer

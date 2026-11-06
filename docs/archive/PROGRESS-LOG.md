@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.73, The cave pools' fish.** All recommended: the
+  Blind Cavefish, look A, 20% oil, 1 heart, 2 coins, a fifth zone (D-618).
+  Fishing done. Playtest: https://claude.ai/artifact/64U9aJSEzwtGdzFLzmCyQ6
 - **2026-11-06, 0.3.72, The ninth audit.** All recommended: the pixel
   pictures to `pictures.js`; GLOSSARY, TECH and RESEARCH split; D-169 to
   D-176 archived (D-617). Start read 10.1 KB. No playtest: nothing to play.

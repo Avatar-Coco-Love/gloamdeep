@@ -76,29 +76,6 @@ material. In steps: the rod; the cast at the pond, catching the minnow;
 its uses one a step (oil, eating, selling; the recipe when one needs it);
 then the cave pools.
 
-**D-611 · 2026-11-06 · The minnow's oil** (the owner's picks, all
-recommended; fishing step 3 of D-608) In the bag, a Pond Minnow's
-button reads POUR, the flask's way: a turn, 15% of a tank, never above
-full. By hand only: the flask button and By itself pass minnows by.
-Deep Pour is for flasks; a minnow always pours 15%. It plays the
-flask's pour sound and is not counted in Flasks poured. Claude's, the
-owner may change it: its look line. D-588 moved to
-`archive/DECISIONS-WAYSTONES.md`, word for word.
-
-**D-612 · 2026-11-06 · Fishing made clear** (the owner's picks, all
-recommended; the owner found fishing hard to follow; mock-up:
-https://claude.ai/artifact/VFR7NPEBVEV3dsMutucZuZ) Before fishing step 4,
-three polish steps: clear turns; a nibble turn (the float twitches, "A
-nibble...", then the bite) with a plop on the cast and a splash on the
-catch; then a strike meter, a needle swept across a bar on its own card
-with the world paused, tapped in the bright zone, smaller for bigger fish.
-Real-time waiting is not used, as turns pass only when you act (D-016).
-This step: with the line out and no bite, bumping the water waits a turn,
-the float where it is (supersedes that part of D-610). While a line is
-out, the quick slot (D-384) reads WAIT, or PULL in amber with a bite, and
-a tap bumps the float's tile; the flask comes back with the line in.
-D-579 and D-587 moved to `archive/DECISIONS-WAYSTONES.md`, word for word.
-
 **D-613 · 2026-11-06 · The nibble, the plop and the splash** (the
 owner's picks, all recommended; fishing polish 2 of D-612; mock-up:
 https://claude.ai/artifact/WCdMEXxBYnY1MA5TofV7E5) Each waiting turn,
@@ -193,3 +170,21 @@ room and spot, and each room comes out as before but for the stone. Old
 saves have every waystone made 3 × 3 where it stands, once, asleep or
 woken as it was. D-610 moved to `archive/DECISIONS-FISHING.md`, word for
 word.
+
+**D-621 · 2026-11-06 · Faster from idea to game** (the owner's picks,
+all recommended) Other stories, each with its own world, role and
+start, wait for later; first, story 1 grows much bigger. To make that
+quicker, plug-in systems come before Lore. First a checker,
+`tests/checker.test.js`, that names every piece a registry entry still
+lacks (a line, a sprite, a hit flash, a sound, a way, where it lives, a
+test, a content row) and the file to fix (this version). Then a maker, a
+tool that writes a new creature's, find's, tile's or person's empty
+pieces and its test. Then the dev panel as a bottom sheet with
+pictures: half height, the room still seen above it, icon tabs, a
+search box, Spawn a grid of sprites by kind. Then god mode, and saving
+and loading test spots; more tools later. Claude's, the owner may
+change it: plug-in slots for systems come with the next new system
+(such as a light puzzle), shaped by a real use; one folder per thing
+is weighed again at the audit, 0.3.112. The checker found the Snapcap
+Gill with no content row; it has one now. D-611 and D-612 moved to
+`archive/DECISIONS-FISHING.md`, word for word.
