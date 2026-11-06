@@ -17,6 +17,13 @@ test('a common material sells for 1 coin, a rare one for 5, and nothing else is 
   for (const id of ['flask', 'stone', 'copperOre', 'wood', 'oilcap', 'heartcap', 'knife']) assert.equal(priceOf(id), 0, id);
 });
 
+test('a Pond Minnow sells for 1 coin (D-616)', () => {
+  assert.equal(priceOf('pondMinnow'), 1);
+  const s = sell(at([{ id: 'pondMinnow', n: 2 }]), 0);
+  assert.deepEqual(s.bag, [{ id: 'pondMinnow', n: 1 }]);
+  assert.equal(coins(s), 1);
+});
+
 test('he buys only at home', () => {
   assert.ok(buyerAt(at([]), 2, 1));
   assert.equal(buyerAt(at([], false), 2, 1), undefined);

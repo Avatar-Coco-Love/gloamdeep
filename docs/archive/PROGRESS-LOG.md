@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.68, The nibble.** All recommended: a nibble 1 turn
+  in 6, the bite the turn after; the float shakes; plop A on the cast,
+  splash A on the catch (D-613). Playtest: https://claude.ai/artifact/6bY69ibSBreQRk4XjahfZv
 - **2026-11-06, 0.3.67, Fishing made clear.** All recommended: clear turns,
   a nibble, a strike meter; bumping waits; WAIT / PULL (D-612). Playtest: https://claude.ai/artifact/NJVYQ9g12RQiqwvCAxPMwQ
 - **2026-11-06, 0.3.66, The minnow's oil.** All recommended: POUR in the

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.71', date: '2026-11-06', title: 'Selling a minnow', lines: [
+    "The peddler now buys Pond Minnows: 1 coin each, the same as a common material. Pick one on his Sell tab, then Sell, Enter or Space. No turn passes.",
+    "Decisions: D-616. D-609 moved to the archive, word for word.",
+  ] },
   { v: '0.3.70', date: '2026-11-06', title: 'Eating a minnow', lines: [
     "A Pond Minnow can now be eaten: in the bag, EAT sits beside POUR and heals 1 heart, taking a turn. It is dim when you aren't hurt. The E key eats; Enter still pours.",
     "Decisions: D-615. D-583 moved to the archive, word for word.",
