@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.65, Cast, wait, pull.** All recommended: at the home
+  pond, cast, a bite 1 turn in 6 with a "!" over the float, pull for a
+  Pond Minnow, looks A (D-610). Playtest: https://claude.ai/artifact/RK6ojNs3RGp8NHBM4pyjw3
 - **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: fishing is
   cast, wait, pull (D-608); the rod, in the Tool slot (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
 - **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first

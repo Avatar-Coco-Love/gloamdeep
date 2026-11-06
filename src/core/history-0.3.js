@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.68', date: '2026-11-06', title: 'The nibble', lines: [
+    "A fish nibbles before it bites: the float shakes and the line reads \"A nibble...\". The next turn it always bites, so wait for the \"!\" and then pull.",
+    "Casting the line plays a soft plop, and a catch plays a splash with a few drops falling back.",
+    "Decisions: D-613.",
+  ] },
   { v: '0.3.67', date: '2026-11-06', title: 'Fishing made clear', lines: [
     "Fishing is easier to follow: with the line out, bump the water again to wait a turn. The float stays where it is, so keep bumping until something bites, then bump once more to pull.",
     "While a line is out, the flask button beside the lantern reads WAIT, and PULL in amber when a fish bites. A tap does the same as bumping the water. The flask comes back once the line is in.",
