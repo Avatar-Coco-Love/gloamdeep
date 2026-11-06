@@ -27,6 +27,7 @@ import { glanceOf } from './worn.js';
 // a heart while the lantern holds any, a `drink` event (D-606).
 // In god mode (`state.god`, a dev switch) a bite is the same but takes no heart,
 // so the hero never falls from one; its event still says what it would take (D-625).
+// With Endless oil on (`state.endless`) a drink is the same but takes no oil (D-626).
 export function enemiesAct(state) {
   return settle(act(state));
 }
@@ -36,7 +37,7 @@ function act(state) {
   const drank = drinks(state, bites);
   const hurts = bites.map((e, i) => (drank[i] > 0 || glances(state, e) ? 0 : get(e.id).bite)), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
   const health = state.god ? state.health : Math.max(0, state.health - hurts.reduce((sum, n) => sum + n, 0));
-  const oil = Math.max(0, state.oil - drank.reduce((sum, n) => sum + n, 0));
+  const oil = state.endless ? state.oil : Math.max(0, state.oil - drank.reduce((sum, n) => sum + n, 0));
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
   const said = first < 0 ? 'glance' : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;

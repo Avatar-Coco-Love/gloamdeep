@@ -138,7 +138,8 @@ export function buildPanel(panel, opts, saved, game) {
     button('+50', () => game.set(game.passTime(50))),
   ), pixel('div', 'dev-kind', 'GARDEN'), row(button('Grow', () => game.set(game.grow()))));
 
-  // § oil: a slider for any amount (D-091), Refill and Empty (D-066); no turn passes
+  // § oil: a slider for any amount (D-091), Refill and Empty (D-066); no turn passes. Endless
+  // oil, a switch kept on the state, so in the save: the oil stays where it is (D-626)
   const oil = section('oil', 'Oil');
   const slider = el('input', { type: 'range', min: 0, max: 100, step: 1, value: 0 });
   slider.setAttribute('aria-label', 'Oil');
@@ -146,7 +147,10 @@ export function buildPanel(panel, opts, saved, game) {
   slider.addEventListener('input', () => game.set(game.setOil(slider.value / 100)));
   const setter = el('label', { className: 'dev-slider' });
   setter.append(slider, amount);
-  oil.append(setter, row(button('Refill', () => game.set(game.setOil(1))), button('Empty', () => game.set(game.setOil(0)), 'dev-undo')));
+  const endless = button('Endless oil', () => game.set(game.setEndless(!game.get().endless)), 'dev-switch');
+  endless.setAttribute('aria-pressed', 'false');
+  let shownEndless = false;
+  oil.append(setter, row(button('Refill', () => game.set(game.setOil(1))), button('Empty', () => game.set(game.setOil(0)), 'dev-undo')), row(endless));
   let shownOil = null;
 
   // § hero: Refill hearts, back to full health; no turn passes (D-154). God mode, a
@@ -188,6 +192,7 @@ export function buildPanel(panel, opts, saved, game) {
     sync(state) {
       if (state.place !== shownPlace) { shownPlace = state.place; pickDepth(depthOf(state.place)); }
       if (!!state.god !== shownGod) { shownGod = !!state.god; god.setAttribute('aria-pressed', String(shownGod)); }
+      if (!!state.endless !== shownEndless) { shownEndless = !!state.endless; endless.setAttribute('aria-pressed', String(shownEndless)); }
       if (state.oil === shownOil) return;
       shownOil = state.oil;
       const pct = Math.round(state.oil * 100);

@@ -471,6 +471,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   setOil: (oil) => setOil(app.state, oil),
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   setGod: (on) => ({ ...app.state, god: on }), // bites take no hearts (D-625)
+  setEndless: (on) => ({ ...app.state, endless: on }), // the lantern never runs down (D-626)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)

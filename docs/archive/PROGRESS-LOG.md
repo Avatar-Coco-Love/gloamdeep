@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.78, The dev bottom sheet.** All recommended: look A,
+  icon tabs in a row; the room slides clear; two steps, the sheet first;
+  phone-wide at the bottom left on wide screens (D-623). Playtest: https://claude.ai/artifact/1dxqLd1kCST3uCopND9q4q
 - **2026-11-06, 0.3.77, The maker.** All recommended: one line,
   `node tools/make.js <kind> <id> "<Name>"`; marked blanks the checker
   names; a grey "?" picture; the content row only (D-622). No playtest:
