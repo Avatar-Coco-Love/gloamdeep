@@ -57,10 +57,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
-- **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: how fishing
-  plays, cast, wait, pull, the Pond Minnow at home first, then every
-  pool (D-608); the rod, 2 Wood and 2 Spider Silk, in the Tool slot
-  (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
+- **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: fishing is
+  cast, wait, pull (D-608); the rod, in the Tool slot (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
 - **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
   new way, a tick drinking 5% oil instead of biting, from depth 3
   (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU
