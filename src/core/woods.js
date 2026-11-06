@@ -20,8 +20,9 @@ const BRANCHES = 1;
 // § bush: how many gloamberry bushes grow in each, as tiles (D-531)
 const BUSHES = 1;
 // § waystone: the home waystone's middle, STONE_UP tiles north of the room's middle, the
-// trees one tile around it cleared, so a hero there stands at the foot of its south arm (D-589)
-export const STONE_UP = 3;
+// trees one tile around it cleared, so a hero there stands at the foot of its south arm (D-589);
+// 2 since it is 3 × 3 (D-620)
+export const STONE_UP = 2;
 export const STONE_RING = 1;
 
 // (seed, mouth) → { map, start, lights, enemies, items }. Nothing lives in the

@@ -39,7 +39,7 @@ function settle(p, hero = null) {
   return out;
 }
 
-// The middle nearest where a new game puts it (woods.js), whose 5 × 5 holds only what is cleared,
+// The middle nearest where a new game puts it (woods.js), whose plan holds only what is cleared,
 // no person, light, hero or anything but sticks; first with the ring around it as clear, then without
 function spotFor(p, hero) {
   const { cols, rows, map } = p.room, want = { x: cols >> 1, y: (rows >> 1) - STONE_UP }, reach = 2 + STONE_RING;

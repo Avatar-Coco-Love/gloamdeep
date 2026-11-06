@@ -6,7 +6,7 @@ import { placeFor, stoneAt, stoneRoom, placeAt, makeRoom, tileAt, isStoneDepth, 
 import { layoutAt } from '../src/core/region.js';
 import { LANDMARKS } from '../src/core/registry.js';
 import { around } from '../src/core/landmarks.js';
-import { spotIn, RING } from '../src/core/stamper.js';
+import { spotIn, ringOf } from '../src/core/stamper.js';
 
 const SEEDS = Array.from({ length: 400 }, (_, i) => i + 1);
 const MARK = LANDMARKS.waystone, PLAN = MARK.plan;
@@ -38,11 +38,11 @@ test('stamper: the stone stands whole near the middle, ringed by open floor, not
   for (const seed of SEEDS) {
     const { id, at } = stoneAt(seed), p = placeFor(id, seed), room = makeRoom(p.map, undefined, p.look);
     assert.ok(Math.abs(at.x - (room.cols >> 1)) <= 1 && Math.abs(at.y - (room.rows >> 1)) <= 2, `seed ${seed}: near the middle`);
-    PLAN.forEach((row, j) => [...row].forEach((ch, i) => assert.equal(p.map[at.y - 2 + j][at.x - 2 + i], ch, `seed ${seed}`)));
-    for (const t of around(MARK, at.x, at.y, RING)) {
-      if (Math.max(Math.abs(t.x - at.x), Math.abs(t.y - at.y)) > 2) assert.ok(!tileAt(room, t.x, t.y).solid && p.map[t.y][t.x] !== '~', `seed ${seed}: ring ${t.x},${t.y}`);
+    PLAN.forEach((row, j) => [...row].forEach((ch, i) => assert.equal(p.map[at.y - 1 + j][at.x - 1 + i], ch, `seed ${seed}`)));
+    for (const t of around(MARK, at.x, at.y, ringOf(MARK))) { // 3 × 3 (D-620), its old 5 × 5 patch and ring open floor
+      if (Math.max(Math.abs(t.x - at.x), Math.abs(t.y - at.y)) > 1) assert.ok(!tileAt(room, t.x, t.y).solid && p.map[t.y][t.x] !== '~', `seed ${seed}: ring ${t.x},${t.y}`);
     }
-    const on = (o) => Math.abs(o.x - at.x) <= 2 && Math.abs(o.y - at.y) <= 2;
+    const on = (o) => Math.abs(o.x - at.x) <= 2 && Math.abs(o.y - at.y) <= 2; // nothing on it or its pad
     assert.ok(![...p.items, ...p.enemies, ...p.lights].some(on), `seed ${seed}: something on the stone`);
     const reached = walked(room, p.start);
     for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {

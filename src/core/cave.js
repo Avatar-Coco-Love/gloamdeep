@@ -3,7 +3,7 @@
 // a rat guarding it (D-149), a herb (D-155), an oilcap (D-296) and, in about half the rooms, a heartcap (D-303), each mushroom its own tone (D-305), and deposits when asked (D-311). Plain data, no drawing. Same seed, same room.
 import { rng, int, pick } from './rng.js';
 import { toned } from './tones.js';
-import { setAside, stampIn, RING as AROUND } from './stamper.js';
+import { setAside, stampIn, ringOf } from './stamper.js';
 import { around } from './landmarks.js';
 
 // § sizes: about 1.5 screens, 17 × 20, bigger than the screen, so the camera
@@ -51,7 +51,7 @@ export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, 
     const dug = g && openStairs(r, openDoors(r, g, doors, dig, clear), up, down, dig, clear);
     const room = dug && fill(r, landmark ? stampIn(dug, landmark.mark, landmark.at) : dug, up, down, rats, second, weapon);
     if (!room) continue;
-    const keep = landmark ? around(landmark.mark, landmark.at.x, landmark.at.y, AROUND) : []; // no deposit or pool on it or its ring
+    const keep = landmark ? around(landmark.mark, landmark.at.x, landmark.at.y, ringOf(landmark.mark)) : []; // no deposit or pool on it or its ring
     const made = { ...room, map: deposits ? withDeposits(r, room, deposits, veins, keep) : room.map, items: toned(seed, room.items) }; // each mushroom its own tone (D-305)
     const done = pool ? withPool(seed, made, keep) : made;
     if (landmark && !joined(done.map)) continue;

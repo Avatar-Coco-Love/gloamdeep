@@ -1,4 +1,4 @@
-// § waystone: the home waystone, 5 × 5 and asleep, north of the woods' middle (D-579, D-587, D-589)
+// § waystone: the home waystone, 3 × 3 (D-620) and asleep, north of the woods' middle (D-579, D-587, D-589)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateWoods, STONE_UP } from '../src/core/woods.js';
@@ -10,8 +10,8 @@ import { around } from '../src/core/landmarks.js';
 const SEEDS = Array.from({ length: 500 }, (_, i) => i + 1);
 const PLAN = LANDMARKS.waystone.plan;
 
-test('waystone: its plan is 5 × 5, a walked cross, standing stones on the corners, the plate in the middle', () => {
-  assert.deepEqual(PLAN, ['YYXYY', 'YYXYY', 'XXZXX', 'YYXYY', 'YYXYY']);
+test('waystone: its plan is 3 × 3, a walked cross, a standing stone in each corner, the plate in the middle', () => {
+  assert.deepEqual(PLAN, ['YXY', 'XZX', 'YXY']);
   assert.ok(get('standingStone').solid && get('standingStone').blocksLight); // like rock
   assert.ok(!get('waystonePath').solid && !get('waystonePlate').solid);
   for (const id of ['standingStone', 'waystonePath', 'waystonePlate']) assert.equal(get(id).name, 'Waystone');
@@ -20,12 +20,12 @@ test('waystone: its plan is 5 × 5, a walked cross, standing stones on the corne
 test('waystone: every home woods room has it, north of the middle, ringed by open grass', () => {
   for (const seed of SEEDS) {
     const w = generateWoods(seed, mouthOf(seed)), room = makeRoom(w.map), sx = w.start.x, sy = w.start.y - STONE_UP;
-    PLAN.forEach((row, j) => [...row].forEach((ch, i) => assert.equal(w.map[sy - 2 + j][sx - 2 + i], ch, `seed ${seed}`)));
-    assert.equal(w.start.y, sy + 3); // the start is just below the south arm
+    PLAN.forEach((row, j) => [...row].forEach((ch, i) => assert.equal(w.map[sy - 1 + j][sx - 1 + i], ch, `seed ${seed}`)));
+    assert.equal(w.start.y, sy + 2); // the start is just below the south arm
     for (const t of around(LANDMARKS.waystone, sx, sy, 1)) {
-      if (Math.max(Math.abs(t.x - sx), Math.abs(t.y - sy)) === 3) assert.equal(tileAt(room, t.x, t.y).id, 'floor', `seed ${seed} ${t.x},${t.y}`);
+      if (Math.max(Math.abs(t.x - sx), Math.abs(t.y - sy)) === 2) assert.equal(tileAt(room, t.x, t.y).id, 'floor', `seed ${seed} ${t.x},${t.y}`);
     }
-    assert.ok(!w.items.some((it) => Math.abs(it.x - sx) <= 2 && Math.abs(it.y - sy) <= 2), `seed ${seed}: a stick on the stone`);
+    assert.ok(!w.items.some((it) => Math.abs(it.x - sx) <= 1 && Math.abs(it.y - sy) <= 1), `seed ${seed}: a stick on the stone`);
   }
 });
 
@@ -109,4 +109,28 @@ test('waking: a woken plate glows faintly, like the stairs; a sleeping one gives
 test('waking: the woods keeps it woken after going away and coming back', () => {
   const woke = step(belowPlate(), 'up'), at = woke.hero, away = goToPlace(woke, 'first'), back = goToPlace(away, 'woods');
   assert.equal(tileAt(back.room, at.x, at.y).id, 'wokenPlate');
+});
+
+// § smaller: a save's 5 × 5 waystones made 3 × 3 where they stand, once (D-620)
+import { shrinkMap } from '../src/core/smallstone.js';
+import { FORMAT } from '../src/core/save.js';
+
+const BIG = ['.......', '.YYXYY.', '.YYXYY.', '.XXAXX.', '.YYXYY.', '.YYXYY.', '.......'];
+test('waystone: an old 5 × 5 stone becomes 3 × 3 where it stands, woken as it was, once', () => {
+  const small = shrinkMap(BIG);
+  assert.deepEqual(small, ['.......', '.......', '..YXY..', '..XAX..', '..YXY..', '.......', '.......']);
+  assert.deepEqual(shrinkMap(small), small); // once
+  assert.deepEqual(shrinkMap(['YXY', 'XZX', 'YXY']), ['YXY', 'XZX', 'YXY']); // a new one stays
+  makeRoom(small);
+});
+
+test('waystone: an old save has every waystone made 3 × 3: here, elsewhere and as the woods began', () => {
+  assert.equal(FORMAT, 16);
+  const w = makeWorld('first', 5), woods = w.elsewhere.woods, big = { ...woods, room: { ...woods.room, map: woods.room.map.map((l, y) => (y >= 1 && y <= 7 ? l.slice(0, 1) + BIG[y - 1] + l.slice(8) : l)) } };
+  const old = { ...w, elsewhere: { ...w.elsewhere, woods: big }, home: { ...w.home, places: { ...w.home.places, woods: big } }, room: { ...w.room, map: BIG } };
+  const s = UPGRADES[15](old), want = shrinkMap(big.room.map);
+  assert.deepEqual(s.elsewhere.woods.room.map, want);
+  assert.deepEqual(s.home.places.woods.room.map, want);
+  assert.deepEqual(s.room.map, shrinkMap(BIG));
+  assert.deepEqual(UPGRADES[15](s), s);
 });

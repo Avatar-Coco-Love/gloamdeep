@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.72, The ninth audit.** All recommended: the pixel
+  pictures to `pictures.js`; GLOSSARY, TECH and RESEARCH split; D-169 to
+  D-176 archived (D-617). Start read 10.1 KB. No playtest: nothing to play.
 - **2026-11-06, 0.3.71, Selling a minnow.** All recommended: 1 coin, the
   materials' way, nothing else (D-616). Playtest: https://claude.ai/artifact/WGf4UMknUGFQtTzCWBLezL
 - **2026-11-06, 0.3.70, Eating a minnow.** All recommended: 1 heart, Eat
