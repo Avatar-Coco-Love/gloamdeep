@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Fishing (step 18, D-582); read `SCOPE.md` part 2 and D-452, and ask
-how it plays.
+Fishing step 2 (D-608): cast, wait, pull at the home pond, catching
+the Pond Minnow; ask its look, the float's and the "!".
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,7 +44,7 @@ Getting around first (D-582), then boons (D-583):
 - [x] The new kind: the oil tick (D-606), 0.3.63
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 18 Fishing
+- [ ] 18 Fishing (D-608): the rod (0.3.64)
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -57,6 +57,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.64, The Wooden Rod.** All recommended: how fishing
+  plays, cast, wait, pull, the Pond Minnow at home first, then every
+  pool (D-608); the rod, 2 Wood and 2 Spider Silk, in the Tool slot
+  (D-609). Playtest: https://claude.ai/artifact/Tnu9tm2Bpme3apU9uKw5HM
 - **2026-11-05, 0.3.63, The oil tick.** The owner's picks: the first
   new way, a tick drinking 5% oil instead of biting, from depth 3
   (D-606); the creature plan (D-607). Playtest: https://claude.ai/artifact/Wznfmz4pPTV1UmxVViF5FU
@@ -65,8 +69,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   down, through walls; only where the light falls; gone once the stairs
   are seen, or with reduced motion (D-605).
   Playtest: https://claude.ai/artifact/Y6kJu7Hv1yanQhavJgAebj
-- **2026-11-05, 0.3.61, The boon's mark.** The owner's idea, all picks
-  recommended: the boon held as its card's picture in a small glass
-  square under the panel, tap or mouse-over for its name and line; long
-  lines wrap (D-604).
-  Playtest: https://claude.ai/artifact/SCGhhLXxmPW9qfk9qZJmmt

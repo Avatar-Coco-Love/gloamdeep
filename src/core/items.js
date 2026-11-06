@@ -123,6 +123,11 @@ export const ITEMS = {
   // empty, it goes straight into it.
   pick: { id: 'pick', kind: 'item', name: 'Stone Pick', bag: true, max: 1, tool: true, holds: 'pickHold', away: 'pickAway', look: 'pickLook', full: 'pickFull',
     bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
+  // The first rod, fishing's first step (D-609): made at the workbench as the pick is, never
+  // found. A `tool` like the pick, held in the Tool slot, swapped with the pick there. Held,
+  // bumping water says its `cast` line, free; the cast itself is fishing's next step.
+  rod: { id: 'rod', kind: 'item', name: 'Wooden Rod', bag: true, max: 1, tool: true, holds: 'rodHold', away: 'rodAway', look: 'rodLook', full: 'rodFull',
+    bench: { of: { wood: 2, spiderSilk: 2 }, says: 'rodMake', short: 'rodShort' } },
   // The first ore, from a copper vein (D-480), into the bag the stone's way, in stacks of 20.
   copperOre: { id: 'copperOre', kind: 'item', name: 'Copper Ore', bag: true, max: 20, look: 'copperOreLook', full: 'copperOreFull' },
   // The first lantern part (D-483): made at the workbench, never found. Fit, in the bag, puts it

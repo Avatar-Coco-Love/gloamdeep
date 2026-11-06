@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -254,3 +254,20 @@ mimic 2. The flyers, the
 bat and the lampmoth, are held a fixed 2 pixels above their shadow
 (registry `flies`). A sleeping mimic or a shut snapcap still bobs as the
 find it copies does, keeping its disguise (D-368, D-543).
+
+**D-606 · 2026-11-05 · The oil tick** (the owner's picks, all
+recommended but its name; answers part of Q-076; builds on D-607;
+mock-ups: https://claude.ai/artifact/3aeCewHHKFMpabVHRtJPbN and
+https://claude.ai/artifact/X1VUa6CHqzHStodYEHsecs) The seventh new kind
+and the first new way, the wicksucker of the list, called the oil tick
+for now (the owner's choice). It chases. Beside the hero it drinks 5% of
+the lantern's oil, about 3 turns of light, instead of biting, lit or
+not; with the lantern empty it bites for 1. 2 hearts, worth 3, in the
+pool from depth 3. Look B, a round tick swollen with amber oil. Its
+drink shows a line, "The oil tick drinks your oil.", the oil bar
+flickering pale, and its own wet sip, on the sound board. Its drop is a
+Tick Shell, about 1 in 2, sold for 1, and a rare Oil Bladder, about 1
+in 10, sold for 5, both for crafts later. Claude's, the owner may
+change them: the drop drawings, the lines, the dry bite of teeth, and
+that armour can't turn a drink aside. Nothing more once full, for now.
+D-596 and D-604 moved to `archive/DECISIONS-BOONS.md`, word for word.

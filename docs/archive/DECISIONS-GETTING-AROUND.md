@@ -4,7 +4,8 @@ Moved unchanged from `docs/DECISIONS.md` at step 47b (D-208), when it
 neared 12 KB: steps 43 to 45 (stairs to find, the camera, side
 openings), UI steps U1 and U2 (sideways, the dev drawer), and the
 decision log's last move (D-196). These are still in force unless marked
-superseded. Grep for an ID or topic; never read this whole.
+superseded. Grep for an ID or topic; never read this whole. D-605,
+drifting motes, joined at 0.3.64 (D-609).
 
 ---
 
@@ -75,3 +76,12 @@ drawer narrows to its tabs. Rows stay 44 px tall. Every dev word, the
 stats line too, is in the game's pixel font at double size; the stats
 line stays at the bottom left. When the drawer is short (sideways) the
 tabs and tools scroll. D-093's colours stay.
+
+**D-605 · 2026-11-05 · Drifting motes** (the owner's picks, all
+recommended; builds on D-581) About 5 faint pale motes at once drift
+slowly in the lantern light, with a little wobble, fading in and out,
+straight across the floor at its nearest stairs down, through walls
+like a draft. They show only where the light falls, dimmer where it is
+dim. None once any of the floor's stairs down is remembered, with the
+lantern out, or with reduced motion. D-603 archived. Mock-up:
+https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X

@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.64', date: '2026-11-06', title: 'The Wooden Rod', lines: [
+    "Fishing begins: make a Wooden Rod at the workbench from 2 Wood and 2 Spider Silk. It's a plain wooden pole with a silk line and a red-and-white float.",
+    "The rod is a tool: Hold it in the bag to put it in the Tool slot, a turn, swapping it with the Stone Pick there. Made with the Tool slot empty, it goes straight in.",
+    "Bump the pond, or a cave pool, with the rod held and the line says \"The water is still. Fishing comes soon.\" No turn passes. Casting comes next.",
+    "How fishing will play: cast, wait for a bite (about 1 turn in 6), then pull within a turn. The first fish is the Pond Minnow, from the pond at home; later every pool has its own fish and finds. A fish will give oil, hearts and coins, and go into recipes.",
+    "Decisions: D-608, D-609.",
+  ] },
   { v: '0.3.63', date: '2026-11-05', title: 'The oil tick', lines: [
     "A new creature, the oil tick, now turns up from depth 3 down: a round tick swollen with amber oil. It chases you, and beside you it drinks 5% of your lantern's oil instead of biting, about 3 turns of light, even with the lantern off. Once the lantern is empty, it bites for 1.",
     "As it drinks, the oil bar flickers pale, you hear a wet sip, and the line says \"The oil tick drinks your oil.\"",
