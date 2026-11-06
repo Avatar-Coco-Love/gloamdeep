@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.85', date: '2026-11-06', title: 'The Bestiary tab', lines: [
+    "The Journal has a third tab, Bestiary, after Growth: a table of the creatures you have met, each with its drawing, its name, and how many you have met and beaten. A creature counts as met the first time your light reaches it; a mimic or a snapcap only once it shows itself, and one beaten in the dark counts too. The counts stay with your profile through falls and new journeys, starting from zero now.",
+    "Decisions: D-630. D-621 moved to the archive, word for word.",
+  ] },
   { v: '0.3.84', date: '2026-11-06', title: 'Special creatures', lines: [
     "Nothing in the game changed. The owner's idea is saved as a question: bosses, rare named creatures and unique wanderers with histories of their own, told in lore pages, on their Bestiary page and by the guide or people, each with a Feat for beating it.",
     "Questions opened: Q-083.",

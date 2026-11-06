@@ -45,7 +45,7 @@ test('asleep it does nothing, even next to the hero, and is hidden from the crea
 
 test('a bump wakes it with no harm, and that turn it does nothing', () => {
   const s = step(at(5, 10), 'up');
-  assert.deepEqual(s.enemies, [{ id: 'flaskMimic', x: 5, y: 10, awake: 6, chasing: true }]);
+  assert.deepEqual(s.enemies, [{ id: 'flaskMimic', x: 5, y: 10, awake: 6, chasing: true, met: true }]); // awake and lit, met (D-630)
   assert.equal(s.health, 5);
   assert.equal(s.line.id, 'flaskMimicWakes');
   assert.ok(s.events.some((e) => e.type === 'wake') && !s.events.some((e) => e.type === 'hit'));

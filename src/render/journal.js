@@ -6,7 +6,9 @@
 // the right. Growth is a tree (D-481, look D of the step 8 mock-up): an ember glowing at the
 // root, a trunk splitting into three limbs, each climbing through its branch's places, row 0 at
 // the bottom; the picked place outlined gold, and what it says on the right, past a line, with
-// its button in the bottom right corner, as Make on the bag's card.
+// its button in the bottom right corner, as Make on the bag's card. The Bestiary (D-630) is a
+// table of the creatures met: each one's drawing and name, its met and beaten counts in two
+// columns under grey headings, in two tables side by side when one is too tall for the card.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
@@ -14,6 +16,7 @@ import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON
 import { TABS, recordRows } from '../core/journal.js';
 import { ROWS, ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
+import { bestiaryRows, NONE } from '../core/bestiary.js';
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
@@ -32,10 +35,13 @@ const BOX_W = 76, BOX_H = 24, BOX_GAP = 12; // a place at its widest, its height
 const ROW0_UP = 62, FORK_UP = 28, ROOT_UP = 17;
 const LIMB = 3; // a limb's thickness
 const tabsLeft = (card) => card.x + PAD + MARK_W;
-// Each tab's left edge, in a row from the left
+// Each tab's left edge, in a row from the left; on a narrow card the gaps shrink so the last
+// tab ends inside the card's padding (D-630)
 function tabXs(card) {
   let x = tabsLeft(card);
-  return TABS.map((tab) => { const at = x; x += textWidth(tab.text) + TAB_GAP; return at; });
+  const room = card.x + card.w - PAD - x - TABS.reduce((w, t) => w + textWidth(t.text), 0);
+  const gap = Math.max(MARK_W + 4, Math.min(TAB_GAP, Math.floor(room / (TABS.length - 1))));
+  return TABS.map((tab) => { const at = x; x += textWidth(tab.text) + gap; return at; });
 }
 
 // § tree's layout: the line between the tree and what is said (from the card's left), and each
@@ -76,8 +82,9 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 }
 
 // c: the room's canvas, `vw` × `vh`; records and played, the profile's; state, the journey's;
-// tab, the one open; pick, Growth's picked place; still: prefers-reduced-motion
-export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK) {
+// tab, the one open; pick, Growth's picked place; still: prefers-reduced-motion; book, the
+// profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630)
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}) {
   const growth = tab === 'growth', card = drawCard(c, vw, vh, 'JOURNAL', 0), { x, y, w } = card, xs = tabXs(card);
   TABS.forEach((s, i) => {
     const on = s.id === tab;
@@ -88,6 +95,7 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
   });
   c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y, w - 16, 1);
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
+  if (tab === 'bestiary') { drawBestiary(c, card, book, sprites); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
   rows.forEach((row, i) => {
@@ -161,4 +169,34 @@ function drawTold(c, card, state, pick, above) {
   const text = said.button.text.toUpperCase(), b = buttonOf(card, text);
   drawButton(c, b.x, b.y, text, !said.button.can, b.w);
   drawText(c, said.button.cost, b.x - COST_GAP - textWidth(said.button.cost), b.y + 3, GREY);
+}
+
+// § bestiary: the creatures met, a table of rows (D-630): the drawing, the name, then the met
+// and beaten counts each right-aligned under its heading; past the card's foot, a second table
+// beside the first. None met yet, a grey line says so.
+const BEAST_H = 18, HEADS_Y = 50, BEASTS_Y = 62; // a row's height; the headings' and first row's tops
+const SPRITE_W = 16, NAME_GAP = 4, COUNT_GAP = 10, TABLE_GAP = 16;
+export function bestiaryTables(card, n) {
+  const fit = Math.max(1, Math.floor((card.h - BEASTS_Y - PAD + 2) / BEAST_H)), tables = n > fit ? 2 : 1;
+  const w = Math.floor((card.w - 2 * PAD - (tables - 1) * TABLE_GAP) / tables);
+  return { per: tables === 2 ? Math.ceil(n / 2) : n, w, xs: Array.from({ length: tables }, (_, i) => card.x + PAD + i * (w + TABLE_GAP)) };
+}
+function drawBestiary(c, card, book, sprites) {
+  const rows = bestiaryRows(book), { y } = card;
+  if (!rows.length) { drawText(c, NONE, tabsLeft(card), y + HEADS_Y + 2, GREY); return; }
+  const { per, w, xs } = bestiaryTables(card, rows.length), beatenW = textWidth('Beaten');
+  xs.forEach((tx, i) => {
+    const part = rows.slice(i * per, (i + 1) * per);
+    if (!part.length) return;
+    const bx = tx + w, mx = bx - beatenW - COUNT_GAP; // the columns' right edges
+    drawText(c, 'Met', mx - textWidth('Met'), y + HEADS_Y, GREY);
+    drawText(c, 'Beaten', bx - beatenW, y + HEADS_Y, GREY);
+    part.forEach((r, j) => {
+      const ry = y + BEASTS_Y + j * BEAST_H, img = sprites[r.id];
+      if (img) c.drawImage(img, tx, ry);
+      drawText(c, r.name, tx + SPRITE_W + NAME_GAP, ry + 5, CORE);
+      drawText(c, String(r.met), mx - textWidth(String(r.met)), ry + 5, CORE);
+      drawText(c, String(r.beaten), bx - textWidth(String(r.beaten)), ry + 5, CORE);
+    });
+  });
 }

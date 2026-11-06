@@ -1,10 +1,10 @@
 // § journal: one book with tabs (D-262, D-270). Records is the first tab, Growth
-// the second (D-293); later tabs join the row. Plain data, no drawing.
+// the second (D-293), the Bestiary the third (D-630); later tabs join the row. Plain data, no drawing.
 import { playedText } from './profile.js';
 import { embers, told, START_PICK } from './growth.js';
 import { BRANCHES } from './upgrades.js';
 
-export const TABS = [{ id: 'records', text: 'Records' }, { id: 'growth', text: 'Growth' }];
+export const TABS = [{ id: 'records', text: 'Records' }, { id: 'growth', text: 'Growth' }, { id: 'bestiary', text: 'Bestiary' }];
 
 // § records: the Records tab's rows, a name and its value, from a profile's records and its
 // play time in seconds, written as in its Profiles box (D-290, D-291)
@@ -24,7 +24,7 @@ export const journalWords = (r, played = 0) => `Journal, Records tab. ${recordRo
 
 // § growth: the Growth tab, a tree (D-462, D-481): the embers left, then the picked place's
 // branch and what it says beside the tree (growth.js)
-const PICK = 'Arrows pick another place, Left past Light for Records.';
+const PICK = 'Arrows pick another place, Left past Light for Records, Right past Hands for the Bestiary.';
 export function growthWords(state, pick = START_PICK) {
   const t = told(state, pick), b = t.button;
   const parts = [`Embers, ${embers(state)}`, `${BRANCHES[pick.col].text}, row ${pick.row + 1}, ${t.name}`, t.value, t.words.replace(/\.$/, ''), b && `${b.text}, ${b.cost}${b.can ? '' : ', not now'}`].filter(Boolean);
