@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.81, Endless oil.** All recommended: lit turns burn
+  nothing and an oil tick's drink takes nothing, still shown; the oil
+  stays where it is; under Refill and Empty, kept in the save (D-626).
+  Playtest: https://claude.ai/artifact/6NcqvqPzQxCQjnCC3ef9Xe
 - **2026-11-06, 0.3.80, God mode.** All recommended: bites still bite,
   no harm; in the Hero section, kept in the save. The oil tick still
   drinks: the owner's idea, Endless oil in the Oil section, comes next
