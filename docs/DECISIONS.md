@@ -76,31 +76,6 @@ material. In steps: the rod; the cast at the pond, catching the minnow;
 its uses one a step (oil, eating, selling; the recipe when one needs it);
 then the cave pools.
 
-**D-617 · 2026-11-06 · The ninth audit** (the owner's picks, all
-recommended) At 0.3.72, nothing visible changed. A conversation's start
-reads 10.1 KB (CLAUDE.md 6.2, PROGRESS.md 3.9), down from 11.5 KB.
-`sprites.js`'s pixel pictures (48 KB, 667 lines) move word for word into
-`src/render/pictures.js`; `sprites.js` keeps the making and drawing
-(16 KB). Three docs at 98% of 8 KB split a whole topic each, word for
-word: `GLOSSARY.md`'s finds to `GLOSSARY-FINDS.md`, `TECH.md`'s layout
-to `TECH-2.md`, `RESEARCH.md`'s ideas kept for later to `RESEARCH-2.md`.
-D-169 to D-176, the world's first decisions, move to
-`archive/DECISIONS-WORLD.md`; ticked steps 15 to 17 and the oil tick are
-archived. The next audit is at 0.3.112.
-
-**D-618 · 2026-11-06 · The cave pools' fish** (the owner's picks, all
-recommended; fishing's last step of D-608; mock-up:
-https://claude.ai/artifact/1K9B7uS68QmyNTFnuCVTaR) Every cave pool is
-fished as the pond is, cast, nibble, bite and strike meter, and catches
-its own fish, the Blind Cavefish: look A, the minnow's shape, pale and
-eyeless, bone and cream with a faint pink gill. A little better than the
-minnow: 20% oil, 1 heart, sold for 2 coins, its strike zone a fifth of
-the bar; stacks of 20, poured by hand and eaten the minnow's way. Finds
-in pools come at a later step. "Fishing comes soon." is gone (supersedes
-that part of D-609 and D-610). Claude's, the owner may change them: the
-lines. `CONTENT-2.md`'s tiles, lights and places moved to `CONTENT-3.md`,
-word for word.
-
 **D-619 · 2026-11-06 · Research kept, docs tidied, the light kept** (the
 owner's picks, both recommended; nothing visible changes) One PR holds
 all three. The three research pages (lore, room making, the 0.3.73
@@ -179,3 +154,17 @@ sprites by kind with the search box. Claude's, the owner may change
 it: a folded sheet is only its tabs; its handle is a look only, and
 does not drag; the stats line sits above it while it is up. D-615 and
 D-616 moved to `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-624 · 2026-11-06 · Spawn as a grid of pictures** (the owner's
+picks, all recommended; step 18b, after the bottom sheet, D-623) Spawn
+is a grid of pictures, one per registry entry, each 16 × 16 drawn at
+32 px with no words; the picked one's name shows in the section's name
+line ("SPAWN · CAVE MOUTH"). The kinds keep their headings in one long
+list. Above them a search box, typed with the device's own keyboard,
+narrows the grid by name with each letter; a heading with nothing left
+hides, and × clears it. A tile shows its real drawing, as the room
+draws it. Claude's, the owner may change it: a tile is drawn on a
+crypt floor; a torch on a wall's face; anything with no picture yet
+shows a grey "?"; the box's letters are not the game's keys, and Esc
+leaves it. D-617 moved to `archive/DECISIONS-AUDITS.md` and D-618 to
+`archive/DECISIONS-FISHING.md`, word for word.

@@ -5,6 +5,7 @@ import { ALL } from '../core/registry.js';
 import { roomCode } from '../core/roomcode.js';
 import { depthOf } from '../core/room.js';
 import { setPixelText, setPixelIcon } from './pixeltext.js';
+import { thumbOf } from '../render/thumbs.js';
 
 const MAX_DEPTH = 99; // the deepest Go to depth goes
 
@@ -34,6 +35,7 @@ export function buildPanel(panel, opts, saved, game) {
   const head = el('div', { className: 'dev-head' });
   panel.append(tabs, head);
   const sections = [];
+  let picked = null; // the Spawn pick, named in the head while Spawn is open
   const show = (id) => {
     for (const s of sections) {
       s.body.hidden = s.id !== id;
@@ -42,7 +44,7 @@ export function buildPanel(panel, opts, saved, game) {
     const open = sections.find((s) => s.id === id);
     head.hidden = !open;
     panel.classList.toggle('has-body', !!open); // its full height, else only its tabs
-    if (open) setPixelText(head, open.title.toUpperCase());
+    if (open) setPixelText(head, open.id === 'spawn' && picked ? 'SPAWN · ' + picked.name.toUpperCase() : open.title.toUpperCase());
     opts.open = id ? [id] : [];
     saved();
   };
@@ -73,23 +75,45 @@ export function buildPanel(panel, opts, saved, game) {
     return switches[name];
   })));
 
-  // § spawn: one chip per registry entry, grouped by kind (D-089). Tap a chip
-  // to pick it, then each tap on the room puts it there (D-049); tap it again
-  // to drop the pick. The pick is not saved.
+  // § spawn: a grid of pictures, one per registry entry, under its kind's heading
+  // (D-089, D-624). Tap one to pick it, then each tap on the room puts it there
+  // (D-049); tap it again to drop the pick. The pick's name shows in the section's
+  // name line. The search box above narrows the grid by name as each letter is
+  // typed; a heading with nothing left under it hides. The pick is not saved.
   const spawn = section('spawn', 'Spawn');
-  let picked = null;
-  const chips = [];
+  const cells = [], groups = [];
+  const find = el('input', { type: 'search', className: 'dev-find', placeholder: 'search', spellcheck: false, autocomplete: 'off' });
+  find.setAttribute('aria-label', 'Search');
+  find.addEventListener('keydown', (ev) => { ev.stopPropagation(); if (ev.key === 'Escape') find.blur(); }); // its letters are not the game's keys
+  const clear = button('x', () => { find.value = ''; filter(); find.focus(); }, 'dev-clear');
+  clear.setAttribute('aria-label', 'Clear search');
+  const finder = el('div', { className: 'dev-finder' });
+  finder.append(find, clear);
+  spawn.append(finder);
+  const filter = () => {
+    const q = find.value.trim().toLowerCase();
+    for (const c of cells) c.b.hidden = !!q && !c.entry.name.toLowerCase().includes(q);
+    for (const g of groups) g.head.hidden = g.grid.hidden = g.cells.every((c) => c.b.hidden);
+  };
+  find.addEventListener('input', filter);
+  const pick = (entry) => {
+    picked = picked === entry ? null : entry;
+    for (const c of cells) c.b.setAttribute('aria-pressed', String(c.entry === picked));
+    setPixelText(head, picked ? 'SPAWN · ' + picked.name.toUpperCase() : 'SPAWN');
+  };
   for (const kind of new Set(ALL.map((e) => e.kind))) {
-    spawn.append(pixel('div', 'dev-kind', (kind === 'enemy' ? 'enemies' : kind + 's').toUpperCase()));
-    spawn.append(row(...ALL.filter((e) => e.kind === kind).map((entry) => {
-      const chip = button(entry.name, () => {
-        picked = picked === entry ? null : entry;
-        for (const c of chips) c.b.setAttribute('aria-pressed', String(c.entry === picked));
-      }, 'dev-chip');
-      chip.setAttribute('aria-pressed', 'false');
-      chips.push({ b: chip, entry });
-      return chip;
-    })));
+    const g = { head: pixel('div', 'dev-kind', (kind === 'enemy' ? 'enemies' : kind + 's').toUpperCase()), grid: el('div', { className: 'dev-grid' }), cells: [] };
+    for (const entry of ALL.filter((e) => e.kind === kind)) {
+      const b = el('button', { type: 'button', className: 'dev-cell', title: entry.name });
+      b.setAttribute('aria-label', entry.name);
+      b.setAttribute('aria-pressed', 'false');
+      b.append(thumbOf(entry));
+      b.addEventListener('click', () => pick(entry));
+      const c = { b, entry };
+      cells.push(c); g.cells.push(c); g.grid.append(b);
+    }
+    groups.push(g);
+    spawn.append(g.head, g.grid);
   }
 
   // § room: Reset room (D-050, D-062) and Forget (D-061), and Go to depth:

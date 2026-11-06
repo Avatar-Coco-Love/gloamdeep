@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.79', date: '2026-11-06', title: 'Spawn as pictures', lines: [
+    "Spawn in the dev panel is a grid of pictures now, one for every creature, find, tile, torch and person, under its kind's heading; the picked one's name shows above them.",
+    "A search box over the grid narrows it with each letter typed, so anything is a few taps away.",
+    "Decisions: D-624. D-617 and D-618 moved to the archive, word for word.",
+  ] },
   { v: '0.3.78', date: '2026-11-06', title: 'The dev bottom sheet', lines: [
     "The dev panel is a bottom sheet now: half the screen tall, along its foot, with a row of icon tabs across its top (an eye, a sparkle, a door, a drop, a heart, an arrow) and the open section's name above its tools.",
     "While it is up the room slides clear above it, so the hero stays in sight; tap the open tab again and the sheet folds to its tabs. On a sideways phone or a PC it sits at the bottom left and the room slides right instead.",
