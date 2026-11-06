@@ -19,7 +19,7 @@ tools to be chosen together later.
 - Spawn any registry entry (item, enemy, NPC, tile) at a chosen tile (D-006).
 - Always on; a wrench button opens the panel, switches all off at first
   (D-086, D-047). Code: `src/dev/dev.js` (button, keys, stats line).
-- The panel has sections, View, Spawn, Room, Oil, Hero, Share, one open
+- The panel has sections, View, Spawn, Room, Oil, Hero, Share, Spots, one open
   at a time, remembered (D-087). Colours: D-093. Code: `src/dev/panel.js`. **A new tool
   goes into a section there**, or a new section.
 - It is a sheet along the screen's foot, half its height, the room
@@ -69,13 +69,17 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
-- Coming (D-621): saving and loading test spots.
+- Spots: three test spots kept on this device, shared by every profile.
+  Each slot's line says what it holds (1 · DEPTH 3 · TURN 120, or
+  1 · EMPTY); Save keeps the game as it is now, Load makes it this
+  journey, no turn passed, a dev jump (D-232); Load is greyed while the
+  slot is empty (D-627). Code: `src/core/spots.js`.
 
 ## Candidates (the owner picks; record each pick as a decision)
 - Step enemies one turn at a time
 - Collision overlay (the grid and coordinates part is built, D-046)
 - Show light radius and line-of-sight overlay
-- Save and load test situations, picked (D-621)
+- Save and load test situations, built (D-627)
 - Seed load (the display is built, D-150)
 - Speed up or slow down animations
 - A combat sandbox and a seeded puzzle tester, with the Seed Explorer

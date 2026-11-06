@@ -458,7 +458,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   get: () => app.state,
   still,
   set: (s) => { // a new place shows at once, with no slide (Go to depth)
-    const went = s.place !== app.state.place;
+    const went = s.place !== app.state.place || s.hero !== app.state.hero; // or a loaded spot
     app.state = byItself(app.state, s);
     hear(eventsSince(s, app.state)); // the lantern by itself ticks
     if (went) { snap(app.state.hero); foeShown = new Map(); }
@@ -475,6 +475,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
+  loadSpot: (s) => { app.jumped = true; app.journeySeed = s.seed; return s; }, // a test spot is a dev jump (D-627, D-232)
   goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
   camera: () => app.cam,

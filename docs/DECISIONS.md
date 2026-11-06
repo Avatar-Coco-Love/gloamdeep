@@ -64,18 +64,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-608 · 2026-11-06 · How fishing plays** (the owner's picks, all
-recommended but where; builds D-452, D-460; step 18) Cast, wait, pull:
-bumping water with the rod held casts the line; each turn it waits, a
-fish bites about 1 time in 6, a "!" over the float, and bumping again
-within 1 turn lands it, else it gets away; walking off reels it in.
-The home pond first, then every pool of water, each with its own fish
-and even some finds. The first fish is the Pond Minnow. A fish is lantern
-oil (15% of a tank), food (hearts), sold to the peddler and a recipe
-material. In steps: the rod; the cast at the pond, catching the minnow;
-its uses one a step (oil, eating, selling; the recipe when one needs it);
-then the cave pools.
-
 **D-619 · 2026-11-06 · Research kept, docs tidied, the light kept** (the
 owner's picks, both recommended; nothing visible changes) One PR holds
 all three. The three research pages (lore, room making, the 0.3.73
@@ -189,3 +177,16 @@ and the oil bar's flicker, but takes no oil. Switching it on leaves the
 oil where it is, so a dim lantern set with the slider stays dim; the
 slider, Refill, Empty and flasks still change it. It is kept on the
 state, so in the save, until switched off; a new game starts with it off.
+
+**D-627 · 2026-11-06 · Test spots** (the owner's picks, all recommended;
+step 18b, after Endless oil, D-626; the last of D-621) Three slots kept
+on this device, in a new Spots section of the dev panel, its tab a
+bookmark. Each slot's line says what it holds (1 · DEPTH 3 · TURN 120,
+or 1 · EMPTY); Save puts the game as it is now into it, Load makes it
+this profile's journey, no turn passed, and counts as a dev jump, so
+records stop counting (D-232). Claude's, the owner may change it: the
+slots are the device's, shared by every profile; a spot is kept like a
+journey, so one kept before a change of the state's shape still loads;
+Save writes over a full slot without asking; Load is greyed while a
+slot is empty. D-608 moved to `archive/DECISIONS-FISHING.md`, word for
+word.
