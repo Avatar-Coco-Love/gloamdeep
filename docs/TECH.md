@@ -58,36 +58,8 @@ at build plan step 7 (D-039).
   makes them easy to test and to undo in dev mode.
 
 ## Layout (D-039)
-```
-index.html          page shell and canvas
-package.json        only for `npm test` (no dependencies)
-src/main.js         boot, moving the hero, and the main loop
-src/slots.js        picking, making, renaming and deleting a profile (D-519)
-src/input/screens.js  the title, menus, map and Seed Explorer (D-235)
-src/input/profilescreens.js  a new profile's name and look, Rename, Look (D-421)
-src/input/explorerscreens.js the Seed Explorer, the ways to play, the seed pad (D-468)
-src/input/cardscreens.js  the bag, Drop, setting down, the bench, chest, bed and trade cards (D-570)
-src/input/cards/    a card's keys, taps and picks, one file each, in table.js (D-573)
-src/render/frame.js   draws each frame from the shared `app` (D-235)
-src/core/           rules, state, rng, registry, noise (no DOM);
-                    one file per content kind, gathered by registry.js (D-048)
-src/core/turn.js    the turn rules' front door: the hero's step, hit, torch
-                    and mining, and every other turn rule passed on from
-                    state.js, endturn.js, creatureturn.js, fall.js and
-                    bagturn.js (D-362)
-src/render/         drawing, lighting, sprites, and sound (D-255)
-src/input/          tap, mouse, keyboard
-src/dev/            dev mode (see DEV-TOOLS.md)
-tests/              node --test, for core/ (and input/ files that load without a page, D-570)
-tools/playtest.js   packs the game into one page for playtests (D-073);
-                    not part of the game, which has no build step
-tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
-tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
-tools/perf.js       times play on a simulated slow phone (D-430); Playwright
-tools/release.js    the record-keeping tool: VERSION, history, archive (D-572)
-```
-ES modules (`<script type="module">`). Tests use Node's built-in test
-runner, with no dependencies.
+Moved to `TECH-2.md` word for word at 0.3.72 (D-617): where every file
+lives.
 
 ## Adding content (D-363)
 Content is registry data first. A new row goes in `docs/CONTENT.md`, its
@@ -96,20 +68,20 @@ tool, the creature list, saves and the bag read the registry by
 themselves. Each kind also touches:
 
 - **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
-  line ids); its lines in `src/core/lines.js`; its sprite in
-  `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
+  line ids); its lines in `src/core/lines.js`; its picture in
+  `src/render/pictures.js` (D-617), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
   flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (like `lampmothRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
   the sound board). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
 - **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,
-  what it does); its lines in `lines.js`; its sprite in `sprites.js`;
+  what it does); its lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`;
   where it lies in `cave.js` (`finds`), `woods.js` or `room.js`.
 - **A tile:** its entry in `src/core/tiles.js` with a new `letter`; its
   drawing in `src/render/tiles.js` (and `sprites.js`); where it stands in
   `cave.js`, `woods.js` or `room.js`; a `mine` tile's lines in `lines.js`.
 - **A person:** its entry in `src/core/people.js` (its `calls` line); its
-  lines in `lines.js`; its sprite in `sprites.js`, drawn facing left; where
+  lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`, drawn facing left; where
   it stands in `cave.js` (like `withTrapped`) or `room.js`; its row in
   `CONTENT-2.md` (D-490).
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in
