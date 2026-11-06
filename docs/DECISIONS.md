@@ -180,3 +180,12 @@ the oil gets its own switch in the Oil section, Endless oil, the next
 step: the lantern never runs down and the tick's sip takes nothing.
 Claude's, the owner may change it: armour's glance still shows its own
 line; records count as usual; nothing shows god mode but the switch.
+
+**D-626 · 2026-11-06 · Endless oil** (the owner's picks, all recommended;
+step 18b, after God mode, D-625) An Endless oil switch in the dev panel's
+Oil section, on its own row under Refill and Empty. While it is on a lit
+turn burns nothing, and an oil tick still drinks, with its line, its sip
+and the oil bar's flicker, but takes no oil. Switching it on leaves the
+oil where it is, so a dim lantern set with the slider stays dim; the
+slider, Refill, Empty and flasks still change it. It is kept on the
+state, so in the save, until switched off; a new game starts with it off.

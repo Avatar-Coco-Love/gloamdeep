@@ -49,7 +49,9 @@ tools to be chosen together later.
   in full, and turns to any floor from 1 to 99; the memory is kept
   (D-176, D-205, D-206). Rules: `src/core/map.js`.
 - Refill, Empty and a slider for any amount, no turn passed (D-066,
-  D-091).
+  D-091). Endless oil, a switch kept in the save: lit turns burn
+  nothing and an oil tick's drink takes nothing; the oil stays where it
+  is (D-626). Rules: `passTurn` in `src/core/state.js`, `enemiesAct`.
   Rules: `src/core/oil.js`.
 - Hero: Refill hearts, back to full health, no turn passed (D-154).
   God mode, a switch kept in the save: bites take no hearts (D-625).
@@ -67,12 +69,9 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
-- Coming, in order (D-621, D-625): Endless oil in the Oil section, then
-  saving and loading test spots.
+- Coming (D-621): saving and loading test spots.
 
 ## Candidates (the owner picks; record each pick as a decision)
-- Endless oil (the lantern never runs down, the oil tick drinks
-  nothing), picked as the next step (D-625)
 - Step enemies one turn at a time
 - Collision overlay (the grid and coordinates part is built, D-046)
 - Show light radius and line-of-sight overlay

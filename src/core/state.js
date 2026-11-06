@@ -63,7 +63,8 @@ function away(begun, here, seen) {
 }
 
 // A passed turn starts a new list of events (events.js)
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit ? burnOil(state.oil, burnOf(state) * boonBurn(state)) : state.oil });
+// With Endless oil on (`state.endless`, a dev switch) a lit turn burns nothing (D-626).
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state)) : state.oil });
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Step 18b, Endless oil in the Oil section (D-625); propose first.
+Step 18b, saving and loading test spots (D-621); propose first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,7 +36,7 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [ ] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
-  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil; test spots
+  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -49,6 +49,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.81, Endless oil.** All recommended: lit turns burn
+  nothing and an oil tick's drink takes nothing, still shown; the oil
+  stays where it is; under Refill and Empty, kept in the save (D-626).
+  Playtest: https://claude.ai/artifact/6NcqvqPzQxCQjnCC3ef9Xe
 - **2026-11-06, 0.3.80, God mode.** All recommended: bites still bite,
   no harm; in the Hero section, kept in the save. The oil tick still
   drinks: the owner's idea, Endless oil in the Oil section, comes next
@@ -56,6 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-06, 0.3.79, Spawn as pictures.** All recommended: 32 px
   pictures, the pick's name in the head; headings in one list; the
   device keyboard, filtering live; tiles in their real drawing (D-624). Playtest: https://claude.ai/artifact/2cVv3J9v8ekzj44aTBE9UR
-- **2026-11-06, 0.3.78, The dev bottom sheet.** All recommended: look A,
-  icon tabs in a row; the room slides clear; two steps, the sheet first;
-  phone-wide at the bottom left on wide screens (D-623). Playtest: https://claude.ai/artifact/1dxqLd1kCST3uCopND9q4q
