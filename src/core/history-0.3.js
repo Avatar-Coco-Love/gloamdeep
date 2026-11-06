@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.66', date: '2026-11-06', title: 'The minnow\'s oil', lines: [
+    "The Pond Minnow's first use: choose it in the bag and press POUR, like a flask. It takes a turn and gives the lantern 15% of a tank, never past full.",
+    "Only by hand: the flask button and \"Flasks: By itself\" still pour only flasks, Deep Pour makes only flasks pour more, and Records' \"Flasks poured\" counts only flasks.",
+    "Decisions: D-611. D-588 moved to the archive, word for word.",
+  ] },
   { v: '0.3.65', date: '2026-11-06', title: 'Cast, wait, pull', lines: [
     "Fishing at the pond at home: with the Wooden Rod held, bump the water to cast, a turn. A small red-and-white float lands on that tile and bobs gently.",
     "Each turn the line waits, a fish bites about 1 time in 6: a \"!\" over the float, which dips, and \"Something bites!\". Bump the water again on your next turn to catch a Pond Minnow, a small silver fish, into the bag in stacks of 20. Too slow, and it gets away, the float still waiting.",

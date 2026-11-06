@@ -8,7 +8,7 @@ import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, isFlask } from './bag.js';
 import { note } from './events.js';
 import { pourOf, healOf } from './boon.js';
 import { joined } from './regrow.js';
@@ -22,6 +22,7 @@ import { isWorn } from './worn.js';
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
 // and the enemies act (D-247). An empty slot changes nothing. A `pour` event, by hand.
+// A Pond Minnow pours its 15% the same way (D-611).
 export function pour(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.oil) return state;
@@ -218,7 +219,7 @@ export function look(state, i) {
 // It adds a `pour` event, by itself, to the turn's.
 export function pourByItself(before, after) {
   if (after.turn === before.turn || after.fell !== before.fell) return after;
-  const i = after.bag.findIndex((s) => get(s.id)?.oil && after.oil + pourOf(after, get(s.id)) <= 1 + 1e-9);
+  const i = after.bag.findIndex((s) => isFlask(s.id) && after.oil + pourOf(after, get(s.id)) <= 1 + 1e-9);
   if (i < 0) return after;
   const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self' });
   const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);

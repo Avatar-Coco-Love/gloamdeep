@@ -2,6 +2,7 @@
 // deepest depth the hero has walked to, and counts read from each action's events
 // (events.js). Dev jumps don't count: once Go to depth is used, the journey stops
 // counting until a New journey. Plain data, no drawing.
+import { isFlask } from './bag.js';
 
 // The record after a turn: the depth now, if it is deeper and was walked to
 export const deeper = (record, depth, jumped = false) => (!jumped && depth > record ? depth : record);
@@ -10,11 +11,12 @@ export const deeper = (record, depth, jumped = false) => (!jumped && depth > rec
 export const recordText = (record) => (record > 0 ? `Deepest: depth ${record}` : null);
 
 // § counts: the Records after an action's events: a creature beaten, a fall, a room found, a step (D-283),
-// a flask poured, by hand or by itself (D-285), a torch lit, each time (D-286)
+// a flask poured, by hand or by itself (D-285), not a minnow (D-611), a torch lit, each time (D-286)
 const COUNTED = { beat: 'beaten', fall: 'falls', found: 'found', step: 'steps', pour: 'poured', torch: 'torches' };
+const counts = (e) => COUNTED[e.type] && !(e.type === 'pour' && e.id && !isFlask(e.id));
 export function counted(records, events, jumped = false) {
-  if (jumped || !events.some((e) => COUNTED[e.type])) return records;
+  if (jumped || !events.some(counts)) return records;
   const next = { ...records };
-  for (const e of events) if (COUNTED[e.type]) next[COUNTED[e.type]]++;
+  for (const e of events) if (counts(e)) next[COUNTED[e.type]]++;
   return next;
 }
