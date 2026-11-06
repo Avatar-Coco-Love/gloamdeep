@@ -3,6 +3,7 @@
 // the text colour, so the CSS colours (D-093) still work. Screen readers
 // get the plain words.
 import { drawText, textWidth, FONT_H } from '../render/font.js';
+import { drawTabIcon, TAB_ICON } from '../render/overlay.js';
 
 const ZOOM = 2; // each font pixel is 2 × 2 page pixels
 const masks = new Map();
@@ -43,4 +44,26 @@ export function setPixelText(node, text, zoom = ZOOM) {
   said.className = 'px-said';
   said.textContent = text;
   node.replaceChildren(shown, said);
+}
+
+// Puts a section's tab icon into `node`, 2 page pixels to its pixel, as a mask
+// over the text colour like the words; screen readers get `said` (D-623).
+export function setPixelIcon(node, name, said) {
+  const k = Math.ceil(ZOOM * (devicePixelRatio || 1)), key = 'icon ' + k + ' ' + name;
+  if (!masks.has(key)) {
+    const c = document.createElement('canvas');
+    c.width = c.height = TAB_ICON * k;
+    const x = c.getContext('2d');
+    x.scale(k, k);
+    drawTabIcon(x, name);
+    masks.set(key, `url(${c.toDataURL()})`);
+  }
+  const shown = document.createElement('span'), words = document.createElement('span');
+  shown.className = 'px-word';
+  shown.setAttribute('aria-hidden', 'true');
+  shown.style.width = shown.style.height = TAB_ICON * ZOOM + 'px';
+  shown.style.webkitMaskImage = shown.style.maskImage = masks.get(key);
+  words.className = 'px-said';
+  words.textContent = said;
+  node.replaceChildren(shown, words);
 }

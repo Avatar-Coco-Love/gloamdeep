@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.78', date: '2026-11-06', title: 'The dev bottom sheet', lines: [
+    "The dev panel is a bottom sheet now: half the screen tall, along its foot, with a row of icon tabs across its top (an eye, a sparkle, a door, a drop, a heart, an arrow) and the open section's name above its tools.",
+    "While it is up the room slides clear above it, so the hero stays in sight; tap the open tab again and the sheet folds to its tabs. On a sideways phone or a PC it sits at the bottom left and the room slides right instead.",
+    "Decisions: D-623. D-615 and D-616 moved to the archive, word for word.",
+  ] },
   { v: '0.3.77', date: '2026-11-06', title: 'The maker', lines: [
     "Behind the scenes: a new maker tool. One command writes every empty piece of a new creature, find, tile or person, with a grey \"?\" picture until it is drawn, and the checker then names each number, line and picture still to fill. New things reach the game faster.",
     "Nothing in the game changes.",

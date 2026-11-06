@@ -44,3 +44,21 @@ export function drawWrench(c) {
   c.fillStyle = POINTED;
   WRENCH.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === '#') c.fillRect(x, y, 1, 1); }));
 }
+
+// § tab icons: the dev sheet's section tabs, 8 × 8 pixel maps (look A, D-623):
+// an eye for View, a sparkle for Spawn, a door for Room, a drop for Oil, a heart
+// for Hero, an arrow for Share. Drawn white; the page shows them as masks
+// over the tab's colour, as the pixel words are (D-200).
+const TAB_ICONS = {
+  view: ['........', '..####..', '.#....#.', '#..##..#', '#..##..#', '.#....#.', '..####..', '........'],
+  spawn: ['...#....', '...#....', '.#.#.#..', '..###...', '#######.', '..###...', '.#.#.#..', '...#....'],
+  room: ['.######.', '.#....#.', '.#....#.', '.#...##.', '.#....#.', '.#....#.', '.#....#.', '########'],
+  oil: ['...#....', '...#....', '..###...', '.#####..', '.#####..', '#######.', '.#####..', '..###...'],
+  hero: ['........', '.##.##..', '#######.', '#######.', '.#####..', '..###...', '...#....', '........'],
+  share: ['....#...', '....##..', '#######.', '#...##..', '#...#...', '#.......', '#.......', '######..'],
+};
+export const TAB_ICON = 8; // pixels square
+export function drawTabIcon(c, name) {
+  c.fillStyle = '#fff';
+  TAB_ICONS[name].forEach((row, y) => [...row].forEach((ch, x) => { if (ch === '#') c.fillRect(x, y, 1, 1); }));
+}

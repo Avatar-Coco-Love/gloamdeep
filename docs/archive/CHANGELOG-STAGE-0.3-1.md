@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.78 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.77 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.76 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.75 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -47,6 +48,12 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.75 (2026-11-06)
+- Waystones are smaller, 3 × 3 instead of 5 × 5, and sit on the grid: each corner stone stands in its own tile.
+- They look older too: each stone a little different, with a rough top, moss and a crack, grass at its foot in the woods, and flagstones with rounded corners set into the ground.
+- The home waystone now stands 2 tiles north of the woods' middle, so the middle is still at the foot of its south arm. In a saved game every waystone is made 3 × 3 where it stands, asleep or woken as it was.
+- Decisions: D-620. D-610 moved to the archive, word for word.
 
 ## 0.3.74 (2026-11-06)
 - The light works out its shadows only when a light moves or the room changes, not every frame: standing still, it takes about 15% less time on a slow phone. The picture is exactly the same.

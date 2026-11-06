@@ -46,3 +46,15 @@ test('the camera stays on whole pixels on a screen an odd number of pixels wide 
     }
   }
 });
+
+test('with the dev sheet up, the hero stays in the middle of what is still seen (D-623)', () => {
+  // the sheet hides the screen's lower 104 pixels: the hero sits in the middle of the upper 104
+  assert.deepEqual(cameraAt(8 * 16, 10 * 16, big, W, H, { x: 0, y: 104 }), { x: 8 * 16 - 5 * 16, y: 10 * 16 + 8 - 52 });
+  // a room that fits above it sits in the middle there, and moves no further
+  const room = makeRoom(FIRST_ROOM), tall = room.rows * 16 + 2 * MARGIN + 100;
+  assert.equal(cameraAt(16, 16, room, W, tall, { x: 0, y: 100 }).y, -MARGIN);
+  // sideways, the sheet along the left side: the room moves right by what it hides
+  const wide = 600, h = 176, open = cameraAt(16, 16, makeRoom(FIRST_ROOM), wide, h, { x: 150, y: 0 });
+  assert.equal(open.x, Math.floor((176 - (wide - 150)) / 2) - 150);
+  assert.deepEqual(cameraAt(16, 16, big, W, H, { x: 0, y: 0 }), cameraAt(16, 16, big, W, H)); // nothing hidden: as before
+});

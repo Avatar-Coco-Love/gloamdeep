@@ -1,10 +1,10 @@
-// § panel: the dev drawer's tools, in sections (D-087, D-200): the section
-// tabs stacked down its left side, the open section beside them; which one
-// is saved. Words are in the pixel font. A new tool adds a section here.
+// § panel: the dev sheet's tools, in sections (D-087, D-200, D-623): a row of
+// icon tabs across its top, the open section's name and tools under them;
+// which one is saved. Words are in the pixel font. A new tool adds a section here.
 import { ALL } from '../core/registry.js';
 import { roomCode } from '../core/roomcode.js';
 import { depthOf } from '../core/room.js';
-import { setPixelText } from './pixeltext.js';
+import { setPixelText, setPixelIcon } from './pixeltext.js';
 
 const MAX_DEPTH = 99; // the deepest Go to depth goes
 
@@ -25,26 +25,33 @@ const pixel = (tag, className, text) => { const e = el(tag, { className }); setP
 // sections, `saved()` stores them. Returns flip(name) for the keys, picked()
 // for the spawn tool and sync(state), called each frame.
 export function buildPanel(panel, opts, saved, game) {
-  // § sections: View, Spawn, Room, Oil, Hero, Share. Their tabs stand in a
-  // column at the left and the open section shows beside them, so nothing
-  // moves under the finger. One open at a time; tap it again to fold it,
-  // and the drawer narrows to its tabs (D-087, D-200).
+  // § sections: View, Spawn, Room, Oil, Hero, Share. Their icon tabs stand in a
+  // row across the sheet's top and the open section shows under them, its name
+  // first, so nothing moves under the finger. One open at a time; tap it again
+  // to fold it, and the sheet shrinks to its tabs (D-087, D-623).
+  panel.append(el('div', { className: 'dev-grab' })); // a bottom sheet's handle, a look only
   const tabs = el('div', { className: 'dev-tabs' });
-  panel.append(tabs);
+  const head = el('div', { className: 'dev-head' });
+  panel.append(tabs, head);
   const sections = [];
   const show = (id) => {
     for (const s of sections) {
       s.body.hidden = s.id !== id;
       s.tab.setAttribute('aria-expanded', String(s.id === id));
     }
+    const open = sections.find((s) => s.id === id);
+    head.hidden = !open;
+    panel.classList.toggle('has-body', !!open); // its full height, else only its tabs
+    if (open) setPixelText(head, open.title.toUpperCase());
     opts.open = id ? [id] : [];
     saved();
   };
   const section = (id, title) => {
-    const body = el('div', { className: 'dev-body', hidden: opts.open[0] !== id });
-    const tab = button(title, () => show(body.hidden ? id : null), 'dev-tab');
-    tab.setAttribute('aria-expanded', String(!body.hidden));
-    sections.push({ id, tab, body });
+    const body = el('div', { className: 'dev-body', hidden: true });
+    const tab = el('button', { type: 'button', className: 'dev-tab', title });
+    setPixelIcon(tab, id, title);
+    tab.addEventListener('click', () => show(body.hidden ? id : null));
+    sections.push({ id, title, tab, body });
     tabs.append(tab);
     panel.append(body);
     return body;
@@ -143,6 +150,8 @@ export function buildPanel(panel, opts, saved, game) {
     copyTimer = setTimeout(() => setPixelText(copy, 'Copy room'), 1500);
   };
   share.append(row(copy), box);
+
+  show(sections.some((s) => s.id === opts.open[0]) ? opts.open[0] : null); // the saved one, as it was left
 
   return {
     flip,

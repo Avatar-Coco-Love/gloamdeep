@@ -1,7 +1,7 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize, edgeIn, panelFoot } from './screen.js';
+import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize, edgeIn } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
 import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn } from './sprites.js';
@@ -99,6 +99,7 @@ export function createFrame(app, ui) {
   let markRow = null; // the marks as last drawn, for taps (D-604)
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
+  let cover = { x: 0, y: 0 }; // what the dev sheet hides, eased so the room slides clear of it (D-623)
   let roundAlpha = 1, lanternAlpha = 1, padAlpha = 1; // the top right corner's fade (D-383, D-442), the bottom right's (D-442), and the arrow pad's (D-406)
 
   // § creature list's order: newest last (D-357). Each creature keeps the place it
@@ -208,7 +209,9 @@ export function createFrame(app, ui) {
     // § camera: centred on the sliding hero, a bump's nudge left out (D-195)
     const list = travel || fall ? null : creaturesListed(s); // none while taking stairs or falling
     const sx = Math.round(shown.x * TILE), sy = Math.round(shown.y * TILE);
-    const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h);
+    const hid = dev.cover(), ease = (a, b) => (still() || Math.abs(b - a) < 0.5 ? b : a + (b - a) * 0.3);
+    cover = { x: ease(cover.x, hid.x), y: ease(cover.y, hid.y) };
+    const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h, cover); // clear of the dev sheet (D-623)
     rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h); // the deepest dark, only past what `around` holds
     rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
     rc.drawImage(base, -cam.x, -cam.y);
@@ -304,7 +307,6 @@ export function createFrame(app, ui) {
     Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
     markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
-    panelFoot.y = ey + panel.h + (mk.h ? mk.h + 2 : 0);
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
