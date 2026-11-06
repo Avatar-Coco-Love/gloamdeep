@@ -168,32 +168,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-605 · 2026-11-05 · Drifting motes** (the owner's picks, all
-recommended; builds on D-581) About 5 faint pale motes at once drift
-slowly in the lantern light, with a little wobble, fading in and out,
-straight across the floor at its nearest stairs down, through walls
-like a draft. They show only where the light falls, dimmer where it is
-dim. None once any of the floor's stairs down is remembered, with the
-lantern out, or with reduced motion. D-603 archived. Mock-up:
-https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X
-
-**D-606 · 2026-11-05 · The oil tick** (the owner's picks, all
-recommended but its name; answers part of Q-076; builds on D-607;
-mock-ups: https://claude.ai/artifact/3aeCewHHKFMpabVHRtJPbN and
-https://claude.ai/artifact/X1VUa6CHqzHStodYEHsecs) The seventh new kind
-and the first new way, the wicksucker of the list, called the oil tick
-for now (the owner's choice). It chases. Beside the hero it drinks 5% of
-the lantern's oil, about 3 turns of light, instead of biting, lit or
-not; with the lantern empty it bites for 1. 2 hearts, worth 3, in the
-pool from depth 3. Look B, a round tick swollen with amber oil. Its
-drink shows a line, "The oil tick drinks your oil.", the oil bar
-flickering pale, and its own wet sip, on the sound board. Its drop is a
-Tick Shell, about 1 in 2, sold for 1, and a rare Oil Bladder, about 1
-in 10, sold for 5, both for crafts later. Claude's, the owner may
-change them: the drop drawings, the lines, the dry bite of teeth, and
-that armour can't turn a drink aside. Nothing more once full, for now.
-D-596 and D-604 moved to `archive/DECISIONS-BOONS.md`, word for word.
-
 **D-607 · 2026-11-05 · The creature plan** (the owner's picks, all
 recommended; builds on D-534 and Q-076) Each biome has about 12 to 15
 creature kinds in the end, so the first cave takes 1 to 4 more after
@@ -203,3 +177,26 @@ snuffer, glowworm, false light, wraith, still one and night prowler
 were shown). After the new ways, in this order: showing every
 creature's next move (D-349), the bestiary and trophies (D-466), packs
 and the brood, then varying creatures and injuries (D-374).
+
+**D-608 · 2026-11-06 · How fishing plays** (the owner's picks, all
+recommended but where; builds D-452, D-460; step 18) Cast, wait, pull:
+bumping water with the rod held casts the line; each turn it waits, a
+fish bites about 1 time in 6, a "!" over the float, and bumping again
+within 1 turn lands it, else it gets away; walking off reels it in.
+The home pond first, then every pool of water, each with its own fish
+and even some finds. The first fish is the Pond Minnow. A fish is lantern
+oil (15% of a tank), food (hearts), sold to the peddler and a recipe
+material. In steps: the rod; the cast at the pond, catching the minnow;
+its uses one a step (oil, eating, selling; the recipe when one needs it);
+then the cave pools.
+
+**D-609 · 2026-11-06 · The Wooden Rod** (the owner's picks, all
+recommended; fishing step 1 of D-608; mock-up:
+https://claude.ai/artifact/VK92apzUbqbHbsRB8AyCpm) Made at the
+workbench from 2 Wood and 2 Spider Silk, the bench's last slot, a
+turn; only 1 carried. A tool, held in the Tool slot, swapped there
+with the Stone Pick. Look A, a plain wooden pole with a silk line and
+a red-and-white float. Held, bumping water says "The water is still.
+Fishing comes soon.", free. D-605 moved to
+`archive/DECISIONS-GETTING-AROUND.md` and D-606 to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

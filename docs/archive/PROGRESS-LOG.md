@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-05, 0.3.61, The boon's mark.** The owner's idea, all picks
+  recommended: the boon held as its card's picture in a small glass
+  square under the panel, tap or mouse-over for its name and line; long
+  lines wrap (D-604).
+  Playtest: https://claude.ai/artifact/SCGhhLXxmPW9qfk9qZJmmt
 - **2026-11-05, 0.3.60, Boon cards.** The owner's fix: waking the home
   stone opens no boon card. The owner's picks, recommended: the boon
   card as three cards with kind colours; dealing them later (D-603).

@@ -102,6 +102,13 @@ export const LINES = {
   pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Hold it to use it.', 'A sharp stone, lashed to a stick.'], warn: false }, // the second was "Keep it in the bag to use it." until D-552
   pickHold: { text: 'You hold the stone pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-552)
   pickAway: { text: 'You put the stone pick away.', warn: false }, // Take off, into the bag, free (D-554)
+  rodMake: { text: 'You make a wooden rod.', warn: false }, // its line on the bench panel, a turn (D-609)
+  rodFull: { text: 'You already carry a wooden rod.', warn: false }, // only 1 is carried, free
+  rodShort: { text: 'You need 2 Wood and 2 Spider Silk.', warn: false }, // too few, free
+  rodLook: { texts: ['A wooden rod, strung with spider silk.', 'Hold it to use it.', 'A red and white float bobs on it.'], warn: false },
+  rodHold: { text: 'You hold the wooden rod.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-609)
+  rodAway: { text: 'You put the wooden rod away.', warn: false }, // Take off, into the bag, free
+  waterCast: { text: 'The water is still. Fishing comes soon.', warn: false }, // bumping water with the rod held, free (D-609)
   wickMake: { text: 'You make a copper wick.', warn: false }, // its line on the bench panel, a turn (D-483)
   copperWickFull: { text: 'You already have a copper wick.', warn: false }, // carried or fitted, free
   wickShort: { text: 'You need 3 Copper Ore and 1 Wood.', warn: false }, // too few, free

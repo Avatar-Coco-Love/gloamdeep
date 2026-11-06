@@ -11,11 +11,11 @@ import { shownLine } from '../src/core/lines.js';
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag = [{ id: 'gardenBed', n: 1 }]) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag });
 
-test('the garden bed is the bench\'s last slot: 3 Wood and 2 Stone, dim with too few; Make takes it', () => {
+test('the garden bed is the bench\'s slot before the rod (D-609): 3 Wood and 2 Stone, dim with too few; Make takes it', () => {
   const made = benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }]).find((m) => m.item === 'gardenBed');
   assert.deepEqual(made, { item: 'gardenBed', cost: [{ id: 'wood', n: 3, have: 3 }, { id: 'stone', n: 2, have: 2 }], dim: false });
-  assert.equal(benchMakes([]).at(-1).item, 'gardenBed');
-  assert.equal(benchMakes([{ id: 'wood', n: 3 }]).at(-1).dim, true);
+  assert.equal(benchMakes([]).at(-2).item, 'gardenBed');
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }]).at(-2).dim, true);
   const bag = makeAt(outside([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }]), 'gardenBed');
   assert.deepEqual(bag.bag, [{ id: 'wood', n: 1 }, { id: 'gardenBed', n: 1 }]);
   assert.equal(shownLine(bag).text, 'You make a garden bed.');

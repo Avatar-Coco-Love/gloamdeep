@@ -60,6 +60,7 @@ export function step(state, dir) {
     if (tile.sleeps) return sleep(state); // the bed (D-488)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
+    if (tile.cast && state.tool === 'rod') return say(state, tile.cast); // water with the rod held: its line, free (D-609)
     if (tile.bump) return say(state, tile.bump); // a bare bush: its line, free (D-531)
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
