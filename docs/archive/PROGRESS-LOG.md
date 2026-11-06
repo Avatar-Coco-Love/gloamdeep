@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.77, The maker.** All recommended: one line,
+  `node tools/make.js <kind> <id> "<Name>"`; marked blanks the checker
+  names; a grey "?" picture; the content row only (D-622). No playtest:
+  nothing to see.
 - **2026-11-06, 0.3.76, The checker.** All recommended: stories wait;
   faster making first, the checker now, then the maker, the dev panel
   as a bottom sheet, god mode and test spots (D-621). No playtest:

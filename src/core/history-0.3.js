@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.80', date: '2026-11-06', title: 'God mode', lines: [
+    "The dev panel's Hero section has a God mode switch. While it is on, creatures still bite, with their line, sound and red flash, but take no hearts, so you never fall. It stays on in this game until you switch it off; a new game starts with it off.",
+    "Decisions: D-625.",
+  ] },
   { v: '0.3.79', date: '2026-11-06', title: 'Spawn as pictures', lines: [
     "Spawn in the dev panel is a grid of pictures now, one for every creature, find, tile, torch and person, under its kind's heading; the picked one's name shows above them.",
     "A search box over the grid narrows it with each letter typed, so anything is a few taps away.",

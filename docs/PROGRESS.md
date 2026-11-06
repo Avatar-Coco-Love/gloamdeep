@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.78 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.80 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 18b, god mode (D-621, D-154); propose first.
+Step 18b, Endless oil in the Oil section (D-625); propose first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,7 +36,7 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [ ] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
-  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode; test spots
+  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil; test spots
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -46,16 +46,16 @@ The rest of the scope, proposed (D-482; may change):
 Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
 low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
-(D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
+(D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.80, God mode.** All recommended: bites still bite,
+  no harm; in the Hero section, kept in the save. The oil tick still
+  drinks: the owner's idea, Endless oil in the Oil section, comes next
+  (D-625). Playtest: https://claude.ai/artifact/EK5CHZHBjnQeiV1k3mk9Cx
 - **2026-11-06, 0.3.79, Spawn as pictures.** All recommended: 32 px
   pictures, the pick's name in the head; headings in one list; the
   device keyboard, filtering live; tiles in their real drawing (D-624). Playtest: https://claude.ai/artifact/2cVv3J9v8ekzj44aTBE9UR
 - **2026-11-06, 0.3.78, The dev bottom sheet.** All recommended: look A,
   icon tabs in a row; the room slides clear; two steps, the sheet first;
   phone-wide at the bottom left on wide screens (D-623). Playtest: https://claude.ai/artifact/1dxqLd1kCST3uCopND9q4q
-- **2026-11-06, 0.3.77, The maker.** All recommended: one line,
-  `node tools/make.js <kind> <id> "<Name>"`; marked blanks the checker
-  names; a grey "?" picture; the content row only (D-622). No playtest:
-  nothing to see.

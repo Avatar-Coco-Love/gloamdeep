@@ -52,6 +52,8 @@ tools to be chosen together later.
   D-091).
   Rules: `src/core/oil.js`.
 - Hero: Refill hearts, back to full health, no turn passed (D-154).
+  God mode, a switch kept in the save: bites take no hearts (D-625).
+  Rules: `enemiesAct` in `src/core/creatureturn.js`.
 - Room: Go to depth, 1 to 99 with − and +, onto that depth's stairs up,
   no turn passed (D-166). Rules: `goToDepth` in `src/core/stairs.js`.
   Go outside goes to the woods, depth 0, the same way (D-209); the cave
@@ -65,10 +67,12 @@ tools to be chosen together later.
   in full, with Back, Type and Reseed; R, T, B (D-214, D-215). Code:
   `src/core/explorer.js`.
 
-- Coming, in order (D-621): god mode, then saving and loading test spots.
+- Coming, in order (D-621, D-625): Endless oil in the Oil section, then
+  saving and loading test spots.
 
 ## Candidates (the owner picks; record each pick as a decision)
-- God mode (no damage); the owner wants it next (D-154), picked (D-621)
+- Endless oil (the lantern never runs down, the oil tick drinks
+  nothing), picked as the next step (D-625)
 - Step enemies one turn at a time
 - Collision overlay (the grid and coordinates part is built, D-046)
 - Show light radius and line-of-sight overlay

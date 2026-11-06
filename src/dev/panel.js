@@ -149,8 +149,12 @@ export function buildPanel(panel, opts, saved, game) {
   oil.append(setter, row(button('Refill', () => game.set(game.setOil(1))), button('Empty', () => game.set(game.setOil(0)), 'dev-undo')));
   let shownOil = null;
 
-  // § hero: Refill hearts, back to full health; no turn passes (D-154)
-  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))));
+  // § hero: Refill hearts, back to full health; no turn passes (D-154). God mode, a
+  // switch kept on the state, so in the save: bites take no hearts (D-625)
+  const god = button('God mode', () => game.set(game.setGod(!game.get().god)), 'dev-switch');
+  god.setAttribute('aria-pressed', 'false');
+  let shownGod = false;
+  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))), row(god));
 
   // § share: Copy room, to hand to Claude (D-051, D-052). If the browser
   // blocks the clipboard, a box shows the code, selected, to copy by hand.
@@ -183,6 +187,7 @@ export function buildPanel(panel, opts, saved, game) {
     // Keeps the slider on the real oil, which steps and flasks change too.
     sync(state) {
       if (state.place !== shownPlace) { shownPlace = state.place; pickDepth(depthOf(state.place)); }
+      if (!!state.god !== shownGod) { shownGod = !!state.god; god.setAttribute('aria-pressed', String(shownGod)); }
       if (state.oil === shownOil) return;
       shownOil = state.oil;
       const pct = Math.round(state.oil * 100);
