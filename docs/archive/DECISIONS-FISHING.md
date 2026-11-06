@@ -12,6 +12,6 @@ workbench from 2 Wood and 2 Spider Silk, the bench's last slot, a
 turn; only 1 carried. A tool, held in the Tool slot, swapped there
 with the Stone Pick. Look A, a plain wooden pole with a silk line and
 a red-and-white float. Held, bumping water says "The water is still.
-Fishing comes soon.", free. D-605 moved to
+Fishing comes soon.", free (the line superseded by D-618). D-605 moved to
 `archive/DECISIONS-GETTING-AROUND.md` and D-606 to
 `archive/DECISIONS-CREATURES-2.md`, word for word.

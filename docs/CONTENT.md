@@ -77,10 +77,10 @@ The workbench and the things made after it, from `workbench` to `lostbag`,
 moved to `CONTENT-2.md` word for word at 0.3.15.
 
 ## Tiles
-Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535).
+Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535); now in `CONTENT-3.md` (D-618).
 
 ## Lights, places
-Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531).
+Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531); now in `CONTENT-3.md` (D-618).
 
 ## People, the hero's looks, Growth upgrades
 In `CONTENT-2.md`.

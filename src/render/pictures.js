@@ -95,6 +95,12 @@ const POND_MINNOW = { mirror: false, rows: [
   '', '', '', '', '', '', '......kkkkkkk...', 'kk..kkdddddddSk.',
   'kdkkddsssssssksk', '.kddCCCCCCCCCssk', '.kdkaaaaaaaaaaak', 'kdkkkaaaaaaakk..', 'kk...kkkkkkk....', '', '', ''] };
 
+// § blind cavefish: the minnow's shape, pale and eyeless, bone along its back, cream under it,
+// a faint pink gill (look A of the cave pools mock-up, D-618)
+const BLIND_CAVEFISH = { mirror: false, rows: [
+  '', '', '', '', '', '', '......kkkkkkk...', 'kk..kkAAAAAAAak.',
+  'kAkkAAaaaaaapaak', '.kAAaaaaaaaapaak', '.kAkwwwwwwwwwwwk', 'kAkkkwwwwwwwkk..', 'kk...kkkkkkk....', '', '', ''] };
+
 // § copper wick: an upright cloth wick with a burnt tip, held in a wide copper collar
 // (look A of the step 9 mock-up, D-483)
 const COPPER_WICK = { mirror: false, rows: [
@@ -436,7 +442,7 @@ const HEART_CHARM = { mirror: false, rows: [
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
-  COPPER_ORE, PICK, ROD, POND_MINNOW, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
+  COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,

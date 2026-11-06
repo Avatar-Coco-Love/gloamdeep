@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.71 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.73 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Fishing's last step, the cave pools (D-608); propose first.
+Step 19, Lore; propose first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -33,8 +33,8 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [ ] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
-  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); then the cave pools
+- [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
+  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [ ] 19 Lore
 - [ ] 20 Relics
 - [ ] 21 Feats
@@ -47,10 +47,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); dev God mode (D-154); cheaper lighting for phones, the look unchanged (D-294, D-295); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-06, 0.3.73, The cave pools' fish.** All recommended: the
+  Blind Cavefish, look A, 20% oil, 1 heart, 2 coins, a fifth zone (D-618).
+  Fishing done. Playtest: https://claude.ai/artifact/64U9aJSEzwtGdzFLzmCyQ6
 - **2026-11-06, 0.3.72, The ninth audit.** All recommended: the pixel
   pictures to `pictures.js`; GLOSSARY, TECH and RESEARCH split; D-169 to
   D-176 archived (D-617). Start read 10.1 KB. No playtest: nothing to play.
 - **2026-11-06, 0.3.71, Selling a minnow.** All recommended: 1 coin, the
   materials' way, nothing else (D-616). Playtest: https://claude.ai/artifact/WGf4UMknUGFQtTzCWBLezL
-- **2026-11-06, 0.3.70, Eating a minnow.** All recommended: 1 heart, Eat
-  left of Pour, E eats, its line (D-615). Playtest: https://claude.ai/artifact/6pEFSgijeiyzFsXSM9fJMJ

@@ -85,7 +85,7 @@ teal stripe, a cream belly. The float, look A: a small red-over-white
 bob that bobs a pixel every 2 seconds. A bite (1 turn in 6 superseded by D-613), look A: the hero's
 amber "!" over it, the float dipped. Minnows go into the bag in stacks
 of 20; with no room, the catch slips back. Cave pools keep their line
-until their step. Claude's, the owner may change them: the lines; a
+until their step (superseded by D-618). Claude's, the owner may change them: the lines; a
 bump with no bite casts again (superseded by D-612); holding another tool reels in. D-607 moved to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
 
@@ -163,3 +163,16 @@ to `TECH-2.md`, `RESEARCH.md`'s ideas kept for later to `RESEARCH-2.md`.
 D-169 to D-176, the world's first decisions, move to
 `archive/DECISIONS-WORLD.md`; ticked steps 15 to 17 and the oil tick are
 archived. The next audit is at 0.3.112.
+
+**D-618 · 2026-11-06 · The cave pools' fish** (the owner's picks, all
+recommended; fishing's last step of D-608; mock-up:
+https://claude.ai/artifact/1K9B7uS68QmyNTFnuCVTaR) Every cave pool is
+fished as the pond is, cast, nibble, bite and strike meter, and catches
+its own fish, the Blind Cavefish: look A, the minnow's shape, pale and
+eyeless, bone and cream with a faint pink gill. A little better than the
+minnow: 20% oil, 1 heart, sold for 2 coins, its strike zone a fifth of
+the bar; stacks of 20, poured by hand and eaten the minnow's way. Finds
+in pools come at a later step. "Fishing comes soon." is gone (supersedes
+that part of D-609 and D-610). Claude's, the owner may change them: the
+lines. `CONTENT-2.md`'s tiles, lights and places moved to `CONTENT-3.md`,
+word for word.

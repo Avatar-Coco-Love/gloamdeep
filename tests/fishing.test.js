@@ -1,33 +1,55 @@
-// § fishing: cast, wait, pull at the home pond (D-608, D-610)
+// § fishing: cast, wait, pull at the home pond and the cave pools (D-608, D-610, D-618)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, withTile } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, step, wait } from '../src/core/turn.js';
 import { shownLine } from '../src/core/lines.js';
-import { NIBBLE_CHANCE, STRIKE_ZONE, STRIKE_PASSES, STRIKE_PASS_MS, needleAt, inZone, strikeFish } from '../src/core/fishing.js';
+import { NIBBLE_CHANCE, STRIKE_ZONE, STRIKE_PASSES, STRIKE_PASS_MS, needleAt, inZone, strikeFish, zoneWidth } from '../src/core/fishing.js';
 import { shakeAt } from '../src/render/float.js';
 
 // The hero at 5,11 at home, the pond's water just above, the rod held
 const beside = (place = 'woods', tool = 'rod') => ({ ...makeState(withTile(makeRoom(FIRST_ROOM), 5, 10, get('water'))), hero: { x: 5, y: 11 }, tool, place, enemies: [] });
 const cast = (s = beside()) => step(s, 'up');
-const hit = (s) => strikeFish(s, s.float.strike + STRIKE_ZONE / 2); // a strike in the middle of the zone
+const hit = (s) => strikeFish(s, s.float.strike + zoneWidth(s.float) / 2); // a strike in the middle of the zone
 const untilBite = (s, next = wait) => { for (let i = 0; i < 200 && !s.float?.bite; i++) s = next(s); return s; };
 
 test('bumping the home pond with the rod casts the line, a turn, the float on that tile', () => {
   const s = cast();
   assert.equal(s.turn, 1);
   assert.deepEqual(s.hero, { x: 5, y: 11 });
-  assert.deepEqual(s.float, { x: 5, y: 10, at: 1, bite: false, nibble: false });
+  assert.deepEqual(s.float, { x: 5, y: 10, at: 1, bite: false, nibble: false, fish: 'pondMinnow' });
   assert.equal(shownLine(s).text, 'You cast the line.');
 });
 
-test('a cave pool still says its line, free; without the rod, nothing is cast', () => {
+test('a cave pool is fished too, its fish the Blind Cavefish; without the rod, nothing is cast (D-618)', () => {
   const pool = cast(beside('first'));
-  assert.equal(pool.turn, 0);
-  assert.equal(pool.float, null);
-  assert.equal(shownLine(pool).text, 'The water is still. Fishing comes soon.');
+  assert.equal(pool.turn, 1);
+  assert.equal(pool.float.fish, 'blindCavefish');
+  assert.equal(shownLine(pool).text, 'You cast the line.');
   assert.equal(cast(beside('woods', 'pick')).float, null);
+});
+
+test('a cave pool\'s strike zone is a fifth, and a strike in it lands a Blind Cavefish (D-618)', () => {
+  const pulled = step(untilBite(cast(beside('first'))), 'up');
+  assert.equal(zoneWidth(pulled.float), 1 / 5);
+  assert.ok(pulled.float.strike >= 0 && pulled.float.strike <= 1 - 1 / 5);
+  const caught = hit(pulled);
+  assert.deepEqual(caught.bag, [{ id: 'blindCavefish', n: 1 }]);
+  assert.equal(shownLine(caught).text, 'You catch a blind cavefish.');
+  assert.ok(caught.events.some((e) => e.type === 'catch' && e.id === 'blindCavefish'));
+  assert.equal(shownLine(strikeFish(pulled, pulled.float.strike + 0.21)).text, 'It got away.'); // just past a fifth
+  const full = hit({ ...pulled, bag: Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 })) });
+  assert.equal(shownLine(full).text, 'No room. The cavefish slips away.');
+});
+
+test('a float cast before fish were kept is the pond\'s, a quarter zone (D-618)', () => {
+  assert.equal(zoneWidth({ x: 1, y: 1 }), STRIKE_ZONE);
+});
+
+test('the Blind Cavefish: 20% oil, 1 heart, 2 coins, stacks of 20, by hand only (D-618)', () => {
+  const c = get('blindCavefish');
+  assert.deepEqual([c.name, c.oil, c.heal, c.sells, c.max, c.byHand], ['Blind Cavefish', 0.2, 1, 2, 20, true]);
 });
 
 test('waiting, a fish nibbles about 1 turn in 6, never on the cast\'s own turn, and always bites the turn after (D-613)', () => {
