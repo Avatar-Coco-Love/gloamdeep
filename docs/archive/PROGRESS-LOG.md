@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.118, One of a kind.** Every fix left on the
+  audit's list is picked, in order (D-666). R3: after Take off a second
+  pick or rod can't be made, and a second of a worn charm or vest can't
+  be put on, so two Heart Charms no longer stretch the oil.
+  Playtest: https://claude.ai/artifact/2aXF39nvsfsKMbX29weNJt
 - **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
   recommended (D-664): an old save's new home waystone clears only the
   sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).

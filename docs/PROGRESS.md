@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.120 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.121 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-I2 of D-660's list, holding Space on a menu keeps picking, then the
+I3 of D-660's list, the screen reader loses a card's words, then the
 rest in D-666's order, one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.121, A held Space picks once.** As recommended
+  (D-669): off play, Space's key-repeat does nothing, so holding it on
+  a menu picks once; in play it still waits turn after turn (I2).
+  Playtest: https://claude.ai/artifact/7FkaUkCrPdsNTuuzuAZtha
 - **2026-11-07, 0.3.120, Walls are not cleared heaps.** As recommended
   (D-668): only a tile that can be walked on counts as a heap cleared
   beside the trapped peddler, so he calls for help first again (R5).
@@ -54,8 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-667): a fall takes in a line that is out, quietly, a waiting
   strike too, so no fish bites the float after waking (R4).
   Playtest: https://claude.ai/artifact/USN2jXFF6nWz6cnMpN4LRR
-- **2026-11-07, 0.3.118, One of a kind.** Every fix left on the
-  audit's list is picked, in order (D-666). R3: after Take off a second
-  pick or rod can't be made, and a second of a worn charm or vest can't
-  be put on, so two Heart Charms no longer stretch the oil.
-  Playtest: https://claude.ai/artifact/2aXF39nvsfsKMbX29weNJt
