@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.118', date: '2026-11-07', title: 'One of a kind', lines: [
+    "After you take the Stone Pick or the Wooden Rod off, Make no longer makes a second one: it says you already carry one, and nothing is used up.",
+    "Wearing a charm or vest that is the same as one you already wear now says \"You already have …\" and changes nothing, so two Heart Charms can't stretch the oil. Two different charms are still worn together.",
+    "Decisions: D-666.",
+  ] },
   { v: '0.3.117', date: '2026-11-07', title: 'Only the stone\'s own sticks', lines: [
     "When an old save first gets its home waystone, only sticks on the stone itself are cleared away, as decided. A stick or anything you dropped on the tiles round the stone stays where it was.",
     "The version shown at the top of the progress notes is set by the release tool now, so it no longer falls behind.",

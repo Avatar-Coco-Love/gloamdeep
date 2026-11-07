@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.115, The mimic wakes silently.** Both recommended
+  (D-662): the waystone's plate sends its own `stoneWake` event, so a
+  waking flask or herb mimic no longer rings its bells (R1).
+  Playtest: https://claude.ai/artifact/NgtwB2asRw34LpYBBK985X
 - **2026-11-07, 0.3.114, A slow tap.** The owner's picks, all
   recommended (D-661): off play, a press held past a quarter second is a
   tap when it lifts (I1); R2's and W1's fixes picked for later steps.

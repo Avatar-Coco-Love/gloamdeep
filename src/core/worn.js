@@ -27,9 +27,11 @@ export const poisonTurnsOf = (state, base) => Math.min(base, ...effects(state, '
 
 // § wear: Wear on bag slot i puts its piece on, with its `wears` line (D-484). With its slot
 // full, the piece worn there longest comes off into that bag slot (D-487). Free: no turn passes.
+// A piece the same as one already worn stays in the bag, with its `full` line (R3, D-666).
 export function wear(state, i) {
   const s = state.bag[i], on = s && get(s.id).wear;
   if (!on) return state;
+  if (isWorn(state, s.id)) return say(state, get(s.id).full);
   const there = wornOf(state)[on.slot] ?? [];
   const full = there.length >= (SLOTS[on.slot] ?? 1), was = full ? there[0] : null;
   const bag = was ? state.bag.map((o, j) => (j === i ? { id: was, n: 1 } : o)) : bagTake(state.bag, i);
