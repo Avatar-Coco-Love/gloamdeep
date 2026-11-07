@@ -176,3 +176,16 @@ left it to Claude) `docs/PROGRESS.md`'s **Version:** line had been set
 by hand and fell 4 versions behind. `tools/release.js` (D-572) now sets
 it to the changelog's newest version, and `--check` fails when it
 differs; a release test checks it.
+
+**D-666 · 2026-11-07 · One of a kind, and the fixes' order** (the
+owner's picks, all recommended; R3 of D-660's findings) Every fix left
+on D-660's list is picked, one a step, each with a test: the medium bugs
+first (R3, R4, R5, I2, I3, D1, then W2, its way the owner's call), then
+docs A and B, C, D and F to I, and E (its new lines the owner's pick),
+then R6, R7, I4, D2, D3, I5 (with Q-054) and D4, then S1 and S3, then
+the Spit grub (D-659). R3, at 0.3.118: Make counts a piece in the bag
+before a tool goes into an empty Tool slot, so after Take off a second
+pick or rod can't be made; and Wear on a piece the same as one worn says
+its line, "You already have a heart charm.", free, and nothing changes.
+A spare in a chest stays allowed (not the audit's chests in reach); two
+different charms are worn together as before. A rules test checks both.

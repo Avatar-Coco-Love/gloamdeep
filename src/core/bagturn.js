@@ -49,7 +49,8 @@ export function craft(state, i) {
 // With too few, its `short` line; with one already carried, its `full` line (or
 // "Your bag is full."); all free, and the bag stays as it was. A lantern part already
 // fitted, a piece worn, or a tool in the Tool slot counts as carried (D-483, D-484, D-552);
-// a tool made with that slot empty goes straight into it. A bag upgrade (`grows`)
+// a tool made with that slot empty goes straight into it, unless one is already in the
+// bag, as after Take off (R3, D-666). A bag upgrade (`grows`)
 // never goes in the bag: made, the bag holds its `grows.to` slots at once (D-547).
 // The cost counts the chests in STORE's reach too, taken from the bag first, then the
 // nearest chest (D-560).
@@ -58,7 +59,8 @@ export function makeAt(state, id) {
   const recipe = get(id)?.bench, grows = get(id)?.grows;
   if (!recipe) return state;
   if (grows) return growBag(state, id, recipe, grows);
-  if (isFitted(state, id) || isWorn(state, id) || state.tool === id) return say(state, get(id).full);
+  const inBag = get(id).max === 1 && state.bag.some((s) => s.id === id);
+  if (isFitted(state, id) || isWorn(state, id) || state.tool === id || inBag) return say(state, get(id).full);
   if (!canPay(state, recipe.of)) return say(state, recipe.short);
   const { bag: paid, stashes } = payNear(state, recipe.of);
   if (get(id).tool && !state.tool) return endTurn(state, say({ ...passTurn(state), bag: paid, stashes, tool: id }, recipe.says));

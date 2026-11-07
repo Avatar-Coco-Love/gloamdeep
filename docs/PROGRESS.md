@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.117 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.118 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's four first fixes are done (D-661). The owner picks the next
-fixes from D-660's list, then the Spit grub (D-659).
+R4 of D-660's list, the fishing line after a fall, then the rest in
+D-666's order, one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.118, One of a kind.** Every fix left on the
+  audit's list is picked, in order (D-666). R3: after Take off a second
+  pick or rod can't be made, and a second of a worn charm or vest can't
+  be put on, so two Heart Charms no longer stretch the oil.
+  Playtest: https://claude.ai/artifact/2aXF39nvsfsKMbX29weNJt
 - **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
   recommended (D-664): an old save's new home waystone clears only the
   sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
@@ -55,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   glance off the vest rolls its own dice, so a kill on its turn no longer
   always drops its part (R2).
   Playtest: https://claude.ai/artifact/7o4xH8vmhqX2Kbctn3c55b
-- **2026-11-07, 0.3.115, The mimic wakes silently.** Both recommended
-  (D-662): the waystone's plate sends its own `stoneWake` event, so a
-  waking flask or herb mimic no longer rings its bells (R1).
-  Playtest: https://claude.ai/artifact/NgtwB2asRw34LpYBBK985X
