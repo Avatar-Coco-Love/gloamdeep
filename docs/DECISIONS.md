@@ -29,20 +29,6 @@ pick, recommended) The owner keeps choosing every question. Each
 conversation does one step, ends with its handoff, and the next step
 starts in a fresh conversation, so less is read again each time.
 
-**D-482 · 2026-10-30 · The rest of the build order** (the owner's picks,
-all recommended; answers the Next up of 0.2.196) Lantern parts come
-next: Copper Ore, mined since step 7, gets its first use, and the
-lantern is the heart of the game. Claude proposes the rest of the
-order and the owner approves it by merging: lantern parts, armour and
-charms, home pieces and rest, the first rescue, vendor and coins,
-garden, fishing, lore, relics, feats. The rescue comes before the
-vendor, who is a rescued person (D-471); collectables come last, as
-they reward everything before them. Each may take more than one small
-step, with its names and numbers asked at its own step. The first
-Light and Hands upgrades may join any of them. Half and Automatic
-(Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
-for word, as this file neared 12 KB.
-
 **D-518 · 2026-10-31 · An audit every 40 versions** (the owner's pick,
 recommended; supersedes D-337's 20) The owner asked if audits help. The
 start-of-conversation read stays near 11.5 KB (17 KB before the first),
@@ -190,4 +176,13 @@ fights in its own room, changes how it fights at half its hearts, and is
 beaten once for good, giving its ability, trophy and Feat. The next
 creature built is the Lure Wisp. Names, numbers, ways and drops are
 drafts on the map, set at each one's own step. D-528 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-644 · 2026-11-07 · Bigger, less even biomes** (the owner's picks;
+builds D-635, D-643) The planned content needs each biome to hold about
+2 to 3 times the walkable space it has now: about 70 rooms where biome 1
+has about 31. Floors get more rooms, and rooms vary in size, some
+smaller and some bigger than today's 17 by 20, so no two seeds feel the
+same (the owner's idea). Biome 1 grows first, before the Lure Wisp. The
+grids, sizes and counts are proposed at that step. D-482 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.

@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The Lure Wisp (D-643), the eighth new kind and a new way, lures: its
-look, lines, drop and numbers, talked through first (Q-076).
-Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
+Grow biome 1 (D-644): more rooms a floor and rooms of varied sizes,
+different between seeds; the grids and sizes proposed first. Then the
+Lure Wisp (D-643, Q-076).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -28,6 +28,7 @@ Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
 - Special creatures with histories (Q-083), at their own step.
+- Rooms that fill again (Q-086), after biome 1 grows.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -50,6 +51,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.95, Bigger biomes.** The owner's picks: each biome
+  about 2 to 3 times today's space, more rooms a floor and rooms of
+  varied sizes, unlike between seeds; biome 1 first (D-644).
 - **2026-11-07, 0.3.94, Creatures and bosses.** All recommended: two
   more kinds end biome 1; about 10 a deeper biome, some carried on a
   heart tougher; bosses in their own room, changing at half, beaten
@@ -57,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.93, Plants and harvests.** All recommended: fewer
   deeper oil plants a flask; seeds from 3 of a plant; oil plants grow
   slowly at home; plants, ores, woods and fish kept (D-642).
-- **2026-11-07, 0.3.92, Items and crafting.** All recommended:
-  weapons keep a part of their own in every metal; tank
-  and wick climb, glass a choice; one armour and about three charms a
-  biome; a knack taught in each village (D-641).
