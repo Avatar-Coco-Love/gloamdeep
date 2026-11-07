@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.135, Space on the name pad.** As recommended
+  (D-683): Space does nothing on the name pad, so "ANNA MAE" no longer
+  makes a profile named "ANNA" (I5). Names stay A to Z; Q-054 stays
+  open. A test checks it. Playtest:
+  https://claude.ai/artifact/YVvJ36nVeAkQ4hmxBD9XKi
 - **2026-11-07, 0.3.134, The wrench under pause.** As recommended
   (D-682): on a 320 px wide phone the dev wrench stands under pause, so
   the panel no longer runs into it from level 10 (D3). A test checks

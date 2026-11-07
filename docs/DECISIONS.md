@@ -68,17 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-673 · 2026-11-07 · Docs A and B: the edge and the floors** (the
-owner's picks, both recommended; A and B of D-660's findings, as D-666
-set) `WORLD.md`'s light between rooms says D-445's rule, plain dark past
-every edge, in place of D-440's place beyond showing itself. Today's
-room counts, grids, cells, halls and large rooms (D-645, D-647, D-648)
-replace the old ones in `WORLD.md`, Q-037 and Q-038, and the starting
-region's sheet gives today's depths, biome 1 to depth 8 (D-635) and
-floors below it made as depth 8 is (D-647), not depth 5 as the bottom;
-the old numbers stay in one short "before" clause each. Docs only.
-D-658 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
-
 **D-674 · 2026-11-07 · Doc C: each find's own price** (the owner's
 pick, Claude's wording; C of D-660's findings, as D-666 set) The trade
 coins entry in `GLOSSARY-2.md`, the peddler's row in `CONTENT-2.md`
@@ -193,3 +182,16 @@ same, pixel for pixel; painting a room takes about half the time (14 to
 8 ms each over 24 rooms on a computer). A test checks the pictures of
 12 rooms against fingerprints of the old painter's.
 D-672 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-686 · 2026-11-07 · The room holds still under a card** (the
+owner's picks, both recommended; S3 of D-660's findings, as D-666 set)
+Under a card (the bag, pause, the map, trade and the rest), the room
+behind the veil is drawn once and kept, not 60 times a second, so its
+torches and flame stop flickering until the card closes. It is drawn
+again when what it shows changes (a find eaten or dropped, the screen's
+size, a dev switch, the motion setting), and keeps being drawn until a
+moment running as the card opens has ended (a slide, a shake, a "+1", a
+beam, a rune kindling). The card's own flame and needle move as before.
+On a phone 4 times slower, a frame with the bag open takes about 1 ms,
+not 8. Reduced motion skipping frames in play is its own next step.
+D-673 moved to `archive/DECISIONS-AUDITS.md`, word for word.
