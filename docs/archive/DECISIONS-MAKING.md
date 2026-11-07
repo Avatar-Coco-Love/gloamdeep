@@ -1,7 +1,7 @@
 # Faster making (D-621)
 
 Moved word for word from `DECISIONS.md` at 0.3.85 (D-630), as that file
-neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632), and D-624 and D-625 at 0.3.88 (D-633, D-634), and D-626 at 0.3.89 (D-635). In force.
+neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632), and D-624 and D-625 at 0.3.88 (D-633, D-634), and D-626 at 0.3.89 (D-635), and D-627 at 0.3.90 (D-636). In force.
 
 ---
 
@@ -88,3 +88,16 @@ and the oil bar's flicker, but takes no oil. Switching it on leaves the
 oil where it is, so a dim lantern set with the slider stays dim; the
 slider, Refill, Empty and flasks still change it. It is kept on the
 state, so in the save, until switched off; a new game starts with it off.
+
+**D-627 · 2026-11-06 · Test spots** (the owner's picks, all recommended;
+step 18b, after Endless oil, D-626; the last of D-621) Three slots kept
+on this device, in a new Spots section of the dev panel, its tab a
+bookmark. Each slot's line says what it holds (1 · DEPTH 3 · TURN 120,
+or 1 · EMPTY); Save puts the game as it is now into it, Load makes it
+this profile's journey, no turn passed, and counts as a dev jump, so
+records stop counting (D-232). Claude's, the owner may change it: the
+slots are the device's, shared by every profile; a spot is kept like a
+journey, so one kept before a change of the state's shape still loads;
+Save writes over a full slot without asking; Load is greyed while a
+slot is empty. D-608 moved to `archive/DECISIONS-FISHING.md`, word for
+word.

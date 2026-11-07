@@ -77,79 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-627 · 2026-11-06 · Test spots** (the owner's picks, all recommended;
-step 18b, after Endless oil, D-626; the last of D-621) Three slots kept
-on this device, in a new Spots section of the dev panel, its tab a
-bookmark. Each slot's line says what it holds (1 · DEPTH 3 · TURN 120,
-or 1 · EMPTY); Save puts the game as it is now into it, Load makes it
-this profile's journey, no turn passed, and counts as a dev jump, so
-records stop counting (D-232). Claude's, the owner may change it: the
-slots are the device's, shared by every profile; a spot is kept like a
-journey, so one kept before a change of the state's shape still loads;
-Save writes over a full slot without asking; Load is greyed while a
-slot is empty. D-608 moved to `archive/DECISIONS-FISHING.md`, word for
-word.
-
-**D-628 · 2026-11-06 · The first words** (the owner's picks; step 19,
-Lore, its first piece) A new journey opens on a glass card in the middle
-of the room, the crypt dim around it, after the way to play is picked:
-"You wake in the dark of the crypt. Your lantern still burns, but its oil
-will not last. Something waits below." It shows once, and BEGIN, Enter,
-Space, Esc or a tap anywhere begins play. Claude's, the owner may change
-it: each sentence its own paragraph, bone white and centred; no cross,
-as there is only one way on; not shown again after a Hardcore fall's
-Same world or New world. D-620 moved to `archive/DECISIONS-WAYSTONES.md`,
-word for word.
-
-**D-629 · 2026-11-06 · Lore and quests, the plan** (the owner's picks,
-recommended where marked) Lore starts with a line for each creature in
-the Bestiary (recommended), written once the owner has shared their own
-lore ideas, which come first. Quests come in three kinds, not all at once
-*(order Claude's, the owner may change it)*: a list of goals made from
-what is already in the game (recommended), then a main story line, then
-people's requests, such as the peddler asking for things.
-
-**D-630 · 2026-11-06 · The Bestiary tab** (the owner's picks, all
-recommended; step 19's first piece; builds D-350, D-352) The Journal gets
-a third tab, Bestiary, after Growth: a table of the creatures met, each
-one's drawing and name, how many met and how many beaten. A creature is
-met the first time a light reaches it, each one once; a mimic asleep or a
-snapcap shut is not met until it shows itself, and one beaten in the dark
-is met then too. The counts are kept in the profile, as Records are,
-through falls and new journeys; play before this step isn't known, so all
-start at zero. "How it acts" and "how to fight it" come at later steps,
-Claude drafting them and the owner editing. Claude's, the owner may change
-it: the headings Met and Beaten; "No creatures met yet." with none;
-Right past Hands on Growth turns to it; sideways, two tables side by side.
-D-621 moved to `archive/DECISIONS-MAKING.md`, word for word.
-
-**D-631 · 2026-11-06 · How it acts** (the owner's picks, all recommended;
-step 19; builds D-352, D-630) Each creature's Bestiary page says how it
-acts, in Claude's words, which the owner took as drafted and may still
-change: one or two sentences each, kept in the registry as `acts`, on
-behaviour only, the fighting tips waiting for "how to fight it". A tap on
-a row of the Bestiary's table, or Up or Down and Enter, opens that
-creature's page: its drawing twice as big, its name and counts, then how
-it acts. Before one is beaten the page says, in grey, "Beat one to learn
-how it acts." Claude's, the owner may change it: the picked row's name
-gold; Esc, the round cross or Left goes back to the table. The maker
-leaves `acts` a blank, and the checker asks every creature for it.
-D-622 moved to `archive/DECISIONS-MAKING.md`, word for word.
-
-**D-632 · 2026-11-06 · How to fight it** (the owner's picks, all
-recommended; step 19's last Bestiary piece; builds D-352, D-631) Each
-creature's Bestiary page ends with how to fight it, in Claude's words,
-which the owner took as drafted and may still change: one or two
-sentences each, kept in the registry as `fights`, on tactics from the
-rules as they are (one that steps beside the hero bites only next turn,
-so waiting gives the first blow; a mimic's waking bump is a free turn).
-It sits under "how it acts", below a gold heading, "How to fight it".
-Until 3 are beaten it says in grey how many more: "Beat 2 more to learn
-how to fight it." Claude's, the owner may change it: with none beaten,
-"Beat 3 to learn how to fight it." The maker leaves `fights` a blank,
-and the checker asks every creature for it. D-623 moved to
-`archive/DECISIONS-MAKING.md`, word for word.
-
 **D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
 Q-072; builds D-036, D-628, D-629) The story is set down in
 `docs/LORE.md`: Underhearth, the city below, fell when the First Light's
@@ -192,3 +119,37 @@ and attack shapes, ranged and elemental), in a fresh conversation;
 then items and crafting, plants and harvests, creatures and bosses,
 which are planned knowing each other. D-626 moved to
 `archive/DECISIONS-MAKING.md`, word for word.
+
+**D-636 · 2026-11-07 · Skills and mechanics, first picks** (the owner's
+picks, recommended; part 1 of the content map, D-635; builds D-457,
+D-463, D-634) Five weapon kinds, each with its own shape: the knife (1
+tile), the spear (2 in a line), the axe (a sweep of the tile ahead and
+its two sides), the hammer (1 tile, knocks back a tile, cracks shells)
+and the sling (the first creature in a line up to 4 tiles, a Stone a
+shot). Three elements, each leaving one mark: Flame (burning), Venom
+(poisoned) and Light (dazed, double on gloam kind). Four found
+abilities, one from each biome's boss: Leap (biome 1), Heave (2), Flare
+(3, a burst of light that costs oil) and Swim (4). Numbers, sources and
+names are drafts on the map, set at each one's own step. D-627 moved to
+`archive/DECISIONS-MAKING.md` and D-628 to D-632 to
+`archive/DECISIONS-BESTIARY.md`, word for word.
+
+**D-637 · 2026-11-07 · More to discover, a bigger tree** (the owner's
+wish and picks; builds D-482, D-603, D-635) The game gets more variety:
+more to discover, more to do, and many side quests on the way to the
+end. The content map gains a part 5, places and quests, with all four:
+each biome branching into different kinds of generated places as it
+goes deeper; villages below, groups of people living underground with
+their own quests; more secrets on old floors that open with later
+abilities; and side quests through it all. The Growth tree grows
+bigger, with more upgrades than embers buy, so each hero grows
+differently; more loadout variety and more boons (D-603); and
+challenges to match. How weapons get better by metal waits (Q-085).
+*Changed in the open PR: Q-085 answered by D-638.*
+
+**D-638 · 2026-11-07 · How weapons get better** (the owner's pick,
+recommended; answers Q-085; builds D-457, D-636) Each biome's metal
+adds 1 to every hit of each weapon kind, the shape the same. Beside the
+made ones, rare weapons are found below, each with one small effect of
+its own, as more to discover. Which, where and their effects are set at
+each one's own step.
