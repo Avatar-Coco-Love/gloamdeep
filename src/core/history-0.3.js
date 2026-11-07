@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.103', date: '2026-11-07', title: 'Poison first', lines: [
+    "Nothing in the game changed. More content comes before the side rooms get fuller: next are creatures that leave a debuff on you, then creatures that attack from a distance, each with ways to defend.",
+    "The first debuff will be poison, brought by a new creature, the cave's fifteenth kind. Against it: an Antidote made from a Snapcap Gill and a herb, a charm, and a Growth upgrade.",
+    "Decisions: D-652. D-641 moved to the archive, word for word.",
+  ] },
   { v: '0.3.102', date: '2026-11-07', title: 'Fuller halls', lines: [
     "Halls and large rooms are worth the walk: a hall now holds twice the finds and creatures of a small room, and a large room four times, spread evenly, a set in each part of the room.",
     "Each set is a flask with a rat guarding it, a herb, an oilcap, sometimes a heartcap, and the depth's usual mix of creatures. The knife and the spear stay one each.",

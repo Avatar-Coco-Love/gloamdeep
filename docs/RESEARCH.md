@@ -52,6 +52,10 @@ items: collectables, craftables, weapons and more. Where they stand:
   something else, reached by going through another room and coming
   back in by a different door. Later, a pass that dresses rooms with
   debris, cobwebs and the like.
+- Debuffs and ranged attacks (2026-11-07, D-652): more creature kinds
+  that put a debuff on the hero or attack from range, and ways for the
+  hero to defend against both; poison first, then ranged. Copper is
+  only the first of many tiers.
 - Stories (2026-11-06; for later, D-621): a main menu of stories, each
   a game within the game, with its own generated world, lore, people,
   role, start (perhaps a higher level, gear, skills already picked) and

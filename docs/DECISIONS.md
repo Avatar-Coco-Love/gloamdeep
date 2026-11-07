@@ -36,21 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-641 · 2026-11-07 · Items and crafting, first picks** (the owner's
-picks, all recommended; part 2 of the content map, D-635; builds D-455,
-D-456, D-458, D-459, D-638, D-639, D-640) Each weapon kind keeps one
-part of its own in every metal: ore with wood for the spear and axe,
-stone for the hammer, a bone for the knife, silk and a hide for the
-sling; the axe in hand also fells the deeper woods' trees. About one
-new lantern part for each slot a biome: the tank and the wick climb,
-each simply better, while each glass shows something different, a
-choice for the trip. One armour and about three charms a biome, and
-biome 1 gives every part now "for crafts later" a use, about 17 new
-things there. Beside the tree's 14 knacks, each village teaches one,
-free, as a quest's reward. Names, recipes and numbers are drafts on the
-map, set at each one's own step. D-619 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-642 · 2026-11-07 · Plants and harvests, first picks** (the owner's
 picks, all recommended; part 3 of the content map, D-635; builds D-450,
 D-451, D-452, D-460, D-530, D-641) Each deeper oil plant takes fewer to
@@ -76,6 +61,7 @@ beaten once for good, giving its ability, trophy and Feat. The next
 creature built is the Lure Wisp. Names, numbers, ways and drops are
 drafts on the map, set at each one's own step. D-528 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+*Partly superseded by D-652 (2026-11-07): biome 1 has 15 kinds.*
 
 **D-644 · 2026-11-07 · Bigger, less even biomes** (the owner's picks;
 builds D-635, D-643) The planned content needs each biome to hold about
@@ -178,3 +164,19 @@ set of its own by today's rules, so they spread evenly; the room's
 first set stays where it lay, and a cell of rock and tunnel too small
 for its set has it anywhere in the room (Claude's draft). D-637 moved
 to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-652 · 2026-11-07 · More content first: poison and a 15th kind**
+(the owner's picks, all recommended; builds D-604, D-607, D-636, D-641,
+D-643; supersedes D-643's "biome 1 ends with 14 kinds") More content
+comes before the side rooms are filled further (the owner's wish).
+Creatures that leave a debuff on the hero come first, then creatures
+that attack from range, each with ways for the hero to defend against
+it. The first debuff is poisoned, from Venom (D-636): its numbers are
+set at its step, and it shows as a mark beside the boon's (D-604). It
+comes with a new kind, biome 1's 15th, as D-607 allows; Claude shows 2
+or 3 drafts from the list (Q-076) with mock-ups first. The defences,
+each its own step: the drafted Antidote (1 Snapcap Gill, 1 herb), a
+charm against poison for biome 1, and Tough on the Growth tree. Raw
+things below the caves wait (the owner's pick); copper is only the
+first of many tiers. D-641 moved to `archive/DECISIONS-CHECKUP.md`,
+word for word.
