@@ -300,3 +300,19 @@ D-638 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.109 (D-657), as it neared
 12 KB.
+
+**D-647 · 2026-11-07 · Biome 1, step 1: one-cell rooms** (the owner's
+picks, recommended; builds D-645, D-646) Each floor's rooms grow freely:
+the way first, 3 or 4 rooms from the stairs up to the stairs down, then
+the side rooms off any room, so some branches are long and some short.
+Every room keeps today's finds for now; the owner wants the side rooms
+filled with much more content later, to keep exploring challenging and
+exciting. Below depth 8 floors are made as depth 8 is until biome 2
+(Claude's draft). The stairs down keep 3 tiles from a room's bottom edge
+and clear of its doorways, and doorways keep clear of the tiles beside
+the stairs up, so every room fits. The map preview shows the way, the
+creatures and finds, a line of numbers and a tapped room's contents.
+D-639 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.112 (D-659), as it neared
+12 KB.

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.112 (2026-11-07)
+- Docs only: the first creature that attacks from range is chosen, the Spit grub. It never moves, and spits a glowing glob at your lit lantern that moves 1 tile a turn, so you can step aside; walls and rubble stop it, and with the lantern off it can't see you. Nothing in play changes yet.
+- Decisions: D-659. D-647 moved to the archive, word for word.
+
 ## 0.3.111 (2026-11-07)
 - Docs only: ideas from a review of the whole game are kept for later, among them shots you can see coming, sounds from the dark, torches that stay lit and a card when you fall. Nothing in play changes.
 - Decisions: D-658.
@@ -32,9 +36,3 @@ Entry format:
 - With Tough, a bite that hurts poisons you only about 1 time in 2, by the journey's dice. When it does, poison runs as before.
 - Tough's place shows poisoned's drop, grey until bought and pale green after. On a small sideways screen the tree draws a little closer so it fits under the tabs.
 - Decisions: D-657.
-
-## 0.3.109 (2026-11-07)
-- Nothing in the game changed yet. The Growth upgrade against poison is picked: Tough, on the Body branch, for 1 ember.
-- With Tough, a bite that hurts poisons you only about 1 time in 2. The Centipede Charm still makes poison shorter, and the Antidote still ends it.
-- It will sit in Body's first row, above Heart, so that row holds two places.
-- Decisions: D-657. D-646 moved to the archive, word for word.
