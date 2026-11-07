@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.100, The Lure Wisp built.** From depth 4, it drifts
+  away toward other creatures, never bites, and glows in the dark; Wisp
+  Glass sold for 2 (D-649). Playtest:
+  https://claude.ai/artifact/1zgTritxVJjHefsfvqg33L Map preview:
+  https://claude.ai/artifact/AUpgr7zMVi3nA1citkRAdg
 - **2026-11-07, 0.3.99, The Lure Wisp.** All recommended: drifts
   toward other creatures, never bites, glows in the dark but lights no
   tiles; 1 heart from depth 4; look A, a cold flame (D-649). Mock-ups:
