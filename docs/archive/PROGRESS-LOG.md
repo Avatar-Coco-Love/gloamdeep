@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.111, Ideas from the review.** Docs only, the
+  owner's pick, recommended (D-658): the review's ideas are kept in
+  `RESEARCH-2.md`; next, the ranged creature's drafts.
 - **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
   Tough above it, 1 ember, bought once; with it a hurting bite poisons
   about 1 time in 2, by the seeded dice (D-657). Playtest:
