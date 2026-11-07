@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.97', date: '2026-11-07', title: 'One-cell rooms', lines: [
+    "The first cave's floors are bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8 and below, the number changing from seed to seed. Each room is one cell of the floor's grid, 11 by 13 tiles, 13 by 15 from depth 8.",
+    "The stairs down are 3 or 4 rooms from the stairs up; the other rooms branch off as side rooms and dead ends, each with today's finds, so exploring them is a choice the oil pays for. Depth 8 and below have two loops.",
+    "Old saves have their cave floors made again once, the hero on that floor's stairs up; home, the woods and the crypt stay.",
+    "A map preview page draws any seed's floors for the owner to flip through before merging, and every step that changes how things are made gets one.",
+    "Decisions: D-646, D-647. D-638 and D-639 moved to the archive, word for word.",
+  ] },
   { v: '0.3.96', date: '2026-11-07', title: 'Biome 1\'s floors', lines: [
     "Nothing in the game changed. The first cave's floors are planned bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8, the number changing from seed to seed, about 69 rooms in all where there are about 33 now.",
     "Rooms will be made of square-cut cells so everything lines up, in play and on the map: a small room is one cell, a long hall two, a large room two by two. The stairs down stay about as near as today, 3 or 4 rooms away; the other rooms branch off the way and hold the rewards. Old saves will have their cave floors made again once; home, the woods and the crypt stay.",

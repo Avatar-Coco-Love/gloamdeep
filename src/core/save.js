@@ -13,7 +13,7 @@ import { withSmallStones } from './smallstone.js';
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 16;
+export const FORMAT = 17;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -30,6 +30,7 @@ export const UPGRADES = {
   13: restone, // 13 → 14: the depth 2 room the seed picks for the waystone made again with it (D-592)
   14: restones, // 14 → 15: the room the seed picks for each deeper waystone made again with it (D-594)
   15: withSmallStones, // 15 → 16: every waystone made 3 × 3 where it stands, asleep or woken as it was (D-620)
+  16: refloor, // 16 → 17: every generated room made again on its floor's bigger grid, one cell each (D-645)
 };
 // Every room's taken list, empty (regrow.js)
 function withTaken(s) {

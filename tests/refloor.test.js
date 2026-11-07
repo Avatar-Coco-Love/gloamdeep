@@ -22,10 +22,23 @@ test('a hero in a generated room stands on the stairs up of that floor, in its r
   const s = upgradeState(10, old);
   assert.equal(s.place, 'depth3');
   assert.equal(tileAt(s.room, s.hero.x, s.hero.y).id, 'stairsUp');
-  assert.deepEqual([s.room.cols, s.room.rows], [13, 15]);
+  assert.deepEqual([s.room.cols, s.room.rows], [11, 13]); // made at today's size, one cell (D-645)
   assert.deepEqual(generated(s), []); // depth 2 and the room left are forgotten
   assert.ok(s.elsewhere.first && s.elsewhere.woods, 'the hand-made places are kept');
   assert.ok(!s.seen.some(Boolean), 'nothing of it remembered');
+});
+
+test('a save from before the bigger grids has every generated room made again once, home and the crypt kept (D-645)', () => {
+  const other = layoutAt(SEED, 3).cells.find((c) => !c.up).id;
+  const old = { ...goToPlace(goToDepth(makeWorld('first', SEED), 2), other), hero: { x: 3, y: 3 } };
+  const s = upgradeState(16, old);
+  assert.equal(s.place, 'depth3');
+  assert.equal(tileAt(s.room, s.hero.x, s.hero.y).id, 'stairsUp');
+  assert.deepEqual(generated(s), []);
+  assert.ok(s.elsewhere.first && s.elsewhere.woods, 'the hand-made places are kept');
+  const kept = goToPlace(makeWorld('first', SEED), 'second'), up = upgradeState(16, kept);
+  assert.equal(up.place, 'second');
+  assert.deepEqual(up.hero, kept.hero);
 });
 
 test('a hero above keeps their place; the generated rooms they left go', () => {

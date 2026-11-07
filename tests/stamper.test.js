@@ -105,7 +105,7 @@ test('stamper: an old save has the stone\'s room made again with it, the others 
   const id = stoneRoom(SEED), w = goToPlace(goToDepth(makeWorld('first', SEED), 2), id), w2 = goToPlace(w, 'first');
   const old = { ...w2, elsewhere: { ...w2.elsewhere, [id]: unstoned(w2.elsewhere[id]) } };
   const marked = { ...old, elsewhere: { ...old.elsewhere, depth2: { ...old.elsewhere.depth2, items: [{ id: 'herb', x: 1, y: 1 }] } } };
-  const s = upgradeState(13, marked);
+  const s = UPGRADES[13](marked); // the step itself: a later one makes every room again (D-645)
   assert.equal(s.place, 'first');
   assert.ok(!s.elsewhere[id] || platesIn(s.elsewhere[id].room.map).length === 1);
   assert.deepEqual(s.elsewhere.depth2.items, marked.elsewhere.depth2.items); // kept
@@ -129,7 +129,7 @@ test('stamper: an old save has each deeper stone\'s room made again once, the ot
   let w = makeWorld('first', SEED);
   for (const d of [5, 8]) w = goToPlace(goToPlace(goToDepth(w, d), stoneRoom(SEED, d)), placeAt(d));
   const old = { ...w, elsewhere: Object.fromEntries(Object.entries(w.elsewhere).map(([id, p]) => [id, id === stoneRoom(SEED, 5) || id === stoneRoom(SEED, 8) ? unstoned(p) : p])) };
-  const s = upgradeState(14, old);
+  const s = UPGRADES[14](old); // the step itself, as above
   for (const d of [5, 8]) { // forgotten, to be made again with its stone on arrival
     const id = stoneRoom(SEED, d);
     assert.ok(old.elsewhere[id] && !s.elsewhere[id], `depth ${d}`);

@@ -31,12 +31,13 @@ test('no dungeon room falls back, seeds 1 to 300, depths 8 to 20', () => {
 
 test('rooms that were made before come out exactly as they did', () => {
   let h = 0; // a fingerprint of 360 rooms, taken at 0.3.42, less the waystones' rooms on 8 and 20 (0.3.51, D-594);
-  // taken again at 0.3.63, when the oil tick joined the pool and so changed which creatures a room picks (D-606)
+  // taken again at 0.3.63, when the oil tick joined the pool and so changed which creatures a room picks (D-606),
+  // and at 0.3.97, when the rooms became cells of bigger grids (D-645)
   for (let seed = 1; seed <= 20; seed++) for (const d of [8, 14, 20]) for (const c of layoutAt(seed, d).cells) {
     if (c.id === stoneRoom(seed, d)) continue; // made with its stone, every other room as before
     for (const ch of JSON.stringify(placeFor(c.id, seed))) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   }
-  assert.equal(h, 3491027042);
+  assert.equal(h, 1721530249);
 });
 
 test('an old save\'s stand-in is made again, and the rooms that fit stay as they were', () => {
@@ -45,9 +46,9 @@ test('an old save\'s stand-in is made again, and the rooms that fit stay as they
   const left = goToPlace(at9, other);
   // the hero back in depth 9's first room, which a 0.3.42 save had as the crypt's second room
   const old = { ...goToPlace(left, 'depth9'), room: makeRoom(PLACES.second.map) };
-  const s = upgradeState(11, old);
+  const s = UPGRADES[11](old); // the step itself: a later one makes every room again (D-645)
   assert.equal(s.place, 'depth9');
-  assert.deepEqual([s.room.cols, s.room.rows], [17, 20]);
+  assert.deepEqual([s.room.cols, s.room.rows], [13, 15]); // today's size, one cell (D-645)
   assert.equal(tileAt(s.room, s.hero.x, s.hero.y).id, 'stairsUp');
   assert.deepEqual(s.elsewhere[other], old.elsewhere[other], 'a room that fits is kept as it was');
   assert.ok(Object.keys(s.elsewhere).some(isGenerated), 'other generated rooms stay');

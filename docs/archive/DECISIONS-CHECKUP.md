@@ -110,3 +110,29 @@ pushed back but not gone. It is built one biome at a time, each
 finished with its creatures, boss, ability and pages, then played and
 tuned before the next. D-625 moved to `archive/DECISIONS-MAKING.md`,
 word for word.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.97 (D-646), as it neared
+12 KB.
+
+**D-638 · 2026-11-07 · How weapons get better** (the owner's pick,
+recommended; answers Q-085; builds D-457, D-636) Each biome's metal
+adds 1 to every hit of each weapon kind, the shape the same. Beside the
+made ones, rare weapons are found below, each with one small effect of
+its own, as more to discover. Which, where and their effects are set at
+each one's own step.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.97 (D-647), as it neared
+12 KB.
+
+**D-639 · 2026-11-07 · The bigger Growth tree** (the owner's picks,
+recommended, and the owner's ideas; builds D-462, D-596, D-637) The
+Growth tree keeps its three branches and a row a biome, now with 4 or 5
+places a branch a row: about 50 places and 64 embers' worth, more than
+a journey's embers buy, so each hero grows differently. Knacks join it:
+small ways of fighting or finding, each bought once with an ember, worn
+2 at a time and swapped at home. Twelve new boons, three of each kind,
+26 in all; some join the pool on reaching their biome, some after
+something happens (the owner's idea). Challenges are trials: a room's
+challenge that pays an ember once, and each must be solvable. Names and
+numbers are drafts on the map, set at each one's own step. Map:
+https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn

@@ -49,11 +49,11 @@ test('his spot: a wall on one straight side at most, and nothing on or around hi
   }
 });
 
-test('every journey has him: his room is made again until his ring fits, even the smaller rooms (D-580)', () => {
+test('every journey has him: his room is made again until his ring fits, even the one-cell rooms (D-580, D-645)', () => {
   for (let seed = 1; seed <= 300; seed++) {
     const p = placeFor(peddlerRoom(seed), seed);
     assert.deepEqual(p.people.map((q) => q.id), ['peddler'], `seed ${seed}`);
-    assert.equal(p.map.length, 15, `seed ${seed}`); // the room itself, not the fallback
+    assert.equal(p.map.length, 13, `seed ${seed}`); // the room itself, 11 × 13 (D-645), not the fallback
   }
 });
 

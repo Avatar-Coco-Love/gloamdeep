@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Grow biome 1, step 1 (D-645): more one-cell rooms on the bigger grids,
-old saves' cave floors made again once. Then halls and large rooms,
-then the Lure Wisp (D-643, Q-076).
+Grow biome 1, step 2 (D-645): halls (2 cells) and large rooms (2 × 2)
+on the floors, with a map preview (D-646). Then the Lure Wisp (D-643,
+Q-076), and more content for the side rooms (D-647).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -51,6 +51,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.97, One-cell rooms.** Biome 1's floors grow: more
+  rooms, one cell each, the way 3 or 4 rooms, side rooms grown freely;
+  old saves remade once. A map preview for every generation step (D-646,
+  D-647). Playtest:
+  https://claude.ai/artifact/S28bZS17ByMWag6J2V7TeR Map preview:
+  https://claude.ai/artifact/5mYWe1H8YeX3yfiYcvY2ZQ
 - **2026-11-07, 0.3.96, Biome 1's floors.** The owner's picks: more
   rooms a floor, changing by seed; rooms made of cells (1, 2 or 2 × 2)
   so everything lines up on the grid and the map; the stairs 3 or 4
@@ -58,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.95, Bigger biomes.** The owner's picks: each biome
   about 2 to 3 times today's space, more rooms a floor and rooms of
   varied sizes, unlike between seeds; biome 1 first (D-644).
-- **2026-11-07, 0.3.94, Creatures and bosses.** All recommended: two
-  more kinds end biome 1; about 10 a deeper biome, some carried on a
-  heart tougher; bosses in their own room, changing at half, beaten
-  once; the Lure Wisp next (D-643).

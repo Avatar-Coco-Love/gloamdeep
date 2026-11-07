@@ -1,5 +1,4 @@
-// § region: depths 2 to 4 as 2 × 2 grids of rooms joined by openings (D-201),
-// deeper ones as warrens (D-227),
+// § region: each depth a grid of one-cell rooms joined by openings (D-201, D-645),
 // their stairs lined up floor to floor (D-202, D-203)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -14,24 +13,6 @@ const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 const EDGE = { up: (at) => ({ x: at, y: 0 }), down: (at, c) => ({ x: at, y: c.rows - 1 }), left: (at) => ({ x: 0, y: at }), right: (at, c) => ({ x: c.cols - 1, y: at }) };
 const BACK = { up: 'down', down: 'up', left: 'right', right: 'left' };
 
-test('depths 2 to 4 are three cells of a 2 × 2 grid in an L, one empty', () => {
-  for (const depth of [2, 3, 4]) {
-    const empties = new Set();
-    for (const seed of SEEDS) {
-      const { cells } = layoutAt(seed, depth);
-      assert.equal(cells.length, 3);
-      empties.add([0, 1, 2, 3].find((i) => !cells.some((c) => c.y * 2 + c.x === i)));
-      assert.equal(cells.filter((c) => c.up).length, 1);
-      assert.equal(cells.filter((c) => c.down).length, 1);
-      assert.equal(cells.find((c) => c.up).id, `depth${depth}`);
-      assert.notEqual(cells.find((c) => c.up), cells.find((c) => c.down)); // another room (D-203)
-      assert.equal(cells.reduce((n, c) => n + c.doors.length, 0), 4); // two joins, both sides
-    }
-    assert.equal(empties.size, 4);
-  }
-  assert.equal(layoutAt(1, 1), null);
-});
-
 // The rooms reachable from `start` through the openings, with how many joins away each is
 function away(cells, start) {
   const out = new Map([[start.id, 0]]), todo = [start];
@@ -42,25 +23,37 @@ function away(cells, start) {
   return out;
 }
 
-test('depths 5 to 7 are warrens: 5 rooms in a 3 × 3 grid, joined as a chain, the stairs down farthest (D-227)', () => {
-  for (const seed of SEEDS) for (const depth of [5, 6, 7]) {
-    const { cells } = layoutAt(seed, depth), up = cells.find((c) => c.up), down = cells.find((c) => c.down);
-    assert.equal(cells.length, 5);
-    assert.ok(cells.every((c) => c.x >= 0 && c.y >= 0 && c.x < 3 && c.y < 3));
-    assert.equal(new Set(cells.map((c) => `${c.x},${c.y}`)).size, 5);
-    assert.equal(cells.reduce((n, c) => n + c.doors.length, 0), 8); // four joins, both sides: no loops
-    const steps = away(cells, up);
-    assert.equal(steps.size, 5, `seed ${seed} depth ${depth}: every room reached`);
-    assert.equal(steps.get(down.id), Math.max(...steps.values()));
-    assert.equal(up.id, `depth${depth}`);
+// § the floors (D-645): rooms on each band's grid, the way 3 or 4 rooms long, side rooms
+// grown off it with no loops but depth 8's two, which never shorten the way
+const BANDS = [[[2, 3, 4], 4, 6, 8, 0], [[5, 6, 7], 5, 9, 11, 0], [[8, 9, 12], 5, 11, 13, 2]];
+test('each floor has the band\'s rooms on its grid, every room reached, the stairs down 3 or 4 rooms along (D-645)', () => {
+  for (const [depths, size, least, most, loops] of BANDS) {
+    const counts = new Set(), ways = new Set();
+    for (const seed of SEEDS) for (const depth of depths) {
+      const { cells } = layoutAt(seed, depth), up = cells.find((c) => c.up), down = cells.find((c) => c.down);
+      assert.ok(cells.length >= least && cells.length <= most, `seed ${seed} depth ${depth}: ${cells.length}`);
+      counts.add(cells.length);
+      assert.ok(cells.every((c) => c.x >= 0 && c.y >= 0 && c.x < size && c.y < size));
+      assert.equal(new Set(cells.map((c) => `${c.x},${c.y}`)).size, cells.length);
+      assert.equal(cells.reduce((n, c) => n + c.doors.length, 0), 2 * (cells.length - 1 + loops)); // a tree, plus the loops
+      const steps = away(cells, up);
+      assert.equal(steps.size, cells.length, `seed ${seed} depth ${depth}: every room reached`);
+      assert.ok([2, 3].includes(steps.get(down.id)), `seed ${seed} depth ${depth}`); // 3 or 4 rooms, both ends counted
+      ways.add(steps.get(down.id));
+      assert.equal(cells.filter((c) => c.up).length, 1);
+      assert.equal(cells.filter((c) => c.down).length, 1);
+      assert.equal(up.id, `depth${depth}`);
+    }
+    assert.equal(counts.size, most - least + 1, 'every count turns up');
+    assert.equal(ways.size, 2, 'ways of 3 and of 4 both turn up');
   }
+  assert.equal(layoutAt(1, 1), null);
 });
 
-test('every warren room is made, not the fallback, with its stairs and contents', () => {
-  for (const seed of SEEDS.slice(0, 30)) for (const depth of [5, 6]) for (const c of layoutAt(seed, depth).cells) {
-    const p = placeFor(c.id, seed), all = p.map.join('');
-    assert.equal(p.map.length, 17, `seed ${seed} ${c.id}`); // 15 × 17 (D-580)
-    assert.equal(p.map[0].length, 15);
+test('every room is made, not the fallback, with its stairs and contents', () => {
+  for (const seed of SEEDS.slice(0, 20)) for (const depth of [2, 5, 6, 8]) for (const c of layoutAt(seed, depth).cells) {
+    const p = placeFor(c.id, seed), all = p.map.join(''), { cols, rows } = sizeAt(depth);
+    assert.deepEqual([p.map[0].length, p.map.length], [cols, rows], `seed ${seed} ${c.id}`);
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
     const ids = p.enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic');
@@ -68,21 +61,18 @@ test('every warren room is made, not the fallback, with its stairs and contents'
   }
 });
 
-test('rooms grow with depth: 13 × 15 on depths 2 to 4, 15 × 17 on 5 to 7, 17 × 20 from 8, each room its size (D-580)', () => {
-  const want = { 2: [13, 15], 4: [13, 15], 5: [15, 17], 7: [15, 17], 8: [17, 20], 9: [17, 20] };
-  for (const seed of SEEDS.slice(0, 10)) for (const [depth, [cols, rows]] of Object.entries(want)) {
+test('a room is one cell: 11 × 13 on depths 2 to 7, 13 × 15 from 8 (D-645)', () => {
+  const want = { 2: [11, 13], 4: [11, 13], 5: [11, 13], 7: [11, 13], 8: [13, 15], 9: [13, 15] };
+  for (const [depth, [cols, rows]] of Object.entries(want)) {
     assert.deepEqual(sizeAt(+depth), { cols, rows });
-    for (const c of layoutAt(seed, +depth).cells) {
-      const p = placeFor(c.id, seed);
-      assert.deepEqual([p.map[0].length, p.map.length], [cols, rows], `seed ${seed} ${c.id}`);
-    }
+    for (const seed of SEEDS.slice(0, 5)) for (const c of layoutAt(seed, +depth).cells) assert.deepEqual([c.cols, c.rows], [cols, rows]);
   }
 });
 
-test('the smaller rooms keep open floor in step with their area: at least 61 open tiles in a cave, 89 in a warren (D-580)', () => {
-  for (const seed of SEEDS.slice(0, 20)) for (const [depth, least] of [[2, 61], [4, 61], [5, 89], [7, 89]]) for (const c of layoutAt(seed, depth).cells) {
+test('the rooms keep open floor in step with their area: at least 45 open tiles in an 11 × 13 room (D-147, D-645)', () => {
+  for (const seed of SEEDS.slice(0, 20)) for (const depth of [2, 4, 5, 7]) for (const c of layoutAt(seed, depth).cells) {
     const open = placeFor(c.id, seed).map.join('').replace(/#/g, '').length;
-    assert.ok(open >= least, `seed ${seed} ${c.id}: ${open}`);
+    assert.ok(open >= 45, `seed ${seed} ${c.id}: ${open}`);
   }
 });
 

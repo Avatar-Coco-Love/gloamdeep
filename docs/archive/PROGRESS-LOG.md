@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.94, Creatures and bosses.** All recommended: two
+  more kinds end biome 1; about 10 a deeper biome, some carried on a
+  heart tougher; bosses in their own room, changing at half, beaten
+  once; the Lure Wisp next (D-643).
 - **2026-11-07, 0.3.93, Plants and harvests.** All recommended: fewer
   deeper oil plants a flask; seeds from 3 of a plant; oil plants grow
   slowly at home; plants, ores, woods and fish kept (D-642).
