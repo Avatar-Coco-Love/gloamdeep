@@ -8,7 +8,7 @@ import { drawHero, drawItems, drawEnemies, drawGlows, drawPeople, spriteOf, wear
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
-import { running, sameKey } from './hold.js';
+import { running, sameKey, holdsRoom } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo } from '../core/draft.js';
@@ -217,9 +217,11 @@ export function createFrame(app, ui) {
     const hid = dev.cover(), ease = (a, b) => (still() || Math.abs(b - a) < 0.5 ? b : a + (b - a) * 0.3);
     cover = { x: ease(cover.x, hid.x), y: ease(cover.y, hid.y) };
     const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h, cover); // clear of the dev sheet (D-623)
-    // § hold (S3, D-686): under a card, once nothing in the room moves, its picture is kept
+    // § hold (S3, D-686): under a card, once nothing in the room moves, its picture is kept;
+    // in play too with reduced motion, until a step, a walk's dots, a frame or a mark changes (D-687)
     const slid = shown.x === s.hero.x && shown.y === s.hero.y && s.enemies.every((e) => { const p = foeAt(e); return p.x === e.x && p.y === e.y; });
-    const key = CARDS.has(app.screen) && slid && !running(app, t, BEAM_MS) ? [state, s.room, app.settings, roomView.w, roomView.h, rc.canvas.width, rc.canvas.height, cam.x, cam.y, dev.revealed(), dev.lightOff(), still()] : null;
+    const holds = holdsRoom(app.screen, CARDS.has(app.screen), still());
+    const key = holds && slid && !running(app, t, BEAM_MS) ? [state, s.room, app.settings, roomView.w, roomView.h, rc.canvas.width, rc.canvas.height, cam.x, cam.y, dev.revealed(), dev.lightOff(), still(), app.screen, walk, walk?.way, app.framed, app.setting] : null;
     const kept = sameKey(key, heldKey);
     heldKey = key;
     if (!kept) {

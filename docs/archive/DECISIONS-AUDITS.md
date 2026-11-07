@@ -320,3 +320,11 @@ region's sheet gives today's depths, biome 1 to depth 8 (D-635) and
 floors below it made as depth 8 is (D-647), not depth 5 as the bottom;
 the old numbers stay in one short "before" clause each. Docs only.
 D-658 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-674 · 2026-11-07 · Doc C: each find's own price** (the owner's
+pick, Claude's wording; C of D-660's findings, as D-666 set) The trade
+coins entry in `GLOSSARY-2.md`, the peddler's row in `CONTENT-2.md`
+and the note in `items.js` say each find sells at its own price: 1 coin
+for most common creature materials (Wisp Glass 2, D-649), 5 for a rare
+one, in place of 1 for every common one. The history's old lines stay,
+true when written. Docs only.

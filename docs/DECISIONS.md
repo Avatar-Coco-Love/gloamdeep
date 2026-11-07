@@ -68,14 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-674 · 2026-11-07 · Doc C: each find's own price** (the owner's
-pick, Claude's wording; C of D-660's findings, as D-666 set) The trade
-coins entry in `GLOSSARY-2.md`, the peddler's row in `CONTENT-2.md`
-and the note in `items.js` say each find sells at its own price: 1 coin
-for most common creature materials (Wisp Glass 2, D-649), 5 for a rare
-one, in place of 1 for every common one. The history's old lines stay,
-true when written. Docs only.
-
 **D-675 · 2026-11-07 · Doc D: built things, not "to come"** (the owner's
 picks, both recommended; D of D-660's findings, as D-666 set) Five
 glossary lines say what is in the game today, plainly, with no "before"
@@ -195,3 +187,14 @@ beam, a rune kindling). The card's own flame and needle move as before.
 On a phone 4 times slower, a frame with the bag open takes about 1 ms,
 not 8. Reduced motion skipping frames in play is its own next step.
 D-673 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-687 · 2026-11-07 · Still play draws less** (the owner's pick,
+recommended; S3's second half, after D-686) With reduced motion on, the
+room in play is held the same way as under a card: drawn once and kept
+until what it shows changes (a step, a creature's move, a walk's dots,
+a framed creature, the workbench's marks) or while a moment runs (a
+hit's red, a "!", a "+1", a beam). The hearts, oil, buttons, round map
+and text line are still drawn every frame. Nothing in the room moves
+with reduced motion, so play looks and feels the same. In the crypt,
+standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
+D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.

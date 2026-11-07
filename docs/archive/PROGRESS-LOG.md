@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.136, He has wares at home.** As recommended
+  (D-684): the peddler at home no longer says "I'll have wares soon"
+  while selling them (D4). His two other home lines take turns. A test
+  checks it. Playtest:
+  https://claude.ai/artifact/8ea1a3caT6egJh2pSvMoya
 - **2026-11-07, 0.3.135, Space on the name pad.** As recommended
   (D-683): Space does nothing on the name pad, so "ANNA MAE" no longer
   makes a profile named "ANNA" (I5). Names stay A to Z; Q-054 stays

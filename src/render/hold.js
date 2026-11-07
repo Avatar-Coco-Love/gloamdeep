@@ -3,7 +3,9 @@
 // dropped), the screen's size, the camera, a dev switch or the motion setting.
 // While a moment is still running (a slide, a shake, a "+1", a beam, a rune
 // kindling) it keeps being drawn, so nothing is frozen halfway. The card itself,
-// on the screen layer, is drawn every frame as before.
+// on the screen layer, is drawn every frame as before. With reduced motion the
+// room in play is held the same way, as nothing in it moves by itself (D-687);
+// the corner pieces and the text line are still drawn every frame.
 import { KINDLE_MS } from './kindle.js';
 import { GAIN_MS } from './walk.js';
 import { JAB_MS } from './jab.js';
@@ -26,3 +28,7 @@ export function running(app, t, beamMs) {
 
 // What the held picture was drawn from; a new key draws the room again
 export const sameKey = (a, b) => !!a && !!b && a.length === b.length && a.every((v, i) => v === b[i]);
+
+// Whether the room's picture may be kept on this screen: under a card, or in play
+// (and while placing a workbench or chest) with reduced motion on (D-687)
+export const holdsRoom = (screen, card, still) => card || (still && (screen === 'play' || screen === 'place'));

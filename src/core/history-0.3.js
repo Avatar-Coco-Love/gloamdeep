@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.139', date: '2026-11-07', title: 'Still play draws less', lines: [
+    "With reduced motion on, the room in play is drawn once and kept until something in it changes, as under a card, so a phone does much less work and saves battery. Play looks and feels the same.",
+    "Decisions: D-687. D-674 moved to the archive, word for word.",
+  ] },
   { v: '0.3.138', date: '2026-11-07', title: 'The room holds still under a card', lines: [
     "Under a card (the bag, pause, the map and the rest), the room behind it holds still instead of being drawn again 60 times a second, so a phone does much less work and saves battery. Its torches stop flickering until the card closes; the card itself moves as before.",
     "Decisions: D-686. D-673 moved to the archive, word for word.",
