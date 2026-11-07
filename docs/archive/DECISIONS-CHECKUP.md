@@ -75,3 +75,20 @@ supersedes the version part of D-237) Stage 0.2's last steps are done,
 so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.95 (D-644), as it neared
+12 KB: the rest of the build order.
+
+**D-482 · 2026-10-30 · The rest of the build order** (the owner's picks,
+all recommended; answers the Next up of 0.2.196) Lantern parts come
+next: Copper Ore, mined since step 7, gets its first use, and the
+lantern is the heart of the game. Claude proposes the rest of the
+order and the owner approves it by merging: lantern parts, armour and
+charms, home pieces and rest, the first rescue, vendor and coins,
+garden, fishing, lore, relics, feats. The rescue comes before the
+vendor, who is a rescued person (D-471); collectables come last, as
+they reward everything before them. Each may take more than one small
+step, with its names and numbers asked at its own step. The first
+Light and Hands upgrades may join any of them. Half and Automatic
+(Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
+for word, as this file neared 12 KB.

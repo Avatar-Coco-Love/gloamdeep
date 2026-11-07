@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.92, Items and crafting.** All recommended:
+  weapons keep a part of their own in every metal; tank
+  and wick climb, glass a choice; one armour and about three charms a
+  biome; a knack taught in each village (D-641).
 - **2026-11-07, 0.3.91, Growth and quests.** The owner's picks: a
   bigger Growth tree with knacks, 12 new boons and solvable trials
   (D-639); places that branch, a village a biome, marked secrets and

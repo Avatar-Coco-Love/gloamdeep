@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.95', date: '2026-11-07', title: 'Bigger biomes', lines: [
+    "Nothing in the game changed. Each biome will grow to about 2 to 3 times its size to hold everything planned: more rooms on each floor, and rooms both smaller and bigger than today's, so no two seeds feel the same. The first cave grows first, before the next creature.",
+    "Decisions: D-644. D-482 moved to the archive, word for word.",
+  ] },
   { v: '0.3.94', date: '2026-11-07', title: 'Creatures and bosses', lines: [
     "Nothing in the game changed. Creatures and bosses are planned: the first cave ends with 14 kinds, adding the Lure Wisp, a small false light that drifts ahead in the dark, and the Grave Beetle, a shelled beetle the hammer cracks. Each deeper biome has about 10 kinds, some from above coming back a heart tougher.",
     "Each boss fights in its own room and changes how it fights at half its hearts; beaten once, it gives its found ability. The Lure Wisp is the next creature built.",
