@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.138', date: '2026-11-07', title: 'The room holds still under a card', lines: [
+    "Under a card (the bag, pause, the map and the rest), the room behind it holds still instead of being drawn again 60 times a second, so a phone does much less work and saves battery. Its torches stop flickering until the card closes; the card itself moves as before.",
+    "Decisions: D-686. D-673 moved to the archive, word for word.",
+  ] },
   { v: '0.3.137', date: '2026-11-07', title: 'The rock painted faster', lines: [
     "A cave room's rock and earth are painted in about half the time, so the pause on reaching depth 2 is shorter. The picture is the same, pixel for pixel.",
     "Decisions: D-685. D-672 moved to the archive, word for word.",

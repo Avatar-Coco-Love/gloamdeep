@@ -8,6 +8,7 @@ import { drawHero, drawItems, drawEnemies, drawGlows, drawPeople, spriteOf, wear
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
+import { running, sameKey } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo } from '../core/draft.js';
@@ -92,7 +93,8 @@ export function createFrame(app, ui) {
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas');
   watch(base); watch(around);
-  onWipe(() => { drawnRoom = null; }); // both drawn again on the next frame (D-588)
+  let heldKey = null; // what the room under a card was last drawn from (S3, D-686)
+  onWipe(() => { drawnRoom = null; heldKey = null; }); // both drawn again on the next frame (D-588)
   onCheck(() => drawnRoom !== null && blankAt(base, 0, 0));
   let wide = null, mx = 0, my = 0;
   const past = (size, shown) => Math.ceil(Math.max(0, shown - size * TILE) / 2 / TILE) + 2; // + 2 covers the camera's margin (D-441)
@@ -215,65 +217,72 @@ export function createFrame(app, ui) {
     const hid = dev.cover(), ease = (a, b) => (still() || Math.abs(b - a) < 0.5 ? b : a + (b - a) * 0.3);
     cover = { x: ease(cover.x, hid.x), y: ease(cover.y, hid.y) };
     const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h, cover); // clear of the dev sheet (D-623)
-    rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h); // the deepest dark, only past what `around` holds
-    rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
-    rc.drawImage(base, -cam.x, -cam.y);
-    inRoom(() => {
-      drawBrackets(rc, s.room, s.lights);
-      const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
-      drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
-      drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
-      drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
-      drawItems(rc, s.items, t, still());
-      const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
-      drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
-      drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
-      drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
-      // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
-      drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero); // a snapcap opens beside the hero (D-543)
-    });
-    // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
-    const sun = s.room.dark.sky ? daylight(s.turn) : 0, lightOn = !dev.lightOff() && sun < 1;
-    // § light: the lantern's flame is the light's centre, oil sets its reach (D-053 to D-056, D-064).
-    // Switched off, the lantern gives no light: only torchlight and remembered tiles show (D-082, D-101).
-    const lx = sx + nx + LANTERN_AT.x, ly = sy + ny - 2 + LANTERN_AT.y;
-    if (lightOn) {
-      const r = s.lit ? lanternReach(s) * (still() ? 1 : flicker(t, 1.7, 0.035)) * (1 - dark) : 0;
-      lights[0] = { ...LANTERN, x: lx, y: ly, r };
-      lights.length = 1;
-      lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));
-      const sunIn = mouthLight(s); // daylight through the cave mouth, steady, no flicker (D-218)
-      if (sunIn) lights.push(sunIn);
-      drawLight(rc, wide, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
-    }
-    inRoom(() => {
-      drawFlames(rc, s.room, s.lights, t, still());
-      drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
-      drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
-      drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
-      if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
-      drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
-      const framed = list?.find((a) => foeAt(a.e) === app.framed);
-      if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
-      if (walk && !travel) { drawDots(rc, walk.way, walk.tx, walk.ty); drawMark(rc, walk.tx, walk.ty, t, still()); } // the walk to a tapped tile (D-406)
-      if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
-      drawBite(rc, s.float); // a fish on the line: the "!" over its float (D-610)
-      if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
-      else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
-    });
-    // § shake: the room jumps a pixel left and right after a hit; none with reduced motion (study line 432, D-105)
-    // A bite shakes it the same way (D-118).
-    if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil)) && !still()) {
-      const jx = Math.floor(t / 30) % 2 ? 1 : -1;
-      rc.drawImage(rc.canvas, jx, 0);
-      rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : roomView.w - 1, 0, 1, roomView.h);
-    }
-    // Taking stairs, the room dims to the deepest dark and back (D-135); a fall closes it the same way; the hearts and oil stay
-    const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / FADE_MS) : dark;
-    if (dim > 0) {
-      rc.globalAlpha = dim;
-      rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h);
-      rc.globalAlpha = 1;
+    // § hold (S3, D-686): under a card, once nothing in the room moves, its picture is kept
+    const slid = shown.x === s.hero.x && shown.y === s.hero.y && s.enemies.every((e) => { const p = foeAt(e); return p.x === e.x && p.y === e.y; });
+    const key = CARDS.has(app.screen) && slid && !running(app, t, BEAM_MS) ? [state, s.room, app.settings, roomView.w, roomView.h, rc.canvas.width, rc.canvas.height, cam.x, cam.y, dev.revealed(), dev.lightOff(), still()] : null;
+    const kept = sameKey(key, heldKey);
+    heldKey = key;
+    if (!kept) {
+      rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h); // the deepest dark, only past what `around` holds
+      rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
+      rc.drawImage(base, -cam.x, -cam.y);
+      inRoom(() => {
+        drawBrackets(rc, s.room, s.lights);
+        const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
+        drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
+        drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
+        drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
+        drawItems(rc, s.items, t, still());
+        const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
+        drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
+        drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
+        drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
+        // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
+        drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero); // a snapcap opens beside the hero (D-543)
+      });
+      // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
+      const sun = s.room.dark.sky ? daylight(s.turn) : 0, lightOn = !dev.lightOff() && sun < 1;
+      // § light: the lantern's flame is the light's centre, oil sets its reach (D-053 to D-056, D-064).
+      // Switched off, the lantern gives no light: only torchlight and remembered tiles show (D-082, D-101).
+      const lx = sx + nx + LANTERN_AT.x, ly = sy + ny - 2 + LANTERN_AT.y;
+      if (lightOn) {
+        const r = s.lit ? lanternReach(s) * (still() ? 1 : flicker(t, 1.7, 0.035)) * (1 - dark) : 0;
+        lights[0] = { ...LANTERN, x: lx, y: ly, r };
+        lights.length = 1;
+        lights.push(...torchLights(s.room, s.lights, t, still(), torchGlow), ...glowsIn(s.room, dev.revealed() ? null : s.seen));
+        const sunIn = mouthLight(s); // daylight through the cave mouth, steady, no flicker (D-218)
+        if (sunIn) lights.push(sunIn);
+        drawLight(rc, wide, lights, dev.revealed() ? null : s.seen, cam, darkNow(s.room, s.turn), 1 - sun);
+      }
+      inRoom(() => {
+        drawFlames(rc, s.room, s.lights, t, still());
+        drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
+        drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
+        drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
+        if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
+        drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)
+        const framed = list?.find((a) => foeAt(a.e) === app.framed);
+        if (framed) drawFramed(rc, framed, foeAt(framed.e), cam, t, still()); // CL2, D-357
+        if (walk && !travel) { drawDots(rc, walk.way, walk.tx, walk.ty); drawMark(rc, walk.tx, walk.ty, t, still()); } // the walk to a tapped tile (D-406)
+        if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
+        drawBite(rc, s.float); // a fish on the line: the "!" over its float (D-610)
+        if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
+        else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
+      });
+      // § shake: the room jumps a pixel left and right after a hit; none with reduced motion (study line 432, D-105)
+      // A bite shakes it the same way (D-118).
+      if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil)) && !still()) {
+        const jx = Math.floor(t / 30) % 2 ? 1 : -1;
+        rc.drawImage(rc.canvas, jx, 0);
+        rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : roomView.w - 1, 0, 1, roomView.h);
+      }
+      // Taking stairs, the room dims to the deepest dark and back (D-135); a fall closes it the same way; the hearts and oil stay
+      const dim = travel ? Math.max(0, 1 - Math.abs(t - travel.mid) / FADE_MS) : dark;
+      if (dim > 0) {
+        rc.globalAlpha = dim;
+        rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, roomView.w, roomView.h);
+        rc.globalAlpha = 1;
+      }
     }
     // § panel: the hearts, oil, depth and level on glass over the room's top left (D-378),
     // the creature list under it (D-357); both fade while the hero or a creature beside them is under them (D-380)
