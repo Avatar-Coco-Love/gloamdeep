@@ -9,14 +9,14 @@ import { get } from '../src/core/registry.js';
 
 const room = makeRoom(FIRST_ROOM);
 const DROPS = { lampmoth: 'mothDust', scorpion: 'stinger', flaskMimic: 'mimicGlass', gloamling: 'gloamWisp', caveSpider: 'spiderSilk', bat: 'batWing', mole: 'moleFur', snapcap: 'snapcapGill', herbMimic: 'mimicLeaf', boneRat: 'ratBone' };
-const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, for crafting later.', "You can't carry more moth dust."],
+const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, good for making things.', "You can't carry more moth dust."],
   stinger: ['You pick up the stinger.', 'A stinger, for crafting later.', "You can't carry more stingers."],
   mimicGlass: ['You pick up the mimic glass.', 'Mimic glass. With 2 oilcaps, a flask.', "You can't carry more mimic glass."],
-  gloamWisp: ['You catch the gloam wisp.', 'A gloam wisp, for crafting later.', "You can't carry more gloam wisps."],
-  spiderSilk: ['You pick up the spider silk.', 'Spider silk, for crafting later.', "You can't carry more spider silk."],
+  gloamWisp: ['You catch the gloam wisp.', 'A gloam wisp, good for making things.', "You can't carry more gloam wisps."],
+  spiderSilk: ['You pick up the spider silk.', 'Spider silk, good for making things.', "You can't carry more spider silk."],
   batWing: ['You pick up the bat wing.', 'A bat wing, for crafting later.', "You can't carry more bat wings."],
-  moleFur: ['You pick up the mole fur.', 'Mole fur, for crafting later.', "You can't carry more mole fur."],
-  snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, for crafting later.', "You can't carry more snapcap gills."],
+  moleFur: ['You pick up the mole fur.', 'Mole fur, good for making things.', "You can't carry more mole fur."],
+  snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, good for making things.', "You can't carry more snapcap gills."],
   mimicLeaf: ['You pick up the mimic leaf.', 'A mimic leaf, for crafting later.', "You can't carry more mimic leaves."],
   ratBone: ['You pick up the rat bone.', 'A rat bone, for crafting later.', "You can't carry more rat bones."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.129', date: '2026-11-07', title: 'Good for making things', lines: [
+    "Nine materials with recipes, from Stone and Copper Ore to the Mimic Heart, now say \"good for making things\" when chosen in the bag, not \"for crafting later\". The eleven no recipe uses yet still say \"for crafting later\".",
+    "Decisions: D-677. D-663 moved to the archive, word for word.",
+  ] },
   { v: '0.3.128', date: '2026-11-07', title: 'The small notes caught up', lines: [
     "Three small notes are brought up to date: the code layout lists the maker and the map preview's page, the dev tools' Go to depth runs from 0, the crypt, and the Lure Wisp is listed as built. Nothing in the game changes.",
     "Decisions: D-676. D-662 moved to the archive, word for word.",

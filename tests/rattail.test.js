@@ -58,5 +58,5 @@ test('with every slot a full stack it stays, with its full line', () => {
 
 test('choosing its bag slot says a look line', () => {
   const s = look({ ...makeState(room), bag: [{ id: 'ratTail', n: 1 }] }, 0);
-  assert.equal(shownLine(s).text, 'A rat tail, for crafting later.');
+  assert.equal(shownLine(s).text, 'A rat tail, good for making things.');
 });

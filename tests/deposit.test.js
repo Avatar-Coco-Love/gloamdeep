@@ -100,7 +100,7 @@ test('the third bump breaks it to floor and a stone goes into the bag, with its 
   assert.ok(s.events.some((e) => e.type === 'take' && e.id === 'stone'));
   assert.deepEqual(s.room.chips, {});
   assert.equal(get('stone').name, 'Stone');
-  assert.equal(shown(look(s, 0)), 'A plain stone, for crafting later.');
+  assert.equal(shown(look(s, 0)), 'A plain stone, good for making things.');
 });
 
 test('with 6 full stacks of stones carried, the third bump holds, free, with its line', () => {
