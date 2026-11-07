@@ -68,21 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-671 · 2026-11-07 · Cards drawn smaller to fit** (the owner's picks,
-both recommended; D1 of D-660's findings, as D-666 set; answers Q-064)
-On a screen held sideways and squarer than a phone, a 4:3 tablet or a
-near-square PC window, a card open in play is drawn at a smaller pixel
-size, so the screen is at least 340 game pixels across, as on a phone
-held sideways, and the card's wide layout fits, the stash chest's too.
-Pixels stay whole: 3 screen pixels each at 1024 × 768, 2 at 900 × 820.
-Only while a card is open; play's panel and buttons keep their size.
-Phones, held either way, and upright tablets are unchanged (upright
-tablets changed by D-681, 2026-11-07). Before, the
-pause card's facts, the Growth tree's boxes and the bag's, workbench's
-and peddler's words ran past the edge. The stacked upright layout was
-tried there too, and is too short for those screens. A test checks the
-sizes. D-656 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
-
 **D-672 · 2026-11-07 · Woken stones stay woken** (the owner's pick,
 recommended; W2 of D-660's findings, as D-666 set; builds D-645) As an
 old save's generated rooms are made again (D-580, D-645), a floor whose
@@ -197,3 +182,12 @@ menu keeps Space picking, as Enter does. Before, a letter lit OK, so
 Space after it made the profile: typing "ANNA MAE" made "ANNA". Names
 stay A to Z. A test checks it.
 D-670 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-684 · 2026-11-07 · He has wares at home** (the owner's pick,
+recommended; D4 of D-660's findings, as D-666 set) The peddler's home
+line "Let me unpack. I'll have wares soon." is dropped, since at home
+he always sells his wares (D-495) and his card opens with them listed.
+His two other home lines, "You dug me out. I won't forget it." and
+"Home at last. My legs still shake.", take turns as before (D-492). A
+saved line past a list's end shows the list's first. A test checks it.
+D-671 moved to `archive/DECISIONS-AUDITS.md`, word for word.

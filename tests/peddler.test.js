@@ -215,6 +215,15 @@ test('at home a bump says his home lines in turn, free', () => {
   assert.equal(shownLine(two).text, LINES.peddlerHome.texts[1]);
 });
 
+test('at home, selling, he never says he will have wares soon; the third bump says the first line again (D-684)', () => {
+  assert.equal(LINES.peddlerHome.texts.some((t) => /wares soon/.test(t)), false);
+  const s = { ...makeState(makeRoom(['#####', '#...#', '#####']), { x: 1, y: 1 }), people: [{ id: 'peddler', x: 2, y: 1, home: true }] };
+  const three = step(step(step(s, 'right'), 'right'), 'right');
+  assert.equal(shownLine(three).text, LINES.peddlerHome.texts[0]);
+  const old = { ...s, line: { id: 'peddlerHome', turn: s.turn, i: 2 } }; // an old save, mid-line on the dropped third
+  assert.equal(shownLine(old).text, LINES.peddlerHome.texts[0]);
+});
+
 // § beam home: gone home, he beams in when the hero next comes, and greets the hero once, near (D-496)
 test('gone home, he beams in as the hero comes into the woods, an arrive event where he stands', () => {
   const seed = 7, id = peddlerRoom(seed), there = goToPlace(makeWorld('first', seed), id);
