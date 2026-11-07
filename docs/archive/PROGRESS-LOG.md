@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.127, Built things, not "to come".** As recommended
+  (D-675): five glossary lines say what is in the game today, armour,
+  charms, lantern parts, planting, the deeper waystones, the Bestiary
+  tab and Stone's crafts (D). Docs only, so no playtest.
 - **2026-11-07, 0.3.126, Each find's own price.** As recommended
   (D-674): the glossary, the peddler's row and a code note say each find
   sells at its own price, 1 for most common materials, Wisp Glass 2,
