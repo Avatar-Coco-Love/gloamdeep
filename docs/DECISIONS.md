@@ -68,16 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-672 · 2026-11-07 · Woken stones stay woken** (the owner's pick,
-recommended; W2 of D-660's findings, as D-666 set; builds D-645) As an
-old save's generated rooms are made again (D-580, D-645), a floor whose
-remade rooms held a woken waystone has its stone room made anew with its
-plate woken; every other stone stays asleep. A merged step is edited,
-as at D-664, so only saves not yet brought up to date keep theirs; one
-already updated stays as it is, with no guess at which were woken.
-Before, every deep stone went back to sleep. A rules test checks it.
-D-657 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
-
 **D-673 · 2026-11-07 · Docs A and B: the edge and the floors** (the
 owner's picks, both recommended; A and B of D-660's findings, as D-666
 set) `WORLD.md`'s light between rooms says D-445's rule, plain dark past
@@ -191,3 +181,15 @@ His two other home lines, "You dug me out. I won't forget it." and
 "Home at last. My legs still shake.", take turns as before (D-492). A
 saved line past a list's end shows the list's first. A test checks it.
 D-671 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-685 · 2026-11-07 · The rock painted faster** (the owner's picks,
+both recommended; S1 of D-660's findings, as D-666 set) The rock and
+earth painter works out each tile's walls once, before the pixels: its
+wall value, whether it is a wall, and whether it stays clear (a way on,
+or an opening in the edge). Before, it looked them up about four times
+for every pixel. Only `rock.js` changes, not the pool's water, and a
+room is still painted once each time it is entered. The picture is the
+same, pixel for pixel; painting a room takes about half the time (14 to
+8 ms each over 24 rooms on a computer). A test checks the pictures of
+12 rooms against fingerprints of the old painter's.
+D-672 moved to `archive/DECISIONS-AUDITS.md`, word for word.

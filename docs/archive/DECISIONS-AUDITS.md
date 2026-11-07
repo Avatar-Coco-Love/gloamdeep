@@ -299,3 +299,13 @@ pause card's facts, the Growth tree's boxes and the bag's, workbench's
 and peddler's words ran past the edge. The stacked upright layout was
 tried there too, and is too short for those screens. A test checks the
 sizes. D-656 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-672 · 2026-11-07 · Woken stones stay woken** (the owner's pick,
+recommended; W2 of D-660's findings, as D-666 set; builds D-645) As an
+old save's generated rooms are made again (D-580, D-645), a floor whose
+remade rooms held a woken waystone has its stone room made anew with its
+plate woken; every other stone stays asleep. A merged step is edited,
+as at D-664, so only saves not yet brought up to date keep theirs; one
+already updated stays as it is, with no guess at which were woken.
+Before, every deep stone went back to sleep. A rules test checks it.
+D-657 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.137 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.136 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.135 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.134 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -106,6 +107,10 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.134 (2026-11-07)
+- On a phone 320 px wide, the dev wrench stands under the pause button, so the hearts and oil panel no longer runs into it from level 10. Wider screens are unchanged.
+- Decisions: D-682. D-669 moved to the archive, word for word.
 
 ## 0.3.133 (2026-11-07)
 - On a tablet held upright, a card open in play is drawn a size smaller, so the bag's words fit above Drop and Wear with a 9 or 12 slot bag. Before, they ran over the buttons. Phones are unchanged.
