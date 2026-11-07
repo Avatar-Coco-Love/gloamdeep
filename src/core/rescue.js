@@ -34,11 +34,12 @@ export function dig(state, x, y) {
   return endTurn(state, say(note({ ...dug, people }, 'free', { id: person.id }), who.freed));
 }
 
-// Whether any rubble beside person p has been bumped already, or a heap there cleared (D-498)
+// Whether any rubble beside person p has been bumped already, or a heap there cleared (D-498):
+// a cleared heap is a tile that can be walked on, so the walls in the ring never count (D-668)
 const dugBeside = (state, p) => Object.keys(state.room.chips ?? {}).some((k) => {
   const [x, y] = k.split(',').map(Number);
   return Math.max(Math.abs(p.x - x), Math.abs(p.y - y)) === 1;
-}) || AROUND.some(([dx, dy]) => tileAt(state.room, p.x + dx, p.y + dy).id !== 'rubble');
+}) || AROUND.some(([dx, dy]) => !tileAt(state.room, p.x + dx, p.y + dy).solid);
 const AROUND = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
 
 // § waiting: a freed person bumped says their `waiting` lines, taking turns, free, and

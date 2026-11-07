@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.120 (2026-11-07)
+- The trapped peddler calls for help again the first time you dig at his rubble. Before, the cave walls round him counted as dug-out heaps, so in most journeys he went straight to "Keep digging!".
+- Decisions: D-668.
+
 ## 0.3.119 (2026-11-07)
 - Falling with the fishing line out now reels it in. Before, the float stayed on the water and fish kept biting it after you woke, even from across the room.
 - Decisions: D-667.
@@ -31,8 +35,3 @@ Entry format:
 - After you take the Stone Pick or the Wooden Rod off, Make no longer makes a second one: it says you already carry one, and nothing is used up.
 - Wearing a charm or vest that is the same as one you already wear now says "You already have …" and changes nothing, so two Heart Charms can't stretch the oil. Two different charms are still worn together.
 - Decisions: D-666.
-
-## 0.3.117 (2026-11-07)
-- When an old save first gets its home waystone, only sticks on the stone itself are cleared away, as decided. A stick or anything you dropped on the tiles round the stone stays where it was.
-- The version shown at the top of the progress notes is set by the release tool now, so it no longer falls behind.
-- Decisions: D-664, D-665.

@@ -11,6 +11,7 @@ import { goToPlace } from '../src/core/stairs.js';
 import { endTurn } from '../src/core/endturn.js';
 import { passTurn } from '../src/core/state.js';
 import { send } from '../src/core/homeward.js';
+import { dig } from '../src/core/rescue.js';
 import { shownLine, LINES } from '../src/core/lines.js';
 import { readJourney, journeyText, UPGRADES } from '../src/core/save.js';
 
@@ -80,6 +81,18 @@ test('digging the rubble around him, he calls out first, then cheers the digging
   assert.equal(shownLine(step({ ...two, hero: { x: 2, y: 1 } }, 'right')).text, LINES.peddlerDigging.texts[1]); // another heap, his lines taking turns
   const corner = step({ ...trapped({ x: 2, y: 1 }) }, 'right'); // the rubble at a corner of the ring
   assert.equal(shownLine(corner).text, LINES.peddlerCalls.texts[0]);
+});
+
+test('walls in his ring are not cleared heaps: with walls round him he still calls out first (D-668)', () => {
+  const walled = ['#######', '#..#UU#', '#..U.U#', '#..UUU#', '#######']; // a wall at one corner of his ring, as in most seeds
+  const s = { ...makeState(makeRoom(walled), { x: 2, y: 2 }), people: [{ id: 'peddler', x: 4, y: 2 }] }, bumped = step(s, 'right');
+  assert.equal(shownLine(bumped).text, LINES.peddlerCalls.texts[0]);
+  assert.equal(shownLine(step(bumped, 'right')).text, LINES.peddlerDigging.texts[0]);
+  for (const seed of SEEDS) { // and so in every seed's own room, at any heap of his ring
+    const p = placeFor(peddlerRoom(seed), seed), [him] = p.people, room = makeRoom(p.map);
+    const [dx, dy] = AROUND.find(([x, y]) => p.map[him.y + y][him.x + x] === 'U'), state = { ...makeState(room, p.start), people: p.people };
+    assert.equal(shownLine(dig(state, him.x + dx, him.y + dy)).text, LINES.peddlerCalls.texts[0], `seed ${seed}`);
+  }
 });
 
 const freed = () => { let s = trapped({ x: 2, y: 2 }); for (let i = 0; i < 3; i++) s = step(s, 'right'); return s; };

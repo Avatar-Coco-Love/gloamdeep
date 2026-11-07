@@ -1,9 +1,10 @@
-# Biome 1's floors and the lure wisp (D-648 to D-651, D-653)
+# Biome 1's floors and the lure wisp (D-648 to D-653)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.113, the tenth audit
 (D-660), so it stays under 12 KB: halls and large rooms, the lure wisp,
 the dead-end cache, more in halls and large rooms, and the motes
-following the way, all built. Still in force.
+following the way, all built. Still in force. D-652, more content first
+(poison and a 15th kind, all built), moved here at 0.3.120 (D-668).
 
 ---
 
@@ -57,6 +58,22 @@ set of its own by today's rules, so they spread evenly; the room's
 first set stays where it lay, and a cell of rock and tunnel too small
 for its set has it anywhere in the room (Claude's draft). D-637 moved
 to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-652 · 2026-11-07 · More content first: poison and a 15th kind**
+(the owner's picks, all recommended; builds D-604, D-607, D-636, D-641,
+D-643; supersedes D-643's "biome 1 ends with 14 kinds") More content
+comes before the side rooms are filled further (the owner's wish).
+Creatures that leave a debuff on the hero come first, then creatures
+that attack from range, each with ways for the hero to defend against
+it. The first debuff is poisoned, from Venom (D-636): its numbers are
+set at its step, and it shows as a mark beside the boon's (D-604). It
+comes with a new kind, biome 1's 15th, as D-607 allows; Claude shows 2
+or 3 drafts from the list (Q-076) with mock-ups first. The defences,
+each its own step: the drafted Antidote (1 Snapcap Gill, 1 herb), a
+charm against poison for biome 1, and Tough on the Growth tree. Raw
+things below the caves wait (the owner's pick); copper is only the
+first of many tiers. D-641 moved to `archive/DECISIONS-CHECKUP.md`,
+word for word.
 
 **D-653 · 2026-11-07 · The motes follow the way** (the owner's picks,
 all recommended; supersedes D-605's straight line through walls) The

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.119 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.120 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-R5 of D-660's list, the trapped peddler's first call for help, then
-the rest in D-666's order, one a step; the Spit grub (D-659) after them.
+I2 of D-660's list, holding Space on a menu keeps picking, then the
+rest in D-666's order, one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.120, Walls are not cleared heaps.** As recommended
+  (D-668): only a tile that can be walked on counts as a heap cleared
+  beside the trapped peddler, so he calls for help first again (R5).
+  Playtest: https://claude.ai/artifact/C3oE2KFtUgv1d5nRHSqkXm
 - **2026-11-07, 0.3.119, The fall reels the line in.** As recommended
   (D-667): a fall takes in a line that is out, quietly, a waiting
   strike too, so no fish bites the float after waking (R4).
@@ -55,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   pick or rod can't be made, and a second of a worn charm or vest can't
   be put on, so two Heart Charms no longer stretch the oil.
   Playtest: https://claude.ai/artifact/2aXF39nvsfsKMbX29weNJt
-- **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
-  recommended (D-664): an old save's new home waystone clears only the
-  sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
-  The release tool now sets the Version line here (D-665).
-  Nothing visible in a new game, so no playtest.

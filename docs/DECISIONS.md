@@ -36,22 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-652 · 2026-11-07 · More content first: poison and a 15th kind**
-(the owner's picks, all recommended; builds D-604, D-607, D-636, D-641,
-D-643; supersedes D-643's "biome 1 ends with 14 kinds") More content
-comes before the side rooms are filled further (the owner's wish).
-Creatures that leave a debuff on the hero come first, then creatures
-that attack from range, each with ways for the hero to defend against
-it. The first debuff is poisoned, from Venom (D-636): its numbers are
-set at its step, and it shows as a mark beside the boon's (D-604). It
-comes with a new kind, biome 1's 15th, as D-607 allows; Claude shows 2
-or 3 drafts from the list (Q-076) with mock-ups first. The defences,
-each its own step: the drafted Antidote (1 Snapcap Gill, 1 herb), a
-charm against poison for biome 1, and Tough on the Growth tree. Raw
-things below the caves wait (the owner's pick); copper is only the
-first of many tiers. D-641 moved to `archive/DECISIONS-CHECKUP.md`,
-word for word.
-
 **D-654 · 2026-11-07 · The centipede and poisoned** (the owner's picks;
 mock-ups: https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w; builds D-636,
 D-652; answers part of Q-076) Biome 1's 15th kind is the centipede, look
@@ -197,3 +181,12 @@ line that is out, with no words of its own; only the fall's line,
 own turn goes too, so the strike meter never opens after waking.
 Before, the float stayed, and fish bit it from across the room. A rules
 test checks both.
+
+**D-668 · 2026-11-07 · Walls are not cleared heaps** (the owner's pick,
+recommended; R5 of D-660's findings, as D-666 set) Whether a heap beside
+the trapped peddler is cleared (D-498) is asked of each tile round him:
+it counts only if it can be walked on. Before, any tile that wasn't
+rubble counted, so the walls in his ring did, and in 79 of 100 seeds his
+first line on a dig was a `digging` one, not his call for help (D-496).
+A rules test checks a walled ring and every test seed's own room.
+D-652 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.120', date: '2026-11-07', title: 'Walls are not cleared heaps', lines: [
+    "The trapped peddler calls for help again the first time you dig at his rubble. Before, the cave walls round him counted as dug-out heaps, so in most journeys he went straight to \"Keep digging!\".",
+    "Decisions: D-668.",
+  ] },
   { v: '0.3.119', date: '2026-11-07', title: 'The fall reels the line in', lines: [
     "Falling with the fishing line out now reels it in. Before, the float stayed on the water and fish kept biting it after you woke, even from across the room.",
     "Decisions: D-667.",
