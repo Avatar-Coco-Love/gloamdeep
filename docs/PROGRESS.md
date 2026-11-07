@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The content map, part 4 (D-635): creatures and bosses, drafted with the
-picks so far (D-636 to D-642): each biome's creatures, their materials
-and bosses; it answers the next creature (Q-076).
+The Lure Wisp (D-643), the eighth new kind and a new way, lures: its
+look, lines, drop and numbers, talked through first (Q-076).
 Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 
 ## Waiting on the owner
@@ -25,7 +24,6 @@ Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
-- The next creature (Q-076, D-607), due now: fishing is done.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
@@ -52,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.94, Creatures and bosses.** All recommended: two
+  more kinds end biome 1; about 10 a deeper biome, some carried on a
+  heart tougher; bosses in their own room, changing at half, beaten
+  once; the Lure Wisp next (D-643).
 - **2026-11-07, 0.3.93, Plants and harvests.** All recommended: fewer
   deeper oil plants a flask; seeds from 3 of a plant; oil plants grow
   slowly at home; plants, ores, woods and fish kept (D-642).
@@ -59,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   weapons keep a part of their own in every metal; tank
   and wick climb, glass a choice; one armour and about three charms a
   biome; a knack taught in each village (D-641).
-- **2026-11-07, 0.3.91, Growth and quests.** The owner's picks: a
-  bigger Growth tree with knacks, 12 new boons and solvable trials
-  (D-639); places that branch, a village a biome, marked secrets and
-  side quests (D-640). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn

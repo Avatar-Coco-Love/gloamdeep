@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.91, Growth and quests.** The owner's picks: a
+  bigger Growth tree with knacks, 12 new boons and solvable trials
+  (D-639); places that branch, a village a biome, marked secrets and
+  side quests (D-640). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - **2026-11-07, 0.3.90, Skills and mechanics.** The content map drafted;
   the owner's picks: five weapon kinds, three elements, four found
   abilities (D-636); more to discover, a bigger tree (D-637); +1 a metal and found weapons (D-638). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
