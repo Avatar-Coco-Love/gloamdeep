@@ -153,3 +153,27 @@ adds 1 to every hit of each weapon kind, the shape the same. Beside the
 made ones, rare weapons are found below, each with one small effect of
 its own, as more to discover. Which, where and their effects are set at
 each one's own step.
+
+**D-639 · 2026-11-07 · The bigger Growth tree** (the owner's picks,
+recommended, and the owner's ideas; builds D-462, D-596, D-637) The
+Growth tree keeps its three branches and a row a biome, now with 4 or 5
+places a branch a row: about 50 places and 64 embers' worth, more than
+a journey's embers buy, so each hero grows differently. Knacks join it:
+small ways of fighting or finding, each bought once with an ember, worn
+2 at a time and swapped at home. Twelve new boons, three of each kind,
+26 in all; some join the pool on reaching their biome, some after
+something happens (the owner's idea). Challenges are trials: a room's
+challenge that pays an ember once, and each must be solvable. Names and
+numbers are drafts on the map, set at each one's own step. Map:
+https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
+
+**D-640 · 2026-11-07 · Places and quests, first picks** (the owner's
+picks, all recommended; part 5 of the content map, D-637) Each biome's
+middle and lower floors are each one of two kinds of place, the seed
+picking. One village a biome, four in all. Secrets on old floors that a
+later ability opens are marked on the map once the lantern has shown
+them. Side quests are listed in a Quests tab in the Journal, given by
+people or found as notes; some pay a new boon joining the pool, and
+some rescued people move home (D-470). Names, people, quests and
+rewards are drafts on the map, the specifics talked through at each
+one's own step.
