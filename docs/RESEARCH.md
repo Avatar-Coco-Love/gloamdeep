@@ -41,6 +41,11 @@ items: collectables, craftables, weapons and more. Where they stand:
   choices set how they feel about you, with friendships as in Stardew
   Valley, rumours, quests, vendors, a companion or two, and their
   equipment to use when they allow it.
+- More variety (2026-11-07, D-637): more to discover, more to do, and
+  lots of side quests on the way to the end; biomes reaching deeper into
+  different generated formations; villages below, groups of people
+  underground; a bigger Growth tree with more choices, loadout variety,
+  more boons, and challenges to match.
 - How places are made (2026-10-31): unique, even unusual layouts.
   Pools, and rivers above and below ground, leading to fishing (water
   first, D-499); later streams, oceans and more (D-504); different biomes; part of a room cut off by water or

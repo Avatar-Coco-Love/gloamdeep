@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
+  tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
 - **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's
   lines as drafted, on a page per creature opened from its row, a grey
   hint until one is beaten (D-631). Playtest: https://claude.ai/artifact/24JKyL2uLVyg6nTZKCxTEw

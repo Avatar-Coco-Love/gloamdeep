@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.80 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.90 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The content map (D-635): Claude drafts the whole game's content on one
-page, then the owner's first part, skills and mechanics: the Growth
-tree, found abilities, weapons and attack shapes, ranged and elemental.
+The content map, part 1 continued (D-636, D-637): explain how weapons
+can get better and ask (Q-085); redraft the Growth tree bigger, with
+loadout variety, more boons and challenges; then draft part 5, places
+and quests. Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -24,6 +25,7 @@ tree, found abilities, weapons and attack shapes, ranged and elemental.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
+- How weapons get better by metal (Q-085), next.
 - The next creature (Q-076, D-607), due now: fishing is done.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
@@ -51,11 +53,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.90, Skills and mechanics.** The content map drafted;
+  the owner's picks: five weapon kinds, three elements, four found
+  abilities (D-636); more to discover, a bigger tree (D-637). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
   biome, 32 in all (answers Q-082); all content planned on one map,
   skills and mechanics first (D-635).
 - **2026-11-07, 0.3.88, The story.** The owner's picks, set down in
   `LORE.md` (D-633); the guide a spark (answers Q-072); the keeper waits
   (Q-084); 12 to 20 hours to the end (D-634). Page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
-- **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
-  tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
