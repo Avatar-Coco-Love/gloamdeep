@@ -55,3 +55,14 @@ than its reach, and casts again only when the light moves, the room
 changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.93 (D-642), as it neared
+12 KB: planning ahead.
+
+**D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
+Research helpers work beside each build step and report to Claude, who
+brings options; only one conversation builds Gloamdeep at a time. The
+whole game's scope is shown as one visual map, then filled in piece by
+piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
+piece built when it is due, so nothing blocks it later. Better level
+making, as data in named passes, is planned before it is built.
