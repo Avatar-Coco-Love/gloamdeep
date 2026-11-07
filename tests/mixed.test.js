@@ -32,7 +32,7 @@ test('every room: its count, all from the pool, at least two kinds, a rat first'
 test('the mix leaves the room and the creatures\' tiles where the seed put them', () => {
   for (const seed of SEEDS.slice(0, 10)) for (const c of layoutAt(seed, 3).cells) {
     const p = placeFor(c.id, seed), plain = generateRoom(c.seed, 'chambers', { ...c, rats: 3, deposits: 3, veins: 1, pool: true, weapon: c.id === placeAt(SPEAR_DEPTH) ? 'spear' : null, trapped: c.id === peddlerRoom(seed) ? 'peddler' : null }); // his room with him in it, things moved aside (D-586)
-    assert.deepEqual(p.enemies.filter((e) => e.id !== 'flaskMimic').map(({ x, y }) => [x, y]), plain.enemies.map(({ x, y }) => [x, y]));
+    assert.deepEqual(p.enemies.filter((e) => e.id !== 'flaskMimic').slice(0, plain.enemies.length).map(({ x, y }) => [x, y]), plain.enemies.map(({ x, y }) => [x, y])); // a hall's or large room's other sets after (D-651)
   }
 });
 

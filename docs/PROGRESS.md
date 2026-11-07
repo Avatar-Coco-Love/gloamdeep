@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Halls and large rooms get more finds and creatures by size, about
-twice and four times a one-cell room's (D-650), with a map preview.
+Side rooms, step 3 (D-647): Claude proposes what else the side rooms
+could hold, and the owner picks.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.102, Fuller halls.** The owner's picks, all
+  recommended: halls hold twice a small room's finds and creatures,
+  large rooms four times, a set a cell (D-651). Playtest:
+  https://claude.ai/artifact/E72Zaibr9JYM6hZk2EUeCF
+  Map preview: https://claude.ai/artifact/FumapjPRm6XPFtDHiwBBrE
 - **2026-11-07, 0.3.101, The dead-end cache.** The owner's picks, all
   recommended: each dead end holds 2 or 3 extra finds, grouped in its far
   corner, left once; halls and large rooms scale next (D-650). Playtest:
@@ -60,7 +65,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   Glass sold for 2 (D-649). Playtest:
   https://claude.ai/artifact/1zgTritxVJjHefsfvqg33L Map preview:
   https://claude.ai/artifact/AUpgr7zMVi3nA1citkRAdg
-- **2026-11-07, 0.3.99, The Lure Wisp.** All recommended: drifts
-  toward other creatures, never bites, glows in the dark but lights no
-  tiles; 1 heart from depth 4; look A, a cold flame (D-649). Mock-ups:
-  https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx

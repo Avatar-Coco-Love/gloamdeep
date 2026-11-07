@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.99, The Lure Wisp.** All recommended: drifts
+  toward other creatures, never bites, glows in the dark but lights no
+  tiles; 1 heart from depth 4; look A, a cold flame (D-649). Mock-ups:
+  https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx
 - **2026-11-07, 0.3.98, Halls and large rooms.** Halls (2 cells) and
   large rooms (2 × 2) as side rooms; saves remade (D-648). Playtest:
   https://claude.ai/artifact/HLrQ778ZvPk2fvSv7b3o4y Map preview:

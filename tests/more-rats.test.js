@@ -12,7 +12,7 @@ const where = (map, ch) => map.flatMap((row, y) => [...row].map((c, x) => (c ===
 test('two creatures a room at depth 2, three at depths 3 and 4, four from depth 5 (D-534)', () => {
   assert.deepEqual([2, 3, 4, 5, 7, 8, 12].map(creaturesAt), [2, 3, 3, 4, 4, 4, 4]);
   for (const seed of SEEDS.slice(0, 10)) for (const depth of [2, 4, 5, 8]) for (const c of layoutAt(seed, depth).cells) {
-    assert.equal(placeFor(c.id, seed).enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth), `seed ${seed} ${c.id}`); // a flask mimic stands as well (D-366)
+    assert.equal(placeFor(c.id, seed).enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth) * c.w * c.h, `seed ${seed} ${c.id}`); // a flask mimic stands as well (D-366); twice or four times in a hall or large room (D-651)
   }
 });
 
