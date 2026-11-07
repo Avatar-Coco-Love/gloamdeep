@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.111 (2026-11-07)
+- Docs only: ideas from a review of the whole game are kept for later, among them shots you can see coming, sounds from the dark, torches that stay lit and a card when you fall. Nothing in play changes.
+- Decisions: D-658.
+
 ## 0.3.110 (2026-11-07)
 - Tough is on the Growth tree: in the Journal's Growth tab, Body now holds two places in its first row, Heart and Tough above it. Tough costs 1 ember and is bought once.
 - With Tough, a bite that hurts poisons you only about 1 time in 2, by the journey's dice. When it does, poison runs as before.
@@ -34,9 +38,3 @@ Entry format:
 - With Tough, a bite that hurts poisons you only about 1 time in 2. The Centipede Charm still makes poison shorter, and the Antidote still ends it.
 - It will sit in Body's first row, above Heart, so that row holds two places.
 - Decisions: D-657. D-646 moved to the archive, word for word.
-
-## 0.3.108 (2026-11-07)
-- A new charm, the Centipede Charm: a drop of pale green venom in a copper setting. Make it at the workbench, after the rod, from 3 Centipede Leg and 1 Copper Ore. You have one at a time.
-- Choose it in the bag and press Wear; no turn passes. It goes in a charm slot beside the Wisp or Heart Charm.
-- While you wear it, poisoned lasts 3 turns, not 6, and takes 1 heart, not 2. A bite still poisons you, so the Antidote still helps.
-- Decisions: D-656. D-645 moved to the archive, word for word.
