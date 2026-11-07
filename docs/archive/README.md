@@ -67,6 +67,7 @@ header says when it moved and why.
 | `DECISIONS-FISHING.md` | D-608 to D-616, D-618 | how fishing plays; the Wooden Rod; cast, wait, pull at the pond; the minnow's oil; fishing made clear; the nibble, the strike meter; eating and selling a minnow; the cave pools' fish | D-616, D-620, D-621, D-622, D-623, D-624, D-627 |
 | `DECISIONS-MAKING.md` | D-621 to D-627 | faster from idea to game: the checker, the maker, the bottom sheet, Spawn's grid, god mode, endless oil, test spots | D-630, D-631, D-632, D-633, D-634, D-635, D-636 |
 | `DECISIONS-BESTIARY.md` | D-628 to D-632 | step 19: the first words, the lore plan, the Bestiary tab, how it acts, how to fight it | D-636 |
+| `DECISIONS-BIOME-1.md` | D-648 to D-651, D-653 | biome 1's halls and large rooms, the lure wisp, the dead-end cache, more in halls and large rooms, the motes follow the way | D-660 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492, D-578 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

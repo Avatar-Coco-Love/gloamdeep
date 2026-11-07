@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, toward, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
+import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -11,12 +11,11 @@ import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
 import { beginPlace, depthOf } from './core/room.js';
 import { SEED_MAX, rng } from './core/rng.js';
-import { createScreen, TILE } from './render/screen.js';
+import { createScreen } from './render/screen.js';
 import { setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
-import { BOONS } from './core/registry.js';
-import { loadSettings, swipesWalk, tapsWalk, tapsStep, stillMotion } from './core/settings.js';
+import { loadSettings, swipesWalk, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary } from './core/profile.js';
 import { booked } from './core/bestiary.js';
@@ -32,8 +31,6 @@ import { inDaylight, passTime } from './core/daytime.js';
 import { growAll } from './core/garden.js';
 import { lanternFrom } from './core/sight.js';
 import { mouthLight } from './core/mouth.js';
-import { wayTo, stopsWalk } from './core/walk.js';
-import { offEdge } from './core/openings.js';
 import { createInput } from './input/input.js';
 import { createLanternButton } from './input/lantern.js';
 import { createPauseButton } from './input/pause.js';
@@ -45,6 +42,7 @@ import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
 import { createSlots } from './slots.js';
+import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound } from './render/sound.js';
@@ -52,7 +50,6 @@ import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
 import { stepOffersBoons, takeBoon, lanternReach } from './core/boon.js';
-import { poisonLeft } from './core/poison.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -295,72 +292,7 @@ function nudgeToward(dir) {
   const [dx, dy] = DIRS[dir];
   app.nudge = { dx, dy, until: performance.now() + 90 };
 }
-// § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
-// name and its card's line, or poisoned's turns left (D-654); no turn passes
-const tellMark = (picX, picY) => {
-  const id = frame.markSpot(...toLayer([picX, picY])), b = BOONS[id];
-  if (id === 'poisoned') app.state = say(app.state, 'poisonHeld', poisonLeft(app.state)); // its turns left (D-654)
-  else if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
-};
-let hovered = null; // the mark under the mouse, said once as it comes onto it
-const onHover = (picX, picY) => {
-  const id = app.screen === 'play' ? frame.markSpot(...toLayer([picX, picY])) : null;
-  if (id && id !== hovered) tellMark(picX, picY);
-  hovered = id;
-};
-// § tap: a tap on the hero waits a turn (D-085); a tap on a tile beside them steps
-// there, which bites, mines or opens as a step does; one further off walks there
-// at once (D-406), or with Tap on Step steps once toward it, along the farther side (D-042, D-449).
-// A tap while walking only stops it, and no turn passes. With Tap off, only the tap on
-// the hero, a plaque or a bench beside works (D-408).
-// A tap past the room's edge, where nothing can be walked, does nothing (D-424).
-// held: the same from a finger held still, which walks anew instead of stopping (D-408),
-// or on Step keeps stepping toward the finger (holdStep below)
-// picX, picY: on the menus' picture, in its pixels
-const stepToward = (picX, picY, held = false) => {
-  if (frame.markSpot(...toLayer([picX, picY]))) { if (!held) tellMark(picX, picY); return; } // a mark tells what it is; no turn passes (D-604)
-  const spot = frame.plaqueSpot(...toLayer([picX, picY])); // a plaque frames its creature, or lets it go; no turn passes (CL2)
-  if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }
-  if (app.walk && !held) { app.walk = null; return; }
-  const h = app.state.hero, [tx, ty] = tileAt(picX, picY);
-  if (dev.place(tx, ty)) return; // a picked spawn takes the tap (D-049)
-  if (held && tapsStep(app.settings)) { app.hold = [picX, picY]; lastHeldStep = -Infinity; return; } // the first step at once
-  if (offEdge(app.state.room, tx, ty)) return; // past the room's edge a tap does nothing (D-424)
-  const dir = toward(h.x, h.y, tx, ty);
-  if (!dir) { if (!held) tryStep('wait'); return; }
-  // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)
-  const bench = panelBeside(app.state, dir, true); // the bed too, which sleeps at night (D-488)
-  if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }
-  if (tapsStep(app.settings)) { tryStep(dir); return; }
-  if (!tapsWalk(app.settings)) return;
-  if (Math.abs(tx - h.x) + Math.abs(ty - h.y) === 1) { app.walk = null; tryStep(dir); return; }
-  app.walk = { tx, ty, way: wayTo(app.state, tx, ty) };
-  lastHeldStep = -Infinity; // the first step at once
-};
-// The room's tile under a point on the menus' picture
-function tileAt(picX, picY) {
-  const [px, py] = toRoom([picX, picY]);
-  return [Math.floor((px + app.cam.x) / TILE), Math.floor((py + app.cam.y) / TILE)];
-}
-// § hold to step (Tap: Step, D-449): a held finger steps the hero toward it at the held
-// pace (D-044), along the farther side; sliding steers, and on its tile, or past the
-// room's edge (D-424), the hero waits for it to move. Lifting stops at once.
-function holdStep() {
-  const h = app.state.hero, [tx, ty] = tileAt(...app.hold), dir = toward(h.x, h.y, tx, ty);
-  if (dir && !offEdge(app.state.room, tx, ty)) tryStep(dir);
-}
-// § walk on: one step on the way to the walk's tile, at the held pace (D-044). It ends
-// on the tile, at the end of remembered ground, or in another room; it stops by itself
-// for a bite, a find or a creature, with a "!" (D-407, D-408, D-410, the Stop walking switch).
-function walkOn() {
-  const { walk } = app, before = app.state, [next] = walk.way = wayTo(before, walk.tx, walk.ty);
-  if (!next) { app.walk = null; return; }
-  tryStep(toward(before.hero.x, before.hero.y, next.x, next.y));
-  const now = app.state;
-  if (now === before || now.place !== before.place || (now.hero.x === walk.tx && now.hero.y === walk.ty)) app.walk = null;
-  else if (stopsWalk(before, now, app.settings.stop)) { app.walk = null; app.alertUntil = performance.now() + ALERT_MS; }
-  else walk.way = wayTo(now, walk.tx, walk.ty);
-}
+// § touch: marks, tap, hold to step and walk on are in input/touch.js (made below, after the frame)
 
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
@@ -460,7 +392,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onHover, onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
+  onDir, onPoint, onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
 });
 const mapMoves = createMapMoves(stage, hudCanvas, { active: screens.onMapScreen, onPan: screens.panMap, onZoom: screens.zoomMap }); // in the room's pixels, as the map's card (D-395)
@@ -491,6 +423,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   camera: () => app.cam,
 }, hudCanvas);
 const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, dev, screens, still, foeAt });
+const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

@@ -34,15 +34,11 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
-  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
-- [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
-  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 20 Relics
 - [ ] 21 Feats
 
-**Next audit: 0.3.112** (D-518, D-617).
+**Next audit: 0.3.152** (D-518, D-660).
 
 Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
