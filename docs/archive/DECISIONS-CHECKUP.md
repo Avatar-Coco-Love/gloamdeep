@@ -195,3 +195,16 @@ abilities, one from each biome's boss: Leap (biome 1), Heave (2), Flare
 names are drafts on the map, set at each one's own step. D-627 moved to
 `archive/DECISIONS-MAKING.md` and D-628 to D-632 to
 `archive/DECISIONS-BESTIARY.md`, word for word.
+
+**D-637 · 2026-11-07 · More to discover, a bigger tree** (the owner's
+wish and picks; builds D-482, D-603, D-635) The game gets more variety:
+more to discover, more to do, and many side quests on the way to the
+end. The content map gains a part 5, places and quests, with all four:
+each biome branching into different kinds of generated places as it
+goes deeper; villages below, groups of people living underground with
+their own quests; more secrets on old floors that open with later
+abilities; and side quests through it all. The Growth tree grows
+bigger, with more upgrades than embers buy, so each hero grows
+differently; more loadout variety and more boons (D-603); and
+challenges to match. How weapons get better by metal waits (Q-085).
+*Changed in the open PR: Q-085 answered by D-638.*

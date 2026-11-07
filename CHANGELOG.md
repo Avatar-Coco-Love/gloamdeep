@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.102 (2026-11-07)
+- Halls and large rooms are worth the walk: a hall now holds twice the finds and creatures of a small room, and a large room four times, spread evenly, a set in each part of the room.
+- Each set is a flask with a rat guarding it, a herb, an oilcap, sometimes a heartcap, and the depth's usual mix of creatures. The knife and the spear stay one each.
+- Rooms you have already been into stay as they were.
+- Decisions: D-651. D-637 moved to the archive, word for word.
+
 ## 0.3.101 (2026-11-07)
 - Side rooms start paying for the oil: the last room of each side branch, a dead end, now holds a cache of 2 or 3 extra finds (flasks, herbs, oilcaps or heartcaps), lying together in its far corner.
 - A cache is there once: taken, it does not grow back. Rooms you have already been into stay as they were.
@@ -32,9 +38,4 @@ Entry format:
 - The Lure Wisp is here, from depth 4: a small cold flame with pink eyes. Its faint glow shows even out in the dark, though it lights nothing around it.
 - Come within 3 steps and it drifts a tile away, toward the nearest other creature in the room, or just away when there is none. Following it leads you into trouble.
 - It never bites, and one hit puts it out. About 1 in 2 leave Wisp Glass, sold for 2.
-- Decisions: D-649.
-
-## 0.3.99 (2026-11-07)
-- Nothing in the game changed. The Lure Wisp is planned: a small cold flame with pink eyes, seen even out in the dark, though it lights nothing around it. Come within 3 tiles and it drifts a tile away, toward the nearest other creature, so following it leads you into trouble.
-- It never bites, and one hit puts it out. It has 1 heart, turns up from depth 4, and may leave Wisp Glass, sold for 2. It is built next.
 - Decisions: D-649.

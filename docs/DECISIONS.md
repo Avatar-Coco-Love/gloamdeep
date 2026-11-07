@@ -36,19 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-637 · 2026-11-07 · More to discover, a bigger tree** (the owner's
-wish and picks; builds D-482, D-603, D-635) The game gets more variety:
-more to discover, more to do, and many side quests on the way to the
-end. The content map gains a part 5, places and quests, with all four:
-each biome branching into different kinds of generated places as it
-goes deeper; villages below, groups of people living underground with
-their own quests; more secrets on old floors that open with later
-abilities; and side quests through it all. The Growth tree grows
-bigger, with more upgrades than embers buy, so each hero grows
-differently; more loadout variety and more boons (D-603); and
-challenges to match. How weapons get better by metal waits (Q-085).
-*Changed in the open PR: Q-085 answered by D-638.*
-
 **D-641 · 2026-11-07 · Items and crafting, first picks** (the owner's
 picks, all recommended; part 2 of the content map, D-635; builds D-455,
 D-456, D-458, D-459, D-638, D-639, D-640) Each weapon kind keeps one
@@ -180,3 +167,14 @@ draft, tuned at the playtest. Next, halls and large rooms get about
 twice and four times a one-cell room's finds and creatures (the
 owner's pick, recommended), as its own step. D-636 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-651 · 2026-11-07 · Side rooms, step 2: more in halls and large
+rooms** (the owner's picks, all recommended; builds D-648, D-650) A
+hall holds twice a one-cell room's finds and creatures, a large room
+four times: every find (flask, herb, oilcap, and a heartcap 1 time in
+2 for each cell), the knife and spear still one each; and the depth's
+creatures, 2, 3 or 4 a cell, mixed as in other rooms. Each cell gets a
+set of its own by today's rules, so they spread evenly; the room's
+first set stays where it lay, and a cell of rock and tunnel too small
+for its set has it anywhere in the room (Claude's draft). D-637 moved
+to `archive/DECISIONS-CHECKUP.md`, word for word.

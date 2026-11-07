@@ -5,11 +5,12 @@ import { byLetter, get, LANDMARKS } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
+import { withSize } from './sized.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
-import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf } from './region.js';
+import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf, sizeAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
 import { spotIn, unpad } from './stamper.js';
 
@@ -143,7 +144,15 @@ export function mixed(room, seed, depth) {
   const pool = poolAt(depth), others = pool.filter((id) => id !== 'rat'), r = rng(seed ^ 0x1f83d9ab);
   const ids = room.enemies.map((e, i) => (i === 0 ? e.id : pool[Math.floor(r() * pool.length)]));
   if (ids.length > 1 && ids.every((id) => id === 'rat')) ids[1 + Math.floor(r() * (ids.length - 1))] = others[Math.floor(r() * others.length)];
-  return { ...room, enemies: toned(seed, coloured(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i], ...(get(ids[i]).looksLike && { asleep: true }) })))) }; // a snapcap in a heartcap's tone (D-543); a herb mimic asleep (D-549)
+  return { ...room, enemies: dressed(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] }))) };
+}
+// Each creature in its colours and tone: a snapcap in a heartcap's tone (D-543); a herb mimic asleep (D-549)
+const dressed = (seed, enemies) => toned(seed, coloured(seed, enemies.map((e) => ({ ...e, ...(get(e.id).looksLike && { asleep: true }) }))));
+// § sized: a hall's or large room's other cells, a set each (D-651, sized.js)
+function sized(room, seed, depth, cell) {
+  const more = withSize(seed, room, cell, sizeAt(depth), creaturesAt(depth), poolAt(depth));
+  if (!more.enemies.length && !more.items.length) return room;
+  return { ...room, items: [...room.items, ...toned(seed, more.items)], enemies: [...room.enemies, ...dressed(seed, more.enemies)] };
 }
 // § flask mimics: on depths 3 to 5, each room has a 1 in 4 chance, from the seed, of
 // a flask mimic as well as all it holds (D-366)
@@ -203,7 +212,8 @@ export function placeFor(id, seed = 1) {
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped, landmark });
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
-  const guanoed = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
+  const bigger = mimicked && sized(mimicked, cell.seed, depth, cell); // more in a hall or large room (D-651)
+  const guanoed = bigger && withGuano(cell.seed, bigger); // a pile by each bat, placed last (D-539)
   const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
   const room = cached && landmark ? { ...cached, map: unpad(cached.map, landmark.mark, landmark.at) } : cached; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };

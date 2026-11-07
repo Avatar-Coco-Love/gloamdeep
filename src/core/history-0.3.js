@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.102', date: '2026-11-07', title: 'Fuller halls', lines: [
+    "Halls and large rooms are worth the walk: a hall now holds twice the finds and creatures of a small room, and a large room four times, spread evenly, a set in each part of the room.",
+    "Each set is a flask with a rat guarding it, a herb, an oilcap, sometimes a heartcap, and the depth's usual mix of creatures. The knife and the spear stay one each.",
+    "Rooms you have already been into stay as they were.",
+    "Decisions: D-651. D-637 moved to the archive, word for word.",
+  ] },
   { v: '0.3.101', date: '2026-11-07', title: 'The dead-end cache', lines: [
     "Side rooms start paying for the oil: the last room of each side branch, a dead end, now holds a cache of 2 or 3 extra finds (flasks, herbs, oilcaps or heartcaps), lying together in its far corner.",
     "A cache is there once: taken, it does not grow back. Rooms you have already been into stay as they were.",
