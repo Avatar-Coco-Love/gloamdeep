@@ -35,14 +35,16 @@ Draft page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
    The Lightkeepers dug Maren an empty grave there; it hurts before the
    hero knows why, and the journal slowly shows the hero was there.
 7. **The goal.** Follow the call all the way down and relight the First
-   Light, so the gloam is pushed back.
+   Light, so the gloam is pushed back. The journey goes on after it: the gloam
+   is pushed back but not gone (D-634).
 
 ## Old Maren, taken by the gloam
 When a Lightkeeper's oil runs out in the deep, the gloam remakes them
 as a gloamling. Maren went further than anyone, and became something
 far worse: a boss with a history (Q-083). When the hero beats Maren,
 Maren's lantern relights; for a moment they are themselves again, and
-pass something on before they go.
+pass something on before they go. The fight comes near the end, deep in
+Underhearth, just before the First Light (D-634).
 
 ## How the world works
 - **Death sends you home:** every Lightkeeper is bound to the hearth,

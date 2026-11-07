@@ -65,7 +65,7 @@ header says when it moved and why.
 | `DECISIONS-WAYSTONES.md` | D-579, D-587 to D-589, D-591 to D-595, D-620 | waystones for fast travel; landmarks made from data (its size superseded by D-620); pictures drawn again after a wipe; the home waystone asleep, waking it, the sleeping waystone at depth 2, travel between them, the other depths', the travel card scrolls | D-593, D-595, D-599, D-611, D-612 |
 | `DECISIONS-BOONS.md` | D-583, D-596 to D-604 | boons at the home waystone; the boon list and the boon card; the next boons, Hungry Flame and Reckless; Deep Pour, Kind Herbs and Lucky Find; Soft Step; Waymark; Far Sight; the boon cards; the boon's mark | D-600, D-601, D-602, D-603, D-604, D-605, D-606, D-615 |
 | `DECISIONS-FISHING.md` | D-608 to D-616, D-618 | how fishing plays; the Wooden Rod; cast, wait, pull at the pond; the minnow's oil; fishing made clear; the nibble, the strike meter; eating and selling a minnow; the cave pools' fish | D-616, D-620, D-621, D-622, D-623, D-624, D-627 |
-| `DECISIONS-MAKING.md` | D-621 to D-624 | faster from idea to game: the checker, the maker, the bottom sheet, Spawn's grid, god mode, endless oil, test spots | D-630, D-631, D-632, D-633 |
+| `DECISIONS-MAKING.md` | D-621 to D-625 | faster from idea to game: the checker, the maker, the bottom sheet, Spawn's grid, god mode, endless oil, test spots | D-630, D-631, D-632, D-633, D-634 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492, D-578 |
 
 ## Changelog (`tests/history.test.js` reads every `CHANGELOG-*.md` here)

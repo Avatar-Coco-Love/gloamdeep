@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The owner's wish: how long the game takes to beat, and what that needs
-(creatures, bosses, biomes, the map, gear, abilities), from `LORE.md`;
-then a lore line per creature (D-629, D-633).
+A lore line per creature in the Bestiary, from `LORE.md` (D-629,
+D-633); then the first biome, finished whole (D-634).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -54,7 +53,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-11-07, 0.3.88, The story.** The owner's picks, set down in
   `LORE.md` (D-633); the guide a spark (answers Q-072); the keeper waits
-  (Q-084). Story page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
+  (Q-084); 12 to 20 hours to the end (D-634). Page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
 - **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
   tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
 - **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's

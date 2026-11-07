@@ -26,7 +26,8 @@ page, a Feat and perhaps a relic; rare named ones a Bestiary page, a
 Feat and a trophy. Still open: each one's story, looks and fight, the
 numbers, and when each kind comes. Asked at its own step, after the
 Bestiary (step 19). Old Maren, the hero's teacher, is one boss with a
-history, freed when beaten (D-633, `LORE.md`).
+history, freed when beaten (D-633, `LORE.md`), fought near the end after the 4
+biome bosses; about 8 wanderers and rare named ones (D-634).
 
 **Q-084 · Who the keeper is** (raised 2026-11-07, D-633) One lone
 keeper leaves the oil flasks, herbs and other finds, never caught and
