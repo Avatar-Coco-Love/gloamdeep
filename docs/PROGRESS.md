@@ -4,13 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.138 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.139 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-S3's second half (D-686): with reduced motion on, play draws a frame
-only when something changes, play feeling the same. Then the Spit grub
-(D-659).
+The Spit grub (D-659).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +44,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.139, Still play draws less.** As recommended
+  (D-687): with reduced motion on, the room in play is drawn once and
+  kept until something in it changes, so standing in the crypt takes
+  about 1 ms a frame, not 9, on a slowed phone (S3, its second half).
+  Play looks the same. A test checks when it is kept. Playtest:
+  https://claude.ai/artifact/53gL9aXUxsgbnH72GdJA8w
 - **2026-11-07, 0.3.138, The room holds still under a card.** As
   recommended (D-686): under a card the room is drawn once and kept, so a
   frame with the bag open takes about 1 ms, not 8, on a slowed phone (S3,
@@ -58,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   picture is the same, pixel for pixel; a test checks 12 rooms.
   Playtest:
   https://claude.ai/artifact/AgfwmCnzfa5JA3mFQBA2RF
-- **2026-11-07, 0.3.136, He has wares at home.** As recommended
-  (D-684): the peddler at home no longer says "I'll have wares soon"
-  while selling them (D4). His two other home lines take turns. A test
-  checks it. Playtest:
-  https://claude.ai/artifact/8ea1a3caT6egJh2pSvMoya

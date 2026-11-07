@@ -28,7 +28,8 @@ at build plan step 7 (D-039).
   the light 8.5 ms, 7.3 ms with the kept shadows (D-619); walking 59 fps,
   11 ms a frame, the light 7.5 ms either way.
 - Under a card the room is drawn once and kept, drawn again only when what
-  it shows changes (`render/hold.js`, D-686).
+  it shows changes (`render/hold.js`, D-686); in play too with reduced motion
+  on, as nothing in the room moves by itself (D-687).
 - `localStorage` is wrapped in try/catch, and the game works without it.
 - Respect `prefers-reduced-motion`.
 - A canvas drawn once and kept is drawn through `render/wipe.js` (`keep`, or `onWipe` to empty a cache), so it comes back after Android wipes it in the background (D-588).
