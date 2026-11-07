@@ -30,6 +30,13 @@ this page and a decision disagree, the decision wins.
 - **Area:** a depth's kind of place: Crypt (1), Cave (2 to 4), Warren
   (5 to 7), Dungeon (8 on) (D-233).
 
+## The story (more in `LORE.md`, D-633)
+- **The gloam:** alive, it eats light. **The First Light:** the great
+  lamp at the bottom, to relight. **Underhearth:** the city below, now
+  the sunken ruins. **The Lightkeepers:** the order of lamplighters.
+- **Old Maren:** the hero's teacher, taken by the gloam. **The keeper:**
+  who leaves the finds (Q-084). **The spark:** the guide.
+
 ## The hero
 - **Hearts:** the hero's health, 5, and up to 5 more bought (D-115, D-293). **LV:** the level (D-246).
 - **Embers:** 1 for each level past the first, spent in Growth (D-293).

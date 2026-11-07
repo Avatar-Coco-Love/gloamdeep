@@ -26,9 +26,9 @@ of it.
   into deep areas that change on every visit (D-019).
 - Death sends you home and never wipes progress (D-020, D-021).
 - Surface first, then down; caves can open into valleys (D-022).
-- Solo, with a rescued guide joining early, not a faery: what it is waits (D-023, D-034, D-508, Q-072).
+- Solo, with a rescued guide joining early, not a faery: a spark of the First Light (D-023, D-034, D-508, D-633).
 - Every biome has portals into a twisted version of itself (D-032).
-- The hero is a lamplighter; why they go down is uncovered slowly (D-036).
+- The hero is a lamplighter; why they go down is uncovered slowly (D-036); the story is in `LORE.md` (D-633).
 - Biomes, top to bottom: woods and mountains, old mines and caves, glowing
   fungal caverns, sunken ruins (D-028).
 

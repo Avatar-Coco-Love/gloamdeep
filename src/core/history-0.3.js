@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.88', date: '2026-11-07', title: 'The story', lines: [
+    "Nothing in the game changed. The story is written down: Underhearth, the city below, fell when its great lamp, the First Light, ran low on oil. You went down with your teacher, Old Maren, the gloam took them, and you came home without your memories. The goal is to relight the First Light. The guide will be a spark of it.",
+    "Decisions: D-633. Questions closed: Q-072. Questions opened: Q-084. D-624 moved to the archive, word for word.",
+  ] },
   { v: '0.3.87', date: '2026-11-06', title: 'How to fight it', lines: [
     "A creature's Bestiary page now ends with how to fight it, under a gold heading, once you have beaten 3 of them. Before that it says in grey how many more to beat: \"Beat 2 more to learn how to fight it.\" Each creature has a tip or two of its own, such as waiting for it to step up to you so you strike first.",
     "Decisions: D-632. D-623 moved to the archive, word for word.",

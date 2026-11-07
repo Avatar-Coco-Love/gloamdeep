@@ -77,20 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-624 · 2026-11-06 · Spawn as a grid of pictures** (the owner's
-picks, all recommended; step 18b, after the bottom sheet, D-623) Spawn
-is a grid of pictures, one per registry entry, each 16 × 16 drawn at
-32 px with no words; the picked one's name shows in the section's name
-line ("SPAWN · CAVE MOUTH"). The kinds keep their headings in one long
-list. Above them a search box, typed with the device's own keyboard,
-narrows the grid by name with each letter; a heading with nothing left
-hides, and × clears it. A tile shows its real drawing, as the room
-draws it. Claude's, the owner may change it: a tile is drawn on a
-crypt floor; a torch on a wall's face; anything with no picture yet
-shows a grey "?"; the box's letters are not the game's keys, and Esc
-leaves it. D-617 moved to `archive/DECISIONS-AUDITS.md` and D-618 to
-`archive/DECISIONS-FISHING.md`, word for word.
-
 **D-625 · 2026-11-06 · God mode** (the owner's picks, all recommended;
 step 18b, after Spawn's grid, D-621, D-154) A God mode switch in the dev
 panel's Hero section, under Refill hearts. While it is on a creature
@@ -183,4 +169,16 @@ Until 3 are beaten it says in grey how many more: "Beat 2 more to learn
 how to fight it." Claude's, the owner may change it: with none beaten,
 "Beat 3 to learn how to fight it." The maker leaves `fights` a blank,
 and the checker asks every creature for it. D-623 moved to
+`archive/DECISIONS-MAKING.md`, word for word.
+
+**D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
+Q-072; builds D-036, D-628, D-629) The story is set down in
+`docs/LORE.md`: Underhearth, the city below, fell when the First Light's
+oil ran low; the Lightkeepers' hearth in Hearthwood is its spark; the
+dying First Light calls; the hero went down with their teacher, Old
+Maren, whom the gloam took, and came back without their memories; the
+goal is to relight the First Light. The guide is a spark of the First
+Light; Maren is a boss with a history (Q-083), freed when beaten; the
+crypt is the oldest of many ways down. Who the keeper is who leaves the
+finds waits (Q-084). Tone: gloomy, with hope. D-624 moved to
 `archive/DECISIONS-MAKING.md`, word for word.

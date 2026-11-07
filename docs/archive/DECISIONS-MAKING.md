@@ -1,7 +1,7 @@
 # Faster making (D-621)
 
 Moved word for word from `DECISIONS.md` at 0.3.85 (D-630), as that file
-neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632). In force.
+neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632), and D-624 at 0.3.88 (D-633). In force.
 
 ---
 
@@ -53,3 +53,17 @@ sprites by kind with the search box. Claude's, the owner may change
 it: a folded sheet is only its tabs; its handle is a look only, and
 does not drag; the stats line sits above it while it is up. D-615 and
 D-616 moved to `archive/DECISIONS-FISHING.md`, word for word.
+
+**D-624 · 2026-11-06 · Spawn as a grid of pictures** (the owner's
+picks, all recommended; step 18b, after the bottom sheet, D-623) Spawn
+is a grid of pictures, one per registry entry, each 16 × 16 drawn at
+32 px with no words; the picked one's name shows in the section's name
+line ("SPAWN · CAVE MOUTH"). The kinds keep their headings in one long
+list. Above them a search box, typed with the device's own keyboard,
+narrows the grid by name with each letter; a heading with nothing left
+hides, and × clears it. A tile shows its real drawing, as the room
+draws it. Claude's, the owner may change it: a tile is drawn on a
+crypt floor; a torch on a wall's face; anything with no picture yet
+shows a grey "?"; the box's letters are not the game's keys, and Esc
+leaves it. D-617 moved to `archive/DECISIONS-AUDITS.md` and D-618 to
+`archive/DECISIONS-FISHING.md`, word for word.

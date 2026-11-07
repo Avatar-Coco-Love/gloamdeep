@@ -25,4 +25,10 @@ get all three places and every reward; wanderers rumours and a Bestiary
 page, a Feat and perhaps a relic; rare named ones a Bestiary page, a
 Feat and a trophy. Still open: each one's story, looks and fight, the
 numbers, and when each kind comes. Asked at its own step, after the
-Bestiary (step 19).
+Bestiary (step 19). Old Maren, the hero's teacher, is one boss with a
+history, freed when beaten (D-633, `LORE.md`).
+
+**Q-084 · Who the keeper is** (raised 2026-11-07, D-633) One lone
+keeper leaves the oil flasks, herbs and other finds, never caught and
+always a room ahead (`LORE.md`). Who the keeper is, and when the hero
+learns it, wait; the owner chose to decide later.
