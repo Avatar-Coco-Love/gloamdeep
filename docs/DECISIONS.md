@@ -68,14 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-664 · 2026-11-07 · Only the stone's own sticks** (the owner's picks,
-both recommended; W1 of D-660's findings, as D-661 set) As an old save
-gets its home waystone (D-589), what lies on the stone's own 3 × 3
-tiles is cleared, measured from its plan, and nothing in the ring round
-it. Before, it cleared 2 tiles out, the old 5 × 5 stone's size, so a
-stick or a dropped find in the ring went too. A rules test checks a
-stick on the stone goes and a stick and a herb in the ring stay.
-
 **D-665 · 2026-11-07 · The progress version kept in step** (the owner
 left it to Claude) `docs/PROGRESS.md`'s **Version:** line had been set
 by hand and fell 4 versions behind. `tools/release.js` (D-572) now sets
@@ -204,3 +196,11 @@ crafting later"; their other two lines stay. The eleven no recipe uses
 yet keep "for crafting later" until one does. A rules test checks each
 line against the recipes. D-663 moved to `archive/DECISIONS-AUDITS.md`,
 word for word.
+
+**D-678 · 2026-11-07 · Freed once** (the owner's pick, recommended; R6
+of D-660's findings, as D-666 set) Rubble beside a person already freed
+digs as with no one there, its own lines ("You pull rocks off the
+heap." …), their wait untouched. Before, bumps played his `digging`
+lines and the last freed him again, thanks and 5 turns anew. A rules
+test checks it. D-664 moved to `archive/DECISIONS-AUDITS.md`, word for
+word.

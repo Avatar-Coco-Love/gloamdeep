@@ -110,6 +110,16 @@ test('the third bump clears one heap to floor, no stone; he thanks the hero and 
   assert.deepEqual(s.taken, []); // never comes back
 });
 
+test('once freed, another heap beside him digs as plain rubble: no second thank-you, his wait untouched (D-678)', () => {
+  let s = freed(); // freed at turn 3, leaving at turn 8
+  const lines = [];
+  for (let i = 0; i < 3; i++) { s = dig(s, 4, 1); lines.push(shownLine(s).text); } // the heap straight above him
+  assert.equal(tileAt(s.room, 4, 1).id, 'floor');
+  assert.deepEqual(lines, [LINES.rubbleDig, LINES.rubbleShift, LINES.rubbleClear].map((l) => l.text ?? l.texts[0]));
+  assert.deepEqual(s.people, [{ id: 'peddler', x: 4, y: 2, leaves: 8 }]);
+  assert.deepEqual(s.events.filter((e) => e.type === 'free'), []);
+});
+
 test('left alone 5 turns, he says goodbye and is gone, a leave event where he stood', () => {
   let s = freed();
   for (let i = 0; i < 4; i++) s = wait(s);

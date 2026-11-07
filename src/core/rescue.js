@@ -7,7 +7,8 @@
 // person straight up, down, left or right of it is then free, a corner opening no way (D-498): they thank the hero with their `freed` line and stay,
 // `leaves` set, until their turns are up (homeward.js, D-496); then they head home: they
 // stand at once in the woods, beside its middle (step 12c, D-492). Each bump is a `chip`
-// event, a person freed a `free` one, a person gone a `leave` one.
+// event, a person freed a `free` one, a person gone a `leave` one. Beside one already
+// freed, rubble digs as with no one there, their wait untouched (D-678).
 // Cleared rubble never comes back.
 import { tileAt, withTile } from './room.js';
 import { get } from './registry.js';
@@ -21,7 +22,7 @@ export function dig(state, x, y) {
   const tile = tileAt(state.room, x, y), { hits, chips, breaks } = tile.dig;
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
-  const person = personBeside(state, x, y), who = person && get(person.id);
+  const near = personBeside(state, x, y), person = near?.leaves === undefined ? near : null, who = person && get(person.id); // one already freed isn't freed again (D-678)
   if (n < hits) {
     const room = { ...state.room, chips: { ...rest, [key]: n } };
     const call = who && (dugBeside(state, person) ? who.digging : who.calls);

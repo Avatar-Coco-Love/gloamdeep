@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.130', date: '2026-11-07', title: 'Freed once', lines: [
+    "Once the trapped peddler is free, digging another heap of rubble beside him is plain digging: the rubble's own lines, and he still leaves when he meant to. Before, he cheered the digging on and was freed a second time, thanking you again and waiting 5 more turns.",
+    "Decisions: D-678. D-664 moved to the archive, word for word.",
+  ] },
   { v: '0.3.129', date: '2026-11-07', title: 'Good for making things', lines: [
     "Nine materials with recipes, from Stone and Copper Ore to the Mimic Heart, now say \"good for making things\" when chosen in the bag, not \"for crafting later\". The eleven no recipe uses yet still say \"for crafting later\".",
     "Decisions: D-677. D-663 moved to the archive, word for word.",

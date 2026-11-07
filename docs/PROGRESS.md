@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.129 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.130 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-R6 of D-660's list, the next fix in D-666's order. Then R7, I4, D2,
-D3, I5 (with Q-054) and D4, one a step, then S1 and S3; the Spit grub
+R7 of D-660's list, the next fix in D-666's order. Then I4, D2, D3,
+I5 (with Q-054) and D4, one a step, then S1 and S3; the Spit grub
 (D-659) after them.
 
 ## Waiting on the owner
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.130, Freed once.** As recommended (D-678): rubble
+  dug beside the freed peddler gives its own lines, and he isn't freed
+  again or kept 5 more turns (R6). A rules test checks it. Playtest:
+  https://claude.ai/artifact/77TsBY1AqY6wSHbmZLLLp6
 - **2026-11-07, 0.3.129, Good for making things.** As recommended
   (D-677): the nine materials a recipe uses say "good for making
   things" in the bag, not "for crafting later"; the other eleven keep
@@ -55,7 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-676): `TECH-2.md` lists the maker and the map preview's page,
   `DEV-TOOLS.md` says Go to depth runs 0 to 99, and Q-076 says the lure
   wisp is built (F to I). Docs only, so no playtest.
-- **2026-11-07, 0.3.127, Built things, not "to come".** As recommended
-  (D-675): five glossary lines say what is in the game today, armour,
-  charms, lantern parts, planting, the deeper waystones, the Bestiary
-  tab and Stone's crafts (D). Docs only, so no playtest.
