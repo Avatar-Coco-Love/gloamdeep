@@ -181,7 +181,10 @@ rooms with the crypt's. Rooms are made of cells so that everything lines
 up in play and on the map (the owner's wish): a cell is 11 × 13 tiles,
 13 × 15 at depth 8; a room is 1 cell (small), 2 side by side or one above
 the other (a long hall) or 2 × 2 (large), edge to edge, so every opening
-meets exactly. How many halls and large rooms a floor gets is Claude's
+meets exactly. The stairs down are about 3 or 4 rooms from the stairs
+up, as far as today; the other rooms branch off that way and hold the
+rewards, so exploring is a choice the oil pays for (the owner's pick,
+recommended, so more space adds choices, not walking; D-580). How many halls and large rooms a floor gets is Claude's
 draft, tuned at the playtest. Old saves have their generated rooms made
 again once, as at D-580; home, the surface and the crypt are kept. Built
 in two steps: more one-cell rooms on the bigger grids, then halls and

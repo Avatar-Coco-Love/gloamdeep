@@ -25,7 +25,7 @@ Entry format:
 
 ## 0.3.96 (2026-11-07)
 - Nothing in the game changed. The first cave's floors are planned bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8, the number changing from seed to seed, about 69 rooms in all where there are about 33 now.
-- Rooms will be made of square-cut cells so everything lines up, in play and on the map: a small room is one cell, a long hall two, a large room two by two. Old saves will have their cave floors made again once; home, the woods and the crypt stay.
+- Rooms will be made of square-cut cells so everything lines up, in play and on the map: a small room is one cell, a long hall two, a large room two by two. The stairs down stay about as near as today, 3 or 4 rooms away; the other rooms branch off the way and hold the rewards. Old saves will have their cave floors made again once; home, the woods and the crypt stay.
 - Decisions: D-645. D-634 moved to the archive, word for word.
 
 ## 0.3.95 (2026-11-07)

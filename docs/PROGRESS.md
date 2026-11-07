@@ -53,8 +53,8 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-11-07, 0.3.96, Biome 1's floors.** The owner's picks: more
   rooms a floor, changing by seed; rooms made of cells (1, 2 or 2 × 2)
-  so everything lines up on the grid and the map; old saves remade
-  once (D-645).
+  so everything lines up on the grid and the map; the stairs 3 or 4
+  rooms away, side rooms holding rewards; old saves remade once (D-645).
 - **2026-11-07, 0.3.95, Bigger biomes.** The owner's picks: each biome
   about 2 to 3 times today's space, more rooms a floor and rooms of
   varied sizes, unlike between seeds; biome 1 first (D-644).
