@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.128, The small notes caught up.** As recommended
+  (D-676): `TECH-2.md` lists the maker and the map preview's page,
+  `DEV-TOOLS.md` says Go to depth runs 0 to 99, and Q-076 says the lure
+  wisp is built (F to I). Docs only, so no playtest.
 - **2026-11-07, 0.3.127, Built things, not "to come".** As recommended
   (D-675): five glossary lines say what is in the game today, armour,
   charms, lantern parts, planting, the deeper waystones, the Bestiary

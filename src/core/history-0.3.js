@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.131', date: '2026-11-07', title: 'Drops clear of creatures', lines: [
+    "A creature's drops, mined finds that don't fit in the bag and berries picked from the garden bed never land under a creature or a person: they go to the next open tile, or where they came from when none is left. Before, a rare drop could lie hidden under another creature.",
+    "Decisions: D-679. D-665 and D-666 moved to the archive, word for word.",
+  ] },
   { v: '0.3.130', date: '2026-11-07', title: 'Freed once', lines: [
     "Once the trapped peddler is free, digging another heap of rubble beside him is plain digging: the rubble's own lines, and he still leaves when he meant to. Before, he cheered the digging on and was freed a second time, thanking you again and waiting 5 more turns.",
     "Decisions: D-678. D-664 moved to the archive, word for word.",
