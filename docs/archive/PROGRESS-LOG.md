@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.88, The story.** The owner's picks, set down in
+  `LORE.md` (D-633); the guide a spark (answers Q-072); the keeper waits
+  (Q-084); 12 to 20 hours to the end (D-634). Page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
 - **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
   tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
 - **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's

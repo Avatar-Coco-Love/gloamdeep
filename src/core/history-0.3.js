@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.91', date: '2026-11-07', title: 'Growth and quests', lines: [
+    "Nothing in the game changed. The Growth tree is planned bigger: about 50 places across Light, Body and Hands, more than a journey's embers can buy, so each hero grows differently. Knacks join it, small ways of fighting or finding worn two at a time, with twelve new boons (26 in all, some joining as you go deeper or after something happens) and solvable trials that pay an ember.",
+    "Places and quests are planned too: each biome's deeper floors are one of two kinds of place, a village of people in each biome, secrets on old floors marked on the map once seen, and side quests in a Quests tab, some paying a new boon or bringing someone home.",
+    "Decisions: D-639, D-640.",
+  ] },
   { v: '0.3.90', date: '2026-11-07', title: 'Skills and mechanics', lines: [
     "Nothing in the game changed. The content map's first draft is up: every biome's weapons, skills, items, plants and creatures on one page. Picked from it: five weapon kinds (knife, spear, axe, hammer, sling), three elements (flame, venom, light) and four found abilities (Leap, Heave, Flare, Swim). Each new metal makes every weapon hit 1 harder, and rare weapons with small effects of their own will be found below.",
     "The game will hold more to discover: places that branch as each biome goes deeper, villages of people below, secrets on old floors and many side quests, with a bigger Growth tree, more boons and challenges to match.",
