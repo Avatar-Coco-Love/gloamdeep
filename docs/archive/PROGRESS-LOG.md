@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.134, The wrench under pause.** As recommended
+  (D-682): on a 320 px wide phone the dev wrench stands under pause, so
+  the panel no longer runs into it from level 10 (D3). A test checks
+  phones, sideways phones and tablets. Playtest:
+  https://claude.ai/artifact/6g1Ccus8DiqyiNHBnhPrn2
 - **2026-11-07, 0.3.133, A smaller card upright.** As
   recommended (D-681): held upright, a tablet draws an open card a size
   smaller, so the bag's words clear Drop and Wear with a 9 or 12 slot

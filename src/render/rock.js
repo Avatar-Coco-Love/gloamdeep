@@ -42,13 +42,23 @@ function roomWalls(room) {
 }
 function mask(room, wobble, win, { wall, gap }) {
   const { x0: X0, y0: Y0, w: W, h: H } = win, m = new Uint8Array(W * H);
+  // Each tile worked out once, not for every pixel: its wall value, whether it is
+  // a wall, and whether it stays clear (a way on, or an opening in the edge)
+  const TX = floorDiv(X0, T) - 1, TY = floorDiv(Y0, T) - 1, TW = floorDiv(X0 + W - 1, T) + 2 - TX, TH = floorDiv(Y0 + H - 1, T) + 2 - TY;
+  const v1 = new Uint8Array(TW * TH), solid = new Uint8Array(TW * TH), clear = new Uint8Array(TW * TH);
+  for (let ty = TY; ty < TY + TH; ty++) for (let tx = TX; tx < TX + TW; tx++) {
+    const i = (ty - TY) * TW + tx - TX, isW = isWall(room, tx, ty);
+    v1[i] = wall(tx, ty); solid[i] = +isW;
+    clear[i] = +(!isW && (!!tileAt(room, tx, ty).leads || gap(tx, ty)));
+  }
+  const at = (tx, ty) => v1[(ty - TY) * TW + tx - TX];
   for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
-    const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y);
+    const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y), i = (ty - TY) * TW + tx - TX;
     const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
-    const v = (wall(x0, y0) * (1 - ax) + wall(x0 + 1, y0) * ax) * (1 - ay) + (wall(x0, y0 + 1) * (1 - ax) + wall(x0 + 1, y0 + 1) * ax) * ay;
+    const v = (at(x0, y0) * (1 - ax) + at(x0 + 1, y0) * ax) * (1 - ay) + (at(x0, y0 + 1) * (1 - ax) + at(x0 + 1, y0 + 1) * ax) * ay;
     let rock = v > 0.5 - (hash(floorDiv(x, 3), floorDiv(y, 3), 7) - 0.5) * wobble;
-    if (isWall(room, tx, ty) && v > 0.95) rock = true;
-    if (!isWall(room, tx, ty) && (tileAt(room, tx, ty).leads || gap(tx, ty) || ix > 3 && ix < 12 && iy > 3 && iy < 12)) rock = false;
+    if (solid[i] && v > 0.95) rock = true;
+    if (!solid[i] && (clear[i] || ix > 3 && ix < 12 && iy > 3 && iy < 12)) rock = false;
     m[(y - Y0) * W + x - X0] = rock ? 1 : 0;
   }
   return m;

@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.136 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.137 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-S1 of D-660's list, the next fix in D-666's order: paint each room's
-rock once, the look unchanged. Then S3; the Spit grub (D-659) after it.
+S3 of D-660's list, the last fix in D-666's order: don't redraw when
+nothing changes (under cards, or with reduced motion on), play feeling
+the same. Then the Spit grub (D-659).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,6 +46,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.137, The rock painted faster.** As recommended
+  (D-685): the rock painter works out each tile's walls once, not for
+  every pixel, so a cave room paints in about half the time (S1). The
+  picture is the same, pixel for pixel; a test checks 12 rooms.
+  Playtest:
+  https://claude.ai/artifact/AgfwmCnzfa5JA3mFQBA2RF
 - **2026-11-07, 0.3.136, He has wares at home.** As recommended
   (D-684): the peddler at home no longer says "I'll have wares soon"
   while selling them (D4). His two other home lines take turns. A test
@@ -55,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   makes a profile named "ANNA" (I5). Names stay A to Z; Q-054 stays
   open. A test checks it. Playtest:
   https://claude.ai/artifact/YVvJ36nVeAkQ4hmxBD9XKi
-- **2026-11-07, 0.3.134, The wrench under pause.** As recommended
-  (D-682): on a 320 px wide phone the dev wrench stands under pause, so
-  the panel no longer runs into it from level 10 (D3). A test checks
-  phones, sideways phones and tablets. Playtest:
-  https://claude.ai/artifact/6g1Ccus8DiqyiNHBnhPrn2
