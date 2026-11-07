@@ -136,3 +136,14 @@ read the code alongside: 19 bugs, about 30 stale doc lines and one
 freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
+
+**D-661 · 2026-11-07 · The audit's first fixes** (the owner's picks, all
+recommended; from D-660's findings) The fixes start with the four most
+serious, one a step, each with a test. First, at 0.3.114, I1: a still
+press becomes a hold only in play, so on the title, a menu or a card,
+letting go is a tap however long it was held (D-408's hold in play is
+unchanged). Picked for later steps: R2, the armour's glance gets dice of
+its own, so drops stay as every seed gives them and only which bites
+glance changes; W1, bringing an old save up to date removes only the
+sticks on the waystone itself, as D-589 says, and what lies in the ring
+round it stays. R1, the waystone's own event name, is the next step.
