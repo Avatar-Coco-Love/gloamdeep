@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.116', date: '2026-11-07', title: 'The glance\'s own dice', lines: [
+    "A bite glancing off your vest no longer makes the next kill from that tile always drop its part. The glance rolls dice of its own, so drops come about 1 time in 2, as decided. What each seed drops is unchanged; only which bites glance changes.",
+    "Decisions: D-663.",
+  ] },
   { v: '0.3.115', date: '2026-11-07', title: 'The mimic wakes silently', lines: [
     "A flask or herb mimic waking no longer rings the waystone's bells or starts its rune glowing. It wakes silently, as decided. The waystone still rings when it wakes.",
     "Decisions: D-662.",

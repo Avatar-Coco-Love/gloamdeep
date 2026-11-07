@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.113, The tenth audit, part 1.** All recommended
+  (D-660): floors laid out 5 times faster, tests 59 s to 35 s, touch to
+  `input/touch.js`, two docs and five decisions split off word for word.
+  Findings: https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496
+  No playtest: nothing to play.
 - **2026-11-07, 0.3.112, The Spit grub.** Docs only, the owner's picks
   (D-659): the first ranged creature never moves and spits a glowing
   glob 1 tile a turn at the lit lantern; walls and rubble stop it.
