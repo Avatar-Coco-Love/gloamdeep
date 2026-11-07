@@ -189,3 +189,11 @@ pick or rod can't be made; and Wear on a piece the same as one worn says
 its line, "You already have a heart charm.", free, and nothing changes.
 A spare in a chest stays allowed (not the audit's chests in reach); two
 different charms are worn together as before. A rules test checks both.
+
+**D-667 · 2026-11-07 · The fall reels the line in** (the owner's pick,
+recommended; R4 of D-660's findings, as D-666 set) A fall takes in a
+line that is out, with no words of its own; only the fall's line,
+"You fall, and wake again.", is shown. A strike waiting on the pull's
+own turn goes too, so the strike meter never opens after waking.
+Before, the float stayed, and fish bit it from across the room. A rules
+test checks both.

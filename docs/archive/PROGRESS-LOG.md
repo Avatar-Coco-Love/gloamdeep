@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.116, The glance's own dice.** As picked (D-663): a
+  glance off the vest rolls its own dice, so a kill on its turn no longer
+  always drops its part (R2).
+  Playtest: https://claude.ai/artifact/7o4xH8vmhqX2Kbctn3c55b
 - **2026-11-07, 0.3.115, The mimic wakes silently.** Both recommended
   (D-662): the waystone's plate sends its own `stoneWake` event, so a
   waking flask or herb mimic no longer rings its bells (R1).

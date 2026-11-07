@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.118 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.119 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-R4 of D-660's list, the fishing line after a fall, then the rest in
-D-666's order, one a step; the Spit grub (D-659) after them.
+R5 of D-660's list, the trapped peddler's first call for help, then
+the rest in D-666's order, one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.119, The fall reels the line in.** As recommended
+  (D-667): a fall takes in a line that is out, quietly, a waiting
+  strike too, so no fish bites the float after waking (R4).
+  Playtest: https://claude.ai/artifact/USN2jXFF6nWz6cnMpN4LRR
 - **2026-11-07, 0.3.118, One of a kind.** Every fix left on the
   audit's list is picked, in order (D-666). R3: after Take off a second
   pick or rod can't be made, and a second of a worn charm or vest can't
@@ -56,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
   The release tool now sets the Version line here (D-665).
   Nothing visible in a new game, so no playtest.
-- **2026-11-07, 0.3.116, The glance's own dice.** As picked (D-663): a
-  glance off the vest rolls its own dice, so a kill on its turn no longer
-  always drops its part (R2).
-  Playtest: https://claude.ai/artifact/7o4xH8vmhqX2Kbctn3c55b

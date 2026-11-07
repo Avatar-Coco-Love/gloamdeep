@@ -28,7 +28,8 @@ export function fetchBag(state, found) {
 // oil (D-119, D-136). The world stays as it was: the same seed, every room as left,
 // with what was set down, what chests keep and what grows back (D-332). `fell` keeps
 // the room as the hero fell in it, for the fall to be shown before they wake (D-234).
-// It is a `fall` event. In Normal the bag is left where they fell (dropBag).
+// It is a `fall` event. In Normal the bag is left where they fell (dropBag). A line out
+// is reeled in, quietly, a strike waiting too (R4, D-667).
 // In Hardcore the world starts over instead, from the same seed (D-334, D-344).
 export function fall(state) {
   if (state.mode === 'normal' && state.bag.length) state = dropBag(state);
@@ -37,7 +38,7 @@ export function fall(state) {
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = state.home;
   const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
-  return note(say({ ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0 }, 'fall'), 'fall'); // a fall ends poisoned too (D-654)
+  return note(say({ ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, float: null }, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and the line (D-667)
 }
 // § fall view: the room as the hero fell in it (`fell`), with the rest of the world as it was
 // just before (`elsewhere`), for the fall's picture and the round map beside it. The map
