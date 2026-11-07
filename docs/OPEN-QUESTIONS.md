@@ -113,12 +113,3 @@ beetle, pilferer, puffball, web spider, howler, tender, pool eel, night
 prowler, rift creatures; then new ones: rim lurker, gloamberry mimic,
 skulker crab; with a new way, false light, brood mother, still one, rat
 pack, dozing brute. Which next, and in which pools?
-
-**Q-085 · How weapons get better** (raised 2026-11-07, D-636) Each
-biome's metal makes a better one of each weapon kind (D-457). The owner
-is unsure how, and asked for the ways explained first. Ways shown:
-each metal adds 1 to every hit, the shape the same (Claude's draft); a
-small extra for each kind at a later metal (e.g. the axe sweeps 5);
-rare found weapons with their own effects beside the made ones; or
-upgrading the weapon in hand at the forge, keeping it. Before biome 2's
-weapons.

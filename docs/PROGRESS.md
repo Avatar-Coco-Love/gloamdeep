@@ -8,10 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The content map, part 1 continued (D-636, D-637): explain how weapons
-can get better and ask (Q-085); redraft the Growth tree bigger, with
-loadout variety, more boons and challenges; then draft part 5, places
-and quests. Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
+The content map, part 1 continued (D-636 to D-638): redraft the Growth
+tree bigger, with loadout variety, more boons and challenges (D-637);
+then draft part 5, places and quests. Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -25,7 +24,6 @@ and quests. Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
-- How weapons get better by metal (Q-085), next.
 - The next creature (Q-076, D-607), due now: fishing is done.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
@@ -55,7 +53,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 ## Log (last 3)
 - **2026-11-07, 0.3.90, Skills and mechanics.** The content map drafted;
   the owner's picks: five weapon kinds, three elements, four found
-  abilities (D-636); more to discover, a bigger tree (D-637). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
+  abilities (D-636); more to discover, a bigger tree (D-637); +1 a metal and found weapons (D-638). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
   biome, 32 in all (answers Q-082); all content planned on one map,
   skills and mechanics first (D-635).

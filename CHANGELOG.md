@@ -24,9 +24,9 @@ Entry format:
 ```
 
 ## 0.3.90 (2026-11-07)
-- Nothing in the game changed. The content map's first draft is up: every biome's weapons, skills, items, plants and creatures on one page. Picked from it: five weapon kinds (knife, spear, axe, hammer, sling), three elements (flame, venom, light) and four found abilities (Leap, Heave, Flare, Swim).
+- Nothing in the game changed. The content map's first draft is up: every biome's weapons, skills, items, plants and creatures on one page. Picked from it: five weapon kinds (knife, spear, axe, hammer, sling), three elements (flame, venom, light) and four found abilities (Leap, Heave, Flare, Swim). Each new metal makes every weapon hit 1 harder, and rare weapons with small effects of their own will be found below.
 - The game will hold more to discover: places that branch as each biome goes deeper, villages of people below, secrets on old floors and many side quests, with a bigger Growth tree, more boons and challenges to match.
-- Decisions: D-636, D-637. Questions opened: Q-085. D-627 to D-632 moved to the archive, word for word.
+- Decisions: D-636, D-637, D-638. Questions opened and closed: Q-085. D-627 to D-632 moved to the archive, word for word.
 
 ## 0.3.89 (2026-11-07)
 - Nothing in the game changed. Each biome is 8 floors deep: the woods and mountains down to depth 8, the old mines to 16, the glowing fungal caverns to 24, and Underhearth to 32, where the First Light waits. All the game's content will be planned on one map, starting with skills and how fighting works.

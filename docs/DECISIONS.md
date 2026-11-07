@@ -145,3 +145,11 @@ abilities; and side quests through it all. The Growth tree grows
 bigger, with more upgrades than embers buy, so each hero grows
 differently; more loadout variety and more boons (D-603); and
 challenges to match. How weapons get better by metal waits (Q-085).
+*Changed in the open PR: Q-085 answered by D-638.*
+
+**D-638 · 2026-11-07 · How weapons get better** (the owner's pick,
+recommended; answers Q-085; builds D-457, D-636) Each biome's metal
+adds 1 to every hit of each weapon kind, the shape the same. Beside the
+made ones, rare weapons are found below, each with one small effect of
+its own, as more to discover. Which, where and their effects are set at
+each one's own step.
