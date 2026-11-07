@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.90, Skills and mechanics.** The content map drafted;
+  the owner's picks: five weapon kinds, three elements, four found
+  abilities (D-636); more to discover, a bigger tree (D-637); +1 a metal and found weapons (D-638). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 - **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
   biome, 32 in all (answers Q-082); all content planned on one map,
   skills and mechanics first (D-635).

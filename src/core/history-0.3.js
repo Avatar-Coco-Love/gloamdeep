@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.93', date: '2026-11-07', title: 'Plants and harvests', lines: [
+    "Nothing in the game changed. Plants and harvests are planned: each deeper oil plant takes fewer to fill a flask (lampwort 2, a glowcap makes Bright Oil, an ember lily is poured straight), and every land plant gives a seed, made from 3 of it.",
+    "Oil plants grow in the garden, but slowly, so the light still mostly comes from below. Each biome's ore, wood and fish are kept as drafted, each a step up from the one above.",
+    "Decisions: D-642.",
+  ] },
   { v: '0.3.92', date: '2026-11-07', title: 'Items and crafting', lines: [
     "Nothing in the game changed. Items and crafting are planned: each weapon kind keeps one part of its own in every metal (wood for the spear and axe, stone for the hammer, a bone for the knife, silk for the sling), and the axe in hand fells the deeper trees.",
     "The lantern gets about one new part for each slot in each biome: tanks and wicks simply get better, while each glass shows something different, a choice for the trip. One armour and about three charms come in each biome, every creature part gets a use, and each village teaches a knack of its own.",

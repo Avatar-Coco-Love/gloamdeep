@@ -56,14 +56,6 @@ so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
 world (D-168). New history goes in `history-0.3.js`. The next audit,
 0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
 
-**D-590 · 2026-11-05 · Planning ahead** (the owner's picks, recommended)
-Research helpers work beside each build step and report to Claude, who
-brings options; only one conversation builds Gloamdeep at a time. The
-whole game's scope is shown as one visual map, then filled in piece by
-piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
-piece built when it is due, so nothing blocks it later. Better level
-making, as data in named passes, is planned before it is built.
-
 **D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
 Q-072; builds D-036, D-628, D-629) The story is set down in
 `docs/LORE.md`: Underhearth, the city below, fell when the First Light's
@@ -179,3 +171,16 @@ things there. Beside the tree's 14 knacks, each village teaches one,
 free, as a quest's reward. Names, recipes and numbers are drafts on the
 map, set at each one's own step. D-619 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-642 · 2026-11-07 · Plants and harvests, first picks** (the owner's
+picks, all recommended; part 3 of the content map, D-635; builds D-450,
+D-451, D-452, D-460, D-530, D-641) Each deeper oil plant takes fewer to
+make a flask: lampwort 2, a glowcap with a flask makes Bright Oil, an
+ember lily is poured straight. Every land plant's seed is made in the bag
+from 3 of it, like the Gloamberry Seed, the Herb Seed too; water plants
+wait for Q-071. Oil plants grow at home, but slowly, so the light still
+mostly comes from below. The other plants, ores, woods and fish are kept
+as drafted, each biome's pick and axe opening the next, each deeper fish
+a step up. Names, uses and numbers are drafts on the map, set at each
+one's own step. D-590 moved to `archive/DECISIONS-CHECKUP.md`, word for
+word.
