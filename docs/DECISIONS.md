@@ -77,15 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-626 · 2026-11-06 · Endless oil** (the owner's picks, all recommended;
-step 18b, after God mode, D-625) An Endless oil switch in the dev panel's
-Oil section, on its own row under Refill and Empty. While it is on a lit
-turn burns nothing, and an oil tick still drinks, with its line, its sip
-and the oil bar's flicker, but takes no oil. Switching it on leaves the
-oil where it is, so a dim lantern set with the slider stays dim; the
-slider, Refill, Empty and flasks still change it. It is kept on the
-state, so in the save, until switched off; a new game starts with it off.
-
 **D-627 · 2026-11-06 · Test spots** (the owner's picks, all recommended;
 step 18b, after Endless oil, D-626; the last of D-621) Three slots kept
 on this device, in a new Spots section of the dev panel, its tab a
@@ -185,3 +176,19 @@ pushed back but not gone. It is built one biome at a time, each
 finished with its creatures, boss, ability and pages, then played and
 tuned before the next. D-625 moved to `archive/DECISIONS-MAKING.md`,
 word for word.
+
+**D-635 · 2026-11-07 · Biome depths and the content map** (the owner's
+picks, recommended; answers Q-082; builds D-028, D-634) Each biome is 8
+floors: woods and mountains, the surface and depths 1 to 8 (today's
+crypt, caves and warrens, all of it); the old mines and caves 9 to 16;
+the glowing fungal caverns 17 to 24; the sunken ruins, Underhearth, 25
+to 32, the First Light at the bottom. Today's areas by depth (D-233) are
+fitted to this when biome 2 is built. All the game's content is planned
+on one map: Claude drafts every biome's creatures, items, plants, seeds,
+ores, recipes, weapons and skills on one page, all marked draft, then
+the owner goes through it a part at a time, recorded as it goes. First
+part: skills and mechanics (the Growth tree, found abilities, weapons
+and attack shapes, ranged and elemental), in a fresh conversation;
+then items and crafting, plants and harvests, creatures and bosses,
+which are planned knowing each other. D-626 moved to
+`archive/DECISIONS-MAKING.md`, word for word.

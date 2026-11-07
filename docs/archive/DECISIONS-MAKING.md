@@ -1,7 +1,7 @@
 # Faster making (D-621)
 
 Moved word for word from `DECISIONS.md` at 0.3.85 (D-630), as that file
-neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632), and D-624 and D-625 at 0.3.88 (D-633, D-634). In force.
+neared 12 KB, and D-622 at 0.3.86 (D-631), and D-623 at 0.3.87 (D-632), and D-624 and D-625 at 0.3.88 (D-633, D-634), and D-626 at 0.3.89 (D-635). In force.
 
 ---
 
@@ -79,3 +79,12 @@ the oil gets its own switch in the Oil section, Endless oil, the next
 step: the lantern never runs down and the tick's sip takes nothing.
 Claude's, the owner may change it: armour's glance still shows its own
 line; records count as usual; nothing shows god mode but the switch.
+
+**D-626 · 2026-11-06 · Endless oil** (the owner's picks, all recommended;
+step 18b, after God mode, D-625) An Endless oil switch in the dev panel's
+Oil section, on its own row under Refill and Empty. While it is on a lit
+turn burns nothing, and an oil tick still drinks, with its line, its sip
+and the oil bar's flicker, but takes no oil. Switching it on leaves the
+oil where it is, so a dim lantern set with the slider stays dim; the
+slider, Refill, Empty and flasks still change it. It is kept on the
+state, so in the save, until switched off; a new game starts with it off.
