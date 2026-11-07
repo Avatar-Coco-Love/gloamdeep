@@ -1,10 +1,12 @@
 // § marks: a row of small glass squares under the hearts panel (D-604), each with a 9 × 9
 // picture in its colour: the boon held, its kind's picture from its card (render/boons.js); the
-// place for what else the hero carries for a while, later. marks: [{ icon, tint }].
+// place for what else the hero carries for a while: poisoned, a pale green drop (D-654). marks: [{ icon, tint }].
 import { drawGlass } from './glass.js';
 
 const PAD = 3; // as on the panel
 export const MARK = 2 * PAD + 9, MARK_GAP = 2;
+// § poisoned's mark: a drop in venom's pale green, as in its mock-up (D-654)
+export const POISON_MARK = { id: 'poisoned', tint: '#b6e07a', icon: ['....#....', '...###...', '...###...', '..#####..', '..##.##..', '.###.###.', '.#######.', '..#####..', '...###...'] };
 export const marksSize = (n) => (n ? { w: n * MARK + (n - 1) * MARK_GAP, h: MARK } : { w: 0, h: 0 });
 // Which mark is at px, py, or -1
 export function markAt(n, x, y, px, py) {

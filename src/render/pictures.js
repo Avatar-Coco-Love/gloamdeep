@@ -15,6 +15,8 @@ const PAL = {
   h: '#2c5230', I: '#1d3620', u: '#3a4590', v: '#8a98e0', // the bush's shade greens, from the tree's crown; the gloamberry's blue, dark and light (D-531)
   H: '#6a7489', L: '#555e73', M: '#4b5468', D: '#434b5d', x: '#262a35', // grey rock's face, lit top to seam (D-311)
   E: '#6c5b48', F: '#4a3d30', f: '#2a221b', // soil, from the earth's colours (ART-DIRECTION-2.md "Earth"), the garden bed's (D-565)
+
+  z: '#c4553a', U: '#7e3020', Z: '#4e1c16', V: '#b6e07a', // the centipede's rust, light to dark, and venom's pale green (D-654)
 };
 
 // § blank: the grey "?" a thing made by tools/make.js wears until it is drawn (D-622): plainly
@@ -457,6 +459,17 @@ const WISP_GLASS = { mirror: false, rows: [
   '', '', '', '', '', '', '..........kk....', '.........kwvk...', '........kwvvk...', '.......kwvvuk...',
   '......kwvvuk....', '.....kwvvuk.....', '....kvvuuk......', '....kvuuk.......', '.....kkk........'] };
 
+// § centipede: look A of its mock-up (D-654): side on and facing right, a long low body of rust
+// segments, lit on top and dark between, pale legs under each, two feelers and green fangs
+const CENTIPEDE = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '..............k.', '.............k.k', '...kkkk..kkkkkk.', '..kzzUzk.kzUzzzk',
+  '.kzUzUUUkzUzUpzk', 'kUUZUZUUUUZUUUVk', 'kZkZkZkZkZkZkkkV', 'kA.kA.kA.kA.kA..', 'A..A..A..A..A...'] };
+
+// § centipede leg: a thin pale jointed leg lying aslant, a rust stub at its root and a hooked tip (D-654)
+const CENTIPEDE_LEG = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '...........kk...', '..........kzUk..', '.........kaAkk..', '........kaAk....',
+  '.......kak......', '......kaAk......', '.....kAk........', '....kak.........'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -469,4 +482,6 @@ export {
   SCORPION_COLOURS, BAG_TORCH, WISP_CHARM, HEART_CHARM,
   LURE_WISP,
   WISP_GLASS,
+  CENTIPEDE,
+  CENTIPEDE_LEG,
 };

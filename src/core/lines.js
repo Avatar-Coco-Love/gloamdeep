@@ -295,6 +295,14 @@ export const LINES = {
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
   unsaved: { text: 'Your journey could not be saved.', warn: true }, // a save failed: storage full or blocked; once, until one is kept again (D-428)
+  centipedeHurt: { text: 'The centipede writhes and comes on.', warn: false }, // (D-654)
+  centipedeDie: { text: 'The centipede curls up and falls still.', warn: false },
+  centipedeBite: { text: "The centipede's bite poisons you.", warn: false, kind: 'harm' }, // it starts poisoned, or starts it again (D-654)
+  poisonEnds: { text: 'The poison wears off.', warn: false }, // (D-654)
+  poisonHeld: { text: 'Poisoned: {n} turns left.', warn: false }, // a tap on its mark (D-654)
+  centipedeLegTake: { texts: ['You pick up the centipede leg.', 'A thin pale leg, still twitching.', 'The centipede leg goes in your bag.'], warn: false }, // (D-654)
+  centipedeLegLook: { texts: ['A centipede leg, for crafting later.', 'Thin, pale and jointed.', 'It has a hook at its tip.'], warn: false },
+  centipedeLegFull: { text: "You can't carry more centipede legs.", warn: false },
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

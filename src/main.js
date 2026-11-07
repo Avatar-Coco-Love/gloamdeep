@@ -52,6 +52,7 @@ import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
 import { stepOffersBoons, takeBoon, lanternReach } from './core/boon.js';
+import { poisonLeft } from './core/poison.js';
 
 const canvas = document.getElementById('game'), list = document.getElementById('list'), roomCanvas = document.getElementById('room'), hudCanvas = document.getElementById('hud');
 const { ctx, listCtx, roomCtx, hudCtx } = createScreen(canvas, list, roomCanvas, hudCanvas);
@@ -170,11 +171,13 @@ Object.assign(app, {
   kindle: null, // { x, y, start } the waystone's rune lighting as it wakes (D-591)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
+  poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
   fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
 });
 const ALERT_MS = 900;
 const HIT_FLASH_MS = 140, SHAKE_MS = 120; // the study's (study line 470)
+const POISON_FLASH_MS = 900; // the heart poison takes: green, empty, green, three times (D-654)
 const DRINK_FLASH_MS = 420; // the oil bar's flicker as a creature drinks: pale, dark, pale (D-606)
 // A fall (D-234): the hero lies down, the light closes to the deepest dark over about a
 // second, stays dark a moment, then opens on the start. With reduced motion, only the dark.
@@ -217,7 +220,9 @@ function tryStep(dir) {
   if (app.settings.flasks === 'self') app.state = pourByItself(before, app.state);
   const { state } = app, fell = state.fell !== before.fell;
   const events = eventsSince(before, state);
-  if (fell || state.health < before.health || events.some((e) => e.type === 'bite' && e.hurt > 0)) app.bitten = flashFor(); // in god mode too (D-625)
+  const poisoned = events.filter((e) => e.type === 'poison').reduce((n, e) => n + e.hurt, 0); // poison's heart flashes green, not the hero red (D-654)
+  if (fell || before.health - state.health > poisoned || events.some((e) => e.type === 'bite' && e.hurt > 0)) app.bitten = flashFor(); // in god mode too (D-625)
+  if (poisoned) app.poisonHurt = { until: performance.now() + POISON_FLASH_MS, heart: state.god ? state.health - 1 : state.health };
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
   keepRecords(events);
@@ -291,10 +296,11 @@ function nudgeToward(dir) {
   app.nudge = { dx, dy, until: performance.now() + 90 };
 }
 // § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
-// name and its card's line; no turn passes
+// name and its card's line, or poisoned's turns left (D-654); no turn passes
 const tellMark = (picX, picY) => {
-  const b = BOONS[frame.markSpot(...toLayer([picX, picY]))];
-  if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
+  const id = frame.markSpot(...toLayer([picX, picY])), b = BOONS[id];
+  if (id === 'poisoned') app.state = say(app.state, 'poisonHeld', poisonLeft(app.state)); // its turns left (D-654)
+  else if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
 };
 let hovered = null; // the mark under the mouse, said once as it comes onto it
 const onHover = (picX, picY) => {
@@ -392,7 +398,7 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => {
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.travel = app.fall = app.gain = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it

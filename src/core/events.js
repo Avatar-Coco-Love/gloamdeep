@@ -10,6 +10,7 @@
 //   beat { id, unmet }   that creature was beaten; `unmet` when not met before, in the dark (D-630)
 //   meet { id }          creature `id` was met: lit and showing itself for the first time (D-630)
 //   bite { id, hurt }    creature `id` bit, taking `hurt` hearts (god mode keeps them, D-625)
+//   poison { hurt }      poisoned's count reached a hurt, taking `hurt` hearts, 0 at 1 heart (D-654; god mode keeps them)
 //   drink { id, oil }    creature `id` drank `oil` from the lantern instead of biting (D-606; Endless oil keeps it, D-626)
 //   wake { id }          the hero bumped creature `id` awake from its disguise (D-368)
 //   fall                 the hero fell (D-119)

@@ -12,7 +12,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK } from './marks.js';
 import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
@@ -68,6 +68,7 @@ import { watch, onWipe, onCheck, blankAt } from './wipe.js';
 export const FADE_MS = 200; // each way, taking stairs (D-135)
 
 const DRINK_BLINK_MS = 140; // each pale or dark beat of the oil bar's flicker (D-606)
+const POISON_BLINK_MS = 150; // each green or empty beat of the heart poison takes (D-654)
 // 0 before a, 1 after b, and evenly between; a jump at a when b is not after it
 const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (t - a) / (b - a))));
 
@@ -279,6 +280,7 @@ export function createFrame(app, ui) {
     const [ex, ey] = edgeIn(); // as far in as the round buttons (D-512)
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
+    if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
     const mk = marksSize(marks.length), listY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0); // the marks under the panel, the list under them
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, mk.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
@@ -305,8 +307,9 @@ export function createFrame(app, ui) {
     const padOn = app.screen === 'play' && padShown(app.settings);
     padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
     arrowPad.show(padOn, padAlpha);
+    const greenHeart = app.poisonHurt && t < app.poisonHurt.until && (still() || Math.floor((app.poisonHurt.until - t) / POISON_BLINK_MS) % 2 === 0) ? app.poisonHurt.heart : -1; // the heart poison takes flashes green (D-654)
     const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
-    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
+    Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
     markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
     row = null;
@@ -363,7 +366,7 @@ export function createFrame(app, ui) {
     const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px, py);
     return i < 0 ? null : foeAt(row.list[i].e);
   }
-  // § marks for taps (D-604): the id of the boon whose mark is under px, py on the screen layer, or null
+  // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654) whose mark is under px, py on the screen layer, or null
   const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);
   return { draw, redraw, plaqueSpot, plaqueSpots, markSpot };
