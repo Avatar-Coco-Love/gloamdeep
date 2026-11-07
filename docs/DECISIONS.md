@@ -68,14 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-663 · 2026-11-07 · The glance's own dice** (the owner's pick, as
-D-661 set; R2 of D-660's findings) A bite's glance off armour (D-484)
-rolls with its own salt, 12288, apart from the drop's (4096, D-474), the
-flee's and Tough's. Before, both rolled the same number, so a kill on the
-turn of a glance always dropped its part. Drops stay as every seed gave
-them; only which bites glance changes. A rules test checks that kills on
-a glance's turn drop about 1 in 2, as any kill.
-
 **D-664 · 2026-11-07 · Only the stone's own sticks** (the owner's picks,
 both recommended; W1 of D-660's findings, as D-661 set) As an old save
 gets its home waystone (D-589), what lies on the stone's own 3 × 3
@@ -202,3 +194,13 @@ found while checking). `DEV-TOOLS.md` says Go to depth runs 0 to 99,
 starting on 1, depth 0 the crypt (D-212), not 1 to 99. Q-076 says the
 lure wisp is built (D-649), not built next. Docs only. D-662 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-677 · 2026-11-07 · Doc E: good for making things** (the owner's
+picks, both recommended; E of D-660's findings, as D-666 set) The nine
+materials a recipe uses, Stone, Copper Ore, Rat Tail, Moth Dust, Gloam
+Wisp, Spider Silk, Mole Fur, Snapcap Gill and Mimic Heart, say "…, good
+for making things." as the first line when chosen in the bag, not "for
+crafting later"; their other two lines stay. The eleven no recipe uses
+yet keep "for crafting later" until one does. A rules test checks each
+line against the recipes. D-663 moved to `archive/DECISIONS-AUDITS.md`,
+word for word.

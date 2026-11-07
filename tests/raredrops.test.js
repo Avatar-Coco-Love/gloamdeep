@@ -10,7 +10,7 @@ import { get } from '../src/core/registry.js';
 const room = makeRoom(FIRST_ROOM);
 const RARES = { scorpion: 'venomSac', flaskMimic: 'mimicHeart', gloamling: 'gloamEye', bat: 'batFang', mole: 'moleClaw' };
 const FIRST = { venomSac: ['A venom sac! A rare find.', 'A venom sac, for crafting later.', "You can't carry more venom sacs."],
-  mimicHeart: ['A mimic heart! A rare find.', 'A mimic heart, for crafting later.', "You can't carry more mimic hearts."],
+  mimicHeart: ['A mimic heart! A rare find.', 'A mimic heart, good for making things.', "You can't carry more mimic hearts."],
   gloamEye: ['A gloam eye! A rare find.', 'A gloam eye, for crafting later.', "You can't carry more gloam eyes."],
   batFang: ['A bat fang! A rare find.', 'A bat fang, for crafting later.', "You can't carry more bat fangs."],
   moleClaw: ['A mole claw! A rare find.', 'A mole claw, for crafting later.', "You can't carry more mole claws."] };

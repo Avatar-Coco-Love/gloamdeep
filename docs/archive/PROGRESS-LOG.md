@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.126, Each find's own price.** As recommended
+  (D-674): the glossary, the peddler's row and a code note say each find
+  sells at its own price, 1 for most common materials, Wisp Glass 2,
+  rare ones 5 (C). Docs only, so no playtest.
 - **2026-11-07, 0.3.125, The world's notes caught up.** As recommended
   (D-673): `WORLD.md`, Q-037, Q-038 and the starting region's sheet say
   plain dark past the edge (D-445) and today's floors (D-645 to D-648),

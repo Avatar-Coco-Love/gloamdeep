@@ -213,3 +213,11 @@ plate waking sends `stoneWake`, after its line `stoneWakes`; only it
 rings the bells and kindles the rune (D-591). A mimic bumped awake keeps
 `wake`, with no sound (D-368). A rules test checks both mimics and the
 plate; no check of main.js's text.
+
+**D-663 · 2026-11-07 · The glance's own dice** (the owner's pick, as
+D-661 set; R2 of D-660's findings) A bite's glance off armour (D-484)
+rolls with its own salt, 12288, apart from the drop's (4096, D-474), the
+flee's and Tough's. Before, both rolled the same number, so a kill on the
+turn of a glance always dropped its part. Drops stay as every seed gave
+them; only which bites glance changes. A rules test checks that kills on
+a glance's turn drop about 1 in 2, as any kill.

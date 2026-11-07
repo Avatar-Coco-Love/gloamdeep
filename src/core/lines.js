@@ -89,13 +89,13 @@ export const LINES = {
   depositChip: { text: 'You chip at the boulder.', warn: false }, // the first bump (O2)
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
-  stoneLook: { texts: ['A plain stone, for crafting later.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
+  stoneLook: { texts: ['A plain stone, good for making things.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
   veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)
   veinChip2: { text: 'Chips of rock fly.', warn: false }, // the second
   veinCrack: { text: 'The vein cracks.', warn: false }, // the third
   copperOreTake: { texts: ['The rock gives. You take copper ore.', 'A lump of copper ore comes free.', 'The vein breaks. Copper ore!'], warn: false }, // the fourth
-  copperOreLook: { texts: ['Copper ore, for crafting later.', 'Grey rock, flecked with copper.', 'It is heavier than it looks.'], warn: false },
+  copperOreLook: { texts: ['Copper ore, good for making things.', 'Grey rock, flecked with copper.', 'It is heavier than it looks.'], warn: false },
   copperOreFull: { text: "You can't carry more copper ore.", warn: false },
   pickMake: { text: 'You make a stone pick.', warn: false }, // its line on the bench panel, a turn (D-480)
   pickFull: { text: 'You already carry a stone pick.', warn: false }, // only 1 is carried, free
@@ -151,10 +151,10 @@ export const LINES = {
   centipedeCharmLook: { texts: ['A centipede charm, against poison.', 'A drop of venom, set in copper.', 'Wear it, and poison passes sooner.'], warn: false },
   centipedeCharmWear: { text: 'You put on the centipede charm.', warn: false }, // Wear in the bag, free (D-656)
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
-  ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
+  ratTailLook: { texts: ['A rat tail, good for making things.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },
   mothDustTake: { texts: ['You gather the moth dust.', 'The dust glitters on your fingers.', 'A pinch of moth dust for the bag.'], warn: false }, // (D-475)
-  mothDustLook: { texts: ['Moth dust, for crafting later.', 'It glints amber in the light.', 'Fine and pale, like ash.'], warn: false },
+  mothDustLook: { texts: ['Moth dust, good for making things.', 'It glints amber in the light.', 'Fine and pale, like ash.'], warn: false },
   mothDustFull: { text: "You can't carry more moth dust.", warn: false },
   stingerTake: { texts: ['You pick up the stinger.', 'You take the sting, carefully.', 'The stinger goes in your bag.'], warn: false },
   stingerLook: { texts: ['A stinger, for crafting later.', 'The tip is still sharp.', 'Its shell is hard and dry.'], warn: false },
@@ -163,19 +163,19 @@ export const LINES = {
   mimicGlassLook: { texts: ['Mimic glass. With 2 oilcaps, a flask.', 'Thick glass, smeared with oil.', 'Its edge is sharp.'], warn: false },
   mimicGlassFull: { text: "You can't carry more mimic glass.", warn: false },
   gloamWispTake: { texts: ['You catch the gloam wisp.', 'The wisp is cold in your hand.', 'The gloam wisp goes in your bag.'], warn: false },
-  gloamWispLook: { texts: ['A gloam wisp, for crafting later.', 'It shrinks from your light.', 'A scrap of living shadow.'], warn: false },
+  gloamWispLook: { texts: ['A gloam wisp, good for making things.', 'It shrinks from your light.', 'A scrap of living shadow.'], warn: false },
   gloamWispFull: { text: "You can't carry more gloam wisps.", warn: false },
   spiderSilkTake: { texts: ['You pick up the spider silk.', 'You wind up the silk.', 'The spider silk goes in your bag.'], warn: false }, // (D-535)
-  spiderSilkLook: { texts: ['Spider silk, for crafting later.', 'Fine, pale and very strong.', 'It is still a little sticky.'], warn: false },
+  spiderSilkLook: { texts: ['Spider silk, good for making things.', 'Fine, pale and very strong.', 'It is still a little sticky.'], warn: false },
   spiderSilkFull: { text: "You can't carry more spider silk.", warn: false },
   batWingTake: { texts: ['You pick up the bat wing.', 'Thin leather, light as paper.', 'The bat wing goes in your bag.'], warn: false }, // (D-537)
   batWingLook: { texts: ['A bat wing, for crafting later.', 'Thin dark leather on fine bones.', 'It folds up small.'], warn: false },
   batWingFull: { text: "You can't carry more bat wings.", warn: false },
   moleFurTake: { texts: ['You pick up the mole fur.', 'Soft as velvet, and warm.', 'The mole fur goes in your bag.'], warn: false }, // (D-541)
-  moleFurLook: { texts: ['Mole fur, for crafting later.', 'Dark, short and very soft.', 'It smells of earth.'], warn: false },
+  moleFurLook: { texts: ['Mole fur, good for making things.', 'Dark, short and very soft.', 'It smells of earth.'], warn: false },
   moleFurFull: { text: "You can't carry more mole fur.", warn: false },
   snapcapGillTake: { texts: ['You pick up the snapcap gill.', 'Soft pink frills, still damp.', 'The snapcap gill goes in your bag.'], warn: false }, // (D-543)
-  snapcapGillLook: { texts: ['A snapcap gill, for crafting later.', 'Pale pink, fine as paper.', 'It smells faintly sweet.'], warn: false },
+  snapcapGillLook: { texts: ['A snapcap gill, good for making things.', 'Pale pink, fine as paper.', 'It smells faintly sweet.'], warn: false },
   snapcapGillFull: { text: "You can't carry more snapcap gills.", warn: false },
   mimicLeafTake: { texts: ['You pick up the mimic leaf.', 'A leaf with a pink spot, like an eye.', 'The mimic leaf goes in your bag.'], warn: false }, // (D-549)
   mimicLeafLook: { texts: ['A mimic leaf, for crafting later.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
@@ -199,7 +199,7 @@ export const LINES = {
   venomSacLook: { texts: ['A venom sac, for crafting later.', 'Green venom, sealed in a thin skin.', 'Best not to squeeze it.'], warn: false },
   venomSacFull: { text: "You can't carry more venom sacs.", warn: false },
   mimicHeartTake: { texts: ['A mimic heart! A rare find.', 'The heart is warm, like lamp oil.', 'The mimic heart goes in your bag.'], warn: false },
-  mimicHeartLook: { texts: ['A mimic heart, for crafting later.', 'Amber oil, shaped like a heart.', 'It seems to beat, now and then.'], warn: false },
+  mimicHeartLook: { texts: ['A mimic heart, good for making things.', 'Amber oil, shaped like a heart.', 'It seems to beat, now and then.'], warn: false },
   mimicHeartFull: { text: "You can't carry more mimic hearts.", warn: false },
   gloamEyeTake: { texts: ['A gloam eye! A rare find.', 'The eye is cold and smooth.', 'The gloam eye goes in your bag.'], warn: false },
   gloamEyeLook: { texts: ['A gloam eye, for crafting later.', 'It still seems to watch you.', 'It blinks away from your light.'], warn: false },
