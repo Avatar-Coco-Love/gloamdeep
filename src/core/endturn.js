@@ -11,6 +11,7 @@ import { withTile } from './room.js';
 import { leave, send, arrive, greet } from './homeward.js';
 import { fishTurn } from './fishing.js';
 import { meet } from './bestiary.js';
+import { poisonTick } from './poison.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -35,7 +36,8 @@ export const endTurn = (before, cast) => {
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
-  const next = grow(burnOut(regrow(moved ? done : enemiesAct(done), moved), moved));
+  const ticked = poisonTick(done); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654)
+  const next = grow(burnOut(regrow(moved ? ticked : enemiesAct(ticked), moved), moved));
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)
 };

@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Build the centipede and poisoned (D-654), in one step with a playtest.
-Then the Antidote, a charm and Tough, each its own step. Side rooms,
-step 3, later.
+The Antidote (D-652): 1 Snapcap Gill and 1 herb, ending poisoned; then
+a charm against poison and Tough, each its own step. Side rooms, step 3,
+later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -51,6 +51,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.106, The centipede built.** As picked (D-654): it
+  chases from depth 3 and its bite poisons; the green drop mark, the
+  green heart; the drafted drops and lines. Playtest:
+  https://claude.ai/artifact/3FymT4nhVUgEiPp1fHDLBb
 - **2026-11-07, 0.3.105, The centipede.** Docs only, the owner's picks:
   the centipede poisons; 6 turns, a hurt every 3, never the last heart
   until the Antidote (D-654). Mock-ups:
@@ -59,6 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   report and picks, all recommended: the motes follow the walkable way
   to the stairs down and turn together at bends (D-653). Playtest:
   https://claude.ai/artifact/KDcb9geT4wkzPeyyocLzMQ
-- **2026-11-07, 0.3.103, Poison first.** Docs only, all recommended:
-  content first; debuffs, then ranged; poison from a 15th kind; the
-  Antidote, a charm and Tough (D-652).

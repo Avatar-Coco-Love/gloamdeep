@@ -18,14 +18,16 @@ test('Bat Guano: its name, stacks of 20, sells for 1, grows back after 300 turns
   assert.equal(g.name, 'Bat Guano'); assert.equal(g.max, 20); assert.equal(g.sells, 1); assert.equal(g.regrow, 300);
 });
 
-test('every made room has one pile by each bat, on open floor, nothing else on its tile', () => {
+test('every made room has one pile by each bat with a free tile near it, on open floor, nothing else on its tile', () => {
   let piles = 0;
   for (let seed = 1; seed <= 30; seed++) for (const depth of [2, 3, 4, 6]) for (const c of layoutAt(seed, depth).cells) {
     const p = placeFor(c.id, seed), at = `seed ${seed} ${c.id}`;
     const bats = p.enemies.filter((e) => e.id === 'bat'), gs = p.items.filter((i) => i.id === 'batGuano');
-    assert.equal(gs.length, bats.length, at);
-    piles += gs.length;
     const spots = [p.start, ...p.items, ...p.enemies, ...p.people].map(({ x, y }) => `${x},${y}`);
+    const free = (b) => p.map.some((row, y) => [...row].some((ch, x) => ch === '.' && x > 0 && y > 0 && x < row.length - 1 && y < p.map.length - 1
+      && Math.max(Math.abs(x - b.x), Math.abs(y - b.y)) <= GUANO_NEAR && !spots.includes(`${x},${y}`)));
+    assert.equal(gs.length, bats.length - bats.filter((b) => !gs.some((g) => near(b, g) <= GUANO_NEAR) && !free(b)).length, at); // a bat with no free tile near it has none (D-540)
+    piles += gs.length;
     assert.equal(new Set(spots).size, spots.length, `${at} two on one tile`);
     for (const g of gs) {
       assert.equal(p.map[g.y][g.x], '.', at);

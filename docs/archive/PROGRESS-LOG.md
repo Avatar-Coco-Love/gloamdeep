@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.103, Poison first.** Docs only, all recommended:
+  content first; debuffs, then ranged; poison from a 15th kind; the
+  Antidote, a charm and Tough (D-652).
 - **2026-11-07, 0.3.102, Fuller halls.** The owner's picks, all
   recommended: halls hold twice a small room's finds and creatures,
   large rooms four times, a set a cell (D-651). Playtest:

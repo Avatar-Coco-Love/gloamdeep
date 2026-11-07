@@ -10,9 +10,10 @@ import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
 // the depth, as in the D-378 mock-up; the boon held is a mark under it (D-604). Drawn in game pixels: a see-through
 // night fill and a soft light edge, its corner pixels left out so it looks
 // round (pixel glass, D-380). `alpha` fades it while the hero is under it.
+// `greenHeart`: the heart poison just took, flashing green (D-654), or -1.
 // Gives the panel's { w, h }, for the creature list under it (D-357).
 const PAD = 3, LINE = 7, GAP_Y = 3;
-export function drawStatus(c, { oil, health, max, depth, level, sipped = false }, x, y, alpha = 1) {
+export function drawStatus(c, { oil, health, max, depth, level, sipped = false, greenHeart = -1 }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
   const shown = Math.max(max, health); // a gold heart past the most (D-488)
   const top = Math.max(heartsH(shown), LINE), w = 2 * PAD + Math.max(heartsW(shown) + 4 + textWidth(lv), BAR_W, textWidth(where));
@@ -20,7 +21,7 @@ export function drawStatus(c, { oil, health, max, depth, level, sipped = false }
   c.save();
   c.globalAlpha = alpha;
   drawGlass(c, x, y, w, h);
-  drawHearts(c, health, max, x + PAD, y + PAD + (top > LINE ? 0 : 1));
+  drawHearts(c, health, max, x + PAD, y + PAD + (top > LINE ? 0 : 1), greenHeart);
   drawText(c, lv, x + w - PAD - textWidth(lv), y + PAD, '#9790a4'); // the study's --muted
   drawOilBar(c, oil, x + PAD, y + PAD + top + GAP_Y, sipped);
   drawText(c, where, x + PAD, y + PAD + top + GAP_Y + SEG_H + GAP_Y, '#9790a4');
