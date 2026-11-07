@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The audit's fixes, one a step (D-661): W1, bringing an old save up to
-date removes only the sticks on the waystone itself. Then the owner
-picks more, then the Spit grub (D-659).
+The audit's four first fixes are done (D-661). The owner picks the next
+fixes from D-660's list, then the Spit grub (D-659).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
+  recommended (D-664): an old save's new home waystone clears only the
+  sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
+  Nothing visible in a new game, so no playtest.
 - **2026-11-07, 0.3.116, The glance's own dice.** As picked (D-663): a
   glance off the vest rolls its own dice, so a kill on its turn no longer
   always drops its part (R2).
@@ -55,7 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-662): the waystone's plate sends its own `stoneWake` event, so a
   waking flask or herb mimic no longer rings its bells (R1).
   Playtest: https://claude.ai/artifact/NgtwB2asRw34LpYBBK985X
-- **2026-11-07, 0.3.114, A slow tap.** The owner's picks, all
-  recommended (D-661): off play, a press held past a quarter second is a
-  tap when it lifts (I1); R2's and W1's fixes picked for later steps.
-  Playtest: https://claude.ai/artifact/V2VM6dqw6PKYH2paPpMyT6

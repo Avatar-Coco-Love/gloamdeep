@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.114, A slow tap.** The owner's picks, all
+  recommended (D-661): off play, a press held past a quarter second is a
+  tap when it lifts (I1); R2's and W1's fixes picked for later steps.
+  Playtest: https://claude.ai/artifact/V2VM6dqw6PKYH2paPpMyT6
 - **2026-11-07, 0.3.113, The tenth audit, part 1.** All recommended
   (D-660): floors laid out 5 times faster, tests 59 s to 35 s, touch to
   `input/touch.js`, two docs and five decisions split off word for word.

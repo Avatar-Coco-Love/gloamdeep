@@ -30,7 +30,7 @@ function settle(p, hero = null) {
   const at = spotFor(p, hero);
   if (!at) return p;
   const area = around(MARK, at.x, at.y, STONE_RING), inArea = (t) => area.some((a) => a.x === t.x && a.y === t.y);
-  const on = (t) => Math.abs(t.x - at.x) <= 2 && Math.abs(t.y - at.y) <= 2;
+  const stone = around(MARK, at.x, at.y), on = (t) => stone.some((a) => a.x === t.x && a.y === t.y); // the stone's own tiles, not its ring (D-664)
   const g = room.map.map((line) => [...line]);
   for (const t of area) if (CLEARED.has(g[t.y][t.x])) g[t.y][t.x] = '.';
   stamp(g, MARK, at.x, at.y);

@@ -162,3 +162,11 @@ flee's and Tough's. Before, both rolled the same number, so a kill on the
 turn of a glance always dropped its part. Drops stay as every seed gave
 them; only which bites glance changes. A rules test checks that kills on
 a glance's turn drop about 1 in 2, as any kill.
+
+**D-664 · 2026-11-07 · Only the stone's own sticks** (the owner's picks,
+both recommended; W1 of D-660's findings, as D-661 set) As an old save
+gets its home waystone (D-589), what lies on the stone's own 3 × 3
+tiles is cleared, measured from its plan, and nothing in the ring round
+it. Before, it cleared 2 tiles out, the old 5 × 5 stone's size, so a
+stick or a dropped find in the ring went too. A rules test checks a
+stick on the stone goes and a stick and a herb in the ring stay.

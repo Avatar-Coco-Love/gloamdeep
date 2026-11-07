@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.117 (2026-11-07)
+- When an old save first gets its home waystone, only sticks on the stone itself are cleared away, as decided. A stick or anything you dropped on the tiles round the stone stays where it was.
+- Decisions: D-664.
+
 ## 0.3.116 (2026-11-07)
 - A bite glancing off your vest no longer makes the next kill from that tile always drop its part. The glance rolls dice of its own, so drops come about 1 time in 2, as decided. What each seed drops is unchanged; only which bites glance changes.
 - Decisions: D-663.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.115 (2026-11-07)
 - A flask or herb mimic waking no longer rings the waystone's bells or starts its rune glowing. It wakes silently, as decided. The waystone still rings when it wakes.
 - Decisions: D-662.
-
-## 0.3.114 (2026-11-07)
-- A slow tap works on every menu and card. Before, a press held a quarter of a second or longer did nothing off play, so a slow, careful tap on a phone was lost. In play, holding still walks as before.
-- Decisions: D-661.
