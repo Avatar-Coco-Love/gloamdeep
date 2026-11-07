@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.107 (2026-11-07)
+- The Antidote: a tall green vial. Make it in the bag from 1 Snapcap Gill and 1 herb; the gill's slot shows MAKE when you carry both.
+- Drink it while poisoned and the poison ends at once. It heals nothing. When you aren't poisoned its DRINK is dim, and it stays in the bag.
+- Now that the Antidote is in, poison can take your last heart, and you fall. The centipede's Bestiary page says so.
+- Decisions: D-655. D-644 moved to the archive, word for word.
+
 ## 0.3.106 (2026-11-07)
 - A new creature, the centipede: rust red with pale legs and green fangs, drawn side on. It turns up from depth 3, chases you once it sees you in the light, and has 2 hearts, so a knife ends it in one blow.
 - Its bite takes a heart and leaves you poisoned. Poisoned lasts 6 turns and takes a heart every 3 turns, 2 in all. Another bite starts it again; it never stacks. Until the Antidote is in, poison never takes your last heart.
@@ -35,8 +41,3 @@ Entry format:
 - Poisoned lasts 6 turns and takes a heart every 3 turns, 2 in all. Another bite starts it again; it never stacks. Until the Antidote is in, poison never takes your last heart.
 - It will show as a green drop beside the boon's mark, with a line as it starts and wears off, and each heart it takes flashes green.
 - Decisions: D-654. D-643 moved to the archive, word for word.
-
-## 0.3.104 (2026-11-07)
-- The drifting motes now follow the way you can walk to the stairs down, through openings and round bends, instead of a straight line through the stone. Before, on about 1 floor in 4 they drifted back toward the stairs you had just come down.
-- They all drift toward the farthest spot on that way you can see, so at a bend or a junction they swing round together.
-- Decisions: D-653, superseding D-605's straight line.

@@ -21,9 +21,11 @@ neared 8 KB.
   it stands **bare** and fills again 300 turns later (D-530, D-531).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
+- **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
+  Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
   floor tile anywhere; it burns 100 turns, then goes out (D-478).
-- **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309); a minnow's Eat sits left of its Pour (D-615).
+- **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309), Drink an antidote's too (D-655); a minnow's Eat sits left of its Pour (D-615).
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic
   Heart, Gloam Eye (D-453, D-454). All eight are in the game (D-474

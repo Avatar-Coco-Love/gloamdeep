@@ -35,7 +35,7 @@ comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch),
 **lures** (drifts away from a near hero toward another creature, never bites)
-(D-269, D-351, D-649). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3, never the last (D-654). A creature that `looksLike` a find sleeps in its disguise
+(D-269, D-351, D-649). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563). One that `glows` is drawn over the dark (D-649).
 Which creatures a generated room holds, and the pool by depth: in `CONTENT-3.md`, "Places" (moved word for word at 0.3.100).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).
@@ -53,6 +53,7 @@ mechanic and its own step.
 | `oilcap` | 3 make a flask | 20 | 300 | each generated room | D-296, D-299 |
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
+| `antidote` | Drink: ends poisoned, healing nothing; only while poisoned | 5 | never | 1 Snapcap Gill and 1 herb, made in the bag | D-652, D-655 |
 | `stone` | for crafts | 20 | never | a deposit | D-312 |
 | `ratTail` | 4 with 1 Wood make the Rat Hide Vest; 2 with 4 Wood, the bed | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474, D-484, D-488 |
 | `mothDust` | with 1 Wood makes a torch | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475, D-478 |
@@ -62,7 +63,7 @@ mechanic and its own step.
 | `spiderSilk` | 2 in the Pouch, 3 in the Big Bag | 20 | never | a beaten cave spider, about 1 in 2 | D-535 |
 | `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
-| `snapcapGill` | for crafts later | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
+| `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a beaten bone rat, about 1 in 2 | D-551 |
 | `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |

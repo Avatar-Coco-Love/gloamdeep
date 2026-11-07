@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.107', date: '2026-11-07', title: 'The Antidote', lines: [
+    "The Antidote: a tall green vial. Make it in the bag from 1 Snapcap Gill and 1 herb; the gill's slot shows MAKE when you carry both.",
+    "Drink it while poisoned and the poison ends at once. It heals nothing. When you aren't poisoned its DRINK is dim, and it stays in the bag.",
+    "Now that the Antidote is in, poison can take your last heart, and you fall. The centipede's Bestiary page says so.",
+    "Decisions: D-655. D-644 moved to the archive, word for word.",
+  ] },
   { v: '0.3.106', date: '2026-11-07', title: 'The centipede built', lines: [
     "A new creature, the centipede: rust red with pale legs and green fangs, drawn side on. It turns up from depth 3, chases you once it sees you in the light, and has 2 hearts, so a knife ends it in one blow.",
     "Its bite takes a heart and leaves you poisoned. Poisoned lasts 6 turns and takes a heart every 3 turns, 2 in all. Another bite starts it again; it never stacks. Until the Antidote is in, poison never takes your last heart.",

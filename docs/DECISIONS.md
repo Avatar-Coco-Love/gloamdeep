@@ -36,15 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-644 · 2026-11-07 · Bigger, less even biomes** (the owner's picks;
-builds D-635, D-643) The planned content needs each biome to hold about
-2 to 3 times the walkable space it has now: about 70 rooms where biome 1
-has about 31. Floors get more rooms, and rooms vary in size, some
-smaller and some bigger than today's 17 by 20, so no two seeds feel the
-same (the owner's idea). Biome 1 grows first, before the Lure Wisp. The
-grids, sizes and counts are proposed at that step. D-482 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-645 · 2026-11-07 · Biome 1's floors, rooms made of cells** (the
 owner's picks, mostly recommended; builds D-644; partly supersedes D-203,
 D-227, D-228 and D-580) Under the crypt, the seed picks each floor's room
@@ -177,4 +168,14 @@ starts and as it wears off, and each heart it takes flashes green.
 Drafts the owner may change: a Centipede Leg, about 1 in 2, sold for 1,
 and a rare Venom Sac, about 1 in 10; the lines; venom's pale green.
 Built next, in one step with a playtest. D-643 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-655 · 2026-11-07 · The Antidote** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/L562fL7GhmfZZWUXS9UwBM;
+builds D-652, D-654) The Antidote is made in the bag: Make on a Snapcap
+Gill takes 1 gill and 1 herb, a turn passing. Drink ends poisoned and
+heals nothing; not poisoned, it stays, with a line, and no turn passes.
+Its look is B, a tall thin green vial under a cork. With it in, poison
+can take the last heart, and the hero falls. Drafts the owner may change:
+5 a stack, never sold, its lines. D-644 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.

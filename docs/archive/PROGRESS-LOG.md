@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.104, The motes follow the way.** The owner's
+  report and picks, all recommended: the motes follow the walkable way
+  to the stairs down and turn together at bends (D-653). Playtest:
+  https://claude.ai/artifact/KDcb9geT4wkzPeyyocLzMQ
 - **2026-11-07, 0.3.103, Poison first.** Docs only, all recommended:
   content first; debuffs, then ranged; poison from a 15th kind; the
   Antidote, a charm and Tough (D-652).

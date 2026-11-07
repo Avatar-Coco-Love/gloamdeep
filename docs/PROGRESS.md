@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.105 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.107 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Antidote (D-652): 1 Snapcap Gill and 1 herb, ending poisoned; then
-a charm against poison and Tough, each its own step. Side rooms, step 3,
-later.
+The charm against poison (D-652): Claude shows 2 or 3 drafts with
+mock-ups first (a Centipede Leg waits for it); then Tough on the Growth
+tree, its own step. Side rooms, step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -51,6 +51,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.107, The Antidote.** The owner's picks, all
+  recommended (D-655): made in the bag from a Snapcap Gill and a herb;
+  Drink ends poisoned, healing nothing; look B, a tall green vial; poison
+  can now take the last heart. Playtest:
+  https://claude.ai/artifact/NvHXxJYbqYeRAV4tS1Hs9n
 - **2026-11-07, 0.3.106, The centipede built.** As picked (D-654): it
   chases from depth 3 and its bite poisons; the green drop mark, the
   green heart; the drafted drops and lines. Playtest:
@@ -59,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   the centipede poisons; 6 turns, a hurt every 3, never the last heart
   until the Antidote (D-654). Mock-ups:
   https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w
-- **2026-11-07, 0.3.104, The motes follow the way.** The owner's
-  report and picks, all recommended: the motes follow the walkable way
-  to the stairs down and turn together at bends (D-653). Playtest:
-  https://claude.ai/artifact/KDcb9geT4wkzPeyyocLzMQ

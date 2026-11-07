@@ -46,10 +46,10 @@ test('poisoned takes a heart every 3 turns, 2 in all, then wears off with its li
   assert.equal(turns[5].line.id, 'poisonEnds');
 });
 
-test('it never takes the last heart', () => {
+test('with the Antidote in, it can take the last heart (D-655)', () => {
   const turns = waits({ ...at([]), health: 2, poisoned: 6 }, 6);
-  assert.deepEqual(turns.map((t) => t.health), [2, 2, 1, 1, 1, 1]);
-  assert.deepEqual(turns[5].events.filter((e) => e.type === 'poison'), [{ type: 'poison', hurt: 0 }]);
+  assert.deepEqual(turns.slice(0, 5).map((t) => t.health), [2, 2, 1, 1, 1]);
+  assert.ok(turns[5].fell && turns[5].events.some((e) => e.type === 'fall'));
 });
 
 test('a new bite starts the count again and never stacks', () => {
