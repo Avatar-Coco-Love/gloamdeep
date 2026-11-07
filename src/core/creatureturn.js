@@ -13,7 +13,7 @@ import { DIRS, passTurn, itemAt } from './state.js';
 import { fall } from './fall.js';
 import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
-import { poisonedBy } from './poison.js';
+import { poisonedBy, shrugs } from './poison.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -29,7 +29,8 @@ import { poisonedBy } from './poison.js';
 // In god mode (`state.god`, a dev switch) a bite is the same but takes no heart,
 // so the hero never falls from one; its event still says what it would take (D-625).
 // With Endless oil on (`state.endless`) a drink is the same but takes no oil (D-626).
-// One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654).
+// One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654);
+// with Tough, only 1 time in 2 (D-657).
 export function enemiesAct(state) {
   return settle(act(state));
 }
@@ -43,7 +44,7 @@ function act(state) {
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
   const said = first < 0 ? 'glance' : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;
-  const poisoned = bites.some((e, i) => hurts[i] > 0 && get(e.id).poisons);
+  const poisoned = bites.some((e, i) => hurts[i] > 0 && get(e.id).poisons) && !shrugs(state);
   const after = poisoned ? poisonedBy({ ...state, health, oil, enemies }) : { ...state, health, oil, enemies };
   let bitten = stood ? after : say(after, said);
   bites.forEach((e, i) => { bitten = drank[i] > 0 ? note(bitten, 'drink', { id: e.id, oil: drank[i] }) : note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });

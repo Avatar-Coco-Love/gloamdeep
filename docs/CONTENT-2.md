@@ -45,7 +45,7 @@ Zebra, Cow and Camo, shown but not yet bought (D-515, D-533).
 
 Bought with embers on the Journal's Growth tree (D-462, D-481): Light,
 Body and Hands. Body: Heart, one more heart, up to 5 (D-293); Tough, a hurting bite
-poisons only 1 time in 2, above Heart in the first row (D-657, to build). Light and
+poisons only 1 time in 2, above Heart in the first row (D-657). Light and
 Hands: none yet.
 
 ## Tiles, lights, places
