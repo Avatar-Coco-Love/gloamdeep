@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.132 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.133 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-D2 of D-660's list, the next fix in D-666's order. Then D3,
-I5 (with Q-054) and D4, one a step, then S1 and S3; the Spit grub
-(D-659) after them.
+D3 of D-660's list, the next fix in D-666's order. Then I5 (with
+Q-054) and D4, one a step, then S1 and S3; the Spit grub (D-659) after
+them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.133, A smaller card upright.** As
+  recommended (D-681): held upright, a tablet draws an open card a size
+  smaller, so the bag's words clear Drop and Wear with a 9 or 12 slot
+  bag (D2). A test checks five tablet sizes. Playtest:
+  https://claude.ai/artifact/Np6e88HsUPNNZJoxrEVSZw
 - **2026-11-07, 0.3.132, A card's action at once.** As recommended
   (D-680): Eat, Pour, Craft, Hold and Make happen at once, even while
   the hero still slides or the stairs fade; only turns taken in play
@@ -56,7 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   or person; with no tile left it lies where it came from (R7). A rules
   test checks it. Playtest:
   https://claude.ai/artifact/PwRPGGCqF4mmvNWxAWX1ve
-- **2026-11-07, 0.3.130, Freed once.** As recommended (D-678): rubble
-  dug beside the freed peddler gives its own lines, and he isn't freed
-  again or kept 5 more turns (R6). A rules test checks it. Playtest:
-  https://claude.ai/artifact/77TsBY1AqY6wSHbmZLLLp6
