@@ -8,9 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The audit's fixes, one a step (D-661): R1, the waystone gets its own
-event name, so a waking mimic rings no bells. Then R2 and W1 as picked,
-then the owner picks more, then the Spit grub (D-659).
+The audit's fixes, one a step (D-661): R2, the armour's glance gets
+dice of its own. Then W1 as picked, then the owner picks more, then the
+Spit grub (D-659).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +47,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.115, The mimic wakes silently.** Both recommended
+  (D-662): the waystone's plate sends its own `stoneWake` event, so a
+  waking flask or herb mimic no longer rings its bells (R1).
+  Playtest: https://claude.ai/artifact/NgtwB2asRw34LpYBBK985X
 - **2026-11-07, 0.3.114, A slow tap.** The owner's picks, all
   recommended (D-661): off play, a press held past a quarter second is a
   tap when it lifts (I1); R2's and W1's fixes picked for later steps.
@@ -56,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   `input/touch.js`, two docs and five decisions split off word for word.
   Findings: https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496
   No playtest: nothing to play.
-- **2026-11-07, 0.3.112, The Spit grub.** Docs only, the owner's picks
-  (D-659): the first ranged creature never moves and spits a glowing
-  glob 1 tile a turn at the lit lantern; walls and rubble stop it.
-  Mock-ups: https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9

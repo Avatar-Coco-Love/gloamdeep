@@ -33,7 +33,7 @@
 //   cast                 the fishing line was cast, with a plop (D-613)
 //   catch { id }         fish `id` was pulled from the water, with a splash (D-613)
 //   feed { id }          `id`, Bat Guano, was fed to a sprout in a garden bed (D-569)
-//   wake { x, y }        the waystone's plate at x, y woke as the hero stepped on it (D-591)
+//   stoneWake { x, y }   the waystone's plate at x, y woke as the hero stepped on it (D-591, D-662)
 //   travel { place }     the hero went by waystone to place `place`, free (D-593)
 
 // (state, type, details) → the state with that event added to this turn's list

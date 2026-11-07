@@ -87,14 +87,14 @@ test('waking: a step onto the sleeping plate wakes it, its line said, in one tur
   assert.deepEqual(out.hero, at);
   assert.equal(tileAt(out.room, at.x, at.y).id, 'wokenPlate');
   assert.equal(out.turn, s.turn + 1); // the step is the turn, nothing more
-  assert.deepEqual(out.events.filter((e) => e.type === 'wake'), [{ type: 'wake', ...at }]);
+  assert.deepEqual(out.events.filter((e) => e.type === 'stoneWake'), [{ type: 'stoneWake', ...at }]);
   assert.equal(shownLine(out)?.text, 'The waystone wakes.');
 });
 
 test('waking: a woken plate stays woken, walkable, and wakes no more', () => {
   const s = belowPlate(), woke = step(s, 'up'), off = step(woke, 'down'), back = step(off, 'up');
   assert.equal(tileAt(back.room, back.hero.x, back.hero.y).id, 'wokenPlate');
-  assert.ok(!back.events.some((e) => e.type === 'wake'));
+  assert.ok(!back.events.some((e) => e.type === 'stoneWake'));
   assert.ok(!get('wokenPlate').solid && !get('wokenPlate').blocksLight);
   assert.equal(get('wokenPlate').name, 'Waystone');
 });

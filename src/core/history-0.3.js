@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.115', date: '2026-11-07', title: 'The mimic wakes silently', lines: [
+    "A flask or herb mimic waking no longer rings the waystone's bells or starts its rune glowing. It wakes silently, as decided. The waystone still rings when it wakes.",
+    "Decisions: D-662.",
+  ] },
   { v: '0.3.114', date: '2026-11-07', title: 'A slow tap', lines: [
     "A slow tap works on every menu and card. Before, a press held a quarter of a second or longer did nothing off play, so a slow, careful tap on a phone was lost. In play, holding still walks as before.",
     "Decisions: D-661.",
