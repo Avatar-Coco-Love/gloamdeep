@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.90 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.92 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The content map, part 2 (D-635): items and crafting, drafted on the map
-with what parts 1 and 5 picked (D-636 to D-640): the five weapons in
-each metal, charms and lantern parts for the loadout, knacks' sources.
+The content map, part 3 (D-635): plants and harvests, drafted with the picks
+so far (D-636 to D-641): each biome's oil plant, other plants,
+ore, wood, fish and seeds.
 Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
 
 ## Waiting on the owner
@@ -52,6 +52,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.92, Items and crafting.** All recommended:
+  weapons keep a part of their own in every metal; tank
+  and wick climb, glass a choice; one armour and about three charms a
+  biome; a knack taught in each village (D-641).
 - **2026-11-07, 0.3.91, Growth and quests.** The owner's picks: a
   bigger Growth tree with knacks, 12 new boons and solvable trials
   (D-639); places that branch, a village a biome, marked secrets and
@@ -59,6 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.90, Skills and mechanics.** The content map drafted;
   the owner's picks: five weapon kinds, three elements, four found
   abilities (D-636); more to discover, a bigger tree (D-637); +1 a metal and found weapons (D-638). Map: https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
-- **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
-  biome, 32 in all (answers Q-082); all content planned on one map,
-  skills and mechanics first (D-635).

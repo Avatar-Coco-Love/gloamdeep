@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.92', date: '2026-11-07', title: 'Items and crafting', lines: [
+    "Nothing in the game changed. Items and crafting are planned: each weapon kind keeps one part of its own in every metal (wood for the spear and axe, stone for the hammer, a bone for the knife, silk for the sling), and the axe in hand fells the deeper trees.",
+    "The lantern gets about one new part for each slot in each biome: tanks and wicks simply get better, while each glass shows something different, a choice for the trip. One armour and about three charms come in each biome, every creature part gets a use, and each village teaches a knack of its own.",
+    "Decisions: D-641.",
+  ] },
   { v: '0.3.91', date: '2026-11-07', title: 'Growth and quests', lines: [
     "Nothing in the game changed. The Growth tree is planned bigger: about 50 places across Light, Body and Hands, more than a journey's embers can buy, so each hero grows differently. Knacks join it, small ways of fighting or finding worn two at a time, with twelve new boons (26 in all, some joining as you go deeper or after something happens) and solvable trials that pay an ember.",
     "Places and quests are planned too: each biome's deeper floors are one of two kinds of place, a village of people in each biome, secrets on old floors marked on the map once seen, and side quests in a Quests tab, some paying a new boon or bringing someone home.",

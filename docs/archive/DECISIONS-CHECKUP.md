@@ -39,3 +39,19 @@ recommended) When a journey can't be saved (storage full or blocked),
 the text line says "Your journey could not be saved." in amber, once,
 until a save works again. The words are Claude's, may change. Smaller
 saves are left for later. Built in 0.2.167.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.92 (D-641), as it neared
+12 KB: research kept, docs tidied, the light kept.
+
+**D-619 · 2026-11-06 · Research kept, docs tidied, the light kept** (the
+owner's picks, both recommended; nothing visible changes) One PR holds
+all three. The three research pages (lore, room making, the 0.3.73
+health check) and their open suggestions are kept in a new
+`RESEARCH-PAGES.md`. `ART-DIRECTION.md`'s generated places' colours move
+to `ART-DIRECTION-2.md`, and `SCOPE.md`'s parts 6 to 8 to `SCOPE-2.md`,
+word for word; five docs that no longer matched the code are fixed. The
+light keeps each light's shadow cast between frames, at a little more
+than its reach, and casts again only when the light moves, the room
+changes or the reach grows past it (`keptCells`, `src/core/light.js`):
+the picture is the same pixel for pixel, the light about 15% quicker
+standing still.
