@@ -4,6 +4,7 @@ import { OUTSIDE } from './tiles.js';
 import { byLetter, get, LANDMARKS } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
+import { withCache } from './cache.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -203,7 +204,8 @@ export function placeFor(id, seed = 1) {
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const guanoed = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
-  const room = guanoed && landmark ? { ...guanoed, map: unpad(guanoed.map, landmark.mark, landmark.at) } : guanoed; // its pad floor again (D-620)
+  const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
+  const room = cached && landmark ? { ...cached, map: unpad(cached.map, landmark.mark, landmark.at) } : cached; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
 }
 

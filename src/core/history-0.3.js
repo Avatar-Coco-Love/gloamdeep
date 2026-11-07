@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.101', date: '2026-11-07', title: 'The dead-end cache', lines: [
+    "Side rooms start paying for the oil: the last room of each side branch, a dead end, now holds a cache of 2 or 3 extra finds (flasks, herbs, oilcaps or heartcaps), lying together in its far corner.",
+    "A cache is there once: taken, it does not grow back. Rooms you have already been into stay as they were.",
+    "Decisions: D-650.",
+  ] },
   { v: '0.3.100', date: '2026-11-07', title: 'The Lure Wisp built', lines: [
     "The Lure Wisp is here, from depth 4: a small cold flame with pink eyes. Its faint glow shows even out in the dark, though it lights nothing around it.",
     "Come within 3 steps and it drifts a tile away, toward the nearest other creature in the room, or just away when there is none. Following it leads you into trouble.",

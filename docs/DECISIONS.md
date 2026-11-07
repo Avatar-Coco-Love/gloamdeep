@@ -36,20 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-636 · 2026-11-07 · Skills and mechanics, first picks** (the owner's
-picks, recommended; part 1 of the content map, D-635; builds D-457,
-D-463, D-634) Five weapon kinds, each with its own shape: the knife (1
-tile), the spear (2 in a line), the axe (a sweep of the tile ahead and
-its two sides), the hammer (1 tile, knocks back a tile, cracks shells)
-and the sling (the first creature in a line up to 4 tiles, a Stone a
-shot). Three elements, each leaving one mark: Flame (burning), Venom
-(poisoned) and Light (dazed, double on gloam kind). Four found
-abilities, one from each biome's boss: Leap (biome 1), Heave (2), Flare
-(3, a burst of light that costs oil) and Swim (4). Numbers, sources and
-names are drafts on the map, set at each one's own step. D-627 moved to
-`archive/DECISIONS-MAKING.md` and D-628 to D-632 to
-`archive/DECISIONS-BESTIARY.md`, word for word.
-
 **D-637 · 2026-11-07 · More to discover, a bigger tree** (the owner's
 wish and picks; builds D-482, D-603, D-635) The game gets more variety:
 more to discover, more to do, and many side quests on the way to the
@@ -182,3 +168,15 @@ Wisp Glass, about 1 in 2, sold for 2; no rare one for now, the Wisp Lamp
 waits for its own step, and leading toward a pit waits for Leap. Built
 next, in one step with a playtest. D-633 and D-635
 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-650 · 2026-11-07 · Side rooms, step 1: the dead-end cache** (the
+owner's picks, all recommended; builds D-645, D-647, D-648) The last
+room of each side branch, a dead end (a side room with one opening),
+holds a cache: 2 or 3 extra finds from today's list (flask, herb,
+oilcap, heartcap), grouped together, with no new tile, in its far
+corner, the open spot farthest to walk from the way in. A cache is
+left once and never grows back (Claude's draft). Numbers Claude's
+draft, tuned at the playtest. Next, halls and large rooms get about
+twice and four times a one-cell room's finds and creatures (the
+owner's pick, recommended), as its own step. D-636 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.98, Halls and large rooms.** Halls (2 cells) and
+  large rooms (2 × 2) as side rooms; saves remade (D-648). Playtest:
+  https://claude.ai/artifact/HLrQ778ZvPk2fvSv7b3o4y Map preview:
+  https://claude.ai/artifact/PFAdM7jSo9H5UfGRQKZXQF
 - **2026-11-07, 0.3.97, One-cell rooms.** Biome 1's floors grow: more
   rooms, one cell each, the way 3 or 4 rooms, side rooms grown freely;
   old saves remade once. A map preview for every generation step (D-646,
