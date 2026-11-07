@@ -11,6 +11,7 @@ floors too big for the oil carried (a full lantern lasts 60 turns) and
 the stairs hard to find. Rooms are 13 × 15 tiles at depths 2 to 4 (the
 caves), 15 × 17 at depths 5 to 7 (the warrens) and 17 × 20, today's
 size, from depth 8 (the dungeon). Room counts stay 3, 5 and 6.
+*Partly superseded by D-645 (2026-11-07): rooms made of 11 × 13 cells (13 × 15 at depth 8), and more of them.*
 
 **D-584 · 2026-11-02 · Smaller floors, built** (the owner's picks,
 recommended; builds on D-580) Both shallow bands shrink in one step.

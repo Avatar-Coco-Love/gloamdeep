@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.93, Plants and harvests.** All recommended: fewer
+  deeper oil plants a flask; seeds from 3 of a plant; oil plants grow
+  slowly at home; plants, ores, woods and fish kept (D-642).
 - **2026-11-07, 0.3.92, Items and crafting.** All recommended:
   weapons keep a part of their own in every metal; tank
   and wick climb, glass a choice; one armour and about three charms a
