@@ -116,12 +116,12 @@ const walk = (dir) => readdirSync(new URL(`../${dir}`, import.meta.url), { withF
   .flatMap((d) => (d.isDirectory() ? walk(`${dir}/${d.name}`) : d.name.endsWith('.js') ? [`${dir}/${d.name}`] : []));
 
 test('nothing the maker left is still blank', () => {
-  const gaps = [...walk('src'), 'docs/CONTENT.md', 'docs/CONTENT-2.md', 'docs/CONTENT-3.md'].flatMap(blanksIn);
+  const gaps = [...walk('src'), 'docs/CONTENT.md', 'docs/CONTENT-FINDS.md', 'docs/CONTENT-2.md', 'docs/CONTENT-3.md'].flatMap(blanksIn);
   report(gaps, 'Fill these blanks from tools/make.js with real numbers, words and art (and their decisions)');
 });
 
 test('every entry has a row in the content index', () => {
-  const docs = ['CONTENT.md', 'CONTENT-2.md', 'CONTENT-3.md'].map((f) => read(`docs/${f}`)).join('\n');
+  const docs = ['CONTENT.md', 'CONTENT-FINDS.md', 'CONTENT-2.md', 'CONTENT-3.md'].map((f) => read(`docs/${f}`)).join('\n');
   const gaps = ALL.filter((e) => !docs.includes(e.id)).map(who);
-  report(gaps, 'Add a row for these to docs/CONTENT.md (people: CONTENT-2.md; tiles and places: CONTENT-3.md)');
+  report(gaps, 'Add a row for these to docs/CONTENT.md (finds: CONTENT-FINDS.md; people: CONTENT-2.md; tiles and places: CONTENT-3.md)');
 });

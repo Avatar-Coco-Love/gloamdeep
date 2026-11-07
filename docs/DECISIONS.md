@@ -36,57 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-648 · 2026-11-07 · Biome 1, step 2: halls and large rooms** (the
-owner's go-ahead; builds D-645, D-647; numbers Claude's draft, tuned at
-the playtest) Halls and large rooms are side rooms, so the way to the
-stairs keeps one-cell rooms and is as short to walk as today (D-580).
-Depths 2 to 4 get 1 or 2 halls; 5 to 7 get 1 or 2 halls and up to 1
-large room; depth 8 and below 2 or 3 halls and 1 large room; the seed
-picks how many, which way a hall lies, and where. A room of more cells
-also covers the seams between them, so a hall is 23 × 13 tiles (27 × 15
-from depth 8) and a large room 23 × 27 (27 × 31), lining up on the map,
-and each cell's stretch of its edge may open to a different room. A
-dungeon room gets the halls inside it in step with its cells. Rooms keep
-today's finds for now (D-647). Old saves have their generated rooms made
-again once more. D-640 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
-
-**D-649 · 2026-11-07 · The Lure Wisp** (the owner's picks, all
-recommended; mock-ups: https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx;
-builds D-643; answers part of Q-076) The thirteenth kind and a new way,
-lures, the false light of the list. When the hero comes within 3 tiles,
-it drifts 1 tile away, toward the nearest other creature; with none on
-the floor, it just drifts away. It never bites, and one hit puts it out.
-Its own faint cold glow shows even out in the dark, but it lights no
-tiles. 1 heart, in the pool from depth 4. Look A, a cold flame: a bone-white
-core, blue edges in the gloamberry's blues, two pink eyes. Its drop is
-Wisp Glass, about 1 in 2, sold for 2; no rare one for now, the Wisp Lamp
-waits for its own step, and leading toward a pit waits for Leap. Built
-next, in one step with a playtest. D-633 and D-635
-moved to `archive/DECISIONS-CHECKUP.md`, word for word.
-
-**D-650 · 2026-11-07 · Side rooms, step 1: the dead-end cache** (the
-owner's picks, all recommended; builds D-645, D-647, D-648) The last
-room of each side branch, a dead end (a side room with one opening),
-holds a cache: 2 or 3 extra finds from today's list (flask, herb,
-oilcap, heartcap), grouped together, with no new tile, in its far
-corner, the open spot farthest to walk from the way in. A cache is
-left once and never grows back (Claude's draft). Numbers Claude's
-draft, tuned at the playtest. Next, halls and large rooms get about
-twice and four times a one-cell room's finds and creatures (the
-owner's pick, recommended), as its own step. D-636 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
-**D-651 · 2026-11-07 · Side rooms, step 2: more in halls and large
-rooms** (the owner's picks, all recommended; builds D-648, D-650) A
-hall holds twice a one-cell room's finds and creatures, a large room
-four times: every find (flask, herb, oilcap, and a heartcap 1 time in
-2 for each cell), the knife and spear still one each; and the depth's
-creatures, 2, 3 or 4 a cell, mixed as in other rooms. Each cell gets a
-set of its own by today's rules, so they spread evenly; the room's
-first set stays where it lay, and a cell of rock and tunnel too small
-for its set has it anywhere in the room (Claude's draft). D-637 moved
-to `archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-652 · 2026-11-07 · More content first: poison and a 15th kind**
 (the owner's picks, all recommended; builds D-604, D-607, D-636, D-641,
 D-643; supersedes D-643's "biome 1 ends with 14 kinds") More content
@@ -102,16 +51,6 @@ charm against poison for biome 1, and Tough on the Growth tree. Raw
 things below the caves wait (the owner's pick); copper is only the
 first of many tiers. D-641 moved to `archive/DECISIONS-CHECKUP.md`,
 word for word.
-
-**D-653 · 2026-11-07 · The motes follow the way** (the owner's picks,
-all recommended; supersedes D-605's straight line through walls) The
-motes drift along the shortest way the hero can walk to the floor's
-nearest stairs down, through its openings and round its bends, never
-into a wall. They all aim at the farthest tile of that way the hero
-can see from where they stand, so they turn together at a bend or
-junction. Found when the motes on depth 2 drifted back toward the
-stairs up; about 1 seed in 4 there did that. D-642 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
 
 **D-654 · 2026-11-07 · The centipede and poisoned** (the owner's picks;
 mock-ups: https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w; builds D-636,
@@ -181,3 +120,19 @@ shows as the others' do. Drafts the owner may change: 1 heart, spit 1,
 the 5 tiles and 2 turns. Its look, drop and lines are shown with
 mock-ups at its build step. D-647 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-660 · 2026-11-07 · The tenth audit, part 1** (the owner's picks, all
+recommended; the owner asked for a fuller audit) At 0.3.113, nothing
+visible changed. A conversation's start reads 10.1 KB, as at the ninth.
+Floor layouts are made about 5 times faster with the same floors (6,000
+seed and depth pairs checked), and the slowest test is split in three
+to run side by side: `npm test` 59 s to 35 s. Touch in play moves from
+`main.js` (39 to 35 KB) to `src/input/touch.js`, word for word but for
+`heldAt`. `CONTENT.md`'s finds move to `CONTENT-FINDS.md`, the second
+half of `WORLD.md` to `WORLD-2.md`, word for word; D-648 to D-651 and
+D-653 to `archive/DECISIONS-BIOME-1.md`; ticked steps 18 and 18b are
+archived. Four bug hunts, a docs read-through and a phone speed check
+read the code alongside: 19 bugs, about 30 stale doc lines and one
+freeze on depth 2's first frame, listed for the owner to pick from
+(https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
+own small step with a test. The next audit is at 0.3.152.

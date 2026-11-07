@@ -92,7 +92,7 @@ const MAKE = {
     addLines(f, [[`${id}Take`, `${name}: taken`], [`${id}Look`, `${name}: looked at`]]);
     addArt(f, id, false);
     addTest(f, id, name, 'item', [`${id}Take`, `${id}Look`]);
-    addRow(f, 'docs/CONTENT.md', '## Finds and things made', id, 5);
+    addRow(f, 'docs/CONTENT-FINDS.md', '## Finds and things made', id, 5);
   },
   tile(f, id, name, letter) {
     insert(f, 'src/core/tiles.js', 'export const TILES = {', '\n};', `\n  // ${name}: made by tools/make.js (D-622)\n  // blank: ${id}, where it stands (cave.js, woods.js or room.js)\n  ${id}: { id: ${q(id)}, kind: 'tile', letter: ${q(letter)}, name: ${q(name)}, solid: false ${B}, blocksLight: false ${B} },`);

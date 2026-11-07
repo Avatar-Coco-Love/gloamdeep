@@ -1,0 +1,69 @@
+# Biome 1's floors and the lure wisp (D-648 to D-651, D-653)
+
+Moved word for word from `docs/DECISIONS.md` at 0.3.113, the tenth audit
+(D-660), so it stays under 12 KB: halls and large rooms, the lure wisp,
+the dead-end cache, more in halls and large rooms, and the motes
+following the way, all built. Still in force.
+
+---
+
+**D-648 · 2026-11-07 · Biome 1, step 2: halls and large rooms** (the
+owner's go-ahead; builds D-645, D-647; numbers Claude's draft, tuned at
+the playtest) Halls and large rooms are side rooms, so the way to the
+stairs keeps one-cell rooms and is as short to walk as today (D-580).
+Depths 2 to 4 get 1 or 2 halls; 5 to 7 get 1 or 2 halls and up to 1
+large room; depth 8 and below 2 or 3 halls and 1 large room; the seed
+picks how many, which way a hall lies, and where. A room of more cells
+also covers the seams between them, so a hall is 23 × 13 tiles (27 × 15
+from depth 8) and a large room 23 × 27 (27 × 31), lining up on the map,
+and each cell's stretch of its edge may open to a different room. A
+dungeon room gets the halls inside it in step with its cells. Rooms keep
+today's finds for now (D-647). Old saves have their generated rooms made
+again once more. D-640 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-649 · 2026-11-07 · The Lure Wisp** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx;
+builds D-643; answers part of Q-076) The thirteenth kind and a new way,
+lures, the false light of the list. When the hero comes within 3 tiles,
+it drifts 1 tile away, toward the nearest other creature; with none on
+the floor, it just drifts away. It never bites, and one hit puts it out.
+Its own faint cold glow shows even out in the dark, but it lights no
+tiles. 1 heart, in the pool from depth 4. Look A, a cold flame: a bone-white
+core, blue edges in the gloamberry's blues, two pink eyes. Its drop is
+Wisp Glass, about 1 in 2, sold for 2; no rare one for now, the Wisp Lamp
+waits for its own step, and leading toward a pit waits for Leap. Built
+next, in one step with a playtest. D-633 and D-635
+moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-650 · 2026-11-07 · Side rooms, step 1: the dead-end cache** (the
+owner's picks, all recommended; builds D-645, D-647, D-648) The last
+room of each side branch, a dead end (a side room with one opening),
+holds a cache: 2 or 3 extra finds from today's list (flask, herb,
+oilcap, heartcap), grouped together, with no new tile, in its far
+corner, the open spot farthest to walk from the way in. A cache is
+left once and never grows back (Claude's draft). Numbers Claude's
+draft, tuned at the playtest. Next, halls and large rooms get about
+twice and four times a one-cell room's finds and creatures (the
+owner's pick, recommended), as its own step. D-636 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-651 · 2026-11-07 · Side rooms, step 2: more in halls and large
+rooms** (the owner's picks, all recommended; builds D-648, D-650) A
+hall holds twice a one-cell room's finds and creatures, a large room
+four times: every find (flask, herb, oilcap, and a heartcap 1 time in
+2 for each cell), the knife and spear still one each; and the depth's
+creatures, 2, 3 or 4 a cell, mixed as in other rooms. Each cell gets a
+set of its own by today's rules, so they spread evenly; the room's
+first set stays where it lay, and a cell of rock and tunnel too small
+for its set has it anywhere in the room (Claude's draft). D-637 moved
+to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-653 · 2026-11-07 · The motes follow the way** (the owner's picks,
+all recommended; supersedes D-605's straight line through walls) The
+motes drift along the shortest way the hero can walk to the floor's
+nearest stairs down, through its openings and round its bends, never
+into a wall. They all aim at the farthest tile of that way the hero
+can see from where they stand, so they turn together at a bend or
+junction. Found when the motes on depth 2 drifted back toward the
+stairs up; about 1 seed in 4 there did that. D-642 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.

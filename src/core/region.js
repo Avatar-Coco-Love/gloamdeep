@@ -108,9 +108,14 @@ function shared(a, b) {
   for (const u of cellsOf(a)) for (const v of cellsOf(b)) if (v.x === u.x + 1 && v.y === u.y || v.y === u.y + 1 && v.x === u.x) out.push([u, v]);
   return out;
 }
+// Whether `shared` (a, b) has any pair, worked out from the two rooms' edges
+// without listing their cells: b starts just right of a with rows in common, or
+// just below a with columns in common
+const meets = (a, b) => (b.x === a.x + a.w && b.y < a.y + a.h && a.y < b.y + b.h)
+  || (b.y === a.y + a.h && b.x < a.x + a.w && a.x < b.x + b.w);
 // A join kept with its first room left of or above its second
-const joined = (a, b) => (shared(a, b).length ? [a, b] : [b, a]);
-const touches = (a, b) => shared(a, b).length > 0 || shared(b, a).length > 0;
+const joined = (a, b) => (meets(a, b) ? [a, b] : [b, a]);
+const touches = (a, b) => meets(a, b) || meets(b, a);
 
 // § growing (D-645): the way, then the side rooms, then the loops. The way under
 // the crypt starts in a cell the seed picks, else under the stairs down above. The
@@ -121,7 +126,9 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
   for (;;) {
     const start = under ? roomAt(under.x, under.y) : roomAt(int(r, 0, size - 1), int(r, 0, size - 1));
     const cells = [start], joins = [], count = int(r, rooms[0], rooms[1]), long = int(r, WAY[0], WAY[1]);
-    const free = (x, y) => x >= 0 && y >= 0 && x < size && y < size && !cells.some((c) => cellsOf(c).some((t) => t.x === x && t.y === y));
+    // The cells taken so far, as "x,y", kept with `cells` so a check is one look-up
+    const taken = new Set([`${start.x},${start.y}`]);
+    const free = (x, y) => x >= 0 && y >= 0 && x < size && y < size && !taken.has(`${x},${y}`);
     // Every spot a room of the shapes `fits` can take beside a room of `from`, as [from, x, y, w, h]
     const ways = (from, fits) => from.flatMap((c) => fits.flatMap(([w, h]) => {
       const out = [];
@@ -131,7 +138,11 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
       }
       return out;
     }));
-    const add = ([from, x, y, w, h]) => { const to = roomAt(x, y, w, h); cells.push(to); joins.push(joined(from, to)); return to; };
+    const add = ([from, x, y, w, h]) => {
+      const to = roomAt(x, y, w, h); cells.push(to); joins.push(joined(from, to));
+      for (const t of cellsOf(to)) taken.add(`${t.x},${t.y}`);
+      return to;
+    };
     let end = start;
     while (cells.length < long && ways([end], [[1, 1]]).length) end = add(pick(r, ways([end], [[1, 1]])));
     if (cells.length < long) continue;
@@ -153,7 +164,7 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
       const far = away(cells, joins, start).get(end);
       const open = [];
       for (const a of cells) for (const b of cells) {
-        if (a !== b && shared(a, b).length && !joins.some(([u, v]) => (u === a && v === b) || (u === b && v === a))
+        if (a !== b && meets(a, b) && !joins.some(([u, v]) => (u === a && v === b) || (u === b && v === a))
           && away(cells, [...joins, [a, b]], start).get(end) === far) open.push([a, b]);
       }
       if (!open.length) break;

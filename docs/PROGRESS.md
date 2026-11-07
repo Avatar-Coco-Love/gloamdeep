@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.112 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.113 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The tenth audit (D-518): 0.3.112 has come. Then the Spit grub (D-659):
-its look, drop and lines, 2 or 3 drafts with mock-ups, then built.
+The tenth audit's findings (D-660): the owner picks which bugs to fix
+first, each its own small step with a test. Then the Spit grub (D-659).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,15 +34,11 @@ Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
 when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
-- [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
-  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
-- [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
-  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 20 Relics
 - [ ] 21 Feats
 
-**Next audit: 0.3.112** (D-518, D-617).
+**Next audit: 0.3.152** (D-518, D-660).
 
 Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
 lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
@@ -50,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.113, The tenth audit, part 1.** All recommended
+  (D-660): floors laid out 5 times faster, tests 59 s to 35 s, touch to
+  `input/touch.js`, two docs and five decisions split off word for word.
+  Findings: https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496
+  No playtest: nothing to play.
 - **2026-11-07, 0.3.112, The Spit grub.** Docs only, the owner's picks
   (D-659): the first ranged creature never moves and spits a glowing
   glob 1 tile a turn at the lit lantern; walls and rubble stop it.
@@ -57,7 +58,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.111, Ideas from the review.** Docs only, the
   owner's pick, recommended (D-658): the review's ideas are kept in
   `RESEARCH-2.md`; next, the ranged creature's drafts.
-- **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
-  Tough above it, 1 ember, bought once; with it a hurting bite poisons
-  about 1 time in 2, by the seeded dice (D-657). Playtest:
-  https://claude.ai/artifact/5WMpuBHEUrNYxhakipz8TD

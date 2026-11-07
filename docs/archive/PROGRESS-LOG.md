@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
+  Tough above it, 1 ember, bought once; with it a hurting bite poisons
+  about 1 time in 2, by the seeded dice (D-657). Playtest:
+  https://claude.ai/artifact/5WMpuBHEUrNYxhakipz8TD
 - **2026-11-07, 0.3.109, Tough.** Docs only, the owner's picks, all
   recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
   only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:
@@ -1703,6 +1707,10 @@ Getting around first (D-582), then boons (D-583):
   first 3 (0.3.53); 3 more (0.3.54); 2 more (0.3.55); 3 more (0.3.56); Soft Step (0.3.57); Waymark (0.3.58); Far Sight (0.3.59); cards (0.3.60); the mark (0.3.61)
 - [x] 17 Drifting motes toward the stairs (D-581, D-605), 0.3.62
 - [x] The new kind: the oil tick (D-606), 0.3.63
+- [x] 18 Fishing (D-608): the rod (0.3.64); cast, wait, pull (0.3.65); oil (0.3.66);
+  clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
+- [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
+  the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 
