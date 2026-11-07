@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
+  recommended (D-664): an old save's new home waystone clears only the
+  sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
+  The release tool now sets the Version line here (D-665).
+  Nothing visible in a new game, so no playtest.
 - **2026-11-07, 0.3.116, The glance's own dice.** As picked (D-663): a
   glance off the vest rolls its own dice, so a kill on its turn no longer
   always drops its part (R2).
