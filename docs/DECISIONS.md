@@ -36,20 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-643 · 2026-11-07 · Creatures and bosses, first picks** (the owner's
-picks, all recommended; part 4 of the content map, D-635; builds D-453,
-D-463, D-466, D-607, D-634, D-641, D-642; answers part of Q-076) Biome 1
-ends with 14 kinds: the Lure Wisp, a small false light that drifts ahead
-toward other creatures, and the Grave Beetle, shelled, waiting for the
-hammer. Each deeper biome has about 10 kinds, some carried on from above
-with the same look and ways and 1 more heart a biome deeper. Each boss
-fights in its own room, changes how it fights at half its hearts, and is
-beaten once for good, giving its ability, trophy and Feat. The next
-creature built is the Lure Wisp. Names, numbers, ways and drops are
-drafts on the map, set at each one's own step. D-528 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-*Partly superseded by D-652 (2026-11-07): biome 1 has 15 kinds.*
-
 **D-644 · 2026-11-07 · Bigger, less even biomes** (the owner's picks;
 builds D-635, D-643) The planned content needs each biome to hold about
 2 to 3 times the walkable space it has now: about 70 rooms where biome 1
@@ -176,4 +162,19 @@ into a wall. They all aim at the farthest tile of that way the hero
 can see from where they stand, so they turn together at a bend or
 junction. Found when the motes on depth 2 drifted back toward the
 stairs up; about 1 seed in 4 there did that. D-642 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-654 · 2026-11-07 · The centipede and poisoned** (the owner's picks;
+mock-ups: https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w; builds D-636,
+D-652; answers part of Q-076) Biome 1's 15th kind is the centipede, look
+A: side on and facing right, rust red with pale legs and green fangs. It
+chases; 2 hearts, bite 1, and its bite leaves the hero poisoned; in the
+pool from depth 3. Poisoned lasts 6 turns, 1 hurt every 3 turns, 2 in
+all; a new bite starts the count again and never stacks. It stops at 1
+heart, never taking the last, until the Antidote is in (the owner's
+words). It shows as a green drop mark beside the boon's, a line as it
+starts and as it wears off, and each heart it takes flashes green.
+Drafts the owner may change: a Centipede Leg, about 1 in 2, sold for 1,
+and a rare Venom Sac, about 1 in 10; the lines; venom's pale green.
+Built next, in one step with a playtest. D-643 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.

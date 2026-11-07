@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.103 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.105 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The 15th kind (D-652): Claude shows 2 or 3 drafts of a creature that
-poisons the hero, with mock-ups; the owner picks. Side rooms, step 3, later.
+Build the centipede and poisoned (D-654), in one step with a playtest.
+Then the Antidote, a charm and Tough, each its own step. Side rooms,
+step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +51,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.105, The centipede.** Docs only, the owner's picks:
+  the centipede poisons; 6 turns, a hurt every 3, never the last heart
+  until the Antidote (D-654). Mock-ups:
+  https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w
 - **2026-11-07, 0.3.104, The motes follow the way.** The owner's
   report and picks, all recommended: the motes follow the walkable way
   to the stairs down and turn together at bends (D-653). Playtest:
@@ -57,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.103, Poison first.** Docs only, all recommended:
   content first; debuffs, then ranged; poison from a 15th kind; the
   Antidote, a charm and Tough (D-652).
-- **2026-11-07, 0.3.102, Fuller halls.** The owner's picks, all
-  recommended: halls hold twice a small room's finds and creatures,
-  large rooms four times, a set a cell (D-651). Playtest:
-  https://claude.ai/artifact/E72Zaibr9JYM6hZk2EUeCF
-  Map preview: https://claude.ai/artifact/FumapjPRm6XPFtDHiwBBrE
