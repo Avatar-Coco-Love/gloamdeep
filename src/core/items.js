@@ -66,7 +66,8 @@ export const ITEMS = {
   // A mole's Mole Fur, taken and kept the same way (D-541).
   moleFur: { id: 'moleFur', kind: 'item', name: 'Mole Fur', bag: true, max: 20, says: 'moleFurTake', look: 'moleFurLook', full: 'moleFurFull', sells: 1 },
   // A snapcap's Snapcap Gill, taken and kept the same way (D-543).
-  snapcapGill: { id: 'snapcapGill', kind: 'item', name: 'Snapcap Gill', bag: true, max: 20, says: 'snapcapGillTake', look: 'snapcapGillLook', full: 'snapcapGillFull', sells: 1 },
+  snapcapGill: { id: 'snapcapGill', kind: 'item', name: 'Snapcap Gill', bag: true, max: 20, says: 'snapcapGillTake', look: 'snapcapGillLook', full: 'snapcapGillFull', sells: 1,
+    craft: { into: 'antidote', of: { snapcapGill: 1, herb: 1 }, says: 'antidoteMake' } }, // with a herb, the Antidote (D-655)
   // A herb mimic's Mimic Leaf, taken and kept the same way (D-549).
   mimicLeaf: { id: 'mimicLeaf', kind: 'item', name: 'Mimic Leaf', bag: true, max: 20, says: 'mimicLeafTake', look: 'mimicLeafLook', full: 'mimicLeafFull', sells: 1 },
   // A bone rat's Rat Bone, taken and kept the same way (D-551).
@@ -187,4 +188,7 @@ export const ITEMS = {
   // Walking onto it puts back what fits, with its `says` line; the rest stays in it,
   // with its `full` line. Each fall leaves its own. It never grows back.
   lostbag: { id: 'lostbag', kind: 'item', name: 'Your bag', fetch: true, says: 'bagBack', full: 'bagFull' },
+  // Antidote: a tall green vial made in the bag from 1 Snapcap Gill and 1 herb; Drink ends
+  // poisoned, healing nothing, and only while poisoned (D-652, D-655). Made, never found.
+  antidote: { id: 'antidote', kind: 'item', name: 'Antidote', bag: true, max: 5, full: 'antidoteFull', cures: true, eats: 'antidoteDrink', verb: 'DRINK' },
 };

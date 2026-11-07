@@ -256,3 +256,15 @@ creature built is the Lure Wisp. Names, numbers, ways and drops are
 drafts on the map, set at each one's own step. D-528 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
 *Partly superseded by D-652 (2026-11-07): biome 1 has 15 kinds.*
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.107 (D-655), as it neared
+12 KB.
+
+**D-644 · 2026-11-07 · Bigger, less even biomes** (the owner's picks;
+builds D-635, D-643) The planned content needs each biome to hold about
+2 to 3 times the walkable space it has now: about 70 rooms where biome 1
+has about 31. Floors get more rooms, and rooms vary in size, some
+smaller and some bigger than today's 17 by 20, so no two seeds feel the
+same (the owner's idea). Biome 1 grows first, before the Lure Wisp. The
+grids, sizes and counts are proposed at that step. D-482 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.

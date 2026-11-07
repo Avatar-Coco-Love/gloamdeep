@@ -68,7 +68,7 @@ export const ENEMIES = {
   // A centipede, side on and facing right (D-654, the first debuff, D-652): rust red with pale
   // legs and green fangs. It chases, and its bite `poisons`: the hero is poisoned (poison.js).
   // Its bite is of teeth. Beaten, it may drop a Centipede Leg, and now and then a Venom Sac.
-  centipede: { id: 'centipede', kind: 'enemy', name: 'Centipede', acts: "Chases you once it sees you in the light. Its bite leaves you poisoned, which takes a heart every few turns.", fights: "Strike first as it comes. A knife ends it in one blow; the lantern needs two. Poison never takes your last heart.", health: 2, bite: 1, poisons: true, drops: 'centipedeLeg', rare: 'venomSac', ways: ['chases'], hurt: 'centipedeHurt', die: 'centipedeDie', bites: 'centipedeBite', sound: 'teeth' },
+  centipede: { id: 'centipede', kind: 'enemy', name: 'Centipede', acts: "Chases you once it sees you in the light. Its bite leaves you poisoned, which takes a heart every few turns.", fights: "Strike first as it comes. A knife ends it in one blow; the lantern needs two. Poison can take your last heart: an Antidote ends it.", health: 2, bite: 1, poisons: true, drops: 'centipedeLeg', rare: 'venomSac', ways: ['chases'], hurt: 'centipedeHurt', die: 'centipedeDie', bites: 'centipedeBite', sound: 'teeth' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

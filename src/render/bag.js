@@ -234,10 +234,11 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 
 // c: the room's canvas, `vw` × `vh`; bag: [{ id, n, form? }]; chosen: the slot picked;
 // spriteOf: a slot's or item's sprite (sprites.js); gear: the gear row's ids, null for an
-// empty slot (gear.js); full: whether the hero is at full health; told: the state's told
+// empty slot (gear.js); full: whether the hero is at full health, or, given
+// `poisoned`, an antidote's Drink is dim when the hero isn't poisoned (D-655); told: the state's told
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
 // still for its marker when chosen (D-558); SORT always shows (D-559)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true) {
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false) {
   const shape = bagShape(size);
   const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   if (store) {
@@ -264,7 +265,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (!text) return;
   const few = entry.craft && !canCraft(bag, chosen);
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
-  drawButton(c, card.button.x, card.button.y, text, entry.eats && !entry.oil ? full : few);
+  drawButton(c, card.button.x, card.button.y, text, entry.cures ? !poisoned : entry.eats && !entry.oil ? full : few);
   const second = secondText(entry);
   if (second) drawButton(c, card.make.x, card.make.y, second, second === 'EAT' ? full : few);
 }

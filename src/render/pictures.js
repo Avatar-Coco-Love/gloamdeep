@@ -470,6 +470,12 @@ const CENTIPEDE_LEG = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '...........kk...', '..........kzUk..', '.........kaAkk..', '........kaAk....',
   '.......kak......', '......kaAk......', '.....kAk........', '....kak.........'] };
 
+// § antidote: a tall thin vial under a cork, filled with moss and venom's pale green, a
+// gleam on its left; a new shape, so it is told from the round red potion (look B, D-655)
+const ANTIDOTE = { mirror: true, rows: [
+  '', '......kk', '.....kaa', '......kk', '......kC', '......kC', '.....kCV', '.....kVg', '.....kVg', '.....kgg',
+  '.....kgg', '.....kGg', '.....kGG', '......kk'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -484,4 +490,5 @@ export {
   WISP_GLASS,
   CENTIPEDE,
   CENTIPEDE_LEG,
+  ANTIDOTE,
 };

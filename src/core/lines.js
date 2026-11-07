@@ -303,6 +303,10 @@ export const LINES = {
   centipedeLegTake: { texts: ['You pick up the centipede leg.', 'A thin pale leg, still twitching.', 'The centipede leg goes in your bag.'], warn: false }, // (D-654)
   centipedeLegLook: { texts: ['A centipede leg, for crafting later.', 'Thin, pale and jointed.', 'It has a hook at its tip.'], warn: false },
   centipedeLegFull: { text: "You can't carry more centipede legs.", warn: false },
+  antidoteMake: { text: 'You make an antidote.', warn: false }, // 1 Snapcap Gill and 1 herb crafted (D-655)
+  antidoteFull: { text: "You can't carry more antidotes.", warn: false }, // every stack full, no slot free (D-655)
+  antidoteDrink: { texts: ['You drink the antidote.', 'The poison fades.', 'The poison leaves you.'], warn: false }, // drunk while poisoned (D-655)
+  notPoisoned: { text: "You aren't poisoned.", warn: false }, // Drink on an antidote, not poisoned: free (D-655)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

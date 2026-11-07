@@ -37,7 +37,8 @@ export const endTurn = (before, cast) => {
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
   const ticked = poisonTick(done); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654)
-  const next = grow(burnOut(regrow(moved ? ticked : enemiesAct(ticked), moved), moved));
+  const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
+  const next = grow(burnOut(regrow(moved || fell ? ticked : enemiesAct(ticked), moved), moved));
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)
 };

@@ -339,7 +339,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still()); // a card on the room (D-385), its STORE with a chest in reach (D-558)
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0); // a card on the room (D-385), its STORE with a chest in reach (D-558)
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'bench') {
