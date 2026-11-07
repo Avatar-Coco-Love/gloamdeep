@@ -77,32 +77,6 @@ changes or the reach grows past it (`keptCells`, `src/core/light.js`):
 the picture is the same pixel for pixel, the light about 15% quicker
 standing still.
 
-**D-624 · 2026-11-06 · Spawn as a grid of pictures** (the owner's
-picks, all recommended; step 18b, after the bottom sheet, D-623) Spawn
-is a grid of pictures, one per registry entry, each 16 × 16 drawn at
-32 px with no words; the picked one's name shows in the section's name
-line ("SPAWN · CAVE MOUTH"). The kinds keep their headings in one long
-list. Above them a search box, typed with the device's own keyboard,
-narrows the grid by name with each letter; a heading with nothing left
-hides, and × clears it. A tile shows its real drawing, as the room
-draws it. Claude's, the owner may change it: a tile is drawn on a
-crypt floor; a torch on a wall's face; anything with no picture yet
-shows a grey "?"; the box's letters are not the game's keys, and Esc
-leaves it. D-617 moved to `archive/DECISIONS-AUDITS.md` and D-618 to
-`archive/DECISIONS-FISHING.md`, word for word.
-
-**D-625 · 2026-11-06 · God mode** (the owner's picks, all recommended;
-step 18b, after Spawn's grid, D-621, D-154) A God mode switch in the dev
-panel's Hero section, under Refill hearts. While it is on a creature
-still bites, with its line, its sound and the hero's red flash, but
-takes no heart, so the hero never falls from a bite. It is kept on the
-state, so in the save, until switched off; a new game starts with it
-off. It guards hearts only: the oil tick still drinks. The owner's idea:
-the oil gets its own switch in the Oil section, Endless oil, the next
-step: the lantern never runs down and the tick's sip takes nothing.
-Claude's, the owner may change it: armour's glance still shows its own
-line; records count as usual; nothing shows god mode but the switch.
-
 **D-626 · 2026-11-06 · Endless oil** (the owner's picks, all recommended;
 step 18b, after God mode, D-625) An Endless oil switch in the dev panel's
 Oil section, on its own row under Refill and Empty. While it is on a lit
@@ -184,3 +158,30 @@ how to fight it." Claude's, the owner may change it: with none beaten,
 "Beat 3 to learn how to fight it." The maker leaves `fights` a blank,
 and the checker asks every creature for it. D-623 moved to
 `archive/DECISIONS-MAKING.md`, word for word.
+
+**D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
+Q-072; builds D-036, D-628, D-629) The story is set down in
+`docs/LORE.md`: Underhearth, the city below, fell when the First Light's
+oil ran low; the Lightkeepers' hearth in Hearthwood is its spark; the
+dying First Light calls; the hero went down with their teacher, Old
+Maren, whom the gloam took, and came back without their memories; the
+goal is to relight the First Light. The guide is a spark of the First
+Light; Maren is a boss with a history (Q-083), freed when beaten; the
+crypt is the oldest of many ways down. Who the keeper is who leaves the
+finds waits (Q-084). Tone: gloomy, with hope. D-624 moved to
+`archive/DECISIONS-MAKING.md`, word for word.
+
+**D-634 · 2026-11-07 · How long to the end** (the owner's picks, all
+recommended; builds D-028, D-414, D-463, D-633) Relighting the First
+Light takes about 12 to 20 hours, and finding everything about 30.
+Claude's targets, to tune as each biome is played: about 8 floors a
+biome, 32 in all; about 9 ordinary creatures a biome and 8 to 12 from
+the portals; 4 biome bosses, then Old Maren near the end, deep in
+Underhearth, just before the First Light; about 8 wanderers and rare
+named creatures; about 150 things; 6 to 8 weapon kinds, one better metal
+a biome; 4 found abilities and 2 or 3 from relics; 30 to 40 of Maren's
+pages. After the First Light is relit the journey goes on, the gloam
+pushed back but not gone. It is built one biome at a time, each
+finished with its creatures, boss, ability and pages, then played and
+tuned before the next. D-625 moved to `archive/DECISIONS-MAKING.md`,
+word for word.

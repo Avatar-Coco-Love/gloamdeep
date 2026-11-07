@@ -97,12 +97,6 @@ The owner asks whether water matters to the garden. So far seeds just
 grow over turns (D-452, D-567). It could: a pool at home, wet
 ground, water plants. Waits for a way to carry water (D-569).
 
-**Q-072 · What the guide is** (raised 2026-10-31, D-508)
-The owner wants a companion who guides, but not a faery: something
-unique, not ordinary, not found in other games. What it is, how it
-looks, how it joins and what it does are all open. Asked when the
-owner wants the guide.
-
 **Q-075 · A flask left unguarded?** (raised 2026-11-01, D-534)
 Today a rat always waits by each room's flask. The owner would like a
 chance that it isn't guarded. How likely, and from which depth?

@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.85, The Bestiary tab.** All recommended: a Journal
+  tab of creatures met and beaten, met when first lit (D-630). Playtest: https://claude.ai/artifact/Nc7T1rXqUHtMGK3SNhWH8k
 - **2026-11-06, 0.3.84, Special creatures.** Docs only: the owner's
   idea of bosses, rare named creatures and wanderers with histories and
   a Feat each is saved as Q-083, in a new `OPEN-QUESTIONS-3.md`.
