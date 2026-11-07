@@ -268,3 +268,21 @@ smaller and some bigger than today's 17 by 20, so no two seeds feel the
 same (the owner's idea). Biome 1 grows first, before the Lure Wisp. The
 grids, sizes and counts are proposed at that step. D-482 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-645 · 2026-11-07 · Biome 1's floors, rooms made of cells** (the
+owner's picks, mostly recommended; builds D-644; partly supersedes D-203,
+D-227, D-228 and D-580) Under the crypt, the seed picks each floor's room
+count: 6 to 8 at depths 2 to 4 on a 4 × 4 grid, 9 to 11 at depths 5 to 7
+and 11 to 13 at depth 8 on 5 × 5, with 2 loops at depth 8; about 69
+rooms with the crypt's. Rooms are made of cells so that everything lines
+up in play and on the map (the owner's wish): a cell is 11 × 13 tiles,
+13 × 15 at depth 8; a room is 1 cell (small), 2 side by side or one above
+the other (a long hall) or 2 × 2 (large), edge to edge, so every opening
+meets exactly. The stairs down are about 3 or 4 rooms from the stairs
+up, as far as today; the other rooms branch off that way and hold the
+rewards, so exploring is a choice the oil pays for (the owner's pick,
+recommended, so more space adds choices, not walking; D-580). How many halls and large rooms a floor gets is Claude's
+draft, tuned at the playtest. Old saves have their generated rooms made
+again once, as at D-580; home, the surface and the crypt are kept. Built
+in two steps: more one-cell rooms on the bigger grids, then halls and
+large rooms. D-634 moved to `archive/DECISIONS-CHECKUP.md`, word for word.

@@ -449,6 +449,12 @@ const HEART_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwYkYkOk...',
   '...kokYyYYkOk...', '...kokkYYkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § centipede charm: look A of its mock-up (D-656), a drop of venom's pale green, a gleam at its
+// top left, in the wisp charm's copper setting and loop
+const CENTIPEDE_CHARM = { mirror: false, rows: [
+  '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokkwVkkOk...',
+  '...kokVVggkOk...', '...kokkgGkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
+
 // § lure wisp: look A of its mock-up (D-649), a cold flame: a bone-white core, blue edges in
 // the gloamberry's blues, two pink eyes in the core
 const LURE_WISP = { mirror: false, rows: [
@@ -491,4 +497,5 @@ export {
   CENTIPEDE,
   CENTIPEDE_LEG,
   ANTIDOTE,
+  CENTIPEDE_CHARM,
 };

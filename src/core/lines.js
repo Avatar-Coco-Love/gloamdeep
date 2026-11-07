@@ -145,6 +145,11 @@ export const LINES = {
   heartShort: { text: 'You need 1 Mimic Heart, 1 Copper Ore.', warn: false }, // too few, free
   heartCharmLook: { texts: ['A heart charm. Wear it to burn less oil.', 'A mimic heart, set in copper.', 'It beats slow, like a banked flame.'], warn: false },
   heartWear: { text: 'You put on the heart charm.', warn: false }, // Wear in the bag, free (D-487)
+  centipedeCharmMake: { text: 'You make a centipede charm.', warn: false }, // its line on the bench panel, a turn (D-656)
+  centipedeCharmFull: { text: 'You already have a centipede charm.', warn: false }, // carried or worn, free
+  centipedeCharmShort: { text: 'Need 3 Centipede Leg, 1 Copper Ore.', warn: false }, // too few, free
+  centipedeCharmLook: { texts: ['A centipede charm, against poison.', 'A drop of venom, set in copper.', 'Wear it, and poison passes sooner.'], warn: false },
+  centipedeCharmWear: { text: 'You put on the centipede charm.', warn: false }, // Wear in the bag, free (D-656)
   ratTailTake: { texts: ['You pick up the rat tail.', 'You take the tail. It is still warm.', 'The rat tail goes in your bag.'], warn: false },
   ratTailLook: { texts: ['A rat tail, for crafting later.', 'Long, pink and a little stiff.', 'It smells of the tunnels.'], warn: false },
   ratTailFull: { text: "You can't carry more rat tails.", warn: false },
@@ -301,7 +306,7 @@ export const LINES = {
   poisonEnds: { text: 'The poison wears off.', warn: false }, // (D-654)
   poisonHeld: { text: 'Poisoned: {n} turns left.', warn: false }, // a tap on its mark (D-654)
   centipedeLegTake: { texts: ['You pick up the centipede leg.', 'A thin pale leg, still twitching.', 'The centipede leg goes in your bag.'], warn: false }, // (D-654)
-  centipedeLegLook: { texts: ['A centipede leg, for crafting later.', 'Thin, pale and jointed.', 'It has a hook at its tip.'], warn: false },
+  centipedeLegLook: { texts: ['A centipede leg. Three make a charm.', 'Thin, pale and jointed.', 'It has a hook at its tip.'], warn: false },
   centipedeLegFull: { text: "You can't carry more centipede legs.", warn: false },
   antidoteMake: { text: 'You make an antidote.', warn: false }, // 1 Snapcap Gill and 1 herb crafted (D-655)
   antidoteFull: { text: "You can't carry more antidotes.", warn: false }, // every stack full, no slot free (D-655)

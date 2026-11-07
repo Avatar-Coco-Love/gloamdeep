@@ -87,7 +87,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds,
 // with `stored`, the stacks in the chests in reach, added in (D-560);
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and the Big Bag (D-547), the garden bed (D-565), the wooden rod (D-609)
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'centipedeCharm']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and the Big Bag (D-547), the garden bed (D-565), the wooden rod (D-609), the centipede charm (D-656)
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
 export const BENCH_TAKE = BENCH_SLOTS;
