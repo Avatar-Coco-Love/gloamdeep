@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.104 (2026-11-07)
+- The drifting motes now follow the way you can walk to the stairs down, through openings and round bends, instead of a straight line through the stone. Before, on about 1 floor in 4 they drifted back toward the stairs you had just come down.
+- They all drift toward the farthest spot on that way you can see, so at a bend or a junction they swing round together.
+- Decisions: D-653, superseding D-605's straight line.
+
 ## 0.3.103 (2026-11-07)
 - Nothing in the game changed. More content comes before the side rooms get fuller: next are creatures that leave a debuff on you, then creatures that attack from a distance, each with ways to defend.
 - The first debuff will be poison, brought by a new creature, the cave's fifteenth kind. Against it: an Antidote made from a Snapcap Gill and a herb, a charm, and a Growth upgrade.
@@ -33,8 +38,3 @@ Entry format:
 - Each set is a flask with a rat guarding it, a herb, an oilcap, sometimes a heartcap, and the depth's usual mix of creatures. The knife and the spear stay one each.
 - Rooms you have already been into stay as they were.
 - Decisions: D-651. D-637 moved to the archive, word for word.
-
-## 0.3.101 (2026-11-07)
-- Side rooms start paying for the oil: the last room of each side branch, a dead end, now holds a cache of 2 or 3 extra finds (flasks, herbs, oilcaps or heartcaps), lying together in its far corner.
-- A cache is there once: taken, it does not grow back. Rooms you have already been into stay as they were.
-- Decisions: D-650.

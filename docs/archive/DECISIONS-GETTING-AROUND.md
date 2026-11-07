@@ -99,3 +99,4 @@ like a draft. They show only where the light falls, dimmer where it is
 dim. None once any of the floor's stairs down is remembered, with the
 lantern out, or with reduced motion. D-603 archived. Mock-up:
 https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X
+The straight line through walls superseded by D-653 (2026-11-07).

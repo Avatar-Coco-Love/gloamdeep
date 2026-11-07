@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.101, The dead-end cache.** The owner's picks, all
+  recommended: each dead end holds 2 or 3 extra finds, grouped in its far
+  corner, left once; halls and large rooms scale next (D-650). Playtest:
+  https://claude.ai/artifact/XkNefpuNTL9JtCLq3w1DD1 Map preview:
+  https://claude.ai/artifact/EKWgReXHELdtkH8gsS7QWC
 - **2026-11-07, 0.3.100, The Lure Wisp built.** From depth 4, it drifts
   away toward other creatures, never bites, and glows in the dark; Wisp
   Glass sold for 2 (D-649). Playtest:

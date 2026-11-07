@@ -50,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.104, The motes follow the way.** The owner's
+  report and picks, all recommended: the motes follow the walkable way
+  to the stairs down and turn together at bends (D-653). Playtest:
+  https://claude.ai/artifact/KDcb9geT4wkzPeyyocLzMQ
 - **2026-11-07, 0.3.103, Poison first.** Docs only, all recommended:
   content first; debuffs, then ranged; poison from a 15th kind; the
   Antidote, a charm and Tough (D-652).
@@ -58,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   large rooms four times, a set a cell (D-651). Playtest:
   https://claude.ai/artifact/E72Zaibr9JYM6hZk2EUeCF
   Map preview: https://claude.ai/artifact/FumapjPRm6XPFtDHiwBBrE
-- **2026-11-07, 0.3.101, The dead-end cache.** The owner's picks, all
-  recommended: each dead end holds 2 or 3 extra finds, grouped in its far
-  corner, left once; halls and large rooms scale next (D-650). Playtest:
-  https://claude.ai/artifact/XkNefpuNTL9JtCLq3w1DD1 Map preview:
-  https://claude.ai/artifact/EKWgReXHELdtkH8gsS7QWC

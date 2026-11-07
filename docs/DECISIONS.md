@@ -36,19 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-642 · 2026-11-07 · Plants and harvests, first picks** (the owner's
-picks, all recommended; part 3 of the content map, D-635; builds D-450,
-D-451, D-452, D-460, D-530, D-641) Each deeper oil plant takes fewer to
-make a flask: lampwort 2, a glowcap with a flask makes Bright Oil, an
-ember lily is poured straight. Every land plant's seed is made in the bag
-from 3 of it, like the Gloamberry Seed, the Herb Seed too; water plants
-wait for Q-071. Oil plants grow at home, but slowly, so the light still
-mostly comes from below. The other plants, ores, woods and fish are kept
-as drafted, each biome's pick and axe opening the next, each deeper fish
-a step up. Names, uses and numbers are drafts on the map, set at each
-one's own step. D-590 moved to `archive/DECISIONS-CHECKUP.md`, word for
-word.
-
 **D-643 · 2026-11-07 · Creatures and bosses, first picks** (the owner's
 picks, all recommended; part 4 of the content map, D-635; builds D-453,
 D-463, D-466, D-607, D-634, D-641, D-642; answers part of Q-076) Biome 1
@@ -180,3 +167,13 @@ charm against poison for biome 1, and Tough on the Growth tree. Raw
 things below the caves wait (the owner's pick); copper is only the
 first of many tiers. D-641 moved to `archive/DECISIONS-CHECKUP.md`,
 word for word.
+
+**D-653 · 2026-11-07 · The motes follow the way** (the owner's picks,
+all recommended; supersedes D-605's straight line through walls) The
+motes drift along the shortest way the hero can walk to the floor's
+nearest stairs down, through its openings and round its bends, never
+into a wall. They all aim at the farthest tile of that way the hero
+can see from where they stand, so they turn together at a bend or
+junction. Found when the motes on depth 2 drifted back toward the
+stairs up; about 1 seed in 4 there did that. D-642 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
