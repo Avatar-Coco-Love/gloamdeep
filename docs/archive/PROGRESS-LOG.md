@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
+  biome, 32 in all (answers Q-082); all content planned on one map,
+  skills and mechanics first (D-635).
 - **2026-11-07, 0.3.88, The story.** The owner's picks, set down in
   `LORE.md` (D-633); the guide a spark (answers Q-072); the keeper waits
   (Q-084); 12 to 20 hours to the end (D-634). Page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg

@@ -64,19 +64,6 @@ piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
 
-**D-619 · 2026-11-06 · Research kept, docs tidied, the light kept** (the
-owner's picks, both recommended; nothing visible changes) One PR holds
-all three. The three research pages (lore, room making, the 0.3.73
-health check) and their open suggestions are kept in a new
-`RESEARCH-PAGES.md`. `ART-DIRECTION.md`'s generated places' colours move
-to `ART-DIRECTION-2.md`, and `SCOPE.md`'s parts 6 to 8 to `SCOPE-2.md`,
-word for word; five docs that no longer matched the code are fixed. The
-light keeps each light's shadow cast between frames, at a little more
-than its reach, and casts again only when the light moves, the room
-changes or the reach grows past it (`keptCells`, `src/core/light.js`):
-the picture is the same pixel for pixel, the light about 15% quicker
-standing still.
-
 **D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
 Q-072; builds D-036, D-628, D-629) The story is set down in
 `docs/LORE.md`: Underhearth, the city below, fell when the First Light's
@@ -177,3 +164,18 @@ people or found as notes; some pay a new boon joining the pool, and
 some rescued people move home (D-470). Names, people, quests and
 rewards are drafts on the map, the specifics talked through at each
 one's own step.
+
+**D-641 · 2026-11-07 · Items and crafting, first picks** (the owner's
+picks, all recommended; part 2 of the content map, D-635; builds D-455,
+D-456, D-458, D-459, D-638, D-639, D-640) Each weapon kind keeps one
+part of its own in every metal: ore with wood for the spear and axe,
+stone for the hammer, a bone for the knife, silk and a hide for the
+sling; the axe in hand also fells the deeper woods' trees. About one
+new lantern part for each slot a biome: the tank and the wick climb,
+each simply better, while each glass shows something different, a
+choice for the trip. One armour and about three charms a biome, and
+biome 1 gives every part now "for crafts later" a use, about 17 new
+things there. Beside the tree's 14 knacks, each village teaches one,
+free, as a quest's reward. Names, recipes and numbers are drafts on the
+map, set at each one's own step. D-619 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
