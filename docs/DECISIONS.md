@@ -50,12 +50,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
-supersedes the version part of D-237) Stage 0.2's last steps are done,
-so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
-world (D-168). New history goes in `history-0.3.js`. The next audit,
-0.2.268 (D-518, D-519), keeps its distance: 0.3.32.
-
 **D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
 Q-072; builds D-036, D-628, D-629) The story is set down in
 `docs/LORE.md`: Underhearth, the city below, fell when the First Light's
@@ -184,3 +178,16 @@ as drafted, each biome's pick and axe opening the next, each deeper fish
 a step up. Names, uses and numbers are drafts on the map, set at each
 one's own step. D-590 moved to `archive/DECISIONS-CHECKUP.md`, word for
 word.
+
+**D-643 · 2026-11-07 · Creatures and bosses, first picks** (the owner's
+picks, all recommended; part 4 of the content map, D-635; builds D-453,
+D-463, D-466, D-607, D-634, D-641, D-642; answers part of Q-076) Biome 1
+ends with 14 kinds: the Lure Wisp, a small false light that drifts ahead
+toward other creatures, and the Grave Beetle, shelled, waiting for the
+hammer. Each deeper biome has about 10 kinds, some carried on from above
+with the same look and ways and 1 more heart a biome deeper. Each boss
+fights in its own room, changes how it fights at half its hearts, and is
+beaten once for good, giving its ability, trophy and Feat. The next
+creature built is the Lure Wisp. Names, numbers, ways and drops are
+drafts on the map, set at each one's own step. D-528 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.

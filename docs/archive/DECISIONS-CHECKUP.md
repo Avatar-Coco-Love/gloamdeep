@@ -66,3 +66,12 @@ whole game's scope is shown as one visual map, then filled in piece by
 piece. Selling on Google Play: a checklist now (`docs/STORE.md`), each
 piece built when it is due, so nothing blocks it later. Better level
 making, as data in named passes, is planned before it is built.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.94 (D-643), as it neared
+12 KB: version 0.3.0.
+
+**D-528 · 2026-10-31 · Version 0.3.0** (the owner's pick, recommended;
+supersedes the version part of D-237) Stage 0.2's last steps are done,
+so versions move to 0.3.x from 0.3.0, this version, for stage 0.3, the
+world (D-168). New history goes in `history-0.3.js`. The next audit,
+0.2.268 (D-518, D-519), keeps its distance: 0.3.32.

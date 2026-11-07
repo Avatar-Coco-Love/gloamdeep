@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.94', date: '2026-11-07', title: 'Creatures and bosses', lines: [
+    "Nothing in the game changed. Creatures and bosses are planned: the first cave ends with 14 kinds, adding the Lure Wisp, a small false light that drifts ahead in the dark, and the Grave Beetle, a shelled beetle the hammer cracks. Each deeper biome has about 10 kinds, some from above coming back a heart tougher.",
+    "Each boss fights in its own room and changes how it fights at half its hearts; beaten once, it gives its found ability. The Lure Wisp is the next creature built.",
+    "Decisions: D-643. D-528 moved to the archive, word for word.",
+  ] },
   { v: '0.3.93', date: '2026-11-07', title: 'Plants and harvests', lines: [
     "Nothing in the game changed. Plants and harvests are planned: each deeper oil plant takes fewer to fill a flask (lampwort 2, a glowcap makes Bright Oil, an ember lily is poured straight), and every land plant gives a seed, made from 3 of it.",
     "Oil plants grow in the garden, but slowly, so the light still mostly comes from below. Each biome's ore, wood and fish are kept as drafted, each a step up from the one above.",
