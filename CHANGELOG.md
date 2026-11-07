@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.115 (2026-11-07)
+- A flask or herb mimic waking no longer rings the waystone's bells or starts its rune glowing. It wakes silently, as decided. The waystone still rings when it wakes.
+- Decisions: D-662.
+
 ## 0.3.114 (2026-11-07)
 - A slow tap works on every menu and card. Before, a press held a quarter of a second or longer did nothing off play, so a slow, careful tap on a phone was lost. In play, holding still walks as before.
 - Decisions: D-661.
@@ -31,7 +35,3 @@ Entry format:
 - The tenth audit, part 1. Nothing in play changes. New floors are worked out about 5 times faster, the same floors as before, and the tests run in 35 seconds, not 59.
 - Behind the scenes: touch in play has its own file; two long pages and five decisions moved to their own files, word for word. Four bug hunts, a docs read-through and a phone speed check found 19 bugs, some stale doc lines and one freeze, for you to pick fixes from.
 - Decisions: D-660. D-648 to D-651 and D-653 moved to the archive, word for word.
-
-## 0.3.112 (2026-11-07)
-- Docs only: the first creature that attacks from range is chosen, the Spit grub. It never moves, and spits a glowing glob at your lit lantern that moves 1 tile a turn, so you can step aside; walls and rubble stop it, and with the lantern off it can't see you. Nothing in play changes yet.
-- Decisions: D-659. D-647 moved to the archive, word for word.

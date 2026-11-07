@@ -233,7 +233,7 @@ function tryStep(dir) {
   // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)
   const beam = events.find((e) => e.type === 'leave' || e.type === 'arrive');
   if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
-  const woke = events.find((e) => e.type === 'wake'); // the rune kindles (D-591)
+  const woke = events.find((e) => e.type === 'stoneWake'); // the rune kindles (D-591), not a mimic's wake (D-368)
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
   if (state.xp > before.xp) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now() };
@@ -305,7 +305,7 @@ function hear(events) {
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);
   if (has(events, 'step') && !has(events, 'fall')) sound.footstep();
-  if (has(events, 'wake')) sound.bells(); // the waystone wakes (D-591)
+  if (has(events, 'stoneWake')) sound.bells(); // the waystone wakes (D-591); a mimic wakes silently (D-368)
   if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)
   if (has(events, 'cast')) sound.plop(); // the line cast (D-613)
   if (has(events, 'catch')) sound.splash(); // a fish caught (D-613)

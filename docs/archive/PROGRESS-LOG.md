@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.112, The Spit grub.** Docs only, the owner's picks
+  (D-659): the first ranged creature never moves and spits a glowing
+  glob 1 tile a turn at the lit lantern; walls and rubble stop it.
+  Mock-ups: https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9
 - **2026-11-07, 0.3.111, Ideas from the review.** Docs only, the
   owner's pick, recommended (D-658): the review's ideas are kept in
   `RESEARCH-2.md`; next, the ranged creature's drafts.
