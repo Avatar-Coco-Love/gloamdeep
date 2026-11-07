@@ -9,7 +9,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 
 ## Next up
 Propose the first creature that attacks from range, with ways to defend
-against it (D-652): 2 or 3 drafts with mock-ups first. Side rooms, step 3, later.
+against it (D-652): 2 or 3 drafts with mock-ups first, using the
+review's ideas in `RESEARCH-2.md` (D-658). Side rooms, step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +51,9 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.111, Ideas from the review.** Docs only, the
+  owner's pick, recommended (D-658): the review's ideas are kept in
+  `RESEARCH-2.md`; next, the ranged creature's drafts.
 - **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
   Tough above it, 1 ember, bought once; with it a hurting bite poisons
   about 1 time in 2, by the seeded dice (D-657). Playtest:
@@ -58,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
   only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:
   https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv
-- **2026-11-07, 0.3.108, The Centipede Charm.** The owner's picks, all
-  recommended (D-656): made at the bench from 3 Centipede Leg and 1
-  Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a
-  green drop in copper. Playtest:
-  https://claude.ai/artifact/RZiFW5aNZXJ3Ht5gidVnhh

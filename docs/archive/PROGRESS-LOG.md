@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.108, The Centipede Charm.** The owner's picks, all
+  recommended (D-656): made at the bench from 3 Centipede Leg and 1
+  Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a
+  green drop in copper. Playtest:
+  https://claude.ai/artifact/RZiFW5aNZXJ3Ht5gidVnhh
 - **2026-11-07, 0.3.107, The Antidote.** The owner's picks, all
   recommended (D-655): made in the bag from a Snapcap Gill and a herb;
   Drink ends poisoned, healing nothing; look B, a tall green vial; poison

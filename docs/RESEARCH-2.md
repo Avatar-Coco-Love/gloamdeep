@@ -65,3 +65,28 @@ word for word at 0.3.72, the ninth audit (D-617), as that page neared 8 KB.
     the game will be generated.
   - *A bigger world*, all ways: a wider surface first, then structures,
     caves and more in layers; more and bigger regions; no bottom.
+
+## From the project review (2026-11-07, D-658)
+Ideas from a look at the whole game, kept by the owner. Nothing decided;
+some build on ideas above.
+- **The ranged creature** (for Next up, D-652): *shots you can see
+  coming*, a glowing spit that moves 1 tile a turn so it can be
+  sidestepped (Into the Breach, Hoplite; see "Creatures show their next
+  move"); *it aims at your light*, so with the lantern off it can't find
+  you, and neither can you see; *cover*, pillars or rubble that block
+  shots.
+- **Sounds from the dark**: creatures out of sight are heard from their
+  side of the screen (footsteps, scratching), with Web Audio panning.
+- **Lit torches stay lit**: rooms you light stay lit, so the way back up
+  becomes a trail of your own light (pillars 1 and 4).
+- **A reason to go dark**: with the lantern empty or off, slipping past
+  creatures becomes a choice, not only a punishment (Brogue).
+- **Set pieces down the way**: every few depths a landmark room, a piece
+  of the story or something strange, so depth feels like a journey.
+- **The fall card**: on a fall, how deep you got, what got you, what you
+  found; it feeds "how far can I get?" and can use the share card.
+- **Each biome bends the rules**: e.g. the glowing fungal caverns light
+  themselves, so the lantern matters less there and creatures hunt
+  another way.
+- **A vertical slice goal**: one 10-minute run, surface to depth 10, that
+  feels whole and tense; new steps are judged by whether they improve it.

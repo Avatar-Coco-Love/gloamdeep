@@ -173,3 +173,8 @@ row now holds two places stacked, the first of D-639's 4 or 5 a branch,
 and Body's locked row moves up one. Drafts the owner may change: its
 words, its drawing. Built next, in one step with a playtest. D-646 moved
 to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-658 · 2026-11-07 · Ideas from the review** (the owner's pick,
+recommended) The ideas from the project review are kept in
+`RESEARCH-2.md`, "From the project review"; none is decided. Next comes
+Next up: the ranged creature's drafts (D-652), using its ideas there.
