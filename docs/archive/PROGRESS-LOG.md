@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.122, A card's words stay.** As recommended (D-670):
+  a line already showing as a card opens counts as heard, so the screen
+  reader keeps the bag's, map's and pause menu's words; a line said on
+  the card is still read (I3).
+  Playtest: https://claude.ai/artifact/DFADkonUSBzuxrsaVRTQbC
 - **2026-11-07, 0.3.121, A held Space picks once.** As recommended
   (D-669): off play, Space's key-repeat does nothing, so holding it on
   a menu picks once; in play it still waits turn after turn (I2).

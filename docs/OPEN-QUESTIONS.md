@@ -15,7 +15,8 @@ else entirely.
 **Q-037 · How regions are generated and joined** (stage 0.3)
 Proposed in `WORLD.md`: two passes, the region's layout first, then each
 room made to fit its ways in, each room with its own seed. Built for
-depth 3 (D-201); the owner left the rest open until a second region. How do
+depth 2 (depth 3 before D-212; D-201), and for every floor under the
+crypt since D-645; the owner left the rest open until a second region. How do
 regions join each other: grid edge to grid edge on the surface, and
 stairs or cave mouths between the surface and the regions below?
 
@@ -23,12 +24,15 @@ stairs or cave mouths between the surface and the regions below?
 Which kinds (tunnel, clearing, house, marsh, desert…), how big each is,
 and whether shapes come from hand-made templates, are generated, or both
 (D-172). The owner mentioned "predefined tiles" for the shapes. Rooms
-of other sizes line up their stairs by place on the floor (D-204). So far
-the generated caves are 17 × 20 and the crypt rooms 11 × 13 (D-195).
+of other sizes line up their stairs by place on the floor (D-204). The
+crypt rooms are 11 × 13 (D-195); generated rooms are made of 11 × 13
+cells, 13 × 15 from depth 8: 1 cell, a hall of 2 or a large room of
+2 × 2 (D-645, D-648).
 Narrowed by D-223: each kind of place has its own rules, and deeper
 floors become grids; which rules each kind has is still open. Burrow
 floors are warrens (D-227), and from depth 8 dungeon halls (D-228).
-Sizes by depth for the caves, warrens and dungeon: D-580, built in D-584.
+Sizes by depth for the caves, warrens and dungeon before D-645: D-580,
+built in D-584.
 
 **Q-052 · Play data: kept on the device, or sent?** (near 1.0)
 Telemetry sends how people play (falls, depths, journey length) to a

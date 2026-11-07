@@ -36,11 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-658 · 2026-11-07 · Ideas from the review** (the owner's pick,
-recommended) The ideas from the project review are kept in
-`RESEARCH-2.md`, "From the project review"; none is decided. Next comes
-Next up: the ranged creature's drafts (D-652), using its ideas there.
-
 **D-659 · 2026-11-07 · The Spit grub** (the owner's picks, all
 recommended but its name; mock-ups:
 https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9; builds D-349, D-652,
@@ -185,3 +180,14 @@ as at D-664, so only saves not yet brought up to date keep theirs; one
 already updated stays as it is, with no guess at which were woken.
 Before, every deep stone went back to sleep. A rules test checks it.
 D-657 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-673 · 2026-11-07 · Docs A and B: the edge and the floors** (the
+owner's picks, both recommended; A and B of D-660's findings, as D-666
+set) `WORLD.md`'s light between rooms says D-445's rule, plain dark past
+every edge, in place of D-440's place beyond showing itself. Today's
+room counts, grids, cells, halls and large rooms (D-645, D-647, D-648)
+replace the old ones in `WORLD.md`, Q-037 and Q-038, and the starting
+region's sheet gives today's depths, biome 1 to depth 8 (D-635) and
+floors below it made as depth 8 is (D-647), not depth 5 as the bottom;
+the old numbers stay in one short "before" clause each. Docs only.
+D-658 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

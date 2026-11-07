@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.125', date: '2026-11-07', title: 'The world\'s notes caught up', lines: [
+    "The world's notes are brought up to date: past every edge is plain dark, and floors under the crypt have 6 to 13 rooms made of cells, with halls and large rooms, going on below depth 8. Nothing in the game changes.",
+    "Decisions: D-673. D-658 moved to the archive, word for word.",
+  ] },
   { v: '0.3.124', date: '2026-11-07', title: 'Woken stones stay woken', lines: [
     "When an old save from before the bigger floors is brought up to date, a deep waystone you had woken stays woken, so you can still travel to it. Before, every deep waystone went back to sleep. Saves already brought up to date stay as they are.",
     "Decisions: D-672. D-657 moved to the archive, word for word.",

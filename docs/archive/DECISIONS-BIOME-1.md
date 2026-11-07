@@ -8,6 +8,8 @@ following the way, all built. Still in force. D-652, more content first
 D-654, the centipede and poisoned (built), moved here at 0.3.121 (D-669).
 D-655, the Antidote (built), moved here at 0.3.122 (D-670).
 D-656, the Centipede Charm (built), moved here at 0.3.123 (D-671).
+D-658, ideas from the review (kept in `RESEARCH-2.md`), moved here at
+0.3.125 (D-673).
 
 ---
 
@@ -135,3 +137,8 @@ row now holds two places stacked, the first of D-639's 4 or 5 a branch,
 and Body's locked row moves up one. Drafts the owner may change: its
 words, its drawing. Built next, in one step with a playtest. D-646 moved
 to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-658 · 2026-11-07 · Ideas from the review** (the owner's pick,
+recommended) The ideas from the project review are kept in
+`RESEARCH-2.md`, "From the project review"; none is decided. Next comes
+Next up: the ranged creature's drafts (D-652), using its ideas there.

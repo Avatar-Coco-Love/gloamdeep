@@ -1,7 +1,7 @@
 # The starting region
 
 Rule sheet for the first region (step 42, D-182 to D-185). Uses the
-template in `WORLD.md`. Where this sheet and a decision disagree, the
+template in `WORLD-2.md`. Where this sheet and a decision disagree, the
 decision wins.
 
 ## Name and place
@@ -36,12 +36,16 @@ may leave cells empty).
 ## Caves (D-184, D-185)
 - One cave entrance for now: the first cave. The sheet leaves room for
   more caves later.
-- **The first cave** is today's game (D-175): the two crypt rooms, with
-  a third south of the first through a doorway (D-197), then generated
-  depths 3 to 5. Depth 5 is its bottom, 5 levels in all.
-- A portal at the bottom leads to the endless depths, renewed on each
-  visit (D-019, D-032). The earth warrens and the dungeon stay below depth 5 for
-  now; the bottom and its portal wait for the portal step (D-354).
+- **The first cave** is today's game (D-175): the crypt's two rooms at
+  depth 0, joined by a doorway (D-197), its room below at depth 1, then
+  generated floors from depth 2: caves at 2 to 4, warrens at 5 to 7,
+  the dungeon from 8 (D-212, D-233). Before D-354 depth 5 was its bottom
+  (depths 1 to 5 before D-212, D-185).
+- Biome 1 is the surface and depths 1 to 8 (D-635). Below depth 8 the
+  floors are made as depth 8 is, until biome 2 (D-647). A portal at the
+  bottom leads to the endless depths, renewed on each visit (D-019,
+  D-032); where the first cave ends and its portal wait for the portal
+  step (D-354).
 - The first cave gets its own rule sheet when it is built.
 
 ## NPC houses (D-184)
