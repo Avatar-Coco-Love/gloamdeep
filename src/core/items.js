@@ -73,6 +73,8 @@ export const ITEMS = {
   ratBone: { id: 'ratBone', kind: 'item', name: 'Rat Bone', bag: true, max: 20, says: 'ratBoneTake', look: 'ratBoneLook', full: 'ratBoneFull', sells: 1 },
   // An oil tick's Tick Shell, taken and kept the same way (D-606).
   tickShell: { id: 'tickShell', kind: 'item', name: 'Tick Shell', bag: true, max: 20, says: 'tickShellTake', look: 'tickShellLook', full: 'tickShellFull', sells: 1 },
+  // The Lure Wisp's drop (D-649): a sliver of cold glass, for crafting later, sold for 2
+  wispGlass: { id: 'wispGlass', kind: 'item', name: 'Wisp Glass', bag: true, max: 20, says: 'wispGlassTake', look: 'wispGlassLook', full: 'wispGlassFull', sells: 2 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.

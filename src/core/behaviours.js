@@ -17,6 +17,10 @@ export const BEHAVIOURS = {
   // the hero while the lantern is lit, else the nearest lit torch; with none it
   // stays (D-351, D-356).
   seeksLight: { id: 'seeksLight', name: 'Seeks light', moves: 'toLight' },
+  // It never bites. When the hero comes within `near` steps it drifts a tile a turn away from
+  // them, to the tile nearest the nearest other creature in the room, or just the farthest
+  // from the hero with none; lit or not, it needs no noticing (D-649).
+  lures: { id: 'lures', name: 'Lures', moves: 'lure', near: 3, bites: false },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

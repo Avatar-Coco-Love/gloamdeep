@@ -78,7 +78,7 @@ function settle(state) {
 // One asleep, or stirring as it wakes, does nothing (D-368)
 const still = (e) => e.asleep || e.stirs;
 // The enemies that bite this turn, and the enemies with those marked as having noticed the hero
-const biting = (state) => biters(state.enemies, state.hero).filter((e) => !still(e))
+const biting = (state) => biters(state.enemies, state.hero).filter((e) => !still(e) && traits(get(e.id)).bites !== false)
   .filter((e) => traits(get(e.id)).bitesLit || !litAt(state, e.x, e.y))
   .filter((e) => !fleeing(e) || !fleeStep(state, e));
 const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
@@ -102,7 +102,7 @@ function ahead(state) {
   const moved = enemiesMove({ ...next, enemies: chased(next.enemies, bites) }).enemies;
   return state.enemies.flatMap((e, i) => {
     if (e.asleep || !litAt(state, e.x, e.y)) return []; // one asleep in disguise is hidden (D-368)
-    const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight');
+    const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight') || luring(state, e);
     if (bites.includes(next.enemies[i])) return [{ e, noticed, move: { e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y } }];
     const to = moved[i];
     return [{ e, noticed, move: to.x === e.x && to.y === e.y ? null : { e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y } }];
@@ -125,12 +125,18 @@ function ahead(state) {
 // reach; torches, glows, daylight and the shy ones' sight are as they were.
 // One that seeks light (D-351) needs no noticing: it steps toward the hero
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
+// One that lures (D-649) drifts away instead, while the hero is near (lureStep).
 function enemiesMove(state) {
   let enemies = state.enemies;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of state.enemies) {
     if (still(e)) continue;
     const t = traits(get(e.id)), lit = litAt(state, e.x, e.y);
+    if (t.moves === 'lure') {
+      const to = luring(state, e) && lureStep({ ...state, enemies }, e);
+      if (to) enemies = enemies.map((o) => (o === e ? { ...e, x: to.x, y: to.y, facing: to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing } : o));
+      continue;
+    }
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
     const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
     const chasing = !seeks && (e.chasing || (sees && clearLine(state.room, e, state.hero)));
@@ -145,6 +151,24 @@ function enemiesMove(state) {
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
   return enemies === state.enemies ? state : { ...state, enemies };
+}
+
+// § lures (D-649): whether one that lures has the hero within its `near` steps, and the tile
+// it drifts to: of the free tiles beside it farther from the hero, the one nearest (in steps)
+// the nearest other creature in the room, or with none the farthest from the hero; the first
+// in DIRS order on a tie; else null, it stays
+const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+function luring(state, e) {
+  const t = traits(get(e.id));
+  return t.moves === 'lure' && steps(e, state.hero) <= t.near;
+}
+function lureStep(state, e) {
+  const others = state.enemies.filter((o) => o.x !== e.x || o.y !== e.y);
+  const goal = others.reduce((best, o) => (!best || steps(o, e) < steps(best, e) ? o : best), null);
+  const away = Object.values(DIRS).map(([dx, dy]) => ({ x: e.x + dx, y: e.y + dy }))
+    .filter((t) => steps(t, state.hero) > steps(e, state.hero) && free(state, e, t.x, t.y));
+  const score = (t) => (goal ? -steps(t, goal) : steps(t, state.hero));
+  return away.reduce((best, t) => (!best || score(t) > score(best) ? t : best), null);
 }
 
 // Where one that seeks light heads (D-351): the hero while the lantern is lit,

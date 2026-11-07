@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.97, One-cell rooms.** Biome 1's floors grow: more
+  rooms, one cell each, the way 3 or 4 rooms, side rooms grown freely;
+  old saves remade once. A map preview for every generation step (D-646,
+  D-647). Playtest:
+  https://claude.ai/artifact/S28bZS17ByMWag6J2V7TeR Map preview:
+  https://claude.ai/artifact/5mYWe1H8YeX3yfiYcvY2ZQ
 - **2026-11-07, 0.3.96, Biome 1's floors.** The owner's picks: more
   rooms a floor, changing by seed; rooms made of cells (1, 2 or 2 × 2)
   so everything lines up on the grid and the map; the stairs 3 or 4

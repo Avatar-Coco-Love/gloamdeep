@@ -32,12 +32,13 @@ test('no dungeon room falls back, seeds 1 to 300, depths 8 to 20', () => {
 test('rooms that were made before come out exactly as they did', () => {
   let h = 0; // a fingerprint of 360 rooms, taken at 0.3.42, less the waystones' rooms on 8 and 20 (0.3.51, D-594);
   // taken again at 0.3.63, when the oil tick joined the pool and so changed which creatures a room picks (D-606),
-  // and at 0.3.97, when the rooms became cells of bigger grids, and at 0.3.98, with halls and large rooms (D-645)
+  // and at 0.3.97, when the rooms became cells of bigger grids, and at 0.3.98, with halls and large rooms (D-645),
+  // and at 0.3.100, when the lure wisp joined the pool from depth 4 (D-649)
   for (let seed = 1; seed <= 20; seed++) for (const d of [8, 14, 20]) for (const c of layoutAt(seed, d).cells) {
     if (c.id === stoneRoom(seed, d)) continue; // made with its stone, every other room as before
     for (const ch of JSON.stringify(placeFor(c.id, seed))) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   }
-  assert.equal(h, 1319907591);
+  assert.equal(h, 1626195531);
 });
 
 test('an old save\'s stand-in is made again, and the rooms that fit stay as they were', () => {

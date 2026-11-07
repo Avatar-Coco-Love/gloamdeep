@@ -32,7 +32,8 @@ neared 8 KB.
   the mole's Mole Fur and rare Mole Claw the twelfth and thirteenth (D-541);
   the snapcap's Snapcap Gill the fourteenth (D-543); the herb mimic's Mimic
   Leaf the fifteenth (D-549); the bone rat's Rat Bone the sixteenth (D-551);
-  the oil tick's Tick Shell and rare Oil Bladder the seventeenth and eighteenth (D-606).
+  the oil tick's Tick Shell and rare Oil Bladder the seventeenth and eighteenth (D-606);
+  the lure wisp's Wisp Glass, sold for 2, the nineteenth (D-649).
 - **Bat Guano:** a pile of bat droppings, one beside each bat as a room
   is made; it grows back, and is kept for the garden (D-539, D-540).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
