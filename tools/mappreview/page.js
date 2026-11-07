@@ -72,7 +72,7 @@ function numbers({ rooms, info }) {
   parts.push(`${rooms.length} rooms`);
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`,
-    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
+    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter((it) => it.once).length, 0)} cache finds`, `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
   return parts;
 }
 function biomeRooms(s) {
@@ -90,7 +90,7 @@ function draw() {
     const px = r.x * K, py = r.y * K, w = r.room.cols * K, h = r.room.rows * K, cell = f.layout?.cells.find((m) => m.id === r.id);
     if (show.shapes && cell && SHAPE_TINT[cell.w * cell.h]) { c.fillStyle = SHAPE_TINT[cell.w * cell.h]; c.fillRect(px, py, w, h); }
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
-    if (show.finds) for (const it of r.items) dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6);
+    if (show.finds) for (const it of r.items) { if (it.once) ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);
     for (const p of r.people) dot(c, r.x + p.x, r.y + p.y, PERSON, 0.8);
     if (show.labels) {
@@ -110,6 +110,8 @@ function draw() {
   room();
   store('gd-preview-seed', String(seed())); store('gd-preview-depth', String(depth));
 }
+// A white ring under a dead end's cache finds (D-650)
+function ring(c, x, y) { c.strokeStyle = '#fff'; c.lineWidth = 2; c.strokeRect(x * K + 1, y * K + 1, K - 2, K - 2); }
 function dot(c, x, y, colour, size) {
   const s = Math.round(K * size), o = (K - s) / 2;
   c.fillStyle = '#000'; c.fillRect(x * K + o - 1, y * K + o - 1, s + 2, s + 2);
@@ -132,7 +134,7 @@ function room() {
   const rows = [
     ['Room', r.id], ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${SHAPE_NAME[cell.w * cell.h]}${cell.w * cell.h === 2 ? (cell.w === 2 ? ' side by side' : ', one above the other') : ''} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
     ...(role ? [['Where', `${role}${step !== undefined ? ` · ${step} joins from the stairs up` : ''}`]] : []),
-    ['Creatures', list(r.enemies)], ['Finds', list(r.items)], ['People', list(r.people)], ['Tiles', tiles],
+    ['Creatures', list(r.enemies)], ['Finds', list(r.items.filter((it) => !it.once))], ...(cell?.end ? [['Cache', list(r.items.filter((it) => it.once))]] : []), ['People', list(r.people)], ['Tiles', tiles],
   ];
   const dl = document.createElement('dl');
   for (const [k, v] of rows) dl.append(Object.assign(document.createElement('dt'), { textContent: k }), Object.assign(document.createElement('dd'), { textContent: v }));

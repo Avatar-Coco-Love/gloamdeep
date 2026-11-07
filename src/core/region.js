@@ -46,11 +46,11 @@ export const sizeAt = (depth) => (depth >= DUNGEONS ? { cols: 13, rows: 15 } : {
 // A room `w` × `h` cells big, as { cols, rows }, the seams between its cells covered
 export const roomSize = (depth, w = 1, h = 1) => { const { cols, rows } = sizeAt(depth); return { cols: w * (cols + 1) - 1, rows: h * (rows + 1) - 1 }; };
 
-// (seed, depth) → { cells: [{ id, x, y, w, h, seed, up, down, doors, cols, rows }], up,
+// (seed, depth) → { cells: [{ id, x, y, w, h, seed, up, down, doors, cols, rows, end }], up,
 // down }, or null above the generated depths. A room's x, y is its top-left cell,
 // w, h how many cells wide and tall. `up` and `down` are the stairs tiles, in a
 // room's own `up` or `down` (null when it has none) and for the whole floor as
-// { x, y, cell }. `doors` are a room's openings, as { dir, at, to, back }: the column
+// { x, y, cell }; `end` marks a dead end (D-650). `doors` are a room's openings, as { dir, at, to, back }: the column
 // or row along that edge, the room beyond, and the opening's column or row there.
 // Worked out once per seed and depth.
 const laid = new Map();
@@ -92,6 +92,8 @@ function lay(seed, depth) {
   const { cols, rows } = downs;
   const inside = downs.doors.map(({ dir, at }) => (dir === 'left' ? { x: 1, y: at } : dir === 'right' ? { x: cols - 2, y: at } : dir === 'up' ? { x: at, y: 1 } : { x: at, y: rows - 2 }));
   downs.down = spot(r, cols, rows, (t) => t.y > rows - 4 || inside.some((d) => Math.abs(d.x - t.x) <= 1 && Math.abs(d.y - t.y) <= 1));
+  // § dead ends (D-650): a side room with one opening, the last of its branch
+  for (const c of cells) c.end = c !== ups && c !== downs && c.doors.length === 1;
   return { cells, up: { ...tile(upAt), cell: tile(ups) }, down: { ...downs.down, cell: tile(downs) } };
 }
 

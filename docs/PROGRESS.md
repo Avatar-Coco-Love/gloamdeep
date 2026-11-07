@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.100 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.101 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-More content for the side rooms (D-647), proposed first.
+Halls and large rooms get more finds and creatures by size, about
+twice and four times a one-cell room's (D-650), with a map preview.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -49,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.101, The dead-end cache.** The owner's picks, all
+  recommended: each dead end holds 2 or 3 extra finds, grouped in its far
+  corner, left once; halls and large rooms scale next (D-650). Playtest:
+  https://claude.ai/artifact/XkNefpuNTL9JtCLq3w1DD1 Map preview:
+  https://claude.ai/artifact/EKWgReXHELdtkH8gsS7QWC
 - **2026-11-07, 0.3.100, The Lure Wisp built.** From depth 4, it drifts
   away toward other creatures, never bites, and glows in the dark; Wisp
   Glass sold for 2 (D-649). Playtest:
@@ -58,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   toward other creatures, never bites, glows in the dark but lights no
   tiles; 1 heart from depth 4; look A, a cold flame (D-649). Mock-ups:
   https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx
-- **2026-11-07, 0.3.98, Halls and large rooms.** Halls (2 cells) and
-  large rooms (2 × 2) as side rooms; saves remade (D-648). Playtest:
-  https://claude.ai/artifact/HLrQ778ZvPk2fvSv7b3o4y Map preview:
-  https://claude.ai/artifact/PFAdM7jSo9H5UfGRQKZXQF

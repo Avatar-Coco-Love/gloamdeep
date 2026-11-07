@@ -82,7 +82,7 @@ dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
   <div class="frame"><canvas id="map" aria-label="The floor's map"></canvas></div>
   <ul class="legend">
     <li><i class="box"></i>a room on the way</li><li><i style="background:#ff5a4a"></i>creature</li><li><i style="background:#f39a3b"></i>flask</li>
-    <li><i style="background:#6fc06a"></i>herb</li><li><i style="background:#e0c060"></i>oilcap</li><li><i style="background:#e0607a"></i>heartcap</li>
+    <li><i style="background:#6fc06a"></i>herb</li><li><i style="background:#e0c060"></i>oilcap</li><li><i style="background:#e0607a"></i>heartcap</li><li><i class="box" style="border-color:#fff"></i>a dead end's cache</li>
     <li><i style="background:#d8d2c0"></i>other find</li><li><i style="background:#7fd8ff"></i>person</li><li><i style="background:#a58ce0"></i>stairs</li>
     <li><i style="background:#a6e0e4"></i>doorway</li><li><i style="background:#3f5175"></i>pool</li>
     <li><i style="background:rgba(127,216,255,.45)"></i>hall</li><li><i style="background:rgba(165,140,224,.55)"></i>large room</li>
