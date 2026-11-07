@@ -18,11 +18,14 @@ const store = (k, v) => { try { if (v === undefined) return localStorage.getItem
 const randomSeed = () => Math.floor(Math.random() * SEED_MAX) + 1;
 let seeds = [+store('gd-preview-seed') || randomSeed()], depth = +(store('gd-preview-depth') ?? 2) || 0, chosen = null;
 const seed = () => seeds[seeds.length - 1];
-const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked, finds: $('finds').checked, labels: $('labels').checked });
+const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked, finds: $('finds').checked, labels: $('labels').checked, shapes: $('shapes').checked });
 
 // § finds and their dot colours; creatures are all one colour
 const FIND = { flask: '#f39a3b', herb: '#6fc06a', oilcap: '#e0c060', heartcap: '#e0607a' };
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
+// § shapes: a tint over each hall and large room (D-645), so they stand out
+const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
+const SHAPE_NAME = { 1: 'one cell', 2: 'a hall, 2 cells', 4: 'a large room, 2 × 2 cells' };
 const name = (id) => get(id)?.name || id;
 
 // § the floor: its plan, every room's contents, and for a generated depth its way
@@ -51,13 +54,14 @@ function wayOf({ cells }) {
   const steps = new Map([[up.id, 0]]), back = new Map(), todo = [up];
   while (todo.length) {
     const c = todo.shift();
-    for (const to of Object.values(c.sides)) if (!steps.has(to)) { steps.set(to, steps.get(c.id) + 1); back.set(to, c.id); todo.push(byId.get(to)); }
+    for (const { to } of c.doors) if (!steps.has(to)) { steps.set(to, steps.get(c.id) + 1); back.set(to, c.id); todo.push(byId.get(to)); }
   }
   const way = [down.id];
   while (way[0] !== up.id) way.unshift(back.get(way[0]));
   const joins = cells.reduce((n, c) => n + c.doors.length, 0) / 2;
   const deadEnds = cells.filter((c) => c.doors.length === 1 && !c.up && !c.down).length;
-  return { steps, way: new Set(way), wayLength: way.length, deadEnds, loops: joins - (cells.length - 1), up: up.id, down: down.id };
+  const halls = cells.filter((c) => c.w * c.h === 2).length, large = cells.filter((c) => c.w * c.h === 4).length;
+  return { steps, way: new Set(way), wayLength: way.length, deadEnds, loops: joins - (cells.length - 1), up: up.id, down: down.id, halls, large };
 }
 
 // § numbers: the line under the map
@@ -66,7 +70,7 @@ function numbers({ rooms, info }) {
   const tiles = (id) => rooms.reduce((n, r) => n + (r.tiles[id] || 0), 0);
   const parts = [];
   parts.push(`${rooms.length} rooms`);
-  if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
+  if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`,
     `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
   return parts;
@@ -83,7 +87,8 @@ function draw() {
   drawPlan(base, plan, K);
   const c = base.getContext('2d');
   for (const r of f.rooms) {
-    const px = r.x * K, py = r.y * K, w = r.room.cols * K, h = r.room.rows * K;
+    const px = r.x * K, py = r.y * K, w = r.room.cols * K, h = r.room.rows * K, cell = f.layout?.cells.find((m) => m.id === r.id);
+    if (show.shapes && cell && SHAPE_TINT[cell.w * cell.h]) { c.fillStyle = SHAPE_TINT[cell.w * cell.h]; c.fillRect(px, py, w, h); }
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
     if (show.finds) for (const it of r.items) dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6);
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);
@@ -125,7 +130,7 @@ function room() {
   const tiles = Object.entries(r.tiles).filter(([id]) => !id.startsWith('stairs')).map(([id, n]) => `${name(id)} ${n}`).join(', ') || 'none';
   panel.innerHTML = '';
   const rows = [
-    ['Room', r.id], ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
+    ['Room', r.id], ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${SHAPE_NAME[cell.w * cell.h]}${cell.w * cell.h === 2 ? (cell.w === 2 ? ' side by side' : ', one above the other') : ''} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
     ...(role ? [['Where', `${role}${step !== undefined ? ` · ${step} joins from the stairs up` : ''}`]] : []),
     ['Creatures', list(r.enemies)], ['Finds', list(r.items)], ['People', list(r.people)], ['Tiles', tiles],
   ];
@@ -146,7 +151,7 @@ function boot() {
   $('reseed').addEventListener('click', () => setSeed(randomSeed()));
   $('back').addEventListener('click', () => { if (seeds.length > 1) { seeds.pop(); chosen = null; } draw(); });
   $('seedform').addEventListener('submit', (e) => { e.preventDefault(); setSeed(Math.round(+$('seed').value)); });
-  for (const id of ['way', 'creatures', 'finds', 'labels']) $(id).addEventListener('change', draw);
+  for (const id of ['way', 'creatures', 'finds', 'labels', 'shapes']) $(id).addEventListener('change', draw);
   $('map').addEventListener('click', (e) => {
     const box = e.currentTarget.getBoundingClientRect(), f = floorOf(seed(), depth);
     const x = ((e.clientX - box.left) / box.width) * f.plan.cols, y = ((e.clientY - box.top) / box.height) * f.plan.rows;

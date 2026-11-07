@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.96 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.98 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Grow biome 1, step 2 (D-645): halls (2 cells) and large rooms (2 × 2)
-on the floors, with a map preview (D-646). Then the Lure Wisp (D-643,
-Q-076), and more content for the side rooms (D-647).
+The Lure Wisp (D-643, Q-076), proposed first; then more content for
+the side rooms (D-647).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -51,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.98, Halls and large rooms.** Halls (2 cells) and
+  large rooms (2 × 2) as side rooms; saves remade (D-648). Playtest:
+  https://claude.ai/artifact/HLrQ778ZvPk2fvSv7b3o4y Map preview:
+  https://claude.ai/artifact/PFAdM7jSo9H5UfGRQKZXQF
 - **2026-11-07, 0.3.97, One-cell rooms.** Biome 1's floors grow: more
   rooms, one cell each, the way 3 or 4 rooms, side rooms grown freely;
   old saves remade once. A map preview for every generation step (D-646,
@@ -61,6 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   rooms a floor, changing by seed; rooms made of cells (1, 2 or 2 × 2)
   so everything lines up on the grid and the map; the stairs 3 or 4
   rooms away, side rooms holding rewards; old saves remade once (D-645).
-- **2026-11-07, 0.3.95, Bigger biomes.** The owner's picks: each biome
-  about 2 to 3 times today's space, more rooms a floor and rooms of
-  varied sizes, unlike between seeds; biome 1 first (D-644).

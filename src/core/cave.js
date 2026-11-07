@@ -446,15 +446,16 @@ function burrows(r, cols, rows) {
 // § halls: 3 or 4 straight-walled halls, 4 to 7 tiles wide and 4 to 6 tall,
 // with wall between them, each joined to the one before by a one-tile
 // corridor that turns once (D-228). Built stone, so nothing wanders.
-const HALLS = [3, 4], HALL_W = [4, 7], HALL_H = [4, 6];
+// A room of more cells (D-645) gets that many times the halls, by its area against one 13 × 15 cell.
+const HALLS = [3, 4], HALL_W = [4, 7], HALL_H = [4, 6], HALL_CELL = 13 * 15;
 function halls(r, cols, rows) {
-  const g = walls(cols, rows), want = int(r, HALLS[0], HALLS[1]), hs = [];
-  for (let i = 0; i < 100 && hs.length < want; i++) {
+  const k = Math.max(1, Math.round((cols * rows) / HALL_CELL)), g = walls(cols, rows), want = int(r, HALLS[0] * k, HALLS[1] * k), hs = [];
+  for (let i = 0; i < 100 * k && hs.length < want; i++) {
     const w = int(r, HALL_W[0], HALL_W[1]), h = int(r, HALL_H[0], HALL_H[1]);
     const hall = { x: int(r, 2, cols - 2 - w), y: int(r, 2, rows - 2 - h), w, h };
     if (!hs.some((o) => hall.x <= o.x + o.w && o.x <= hall.x + hall.w && hall.y <= o.y + o.h && o.y <= hall.y + hall.h)) hs.push(hall);
   }
-  if (hs.length < HALLS[0]) return null;
+  if (hs.length < HALLS[0] * k) return null;
   const mid = (h) => ({ x: h.x + (h.w >> 1), y: h.y + (h.h >> 1) });
   hs.forEach((h, i) => {
     for (let y = h.y; y < h.y + h.h; y++) for (let x = h.x; x < h.x + h.w; x++) g[y][x] = '.';

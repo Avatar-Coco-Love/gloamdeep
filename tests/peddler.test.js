@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { placeFor, peddlerRoom, makeRoom, tileAt, PEDDLER_DEPTH } from '../src/core/room.js';
-import { layoutAt } from '../src/core/region.js';
+import { layoutAt, cellOf } from '../src/core/region.js';
 import { get, byKind } from '../src/core/registry.js';
 import { makeState, makeWorld, step, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -53,7 +53,8 @@ test('every journey has him: his room is made again until his ring fits, even th
   for (let seed = 1; seed <= 300; seed++) {
     const p = placeFor(peddlerRoom(seed), seed);
     assert.deepEqual(p.people.map((q) => q.id), ['peddler'], `seed ${seed}`);
-    assert.equal(p.map.length, 13, `seed ${seed}`); // the room itself, 11 × 13 (D-645), not the fallback
+    const c = cellOf(seed, peddlerRoom(seed), 3);
+    assert.deepEqual([p.map[0].length, p.map.length], [c.cols, c.rows], `seed ${seed}`); // the room itself, a cell or more (D-645), not the fallback
   }
 });
 

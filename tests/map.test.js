@@ -45,6 +45,22 @@ test('depth 2: every room in its own cell, as the layout has them', () => {
   }
 });
 
+test('a hall or large room sits across its cells and their seams; seams lie only between two rooms (D-645)', () => {
+  let big = 0;
+  for (const seed of [1, 2, 3, 4, 5]) for (const depth of [2, 6, 8]) {
+    const p = floorPlan(goToDepth(makeWorld('first', seed), 2), true, depth), cells = layoutAt(seed, depth).cells;
+    const step = depth >= 8 ? [14, 16] : [12, 14], x0 = Math.min(...cells.map((c) => c.x)), y0 = Math.min(...cells.map((c) => c.y));
+    for (const c of cells) {
+      const r = p.rooms.find((m) => m.id === c.id);
+      assert.deepEqual([r.x, r.y, r.room.cols, r.room.rows], [(c.x - x0) * step[0], (c.y - y0) * step[1], c.w * step[0] - 1, c.h * step[1] - 1], `seed ${seed} ${c.id}`);
+      if (c.w * c.h > 1) big++;
+    }
+    for (const { x, y } of p.doors) assert.ok(!p.rooms.some((r) => x >= r.x && y >= r.y && x < r.x + r.room.cols && y < r.y + r.room.rows), 'doors lie in seams, never inside a room');
+    assert.ok(p.doors.length >= cells.length - 1, 'a doorway for each join');
+  }
+  assert.ok(big > 10);
+});
+
 test('without reveal, a generated room never reached is left out', () => {
   const p = floorPlan(goToDepth(makeWorld('first', SEED), 2)), cells = layoutAt(SEED, 2).cells;
   assert.deepEqual(p.rooms.map((r) => r.id), ['depth2']);

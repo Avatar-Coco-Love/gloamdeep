@@ -1,6 +1,7 @@
 // § map: a floor as the map screen shows it (D-176, D-205), the hero's own
 // or another one the map has turned to (D-206). Plain data, no drawing.
-// Every room of the floor sits on its grid, found by walking the side
+// Every room of the floor sits on its grid, as a generated floor's layout has
+// it, a hall or large room across its cells (D-645), or found by walking the side
 // openings from one of its rooms, but not the cave mouth: the woods and the
 // crypt are both depth 0, two parts joined at the mouth as in the Seed
 // Explorer once the hero has been in both, else the part they know (D-216,
@@ -8,7 +9,8 @@
 // dev Reveal map switch, which keeps the memory as it is. Rooms are drawn
 // a tile apart, a dark seam between them, and each doorway found bridges
 // its seam (D-224).
-import { sidesOf, depthOf, tileAt, placeAt, placeBeside } from './room.js';
+import { sidesOf, depthOf, tileAt, placeAt, placeBeside, isGenerated } from './room.js';
+import { layoutAt } from './region.js';
 import { mouthSpot, mouthOf } from './mouth.js';
 import { fresh } from './stairs.js';
 import { boonOf } from './boon.js';
@@ -68,31 +70,41 @@ function withBags(state, plan) {
 }
 
 // The part of floor `depth` that holds room `start`, laid out on its grid,
-// with `seams`: every seam tile between two cells side by side, and the edge
-// tile on each side of it, whether those rooms are known or not
+// with `seams`: every seam tile between two cells side by side in different
+// rooms, and the edge tile on each side of it, whether those rooms are known or
+// not. A generated floor is laid out as its layout has it, a room of more cells
+// across them and their seams (region.js, D-645); a hand-made one by walking its sides.
 export function partPlan(state, reveal, depth, start) {
-  const cells = new Map([[start, { x: 0, y: 0 }]]), todo = [start];
-  while (todo.length) {
-    const id = todo.shift(), at = cells.get(id);
-    for (const [dir, to] of Object.entries(sidesOf(id, state.seed))) {
-      if (depthOf(to) === depth && !cells.has(to) && !mouthSpot(state.seed, id, to)) { cells.set(to, { x: at.x + STEP[dir][0], y: at.y + STEP[dir][1] }); todo.push(to); }
+  const cells = new Map(), layout = isGenerated(start) && layoutAt(state.seed, depth);
+  if (layout) for (const c of layout.cells) cells.set(c.id, { x: c.x, y: c.y, w: c.w, h: c.h });
+  else {
+    cells.set(start, { x: 0, y: 0, w: 1, h: 1 });
+    const todo = [start];
+    while (todo.length) {
+      const id = todo.shift(), at = cells.get(id);
+      for (const [dir, to] of Object.entries(sidesOf(id, state.seed))) {
+        if (depthOf(to) === depth && !cells.has(to) && !mouthSpot(state.seed, id, to)) { cells.set(to, { x: at.x + STEP[dir][0], y: at.y + STEP[dir][1], w: 1, h: 1 }); todo.push(to); }
+      }
     }
   }
   const known = (id) => (id === state.place ? state : state.elsewhere[id]) || (reveal && fresh(id, state.seed));
   const all = [...cells].map(([id, at]) => ({ id, at, p: known(id) }));
-  // The grid's cell is as big as the floor's biggest room; rooms line up, so they match.
+  // The grid's cell is as big as the floor's biggest cell; rooms line up, so they match.
   // Cells sit a seam tile apart.
-  const w = Math.max(...all.filter((r) => r.p).map((r) => r.p.room.cols)), h = Math.max(...all.filter((r) => r.p).map((r) => r.p.room.rows));
+  const w = Math.max(...all.filter((r) => r.p).map((r) => (r.p.room.cols + 1) / r.at.w - 1)), h = Math.max(...all.filter((r) => r.p).map((r) => (r.p.room.rows + 1) / r.at.h - 1));
   const x0 = Math.min(...all.map((r) => r.at.x)), y0 = Math.min(...all.map((r) => r.at.y));
-  const x1 = Math.max(...all.map((r) => r.at.x)), y1 = Math.max(...all.map((r) => r.at.y));
+  const x1 = Math.max(...all.map((r) => r.at.x + r.at.w - 1)), y1 = Math.max(...all.map((r) => r.at.y + r.at.h - 1));
   const left = (at) => (at.x - x0) * (w + 1), top = (at) => (at.y - y0) * (h + 1);
   const rooms = all.filter((r) => r.p).map(({ id, at, p }) => ({ id, x: left(at), y: top(at), room: p.room, seen: reveal ? null : p.seen }));
   const here = rooms.find((r) => r.id === state.place);
+  // Which room covers each cell of the grid
+  const owner = new Map();
+  for (const { id, at } of all) for (let dy = 0; dy < at.h; dy++) for (let dx = 0; dx < at.w; dx++) owner.set(`${at.x + dx},${at.y + dy}`, id);
   const seams = [];
-  for (const { at } of all) {
-    const has = (dx, dy) => all.some((r) => r.at.x === at.x + dx && r.at.y === at.y + dy);
-    if (has(1, 0)) for (let y = 0; y < h; y++) seams.push(seam(left(at) + w, top(at) + y, 1, 0));
-    if (has(0, 1)) for (let x = 0; x < w; x++) seams.push(seam(left(at) + x, top(at) + h, 0, 1));
+  for (const [k, id] of owner) {
+    const [cx, cy] = k.split(',').map(Number), at = { x: cx, y: cy }, other = (dx, dy) => owner.has(`${cx + dx},${cy + dy}`) && owner.get(`${cx + dx},${cy + dy}`) !== id;
+    if (other(1, 0)) for (let y = 0; y < h; y++) seams.push(seam(left(at) + w, top(at) + y, 1, 0));
+    if (other(0, 1)) for (let x = 0; x < w; x++) seams.push(seam(left(at) + x, top(at) + h, 0, 1));
   }
   return {
     depth, cols: (x1 - x0 + 1) * (w + 1) - 1, rows: (y1 - y0 + 1) * (h + 1) - 1, rooms, seams,

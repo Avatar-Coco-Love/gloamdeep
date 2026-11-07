@@ -84,6 +84,9 @@ tools to be chosen together later.
 - Speed up or slow down animations
 - A combat sandbox and a seeded puzzle tester, with the Seed Explorer
   under one title-menu tools line (the owner's idea, D-376)
+- The Seed Explorer given the map preview's tools (the owner's idea,
+  0.3.98, D-646): tap a room to see what it holds, the way to the stairs,
+  creatures and finds marked, halls and large rooms tinted, a line of numbers
 
 ## Next
 Items, enemies and NPCs join the spawn grid as each arrives in the

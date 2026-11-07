@@ -14,13 +14,13 @@ import { isGenerated, depthOf, placeAt, tileAt, withTile, peddlerRoom, stoneRoom
 import { fresh } from './stairs.js';
 import { goHome } from './homeward.js';
 import { get } from './registry.js';
-import { sizeAt } from './region.js';
+import { cellOf } from './region.js';
 
 // § stand-ins: a save from before 0.3.43 may hold a crypt room that stood in for a dungeon
 // room no try could make (Q-078); once, each is made again from its seed, at its floor's
 // size, and every other room stays as it was (D-585)
-export const restand = (s) => refloor(s, (id, p) => isGenerated(id) && !fits(p.room, depthOf(id)));
-const fits = (room, depth) => !room || (room.cols === sizeAt(depth).cols && room.rows === sizeAt(depth).rows);
+export const restand = (s) => refloor(s, (id, p) => isGenerated(id) && !fits(p.room, cellOf(s.seed, id, depthOf(id))));
+const fits = (room, cell) => !room || (!!cell && room.cols === cell.cols && room.rows === cell.rows); // a room the layout no longer has never fits
 
 // § the depth 2 waystone: a save from before it (D-587) may hold the room the seed picks for it as
 // it was; once, that room alone is made again from its seed, with the stone, and every
