@@ -40,6 +40,7 @@ export const LINES = {
   oilTickDie: { text: 'The oil tick bursts and falls still.', warn: false },
   oilTickDrinks: { text: 'The oil tick drinks your oil.', warn: false, kind: 'harm' }, // instead of a bite, while there is oil (D-606)
   oilTickBite: { text: 'The oil tick bites you.', warn: false, kind: 'harm' }, // with the lantern empty
+  lureWispDie: { text: 'The lure wisp gutters out.', warn: false }, // (D-649); it never bites, so it has no bite line
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
@@ -183,6 +184,9 @@ export const LINES = {
   oilBladderTake: { texts: ['You pick up an oil bladder.', 'The sac the tick kept its oil in.', 'The oil bladder goes in your bag.'], warn: false }, // (D-606)
   oilBladderLook: { texts: ['An oil bladder, for crafting later.', 'Amber oil sloshes inside.', 'It is warm, and full.'], warn: false },
   oilBladderFull: { text: "You can't carry more oil bladders.", warn: false },
+  wispGlassTake: { texts: ['You pick up the wisp glass.', 'A sliver of cold blue glass.', 'The wisp glass goes in your bag.'], warn: false }, // (D-649)
+  wispGlassLook: { texts: ['Wisp glass, for crafting later.', 'It holds a faint blue glimmer.', 'Cold to the touch, still.'], warn: false },
+  wispGlassFull: { text: "You can't carry more wisp glass.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

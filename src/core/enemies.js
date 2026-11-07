@@ -59,6 +59,12 @@ export const ENEMIES = {
   // the lantern empty it bites for 1, of teeth. Beaten, it may drop a Tick Shell, and now and
   // then an Oil Bladder.
   oilTick: { id: 'oilTick', kind: 'enemy', name: 'Oil tick', acts: "Chases you in the light. Beside you it drinks your lantern's oil, and it bites once the lantern is dry.", fights: "Every turn beside you costs oil, so be quick: let it come, strike first, and a knife ends it in one blow.", health: 2, bite: 1, drinks: 0.05, drops: 'tickShell', rare: 'oilBladder', ways: ['chases'], hurt: 'oilTickHurt', die: 'oilTickDie', bites: 'oilTickBite', drinksSay: 'oilTickDrinks', sound: 'teeth', sips: 'sip' },
+  // A small false light, a cold flame with pink eyes (D-649, the way that lures): when the hero
+  // comes within 3 steps it drifts a tile away, toward the nearest other creature in the room,
+  // or just away with none. It never bites (its way's `bites: false`). Its own faint glow `glows`:
+  // it is drawn even out in the dark, though it lights no tiles. One hit puts it out. It drifts,
+  // a flyer held above its shadow (D-563). Beaten, it may drop Wisp Glass; no rare one for now.
+  lureWisp: { id: 'lureWisp', kind: 'enemy', flies: true, glows: true, name: 'Lure wisp', acts: "A cold light that drifts away as you come near, always toward another creature. It never bites.", fights: "Following it leads you into trouble. One blow of anything puts it out, so catch it against a wall.", health: 1, bite: 0, drops: 'wispGlass', ways: ['lures'], die: 'lureWispDie' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.100 (2026-11-07)
+- The Lure Wisp is here, from depth 4: a small cold flame with pink eyes. Its faint glow shows even out in the dark, though it lights nothing around it.
+- Come within 3 steps and it drifts a tile away, toward the nearest other creature in the room, or just away when there is none. Following it leads you into trouble.
+- It never bites, and one hit puts it out. About 1 in 2 leave Wisp Glass, sold for 2.
+- Decisions: D-649.
+
 ## 0.3.99 (2026-11-07)
 - Nothing in the game changed. The Lure Wisp is planned: a small cold flame with pink eyes, seen even out in the dark, though it lights nothing around it. Come within 3 tiles and it drifts a tile away, toward the nearest other creature, so following it leads you into trouble.
 - It never bites, and one hit puts it out. It has 1 heart, turns up from depth 4, and may leave Wisp Glass, sold for 2. It is built next.
@@ -34,10 +40,3 @@ Entry format:
 - Old saves have their cave floors made again once more, the hero on that floor's stairs up; home, the woods and the crypt stay.
 - The map preview tints the halls and large rooms, counts them, and names a tapped room's shape.
 - Decisions: D-648. D-640 moved to the archive, word for word.
-
-## 0.3.97 (2026-11-07)
-- The first cave's floors are bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8 and below, the number changing from seed to seed. Each room is one cell of the floor's grid, 11 by 13 tiles, 13 by 15 from depth 8.
-- The stairs down are 3 or 4 rooms from the stairs up; the other rooms branch off as side rooms and dead ends, each with today's finds, so exploring them is a choice the oil pays for. Depth 8 and below have two loops.
-- Old saves have their cave floors made again once, the hero on that floor's stairs up; home, the woods and the crypt stay.
-- A map preview page draws any seed's floors for the owner to flip through before merging, and every step that changes how things are made gets one.
-- Decisions: D-646, D-647. D-638 and D-639 moved to the archive, word for word.

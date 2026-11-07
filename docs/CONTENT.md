@@ -27,14 +27,16 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
 | `boneRat` | 3 | 1 | chases, never flees | the pool from depth 4 | D-549, D-551 |
 | `oilTick` | 2 | 1 | chases; beside the hero `drinks` 5% oil instead of biting, biting once the lantern is empty | the pool from depth 3 | D-606, D-607 |
+| `lureWisp` | 1 | 0 | lures: within 3 steps of the hero it drifts a tile away, toward the nearest other creature in the room, or just away; never bites; its glow shows in the dark, lighting no tiles | the pool from depth 4 | D-643, D-649 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
-**seeksLight** (walks to the lit lantern, else the nearest lit torch)
-(D-269, D-351). One that `drinks` takes that much oil instead of biting, lit or not (D-606). A creature that `looksLike` a find sleeps in its disguise
-until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563).
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask, the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551), the oil tick at depth 3 (D-606).
+**seeksLight** (walks to the lit lantern, else the nearest lit torch),
+**lures** (drifts away from a near hero toward another creature, never bites)
+(D-269, D-351, D-649). One that `drinks` takes that much oil instead of biting, lit or not (D-606). A creature that `looksLike` a find sleeps in its disguise
+until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563). One that `glows` is drawn over the dark (D-649).
+Which creatures a generated room holds, and the pool by depth: in `CONTENT-3.md`, "Places" (moved word for word at 0.3.100).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
@@ -69,6 +71,7 @@ mechanic and its own step.
 | `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
 | `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
 | `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
+| `wispGlass` | for crafts later; sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
 | `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |

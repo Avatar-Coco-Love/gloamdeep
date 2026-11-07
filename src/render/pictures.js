@@ -447,6 +447,16 @@ const HEART_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwYkYkOk...',
   '...kokYyYYkOk...', '...kokkYYkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § lure wisp: look A of its mock-up (D-649), a cold flame: a bone-white core, blue edges in
+// the gloamberry's blues, two pink eyes in the core
+const LURE_WISP = { mirror: false, rows: [
+  '', '.......k', '......kvk', '......kvk', '.....kvwvk', '.....kvwvk', '....kvwwwvk', '....kvwwwvk',
+  '...kvwpwpwvk', '...kvwwwwwvk', '...kuvwwwvuk', '....kuvvvuk', '.....kuuuk', '......kkk'] };
+// § wisp glass: a sliver of the wisp's cold glass, pale at its edge and blue inside, lying aslant (D-649)
+const WISP_GLASS = { mirror: false, rows: [
+  '', '', '', '', '', '', '..........kk....', '.........kwvk...', '........kwvvk...', '.......kwvvuk...',
+  '......kwvvuk....', '.....kwvvuk.....', '....kvvuuk......', '....kvuuk.......', '.....kkk........'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -457,4 +467,6 @@ export {
   SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_FUR, MOLE_CLAW, SNAPCAP,
   SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
   SCORPION_COLOURS, BAG_TORCH, WISP_CHARM, HEART_CHARM,
+  LURE_WISP,
+  WISP_GLASS,
 };

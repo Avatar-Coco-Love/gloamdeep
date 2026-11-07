@@ -4,7 +4,7 @@
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitRoomSize, edgeIn } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
-import { drawHero, drawItems, drawEnemies, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, drawGlows, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
@@ -246,6 +246,7 @@ export function createFrame(app, ui) {
     }
     inRoom(() => {
       drawFlames(rc, s.room, s.lights, t, still());
+      drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
       drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
       drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
       if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
