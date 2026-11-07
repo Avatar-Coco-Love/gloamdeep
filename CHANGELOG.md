@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.122 (2026-11-07)
+- With a screen reader, opening the bag, the map or the pause menu while a message is showing now reads the card's own words. Before, a moment later the message took their place. A message said while the card is open is still read out.
+- Decisions: D-670. D-655 moved to the archive, word for word.
+
 ## 0.3.121 (2026-11-07)
 - Holding Space on the title, a menu or a card now picks only once, as Enter does. Before, it kept picking: from the title it ran straight into a new journey, and in Settings and the bag it kept flipping switches and pouring flasks. Holding Space in play still waits turn after turn.
 - Decisions: D-669. D-654 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.120 (2026-11-07)
 - The trapped peddler calls for help again the first time you dig at his rubble. Before, the cave walls round him counted as dug-out heaps, so in most journeys he went straight to "Keep digging!".
 - Decisions: D-668.
-
-## 0.3.119 (2026-11-07)
-- Falling with the fishing line out now reels it in. Before, the float stayed on the water and fish kept biting it after you woke, even from across the room.
-- Decisions: D-667.

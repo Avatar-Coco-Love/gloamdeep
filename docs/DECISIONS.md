@@ -36,16 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-655 · 2026-11-07 · The Antidote** (the owner's picks, all
-recommended; mock-ups: https://claude.ai/artifact/L562fL7GhmfZZWUXS9UwBM;
-builds D-652, D-654) The Antidote is made in the bag: Make on a Snapcap
-Gill takes 1 gill and 1 herb, a turn passing. Drink ends poisoned and
-heals nothing; not poisoned, it stays, with a line, and no turn passes.
-Its look is B, a tall thin green vial under a cork. With it in, poison
-can take the last heart, and the hero falls. Drafts the owner may change:
-5 a stack, never sold, its lines. D-644 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-656 · 2026-11-07 · The Centipede Charm** (the owner's picks, all
 recommended; mock-ups: https://claude.ai/artifact/T4UJp8WKEEDY141YhkSscq;
 builds D-458, D-652, D-654) The charm against poison is the Centipede
@@ -184,3 +174,13 @@ holding Space keeps waiting turns (D-085). Before, a held Space ran from
 the title into a new journey, flipped Settings switches and poured
 flasks from the bag. A test checks both.
 D-654 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-670 · 2026-11-07 · A card's words stay** (the owner's pick,
+recommended; I3 of D-660's findings, as D-666 set) As a card or screen
+opens, the line already showing counts as heard, so it isn't spoken over
+the card's words a frame later. A line said while the card is open, such
+as Wear's "You already have …" in the bag, is still spoken, and back in
+play the line showing is spoken again. Before, on the bag, the map and
+the pause menu, the line replaced the card's words and stayed. A test
+checks all three. D-655 moved to `archive/DECISIONS-BIOME-1.md`, word
+for word.
