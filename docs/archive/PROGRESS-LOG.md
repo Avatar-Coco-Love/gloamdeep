@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.123, Cards drawn smaller to fit.** As recommended
+  (D-671): on a squarer screen held sideways, a card in play is drawn
+  smaller, at least 340 game pixels across, so it fits (D1; Q-064).
+  Playtest: https://claude.ai/artifact/Kra2sj17u3CctCUxhosZ6W
 - **2026-11-07, 0.3.122, A card's words stay.** As recommended (D-670):
   a line already showing as a card opens counts as heard, so the screen
   reader keeps the bag's, map's and pause menu's words; a line said on
