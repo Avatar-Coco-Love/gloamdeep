@@ -265,3 +265,12 @@ rubble counted, so the walls in his ring did, and in 79 of 100 seeds his
 first line on a dig was a `digging` one, not his call for help (D-496).
 A rules test checks a walled ring and every test seed's own room.
 D-652 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-669 · 2026-11-07 · A held Space picks once** (the owner's pick,
+recommended; I2 of D-660's findings, as D-666 set) Off play, on the
+title, a menu or a card, Space's key-repeat does nothing, so holding it
+picks once, as Enter does; each fresh press still picks. In play,
+holding Space keeps waiting turns (D-085). Before, a held Space ran from
+the title into a new journey, flipped Settings switches and poured
+flasks from the bag. A test checks both.
+D-654 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

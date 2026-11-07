@@ -4,14 +4,15 @@
 // readers whether it is on; hide(on) takes it away on the title screen; area()
 // and fade(alpha) are for its corner's fade (D-442).
 import { drawLanternIcon } from '../render/hud.js';
-import { BUTTON as SIZE, BUTTON_GAP as GAP, MAP_DISC as DISC, PAD_DISC, LANTERN, ARC } from '../render/screen.js';
+import { BUTTON as SIZE, BUTTON_GAP as GAP, MAP_DISC as DISC, PAD_DISC, LANTERN, ARC, wrenchLow } from '../render/screen.js';
 import { onWipe } from '../render/wipe.js';
 
 // § place: the button's spot (D-199, D-377, D-381, D-383, D-384): slot 0 the
 // lantern, 1 the pause button, 2 the round map (D-205), 3 the bag (D-247), 4
 // the quick slot, 5 the arrow pad (D-406), -1 the dev wrench. On the room, which fills the screen: the
 // round map in the top right corner, pause left of it and the wrench left of
-// pause, clear of the glass panel top left; the lantern in the bottom right
+// pause, clear of the glass panel top left, or under pause on a screen so narrow
+// the panel at its widest would come too close (D-682); the lantern in the bottom right
 // corner, under the thumb, and the bag and the quick slot on an arc around it,
 // the quick slot to its left and the bag up and left; the arrow pad in the bottom
 // left corner, the round map's twin. `canvas` is the room's.
@@ -30,6 +31,8 @@ export function keepPlaced(canvas, button, slot, then) {
       const a = ON_ARC[slot] * Math.PI / 180;
       top = Math.round(my - ARC * Math.sin(a) - SIZE / 2); x = Math.round(mx + ARC * Math.cos(a) - SIZE / 2);
     } else { top = r.top + GAP; x = slot === 2 ? right - DISC : slot < 0 ? row - GAP - SIZE : row; }
+    const box = canvas.parentElement;
+    if (slot < 0 && wrenchLow(x, box.getBoundingClientRect().left, box.clientWidth, box.clientHeight)) { top += SIZE + GAP; x = row; }
     s.top = top + 'px'; s.left = x + 'px';
     then?.(top, x, r);
   };

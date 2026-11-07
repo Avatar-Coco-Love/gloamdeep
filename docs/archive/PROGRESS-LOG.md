@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.131, Drops clear of creatures.** As recommended
+  (D-679): no drop, mined find or picked berry lands under a creature
+  or person; with no tile left it lies where it came from (R7). A rules
+  test checks it. Playtest:
+  https://claude.ai/artifact/PwRPGGCqF4mmvNWxAWX1ve
 - **2026-11-07, 0.3.130, Freed once.** As recommended (D-678): rubble
   dug beside the freed peddler gives its own lines, and he isn't freed
   again or kept 5 more turns (R6). A rules test checks it. Playtest:

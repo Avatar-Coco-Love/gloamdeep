@@ -4,7 +4,8 @@
 import { drawText, textWidth } from './font.js';
 import { SPRITES } from './sprites.js';
 import { drawGlass } from './glass.js';
-import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
+import { drawHearts, HEART, ROW_HEARTS } from './hearts.js';
+import { PAD, SEG_W, SEG_GAP as GAP, SEGS, panelW } from './panelsize.js';
 
 // § panel: hearts with the level at the right, the oil bar under them, then
 // the depth, as in the D-378 mock-up; the boon held is a mark under it (D-604). Drawn in game pixels: a see-through
@@ -12,11 +13,11 @@ import { drawHearts, HEART, HEART_W, ROW_HEARTS } from './hearts.js';
 // round (pixel glass, D-380). `alpha` fades it while the hero is under it.
 // `greenHeart`: the heart poison just took, flashing green (D-654), or -1.
 // Gives the panel's { w, h }, for the creature list under it (D-357).
-const PAD = 3, LINE = 7, GAP_Y = 3;
+const LINE = 7, GAP_Y = 3;
 export function drawStatus(c, { oil, health, max, depth, level, sipped = false, greenHeart = -1 }, x, y, alpha = 1) {
   const lv = `LV ${level}`, where = depth === 0 ? 'SURFACE' : `DEPTH ${depth}`; // SURFACE until places have names (D-209)
   const shown = Math.max(max, health); // a gold heart past the most (D-488)
-  const top = Math.max(heartsH(shown), LINE), w = 2 * PAD + Math.max(heartsW(shown) + 4 + textWidth(lv), BAR_W, textWidth(where));
+  const top = Math.max(heartsH(shown), LINE), w = panelW(shown, lv, where);
   const h = 2 * PAD + top + GAP_Y + SEG_H + GAP_Y + LINE;
   c.save();
   c.globalAlpha = alpha;
@@ -32,7 +33,7 @@ export function drawStatus(c, { oil, health, max, depth, level, sipped = false, 
 // § oil bar: style study 1's 10 amber segments (study lines 37–40, 522). A
 // segment is lit while the oil is above its share, as in the study. `sipped`: a creature
 // just drank some, and the lit segments show pale for a beat (D-606).
-const SEG_W = 3, SEG_H = 4, GAP = 1, SEGS = 10, BAR_W = SEGS * SEG_W + (SEGS - 1) * GAP;
+const SEG_H = 4; // SEG_W, GAP, SEGS and BAR_W are in panelsize.js
 function drawOilBar(c, oil, bx, by, sipped = false) {
   for (let i = 0; i < SEGS; i++) {
     const x = bx + i * (SEG_W + GAP);
@@ -45,8 +46,7 @@ function drawOilBar(c, oil, bx, by, sipped = false) {
   }
 }
 
-// § hearts: two rows of 5 at most (hearts.js)
-const heartsW = (max) => Math.min(max, ROW_HEARTS) * HEART_W + (Math.min(max, ROW_HEARTS) - 1) * GAP;
+// § hearts: two rows of 5 at most (hearts.js; their width in panelsize.js)
 const heartsH = (max) => Math.ceil(max / ROW_HEARTS) * (HEART.length + GAP) - GAP;
 
 // § lantern icon: the hero's lantern pixels (sprites.js) for the switch button,
