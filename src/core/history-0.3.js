@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.105', date: '2026-11-07', title: 'The centipede', lines: [
+    "Nothing in the game changed yet. The first creature that poisons you is picked: the centipede, rust red with pale legs and green fangs. It chases you, and its bite leaves you poisoned. It turns up from depth 3.",
+    "Poisoned lasts 6 turns and takes a heart every 3 turns, 2 in all. Another bite starts it again; it never stacks. Until the Antidote is in, poison never takes your last heart.",
+    "It will show as a green drop beside the boon's mark, with a line as it starts and wears off, and each heart it takes flashes green.",
+    "Decisions: D-654. D-643 moved to the archive, word for word.",
+  ] },
   { v: '0.3.104', date: '2026-11-07', title: 'The motes follow the way', lines: [
     "The drifting motes now follow the way you can walk to the stairs down, through openings and round bends, instead of a straight line through the stone. Before, on about 1 floor in 4 they drifted back toward the stairs you had just come down.",
     "They all drift toward the farthest spot on that way you can see, so at a bend or a junction they swing round together.",

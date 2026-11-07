@@ -239,3 +239,20 @@ as drafted, each biome's pick and axe opening the next, each deeper fish
 a step up. Names, uses and numbers are drafts on the map, set at each
 one's own step. D-590 moved to `archive/DECISIONS-CHECKUP.md`, word for
 word.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.105 (D-654), as it neared
+12 KB.
+
+**D-643 · 2026-11-07 · Creatures and bosses, first picks** (the owner's
+picks, all recommended; part 4 of the content map, D-635; builds D-453,
+D-463, D-466, D-607, D-634, D-641, D-642; answers part of Q-076) Biome 1
+ends with 14 kinds: the Lure Wisp, a small false light that drifts ahead
+toward other creatures, and the Grave Beetle, shelled, waiting for the
+hammer. Each deeper biome has about 10 kinds, some carried on from above
+with the same look and ways and 1 more heart a biome deeper. Each boss
+fights in its own room, changes how it fights at half its hearts, and is
+beaten once for good, giving its ability, trophy and Feat. The next
+creature built is the Lure Wisp. Names, numbers, ways and drops are
+drafts on the map, set at each one's own step. D-528 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+*Partly superseded by D-652 (2026-11-07): biome 1 has 15 kinds.*

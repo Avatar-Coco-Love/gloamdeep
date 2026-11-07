@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.105 (2026-11-07)
+- Nothing in the game changed yet. The first creature that poisons you is picked: the centipede, rust red with pale legs and green fangs. It chases you, and its bite leaves you poisoned. It turns up from depth 3.
+- Poisoned lasts 6 turns and takes a heart every 3 turns, 2 in all. Another bite starts it again; it never stacks. Until the Antidote is in, poison never takes your last heart.
+- It will show as a green drop beside the boon's mark, with a line as it starts and wears off, and each heart it takes flashes green.
+- Decisions: D-654. D-643 moved to the archive, word for word.
+
 ## 0.3.104 (2026-11-07)
 - The drifting motes now follow the way you can walk to the stairs down, through openings and round bends, instead of a straight line through the stone. Before, on about 1 floor in 4 they drifted back toward the stairs you had just come down.
 - They all drift toward the farthest spot on that way you can see, so at a bend or a junction they swing round together.
@@ -32,9 +38,3 @@ Entry format:
 - Nothing in the game changed. More content comes before the side rooms get fuller: next are creatures that leave a debuff on you, then creatures that attack from a distance, each with ways to defend.
 - The first debuff will be poison, brought by a new creature, the cave's fifteenth kind. Against it: an Antidote made from a Snapcap Gill and a herb, a charm, and a Growth upgrade.
 - Decisions: D-652. D-641 moved to the archive, word for word.
-
-## 0.3.102 (2026-11-07)
-- Halls and large rooms are worth the walk: a hall now holds twice the finds and creatures of a small room, and a large room four times, spread evenly, a set in each part of the room.
-- Each set is a flask with a rat guarding it, a herb, an oilcap, sometimes a heartcap, and the depth's usual mix of creatures. The knife and the spear stay one each.
-- Rooms you have already been into stay as they were.
-- Decisions: D-651. D-637 moved to the archive, word for word.
