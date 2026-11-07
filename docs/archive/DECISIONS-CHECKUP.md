@@ -92,3 +92,21 @@ step, with its names and numbers asked at its own step. The first
 Light and Hands upgrades may join any of them. Half and Automatic
 (Q-069) keep waiting. Also moved D-479 and D-480 to the archive, word
 for word, as this file neared 12 KB.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.96 (D-645), as it neared
+12 KB.
+
+**D-634 · 2026-11-07 · How long to the end** (the owner's picks, all
+recommended; builds D-028, D-414, D-463, D-633) Relighting the First
+Light takes about 12 to 20 hours, and finding everything about 30.
+Claude's targets, to tune as each biome is played: about 8 floors a
+biome, 32 in all; about 9 ordinary creatures a biome and 8 to 12 from
+the portals; 4 biome bosses, then Old Maren near the end, deep in
+Underhearth, just before the First Light; about 8 wanderers and rare
+named creatures; about 150 things; 6 to 8 weapon kinds, one better metal
+a biome; 4 found abilities and 2 or 3 from relics; 30 to 40 of Maren's
+pages. After the First Light is relit the journey goes on, the gloam
+pushed back but not gone. It is built one biome at a time, each
+finished with its creatures, boss, ability and pages, then played and
+tuned before the next. D-625 moved to `archive/DECISIONS-MAKING.md`,
+word for word.

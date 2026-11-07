@@ -48,21 +48,6 @@ crypt is the oldest of many ways down. Who the keeper is who leaves the
 finds waits (Q-084). Tone: gloomy, with hope. D-624 moved to
 `archive/DECISIONS-MAKING.md`, word for word.
 
-**D-634 · 2026-11-07 · How long to the end** (the owner's picks, all
-recommended; builds D-028, D-414, D-463, D-633) Relighting the First
-Light takes about 12 to 20 hours, and finding everything about 30.
-Claude's targets, to tune as each biome is played: about 8 floors a
-biome, 32 in all; about 9 ordinary creatures a biome and 8 to 12 from
-the portals; 4 biome bosses, then Old Maren near the end, deep in
-Underhearth, just before the First Light; about 8 wanderers and rare
-named creatures; about 150 things; 6 to 8 weapon kinds, one better metal
-a biome; 4 found abilities and 2 or 3 from relics; 30 to 40 of Maren's
-pages. After the First Light is relit the journey goes on, the gloam
-pushed back but not gone. It is built one biome at a time, each
-finished with its creatures, boss, ability and pages, then played and
-tuned before the next. D-625 moved to `archive/DECISIONS-MAKING.md`,
-word for word.
-
 **D-635 · 2026-11-07 · Biome depths and the content map** (the owner's
 picks, recommended; answers Q-082; builds D-028, D-634) Each biome is 8
 floors: woods and mountains, the surface and depths 1 to 8 (today's
@@ -186,3 +171,18 @@ smaller and some bigger than today's 17 by 20, so no two seeds feel the
 same (the owner's idea). Biome 1 grows first, before the Lure Wisp. The
 grids, sizes and counts are proposed at that step. D-482 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-645 · 2026-11-07 · Biome 1's floors, rooms made of cells** (the
+owner's picks, mostly recommended; builds D-644; partly supersedes D-203,
+D-227, D-228 and D-580) Under the crypt, the seed picks each floor's room
+count: 6 to 8 at depths 2 to 4 on a 4 × 4 grid, 9 to 11 at depths 5 to 7
+and 11 to 13 at depth 8 on 5 × 5, with 2 loops at depth 8; about 69
+rooms with the crypt's. Rooms are made of cells so that everything lines
+up in play and on the map (the owner's wish): a cell is 11 × 13 tiles,
+13 × 15 at depth 8; a room is 1 cell (small), 2 side by side or one above
+the other (a long hall) or 2 × 2 (large), edge to edge, so every opening
+meets exactly. How many halls and large rooms a floor gets is Claude's
+draft, tuned at the playtest. Old saves have their generated rooms made
+again once, as at D-580; home, the surface and the crypt are kept. Built
+in two steps: more one-cell rooms on the bigger grids, then halls and
+large rooms. D-634 moved to `archive/DECISIONS-CHECKUP.md`, word for word.

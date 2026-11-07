@@ -82,6 +82,7 @@ are dead ends and one way through. The stairs down are in the room
 farthest from the stairs up. Each room keeps the burrow's own digger, a
 flask, a rat and a herb. The dungeon, a new kind of built stone halls,
 gets its own step later; its plan, look and depths are settled there.
+*Partly superseded by D-645 (2026-11-07): 9 to 11 rooms on a 5 × 5 grid.*
 
 **D-228 · 2026-10-21 · The dungeon** (step 59b, owner's picks from a
 mock-up of three ways each; part of Q-038) From depth 8 down every floor
@@ -93,6 +94,7 @@ The stairs down are in the room farthest from the stairs up. Each room is
 one-tile corridors that turn once, with the usual torch, flask, rat and
 herb. It uses the crypt's bricks for now; darker, colder bricks are the
 owner's wish if they are not hard to do.
+*Partly superseded by D-645 (2026-11-07): at depth 8, 11 to 13 rooms on a 5 × 5 grid with 2 loops.*
 
 **D-229 · 2026-10-21 · Darker, colder dungeon bricks** (step 59c, the
 owner's wish in D-228, option B of the step 59b mock-up) The dungeon is
