@@ -36,21 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-654 · 2026-11-07 · The centipede and poisoned** (the owner's picks;
-mock-ups: https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w; builds D-636,
-D-652; answers part of Q-076) Biome 1's 15th kind is the centipede, look
-A: side on and facing right, rust red with pale legs and green fangs. It
-chases; 2 hearts, bite 1, and its bite leaves the hero poisoned; in the
-pool from depth 3. Poisoned lasts 6 turns, 1 hurt every 3 turns, 2 in
-all; a new bite starts the count again and never stacks. It stops at 1
-heart, never taking the last, until the Antidote is in (the owner's
-words). It shows as a green drop mark beside the boon's, a line as it
-starts and as it wears off, and each heart it takes flashes green.
-Drafts the owner may change: a Centipede Leg, about 1 in 2, sold for 1,
-and a rare Venom Sac, about 1 in 10; the lines; venom's pale green.
-Built next, in one step with a playtest. D-643 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-655 · 2026-11-07 · The Antidote** (the owner's picks, all
 recommended; mock-ups: https://claude.ai/artifact/L562fL7GhmfZZWUXS9UwBM;
 builds D-652, D-654) The Antidote is made in the bag: Make on a Snapcap
@@ -190,3 +175,12 @@ rubble counted, so the walls in his ring did, and in 79 of 100 seeds his
 first line on a dig was a `digging` one, not his call for help (D-496).
 A rules test checks a walled ring and every test seed's own room.
 D-652 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-669 · 2026-11-07 · A held Space picks once** (the owner's pick,
+recommended; I2 of D-660's findings, as D-666 set) Off play, on the
+title, a menu or a card, Space's key-repeat does nothing, so holding it
+picks once, as Enter does; each fresh press still picks. In play,
+holding Space keeps waiting turns (D-085). Before, a held Space ran from
+the title into a new journey, flipped Settings switches and poured
+flasks from the bag. A test checks both.
+D-654 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

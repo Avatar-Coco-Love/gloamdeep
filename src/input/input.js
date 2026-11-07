@@ -13,13 +13,14 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // onHover(x, y) as the mouse moves with no button down (D-604); onDir(dir, how) for keys and swipes, how being 'swipe' for a swipe (the Swipe switch, D-189, D-408); onPoint(x, y, held) for taps, and
 // once for a finger or button held still, held then true, in game pixels; onHold([x, y]) as a held
 // finger slides, and onHold(null) when it lifts (Tap: Step keeps stepping toward it, D-449);
-// onLantern() for the L key; onWait() for Space, which repeats while held, like the arrows;
+// onLantern() for the L key; onWait() for Space, which repeats while held, like the arrows, where repeats() allows;
 // onChoose() for Enter; onPause() for Esc and P; onMap() for M; onBag() for I; onFloor(way) for < and > or Page Up and Page Down; onTab() for Tab, which returns true when it used the key; onType(key) for digits and Backspace (the seed pad, D-191), R, T and B (the Seed Explorer, D-214), C (the bag's Make, D-309), X (the bag's Drop, D-546) and letters (the name pad, D-272; P, M, I, L and WASD act as usual when it is shut),
 // which returns true when it used the key.
 // holds() true where a still press may become a hold: only in play, so off it a slow tap is still a tap (D-661).
+// repeats() true where a held Space repeats: only in play, so off it one press picks once, as Enter does (D-669).
 // guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opened on it, D-193, till Basics came first, D-507).
-export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, holds = () => true, guarded = () => false }) {
+export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, holds = () => true, repeats = () => true, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -37,7 +38,7 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
     const way = { '<': 'up', pageup: 'up', '>': 'down', pagedown: 'down' }[key];
     if (way && !ev.target.closest('input')) { ev.preventDefault(); onFloor(way); return; }
     if (key === 'enter' && !ev.repeat && !ev.target.closest('button, input')) { ev.preventDefault(); onChoose(); return; }
-    if (key === ' ' && !ev.target.closest('button')) { ev.preventDefault(); onWait(); return; } // Space on a focused button presses it
+    if (key === ' ' && !ev.target.closest('button')) { ev.preventDefault(); if (!ev.repeat || repeats()) onWait(); return; } // Space on a focused button presses it
     if (!dir || (key.startsWith('arrow') && ev.target.type === 'range')) return; // arrows on the dev oil slider move it
     ev.preventDefault();
     onDir(dir);

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.121', date: '2026-11-07', title: 'A held Space picks once', lines: [
+    "Holding Space on the title, a menu or a card now picks only once, as Enter does. Before, it kept picking: from the title it ran straight into a new journey, and in Settings and the bag it kept flipping switches and pouring flasks. Holding Space in play still waits turn after turn.",
+    "Decisions: D-669. D-654 moved to the archive, word for word.",
+  ] },
   { v: '0.3.120', date: '2026-11-07', title: 'Walls are not cleared heaps', lines: [
     "The trapped peddler calls for help again the first time you dig at his rubble. Before, the cave walls round him counted as dug-out heaps, so in most journeys he went straight to \"Keep digging!\".",
     "Decisions: D-668.",
