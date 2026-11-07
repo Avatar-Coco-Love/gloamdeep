@@ -53,8 +53,8 @@ code; where this page and a decision disagree, the decision wins.
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the
   hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
-- **Journal:** one book with tabs: Records first, then Growth, later
-  quests, a bestiary, Lore and Feats (D-262, D-293, D-464, D-467); a glass card (D-391).
+- **Journal:** one book with tabs: Records, Growth and Bestiary, later
+  quests, Lore and Feats (D-262, D-293, D-464, D-467, D-630); a glass card (D-391).
 - **Bestiary:** the Journal's third tab, a table of the creatures met, how many met and
   beaten (D-630); more of a page shows the more you meet and fight that creature (D-350): how it acts after one is beaten, how to fight it after 3 (D-631, D-632).
 - **Met:** a creature lit for the first time, showing itself, each one once (D-630).

@@ -70,8 +70,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   mossy stone in each corner tile, the plate in the middle (D-579, D-587,
   D-620). The home
   waystone stands in the woods, asleep until the hero steps on its
-  plate; woken, its rune is lit violet (D-589, D-591). Another sleeps on
-  depth 2 (D-592). On a woken plate, the travel card goes to another (D-593).
+  plate; woken, its rune is lit violet (D-589, D-591). Others sleep at the
+  top of each band of floors, depths 2, 5 and 8, then every 4th depth,
+  12, 16, 20… (D-579, D-592, D-594). On a woken plate, the travel card goes to another (D-593).
 - **Boon:** a small help picked, 1 of 3, at the home waystone as the
   hero sets out; it lasts until home again or a fall (D-583). Stepping
   onto the woken home plate offers 3, each of a different kind; the list

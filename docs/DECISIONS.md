@@ -68,17 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-661 · 2026-11-07 · The audit's first fixes** (the owner's picks, all
-recommended; from D-660's findings) The fixes start with the four most
-serious, one a step, each with a test. First, at 0.3.114, I1: a still
-press becomes a hold only in play, so on the title, a menu or a card,
-letting go is a tap however long it was held (D-408's hold in play is
-unchanged). Picked for later steps: R2, the armour's glance gets dice of
-its own, so drops stay as every seed gives them and only which bites
-glance changes; W1, bringing an old save up to date removes only the
-sticks on the waystone itself, as D-589 says, and what lies in the ring
-round it stays. R1, the waystone's own event name, is the next step.
-
 **D-662 · 2026-11-07 · The waystone's own event** (the owner's picks,
 both recommended; R1 of D-660's findings, as D-661 set) A waystone's
 plate waking sends `stoneWake`, after its line `stoneWakes`; only it
@@ -199,3 +188,15 @@ and the note in `items.js` say each find sells at its own price: 1 coin
 for most common creature materials (Wisp Glass 2, D-649), 5 for a rare
 one, in place of 1 for every common one. The history's old lines stay,
 true when written. Docs only.
+
+**D-675 · 2026-11-07 · Doc D: built things, not "to come"** (the owner's
+picks, both recommended; D of D-660's findings, as D-666 set) Five
+glossary lines say what is in the game today, plainly, with no "before"
+clause: armour, charms and lantern parts are gear worn or fitted, not
+gear to come; the Gloamberry Seed is planted in a garden bed; waystones
+sleep at the top of each band of floors, depths 2, 5 and 8, then every
+4th depth (D-594), not only on depth 2; the Journal's tabs are Records,
+Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
+the stash chest, the Stone Pick and the garden bed, not later crafts
+(found while checking). Docs only. D-661 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.

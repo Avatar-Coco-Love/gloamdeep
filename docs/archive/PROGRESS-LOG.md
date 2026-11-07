@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.124, Woken stones stay woken.** As recommended
+  (D-672): as an old save's rooms are made again, a floor's woken
+  waystone is woken again in its new stone room (W2). Nothing visible
+  in a new game, so no playtest.
 - **2026-11-07, 0.3.123, Cards drawn smaller to fit.** As recommended
   (D-671): on a squarer screen held sideways, a card in play is drawn
   smaller, at least 340 game pixels across, so it fits (D1; Q-064).

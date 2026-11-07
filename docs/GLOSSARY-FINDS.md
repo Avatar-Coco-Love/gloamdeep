@@ -15,7 +15,7 @@ neared 8 KB.
   the woods, 2 a bump; Eat, in the bag, for 1 heart (D-531); 3 make a
   Gloamberry Seed (D-564).
 - **Gloamberry Seed:** a brown pip with a tiny green shoot, made in the
-  bag from 3 Gloamberries; planted in the garden, at a later step (D-564).
+  bag from 3 Gloamberries; planted in a garden bed (D-564, D-566).
   Not a world's **Seed**.
 - **Gloamberry bush:** a low round bush, one in each woods room; picked,
   it stands **bare** and fills again 300 turns later (D-530, D-531).
@@ -44,7 +44,8 @@ neared 8 KB.
   break it for a stone (D-311, D-312).
 - **Pond:** still water at home in the woods, 5 to 9 tiles (D-503).
 - **Pool:** still water in a Cave room; not yet to step in (D-500).
-- **Stone:** a small grey pebble from a deposit, for later crafts (D-312).
+- **Stone:** a small grey pebble from a deposit; it goes into the stash
+  chest, the Stone Pick and the garden bed (D-312, D-324, D-480, D-562).
 - **Copper vein:** a deposit's boulder flecked with copper, one in each
   Cave room from depth 3; four bumps with the Stone Pick break it for
   Copper Ore, the first ore (D-450, D-480).
