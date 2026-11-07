@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.135 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.136 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-D4 of D-660's list, the next fix in D-666's order. Then S1 and S3,
-one a step; the Spit grub (D-659) after them.
+S1 of D-660's list, the next fix in D-666's order: paint each room's
+rock once, the look unchanged. Then S3; the Spit grub (D-659) after it.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.136, He has wares at home.** As recommended
+  (D-684): the peddler at home no longer says "I'll have wares soon"
+  while selling them (D4). His two other home lines take turns. A test
+  checks it. Playtest:
+  https://claude.ai/artifact/8ea1a3caT6egJh2pSvMoya
 - **2026-11-07, 0.3.135, Space on the name pad.** As recommended
   (D-683): Space does nothing on the name pad, so "ANNA MAE" no longer
   makes a profile named "ANNA" (I5). Names stay A to Z; Q-054 stays
@@ -55,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   the panel no longer runs into it from level 10 (D3). A test checks
   phones, sideways phones and tablets. Playtest:
   https://claude.ai/artifact/6g1Ccus8DiqyiNHBnhPrn2
-- **2026-11-07, 0.3.133, A smaller card upright.** As
-  recommended (D-681): held upright, a tablet draws an open card a size
-  smaller, so the bag's words clear Drop and Wear with a 9 or 12 slot
-  bag (D2). A test checks five tablet sizes. Playtest:
-  https://claude.ai/artifact/Np6e88HsUPNNZJoxrEVSZw

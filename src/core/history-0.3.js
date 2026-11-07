@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.136', date: '2026-11-07', title: 'He has wares at home', lines: [
+    "At home, the peddler no longer says \"Let me unpack. I'll have wares soon.\" while his card shows his wares. His two other home lines take turns, as before.",
+    "Decisions: D-684. D-671 moved to the archive, word for word.",
+  ] },
   { v: '0.3.135', date: '2026-11-07', title: 'Space on the name pad', lines: [
     "On the name pad, Space does nothing, so a name is no longer cut short and made at the space: typing \"ANNA MAE\" made \"ANNA\". Enter still presses the lit key. Names stay A to Z.",
     "Decisions: D-683. D-670 moved to the archive, word for word.",

@@ -284,3 +284,18 @@ play the line showing is spoken again. Before, on the bag, the map and
 the pause menu, the line replaced the card's words and stayed. A test
 checks all three. D-655 moved to `archive/DECISIONS-BIOME-1.md`, word
 for word.
+
+**D-671 · 2026-11-07 · Cards drawn smaller to fit** (the owner's picks,
+both recommended; D1 of D-660's findings, as D-666 set; answers Q-064)
+On a screen held sideways and squarer than a phone, a 4:3 tablet or a
+near-square PC window, a card open in play is drawn at a smaller pixel
+size, so the screen is at least 340 game pixels across, as on a phone
+held sideways, and the card's wide layout fits, the stash chest's too.
+Pixels stay whole: 3 screen pixels each at 1024 × 768, 2 at 900 × 820.
+Only while a card is open; play's panel and buttons keep their size.
+Phones, held either way, and upright tablets are unchanged (upright
+tablets changed by D-681, 2026-11-07). Before, the
+pause card's facts, the Growth tree's boxes and the bag's, workbench's
+and peddler's words ran past the edge. The stacked upright layout was
+tried there too, and is too short for those screens. A test checks the
+sizes. D-656 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

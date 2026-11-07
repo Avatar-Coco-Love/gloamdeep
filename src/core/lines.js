@@ -268,7 +268,7 @@ export const LINES = {
   peddlerWaiting: { texts: ['"I thought I\'d never see light again."', '"Your lantern found me. I owe you."', '"I know the way up from here."'], warn: false, kind: 'speech' }, // bumped, freed, still in the room (D-496), drafted for the playtest
   peddlerLeaving: { text: '"Thank you! I\'ll head for the surface."', warn: false, kind: 'speech' }, // the turns up, he goes home (D-496); the old freed line, drafted for the playtest
   peddlerGreets: { text: '"There you are, friend! Welcome!"', warn: false, kind: 'speech' }, // at home, the hero first within 2 tiles (D-496), drafted for the playtest
-  peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."', '"Let me unpack. I\'ll have wares soon."'], warn: false, kind: 'speech' }, // at home in the woods (D-492), drafted for the playtest
+  peddlerHome: { texts: ['"You dug me out. I won\'t forget it."', '"Home at last. My legs still shake."'], warn: false, kind: 'speech' }, // at home in the woods (D-492), drafted for the playtest; "I'll have wares soon" dropped, as he sells at home (D-684)
   rubbleDig: { text: 'You pull rocks off the heap.', warn: false }, // rubble with no one behind it, the first bump (D-491), drafted
   rubbleShift: { text: 'The heap shifts.', warn: false }, // the second
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
@@ -337,7 +337,7 @@ export function shownLine(state) {
   const entry = LINES[state.line.id];
   if (!entry) return null; // a line that isn't there, as an old save may hold, shows nothing (D-369)
   if (entry.texts) {
-    if (!filled.has(state.line)) filled.set(state.line, { ...entry, texts: undefined, text: entry.texts[state.line.i ?? 0] });
+    if (!filled.has(state.line)) filled.set(state.line, { ...entry, texts: undefined, text: entry.texts[(state.line.i ?? 0) % entry.texts.length] }); // a saved line past a list's end, as after D-684, wraps round
     return filled.get(state.line);
   }
   if (state.line.n === undefined) return entry;

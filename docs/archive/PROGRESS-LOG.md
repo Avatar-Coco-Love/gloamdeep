@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.133, A smaller card upright.** As
+  recommended (D-681): held upright, a tablet draws an open card a size
+  smaller, so the bag's words clear Drop and Wear with a 9 or 12 slot
+  bag (D2). A test checks five tablet sizes. Playtest:
+  https://claude.ai/artifact/Np6e88HsUPNNZJoxrEVSZw
 - **2026-11-07, 0.3.132, A card's action at once.** As recommended
   (D-680): Eat, Pour, Craft, Hold and Make happen at once, even while
   the hero still slides or the stairs fade; only turns taken in play
