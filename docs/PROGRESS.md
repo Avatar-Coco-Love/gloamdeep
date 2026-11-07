@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.130 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.131 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-R7 of D-660's list, the next fix in D-666's order. Then I4, D2, D3,
+I4 of D-660's list, the next fix in D-666's order. Then D2, D3,
 I5 (with Q-054) and D4, one a step, then S1 and S3; the Spit grub
 (D-659) after them.
 
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.131, Drops clear of creatures.** As recommended
+  (D-679): no drop, mined find or picked berry lands under a creature
+  or person; with no tile left it lies where it came from (R7). A rules
+  test checks it. Playtest:
+  https://claude.ai/artifact/PwRPGGCqF4mmvNWxAWX1ve
 - **2026-11-07, 0.3.130, Freed once.** As recommended (D-678): rubble
   dug beside the freed peddler gives its own lines, and he isn't freed
   again or kept 5 more turns (R6). A rules test checks it. Playtest:
@@ -55,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   things" in the bag, not "for crafting later"; the other eleven keep
   it (E). A rules test checks each against the recipes. Playtest:
   https://claude.ai/artifact/UYRmdmkqfq6e6LxU6Ee8oH
-- **2026-11-07, 0.3.128, The small notes caught up.** As recommended
-  (D-676): `TECH-2.md` lists the maker and the map preview's page,
-  `DEV-TOOLS.md` says Go to depth runs 0 to 99, and Q-076 says the lure
-  wisp is built (F to I). Docs only, so no playtest.

@@ -157,7 +157,7 @@ function attack(state, foe) {
 function strike(state, foe, damage) {
   const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, damage);
   const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
-  const items = dead ? dropFrom(state, foe, entry) : state.items;
+  const items = dead ? dropFrom({ ...state, enemies: hit }, foe, entry) : state.items; // the fallen one's tile is free
   return { state: { ...state, enemies, items }, line: dead ? entry.die : stands ? entry.stands : entry.hurt, beaten: dead && foe.id };
 }
 

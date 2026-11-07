@@ -68,25 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-665 · 2026-11-07 · The progress version kept in step** (the owner
-left it to Claude) `docs/PROGRESS.md`'s **Version:** line had been set
-by hand and fell 4 versions behind. `tools/release.js` (D-572) now sets
-it to the changelog's newest version, and `--check` fails when it
-differs; a release test checks it.
-
-**D-666 · 2026-11-07 · One of a kind, and the fixes' order** (the
-owner's picks, all recommended; R3 of D-660's findings) Every fix left
-on D-660's list is picked, one a step, each with a test: the medium bugs
-first (R3, R4, R5, I2, I3, D1, then W2, its way the owner's call), then
-docs A and B, C, D and F to I, and E (its new lines the owner's pick),
-then R6, R7, I4, D2, D3, I5 (with Q-054) and D4, then S1 and S3, then
-the Spit grub (D-659). R3, at 0.3.118: Make counts a piece in the bag
-before a tool goes into an empty Tool slot, so after Take off a second
-pick or rod can't be made; and Wear on a piece the same as one worn says
-its line, "You already have a heart charm.", free, and nothing changes.
-A spare in a chest stays allowed (not the audit's chests in reach); two
-different charms are worn together as before. A rules test checks both.
-
 **D-667 · 2026-11-07 · The fall reels the line in** (the owner's pick,
 recommended; R4 of D-660's findings, as D-666 set) A fall takes in a
 line that is out, with no words of its own; only the fall's line,
@@ -204,3 +185,13 @@ heap." …), their wait untouched. Before, bumps played his `digging`
 lines and the last freed him again, thanks and 5 turns anew. A rules
 test checks it. D-664 moved to `archive/DECISIONS-AUDITS.md`, word for
 word.
+
+**D-679 · 2026-11-07 · Drops clear of creatures** (the owner's picks,
+both recommended; R7 of D-660's findings, as D-666 set) No spill lands
+under a creature or a person: a beaten creature's drops, mined finds
+that don't fit in the bag and the garden bed's picked berries each skip
+a tile with one on it, as they skip items and the hero, sides before
+corners. With every tile round taken, it lies where it came from, as
+before. The beaten creature's own tile counts as free. Before, a rare
+drop could lie under another creature. A rules test checks it. D-665 and
+D-666 moved to `archive/DECISIONS-AUDITS.md`, word for word.
