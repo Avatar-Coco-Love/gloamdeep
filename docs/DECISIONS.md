@@ -68,13 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-662 · 2026-11-07 · The waystone's own event** (the owner's picks,
-both recommended; R1 of D-660's findings, as D-661 set) A waystone's
-plate waking sends `stoneWake`, after its line `stoneWakes`; only it
-rings the bells and kindles the rune (D-591). A mimic bumped awake keeps
-`wake`, with no sound (D-368). A rules test checks both mimics and the
-plate; no check of main.js's text.
-
 **D-663 · 2026-11-07 · The glance's own dice** (the owner's pick, as
 D-661 set; R2 of D-660's findings) A bite's glance off armour (D-484)
 rolls with its own salt, 12288, apart from the drop's (4096, D-474), the
@@ -199,4 +192,13 @@ sleep at the top of each band of floors, depths 2, 5 and 8, then every
 Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
 the stash chest, the Stone Pick and the garden bed, not later crafts
 (found while checking). Docs only. D-661 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-676 · 2026-11-07 · Docs F to I: the small ones** (the owner's
+picks, all recommended; F to I of D-660's findings, as D-666 set)
+`TECH-2.md`'s layout lists the maker, `tools/make.js` (D-621, D-622),
+and the map preview's page half, `tools/mappreview/page.js` (D-646,
+found while checking). `DEV-TOOLS.md` says Go to depth runs 0 to 99,
+starting on 1, depth 0 the crypt (D-212), not 1 to 99. Q-076 says the
+lure wisp is built (D-649), not built next. Docs only. D-662 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.

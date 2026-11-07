@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.127 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.128 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Docs F to I of D-660's list (small stale lines: `TECH-2.md` leaves
-out the maker tool, `DEV-TOOLS.md` says Go to depth starts at 1, Q-076
-calls the lure wisp "built next"), then E, then the rest in D-666's order, one a step; the Spit grub (D-659) after
-them.
+Doc E of D-660's list: nine materials still say "for crafting later" in
+play, though they have recipes; their new lines are the owner's pick
+(D-666). Then the rest in D-666's order, one a step; the Spit grub
+(D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -47,6 +47,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.128, The small notes caught up.** As recommended
+  (D-676): `TECH-2.md` lists the maker and the map preview's page,
+  `DEV-TOOLS.md` says Go to depth runs 0 to 99, and Q-076 says the lure
+  wisp is built (F to I). Docs only, so no playtest.
 - **2026-11-07, 0.3.127, Built things, not "to come".** As recommended
   (D-675): five glossary lines say what is in the game today, armour,
   charms, lantern parts, planting, the deeper waystones, the Bestiary
@@ -55,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-674): the glossary, the peddler's row and a code note say each find
   sells at its own price, 1 for most common materials, Wisp Glass 2,
   rare ones 5 (C). Docs only, so no playtest.
-- **2026-11-07, 0.3.125, The world's notes caught up.** As recommended
-  (D-673): `WORLD.md`, Q-037, Q-038 and the starting region's sheet say
-  plain dark past the edge (D-445) and today's floors (D-645 to D-648),
-  the old numbers in one "before" clause each (A, B). Docs only, so no
-  playtest.

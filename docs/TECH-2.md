@@ -31,6 +31,9 @@ tools/playtest.js   packs the game into one page for playtests (D-073);
 tools/pack.js       the packer the playtest and the map preview share
 tools/mappreview.js any seed's floors drawn from the real code, for a
                     generation step's map preview Artifact (D-646)
+tools/mappreview/page.js  the map preview's page half, drawn in the browser (D-646)
+tools/make.js       the maker: writes every empty piece of a new creature,
+                    find, tile or person (D-621, D-622)
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 tools/perf.js       times play on a simulated slow phone (D-430); Playwright

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.125, The world's notes caught up.** As recommended
+  (D-673): `WORLD.md`, Q-037, Q-038 and the starting region's sheet say
+  plain dark past the edge (D-445) and today's floors (D-645 to D-648),
+  the old numbers in one "before" clause each (A, B). Docs only, so no
+  playtest.
 - **2026-11-07, 0.3.124, Woken stones stay woken.** As recommended
   (D-672): as an old save's rooms are made again, a floor's woken
   waystone is woken again in its new stone room (W2). Nothing visible
