@@ -113,3 +113,11 @@ beetle, pilferer, puffball, web spider, howler, tender, pool eel, night
 prowler, rift creatures; then new ones: rim lurker, gloamberry mimic,
 skulker crab; with a new way, false light, brood mother, still one, rat
 pack, dozing brute. Which next, and in which pools?
+
+**Q-086 · Rooms that fill again** (raised 2026-11-07, the owner's idea;
+builds D-643, D-644) Today a room keeps the creatures it was made with,
+and a beaten one stays beaten for the journey. The owner's idea: after a
+while a cleared room fills again, a creature picked from the depth's
+pool, so a different kind may take a beaten one's place. When, how
+often, and how it fits the bigger biomes are talked through at its own
+step, after biome 1 grows.

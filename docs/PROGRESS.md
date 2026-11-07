@@ -28,6 +28,7 @@ Lure Wisp (D-643, Q-076).
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
 - Special creatures with histories (Q-083), at their own step.
+- Rooms that fill again (Q-086), after biome 1 grows.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
