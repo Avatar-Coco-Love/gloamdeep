@@ -63,7 +63,7 @@ function drinks(state, bites) {
 }
 // Whether creature e's bite this turn glances off the hero's armour (D-484)
 const glances = (state, e) => { const g = glanceOf(state); return g > 0 && rng(seedFor(state.seed ^ state.turn, GLANCE_SALT + e.x * 64 + e.y))() < g; };
-const GLANCE_SALT = 4096; // keeps the glance's dice apart from the flee's (fleesHurt)
+const GLANCE_SALT = 12288; // keeps the glance's dice apart from the flee's (fleesHurt), the drop's (4096, turn.js) and Tough's (8192) (D-663)
 // § settle: after the creatures' turn, one that stirred is awake and chasing for its
 // `awakeTurns`; one awake counts a turn down, and at the last settles back
 // down asleep where it stands, with its line (D-368)

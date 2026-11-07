@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
-import { makeState, makeAt } from '../src/core/turn.js';
+import { makeState, makeAt, step } from '../src/core/turn.js';
 import { enemiesAct } from '../src/core/creatureturn.js';
 import { benchMakes } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
@@ -56,4 +56,15 @@ test('worn, about 1 in 4 bites glance off and hurt nothing, with the glance line
     else assert.equal(b.health, 2);
   }
   assert.ok(glanced > 70 && glanced < 130, `${glanced} of 400 glanced`);
+});
+
+test('a glance rolls dice of its own: a kill on the turn of a glance drops its part about 1 in 2, as any kill (D-663)', () => {
+  const s0 = { ...start([]), worn: { armour: ['ratVest'] } }, { x, y } = s0.hero, kills = { glance: [0, 0], none: [0, 0] };
+  for (let i = 1; i <= 1500; i++) {
+    const s = { ...s0, seed: (i * 7919) % 99999 + 1, turn: i % 400, health: 3, items: [], enemies: [{ id: 'rat', x: x + 1, y, health: 1 }] };
+    const k = kills[enemiesAct(s).health === 3 ? 'glance' : 'none'], hit = step(s, 'right');
+    assert.equal(hit.enemies.length, 0, 'the rat is beaten');
+    k[0]++; k[1] += hit.items.some((it) => it.id === 'ratTail');
+  }
+  for (const [what, [n, dropped]] of Object.entries(kills)) assert.ok(dropped > n * 0.38 && dropped < n * 0.62, `${what}: ${dropped} of ${n} dropped`);
 });
