@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.132', date: '2026-11-07', title: 'A card\'s action at once', lines: [
+    "A press of Eat, Pour, Craft or Hold in the bag, or Make at the bench, happens at once, even while the hero is still sliding or the stairs are fading. Before, it waited until the card closed.",
+    "Decisions: D-680. D-667 moved to the archive, word for word.",
+  ] },
   { v: '0.3.131', date: '2026-11-07', title: 'Drops clear of creatures', lines: [
     "A creature's drops, mined finds that don't fit in the bag and berries picked from the garden bed never land under a creature or a person: they go to the next open tile, or where they came from when none is left. Before, a rare drop could lie hidden under another creature.",
     "Decisions: D-679. D-665 and D-666 moved to the archive, word for word.",

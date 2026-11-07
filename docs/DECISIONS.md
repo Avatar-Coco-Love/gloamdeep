@@ -68,14 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-667 · 2026-11-07 · The fall reels the line in** (the owner's pick,
-recommended; R4 of D-660's findings, as D-666 set) A fall takes in a
-line that is out, with no words of its own; only the fall's line,
-"You fall, and wake again.", is shown. A strike waiting on the pull's
-own turn goes too, so the strike meter never opens after waking.
-Before, the float stayed, and fish bit it from across the room. A rules
-test checks both.
-
 **D-668 · 2026-11-07 · Walls are not cleared heaps** (the owner's pick,
 recommended; R5 of D-660's findings, as D-666 set) Whether a heap beside
 the trapped peddler is cleared (D-498) is asked of each tile round him:
@@ -195,3 +187,11 @@ corners. With every tile round taken, it lies where it came from, as
 before. The beaten creature's own tile counts as free. Before, a rare
 drop could lie under another creature. A rules test checks it. D-665 and
 D-666 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-680 · 2026-11-07 · A card's action at once** (the owner's pick,
+recommended; I4 of D-660's findings, as D-666 set) Only a turn taken in
+play waits in line while the hero still slides or the stairs fade; a
+card's own action (the bag's Eat, Pour, Craft or Hold, the bench's Make)
+happens at once, and the slide goes on by itself. Before, it waited until
+the card closed. A fall still takes nothing. An input test checks it.
+D-667 moved to `archive/DECISIONS-AUDITS.md`, word for word.

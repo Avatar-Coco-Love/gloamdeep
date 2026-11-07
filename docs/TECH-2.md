@@ -15,6 +15,7 @@ src/input/explorerscreens.js the Seed Explorer, the ways to play, the seed pad (
 src/input/cardscreens.js  the bag, Drop, setting down, the bench, chest, bed and trade cards (D-570)
 src/input/cards/    a card's keys, taps and picks, one file each, in table.js (D-573)
 src/input/touch.js    in play: a tap, a held finger, walk on, and the mouse over a mark (D-660)
+src/input/queue.js    which turns wait in line for the slide: only those taken in play (D-680)
 src/render/frame.js   draws each frame from the shared `app` (D-235)
 src/core/           rules, state, rng, registry, noise (no DOM);
                     one file per content kind, gathered by registry.js (D-048)
