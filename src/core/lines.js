@@ -345,6 +345,11 @@ export function shownLine(state) {
   return filled.get(state.line);
 }
 
+// § heard: as a screen opens, the line already showing counts as heard, so the
+// card's own words aren't spoken over a frame later; a line said on the card is
+// still spoken, and back in play the line showing is spoken again (D-670)
+export const heardAs = (screen, state) => (screen === 'play' || !state ? null : shownLine(state));
+
 // § oil: a line only as the oil crosses a mark on the way down, so each is
 // said once, and again only after the oil has gone back above it (D-096).
 export function oilLine(before, after) {

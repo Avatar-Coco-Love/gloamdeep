@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.119, The fall reels the line in.** As recommended
+  (D-667): a fall takes in a line that is out, quietly, a waiting
+  strike too, so no fish bites the float after waking (R4).
+  Playtest: https://claude.ai/artifact/USN2jXFF6nWz6cnMpN4LRR
 - **2026-11-07, 0.3.118, One of a kind.** Every fix left on the
   audit's list is picked, in order (D-666). R3: after Take off a second
   pick or rod can't be made, and a second of a worn charm or vest can't

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.121 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.122 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-I3 of D-660's list, the screen reader loses a card's words, then the
-rest in D-666's order, one a step; the Spit grub (D-659) after them.
+D1 of D-660's list, cards spill off 4:3 and near-square screens, then
+the rest in D-666's order, one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.122, A card's words stay.** As recommended (D-670):
+  a line already showing as a card opens counts as heard, so the screen
+  reader keeps the bag's, map's and pause menu's words; a line said on
+  the card is still read (I3).
+  Playtest: https://claude.ai/artifact/DFADkonUSBzuxrsaVRTQbC
 - **2026-11-07, 0.3.121, A held Space picks once.** As recommended
   (D-669): off play, Space's key-repeat does nothing, so holding it on
   a menu picks once; in play it still waits turn after turn (I2).
@@ -54,7 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-668): only a tile that can be walked on counts as a heap cleared
   beside the trapped peddler, so he calls for help first again (R5).
   Playtest: https://claude.ai/artifact/C3oE2KFtUgv1d5nRHSqkXm
-- **2026-11-07, 0.3.119, The fall reels the line in.** As recommended
-  (D-667): a fall takes in a line that is out, quietly, a waiting
-  strike too, so no fish bites the float after waking (R4).
-  Playtest: https://claude.ai/artifact/USN2jXFF6nWz6cnMpN4LRR

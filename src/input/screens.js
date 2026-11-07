@@ -88,6 +88,7 @@ import { stonesOf, stoneName, stoneNote } from '../core/travel.js';
 import { offer, boonRow } from '../core/boon.js';
 import { view } from '../render/screen.js';
 import { openingWords } from '../core/opening.js';
+import { heardAs } from '../core/lines.js';
 import { waysScrollTo } from '../render/ways.js';
 
 const WORDS = {
@@ -147,7 +148,7 @@ export function createScreens(app, ui) {
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     version.hidden = !(onTitle() || next === 'paused'); // the version number on the title and the pause menu, not in play (D-407)
     setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)
-    app.spokenLine = null;
+    app.spokenLine = heardAs(next, app.state); // a line already showing isn't spoken over the card's words (D-670)
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()

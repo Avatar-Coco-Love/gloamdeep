@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.122', date: '2026-11-07', title: 'A card\'s words stay', lines: [
+    "With a screen reader, opening the bag, the map or the pause menu while a message is showing now reads the card's own words. Before, a moment later the message took their place. A message said while the card is open is still read out.",
+    "Decisions: D-670. D-655 moved to the archive, word for word.",
+  ] },
   { v: '0.3.121', date: '2026-11-07', title: 'A held Space picks once', lines: [
     "Holding Space on the title, a menu or a card now picks only once, as Enter does. Before, it kept picking: from the title it ran straight into a new journey, and in Settings and the bag it kept flipping switches and pouring flasks. Holding Space in play still waits turn after turn.",
     "Decisions: D-669. D-654 moved to the archive, word for word.",
