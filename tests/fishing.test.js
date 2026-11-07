@@ -153,3 +153,16 @@ test('with the line out and no bite, bumping the water waits, a turn, the float 
   assert.equal(byBumps.turn, byWaits.turn); // a bump waits just as a wait does, so the bite comes on the same turn
   assert.equal(byBumps.float.bite, true);
 });
+
+test('a fall reels the line in, quietly, a strike waiting too: no fish bites at the start after (R4, D-667)', () => {
+  const falls = (s) => ({ ...s, health: 1, poisoned: 1 }); // poison takes the last heart this turn
+  const out = cast(beside('first')), fell = wait(falls(out));
+  assert.ok(fell.events.some((e) => e.type === 'fall'));
+  assert.equal(fell.float, null);
+  assert.equal(shownLine(fell).text, 'You fall, and wake again.');
+  let after = fell;
+  for (let i = 0; i < 40; i++) { after = wait(after); assert.equal(after.float, null); }
+  const pulled = step(falls(untilBite(cast(beside('first')))), 'up'); // the pull's own turn ends in a fall
+  assert.ok(pulled.events.some((e) => e.type === 'fall'));
+  assert.equal(pulled.float, null); // so the strike meter never opens after waking
+});
