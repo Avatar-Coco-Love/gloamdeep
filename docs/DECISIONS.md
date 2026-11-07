@@ -36,19 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-647 · 2026-11-07 · Biome 1, step 1: one-cell rooms** (the owner's
-picks, recommended; builds D-645, D-646) Each floor's rooms grow freely:
-the way first, 3 or 4 rooms from the stairs up to the stairs down, then
-the side rooms off any room, so some branches are long and some short.
-Every room keeps today's finds for now; the owner wants the side rooms
-filled with much more content later, to keep exploring challenging and
-exciting. Below depth 8 floors are made as depth 8 is until biome 2
-(Claude's draft). The stairs down keep 3 tiles from a room's bottom edge
-and clear of its doorways, and doorways keep clear of the tiles beside
-the stairs up, so every room fits. The map preview shows the way, the
-creatures and finds, a line of numbers and a tapped room's contents.
-D-639 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-648 · 2026-11-07 · Biome 1, step 2: halls and large rooms** (the
 owner's go-ahead; builds D-645, D-647; numbers Claude's draft, tuned at
 the playtest) Halls and large rooms are side rooms, so the way to the
@@ -178,3 +165,19 @@ to `archive/DECISIONS-CHECKUP.md`, word for word.
 recommended) The ideas from the project review are kept in
 `RESEARCH-2.md`, "From the project review"; none is decided. Next comes
 Next up: the ranged creature's drafts (D-652), using its ideas there.
+
+**D-659 · 2026-11-07 · The Spit grub** (the owner's picks, all
+recommended but its name; mock-ups:
+https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9; builds D-349, D-652,
+D-658; answers part of Q-076) The first creature that attacks from range
+is the Spit grub, draft A, biome 1's 16th kind, in the pool from depth
+4. It never moves. When it sees the hero's lit lantern along a clear
+row or column, up to 5 tiles away, it spits a glowing glob that moves
+1 tile a turn down that line, so the hero can step out of the way; it
+then rests 2 turns. Only the lit lantern: with it off the grub can't
+see the hero, and the hero sees only the grub's and the glob's glows.
+Walls and rubble, whatever blocks light, stop the glob. Its next move
+shows as the others' do. Drafts the owner may change: 1 heart, spit 1,
+the 5 tiles and 2 turns. Its look, drop and lines are shown with
+mock-ups at its build step. D-647 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.

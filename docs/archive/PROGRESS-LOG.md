@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.109, Tough.** Docs only, the owner's picks, all
+  recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
+  only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:
+  https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv
 - **2026-11-07, 0.3.108, The Centipede Charm.** The owner's picks, all
   recommended (D-656): made at the bench from 3 Centipede Leg and 1
   Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a

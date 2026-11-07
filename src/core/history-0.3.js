@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.112', date: '2026-11-07', title: 'The Spit grub', lines: [
+    "Docs only: the first creature that attacks from range is chosen, the Spit grub. It never moves, and spits a glowing glob at your lit lantern that moves 1 tile a turn, so you can step aside; walls and rubble stop it, and with the lantern off it can't see you. Nothing in play changes yet.",
+    "Decisions: D-659. D-647 moved to the archive, word for word.",
+  ] },
   { v: '0.3.111', date: '2026-11-07', title: 'Ideas from the review', lines: [
     "Docs only: ideas from a review of the whole game are kept for later, among them shots you can see coming, sounds from the dark, torches that stay lit and a card when you fall. Nothing in play changes.",
     "Decisions: D-658.",
