@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.124 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.125 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Docs A and B of D-660's list (the place beyond an opening; floor sizes
-and room counts from before D-645), then the rest in D-666's order, one
-a step; the Spit grub (D-659) after them.
+Doc C of D-660's list ("1 coin for a common material", but Wisp Glass
+sells for 2), then the rest in D-666's order, one a step; the Spit grub
+(D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.125, The world's notes caught up.** As recommended
+  (D-673): `WORLD.md`, Q-037, Q-038 and the starting region's sheet say
+  plain dark past the edge (D-445) and today's floors (D-645 to D-648),
+  the old numbers in one "before" clause each (A, B). Docs only, so no
+  playtest.
 - **2026-11-07, 0.3.124, Woken stones stay woken.** As recommended
   (D-672): as an old save's rooms are made again, a floor's woken
   waystone is woken again in its new stone room (W2). Nothing visible
@@ -54,8 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-671): on a squarer screen held sideways, a card in play is drawn
   smaller, at least 340 game pixels across, so it fits (D1; Q-064).
   Playtest: https://claude.ai/artifact/Kra2sj17u3CctCUxhosZ6W
-- **2026-11-07, 0.3.122, A card's words stay.** As recommended (D-670):
-  a line already showing as a card opens counts as heard, so the screen
-  reader keeps the bag's, map's and pause menu's words; a line said on
-  the card is still read (I3).
-  Playtest: https://claude.ai/artifact/DFADkonUSBzuxrsaVRTQbC

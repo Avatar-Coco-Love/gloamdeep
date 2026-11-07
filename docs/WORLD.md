@@ -41,12 +41,14 @@ The first one joins the first crypt room's bottom doorway to a crypt room
 south of it (D-197). Generated rooms get one-tile openings at a spot the
 seed picks along their shared edge (D-201).
 Stairs line up too: stairs down in a cell at a tile lead to stairs up in
-the same cell at the same tile one floor down (D-202). Depths 2 to 4 are
-three-room grids with the stairs down in another room than the stairs
-up (D-203). Depths 5 to 7 are warrens: 5 rooms in a 3 × 3 grid, a
-winding chain with the stairs down farthest away (D-227). From depth 8
-each floor is a dungeon: 6 rooms of straight-walled halls in a 3 × 3
-grid, grown the same way plus one loop, in the crypt's bricks (D-228).
+the same cell at the same tile one floor down (D-202). Under the crypt
+the seed picks each floor's room count: 6 to 8 at depths 2 to 4 on a
+4 × 4 grid, 9 to 11 at depths 5 to 7, the warrens (D-227), and 11 to 13
+from depth 8, the dungeon in the crypt's bricks (D-228), on 5 × 5, with
+2 loops from depth 8 (D-645). The way from the stairs up to the stairs
+down is 3 or 4 rooms, and the side rooms branch off it; below depth 8
+floors are made as depth 8 is, until biome 2 (D-647). Before D-645 a
+floor had 3, 5 or 6 rooms on a 2 × 2 or 3 × 3 grid (D-203, D-227, D-228).
 A doorway or mouth keeps the depth, only stairs change it: the woods
 and the crypt are both depth 0, the second room depth 1 (D-212). Each
 place keeps the seed numbers it had before, so a seed keeps its rooms;
@@ -63,15 +65,19 @@ Two passes, both run from the save's seed:
    the hero walks in and still be the same every time.
 The first built: depth 2 (depth 3 before D-212) is a 2 × 2 grid, one cell empty, three rooms in
 an L; the seed picks the stairs room (D-201, `src/core/region.js`).
+Today's floors: under "Ways between rooms" (D-645).
 
 ## Shapes and sizes (D-172)
 Rooms differ in shape and size by kind: tunnels are narrow, deserts are
 vast. A room bigger than the screen scrolls: the camera keeps the hero in
 the middle and stops at the room's edges (D-195). The crypt rooms are
-11 × 13 tiles, one screen; the generated caves were 17 × 20 at first (D-195). Floors grow with depth:
-13 × 15 at depths 2 to 4, 15 × 17 at 5 to 7, 17 × 20 from 8 (D-580), built at 0.3.42
-(D-584; `sizeAt` in `src/core/region.js`). Biome 1 grows next: rooms made of
-11 × 13 cells, 1, 2 or 2 × 2 of them, more a floor (D-645). The last room of
+11 × 13 tiles, one screen; the generated caves were 17 × 20 at first (D-195).
+Generated rooms are made of cells (D-645): a cell is 11 × 13 tiles,
+13 × 15 from depth 8 (`sizeAt` in `src/core/region.js`); a room is 1
+cell, a hall of 2 (23 × 13, 27 × 15 from depth 8) or a large room of
+2 × 2 (23 × 27, 27 × 31), and halls and large rooms are side rooms
+(D-648). Before D-645 rooms grew with depth: 13 × 15 at depths 2 to 4,
+15 × 17 at 5 to 7, 17 × 20 from 8 (D-580, D-584). The last room of
 each side branch, a dead end, holds a cache of 2 or 3 extra finds (D-650). Which kinds, how big, and
 whether shapes come from hand-made templates or are generated: Q-038.
 
@@ -84,10 +90,9 @@ An opening lets in the light of the room on its other side.
   glows faintly, so you can tell a lit space lies ahead.
 Through the cave mouth: 3 tiles of pale daylight, shrinking and warming
 through dusk, none at night (D-218). The rest: Q-040.
-Past an opening, the place beyond shows itself, made by its own kind's
-rules, as it is now, in its own light (D-440): past the crypt's doorway
-out, the real woods room, in the woods' own daylight or moonlit night
-(D-438, D-439).
+Past every edge the room's own rock or trees go on, and the crypt's
+doorway out is a dark way on (D-445; it replaced the place beyond
+showing itself, D-438 to D-440).
 
 ## Finding stairs (D-174)
 Stairs glow more dimly than now (D-134), and their glow shows only once
