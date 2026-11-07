@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.127', date: '2026-11-07', title: 'Built things, not "to come"', lines: [
+    "The glossary is brought up to date: armour, charms, lantern parts, planting, the waystones on deeper floors, the Bestiary tab and Stone's crafts are described as they are in the game, not as to come. Nothing in the game changes.",
+    "Decisions: D-675. D-661 moved to the archive, word for word.",
+  ] },
   { v: '0.3.126', date: '2026-11-07', title: 'Each find\'s own price', lines: [
     "The notes on the peddler's prices are brought up to date: each find sells at its own price, 1 coin for most common materials, 2 for Wisp Glass and 5 for a rare one. Nothing in the game changes.",
     "Decisions: D-674.",

@@ -4,7 +4,8 @@ Moved unchanged from `docs/DECISIONS.md` at 0.2.228, the seventh audit
 (D-519), as it neared 12 KB: the second to sixth audits, each done.
 D-336, the first audit, followed at 0.2.233 (D-524), and D-519, the
 seventh, at 0.3.32, the eighth (D-570). D-570 to D-578, the eighth
-audit's parts, followed at 0.3.39, the audit done (D-578).
+audit's parts, followed at 0.3.39, the audit done (D-578). D-661, the
+tenth audit's first fixes (all built), followed at 0.3.127 (D-675).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -194,3 +195,14 @@ to `TECH-2.md`, `RESEARCH.md`'s ideas kept for later to `RESEARCH-2.md`.
 D-169 to D-176, the world's first decisions, move to
 `archive/DECISIONS-WORLD.md`; ticked steps 15 to 17 and the oil tick are
 archived. The next audit is at 0.3.112.
+
+**D-661 · 2026-11-07 · The audit's first fixes** (the owner's picks, all
+recommended; from D-660's findings) The fixes start with the four most
+serious, one a step, each with a test. First, at 0.3.114, I1: a still
+press becomes a hold only in play, so on the title, a menu or a card,
+letting go is a tap however long it was held (D-408's hold in play is
+unchanged). Picked for later steps: R2, the armour's glance gets dice of
+its own, so drops stay as every seed gives them and only which bites
+glance changes; W1, bringing an old save up to date removes only the
+sticks on the waystone itself, as D-589 says, and what lies in the ring
+round it stays. R1, the waystone's own event name, is the next step.
