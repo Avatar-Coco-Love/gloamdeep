@@ -256,3 +256,12 @@ line that is out, with no words of its own; only the fall's line,
 own turn goes too, so the strike meter never opens after waking.
 Before, the float stayed, and fish bit it from across the room. A rules
 test checks both.
+
+**D-668 · 2026-11-07 · Walls are not cleared heaps** (the owner's pick,
+recommended; R5 of D-660's findings, as D-666 set) Whether a heap beside
+the trapped peddler is cleared (D-498) is asked of each tile round him:
+it counts only if it can be walked on. Before, any tile that wasn't
+rubble counted, so the walls in his ring did, and in 79 of 100 seeds his
+first line on a dig was a `digging` one, not his call for help (D-496).
+A rules test checks a walled ring and every test seed's own room.
+D-652 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

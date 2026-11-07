@@ -185,7 +185,7 @@ export function createFrame(app, ui) {
     wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
     const onTitle = screens.onTitle();
     fitTitle(onTitle); // the title's scene fills the screen at the picture's zoom
-    fitCards(CARDS.has(app.screen)); // a card on a squarer screen drawn smaller, so it fits (D-671)
+    fitCards(CARDS.has(app.screen)); // a card on a squarer screen or an upright tablet drawn smaller, so it fits (D-671, D-681)
     hc.clearRect(0, 0, view.w, view.h); // the screen layer, see-through but for what is drawn on it below
     if (onTitle) { arrowPad.show(false, 1); rc.fillStyle = '#0e0c16'; rc.fillRect(0, 0, view.w, view.h); ctx.clearRect(0, 0, W, SCREEN_H); onTitleScreens(t); return; }
     ctx.clearRect(0, 0, W, SCREEN_H); // see-through over the room, but for a menu

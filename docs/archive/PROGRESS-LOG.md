@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.130, Freed once.** As recommended (D-678): rubble
+  dug beside the freed peddler gives its own lines, and he isn't freed
+  again or kept 5 more turns (R6). A rules test checks it. Playtest:
+  https://claude.ai/artifact/77TsBY1AqY6wSHbmZLLLp6
 - **2026-11-07, 0.3.129, Good for making things.** As recommended
   (D-677): the nine materials a recipe uses say "good for making
   things" in the bag, not "for crafting later"; the other eleven keep

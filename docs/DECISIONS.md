@@ -68,15 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-668 · 2026-11-07 · Walls are not cleared heaps** (the owner's pick,
-recommended; R5 of D-660's findings, as D-666 set) Whether a heap beside
-the trapped peddler is cleared (D-498) is asked of each tile round him:
-it counts only if it can be walked on. Before, any tile that wasn't
-rubble counted, so the walls in his ring did, and in 79 of 100 seeds his
-first line on a dig was a `digging` one, not his call for help (D-496).
-A rules test checks a walled ring and every test seed's own room.
-D-652 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
-
 **D-669 · 2026-11-07 · A held Space picks once** (the owner's pick,
 recommended; I2 of D-660's findings, as D-666 set) Off play, on the
 title, a menu or a card, Space's key-repeat does nothing, so holding it
@@ -104,7 +95,8 @@ size, so the screen is at least 340 game pixels across, as on a phone
 held sideways, and the card's wide layout fits, the stash chest's too.
 Pixels stay whole: 3 screen pixels each at 1024 × 768, 2 at 900 × 820.
 Only while a card is open; play's panel and buttons keep their size.
-Phones, held either way, and upright tablets are unchanged. Before, the
+Phones, held either way, and upright tablets are unchanged (upright
+tablets changed by D-681, 2026-11-07). Before, the
 pause card's facts, the Growth tree's boxes and the bag's, workbench's
 and peddler's words ran past the edge. The stacked upright layout was
 tried there too, and is too short for those screens. A test checks the
@@ -195,3 +187,13 @@ card's own action (the bag's Eat, Pour, Craft or Hold, the bench's Make)
 happens at once, and the slide goes on by itself. Before, it waited until
 the card closed. A fall still takes nothing. An input test checks it.
 D-667 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-681 · 2026-11-07 · A smaller card upright** (the owner's
+pick, recommended; D2 of D-660's findings, as D-666 set; changes D-671's
+line on upright tablets) Held upright, a card open in play is drawn at a
+smaller pixel size when that leaves the screen under 300 game pixels
+tall, as D-671 does sideways: 3 screen pixels each at 768 × 1024, so the
+bag's words fit above DROP and WEAR with a 9 or 12 slot bag. Pixels stay
+whole; phones are unchanged. Before, every item's words ran over the
+buttons there. A test checks five tablet sizes and every item's words.
+D-668 moved to `archive/DECISIONS-AUDITS.md`, word for word.

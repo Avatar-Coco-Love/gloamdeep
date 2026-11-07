@@ -89,10 +89,15 @@ function fitRoom(room, roomCtx, hud, hudCtx, picture) {
 }
 // § card fit: while a card is open in play, the screen layer is at least CARD_W game pixels
 // across a screen held sideways, as on a phone, so a card's wide layout fits a
-// 4:3 or near-square screen; its pixels are smaller there, still whole (D-671). Play's
+// 4:3 or near-square screen; its pixels are smaller there, still whole (D-671). Held
+// upright, it is at least CARD_H game pixels tall, so a tablet's bag has room for an
+// item's words over DROP (D-681); phones are taller than that already. Play's
 // panel keeps its size; under the card's veil it shrinks with it
-export const CARD_W = 340;
-export const cardZoom = (base, bw, bh) => (bw >= bh ? zoom(Math.min(base, bw / CARD_W)) : base);
+export const CARD_W = 340, CARD_H = 300;
+export function cardZoom(base, bw, bh) {
+  const fit = bw >= bh ? bw / CARD_W : bh / CARD_H;
+  return fit >= base ? base : zoom(fit);
+}
 export function fitCards(on) {
   if (on === carded) return;
   carded = on;
