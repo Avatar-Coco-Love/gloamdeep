@@ -165,6 +165,10 @@ export const ITEMS = {
   // lasts 70 turns, not 60, or about 87 with the Copper Wick (parts.js).
   heartCharm: { id: 'heartCharm', kind: 'item', name: 'Heart Charm', bag: true, max: 1, look: 'heartCharmLook', full: 'heartCharmFull',
     bench: { of: { mimicHeart: 1, copperOre: 1 }, says: 'heartMake', short: 'heartShort' }, wear: { slot: 'charm', burn: 6 / 7 }, wears: 'heartWear' },
+  // The charm against poison (D-656): made at the workbench, its 12th slot, never found; worn,
+  // poisoned lasts `wear.poison` turns, not 6, so it takes 1 heart, not 2 (poison.js).
+  centipedeCharm: { id: 'centipedeCharm', kind: 'item', name: 'Centipede Charm', bag: true, max: 1, look: 'centipedeCharmLook', full: 'centipedeCharmFull',
+    bench: { of: { centipedeLeg: 3, copperOre: 1 }, says: 'centipedeCharmMake', short: 'centipedeCharmShort' }, wear: { slot: 'charm', poison: 3 }, wears: 'centipedeCharmWear' },
   // The first home piece (D-488): made at the workbench, never found, set down on the surface
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',

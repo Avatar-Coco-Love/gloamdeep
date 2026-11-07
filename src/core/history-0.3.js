@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.108', date: '2026-11-07', title: 'The Centipede Charm', lines: [
+    "A new charm, the Centipede Charm: a drop of pale green venom in a copper setting. Make it at the workbench, after the rod, from 3 Centipede Leg and 1 Copper Ore. You have one at a time.",
+    "Choose it in the bag and press Wear; no turn passes. It goes in a charm slot beside the Wisp or Heart Charm.",
+    "While you wear it, poisoned lasts 3 turns, not 6, and takes 1 heart, not 2. A bite still poisons you, so the Antidote still helps.",
+    "Decisions: D-656. D-645 moved to the archive, word for word.",
+  ] },
   { v: '0.3.107', date: '2026-11-07', title: 'The Antidote', lines: [
     "The Antidote: a tall green vial. Make it in the bag from 1 Snapcap Gill and 1 herb; the gill's slot shows MAKE when you carry both.",
     "Drink it while poisoned and the poison ends at once. It heals nothing. When you aren't poisoned its DRINK is dim, and it stays in the bag.",

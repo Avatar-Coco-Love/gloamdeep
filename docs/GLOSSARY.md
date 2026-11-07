@@ -63,6 +63,8 @@ this page and a decision disagree, the decision wins.
   come about 1 in 5 (D-486).
 - **Heart Charm:** the second charm, worn beside it; worn, the oil
   burns a sixth slower (D-487).
+- **Centipede Charm:** the charm against poison; worn, poisoned lasts
+  3 turns, not 6 (D-656).
 
 ## Home
 Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,

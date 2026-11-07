@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.105, The centipede.** Docs only, the owner's picks:
+  the centipede poisons; 6 turns, a hurt every 3, never the last heart
+  until the Antidote (D-654). Mock-ups:
+  https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w
 - **2026-11-07, 0.3.104, The motes follow the way.** The owner's
   report and picks, all recommended: the motes follow the walkable way
   to the stairs down and turn together at bends (D-653). Playtest:

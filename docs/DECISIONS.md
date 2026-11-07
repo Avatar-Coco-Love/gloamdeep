@@ -36,24 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-645 · 2026-11-07 · Biome 1's floors, rooms made of cells** (the
-owner's picks, mostly recommended; builds D-644; partly supersedes D-203,
-D-227, D-228 and D-580) Under the crypt, the seed picks each floor's room
-count: 6 to 8 at depths 2 to 4 on a 4 × 4 grid, 9 to 11 at depths 5 to 7
-and 11 to 13 at depth 8 on 5 × 5, with 2 loops at depth 8; about 69
-rooms with the crypt's. Rooms are made of cells so that everything lines
-up in play and on the map (the owner's wish): a cell is 11 × 13 tiles,
-13 × 15 at depth 8; a room is 1 cell (small), 2 side by side or one above
-the other (a long hall) or 2 × 2 (large), edge to edge, so every opening
-meets exactly. The stairs down are about 3 or 4 rooms from the stairs
-up, as far as today; the other rooms branch off that way and hold the
-rewards, so exploring is a choice the oil pays for (the owner's pick,
-recommended, so more space adds choices, not walking; D-580). How many halls and large rooms a floor gets is Claude's
-draft, tuned at the playtest. Old saves have their generated rooms made
-again once, as at D-580; home, the surface and the crypt are kept. Built
-in two steps: more one-cell rooms on the bigger grids, then halls and
-large rooms. D-634 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-646 · 2026-11-07 · A map preview for generation steps** (the
 owner's working rule) Whenever a step changes how something is generated
 (floors, rooms, caves, woods, the scatter of creatures or finds), its PR
@@ -178,4 +160,15 @@ heals nothing; not poisoned, it stays, with a line, and no turn passes.
 Its look is B, a tall thin green vial under a cork. With it in, poison
 can take the last heart, and the hero falls. Drafts the owner may change:
 5 a stack, never sold, its lines. D-644 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-656 · 2026-11-07 · The Centipede Charm** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/T4UJp8WKEEDY141YhkSscq;
+builds D-458, D-652, D-654) The charm against poison is the Centipede
+Charm, made at the workbench, its slot after the rod, from 3 Centipede
+Leg and 1 Copper Ore (the leg's first use); one is carried or worn, and
+Wear puts it on, free. Worn, poisoned lasts 3 turns, not 6, so it takes
+1 heart, not 2; every bite still poisons, so the Antidote still matters.
+Its look is A, a drop of venom's pale green in the other charms' copper
+setting. Drafts the owner may change: its lines. D-645 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.

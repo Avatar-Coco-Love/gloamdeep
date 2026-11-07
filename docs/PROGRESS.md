@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The charm against poison (D-652): Claude shows 2 or 3 drafts with
-mock-ups first (a Centipede Leg waits for it); then Tough on the Growth
-tree, its own step. Side rooms, step 3, later.
+Tough on the Growth tree (D-652): Claude shows 2 or 3 drafts first,
+its own step. Side rooms, step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -51,6 +50,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.108, The Centipede Charm.** The owner's picks, all
+  recommended (D-656): made at the bench from 3 Centipede Leg and 1
+  Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a
+  green drop in copper. Playtest:
+  https://claude.ai/artifact/RZiFW5aNZXJ3Ht5gidVnhh
 - **2026-11-07, 0.3.107, The Antidote.** The owner's picks, all
   recommended (D-655): made in the bag from a Snapcap Gill and a herb;
   Drink ends poisoned, healing nothing; look B, a tall green vial; poison
@@ -60,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   chases from depth 3 and its bite poisons; the green drop mark, the
   green heart; the drafted drops and lines. Playtest:
   https://claude.ai/artifact/3FymT4nhVUgEiPp1fHDLBb
-- **2026-11-07, 0.3.105, The centipede.** Docs only, the owner's picks:
-  the centipede poisons; 6 turns, a hurt every 3, never the last heart
-  until the Antidote (D-654). Mock-ups:
-  https://claude.ai/artifact/TC6h4vyTP2niDGBdLZCF6w

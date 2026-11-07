@@ -22,6 +22,9 @@ export const rareOf = (state, base) => Math.max(base, ...effects(state, 'rare'))
 // How much of a lit turn's oil still burns: the worn pieces' `burn`, multiplied, or 1 (D-487)
 export const burnByWorn = (state) => effects(state, 'burn').reduce((a, b) => a * b, 1);
 
+// How many turns poisoned lasts: the worn pieces' `poison`, or `base` (D-656)
+export const poisonTurnsOf = (state, base) => Math.min(base, ...effects(state, 'poison'));
+
 // § wear: Wear on bag slot i puts its piece on, with its `wears` line (D-484). With its slot
 // full, the piece worn there longest comes off into that bag slot (D-487). Free: no turn passes.
 export function wear(state, i) {
