@@ -5,7 +5,8 @@
 export const HISTORY_03 = [
   { v: '0.3.117', date: '2026-11-07', title: 'Only the stone\'s own sticks', lines: [
     "When an old save first gets its home waystone, only sticks on the stone itself are cleared away, as decided. A stick or anything you dropped on the tiles round the stone stays where it was.",
-    "Decisions: D-664.",
+    "The version shown at the top of the progress notes is set by the release tool now, so it no longer falls behind.",
+    "Decisions: D-664, D-665.",
   ] },
   { v: '0.3.116', date: '2026-11-07', title: 'The glance\'s own dice', lines: [
     "A bite glancing off your vest no longer makes the next kill from that tile always drop its part. The glance rolls dice of its own, so drops come about 1 time in 2, as decided. What each seed drops is unchanged; only which bites glance changes.",

@@ -54,3 +54,10 @@ test('it stops when the log entry is missing, and warns as DECISIONS.md nears it
   big.write('docs/DECISIONS.md', `**D-001 · d · t** x\n\n**D-002 · d · t** *Superseded by D-003.*\n${'.'.repeat(12000)}`);
   assert.match(plan(big).warn[0], /Superseded: D-002\. Oldest: D-001, D-002/);
 });
+
+test('it sets PROGRESS.md\'s Version line, leaving the rest of the line (D-665)', () => {
+  const fs = repo();
+  fs.write('docs/PROGRESS.md', fs.read('docs/PROGRESS.md').replace('# Progress\n', '# Progress\n\n**Version:** 0.9.1 · **Stage:** 0.9\n'));
+  plan(fs);
+  assert.ok(fs.disk['docs/PROGRESS.md'].includes('\n**Version:** 0.9.9 · **Stage:** 0.9\n'));
+});

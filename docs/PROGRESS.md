@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.113 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.117 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -49,6 +49,7 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 - **2026-11-07, 0.3.117, Only the stone's own sticks.** Both
   recommended (D-664): an old save's new home waystone clears only the
   sticks on its own 3 × 3 tiles; the ring round it keeps its things (W1).
+  The release tool now sets the Version line here (D-665).
   Nothing visible in a new game, so no playtest.
 - **2026-11-07, 0.3.116, The glance's own dice.** As picked (D-663): a
   glance off the vest rolls its own dice, so a kill on its turn no longer

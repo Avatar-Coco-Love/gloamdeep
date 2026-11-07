@@ -170,3 +170,9 @@ tiles is cleared, measured from its plan, and nothing in the ring round
 it. Before, it cleared 2 tiles out, the old 5 × 5 stone's size, so a
 stick or a dropped find in the ring went too. A rules test checks a
 stick on the stone goes and a stick and a herb in the ring stay.
+
+**D-665 · 2026-11-07 · The progress version kept in step** (the owner
+left it to Claude) `docs/PROGRESS.md`'s **Version:** line had been set
+by hand and fell 4 versions behind. `tools/release.js` (D-572) now sets
+it to the changelog's newest version, and `--check` fails when it
+differs; a release test checks it.
