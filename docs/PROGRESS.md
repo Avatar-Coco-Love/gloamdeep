@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.107 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.109 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Tough on the Growth tree (D-652): Claude shows 2 or 3 drafts first,
-its own step. Side rooms, step 3, later.
+Build Tough (D-657): Body's second place, above Heart; a hurting bite
+poisons 1 time in 2. One step with a playtest. Side rooms, step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.109, Tough.** Docs only, the owner's picks, all
+  recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
+  only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:
+  https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv
 - **2026-11-07, 0.3.108, The Centipede Charm.** The owner's picks, all
   recommended (D-656): made at the bench from 3 Centipede Leg and 1
   Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a
@@ -60,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   Drink ends poisoned, healing nothing; look B, a tall green vial; poison
   can now take the last heart. Playtest:
   https://claude.ai/artifact/NvHXxJYbqYeRAV4tS1Hs9n
-- **2026-11-07, 0.3.106, The centipede built.** As picked (D-654): it
-  chases from depth 3 and its bite poisons; the green drop mark, the
-  green heart; the drafted drops and lines. Playtest:
-  https://claude.ai/artifact/3FymT4nhVUgEiPp1fHDLBb

@@ -286,3 +286,17 @@ draft, tuned at the playtest. Old saves have their generated rooms made
 again once, as at D-580; home, the surface and the crypt are kept. Built
 in two steps: more one-cell rooms on the bigger grids, then halls and
 large rooms. D-634 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-646 · 2026-11-07 · A map preview for generation steps** (the
+owner's working rule) Whenever a step changes how something is generated
+(floors, rooms, caves, woods, the scatter of creatures or finds), its PR
+also gets a private map preview Artifact, made by a tool in `tools/` as
+the playtest is (D-073). Like the Seed Explorer (D-214), it draws the
+whole floor or region from the real generation code, shows the seed, has
+a Reseed button for a new random seed and a way to pick the depth, so
+the owner can flip through many seeds before merging. It is linked in
+the PR body and the PROGRESS log, and republished after every push.
+D-638 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+Moved unchanged from `docs/DECISIONS.md` at 0.3.109 (D-657), as it neared
+12 KB.

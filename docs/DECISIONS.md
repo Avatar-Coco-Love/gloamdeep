@@ -36,17 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-646 · 2026-11-07 · A map preview for generation steps** (the
-owner's working rule) Whenever a step changes how something is generated
-(floors, rooms, caves, woods, the scatter of creatures or finds), its PR
-also gets a private map preview Artifact, made by a tool in `tools/` as
-the playtest is (D-073). Like the Seed Explorer (D-214), it draws the
-whole floor or region from the real generation code, shows the seed, has
-a Reseed button for a new random seed and a way to pick the depth, so
-the owner can flip through many seeds before merging. It is linked in
-the PR body and the PROGRESS log, and republished after every push.
-D-638 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-647 · 2026-11-07 · Biome 1, step 1: one-cell rooms** (the owner's
 picks, recommended; builds D-645, D-646) Each floor's rooms grow freely:
 the way first, 3 or 4 rooms from the stairs up to the stairs down, then
@@ -172,3 +161,15 @@ Wear puts it on, free. Worn, poisoned lasts 3 turns, not 6, so it takes
 Its look is A, a drop of venom's pale green in the other charms' copper
 setting. Drafts the owner may change: its lines. D-645 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-657 · 2026-11-07 · Tough** (the owner's picks, all recommended;
+mock-ups: https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv; builds D-462,
+D-639, D-652, D-654) Tough is Body's second upgrade, 1 ember, bought once.
+With it, a bite that hurts poisons the hero only about 1 time in 2, by
+the seeded dice; when it does, poison runs as before. So each defence
+has its own job: Tough stops some poison, the Centipede Charm shortens
+it, the Antidote ends it. It sits in Body's first row, above Heart: the
+row now holds two places stacked, the first of D-639's 4 or 5 a branch,
+and Body's locked row moves up one. Drafts the owner may change: its
+words, its drawing. Built next, in one step with a playtest. D-646 moved
+to `archive/DECISIONS-CHECKUP.md`, word for word.

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.106, The centipede built.** As picked (D-654): it
+  chases from depth 3 and its bite poisons; the green drop mark, the
+  green heart; the drafted drops and lines. Playtest:
+  https://claude.ai/artifact/3FymT4nhVUgEiPp1fHDLBb
 - **2026-11-07, 0.3.105, The centipede.** Docs only, the owner's picks:
   the centipede poisons; 6 turns, a hurt every 3, never the last heart
   until the Antidote (D-654). Mock-ups:

@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.109', date: '2026-11-07', title: 'Tough', lines: [
+    "Nothing in the game changed yet. The Growth upgrade against poison is picked: Tough, on the Body branch, for 1 ember.",
+    "With Tough, a bite that hurts poisons you only about 1 time in 2. The Centipede Charm still makes poison shorter, and the Antidote still ends it.",
+    "It will sit in Body's first row, above Heart, so that row holds two places.",
+    "Decisions: D-657. D-646 moved to the archive, word for word.",
+  ] },
   { v: '0.3.108', date: '2026-11-07', title: 'The Centipede Charm', lines: [
     "A new charm, the Centipede Charm: a drop of pale green venom in a copper setting. Make it at the workbench, after the rod, from 3 Centipede Leg and 1 Copper Ore. You have one at a time.",
     "Choose it in the bag and press Wear; no turn passes. It goes in a charm slot beside the Wisp or Heart Charm.",
