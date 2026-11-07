@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
+  Tough above it, 1 ember, bought once; with it a hurting bite poisons
+  about 1 time in 2, by the seeded dice (D-657). Playtest:
+  https://claude.ai/artifact/5WMpuBHEUrNYxhakipz8TD
 - **2026-11-07, 0.3.109, Tough.** Docs only, the owner's picks, all
   recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
   only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:

@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.113', date: '2026-11-07', title: 'The tenth audit, part 1', lines: [
+    "The tenth audit, part 1. Nothing in play changes. New floors are worked out about 5 times faster, the same floors as before, and the tests run in 35 seconds, not 59.",
+    "Behind the scenes: touch in play has its own file; two long pages and five decisions moved to their own files, word for word. Four bug hunts, a docs read-through and a phone speed check found 19 bugs, some stale doc lines and one freeze, for you to pick fixes from.",
+    "Decisions: D-660. D-648 to D-651 and D-653 moved to the archive, word for word.",
+  ] },
   { v: '0.3.112', date: '2026-11-07', title: 'The Spit grub', lines: [
     "Docs only: the first creature that attacks from range is chosen, the Spit grub. It never moves, and spits a glowing glob at your lit lantern that moves 1 tile a turn, so you can step aside; walls and rubble stop it, and with the lantern off it can't see you. Nothing in play changes yet.",
     "Decisions: D-659. D-647 moved to the archive, word for word.",
