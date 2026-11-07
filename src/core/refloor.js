@@ -6,7 +6,8 @@
 // § who and what moves: a hero in a generated room stands on the stairs up of that
 // floor; a bag left in one lies on those stairs; a freed person still waiting there
 // goes home (homeward.js); and a person already freed is not trapped again in the room
-// made anew, their ring of rubble cleared.
+// made anew, their ring of rubble cleared; a waystone woken on a floor is woken
+// again in that floor's stone room made anew (D-672).
 // § which rooms: every generated one by default; `remake` (id, place) picks fewer, as
 // the step that makes again only the crypt rooms standing in for dungeon rooms (D-585),
 // and then the hero goes to their floor's stairs up as that room was kept, if it was.
@@ -37,6 +38,7 @@ export function refloor(s, remake = isGenerated) {
   const kept = new Set([...(here ? [] : [s.place]), ...away.filter(([id, p]) => !remake(id, p)).map(([id]) => id)]);
   const bags = left.flatMap(([id, p]) => (p.items || []).filter((it) => it.id === 'lostbag').map((it) => ({ ...it, to: placeAt(depthOf(id)) })));
   const waiting = left.flatMap(([, p]) => (p.people || []).filter((p) => p.leaves !== undefined).map((p) => p.id));
+  const woke = [...new Set(left.filter(([, p]) => p.room?.map.some((l) => l.includes(WOKEN))).map(([id]) => depthOf(id)))];
   let state = { ...s, elsewhere: Object.fromEntries(away.filter(([id, p]) => !remake(id, p))) };
   if (here) {
     const to = placeAt(depthOf(s.place)), elsewhere = { ...state.elsewhere }, there = elsewhere[to] || fresh(to, s.seed);
@@ -45,6 +47,7 @@ export function refloor(s, remake = isGenerated) {
   }
   state = waiting.reduce(goHome, state);
   for (const bag of bags) state = edit(state, bag.to, (p) => ({ ...p, items: [...p.items, { id: 'lostbag', ...stairsUp(p.room), holds: bag.holds }] }));
+  for (const d of woke) if (stoneRoom(s.seed, d)) state = edit(state, stoneRoom(s.seed, d), wake);
   return freed(state, kept);
 }
 
@@ -72,6 +75,10 @@ function edit(state, id, change) {
   if (id === state.place) return { ...state, ...change(state) };
   return { ...state, elsewhere: { ...state.elsewhere, [id]: change(state.elsewhere[id] || fresh(id, state.seed)) } };
 }
+
+// § woken stones (D-672): a room with its waystone's plate woken, as it was before the remake
+const WOKEN = 'A', ASLEEP = 'Z'; // the plate's letters (tiles.js)
+const wake = (p) => ({ ...p, room: { ...p.room, map: p.room.map.map((l) => l.replaceAll(ASLEEP, WOKEN)) } });
 
 // The first stairs up in a room, row by row
 function stairsUp(room) {

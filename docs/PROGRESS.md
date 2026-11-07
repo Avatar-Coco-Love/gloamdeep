@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.123 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.124 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-W2 of D-660's list, woken deep waystones kept through the remake (its
-way the owner's call), then the rest in D-666's order, one a step; the
-Spit grub (D-659) after them.
+Docs A and B of D-660's list (the place beyond an opening; floor sizes
+and room counts from before D-645), then the rest in D-666's order, one
+a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.124, Woken stones stay woken.** As recommended
+  (D-672): as an old save's rooms are made again, a floor's woken
+  waystone is woken again in its new stone room (W2). Nothing visible
+  in a new game, so no playtest.
 - **2026-11-07, 0.3.123, Cards drawn smaller to fit.** As recommended
   (D-671): on a squarer screen held sideways, a card in play is drawn
   smaller, at least 340 game pixels across, so it fits (D1; Q-064).
@@ -55,7 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   reader keeps the bag's, map's and pause menu's words; a line said on
   the card is still read (I3).
   Playtest: https://claude.ai/artifact/DFADkonUSBzuxrsaVRTQbC
-- **2026-11-07, 0.3.121, A held Space picks once.** As recommended
-  (D-669): off play, Space's key-repeat does nothing, so holding it on
-  a menu picks once; in play it still waits turn after turn (I2).
-  Playtest: https://claude.ai/artifact/7FkaUkCrPdsNTuuzuAZtha

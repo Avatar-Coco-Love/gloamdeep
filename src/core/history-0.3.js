@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.124', date: '2026-11-07', title: 'Woken stones stay woken', lines: [
+    "When an old save from before the bigger floors is brought up to date, a deep waystone you had woken stays woken, so you can still travel to it. Before, every deep waystone went back to sleep. Saves already brought up to date stay as they are.",
+    "Decisions: D-672. D-657 moved to the archive, word for word.",
+  ] },
   { v: '0.3.123', date: '2026-11-07', title: 'Cards drawn smaller to fit', lines: [
     "On a tablet held sideways or a near-square PC window, the cards in play (the bag, pause menu, Journal, workbench, stash chest and peddler) are now drawn a little smaller, so everything fits on the card as it does on a phone held sideways. Before, words and boxes ran past the card's edge. Play itself keeps its size, and phones look the same as before.",
     "Decisions: D-671. Questions closed: Q-064. D-656 moved to the archive, word for word.",

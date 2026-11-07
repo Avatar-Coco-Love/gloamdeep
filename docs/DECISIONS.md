@@ -36,18 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-657 · 2026-11-07 · Tough** (the owner's picks, all recommended;
-mock-ups: https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv; builds D-462,
-D-639, D-652, D-654) Tough is Body's second upgrade, 1 ember, bought once.
-With it, a bite that hurts poisons the hero only about 1 time in 2, by
-the seeded dice; when it does, poison runs as before. So each defence
-has its own job: Tough stops some poison, the Centipede Charm shortens
-it, the Antidote ends it. It sits in Body's first row, above Heart: the
-row now holds two places stacked, the first of D-639's 4 or 5 a branch,
-and Body's locked row moves up one. Drafts the owner may change: its
-words, its drawing. Built next, in one step with a playtest. D-646 moved
-to `archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-658 · 2026-11-07 · Ideas from the review** (the owner's pick,
 recommended) The ideas from the project review are kept in
 `RESEARCH-2.md`, "From the project review"; none is decided. Next comes
@@ -187,3 +175,13 @@ pause card's facts, the Growth tree's boxes and the bag's, workbench's
 and peddler's words ran past the edge. The stacked upright layout was
 tried there too, and is too short for those screens. A test checks the
 sizes. D-656 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-672 · 2026-11-07 · Woken stones stay woken** (the owner's pick,
+recommended; W2 of D-660's findings, as D-666 set; builds D-645) As an
+old save's generated rooms are made again (D-580, D-645), a floor whose
+remade rooms held a woken waystone has its stone room made anew with its
+plate woken; every other stone stays asleep. A merged step is edited,
+as at D-664, so only saves not yet brought up to date keep theirs; one
+already updated stays as it is, with no guess at which were woken.
+Before, every deep stone went back to sleep. A rules test checks it.
+D-657 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

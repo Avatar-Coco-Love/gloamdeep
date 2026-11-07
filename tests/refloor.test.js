@@ -6,7 +6,8 @@ import { refloor } from '../src/core/refloor.js';
 import { upgradeState, UPGRADES } from '../src/core/save.js';
 import { makeWorld } from '../src/core/turn.js';
 import { goToPlace, goToDepth } from '../src/core/stairs.js';
-import { tileAt, peddlerRoom, isGenerated, placeFor } from '../src/core/room.js';
+import { tileAt, peddlerRoom, isGenerated, placeFor, stoneRoom } from '../src/core/room.js';
+import { stonesOf } from '../src/core/travel.js';
 import { layoutAt } from '../src/core/region.js';
 
 const SEED = 7;
@@ -77,4 +78,25 @@ test('a freed peddler still waiting in a generated room goes home, and stays fre
   assert.ok(s.elsewhere.woods.people.some((p) => p.id === 'peddler' && p.home));
   const room = s.place === id ? s : s.elsewhere[id];
   assert.deepEqual(room.people, []);
+});
+
+test('a woken waystone stays woken: its floor\'s stone room made anew has its plate woken, the rest asleep (D-672)', () => {
+  const woke = { room: { cols: 3, rows: 1, map: ['.A.'] }, items: [], people: [] }; // a woken plate in the old layout
+  const old = goToPlace(goToDepth(goToDepth(makeWorld('first', SEED), 8), 5), 'first');
+  const two = layoutAt(SEED, 2).cells.find((c) => c.id !== stoneRoom(SEED, 2)).id; // the old layout's stone stood elsewhere
+  old.elsewhere[two] = woke;
+  old.elsewhere.depth5 = woke;
+  const before = stonesOf(old).filter((s) => s.depth > 0);
+  assert.ok(before.every((s) => !s.woken), 'the seed\'s stone rooms themselves were not woken');
+  const s = refloor(old), woken = Object.fromEntries(stonesOf(s).filter((t) => t.depth > 0).map((t) => [t.depth, t.woken]));
+  assert.deepEqual(woken, { 2: true, 5: true, 8: false });
+  const plate = s.elsewhere[stoneRoom(SEED, 2)].room.map.join('');
+  assert.ok(plate.includes('A') && !plate.includes('Z'));
+});
+
+test('a hero standing on a woken stone wakes again on the floor\'s stairs up, the stone still woken (D-672)', () => {
+  const id = stoneRoom(SEED, 2), old = goToPlace(goToDepth(makeWorld('first', SEED), 2), id);
+  const s = refloor({ ...old, room: { ...old.room, map: old.room.map.map((l) => l.replaceAll('Z', 'A')) } });
+  assert.equal(tileAt(s.room, s.hero.x, s.hero.y).id, 'stairsUp');
+  assert.ok(stonesOf(s).find((t) => t.depth === 2).woken);
 });
