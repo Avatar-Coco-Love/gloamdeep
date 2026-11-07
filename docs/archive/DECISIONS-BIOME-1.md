@@ -123,3 +123,15 @@ Wear puts it on, free. Worn, poisoned lasts 3 turns, not 6, so it takes
 Its look is A, a drop of venom's pale green in the other charms' copper
 setting. Drafts the owner may change: its lines. D-645 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-657 · 2026-11-07 · Tough** (the owner's picks, all recommended;
+mock-ups: https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv; builds D-462,
+D-639, D-652, D-654) Tough is Body's second upgrade, 1 ember, bought once.
+With it, a bite that hurts poisons the hero only about 1 time in 2, by
+the seeded dice; when it does, poison runs as before. So each defence
+has its own job: Tough stops some poison, the Centipede Charm shortens
+it, the Antidote ends it. It sits in Body's first row, above Heart: the
+row now holds two places stacked, the first of D-639's 4 or 5 a branch,
+and Body's locked row moves up one. Drafts the owner may change: its
+words, its drawing. Built next, in one step with a playtest. D-646 moved
+to `archive/DECISIONS-CHECKUP.md`, word for word.
