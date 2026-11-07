@@ -274,3 +274,13 @@ holding Space keeps waiting turns (D-085). Before, a held Space ran from
 the title into a new journey, flipped Settings switches and poured
 flasks from the bag. A test checks both.
 D-654 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-670 · 2026-11-07 · A card's words stay** (the owner's pick,
+recommended; I3 of D-660's findings, as D-666 set) As a card or screen
+opens, the line already showing counts as heard, so it isn't spoken over
+the card's words a frame later. A line said while the card is open, such
+as Wear's "You already have …" in the bag, is still spoken, and back in
+play the line showing is spoken again. Before, on the bag, the map and
+the pause menu, the line replaced the card's words and stayed. A test
+checks all three. D-655 moved to `archive/DECISIONS-BIOME-1.md`, word
+for word.

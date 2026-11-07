@@ -243,6 +243,8 @@ export function createScreens(app, ui) {
   // § choosing: a line picked, an arrow or a swipe, a tap or click off the room, each the open
   // card's in the card table (D-573, D-578)
   function choose(i = app.chosen) { cards[app.screen]?.pick(i); }
+  // Space off play picks the lit line, as Enter does, unless the card has its own (the name pad, D-683)
+  const space = () => { const card = cards[app.screen]; if (card?.space) card.space(); else choose(); };
   // Arrows and swipes off the room: menus take swipes always (D-189)
   const onDir = (dir, how) => { cards[app.screen]?.dir(dir, how); };
   const onPoint = (px, py, held) => { cards[app.screen]?.tap(px, py, held); };
@@ -254,5 +256,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

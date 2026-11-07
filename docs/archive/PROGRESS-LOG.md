@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.132, A card's action at once.** As recommended
+  (D-680): Eat, Pour, Craft, Hold and Make happen at once, even while
+  the hero still slides or the stairs fade; only turns taken in play
+  wait in line (I4). An input test checks it. Playtest:
+  https://claude.ai/artifact/FH82ryJgu1qhBe3Jm4kksV
 - **2026-11-07, 0.3.131, Drops clear of creatures.** As recommended
   (D-679): no drop, mined find or picked berry lands under a creature
   or person; with no tile left it lies where it came from (R7). A rules

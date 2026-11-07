@@ -44,6 +44,7 @@ built on each turn's events (D-267); or never.
 **Q-054 · May a name hold a space or digits?** (any time)
 Names are A to Z only for now (D-272). A space would allow "OLD TOM",
 digits "COCO2". The owner is unsure and wants it kept for later.
+Meanwhile, Space does nothing on the name pad (D-683).
 
 **Q-055 · The play-earned currency** (before the first unlock, D-280)
 Narrowed by D-418: it is the look currency, earned only from deeds,
