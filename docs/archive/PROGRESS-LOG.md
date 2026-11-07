@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.129, Good for making things.** As recommended
+  (D-677): the nine materials a recipe uses say "good for making
+  things" in the bag, not "for crafting later"; the other eleven keep
+  it (E). A rules test checks each against the recipes. Playtest:
+  https://claude.ai/artifact/UYRmdmkqfq6e6LxU6Ee8oH
 - **2026-11-07, 0.3.128, The small notes caught up.** As recommended
   (D-676): `TECH-2.md` lists the maker and the map preview's page,
   `DEV-TOOLS.md` says Go to depth runs 0 to 99, and Q-076 says the lure

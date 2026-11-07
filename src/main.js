@@ -41,6 +41,7 @@ import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
+import { waitsInLine } from './input/queue.js';
 import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
@@ -185,7 +186,7 @@ const snap = (to) => { app.shown.x = to.x; app.shown.y = to.y; };
 
 function tryStep(dir) {
   if (app.fall) return; // nothing is taken while the hero lies fallen
-  if (!settled()) { app.queued = dir; return; }
+  if (waitsInLine(app.screen, settled())) { app.queued = dir; return; } // a card's action happens at once (D-680)
   const before = app.state;
   let to = before.hero;
   if (dir.travel !== undefined) app.state = travel(app.state, dir.travel); // to another woken waystone, free (D-593)
