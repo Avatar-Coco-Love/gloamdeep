@@ -36,17 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-656 · 2026-11-07 · The Centipede Charm** (the owner's picks, all
-recommended; mock-ups: https://claude.ai/artifact/T4UJp8WKEEDY141YhkSscq;
-builds D-458, D-652, D-654) The charm against poison is the Centipede
-Charm, made at the workbench, its slot after the rod, from 3 Centipede
-Leg and 1 Copper Ore (the leg's first use); one is carried or worn, and
-Wear puts it on, free. Worn, poisoned lasts 3 turns, not 6, so it takes
-1 heart, not 2; every bite still poisons, so the Antidote still matters.
-Its look is A, a drop of venom's pale green in the other charms' copper
-setting. Drafts the owner may change: its lines. D-645 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-657 · 2026-11-07 · Tough** (the owner's picks, all recommended;
 mock-ups: https://claude.ai/artifact/2rj6CKmu1PHoRfd8cMrgsv; builds D-462,
 D-639, D-652, D-654) Tough is Body's second upgrade, 1 ember, bought once.
@@ -184,3 +173,17 @@ play the line showing is spoken again. Before, on the bag, the map and
 the pause menu, the line replaced the card's words and stayed. A test
 checks all three. D-655 moved to `archive/DECISIONS-BIOME-1.md`, word
 for word.
+
+**D-671 · 2026-11-07 · Cards drawn smaller to fit** (the owner's picks,
+both recommended; D1 of D-660's findings, as D-666 set; answers Q-064)
+On a screen held sideways and squarer than a phone, a 4:3 tablet or a
+near-square PC window, a card open in play is drawn at a smaller pixel
+size, so the screen is at least 340 game pixels across, as on a phone
+held sideways, and the card's wide layout fits, the stash chest's too.
+Pixels stay whole: 3 screen pixels each at 1024 × 768, 2 at 900 × 820.
+Only while a card is open; play's panel and buttons keep their size.
+Phones, held either way, and upright tablets are unchanged. Before, the
+pause card's facts, the Growth tree's boxes and the bag's, workbench's
+and peddler's words ran past the edge. The stacked upright layout was
+tried there too, and is too short for those screens. A test checks the
+sizes. D-656 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

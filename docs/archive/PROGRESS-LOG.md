@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.120, Walls are not cleared heaps.** As recommended
+  (D-668): only a tile that can be walked on counts as a heap cleared
+  beside the trapped peddler, so he calls for help first again (R5).
+  Playtest: https://claude.ai/artifact/C3oE2KFtUgv1d5nRHSqkXm
 - **2026-11-07, 0.3.119, The fall reels the line in.** As recommended
   (D-667): a fall takes in a line that is out, quietly, a waiting
   strike too, so no fish bites the float after waking (R4).
