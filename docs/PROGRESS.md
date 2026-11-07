@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.134 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.135 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-I5 of D-660's list (with Q-054), the next fix in D-666's order. Then
-D4, then S1 and S3, one a step; the Spit grub (D-659) after them.
+D4 of D-660's list, the next fix in D-666's order. Then S1 and S3,
+one a step; the Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.135, Space on the name pad.** As recommended
+  (D-683): Space does nothing on the name pad, so "ANNA MAE" no longer
+  makes a profile named "ANNA" (I5). Names stay A to Z; Q-054 stays
+  open. A test checks it. Playtest:
+  https://claude.ai/artifact/YVvJ36nVeAkQ4hmxBD9XKi
 - **2026-11-07, 0.3.134, The wrench under pause.** As recommended
   (D-682): on a 320 px wide phone the dev wrench stands under pause, so
   the panel no longer runs into it from level 10 (D3). A test checks
@@ -55,8 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   smaller, so the bag's words clear Drop and Wear with a 9 or 12 slot
   bag (D2). A test checks five tablet sizes. Playtest:
   https://claude.ai/artifact/Np6e88HsUPNNZJoxrEVSZw
-- **2026-11-07, 0.3.132, A card's action at once.** As recommended
-  (D-680): Eat, Pour, Craft, Hold and Make happen at once, even while
-  the hero still slides or the stairs fade; only turns taken in play
-  wait in line (I4). An input test checks it. Playtest:
-  https://claude.ai/artifact/FH82ryJgu1qhBe3Jm4kksV

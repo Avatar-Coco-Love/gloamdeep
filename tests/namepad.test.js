@@ -2,6 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { NAME_PAD, NAME_MAX, typeLetter, moveName } from '../src/core/namepad.js';
+import { nameCard } from '../src/input/cards/name.js';
 
 const at = (id) => NAME_PAD.findIndex((k) => k.id === id);
 
@@ -40,4 +41,18 @@ test('arrows walk the grid, across the split, and stop at its edges', () => {
   assert.equal(moveName(at('del'), 'up'), at('J'));
   assert.equal(moveName(at('ok'), 'up'), at('W'));
   assert.equal(moveName(at('ok'), 'down'), at('ok'));
+});
+
+// § Space on the name pad (D-683, audit finding I5): it does nothing, so "ANNA MAE" no longer
+// makes "ANNA"; Enter still presses the lit key
+
+test('Space on the name pad presses nothing; Enter still presses OK', () => {
+  const pressed = [], app = { chosen: 0 };
+  const card = nameCard(app, {}, () => {}, { pressName: (id) => pressed.push(id), closeName: () => {} });
+  for (const k of ['a', 'n', 'n', 'a']) card.type(k);
+  assert.equal(app.chosen, at('ok'));
+  card.space();
+  assert.deepEqual(pressed, ['a', 'n', 'n', 'a']);
+  card.pick(app.chosen);
+  assert.deepEqual(pressed, ['a', 'n', 'n', 'a', 'ok']);
 });

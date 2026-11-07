@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.135 (2026-11-07)
+- On the name pad, Space does nothing, so a name is no longer cut short and made at the space: typing "ANNA MAE" made "ANNA". Enter still presses the lit key. Names stay A to Z.
+- Decisions: D-683. D-670 moved to the archive, word for word.
+
 ## 0.3.134 (2026-11-07)
 - On a phone 320 px wide, the dev wrench stands under the pause button, so the hearts and oil panel no longer runs into it from level 10. Wider screens are unchanged.
 - Decisions: D-682. D-669 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.133 (2026-11-07)
 - On a tablet held upright, a card open in play is drawn a size smaller, so the bag's words fit above Drop and Wear with a 9 or 12 slot bag. Before, they ran over the buttons. Phones are unchanged.
 - Decisions: D-681. D-668 moved to the archive, word for word.
-
-## 0.3.132 (2026-11-07)
-- A press of Eat, Pour, Craft or Hold in the bag, or Make at the bench, happens at once, even while the hero is still sliding or the stairs are fading. Before, it waited until the card closed.
-- Decisions: D-680. D-667 moved to the archive, word for word.

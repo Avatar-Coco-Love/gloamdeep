@@ -68,16 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-670 · 2026-11-07 · A card's words stay** (the owner's pick,
-recommended; I3 of D-660's findings, as D-666 set) As a card or screen
-opens, the line already showing counts as heard, so it isn't spoken over
-the card's words a frame later. A line said while the card is open, such
-as Wear's "You already have …" in the bag, is still spoken, and back in
-play the line showing is spoken again. Before, on the bag, the map and
-the pause menu, the line replaced the card's words and stayed. A test
-checks all three. D-655 moved to `archive/DECISIONS-BIOME-1.md`, word
-for word.
-
 **D-671 · 2026-11-07 · Cards drawn smaller to fit** (the owner's picks,
 both recommended; D1 of D-660's findings, as D-666 set; answers Q-064)
 On a screen held sideways and squarer than a phone, a 4:3 tablet or a
@@ -198,3 +188,12 @@ a 320 px wide phone. Every other screen keeps it left of pause. Before,
 from level 10 the panel ran into it there. A test checks phones, phones
 held sideways and tablets at three pixel ratios.
 D-669 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-683 · 2026-11-07 · Space on the name pad** (the owner's pick,
+recommended; I5 of D-660's findings, as D-666 set; Q-054 stays open)
+On the name pad, Space does nothing; Enter still presses the lit key,
+and letters and Backspace type as before (D-272). Every other card and
+menu keeps Space picking, as Enter does. Before, a letter lit OK, so
+Space after it made the profile: typing "ANNA MAE" made "ANNA". Names
+stay A to Z. A test checks it.
+D-670 moved to `archive/DECISIONS-AUDITS.md`, word for word.

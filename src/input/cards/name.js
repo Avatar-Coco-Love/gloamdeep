@@ -23,5 +23,8 @@ export function nameCard(app, ui, show, c) {
     app.chosen = NAME_PAD.findIndex((k) => k.id === 'ok');
     return true;
   }
-  return { pick, dir, tap, close, type };
+  // Space does nothing here: after a letter the flame is on OK, so it made "ANNA" of
+  // "ANNA MAE" (D-683, I5). Names stay A to Z (Q-054); Enter still presses the lit key.
+  const space = () => {};
+  return { pick, dir, tap, close, type, space };
 }
