@@ -8,7 +8,7 @@ import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
-import { cellOf, downPlaceIn, seedAt, layoutAt } from './region.js';
+import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
 import { spotIn, unpad } from './stamper.js';
 
@@ -203,12 +203,21 @@ export function placeFor(id, seed = 1) {
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const guanoed = mimicked && withGuano(cell.seed, mimicked); // a pile by each bat, placed last (D-539)
   const room = guanoed && landmark ? { ...guanoed, map: unpad(guanoed.map, landmark.mark, landmark.at) } : guanoed; // its pad floor again (D-620)
-  return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look, sides: cell?.sides || {} };
+  return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
 }
 
-// The room beyond each edge of a place with openings, by direction (D-197,
-// D-201), and the way through the cave mouth (D-211)
-export const sidesOf = (id, seed) => ({ ...(PLACES[id]?.sides || (isGenerated(id) && cellOf(seed, id, depthOf(id))?.sides) || {}), ...mouthSides(id, seed) });
+// The room beyond each edge of a hand-made place with openings, by direction (D-197),
+// and the way through the cave mouth (D-211)
+export const sidesOf = (id, seed) => ({ ...(PLACES[id]?.sides || {}), ...mouthSides(id, seed) });
+// (id, seed, dir, along) → the room beyond edge `dir` of place `id` at tile `along` (its
+// column or row there) and the tile along that room's matching edge, as { to, along }, or
+// null. A generated room may have several rooms beyond one edge, one for each of its cells
+// (region.js, D-645); a hand-made one has one, at the same column or row.
+export function sideAt(id, seed, dir, along) {
+  if (isGenerated(id)) { const c = cellOf(seed, id, depthOf(id)); return c ? beyondOf(c, dir, along, depthOf(id)) : null; }
+  const to = sidesOf(id, seed)[dir];
+  return to ? { to, along } : null;
+}
 
 // § kinds: the kind of place at each generated depth, from the depth it
 // starts at (D-165), moved up one (D-212): grey rock chambers, then earth burrows from depth 5,

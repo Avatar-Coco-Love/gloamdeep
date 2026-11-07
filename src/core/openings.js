@@ -1,10 +1,12 @@
 // § openings: walking off a room's edge into the room beside it (D-171,
 // D-197). Plain data, no drawing. Both sides line up: out of one room's
 // bottom edge at column x, in at the next room's top edge at column x, and
-// so on for each side, in hand-made rooms and generated ones (D-201). The cave
+// so on for each side, in hand-made rooms and generated ones (D-201); a
+// generated room of more cells has a room beyond each cell's stretch of edge,
+// the column or row moved to match (region.js, D-645). The cave
 // mouth pairs its own two tiles instead, as the woods and the crypt differ in
 // size (mouth.js, D-211). The room left waits, as stairs leave it (stairs.js).
-import { sidesOf, tileAt } from './room.js';
+import { sideAt, tileAt } from './room.js';
 import { arrive, fresh } from './stairs.js';
 import { mouthSpot } from './mouth.js';
 
@@ -15,11 +17,10 @@ export const offEdge = (room, x, y) => x < 0 || y < 0 || x >= room.cols || y >= 
 // its matching edge tile. Null when that edge has no opening there: no room
 // beyond, or the matching tile is solid.
 export function walkOff(state, dir) {
-  const to = sidesOf(state.place, state.seed)[dir];
-  if (!to) return null;
-  const there = state.elsewhere[to] || fresh(to, state.seed), { cols, rows } = there.room;
-  const { x, y } = state.hero;
-  const spot = mouthSpot(state.seed, state.place, to) || { up: { x, y: rows - 1 }, down: { x, y: 0 }, left: { x: cols - 1, y }, right: { x: 0, y } }[dir];
+  const { x, y } = state.hero, side = sideAt(state.place, state.seed, dir, dir === 'up' || dir === 'down' ? x : y);
+  if (!side) return null;
+  const { to, along } = side, there = state.elsewhere[to] || fresh(to, state.seed), { cols, rows } = there.room;
+  const spot = mouthSpot(state.seed, state.place, to) || { up: { x: along, y: rows - 1 }, down: { x: along, y: 0 }, left: { x: cols - 1, y: along }, right: { x: 0, y: along } }[dir];
   if (tileAt(there.room, spot.x, spot.y).solid) return null;
   return arrive(state, to, there, spot);
 }
@@ -30,11 +31,12 @@ export function walkOff(state, dir) {
 // only the mouth's own tile, or the gap it leads to, is.
 export function doorways(place, room, seed) {
   const out = [], { cols, rows } = room;
-  for (const [dir, to] of Object.entries(sidesOf(place, seed))) {
-    const only = mouthSpot(seed, to, place);
+  for (const dir of ['up', 'down', 'left', 'right']) {
     const edge = { up: (i) => [i, 0], down: (i) => [i, rows - 1], left: (i) => [0, i], right: (i) => [cols - 1, i] }[dir];
     for (let i = 0; i < (dir === 'up' || dir === 'down' ? cols : rows); i++) {
-      const [x, y] = edge(i);
+      const side = sideAt(place, seed, dir, i);
+      if (!side) continue;
+      const [x, y] = edge(i), only = mouthSpot(seed, side.to, place);
       if (only ? x === only.x && y === only.y : !tileAt(room, x, y).solid) out.push({ x, y, dir });
     }
   }

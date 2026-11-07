@@ -12,8 +12,10 @@ import { layoutAt } from '../src/core/region.js';
 const SEED = 7;
 const generated = (s) => Object.keys(s.elsewhere).filter(isGenerated);
 
-test('the step from format 10 is the refloor', () => {
+test('the steps from formats 10, 16 and 17 are the refloor: the last for the halls and large rooms (D-648)', () => {
   assert.equal(UPGRADES[10], refloor);
+  assert.equal(UPGRADES[16], refloor);
+  assert.equal(UPGRADES[17], refloor);
 });
 
 test('a hero in a generated room stands on the stairs up of that floor, in its room made anew', () => {

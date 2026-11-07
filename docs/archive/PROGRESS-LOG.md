@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.95, Bigger biomes.** The owner's picks: each biome
+  about 2 to 3 times today's space, more rooms a floor and rooms of
+  varied sizes, unlike between seeds; biome 1 first (D-644).
 - **2026-11-07, 0.3.94, Creatures and bosses.** All recommended: two
   more kinds end biome 1; about 10 a deeper biome, some carried on a
   heart tougher; bosses in their own room, changing at half, beaten

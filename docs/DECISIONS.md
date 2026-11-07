@@ -91,17 +91,6 @@ differently; more loadout variety and more boons (D-603); and
 challenges to match. How weapons get better by metal waits (Q-085).
 *Changed in the open PR: Q-085 answered by D-638.*
 
-**D-640 · 2026-11-07 · Places and quests, first picks** (the owner's
-picks, all recommended; part 5 of the content map, D-637) Each biome's
-middle and lower floors are each one of two kinds of place, the seed
-picking. One village a biome, four in all. Secrets on old floors that a
-later ability opens are marked on the map once the lantern has shown
-them. Side quests are listed in a Quests tab in the Journal, given by
-people or found as notes; some pay a new boon joining the pool, and
-some rescued people move home (D-470). Names, people, quests and
-rewards are drafts on the map, the specifics talked through at each
-one's own step.
-
 **D-641 · 2026-11-07 · Items and crafting, first picks** (the owner's
 picks, all recommended; part 2 of the content map, D-635; builds D-455,
 D-456, D-458, D-459, D-638, D-639, D-640) Each weapon kind keeps one
@@ -193,3 +182,17 @@ and clear of its doorways, and doorways keep clear of the tiles beside
 the stairs up, so every room fits. The map preview shows the way, the
 creatures and finds, a line of numbers and a tapped room's contents.
 D-639 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-648 · 2026-11-07 · Biome 1, step 2: halls and large rooms** (the
+owner's go-ahead; builds D-645, D-647; numbers Claude's draft, tuned at
+the playtest) Halls and large rooms are side rooms, so the way to the
+stairs keeps one-cell rooms and is as short to walk as today (D-580).
+Depths 2 to 4 get 1 or 2 halls; 5 to 7 get 1 or 2 halls and up to 1
+large room; depth 8 and below 2 or 3 halls and 1 large room; the seed
+picks how many, which way a hall lies, and where. A room of more cells
+also covers the seams between them, so a hall is 23 × 13 tiles (27 × 15
+from depth 8) and a large room 23 × 27 (27 × 31), lining up on the map,
+and each cell's stretch of its edge may open to a different room. A
+dungeon room gets the halls inside it in step with its cells. Rooms keep
+today's finds for now (D-647). Old saves have their generated rooms made
+again once more. D-640 moved to `archive/DECISIONS-CHECKUP.md`, word for word.

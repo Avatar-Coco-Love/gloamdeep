@@ -1,7 +1,7 @@
 // § map preview: one page that draws any seed's floor from the game's real
 // generation code, for the private map preview Artifact every generation step's PR
 // gets (D-646). Like the Seed Explorer (D-214): the seed shown, Reseed, Back, a typed
-// seed and a depth picker; on top, the way to the stairs, creatures and finds marked,
+// seed and a depth picker; on top, the way to the stairs, creatures and finds marked, halls and large rooms tinted,
 // a line of numbers, and a panel for the room tapped. Not part of the game, which has
 // no build step. No dependencies.
 //
@@ -76,6 +76,7 @@ dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
     <label><input id="creatures" type="checkbox" checked> Creatures</label>
     <label><input id="finds" type="checkbox" checked> Finds</label>
     <label><input id="labels" type="checkbox" checked> Joins from the stairs up</label>
+    <label><input id="shapes" type="checkbox" checked> Halls and large rooms tinted</label>
   </div>
   <h2 id="heading">Depth</h2>
   <div class="frame"><canvas id="map" aria-label="The floor's map"></canvas></div>
@@ -84,6 +85,7 @@ dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
     <li><i style="background:#6fc06a"></i>herb</li><li><i style="background:#e0c060"></i>oilcap</li><li><i style="background:#e0607a"></i>heartcap</li>
     <li><i style="background:#d8d2c0"></i>other find</li><li><i style="background:#7fd8ff"></i>person</li><li><i style="background:#a58ce0"></i>stairs</li>
     <li><i style="background:#a6e0e4"></i>doorway</li><li><i style="background:#3f5175"></i>pool</li>
+    <li><i style="background:rgba(127,216,255,.45)"></i>hall</li><li><i style="background:rgba(165,140,224,.55)"></i>large room</li>
   </ul>
   <ul id="numbers"></ul>
   <p id="biome"></p>

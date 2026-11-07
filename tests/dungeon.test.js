@@ -20,7 +20,7 @@ test('every dungeon room is made, not the fallback, and the stairs line up from 
   for (const seed of SEEDS.slice(0, 20)) {
     for (const depth of [8, 9]) for (const c of layoutAt(seed, depth).cells) {
       const p = placeFor(c.id, seed);
-      assert.equal(p.map.length, 15, `seed ${seed} ${c.id}`); // 13 × 15 cells (D-645)
+      assert.deepEqual([p.map[0].length, p.map.length], [c.cols, c.rows], `seed ${seed} ${c.id}`); // 13 × 15 cells, a seam between two (D-645)
       assert.equal(count(p.map, '<'), c.up ? 1 : 0);
       assert.equal(count(p.map, '>'), c.down ? 1 : 0);
       const ids = p.enemies.map((e) => e.id);
