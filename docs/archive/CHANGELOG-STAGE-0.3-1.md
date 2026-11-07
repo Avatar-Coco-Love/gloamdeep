@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.117 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.116 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.115 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.114 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -86,6 +87,10 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.114 (2026-11-07)
+- A slow tap works on every menu and card. Before, a press held a quarter of a second or longer did nothing off play, so a slow, careful tap on a phone was lost. In play, holding still walks as before.
+- Decisions: D-661.
 
 ## 0.3.113 (2026-11-07)
 - The tenth audit, part 1. Nothing in play changes. New floors are worked out about 5 times faster, the same floors as before, and the tests run in 35 seconds, not 59.

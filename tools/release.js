@@ -107,16 +107,21 @@ export function plan(fs) {
     for (const [minor, blocks] of byMinor) archiveChangelog(fs, minor, blocks, v, notes);
   }
 
+  // PROGRESS.md's **Version:** line shows this version (D-665)
+  const progText = prog.join('\n'), vAt = prog.findIndex((l) => l.startsWith('**Version:** '));
+  if (vAt >= 0) prog[vAt] = prog[vAt].replace(/^\*\*Version:\*\* [^ ]+/, `**Version:** ${v}`);
+  if (prog.join('\n') !== progText) notes.push(`docs/PROGRESS.md: Version ${v}`);
+
   // PROGRESS.md's log keeps 3; older entries go to the top of archive/PROGRESS-LOG.md
   if (logs.length > KEEP) {
     const old = prog.slice(logs[KEEP].start, logs[logs.length - 1].end);
     prog.splice(logs[KEEP].start, old.length);
-    fs.write('docs/PROGRESS.md', prog.join('\n'));
     const pf = 'docs/archive/PROGRESS-LOG.md', pl = fs.read(pf).split('\n');
     pl.splice(pl.findIndex((l) => l.startsWith('- **')), 0, ...old);
     fs.write(pf, pl.join('\n'));
     notes.push(`${logs.length - KEEP} log entr${logs.length - KEEP > 1 ? 'ies' : 'y'} moved to ${pf}`);
   }
+  if (prog.join('\n') !== progText) fs.write('docs/PROGRESS.md', prog.join('\n'));
 
   // DECISIONS.md: only a suggestion; grouping decisions by topic is for Claude to propose (D-572)
   const dt = fs.read('docs/DECISIONS.md');
