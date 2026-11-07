@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.134', date: '2026-11-07', title: 'The wrench under pause', lines: [
+    "On a phone 320 px wide, the dev wrench stands under the pause button, so the hearts and oil panel no longer runs into it from level 10. Wider screens are unchanged.",
+    "Decisions: D-682. D-669 moved to the archive, word for word.",
+  ] },
   { v: '0.3.133', date: '2026-11-07', title: 'A smaller card upright', lines: [
     "On a tablet held upright, a card open in play is drawn a size smaller, so the bag's words fit above Drop and Wear with a 9 or 12 slot bag. Before, they ran over the buttons. Phones are unchanged.",
     "Decisions: D-681. D-668 moved to the archive, word for word.",

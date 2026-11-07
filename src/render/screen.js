@@ -1,5 +1,6 @@
 // § screen: a small native canvas, enlarged with crisp pixels (ART-DIRECTION.md, "Grid and scale")
 import { MARGIN } from '../core/camera.js';
+import { panelWidest } from './panelsize.js';
 
 export const TILE = 16;
 export const COLS = 11;
@@ -80,13 +81,19 @@ function zoom(fitScale) {
 function fitRoom(room, roomCtx, hud, hudCtx, picture) {
   const box = room.parentElement, bw = box.clientWidth, bh = box.clientHeight;
   const short = Math.min(bw, bh), long = Math.max(bw, bh), along = bw >= bh ? roomSize.cols : roomSize.rows;
-  const base = titled ? pictureZoom(bw, bh) : zoom(short / (VIEW_ROWS * TILE));
+  const base = titled ? pictureZoom(bw, bh) : playZoom(bw, bh);
   const near = titled || !along ? base
     : zoom(Math.max(short / (VIEW_ROWS * TILE), Math.min(long / (along * TILE + 2 * MARGIN), short / (MIN_ROWS * TILE))));
   fitLayer(hud, hudCtx, carded && !titled ? cardZoom(base, bw, bh) : base, view, picture);
   shownZoom = glidingTo(near);
   fitLayer(room, roomCtx, shownZoom, roomView, picture);
 }
+// play's screen layer zoom for a box bw × bh: the panel's and cards' size (D-505)
+export const playZoom = (bw, bh) => zoom(Math.min(bw, bh) / (VIEW_ROWS * TILE));
+// § wrench: whether the dev wrench, its left edge at x, would come within BUTTON_GAP of the
+// panel at its widest, which stands BUTTON_GAP in from the room's box's left (boxLeft, bw × bh)
+// at play's zoom; then it stands under pause (D-682)
+export const wrenchLow = (x, boxLeft, bw, bh) => x < boxLeft + BUTTON_GAP + panelWidest() * playZoom(bw, bh) + BUTTON_GAP;
 // § card fit: while a card is open in play, the screen layer is at least CARD_W game pixels
 // across a screen held sideways, as on a phone, so a card's wide layout fits a
 // 4:3 or near-square screen; its pixels are smaller there, still whole (D-671). Held

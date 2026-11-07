@@ -27,7 +27,8 @@ tools to be chosen together later.
   section's name and tools under them; on wide screens at most 420 px
   wide, at the bottom left (D-623, was a drawer, D-200). All words are
   in the pixel font (D-200). Code: `src/dev/pixeltext.js`.
-- The wrench stands left of the pause button, top right (D-381).
+- The wrench stands left of the pause button, top right (D-381); under
+  pause on a phone so narrow the panel would run into it (D-682).
 - Stats line, with the Stats switch in View on (off at first, D-382), small,
   bottom left above the text line: frames a second (fps, D-294), turn, oil %, lit or dark, hero tile, then the
   spawn pick and pointed tile (D-088). New state joins it as it arrives:
