@@ -83,7 +83,7 @@ export const ITEMS = {
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.
   batGuano: { id: 'batGuano', kind: 'item', name: 'Bat Guano', bag: true, max: 20, says: 'batGuanoTake', look: 'batGuanoLook', full: 'batGuanoFull', sells: 1, regrow: DAY_TURNS },
-  // Each common material `sells` to the peddler for 1 trade coin, each rare one for 5 (step 13a, D-494).
+  // Each find `sells` to the peddler at its own price: 1 trade coin for most common materials (Wisp Glass 2, D-649), 5 for a rare one (step 13a, D-494, D-674).
   // The three rare materials (D-454), from creatures of depth 3 down, about 1 in 10,
   // taken and kept the same way (D-476): a scorpion's Venom Sac, a flask mimic's Mimic
   // Heart and a gloamling's Gloam Eye.

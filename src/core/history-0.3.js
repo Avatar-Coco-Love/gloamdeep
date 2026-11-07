@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.126', date: '2026-11-07', title: 'Each find\'s own price', lines: [
+    "The notes on the peddler's prices are brought up to date: each find sells at its own price, 1 coin for most common materials, 2 for Wisp Glass and 5 for a rare one. Nothing in the game changes.",
+    "Decisions: D-674.",
+  ] },
   { v: '0.3.125', date: '2026-11-07', title: 'The world\'s notes caught up', lines: [
     "The world's notes are brought up to date: past every edge is plain dark, and floors under the crypt have 6 to 13 rooms made of cells, with halls and large rooms, going on below depth 8. Nothing in the game changes.",
     "Decisions: D-673. D-658 moved to the archive, word for word.",

@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.125 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.126 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Doc C of D-660's list ("1 coin for a common material", but Wisp Glass
-sells for 2), then the rest in D-666's order, one a step; the Spit grub
-(D-659) after them.
+Doc D of D-660's list (the glossary calls built things "to come":
+armour, charms, lantern parts, planting, the waystone, Journal entries),
+then the rest in D-666's order, one a step; the Spit grub (D-659) after
+them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -46,6 +47,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.126, Each find's own price.** As recommended
+  (D-674): the glossary, the peddler's row and a code note say each find
+  sells at its own price, 1 for most common materials, Wisp Glass 2,
+  rare ones 5 (C). Docs only, so no playtest.
 - **2026-11-07, 0.3.125, The world's notes caught up.** As recommended
   (D-673): `WORLD.md`, Q-037, Q-038 and the starting region's sheet say
   plain dark past the edge (D-445) and today's floors (D-645 to D-648),
@@ -55,7 +60,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-672): as an old save's rooms are made again, a floor's woken
   waystone is woken again in its new stone room (W2). Nothing visible
   in a new game, so no playtest.
-- **2026-11-07, 0.3.123, Cards drawn smaller to fit.** As recommended
-  (D-671): on a squarer screen held sideways, a card in play is drawn
-  smaller, at least 340 game pixels across, so it fits (D1; Q-064).
-  Playtest: https://claude.ai/artifact/Kra2sj17u3CctCUxhosZ6W

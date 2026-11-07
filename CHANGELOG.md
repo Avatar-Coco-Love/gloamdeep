@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.126 (2026-11-07)
+- The notes on the peddler's prices are brought up to date: each find sells at its own price, 1 coin for most common materials, 2 for Wisp Glass and 5 for a rare one. Nothing in the game changes.
+- Decisions: D-674.
+
 ## 0.3.125 (2026-11-07)
 - The world's notes are brought up to date: past every edge is plain dark, and floors under the crypt have 6 to 13 rooms made of cells, with halls and large rooms, going on below depth 8. Nothing in the game changes.
 - Decisions: D-673. D-658 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.124 (2026-11-07)
 - When an old save from before the bigger floors is brought up to date, a deep waystone you had woken stays woken, so you can still travel to it. Before, every deep waystone went back to sleep. Saves already brought up to date stay as they are.
 - Decisions: D-672. D-657 moved to the archive, word for word.
-
-## 0.3.123 (2026-11-07)
-- On a tablet held sideways or a near-square PC window, the cards in play (the bag, pause menu, Journal, workbench, stash chest and peddler) are now drawn a little smaller, so everything fits on the card as it does on a phone held sideways. Before, words and boxes ran past the card's edge. Play itself keeps its size, and phones look the same as before.
-- Decisions: D-671. Questions closed: Q-064. D-656 moved to the archive, word for word.

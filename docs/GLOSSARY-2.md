@@ -34,9 +34,11 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   and is the first vendor: bumped there, his card opens and he buys
   creature materials and sells a flask and a torch (D-471, D-490,
   D-491, D-492, D-494, D-495).
-- **Trade coins (coins):** earned only by selling to a vendor, 1 for a
-  common creature material, 5 for a rare one; kept on a fall, but not
-  when Hardcore starts over; spent at a vendor (D-472, D-494, D-495).
+- **Trade coins (coins):** earned only by selling to a vendor, each find
+  at its own price: 1 for most common creature materials (Wisp Glass 2),
+  5 for a rare one; kept on a fall, but not
+  when Hardcore starts over; spent at a vendor (D-472, D-494, D-495,
+  D-649, D-674).
 - **Rubble:** a heap of fallen rock, solid, light passing over it; dug
   away by hand in 3 bumps (D-490, D-491).
 
