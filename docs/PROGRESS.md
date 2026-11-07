@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The Lure Wisp (D-643, Q-076), proposed first; then more content for
-the side rooms (D-647).
+Build the Lure Wisp as set in D-649, in one step with a playtest;
+then more content for the side rooms (D-647).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.99, The Lure Wisp.** All recommended: drifts
+  toward other creatures, never bites, glows in the dark but lights no
+  tiles; 1 heart from depth 4; look A, a cold flame (D-649). Mock-ups:
+  https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx
 - **2026-11-07, 0.3.98, Halls and large rooms.** Halls (2 cells) and
   large rooms (2 × 2) as side rooms; saves remade (D-648). Playtest:
   https://claude.ai/artifact/HLrQ778ZvPk2fvSv7b3o4y Map preview:
@@ -60,7 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   D-647). Playtest:
   https://claude.ai/artifact/S28bZS17ByMWag6J2V7TeR Map preview:
   https://claude.ai/artifact/5mYWe1H8YeX3yfiYcvY2ZQ
-- **2026-11-07, 0.3.96, Biome 1's floors.** The owner's picks: more
-  rooms a floor, changing by seed; rooms made of cells (1, 2 or 2 × 2)
-  so everything lines up on the grid and the map; the stairs 3 or 4
-  rooms away, side rooms holding rewards; old saves remade once (D-645).

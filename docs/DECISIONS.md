@@ -36,34 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-633 · 2026-11-07 · The story** (the owner's picks; step 19; answers
-Q-072; builds D-036, D-628, D-629) The story is set down in
-`docs/LORE.md`: Underhearth, the city below, fell when the First Light's
-oil ran low; the Lightkeepers' hearth in Hearthwood is its spark; the
-dying First Light calls; the hero went down with their teacher, Old
-Maren, whom the gloam took, and came back without their memories; the
-goal is to relight the First Light. The guide is a spark of the First
-Light; Maren is a boss with a history (Q-083), freed when beaten; the
-crypt is the oldest of many ways down. Who the keeper is who leaves the
-finds waits (Q-084). Tone: gloomy, with hope. D-624 moved to
-`archive/DECISIONS-MAKING.md`, word for word.
-
-**D-635 · 2026-11-07 · Biome depths and the content map** (the owner's
-picks, recommended; answers Q-082; builds D-028, D-634) Each biome is 8
-floors: woods and mountains, the surface and depths 1 to 8 (today's
-crypt, caves and warrens, all of it); the old mines and caves 9 to 16;
-the glowing fungal caverns 17 to 24; the sunken ruins, Underhearth, 25
-to 32, the First Light at the bottom. Today's areas by depth (D-233) are
-fitted to this when biome 2 is built. All the game's content is planned
-on one map: Claude drafts every biome's creatures, items, plants, seeds,
-ores, recipes, weapons and skills on one page, all marked draft, then
-the owner goes through it a part at a time, recorded as it goes. First
-part: skills and mechanics (the Growth tree, found abilities, weapons
-and attack shapes, ranged and elemental), in a fresh conversation;
-then items and crafting, plants and harvests, creatures and bosses,
-which are planned knowing each other. D-626 moved to
-`archive/DECISIONS-MAKING.md`, word for word.
-
 **D-636 · 2026-11-07 · Skills and mechanics, first picks** (the owner's
 picks, recommended; part 1 of the content map, D-635; builds D-457,
 D-463, D-634) Five weapon kinds, each with its own shape: the knife (1
@@ -196,3 +168,17 @@ and each cell's stretch of its edge may open to a different room. A
 dungeon room gets the halls inside it in step with its cells. Rooms keep
 today's finds for now (D-647). Old saves have their generated rooms made
 again once more. D-640 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-649 · 2026-11-07 · The Lure Wisp** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/LviCBTAjrcFAqSzqY1uCwx;
+builds D-643; answers part of Q-076) The thirteenth kind and a new way,
+lures, the false light of the list. When the hero comes within 3 tiles,
+it drifts 1 tile away, toward the nearest other creature; with none on
+the floor, it just drifts away. It never bites, and one hit puts it out.
+Its own faint cold glow shows even out in the dark, but it lights no
+tiles. 1 heart, in the pool from depth 4. Look A, a cold flame: a bone-white
+core, blue edges in the gloamberry's blues, two pink eyes. Its drop is
+Wisp Glass, about 1 in 2, sold for 2; no rare one for now, the Wisp Lamp
+waits for its own step, and leading toward a pit waits for Leap. Built
+next, in one step with a playtest. D-633 and D-635
+moved to `archive/DECISIONS-CHECKUP.md`, word for word.
