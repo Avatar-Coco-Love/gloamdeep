@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Build Tough (D-657): Body's second place, above Heart; a hurting bite
-poisons 1 time in 2. One step with a playtest. Side rooms, step 3, later.
+Propose the first creature that attacks from range, with ways to defend
+against it (D-652): 2 or 3 drafts with mock-ups first. Side rooms, step 3, later.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -50,6 +50,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.110, Tough built.** Body's first row holds Heart and
+  Tough above it, 1 ember, bought once; with it a hurting bite poisons
+  about 1 time in 2, by the seeded dice (D-657). Playtest:
+  https://claude.ai/artifact/5WMpuBHEUrNYxhakipz8TD
 - **2026-11-07, 0.3.109, Tough.** Docs only, the owner's picks, all
   recommended (D-657): Tough on Body, 1 ember; a bite that hurts poisons
   only 1 time in 2; it sits above Heart in Body's first row. Mock-ups:
@@ -59,8 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   Copper Ore; worn, poisoned lasts 3 turns and takes 1 heart; look A, a
   green drop in copper. Playtest:
   https://claude.ai/artifact/RZiFW5aNZXJ3Ht5gidVnhh
-- **2026-11-07, 0.3.107, The Antidote.** The owner's picks, all
-  recommended (D-655): made in the bag from a Snapcap Gill and a herb;
-  Drink ends poisoned, healing nothing; look B, a tall green vial; poison
-  can now take the last heart. Playtest:
-  https://claude.ai/artifact/NvHXxJYbqYeRAV4tS1Hs9n

@@ -68,6 +68,6 @@ test('on Growth a tap on a place picks it, and on the picked heart\'s button buy
   assert.equal(journalAt(...buy, VW, VH, 'growth', st, { col: 0, row: 0 }), null, 'a place to come has no button');
   assert.equal(journalAt(...buy, VW, VH, 'records', st, START_PICK), null);
   const picks = [];
-  for (let py = y + 50; py < y + 130; py += 2) for (let px = x; px < x + w; px += 2) { const at = journalAt(px, py, VW, VH, 'growth', st, START_PICK); if (at?.pick) picks.push(`${at.pick.col},${at.pick.row}`); }
-  assert.deepEqual([...new Set(picks)].sort(), ['0,0', '0,1', '1,0', '1,1', '2,0', '2,1']);
+  for (let py = y + 50; py < y + 130; py += 2) for (let px = x; px < x + w; px += 2) { const at = journalAt(px, py, VW, VH, 'growth', st, START_PICK); if (at?.pick) picks.push(`${at.pick.col},${at.pick.row},${at.pick.slot}`); }
+  assert.deepEqual([...new Set(picks)].sort(), ['0,0,0', '0,1,0', '1,0,0', '1,0,1', '1,1,0', '2,0,0', '2,1,0']);
 });

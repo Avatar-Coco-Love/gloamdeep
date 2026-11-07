@@ -3,7 +3,7 @@
 // opens on Records (screens.js's openJournal). `c` holds journalPageWords and closeJournal. On the
 // Bestiary (D-630) Up and Down pick a row and Enter or a tap opens its page; there Esc, the
 // round cross or Left goes back to the table (D-631).
-import { addHeart, movePick, told } from '../../core/growth.js';
+import { buyAt, movePick, told } from '../../core/growth.js';
 import { journalAt } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
 import { BRANCHES } from '../../core/upgrades.js';
@@ -26,10 +26,10 @@ export function journalCard(app, ui, show, c) {
     app.growthPick = pick;
     spoken.textContent = journalPageWords();
   }
-  // The picked place's button: today only the heart has one (D-481)
+  // The picked place's button: the heart's and Tough's (D-481, D-657)
   function buyPicked() {
     if (!told(app.state, app.growthPick).button) return;
-    const s = addHeart(app.state);
+    const s = buyAt(app.state, app.growthPick);
     if (s === app.state) return;
     app.state = s;
     spoken.textContent = journalPageWords();

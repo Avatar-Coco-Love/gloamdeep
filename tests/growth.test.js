@@ -59,11 +59,16 @@ test('the tree has three branches, Light, Body and Hands, and the heart is Body\
 });
 
 test('the arrows move the pick, Up climbs, and Left past Light gives null for Records', () => {
-  assert.deepEqual(movePick(START_PICK, 'up'), { col: 1, row: 1 });
-  assert.deepEqual(movePick({ col: 1, row: 1 }, 'up'), { col: 1, row: 1 });
+  const tough = { col: 1, row: 0, slot: 1 }, locked = { col: 1, row: 1, slot: 0 };
+  assert.deepEqual(movePick(START_PICK, 'up'), tough, 'Tough above the heart (D-657)');
+  assert.deepEqual(movePick(tough, 'up'), locked);
+  assert.deepEqual(movePick(locked, 'up'), locked);
+  assert.deepEqual(movePick(tough, 'down'), START_PICK);
   assert.deepEqual(movePick(START_PICK, 'down'), START_PICK);
-  assert.deepEqual(movePick(START_PICK, 'right'), { col: 2, row: 0 });
-  assert.deepEqual(movePick({ col: 2, row: 0 }, 'right'), { col: 2, row: 0 });
+  assert.deepEqual(movePick(START_PICK, 'right'), { col: 2, row: 0, slot: 0 });
+  assert.deepEqual(movePick(tough, 'left'), { col: 0, row: 1, slot: 0 }, 'as high on Light: its locked place');
+  assert.deepEqual(movePick(locked, 'right'), { col: 2, row: 1, slot: 0 }, 'Hands\' top');
+  assert.deepEqual(movePick({ col: 2, row: 0 }, 'right'), { col: 2, row: 0, slot: 0 });
   assert.equal(movePick({ col: 0, row: 1 }, 'left'), null);
 });
 

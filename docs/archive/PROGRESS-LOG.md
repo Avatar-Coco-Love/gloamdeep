@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.107, The Antidote.** The owner's picks, all
+  recommended (D-655): made in the bag from a Snapcap Gill and a herb;
+  Drink ends poisoned, healing nothing; look B, a tall green vial; poison
+  can now take the last heart. Playtest:
+  https://claude.ai/artifact/NvHXxJYbqYeRAV4tS1Hs9n
 - **2026-11-07, 0.3.106, The centipede built.** As picked (D-654): it
   chases from depth 3 and its bite poisons; the green drop mark, the
   green heart; the drafted drops and lines. Playtest:
