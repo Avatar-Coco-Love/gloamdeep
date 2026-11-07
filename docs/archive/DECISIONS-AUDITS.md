@@ -206,3 +206,10 @@ its own, so drops stay as every seed gives them and only which bites
 glance changes; W1, bringing an old save up to date removes only the
 sticks on the waystone itself, as D-589 says, and what lies in the ring
 round it stays. R1, the waystone's own event name, is the next step.
+
+**D-662 · 2026-11-07 · The waystone's own event** (the owner's picks,
+both recommended; R1 of D-660's findings, as D-661 set) A waystone's
+plate waking sends `stoneWake`, after its line `stoneWakes`; only it
+rings the bells and kindles the rune (D-591). A mimic bumped awake keeps
+`wake`, with no sound (D-368). A rules test checks both mimics and the
+plate; no check of main.js's text.

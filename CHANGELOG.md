@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.128 (2026-11-07)
+- Three small notes are brought up to date: the code layout lists the maker and the map preview's page, the dev tools' Go to depth runs from 0, the crypt, and the Lure Wisp is listed as built. Nothing in the game changes.
+- Decisions: D-676. D-662 moved to the archive, word for word.
+
 ## 0.3.127 (2026-11-07)
 - The glossary is brought up to date: armour, charms, lantern parts, planting, the waystones on deeper floors, the Bestiary tab and Stone's crafts are described as they are in the game, not as to come. Nothing in the game changes.
 - Decisions: D-675. D-661 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.126 (2026-11-07)
 - The notes on the peddler's prices are brought up to date: each find sells at its own price, 1 coin for most common materials, 2 for Wisp Glass and 5 for a rare one. Nothing in the game changes.
 - Decisions: D-674.
-
-## 0.3.125 (2026-11-07)
-- The world's notes are brought up to date: past every edge is plain dark, and floors under the crypt have 6 to 13 rooms made of cells, with halls and large rooms, going on below depth 8. Nothing in the game changes.
-- Decisions: D-673. D-658 moved to the archive, word for word.

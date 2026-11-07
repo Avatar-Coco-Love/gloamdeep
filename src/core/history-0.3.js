@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.128', date: '2026-11-07', title: 'The small notes caught up', lines: [
+    "Three small notes are brought up to date: the code layout lists the maker and the map preview's page, the dev tools' Go to depth runs from 0, the crypt, and the Lure Wisp is listed as built. Nothing in the game changes.",
+    "Decisions: D-676. D-662 moved to the archive, word for word.",
+  ] },
   { v: '0.3.127', date: '2026-11-07', title: 'Built things, not "to come"', lines: [
     "The glossary is brought up to date: armour, charms, lantern parts, planting, the waystones on deeper floors, the Bestiary tab and Stone's crafts are described as they are in the game, not as to come. Nothing in the game changes.",
     "Decisions: D-675. D-661 moved to the archive, word for word.",
