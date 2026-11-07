@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.89 (2026-11-07)
+- Nothing in the game changed. Each biome is 8 floors deep: the woods and mountains down to depth 8, the old mines to 16, the glowing fungal caverns to 24, and Underhearth to 32, where the First Light waits. All the game's content will be planned on one map, starting with skills and how fighting works.
+- Decisions: D-635. Questions closed: Q-082. D-626 moved to the archive, word for word.
+
 ## 0.3.88 (2026-11-07)
 - Nothing in the game changed. The story is written down: Underhearth, the city below, fell when its great lamp, the First Light, ran low on oil. You went down with your teacher, Old Maren, the gloam took them, and you came home without your memories. The goal is to relight the First Light. The guide will be a spark of it.
 - The aim is set too: about 12 to 20 hours to relight the First Light, built one biome at a time, with Old Maren fought near the end.
@@ -31,7 +35,3 @@ Entry format:
 ## 0.3.87 (2026-11-06)
 - A creature's Bestiary page now ends with how to fight it, under a gold heading, once you have beaten 3 of them. Before that it says in grey how many more to beat: "Beat 2 more to learn how to fight it." Each creature has a tip or two of its own, such as waiting for it to step up to you so you strike first.
 - Decisions: D-632. D-623 moved to the archive, word for word.
-
-## 0.3.86 (2026-11-06)
-- Each creature in the Bestiary has its own page: tap its row, or pick it with Up or Down and press Enter. The page shows its drawing twice as big, its name and counts, and, once you have beaten one, a sentence or two on how it acts. Before that it says "Beat one to learn how it acts." Esc, the round cross or Left goes back to the table.
-- Decisions: D-631. D-622 moved to the archive, word for word.

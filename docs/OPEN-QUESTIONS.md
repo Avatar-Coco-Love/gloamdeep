@@ -113,11 +113,3 @@ beetle, pilferer, puffball, web spider, howler, tender, pool eel, night
 prowler, rift creatures; then new ones: rim lurker, gloamberry mimic,
 skulker crab; with a new way, false light, brood mother, still one, rat
 pack, dozing brute. Which next, and in which pools?
-
-**Q-082 · Which depths belong to which biome?** (raised 2026-11-05, from
-the scope map) The four biomes (D-028) and every per-biome rule (ore,
-plants, woods, skills: D-450, D-451, D-456, D-462) need to know where
-each biome starts. Today the whole underground is the first cave (D-175):
-is it the mines-and-caves biome, and where do the fungal caverns and the
-sunken ruins begin? Needed before the scope map is filled in. The map:
-https://claude.ai/artifact/EsjRCxsuS8G2zgkyucqMYV

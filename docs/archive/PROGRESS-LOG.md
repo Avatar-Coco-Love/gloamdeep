@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's
+  lines as drafted, on a page per creature opened from its row, a grey
+  hint until one is beaten (D-631). Playtest: https://claude.ai/artifact/24JKyL2uLVyg6nTZKCxTEw
 - **2026-11-06, 0.3.85, The Bestiary tab.** All recommended: a Journal
   tab of creatures met and beaten, met when first lit (D-630). Playtest: https://claude.ai/artifact/Nc7T1rXqUHtMGK3SNhWH8k
 - **2026-11-06, 0.3.84, Special creatures.** Docs only: the owner's

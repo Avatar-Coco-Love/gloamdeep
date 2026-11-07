@@ -8,8 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-A lore line per creature in the Bestiary, from `LORE.md` (D-629,
-D-633); then the first biome, finished whole (D-634).
+The content map (D-635): Claude drafts the whole game's content on one
+page, then the owner's first part, skills and mechanics: the Growth
+tree, found abilities, weapons and attack shapes, ranged and elemental.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -27,7 +28,6 @@ D-633); then the first biome, finished whole (D-634).
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - A chance of an unguarded flask (Q-075), any time.
 - Begin a journey on the surface (Q-081), as its own small step.
-- Which depths are which biome (Q-082), before the scope map is filled.
 - Special creatures with histories (Q-083), at their own step.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -51,11 +51,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.89, Biome depths.** The owner's picks: 8 floors a
+  biome, 32 in all (answers Q-082); all content planned on one map,
+  skills and mechanics first (D-635).
 - **2026-11-07, 0.3.88, The story.** The owner's picks, set down in
   `LORE.md` (D-633); the guide a spark (answers Q-072); the keeper waits
   (Q-084); 12 to 20 hours to the end (D-634). Page: https://claude.ai/artifact/52qFLXRuka6jRktATPXpEg
 - **2026-11-06, 0.3.87, How to fight it.** All recommended: Claude's
   tips as drafted, a gold heading, a grey count down to 3 (D-632). Playtest: https://claude.ai/artifact/7JGD13NnTEqLyjFrYjt4UZ
-- **2026-11-06, 0.3.86, How it acts.** All recommended: Claude's
-  lines as drafted, on a page per creature opened from its row, a grey
-  hint until one is beaten (D-631). Playtest: https://claude.ai/artifact/24JKyL2uLVyg6nTZKCxTEw
