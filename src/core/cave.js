@@ -21,8 +21,9 @@ const MIN_OPEN = 107;
 // A count for a 17 × 20 room, for a room of `cols` × `rows`
 export const byArea = (n, cols, rows) => Math.round((n * cols * rows) / (COLS * ROWS));
 const TRIES = 200;
-// A room with someone trapped in it gets more tries, since a spot for the ring is rarer (D-580)
-const TRAPPED_TRIES = 600;
+// A room with someone trapped in it, or a landmark, gets more tries, since a spot for the ring is rarer
+// (D-580), and so does a dungeon room: 1200 since its rooms became 13 × 15 cells (D-645)
+const TRAPPED_TRIES = 1200;
 // § second round: when every try fails, up to this many more, in which the corridors keep
 // clear of the stairs up and the wall above them, so a doorway beside them still joins up
 // (D-585). Only rooms no first-round try could make reach it, so every other room stays as it was.
@@ -43,7 +44,7 @@ export const HEARTCAP_ODDS = 0.5;
 // `ways.landmark`: a landmark set aside there, as { mark, at } (stamper.js, D-587); a try
 // that leaves anything cut off is made again.
 export function generateRoom(seed, shape = 'chambers', { doors = [], up = true, down = true, rats = 1, second = 'rat', weapon = null, deposits = 0, veins = 0, pool = false, cols = COLS, rows = ROWS, trapped = null, landmark = null } = {}) {
-  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel, first = trapped || landmark ? TRAPPED_TRIES : TRIES;
+  const r = rng(seed), carve = SHAPES[shape], dig = shape === 'halls' ? lane : tunnel, first = trapped || landmark || shape === 'halls' ? TRAPPED_TRIES : TRIES;
   const lr = landmark && rng(seed ^ 0x3c6ef372); // the landmark's own seed, for its tunnel
   for (let i = 0; i < first + MORE_TRIES; i++) {
     const clear = i >= first && up && typeof up === 'object' ? [up, { x: up.x, y: up.y - 1 }] : null; // the stairs up and the wall above them

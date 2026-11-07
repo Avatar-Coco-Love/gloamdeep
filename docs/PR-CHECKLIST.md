@@ -56,6 +56,13 @@ or updating a PR.
   `node tools/playtest.js <scratchpad>/playtest.html` (D-073), and
   put the link in the PR body and the `docs/PROGRESS.md` log entry.
   Republish to the same link after each push.
+- A PR that changes how something is generated (floors, rooms, caves,
+  woods, the scatter of creatures or finds) also gets a private map
+  preview Artifact (D-646): the whole floor or region drawn from the real
+  generation code, the seed shown, Reseed for a new random seed and a
+  depth picker, as the Seed Explorer does. Built by a tool in `tools/`,
+  linked in the PR body and the `docs/PROGRESS.md` log entry, and
+  republished after every push, like the playtest.
 - A PR that adds or changes a sound also gets a sound board Artifact
   (`node tools/soundboard.js <scratchpad>/sounds.html`, D-256), linked
   and republished like the playtest, and in the chat.

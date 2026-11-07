@@ -1,35 +1,40 @@
 // § region: a generated depth laid out as a grid of rooms (D-169, D-201).
-// Plain data, no drawing. Depths 2 to 4 are each a 2 × 2 grid with one cell
-// left empty by the seed, so their three rooms make an L, each joined to the
-// corner room by a one-tile opening at a spot along their shared edge the
-// seed picks. Depths 5 to 7 are warrens: five rooms in a 3 × 3 grid, grown
-// as a winding chain (D-227). From depth 8 each is a dungeon: six rooms
-// grown the same way, with one more opening that makes a loop (D-228).
+// Plain data, no drawing. Each room is one cell of its floor's grid (D-645):
+// 6 to 8 rooms on a 4 × 4 grid at depths 2 to 4, 9 to 11 on 5 × 5 at depths
+// 5 to 7, and 11 to 13 on 5 × 5 from depth 8, with 2 loops. The seed picks
+// the count. First the way grows from the room with the stairs up, 3 or 4
+// rooms long, the stairs down in its last room; then the other rooms grow one
+// at a time off any room already there, each joined only to the room it grew
+// from, so they are side rooms and dead ends. The loops are openings between
+// two rooms side by side not yet joined, never one that shortens the way.
+// Below depth 8 every floor is made as depth 8 is, until biome 2 (D-647).
 // § lining up (D-202, D-203): every floor sits on the same grid. The stairs
 // up are in the same cell, at the same tile, as the stairs down one floor
-// above; the stairs down in another room than them, at a tile the seed
-// picks, which the floor below then fits. Under the crypt the seed picks the
-// cell. The room with the stairs up keeps the depth's own id (depth2), the
-// others are depth2:x,y.
-// § sizes (D-580): the rooms grow with depth, 13 × 15 on the caves' floors,
-// 15 × 17 on the warrens', 17 × 20 on the dungeon's. Floors only grow going
-// down, so the stairs down always fit the floor below.
+// above; the stairs down at a tile the seed picks, which the floor below
+// then fits. Under the crypt the seed picks the cell. The room with the
+// stairs up keeps the depth's own id (depth2), the others are depth2:x,y.
+// § sizes (D-645): a cell is 11 × 13 tiles, 13 × 15 from depth 8. Floors
+// only grow going down, so the stairs down always fit the floor below.
 // § seeds: the depths moved up one (D-212), but every place below the
 // surface keeps the numbers of its old depth, so a seed keeps its rooms (D-213).
 import { rng, int, pick, seedFor } from './rng.js';
-import { COLS, ROWS } from './cave.js';
 
-// Depths 2 to 4 are L-shaped 2 × 2 grids (D-203); from depth 5, where the
-// earth burrows start (room.js, D-165), warrens (D-227); from depth 8, where
-// the dungeon starts, dungeon floors (D-228).
-const SIZE = 2;
-const WARRENS = 5, WARREN = { size: 3, rooms: 5 };
-const DUNGEONS = 8, DUNGEON = { size: 3, rooms: 6 };
+// The floors' bands (D-645): from which depth, the grid's size, the room
+// counts the seed picks between, and how many loops
+const BANDS = [
+  { from: 2, size: 4, rooms: [6, 8], loops: 0 },
+  { from: 5, size: 5, rooms: [9, 11], loops: 0 },
+  { from: 8, size: 5, rooms: [11, 13], loops: 2 },
+];
+const DUNGEONS = 8;
+// The way from the stairs up to the stairs down, in rooms, both ends counted (D-645)
+const WAY = [3, 4];
 // The first generated depth, and the crypt's stairs down above it (SECOND_ROOM in room.js)
 const FIRST = 2;
 const CRYPT_DOWN = { x: 1, y: 11 };
-// A generated depth's room size (D-580), as { cols, rows }
-export const sizeAt = (depth) => (depth >= DUNGEONS ? { cols: COLS, rows: ROWS } : depth >= WARRENS ? { cols: 15, rows: 17 } : { cols: 13, rows: 15 });
+export const bandAt = (depth) => BANDS.findLast((b) => depth >= b.from);
+// A generated depth's room size, one cell (D-645), as { cols, rows }
+export const sizeAt = (depth) => (depth >= DUNGEONS ? { cols: 13, rows: 15 } : { cols: 11, rows: 13 });
 
 // (seed, depth) → { cells: [{ id, x, y, seed, up, down, doors, sides, cols, rows }], up,
 // down }, or null above the generated depths. `up` and `down` are the stairs
@@ -48,9 +53,8 @@ export function layoutAt(seed, depth) {
 
 function lay(seed, depth) {
   const base = seedAt(seed, depth), r = rng(base ^ 0x2c1b3c6d), above = layoutAt(seed, depth - 1);
-  const upAt = above ? above.down : CRYPT_DOWN, under = above?.down.cell, { cols, rows } = sizeAt(depth);
-  const warren = depth >= WARRENS;
-  const { cells, ups, joins } = depth >= DUNGEONS ? dungeonCells(r, under) : warren ? warrenCells(r, under, WARREN) : ellCells(r, under);
+  const upAt = above ? above.down : CRYPT_DOWN, { cols, rows } = sizeAt(depth), band = bandAt(depth);
+  const { cells, ups, downs, joins } = grow(r, band, above?.down.cell);
   ups.up = tile(upAt);
   cells.forEach((c, i) => {
     c.id = c === ups ? `depth${depth}` : `depth${depth}:${c.x},${c.y}`;
@@ -62,78 +66,65 @@ function lay(seed, depth) {
     if (b.x === a.x + 1) join(a, b, 'right', 'left', door(r, rows, a, b, (n) => [{ x: cols - 2, y: n }, { x: 1, y: n }]));
     else join(a, b, 'down', 'up', door(r, cols, a, b, (n) => [{ x: n, y: rows - 2 }, { x: n, y: 1 }]));
   }
-  // § stairs down: in another room than the stairs up, anywhere 2 tiles in from
-  // its edges; in a warren or a dungeon, the room farthest from the stairs up
-  // (D-227, D-228)
-  const downs = pick(r, warren ? farthest(cells, joins, ups) : cells.filter((c) => c !== ups));
-  downs.down = spot(r, cols, rows, () => false);
+  // § stairs down: in the way's last room, anywhere 2 tiles in from its edges, but
+  // not on or beside the tile just inside one of its openings, and 3 from the bottom
+  // edge, so the stairs up below have room under them in the dungeon's halls
+  const inside = downs.doors.map(({ dir, at }) => (dir === 'left' ? { x: 1, y: at } : dir === 'right' ? { x: cols - 2, y: at } : dir === 'up' ? { x: at, y: 1 } : { x: at, y: rows - 2 }));
+  downs.down = spot(r, cols, rows, (t) => t.y > rows - 4 || inside.some((d) => Math.abs(d.x - t.x) <= 1 && Math.abs(d.y - t.y) <= 1));
   return { cells, up: { ...tile(upAt), cell: tile(ups) }, down: { ...downs.down, cell: tile(downs) } };
 }
 
 const cellAt = (x, y) => ({ x, y, up: null, down: null, doors: [], sides: {} });
+const STEPS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+const beside = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y) === 1;
+// A join kept with its first room left of or above its second
+const joined = (a, b) => (b.x > a.x || b.y > a.y ? [a, b] : [b, a]);
 
-// § the L (D-201, D-203): a 2 × 2 grid, one cell left empty, never the one
-// under the stairs down above; every pair of cells side by side is joined
-function ellCells(r, under) {
-  const at = (i) => cellAt(i % SIZE, Math.floor(i / SIZE));
-  const empty = pick(r, [...Array(SIZE * SIZE).keys()].filter((i) => !under || i !== under.y * SIZE + under.x));
-  const cells = [];
-  for (let i = 0; i < SIZE * SIZE; i++) if (i !== empty) cells.push(at(i));
-  const ups = under ? cells.find((c) => c.x === under.x && c.y === under.y) : pick(r, cells);
-  const joins = [];
-  for (const a of cells) for (const b of cells) if ((b.x === a.x + 1 && b.y === a.y) || (b.y === a.y + 1 && b.x === a.x)) joins.push([a, b]);
-  return { cells, ups, joins };
-}
-
-// § the warren (D-227): a 3 × 3 grid, 5 rooms grown one at a time from the
-// cell under the stairs down above, each joined only to the room it grew
-// from, so there are dead ends and one way through
-function warrenCells(r, under, { size, rooms }) {
-  const ups = cellAt(under.x, under.y), cells = [ups], joins = [];
-  const has = (x, y) => cells.some((c) => c.x === x && c.y === y);
-  while (cells.length < rooms) {
-    const ways = [];
-    for (const c of cells) for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
-      const x = c.x + dx, y = c.y + dy;
-      if (x >= 0 && y >= 0 && x < size && y < size && !has(x, y)) ways.push([c, x, y]);
-    }
-    const [from, x, y] = pick(r, ways), to = cellAt(x, y);
-    cells.push(to);
-    joins.push(to.x > from.x || to.y > from.y ? [from, to] : [to, from]);
-  }
-  return { cells, ups, joins };
-}
-
-// § the dungeon (D-228): 6 rooms grown as the warren's are, then one more
-// opening between two rooms side by side that aren't joined yet, so one way
-// round makes a loop. A chain with no such pair is grown again.
-function dungeonCells(r, under) {
+// § growing (D-645): the way, then the side rooms, then the loops. The way under
+// the crypt starts in a cell the seed picks, else under the stairs down above. A
+// try whose way walks into a corner, or with too few places for its loops, is grown again.
+function grow(r, { size, rooms, loops }, under) {
   for (;;) {
-    const grown = warrenCells(r, under, DUNGEON), { cells, joins } = grown, loops = [];
-    for (const a of cells) for (const b of cells) {
-      const beside = (b.x === a.x + 1 && b.y === a.y) || (b.y === a.y + 1 && b.x === a.x);
-      if (beside && !joins.some(([u, v]) => u === a && v === b)) loops.push([a, b]);
+    const start = under ? cellAt(under.x, under.y) : cellAt(int(r, 0, size - 1), int(r, 0, size - 1));
+    const cells = [start], joins = [], count = int(r, rooms[0], rooms[1]), long = int(r, WAY[0], WAY[1]);
+    const free = (x, y) => x >= 0 && y >= 0 && x < size && y < size && !cells.some((c) => c.x === x && c.y === y);
+    const ways = (from) => from.flatMap((c) => STEPS.map(([dx, dy]) => [c, c.x + dx, c.y + dy])).filter(([, x, y]) => free(x, y));
+    const add = ([from, x, y]) => { const to = cellAt(x, y); cells.push(to); joins.push(joined(from, to)); return to; };
+    let end = start;
+    while (cells.length < long && ways([end]).length) end = add(pick(r, ways([end])));
+    if (cells.length < long) continue;
+    while (cells.length < count && ways(cells).length) add(pick(r, ways(cells)));
+    if (cells.length < count) continue;
+    let made = 0;
+    for (; made < loops; made++) {
+      const far = away(cells, joins, start).get(end);
+      const open = [];
+      for (const a of cells) for (const b of cells) {
+        if (beside(a, b) && (b.x > a.x || b.y > a.y) && !joins.some(([u, v]) => u === a && v === b)
+          && away(cells, [...joins, [a, b]], start).get(end) === far) open.push([a, b]);
+      }
+      if (!open.length) break;
+      joins.push(pick(r, open));
     }
-    if (loops.length) { joins.push(pick(r, loops)); return grown; }
+    if (made === loops) return { cells, ups: start, downs: end, joins };
   }
 }
 
-// The rooms the most joins away from `start`
-function farthest(cells, joins, start) {
-  const away = new Map([[start, 0]]), todo = [start];
+// How many joins each room is from `start`, as a Map
+function away(cells, joins, start) {
+  const steps = new Map([[start, 0]]), todo = [start];
   while (todo.length) {
     const c = todo.shift();
-    for (const [a, b] of joins) for (const [u, v] of [[a, b], [b, a]]) if (u === c && !away.has(v)) { away.set(v, away.get(c) + 1); todo.push(v); }
+    for (const [a, b] of joins) for (const [u, v] of [[a, b], [b, a]]) if (u === c && !steps.has(v)) { steps.set(v, steps.get(c) + 1); todo.push(v); }
   }
-  const most = Math.max(...away.values());
-  return cells.filter((c) => away.get(c) === most);
+  return steps;
 }
 
 // An opening's spot along an edge `len` long, redrawn while the tile just
-// inside it, in a (first) or b (second), would be that room's stairs up or
-// the wall above them
+// inside it, in a (first) or b (second), would be that room's stairs up, the
+// wall above them or a tile beside either
 function door(r, len, a, b, inner) {
-  const near = (t, up) => up && t.x === up.x && (t.y === up.y || t.y === up.y - 1);
+  const near = (t, up) => up && Math.abs(t.x - up.x) <= 1 && (t.y === up.y || t.y === up.y - 1);
   let n;
   do n = int(r, 2, len - 3);
   while (near(inner(n)[0], a.up) || near(inner(n)[1], b.up));
@@ -154,7 +145,6 @@ function spot(r, cols, rows, bad) {
 }
 
 const tile = ({ x, y }) => ({ x, y });
-const same = (a, b) => a.x === b.x && a.y === b.y;
 
 // The cell of a generated place in its depth's grid, or null
 export function cellOf(seed, id, depth) {

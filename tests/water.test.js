@@ -30,10 +30,10 @@ function joined(room, people = []) {
   return seen.size === open.length;
 }
 
-test('about 1 grey-rock room in 2 holds a pool of 5 to 9 tiles', () => {
+test('about 1 grey-rock room in 4 holds a pool of 5 to 9 tiles, as the 11 × 13 cells fit one less often (D-645)', () => {
   const all = rooms(), pooled = all.filter(({ p }) => wet(p.map).length);
   const share = pooled.length / all.length;
-  assert.ok(share > 0.35 && share < 0.65, `share ${share}`);
+  assert.ok(share > 0.15 && share < 0.35, `share ${share}`); // more rooms a floor, so about as many pools a floor as before
   for (const { p } of pooled) { const n = wet(p.map).length; assert.ok(n >= POOL_MIN && n <= POOL_MAX, `${n} tiles`); }
 });
 

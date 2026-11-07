@@ -35,20 +35,21 @@ test('the hero in the south room is placed under the first room', () => {
   assert.deepEqual(floorPlan(s).hero, { x: 5, y: 14 });
 });
 
-test('depth 2: every room of the L in its own cell, as the layout has them', () => {
+test('depth 2: every room in its own cell, as the layout has them', () => {
   const s = goToDepth(makeWorld('first', SEED), 2), p = floorPlan(s, true), cells = layoutAt(SEED, 2).cells;
-  assert.equal(p.rooms.length, 3);
+  assert.equal(p.rooms.length, cells.length);
   const x0 = Math.min(...cells.map((c) => c.x)), y0 = Math.min(...cells.map((c) => c.y));
   for (const c of cells) {
     const r = p.rooms.find((m) => m.id === c.id);
-    assert.deepEqual([r.x, r.y], [(c.x - x0) * 14, (c.y - y0) * 16]); // 13 × 15 rooms and a seam (D-580)
+    assert.deepEqual([r.x, r.y], [(c.x - x0) * 12, (c.y - y0) * 14]); // 11 × 13 rooms and a seam (D-645)
   }
 });
 
 test('without reveal, a generated room never reached is left out', () => {
-  const p = floorPlan(goToDepth(makeWorld('first', SEED), 2));
+  const p = floorPlan(goToDepth(makeWorld('first', SEED), 2)), cells = layoutAt(SEED, 2).cells;
   assert.deepEqual(p.rooms.map((r) => r.id), ['depth2']);
-  assert.equal(p.cols, 27); // the floor's grid still sets the size: two 13-wide rooms and a seam
+  const wide = Math.max(...cells.map((c) => c.x)) - Math.min(...cells.map((c) => c.x)) + 1;
+  assert.equal(p.cols, wide * 12 - 1); // the floor's grid still sets the size: 11-wide rooms and seams
 });
 
 test('rooms side by side sit a seam tile apart, and a doorway found bridges its seam (D-224)', () => {
@@ -60,9 +61,10 @@ test('rooms side by side sit a seam tile apart, and a doorway found bridges its 
   assert.equal(d.y, first.y + first.room.rows); // in the seam under the first room
   assert.ok(!tileAt(first.room, d.x - first.x, first.room.rows - 1).solid, 'over the doorway in its bottom wall');
   const shown = floorPlan(goToDepth(s, 2), true);
-  assert.equal(shown.cols, 27);
+  const cells = layoutAt(SEED, 2).cells, wide = Math.max(...cells.map((c) => c.x)) - Math.min(...cells.map((c) => c.x)) + 1;
+  assert.equal(shown.cols, wide * 12 - 1);
   for (const { x, y } of shown.doors) assert.ok(!shown.rooms.some((r) => x >= r.x && y >= r.y && x < r.x + r.room.cols && y < r.y + r.room.rows), 'doors lie in seams');
-  assert.ok(shown.doors.length >= 2, 'the L has two doorways');
+  assert.ok(shown.doors.length >= cells.length - 1, 'a doorway for each join');
 });
 
 test('nothing shows until the lantern has reached it; then floors, walls beside them, and stairs', () => {

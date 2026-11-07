@@ -91,26 +91,6 @@ differently; more loadout variety and more boons (D-603); and
 challenges to match. How weapons get better by metal waits (Q-085).
 *Changed in the open PR: Q-085 answered by D-638.*
 
-**D-638 · 2026-11-07 · How weapons get better** (the owner's pick,
-recommended; answers Q-085; builds D-457, D-636) Each biome's metal
-adds 1 to every hit of each weapon kind, the shape the same. Beside the
-made ones, rare weapons are found below, each with one small effect of
-its own, as more to discover. Which, where and their effects are set at
-each one's own step.
-
-**D-639 · 2026-11-07 · The bigger Growth tree** (the owner's picks,
-recommended, and the owner's ideas; builds D-462, D-596, D-637) The
-Growth tree keeps its three branches and a row a biome, now with 4 or 5
-places a branch a row: about 50 places and 64 embers' worth, more than
-a journey's embers buy, so each hero grows differently. Knacks join it:
-small ways of fighting or finding, each bought once with an ember, worn
-2 at a time and swapped at home. Twelve new boons, three of each kind,
-26 in all; some join the pool on reaching their biome, some after
-something happens (the owner's idea). Challenges are trials: a room's
-challenge that pays an ember once, and each must be solvable. Names and
-numbers are drafts on the map, set at each one's own step. Map:
-https://claude.ai/artifact/5ifRVF37GFS5faWkFerhbn
-
 **D-640 · 2026-11-07 · Places and quests, first picks** (the owner's
 picks, all recommended; part 5 of the content map, D-637) Each biome's
 middle and lower floors are each one of two kinds of place, the seed
@@ -189,3 +169,27 @@ draft, tuned at the playtest. Old saves have their generated rooms made
 again once, as at D-580; home, the surface and the crypt are kept. Built
 in two steps: more one-cell rooms on the bigger grids, then halls and
 large rooms. D-634 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-646 · 2026-11-07 · A map preview for generation steps** (the
+owner's working rule) Whenever a step changes how something is generated
+(floors, rooms, caves, woods, the scatter of creatures or finds), its PR
+also gets a private map preview Artifact, made by a tool in `tools/` as
+the playtest is (D-073). Like the Seed Explorer (D-214), it draws the
+whole floor or region from the real generation code, shows the seed, has
+a Reseed button for a new random seed and a way to pick the depth, so
+the owner can flip through many seeds before merging. It is linked in
+the PR body and the PROGRESS log, and republished after every push.
+D-638 moved to `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-647 · 2026-11-07 · Biome 1, step 1: one-cell rooms** (the owner's
+picks, recommended; builds D-645, D-646) Each floor's rooms grow freely:
+the way first, 3 or 4 rooms from the stairs up to the stairs down, then
+the side rooms off any room, so some branches are long and some short.
+Every room keeps today's finds for now; the owner wants the side rooms
+filled with much more content later, to keep exploring challenging and
+exciting. Below depth 8 floors are made as depth 8 is until biome 2
+(Claude's draft). The stairs down keep 3 tiles from a room's bottom edge
+and clear of its doorways, and doorways keep clear of the tiles beside
+the stairs up, so every room fits. The map preview shows the way, the
+creatures and finds, a line of numbers and a tapped room's contents.
+D-639 moved to `archive/DECISIONS-CHECKUP.md`, word for word.

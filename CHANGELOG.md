@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.97 (2026-11-07)
+- The first cave's floors are bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8 and below, the number changing from seed to seed. Each room is one cell of the floor's grid, 11 by 13 tiles, 13 by 15 from depth 8.
+- The stairs down are 3 or 4 rooms from the stairs up; the other rooms branch off as side rooms and dead ends, each with today's finds, so exploring them is a choice the oil pays for. Depth 8 and below have two loops.
+- Old saves have their cave floors made again once, the hero on that floor's stairs up; home, the woods and the crypt stay.
+- A map preview page draws any seed's floors for the owner to flip through before merging, and every step that changes how things are made gets one.
+- Decisions: D-646, D-647. D-638 and D-639 moved to the archive, word for word.
+
 ## 0.3.96 (2026-11-07)
 - Nothing in the game changed. The first cave's floors are planned bigger: 6 to 8 rooms on each floor at depths 2 to 4, 9 to 11 at depths 5 to 7 and 11 to 13 at depth 8, the number changing from seed to seed, about 69 rooms in all where there are about 33 now.
 - Rooms will be made of square-cut cells so everything lines up, in play and on the map: a small room is one cell, a long hall two, a large room two by two. The stairs down stay about as near as today, 3 or 4 rooms away; the other rooms branch off the way and hold the rewards. Old saves will have their cave floors made again once; home, the woods and the crypt stay.
@@ -32,8 +39,3 @@ Entry format:
 - Nothing in the game changed. Each biome will grow to about 2 to 3 times its size to hold everything planned: more rooms on each floor, and rooms both smaller and bigger than today's, so no two seeds feel the same. The first cave grows first, before the next creature.
 - The owner's idea is kept for later: a cleared room filling again over time, perhaps with different creatures.
 - Decisions: D-644. Questions opened: Q-086. D-482 moved to the archive, word for word.
-
-## 0.3.94 (2026-11-07)
-- Nothing in the game changed. Creatures and bosses are planned: the first cave ends with 14 kinds, adding the Lure Wisp, a small false light that drifts ahead in the dark, and the Grave Beetle, a shelled beetle the hammer cracks. Each deeper biome has about 10 kinds, some from above coming back a heart tougher.
-- Each boss fights in its own room and changes how it fights at half its hearts; beaten once, it gives its found ability. The Lure Wisp is the next creature built.
-- Decisions: D-643. D-528 moved to the archive, word for word.

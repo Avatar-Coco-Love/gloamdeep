@@ -27,6 +27,9 @@ src/dev/            dev mode (see DEV-TOOLS.md)
 tests/              node --test, for core/ (and input/ files that load without a page, D-570)
 tools/playtest.js   packs the game into one page for playtests (D-073);
                     not part of the game, which has no build step
+tools/pack.js       the packer the playtest and the map preview share
+tools/mappreview.js any seed's floors drawn from the real code, for a
+                    generation step's map preview Artifact (D-646)
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 tools/perf.js       times play on a simulated slow phone (D-430); Playwright
