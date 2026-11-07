@@ -26,6 +26,7 @@ export const edgeIn = () => [Math.max(1, Math.round((BUTTON_GAP - view.left) / v
 export const GLIDE_MS = 400; // the room's zoom glides to a new room's this long (D-448)
 const roomSize = { cols: 0, rows: 0 }; // the room in play, in tiles (0 on the title)
 let refit = null, titled = false; // the fit, and whether the room canvas is zoomed as the picture (the title's scene)
+let carded = false; // whether a card is open in play, drawn smaller on a squarer screen (D-671)
 let shownZoom = 0, glide = null; // the room canvas's zoom last fitted, and { from, start } while it glides (D-448)
 
 // (canvas, list, room, hud) → { ctx, listCtx, roomCtx, hudCtx }: the menus' picture, the list's row
@@ -82,9 +83,20 @@ function fitRoom(room, roomCtx, hud, hudCtx, picture) {
   const base = titled ? pictureZoom(bw, bh) : zoom(short / (VIEW_ROWS * TILE));
   const near = titled || !along ? base
     : zoom(Math.max(short / (VIEW_ROWS * TILE), Math.min(long / (along * TILE + 2 * MARGIN), short / (MIN_ROWS * TILE))));
-  fitLayer(hud, hudCtx, base, view, picture);
+  fitLayer(hud, hudCtx, carded && !titled ? cardZoom(base, bw, bh) : base, view, picture);
   shownZoom = glidingTo(near);
   fitLayer(room, roomCtx, shownZoom, roomView, picture);
+}
+// § card fit: while a card is open in play, the screen layer is at least CARD_W game pixels
+// across a screen held sideways, as on a phone, so a card's wide layout fits a
+// 4:3 or near-square screen; its pixels are smaller there, still whole (D-671). Play's
+// panel keeps its size; under the card's veil it shrinks with it
+export const CARD_W = 340;
+export const cardZoom = (base, bw, bh) => (bw >= bh ? zoom(Math.min(base, bw / CARD_W)) : base);
+export function fitCards(on) {
+  if (on === carded) return;
+  carded = on;
+  refit?.();
 }
 // § glide: into a room of another width, the zoom eases from the old room's to the new one's,
 // starting and landing gently, so most of it shows as the new room brightens (D-448). Between

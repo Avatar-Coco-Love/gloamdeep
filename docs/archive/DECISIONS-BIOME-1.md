@@ -1,4 +1,4 @@
-# Biome 1's floors and the lure wisp (D-648 to D-655)
+# Biome 1's floors and the lure wisp (D-648 to D-656)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.113, the tenth audit
 (D-660), so it stays under 12 KB: halls and large rooms, the lure wisp,
@@ -7,6 +7,7 @@ following the way, all built. Still in force. D-652, more content first
 (poison and a 15th kind, all built), moved here at 0.3.120 (D-668).
 D-654, the centipede and poisoned (built), moved here at 0.3.121 (D-669).
 D-655, the Antidote (built), moved here at 0.3.122 (D-670).
+D-656, the Centipede Charm (built), moved here at 0.3.123 (D-671).
 
 ---
 
@@ -110,4 +111,15 @@ heals nothing; not poisoned, it stays, with a line, and no turn passes.
 Its look is B, a tall thin green vial under a cork. With it in, poison
 can take the last heart, and the hero falls. Drafts the owner may change:
 5 a stack, never sold, its lines. D-644 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-656 · 2026-11-07 · The Centipede Charm** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/T4UJp8WKEEDY141YhkSscq;
+builds D-458, D-652, D-654) The charm against poison is the Centipede
+Charm, made at the workbench, its slot after the rod, from 3 Centipede
+Leg and 1 Copper Ore (the leg's first use); one is carried or worn, and
+Wear puts it on, free. Worn, poisoned lasts 3 turns, not 6, so it takes
+1 heart, not 2; every bite still poisons, so the Antidote still matters.
+Its look is A, a drop of venom's pale green in the other charms' copper
+setting. Drafts the owner may change: its lines. D-645 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.

@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.122 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.123 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-D1 of D-660's list, cards spill off 4:3 and near-square screens, then
-the rest in D-666's order, one a step; the Spit grub (D-659) after them.
+W2 of D-660's list, woken deep waystones kept through the remake (its
+way the owner's call), then the rest in D-666's order, one a step; the
+Spit grub (D-659) after them.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -18,7 +19,6 @@ the rest in D-666's order, one a step; the Spit grub (D-659) after them.
 - A region's name and rating (Q-056), with a second region.
 - Achievements' records and numbers (Q-057), before the first one.
 - Creature materials: looks and recipes (Q-061), each at its own step.
-- The chest card on squarer screens (Q-064), any time.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
 - Water and the garden (Q-071), once water can be carried (D-569).
@@ -46,6 +46,10 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-07, 0.3.123, Cards drawn smaller to fit.** As recommended
+  (D-671): on a squarer screen held sideways, a card in play is drawn
+  smaller, at least 340 game pixels across, so it fits (D1; Q-064).
+  Playtest: https://claude.ai/artifact/Kra2sj17u3CctCUxhosZ6W
 - **2026-11-07, 0.3.122, A card's words stay.** As recommended (D-670):
   a line already showing as a card opens counts as heard, so the screen
   reader keeps the bag's, map's and pause menu's words; a line said on
@@ -55,7 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   (D-669): off play, Space's key-repeat does nothing, so holding it on
   a menu picks once; in play it still waits turn after turn (I2).
   Playtest: https://claude.ai/artifact/7FkaUkCrPdsNTuuzuAZtha
-- **2026-11-07, 0.3.120, Walls are not cleared heaps.** As recommended
-  (D-668): only a tile that can be walked on counts as a heap cleared
-  beside the trapped peddler, so he calls for help first again (R5).
-  Playtest: https://claude.ai/artifact/C3oE2KFtUgv1d5nRHSqkXm

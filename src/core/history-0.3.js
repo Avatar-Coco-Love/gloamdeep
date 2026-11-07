@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.123', date: '2026-11-07', title: 'Cards drawn smaller to fit', lines: [
+    "On a tablet held sideways or a near-square PC window, the cards in play (the bag, pause menu, Journal, workbench, stash chest and peddler) are now drawn a little smaller, so everything fits on the card as it does on a phone held sideways. Before, words and boxes ran past the card's edge. Play itself keeps its size, and phones look the same as before.",
+    "Decisions: D-671. Questions closed: Q-064. D-656 moved to the archive, word for word.",
+  ] },
   { v: '0.3.122', date: '2026-11-07', title: 'A card\'s words stay', lines: [
     "With a screen reader, opening the bag, the map or the pause menu while a message is showing now reads the card's own words. Before, a moment later the message took their place. A message said while the card is open is still read out.",
     "Decisions: D-670. D-655 moved to the archive, word for word.",
