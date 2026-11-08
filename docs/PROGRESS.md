@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.141 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.142 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 20, Relics (D-689): the shelf, built at the workbench and set down
-at home, empty. Propose its recipe and look first.
+Step 20, Relics (D-689): biome 1's first relic, which keeps one find on
+a fall. Propose its name, look, story line and place first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 20 Relics
+- [ ] 20 Relics (D-689): the shelf (0.3.142)
 - [ ] 21 Feats
 
 **Next audit: 0.3.152** (D-518, D-660).
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.142, The shelf.** The owner's picks, all
+  recommended (D-690): look A, a wooden case with two empty shelves,
+  made at the workbench from 4 Wood and 2 Stone, set down at home the
+  bed's way; bumped, it asks to be taken down, "Nothing on it yet."
+  Playtest: https://claude.ai/artifact/ECjixk3D6LPY72pPeeR9Gg
 - **2026-11-08, 0.3.141, Relics from the old city.** The owner's picks,
   all recommended (D-689): relics are old-city things, found in hidden
   spots and guarded rooms, each helping the hero set out or soften a
@@ -57,9 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   column; the glob flies a tile a turn and hits whatever it meets.
   Playtest: https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map
   preview: https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY
-- **2026-11-07, 0.3.139, Still play draws less.** As recommended
-  (D-687): with reduced motion on, the room in play is drawn once and
-  kept until something in it changes, so standing in the crypt takes
-  about 1 ms a frame, not 9, on a slowed phone (S3, its second half).
-  Play looks the same. A test checks when it is kept. Playtest:
-  https://claude.ai/artifact/53gL9aXUxsgbnH72GdJA8w

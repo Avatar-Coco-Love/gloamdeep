@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.139, Still play draws less.** As recommended
+  (D-687): with reduced motion on, the room in play is drawn once and
+  kept until something in it changes, so standing in the crypt takes
+  about 1 ms a frame, not 9, on a slowed phone (S3, its second half).
+  Play looks the same. A test checks when it is kept. Playtest:
+  https://claude.ai/artifact/53gL9aXUxsgbnH72GdJA8w
 - **2026-11-07, 0.3.138, The room holds still under a card.** As
   recommended (D-686): under a card the room is drawn once and kept, so a
   frame with the bag open takes about 1 ms, not 8, on a slowed phone (S3,

@@ -359,3 +359,11 @@ crafting later"; their other two lines stay. The eleven no recipe uses
 yet keep "for crafting later" until one does. A rules test checks each
 line against the recipes. D-663 moved to `archive/DECISIONS-AUDITS.md`,
 word for word.
+
+**D-678 · 2026-11-07 · Freed once** (the owner's pick, recommended; R6
+of D-660's findings, as D-666 set) Rubble beside a person already freed
+digs as with no one there, its own lines ("You pull rocks off the
+heap." …), their wait untouched. Before, bumps played his `digging`
+lines and the last freed him again, thanks and 5 turns anew. A rules
+test checks it. D-664 moved to `archive/DECISIONS-AUDITS.md`, word for
+word.

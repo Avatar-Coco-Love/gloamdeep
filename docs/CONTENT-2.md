@@ -24,6 +24,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `centipedeCharm` | Wear in the bag: the charm against poison, poisoned 3 turns and 1 heart, not 6 and 2 | 1 | never | the workbench: 3 Centipede Leg, 1 Copper Ore | D-656 |
 | `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
 | `gardenBed` | set down as the garden bed tile, one seed planted in it | 1 | never | the workbench: 3 Wood, 2 Stone | D-562, D-565, D-566 |
+| `shelf` | set down as the shelf tile, empty; relics later | 1 | never | the workbench: 4 Wood, 2 Stone | D-689, D-690 |
 | `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
 | `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |

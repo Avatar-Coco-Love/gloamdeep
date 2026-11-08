@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.142 (2026-11-08)
+- Make a Shelf at the workbench, its last slot, from 4 Wood and 2 Stone: a tall wooden case with two empty shelves. You carry one at a time.
+- Set it down on the surface as you do the bed. Relics will rest on it at later steps; for now it stands empty.
+- Bump it and it asks "Deconstruct shelf?" with "Nothing on it yet." Yes puts it back in your bag.
+- Decisions: D-690. D-678 moved to the archive, word for word.
+
 ## 0.3.141 (2026-11-08)
 - Relics are planned: rare things from the old city under the ground, found in hidden spots and guarded rooms, never made. Each one helps you set out or softens a fall, and every relic found works once it sits on a shelf at home. The shelf comes first, then the first relic, which keeps one find on a fall. Nothing in play changes yet.
 - Decisions: D-689. D-676 and D-677 moved to the archive, word for word.
@@ -34,7 +40,3 @@ Entry format:
 - The grub's next move shows as a small glob mark, and every glob in flight shows where it goes next.
 - A beaten spit grub leaves a Grub Skin about 1 time in 2, sold for 1, and now and then a rare Glow Gland, sold for 5.
 - Decisions: D-688. D-675 moved to the archive, word for word.
-
-## 0.3.139 (2026-11-07)
-- With reduced motion on, the room in play is drawn once and kept until something in it changes, as under a card, so a phone does much less work and saves battery. Play looks and feels the same.
-- Decisions: D-687. D-674 moved to the archive, word for word.

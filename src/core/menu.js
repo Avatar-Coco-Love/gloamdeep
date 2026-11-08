@@ -17,7 +17,7 @@ export const BED_HEADING = 'Deconstruct bed?';
 export const BED_NOTE = "You aren't tired.";
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
-export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'] };
+export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'] }; // the shelf's, the bed's way (D-690)
 // Grown, Pick takes Plant's place, picked (D-568)
 export const GARDEN_MENU = [{ id: 'plant', text: 'Plant' }, { id: 'take', text: 'Deconstruct' }];
 export const PICK_MENU = [{ id: 'pick', text: 'Pick' }, { id: 'take', text: 'Deconstruct' }];
@@ -87,7 +87,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // in a 4 × 3 grid as the stash chest's (D-484), with its cost and how many of each the bag holds,
 // with `stored`, the stacks in the chests in reach, added in (D-560);
 // dim with too few (the stash chest, CH1, D-326). BENCH_TAKE is Deconstruct workbench, under the grid.
-export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'centipedeCharm']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and the Big Bag (D-547), the garden bed (D-565), the wooden rod (D-609), the centipede charm (D-656)
+export const BENCH_MAKES = ['chest', 'pick', 'copperWick', 'ratVest', 'wispCharm', 'heartCharm', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'centipedeCharm', 'shelf']; // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and the Big Bag (D-547), the garden bed (D-565), the wooden rod (D-609), the centipede charm (D-656), the relic shelf (D-690)
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
 export const BENCH_TAKE = BENCH_SLOTS;

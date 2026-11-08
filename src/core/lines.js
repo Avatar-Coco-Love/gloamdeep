@@ -258,6 +258,11 @@ export const LINES = {
   gardenBedShort: { text: 'You need 3 Wood, 2 Stone.', warn: false }, // too few, free
   gardenBedSet: { text: 'You set down the garden bed.', warn: false }, // a turn
   gardenBedTake: { text: 'You take down the garden bed.', warn: false }, // Deconstruct on its card, a turn
+  shelfMake: { text: 'You make a shelf.', warn: false }, // its line on the bench panel, a turn (D-690), drafted for the playtest
+  shelfFull: { text: 'You already carry a shelf.', warn: false }, // only 1 is carried, free
+  shelfShort: { text: 'You need 4 Wood, 2 Stone.', warn: false }, // too few, free
+  shelfSet: { text: 'You set down the shelf.', warn: false }, // a turn
+  shelfTake: { text: 'You take down the shelf.', warn: false }, // Yes on Deconstruct shelf?, a turn
   gardenBedPlant: { text: 'You plant a gloamberry seed.', warn: false }, // Plant on its card, a turn (D-566)
   gardenBedPick: { text: 'You pick three gloamberries.', warn: false }, // Pick on the grown bed's card, a turn (D-568)
   gardenBedFeed: { text: 'You feed the soil with guano.', warn: false }, // Feed on the sprout's card, a turn (D-569)
@@ -274,6 +279,7 @@ export const LINES = {
   rubbleClear: { text: 'The rubble falls away.', warn: false }, // the third: cleared, nothing taken
   bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
   gardenBedLook: { texts: ['A box of soft soil.', 'Set it down on the surface.', 'Seeds grow in it.'], warn: false }, // (D-565)
+  shelfLook: { texts: ['A wooden shelf, in pieces.', 'Set it down on the surface.', 'Relics rest on it.'], warn: false }, // (D-690), drafted for the playtest
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331), or the bag where you fell (D-345)

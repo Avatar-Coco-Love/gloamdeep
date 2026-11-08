@@ -86,6 +86,10 @@ export const TILES = {
   // grows again (garden step 5, D-568); with no room, the wild bush's `full` line.
   berryBed: { id: 'berryBed', kind: 'tile', letter: 'K', name: 'Garden Bed', solid: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
     picks: { drops: 'gloamberry', n: 3, into: 'sprout', says: 'gardenBedPick', full: 'gloamberryFull' } },
+  // The relic shelf set down on the surface, the bed's way (D-690): solid, light passing over
+  // it. Bumped, day or night, it opens the bed's ask card, Deconstruct shelf?, its note
+  // "Nothing on it yet.", where Yes `takes` it back into the bag. Relics come at later steps.
+  relicShelf: { id: 'relicShelf', kind: 'tile', letter: 'L', name: 'Shelf', solid: true, blocksLight: false, panel: 'bed', takes: { item: 'shelf', says: 'shelfTake' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

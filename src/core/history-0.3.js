@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.142', date: '2026-11-08', title: 'The shelf', lines: [
+    "Make a Shelf at the workbench, its last slot, from 4 Wood and 2 Stone: a tall wooden case with two empty shelves. You carry one at a time.",
+    "Set it down on the surface as you do the bed. Relics will rest on it at later steps; for now it stands empty.",
+    "Bump it and it asks \"Deconstruct shelf?\" with \"Nothing on it yet.\" Yes puts it back in your bag.",
+    "Decisions: D-690. D-678 moved to the archive, word for word.",
+  ] },
   { v: '0.3.141', date: '2026-11-08', title: 'Relics from the old city', lines: [
     "Relics are planned: rare things from the old city under the ground, found in hidden spots and guarded rooms, never made. Each one helps you set out or softens a fall, and every relic found works once it sits on a shelf at home. The shelf comes first, then the first relic, which keeps one find on a fall. Nothing in play changes yet.",
     "Decisions: D-689. D-676 and D-677 moved to the archive, word for word.",
