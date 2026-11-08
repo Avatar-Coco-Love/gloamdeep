@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.156, Hats and hoods.** The owner's picks, all
+  recommended (D-703), from eight drafts
+  (https://claude.ai/artifact/6AxqaXJqWfcCVeGARWg7oh): Brim, Ears and
+  Helm join the hood on a sixth tab, HEAD, 3 Glints each. The six tabs
+  go in two rows of three where one row is too narrow.
+  Playtest: https://claude.ai/artifact/DA5qAiRRnK2uejvTLSuwHN
 - **2026-11-08, 0.3.155, Lantern looks.** The owner's picks, all
   recommended (D-702), from eight drafts
   (https://claude.ai/artifact/3DDWo2nmCzKLfeVsUjp9Y3): Carriage, Dish and

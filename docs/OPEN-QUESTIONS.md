@@ -112,9 +112,3 @@ while a cleared room fills again, a creature picked from the depth's
 pool, so a different kind may take a beaten one's place. When, how
 often, and how it fits the bigger biomes are talked through at its own
 step, after biome 1 grows.
-
-**Q-087 · Teaching goals: words, order and rewards** (raised
-2026-11-08, D-705) Each goal's words, which come first, where the goal
-line sits, how its Done shows; the reward list (Glints, useful finds and
-so on) and each one's chance; the boons card's words and its Journal
-entry. Drafted by Claude for the owner to pick, at the first goal's step.
