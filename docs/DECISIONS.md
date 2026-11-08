@@ -144,3 +144,16 @@ the Journal's do; where even then four rows of boxes would reach the
 buttons (the 176 × 221 view upright), the window shows three and the rest
 scroll (D-701). Claude's call the owner may change: the free one is named
 Lantern.
+
+**D-703 · 2026-11-08 · Hats and hoods** (the owner's picks, all
+recommended, from a mock-up of eight drafts,
+https://claude.ai/artifact/6AxqaXJqWfcCVeGARWg7oh; builds D-696, D-698,
+D-702, narrows Q-055) A look's sixth part is its head, chosen on a sixth
+tab, HEAD, after LAMP. Three join the study's hood: Brim (a wanderer's
+wide hat, its band the trim's colours), Ears (the hood with two pointed
+ears) and Helm (a round metal cap with a nose guard, in the trim's
+colours). Cloth takes the cloak's shades, a pattern's marks too; the face
+stays in shadow with the eyes, and the body and lamp stay as they are.
+Each costs 3 Glints, bought as a pattern is; RANDOM rolls only those
+bought. The six tabs sit in one row where they fit, else two rows of
+three. Claude's call the owner may change: the free one is named Hood.

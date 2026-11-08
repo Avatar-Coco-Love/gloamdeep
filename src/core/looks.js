@@ -3,7 +3,7 @@
 // already means something (P3 to P5), and the clothes, four shapes of cloak (P6). Each cloak
 // is its four shades, light to deepest, as the hero sprite's C, c, B and b; each eye colour is
 // the sprite's e; each trim is the sprite's T and t; each clothes' pixels are in sprites.js.
-// registry.js gathers these tables. The lamps are the lantern's shapes (D-702), their pixels in pictures.js. Plain data, no drawing.
+// registry.js gathers these tables. The lamps are the lantern's shapes (D-702), the heads hats and hoods (D-703), their pixels in pictures.js. Plain data, no drawing.
 import { moveOn } from './seedpad.js';
 import { pick } from './rng.js';
 
@@ -89,16 +89,30 @@ export const LAMP_IDS = Object.keys(LAMPS);
 export const DEFAULT_LAMP = 'lantern';
 export const lampOf = (p) => (LAMPS[p?.look?.lamp] && !isLocked('lamp', p.look.lamp, p.bought) ? p.look.lamp : DEFAULT_LAMP);
 
+// § heads (D-703): a hat or hood, its pixels in pictures.js; cloth takes the cloak's shades and metal
+// the trim's. The study's hood first and free; the rest locked until bought, 3 Glints each.
+export const HEADS = {
+  hood: { id: 'hood', kind: 'head', name: 'Hood' }, // the study's
+  brim: { id: 'brim', kind: 'head', name: 'Brim', locked: true, price: 3 }, // a wanderer's wide hat, its band the trim's
+  ears: { id: 'ears', kind: 'head', name: 'Ears', locked: true, price: 3 }, // the hood with two pointed ears
+  helm: { id: 'helm', kind: 'head', name: 'Helm', locked: true, price: 3 }, // a metal cap with a nose guard, the trim's
+};
+export const HEAD_IDS = Object.keys(HEADS);
+// A profile's head: the one it chose, or the hood when it has none (profiles from before D-703) or a locked one it hasn't bought
+export const DEFAULT_HEAD = 'hood';
+export const headOf = (p) => (HEADS[p?.look?.head] && !isLocked('head', p.look.head, p.bought) ? p.look.head : DEFAULT_HEAD);
+
 // § the look card (D-517, D-521): a tab for each part across its top, row 0; under it that
 // part's choices three to a row, the cloak's locked patterns a third and fourth row (D-533, D-700); then RANDOM and OK on the last row, RANDOM under the first two
 // columns (D-522; the round cross does what Back did, D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
-// Down from a tab on the picked choice. The tabs are the same five keys, first, on every pad.
+// Down from a tab on the picked choice. The tabs are the same six keys, first, on every pad.
 export const LOOK_TABS = [
   { id: 'cloak', name: 'CLOAK', table: CLOAKS, ids: CLOAK_IDS },
   { id: 'eyes', name: 'EYES', table: EYES, ids: EYE_IDS },
   { id: 'trim', name: 'TRIM', table: TRIMS, ids: TRIM_IDS },
   { id: 'clothes', name: 'CLOTHES', table: CLOTHES, ids: CLOTHES_IDS },
   { id: 'lamp', name: 'LAMP', table: LAMPS, ids: LAMP_IDS }, // D-702
+  { id: 'head', name: 'HEAD', table: HEADS, ids: HEAD_IDS }, // D-703
 ];
 export const CLOAK_COLS = 3;
 const lookPad = (ids) => [
@@ -141,7 +155,7 @@ export function moveLook(tab, i, dir, picked) {
 // § roll: RANDOM (D-517, D-522): a whole new look, each part picked from its free choices with
 // r, a seeded rng (rng.js). Locked patterns are never rolled (D-517); bought ones are (D-696).
 export const rollLook = (r, bought = []) => Object.fromEntries(LOOK_TABS.map((t) => [t.id, pick(r, t.ids.filter((id) => !isLocked(t.id, id, bought)))]));
-// § buying (D-696): the Glints the patterns and lamps bought (D-702) cost in all
-export const spentOn = (bought = []) => bought.reduce((g, id) => g + (CLOAKS[id]?.price ?? LAMPS[id]?.price ?? 0), 0);
-// The locked choice id on any tab, for its name and price (D-702)
-export const choiceOf = (id) => CLOAKS[id] ?? LAMPS[id];
+// § buying (D-696): the Glints the patterns, lamps (D-702) and heads (D-703) bought cost in all
+export const spentOn = (bought = []) => bought.reduce((g, id) => g + (choiceOf(id)?.price ?? 0), 0);
+// The locked choice id on any tab, for its name and price (D-702, D-703)
+export const choiceOf = (id) => CLOAKS[id] ?? LAMPS[id] ?? HEADS[id];

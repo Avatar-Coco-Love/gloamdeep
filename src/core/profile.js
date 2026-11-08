@@ -8,7 +8,7 @@ export const SLOTS = 3;
 // creatures beaten, falls, rooms found, steps walked, flasks poured and torches lit,
 // on all its journeys (D-262, D-270, D-283, D-285, D-286); played: whole seconds in its journeys (D-290);
 // bestiary: each creature met, { [id]: { met, beaten } } (bestiary.js, D-630); bought: the
-// patterns and lamps bought with Glints, theirs for good (D-696, D-702)
+// patterns, lamps and heads bought with Glints, theirs for good (D-696, D-702, D-703)
 export const COUNTS = ['beaten', 'falls', 'found', 'steps', 'poured', 'torches'];
 export const newProfile = (deepest = 0) => ({ name: '', look: {}, records: { deepest, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {}, bought: [] });
 // The profiles at the start: the first slot in use, the others empty
@@ -76,7 +76,7 @@ export const usingSlot = (ps, i, name = '', look = {}) => ({ current: i, slots: 
 export const renamedSlot = (ps, i, name) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p ? { ...p, name } : p)) });
 // The profiles with slot i's profile in a new look (P3); the rest of its look stays
 export const lookedSlot = (ps, i, look) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p ? { ...p, look: { ...p.look, ...look } } : p)) });
-// The profiles with slot i's profile having bought the pattern or lamp `id` (D-696, D-702); once only
+// The profiles with slot i's profile having bought the pattern, lamp or head `id` (D-696, D-702, D-703); once only
 export const boughtSlot = (ps, i, id) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p && !p.bought.includes(id) ? { ...p, bought: [...p.bought, id] } : p)) });
 // The profiles with slot i emptied; if it was in use, the first slot still in use takes over, or none
 export function withoutSlot(ps, i) {

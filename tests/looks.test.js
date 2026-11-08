@@ -89,15 +89,15 @@ test('a profile from before P6, or with unknown clothes, wears the cloak', () =>
 // § the look card (D-521)
 const keyOf = (tab, id) => LOOK_PADS[tab].findIndex((k) => !k.tab && k.id === id);
 const tabKey = (tab) => LOOK_PADS.cloak.findIndex((k) => k.tab && k.id === tab);
-test('the look card: five tabs first on every pad, then the choices three to a row, then RANDOM and OK', () => {
-  assert.deepEqual(LOOK_TABS.map((t) => t.id), ['cloak', 'eyes', 'trim', 'clothes', 'lamp']); // LAMP last (D-702)
+test('the look card: six tabs first on every pad, then the choices three to a row, then RANDOM and OK', () => {
+  assert.deepEqual(LOOK_TABS.map((t) => t.id), ['cloak', 'eyes', 'trim', 'clothes', 'lamp', 'head']); // LAMP then HEAD last (D-702, D-703)
   for (const t of LOOK_TABS) {
     const pad = LOOK_PADS[t.id];
-    assert.deepEqual(pad.slice(0, 5).map((k) => [k.id, k.tab, k.row, k.col]), LOOK_TABS.map((u, col) => [u.id, true, 0, col]), t.id);
+    assert.deepEqual(pad.slice(0, 6).map((k) => [k.id, k.tab, k.row, k.col]), LOOK_TABS.map((u, col) => [u.id, true, 0, col]), t.id);
     assert.deepEqual(pad.filter((k) => !k.tab && !['random', 'ok'].includes(k.id)).map((k) => k.id), t.ids, t.id);
     assert.deepEqual(pad.slice(-2).map((k) => k.id), ['random', 'ok']);
   }
-  assert.deepEqual(LOOK_PADS.clothes.slice(5).map(({ row, col }) => [row, col]), [[1, 0], [1, 1], [1, 2], [2, 0], [3, 0], [3, 2]]);
+  assert.deepEqual(LOOK_PADS.clothes.slice(6).map(({ row, col }) => [row, col]), [[1, 0], [1, 1], [1, 2], [2, 0], [3, 0], [3, 2]]);
   assert.deepEqual(LOOK_PADS.cloak.slice(-6).map(({ id, row, col }) => [id, row, col]), [['camo', 3, 2], ['tiger', 4, 0], ['stars', 4, 1], ['moth', 4, 2], ['random', 5, 0], ['ok', 5, 2]]); // the patterns a third and fourth row (D-533, D-700)
   assert.equal(LOOK_ROWS, 4);
   assert.ok(isLocked('cloak', 'cow') && !isLocked('cloak', 'sand') && !isLocked('eyes', 'bone'));
@@ -122,7 +122,8 @@ test('the arrows walk the look card: Up from a choice to the open tab, Down from
   assert.equal(moveLook('eyes', tabKey('eyes'), 'down', 'moss'), keyOf('eyes', 'moss')); // the picked choice
   assert.equal(moveLook('eyes', tabKey('eyes'), 'right'), tabKey('trim'));
   assert.equal(moveLook('clothes', tabKey('clothes'), 'right'), tabKey('lamp')); // LAMP after CLOTHES (D-702)
-  assert.equal(moveLook('lamp', tabKey('lamp'), 'right'), tabKey('lamp')); // the row's end
+  assert.equal(moveLook('lamp', tabKey('lamp'), 'right'), tabKey('head')); // HEAD after LAMP (D-703)
+  assert.equal(moveLook('head', tabKey('head'), 'right'), tabKey('head')); // the row's end
   assert.equal(moveLook('cloak', tabKey('cloak'), 'up'), tabKey('cloak'));
   assert.equal(moveLook('clothes', keyOf('clothes', 'belted'), 'down'), keyOf('clothes', 'tattered'));
   assert.equal(moveLook('clothes', keyOf('clothes', 'tattered'), 'down'), keyOf('clothes', 'random'));
@@ -140,8 +141,8 @@ test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; o
   assert.equal(row.random.w, row.ok.w);
   const tabsY = Array.from({ length: vh }, (_, y) => y).find((y) => LOOK_PADS.cloak[lookCardAt(Math.floor(vw / 2), y, vw, vh)?.key]?.tab) + 3, hit = (x, y, tab = 'cloak') => lookCardAt(x, y, vw, vh, tab)?.key;
   const across = (y) => { const ks = []; for (let x = card.x; x < card.x + card.w; x++) { const k = hit(x, y); if (k !== undefined && !ks.includes(k)) ks.push(k); } return ks; };
-  assert.deepEqual(across(tabsY), [0, 1, 2]); // too narrow for five: the first three tabs left to right,
-  assert.deepEqual(across(tabsY + 13), [3, 4]); // and CLOTHES and LAMP in a row under them (D-702)
+  assert.deepEqual(across(tabsY), [0, 1, 2]); // too narrow for six: the first three tabs left to right,
+  assert.deepEqual(across(tabsY + 13), [3, 4, 5]); // and CLOTHES, LAMP and HEAD in a row under them (D-702, D-703)
   assert.equal(lookCardAt(card.x + 3, tabsY - 40, vw, vh), null); // the glass beside the big hero
 });
 
@@ -174,7 +175,7 @@ test('RANDOM rolls a whole look from the free choices, the same seed the same lo
     assert.ok(looks.every((l) => free.includes(l[t.id])), `${t.id}: never a locked one (D-533)`);
     assert.deepEqual(new Set(looks.map((l) => l[t.id])).size, free.length, `${t.id}: every free choice comes up`);
   }
-  assert.deepEqual(Object.keys(looks[0]), ['cloak', 'eyes', 'trim', 'clothes', 'lamp']);
+  assert.deepEqual(Object.keys(looks[0]), ['cloak', 'eyes', 'trim', 'clothes', 'lamp', 'head']);
   assert.deepEqual(rollLook(rng(42)), rollLook(rng(42)));
 });
 

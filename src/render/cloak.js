@@ -1,7 +1,7 @@
 // § the look card (D-399, D-517, D-521; were dark pages, P3 to P6): choosing a profile's look,
 // a glass card like the name card (D-398) on the title's scene. LOOK in ember at its top; under
 // its rule the hero big on the crypt floor, lit and flickering with no frame (D-525), the profile's name over it and the open tab's choice
-// under it (D-520). Under that five tabs, CLOAK, EYES, TRIM, CLOTHES and LAMP, as wide as the boxes
+// under it (D-520). Under that six tabs, CLOAK, EYES, TRIM, CLOTHES, LAMP and HEAD (D-703), as wide as the boxes
 // under them (D-523), in two rows when one is too narrow for them (D-702), the open one filled in ember and framed in gold when the arrows are on
 // it; then the tab's choices three to a row, each the whole hero 2× in it with its name (1× when the card is
 // too short), the eyes a swatch of their colour instead (D-527), the trim its cap shade over its base (D-529), the picked one framed in gold; sideways the big hero sits at the left of the tabs and boxes.
@@ -161,14 +161,14 @@ const frame = (c, x, y, w, h, colour) => {
 };
 
 // § draw: the look card on the room's canvas c, `vw` × `vh`. heroIn (sprites.js) draws a hero
-// in a look; look: { cloak, eyes, trim, clothes, lamp }; tab: the open one; chosen: the key the
+// in a look; look: { cloak, eyes, trim, clothes, lamp, head }; tab: the open one; chosen: the key the
 // arrows are on; name: the profile's, over the big hero
 // trying: a locked pattern tried on the big hero, its choice's name staying the kept one's, a note
 // under or over the boxes' foot saying its price and the Glints there are (D-533, D-696), and RANDOM
 // BUY and its price, dim with too few; shop: the profile's patterns bought and Glints left (D-696);
 // scroll: the choices' rows scrolled past, a bar at the boxes' right when there are more (D-701)
 export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null, shop = { bought: [], have: 0 }, scroll = 0) {
-  const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes, l.lamp);
+  const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes, l.lamp, l.head);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
   const at = boxesAt(vw, vh), ground = groundOf(at.bw - 2, at.bh - 2);

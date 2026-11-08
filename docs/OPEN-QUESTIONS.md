@@ -35,7 +35,8 @@ the shop; looks to come are more cloak patterns, lantern looks, then
 hats or hoods, each its own step. Narrowed by D-700: Tiger, Stars and
 Moth join at 3 each, so the patterns cost the 18 Feats pay. Narrowed by
 D-702: Carriage, Dish and Pierced lamps join at 3 each, so looks now cost
-27, more than the three Feats pay; hats or hoods are still to come.
+27, more than the three Feats pay. Narrowed by D-703: Brim, Ears and Helm
+heads join at 3 each, so looks now cost 36, twice what the Feats pay.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
