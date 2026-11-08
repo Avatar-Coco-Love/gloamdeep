@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.163 (2026-11-08)
+- The fourth teaching goal: once the waystone is found, "Wake the waystone" and "Step on the plate in its middle." show under the hearts panel. Step on the plate to wake it and the goal turns gold with its reward.
+- If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.
+- Decisions: D-710.
+
 ## 0.3.162 (2026-11-08)
 - The third teaching goal: on reaching the woods, "Find the waystone" and "Old standing stones, near home." show under the hearts panel. Walk within 4 tiles of the stone and it turns gold with its reward.
 - If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.
@@ -32,8 +37,3 @@ Entry format:
 - The second teaching goal: once "Beat a rat" is done, "Go home to the woods" shows under the hearts panel. Deeper down it says "Take the stairs up to the crypt.", in the crypt "Leave by the gap in the crypt wall." Reach the woods and it turns gold with its reward, rolled as the rat's is.
 - If you have already been to the woods this journey, the goal is ticked quietly and pays its reward.
 - Decisions: D-708.
-
-## 0.3.160 (2026-11-08)
-- The first teaching goal: once you see a rat, "Beat a rat" and "Walk into it to strike." show under the hearts panel. Beat one and the line turns gold for 3 turns with what it paid, rolled from an oil flask, 2 healing herbs, 3 oilcaps, a Glint or a healing potion. A find that doesn't fit your bag is set at your feet.
-- The Journal has a fifth tab, Quests, listing each goal, the done ones with their reward. Tapping the goal line opens it. A rat beaten before this version ticks the goal quietly and pays its reward.
-- Decisions: D-707.

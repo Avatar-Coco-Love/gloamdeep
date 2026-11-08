@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.160, The first teaching goal.** The owner's picks
+  from a mock-up (https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8), all
+  recommended: "Beat a rat" in two lines under the hearts panel once a
+  rat is seen, gold for 3 turns with its rolled reward when done; the
+  Journal's fifth tab, Quests, opened by tapping the line (D-707).
+  Playtest: https://claude.ai/artifact/BD7Hpa6K7zmvuehMVQMZtp
 - **2026-11-08, 0.3.159, Teaching goals worded.** The owner's picks from
   a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa): six goals,
   a goal and a how line each, each at its own moment; the line under the
