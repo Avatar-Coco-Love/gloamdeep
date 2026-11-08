@@ -29,6 +29,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `oilTick` | 2 | 1 | chases; beside the hero `drinks` 5% oil instead of biting, biting once the lantern is empty | the pool from depth 3 | D-606, D-607 |
 | `lureWisp` | 1 | 0 | lures: within 3 steps of the hero it drifts a tile away, toward the nearest other creature in the room, or just away; never bites; its glow shows in the dark, lighting no tiles | the pool from depth 4 | D-643, D-649 |
 | `centipede` | 2 | 1 | chases; a bite that hurts `poisons` the hero | the pool from depth 3 | D-652, D-654 |
+| `spitGrub` | 1 | 1 | none for now, so it never moves and hurts whoever stands beside it, as the snapcap does; `glows`; its spit is the next step | the pool from depth 4 | D-659, D-688 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees

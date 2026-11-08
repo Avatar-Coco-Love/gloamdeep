@@ -17,6 +17,7 @@ const PAL = {
   E: '#6c5b48', F: '#4a3d30', f: '#2a221b', // soil, from the earth's colours (ART-DIRECTION-2.md "Earth"), the garden bed's (D-565)
 
   z: '#c4553a', U: '#7e3020', Z: '#4e1c16', V: '#b6e07a', // the centipede's rust, light to dark, and venom's pale green (D-654)
+  J: '#eaffb8', // the spit grub's bright glow, at the heart of venom's green (D-688)
 };
 
 // § blank: the grey "?" a thing made by tools/make.js wears until it is drawn (D-622): plainly
@@ -482,6 +483,24 @@ const ANTIDOTE = { mirror: true, rows: [
   '', '......kk', '.....kaa', '......kk', '......kC', '......kC', '.....kCV', '.....kVg', '.....kVg', '.....kgg',
   '.....kgg', '.....kGg', '.....kGG', '......kk'] };
 
+// § spit grub: look A of its mock-up (D-688), a glowworm side on and facing right: a plump pale
+// grub of bone-white rings, its tail end glowing venom green with a bright core, a pink eye and
+// an open mouth
+const SPIT_GRUB = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '......kkkkk.....', '....kkwwawwkk...', '..kkawwawwawwk..', '.kVVawAwwAwwpwk.',
+  'kVJVaAwAAwAwwwkk', 'kVVVAAAAAAAAwwk.', '.kkkkkkkkkkkkk..', ''] };
+
+// § grub skin: look A of its mock-up (D-688), a thin pale shed skin curled into a loose ring
+const GRUB_SKIN = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '.......kkkk.....', '.....kkawwak....', '....kawAkkwak...', '...kawk...kak...',
+  '...kak....kAk...', '...kAwkkkkak....', '....kkAAAAk.....', '......kkkk......'] };
+
+// § glow gland: the rare one, look A of its mock-up (D-688), a plump bulb of venom green with a
+// bright core at its upper left, moss green below, under a short pale neck
+const GLOW_GLAND = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '.......kk.......', '......kAAk......', '.....kkVVkk.....', '....kVJJVVVk....',
+  '...kVJJVVVVGk...', '...kVVVVVVVGk...', '...kVVVVVVGGk...', '....kGVVVGGk....', '.....kkkkkk.....'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -498,4 +517,7 @@ export {
   CENTIPEDE_LEG,
   ANTIDOTE,
   CENTIPEDE_CHARM,
+  SPIT_GRUB,
+  GRUB_SKIN,
+  GLOW_GLAND,
 };

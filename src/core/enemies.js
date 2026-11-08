@@ -69,6 +69,12 @@ export const ENEMIES = {
   // legs and green fangs. It chases, and its bite `poisons`: the hero is poisoned (poison.js).
   // Its bite is of teeth. Beaten, it may drop a Centipede Leg, and now and then a Venom Sac.
   centipede: { id: 'centipede', kind: 'enemy', name: 'Centipede', acts: "Chases you once it sees you in the light. Its bite leaves you poisoned, which takes a heart every few turns.", fights: "Strike first as it comes. A knife ends it in one blow; the lantern needs two. Poison can take your last heart: an Antidote ends it.", health: 2, bite: 1, poisons: true, drops: 'centipedeLeg', rare: 'venomSac', ways: ['chases'], hurt: 'centipedeHurt', die: 'centipedeDie', bites: 'centipedeBite', sound: 'teeth' },
+  // A glowworm, side on and facing right (D-659, look A of D-688): a plump pale grub, its tail
+  // glowing venom green, drawn over the dark as the lure wisp is (`glows`). It never moves; for
+  // now, with no way, it hurts whoever stands beside it, lit or not, as the snapcap does (D-688).
+  // Its spit, down a row or column at the lit lantern, is the next step. Beaten, it may drop a
+  // Grub Skin, and now and then a Glow Gland.
+  spitGrub: { id: 'spitGrub', kind: 'enemy', glows: true, name: 'Spit grub', acts: "Never moves. It glows in the dark, and spits at you if you stand beside it.", fights: "One blow of anything ends it. Strike from beside it, and strike first.", health: 1, bite: 1, drops: 'grubSkin', rare: 'glowGland', ways: [], die: 'spitGrubDie', bites: 'spitGrubBite' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

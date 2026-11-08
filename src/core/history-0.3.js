@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.140', date: '2026-11-08', title: 'The Spit grub', lines: [
+    "A new creature, the spit grub: a plump pale glowworm with a glowing green tail, drawn side on. It turns up from depth 4, never moves, and its faint green glow shows even in the dark. It has 1 heart, so one blow of anything ends it.",
+    "For now it hurts you if you stand right beside it. Its spit, a glowing glob sent down a row or column at your lit lantern, comes next.",
+    "A beaten spit grub leaves a Grub Skin about 1 time in 2, sold for 1, and now and then a rare Glow Gland, sold for 5.",
+    "Decisions: D-688. D-675 moved to the archive, word for word.",
+  ] },
   { v: '0.3.139', date: '2026-11-07', title: 'Still play draws less', lines: [
     "With reduced motion on, the room in play is drawn once and kept until something in it changes, as under a card, so a phone does much less work and saves battery. Play looks and feels the same.",
     "Decisions: D-687. D-674 moved to the archive, word for word.",

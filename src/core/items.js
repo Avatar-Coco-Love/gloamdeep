@@ -79,6 +79,8 @@ export const ITEMS = {
   // A centipede's Centipede Leg (D-654), about 1 in 2, taken and kept the same way, sold for 1;
   // a part for the charm against poison later (D-652).
   centipedeLeg: { id: 'centipedeLeg', kind: 'item', name: 'Centipede Leg', bag: true, max: 20, says: 'centipedeLegTake', look: 'centipedeLegLook', full: 'centipedeLegFull', sells: 1 },
+  // A Spit grub's Grub Skin (D-688), about 1 in 2, taken and kept the same way, sold for 1.
+  grubSkin: { id: 'grubSkin', kind: 'item', name: 'Grub Skin', bag: true, max: 20, says: 'grubSkinTake', look: 'grubSkinLook', full: 'grubSkinFull', sells: 1 },
   // Bat Guano, a find of its own (D-539, D-540): a pile beside each bat as a room is made
   // (guano.js), taken and kept the same way, sold for 1, growing back after a day. Kept
   // for the garden (step 14) and crafts later.
@@ -96,6 +98,8 @@ export const ITEMS = {
   moleClaw: { id: 'moleClaw', kind: 'item', name: 'Mole Claw', bag: true, max: 20, says: 'moleClawTake', look: 'moleClawLook', full: 'moleClawFull', sells: 5 },
   // An oil tick's rare Oil Bladder, from depth 3 down, taken and kept the same way (D-606).
   oilBladder: { id: 'oilBladder', kind: 'item', name: 'Oil Bladder', bag: true, max: 20, says: 'oilBladderTake', look: 'oilBladderLook', full: 'oilBladderFull', sells: 5 },
+  // A Spit grub's rare Glow Gland, from depth 4 down, taken and kept the same way (D-688).
+  glowGland: { id: 'glowGland', kind: 'item', name: 'Glow Gland', bag: true, max: 20, says: 'glowGlandTake', look: 'glowGlandLook', full: 'glowGlandFull', sells: 5 },
   // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
   // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
   // Make turns 3 into a Gloamberry Seed, the heartcap's way (garden step 1, D-564).

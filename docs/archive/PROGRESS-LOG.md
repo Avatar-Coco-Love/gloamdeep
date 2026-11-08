@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.137, The rock painted faster.** As recommended
+  (D-685): the rock painter works out each tile's walls once, not for
+  every pixel, so a cave room paints in about half the time (S1). The
+  picture is the same, pixel for pixel; a test checks 12 rooms.
+  Playtest:
+  https://claude.ai/artifact/AgfwmCnzfa5JA3mFQBA2RF
 - **2026-11-07, 0.3.136, He has wares at home.** As recommended
   (D-684): the peddler at home no longer says "I'll have wares soon"
   while selling them (D4). His two other home lines take turns. A test

@@ -68,18 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-675 · 2026-11-07 · Doc D: built things, not "to come"** (the owner's
-picks, both recommended; D of D-660's findings, as D-666 set) Five
-glossary lines say what is in the game today, plainly, with no "before"
-clause: armour, charms and lantern parts are gear worn or fitted, not
-gear to come; the Gloamberry Seed is planted in a garden bed; waystones
-sleep at the top of each band of floors, depths 2, 5 and 8, then every
-4th depth (D-594), not only on depth 2; the Journal's tabs are Records,
-Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
-the stash chest, the Stone Pick and the garden bed, not later crafts
-(found while checking). Docs only. D-661 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-676 · 2026-11-07 · Docs F to I: the small ones** (the owner's
 picks, all recommended; F to I of D-660's findings, as D-666 set)
 `TECH-2.md`'s layout lists the maker, `tools/make.js` (D-621, D-622),
@@ -198,3 +186,19 @@ and text line are still drawn every frame. Nothing in the room moves
 with reduced motion, so play looks and feels the same. In the crypt,
 standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
 D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-688 · 2026-11-08 · The Spit grub's look, drop and two steps** (the
+owner's picks, all recommended; mock-ups:
+https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L; builds D-659) Look
+A, a glowworm: side on and facing right, a plump grub of bone-white
+rings, its tail glowing venom green, a pink eye and an open mouth; it
+`glows`, drawn over the dark as the lure wisp is. Its drop is a Grub
+Skin, about 1 in 2, sold for 1, and now and then a Glow Gland, about 1
+in 10, sold for 5 as every rare one is. Beside the hero with the lantern
+lit, it spits anyway: 1 heart at once. It is built in two steps: first
+the grub itself, in the pool from depth 4, never moving and, with no
+way, hurting whoever stands beside it, lit or not, as the snapcap does
+(the owner's pick); then the spit and the glob, a new way, with a
+playtest, where whether a glob hurts a creature in its path is asked.
+Drafts the owner may change: the names and lines. D-675 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
