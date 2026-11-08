@@ -154,12 +154,23 @@ shows the goal on the first turn; goals don't move after a dev jump, as
 the Bestiary; the Journal opened from the goal line closes back to play;
 Right from Feats turns to Quests.
 
+**D-708 · 2026-11-08 · The second teaching goal built** (the owner's
+pick, recommended; builds D-706, changes its second how line) "Go home to
+the woods" shows once the rat goal is done, as the rat's line does, and is
+done standing in the woods. The woods are reached by the gap in the crypt
+wall, never by stairs, so its how line goes by where the hero is: "Take
+the stairs up to the crypt." deeper down, "Leave by the gap in the crypt
+wall." in the crypt. Claude's calls the owner may change: done however
+the hero reaches the woods; ticked quietly, never shown, when the woods
+were already walked to this journey.
+
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,
 each worded as a goal in amber and one grey line saying how: "Beat a
 rat" / "Walk into it to strike.", once a rat is seen; "Go home to the
-woods" / "Take the stairs up from the crypt.", once the rat goal is done;
+woods" / "Take the stairs up from the crypt." (how line changed by
+D-708, 2026-11-08), once the rat goal is done;
 "Find the waystone" / "Old standing stones, near home.", on reaching the
 woods; "Wake the waystone" / "Step on the plate in its middle.", once it
 is seen; "Take a boon" / "Step back on the plate. Pick 1 of 3.", on

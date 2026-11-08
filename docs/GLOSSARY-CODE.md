@@ -70,7 +70,7 @@ code; where this page and a decision disagree, the decision wins.
 - **Teaching goal, goal line, Quests:** a small goal that teaches one
   system, shown as the goal line under the hearts panel until done; tapped,
   it opens the Journal's Quests tab, where done goals stay (D-705, D-706).
-  The first, "Beat a rat", is built (D-707): `src/core/goals.js` (the
+  "Beat a rat" (D-707) and "Go home to the woods" (D-708) are built: `src/core/goals.js` (the
   goals, rewards and rules), `src/render/goalline.js` (the line); a
   profile's `goals` and `glints` (the Glints goals paid).
 - **Growth:** the Journal's tab for spending embers (D-293), a tree with

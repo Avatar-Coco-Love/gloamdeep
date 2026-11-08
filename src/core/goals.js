@@ -6,10 +6,22 @@
 import { rng, seedFor } from './rng.js';
 import { bagAdd, bagSize } from './bag.js';
 import { get } from './registry.js';
+import { HOME } from './boon.js';
+import { depthOf } from './room.js';
 
-// Each goal: its words (D-706), and the creature seen that shows it and beaten that does it
+// Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state }:
+// shows, its moment come; before, done before it could show (paid quietly); does, done now
+const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
-  { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.', seen: 'rat', beat: 'rat' },
+  { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
+    shows: (c) => (c.book.rat?.met ?? 0) > 0, does: (c) => beats(c, 'rat') > 0,
+    before: (c) => (c.book.rat?.beaten ?? 0) > beats(c, 'rat') },
+  // Once the rat goal is done; done standing in the woods, however the hero came (Claude's call);
+  // ticked quietly when the woods were already walked to this journey (Claude's call). How: the
+  // woods are reached by the gap in the crypt wall, not by stairs, so two lines (the owner's pick)
+  { id: 'home', goal: 'Go home to the woods', how: (place) => (depthOf(place) > 0 ? 'Take the stairs up to the crypt.' : 'Leave by the gap in the crypt wall.'),
+    shows: (c) => !!c.goals.rat?.done, does: (c) => c.state.place === HOME,
+    before: (c) => (c.state.found || []).includes(HOME) },
 ];
 // The rewards, each its chance in 100 (D-706); a Glint is kept on the profile (Claude's call)
 export const REWARDS = [
@@ -24,6 +36,8 @@ export const NONE = 'No goals yet.'; // the Quests tab with none shown (the owne
 const SALT = 0x90a15;
 
 export const goalOf = (id) => GOALS.find((g) => g.id === id);
+// A goal's how line where the hero stands
+export const howOf = (goal, place) => (typeof goal.how === 'function' ? goal.how(place) : goal.how);
 // A reward's words: "+1 Oil flask", "+2 Healing herbs", "+1 Glint"
 export function rewardText(id) {
   const r = REWARDS.find((x) => x.id === id);
@@ -62,35 +76,36 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
     if (!quiet) done.push(goal.id);
   };
   for (const goal of GOALS) {
-    const was = next[goal.id];
+    const was = next[goal.id], c = { goals: next, book, events, state: s };
     if (was?.done) continue;
-    const beatNow = events.some((e) => e.type === 'beat' && e.id === goal.beat);
-    if (beatNow) finish(goal, false);
-    else if (!was && (book[goal.beat]?.beaten ?? 0) > 0) finish(goal, true); // done before goals came
-    else if (!was && (book[goal.seen]?.met ?? 0) > 0) next = { ...next, [goal.id]: { done: false } }; // seen, now or before
+    if (was) { if (goal.does(c)) finish(goal, false); continue; }
+    if (!goal.shows(c)) continue;
+    if (goal.before(c)) finish(goal, true); // done before it could show, as in a save from before goals
+    else if (goal.does(c)) finish(goal, false);
+    else next = { ...next, [goal.id]: { done: false } };
   }
   return { goals: next, glints: g, state: s, done };
 }
 
 // § the line under the panel: the goal waiting (the oldest), or one done in gold until its turns
 // pass; null for none. gold: { id, until } from main.js.
-export function goalLine(goals = {}, gold = null, turn = 0) {
+export function goalLine(goals = {}, gold = null, turn = 0, place = 'first') {
   if (gold && turn < gold.until && goals[gold.id]?.done) {
     const g = goalOf(gold.id);
     return { id: g.id, goal: g.goal, how: rewardText(goals[g.id].paid), done: true };
   }
   const id = Object.keys(goals).find((k) => !goals[k].done && goalOf(k));
-  return id ? { id, goal: goalOf(id).goal, how: goalOf(id).how, done: false } : null;
+  return id ? { id, goal: goalOf(id).goal, how: howOf(goalOf(id), place), done: false } : null;
 }
 // The text line's words when a goal is done: "Beat a rat. +1 Oil flask"
 export const doneWords = (goals, id) => `${goalOf(id).goal}. ${rewardText(goals[id].paid)}`;
 
 // § the Quests tab's rows, newest first: { id, goal, how, done, reward }
-export const questRows = (goals = {}) => Object.keys(goals).filter(goalOf).reverse()
-  .map((id) => ({ id, goal: goalOf(id).goal, how: goalOf(id).how, done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
+export const questRows = (goals = {}, place = 'first') => Object.keys(goals).filter(goalOf).reverse()
+  .map((id) => ({ id, goal: goalOf(id).goal, how: howOf(goalOf(id), place), done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
 const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
-export function questsWords(goals) {
-  const rows = questRows(goals);
+export function questsWords(goals, place) {
+  const rows = questRows(goals, place);
   const said = rows.length ? rows.map((r) => (r.done ? `${r.goal}, done, ${r.reward}` : `${r.goal}. ${r.how}`)).join('. ') : NONE.replace(/\.$/, '');
   return `Journal, Quests tab. ${said}. ${TURN}`;
 }

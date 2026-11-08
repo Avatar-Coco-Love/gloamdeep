@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.160 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.161 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The second teaching goal (D-706): "Go home to the woods" / "Take the stairs up from the crypt.", once the rat goal is done. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The third teaching goal (D-706): "Find the waystone" / "Old standing stones, near home.", on reaching the woods. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.161, The second teaching goal.** "Go home to the
+  woods" once the rat goal is done, done in the woods. The owner's pick:
+  the woods are reached by the crypt wall's gap, not stairs, so its how
+  line goes by where the hero is (D-708).
+  Playtest: https://claude.ai/artifact/RhSaFaUjhNEEB3bZbumKPZ
 - **2026-11-08, 0.3.160, The first teaching goal.** The owner's picks
   from a mock-up (https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8), all
   recommended: "Beat a rat" in two lines under the hearts panel once a
@@ -54,8 +59,3 @@ list in `RESEARCH.md`.
   a goal and a how line each, each at its own moment; the line under the
   hearts panel, gold when done; rewards mostly finds; the plain boons
   card (D-706). Docs only; nothing to play.
-- **2026-11-08, 0.3.158, Teaching goals planned.** The owner asked
-  whether simple goals could teach the game's many systems. A teaching
-  map (https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) found 5 never
-  explained; goals for them come one at a time as each helps, in a
-  Quests tab, with rolled rewards (D-705). Docs only; nothing to play.
