@@ -4,7 +4,7 @@
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edgeIn } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
-import { drawHero, drawItems, drawEnemies, drawGlows, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
+import { drawHero, drawItems, drawEnemies, drawGlows, drawGlobs, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
@@ -18,6 +18,7 @@ import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
+import { drawMoves } from './moves.js';
 import { drawTitle, drawScene, drawName } from './title.js';
 import { drawTitleCard, nameTop } from './titlecard.js';
 import { VEIL } from './menu.js';
@@ -259,6 +260,8 @@ export function createFrame(app, ui) {
       inRoom(() => {
         drawFlames(rc, s.room, s.lights, t, still());
         drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
+        drawGlobs(rc, s.globs, t, still()); // the Spit grub's globs in flight, seen in the dark (D-688)
+        drawMoves(rc, (s.globs ?? []).map((g) => ({ e: g, kind: 'step', dx: g.dx, dy: g.dy })), (g) => g, t, still()); // each glob's next tile (D-688)
         drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
         if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)

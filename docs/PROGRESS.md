@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The Spit grub's spit and glob (D-659, D-688), step 2 of 2.
+The owner picks what comes next: step 20, Relics (D-482), or more of biome 1 first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -45,12 +45,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 
 ## Log (last 3)
 - **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
-  recommended (D-688): look A, a glowworm with a green glow shown in the
-  dark; a Grub Skin, about 1 in 2, and a rare Glow Gland. Built in two
-  steps: the grub itself now, in the pool from depth 4, never moving and
-  hurting whoever stands beside it; its spit next. Playtest:
-  https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map preview:
-  https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY
+  recommended (D-688): look A, a glowworm glowing green in the dark; a
+  Grub Skin and a rare Glow Gland. Built in one step at the owner's word:
+  from depth 4 it spits a glob at the lit lantern down a clear row or
+  column; the glob flies a tile a turn and hits whatever it meets.
+  Playtest: https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map
+  preview: https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY
 - **2026-11-07, 0.3.139, Still play draws less.** As recommended
   (D-687): with reduced motion on, the room in play is drawn once and
   kept until something in it changes, so standing in the crypt takes

@@ -14,6 +14,7 @@ import { fall } from './fall.js';
 import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
+import { spitTurn, aim } from './spit.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -31,8 +32,10 @@ import { poisonedBy, shrugs } from './poison.js';
 // With Endless oil on (`state.endless`) a drink is the same but takes no oil (D-626).
 // One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654);
 // with Tough, only 1 time in 2 (D-657).
+// First of all the globs fly and the ones that spit spit (spit.js, D-688); a fall there ends the turn.
 export function enemiesAct(state) {
-  return settle(act(state));
+  const spat = spitTurn(state);
+  return spat.fell !== state.fell ? spat : settle(act(spat));
 }
 function act(state) {
   const bites = biting(state);
@@ -109,6 +112,8 @@ function ahead(state) {
     if (e.asleep || !litAt(state, e.x, e.y)) return []; // one asleep in disguise is hidden (D-368)
     const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight') || luring(state, e);
     if (bites.includes(next.enemies[i])) return [{ e, noticed, move: { e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y } }];
+    const spits = traits(get(e.id)).spits && aim(next, e); // a glob mark toward the hero (D-659, D-688)
+    if (spits) return [{ e, noticed: true, move: { e, kind: 'spit', ...spits } }];
     const to = moved[i];
     return [{ e, noticed, move: to.x === e.x && to.y === e.y ? null : { e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y } }];
   });

@@ -35,6 +35,8 @@
 //   feed { id }          `id`, Bat Guano, was fed to a sprout in a garden bed (D-569)
 //   stoneWake { x, y }   the waystone's plate at x, y woke as the hero stepped on it (D-591, D-662)
 //   travel { place }     the hero went by waystone to place `place`, free (D-593)
+//   spit { id }          creature `id` spat a glob (spit.js, D-688); a glob's hit on the hero is a `bite`
+//   splash { x, y }      a glob broke or hit, at x, y (D-688)
 
 // (state, type, details) → the state with that event added to this turn's list
 export const note = (state, type, details) => ({ ...state, events: [...state.events, { type, ...details }] });

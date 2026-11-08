@@ -273,6 +273,28 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e) {
   }
   glowing = false;
 }
+// § globs (D-688): a Spit grub's glob in flight, drawn over the dark as a glow is: a ring of the
+// grub's green halo, then a small ball of venom green with a bright core, outlined, a pixel above
+// the tile's middle; the halo pulses with the glows, steady with reduced motion
+const GLOB = ['.kkkk.', 'kJJVVk', 'kJVVVk', 'kVVVGk', 'kVVGGk', '.kkkk.'];
+let globSprite = null;
+export function drawGlobs(c, globs, t, still) {
+  if (!globs?.length) return;
+  if (!globSprite) globSprite = spriteCanvas({ mirror: false, rows: GLOB.map((r) => r.padEnd(16, '.')) });
+  const halo = HALOS.spitGrub, pulse = still ? 1 : 0.85 + 0.15 * Math.sin(t / 1000 * 2.2);
+  for (const g of globs) {
+    const gx = g.x * 16 + 8, gy = g.y * 16 + 7;
+    c.save(); c.globalCompositeOperation = 'lighten';
+    for (let y = -6; y <= 6; y++) for (let x = -6; x <= 6; x++) {
+      const d = Math.hypot(x, y); if (d > 6) continue;
+      const f = (1 - d / 6) * pulse;
+      if (f * 3 < (BAYER[(gy + y) & 3][(gx + x) & 3] + 1) / 16 + 0.55) continue;
+      c.fillStyle = f > 0.5 ? halo.inner : halo.outer; c.fillRect(gx + x, gy + y, 1, 1);
+    }
+    c.restore();
+    c.drawImage(globSprite, gx - 3, gy - 3);
+  }
+}
 // the lowest row with a pixel in it, read once per sprite
 const LOWEST = new WeakMap();
 function lowest(sprite) {

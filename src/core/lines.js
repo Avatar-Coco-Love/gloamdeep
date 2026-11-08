@@ -313,7 +313,8 @@ export const LINES = {
   antidoteDrink: { texts: ['You drink the antidote.', 'The poison fades.', 'The poison leaves you.'], warn: false }, // drunk while poisoned (D-655)
   notPoisoned: { text: "You aren't poisoned.", warn: false }, // Drink on an antidote, not poisoned: free (D-655)
   spitGrubDie: { text: 'The spit grub bursts and goes dark.', warn: false }, // (D-688)
-  spitGrubBite: { text: 'The spit grub spits in your face.', warn: false, kind: 'harm' }, // beside it, for now (D-688)
+  spitGrubSpits: { text: 'The spit grub spits a glowing glob.', warn: false }, // (D-688)
+  spitGrubHit: { text: 'The glob splashes you.', warn: false, kind: 'harm' }, // a glob hits the hero (D-688)
   grubSkinTake: { texts: ['You pick up the grub skin.', 'A thin pale skin, shed and curled.', 'The grub skin goes in your bag.'], warn: false }, // (D-688)
   grubSkinLook: { texts: ['A grub skin, for crafting later.', 'Thin, pale and papery.', 'It crackles when you fold it.'], warn: false },
   grubSkinFull: { text: "You can't carry more grub skins.", warn: false },

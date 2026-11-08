@@ -187,18 +187,18 @@ with reduced motion, so play looks and feels the same. In the crypt,
 standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
 D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.
 
-**D-688 · 2026-11-08 · The Spit grub's look, drop and two steps** (the
-owner's picks, all recommended; mock-ups:
-https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L; builds D-659) Look
-A, a glowworm: side on and facing right, a plump grub of bone-white
-rings, its tail glowing venom green, a pink eye and an open mouth; it
-`glows`, drawn over the dark as the lure wisp is. Its drop is a Grub
-Skin, about 1 in 2, sold for 1, and now and then a Glow Gland, about 1
-in 10, sold for 5 as every rare one is. Beside the hero with the lantern
-lit, it spits anyway: 1 heart at once. It is built in two steps: first
-the grub itself, in the pool from depth 4, never moving and, with no
-way, hurting whoever stands beside it, lit or not, as the snapcap does
-(the owner's pick); then the spit and the glob, a new way, with a
-playtest, where whether a glob hurts a creature in its path is asked.
-Drafts the owner may change: the names and lines. D-675 moved to
+**D-688 · 2026-11-08 · The Spit grub built** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L;
+builds D-659) Look A, a glowworm side on, a plump grub of bone-white
+rings, its tail glowing venom green; it `glows` with a green halo. A
+Grub Skin, about 1 in 2, sold for 1; a rare Glow Gland, sold for 5 as
+every rare one is. Its new way `spits` (`spit.js`): the glob starts on
+the tile beside it, so beside the hero with the lantern lit it hits at
+once; a glob hurts a creature in its path as a blow does. Built in one
+step, not two (changed in the open PR at the owner's word: the grub
+should play as designed from its first version). Claude's drafts the
+owner may change: a creature a glob beats leaves no drop and no
+experience; armour never turns a glob aside; a glob breaks on a person
+unharmed and flies over water; the grub turns to face where it spits; a
+tap-walk stops at a spit; the names and lines. D-675 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.

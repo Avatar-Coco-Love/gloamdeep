@@ -6,6 +6,7 @@
 const PINK = '#e8786a', DARK = '#0e0c16';
 const ARROW = ['oo...', 'o#o..', 'o##o.', 'o###o', 'o##o.', 'o#o..', 'oo...']; // pointing right
 const FANGS = ['ooooooo', 'o#####o', 'o#o.o#o', 'ooo.ooo']; // pointing down
+const GLOB = ['.ooo.', 'o###o', 'o###o', 'o###o', '.ooo.']; // a spit to come, the glob's mark (D-688)
 
 // The arrow's rows turned to point dx, dy; the fangs only flip to point up
 import { onWipe } from './wipe.js';
@@ -26,10 +27,10 @@ function shape(rows) {
 }
 const key = (dx, dy) => `${dx},${dy}`;
 const WAYS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-let ARROWS, BITES; // made on first draw, once, and again after a wipe (D-588)
+let ARROWS, BITES, SPIT; // made on first draw, once, and again after a wipe (D-588)
 onWipe(() => { ARROWS = null; });
 function make() {
-  ARROWS = {}; BITES = {};
+  ARROWS = {}; BITES = {}; SPIT = shape(GLOB);
   for (const [dx, dy] of WAYS) { ARROWS[key(dx, dy)] = shape(turned(ARROW, dx, dy)); BITES[key(dx, dy)] = shape(dy === -1 ? [...FANGS].reverse() : FANGS); }
 }
 
@@ -39,11 +40,11 @@ export function drawMoves(c, moves, at, t, still) {
   if (!ARROWS) make();
   c.globalAlpha = still ? 1 : 0.6 + 0.4 * (Math.sin(t / 160) + 1) / 2;
   for (const { e, kind, dx, dy } of moves) {
-    const p = at(e), img = (kind === 'bite' ? BITES : ARROWS)[key(dx, dy)];
+    const p = at(e), img = kind === 'spit' ? SPIT : (kind === 'bite' ? BITES : ARROWS)[key(dx, dy)];
     if (!img) continue;
     // The point on the edge toward dx, dy of the tile it is shown on (sprites sit 2 up);
     // an arrow sits 4 past it, fangs 3 back from it (1 for up and down)
-    const k = kind === 'bite' ? (dx ? -3 : -1) : 4;
+    const k = kind === 'bite' ? (dx ? -3 : -1) : 4; // a spit's glob mark sits where an arrow would
     const x = Math.round(p.x * 16) + 8 + dx * (8 + k), y = Math.round(p.y * 16) + 6 + dy * (8 + k);
     c.drawImage(img, Math.round(x - img.width / 2), Math.round(y - img.height / 2));
   }
