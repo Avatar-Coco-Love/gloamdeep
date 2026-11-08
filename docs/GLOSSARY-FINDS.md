@@ -68,5 +68,5 @@ neared 8 KB.
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Lightkeeper's Locket:** biome 1's first relic, an open gold locket on
   a chain, a violet hollow with a flame inside, in a violet glow; one lies
-  at depth 4 with a warden guarding it; carried for now, set on the shelf
-  later, where it keeps a find on a fall (D-689, D-691, D-692).
+  at depth 4 with a warden guarding it; set on the shelf for good, where
+  it will keep a find on a fall (D-689, D-691, D-692, D-693).

@@ -68,24 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-683 · 2026-11-07 · Space on the name pad** (the owner's pick,
-recommended; I5 of D-660's findings, as D-666 set; Q-054 stays open)
-On the name pad, Space does nothing; Enter still presses the lit key,
-and letters and Backspace type as before (D-272). Every other card and
-menu keeps Space picking, as Enter does. Before, a letter lit OK, so
-Space after it made the profile: typing "ANNA MAE" made "ANNA". Names
-stay A to Z. A test checks it.
-D-670 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-684 · 2026-11-07 · He has wares at home** (the owner's pick,
-recommended; D4 of D-660's findings, as D-666 set) The peddler's home
-line "Let me unpack. I'll have wares soon." is dropped, since at home
-he always sells his wares (D-495) and his card opens with them listed.
-His two other home lines, "You dug me out. I won't forget it." and
-"Home at last. My legs still shake.", take turns as before (D-492). A
-saved line past a list's end shows the list's first. A test checks it.
-D-671 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-685 · 2026-11-07 · The rock painted faster** (the owner's picks,
 both recommended; S1 of D-660's findings, as D-666 set) The rock and
 earth painter works out each tile's walls once, before the pixels: its
@@ -191,3 +173,17 @@ inside (all recommended). The warden first (0.3.144), then the look.
 Claude's drafts the owner may change: its lines, the name Warden.
 Mock-ups: https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK
 D-681 and D-682 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-693 · 2026-11-08 · The locket set on the shelf** (the owner's picks,
+all recommended; builds D-689 to D-692) Bumped with the locket in the
+bag, the shelf asks "Set the locket on the shelf?", "Kept close,
+whatever the dark took.", No picked; Yes sets it there in a turn, "You
+set the locket on the shelf." It stays: it never comes back off.
+Bumped then, it asks "Deconstruct shelf?", "The locket rests here.";
+Yes puts the shelf and the locket back in the bag together, or, with
+no room for both, "Your bag is full." and both stay. The shelf shows
+the locket small on its top shelf, open, with the relics' violet glow
+and glint, look A of three. What it does there comes next. Claude's
+drafts the owner may change: the tile's id, `locketShelf`.
+Mock-ups: https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ
+D-683 and D-684 moved to `archive/DECISIONS-AUDITS.md`, word for word.

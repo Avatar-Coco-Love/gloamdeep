@@ -405,3 +405,21 @@ a 320 px wide phone. Every other screen keeps it left of pause. Before,
 from level 10 the panel ran into it there. A test checks phones, phones
 held sideways and tablets at three pixel ratios.
 D-669 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-683 · 2026-11-07 · Space on the name pad** (the owner's pick,
+recommended; I5 of D-660's findings, as D-666 set; Q-054 stays open)
+On the name pad, Space does nothing; Enter still presses the lit key,
+and letters and Backspace type as before (D-272). Every other card and
+menu keeps Space picking, as Enter does. Before, a letter lit OK, so
+Space after it made the profile: typing "ANNA MAE" made "ANNA". Names
+stay A to Z. A test checks it.
+D-670 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-684 · 2026-11-07 · He has wares at home** (the owner's pick,
+recommended; D4 of D-660's findings, as D-666 set) The peddler's home
+line "Let me unpack. I'll have wares soon." is dropped, since at home
+he always sells his wares (D-495) and his card opens with them listed.
+His two other home lines, "You dug me out. I won't forget it." and
+"Home at last. My legs still shake.", take turns as before (D-492). A
+saved line past a list's end shows the list's first. A test checks it.
+D-671 moved to `archive/DECISIONS-AUDITS.md`, word for word.
