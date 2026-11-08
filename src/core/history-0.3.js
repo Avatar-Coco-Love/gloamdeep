@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.159', date: '2026-11-08', title: 'Teaching goals worded', lines: [
+    "Nothing in the game changed. The first six teaching goals now have their words, each a goal and one line saying how, such as \"Beat a rat\" and \"Walk into it to strike.\" Each appears at its own moment: going home once a rat is beaten, spending your ember as soon as you reach level 2.",
+    "The goal will sit under the hearts panel and open the Journal when tapped. Done, it turns gold and says what it paid, rolled from an oil flask, herbs, oilcaps, a Glint or a potion. The first boon you pick will open a card saying what boons are.",
+    "Decisions: D-706. Questions closed: Q-087.",
+  ] },
   { v: '0.3.158', date: '2026-11-08', title: 'Teaching goals planned', lines: [
     "Nothing in the game changed. A teaching map lists every system, where you first meet it and what tells you how it works. Five are never explained: fighting, embers and Growth, going home to the woods, the waystone, and the Journal.",
     "Teaching goals are planned for those five, one at a time, each appearing when it helps, such as \"beat a rat\" once you see one. They will live in a Quests tab in the Journal, and each pays a reward rolled from a short list.",

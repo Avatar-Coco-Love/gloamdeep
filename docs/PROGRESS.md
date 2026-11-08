@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.158 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.159 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The first teaching goals (D-705): Claude drafts their words, order and reward list for the owner to pick (Q-087), then the Quests tab and the first goal line. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The first teaching goal built (D-706): the Quests tab and the goal line under the hearts panel, with "Beat a rat" and its rolled reward. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
-- Teaching goals: words, order, rewards and chances (Q-087), next.
 - The eleventh audit's findings: which to fix (D-699), any time.
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -44,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.159, Teaching goals worded.** The owner's picks from
+  a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa): six goals,
+  a goal and a how line each, each at its own moment; the line under the
+  hearts panel, gold when done; rewards mostly finds; the plain boons
+  card (D-706). Docs only; nothing to play.
 - **2026-11-08, 0.3.158, Teaching goals planned.** The owner asked
   whether simple goals could teach the game's many systems. A teaching
   map (https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) found 5 never
@@ -55,9 +59,3 @@ list in `RESEARCH.md`.
   Brim all in the trim's colours; Hood, Brim and Ears free. Next, a free
   pick of a look for each new profile, the owner's wish.
   Playtest: https://claude.ai/artifact/BkLJGwVTHqQhnXYH7mfC4M
-- **2026-11-08, 0.3.156, Hats and hoods.** The owner's picks, all
-  recommended (D-703), from eight drafts
-  (https://claude.ai/artifact/6AxqaXJqWfcCVeGARWg7oh): Brim, Ears and
-  Helm join the hood on a sixth tab, HEAD, 3 Glints each. The six tabs
-  go in two rows of three where one row is too narrow.
-  Playtest: https://claude.ai/artifact/DA5qAiRRnK2uejvTLSuwHN

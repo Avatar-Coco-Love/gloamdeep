@@ -67,6 +67,10 @@ code; where this page and a decision disagree, the decision wins.
 - **Bestiary:** the Journal's third tab, a table of the creatures met, how many met and
   beaten (D-630); more of a page shows the more you meet and fight that creature (D-350): how it acts after one is beaten, how to fight it after 3 (D-631, D-632).
 - **Met:** a creature lit for the first time, showing itself, each one once (D-630).
+- **Teaching goal, goal line, Quests:** a small goal that teaches one
+  system, shown as the goal line under the hearts panel until done; tapped,
+  it opens the Journal's Quests tab, where done goals stay (D-705, D-706).
+  Not built yet.
 - **Growth:** the Journal's tab for spending embers (D-293), a tree with
   three branches, Light, Body and Hands (D-462, D-481).
 - **Records:** the Journal's facts about how you've played: deepest,
