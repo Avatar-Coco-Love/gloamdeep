@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.153, Three more cloak patterns.** The owner's picks,
+  all recommended (D-700): Tiger, Stars and Moth from nine drafts
+  (https://claude.ai/artifact/H1tbjmS1PxQxBkWLX9fdCV), 3 Glints each, so
+  patterns cost the 18 Feats pay. A fourth row; names dropped on the
+  smallest view; the price note under the big hero.
+  Playtest: https://claude.ai/artifact/WmUHwA5AqZg1P8uB8Gu5YY
 - **2026-11-08, 0.3.152, The eleventh audit.** All recommended (D-699):
   the 0.3 history split in two, Relics decisions archived, OPEN-QUESTIONS,
   TECH and PROGRESS trimmed, all word for word. Start read 9.7 KB.

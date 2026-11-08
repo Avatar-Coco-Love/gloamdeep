@@ -57,7 +57,21 @@ const lampExtra = (lamp) => {
   const [top, ...rows] = l;
   return rows.flatMap((r, i) => [...r].flatMap((ch, j) => (ch === '.' ? [] : [[11 + j, top + i, ch]])));
 };
-const dressed = (clothes, lamp) => ({ ...HERO, rows: HERO.rows.map((r, i) => (CLOTHES_ROWS[clothes] ?? {})[i] ?? r), extra: lampExtra(lamp) });
+// § heads (D-703): the hats and hoods from their mock-up, each in place of the hood's top: whole rows of
+// 16 from y 0, '.' leaving the hero's own pixel and '_' clearing it. The hood is the hero's own; the
+// cloth takes the cloak's shades, the metal the trim's, and the face's shade and eyes stay.
+const HEAD_ROWS = {
+  brim: ['______kkkk______', '_____kCccck_____', '_____kTTTtk_____', '_kkkkCccccBkkkk_', 'kCcccccccccBBbbk', '_kkkkkkkkkkkkkk_'], // a wanderer's wide hat
+  ears: ['....kk....kk....', '....kCk..kck....', '....kCc..cBk....'], // the hood with two pointed ears
+  helm: ['________________', '______kkkk______', '_____kTTTtk_____', '____kTTTTttk____', '___ktttttttbk___', '...kckkttkkck...'], // a metal cap, a nose guard
+};
+// The hero's rows whole, 16 wide, with a head's rows over them
+const whole = (r) => { r = (r + '........').slice(0, 8); return r + [...r].reverse().join(''); };
+const headed = (rows, head) => rows.map((r, y) => [...whole(r)].map((ch, x) => { const h = HEAD_ROWS[head][y]?.[x]; return !h || h === '.' ? ch : h === '_' ? '.' : h; }).join(''));
+const dressed = (clothes, lamp, head) => {
+  const rows = HERO.rows.map((r, i) => (CLOTHES_ROWS[clothes] ?? {})[i] ?? r), extra = lampExtra(lamp);
+  return HEAD_ROWS[head] ? { mirror: false, rows: headed(rows, head), extra } : { ...HERO, rows, extra };
+};
 // § flask: the study's oil flask, a cork over a bottle of amber oil (study line 156, D-077)
 const FLASK = { mirror: true, rows: [
   '', '', '......kk', '.....kaa', '......kk', '......ko', '.....koo', '....kooo', '...kwooo', '...kwooo',

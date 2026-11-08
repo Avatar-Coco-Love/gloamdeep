@@ -2,7 +2,7 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LAMP_IDS, lampOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, choiceOf, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LAMP_IDS, lampOf, HEAD_IDS, headOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, choiceOf, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
 import { shopOf as shopFor, priceNote, plural } from '../core/feats.js';
 import { boxesAt } from '../render/cloak.js';
 import { view } from '../render/screen.js';
@@ -20,6 +20,7 @@ export function createProfileScreens(app, ui, show) {
     app.cloak = p ? cloakOf(p) : CLOAK_IDS[0]; app.eyes = p ? eyesOf(p) : EYE_IDS[0];
     app.trim = p ? trimOf(p) : TRIM_IDS[0]; app.clothes = p ? clothesOf(p) : CLOTHES_IDS[0];
     app.lamp = p ? lampOf(p) : LAMP_IDS[0]; // D-702
+    app.head = p ? headOf(p) : HEAD_IDS[0]; // D-703
   }
   function closeName() { app.picking = null; show('slots', app.naming); }
   function pressName(id) {
@@ -34,9 +35,9 @@ export function createProfileScreens(app, ui, show) {
   // profile's new look.
   // The profile on the card's patterns bought and Glints left; a new hero's are none (D-696)
   const shopOf = () => shopFor(!app.cloakNew && app.profiles.slots[app.naming]);
-  const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp });
+  const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head });
   const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (isLocked(tab, id, shopOf().bought) ? ' locked' : '')).join(', ')}.`; };
-  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes, lamp. Arrows choose, then OK. Random rolls a whole new look.`;
+  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes, lamp, head. Arrows choose, then OK. Random rolls a whole new look.`;
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
@@ -51,7 +52,7 @@ export function createProfileScreens(app, ui, show) {
   // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
   // choice is picked
   // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays;
-  // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696); a locked lamp the same (D-702)
+  // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696); a locked lamp or head the same (D-702, D-703)
   const tryWords = (id) => { const c = choiceOf(id), { have } = shopOf(); return `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
   function moveToLook(i) {
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
