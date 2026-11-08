@@ -3,7 +3,7 @@
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
 import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LAMP_IDS, lampOf, HEAD_IDS, headOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, choiceOf, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
-import { shopOf as shopFor, priceNote, plural } from '../core/feats.js';
+import { shopOf as shopFor, newShop, priceNote, plural, FREE_NOTE } from '../core/feats.js';
 import { boxesAt } from '../render/cloak.js';
 import { view } from '../render/screen.js';
 
@@ -14,7 +14,7 @@ export function createProfileScreens(app, ui, show) {
   // screen with nothing made (D-398). Renaming (D-273) opens on the name kept; OK keeps the new one
   // (none: unnamed again) and goes back to the slot screen; the cross or Esc leaves the old name.
   const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, then OK. Esc or the close button goes back.` : 'Name your profile. Type up to 12 letters, then OK. Esc or the close button goes back.');
-  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; wearOf(renaming && app.profiles.slots[i]); show('name'); }
+  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; app.gift = null; wearOf(renaming && app.profiles.slots[i]); show('name'); }
   // The look the name and look cards show: a profile's own, or a new hero's first free one (D-517)
   function wearOf(p) {
     app.cloak = p ? cloakOf(p) : CLOAK_IDS[0]; app.eyes = p ? eyesOf(p) : EYE_IDS[0];
@@ -33,10 +33,11 @@ export function createProfileScreens(app, ui, show) {
   // profile's own look, and the cross leaves it as it was. The flame on a tab opens it; on a
   // choice, picks it. RANDOM rolls all four parts and the flame stays on it (D-522). OK from any tab makes a new profile and opens the title, or keeps a
   // profile's new look.
-  // The profile on the card's patterns bought and Glints left; a new hero's are none (D-696)
-  const shopOf = () => shopFor(!app.cloakNew && app.profiles.slots[app.naming]);
+  // The profile on the card's patterns bought, Glints left and free pick; a new hero has no Glints,
+  // its free pick app.gift once taken (D-696, D-714)
+  const shopOf = () => (app.cloakNew ? newShop(app.gift) : shopFor(app.profiles.slots[app.naming]));
   const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head });
-  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (isLocked(tab, id, shopOf().bought) ? ' locked' : '')).join(', ')}.`; };
+  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (isLocked(tab, id, shopOf().bought) ? (shopOf().free ? ' free' : ' locked') : '')).join(', ')}.`; };
   const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes, lamp, head. Arrows choose, then OK. Random rolls a whole new look.`;
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
@@ -53,7 +54,7 @@ export function createProfileScreens(app, ui, show) {
   // choice is picked
   // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays;
   // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696); a locked lamp or head the same (D-702, D-703)
-  const tryWords = (id) => { const c = choiceOf(id), { have } = shopOf(); return `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
+  const tryWords = (id) => { const c = choiceOf(id), { have, free } = shopOf(); return free ? `${c.name}, ${FREE_NOTE}` : `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
   function moveToLook(i) {
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
     app.chosen = i;
@@ -61,6 +62,7 @@ export function createProfileScreens(app, ui, show) {
     if (!k.tab && isLocked(app.lookTab, k.id, shopOf().bought)) { app.lookTry = k.id; spoken.textContent = tryWords(k.id); }
     else if (k.tab) { if (k.id !== app.lookTab) app.lookScroll = 0; app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
+    else if (k.id === 'random' && app.lookTry && shopOf().free) spoken.textContent = `Take ${choiceOf(app.lookTry).name} free`;
     else if (k.id === 'random' && app.lookTry) spoken.textContent = shopOf().have >= choiceOf(app.lookTry).price ? `Buy ${choiceOf(app.lookTry).name} for ${plural(choiceOf(app.lookTry).price)}` : `Buy, too few Glints. ${tryWords(app.lookTry)}`;
     else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
@@ -71,7 +73,7 @@ export function createProfileScreens(app, ui, show) {
   function pressLook(i, tapped = false) {
     const pad = LOOK_PADS[app.lookTab], k = pad[i];
     if (k.id === 'ok' && !k.tab) {
-      if (app.cloakNew) { ui.useSlot(app.naming, app.entry, lookOf()); show('title'); }
+      if (app.cloakNew) { ui.useSlot(app.naming, app.entry, lookOf(), app.gift); show('title'); }
       else { ui.lookSlot(app.naming, lookOf()); closeCloak(); }
       return;
     }
@@ -84,9 +86,18 @@ export function createProfileScreens(app, ui, show) {
   }
   // § buy (D-696): BUY spends the tried pattern's Glints at once, with no asking, and wears it;
   // the flame goes on to OK. With too few Glints it does nothing but say so.
+  // While the free pick waits, the button is FREE: it takes the tried look for no Glints, a new
+  // hero's held until OK makes it (D-714)
   function buy(i) {
-    const id = app.lookTry, c = choiceOf(id);
+    const id = app.lookTry, c = choiceOf(id), free = shopOf().free;
     app.chosen = i;
+    if (free) {
+      if (app.cloakNew) app.gift = id; else ui.giftSlot(app.naming, id);
+      app[app.lookTab] = id; app.lookTry = null;
+      app.chosen = LOOK_PADS[app.lookTab].findIndex((p) => p.id === 'ok');
+      spoken.textContent = `Took ${c.name}, your free pick.`;
+      return;
+    }
     if (shopOf().have < c.price) { spoken.textContent = tryWords(id); return; }
     ui.buySlot(app.naming, id);
     app[app.lookTab] = id; app.lookTry = null;

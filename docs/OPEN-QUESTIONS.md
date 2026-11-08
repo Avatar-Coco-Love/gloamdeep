@@ -39,6 +39,8 @@ D-702: Carriage, Dish and Pierced lamps join at 3 each, so looks now cost
 heads join at 3 each, so looks now cost 36, twice what the Feats pay.
 Narrowed by D-704: five more heads at 3 each, Brim and Ears free, so
 looks now cost 45; next, a free pick of one look for each new profile.
+Narrowed by D-714: every profile picks one locked look free; next,
+Carriage and Zebra free for everyone.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a

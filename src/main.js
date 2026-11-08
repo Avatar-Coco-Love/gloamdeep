@@ -366,10 +366,10 @@ function newJourney(mode) {
   savedState = null; keepJourney(); // saved at once, so Continue is there before a first turn
 }
 // § slots: picking, making, renaming, a new look and deleting a profile are in slots.js (D-519)
-const { useSlot, renameSlot, lookSlot, buySlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
+const { useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)

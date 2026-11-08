@@ -181,3 +181,13 @@ it goes ahead of an older goal waiting only while an ember is there to
 spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
+
+**D-714 · 2026-11-08 · The free pick of a locked look** (the owner's
+picks, all recommended; builds D-704, narrows Q-055) Every profile gets
+one look of all those locked, free. While it waits, each locked box on
+the Look card reads FREE in gold, not LOCK; trying one on says "your free
+pick. One look of all those locked." and the button where RANDOM was
+reads FREE. Taken, the rest go back to LOCK and their prices, and it costs
+no Glints. Not taken when a new hero is made, it waits for Change Look.
+Profiles made before get one each. Next, its own step: the Carriage lamp
+and the Zebra pattern free for everyone (the owner's pick, recommended).

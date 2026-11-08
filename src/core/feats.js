@@ -15,11 +15,14 @@ export const FEATS = [
 export const reached = (feat, records) => feat.tiers.filter((n) => (records[feat.record] ?? 0) >= n).length;
 // The Glints all Feats have paid
 export const glints = (records) => FEATS.reduce((g, f) => g + f.pays.slice(0, reached(f, records)).reduce((a, b) => a + b, 0), 0);
-// The Glints a profile has left to spend: those Feats and goals paid (D-706) less the patterns it bought (D-696)
-export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) + (p?.glints ?? 0) - spentOn(p?.bought));
-// What a profile can spend on the Look card: its patterns bought and Glints left; none for a
-// hero not made yet (D-696)
-export const shopOf = (p) => ({ bought: p ? p.bought ?? [] : [], have: p ? glintsLeft(p) : 0 });
+// The Glints a profile has left to spend: those Feats and goals paid (D-706) less the patterns it
+// bought (D-696), its free pick costing none (D-714)
+export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) + (p?.glints ?? 0) - spentOn((p?.bought ?? []).filter((id) => id !== p.gift)));
+// What a profile can spend on the Look card: its patterns bought, Glints left, and whether its free
+// pick waits (D-714); a hero not made yet has no Glints, its free pick the one taken on the card or
+// waiting (D-696, D-714)
+export const shopOf = (p) => ({ bought: p ? p.bought ?? [] : [], have: p ? glintsLeft(p) : 0, free: p ? p.gift === null : true });
+export const newShop = (gift = null) => ({ bought: gift ? [gift] : [], have: 0, free: !gift });
 export const plural = (n) => `${n} Glint${n === 1 ? '' : 's'}`;
 export const glintsText = (p) => plural(glintsLeft(p));
 
@@ -34,6 +37,8 @@ export function featRows(records) {
 // § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
 // has, and to earn more when they are too few
 export const priceNote = (name, price, have) => `${name} costs ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
+// The free pick's note, after a look's name (D-714)
+export const FREE_NOTE = 'your free pick. One look of all those locked.';
 // The Look card's shorter one, in the big hero's name line (D-700)
 export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';

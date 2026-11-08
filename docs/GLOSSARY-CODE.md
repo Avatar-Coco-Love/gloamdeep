@@ -38,6 +38,8 @@ code; where this page and a decision disagree, the decision wins.
   in a look; `HEADS` in `looks.js`, pixels in `pictures.js`): the Hood,
   Brim and Ears, free, then Helm, Horned, Pointed, Bobble, Circlet and
   Scarf, locked at 3 Glints (D-703, D-704).
+- **Free pick:** one locked look each profile takes for no Glints
+  (`gift` on a profile, null while it waits; `giftedSlot`, D-714).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).

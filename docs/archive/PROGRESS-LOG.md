@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.164, The fifth teaching goal.** "Take a boon" on
+  stepping off the woken plate with no boon ever held. The owner's
+  picks, all recommended: done on the pick, the cross leaving it
+  waiting; an older profile holding a boon now is ticked quietly; the
+  boons card is its own step (D-711).
+  Playtest: https://claude.ai/artifact/DNJsXj6WjoptpW2yTzE11W
 - **2026-11-08, 0.3.163, The fourth teaching goal.** "Wake the waystone"
   once the stone is found. The owner's picks, all recommended: done on
   the step that wakes the plate; ticked quietly if it is woken already

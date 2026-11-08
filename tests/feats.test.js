@@ -72,8 +72,8 @@ test('buying a pattern spends its 3 Glints, and the tab shows those left (D-696)
   assert.equal(glintsLeft({ records: at(50), bought: ['zebra'] }), 0);
   assert.equal(glintsLeft({ records: at(200), bought: ['zebra', 'cow'] }), 0);
   assert.equal(glintsText({ records: at(200), bought: ['camo'] }), '3 Glints');
-  assert.deepEqual(shopOf({ records: at(10), bought: ['cow'] }), { bought: ['cow'], have: 0 }, 'never below none');
-  assert.deepEqual(shopOf(false), { bought: [], have: 0 }, 'a hero not made yet has none');
+  assert.deepEqual(shopOf({ records: at(10), bought: ['cow'] }), { bought: ['cow'], have: 0, free: false }, 'never below none');
+  assert.deepEqual(shopOf(false), { bought: [], have: 0, free: true }, 'a hero not made yet has none');
 });
 
 test('the note says the price and the Glints there are, and to earn more when too few (D-696)', () => {
