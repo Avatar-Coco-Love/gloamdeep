@@ -128,3 +128,19 @@ edge. A thin bar at the boxes' right, its gold thumb showing where the
 window is, shows only when a tab has more rows than fit. Opening a tab
 starts at its top, then goes to its pick. No looks change in this step;
 lantern looks are next, Claude showing a set and the owner choosing.
+
+**D-702 · 2026-11-08 · Lantern looks** (the owner's picks, all
+recommended, from a mock-up of eight drafts,
+https://claude.ai/artifact/3DDWo2nmCzKLfeVsUjp9Y3; builds D-695, D-696,
+D-698, D-701, narrows Q-055) A look's fifth part is its lamp, the
+lantern's shape, chosen on a fifth tab, LAMP, after CLOTHES. Three shapes
+join the study's lantern: Carriage (a wide roof and foot), Dish (a bare
+flame on a dish) and Pierced (dark tin, light through its holes). Each
+takes the TRIM's two colours, keeps the flame's, and the light stays where
+it is. Each costs 3 Glints, bought as a pattern is; RANDOM rolls only
+those bought. The lantern button and the app icon stay as they are. Where
+one row is too narrow for five tabs, they go in two (three, then two), as
+the Journal's do; where even then four rows of boxes would reach the
+buttons (the 176 × 221 view upright), the window shows three and the rest
+scroll (D-701). Claude's call the owner may change: the free one is named
+Lantern.

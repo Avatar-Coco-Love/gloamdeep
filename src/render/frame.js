@@ -63,7 +63,7 @@ import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { shopOf } from '../core/feats.js';
-import { cloakOf, eyesOf, trimOf, clothesOf } from '../core/looks.js';
+import { cloakOf, eyesOf, trimOf, clothesOf, lampOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways, widen } from '../core/openings.js';
 import { watch, onWipe, onCheck, blankAt } from './wipe.js';
@@ -165,16 +165,16 @@ export function createFrame(app, ui) {
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'mode') { titleScene(0, t); drawWays(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-396)
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
-    else if (screen === 'slots') { titleScene(0, t); drawSlots(rc, view.w, view.h, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)), app.chosen, app.picking, screens.slotsBack(), t, still()); } // the card on the title's scene (D-397)
-    else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes)); } // the card on the title's scene (D-398)
-    else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, shopOf(!app.cloakNew && app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
+    else if (screen === 'slots') { titleScene(0, t); drawSlots(rc, view.w, view.h, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p), lampOf(p)), app.chosen, app.picking, screens.slotsBack(), t, still()); } // the card on the title's scene (D-397)
+    else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes, app.lamp)); } // the card on the title's scene (D-398)
+    else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, shopOf(!app.cloakNew && app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
     else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought); } // the card on the title's scene (D-391)
     else if (screen === 'title') { // laid out like a phone game's (D-401)
       const p = playing(app.profiles);
       titleScene(3, t);
       drawName(rc, view.w / 2, nameTop(view.h));
-      drawTitleCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, { ...screens.chip(), hero: heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)) }, t, still());
+      drawTitleCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, { ...screens.chip(), hero: heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p), lampOf(p)) }, t, still());
     } else {
       const [menu, heading, note] = screen === 'ended' ? [ENDED_MENU, ENDED_HEADING, null] // after a Hardcore fall (D-344)
         : [screens.menuOf(screen), null, null];
@@ -186,7 +186,7 @@ export function createFrame(app, ui) {
   function draw(t) {
     listCtx.fillStyle = '#0e0c16'; listCtx.fillRect(0, 0, listCtx.canvas.width, listCtx.canvas.height); // the list's row stays empty
     const p = playing(app.profiles);
-    wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p)); // the profile in play's look, on the title and in play (P3 to P6)
+    wearLook(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p), lampOf(p)); // the profile in play's look, on the title and in play (P3 to P6, D-702)
     const onTitle = screens.onTitle();
     fitTitle(onTitle); // the title's scene fills the screen at the picture's zoom
     fitCards(CARDS.has(app.screen)); // a card on a squarer screen or an upright tablet drawn smaller, so it fits (D-671, D-681)

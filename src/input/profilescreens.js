@@ -2,8 +2,10 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, CLOAKS, LOOK_SHOWN, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LAMP_IDS, lampOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, choiceOf, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
 import { shopOf as shopFor, priceNote, plural } from '../core/feats.js';
+import { boxesAt } from '../render/cloak.js';
+import { view } from '../render/screen.js';
 
 export function createProfileScreens(app, ui, show) {
   const { spoken } = ui;
@@ -17,6 +19,7 @@ export function createProfileScreens(app, ui, show) {
   function wearOf(p) {
     app.cloak = p ? cloakOf(p) : CLOAK_IDS[0]; app.eyes = p ? eyesOf(p) : EYE_IDS[0];
     app.trim = p ? trimOf(p) : TRIM_IDS[0]; app.clothes = p ? clothesOf(p) : CLOTHES_IDS[0];
+    app.lamp = p ? lampOf(p) : LAMP_IDS[0]; // D-702
   }
   function closeName() { app.picking = null; show('slots', app.naming); }
   function pressName(id) {
@@ -31,9 +34,9 @@ export function createProfileScreens(app, ui, show) {
   // profile's new look.
   // The profile on the card's patterns bought and Glints left; a new hero's are none (D-696)
   const shopOf = () => shopFor(!app.cloakNew && app.profiles.slots[app.naming]);
-  const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes });
+  const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp });
   const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (isLocked(tab, id, shopOf().bought) ? ' locked' : '')).join(', ')}.`; };
-  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK. Random rolls a whole new look.`;
+  const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes, lamp. Arrows choose, then OK. Random rolls a whole new look.`;
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
@@ -48,8 +51,8 @@ export function createProfileScreens(app, ui, show) {
   // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
   // choice is picked
   // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays;
-  // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696)
-  const tryWords = (id) => { const c = CLOAKS[id], { have } = shopOf(); return `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
+  // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696); a locked lamp the same (D-702)
+  const tryWords = (id) => { const c = choiceOf(id), { have } = shopOf(); return `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
   function moveToLook(i) {
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
     app.chosen = i;
@@ -57,10 +60,10 @@ export function createProfileScreens(app, ui, show) {
     if (!k.tab && isLocked(app.lookTab, k.id, shopOf().bought)) { app.lookTry = k.id; spoken.textContent = tryWords(k.id); }
     else if (k.tab) { if (k.id !== app.lookTab) app.lookScroll = 0; app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
-    else if (k.id === 'random' && app.lookTry) spoken.textContent = shopOf().have >= CLOAKS[app.lookTry].price ? `Buy ${CLOAKS[app.lookTry].name} for ${plural(CLOAKS[app.lookTry].price)}` : `Buy, too few Glints. ${tryWords(app.lookTry)}`;
+    else if (k.id === 'random' && app.lookTry) spoken.textContent = shopOf().have >= choiceOf(app.lookTry).price ? `Buy ${choiceOf(app.lookTry).name} for ${plural(choiceOf(app.lookTry).price)}` : `Buy, too few Glints. ${tryWords(app.lookTry)}`;
     else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
-    app.lookScroll = lookScrollTo(app.lookTab, app.lookScroll, i); // the window follows the flame (D-701)
+    app.lookScroll = lookScrollTo(app.lookTab, app.lookScroll, i, shownNow()); // the window follows the flame (D-701)
   }
   // Enter on a tab goes down to its picked choice, on a hero on to OK; a tap stays where it was;
 // RANDOM rolls and stays
@@ -81,7 +84,7 @@ export function createProfileScreens(app, ui, show) {
   // § buy (D-696): BUY spends the tried pattern's Glints at once, with no asking, and wears it;
   // the flame goes on to OK. With too few Glints it does nothing but say so.
   function buy(i) {
-    const id = app.lookTry, c = CLOAKS[id];
+    const id = app.lookTry, c = choiceOf(id);
     app.chosen = i;
     if (shopOf().have < c.price) { spoken.textContent = tryWords(id); return; }
     ui.buySlot(app.naming, id);
@@ -89,13 +92,15 @@ export function createProfileScreens(app, ui, show) {
     app.chosen = LOOK_PADS[app.lookTab].findIndex((p) => p.id === 'ok');
     spoken.textContent = `Bought ${c.name}. ${plural(shopOf().have)} left.`;
   }
+  // The window's rows on this view: LOOK_SHOWN, one fewer on the smallest (D-702)
+  const shownNow = () => boxesAt(view.w, view.h).shown;
   const moveLookBy = (dir) => moveToLook(moveLook(app.lookTab, app.chosen, dir, app[app.lookTab]));
   // § scroll (D-701): a swipe or the wheel moves the choices a row, by > 0 down the list; false
   // when the open tab's choices all fit, so a swipe moves the flame as before
   function scrollLookBy(by) {
-    const rows = tabRows(app.lookTab);
-    if (rows <= LOOK_SHOWN) return false;
-    app.lookScroll = clampScroll((app.lookScroll ?? 0) + by, rows);
+    const rows = tabRows(app.lookTab), shown = shownNow();
+    if (rows <= shown) return false;
+    app.lookScroll = clampScroll((app.lookScroll ?? 0) + by, rows, shown);
     return true;
   }
   return { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook, scrollLookBy };

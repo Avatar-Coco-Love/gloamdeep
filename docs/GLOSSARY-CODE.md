@@ -31,6 +31,9 @@ code; where this page and a decision disagree, the decision wins.
   their own colours (Zebra, Cow, Camo, Tiger, Stars, Moth, D-700), `locked` until bought with Glints;
   shown dim with LOCK and tried on, never kept (D-515, D-533); `price` 3
   each, bought with BUY and kept in the profile's `bought` (D-696).
+- **Lamp:** the lantern's shape, the LAMP tab, fifth on the Look card
+  (`lamp` in a look; `LAMPS` in `looks.js`, pixels in `pictures.js`): the
+  Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints (D-702).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).

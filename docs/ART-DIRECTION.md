@@ -38,7 +38,7 @@ Named colours are in the study's `PAL` (lines 121–128). Key roles:
 | Outline / deepest dark | `#0e0c16` |
 | Hero cloak (light, mid, dark, deepest) | `#a6e0e4` `#58a8b4` `#2f6a7c` `#1c3e4e`; a profile may wear one of five more (`src/core/looks.js`, D-275), in one of four shapes of clothes (D-278) |
 | Lantern, flame, oil | `#ffd66b` `#f39a3b` `#e9a94a` |
-| Lantern trim (cap, base) | `#e8d5a0` `#a8642c`; a profile may pick one of five more (`src/core/looks.js`, D-277) |
+| Lantern trim (cap, base) | `#e8d5a0` `#a8642c`; a profile may pick one of five more (`src/core/looks.js`, D-277), on one of four lamp shapes (D-702) |
 | Bone, pale highlights | `#efe6cc` `#b9ab88` |
 | Hostile marks (eyes) | `#e8786a` |
 | Hero eyes | `#efe6cc`; a profile may pick one of five more (`src/core/looks.js`, D-276) |
