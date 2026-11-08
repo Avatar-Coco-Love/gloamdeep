@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.151, Flasks, the third Feat.** The owner's picks,
+  all recommended (D-698): Flasks, from Flasks poured, at 5, 25 and 100,
+  named short to fit upright. Glints should match the shop, so looks
+  come next, one kind a step. Playtest: https://claude.ai/artifact/Q2EwY8M4Vwg5vV18WhAKx9
 - **2026-11-08, 0.3.150, Deepest, the second Feat.** The owner's picks,
   all recommended (D-697): Deepest at depth 5, 10 and 20, paying 1 / 2 /
   3 Glints; Rooms found and Torches lit wait, the owner unsure they fit

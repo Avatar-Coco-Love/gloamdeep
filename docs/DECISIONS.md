@@ -116,3 +116,15 @@ tab keeps as many rows. On a view too short for four rows (the menus'
 is tried on, the note takes the big hero's name line instead of
 covering the boxes: "Tiger: 3 Glints. You have 4.", adding "Earn more
 from Feats." with too few, wrapping up over the floor's foot.
+
+**D-701 · 2026-11-08 · The Look card scrolls** (the owner's picks, all
+recommended, from a mock-up of three ways; builds D-533, D-700) More of
+every kind of look is coming (more cloaks, eye colours, lantern looks and
+colours), so the Look card makes room now. Its boxes stay a window of at
+most four rows; a tab with more scrolls them a row at a time: a swipe up
+or down on the card, or one notch of the mouse wheel, moves them a row,
+and the arrow keys move the window a row when the flame goes past its
+edge. A thin bar at the boxes' right, its gold thumb showing where the
+window is, shows only when a tab has more rows than fit. Opening a tab
+starts at its top, then goes to its pick. No looks change in this step;
+lantern looks are next, Claude showing a set and the owner choosing.

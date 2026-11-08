@@ -397,7 +397,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab,
+  onDir, onPoint, onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab, onWheel: screens.onWheel,
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)
   repeats: () => app.screen === 'play', // off play a held Space picks once (D-669)
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)

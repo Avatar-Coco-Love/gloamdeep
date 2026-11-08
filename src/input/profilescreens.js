@@ -2,7 +2,7 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, CLOAKS } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, CLOAKS, LOOK_SHOWN, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
 import { shopOf as shopFor, priceNote, plural } from '../core/feats.js';
 
 export function createProfileScreens(app, ui, show) {
@@ -37,7 +37,7 @@ export function createProfileScreens(app, ui, show) {
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
     const p = app.profiles.slots[i];
-    app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak'; app.lookTry = null;
+    app.naming = i; app.cloakNew = fresh; app.lookTab = 'cloak'; app.lookTry = null; app.lookScroll = 0;
     if (!fresh) wearOf(p); // a new hero keeps the look picked before going back to its name (D-517)
     show('cloak', LOOK_PADS.cloak.findIndex((k) => !k.tab && k.id === app.cloak));
   }
@@ -55,11 +55,12 @@ export function createProfileScreens(app, ui, show) {
     app.chosen = i;
     if (k.tab || (k.id !== 'ok' && k.id !== 'random')) app.lookTry = null;
     if (!k.tab && isLocked(app.lookTab, k.id, shopOf().bought)) { app.lookTry = k.id; spoken.textContent = tryWords(k.id); }
-    else if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
+    else if (k.tab) { if (k.id !== app.lookTab) app.lookScroll = 0; app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
     else if (k.id === 'random' && app.lookTry) spoken.textContent = shopOf().have >= CLOAKS[app.lookTry].price ? `Buy ${CLOAKS[app.lookTry].name} for ${plural(CLOAKS[app.lookTry].price)}` : `Buy, too few Glints. ${tryWords(app.lookTry)}`;
     else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
+    app.lookScroll = lookScrollTo(app.lookTab, app.lookScroll, i); // the window follows the flame (D-701)
   }
   // Enter on a tab goes down to its picked choice, on a hero on to OK; a tap stays where it was;
 // RANDOM rolls and stays
@@ -89,5 +90,13 @@ export function createProfileScreens(app, ui, show) {
     spoken.textContent = `Bought ${c.name}. ${plural(shopOf().have)} left.`;
   }
   const moveLookBy = (dir) => moveToLook(moveLook(app.lookTab, app.chosen, dir, app[app.lookTab]));
-  return { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook };
+  // § scroll (D-701): a swipe or the wheel moves the choices a row, by > 0 down the list; false
+  // when the open tab's choices all fit, so a swipe moves the flame as before
+  function scrollLookBy(by) {
+    const rows = tabRows(app.lookTab);
+    if (rows <= LOOK_SHOWN) return false;
+    app.lookScroll = clampScroll((app.lookScroll ?? 0) + by, rows);
+    return true;
+  }
+  return { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook, scrollLookBy };
 }
