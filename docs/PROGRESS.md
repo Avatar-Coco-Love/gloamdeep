@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.157 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.158 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-A free pick of any one locked look for each new profile, shown clearly, with Carriage and one cloak pattern made free (D-704): Claude drafts how the pick is shown, the owner chooses. Then more Feats (looks now cost 45 Glints, the Feats pay 18; Q-055, Q-057), or any fix from the eleventh audit (D-699).
+The first teaching goals (D-705): Claude drafts their words, order and reward list for the owner to pick (Q-087), then the Quests tab and the first goal line. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
+- Teaching goals: words, order, rewards and chances (Q-087), next.
 - The eleventh audit's findings: which to fix (D-699), any time.
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -43,6 +44,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.158, Teaching goals planned.** The owner asked
+  whether simple goals could teach the game's many systems. A teaching
+  map (https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) found 5 never
+  explained; goals for them come one at a time as each helps, in a
+  Quests tab, with rolled rewards (D-705). Docs only; nothing to play.
 - **2026-11-08, 0.3.157, More hats and hoods.** The owner's picks (D-704):
   Horned didn't show because only three of D-703's eight drafts went in,
   so all five left join the HEAD tab (Horned's horns bone white always);
@@ -55,9 +61,3 @@ list in `RESEARCH.md`.
   Helm join the hood on a sixth tab, HEAD, 3 Glints each. The six tabs
   go in two rows of three where one row is too narrow.
   Playtest: https://claude.ai/artifact/DA5qAiRRnK2uejvTLSuwHN
-- **2026-11-08, 0.3.155, Lantern looks.** The owner's picks, all
-  recommended (D-702), from eight drafts
-  (https://claude.ai/artifact/3DDWo2nmCzKLfeVsUjp9Y3): Carriage, Dish and
-  Pierced join the lantern on a fifth tab, LAMP, 3 Glints each. Tabs go
-  in two rows where one is too narrow; the smallest view shows three rows.
-  Playtest: https://claude.ai/artifact/9ASQoEBoVCmkyoT8fuwTSn

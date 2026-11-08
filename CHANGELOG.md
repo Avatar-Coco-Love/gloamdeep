@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.158 (2026-11-08)
+- Nothing in the game changed. A teaching map lists every system, where you first meet it and what tells you how it works. Five are never explained: fighting, embers and Growth, going home to the woods, the waystone, and the Journal.
+- Teaching goals are planned for those five, one at a time, each appearing when it helps, such as "beat a rat" once you see one. They will live in a Quests tab in the Journal, and each pays a reward rolled from a short list.
+- Decisions: D-705. Questions opened: Q-087.
+
 ## 0.3.157 (2026-11-08)
 - More hats and hoods: Horned (the hood with two curled horns, always bone white), Pointed (a tall pointed hat), Bobble (a knitted cap), Circlet (a thin band across the brow) and Scarf (a cloth tied round the head) join the HEAD tab, 3 Glints each.
 - Brim, Ears and the Hood are now free from the start. Brim is all in your TRIM's colours now, not just its band. If you bought Brim or Ears, their Glints come back to you.
@@ -33,9 +38,3 @@ Entry format:
 - Each costs 3 Glints, bought with BUY as a cloak pattern is. Brim and Ears take your CLOAK's colours, and Helm and Brim's band your TRIM's. The face, eyes, clothes and lamp stay as they are.
 - The six tabs sit in one row where they fit, and in two rows of three on narrow screens.
 - Decisions: D-703.
-
-## 0.3.155 (2026-11-08)
-- Lantern looks: the Look card has a fifth tab, LAMP, for the lantern's shape. Three shapes join the lantern: Carriage, with a wide roof and foot; Dish, a bare flame on a dish; and Pierced, dark tin with light through its holes.
-- Each new shape costs 3 Glints, bought with BUY as a cloak pattern is, and takes your TRIM's colours. The flame and its light stay the same, and so does the lantern button.
-- Where the card is narrow, the five tabs sit in two rows. On the smallest screens, three rows of choices show at once and the rest scroll.
-- Decisions: D-702.
