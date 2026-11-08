@@ -50,7 +50,9 @@ Meanwhile, Space does nothing on the name pad (D-683).
 Narrowed by D-418: it is the look currency, earned only from deeds,
 records and achievements, buying only looks; trade coins are separate.
 Narrowed by D-516: it is Glints, paid by the Feats tiers and spent in
-the Look card. Still open: which Feats pay, how many, and the prices.
+the Look card. Narrowed by D-695: Beaten is the first Feat, its tiers
+paying 1, 2 and 3; a cloak pattern costs 3. Still open: the next Feats,
+and the prices of looks to come.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
@@ -59,7 +61,8 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 **Q-057 · Achievements: tiers and rewards** (before the first
 achievement, D-284) Narrowed by D-467: 3 tiers a set, each paying the
 look currency (Q-055), shown in a Feats tab with a note on reaching one.
-Still open: which records get a set, and the numbers of each tier.
+Narrowed by D-695: Beaten at 10, 50 and 200. Still open: which other
+records get a set, and their numbers.
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each

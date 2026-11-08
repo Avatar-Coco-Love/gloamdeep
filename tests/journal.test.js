@@ -11,8 +11,8 @@ import { textWidth } from '../src/render/font.js';
 
 const records = { deepest: 3, beaten: 12, falls: 4, found: 27, steps: 1843, poured: 6, torches: 2 };
 
-test('Records is the first tab, Growth the second (D-293), the Bestiary the third (D-630)', () => {
-  assert.deepEqual(TABS.map((t) => t.text), ['Records', 'Growth', 'Bestiary']);
+test('Records is the first tab, Growth the second (D-293), the Bestiary the third (D-630), Feats the fourth (D-695)', () => {
+  assert.deepEqual(TABS.map((t) => t.text), ['Records', 'Growth', 'Bestiary', 'Feats']);
 });
 
 test('the Growth tab says the embers left, then the picked place: Body\'s heart first (D-293, D-481)', () => {

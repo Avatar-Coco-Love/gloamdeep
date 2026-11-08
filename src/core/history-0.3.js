@@ -3,6 +3,14 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.148', date: '2026-11-08', title: 'Feats and Glints', lines: [
+    "The Journal has a fourth tab, Feats, after the Bestiary. A Feat is one record's set of 3 tiers, and each tier you reach pays Glints, the money for looks.",
+    "The first Feat is Beaten: 10, 50 and 200 creatures, paying 1, 2 and 3 Glints. The tab shows your Glints in gold at the top, then Beaten with your count toward the next tier, such as 12 of 50, and 3 small marks that turn gold as you reach them.",
+    "Creatures beaten before now count too. Reaching a tier says so: \"Feat reached: Beaten 10. +1 Glint.\"",
+    "On an upright phone the Journal's tabs sit in two rows, Records and Growth over Bestiary and Feats. Right from the Bestiary turns to Feats.",
+    "Buying a cloak pattern with Glints, 3 each, comes at the next step.",
+    "Decisions: D-695. D-686 moved to the archive, word for word.",
+  ] },
   { v: '0.3.147', date: '2026-11-08', title: 'The locket keeps a stack', lines: [
     "The Lightkeeper's Locket works on the shelf. In Normal, with the locket on a shelf, a fall brings home one stack from your bag: the one the peddler would pay most for in all, his price times how many. 3 Venom Sacs beat 1 Mimic Heart.",
     "A tie goes to the stack first in your bag. With nothing in the bag he buys, nothing is kept. The rest stays in the bag where you fell, as before.",

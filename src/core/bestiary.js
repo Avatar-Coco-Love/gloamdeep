@@ -54,7 +54,7 @@ export function pageOf(book, id) {
 export const movePickRow = (book, pick, d) => Math.max(0, Math.min(bestiaryRows(book).length - 1, pick + d));
 // § words: for the screen reader
 export const NONE = 'No creatures met yet.';
-const TURN = 'Left for Growth. Esc or the close button goes back.';
+const TURN = 'Left for Growth, Right for Feats. Esc or the close button goes back.';
 const PICK = 'Up or Down picks another, Enter opens its page.';
 export function bestiaryWords(book, pick = 0) {
   const rows = bestiaryRows(book), picked = rows[pick] ?? rows[0];

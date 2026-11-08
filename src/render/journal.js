@@ -10,7 +10,9 @@
 // table of the creatures met: each one's drawing and name, its met and beaten counts in two
 // columns under grey headings, in two tables side by side when one is too tall for the card;
 // the picked row's name gold. A creature's page (D-631): its drawing twice as big, its name and
-// counts beside it, and under them how it acts, or a grey hint until one is beaten.
+// counts beside it, and under them how it acts, or a grey hint until one is beaten. Feats
+// (D-695): the Glints at the top, then each Feat's name, its count toward the next tier and
+// its 3 marks, lit gold once reached.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
@@ -20,6 +22,7 @@ import { TABS, recordRows } from '../core/journal.js';
 import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, placesOf, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
 import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
+import { featRows, glintsText } from '../core/feats.js';
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
@@ -42,14 +45,23 @@ const SNUG = { box: 21, gap: 4, row0: 44, fork: 21, root: 13, name: 2, hearts: 1
 const NAMES_UP = 12; // the branches' names over the tallest branch
 const LIMB = 3; // a limb's thickness
 const tabsLeft = (card) => card.x + PAD + MARK_W;
-// Each tab's left edge, in a row from the left; on a narrow card the gaps shrink so the last
-// tab ends inside the card's padding (D-630)
-function tabXs(card) {
+const MIN_GAP = MARK_W + 4, TAB_ROW = 16; // the least gap between two tabs; from one row of tabs to the next
+// § tabs: each tab's left edge and top, in a row from the left, the gaps shrinking on a narrow
+// card so the last tab ends inside its padding (D-630); on a card too narrow for that (upright),
+// in two rows, the second's under the first's, as the how to play card's (D-695). `down`: how
+// much lower than one row's the rule under them and the tab's page go
+function tabsAt(card) {
+  const ws = TABS.map((t) => textWidth(t.text)), wide = card.x + card.w - PAD - tabsLeft(card);
+  const fits = (n) => ws.slice(0, n).reduce((a, b) => a + b, 0) + (n - 1) * MIN_GAP <= wide;
+  const first = fits(ws.length) ? ws.length : Math.ceil(ws.length / 2), spots = [];
+  const room = wide - ws.slice(0, first).reduce((a, b) => a + b, 0), gap = Math.max(MIN_GAP, Math.min(TAB_GAP, Math.floor(room / (first - 1))));
   let x = tabsLeft(card);
-  const room = card.x + card.w - PAD - x - TABS.reduce((w, t) => w + textWidth(t.text), 0);
-  const gap = Math.max(MARK_W + 4, Math.min(TAB_GAP, Math.floor(room / (TABS.length - 1))));
-  return TABS.map((tab) => { const at = x; x += textWidth(tab.text) + gap; return at; });
+  for (let i = 0; i < first; i++) { spots.push({ x, y: card.y + TABS_Y, row: 0 }); x += ws[i] + gap; }
+  for (let i = first; i < ws.length; i++) spots.push({ x: spots[i - first].x, y: card.y + TABS_Y + TAB_ROW, row: 1 });
+  return { spots, down: spots.at(-1).row * TAB_ROW };
 }
+// The card as a tab's page sees it: with two rows of tabs, its top `down` lower, its foot where it was
+const pageCard = (card, down) => (down ? { ...card, y: card.y + down, h: card.h - down } : card);
 
 // § tree's layout: the line between the tree and what is said (from the card's left), and each
 // place's box { col, row, x, y, w, h } and each branch's middle, from the card alone. Upright
@@ -75,9 +87,10 @@ const buttonOf = (card, text) => { const w = textWidth(text) + 8; return { x: ca
 // and pick: the journey and the place picked; book: the profile's Bestiary; page: the creature
 // whose page is open, if one is.
 export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null) {
-  const card = cardAt(vw, vh);
-  if (!inCard(card, x, y)) return 'out';
-  if (onCross(card, x, y)) return 'close';
+  const whole = cardAt(vw, vh);
+  if (!inCard(whole, x, y)) return 'out';
+  if (onCross(whole, x, y)) return 'close';
+  const { spots, down } = tabsAt(whole), card = pageCard(whole, down);
   if (tab === 'growth') {
     const b = state && pick && told(state, pick).button, at = b && buttonOf(card, b.text.toUpperCase());
     if (at && x >= at.x - TAP_PAD && x < at.x + at.w + TAP_PAD && y >= at.y - TAP_PAD && y < at.y + BUTTON.h + TAP_PAD) return 'buy';
@@ -89,11 +102,12 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
     const i = xs.findIndex((tx) => x >= tx && x < tx + w), j = Math.floor((y - card.y - BEASTS_Y) / BEAST_H);
     if (i >= 0 && j >= 0 && j < per && i * per + j < n) return { beast: i * per + j };
   }
-  if (y < card.y + TABS_Y - 8 || y >= card.y + TABS_RULE_Y) return null;
-  const xs = tabXs(card);
-  let i = 0;
-  while (i < xs.length - 1 && x >= (xs[i] + textWidth(TABS[i].text) + xs[i + 1]) / 2) i++;
-  return { tab: TABS[i].id };
+  if (y < whole.y + TABS_Y - 8 || y >= whole.y + TABS_RULE_Y + down) return null;
+  const row = Math.max(0, Math.min(spots.at(-1).row, Math.floor((y - whole.y - TABS_Y + 8) / TAB_ROW)));
+  const inRow = spots.map((s, i) => ({ ...s, i })).filter((s) => s.row === row);
+  let k = 0;
+  while (k < inRow.length - 1 && x >= (inRow[k].x + textWidth(TABS[inRow[k].i].text) + inRow[k + 1].x) / 2) k++;
+  return { tab: TABS[inRow[k].i].id };
 }
 
 // c: the room's canvas, `vw` × `vh`; records and played, the profile's; state, the journey's;
@@ -101,16 +115,18 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 // profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630); beast, the
 // Bestiary's picked row, and page the creature whose page is open, if one is (D-631)
 export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null) {
-  const growth = tab === 'growth', card = drawCard(c, vw, vh, 'JOURNAL', 0), { x, y, w } = card, xs = tabXs(card);
+  const growth = tab === 'growth', whole = drawCard(c, vw, vh, 'JOURNAL', 0), { spots, down } = tabsAt(whole);
   TABS.forEach((s, i) => {
-    const on = s.id === tab;
-    drawText(c, s.text, xs[i], y + TABS_Y, on ? GOLD : GREY);
+    const on = s.id === tab, at = spots[i];
+    drawText(c, s.text, at.x, at.y, on ? GOLD : GREY);
     if (!on) return;
-    drawMarker(c, xs[i] - MARK_W, y + TABS_Y + 1, t, still);
-    c.fillStyle = GOLD; c.fillRect(xs[i], y + TABS_Y + 11, textWidth(s.text), 1);
+    drawMarker(c, at.x - MARK_W, at.y + 1, t, still);
+    c.fillStyle = GOLD; c.fillRect(at.x, at.y + 11, textWidth(s.text), 1);
   });
-  c.fillStyle = LINE; c.fillRect(x + 8, y + TABS_RULE_Y, w - 16, 1);
+  c.fillStyle = LINE; c.fillRect(whole.x + 8, whole.y + TABS_RULE_Y + down, whole.w - 16, 1);
+  const card = pageCard(whole, down), { y } = card;
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
+  if (tab === 'feats') { drawFeats(c, card, records); return; }
   if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
@@ -234,4 +250,23 @@ function drawPage(c, card, p, img) {
   const fy = ay + acts.length * LINE_H + FIGHT_GAP;
   drawText(c, FIGHT_HEADING, x, fy, GOLD);
   wrapWords(p.fights, w).forEach((l, i) => drawText(c, l, x, fy + LINE_H + 2 + i * LINE_H, p.skilled ? CORE : GREY));
+}
+
+// § feats: the Glints in gold, then a row a Feat as Records' rows: its name grey, its count light,
+// and on the right its 3 marks, small diamonds, gold once reached and dim before (D-695)
+const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
+function drawFeats(c, card, records) {
+  const nx = tabsLeft(card), rows = featRows(records), right = card.x + card.w - PAD;
+  drawText(c, glintsText(records), nx, card.y + GLINTS_Y, GOLD);
+  const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
+  rows.forEach((r, i) => {
+    const ry = card.y + FEATS_Y + i * ROW_H;
+    drawText(c, r.text, nx, ry, GREY);
+    drawText(c, r.value, vx, ry, CORE);
+    for (let k = 0; k < r.tiers; k++) drawDiamond(c, right - (r.tiers - k) * (MARK + MARK_GAP) + MARK_GAP, ry + 1, k < r.reached ? GOLD : DIM);
+  });
+}
+function drawDiamond(c, x, y, colour) {
+  c.fillStyle = colour;
+  c.fillRect(x + 2, y, 1, 1); c.fillRect(x + 1, y + 1, 3, 1); c.fillRect(x, y + 2, 5, 1); c.fillRect(x + 1, y + 3, 3, 1); c.fillRect(x + 2, y + 4, 1, 1);
 }

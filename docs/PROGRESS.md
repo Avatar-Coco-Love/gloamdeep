@@ -4,19 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.147 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.148 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 21, Feats (D-482): propose what a Feat is and the first one, with
-the Glints question (Q-055).
+Step 21, Feats: buy a cloak pattern with Glints, 3 each, in the Look
+card (D-695).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
-- Glints: which Feats pay, how many, the prices (Q-055), before the first unlock.
+- Glints: the next Feats and the prices of looks to come (Q-055).
 - A region's name and rating (Q-056), with a second region.
-- Achievements' records and numbers (Q-057), before the first one.
+- Feats' other records and numbers (Q-057), one at a time.
 - Creature materials: looks and recipes (Q-061), each at its own step.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
@@ -35,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [x] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145); set on the shelf (0.3.146); what it does there (0.3.147)
-- [ ] 21 Feats
+- [ ] 21 Feats (D-695): the tab and Beaten (0.3.148)
 
 **Next audit: 0.3.152** (D-518, D-660).
 
@@ -45,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.148, Feats and Glints.** The owner's picks, all
+  recommended (D-695): Beaten is the first Feat, 10 / 50 / 200 paying
+  1 / 2 / 3 Glints; a pattern will cost 3. The Journal's Feats tab, the
+  tabs in two rows upright. Playtest:
+  https://claude.ai/artifact/AsGcSvSX59pCWavdZTQRz8
 - **2026-11-08, 0.3.147, The locket keeps a stack.** The owner's picks,
   all recommended (D-694): with the locket on the shelf, a Normal fall
   brings home the stack worth most to the peddler in all, a tie to the
@@ -57,8 +62,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   in the relics' glow. Mock-ups:
   https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ; playtest:
   https://claude.ai/artifact/VfM8TPZAWvxMzVTbvdG7Ea
-- **2026-11-08, 0.3.145, The locket's glow.** Built from the owner's
-  picks in D-692: the locket's look D, open, gold and violet with a flame
-  inside, and relics' own violet glow with the slow shimmer, as in the
-  mock-ups. Playtest:
-  https://claude.ai/artifact/2sTeS4hYPtGjLFKAgqT38j
