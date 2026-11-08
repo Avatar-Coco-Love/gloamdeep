@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.144, The warden.** The owner's ask and picks
+  (D-692): the locket's guard is a new creature, the old-city warden,
+  look A4, asleep as a statue until bumped, then chasing; 4 health. The
+  relics' look picked too, built next. Mock-ups:
+  https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK; playtest:
+  https://claude.ai/artifact/7fcpw1nJMgj58KwRmua6Cv; map preview:
+  https://claude.ai/artifact/S9kUGLyQs8y42RzmKDnXFs
 - **2026-11-08, 0.3.143, The Lightkeeper's Locket.** The owner's picks,
   all recommended (D-691): biome 1's first relic, a brass locket, lies
   once at depth 4 with a rat guarding it; carried for now. On the shelf,

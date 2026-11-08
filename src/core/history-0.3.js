@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.147', date: '2026-11-08', title: 'The locket keeps a stack', lines: [
+    "The Lightkeeper's Locket works on the shelf. In Normal, with the locket on a shelf, a fall brings home one stack from your bag: the one the peddler would pay most for in all, his price times how many. 3 Venom Sacs beat 1 Mimic Heart.",
+    "A tie goes to the stack first in your bag. With nothing in the bag he buys, nothing is kept. The rest stays in the bag where you fell, as before.",
+    "You wake with it in your bag, and the line says so: \"The locket kept Venom Sac ×3.\"",
+    "Decisions: D-694. D-685 moved to the archive, word for word.",
+  ] },
   { v: '0.3.146', date: '2026-11-08', title: 'The locket on the shelf', lines: [
     "The Lightkeeper's Locket can go on the shelf. Bump the shelf with the locket in your bag and it asks \"Set the locket on the shelf?\" Yes sets it there in a turn: \"You set the locket on the shelf.\" It stays there for good.",
     "The shelf shows it: the locket small and open on its top shelf, in the relics' violet glow, with a glint now and then. At night the glow shows from across the surface.",

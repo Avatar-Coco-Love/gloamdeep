@@ -423,3 +423,15 @@ His two other home lines, "You dug me out. I won't forget it." and
 "Home at last. My legs still shake.", take turns as before (D-492). A
 saved line past a list's end shows the list's first. A test checks it.
 D-671 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-685 · 2026-11-07 · The rock painted faster** (the owner's picks,
+both recommended; S1 of D-660's findings, as D-666 set) The rock and
+earth painter works out each tile's walls once, before the pixels: its
+wall value, whether it is a wall, and whether it stays clear (a way on,
+or an opening in the edge). Before, it looked them up about four times
+for every pixel. Only `rock.js` changes, not the pool's water, and a
+room is still painted once each time it is entered. The picture is the
+same, pixel for pixel; painting a room takes about half the time (14 to
+8 ms each over 24 rooms on a computer). A test checks the pictures of
+12 rooms against fingerprints of the old painter's.
+D-672 moved to `archive/DECISIONS-AUDITS.md`, word for word.
