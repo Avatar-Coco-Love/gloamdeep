@@ -262,6 +262,12 @@ const BED = { mirror: false, rows: [
   '', '', '..kkkkkkkkkkkk..', '.kWWWWWWWWWWWWk.', '.kNNNNNNNNNNNNk.', '.kWkkkkkkkkkkWk.', '.kWkwwwwwwwwkWk.', '.kWkaaaaaaaakWk.', '.kWSSSSSSSSSSWk.',
   '.kWSSSSSSSSSSWk.', '.kWSsSSSSSSsSWk.', '.kWSSSSSSSSSSWk.', '.kWssssssssssWk.', '.kNNNNNNNNNNNNk.', '.knnnnnnnnnnnnk.', '.kkkkkkkkkkkkkk.'] };
 
+// § shelf: the relic shelf (D-690, look A of three), a tall wooden case in the trunk's browns,
+// two empty shelves in its dark soil-brown back, a plinth at its foot
+const SHELF = { mirror: false, rows: [
+  '', '..kkkkkkkkkkkk..', '..kWWWWWWWWWWk..', '..kNkkkkkkkkNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..',
+  '..kNNNNNNNNNNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..', '..kNNNNNNNNNNk..', '..knnnnnnnnnnk..', '..kkkkkkkkkkkk..'] };
+
 // § garden bed: a low plank box in the trunk's browns, rows of dark soil in it, a seam on its
 // front, the bed's frame (D-565, look A of three)
 const GARDEN_BED = { mirror: false, rows: [
@@ -505,7 +511,7 @@ export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
-  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED,
+  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER,
   SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_FUR, MOLE_CLAW, SNAPCAP,

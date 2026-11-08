@@ -68,14 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-678 · 2026-11-07 · Freed once** (the owner's pick, recommended; R6
-of D-660's findings, as D-666 set) Rubble beside a person already freed
-digs as with no one there, its own lines ("You pull rocks off the
-heap." …), their wait untouched. Before, bumps played his `digging`
-lines and the last freed him again, thanks and 5 turns anew. A rules
-test checks it. D-664 moved to `archive/DECISIONS-AUDITS.md`, word for
-word.
-
 **D-679 · 2026-11-07 · Drops clear of creatures** (the owner's picks,
 both recommended; R7 of D-660's findings, as D-666 set) No spill lands
 under a creature or a person: a beaten creature's drops, mined finds
@@ -197,3 +189,14 @@ next, keeps one find on a fall that would otherwise be lost. Each
 relic's name, look, story line and place, and the shelf's recipe and
 look, are proposed at their own steps. D-676 and D-677 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-690 · 2026-11-08 · The shelf** (the owner's picks, all recommended;
+builds D-689) Look A, a tall wooden case in the trunk's browns, two
+empty shelves. Made at the workbench from 4 Wood and 2 Stone, its last
+slot (the panel still shows 12 at most, as only one bag upgrade shows
+at a time); one carried; set down on the surface the bed's way.
+Bumped, day or night, it asks "Deconstruct shelf?", "Nothing on it
+yet.", No picked, as the bed by day; Yes puts it back in the bag.
+Claude's drafts the owner may change: its lines and the tile's id,
+`relicShelf`. D-678 moved to `archive/DECISIONS-AUDITS.md`, word for
+word.

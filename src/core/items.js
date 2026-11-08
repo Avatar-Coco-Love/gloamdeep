@@ -181,6 +181,10 @@ export const ITEMS = {
   // surface the bed's way as the garden bed tile, holding one plant at a later step.
   gardenBed: { id: 'gardenBed', kind: 'item', name: 'Garden Bed', bag: true, max: 1, look: 'gardenBedLook', full: 'gardenBedFull',
     bench: { of: { wood: 3, stone: 2 }, says: 'gardenBedMake', short: 'gardenBedShort' }, sets: { tile: 'plot', says: 'gardenBedSet' } },
+  // The relic shelf (step 20, D-689, D-690): made at the workbench, never found, set down on the
+  // surface the bed's way as the shelf tile, empty; relics are set on it at later steps.
+  shelf: { id: 'shelf', kind: 'item', name: 'Shelf', bag: true, max: 1, look: 'shelfLook', full: 'shelfFull',
+    bench: { of: { wood: 4, stone: 2 }, says: 'shelfMake', short: 'shelfShort' }, sets: { tile: 'relicShelf', says: 'shelfSet' } },
   // The bag upgrades (D-545, D-547): made at the workbench, never found, never in the bag.
   // Made, the bag `grows` from 6 slots to 9 (the Pouch), then 9 to 12 (the Big Bag), for good.
   pouch: { id: 'pouch', kind: 'item', name: 'Pouch', max: 1, look: 'pouchLook', full: 'pouchFull',
