@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.142, The shelf.** The owner's picks, all
+  recommended (D-690): look A, a wooden case with two empty shelves,
+  made at the workbench from 4 Wood and 2 Stone, set down at home the
+  bed's way; bumped, it asks to be taken down, "Nothing on it yet."
+  Playtest: https://claude.ai/artifact/ECjixk3D6LPY72pPeeR9Gg
 - **2026-11-08, 0.3.141, Relics from the old city.** The owner's picks,
   all recommended (D-689): relics are old-city things, found in hidden
   spots and guarded rooms, each helping the hero set out or soften a

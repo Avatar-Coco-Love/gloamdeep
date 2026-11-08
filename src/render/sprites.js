@@ -23,6 +23,8 @@ import {
   GRUB_SKIN,
   GLOW_GLAND,
   LOCKET,
+  LOCKET_COLOURS,
+  LOCKET_GLINT,
   WARDEN,
 } from './pictures.js';
 
@@ -53,7 +55,7 @@ function spriteCanvas(def, flash = null, pal = PAL, after = null) {
 }
 
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), rod: spriteCanvas(ROD), pondMinnow: spriteCanvas(POND_MINNOW), blindCavefish: spriteCanvas(BLIND_CAVEFISH), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), snapcap: spriteCanvas(SNAPCAP), snapcapGill: spriteCanvas(SNAPCAP_GILL), herbMimic: spriteCanvas(HERB_MIMIC), mimicLeaf: spriteCanvas(MIMIC_LEAF), boneRat: spriteCanvas(BONE_RAT), ratBone: spriteCanvas(RAT_BONE), oilTick: spriteCanvas(OIL_TICK), tickShell: spriteCanvas(TICK_SHELL), oilBladder: spriteCanvas(OIL_BLADDER), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), gloamberrySeed: spriteCanvas(GLOAMBERRY_SEED), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), gardenBed: spriteCanvas(GARDEN_BED), shelf: spriteCanvas(SHELF), sproutedBed: spriteCanvas(SPROUTED_BED), fedBed: spriteCanvas(FED_BED), berryBed: spriteCanvas(BERRY_BED), lostbag: spriteCanvas(LOSTBAG), pouch: spriteCanvas(POUCH), bigBag: spriteCanvas(BIG_BAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }), lureWisp: spriteCanvas(LURE_WISP), wispGlass: spriteCanvas(WISP_GLASS), centipede: spriteCanvas(CENTIPEDE), centipedeLeg: spriteCanvas(CENTIPEDE_LEG), antidote: spriteCanvas(ANTIDOTE), centipedeCharm: spriteCanvas(CENTIPEDE_CHARM), spitGrub: spriteCanvas(SPIT_GRUB), grubSkin: spriteCanvas(GRUB_SKIN), glowGland: spriteCanvas(GLOW_GLAND), locket: spriteCanvas(LOCKET), warden: spriteCanvas(WARDEN) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), rod: spriteCanvas(ROD), pondMinnow: spriteCanvas(POND_MINNOW), blindCavefish: spriteCanvas(BLIND_CAVEFISH), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), snapcap: spriteCanvas(SNAPCAP), snapcapGill: spriteCanvas(SNAPCAP_GILL), herbMimic: spriteCanvas(HERB_MIMIC), mimicLeaf: spriteCanvas(MIMIC_LEAF), boneRat: spriteCanvas(BONE_RAT), ratBone: spriteCanvas(RAT_BONE), oilTick: spriteCanvas(OIL_TICK), tickShell: spriteCanvas(TICK_SHELL), oilBladder: spriteCanvas(OIL_BLADDER), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), gloamberrySeed: spriteCanvas(GLOAMBERRY_SEED), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), gardenBed: spriteCanvas(GARDEN_BED), shelf: spriteCanvas(SHELF), sproutedBed: spriteCanvas(SPROUTED_BED), fedBed: spriteCanvas(FED_BED), berryBed: spriteCanvas(BERRY_BED), lostbag: spriteCanvas(LOSTBAG), pouch: spriteCanvas(POUCH), bigBag: spriteCanvas(BIG_BAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }), lureWisp: spriteCanvas(LURE_WISP), wispGlass: spriteCanvas(WISP_GLASS), centipede: spriteCanvas(CENTIPEDE), centipedeLeg: spriteCanvas(CENTIPEDE_LEG), antidote: spriteCanvas(ANTIDOTE), centipedeCharm: spriteCanvas(CENTIPEDE_CHARM), spitGrub: spriteCanvas(SPIT_GRUB), grubSkin: spriteCanvas(GRUB_SKIN), glowGland: spriteCanvas(GLOW_GLAND), locket: spriteCanvas(LOCKET, null, { ...PAL, ...LOCKET_COLOURS }), warden: spriteCanvas(WARDEN) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP, snapcap: SNAPCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -215,6 +217,7 @@ export function drawItems(c, items, t, still) {
     const x = it.x * 16, y = it.y * 16;
     const bob = still ? 0 : Math.floor(t / 700 + it.y) % 2;
     drawShadow(c, x, y, 8);
+    if (get(it.id)?.relic) continue; // a relic is drawn over the light, drawRelics (D-692)
     c.drawImage(spriteOf(it), x, y - 2 - bob);
   }
 }
@@ -278,6 +281,38 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e) {
     drawEnemy(c, e, p, t, still, flash, null);
   }
   glowing = false;
+}
+// § relics (D-692): a relic's own glow, drawn after the light the lure wisp's way, so it shows
+// even out in the dark though it lights no tiles: a wider dithered halo of violet that swells and
+// fades over 4 seconds, and a single glint sliding along the locket's top edge once every 5
+// seconds; steady and without the glint with reduced motion. Then its sprite, bobbing as finds do.
+const RELIC_HALO = { reach: 15, inner: 'rgb(104,86,150)', outer: 'rgb(62,50,104)', dy: 9, cut: 0.25 }; // the mock-up's violet
+const GLINT = '#fffbe8';
+export function drawRelics(c, items, t, still) {
+  const relics = items.filter((it) => get(it.id)?.relic);
+  if (!relics.length) return;
+  const pulse = still ? 0.92 : 0.8 + 0.2 * Math.sin(t / 1000 * (2 * Math.PI / 4));
+  for (const it of relics) {
+    const x = it.x * 16, y = it.y * 16, bob = still ? 0 : Math.floor(t / 700 + it.y) % 2;
+    halo(c, x + 8, y + RELIC_HALO.dy - bob, RELIC_HALO, pulse);
+    c.drawImage(spriteOf(it), x, y - 2 - bob);
+    const phase = ((t / 1000 + it.x * 0.7 + it.y * 1.3) % 5) / 0.9; // each relic's glint at its own time
+    if (!still && phase < 1) {
+      const [gx, gy] = LOCKET_GLINT[Math.min(LOCKET_GLINT.length - 1, Math.floor(phase * LOCKET_GLINT.length))];
+      c.fillStyle = GLINT; c.fillRect(x + gx, y - 2 - bob + gy, 1, 1);
+    }
+  }
+}
+// a dithered round halo at (gx, gy), its colours over the dark only ('lighten'); `cut` thins its edge
+function halo(c, gx, gy, { reach, inner, outer, cut }, pulse) {
+  c.save(); c.globalCompositeOperation = 'lighten';
+  for (let y = -reach; y <= reach; y++) for (let x = -reach; x <= reach; x++) {
+    const d = Math.hypot(x, y); if (d > reach) continue;
+    const f = (1 - d / reach) * pulse;
+    if (f * 3 < (BAYER[(gy + y) & 3][(gx + x) & 3] + 1) / 16 + cut) continue;
+    c.fillStyle = f > 0.5 ? inner : outer; c.fillRect(gx + x, gy + y, 1, 1);
+  }
+  c.restore();
 }
 // § globs (D-688): a Spit grub's glob in flight, drawn over the dark as a glow is: a ring of the
 // grub's green halo, then a small ball of venom green with a bright core, outlined, a pixel above

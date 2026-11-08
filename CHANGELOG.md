@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.145 (2026-11-08)
+- The Lightkeeper's Locket has its new look: open on its hinge, a gold case with a violet hollow and a tiny flame burning inside. The flame scratched on its lid is violet now.
+- Relics have their own glow: a violet halo that slowly swells and fades, seen even in the dark, though it lights nothing. Now and then a glint slides along the locket's edge. With reduced motion the glow holds steady and there is no glint.
+- Decisions: D-692.
+
 ## 0.3.144 (2026-11-08)
 - A new creature guards the Lightkeeper's Locket in place of the rat: the warden, an old stone guard made by Underhearth's people to guard their things. Cracked and mossy, with a chipped gold band and an eye slit.
 - It stands asleep as a statue, its eye dull, until you bump it. Then its eye lights violet and it chases you for 6 turns, and stands still again. It has 4 health and bites for 1 heart: four lantern swings or two knife blows.
@@ -34,9 +39,3 @@ Entry format:
 - One lies in each world, in a room at depth 4 (never the one with the stairs up), in the room's far corner with a rat beside it guarding it. It is left once and never comes back.
 - Step on it to put it in your bag; you carry one. It can't be sold. Setting it on the shelf, and what it does there, come at the next steps.
 - Decisions: D-691. D-679 and D-680 moved to the archive, word for word.
-
-## 0.3.142 (2026-11-08)
-- Make a Shelf at the workbench, its last slot, from 4 Wood and 2 Stone: a tall wooden case with two empty shelves. You carry one at a time.
-- Set it down on the surface as you do the bed. Relics will rest on it at later steps; for now it stands empty.
-- Bump it and it asks "Deconstruct shelf?" with "Nothing on it yet." Yes puts it back in your bag.
-- Decisions: D-690. D-678 moved to the archive, word for word.

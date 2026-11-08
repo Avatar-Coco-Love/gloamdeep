@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.144 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.145 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 20, Relics (D-692): the relics' look, the locket's look D (open,
-violet and gold, a flame inside) with its own violet glow and slow
-shimmer; then the locket set on the shelf (D-691).
+Step 20, Relics (D-691): the locket set on the shelf, the shelf showing
+it; what it does there (a Normal fall bringing home a stack) after.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -35,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144)
+- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145)
 - [ ] 21 Feats
 
 **Next audit: 0.3.152** (D-518, D-660).
@@ -46,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.145, The locket's glow.** Built from the owner's
+  picks in D-692: the locket's look D, open, gold and violet with a flame
+  inside, and relics' own violet glow with the slow shimmer, as in the
+  mock-ups. Playtest:
+  https://claude.ai/artifact/2sTeS4hYPtGjLFKAgqT38j
 - **2026-11-08, 0.3.144, The warden.** The owner's ask and picks
   (D-692): the locket's guard is a new creature, the old-city warden,
   look A4, asleep as a statue until bumped, then chasing; 4 health. The
@@ -59,8 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   a Normal fall will bring home the most valuable stack. Three steps.
   Playtest: https://claude.ai/artifact/6KZGjygR1CGg9evTG7SgtY; map
   preview: https://claude.ai/artifact/9wRu5kuDnpw2HGvppniKDR
-- **2026-11-08, 0.3.142, The shelf.** The owner's picks, all
-  recommended (D-690): look A, a wooden case with two empty shelves,
-  made at the workbench from 4 Wood and 2 Stone, set down at home the
-  bed's way; bumped, it asks to be taken down, "Nothing on it yet."
-  Playtest: https://claude.ai/artifact/ECjixk3D6LPY72pPeeR9Gg

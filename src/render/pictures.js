@@ -508,12 +508,17 @@ const GLOW_GLAND = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.......kk.......', '......kAAk......', '.....kkVVkk.....', '....kVJJVVVk....',
   '...kVJJVVVVGk...', '...kVVVVVVVGk...', '...kVVVVVVGGk...', '....kGVVVGGk....', '.....kkkkkk.....'] };
 
-// § locket: look A (D-691), a tarnished brass oval on a thin chain, the lantern trim's pale
-// brass and bone's shade, darker at its right; a tiny flame scratched on its face
+// § locket: look D of its mock-up (D-692), open on its hinge: a gold case, its lid swung out to
+// the left with the scratched flame (D-691) in violet on it, a violet hollow with a tiny flame
+// burning inside, on a violet bail and thin chain; its own colours, LOCKET_COLOURS
 const LOCKET = { mirror: false, rows: [
-  '', '.......kk.......', '......k..k......', '.......kk.......', '......kTOk......', '....kkkkkkkk....', '...kTTAAAAOOk...',
-  '..kTAAAAyAAAOk..', '..kTAAAyYyAAOk..', '..kTAAAAYAAAOk..', '..kTAAAAAAAAOk..', '...kTAAAAAAOk...', '....kkOOOOkk....',
-  '......kkkk......', '', ''] };
+  '', '........kkk.....', '.......k...k....', '........kkk.....', '........kbk.....', '......kkkkkkk...',
+  '.kk..kTTTTTOOk..', 'kAOk.kTffyffOk..', 'kAAOkkTfyYyfOk..', 'kAsOOkTfYwYfOk..', 'kAAOkkTffYffOk..', 'kAOk.kTfftffOk..',
+  '.kk...kTOOOOk...', '.......kkkkk....', '', ''] };
+// gold for the brass, violet for the flame on the lid, the bail and the hollow (D-692)
+const LOCKET_COLOURS = { T: '#ffe08a', A: '#e9a94a', O: '#9a5424', f: '#2b1f44', s: '#b49cf0', b: '#b49cf0' };
+// the slow shimmer's glint, one pixel sliding along the case's top edge: [x, y] per step (D-692)
+const LOCKET_GLINT = [[6, 6], [7, 6], [8, 6], [9, 6], [10, 6], [11, 6]];
 
 // § warden: look A4 of its mock-up (D-692), an old stone guard made by Underhearth's people, worn
 // by the years: grey rock's face, a chipped gold band on its chest, cracks, moss on a shoulder and
@@ -543,5 +548,7 @@ export {
   GRUB_SKIN,
   GLOW_GLAND,
   LOCKET,
+  LOCKET_COLOURS,
+  LOCKET_GLINT,
   WARDEN,
 };
