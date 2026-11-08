@@ -123,6 +123,15 @@ plate in its middle." shows once "Find the waystone" is done, after its
 gold turns, and is done on the step that wakes the plate. Ticked quietly,
 never shown, when the plate is woken already.
 
+**D-711 · 2026-11-08 · The fifth teaching goal built** (the owner's
+picks, all recommended; builds D-706) "Take a boon" / "Step back on the
+plate. Pick 1 of 3." shows on stepping off the woken home plate, and is
+done on the pick; closing the boon card by its cross leaves it waiting.
+The first boon picked marks it on the profile, so a boon held once never
+shows it again; an older profile holding a boon now is ticked quietly,
+and one without is shown the goal. The boons card (D-706) is its own
+next step.
+
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,

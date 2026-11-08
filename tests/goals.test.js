@@ -11,7 +11,7 @@ const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, plac
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -122,6 +122,31 @@ test('waking the waystone is ticked quietly when it is woken already (D-710)', (
   const after = goalsAfter({}, 0, {}, [], { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 18 } });
   assert.equal(after.goals.wake.done, true);
   assert.deepEqual(after.done, []);
+});
+
+test('taking a boon shows on stepping off the woken plate, and is done on the pick (D-711)', () => {
+  const on = { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 8 } }, off = { ...on, hero: { x: 8, y: 9 } };
+  const done = { stone: { done: true, paid: 'flask' }, wake: { done: true, paid: 'flask' } };
+  assert.equal(goalsAfter(done, 0, {}, [], off, off).goals.boon, undefined, 'not just standing near it');
+  const shown = goalsAfter(done, 0, {}, [], off, on);
+  assert.deepEqual(shown.goals.boon, { done: false });
+  assert.equal(goalLine(shown.goals, null, base.turn).goal, 'Take a boon');
+  assert.equal(goalsAfter(shown.goals, 0, {}, [], on, off).goals, shown.goals, 'the card closed by its cross leaves it waiting');
+  const took = goalsAfter(shown.goals, 0, {}, [{ type: 'boon', id: 'wideGlow' }], { ...on, boon: 'wideGlow' }, on);
+  assert.deepEqual(took.done, ['boon']);
+  assert.equal(doneWords(took.goals, 'boon'), `Take a boon. ${rewardText(took.goals.boon.paid)}`);
+});
+
+test('a boon picked before the goal shows, or held from an older save, ticks it quietly (D-711)', () => {
+  const on = { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 8 }, boon: 'wideGlow' };
+  const picked = goalsAfter({}, 0, {}, [{ type: 'boon', id: 'wideGlow' }], on, { ...on, boon: null });
+  assert.equal(picked.goals.boon.done, true);
+  assert.deepEqual(picked.done, []);
+  const held = goalsAfter({}, 0, {}, [], { ...on, hero: { x: 8, y: 9 } }, on);
+  assert.equal(held.goals.boon.done, true);
+  assert.deepEqual(held.done, []);
+  const home = { ...on, boon: null, hero: { x: 8, y: 9 } };
+  assert.equal(goalsAfter(picked.goals, 0, {}, [], home, { ...home, hero: { x: 8, y: 8 } }).goals, picked.goals, 'held once, never shown again');
 });
 
 test('the Quests tab lists each goal, the done one with its reward, or says none yet', () => {
