@@ -1,7 +1,7 @@
 // § looks: the cloak's colours (P3), the eyes (P4), the trim (P5), the clothes (P6), and the look card with a tab each (D-521)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, LOOK_ROWS, isLocked, moveLook, rollLook } from '../src/core/looks.js';
+import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, LOOK_ROWS, isLocked, moveLook, rollLook, spentOn } from '../src/core/looks.js';
 import { lookCardAt, lookRowAt, swatchOf } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 import { cardAt } from '../src/render/bag.js';
@@ -174,4 +174,14 @@ test('eyes and trims show as swatches, cloaks and clothes as heroes (D-527, D-52
   assert.deepEqual(swatchOf(TRIMS.copper), ['#e8a07a', '#8a4630']); // the cap over the base
   assert.equal(swatchOf(CLOAKS.teal), null);
   assert.equal(swatchOf(CLOTHES.belted), null);
+});
+
+test('a bought pattern is worn, picked and rolled; one not bought is not (D-696)', () => {
+  assert.equal(cloakOf({ look: { cloak: 'zebra' }, bought: ['zebra'] }), 'zebra');
+  assert.equal(cloakOf({ look: { cloak: 'cow' }, bought: ['zebra'] }), 'teal');
+  assert.ok(!isLocked('cloak', 'zebra', ['zebra']) && isLocked('cloak', 'cow', ['zebra']));
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked).map((id) => CLOAKS[id].price), [3, 3, 3]); // D-695
+  const r = rng(3), cloaks = new Set(Array.from({ length: 300 }, () => rollLook(r, ['camo']).cloak));
+  assert.ok(cloaks.has('camo') && !cloaks.has('zebra') && !cloaks.has('cow'));
+  assert.equal(spentOn(['zebra', 'camo']), 6);
 });

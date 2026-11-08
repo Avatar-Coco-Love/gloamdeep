@@ -2,7 +2,8 @@
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
 import { NAME_PAD, typeLetter } from '../core/namepad.js';
-import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked } from '../core/looks.js';
+import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, CLOAKS } from '../core/looks.js';
+import { shopOf as shopFor, priceNote, plural } from '../core/feats.js';
 
 export function createProfileScreens(app, ui, show) {
   const { spoken } = ui;
@@ -28,8 +29,10 @@ export function createProfileScreens(app, ui, show) {
   // profile's own look, and the cross leaves it as it was. The flame on a tab opens it; on a
   // choice, picks it. RANDOM rolls all four parts and the flame stays on it (D-522). OK from any tab makes a new profile and opens the title, or keeps a
   // profile's new look.
+  // The profile on the card's patterns bought and Glints left; a new hero's are none (D-696)
+  const shopOf = () => shopFor(!app.cloakNew && app.profiles.slots[app.naming]);
   const lookOf = () => ({ cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes });
-  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (t.table[id].locked ? ' locked' : '')).join(', ')}.`; };
+  const choiceWords = (tab) => { const t = tabOf(tab); return `${t.name.toLowerCase()} tab, ${t.table[app[tab]].name} picked. ${t.ids.map((id) => t.table[id].name + (isLocked(tab, id, shopOf().bought) ? ' locked' : '')).join(', ')}.`; };
   const lookWords = () => `Choose your look. ${choiceWords(app.lookTab)} Tabs: cloak, eyes, trim, clothes. Arrows choose, then OK. Random rolls a whole new look.`;
   const wornWords = () => LOOK_TABS.map((t) => `${t.table[app[t.id]].name} ${t.id === 'clothes' ? '' : t.id}`.trim()).join(', ');
   function openCloak(i, fresh) {
@@ -44,13 +47,17 @@ export function createProfileScreens(app, ui, show) {
   }
   // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
   // choice is picked
-  // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays
+  // A locked pattern (D-533) is only tried on the big hero, app.lookTry, and the kept choice stays;
+  // it stays tried with the flame on the foot's buttons, RANDOM then being BUY (D-696)
+  const tryWords = (id) => { const c = CLOAKS[id], { have } = shopOf(); return `${c.name}, locked. ${priceNote(c.name, c.price, have)}`; };
   function moveToLook(i) {
-    app.chosen = i; app.lookTry = null;
     const k = LOOK_PADS[app.lookTab][i], tab = tabOf(app.lookTab);
-    if (!k.tab && isLocked(app.lookTab, k.id)) { app.lookTry = k.id; spoken.textContent = `${tab.table[k.id].name}, locked. It costs Glints, earned from Feats. Price not decided yet.`; }
+    app.chosen = i;
+    if (k.tab || (k.id !== 'ok' && k.id !== 'random')) app.lookTry = null;
+    if (!k.tab && isLocked(app.lookTab, k.id, shopOf().bought)) { app.lookTry = k.id; spoken.textContent = tryWords(k.id); }
     else if (k.tab) { app.lookTab = k.id; spoken.textContent = choiceWords(k.id); }
     else if (k.id === 'ok') spoken.textContent = 'OK';
+    else if (k.id === 'random' && app.lookTry) spoken.textContent = shopOf().have >= CLOAKS[app.lookTry].price ? `Buy ${CLOAKS[app.lookTry].name} for ${plural(CLOAKS[app.lookTry].price)}` : `Buy, too few Glints. ${tryWords(app.lookTry)}`;
     else if (k.id === 'random') spoken.textContent = 'Random';
     else { app[app.lookTab] = k.id; spoken.textContent = `${tab.table[k.id].name} ${app.lookTab === 'clothes' ? '' : app.lookTab}`.trim(); }
   }
@@ -63,11 +70,23 @@ export function createProfileScreens(app, ui, show) {
       else { ui.lookSlot(app.naming, lookOf()); closeCloak(); }
       return;
     }
-    if (k.id === 'random') { app.chosen = i; app.lookTry = null; Object.assign(app, rollLook(app.lookRoll)); spoken.textContent = `Rolled: ${wornWords()}.`; return; }
+    if (k.id === 'random' && app.lookTry) { buy(i); return; }
+    if (k.id === 'random') { app.chosen = i; app.lookTry = null; Object.assign(app, rollLook(app.lookRoll, shopOf().bought)); spoken.textContent = `Rolled: ${wornWords()}.`; return; }
     moveToLook(i);
     if (tapped || app.lookTry) return; // the flame stays on a locked pattern, as it can't be picked
     if (k.tab) moveToLook(LOOK_PADS[k.id].findIndex((p) => !p.tab && p.id === app[k.id]));
     else moveToLook(pad.findIndex((p) => p.id === 'ok'));
+  }
+  // § buy (D-696): BUY spends the tried pattern's Glints at once, with no asking, and wears it;
+  // the flame goes on to OK. With too few Glints it does nothing but say so.
+  function buy(i) {
+    const id = app.lookTry, c = CLOAKS[id];
+    app.chosen = i;
+    if (shopOf().have < c.price) { spoken.textContent = tryWords(id); return; }
+    ui.buySlot(app.naming, id);
+    app[app.lookTab] = id; app.lookTry = null;
+    app.chosen = LOOK_PADS[app.lookTab].findIndex((p) => p.id === 'ok');
+    spoken.textContent = `Bought ${c.name}. ${plural(shopOf().have)} left.`;
   }
   const moveLookBy = (dir) => moveToLook(moveLook(app.lookTab, app.chosen, dir, app[app.lookTab]));
   return { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook };

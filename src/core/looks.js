@@ -16,16 +16,17 @@ export const CLOAKS = {
   sand: { id: 'sand', kind: 'cloak', name: 'Sand', shades: ['#efe6cc', '#b9ab88', '#7a6e52', '#463e2c'] },
   // § patterns (D-515): each in its own colours, its base four shades and its marks' colours on the
   // light and dark sides (a second mark's for camo); `pattern` says where the marks fall
-  // (sprites.js). Locked until bought with Glints (D-516); shown in the grid with a lock (D-533).
-  zebra: { id: 'zebra', kind: 'cloak', name: 'Zebra', locked: true, pattern: 'zebra', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#22262f', '#22262f'] },
-  cow: { id: 'cow', kind: 'cloak', name: 'Cow', locked: true, pattern: 'cow', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#463e2c', '#22262f'] },
-  camo: { id: 'camo', kind: 'cloak', name: 'Camo', locked: true, pattern: 'camo', shades: ['#b6dc8e', '#6fb04e', '#3c6e3a', '#223e24'], marks: ['#7a4430', '#223e24'], second: ['#3c6e3a', '#46261c'] },
+  // (sprites.js). Locked until bought with Glints (D-516); shown in the grid with a lock (D-533);
+// `price`: the Glints it costs, 3 each (D-695).
+  zebra: { id: 'zebra', kind: 'cloak', name: 'Zebra', locked: true, price: 3, pattern: 'zebra', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#22262f', '#22262f'] },
+  cow: { id: 'cow', kind: 'cloak', name: 'Cow', locked: true, price: 3, pattern: 'cow', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#463e2c', '#22262f'] },
+  camo: { id: 'camo', kind: 'cloak', name: 'Camo', locked: true, price: 3, pattern: 'camo', shades: ['#b6dc8e', '#6fb04e', '#3c6e3a', '#223e24'], marks: ['#7a4430', '#223e24'], second: ['#3c6e3a', '#46261c'] },
 };
 export const CLOAK_IDS = Object.keys(CLOAKS);
 // A profile's cloak: the one it chose, or teal when it has none (profiles from before P3), or a
-// locked one (none can be worn yet, D-533)
+// locked one it hasn't bought (D-533, D-696)
 export const DEFAULT_CLOAK = 'teal';
-export const cloakOf = (p) => (CLOAKS[p?.look?.cloak] && !CLOAKS[p.look.cloak].locked ? p.look.cloak : DEFAULT_CLOAK);
+export const cloakOf = (p) => (CLOAKS[p?.look?.cloak] && !isLocked('cloak', p.look.cloak, p.bought) ? p.look.cloak : DEFAULT_CLOAK);
 
 // § eyes: two pixels in the hood (P4). Pink-red, gold, violet and black are kept out, as they
 // look like enemies, the lantern or stairs, or vanish in the hood's outline.
@@ -91,8 +92,9 @@ const lookPad = (ids) => [
 const rowsOf = (ids) => Math.ceil(ids.length / CLOAK_COLS);
 // The most rows of choices any tab has: every tab is laid out with this many, so the card holds still between tabs
 export const LOOK_ROWS = Math.max(...LOOK_TABS.map((t) => rowsOf(t.ids)));
-// Whether a tab's choice is locked: shown, tried on the big hero, never kept (D-533)
-export const isLocked = (tab, id) => !!tabOf(tab)?.table[id]?.locked;
+// Whether a tab's choice is locked: shown, tried on the big hero, never kept (D-533), until the
+// profile has bought it; bought: the ids its profile bought with Glints (D-696)
+export const isLocked = (tab, id, bought = []) => !!tabOf(tab)?.table[id]?.locked && !bought.includes(id);
 export const LOOK_PADS = Object.fromEntries(LOOK_TABS.map((t) => [t.id, lookPad(t.ids)]));
 export const tabOf = (id) => LOOK_TABS.find((t) => t.id === id);
 // Key i on tab `tab`'s pad moved `dir`; picked: the tab's choice now (look[tab])
@@ -103,5 +105,7 @@ export function moveLook(tab, i, dir, picked) {
   return moveOn(pad, i, dir);
 }
 // § roll: RANDOM (D-517, D-522): a whole new look, each part picked from its free choices with
-// r, a seeded rng (rng.js). Locked patterns are never rolled (D-517).
-export const rollLook = (r) => Object.fromEntries(LOOK_TABS.map((t) => [t.id, pick(r, t.ids.filter((id) => !t.table[id].locked))]));
+// r, a seeded rng (rng.js). Locked patterns are never rolled (D-517); bought ones are (D-696).
+export const rollLook = (r, bought = []) => Object.fromEntries(LOOK_TABS.map((t) => [t.id, pick(r, t.ids.filter((id) => !isLocked(t.id, id, bought)))]));
+// § buying (D-696): the Glints the patterns bought cost in all
+export const spentOn = (bought = []) => bought.reduce((g, id) => g + (CLOAKS[id]?.price ?? 0), 0);

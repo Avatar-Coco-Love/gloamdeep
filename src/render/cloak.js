@@ -9,7 +9,8 @@
 // taller to fill what is left (D-526). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
-import { LOOK_PADS, LOOK_ROWS, tabOf } from '../core/looks.js';
+import { LOOK_PADS, LOOK_ROWS, tabOf, isLocked } from '../core/looks.js';
+import { priceNote } from '../core/feats.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
@@ -142,8 +143,9 @@ const frame = (c, x, y, w, h, colour) => {
 // in a look; look: { cloak, eyes, trim, clothes }; tab: the open one; chosen: the key the
 // arrows are on; name: the profile's, over the big hero
 // trying: a locked pattern tried on the big hero, its choice's name staying the kept one's, a note
-// under or over the boxes' foot saying how it opens (D-533)
-export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null) {
+// under or over the boxes' foot saying its price and the Glints there are (D-533, D-696), and RANDOM
+// BUY and its price, dim with too few; shop: the profile's patterns bought and Glints left (D-696)
+export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null, shop = { bought: [], have: 0 }) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
@@ -151,15 +153,22 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
   c.imageSmoothingEnabled = false;
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
+    if (k.id === 'random' && trying) { drawBuy(c, at.row.random, table[trying].price, shop.have >= table[trying].price, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
-    const { x, y } = boxAt(at, k), picked = k.id === look[tab], locked = table[k.id].locked;
+    const { x, y } = boxAt(at, k), picked = k.id === look[tab], locked = isLocked(tab, k.id, shop.bought);
     const swatch = swatchOf(table[k.id]);
     if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
     else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
   drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
-  if (trying) drawNote(c, `${table[trying].name} costs Glints, earned from Feats. Price not decided yet.`, at);
+  if (trying) drawNote(c, priceNote(table[trying].name, table[trying].price, shop.have), at);
+}
+// § buy (D-696): BUY and the price where RANDOM was; dim with too few Glints, framed in gold
+// round it then when the arrows are on it, as the tabs are
+function drawBuy(c, { x, y, w, h }, price, can, arrows) {
+  drawButton(c, x, y, `BUY ${price}`, !can || !arrows, w, h, ROW_TEXT);
+  if (!can && arrows) frame(c, x - 1, y - 1, w + 2, h + 2, GOLD);
 }
 // § note: a dark box under the boxes, or over their foot when there's no room, framed dim, its words wrapped to fit, the look's name in
 // gold, as in the mock-up (D-533)

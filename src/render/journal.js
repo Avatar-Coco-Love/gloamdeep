@@ -113,8 +113,9 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 // c: the room's canvas, `vw` × `vh`; records and played, the profile's; state, the journey's;
 // tab, the one open; pick, Growth's picked place; still: prefers-reduced-motion; book, the
 // profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630); beast, the
-// Bestiary's picked row, and page the creature whose page is open, if one is (D-631)
-export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null) {
+// Bestiary's picked row, and page the creature whose page is open, if one is (D-631); bought, the
+// patterns the profile bought, for the Glints left (D-696)
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null, bought = []) {
   const growth = tab === 'growth', whole = drawCard(c, vw, vh, 'JOURNAL', 0), { spots, down } = tabsAt(whole);
   TABS.forEach((s, i) => {
     const on = s.id === tab, at = spots[i];
@@ -126,7 +127,7 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
   c.fillStyle = LINE; c.fillRect(whole.x + 8, whole.y + TABS_RULE_Y + down, whole.w - 16, 1);
   const card = pageCard(whole, down), { y } = card;
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
-  if (tab === 'feats') { drawFeats(c, card, records); return; }
+  if (tab === 'feats') { drawFeats(c, card, records, bought); return; }
   if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
@@ -253,11 +254,12 @@ function drawPage(c, card, p, img) {
 }
 
 // § feats: the Glints in gold, then a row a Feat as Records' rows: its name grey, its count light,
-// and on the right its 3 marks, small diamonds, gold once reached and dim before (D-695)
+// and on the right its 3 marks, small diamonds, gold once reached and dim before (D-695); the
+// Glints are those left, the patterns bought taken off (D-696)
 const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
-function drawFeats(c, card, records) {
+function drawFeats(c, card, records, bought) {
   const nx = tabsLeft(card), rows = featRows(records), right = card.x + card.w - PAD;
-  drawText(c, glintsText(records), nx, card.y + GLINTS_Y, GOLD);
+  drawText(c, glintsText({ records, bought }), nx, card.y + GLINTS_Y, GOLD);
   const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
   rows.forEach((r, i) => {
     const ry = card.y + FEATS_Y + i * ROW_H;

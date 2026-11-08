@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.146, The locket on the shelf.** The owner's picks,
+  all recommended (D-693): bumped with the locket in the bag, the shelf
+  asks to set it there; it stays for good; deconstructed, both go back
+  together. Look A of the mock-ups, the locket small on the top shelf
+  in the relics' glow. Mock-ups:
+  https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ; playtest:
+  https://claude.ai/artifact/VfM8TPZAWvxMzVTbvdG7Ea
 - **2026-11-08, 0.3.145, The locket's glow.** Built from the owner's
   picks in D-692: the locket's look D, open, gold and violet with a flame
   inside, and relics' own violet glow with the slow shimmer, as in the
