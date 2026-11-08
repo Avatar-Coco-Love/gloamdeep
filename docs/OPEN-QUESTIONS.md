@@ -61,8 +61,11 @@ difficulty rating, and how the rating looks (stars, skulls, words).
 **Q-057 · Achievements: tiers and rewards** (before the first
 achievement, D-284) Narrowed by D-467: 3 tiers a set, each paying the
 look currency (Q-055), shown in a Feats tab with a note on reaching one.
-Narrowed by D-695: Beaten at 10, 50 and 200. Still open: which other
-records get a set, and their numbers.
+Narrowed by D-695: Beaten at 10, 50 and 200. Narrowed by D-697: Deepest
+at depth 5, 10 and 20; a count Feat would likely be 10, 50 and 200, as
+Beaten. Still open: which other records get a set, and their numbers;
+the owner is not sure Rooms found and Torches lit belong in Feats or in
+something else.
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each

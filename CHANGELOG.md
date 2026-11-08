@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.150 (2026-11-08)
+- A second Feat, Deepest: reach depth 5, 10 and 20 for 1, 2 and 3 Glints. Its row on the Feats tab shows "3 of 5" and its 3 marks.
+- Reaching a tier says so: "Feat reached: Deepest 5. +1 Glint." Depths walked to before count too.
+- Decisions: D-697. D-659 moved to the archive, word for word.
+
 ## 0.3.149 (2026-11-08)
 - Cloak patterns can be bought. On the Look card, tap Zebra, Cow or Camo to try it on, and RANDOM becomes BUY 3. Press it to spend 3 Glints: the pattern is yours, worn at once.
 - The note under the patterns says the price and your Glints: "Zebra costs 3 Glints. You have 4." With too few it adds "Earn more from Feats.", and BUY is dim and does nothing.
@@ -37,9 +42,3 @@ Entry format:
 - On an upright phone the Journal's tabs sit in two rows, Records and Growth over Bestiary and Feats. Right from the Bestiary turns to Feats.
 - Buying a cloak pattern with Glints, 3 each, comes at the next step.
 - Decisions: D-695. D-686 moved to the archive, word for word.
-
-## 0.3.147 (2026-11-08)
-- The Lightkeeper's Locket works on the shelf. In Normal, with the locket on a shelf, a fall brings home one stack from your bag: the one the peddler would pay most for in all, his price times how many. 3 Venom Sacs beat 1 Mimic Heart.
-- A tie goes to the stack first in your bag. With nothing in the bag he buys, nothing is kept. The rest stays in the bag where you fell, as before.
-- You wake with it in your bag, and the line says so: "The locket kept Venom Sac ×3."
-- Decisions: D-694. D-685 moved to the archive, word for word.

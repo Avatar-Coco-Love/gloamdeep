@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.147, The locket keeps a stack.** The owner's picks,
+  all recommended (D-694): with the locket on the shelf, a Normal fall
+  brings home the stack worth most to the peddler in all, a tie to the
+  first, nothing if he buys none; "The locket kept Venom Sac ×3."
+  Playtest: https://claude.ai/artifact/JJSZtGjbZs3cHSqFPrFo4z
 - **2026-11-08, 0.3.146, The locket on the shelf.** The owner's picks,
   all recommended (D-693): bumped with the locket in the bag, the shelf
   asks to set it there; it stays for good; deconstructed, both go back

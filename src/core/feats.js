@@ -3,9 +3,10 @@
 // are worked out from the Records, so the counts made before Feats came pay too. Plain data.
 import { spentOn } from './looks.js';
 
-// Each Feat: its name, the record it reads, its 3 tiers and the Glints each pays (D-695)
+// Each Feat: its name, the record it reads, its 3 tiers and the Glints each pays (D-695, D-697)
 export const FEATS = [
   { id: 'beaten', text: 'Beaten', record: 'beaten', tiers: [10, 50, 200], pays: [1, 2, 3] },
+  { id: 'deepest', text: 'Deepest', record: 'deepest', tiers: [5, 10, 20], pays: [1, 2, 3] },
 ];
 
 // How many of a Feat's tiers the records have reached

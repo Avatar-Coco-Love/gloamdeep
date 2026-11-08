@@ -36,22 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-659 · 2026-11-07 · The Spit grub** (the owner's picks, all
-recommended but its name; mock-ups:
-https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9; builds D-349, D-652,
-D-658; answers part of Q-076) The first creature that attacks from range
-is the Spit grub, draft A, biome 1's 16th kind, in the pool from depth
-4. It never moves. When it sees the hero's lit lantern along a clear
-row or column, up to 5 tiles away, it spits a glowing glob that moves
-1 tile a turn down that line, so the hero can step out of the way; it
-then rests 2 turns. Only the lit lantern: with it off the grub can't
-see the hero, and the hero sees only the grub's and the glob's glows.
-Walls and rubble, whatever blocks light, stop the glob. Its next move
-shows as the others' do. Drafts the owner may change: 1 heart, spit 1,
-the 5 tiles and 2 turns. Its look, drop and lines are shown with
-mock-ups at its build step. D-647 moved to
-`archive/DECISIONS-CHECKUP.md`, word for word.
-
 **D-660 · 2026-11-07 · The tenth audit, part 1** (the owner's picks, all
 recommended; the owner asked for a fuller audit) At 0.3.113, nothing
 visible changed. A conversation's start reads 10.1 KB, as at the ninth.
@@ -192,3 +176,15 @@ Claude's calls the owner may change: a buy is kept even if the card is
 then closed with the cross; the arrows keep the pattern tried on while
 they are on BUY or OK. D-687 moved to `archive/DECISIONS-AUDITS.md`,
 word for word.
+
+**D-697 · 2026-11-08 · Deepest, the second Feat** (the owner's picks,
+all recommended; builds D-695, narrows Q-057) The second Feat is
+Deepest, named as its Records line, reached at depth 5, 10 and 20 and
+paying 1, 2 and 3 Glints as every set does. Its row shows "3 of 5" as
+Beaten's does, and reaching a tier says "Feat reached: Deepest 5. +1
+Glint." Depths walked to before this count, as for Beaten; a dev jump
+never does (D-232). Claude's call the owner may change: the Feats tab's
+gap between names and counts is 16 pixels, not Records' 20, so the rows
+fit the upright card. The owner is not sure yet whether Rooms found and
+Torches lit belong in Feats or elsewhere (Q-057). D-659 moved to
+`archive/DECISIONS-BIOME-1.md`, word for word.

@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.150', date: '2026-11-08', title: 'Deepest, the second Feat', lines: [
+    "A second Feat, Deepest: reach depth 5, 10 and 20 for 1, 2 and 3 Glints. Its row on the Feats tab shows \"3 of 5\" and its 3 marks.",
+    "Reaching a tier says so: \"Feat reached: Deepest 5. +1 Glint.\" Depths walked to before count too.",
+    "Decisions: D-697. D-659 moved to the archive, word for word.",
+  ] },
   { v: '0.3.149', date: '2026-11-08', title: 'Buying a pattern', lines: [
     "Cloak patterns can be bought. On the Look card, tap Zebra, Cow or Camo to try it on, and RANDOM becomes BUY 3. Press it to spend 3 Glints: the pattern is yours, worn at once.",
     "The note under the patterns says the price and your Glints: \"Zebra costs 3 Glints. You have 4.\" With too few it adds \"Earn more from Feats.\", and BUY is dim and does nothing.",

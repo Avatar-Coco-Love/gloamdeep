@@ -257,10 +257,11 @@ function drawPage(c, card, p, img) {
 // and on the right its 3 marks, small diamonds, gold once reached and dim before (D-695); the
 // Glints are those left, the patterns bought taken off (D-696)
 const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
+const FEAT_GAP = 16; // narrower than Records' so Deepest's row and its marks fit the upright card (D-697)
 function drawFeats(c, card, records, bought) {
   const nx = tabsLeft(card), rows = featRows(records), right = card.x + card.w - PAD;
   drawText(c, glintsText({ records, bought }), nx, card.y + GLINTS_Y, GOLD);
-  const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
+  const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + FEAT_GAP;
   rows.forEach((r, i) => {
     const ry = card.y + FEATS_Y + i * ROW_H;
     drawText(c, r.text, nx, ry, GREY);
