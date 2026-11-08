@@ -68,25 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-676 · 2026-11-07 · Docs F to I: the small ones** (the owner's
-picks, all recommended; F to I of D-660's findings, as D-666 set)
-`TECH-2.md`'s layout lists the maker, `tools/make.js` (D-621, D-622),
-and the map preview's page half, `tools/mappreview/page.js` (D-646,
-found while checking). `DEV-TOOLS.md` says Go to depth runs 0 to 99,
-starting on 1, depth 0 the crypt (D-212), not 1 to 99. Q-076 says the
-lure wisp is built (D-649), not built next. Docs only. D-662 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-677 · 2026-11-07 · Doc E: good for making things** (the owner's
-picks, both recommended; E of D-660's findings, as D-666 set) The nine
-materials a recipe uses, Stone, Copper Ore, Rat Tail, Moth Dust, Gloam
-Wisp, Spider Silk, Mole Fur, Snapcap Gill and Mimic Heart, say "…, good
-for making things." as the first line when chosen in the bag, not "for
-crafting later"; their other two lines stay. The eleven no recipe uses
-yet keep "for crafting later" until one does. A rules test checks each
-line against the recipes. D-663 moved to `archive/DECISIONS-AUDITS.md`,
-word for word.
-
 **D-678 · 2026-11-07 · Freed once** (the owner's pick, recommended; R6
 of D-660's findings, as D-666 set) Rubble beside a person already freed
 digs as with no one there, its own lines ("You pull rocks off the
@@ -201,4 +182,18 @@ owner may change: a creature a glob beats leaves no drop and no
 experience; armour never turns a glob aside; a glob breaks on a person
 unharmed and flies over water; the grub turns to face where it spits; a
 tap-walk stops at a spit; the names and lines. D-675 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-689 · 2026-11-08 · Relics from the old city** (the owner's picks,
+all recommended; step 20 of D-482, builds D-465, D-469, D-633) Relics
+are things left from Underhearth and the Lightkeepers, found, never
+made, each with a line or two of story. Their boosts help the hero set
+out (*e.g.* a find in the bag at a trip's start) or soften a fall (*e.g.*
+one more find kept). They lie in hidden spots (the end of a hidden path,
+a sealed old-city room) and in guarded rooms. The shelf holds every
+relic found, each working once set there. The shelf comes first, built
+at the workbench and set down at home, empty; biome 1's first relic,
+next, keeps one find on a fall that would otherwise be lost. Each
+relic's name, look, story line and place, and the shelf's recipe and
+look, are proposed at their own steps. D-676 and D-677 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.

@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.140 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.141 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks what comes next: step 20, Relics (D-482), or more of biome 1 first.
+Step 20, Relics (D-689): the shelf, built at the workbench and set down
+at home, empty. Propose its recipe and look first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,6 +45,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.141, Relics from the old city.** The owner's picks,
+  all recommended (D-689): relics are old-city things, found in hidden
+  spots and guarded rooms, each helping the hero set out or soften a
+  fall; the shelf holds all of them. The shelf comes first, then the
+  first relic, which keeps one find on a fall. Docs only.
 - **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
   recommended (D-688): look A, a glowworm glowing green in the dark; a
   Grub Skin and a rare Glow Gland. Built in one step at the owner's word:
@@ -57,9 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   about 1 ms a frame, not 9, on a slowed phone (S3, its second half).
   Play looks the same. A test checks when it is kept. Playtest:
   https://claude.ai/artifact/53gL9aXUxsgbnH72GdJA8w
-- **2026-11-07, 0.3.138, The room holds still under a card.** As
-  recommended (D-686): under a card the room is drawn once and kept, so a
-  frame with the bag open takes about 1 ms, not 8, on a slowed phone (S3,
-  its first half). Its torches stop flickering until the card closes. A
-  test checks when it is kept. Playtest:
-  https://claude.ai/artifact/RsX1LEgtp244Ayem2bLSUH

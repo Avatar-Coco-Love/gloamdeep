@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-07, 0.3.138, The room holds still under a card.** As
+  recommended (D-686): under a card the room is drawn once and kept, so a
+  frame with the bag open takes about 1 ms, not 8, on a slowed phone (S3,
+  its first half). Its torches stop flickering until the card closes. A
+  test checks when it is kept. Playtest:
+  https://claude.ai/artifact/RsX1LEgtp244Ayem2bLSUH
 - **2026-11-07, 0.3.137, The rock painted faster.** As recommended
   (D-685): the rock painter works out each tile's walls once, not for
   every pixel, so a cave room paints in about half the time (S1). The
