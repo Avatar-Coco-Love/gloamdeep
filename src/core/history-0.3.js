@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.160', date: '2026-11-08', title: 'The first teaching goal', lines: [
+    "The first teaching goal: once you see a rat, \"Beat a rat\" and \"Walk into it to strike.\" show under the hearts panel. Beat one and the line turns gold for 3 turns with what it paid, rolled from an oil flask, 2 healing herbs, 3 oilcaps, a Glint or a healing potion. A find that doesn't fit your bag is set at your feet.",
+    "The Journal has a fifth tab, Quests, listing each goal, the done ones with their reward. Tapping the goal line opens it. A rat beaten before this version ticks the goal quietly and pays its reward.",
+    "Decisions: D-707.",
+  ] },
   { v: '0.3.159', date: '2026-11-08', title: 'Teaching goals worded', lines: [
     "Nothing in the game changed. The first six teaching goals now have their words, each a goal and one line saying how, such as \"Beat a rat\" and \"Walk into it to strike.\" Each appears at its own moment: going home once a rat is beaten, spending your ember as soon as you reach level 2.",
     "The goal will sit under the hearts panel and open the Journal when tapped. Done, it turns gold and says what it paid, rolled from an oil flask, herbs, oilcaps, a Glint or a potion. The first boon you pick will open a card saying what boons are.",

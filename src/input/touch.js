@@ -11,7 +11,7 @@ import { wayTo, stopsWalk } from '../core/walk.js';
 import { offEdge } from '../core/openings.js';
 import { poisonLeft } from '../core/poison.js';
 
-export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt, ALERT_MS }) {
+export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt, ALERT_MS, openQuests }) {
   // § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
   // name and its card's line, or poisoned's turns left (D-654); no turn passes
   const tellMark = (picX, picY) => {
@@ -35,6 +35,7 @@ export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt,
   // or on Step keeps stepping toward the finger (holdStep below)
   // picX, picY: on the menus' picture, in its pixels
   const stepToward = (picX, picY, held = false) => {
+    if (frame.goalSpot(...toLayer([picX, picY]))) { if (!held) openQuests(); return; } // the goal line opens the Journal at Quests (D-706)
     if (frame.markSpot(...toLayer([picX, picY]))) { if (!held) tellMark(picX, picY); return; } // a mark tells what it is; no turn passes (D-604)
     const spot = frame.plaqueSpot(...toLayer([picX, picY])); // a plaque frames its creature, or lets it go; no turn passes (CL2)
     if (spot) { if (!held) app.framed = app.framed === spot ? null : spot; return; }

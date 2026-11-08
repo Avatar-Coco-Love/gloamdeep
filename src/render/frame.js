@@ -14,6 +14,8 @@ import { drawMotes } from './motes.js';
 import { draftTo } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { drawMarks, marksSize, markAt, POISON_MARK } from './marks.js';
+import { drawGoalLine, goalSize, onGoal } from './goalline.js';
+import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
@@ -103,6 +105,7 @@ export function createFrame(app, ui) {
   const lights = [], torchGlow = []; // reused every frame (TECH.md)
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let markRow = null; // the marks as last drawn, for taps (D-604)
+  let goalRow = null; // the goal line as last drawn, for taps (D-706)
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
   let cover = { x: 0, y: 0 }; // what the dev sheet hides, eased so the room slides clear of it (D-623)
@@ -169,7 +172,7 @@ export function createFrame(app, ui) {
     else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes, app.lamp, app.head)); } // the card on the title's scene (D-398)
     else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, shopOf(!app.cloakNew && app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
-    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought); } // the card on the title's scene (D-391)
+    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought, playing(app.profiles).goals, playing(app.profiles).glints); } // the card on the title's scene (D-391)
     else if (screen === 'title') { // laid out like a phone game's (D-401)
       const p = playing(app.profiles);
       titleScene(3, t);
@@ -299,9 +302,11 @@ export function createFrame(app, ui) {
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
-    const mk = marksSize(marks.length), listY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0); // the marks under the panel, the list under them
+    const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn); // the teaching goal (D-706)
+    const mk = marksSize(marks.length), gl = goalSize(goal), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
+    const listY = goalY + (gl.h ? gl.h + 2 : 0); // the marks under the panel, the goal line under them, the list under it
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
-    const under = { w: Math.max(panel.w, mk.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
+    const under = { w: Math.max(panel.w, mk.w, gl.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
     const hx = s.hero.x, hy = s.hero.y;
     const spots = [[sx, sy], ...s.enemies.filter((e) => Math.max(Math.abs(e.x - hx), Math.abs(e.y - hy)) <= 1).map((e) => { const p = foeAt(e); return [Math.round(p.x * TILE), Math.round(p.y * TILE)]; })];
     const covers = (a) => spots.some(([px, py]) => { // on the screen layer, where the panel and the corner pieces are (D-444)
@@ -330,6 +335,8 @@ export function createFrame(app, ui) {
     Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
     markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
+    drawGoalLine(hc, goal, ex, goalY, panel.alpha);
+    goalRow = goal && { line: goal, x: ex, y: goalY }; // for taps (D-706)
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
@@ -354,7 +361,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
-    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought); // a card on the room (D-391)
+    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought, playing(app.profiles).goals, playing(app.profiles).glints); // a card on the room (D-391)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
       drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0); // a card on the room (D-385), its STORE with a chest in reach (D-558)
@@ -386,6 +393,8 @@ export function createFrame(app, ui) {
   }
   // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654) whose mark is under px, py on the screen layer, or null
   const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
+  // § goal line for taps (D-706): whether the goal line is under px, py on the screen layer, in play
+  const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);
-  return { draw, redraw, plaqueSpot, plaqueSpots, markSpot };
+  return { draw, redraw, plaqueSpot, plaqueSpots, markSpot, goalSpot };
 }

@@ -15,8 +15,8 @@ export const FEATS = [
 export const reached = (feat, records) => feat.tiers.filter((n) => (records[feat.record] ?? 0) >= n).length;
 // The Glints all Feats have paid
 export const glints = (records) => FEATS.reduce((g, f) => g + f.pays.slice(0, reached(f, records)).reduce((a, b) => a + b, 0), 0);
-// The Glints a profile has left to spend: those paid less the patterns it bought (D-696)
-export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) - spentOn(p?.bought));
+// The Glints a profile has left to spend: those Feats and goals paid (D-706) less the patterns it bought (D-696)
+export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) + (p?.glints ?? 0) - spentOn(p?.bought));
 // What a profile can spend on the Look card: its patterns bought and Glints left; none for a
 // hero not made yet (D-696)
 export const shopOf = (p) => ({ bought: p ? p.bought ?? [] : [], have: p ? glintsLeft(p) : 0 });
@@ -36,7 +36,7 @@ export function featRows(records) {
 export const priceNote = (name, price, have) => `${name} costs ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 // The Look card's shorter one, in the big hero's name line (D-700)
 export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
-const TURN = 'Left for the Bestiary. Esc or the close button goes back.';
+const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';
 export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${featRows(p.records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
 
 // § note: the tiers reached between two Records, as "Beaten 10. +1 Glint", the newest only

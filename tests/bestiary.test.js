@@ -68,8 +68,8 @@ test('the Bestiary tab is tapped as the others; all twelve fit upright in one ta
   const card = cardAt(176, 370);
   assert.equal(bestiaryTables(card, 12).xs.length, 1);
   assert.equal(bestiaryTables(cardAt(390, 208), 12).xs.length, 2);
-  const tabs = [...Array(card.w).keys()].map((x) => journalAt(card.x + x, card.y + 32 + 16, 176, 370)).filter((a) => a?.tab).map((a) => a.tab);
-  assert.equal(tabs[0], 'bestiary'); // upright, the second row of tabs (D-695)
+  const tabs = [...Array(card.w).keys()].map((x) => journalAt(card.x + x, card.y + 32, 176, 370)).filter((a) => a?.tab).map((a) => a.tab);
+  assert.equal(tabs.at(-1), 'bestiary'); // upright, the first row's last (D-695; three a row since Quests, D-706)
 });
 
 // § pages (D-352, D-631): how it acts shows once one is beaten, before that a grey hint

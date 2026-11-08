@@ -81,6 +81,7 @@ import { bestiaryWords, pageWords } from '../core/bestiary.js';
 import { slotLines, slotsHeading } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
 import { featsWords } from '../core/feats.js';
+import { questsWords } from '../core/goals.js';
 import { START_PICK } from '../core/growth.js';
 import { setVersionGap } from '../render/bag.js';
 import { chestWords, stashAt } from '../core/chest.js';
@@ -157,11 +158,13 @@ export function createScreens(app, ui) {
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
-  const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
+  const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), backFromJournal = backTo('journal');
+  const closeJournal = () => (app.pageFrom === 'play' ? show('play') : backFromJournal()); // opened from the goal line, back to play (D-706)
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
   // Growth opens on Body's heart (D-481).
-  const journalPageWords = () => (app.tab === 'feats' ? featsWords(inPlay(app.profiles)) : app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
-  function openJournal() { app.tab = 'records'; app.growthPick = START_PICK; app.beastPick = 0; app.beastPage = null; show('journal'); }
+  const journalPageWords = () => (app.tab === 'quests' ? questsWords(inPlay(app.profiles).goals) : app.tab === 'feats' ? featsWords(inPlay(app.profiles)) : app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
+  function openJournal(tab = 'records') { app.tab = tab; app.growthPick = START_PICK; app.beastPick = 0; app.beastPage = null; show('journal'); }
+  const openQuests = () => { app.walk = null; openJournal('quests'); }; // a tap on the goal line, in play (D-706)
   function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)
 
   // § version history (D-254): opens with every version closed, on the newest, on a card (D-393)
@@ -259,5 +262,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, onWheel, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, onWheel, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

@@ -139,6 +139,21 @@ ticked on loading and pay their reward, never shown (recommended).
 The half-taught lines, finds saying what they are but not what next,
 are fixed later at their own step (recommended). Nothing is built yet.
 
+**D-707 · 2026-11-08 · The first teaching goal built** (the owner's
+picks, all recommended; builds D-706) From a mock-up
+(https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8). The goal line: two
+lines on one piece of glass as wide as its words, the goal amber and how
+grey, under the boon's mark and above the creature list. Done: both
+lines gold, the how line becoming the reward ("+1 Oil flask"), for 3
+turns, then gone. The Quests tab, fifth after Feats: a row a goal, newest
+first, a small diamond (gold once done), the goal (amber, gold once
+done), the reward paid on the right, how in grey under it; with none,
+"No goals yet." in grey. Claude's calls the owner may change: goal
+Glints count toward looks with the Feats'; a rat met before this version
+shows the goal on the first turn; goals don't move after a dev jump, as
+the Bestiary; the Journal opened from the goal line closes back to play;
+Right from Feats turns to Quests.
+
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,
