@@ -30,6 +30,7 @@ import { questRows, NONE as NO_GOALS } from '../core/goals.js';
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
 const TABS_Y = 28, TABS_RULE_Y = 44; // inside the card: the tabs' top and the rule under them
+const AMBER = '#ffc65c', QUEST_H = 26; // the Quests tab's goal colour and its rows' height (D-707)
 const ROWS_Y = 52, ROW_H = 11; // Records' first row's top, and from one row's top to the next
 const MARK_W = 8; // the flame and its gap, left of the open tab and of the names
 const TAB_GAP = 24; // between two tabs
@@ -89,7 +90,8 @@ const buttonOf = (card, text) => { const w = textWidth(text) + 8; return { x: ca
 // index, 'close' (the round cross), or null; outside the card, 'out'. tab: the one open; state
 // and pick: the journey and the place picked; book: the profile's Bestiary; page: the creature
 // whose page is open, if one is.
-export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null) {
+// goals: the profile's, for the Quests tab's rows ({ quest: id }, D-712)
+export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null, goals = {}) {
   const whole = cardAt(vw, vh);
   if (!inCard(whole, x, y)) return 'out';
   if (onCross(whole, x, y)) return 'close';
@@ -104,6 +106,10 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
     const n = bestiaryRows(book).length, { per, w, xs } = bestiaryTables(card, n);
     const i = xs.findIndex((tx) => x >= tx && x < tx + w), j = Math.floor((y - card.y - BEASTS_Y) / BEAST_H);
     if (i >= 0 && j >= 0 && j < per && i * per + j < n) return { beast: i * per + j };
+  }
+  if (tab === 'quests') {
+    const rows = questRows(goals), j = Math.floor((y - card.y - ROWS_Y + 2) / QUEST_H);
+    if (y >= card.y + ROWS_Y - 2 && j >= 0 && j < rows.length && card.y + ROWS_Y + (j + 1) * QUEST_H <= card.y + card.h) return { quest: rows[j].id };
   }
   if (y < whole.y + TABS_Y - 8 || y >= whole.y + TABS_RULE_Y + down) return null;
   const row = Math.max(0, Math.min(spots.at(-1).row, Math.floor((y - whole.y - TABS_Y + 8) / TAB_ROW)));
@@ -274,7 +280,6 @@ function drawFeats(c, card, records, bought, goalGlints = 0) {
   });
 }
 // § quests: a row a goal (D-706), as in the owner's pick from the mock-up; none yet, a grey line
-const AMBER = '#ffc65c', QUEST_H = 26;
 function drawQuests(c, card, goals, place) {
   const nx = tabsLeft(card), right = card.x + card.w - PAD, rows = questRows(goals, place);
   if (!rows.length) { drawText(c, NO_GOALS, nx, card.y + ROWS_Y, GREY); return; }

@@ -132,6 +132,16 @@ shows it again; an older profile holding a boon now is ticked quietly,
 and one without is shown the goal. The boons card (D-706) is its own
 next step.
 
+**D-712 · 2026-11-08 · The boons card built** (the owner's picks, all
+recommended; builds D-706) The boons card shows right after the first
+boon is picked, on the same glass card as the opening's, the room dimmed.
+A profile whose "Take a boon" was ticked quietly is never shown it on its
+own. Picking the done "Take a boon" in the Quests tab shows it over the
+Journal, and Go goes back to the Quests tab. Claude's calls the owner may
+change: Enter on the Quests tab shows it too; the first pick is the one
+that marks "Take a boon" done, so a profile that never held a boon sees
+it even if the goal was ticked quietly at that pick.
+
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,

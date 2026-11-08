@@ -32,6 +32,7 @@ import { drawJournal } from './journal.js';
 import { drawSlots } from './slots.js';
 import { drawAskCard } from './askcard.js';
 import { drawOpening } from './openingcard.js';
+import { ABOUT_BOONS, ABOUT_BOONS_BUTTON } from '../core/opening.js';
 import { drawLook } from './cloak.js';
 import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
@@ -82,8 +83,8 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
@@ -160,6 +161,13 @@ export function createFrame(app, ui) {
     drawScene(rc, count, t, still(), at.x, at.y);
   }
 
+  // § the Journal's card, on the title's scene or the room (D-391), and the boons card on either (D-712)
+  function journalOn(c, t) {
+    const p = playing(app.profiles);
+    drawJournal(c, view.w, view.h, p.records, p.played, app.state, app.tab, t, still(), app.growthPick, p.bestiary, SPRITES, app.beastPick, app.beastPage, p.bought, p.goals, p.glints);
+  }
+  const aboutBoonsOn = (c) => drawOpening(c, view.w, view.h, ABOUT_BOONS, ABOUT_BOONS_BUTTON);
+
   function onTitleScreens(t) {
     const { screen } = app;
     if (screen === 'explore') { titleScene(0, t); drawMap(rc, view.w, view.h, app.view, t, still(), screens.turns(), { seed: shownSeed(app.seeds), back: canGoBack(app.seeds) }); } // the map's card on the title's scene (D-395)
@@ -172,7 +180,8 @@ export function createFrame(app, ui) {
     else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes, app.lamp, app.head)); } // the card on the title's scene (D-398)
     else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, shopOf(!app.cloakNew && app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
-    else if (screen === 'journal') { titleScene(0, t); drawJournal(rc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought, playing(app.profiles).goals, playing(app.profiles).glints); } // the card on the title's scene (D-391)
+    else if (screen === 'journal') { titleScene(0, t); journalOn(rc, t); } // the card on the title's scene (D-391)
+    else if (screen === 'aboutBoons') { titleScene(0, t); journalOn(rc, t); aboutBoonsOn(rc); } // the boons card over the Journal (D-712)
     else if (screen === 'title') { // laid out like a phone game's (D-401)
       const p = playing(app.profiles);
       titleScene(3, t);
@@ -361,7 +370,8 @@ export function createFrame(app, ui) {
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)
-    else if (app.screen === 'journal') drawJournal(hc, view.w, view.h, playing(app.profiles).records, playing(app.profiles).played, app.state, app.tab, t, still(), app.growthPick, playing(app.profiles).bestiary, SPRITES, app.beastPick, app.beastPage, playing(app.profiles).bought, playing(app.profiles).goals, playing(app.profiles).glints); // a card on the room (D-391)
+    else if (app.screen === 'journal') journalOn(hc, t); // a card on the room (D-391)
+    else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
       drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0); // a card on the room (D-385), its STORE with a chest in reach (D-558)
