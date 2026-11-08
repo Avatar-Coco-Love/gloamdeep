@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.145 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.146 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 20, Relics (D-691): the locket set on the shelf, the shelf showing
-it; what it does there (a Normal fall bringing home a stack) after.
+Step 20, Relics (D-691): what the locket does on the shelf, a Normal
+fall bringing home the bag's stack the peddler would pay most for.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145)
+- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145); set on the shelf (0.3.146)
 - [ ] 21 Feats
 
 **Next audit: 0.3.152** (D-518, D-660).
@@ -45,6 +45,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.146, The locket on the shelf.** The owner's picks,
+  all recommended (D-693): bumped with the locket in the bag, the shelf
+  asks to set it there; it stays for good; deconstructed, both go back
+  together. Look A of the mock-ups, the locket small on the top shelf
+  in the relics' glow. Mock-ups:
+  https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ; playtest:
+  https://claude.ai/artifact/VfM8TPZAWvxMzVTbvdG7Ea
 - **2026-11-08, 0.3.145, The locket's glow.** Built from the owner's
   picks in D-692: the locket's look D, open, gold and violet with a flame
   inside, and relics' own violet glow with the slow shimmer, as in the
@@ -57,9 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK; playtest:
   https://claude.ai/artifact/7fcpw1nJMgj58KwRmua6Cv; map preview:
   https://claude.ai/artifact/S9kUGLyQs8y42RzmKDnXFs
-- **2026-11-08, 0.3.143, The Lightkeeper's Locket.** The owner's picks,
-  all recommended (D-691): biome 1's first relic, a brass locket, lies
-  once at depth 4 with a rat guarding it; carried for now. On the shelf,
-  a Normal fall will bring home the most valuable stack. Three steps.
-  Playtest: https://claude.ai/artifact/6KZGjygR1CGg9evTG7SgtY; map
-  preview: https://claude.ai/artifact/9wRu5kuDnpw2HGvppniKDR

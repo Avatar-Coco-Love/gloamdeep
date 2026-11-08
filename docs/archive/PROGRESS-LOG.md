@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.143, The Lightkeeper's Locket.** The owner's picks,
+  all recommended (D-691): biome 1's first relic, a brass locket, lies
+  once at depth 4 with a rat guarding it; carried for now. On the shelf,
+  a Normal fall will bring home the most valuable stack. Three steps.
+  Playtest: https://claude.ai/artifact/6KZGjygR1CGg9evTG7SgtY; map
+  preview: https://claude.ai/artifact/9wRu5kuDnpw2HGvppniKDR
 - **2026-11-08, 0.3.142, The shelf.** The owner's picks, all
   recommended (D-690): look A, a wooden case with two empty shelves,
   made at the workbench from 4 Wood and 2 Stone, set down at home the

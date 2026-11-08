@@ -88,8 +88,15 @@ export const TILES = {
     picks: { drops: 'gloamberry', n: 3, into: 'sprout', says: 'gardenBedPick', full: 'gloamberryFull' } },
   // The relic shelf set down on the surface, the bed's way (D-690): solid, light passing over
   // it. Bumped, day or night, it opens the bed's ask card, Deconstruct shelf?, its note
-  // "Nothing on it yet.", where Yes `takes` it back into the bag. Relics come at later steps.
-  relicShelf: { id: 'relicShelf', kind: 'tile', letter: 'L', name: 'Shelf', solid: true, blocksLight: false, panel: 'bed', takes: { item: 'shelf', says: 'shelfTake' } },
+  // "Nothing on it yet.", where Yes `takes` it back into the bag. Bumped with the locket in
+  // the bag, it asks Set the locket on the shelf? instead, where Yes `shelves` it (D-693).
+  relicShelf: { id: 'relicShelf', kind: 'tile', letter: 'L', name: 'Shelf', solid: true, blocksLight: false, panel: 'bed', takes: { item: 'shelf', says: 'shelfTake' },
+    shelves: { relic: 'locket', into: 'locketShelf', says: 'locketShelfSet' } },
+  // The shelf with the locket on it (D-693): it stays there for good. Bumped, it asks
+  // Deconstruct shelf?, "The locket rests here."; Yes gives back the shelf and `also` the
+  // locket, `both` or neither: with no room for both, "Your bag is full." and they stay.
+  // It shows the locket small on its top shelf, with the relics' glow (drawRelics).
+  locketShelf: { id: 'locketShelf', kind: 'tile', letter: 'N', name: 'Shelf', solid: true, blocksLight: false, panel: 'bed', relic: 'locket', takes: { item: 'shelf', says: 'shelfTake', also: 'locket', both: true } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

@@ -61,8 +61,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
   down on the surface; a box of soil where a seed is planted, one plant
   each; bumped, its card, Plant or Deconstruct (D-562, D-565, D-566).
 - **Shelf:** made at the workbench from 4 Wood and 2 Stone, set down on
-  the surface; it holds the relics found, empty for now; bumped, it asks
-  Deconstruct shelf? (D-689, D-690).
+  the surface; it holds the relics found; bumped with the locket in the
+  bag, it asks to set it there, else Deconstruct shelf? (D-689, D-690,
+  D-693).
 - **Plant, sprout:** Plant on the garden bed's card puts a Gloamberry
   Seed in it; a planted bed shows a sprout until it grows (D-566).
 - **Grow:** a sprout grows into a small gloamberry bush 300 turns after

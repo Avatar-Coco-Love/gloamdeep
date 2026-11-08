@@ -3,6 +3,13 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.146', date: '2026-11-08', title: 'The locket on the shelf', lines: [
+    "The Lightkeeper's Locket can go on the shelf. Bump the shelf with the locket in your bag and it asks \"Set the locket on the shelf?\" Yes sets it there in a turn: \"You set the locket on the shelf.\" It stays there for good.",
+    "The shelf shows it: the locket small and open on its top shelf, in the relics' violet glow, with a glint now and then. At night the glow shows from across the surface.",
+    "Bumped then, the shelf asks \"Deconstruct shelf?\" with \"The locket rests here.\" Yes puts the shelf and the locket back in your bag together; with no room for both, your bag is full and both stay.",
+    "What the locket does there, on a fall, comes at the next step.",
+    "Decisions: D-693. D-683 and D-684 moved to the archive, word for word.",
+  ] },
   { v: '0.3.145', date: '2026-11-08', title: 'The locket\'s glow', lines: [
     "The Lightkeeper's Locket has its new look: open on its hinge, a gold case with a violet hollow and a tiny flame burning inside. The flame scratched on its lid is violet now.",
     "Relics have their own glow: a violet halo that slowly swells and fades, seen even in the dark, though it lights nothing. Now and then a glint slides along the locket's edge. With reduced motion the glow holds steady and there is no glint.",

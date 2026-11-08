@@ -36,7 +36,7 @@ export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';
-export { pour, craft, makeAt, eat, hold, setDown, takeDown, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
+export { pour, craft, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid
 // changes nothing and passes no turn, so the same state comes back (D-043).

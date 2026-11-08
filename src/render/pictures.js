@@ -269,6 +269,15 @@ const SHELF = { mirror: false, rows: [
   '', '..kkkkkkkkkkkk..', '..kWWWWWWWWWWk..', '..kNkkkkkkkkNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..',
   '..kNNNNNNNNNNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..', '..kNNNNNNNNNNk..', '..knnnnnnnnnnk..', '..kkkkkkkkkkkk..'] };
 
+// § shelf with the locket (D-693, look A of its mock-up): the shelf, the locket small on its top
+// shelf, open, its gold lid swung out to the left with the violet flame, a violet flame in its
+// hollow and its violet bail; its own letters, LOCKET_SHELF_COLOURS, so the shelf keeps its browns
+const LOCKET_ON_SHELF = { 3: { 9: 'm' }, 4: { 5: 'j', 6: 'l', 8: 'i', 9: 'i', 10: 'l' }, 5: { 5: 'j', 6: 'm', 7: 'l', 8: 'i', 9: 'm', 10: 'l' }, 6: { 5: 'j', 6: 'l', 8: 'i', 9: 'l', 10: 'l' } };
+const LOCKET_SHELF = { mirror: false, rows: SHELF.rows.map((r, y) => [...r.padEnd(16, '.')].map((ch, x) => LOCKET_ON_SHELF[y]?.[x] ?? ch).join('')) };
+const LOCKET_SHELF_COLOURS = { i: '#ffe08a', j: '#e9a94a', l: '#9a5424', m: '#b49cf0' }; // the locket's gold and violet (D-692)
+// the glint along the small locket's top edge, [x, y] per step, and where its glow centres
+const LOCKET_SHELF_GLINT = [[8, 4], [9, 4], [10, 4]];
+
 // § garden bed: a low plank box in the trunk's browns, rows of dark soil in it, a seam on its
 // front, the bed's frame (D-565, look A of three)
 const GARDEN_BED = { mirror: false, rows: [
@@ -532,7 +541,7 @@ export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
-  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF,
+  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER,
   SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_FUR, MOLE_CLAW, SNAPCAP,

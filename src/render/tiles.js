@@ -119,6 +119,7 @@ const DRAW = {
   rubble: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.rubble); }, // a deposit's way (D-490)
   bedstead: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bed); }, // the bench's way (D-488)
   relicShelf: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.shelf); }, // the bed's way (D-690)
+  locketShelf: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.locketShelf); }, // the locket on it (D-693); its glow drawn over the light, drawShelfRelics
   plot: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.gardenBed); }, // the bed's way (D-565)
   sprout: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.sproutedBed); }, // a seed planted in it (D-566)
   fedSprout: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.fedBed); }, // guano on its soil (D-569)

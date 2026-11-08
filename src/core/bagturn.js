@@ -142,12 +142,26 @@ export function takeDown(state, x, y) {
   if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
   const bed = bagAdd(state.bag, takes.item, undefined, bagSize(state));
   if (!bed) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
-  const bag = (takes.also && bagAdd(bed, takes.also, undefined, bagSize(state))) || bed; // the seed planted too, when it fits (D-566)
+  const also = takes.also && bagAdd(bed, takes.also, undefined, bagSize(state));
+  if (takes.both && !also) return say(state, 'bagFull'); // the shelf and its locket together, or neither (D-693)
+  const bag = also || bed; // the seed planted too, when it fits (D-566)
   const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
   const next = note(passTurn(unsow({ ...state, room, bag, ...(stashes && { stashes }) }, x, y)), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
 
+// § shelve: Yes on the shelf's ask sets its `shelves` relic from the bag on it, the tile
+// turning into its `into` tile with the relic shown, and passes a turn, with its line
+// (D-693). It stays there; without the relic in the bag, nothing changes. A `shelve` event.
+export function shelve(state, x, y) {
+  const shelves = tileAt(state.room, x, y).shelves, i = shelves ? state.bag.findIndex((s) => s.id === shelves.relic) : -1;
+  if (i < 0) return state;
+  const room = withTile(state.room, x, y, get(shelves.into));
+  const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'shelve', { id: shelves.relic });
+  return endTurn(state, say(next, shelves.says));
+}
+// Whether the shelf at x, y would take a relic now: its `shelves` relic in the bag (D-693)
+export const canShelve = (state, x, y) => { const shelves = tileAt(state.room, x, y)?.shelves; return !!shelves && state.bag.some((s) => s.id === shelves.relic); };
 // § plant: Plant on the card of the garden bed at x, y puts one of its `plants` seed from
 // the bag in it, the bed becoming its `into` tile, a sprout showing, and passes a turn,
 // with its line (garden step 3, D-566). With no seed, or nothing to plant in, nothing

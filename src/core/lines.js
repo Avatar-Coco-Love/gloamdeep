@@ -330,6 +330,7 @@ export const LINES = {
   locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
   locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
   locketFull: { text: 'You already have the locket.', warn: false },
+  locketShelfSet: { text: 'You set the locket on the shelf.', warn: false }, // (D-693)
   wardenWakes: { text: "The warden's eye lights up!", warn: false }, // (D-692), Claude's drafts the owner may change
   wardenHurt: { text: 'The warden cracks.', warn: false },
   wardenSettles: { text: 'The warden stands still again.', warn: false },

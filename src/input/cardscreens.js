@@ -129,6 +129,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   // The bed's by day is an ask, No picked (D-488); the garden bed's card, Plant picked (D-566).
   function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
+  function shelveBed() { show('play'); ui.shelve(app.bench.x, app.bench.y); } // the locket set on the shelf (D-693)
   function plantBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   function pickBed() { show('play'); ui.pick(app.bench.x, app.bench.y); } // the grown bed's berries (D-568)
   function feedBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
@@ -174,5 +175,5 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
   }
 
-  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords };
+  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords };
 }
