@@ -11,6 +11,15 @@ import { depthOf } from './room.js';
 
 // Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
+export const NEAR = 4; // "Find the waystone" is done this many tiles from its middle, or nearer (the owner's pick)
+// Where the home waystone's plate is in the woods ('Z' asleep, 'A' woken), or null
+function plateAt(state, letters = 'ZA') {
+  if (state.place !== HOME) return null;
+  const map = state.room?.map || [];
+  for (let y = 0; y < map.length; y++) for (let x = 0; x < map[y].length; x++) if (letters.includes(map[y][x])) return { x, y };
+  return null;
+}
+const nearStone = (state) => { const at = plateAt(state); return !!at && Math.max(Math.abs(at.x - state.hero.x), Math.abs(at.y - state.hero.y)) <= NEAR; };
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
@@ -22,6 +31,11 @@ export const GOALS = [
   { id: 'home', goal: 'Go home to the woods', how: (place) => (depthOf(place) > 0 ? 'Take the stairs up to the crypt.' : 'Leave by the gap in the crypt wall.'),
     shows: (c) => !!c.goals.rat?.done, does: (c) => c.state.place === HOME,
     before: (c) => (c.state.found || []).includes(HOME) },
+  // On reaching the woods; done within NEAR tiles of the stone's middle, either way (the owner's
+  // pick), so it is never done on arrival; ticked quietly when its plate is woken already (the owner's pick)
+  { id: 'stone', goal: 'Find the waystone', how: 'Old standing stones, near home.',
+    shows: (c) => c.state.place === HOME, does: (c) => nearStone(c.state),
+    before: (c) => !!plateAt(c.state, 'A') },
 ];
 // The rewards, each its chance in 100 (D-706); a Glint is kept on the profile (Claude's call)
 export const REWARDS = [

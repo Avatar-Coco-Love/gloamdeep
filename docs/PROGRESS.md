@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.161 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.162 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The third teaching goal (D-706): "Find the waystone" / "Old standing stones, near home.", on reaching the woods. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The fourth teaching goal (D-706): "Wake the waystone" / "Step on the plate in its middle.", once it is seen. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.162, The third teaching goal.** "Find the waystone"
+  on reaching the woods. The owner's picks, all recommended: done within
+  4 tiles of the stone's middle, so never on arrival; ticked quietly if
+  its plate is woken already (D-709).
+  Playtest: PLAYTEST
 - **2026-11-08, 0.3.161, The second teaching goal.** "Go home to the
   woods" once the rat goal is done, done in the woods. The owner's pick:
   the woods are reached by the crypt wall's gap, not stairs, so its how
@@ -54,8 +59,3 @@ list in `RESEARCH.md`.
   rat is seen, gold for 3 turns with its rolled reward when done; the
   Journal's fifth tab, Quests, opened by tapping the line (D-707).
   Playtest: https://claude.ai/artifact/BD7Hpa6K7zmvuehMVQMZtp
-- **2026-11-08, 0.3.159, Teaching goals worded.** The owner's picks from
-  a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa): six goals,
-  a goal and a how line each, each at its own moment; the line under the
-  hearts panel, gold when done; rewards mostly finds; the plain boons
-  card (D-706). Docs only; nothing to play.
