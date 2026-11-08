@@ -9,15 +9,16 @@ export const SLOTS = 3;
 // on all its journeys (D-262, D-270, D-283, D-285, D-286); played: whole seconds in its journeys (D-290);
 // bestiary: each creature met, { [id]: { met, beaten } } (bestiary.js, D-630); bought: the
 // patterns, lamps and heads bought with Glints, theirs for good (D-696, D-702, D-703); goals: the
-// teaching goals shown, { [id]: { done, paid? } } (goals.js, D-706); glints: the Glints goals paid
+// teaching goals shown, { [id]: { done, paid? } } (goals.js, D-706); glints: the Glints goals paid;
+// gift: the one locked look taken free, in bought too, or null while the free pick waits (D-714)
 export const COUNTS = ['beaten', 'falls', 'found', 'steps', 'poured', 'torches'];
-export const newProfile = (deepest = 0) => ({ name: '', look: {}, records: { deepest, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0 });
+export const newProfile = (deepest = 0) => ({ name: '', look: {}, records: { deepest, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0, gift: null });
 // The profiles at the start: the first slot in use, the others empty
 export const newProfiles = (deepest = 0) => ({ current: 0, slots: [newProfile(deepest), ...Array(SLOTS - 1).fill(null)] });
 
 // § upgrades: as the journey save's (D-266). When the profiles' shape changes,
 // raise FORMAT and add the step from the old number to the new; never edit a merged step.
-export const FORMAT = 9;
+export const FORMAT = 10;
 export const UPGRADES = {
   // 1 → 2: the Records' counts, none yet (D-270)
   1: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { ...p, records: { beaten: 0, falls: 0, found: 0, ...p.records } }) }),
@@ -35,13 +36,16 @@ export const UPGRADES = {
   7: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { bought: [], ...p }) }),
   // 8 → 9: teaching goals, none shown, and no Glints from them (D-706); ones already done are ticked in play (goals.js)
   8: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { goals: {}, glints: 0, ...p }) }),
+  // 9 → 10: a free pick of one locked look, waiting, for every profile (D-714)
+  9: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { gift: null, ...p }) }),
 };
 
 // § reading: a kept profile list, checked and upgraded, or null when it can't be read
 const isCount = (n) => Number.isInteger(n) && n >= 0;
 const isProfile = (p) => typeof p?.name === 'string' && typeof p.look === 'object' && p.look !== null
   && ['deepest', ...COUNTS].every((k) => isCount(p.records?.[k])) && isCount(p.played) && isBook(p.bestiary)
-  && Array.isArray(p.bought) && p.bought.every((id) => typeof id === 'string') && isGoals(p.goals) && isCount(p.glints);
+  && Array.isArray(p.bought) && p.bought.every((id) => typeof id === 'string') && isGoals(p.goals) && isCount(p.glints)
+  && (p.gift === null || (typeof p.gift === 'string' && p.bought.includes(p.gift)));
 const isGoals = (g) => typeof g === 'object' && g !== null && !Array.isArray(g) && Object.values(g).every((x) => typeof x?.done === 'boolean');
 const isBook = (b) => typeof b === 'object' && b !== null && !Array.isArray(b) && Object.values(b).every((c) => isCount(c?.met) && isCount(c?.beaten));
 export function unpackProfiles(kept) {
@@ -77,13 +81,16 @@ export function playedText(seconds) {
 export const slotName = (p, i) => p.name || `Profile ${i + 1}`;
 // The profiles with slot i in use; an empty slot gets a new profile, named as typed (D-272) or unnamed,
 // in the look chosen after the name (P3)
-export const usingSlot = (ps, i, name = '', look = {}) => ({ current: i, slots: ps.slots.map((p, j) => (j === i ? p ?? { ...newProfile(), name, look } : p)) });
+// gift: the locked look a new hero took free on its look card, or none (D-714)
+export const usingSlot = (ps, i, name = '', look = {}, gift = null) => ({ current: i, slots: ps.slots.map((p, j) => (j === i ? p ?? { ...newProfile(), name, look, ...(gift && { bought: [gift], gift }) } : p)) });
 // The profiles with slot i's profile renamed (P2b); nothing typed makes it unnamed again
 export const renamedSlot = (ps, i, name) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p ? { ...p, name } : p)) });
 // The profiles with slot i's profile in a new look (P3); the rest of its look stays
 export const lookedSlot = (ps, i, look) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p ? { ...p, look: { ...p.look, ...look } } : p)) });
 // The profiles with slot i's profile having bought the pattern, lamp or head `id` (D-696, D-702, D-703); once only
 export const boughtSlot = (ps, i, id) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p && !p.bought.includes(id) ? { ...p, bought: [...p.bought, id] } : p)) });
+// The profiles with slot i's profile having taken `id` as its free pick (D-714); only while it waits
+export const giftedSlot = (ps, i, id) => ({ ...ps, slots: ps.slots.map((p, j) => (j === i && p && p.gift === null && !p.bought.includes(id) ? { ...p, bought: [...p.bought, id], gift: id } : p)) });
 // The profiles with slot i emptied; if it was in use, the first slot still in use takes over, or none
 export function withoutSlot(ps, i) {
   const slots = ps.slots.map((p, j) => (j === i ? null : p));

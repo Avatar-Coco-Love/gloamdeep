@@ -16,7 +16,7 @@ test('at the start: three slots, the first in use, unnamed, with no look, no Rec
   const ps = newProfiles();
   assert.equal(ps.slots.length, SLOTS);
   assert.equal(SLOTS, 3);
-  assert.deepEqual(playing(ps), { name: '', look: {}, records: { deepest: 0, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0 });
+  assert.deepEqual(playing(ps), { name: '', look: {}, records: { deepest: 0, beaten: 0, falls: 0, found: 0, steps: 0, poured: 0, torches: 0 }, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0, gift: null });
   assert.deepEqual(ps.slots.slice(1), [null, null]);
 });
 
@@ -205,7 +205,7 @@ test('a deleted profile\'s journey goes with it, and the others stay', () => {
 test('a fifth-format profile list comes up with no play time yet, its Records kept (D-290)', () => {
   const records = { deepest: 2, beaten: 5, falls: 1, found: 9, steps: 300, poured: 4, torches: 3 };
   const old = { format: 5, profiles: { current: 0, slots: [{ name: 'Coco', look: {}, records }, null, null] } };
-  assert.deepEqual(unpackProfiles(old).slots[0], { name: 'Coco', look: {}, records, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0 });
+  assert.deepEqual(unpackProfiles(old).slots[0], { name: 'Coco', look: {}, records, played: 0, bestiary: {}, bought: [], goals: {}, glints: 0, gift: null });
 });
 
 test('play time adds to the profile in play only, and reads in hours and minutes (D-290)', () => {

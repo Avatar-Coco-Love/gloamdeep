@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.167 (2026-11-08)
+- The free pick: every profile may take one locked look free. On the Look card each locked look reads FREE in gold while the pick waits; try one on and press FREE to take it. The rest go back to LOCK.
+- Not taken when you make a hero? It waits for Change Look. Profiles made before this version get one too.
+- Decisions: D-714.
+
 ## 0.3.166 (2026-11-08)
 - The sixth teaching goal: at level 2, "Spend your ember" and "Tap here, then Growth." show under the hearts panel, ahead of any other goal waiting. Buy a heart or Tough in the Journal's Growth tab and the goal turns gold with its reward once you close the Journal.
 - If you have already spent an ember on this journey, the goal is ticked quietly and pays its reward.
@@ -33,8 +38,3 @@ Entry format:
 - The boons card: the first time you pick a boon, a glass card says what boons are, with Go to carry on. It shows only once.
 - In the Journal's Quests tab, tap the done "Take a boon" (or press Enter there) to read the card again; Go goes back to the Journal.
 - Decisions: D-712.
-
-## 0.3.164 (2026-11-08)
-- The fifth teaching goal: step off the woken waystone's plate without ever having held a boon, and "Take a boon" and "Step back on the plate. Pick 1 of 3." show under the hearts panel. Pick a boon and the goal turns gold with its reward; closing the card with its cross leaves the goal waiting.
-- If you have held a boon since this version, or hold one now, the goal is ticked quietly and pays its reward.
-- Decisions: D-711.

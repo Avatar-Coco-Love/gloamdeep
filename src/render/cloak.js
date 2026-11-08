@@ -10,7 +10,7 @@
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, LOOK_SHOWN, tabOf, tabRows, clampScroll, isLocked } from '../core/looks.js';
-import { stageNote } from '../core/feats.js';
+import { stageNote, FREE_NOTE } from '../core/feats.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
@@ -176,18 +176,18 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
   scroll = clampScroll(scroll, tabRows(tab), at.shown);
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
-    if (k.id === 'random' && trying) { drawBuy(c, at.row.random, table[trying].price, shop.have >= table[trying].price, i === chosen); return; }
+    if (k.id === 'random' && trying) { drawBuy(c, at.row.random, shop.free ? 'FREE' : `BUY ${table[trying].price}`, shop.free || shop.have >= table[trying].price, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
     if (!shown(k, scroll, at.shown)) return;
     const { x, y } = boxAt(at, k, scroll), picked = k.id === look[tab], locked = isLocked(tab, k.id, shop.bought);
     const swatch = swatchOf(table[k.id]);
     if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
-    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
+    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked, shop.free); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
   drawBar(c, at, scroll, tabRows(tab));
   drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, trying ? '' : table[look[tab]]?.name ?? '', at.stage, t, still);
-  if (trying) drawNote(c, stageNote(table[trying].name, table[trying].price, shop.have), at);
+  if (trying) drawNote(c, shop.free ? `${table[trying].name}: ${FREE_NOTE}` : stageNote(table[trying].name, table[trying].price, shop.have), at);
 }
 // § bar (D-701): a thin track at the boxes' right, its gold thumb as long as the window is of all
 // the rows and as far down as the rows scrolled past; none when the tab's rows all fit
@@ -204,10 +204,10 @@ function drawBar(c, at, scroll, rows) {
   c.fillStyle = DIM; c.fillRect(b.x, b.y, b.w, b.h);
   c.fillStyle = GOLD; c.fillRect(b.x, b.thumb.y, b.w, b.thumb.h);
 }
-// § buy (D-696): BUY and the price where RANDOM was; dim with too few Glints, framed in gold
-// round it then when the arrows are on it, as the tabs are
-function drawBuy(c, { x, y, w, h }, price, can, arrows) {
-  drawButton(c, x, y, `BUY ${price}`, !can || !arrows, w, h, ROW_TEXT);
+// § buy (D-696): BUY and the price where RANDOM was, or FREE while the free pick waits (D-714); dim
+// with too few Glints, framed in gold round it then when the arrows are on it, as the tabs are
+function drawBuy(c, { x, y, w, h }, text, can, arrows) {
+  drawButton(c, x, y, text, !can || !arrows, w, h, ROW_TEXT);
   if (!can && arrows) frame(c, x - 1, y - 1, w + 2, h + 2, GOLD);
 }
 // § note (D-700): while a pattern is tried on, its price and the Glints there are take the big hero's
@@ -235,14 +235,16 @@ function drawTab(c, { x, y, w, h }, text, open, arrows) {
 const centred = (c, text, x, y, colour) => drawText(c, text, x - Math.floor(textWidth(text) / 2), y, colour);
 
 // A box `bw` wide: the hero s× on its shadow, its name under it, gold when picked (D-520, D-526)
-// A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right
-function drawSmall(c, hero, name, x, y, { bw, s, named }, picked, locked = false) {
+// A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right, or FREE in gold
+// while the free pick waits (D-714)
+function drawSmall(c, hero, name, x, y, { bw, s, named }, picked, locked = false, free = false) {
   const mid = x + Math.floor(bw / 2);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(mid - 6 * s, y + 3 + 15 * s, 12 * s, 2);
   if (locked) c.globalAlpha = 0.45;
   c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
   c.globalAlpha = 1;
-  if (locked) drawText(c, 'LOCK', x + bw - 3 - textWidth('LOCK'), y + 2, EMBER);
+  const tag = free ? 'FREE' : 'LOCK';
+  if (locked) drawText(c, tag, x + bw - 3 - textWidth(tag), y + 2, free ? GOLD : EMBER);
   if (named) centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY); // none on a view too short (D-700)
 }
 // A choice's swatch colours: the eyes' one colour (D-527); the trim's cap shade over its base shade

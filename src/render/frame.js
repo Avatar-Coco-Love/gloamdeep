@@ -65,7 +65,7 @@ import { shownSeed, canGoBack } from '../core/explorer.js';
 import { mouthLight } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
-import { shopOf } from '../core/feats.js';
+import { shopOf, newShop } from '../core/feats.js';
 import { cloakOf, eyesOf, trimOf, clothesOf, lampOf, headOf } from '../core/looks.js';
 import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways, widen } from '../core/openings.js';
@@ -178,7 +178,7 @@ export function createFrame(app, ui) {
     else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-389)
     else if (screen === 'slots') { titleScene(0, t); drawSlots(rc, view.w, view.h, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p), lampOf(p), headOf(p)), app.chosen, app.picking, screens.slotsBack(), t, still()); } // the card on the title's scene (D-397)
     else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes, app.lamp, app.head)); } // the card on the title's scene (D-398)
-    else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, shopOf(!app.cloakNew && app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
+    else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, app.cloakNew ? newShop(app.gift) : shopOf(app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
     else if (screen === 'drop' || screen === 'sure') { titleScene(0, t); drawAskCard(rc, view.w, view.h, ...screens.askOf(screen), SURE_MENU, app.chosen); } // the ask card on the title's scene (D-400)
     else if (screen === 'journal') { titleScene(0, t); journalOn(rc, t); } // the card on the title's scene (D-391)
     else if (screen === 'aboutBoons') { titleScene(0, t); journalOn(rc, t); aboutBoonsOn(rc); } // the boons card over the Journal (D-712)

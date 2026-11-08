@@ -45,7 +45,8 @@ Look card (D-515, D-533, D-696, D-700). And 4 lamps, the lantern's
 shape: Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints
 each (D-702). And 9 heads: Hood, Brim and Ears, free, then Helm, Horned,
 Pointed, Bobble, Circlet and Scarf, locked at 3 Glints each (D-703,
-D-704).
+D-704). Every profile may take one locked look free, its `gift`, shown
+FREE in gold while it waits (D-714).
 
 ## Growth upgrades (`src/core/upgrades.js`)
 

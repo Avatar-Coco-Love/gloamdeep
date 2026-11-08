@@ -180,7 +180,7 @@ test('the Quests tab lists each goal, the done one with its reward, or says none
 });
 
 test('profiles gain goals and goal Glints, and goal Glints count toward looks', () => {
-  assert.equal(FORMAT, 9);
+  assert.ok(FORMAT >= 9);
   const old = { format: 8, profiles: { current: 0, slots: [{ ...newProfile(), goals: undefined, glints: undefined }, null, null] } };
   delete old.profiles.slots[0].goals; delete old.profiles.slots[0].glints;
   const p = unpackProfiles(old).slots[0];

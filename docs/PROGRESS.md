@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.166 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.167 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The free pick of a locked look for each new profile (D-704): a mock-up of how it is shown first.
+The Carriage lamp and the Zebra pattern free for everyone (D-704, D-714).
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.167, The free pick.** Every profile may take one
+  locked look free. The owner's picks, all recommended: each locked look
+  reads FREE in gold while the pick waits, and the button reads FREE; not
+  taken, it waits for Change Look; older profiles get one too. Next, the
+  Carriage lamp and Zebra free for everyone (D-714).
+  Playtest: https://claude.ai/artifact/VTvzFTbd74F7WS6bJGwCcU
 - **2026-11-08, 0.3.166, The sixth teaching goal.** "Spend your ember"
   at level 2, ahead of any goal waiting. The owner's picks, all
   recommended: done on the first buy in Growth, shown gold once the
@@ -56,9 +62,3 @@ list in `RESEARCH.md`.
   recommended: over the Journal and back to it; never for a profile
   ticked quietly (D-712).
   Playtest: https://claude.ai/artifact/7jxE1kBw7thc1C2FZUkED3
-- **2026-11-08, 0.3.164, The fifth teaching goal.** "Take a boon" on
-  stepping off the woken plate with no boon ever held. The owner's
-  picks, all recommended: done on the pick, the cross leaving it
-  waiting; an older profile holding a boon now is ticked quietly; the
-  boons card is its own step (D-711).
-  Playtest: https://claude.ai/artifact/DNJsXj6WjoptpW2yTzE11W
