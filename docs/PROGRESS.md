@@ -47,7 +47,7 @@ list in `RESEARCH.md`.
   on reaching the woods. The owner's picks, all recommended: done within
   4 tiles of the stone's middle, so never on arrival; ticked quietly if
   its plate is woken already (D-709).
-  Playtest: PLAYTEST
+  Playtest: https://claude.ai/artifact/GjMJhCSLVBtBVudEZB8HxP
 - **2026-11-08, 0.3.161, The second teaching goal.** "Go home to the
   woods" once the rat goal is done, done in the woods. The owner's pick:
   the woods are reached by the crypt wall's gap, not stairs, so its how
