@@ -10,6 +10,7 @@ D-655, the Antidote (built), moved here at 0.3.122 (D-670).
 D-656, the Centipede Charm (built), moved here at 0.3.123 (D-671).
 D-658, ideas from the review (kept in `RESEARCH-2.md`), moved here at
 0.3.125 (D-673).
+D-659, the Spit grub (built, D-688), moved here at 0.3.150 (D-697).
 
 ---
 
@@ -142,3 +143,19 @@ to `archive/DECISIONS-CHECKUP.md`, word for word.
 recommended) The ideas from the project review are kept in
 `RESEARCH-2.md`, "From the project review"; none is decided. Next comes
 Next up: the ranged creature's drafts (D-652), using its ideas there.
+
+**D-659 · 2026-11-07 · The Spit grub** (the owner's picks, all
+recommended but its name; mock-ups:
+https://claude.ai/artifact/1npk26Bc9jNc4G2gNYixB9; builds D-349, D-652,
+D-658; answers part of Q-076) The first creature that attacks from range
+is the Spit grub, draft A, biome 1's 16th kind, in the pool from depth
+4. It never moves. When it sees the hero's lit lantern along a clear
+row or column, up to 5 tiles away, it spits a glowing glob that moves
+1 tile a turn down that line, so the hero can step out of the way; it
+then rests 2 turns. Only the lit lantern: with it off the grub can't
+see the hero, and the hero sees only the grub's and the glob's glows.
+Walls and rubble, whatever blocks light, stop the glob. Its next move
+shows as the others' do. Drafts the owner may change: 1 heart, spit 1,
+the 5 tiles and 2 turns. Its look, drop and lines are shown with
+mock-ups at its build step. D-647 moved to
+`archive/DECISIONS-CHECKUP.md`, word for word.
