@@ -39,9 +39,9 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 ## The hero's looks (`src/core/looks.js`)
 
 6 cloaks, 6 eyes, 6 trims and 4 clothes; their names are in
-`GLOSSARY.md` (D-275 to D-278, D-289). Also 3 locked cloak patterns,
-Zebra, Cow and Camo, 3 Glints each, bought on the Look card (D-515,
-D-533, D-696).
+`GLOSSARY.md` (D-275 to D-278, D-289). Also 6 locked cloak patterns,
+Zebra, Cow, Camo, Tiger, Stars and Moth, 3 Glints each, bought on the
+Look card (D-515, D-533, D-696, D-700).
 
 ## Growth upgrades (`src/core/upgrades.js`)
 

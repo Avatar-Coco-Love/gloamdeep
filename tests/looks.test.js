@@ -2,15 +2,15 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CLOAKS, CLOAK_IDS, DEFAULT_CLOAK, cloakOf, EYES, EYE_IDS, DEFAULT_EYES, eyesOf, TRIMS, TRIM_IDS, DEFAULT_TRIM, trimOf, CLOTHES, CLOTHES_IDS, DEFAULT_CLOTHES, clothesOf, LOOK_TABS, LOOK_PADS, LOOK_ROWS, isLocked, moveLook, rollLook, spentOn } from '../src/core/looks.js';
-import { lookCardAt, lookRowAt, swatchOf } from '../src/render/cloak.js';
+import { boxesAt, lookCardAt, lookRowAt, swatchOf } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 import { cardAt } from '../src/render/bag.js';
 import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIMS, CLOTHES as REGISTERED_CLOTHES, get } from '../src/core/registry.js';
 
 test('six cloaks, teal first, then the three locked patterns, each with four shades; the registry has them', () => {
-  assert.deepEqual(CLOAK_IDS, ['teal', 'moss', 'heather', 'rust', 'indigo', 'sand', 'zebra', 'cow', 'camo']);
-  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked), ['zebra', 'cow', 'camo']); // D-515, D-533
-  for (const id of ['zebra', 'cow', 'camo']) { assert.equal(CLOAKS[id].pattern, id); assert.equal(CLOAKS[id].marks.length, 2); }
+  assert.deepEqual(CLOAK_IDS, ['teal', 'moss', 'heather', 'rust', 'indigo', 'sand', 'zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']);
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked), ['zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']); // D-515, D-533, D-700
+  for (const id of ['zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']) { assert.equal(CLOAKS[id].pattern, id); assert.equal(CLOAKS[id].marks.length, 2); }
   assert.equal(REGISTERED, CLOAKS);
   for (const k of Object.values(CLOAKS)) {
     assert.equal(k.kind, 'cloak');
@@ -98,8 +98,8 @@ test('the look card: four tabs first on every pad, then the choices three to a r
     assert.deepEqual(pad.slice(-2).map((k) => k.id), ['random', 'ok']);
   }
   assert.deepEqual(LOOK_PADS.clothes.slice(4).map(({ row, col }) => [row, col]), [[1, 0], [1, 1], [1, 2], [2, 0], [3, 0], [3, 2]]);
-  assert.deepEqual(LOOK_PADS.cloak.slice(-5).map(({ id, row, col }) => [id, row, col]), [['zebra', 3, 0], ['cow', 3, 1], ['camo', 3, 2], ['random', 4, 0], ['ok', 4, 2]]); // the patterns a third row (D-533)
-  assert.equal(LOOK_ROWS, 3);
+  assert.deepEqual(LOOK_PADS.cloak.slice(-6).map(({ id, row, col }) => [id, row, col]), [['camo', 3, 2], ['tiger', 4, 0], ['stars', 4, 1], ['moth', 4, 2], ['random', 5, 0], ['ok', 5, 2]]); // the patterns a third and fourth row (D-533, D-700)
+  assert.equal(LOOK_ROWS, 4);
   assert.ok(isLocked('cloak', 'cow') && !isLocked('cloak', 'sand') && !isLocked('eyes', 'bone'));
 });
 
@@ -108,11 +108,12 @@ test('the arrows walk the look card: Up from a choice to the open tab, Down from
   assert.equal(moveLook('cloak', keyOf('cloak', 'heather'), 'right'), keyOf('cloak', 'heather')); // the row's end
   assert.equal(moveLook('cloak', keyOf('cloak', 'moss'), 'down'), keyOf('cloak', 'indigo'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'indigo'), 'down'), keyOf('cloak', 'cow')); // the locked row next (D-533)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'cow'), 'down'), keyOf('cloak', 'random')); // RANDOM under the first two (D-522)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'camo'), 'down'), keyOf('cloak', 'ok'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'cow'), 'down'), keyOf('cloak', 'stars')); // the second locked row (D-700)
+  assert.equal(moveLook('cloak', keyOf('cloak', 'stars'), 'down'), keyOf('cloak', 'random')); // RANDOM under the first two (D-522)
+  assert.equal(moveLook('cloak', keyOf('cloak', 'moth'), 'down'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'down'), keyOf('cloak', 'ok')); // no Back: the cross goes back (D-399)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), keyOf('cloak', 'camo'));
-  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), keyOf('cloak', 'zebra'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), keyOf('cloak', 'moth'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), keyOf('cloak', 'tiger'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'right'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'left'), keyOf('cloak', 'random'));
   assert.equal(moveLook('eyes', keyOf('eyes', 'silver'), 'up'), keyOf('eyes', 'ice'));
@@ -158,6 +159,12 @@ test('the look card fits: the big hero, the tabs, then both rows clear of the bu
   assert.equal(column(card.x + 60, vw, vh, 'cloak').filter(([, k]) => !k.tab).length, 0); // the big hero at their left
 });
 
+test('on a view too short for every row, the boxes drop their names; bigger views keep them (D-700)', () => {
+  assert.equal(boxesAt(176, 221).named, false); // the menus' picture, upright
+  assert.equal(boxesAt(176, 221).bh, 22);
+  for (const [vw, vh] of [[195, 422], [420, 221]]) assert.equal(boxesAt(vw, vh).named, true, `${vw}x${vh}`);
+});
+
 test('RANDOM rolls a whole look from the free choices, the same seed the same look (D-522)', () => {
   const r = rng(7), looks = Array.from({ length: 200 }, () => rollLook(r));
   for (const t of LOOK_TABS) {
@@ -180,7 +187,7 @@ test('a bought pattern is worn, picked and rolled; one not bought is not (D-696)
   assert.equal(cloakOf({ look: { cloak: 'zebra' }, bought: ['zebra'] }), 'zebra');
   assert.equal(cloakOf({ look: { cloak: 'cow' }, bought: ['zebra'] }), 'teal');
   assert.ok(!isLocked('cloak', 'zebra', ['zebra']) && isLocked('cloak', 'cow', ['zebra']));
-  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked).map((id) => CLOAKS[id].price), [3, 3, 3]); // D-695
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked).map((id) => CLOAKS[id].price), [3, 3, 3, 3, 3, 3]); // D-695, D-700
   const r = rng(3), cloaks = new Set(Array.from({ length: 300 }, () => rollLook(r, ['camo']).cloak));
   assert.ok(cloaks.has('camo') && !cloaks.has('zebra') && !cloaks.has('cow'));
   assert.equal(spentOn(['zebra', 'camo']), 6);

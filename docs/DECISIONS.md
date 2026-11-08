@@ -102,3 +102,17 @@ archived; all word for word. One bug hunt read the code since 0.3.113
 (Relics, Feats, Glints); its findings are listed for the owner to pick
 from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
+
+**D-700 · 2026-11-08 · Three more cloak patterns** (the owner's picks,
+all recommended, from a mock-up,
+https://claude.ai/artifact/H1tbjmS1PxQxBkWLX9fdCV; builds D-515, D-533,
+D-695, D-698, narrows Q-055) Three of nine drafts join, each in its own
+colours: Tiger (rust with dark stripes from both sides), Stars (night
+indigo with bone and sky specks) and Moth (sand with two eyespots, a
+pale middle in each). Each costs 3 Glints, so the six patterns cost 18,
+what the three Feats pay. They are the CLOAK tab's fourth row, and every
+tab keeps as many rows. On a view too short for four rows (the menus'
+176 × 221 picture upright), the boxes drop their names. While a pattern
+is tried on, the note takes the big hero's name line instead of
+covering the boxes: "Tiger: 3 Glints. You have 4.", adding "Earn more
+from Feats." with too few, wrapping up over the floor's foot.

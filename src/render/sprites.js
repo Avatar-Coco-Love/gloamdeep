@@ -125,6 +125,10 @@ const MASKS = {
   zebra: (x, y) => ((y + (Math.abs(x - 7.5) >> 1)) % 3 === 0 ? 1 : 0), // stripes dipping into a V down the middle
   cow: blobs([[5, 3.5, 1.2, 1], [10, 6.5, 0.8, 1.1], [4.5, 9.5, 1.6, 1.4], [10.5, 12.2, 1.6, 1.3], [7, 13.5, 0.7, 0.6]]), // a few big patches, no two alike
   camo: (x, y) => { const n = patHash(x >> 1, (y + 1) >> 1); return n < 0.3 ? 1 : n > 0.72 ? 2 : 0; }, // blotches in 2 × 2 chunks
+  // the second three (D-700), as in their mock-up
+  tiger: (x, y) => ((y % 4 === 1 && Math.abs(x - 7.5) > 1.5) || (y % 4 === 2 && Math.abs(x - 7.5) > 3.5) ? 1 : 0), // stripes reaching in from both sides
+  stars: (x, y) => { const n = patHash(x + 11, y + 5); return n < 0.1 ? 1 : n < 0.16 ? 2 : 0; }, // a scatter of single specks
+  moth: (x, y) => { for (const cx of [5, 10]) { const dx = x - cx, dy = y - 10; if (!dx && !dy) return 2; if (dx * dx + dy * dy <= 2) return 1; } return 0; }, // two eyespots, a pale middle in each
 };
 function markPattern(cv, def, cloak) {
   const c = cv.getContext('2d'), mask = MASKS[cloak.pattern];
