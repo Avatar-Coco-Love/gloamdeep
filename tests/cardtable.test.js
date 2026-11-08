@@ -31,7 +31,7 @@ const settings = loadSettings();
 const LINES = { title: titleMenu(true), paused: PAUSE_MENU, settings: settingsMenu(settings), mode: MODE_MENU, ways: easeMenu('normal'), ended: ENDED_MENU };
 // The helpers from cardscreens.js and screens.js, each noting its call; askOf and menuOf answer
 const made = (screen) => {
-  const shown = [], calls = [], ui = { spoken: { textContent: '' }, reduceMotion: { matches: false }, mapMoves: () => ({ dragged: () => false }) };
+  const shown = [], calls = [], ui = { spoken: { textContent: '' }, reduceMotion: { matches: false }, mapMoves: () => ({ dragged: () => false }), bought: (before) => calls.push(['bought', before]) };
   // The profiles shown with a title to go back to; the map's card (render/map.js needs a page) all window, nothing outside it but 'out'
   const answers = { askOf: () => ASK, menuOf: (sc) => LINES[sc] ?? SURE_MENU, slotsBack: () => true, linesNow: () => slotLines(null), win: () => ({ x: 0, y: 0, w: view.w, h: view.h }), mapCardAt: (x, y) => (x < 0 || y < 0 ? 'out' : null) };
   const helpers = new Proxy({}, { get: (_, k) => answers[k] ?? ((...a) => { calls.push([k, ...a]); }) });
@@ -176,6 +176,7 @@ test('the journal: Right turns to Growth, and Enter there buys the heart', () =>
   assert.equal(app.tab, 'growth');
   cards.journal.pick(0);
   assert.equal(maxHealth(app.state), HERO_HEALTH + 1);
+  assert.equal(calls.filter((c) => c[0] === 'bought').length, 1); // the goals checked on the buy (D-713)
   assert.equal(calls.filter((c) => c[0] === 'journalPageWords').length, 2); // its words said each time
   cards.journal.dir('left'); // Left past Light: back to Records
   cards.journal.dir('left');

@@ -1,4 +1,4 @@
-// § goals: teaching goals (D-705, D-706, D-710, D-711), the Quests tab's first kind of quest. A goal
+// § goals: teaching goals (D-705, D-706, D-710, D-711, D-713), the Quests tab's first kind of quest. A goal
 // appears at its own moment, shows as a line under the hearts panel until done, then turns
 // gold for GOLD_TURNS turns and pays a reward rolled from REWARDS, the seed picking. Goals live
 // in the profile, { [id]: { done, paid? } } in the order they appeared; a goal already done in
@@ -8,6 +8,8 @@ import { bagAdd, bagSize } from './bag.js';
 import { get } from './registry.js';
 import { HOME } from './boon.js';
 import { depthOf, tileAt } from './room.js';
+import { levelOf } from './xp.js';
+import { embers } from './growth.js';
 
 // Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state, before }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
@@ -25,6 +27,9 @@ const steppedOff = (c) => c.state.place === HOME && c.before.place === HOME
   && (c.state.hero.x !== c.before.hero.x || c.state.hero.y !== c.before.hero.y)
   && tileAt(c.before.room, c.before.hero.x, c.before.hero.y).id === 'wokenPlate';
 const picked = (c) => c.events.some((e) => e.type === 'boon');
+// The level reached, and whether an ember is spent this journey (growth.js)
+const level = (state) => levelOf(state.xp ?? 0);
+const spent = (state) => embers({ xp: 0, ...state }) < level(state) - 1;
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
@@ -52,6 +57,12 @@ export const GOALS = [
   { id: 'boon', goal: 'Take a boon', how: 'Step back on the plate. Pick 1 of 3.',
     shows: (c) => steppedOff(c) || picked(c), does: picked,
     before: (c) => !!c.state.boon },
+  // At level 2, going ahead of any goal waiting (D-706) while an ember is there to spend (Claude's
+  // call); done on the first buy in Growth, which passes no turn, so main.js checks again then
+  // (the owner's pick); ticked quietly when an ember is spent already (the owner's pick)
+  { id: 'ember', goal: 'Spend your ember', how: 'Tap here, then Growth.', ahead: (state) => embers({ xp: 0, ...state }) > 0,
+    shows: (c) => level(c.state) >= 2, does: (c) => spent(c.state),
+    before: (c) => spent(c.state) },
 ];
 // The rewards, each its chance in 100 (D-706); a Glint is kept on the profile (Claude's call)
 export const REWARDS = [
@@ -117,14 +128,16 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
   return { goals: next, glints: g, state: s, done };
 }
 
-// § the line under the panel: the goal waiting (the oldest), or one done in gold until its turns
-// pass; null for none. gold: { id, until } from main.js.
-export function goalLine(goals = {}, gold = null, turn = 0, place = 'first') {
+// § the line under the panel: the goal waiting (the oldest, or one that goes ahead while it can,
+// D-706), or one done in gold until its turns pass; null for none. gold: { id, until } from
+// main.js; state, the journey, for a goal going ahead.
+export function goalLine(goals = {}, gold = null, turn = 0, place = 'first', state = null) {
   if (gold && turn < gold.until && goals[gold.id]?.done) {
     const g = goalOf(gold.id);
     return { id: g.id, goal: g.goal, how: rewardText(goals[g.id].paid), done: true };
   }
-  const id = Object.keys(goals).find((k) => !goals[k].done && goalOf(k));
+  const waiting = Object.keys(goals).filter((k) => !goals[k].done && goalOf(k));
+  const id = waiting.find((k) => state && goalOf(k).ahead?.(state)) ?? waiting[0];
   return id ? { id, goal: goalOf(id).goal, how: howOf(goalOf(id), place), done: false } : null;
 }
 // The text line's words when a goal is done: "Beat a rat. +1 Oil flask"

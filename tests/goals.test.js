@@ -6,12 +6,14 @@ import { unpackProfiles, newProfile, FORMAT } from '../src/core/profile.js';
 import { glintsLeft } from '../src/core/feats.js';
 import { LINES } from '../src/core/lines.js';
 import { goalSize, onGoal } from '../src/render/goalline.js';
+import { xpFor } from '../src/core/xp.js';
+import { addHeart, addTough } from '../src/core/growth.js';
 
 const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, place: 'first', found: ['first'] };
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -147,6 +149,27 @@ test('a boon picked before the goal shows, or held from an older save, ticks it 
   assert.deepEqual(held.done, []);
   const home = { ...on, boon: null, hero: { x: 8, y: 9 } };
   assert.equal(goalsAfter(picked.goals, 0, {}, [], home, { ...home, hero: { x: 8, y: 8 } }).goals, picked.goals, 'held once, never shown again');
+});
+
+test('spending an ember shows at level 2, goes ahead of a goal waiting, and is done on the first buy (D-713)', () => {
+  const one = { ...base, xp: xpFor(2) - 1 }, two = { ...base, xp: xpFor(2) };
+  assert.equal(goalsAfter({}, 0, {}, [], one).goals.ember, undefined, 'not at level 1');
+  const waiting = { rat: { done: false } }, shown = goalsAfter(waiting, 0, {}, [], two, one);
+  assert.deepEqual(shown.goals.ember, { done: false });
+  assert.equal(goalLine(shown.goals, null, base.turn, 'first', two).goal, 'Spend your ember', 'ahead of the rat');
+  assert.equal(goalLine(shown.goals, null, base.turn, 'first', { ...base, xp: 0 }).goal, 'Beat a rat', 'not ahead with no ember to spend');
+  assert.equal(goalLine(shown.goals, null, base.turn).goal, 'Beat a rat', 'the oldest without a journey');
+  const bought = addHeart(two), did = goalsAfter(shown.goals, 0, {}, [], bought, two);
+  assert.deepEqual(did.done, ['ember']);
+  assert.equal(doneWords(did.goals, 'ember'), `Spend your ember. ${rewardText(did.goals.ember.paid)}`);
+  assert.equal(goalLine(did.goals, null, base.turn, 'first', bought).goal, 'Beat a rat');
+});
+
+test('an ember spent already ticks spending one quietly (D-713)', () => {
+  const tough = addTough({ ...base, xp: xpFor(3) }), quiet = goalsAfter({}, 0, {}, [], tough);
+  assert.equal(quiet.goals.ember.done, true);
+  assert.deepEqual(quiet.done, []);
+  assert.deepEqual(goalsAfter({}, 0, {}, [], { ...base, xp: xpFor(3) }).goals.ember, { done: false }, 'past level 2, nothing spent: shown');
 });
 
 test('the Quests tab lists each goal, the done one with its reward, or says none yet', () => {

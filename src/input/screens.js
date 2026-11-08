@@ -119,7 +119,7 @@ export function createScreens(app, ui) {
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
-  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title'));
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),

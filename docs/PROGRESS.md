@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.165 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.166 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The free pick of a locked look for each new profile (D-704): a mock-up of how it is shown first. Or the sixth teaching goal, "Spend your ember" (D-706), the owner choosing.
+The free pick of a locked look for each new profile (D-704): a mock-up of how it is shown first.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.166, The sixth teaching goal.** "Spend your ember"
+  at level 2, ahead of any goal waiting. The owner's picks, all
+  recommended: done on the first buy in Growth, shown gold once the
+  Journal closes; ticked quietly if an ember is spent already; the tap
+  opens Quests as every goal's does (D-713). Also fixed: 0.3.165's
+  stray bracket that stopped the game from starting, now tested.
+  Playtest: https://claude.ai/artifact/RrphwJEKTiSGoyeoqJQXxc
 - **2026-11-08, 0.3.165, The boons card.** Once, right after the first
   boon is picked, a glass card saying what boons are, with Go; the done
   "Take a boon" in the Quests tab shows it again. The owner's picks, all
@@ -55,8 +62,3 @@ list in `RESEARCH.md`.
   waiting; an older profile holding a boon now is ticked quietly; the
   boons card is its own step (D-711).
   Playtest: https://claude.ai/artifact/DNJsXj6WjoptpW2yTzE11W
-- **2026-11-08, 0.3.163, The fourth teaching goal.** "Wake the waystone"
-  once the stone is found. The owner's picks, all recommended: done on
-  the step that wakes the plate; ticked quietly if it is woken already
-  (D-710).
-  Playtest: https://claude.ai/artifact/E2dFtHKhVvZxpot7BTZik4

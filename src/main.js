@@ -391,6 +391,7 @@ const screens = createScreens(app, {
     app.state = takeBoon(before, id); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before);
     if (first && playing(app.profiles).goals?.boon?.done) { app.boonsFrom = 'play'; screens.show('aboutBoons'); }
   },
+  bought: (before) => keepRecords([], before), // a Growth buy in the Journal, free: the goals checked (D-713)
   strike: () => strikeAt(needleAt(performance.now() - app.strike.start)), // the strike card's tap (D-614)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below

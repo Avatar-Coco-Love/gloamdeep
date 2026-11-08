@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.163, The fourth teaching goal.** "Wake the waystone"
+  once the stone is found. The owner's picks, all recommended: done on
+  the step that wakes the plate; ticked quietly if it is woken already
+  (D-710).
+  Playtest: https://claude.ai/artifact/E2dFtHKhVvZxpot7BTZik4
 - **2026-11-08, 0.3.162, The third teaching goal.** "Find the waystone"
   on reaching the woods. The owner's picks, all recommended: done within
   4 tiles of the stone's middle, so never on arrival; ticked quietly if

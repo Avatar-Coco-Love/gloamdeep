@@ -169,3 +169,15 @@ help for one trip down." / "It lasts until you come home, or you fall."
 one." and Go; picking the done "Take a boon" in the Quests tab shows it
 again. D-695 to D-698 moved to `archive/DECISIONS-FEATS.md`, word for
 word.
+
+**D-713 · 2026-11-08 · The sixth teaching goal built** (the owner's
+picks, all recommended; builds D-706) "Spend your ember" / "Tap here,
+then Growth." shows at level 2 and is done on the first buy in Growth
+(a heart or Tough); no turn passes in the Journal, so the line turns gold
+and the text line says so once it closes. Tapping the line opens the
+Quests tab, as every goal's does. Ticked quietly, never shown, when an
+ember is spent already this journey. Claude's call the owner may change:
+it goes ahead of an older goal waiting only while an ember is there to
+spend, so after a fall back to level 1 the older goal shows. A stray
+bracket from 0.3.165 that stopped the game from starting is fixed here,
+with a test that every code file parses (the owner's pick, recommended).
