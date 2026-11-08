@@ -96,6 +96,21 @@ const lookPad = (ids) => [
 const rowsOf = (ids) => Math.ceil(ids.length / CLOAK_COLS);
 // The most rows of choices any tab has: every tab is laid out with this many, so the card holds still between tabs
 export const LOOK_ROWS = Math.max(...LOOK_TABS.map((t) => rowsOf(t.ids)));
+// § scroll (D-701): the card shows LOOK_WINDOW rows of choices at most; a tab with more scrolls
+// them a row at a time, `scroll` being the rows hidden over the window. The window is as many
+// rows as the most any tab has, up to that, so the card still holds still between tabs.
+export const LOOK_WINDOW = 4;
+export const LOOK_SHOWN = Math.min(LOOK_ROWS, LOOK_WINDOW);
+export const tabRows = (tab) => rowsOf(tabOf(tab).ids);
+// The scroll kept between none and the last row at the window's foot; rows: the tab's
+export const clampScroll = (scroll, rows, shown = LOOK_SHOWN) => Math.max(0, Math.min(scroll, rows - shown));
+// The scroll that shows choice row `row` (1 the first), moving as little as it can
+export const scrollToRow = (scroll, row, rows, shown = LOOK_SHOWN) => clampScroll(Math.min(Math.max(scroll, row - shown), row - 1), rows, shown);
+// The scroll with key i of tab's pad in view: a tab or a foot button leaves it as it is
+export function lookScrollTo(tab, scroll, i) {
+  const k = LOOK_PADS[tab][i], rows = tabRows(tab);
+  return !k || k.tab || k.id === 'random' || k.id === 'ok' ? clampScroll(scroll, rows) : scrollToRow(scroll, k.row, rows);
+}
 // Whether a tab's choice is locked: shown, tried on the big hero, never kept (D-533), until the
 // profile has bought it; bought: the ids its profile bought with Glints (D-696)
 export const isLocked = (tab, id, bought = []) => !!tabOf(tab)?.table[id]?.locked && !bought.includes(id);

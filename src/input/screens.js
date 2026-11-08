@@ -175,7 +175,7 @@ export function createScreens(app, ui) {
   const profileWords = (p, i) => (p ? `${slotName(p, i)}, deepest ${p.records.deepest}, played ${playedText(p.played)}` : 'Empty');
   const slotsWords = () => `${app.picking ? slotsHeading(app.picking) : 'Profiles. Pick one to play.'} ${app.profiles.slots.map(profileWords).join('. ')}. ${linesNow().map((l) => l.text).join('. ')}${slotsBack() ? '. Back' : ''}.`;
   function openSlots(back) { app.picking = null; app.slotsBack = back; show('slots', app.profiles.current ?? 0); }
-  const { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook } = createProfileScreens(app, ui, show); // the profile screens (D-421)
+  const { nameWords, openName, closeName, pressName, lookWords, openCloak, closeCloak, moveLookBy, pressLook, scrollLookBy } = createProfileScreens(app, ui, show); // the profile screens (D-421)
   // After the question: back to the slot screen, the flame on the slot asked about
   function closeDrop(yes) {
     if (yes) ui.dropSlot(app.dropping);
@@ -249,13 +249,15 @@ export function createScreens(app, ui) {
   // Arrows and swipes off the room: menus take swipes always (D-189)
   const onDir = (dir, how) => { cards[app.screen]?.dir(dir, how); };
   const onPoint = (px, py, held) => { cards[app.screen]?.tap(px, py, held); };
+  // The mouse wheel, by > 0 down: true where the card used it (the look card's choices, D-701)
+  const onWheel = (by) => !!cards[app.screen]?.wheel?.(by);
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, onWheel, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

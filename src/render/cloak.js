@@ -9,7 +9,7 @@
 // taller to fill what is left (D-526). RANDOM and OK are one row of two big buttons across the card's foot
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
-import { LOOK_PADS, LOOK_ROWS, tabOf, isLocked } from '../core/looks.js';
+import { LOOK_PADS, LOOK_SHOWN, tabOf, tabRows, clampScroll, isLocked } from '../core/looks.js';
 import { stageNote } from '../core/feats.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
@@ -35,7 +35,7 @@ export function lookRowAt(vw, vh) {
   return { random: { x, y, w, h: ROW_H }, ok: { x: x + w + ROW_SPLIT, y, w, h: ROW_H } };
 }
 
-const ROWS = LOOK_ROWS, COLS = 3; // every tab as many rows as the cloak's, so nothing moves between tabs (D-533)
+const ROWS = LOOK_SHOWN, COLS = 3; // every tab as many rows as the cloak's, so nothing moves between tabs (D-533); more scroll (D-701)
 // § layout: the boxes' top left on a view `vw` × `vh`, the tabs over them, and the big hero's
 // stage over both upright, or at their left sideways, all in the space above the buttons
 // The tabs from x, at y, across `w`: each its name's width, the room left shared out (D-523)
@@ -69,19 +69,23 @@ export function boxesAt(vw, vh) {
   const gx = card.x + PAD + sw + 12, gw = gridW(card.x + card.w - PAD - gx), H = blockH(s, named);
   return { ...place(gx, gw, top + Math.max(0, Math.floor((room - H) / 2))), stage: { x: card.x + PAD, y: top, z, h: stageH(z) + spare } };
 }
-const boxAt = (at, k) => ({ x: at.x + k.col * (at.bw + GAP), y: at.y + (k.row - 1) * (at.bh + ROW_GAP) });
+// A choice's box, its row moved up by the rows scrolled past (D-701); shown: whether it is in the window
+const boxAt = (at, k, scroll = 0) => ({ x: at.x + k.col * (at.bw + GAP), y: at.y + (k.row - 1 - scroll) * (at.bh + ROW_GAP) });
+const shown = (k, scroll) => k.row - 1 - scroll >= 0 && k.row - 1 - scroll < ROWS;
 const within = (x, y, b, pad) => x >= b.x - pad && x < b.x + b.w + pad && y >= b.y - pad && y < b.y + b.h + pad;
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks on the look card open on `tab`:
-// { key: i } (a tab, a choice, RANDOM or OK), 'close' (the round cross), or null; outside the card, 'out'
-export function lookCardAt(x, y, vw, vh, tab = 'cloak') {
+// { key: i } (a tab, a choice, RANDOM or OK), 'close' (the round cross), or null; outside the card, 'out';
+// scroll: the choices' rows scrolled past, only those in the window picked (D-701)
+export function lookCardAt(x, y, vw, vh, tab = 'cloak', scroll = 0) {
   const pad = LOOK_PADS[tab], at = boxesAt(vw, vh), { card, row } = at;
+  scroll = clampScroll(scroll, tabRows(tab));
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const i = pad.findIndex((k) => {
     if (k.id === 'random' || k.id === 'ok') return within(x, y, row[k.id], ROW_SPLIT / 2); // half the gap each
     if (k.tab) return within(x, y, at.tabs[k.col], TAB_GAP / 2);
-    return within(x, y, { ...boxAt(at, k), w: at.bw, h: at.bh }, GAP / 2);
+    return shown(k, scroll) && within(x, y, { ...boxAt(at, k, scroll), w: at.bw, h: at.bh }, GAP / 2);
   });
   return i >= 0 ? { key: i } : null;
 }
@@ -146,25 +150,43 @@ const frame = (c, x, y, w, h, colour) => {
 // arrows are on; name: the profile's, over the big hero
 // trying: a locked pattern tried on the big hero, its choice's name staying the kept one's, a note
 // under or over the boxes' foot saying its price and the Glints there are (D-533, D-696), and RANDOM
-// BUY and its price, dim with too few; shop: the profile's patterns bought and Glints left (D-696)
-export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null, shop = { bought: [], have: 0 }) {
+// BUY and its price, dim with too few; shop: the profile's patterns bought and Glints left (D-696);
+// scroll: the choices' rows scrolled past, a bar at the boxes' right when there are more (D-701)
+export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null, shop = { bought: [], have: 0 }, scroll = 0) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes);
   const card = drawCard(c, vw, vh, 'LOOK', 0);
   if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
   const at = boxesAt(vw, vh), ground = groundOf(at.bw - 2, at.bh - 2);
   c.imageSmoothingEnabled = false;
+  scroll = clampScroll(scroll, tabRows(tab));
   pad.forEach((k, i) => {
     if (k.tab) { drawTab(c, at.tabs[k.col], tabOf(k.id).name, k.id === tab, i === chosen); return; }
     if (k.id === 'random' && trying) { drawBuy(c, at.row.random, table[trying].price, shop.have >= table[trying].price, i === chosen); return; }
     if (k.id === 'random' || k.id === 'ok') { const b = at.row[k.id]; drawButton(c, b.x, b.y, k.id.toUpperCase(), i !== chosen, b.w, b.h, ROW_TEXT); return; }
-    const { x, y } = boxAt(at, k), picked = k.id === look[tab], locked = isLocked(tab, k.id, shop.bought);
+    if (!shown(k, scroll)) return;
+    const { x, y } = boxAt(at, k, scroll), picked = k.id === look[tab], locked = isLocked(tab, k.id, shop.bought);
     const swatch = swatchOf(table[k.id]);
     if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
     else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
+  drawBar(c, at, scroll, tabRows(tab));
   drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, trying ? '' : table[look[tab]]?.name ?? '', at.stage, t, still);
   if (trying) drawNote(c, stageNote(table[trying].name, table[trying].price, shop.have), at);
+}
+// § bar (D-701): a thin track at the boxes' right, its gold thumb as long as the window is of all
+// the rows and as far down as the rows scrolled past; none when the tab's rows all fit
+export const barAt = (at, scroll, rows) => {
+  if (rows <= ROWS) return null;
+  const h = ROWS * at.bh + (ROWS - 1) * ROW_GAP, x = at.x + COLS * at.bw + (COLS - 1) * GAP + 3;
+  const th = Math.max(6, Math.round(h * ROWS / rows)), ty = at.y + Math.round((h - th) * scroll / (rows - ROWS));
+  return { x, y: at.y, w: 2, h, thumb: { y: ty, h: th } };
+};
+function drawBar(c, at, scroll, rows) {
+  const b = barAt(at, scroll, rows);
+  if (!b) return;
+  c.fillStyle = DIM; c.fillRect(b.x, b.y, b.w, b.h);
+  c.fillStyle = GOLD; c.fillRect(b.x, b.thumb.y, b.w, b.thumb.h);
 }
 // § buy (D-696): BUY and the price where RANDOM was; dim with too few Glints, framed in gold
 // round it then when the arrows are on it, as the tabs are

@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.153 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.154 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 22, Looks (D-698): lantern looks next, Claude showing a set and the owner choosing which join. Or first, any fix the owner picks from the eleventh audit's findings (D-699).
+Step 22, Looks (D-698, D-701): lantern looks next, Claude showing a set and the owner choosing which join; the Look card now scrolls, so each kind can grow. Or first, any fix the owner picks from the eleventh audit's findings (D-699).
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -35,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151)
-- [ ] 22 Looks (D-698), each a step: more cloak patterns (0.3.153); lantern looks; hats or hoods
+- [ ] 22 Looks (D-698), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks; hats or hoods
 
 **Next audit: 0.3.192** (D-518, D-699).
 
@@ -43,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.154, The Look card scrolls.** The owner's picks, all
+  recommended (D-701), from three drawn ways: a window of four rows, a row
+  a swipe, wheel notch or arrow past the edge, a thin gold bar when a tab
+  has more. Nothing looks different until a tab passes four rows; the
+  playtest adds six test-only cloaks to show it.
+  Playtest: https://claude.ai/artifact/5HAyaitEFBMP4jETK4AM5Y
 - **2026-11-08, 0.3.153, Three more cloak patterns.** The owner's picks,
   all recommended (D-700): Tiger, Stars and Moth from nine drafts
   (https://claude.ai/artifact/H1tbjmS1PxQxBkWLX9fdCV), 3 Glints each, so
@@ -54,7 +60,3 @@ list in `RESEARCH.md`.
   TECH and PROGRESS trimmed, all word for word. Start read 9.7 KB.
   Findings: https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH
   No playtest: nothing to play.
-- **2026-11-08, 0.3.151, Flasks, the third Feat.** The owner's picks,
-  all recommended (D-698): Flasks, from Flasks poured, at 5, 25 and 100,
-  named short to fit upright. Glints should match the shop, so looks
-  come next, one kind a step. Playtest: https://claude.ai/artifact/Q2EwY8M4Vwg5vV18WhAKx9

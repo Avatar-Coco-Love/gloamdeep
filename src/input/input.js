@@ -18,9 +18,10 @@ const HOLD_MS = 250; // a still finger held this long walks to the tile under it
 // which returns true when it used the key.
 // holds() true where a still press may become a hold: only in play, so off it a slow tap is still a tap (D-661).
 // repeats() true where a held Space repeats: only in play, so off it one press picks once, as Enter does (D-669).
+// onWheel(by) for a mouse wheel's notch, by 1 down or -1 up, which returns true when it used it (D-701).
 // guarded(x, y), in CSS px, true where a tap or held finger reports nothing: round the arrow pad (D-422); a swipe from there still steps.
 // kind() the way of playing last used: 'touch', 'mouse' or 'keyboard' (How to play opened on it, D-193, till Basics came first, D-507).
-export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, holds = () => true, repeats = () => true, guarded = () => false }) {
+export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, onHold = () => {}, onLantern, onWait, onChoose, onPause, onMap, onBag, onFloor, onType, onTab, onWheel = () => false, holds = () => true, repeats = () => true, guarded = () => false }) {
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
@@ -73,6 +74,14 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
     if (!press.swiped && !press.held && !press.guard) { onPoint(...gamePoint(press)); ghost = ev.pointerType !== 'mouse'; }
     end();
   });
+  // § wheel (D-701): this much turning is a notch, as the map's zoom (mapview.js)
+  let turned = 0;
+  area.addEventListener('wheel', (ev) => {
+    turned += ev.deltaY * (ev.deltaMode === 1 ? 33 : 1); // some browsers count lines, not pixels
+    if (Math.abs(turned) < 100) return;
+    if (onWheel(turned > 0 ? 1 : -1)) ev.preventDefault();
+    turned = 0;
+  }, { passive: false });
   // § ghost click: after a finger's tap a phone sends a click where it lifted, which would
   // press a button the tap just brought back there (the bag's cross over the round map,
   // D-385). That one click is dropped; the next finger down clears it.
