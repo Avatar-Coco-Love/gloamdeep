@@ -4,17 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.156 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.157 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 22's looks are all in (D-703). Looks now cost 36 Glints and the Feats pay 18, so more Feats next (Q-055, Q-057), Claude showing a set and the owner choosing. Or first, any fix the owner picks from the eleventh audit's findings (D-699).
+A free pick of any one locked look for each new profile, shown clearly, with Carriage and one cloak pattern made free (D-704): Claude drafts how the pick is shown, the owner chooses. Then more Feats (looks now cost 45 Glints, the Feats pay 18; Q-055, Q-057), or any fix from the eleventh audit (D-699).
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
-- Glints: looks cost 36 and Feats pay 18; more Feats, and the prices of looks to come (Q-055).
+- Glints: looks cost 45 and Feats pay 18; more Feats, and the prices of looks to come (Q-055).
 - A region's name and rating (Q-056), with a second region.
 - Feats' other records, and whether Rooms found and Torches lit belong in Feats (Q-057).
 - Creature materials: looks and recipes (Q-061), each at its own step.
@@ -35,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151)
-- [x] 22 Looks (D-698, D-703), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156)
+- [x] 22 Looks (D-698, D-703, D-704), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156); more hats and hoods (0.3.157)
 
 **Next audit: 0.3.192** (D-518, D-699).
 
@@ -43,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.157, More hats and hoods.** The owner's picks (D-704):
+  Horned didn't show because only three of D-703's eight drafts went in,
+  so all five left join the HEAD tab (Horned's horns bone white always);
+  Brim all in the trim's colours; Hood, Brim and Ears free. Next, a free
+  pick of a look for each new profile, the owner's wish.
+  Playtest: https://claude.ai/artifact/BkLJGwVTHqQhnXYH7mfC4M
 - **2026-11-08, 0.3.156, Hats and hoods.** The owner's picks, all
   recommended (D-703), from eight drafts
   (https://claude.ai/artifact/6AxqaXJqWfcCVeGARWg7oh): Brim, Ears and
@@ -55,9 +61,3 @@ list in `RESEARCH.md`.
   Pierced join the lantern on a fifth tab, LAMP, 3 Glints each. Tabs go
   in two rows where one is too narrow; the smallest view shows three rows.
   Playtest: https://claude.ai/artifact/9ASQoEBoVCmkyoT8fuwTSn
-- **2026-11-08, 0.3.154, The Look card scrolls.** The owner's picks, all
-  recommended (D-701), from three drawn ways: a window of four rows, a row
-  a swipe, wheel notch or arrow past the edge, a thin gold bar when a tab
-  has more. Nothing looks different until a tab passes four rows; the
-  playtest adds six test-only cloaks to show it.
-  Playtest: https://claude.ai/artifact/5HAyaitEFBMP4jETK4AM5Y

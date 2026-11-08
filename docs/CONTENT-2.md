@@ -43,8 +43,9 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 Zebra, Cow, Camo, Tiger, Stars and Moth, 3 Glints each, bought on the
 Look card (D-515, D-533, D-696, D-700). And 4 lamps, the lantern's
 shape: Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints
-each (D-702). And 4 heads: Hood, free, then Brim, Ears and Helm, locked
-at 3 Glints each (D-703).
+each (D-702). And 9 heads: Hood, Brim and Ears, free, then Helm, Horned,
+Pointed, Bobble, Circlet and Scarf, locked at 3 Glints each (D-703,
+D-704).
 
 ## Growth upgrades (`src/core/upgrades.js`)
 

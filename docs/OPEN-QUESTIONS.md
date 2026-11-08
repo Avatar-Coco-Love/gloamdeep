@@ -37,6 +37,8 @@ Moth join at 3 each, so the patterns cost the 18 Feats pay. Narrowed by
 D-702: Carriage, Dish and Pierced lamps join at 3 each, so looks now cost
 27, more than the three Feats pay. Narrowed by D-703: Brim, Ears and Helm
 heads join at 3 each, so looks now cost 36, twice what the Feats pay.
+Narrowed by D-704: five more heads at 3 each, Brim and Ears free, so
+looks now cost 45; next, a free pick of one look for each new profile.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
