@@ -11,6 +11,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 Step 22, Looks (D-698): more cloak patterns first, Claude showing a set and the owner choosing which join. Or first, any fix the owner picks from the eleventh audit's findings (D-699).
 
 ## Waiting on the owner
+- The eleventh audit's findings: which to fix (D-699), any time.
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
 - Glints: the prices of looks to come, shown with each set (Q-055).
@@ -45,7 +46,7 @@ list in `RESEARCH.md`.
 - **2026-11-08, 0.3.152, The eleventh audit.** All recommended (D-699):
   the 0.3 history split in two, Relics decisions archived, OPEN-QUESTIONS,
   TECH and PROGRESS trimmed, all word for word. Start read 9.7 KB.
-  Findings: FINDINGS_LINK
+  Findings: https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH
   No playtest: nothing to play.
 - **2026-11-08, 0.3.151, Flasks, the third Feat.** The owner's picks,
   all recommended (D-698): Flasks, from Flasks poured, at 5, 25 and 100,

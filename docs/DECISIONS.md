@@ -100,5 +100,5 @@ D-660 to `archive/DECISIONS-AUDITS.md`; Q-037 and Q-038 to
 PROGRESS's ideas for later to `RESEARCH-2.md`; ticked step 20 is
 archived; all word for word. One bug hunt read the code since 0.3.113
 (Relics, Feats, Glints); its findings are listed for the owner to pick
-from, each fix its own small step with a test. The next audit is at
+from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
