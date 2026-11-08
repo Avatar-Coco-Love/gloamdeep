@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.158', date: '2026-11-08', title: 'Teaching goals planned', lines: [
+    "Nothing in the game changed. A teaching map lists every system, where you first meet it and what tells you how it works. Five are never explained: fighting, embers and Growth, going home to the woods, the waystone, and the Journal.",
+    "Teaching goals are planned for those five, one at a time, each appearing when it helps, such as \"beat a rat\" once you see one. They will live in a Quests tab in the Journal, and each pays a reward rolled from a short list.",
+    "Decisions: D-705. Questions opened: Q-087.",
+  ] },
   { v: '0.3.157', date: '2026-11-08', title: 'More hats and hoods', lines: [
     "More hats and hoods: Horned (the hood with two curled horns, always bone white), Pointed (a tall pointed hat), Bobble (a knitted cap), Circlet (a thin band across the brow) and Scarf (a cloth tied round the head) join the HEAD tab, 3 Glints each.",
     "Brim, Ears and the Hood are now free from the start. Brim is all in your TRIM's colours now, not just its band. If you bought Brim or Ears, their Glints come back to you.",

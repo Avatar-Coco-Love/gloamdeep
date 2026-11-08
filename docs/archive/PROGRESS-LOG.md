@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.155, Lantern looks.** The owner's picks, all
+  recommended (D-702), from eight drafts
+  (https://claude.ai/artifact/3DDWo2nmCzKLfeVsUjp9Y3): Carriage, Dish and
+  Pierced join the lantern on a fifth tab, LAMP, 3 Glints each. Tabs go
+  in two rows where one is too narrow; the smallest view shows three rows.
+  Playtest: https://claude.ai/artifact/9ASQoEBoVCmkyoT8fuwTSn
 - **2026-11-08, 0.3.154, The Look card scrolls.** The owner's picks, all
   recommended (D-701), from three drawn ways: a window of four rows, a row
   a swipe, wheel notch or arrow past the edge, a thin gold bar when a tab

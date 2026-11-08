@@ -169,3 +169,26 @@ Ears are free from the start; Glints spent on Brim or Ears come back.
 Next, its own step: Carriage and one cloak pattern free, and a free pick
 of any one locked look for every new profile, shown clearly (owner's
 wish, how it is shown to be drafted).
+
+**D-705 · 2026-11-08 · Teaching goals, the plan** (the owner's picks,
+recommended where marked; builds D-629's first kind of quest and D-640,
+opens Q-087) The game should teach its many systems. A teaching map
+(https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) lists 32 systems,
+where each is first met and what tells the player today: 9 taught, 16
+half, 5 not (fighting; levels, embers and Growth; going home to the
+woods; the waystone; the Journal), 2 to check in a playtest (sleep, the
+map). Teaching goals come first for those 5, one at a time
+(recommended), each appearing when it becomes useful: "beat a rat" once
+a rat is seen; going up to the woods any time; finding the waystone,
+then stepping on its plate to wake it; if no boon was ever held,
+stepping off the home plate asks the hero to come back for one; the
+first boon picked opens a glass card, like the opening card, saying
+what boons are, with a Journal entry too. The goal shows as a small
+line until done, unless something else is chosen; later, with several
+waiting, the player may choose which to follow. Goals live in the
+Quests tab (recommended, D-640), side quests joining later. A goal's
+reward is rolled from a short list, the seed picking (recommended):
+Glints, useful finds and so on. Goals already done in an older save are
+ticked on loading and pay their reward, never shown (recommended).
+The half-taught lines, finds saying what they are but not what next,
+are fixed later at their own step (recommended). Nothing is built yet.
