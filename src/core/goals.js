@@ -1,4 +1,4 @@
-// § goals: teaching goals (D-705, D-706, D-710), the Quests tab's first kind of quest. A goal
+// § goals: teaching goals (D-705, D-706, D-710, D-711), the Quests tab's first kind of quest. A goal
 // appears at its own moment, shows as a line under the hearts panel until done, then turns
 // gold for GOLD_TURNS turns and pays a reward rolled from REWARDS, the seed picking. Goals live
 // in the profile, { [id]: { done, paid? } } in the order they appeared; a goal already done in
@@ -7,9 +7,9 @@ import { rng, seedFor } from './rng.js';
 import { bagAdd, bagSize } from './bag.js';
 import { get } from './registry.js';
 import { HOME } from './boon.js';
-import { depthOf } from './room.js';
+import { depthOf, tileAt } from './room.js';
 
-// Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state }:
+// Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state, before }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
 export const NEAR = 4; // "Find the waystone" is done this many tiles from its middle, or nearer (the owner's pick)
 // Where the home waystone's plate is in the woods ('Z' asleep, 'A' woken), or null
@@ -20,6 +20,11 @@ function plateAt(state, letters = 'ZA') {
   return null;
 }
 const nearStone = (state) => { const at = plateAt(state); return !!at && Math.max(Math.abs(at.x - state.hero.x), Math.abs(at.y - state.hero.y)) <= NEAR; };
+// The hero stepped off the woken home plate this turn
+const steppedOff = (c) => c.state.place === HOME && c.before.place === HOME
+  && (c.state.hero.x !== c.before.hero.x || c.state.hero.y !== c.before.hero.y)
+  && tileAt(c.before.room, c.before.hero.x, c.before.hero.y).id === 'wokenPlate';
+const picked = (c) => c.events.some((e) => e.type === 'boon');
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
@@ -41,6 +46,12 @@ export const GOALS = [
   { id: 'wake', goal: 'Wake the waystone', how: 'Step on the plate in its middle.',
     shows: (c) => !!c.goals.stone?.done, does: (c) => !!plateAt(c.state, 'A'),
     before: (c) => !!plateAt(c.state, 'A') },
+  // On stepping off the woken plate (D-706); done on the pick, the cross leaving it waiting (the
+  // owner's pick). The first boon picked records it on the profile, so a boon held once never
+  // shows it again; an older profile holding one now is ticked quietly (the owner's pick)
+  { id: 'boon', goal: 'Take a boon', how: 'Step back on the plate. Pick 1 of 3.',
+    shows: (c) => steppedOff(c) || picked(c), does: picked,
+    before: (c) => !!c.state.boon },
 ];
 // The rewards, each its chance in 100 (D-706); a Glint is kept on the profile (Claude's call)
 export const REWARDS = [
@@ -82,9 +93,9 @@ export function payInto(state, id) {
 }
 
 // § after a turn: the profile's goals, the state and its Glints after this action's events,
-// with the Bestiary already counted. `done`: the goals done in play this turn, for the gold
+// with the Bestiary already counted; `before`, the state before the action. `done`: the goals done in play this turn, for the gold
 // line and the text line; one done unseen in an older save is paid quietly.
-export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state) {
+export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state, before = state) {
   let next = goals, s = state, g = glints;
   const done = [];
   const finish = (goal, quiet) => {
@@ -95,7 +106,7 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
     if (!quiet) done.push(goal.id);
   };
   for (const goal of GOALS) {
-    const was = next[goal.id], c = { goals: next, book, events, state: s };
+    const was = next[goal.id], c = { goals: next, book, events, state: s, before };
     if (was?.done) continue;
     if (was) { if (goal.does(c)) finish(goal, false); continue; }
     if (!goal.shows(c)) continue;

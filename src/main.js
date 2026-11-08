@@ -117,7 +117,7 @@ function keepJourney() {
   if (!kept && !unsaved) app.state = say(app.state, 'unsaved');
   unsaved = !kept; savedState = app.state; app.saved = true;
 }
-function keepRecords(events) {
+function keepRecords(events, before) {
   // The profile's Records (D-021, D-232, D-268, D-270): the deepest depth walked to,
   // and the creatures beaten, falls, rooms found, steps, flasks poured and torches lit that this action's events bring
   const was = playing(app.profiles).records, d = deeper(was.deepest, depthOf(app.state.place), app.jumped);
@@ -128,14 +128,14 @@ function keepRecords(events) {
   if (feat) app.state = say(app.state, 'featReached', feat);
   const book = playing(app.profiles).bestiary, met = booked(book, events, app.jumped); // the Bestiary's counts (D-630)
   if (met !== book) app.profiles = withBestiary(app.profiles, met);
-  const goaled = keepGoals(events);
+  const goaled = keepGoals(events, before);
   if (records !== was || met !== book || goaled) saveProfiles(app.profiles);
 }
 // § goals (D-706): a teaching goal shows once its moment comes; done, it pays its reward, says so
 // and the line turns gold for a few turns. Not after a dev jump, as the Bestiary (D-232).
-function keepGoals(events) {
+function keepGoals(events, before) {
   if (app.jumped) return false;
-  const p = playing(app.profiles), after = goalsAfter(p.goals, p.glints, p.bestiary, events, app.state);
+  const p = playing(app.profiles), after = goalsAfter(p.goals, p.glints, p.bestiary, events, app.state, before);
   if (after.goals === p.goals) return false;
   app.profiles = withGoals(app.profiles, after.goals, after.glints);
   app.state = after.state;
@@ -242,7 +242,7 @@ function tryStep(dir) {
   if (poisoned) app.poisonHurt = { until: performance.now() + POISON_FLASH_MS, heart: state.god ? state.health - 1 : state.health };
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
-  keepRecords(events);
+  keepRecords(events, before);
   if (fell) fallDown(fallView(before, state)); // the floor's other rooms too, for the round map (D-557)
   const went = !fell && state.place !== before.place;
   if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
@@ -386,7 +386,7 @@ const screens = createScreens(app, {
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
-  takeBoon: (id) => { const before = app.state; app.state = takeBoon(before, id); hear(eventsSince(before, app.state)); }, // the boon card's pick, free (D-596)
+  takeBoon: (id) => { const before = app.state; app.state = takeBoon(before, id); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before); }, // the boon card's pick, free (D-596)
   strike: () => strikeAt(needleAt(performance.now() - app.strike.start)), // the strike card's tap (D-614)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below

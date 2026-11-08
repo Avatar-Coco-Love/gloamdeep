@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.163 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.164 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The fifth teaching goal (D-706): "Take a boon" / "Step back on the plate. Pick 1 of 3.", on stepping off the woken plate with no boon ever held. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The boons card (D-706): once, after the first boon is picked, a glass card saying what boons are, and a Journal entry. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.164, The fifth teaching goal.** "Take a boon" on
+  stepping off the woken plate with no boon ever held. The owner's
+  picks, all recommended: done on the pick, the cross leaving it
+  waiting; an older profile holding a boon now is ticked quietly; the
+  boons card is its own step (D-711).
+  Playtest: https://claude.ai/artifact/DNJsXj6WjoptpW2yTzE11W
 - **2026-11-08, 0.3.163, The fourth teaching goal.** "Wake the waystone"
   once the stone is found. The owner's picks, all recommended: done on
   the step that wakes the plate; ticked quietly if it is woken already
@@ -53,8 +59,3 @@ list in `RESEARCH.md`.
   4 tiles of the stone's middle, so never on arrival; ticked quietly if
   its plate is woken already (D-709).
   Playtest: https://claude.ai/artifact/GjMJhCSLVBtBVudEZB8HxP
-- **2026-11-08, 0.3.161, The second teaching goal.** "Go home to the
-  woods" once the rat goal is done, done in the woods. The owner's pick:
-  the woods are reached by the crypt wall's gap, not stairs, so its how
-  line goes by where the hero is (D-708).
-  Playtest: https://claude.ai/artifact/RhSaFaUjhNEEB3bZbumKPZ

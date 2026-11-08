@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.161, The second teaching goal.** "Go home to the
+  woods" once the rat goal is done, done in the woods. The owner's pick:
+  the woods are reached by the crypt wall's gap, not stairs, so its how
+  line goes by where the hero is (D-708).
+  Playtest: https://claude.ai/artifact/RhSaFaUjhNEEB3bZbumKPZ
 - **2026-11-08, 0.3.160, The first teaching goal.** The owner's picks
   from a mock-up (https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8), all
   recommended: "Beat a rat" in two lines under the hearts panel once a
