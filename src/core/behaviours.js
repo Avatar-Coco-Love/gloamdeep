@@ -21,6 +21,10 @@ export const BEHAVIOURS = {
   // them, to the tile nearest the nearest other creature in the room, or just the farthest
   // from the hero with none; lit or not, it needs no noticing (D-649).
   lures: { id: 'lures', name: 'Lures', moves: 'lure', near: 3, bites: false },
+  // It never moves or bites. Seeing the lit lantern along a clear row or column, up to `range`
+  // tiles, it spits a glob that flies a tile a turn down that line, then rests `rest` turns
+  // (spit.js, D-659, D-688).
+  spits: { id: 'spits', name: 'Spits', bites: false, spits: { range: 5, rest: 2 } },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

@@ -64,3 +64,4 @@ the Venom Sac's row since names the centipede too (D-654).
 | `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
 | `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
 | `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
+| `glowGland` | for crafts later | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |

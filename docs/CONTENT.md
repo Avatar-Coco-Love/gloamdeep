@@ -29,13 +29,15 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `oilTick` | 2 | 1 | chases; beside the hero `drinks` 5% oil instead of biting, biting once the lantern is empty | the pool from depth 3 | D-606, D-607 |
 | `lureWisp` | 1 | 0 | lures: within 3 steps of the hero it drifts a tile away, toward the nearest other creature in the room, or just away; never bites; its glow shows in the dark, lighting no tiles | the pool from depth 4 | D-643, D-649 |
 | `centipede` | 2 | 1 | chases; a bite that hurts `poisons` the hero | the pool from depth 3 | D-652, D-654 |
+| `spitGrub` | 1 | 1 | spits: never moves or bites; at the lit lantern down a clear row or column, up to 5 tiles, a glob flying a tile a turn, then rests 2 turns; `glows` | the pool from depth 4 | D-659, D-688 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch),
-**lures** (drifts away from a near hero toward another creature, never bites)
-(D-269, D-351, D-649). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
+**lures** (drifts away from a near hero toward another creature, never bites),
+**spits** (a glob down a clear row or column at the lit lantern, hitting what it meets; `spit.js`)
+(D-269, D-351, D-649, D-688). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563). One that `glows` is drawn over the dark (D-649).
 Which creatures a generated room holds, and the pool by depth: in `CONTENT-3.md`, "Places" (moved word for word at 0.3.100).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).

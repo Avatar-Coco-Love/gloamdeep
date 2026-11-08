@@ -312,6 +312,15 @@ export const LINES = {
   antidoteFull: { text: "You can't carry more antidotes.", warn: false }, // every stack full, no slot free (D-655)
   antidoteDrink: { texts: ['You drink the antidote.', 'The poison fades.', 'The poison leaves you.'], warn: false }, // drunk while poisoned (D-655)
   notPoisoned: { text: "You aren't poisoned.", warn: false }, // Drink on an antidote, not poisoned: free (D-655)
+  spitGrubDie: { text: 'The spit grub bursts and goes dark.', warn: false }, // (D-688)
+  spitGrubSpits: { text: 'The spit grub spits a glowing glob.', warn: false }, // (D-688)
+  spitGrubHit: { text: 'The glob splashes you.', warn: false, kind: 'harm' }, // a glob hits the hero (D-688)
+  grubSkinTake: { texts: ['You pick up the grub skin.', 'A thin pale skin, shed and curled.', 'The grub skin goes in your bag.'], warn: false }, // (D-688)
+  grubSkinLook: { texts: ['A grub skin, for crafting later.', 'Thin, pale and papery.', 'It crackles when you fold it.'], warn: false },
+  grubSkinFull: { text: "You can't carry more grub skins.", warn: false },
+  glowGlandTake: { texts: ['A glow gland! A rare find.', 'It still glows a little.', 'The glow gland goes in your bag.'], warn: false }, // (D-688)
+  glowGlandLook: { texts: ['A glow gland, for crafting later.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
+  glowGlandFull: { text: "You can't carry more glow glands.", warn: false },
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

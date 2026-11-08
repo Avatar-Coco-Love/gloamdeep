@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.139 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.140 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Spit grub (D-659).
+The owner picks what comes next: step 20, Relics (D-482), or more of biome 1 first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -44,6 +44,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
+  recommended (D-688): look A, a glowworm glowing green in the dark; a
+  Grub Skin and a rare Glow Gland. Built in one step at the owner's word:
+  from depth 4 it spits a glob at the lit lantern down a clear row or
+  column; the glob flies a tile a turn and hits whatever it meets.
+  Playtest: https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map
+  preview: https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY
 - **2026-11-07, 0.3.139, Still play draws less.** As recommended
   (D-687): with reduced motion on, the room in play is drawn once and
   kept until something in it changes, so standing in the crypt takes
@@ -56,9 +63,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   its first half). Its torches stop flickering until the card closes. A
   test checks when it is kept. Playtest:
   https://claude.ai/artifact/RsX1LEgtp244Ayem2bLSUH
-- **2026-11-07, 0.3.137, The rock painted faster.** As recommended
-  (D-685): the rock painter works out each tile's walls once, not for
-  every pixel, so a cave room paints in about half the time (S1). The
-  picture is the same, pixel for pixel; a test checks 12 rooms.
-  Playtest:
-  https://claude.ai/artifact/AgfwmCnzfa5JA3mFQBA2RF

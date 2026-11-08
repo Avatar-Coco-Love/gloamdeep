@@ -34,6 +34,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106 | | | | |
 | `wispGlass` | for crafts later; sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
 | `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
+| `grubSkin` | for crafts later; sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |

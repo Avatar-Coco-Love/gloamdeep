@@ -9,11 +9,11 @@ const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const DEPTHS = [2, 3, 4, 5, 6, 8, 12];
 const kinds = (id, seed) => placeFor(id, seed).enemies.filter((e) => e.id !== 'flaskMimic');
 
-test('the pool: rat, lampmoth, cave spider and snapcap at depth 2, the scorpion, the bat, the herb mimic, the oil tick and the centipede from 3, the bone rat and the lure wisp from 4, the gloamling and the mole from 5, none ever leaving', () => {
+test('the pool: rat, lampmoth, cave spider and snapcap at depth 2, the scorpion, the bat, the herb mimic, the oil tick and the centipede from 3, the bone rat, the lure wisp and the spit grub from 4, the gloamling and the mole from 5, none ever leaving', () => {
   assert.deepEqual(poolAt(2), ['rat', 'lampmoth', 'caveSpider', 'snapcap']); // (D-535, D-543)
   assert.deepEqual(poolAt(3), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap', 'herbMimic', 'oilTick', 'centipede']); // (D-537, D-549, D-606, D-654)
-  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede']); // (D-551, D-649)
-  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'gloamling', 'mole', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede']); // (D-541)
+  assert.deepEqual(poolAt(4), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede', 'spitGrub']); // (D-551, D-649, D-659)
+  assert.deepEqual(poolAt(5), ['rat', 'lampmoth', 'caveSpider', 'scorpion', 'bat', 'gloamling', 'mole', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede', 'spitGrub']); // (D-541)
   assert.deepEqual(poolAt(12), poolAt(5));
 });
 
@@ -42,5 +42,5 @@ test('the same seed gives the same mix, and every kind turns up deep down', () =
     assert.deepEqual(kinds(c.id, seed), kinds(c.id, seed));
     kinds(c.id, seed).forEach((e) => seen.add(e.id));
   }
-  assert.deepEqual([...seen].sort(), ['bat', 'boneRat', 'caveSpider', 'centipede', 'gloamling', 'herbMimic', 'lampmoth', 'lureWisp', 'mole', 'oilTick', 'rat', 'scorpion', 'snapcap']);
+  assert.deepEqual([...seen].sort(), ['bat', 'boneRat', 'caveSpider', 'centipede', 'gloamling', 'herbMimic', 'lampmoth', 'lureWisp', 'mole', 'oilTick', 'rat', 'scorpion', 'snapcap', 'spitGrub']);
 });

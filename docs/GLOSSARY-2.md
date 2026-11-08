@@ -20,9 +20,11 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Oil tick:** a round tick swollen with amber oil; chases, and beside the hero drinks 5% of the lantern's oil instead of biting, biting only once it is empty; 2 hearts; from depth 3 (D-606). The wicksucker of the list, named the oil tick for now.
 - **Lure wisp:** a small cold flame with two pink eyes; when the hero comes within 3 steps it drifts a tile away, toward the nearest other creature; it never bites, and its glow shows in the dark though it lights no tiles; 1 heart; from depth 4 (D-649).
 - **Centipede:** drawn side on, rust red with pale legs and green fangs; chases, and its bite leaves the hero poisoned; 2 hearts; from depth 3 (D-654).
+- **Spit grub:** a glowworm drawn side on, a plump pale grub with a glowing green tail; never moves, and its glow shows in the dark; spits a glob at the lit lantern down a clear row or column, then rests; 1 heart; from depth 4 (D-659, D-688).
+- **Glob:** the Spit grub's spit, a glowing green ball flying a tile a turn; it hits the hero or a creature for 1, and breaks on walls and rubble (D-659, D-688).
 - **Poisoned:** the first debuff, from Venom (D-636): 6 turns, a heart every 3, 2 in all, the last heart too since the Antidote (D-655); a new bite starts it again; a green drop mark beside the boon's (D-652, D-654).
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
-- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649).
+- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649); **Spits** (D-688).
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the column of plaques under the glass panel, one for each
   creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).

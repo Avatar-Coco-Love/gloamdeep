@@ -68,18 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-675 · 2026-11-07 · Doc D: built things, not "to come"** (the owner's
-picks, both recommended; D of D-660's findings, as D-666 set) Five
-glossary lines say what is in the game today, plainly, with no "before"
-clause: armour, charms and lantern parts are gear worn or fitted, not
-gear to come; the Gloamberry Seed is planted in a garden bed; waystones
-sleep at the top of each band of floors, depths 2, 5 and 8, then every
-4th depth (D-594), not only on depth 2; the Journal's tabs are Records,
-Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
-the stash chest, the Stone Pick and the garden bed, not later crafts
-(found while checking). Docs only. D-661 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-676 · 2026-11-07 · Docs F to I: the small ones** (the owner's
 picks, all recommended; F to I of D-660's findings, as D-666 set)
 `TECH-2.md`'s layout lists the maker, `tools/make.js` (D-621, D-622),
@@ -198,3 +186,19 @@ and text line are still drawn every frame. Nothing in the room moves
 with reduced motion, so play looks and feels the same. In the crypt,
 standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
 D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-688 · 2026-11-08 · The Spit grub built** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L;
+builds D-659) Look A, a glowworm side on, a plump grub of bone-white
+rings, its tail glowing venom green; it `glows` with a green halo. A
+Grub Skin, about 1 in 2, sold for 1; a rare Glow Gland, sold for 5 as
+every rare one is. Its new way `spits` (`spit.js`): the glob starts on
+the tile beside it, so beside the hero with the lantern lit it hits at
+once; a glob hurts a creature in its path as a blow does. Built in one
+step, not two (changed in the open PR at the owner's word: the grub
+should play as designed from its first version). Claude's drafts the
+owner may change: a creature a glob beats leaves no drop and no
+experience; armour never turns a glob aside; a glob breaks on a person
+unharmed and flies over water; the grub turns to face where it spits; a
+tap-walk stops at a spit; the names and lines. D-675 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.

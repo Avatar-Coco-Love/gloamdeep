@@ -38,7 +38,7 @@ export function fall(state) {
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = state.home;
   const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
-  return note(say({ ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, float: null }, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and the line (D-667)
+  return note(say({ ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, float: null, globs: [] }, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and the line (D-667)
 }
 // § fall view: the room as the hero fell in it (`fell`), with the rest of the world as it was
 // just before (`elsewhere`), for the fall's picture and the round map beside it. The map

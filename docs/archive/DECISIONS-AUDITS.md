@@ -328,3 +328,15 @@ and the note in `items.js` say each find sells at its own price: 1 coin
 for most common creature materials (Wisp Glass 2, D-649), 5 for a rare
 one, in place of 1 for every common one. The history's old lines stay,
 true when written. Docs only.
+
+**D-675 · 2026-11-07 · Doc D: built things, not "to come"** (the owner's
+picks, both recommended; D of D-660's findings, as D-666 set) Five
+glossary lines say what is in the game today, plainly, with no "before"
+clause: armour, charms and lantern parts are gear worn or fitted, not
+gear to come; the Gloamberry Seed is planted in a garden bed; waystones
+sleep at the top of each band of floors, depths 2, 5 and 8, then every
+4th depth (D-594), not only on depth 2; the Journal's tabs are Records,
+Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
+the stash chest, the Stone Pick and the garden bed, not later crafts
+(found while checking). Docs only. D-661 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
