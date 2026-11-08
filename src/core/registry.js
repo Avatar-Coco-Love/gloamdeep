@@ -9,7 +9,7 @@ import { PEOPLE } from './people.js';
 import { UPGRADES as GROWTH_UPGRADES } from './upgrades.js';
 import { LANDMARKS as LANDMARK_TABLE } from './landmarks.js';
 import { BOONS as BOON_TABLE, BOON_SORTS as BOON_SORT_NAMES } from './boons.js';
-import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES } from './looks.js';
+import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES, LAMPS as LOOK_LAMPS } from './looks.js';
 
 const KINDS = [TILES, ITEMS, LIGHTS, ENEMIES, PEOPLE]; // people (NPCs) from their own file (D-490)
 // What a hero can wear (P3 to P6): not things in the world, so not in ALL or the dev spawn tool
@@ -17,6 +17,7 @@ export const CLOAKS = LOOK_CLOAKS;
 export const EYES = LOOK_EYES;
 export const TRIMS = LOOK_TRIMS;
 export const CLOTHES = LOOK_CLOTHES;
+export const LAMPS = LOOK_LAMPS; // the lantern's shapes (D-702)
 // The Growth tree's upgrades (D-481): bought with embers, not things in the world either
 export const UPGRADES = GROWTH_UPGRADES;
 // Landmarks bigger than one tile (D-587): plans of tiles, not things in the world one at a time

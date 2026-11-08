@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.155', date: '2026-11-08', title: 'Lantern looks', lines: [
+    "Lantern looks: the Look card has a fifth tab, LAMP, for the lantern's shape. Three shapes join the lantern: Carriage, with a wide roof and foot; Dish, a bare flame on a dish; and Pierced, dark tin with light through its holes.",
+    "Each new shape costs 3 Glints, bought with BUY as a cloak pattern is, and takes your TRIM's colours. The flame and its light stay the same, and so does the lantern button.",
+    "Where the card is narrow, the five tabs sit in two rows. On the smallest screens, three rows of choices show at once and the rest scroll.",
+    "Decisions: D-702.",
+  ] },
   { v: '0.3.154', date: '2026-11-08', title: 'The Look card scrolls', lines: [
     "The Look card's choices can now scroll, ready for many more cloaks, eye colours, lantern looks and clothes. Up to four rows show at once; when a tab has more, a swipe up or down, or the mouse wheel, moves them a row, and the arrow keys bring the next row into view.",
     "A thin bar at the right of the boxes, with a gold part, shows where you are in a long tab. Today every tab still fits in four rows, so nothing looks different yet.",

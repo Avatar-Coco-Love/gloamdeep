@@ -3,7 +3,7 @@
 // already means something (P3 to P5), and the clothes, four shapes of cloak (P6). Each cloak
 // is its four shades, light to deepest, as the hero sprite's C, c, B and b; each eye colour is
 // the sprite's e; each trim is the sprite's T and t; each clothes' pixels are in sprites.js.
-// registry.js gathers these tables. Plain data, no drawing.
+// registry.js gathers these tables. The lamps are the lantern's shapes (D-702), their pixels in pictures.js. Plain data, no drawing.
 import { moveOn } from './seedpad.js';
 import { pick } from './rng.js';
 
@@ -76,15 +76,29 @@ export const CLOTHES_IDS = Object.keys(CLOTHES);
 export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
+// § lamps (D-702): the lantern's shape; it takes the trim's colours, and the flame and its light stay
+// where they are. The study's lantern first and free; the rest locked until bought, 3 Glints each.
+export const LAMPS = {
+  lantern: { id: 'lantern', kind: 'lamp', name: 'Lantern' }, // the study's
+  carriage: { id: 'carriage', kind: 'lamp', name: 'Carriage', locked: true, price: 3 }, // a wide roof and a wide foot
+  dish: { id: 'dish', kind: 'lamp', name: 'Dish', locked: true, price: 3 }, // a bare flame on a dish, no glass
+  pierced: { id: 'pierced', kind: 'lamp', name: 'Pierced', locked: true, price: 3 }, // dark tin, light through its holes
+};
+export const LAMP_IDS = Object.keys(LAMPS);
+// A profile's lamp: the one it chose, or the lantern when it has none (profiles from before D-702) or a locked one it hasn't bought
+export const DEFAULT_LAMP = 'lantern';
+export const lampOf = (p) => (LAMPS[p?.look?.lamp] && !isLocked('lamp', p.look.lamp, p.bought) ? p.look.lamp : DEFAULT_LAMP);
+
 // § the look card (D-517, D-521): a tab for each part across its top, row 0; under it that
 // part's choices three to a row, the cloak's locked patterns a third and fourth row (D-533, D-700); then RANDOM and OK on the last row, RANDOM under the first two
 // columns (D-522; the round cross does what Back did, D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
-// Down from a tab on the picked choice. The tabs are the same four keys, first, on every pad.
+// Down from a tab on the picked choice. The tabs are the same five keys, first, on every pad.
 export const LOOK_TABS = [
   { id: 'cloak', name: 'CLOAK', table: CLOAKS, ids: CLOAK_IDS },
   { id: 'eyes', name: 'EYES', table: EYES, ids: EYE_IDS },
   { id: 'trim', name: 'TRIM', table: TRIMS, ids: TRIM_IDS },
   { id: 'clothes', name: 'CLOTHES', table: CLOTHES, ids: CLOTHES_IDS },
+  { id: 'lamp', name: 'LAMP', table: LAMPS, ids: LAMP_IDS }, // D-702
 ];
 export const CLOAK_COLS = 3;
 const lookPad = (ids) => [
@@ -106,10 +120,11 @@ export const tabRows = (tab) => rowsOf(tabOf(tab).ids);
 export const clampScroll = (scroll, rows, shown = LOOK_SHOWN) => Math.max(0, Math.min(scroll, rows - shown));
 // The scroll that shows choice row `row` (1 the first), moving as little as it can
 export const scrollToRow = (scroll, row, rows, shown = LOOK_SHOWN) => clampScroll(Math.min(Math.max(scroll, row - shown), row - 1), rows, shown);
-// The scroll with key i of tab's pad in view: a tab or a foot button leaves it as it is
-export function lookScrollTo(tab, scroll, i) {
+// The scroll with key i of tab's pad in view: a tab or a foot button leaves it as it is; shown: the
+// window's rows on this view, one fewer on the smallest (D-702)
+export function lookScrollTo(tab, scroll, i, shown = LOOK_SHOWN) {
   const k = LOOK_PADS[tab][i], rows = tabRows(tab);
-  return !k || k.tab || k.id === 'random' || k.id === 'ok' ? clampScroll(scroll, rows) : scrollToRow(scroll, k.row, rows);
+  return !k || k.tab || k.id === 'random' || k.id === 'ok' ? clampScroll(scroll, rows, shown) : scrollToRow(scroll, k.row, rows, shown);
 }
 // Whether a tab's choice is locked: shown, tried on the big hero, never kept (D-533), until the
 // profile has bought it; bought: the ids its profile bought with Glints (D-696)
@@ -126,5 +141,7 @@ export function moveLook(tab, i, dir, picked) {
 // § roll: RANDOM (D-517, D-522): a whole new look, each part picked from its free choices with
 // r, a seeded rng (rng.js). Locked patterns are never rolled (D-517); bought ones are (D-696).
 export const rollLook = (r, bought = []) => Object.fromEntries(LOOK_TABS.map((t) => [t.id, pick(r, t.ids.filter((id) => !isLocked(t.id, id, bought)))]));
-// § buying (D-696): the Glints the patterns bought cost in all
-export const spentOn = (bought = []) => bought.reduce((g, id) => g + (CLOAKS[id]?.price ?? 0), 0);
+// § buying (D-696): the Glints the patterns and lamps bought (D-702) cost in all
+export const spentOn = (bought = []) => bought.reduce((g, id) => g + (CLOAKS[id]?.price ?? LAMPS[id]?.price ?? 0), 0);
+// The locked choice id on any tab, for its name and price (D-702)
+export const choiceOf = (id) => CLOAKS[id] ?? LAMPS[id];

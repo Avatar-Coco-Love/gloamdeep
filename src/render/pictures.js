@@ -43,7 +43,21 @@ const CLOTHES_ROWS = {
   short: { 12: '..kcBBbB', 13: '...kkkkk', 14: '....kdk.', 15: '....kk..' },
   tattered: { 13: '..kBkbkB', 14: '..k.kbk.', 15: '' },
 };
-const dressed = (clothes) => ({ ...HERO, rows: HERO.rows.map((r, i) => (CLOTHES_ROWS[clothes] ?? {})[i] ?? r) });
+// § lamps (D-702): the lantern's shapes from their mock-up, each in place of the hero's `extra`:
+// its top row's y, then rows of 5 pixels for x 11 to 15 ('.' leaves the hero's own pixel). The
+// lantern is the hero's own; T and t take the trim's cap and base, the flame stays.
+const LAMP_ROWS = {
+  carriage: [6, '..k..', '.kTk.', 'kTTTk', 'kywyk', 'kYyYk', 'ktttk'], // a wide roof and a wide foot
+  dish: [7, '..k..', '.kwk.', 'kyYyk', 'kTTTk', '.ktk.'], // a bare flame on a dish
+  pierced: [7, '..k..', '.kTk.', 'kTyTk', 'kyTyk', '.ktk.'], // dark tin, light through its holes
+};
+const lampExtra = (lamp) => {
+  const l = LAMP_ROWS[lamp];
+  if (!l) return HERO.extra;
+  const [top, ...rows] = l;
+  return rows.flatMap((r, i) => [...r].flatMap((ch, j) => (ch === '.' ? [] : [[11 + j, top + i, ch]])));
+};
+const dressed = (clothes, lamp) => ({ ...HERO, rows: HERO.rows.map((r, i) => (CLOTHES_ROWS[clothes] ?? {})[i] ?? r), extra: lampExtra(lamp) });
 // § flask: the study's oil flask, a cork over a bottle of amber oil (study line 156, D-077)
 const FLASK = { mirror: true, rows: [
   '', '', '......kk', '.....kaa', '......kk', '......ko', '.....koo', '....kooo', '...kwooo', '...kwooo',

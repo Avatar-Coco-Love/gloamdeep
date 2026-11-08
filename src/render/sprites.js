@@ -1,7 +1,7 @@
 // § sprites: the 16 × 16 pixel pictures in `pictures.js` made into canvases and
 // drawn; the pictures moved there at 0.3.72 (D-617).
 import { CLOAKS, EYES, TRIMS, get } from '../core/registry.js';
-import { DEFAULT_CLOTHES } from '../core/looks.js';
+import { DEFAULT_CLOTHES, DEFAULT_LAMP } from '../core/looks.js';
 import { keep } from './wipe.js';
 import {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -100,16 +100,16 @@ for (const id of Object.keys(FLASHES)) { LEFT[id] = mirrored(SPRITES[id]); LEFT_
 const COLOURS = { scorpion: SCORPION_COLOURS.map((set) => spriteCanvas(SCORPION, null, { ...PAL, ...set })) };
 const COLOURS_LEFT = Object.fromEntries(Object.entries(COLOURS).map(([id, all]) => [id, all.map(mirrored)]));
 const dressedIn = (e, left) => (left ? COLOURS_LEFT : COLOURS)[e.id]?.[e.colour] ?? (left ? LEFT : SPRITES)[e.id];
-// § looks: the hero in a cloak, eyes, trim and clothes (P3 to P6), its four cloak shades, its eye
+// § looks: the hero in a cloak, eyes, trim, clothes (P3 to P6) and lamp (D-702), its four cloak shades, its eye
 // colour and the lantern's cap and base swapped, its rows dressed; the outline and the flame stay.
 // Each is made once, the first time it is worn or shown. The profile in play's is worn wherever
-// the hero is drawn, and its bitten flash keeps the clothes' shape.
+// the hero is drawn, and its bitten flash keeps the clothes' and the lamp's shape.
 const HEROES = {}, BITTEN = {};
-export function heroIn(cloak, eyes, trim, clothes = DEFAULT_CLOTHES) {
-  const key = `${cloak}/${eyes}/${trim}/${clothes}`;
+export function heroIn(cloak, eyes, trim, clothes = DEFAULT_CLOTHES, lamp = DEFAULT_LAMP) {
+  const key = `${cloak}/${eyes}/${trim}/${clothes}/${lamp}`;
   if (!HEROES[key]) {
     const [C, c, B, b] = (CLOAKS[cloak] ?? CLOAKS.teal).shades, e = (EYES[eyes] ?? EYES.bone).colour, [T, t] = (TRIMS[trim] ?? TRIMS.brass).shades;
-    const def = dressed(clothes), pattern = CLOAKS[cloak]?.pattern ? (cv) => markPattern(cv, def, CLOAKS[cloak]) : null;
+    const def = dressed(clothes, lamp), pattern = CLOAKS[cloak]?.pattern ? (cv) => markPattern(cv, def, CLOAKS[cloak]) : null;
     HEROES[key] = spriteCanvas(def, null, { ...PAL, C, c, B, b, e, T, t }, pattern);
   }
   return HEROES[key];
@@ -138,9 +138,9 @@ function markPattern(cv, def, cloak) {
     c.fillStyle = (m === 2 && cloak.second ? cloak.second : cloak.marks)[SIDE[ch]]; c.fillRect(x, y, 1, 1);
   }));
 }
-const bittenIn = (clothes) => (BITTEN[clothes] ??= spriteCanvas(dressed(clothes), PAL.p));
+const bittenIn = (clothes, lamp = DEFAULT_LAMP) => (BITTEN[`${clothes}/${lamp}`] ??= spriteCanvas(dressed(clothes, lamp), PAL.p));
 let worn = SPRITES.hero, wornBitten = bittenIn(DEFAULT_CLOTHES);
-export function wearLook(cloak, eyes, trim, clothes) { worn = heroIn(cloak, eyes, trim, clothes); wornBitten = bittenIn(clothes); }
+export function wearLook(cloak, eyes, trim, clothes, lamp) { worn = heroIn(cloak, eyes, trim, clothes, lamp); wornBitten = bittenIn(clothes, lamp); }
 
 // § shadow: a small dark oval under a sprite (study line 345)
 export function drawShadow(c, x, y, w) {

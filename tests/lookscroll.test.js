@@ -35,8 +35,8 @@ test('today every tab fits, so the flame on any key leaves the scroll at none', 
 test('the bar: none when the rows fit; with more, at the boxes\' right, its thumb sized and placed by the scroll', () => {
   for (const [vw, vh] of [[195, 422], [420, 221], [176, 221]]) {
     const at = boxesAt(vw, vh);
-    assert.equal(barAt(at, 0, 4), null);
-    const top = barAt(at, 0, 8), foot = barAt(at, 4, 8);
+    assert.equal(barAt(at, 0, at.shown), null); // the window's rows: 4, or 3 on the smallest view (D-702)
+    const n = at.shown, top = barAt(at, 0, 2 * n), foot = barAt(at, n, 2 * n);
     assert.ok(top.x >= at.x + 3 * at.bw && top.x + top.w <= at.card.x + at.card.w, `${vw}x${vh} inside the card`);
     assert.equal(top.thumb.y, top.y);
     assert.equal(foot.thumb.y + foot.thumb.h, foot.y + foot.h); // the last rows: the thumb at the foot

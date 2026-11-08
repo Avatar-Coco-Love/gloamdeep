@@ -41,7 +41,9 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 6 cloaks, 6 eyes, 6 trims and 4 clothes; their names are in
 `GLOSSARY.md` (D-275 to D-278, D-289). Also 6 locked cloak patterns,
 Zebra, Cow, Camo, Tiger, Stars and Moth, 3 Glints each, bought on the
-Look card (D-515, D-533, D-696, D-700).
+Look card (D-515, D-533, D-696, D-700). And 4 lamps, the lantern's
+shape: Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints
+each (D-702).
 
 ## Growth upgrades (`src/core/upgrades.js`)
 

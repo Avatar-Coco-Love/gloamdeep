@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.152, The eleventh audit.** All recommended (D-699):
+  the 0.3 history split in two, Relics decisions archived, OPEN-QUESTIONS,
+  TECH and PROGRESS trimmed, all word for word. Start read 9.7 KB.
+  Findings: https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH
+  No playtest: nothing to play.
 - **2026-11-08, 0.3.151, Flasks, the third Feat.** The owner's picks,
   all recommended (D-698): Flasks, from Flasks poured, at 5, 25 and 100,
   named short to fit upright. Glints should match the shop, so looks
