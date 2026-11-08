@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.164 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.165 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The boons card (D-706): once, after the first boon is picked, a glass card saying what boons are, and a Journal entry. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The free pick of a locked look for each new profile (D-704): a mock-up of how it is shown first. Or the sixth teaching goal, "Spend your ember" (D-706), the owner choosing.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.165, The boons card.** Once, right after the first
+  boon is picked, a glass card saying what boons are, with Go; the done
+  "Take a boon" in the Quests tab shows it again. The owner's picks, all
+  recommended: over the Journal and back to it; never for a profile
+  ticked quietly (D-712).
+  Playtest: https://claude.ai/artifact/7jxE1kBw7thc1C2FZUkED3
 - **2026-11-08, 0.3.164, The fifth teaching goal.** "Take a boon" on
   stepping off the woken plate with no boon ever held. The owner's
   picks, all recommended: done on the pick, the cross leaving it
@@ -54,8 +60,3 @@ list in `RESEARCH.md`.
   the step that wakes the plate; ticked quietly if it is woken already
   (D-710).
   Playtest: https://claude.ai/artifact/E2dFtHKhVvZxpot7BTZik4
-- **2026-11-08, 0.3.162, The third teaching goal.** "Find the waystone"
-  on reaching the woods. The owner's picks, all recommended: done within
-  4 tiles of the stone's middle, so never on arrival; ticked quietly if
-  its plate is woken already (D-709).
-  Playtest: https://claude.ai/artifact/GjMJhCSLVBtBVudEZB8HxP

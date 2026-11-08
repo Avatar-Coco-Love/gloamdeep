@@ -75,7 +75,7 @@ const app = {
   // Who plays: the profiles on this device (D-268), the one in use picked on the slot screen (D-271)
   profiles: loadProfiles(),
   jumped: false, // a dev jump stops this journey counting towards the deepest depth (D-232)
-  // screen: 'slots', 'name', 'cloak' (the look card, D-521), 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'trade' (the peddler's card, D-494), 'bed' (the bed's ask by day, D-488), 'explore', 'history', 'journal' or 'opening' (a new journey's first words, D-628)
+  // screen: 'slots', 'name', 'cloak' (the look card, D-521), 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'trade' (the peddler's card, D-494), 'bed' (the bed's ask by day, D-488), 'explore', 'history', 'journal' or 'opening' (a new journey's first words, D-628) or 'aboutBoons' (the boons card, D-712)
   screen: 'slots', chosen: 0,
   picking: null, dropping: 0, slotsBack: false, // the slot screen: Rename or Delete picked (D-273), the slot asked about, Back shown (D-271)
   pageFrom: 'title', // the menu Settings or How to play was opened from
@@ -386,7 +386,11 @@ const screens = createScreens(app, {
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
   sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
-  takeBoon: (id) => { const before = app.state; app.state = takeBoon(before, id); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before); }, // the boon card's pick, free (D-596)
+  takeBoon: (id) => { // the boon card's pick, free (D-596); the first boon picked opens the boons card (D-712)
+    const first = !playing(app.profiles).goals?.boon?.done, before = app.state;
+    app.state = takeBoon(before, id); const events = eventsSince(before, app.state); hear(events); keepRecords(events, before);
+    if (first && playing(app.profiles).goals?.boon?.done) { app.boonsFrom = 'play'; screens.show('aboutBoons'); }
+  },
   strike: () => strikeAt(needleAt(performance.now() - app.strike.start)), // the strike card's tap (D-614)
   goByStone: (place) => tryStep({ travel: place }), // the travel card's pick: there by waystone, free, with the stairs' fade (D-593)
   dev: () => dev, input: () => input, mapMoves: () => mapMoves, // made below
@@ -400,7 +404,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.space(); };
 // Tab frames the first plaque, then the next, then none (CL2)

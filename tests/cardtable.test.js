@@ -43,7 +43,7 @@ const made = (screen) => {
 const BACK = { sure: ['titleAt', 'new'], drop: ['closeDrop', false], easier: ['closeEasier', false], settings: ['closeSettings'], ways: ['closeWays'], mode: ['titleAt', 'new'], howto: ['closeHowTo'], history: ['closeHistory'], journal: ['closeJournal'], slots: ['titleAt', 'profiles'], name: ['closeName'], cloak: ['closeCloak'], seed: ['closePad'], explore: ['closeExplorer'] };
 
 test('the table holds the bag, place, bench, chest and trade cards, the four asks, the six menus, the three pages and the profile and map screens', () => {
-  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['bag', 'bed', 'bench', 'boons', 'chest', 'cloak', 'drop', 'easier', 'ended', 'explore', 'history', 'howto', 'journal', 'map', 'mode', 'name', 'opening', 'paused', 'place', 'seed', 'settings', 'slots', 'strike', 'sure', 'title', 'trade', 'travel', 'ways']);
+  assert.deepEqual(Object.keys(CARD_TABLE).sort(), ['aboutBoons', 'bag', 'bed', 'bench', 'boons', 'chest', 'cloak', 'drop', 'easier', 'ended', 'explore', 'history', 'howto', 'journal', 'map', 'mode', 'name', 'opening', 'paused', 'place', 'seed', 'settings', 'slots', 'strike', 'sure', 'title', 'trade', 'travel', 'ways']);
   for (const id of [...ASKS, ...MENUS]) assert.ok(CARD_TABLE[id], id);
 });
 

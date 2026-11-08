@@ -3,7 +3,8 @@
 // opens on Records (screens.js's openJournal). `c` holds journalPageWords and closeJournal. On the
 // Bestiary (D-630) Up and Down pick a row and Enter or a tap opens its page; there Esc, the
 // round cross or Left goes back to the table (D-631). Right from the Bestiary turns to Feats, and
-// Left there back (D-695). Right from Feats turns to Quests, and Left there back (D-706).
+// Left there back (D-695). Right from Feats turns to Quests, and Left there back (D-706). On
+// Quests, Enter or a tap on the done "Take a boon" shows the boons card over the Journal (D-712).
 import { buyAt, movePick, told } from '../../core/growth.js';
 import { journalAt } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
@@ -44,8 +45,11 @@ export function journalCard(app, ui, show, c) {
     spoken.textContent = journalPageWords();
   }
   function closePage() { app.beastPage = null; spoken.textContent = journalPageWords(); }
+  // § the boons card again, from the done "Take a boon" (D-712)
+  const goals = () => (app.profiles && playing(app.profiles)?.goals) || {};
+  function aboutBoons() { if (!goals().boon?.done) return; app.boonsFrom = 'journal'; show('aboutBoons'); }
   // Enter turns to Growth, there buys the picked upgrade, and on the Bestiary opens the picked page
-  const pick = () => { if (app.tab === 'growth') buyPicked(); else if (app.tab === 'records') turnTab('growth'); else if (app.tab === 'bestiary' && !app.beastPage) openPage(app.beastPick); };
+  const pick = () => { if (app.tab === 'growth') buyPicked(); else if (app.tab === 'records') turnTab('growth'); else if (app.tab === 'bestiary' && !app.beastPage) openPage(app.beastPick); else if (app.tab === 'quests') aboutBoons(); };
   // The tabs (D-391), on Growth its tree (D-481): Right past Hands for the Bestiary, and Left there back to Growth (D-630)
   function dir(d) {
     if (app.tab === 'growth') { if (d === 'right' && app.growthPick.col === BRANCHES.length - 1) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d)); }
@@ -57,10 +61,11 @@ export function journalCard(app, ui, show, c) {
   }
   function tap(px, py, held) {
     if (held) return;
-    const at = journalAt(px, py, view.w, view.h, app.tab, app.state, app.growthPick, book(), app.beastPage);
+    const at = journalAt(px, py, view.w, view.h, app.tab, app.state, app.growthPick, book(), app.beastPage, goals());
     if (at === 'close' && app.beastPage) closePage(); // a page's cross goes back to the table (D-631)
     else if (at === 'out' || at === 'close') closeJournal(); // the round cross goes back (D-391)
     else if (at?.beast !== undefined) openPage(at.beast);
+    else if (at?.quest) { if (at.quest === 'boon') aboutBoons(); }
     else if (at === 'buy') buyPicked();
     else if (at?.pick) pickGrowth(at.pick);
     else if (at) turnTab(at.tab);

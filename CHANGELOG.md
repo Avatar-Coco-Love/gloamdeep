@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.165 (2026-11-08)
+- The boons card: the first time you pick a boon, a glass card says what boons are, with Go to carry on. It shows only once.
+- In the Journal's Quests tab, tap the done "Take a boon" (or press Enter there) to read the card again; Go goes back to the Journal.
+- Decisions: D-712.
+
 ## 0.3.164 (2026-11-08)
 - The fifth teaching goal: step off the woken waystone's plate without ever having held a boon, and "Take a boon" and "Step back on the plate. Pick 1 of 3." show under the hearts panel. Pick a boon and the goal turns gold with its reward; closing the card with its cross leaves the goal waiting.
 - If you have held a boon since this version, or hold one now, the goal is ticked quietly and pays its reward.
@@ -32,8 +37,3 @@ Entry format:
 - The fourth teaching goal: once the waystone is found, "Wake the waystone" and "Step on the plate in its middle." show under the hearts panel. Step on the plate to wake it and the goal turns gold with its reward.
 - If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.
 - Decisions: D-710.
-
-## 0.3.162 (2026-11-08)
-- The third teaching goal: on reaching the woods, "Find the waystone" and "Old standing stones, near home." show under the hearts panel. Walk within 4 tiles of the stone and it turns gold with its reward.
-- If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.
-- Decisions: D-709.

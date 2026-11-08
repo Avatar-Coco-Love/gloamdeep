@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.165', date: '2026-11-08', title: 'The boons card', lines: [
+    "The boons card: the first time you pick a boon, a glass card says what boons are, with Go to carry on. It shows only once.",
+    "In the Journal's Quests tab, tap the done \"Take a boon\" (or press Enter there) to read the card again; Go goes back to the Journal.",
+    "Decisions: D-712.",
+  ] },
   { v: '0.3.164', date: '2026-11-08', title: 'The fifth teaching goal', lines: [
     "The fifth teaching goal: step off the woken waystone's plate without ever having held a boon, and \"Take a boon\" and \"Step back on the plate. Pick 1 of 3.\" show under the hearts panel. Pick a boon and the goal turns gold with its reward; closing the card with its cross leaves the goal waiting.",
     "If you have held a boon since this version, or hold one now, the goal is ticked quietly and pays its reward.",

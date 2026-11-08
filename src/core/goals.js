@@ -137,5 +137,6 @@ const TURN = 'Left or Right for another tab. Esc or the close button goes back.'
 export function questsWords(goals, place) {
   const rows = questRows(goals, place);
   const said = rows.length ? rows.map((r) => (r.done ? `${r.goal}, done, ${r.reward}` : `${r.goal}. ${r.how}`)).join('. ') : NONE.replace(/\.$/, '');
-  return `Journal, Quests tab. ${said}. ${TURN}`;
+  const again = goals?.boon?.done ? ' Enter shows what boons are.' : ''; // the boons card again (D-712)
+  return `Journal, Quests tab. ${said}.${again} ${TURN}`;
 }
