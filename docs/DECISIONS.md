@@ -68,18 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-685 · 2026-11-07 · The rock painted faster** (the owner's picks,
-both recommended; S1 of D-660's findings, as D-666 set) The rock and
-earth painter works out each tile's walls once, before the pixels: its
-wall value, whether it is a wall, and whether it stays clear (a way on,
-or an opening in the edge). Before, it looked them up about four times
-for every pixel. Only `rock.js` changes, not the pool's water, and a
-room is still painted once each time it is entered. The picture is the
-same, pixel for pixel; painting a room takes about half the time (14 to
-8 ms each over 24 rooms on a computer). A test checks the pictures of
-12 rooms against fingerprints of the old painter's.
-D-672 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-686 · 2026-11-07 · The room holds still under a card** (the
 owner's picks, both recommended; S3 of D-660's findings, as D-666 set)
 Under a card (the bag, pause, the map, trade and the rest), the room
@@ -187,3 +175,15 @@ and glint, look A of three. What it does there comes next. Claude's
 drafts the owner may change: the tile's id, `locketShelf`.
 Mock-ups: https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ
 D-683 and D-684 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-694 · 2026-11-08 · What the locket does on the shelf** (the owner's
+picks, all recommended; builds D-691, D-693) With the locket on a shelf
+anywhere in the world, a Normal fall brings home the bag's stack worth
+most to the peddler in all (his price × how many: 3 Venom Sacs beat 1
+Mimic Heart); a tie goes to the stack first in the bag; with nothing he
+buys, nothing is kept. The rest is left where the hero fell; a bag
+holding only the kept stack is not left. The wake line names it: "The
+locket kept Venom Sac ×3." (the owner picked it after the fall line;
+both don't fit the strip, so it says it in the fall line's place).
+Claude's drafts the owner may change: its words. D-685 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.

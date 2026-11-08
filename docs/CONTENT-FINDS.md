@@ -38,7 +38,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
-| `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); what it does there later | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693 |
+| `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); there, a Normal fall brings home the bag's stack worth most to the peddler (D-694) | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693, D-694 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,

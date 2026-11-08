@@ -69,4 +69,5 @@ neared 8 KB.
 - **Lightkeeper's Locket:** biome 1's first relic, an open gold locket on
   a chain, a violet hollow with a flame inside, in a violet glow; one lies
   at depth 4 with a warden guarding it; set on the shelf for good, where
-  it will keep a find on a fall (D-689, D-691, D-692, D-693).
+  a Normal fall brings home the bag's stack worth most to the peddler
+  (D-689, D-691, D-692, D-693, D-694).
