@@ -12,7 +12,9 @@
 // the picked row's name gold. A creature's page (D-631): its drawing twice as big, its name and
 // counts beside it, and under them how it acts, or a grey hint until one is beaten. Feats
 // (D-695): the Glints at the top, then each Feat's name, its count toward the next tier and
-// its 3 marks, lit gold once reached.
+// its 3 marks, lit gold once reached. Quests (D-706): a row a goal, newest first: a small diamond,
+// gold once done, the goal (amber waiting, gold done), the reward it paid on the right, the how in
+// grey under it.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
@@ -23,6 +25,7 @@ import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, plac
 import { BRANCHES } from '../core/upgrades.js';
 import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
 import { featRows, glintsText } from '../core/feats.js';
+import { questRows, NONE as NO_GOALS } from '../core/goals.js';
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
@@ -115,7 +118,7 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 // profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630); beast, the
 // Bestiary's picked row, and page the creature whose page is open, if one is (D-631); bought, the
 // patterns the profile bought, for the Glints left (D-696)
-export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null, bought = []) {
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null, bought = [], goals = {}, goalGlints = 0) {
   const growth = tab === 'growth', whole = drawCard(c, vw, vh, 'JOURNAL', 0), { spots, down } = tabsAt(whole);
   TABS.forEach((s, i) => {
     const on = s.id === tab, at = spots[i];
@@ -127,7 +130,8 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
   c.fillStyle = LINE; c.fillRect(whole.x + 8, whole.y + TABS_RULE_Y + down, whole.w - 16, 1);
   const card = pageCard(whole, down), { y } = card;
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
-  if (tab === 'feats') { drawFeats(c, card, records, bought); return; }
+  if (tab === 'feats') { drawFeats(c, card, records, bought, goalGlints); return; }
+  if (tab === 'quests') { drawQuests(c, card, goals); return; }
   if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
@@ -258,15 +262,29 @@ function drawPage(c, card, p, img) {
 // Glints are those left, the patterns bought taken off (D-696)
 const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
 const FEAT_GAP = 16; // narrower than Records' so Deepest's row and its marks fit the upright card (D-697)
-function drawFeats(c, card, records, bought) {
+function drawFeats(c, card, records, bought, goalGlints = 0) {
   const nx = tabsLeft(card), rows = featRows(records), right = card.x + card.w - PAD;
-  drawText(c, glintsText({ records, bought }), nx, card.y + GLINTS_Y, GOLD);
+  drawText(c, glintsText({ records, bought, glints: goalGlints }), nx, card.y + GLINTS_Y, GOLD);
   const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + FEAT_GAP;
   rows.forEach((r, i) => {
     const ry = card.y + FEATS_Y + i * ROW_H;
     drawText(c, r.text, nx, ry, GREY);
     drawText(c, r.value, vx, ry, CORE);
     for (let k = 0; k < r.tiers; k++) drawDiamond(c, right - (r.tiers - k) * (MARK + MARK_GAP) + MARK_GAP, ry + 1, k < r.reached ? GOLD : DIM);
+  });
+}
+// § quests: a row a goal (D-706), as in the owner's pick from the mock-up; none yet, a grey line
+const AMBER = '#ffc65c', QUEST_H = 26;
+function drawQuests(c, card, goals) {
+  const nx = tabsLeft(card), right = card.x + card.w - PAD, rows = questRows(goals);
+  if (!rows.length) { drawText(c, NO_GOALS, nx, card.y + ROWS_Y, GREY); return; }
+  rows.forEach((r, i) => {
+    const y = card.y + ROWS_Y + i * QUEST_H;
+    if (y + QUEST_H > card.y + card.h) return;
+    drawDiamond(c, nx - MARK_W, y + 1, r.done ? GOLD : DIM);
+    drawText(c, r.goal, nx, y, r.done ? GOLD : AMBER);
+    if (r.done) drawText(c, r.reward, right - textWidth(r.reward), y, GREY);
+    drawText(c, r.how, nx, y + ROW_H, GREY);
   });
 }
 function drawDiamond(c, x, y, colour) {

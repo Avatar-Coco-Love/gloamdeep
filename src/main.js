@@ -18,8 +18,9 @@ import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { featNote } from './core/feats.js';
-import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary } from './core/profile.js';
+import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
 import { booked } from './core/bestiary.js';
+import { goalsAfter, doneWords, GOLD_TURNS } from './core/goals.js';
 import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
@@ -78,6 +79,7 @@ const app = {
   screen: 'slots', chosen: 0,
   picking: null, dropping: 0, slotsBack: false, // the slot screen: Rename or Delete picked (D-273), the slot asked about, Back shown (D-271)
   pageFrom: 'title', // the menu Settings or How to play was opened from
+  goalGold: null, // { id, until }: the goal just done, its line gold until that turn (D-706)
   page: 'touch', // How to play's page
   tab: 'records', // the Journal's open tab: Records or Growth (D-293)
   entry: '', // the digits typed on the seed pad, or the letters on the name pad
@@ -126,7 +128,20 @@ function keepRecords(events) {
   if (feat) app.state = say(app.state, 'featReached', feat);
   const book = playing(app.profiles).bestiary, met = booked(book, events, app.jumped); // the Bestiary's counts (D-630)
   if (met !== book) app.profiles = withBestiary(app.profiles, met);
-  if (records !== was || met !== book) saveProfiles(app.profiles);
+  const goaled = keepGoals(events);
+  if (records !== was || met !== book || goaled) saveProfiles(app.profiles);
+}
+// § goals (D-706): a teaching goal shows once its moment comes; done, it pays its reward, says so
+// and the line turns gold for a few turns. Not after a dev jump, as the Bestiary (D-232).
+function keepGoals(events) {
+  if (app.jumped) return false;
+  const p = playing(app.profiles), after = goalsAfter(p.goals, p.glints, p.bestiary, events, app.state);
+  if (after.goals === p.goals) return false;
+  app.profiles = withGoals(app.profiles, after.goals, after.glints);
+  app.state = after.state;
+  const id = after.done[0];
+  if (id) { app.state = say(app.state, 'goalDone', doneWords(after.goals, id)); app.goalGold = { id, until: app.state.turn + GOLD_TURNS }; }
+  return true;
 }
 // § play time (D-290): the time on the play screen counts, kept in whole seconds every 10 and when
 // the page is hidden; a long gap between frames (the page hidden, the phone locked) counts as one frame
@@ -430,7 +445,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   camera: () => app.cam,
 }, hudCanvas);
 const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, dev, screens, still, foeAt });
-const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS });
+const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS, openQuests: () => screens.openQuests() });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
 // § memory: once the hero stands still on a tile, the tiles their lantern

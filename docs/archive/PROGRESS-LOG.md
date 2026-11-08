@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.157, More hats and hoods.** The owner's picks (D-704):
+  Horned didn't show because only three of D-703's eight drafts went in,
+  so all five left join the HEAD tab (Horned's horns bone white always);
+  Brim all in the trim's colours; Hood, Brim and Ears free. Next, a free
+  pick of a look for each new profile, the owner's wish.
+  Playtest: https://claude.ai/artifact/BkLJGwVTHqQhnXYH7mfC4M
 - **2026-11-08, 0.3.156, Hats and hoods.** The owner's picks, all
   recommended (D-703), from eight drafts
   (https://claude.ai/artifact/6AxqaXJqWfcCVeGARWg7oh): Brim, Ears and

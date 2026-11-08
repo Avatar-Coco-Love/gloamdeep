@@ -46,7 +46,7 @@ test('a row says the count toward the next tier and how many marks are lit', () 
   assert.deepEqual(featRows(at(12))[0], { id: 'beaten', text: 'Beaten', value: '12 of 50', reached: 1, tiers: 3 });
   assert.deepEqual(featRows(at(3))[0].value, '3 of 10');
   assert.deepEqual(featRows(at(250))[0], { id: 'beaten', text: 'Beaten', value: '200', reached: 3, tiers: 3 });
-  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Flasks, 0 of 5, 0 of 3 reached. Left for the Bestiary. Esc or the close button goes back.');
+  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Flasks, 0 of 5, 0 of 3 reached. Left for the Bestiary, Right for Quests. Esc or the close button goes back.');
 });
 
 test('reaching a tier gives a note, once (D-467)', () => {
@@ -60,7 +60,8 @@ test('the Feats tab is tapped on every card, one row sideways, two upright, and 
   for (const [vw, vh, dy] of [[300, 176, 0], [390, 208, 0], [176, 370, 16]]) {
     const card = cardAt(vw, vh), xs = [...Array(card.w).keys()];
     const tabs = xs.map((x) => journalAt(card.x + x, card.y + 32 + dy, vw, vh)).filter((a) => a?.tab).map((a) => a.tab);
-    assert.equal(tabs.at(-1), 'feats', `${vw}×${vh}`);
+    assert.equal(tabs.at(-1), 'quests', `${vw}×${vh}`); // Quests after it (D-706)
+    assert.ok(tabs.includes('feats'), `${vw}×${vh}`);
     const vx = PAD + 8 + textWidth('Deepest') + 16, marks = 3 * 9;
     assert.ok(vx + textWidth('199 of 200') + 4 <= card.w - PAD - marks, `${vw}×${vh}`);
   }

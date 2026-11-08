@@ -3,7 +3,7 @@
 // opens on Records (screens.js's openJournal). `c` holds journalPageWords and closeJournal. On the
 // Bestiary (D-630) Up and Down pick a row and Enter or a tap opens its page; there Esc, the
 // round cross or Left goes back to the table (D-631). Right from the Bestiary turns to Feats, and
-// Left there back (D-695).
+// Left there back (D-695). Right from Feats turns to Quests, and Left there back (D-706).
 import { buyAt, movePick, told } from '../../core/growth.js';
 import { journalAt } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
@@ -51,7 +51,8 @@ export function journalCard(app, ui, show, c) {
     if (app.tab === 'growth') { if (d === 'right' && app.growthPick.col === BRANCHES.length - 1) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d)); }
     else if (app.tab === 'bestiary' && app.beastPage) { if (d === 'left') closePage(); }
     else if (app.tab === 'bestiary') { if (d === 'left') turnTab('growth'); else if (d === 'right') turnTab('feats'); else if (d === 'up' || d === 'down') pickBeast(movePickRow(book(), app.beastPick, d === 'up' ? -1 : 1)); }
-    else if (app.tab === 'feats') { if (d === 'left') turnTab('bestiary'); }
+    else if (app.tab === 'feats') { if (d === 'left') turnTab('bestiary'); else if (d === 'right') turnTab('quests'); }
+    else if (app.tab === 'quests') { if (d === 'left') turnTab('feats'); }
     else if (d === 'right') turnTab('growth');
   }
   function tap(px, py, held) {
