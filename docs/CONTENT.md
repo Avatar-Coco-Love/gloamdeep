@@ -6,7 +6,7 @@ turns up and the decisions behind it (D-363). The words themselves are in
 heading, and where this page and the code disagree, the code and the
 decisions win. Read this before proposing new content, so it builds on
 what exists. Every PR that adds or changes content updates its row
-(the checklist is in `TECH.md`, "Adding content").
+(the checklist is in `TECH-2.md`, "Adding content").
 
 Turns are the hero's turns. A creature beaten gives its hearts plus its
 bite in experience (D-371). "Grows back" is the `regrow` time (D-306).

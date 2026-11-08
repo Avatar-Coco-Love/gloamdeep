@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.149, Buying a pattern.** The owner's picks, all
+  recommended (D-696): on the Look card a tried pattern turns RANDOM
+  into BUY 3, bought at once with no asking; too few Glints dims it and
+  the note says so; bought is the hero's for good; Feats shows Glints
+  left. Playtest: https://claude.ai/artifact/2yZUo1HbiEUdqCuEyGVg1Z
 - **2026-11-08, 0.3.148, Feats and Glints.** The owner's picks, all
   recommended (D-695): Beaten is the first Feat, 10 / 50 / 200 paying
   1 / 2 / 3 Glints; a pattern will cost 3. The Journal's Feats tab, the
@@ -1896,6 +1901,10 @@ Getting around first (D-582), then boons (D-583):
   clear turns (D-612, 0.3.67); nibble and sounds (0.3.68); strike meter (0.3.69); eating (0.3.70); selling (0.3.71); the cave pools (0.3.73)
 - [x] 18b Faster making (D-621): the checker (0.3.76); the maker (0.3.77);
   the bottom sheet (0.3.78); Spawn's sprite grid and search (0.3.79); god mode (0.3.80); endless oil (0.3.81); test spots (0.3.82)
+
+Moved from `PROGRESS.md` at 0.3.152, the eleventh audit (D-699):
+
+- [x] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145); set on the shelf (0.3.146); what it does there (0.3.147)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

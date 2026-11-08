@@ -36,102 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-660 · 2026-11-07 · The tenth audit, part 1** (the owner's picks, all
-recommended; the owner asked for a fuller audit) At 0.3.113, nothing
-visible changed. A conversation's start reads 10.1 KB, as at the ninth.
-Floor layouts are made about 5 times faster with the same floors (6,000
-seed and depth pairs checked), and the slowest test is split in three
-to run side by side: `npm test` 59 s to 35 s. Touch in play moves from
-`main.js` (39 to 35 KB) to `src/input/touch.js`, word for word but for
-`heldAt`. `CONTENT.md`'s finds move to `CONTENT-FINDS.md`, the second
-half of `WORLD.md` to `WORLD-2.md`, word for word; D-648 to D-651 and
-D-653 to `archive/DECISIONS-BIOME-1.md`; ticked steps 18 and 18b are
-archived. Four bug hunts, a docs read-through and a phone speed check
-read the code alongside: 19 bugs, about 30 stale doc lines and one
-freeze on depth 2's first frame, listed for the owner to pick from
-(https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
-own small step with a test. The next audit is at 0.3.152.
-
-**D-689 · 2026-11-08 · Relics from the old city** (the owner's picks,
-all recommended; step 20 of D-482, builds D-465, D-469, D-633) Relics
-are things left from Underhearth and the Lightkeepers, found, never
-made, each with a line or two of story. Their boosts help the hero set
-out (*e.g.* a find in the bag at a trip's start) or soften a fall (*e.g.*
-one more find kept). They lie in hidden spots (the end of a hidden path,
-a sealed old-city room) and in guarded rooms. The shelf holds every
-relic found, each working once set there. The shelf comes first, built
-at the workbench and set down at home, empty; biome 1's first relic,
-next, keeps one find on a fall that would otherwise be lost. Each
-relic's name, look, story line and place, and the shelf's recipe and
-look, are proposed at their own steps. D-676 and D-677 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-690 · 2026-11-08 · The shelf** (the owner's picks, all recommended;
-builds D-689) Look A, a tall wooden case in the trunk's browns, two
-empty shelves. Made at the workbench from 4 Wood and 2 Stone, its last
-slot (the panel still shows 12 at most, as only one bag upgrade shows
-at a time); one carried; set down on the surface the bed's way.
-Bumped, day or night, it asks "Deconstruct shelf?", "Nothing on it
-yet.", No picked, as the bed by day; Yes puts it back in the bag.
-Claude's drafts the owner may change: its lines and the tile's id,
-`relicShelf`. D-678 moved to `archive/DECISIONS-AUDITS.md`, word for
-word.
-
-**D-691 · 2026-11-08 · The Lightkeeper's Locket** (the owner's picks,
-all recommended; builds D-689, D-690) Biome 1's first relic is the
-Lightkeeper's Locket, look A: a tarnished brass oval on a thin chain, a
-tiny flame scratched on its face. Its story line: "Kept close, whatever
-the dark took." (the owner picked "A Lightkeeper kept one thing close,
-whatever the dark took.", too wide for the line strip). One per world
-lies in a room at depth 4 the seed picks, never the stairs' room, on its
-farthest free tile with a rat beside it guarding it, left once. Set on
-the shelf, a Normal fall brings home the bag's stack the peddler would
-pay most for. Three steps: found and carried (0.3.143), set on the
-shelf, then the fall. Claude's drafts the owner may change: its lines,
-the rat, the id `locket`. D-679 and D-680 moved to
-`archive/DECISIONS-AUDITS.md`, word for word. Its rat and its look
-superseded by D-692 (2026-11-08).
-
-**D-692 · 2026-11-08 · The warden and the relics' look** (the owner's
-ask and picks; supersedes D-691's rat and look) The locket's guard is a
-new creature, the old-city warden, made by Underhearth's people to guard
-their things: look A4 of six stone takes, an old cracked stone guard,
-mossy, a chipped gold band, its eye slit violet. It stands asleep as a
-statue, eyes dull, until bumped, then chases for 6 turns and stands still
-again, the flask mimic's way; 4 health, a bite of 1 (recommended). Not
-in the pool, no drop yet. Relics get their own glow, a violet halo with
-a slow shimmer, and the locket look D: open, violet and gold, a flame
-inside (all recommended). The warden first (0.3.144), then the look.
-Claude's drafts the owner may change: its lines, the name Warden.
-Mock-ups: https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK
-D-681 and D-682 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-693 · 2026-11-08 · The locket set on the shelf** (the owner's picks,
-all recommended; builds D-689 to D-692) Bumped with the locket in the
-bag, the shelf asks "Set the locket on the shelf?", "Kept close,
-whatever the dark took.", No picked; Yes sets it there in a turn, "You
-set the locket on the shelf." It stays: it never comes back off.
-Bumped then, it asks "Deconstruct shelf?", "The locket rests here.";
-Yes puts the shelf and the locket back in the bag together, or, with
-no room for both, "Your bag is full." and both stay. The shelf shows
-the locket small on its top shelf, open, with the relics' violet glow
-and glint, look A of three. What it does there comes next. Claude's
-drafts the owner may change: the tile's id, `locketShelf`.
-Mock-ups: https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ
-D-683 and D-684 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-694 · 2026-11-08 · What the locket does on the shelf** (the owner's
-picks, all recommended; builds D-691, D-693) With the locket on a shelf
-anywhere in the world, a Normal fall brings home the bag's stack worth
-most to the peddler in all (his price × how many: 3 Venom Sacs beat 1
-Mimic Heart); a tie goes to the stack first in the bag; with nothing he
-buys, nothing is kept. The rest is left where the hero fell; a bag
-holding only the kept stack is not left. The wake line names it: "The
-locket kept Venom Sac ×3." (the owner picked it after the fall line;
-both don't fit the strip, so it says it in the fall line's place).
-Claude's drafts the owner may change: its words. D-685 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-695 · 2026-11-08 · Feats and Glints begin** (the owner's picks, all
 recommended; builds D-284, D-467, D-516, narrows Q-055 and Q-057) A Feat
 is one record's set of 3 tiers. The first is Beaten, named as its
@@ -185,3 +89,16 @@ the shop: with 18 to earn and 9 of patterns to buy, new looks come next,
 each kind its own step (more cloak patterns, then lantern looks, then
 hats or hoods), Claude showing a set and the owner choosing which join.
 D-688 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-699 · 2026-11-08 · The eleventh audit** (the owner's picks, all
+recommended) At 0.3.152, nothing visible changed. A conversation's start
+reads 9.7 KB, not 10.6. The in-game history's stage 0.3 file is split
+word for word: 0.3.0 to 0.3.75 go to `src/core/history-0.3-1.js` (78 KB
+to 40 and 39). D-689 to D-694 move to `archive/DECISIONS-RELICS.md` and
+D-660 to `archive/DECISIONS-AUDITS.md`; Q-037 and Q-038 to
+`OPEN-QUESTIONS-2.md`; TECH's "Adding content" to `TECH-2.md`;
+PROGRESS's ideas for later to `RESEARCH-2.md`; ticked step 20 is
+archived; all word for word. One bug hunt read the code since 0.3.113
+(Relics, Feats, Glints); its findings are listed for the owner to pick
+from, each fix its own small step with a test. The next audit is at
+0.3.192.

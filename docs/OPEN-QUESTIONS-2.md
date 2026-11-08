@@ -2,8 +2,10 @@
 
 Moved word for word from `OPEN-QUESTIONS.md` at 0.3.32, the eighth audit
 (D-570), as it reached 8 KB: the questions that wait for outside places,
-and swimming. Its rules hold here too: when the owner answers one, record a
-decision that cites it, then delete the entry here.
+and swimming. Q-037 and Q-038, how regions join and the kinds of room,
+moved here word for word at 0.3.152, the eleventh audit (D-699). Its
+rules hold here too: when the owner answers one, record a decision that
+cites it, then delete the entry here.
 
 ---
 
@@ -42,3 +44,25 @@ Today a new journey begins in the crypt, and a fall wakes the hero there
 (D-119). The owner is open to beginning in the woods at the home
 waystone's foot. Ask as its own small step: where a journey begins,
 and where a fall wakes the hero.
+
+**Q-037 · How regions are generated and joined** (stage 0.3)
+Proposed in `WORLD.md`: two passes, the region's layout first, then each
+room made to fit its ways in, each room with its own seed. Built for
+depth 2 (depth 3 before D-212; D-201), and for every floor under the
+crypt since D-645; the owner left the rest open until a second region. How do
+regions join each other: grid edge to grid edge on the surface, and
+stairs or cave mouths between the surface and the regions below?
+
+**Q-038 · Kinds of room, shapes and sizes** (stage 0.3)
+Which kinds (tunnel, clearing, house, marsh, desert…), how big each is,
+and whether shapes come from hand-made templates, are generated, or both
+(D-172). The owner mentioned "predefined tiles" for the shapes. Rooms
+of other sizes line up their stairs by place on the floor (D-204). The
+crypt rooms are 11 × 13 (D-195); generated rooms are made of 11 × 13
+cells, 13 × 15 from depth 8: 1 cell, a hall of 2 or a large room of
+2 × 2 (D-645, D-648).
+Narrowed by D-223: each kind of place has its own rules, and deeper
+floors become grids; which rules each kind has is still open. Burrow
+floors are warrens (D-227), and from depth 8 dungeon halls (D-228).
+Sizes by depth for the caves, warrens and dungeon before D-645: D-580,
+built in D-584.

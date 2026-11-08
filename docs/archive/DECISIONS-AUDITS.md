@@ -459,3 +459,19 @@ and text line are still drawn every frame. Nothing in the room moves
 with reduced motion, so play looks and feels the same. In the crypt,
 standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
 D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-660 · 2026-11-07 · The tenth audit, part 1** (the owner's picks, all
+recommended; the owner asked for a fuller audit) At 0.3.113, nothing
+visible changed. A conversation's start reads 10.1 KB, as at the ninth.
+Floor layouts are made about 5 times faster with the same floors (6,000
+seed and depth pairs checked), and the slowest test is split in three
+to run side by side: `npm test` 59 s to 35 s. Touch in play moves from
+`main.js` (39 to 35 KB) to `src/input/touch.js`, word for word but for
+`heldAt`. `CONTENT.md`'s finds move to `CONTENT-FINDS.md`, the second
+half of `WORLD.md` to `WORLD-2.md`, word for word; D-648 to D-651 and
+D-653 to `archive/DECISIONS-BIOME-1.md`; ticked steps 18 and 18b are
+archived. Four bug hunts, a docs read-through and a phone speed check
+read the code alongside: 19 bugs, about 30 stale doc lines and one
+freeze on depth 2's first frame, listed for the owner to pick from
+(https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
+own small step with a test. The next audit is at 0.3.152.

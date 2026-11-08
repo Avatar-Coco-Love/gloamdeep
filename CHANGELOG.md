@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.152 (2026-11-08)
+- The eleventh audit. Nothing in the game changes. The Version history's newest file is split in two, word for word: 0.3.0 to 0.3.75 move to history-0.3-1.js.
+- Docs: finished decisions moved to the archive; parts of OPEN-QUESTIONS.md, TECH.md and PROGRESS.md moved word for word to OPEN-QUESTIONS-2.md, TECH-2.md and RESEARCH-2.md, so a conversation starts by reading less. A bug hunt's findings are listed for the owner. The next audit is at 0.3.192.
+- Decisions: D-699. D-660 and D-689 to D-694 moved to the archive, word for word.
+
 ## 0.3.151 (2026-11-08)
 - A third Feat, Flasks: pour 5, 25 and 100 flasks for 1, 2 and 3 Glints. Its row on the Feats tab shows "2 of 5" and its 3 marks; Records still says Flasks poured.
 - Reaching a tier says so: "Feat reached: Flasks 5. +1 Glint." Flasks poured before count too.
@@ -33,10 +38,3 @@ Entry format:
 - A second Feat, Deepest: reach depth 5, 10 and 20 for 1, 2 and 3 Glints. Its row on the Feats tab shows "3 of 5" and its 3 marks.
 - Reaching a tier says so: "Feat reached: Deepest 5. +1 Glint." Depths walked to before count too.
 - Decisions: D-697. D-659 moved to the archive, word for word.
-
-## 0.3.149 (2026-11-08)
-- Cloak patterns can be bought. On the Look card, tap Zebra, Cow or Camo to try it on, and RANDOM becomes BUY 3. Press it to spend 3 Glints: the pattern is yours, worn at once.
-- The note under the patterns says the price and your Glints: "Zebra costs 3 Glints. You have 4." With too few it adds "Earn more from Feats.", and BUY is dim and does nothing.
-- A bought pattern is that hero's for good. It loses its LOCK, and RANDOM can roll it.
-- The Feats tab's gold number is now the Glints you have left to spend.
-- Decisions: D-696. D-687 moved to the archive, word for word.
