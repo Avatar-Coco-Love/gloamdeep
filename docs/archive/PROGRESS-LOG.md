@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.159, Teaching goals worded.** The owner's picks from
+  a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa): six goals,
+  a goal and a how line each, each at its own moment; the line under the
+  hearts panel, gold when done; rewards mostly finds; the plain boons
+  card (D-706). Docs only; nothing to play.
 - **2026-11-08, 0.3.158, Teaching goals planned.** The owner asked
   whether simple goals could teach the game's many systems. A teaching
   map (https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) found 5 never
