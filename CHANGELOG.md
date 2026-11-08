@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.157 (2026-11-08)
+- More hats and hoods: Horned (the hood with two curled horns, always bone white), Pointed (a tall pointed hat), Bobble (a knitted cap), Circlet (a thin band across the brow) and Scarf (a cloth tied round the head) join the HEAD tab, 3 Glints each.
+- Brim, Ears and the Hood are now free from the start. Brim is all in your TRIM's colours now, not just its band. If you bought Brim or Ears, their Glints come back to you.
+- Decisions: D-704.
+
 ## 0.3.156 (2026-11-08)
 - Hats and hoods: the Look card has a sixth tab, HEAD. Three join the hood: Brim, a wanderer's wide hat; Ears, the hood with two pointed ears; and Helm, a round metal cap with a nose guard.
 - Each costs 3 Glints, bought with BUY as a cloak pattern is. Brim and Ears take your CLOAK's colours, and Helm and Brim's band your TRIM's. The face, eyes, clothes and lamp stay as they are.
@@ -34,8 +39,3 @@ Entry format:
 - Each new shape costs 3 Glints, bought with BUY as a cloak pattern is, and takes your TRIM's colours. The flame and its light stay the same, and so does the lantern button.
 - Where the card is narrow, the five tabs sit in two rows. On the smallest screens, three rows of choices show at once and the rest scroll.
 - Decisions: D-702.
-
-## 0.3.154 (2026-11-08)
-- The Look card's choices can now scroll, ready for many more cloaks, eye colours, lantern looks and clothes. Up to four rows show at once; when a tab has more, a swipe up or down, or the mouse wheel, moves them a row, and the arrow keys bring the next row into view.
-- A thin bar at the right of the boxes, with a gold part, shows where you are in a long tab. Today every tab still fits in four rows, so nothing looks different yet.
-- Decisions: D-701.

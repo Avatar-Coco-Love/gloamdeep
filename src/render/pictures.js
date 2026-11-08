@@ -57,13 +57,18 @@ const lampExtra = (lamp) => {
   const [top, ...rows] = l;
   return rows.flatMap((r, i) => [...r].flatMap((ch, j) => (ch === '.' ? [] : [[11 + j, top + i, ch]])));
 };
-// § heads (D-703): the hats and hoods from their mock-up, each in place of the hood's top: whole rows of
+// § heads (D-703, D-704): the hats and hoods from their mock-up, each in place of the hood's top: whole rows of
 // 16 from y 0, '.' leaving the hero's own pixel and '_' clearing it. The hood is the hero's own; the
-// cloth takes the cloak's shades, the metal the trim's, and the face's shade and eyes stay.
+// cloth takes the cloak's shades, the metal and Brim the trim's, horns and bobbles bone, and the face's shade and eyes stay.
 const HEAD_ROWS = {
-  brim: ['______kkkk______', '_____kCccck_____', '_____kTTTtk_____', '_kkkkCccccBkkkk_', 'kCcccccccccBBbbk', '_kkkkkkkkkkkkkk_'], // a wanderer's wide hat
+  brim: ['______kkkk______', '_____kTTTtk_____', '_____kttttk_____', '_kkkkTTTTTtkkkk_', 'kTTTTTTTTTTttttk', '_kkkkkkkkkkkkkk_'], // a wanderer's wide hat, all the trim's (D-704)
   ears: ['....kk....kk....', '....kCk..kck....', '....kCc..cBk....'], // the hood with two pointed ears
   helm: ['________________', '______kkkk______', '_____kTTTtk_____', '____kTTTTttk____', '___ktttttttbk___', '...kckkttkkck...'], // a metal cap, a nose guard
+  horned: ['..kk........kk..', '.kwk..kkkk..kwk.', '.kwAk......kAwk.', '..kwAk....kAwk..'], // the hood with two curled horns, always bone white (D-704)
+  pointed: ['_________kkk____', '_______kkCck____', '______kCcck_____', '_kkkkCTTTtBBkkk_', 'kCcccccccccBBbbk', '_kkkkkkkkkkkkkk_'], // a tall pointed hat, its tip bent over
+  bobble: ['______kwwk______', '_____kkAAkk_____', '____kCcCcCck____', '___kCcCcCcCBk___', '...kwAwAwAwAk...'], // a knitted cap, a bone-white bobble
+  circlet: ['', '', '', '....kTTttTTk....'], // the hood with a thin band across the brow, the trim's
+  scarf: ['________________', '______kkkk______', '_____kCcccBk____', '____kCccccBBk___', '...kccBBBBbbkkk.', '...kckkkkkkcbBbk', '............kbk.'], // a cloth tied round the head, its knot at the side
 };
 // The hero's rows whole, 16 wide, with a head's rows over them
 const whole = (r) => { r = (r + '........').slice(0, 8); return r + [...r].reverse().join(''); };

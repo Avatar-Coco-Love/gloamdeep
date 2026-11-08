@@ -89,13 +89,18 @@ export const LAMP_IDS = Object.keys(LAMPS);
 export const DEFAULT_LAMP = 'lantern';
 export const lampOf = (p) => (LAMPS[p?.look?.lamp] && !isLocked('lamp', p.look.lamp, p.bought) ? p.look.lamp : DEFAULT_LAMP);
 
-// § heads (D-703): a hat or hood, its pixels in pictures.js; cloth takes the cloak's shades and metal
-// the trim's. The study's hood first and free; the rest locked until bought, 3 Glints each.
+// § heads (D-703, D-704): a hat or hood, its pixels in pictures.js; cloth takes the cloak's shades and metal
+// the trim's. The study's hood, Brim and Ears free; the rest locked until bought, 3 Glints each.
 export const HEADS = {
   hood: { id: 'hood', kind: 'head', name: 'Hood' }, // the study's
-  brim: { id: 'brim', kind: 'head', name: 'Brim', locked: true, price: 3 }, // a wanderer's wide hat, its band the trim's
-  ears: { id: 'ears', kind: 'head', name: 'Ears', locked: true, price: 3 }, // the hood with two pointed ears
+  brim: { id: 'brim', kind: 'head', name: 'Brim' }, // a wanderer's wide hat, all the trim's; free (D-704)
+  ears: { id: 'ears', kind: 'head', name: 'Ears' }, // the hood with two pointed ears; free (D-704)
   helm: { id: 'helm', kind: 'head', name: 'Helm', locked: true, price: 3 }, // a metal cap with a nose guard, the trim's
+  horned: { id: 'horned', kind: 'head', name: 'Horned', locked: true, price: 3 }, // the hood with two curled bone horns (D-704)
+  pointed: { id: 'pointed', kind: 'head', name: 'Pointed', locked: true, price: 3 }, // a tall pointed hat, its tip bent over
+  bobble: { id: 'bobble', kind: 'head', name: 'Bobble', locked: true, price: 3 }, // a knitted cap, a bone-white bobble
+  circlet: { id: 'circlet', kind: 'head', name: 'Circlet', locked: true, price: 3 }, // a band across the brow, the trim's
+  scarf: { id: 'scarf', kind: 'head', name: 'Scarf', locked: true, price: 3 }, // a cloth tied round the head, its knot at the side
 };
 export const HEAD_IDS = Object.keys(HEADS);
 // A profile's head: the one it chose, or the hood when it has none (profiles from before D-703) or a locked one it hasn't bought

@@ -36,7 +36,8 @@ code; where this page and a decision disagree, the decision wins.
   Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints (D-702).
 - **Head:** a hat or hood, the HEAD tab, sixth on the Look card (`head`
   in a look; `HEADS` in `looks.js`, pixels in `pictures.js`): the Hood,
-  free, then Brim, Ears and Helm, locked at 3 Glints (D-703).
+  Brim and Ears, free, then Helm, Horned, Pointed, Bobble, Circlet and
+  Scarf, locked at 3 Glints (D-703, D-704).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).

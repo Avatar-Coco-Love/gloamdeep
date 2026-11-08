@@ -157,3 +157,15 @@ stays in shadow with the eyes, and the body and lamp stay as they are.
 Each costs 3 Glints, bought as a pattern is; RANDOM rolls only those
 bought. The six tabs sit in one row where they fit, else two rows of
 three. Claude's call the owner may change: the free one is named Hood.
+
+**D-704 · 2026-11-08 · More hats and hoods** (the owner's picks; builds
+D-703, narrows Q-055) The five drafts left from D-703's mock-up join the
+HEAD tab at 3 Glints each, with their draft names: Horned (the hood with
+two curled horns, always bone white whatever the cloak and trim),
+Pointed, Bobble, Circlet and Scarf. Pointed is one row shorter than its
+draft so its brim clears the eyes. Brim is all in the trim's colours, its
+band the trim's dark shade; the hoods keep the cloak's. Hood, Brim and
+Ears are free from the start; Glints spent on Brim or Ears come back.
+Next, its own step: Carriage and one cloak pattern free, and a free pick
+of any one locked look for every new profile, shown clearly (owner's
+wish, how it is shown to be drafted).
