@@ -23,6 +23,7 @@ import {
   GRUB_SKIN,
   GLOW_GLAND,
   LOCKET,
+  WARDEN,
 } from './pictures.js';
 
 function build(rows, mirror) {
@@ -52,7 +53,7 @@ function spriteCanvas(def, flash = null, pal = PAL, after = null) {
 }
 
 
-export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), rod: spriteCanvas(ROD), pondMinnow: spriteCanvas(POND_MINNOW), blindCavefish: spriteCanvas(BLIND_CAVEFISH), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), snapcap: spriteCanvas(SNAPCAP), snapcapGill: spriteCanvas(SNAPCAP_GILL), herbMimic: spriteCanvas(HERB_MIMIC), mimicLeaf: spriteCanvas(MIMIC_LEAF), boneRat: spriteCanvas(BONE_RAT), ratBone: spriteCanvas(RAT_BONE), oilTick: spriteCanvas(OIL_TICK), tickShell: spriteCanvas(TICK_SHELL), oilBladder: spriteCanvas(OIL_BLADDER), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), gloamberrySeed: spriteCanvas(GLOAMBERRY_SEED), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), gardenBed: spriteCanvas(GARDEN_BED), shelf: spriteCanvas(SHELF), sproutedBed: spriteCanvas(SPROUTED_BED), fedBed: spriteCanvas(FED_BED), berryBed: spriteCanvas(BERRY_BED), lostbag: spriteCanvas(LOSTBAG), pouch: spriteCanvas(POUCH), bigBag: spriteCanvas(BIG_BAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }), lureWisp: spriteCanvas(LURE_WISP), wispGlass: spriteCanvas(WISP_GLASS), centipede: spriteCanvas(CENTIPEDE), centipedeLeg: spriteCanvas(CENTIPEDE_LEG), antidote: spriteCanvas(ANTIDOTE), centipedeCharm: spriteCanvas(CENTIPEDE_CHARM), spitGrub: spriteCanvas(SPIT_GRUB), grubSkin: spriteCanvas(GRUB_SKIN), glowGland: spriteCanvas(GLOW_GLAND), locket: spriteCanvas(LOCKET) }; // keyed by registry id
+export const SPRITES = { hero: spriteCanvas(HERO), flask: spriteCanvas(FLASK), herb: spriteCanvas(HERB), oilcap: spriteCanvas(OILCAP), heartcap: spriteCanvas(HEARTCAP), potion: spriteCanvas(POTION), knife: spriteCanvas(KNIFE), spear: spriteCanvas(SPEAR), deposit: spriteCanvas(DEPOSIT), vein: spriteCanvas(VEIN), rubble: spriteCanvas(RUBBLE), peddler: spriteCanvas(PEDDLER), peddlerForward: spriteCanvas(PEDDLER_FORWARD), stone: spriteCanvas(STONE), copperOre: spriteCanvas(COPPER_ORE), pick: spriteCanvas(PICK), rod: spriteCanvas(ROD), pondMinnow: spriteCanvas(POND_MINNOW), blindCavefish: spriteCanvas(BLIND_CAVEFISH), copperWick: spriteCanvas(COPPER_WICK), ratVest: spriteCanvas(RAT_VEST), wispCharm: spriteCanvas(WISP_CHARM), heartCharm: spriteCanvas(HEART_CHARM), ratTail: spriteCanvas(RAT_TAIL), mothDust: spriteCanvas(MOTH_DUST), stinger: spriteCanvas(STINGER, null, { ...PAL, ...SCORPION_COLOURS[0] }), spiderSilk: spriteCanvas(SPIDER_SILK), caveSpider: spriteCanvas(CAVE_SPIDER), batWing: spriteCanvas(BAT_WING), batFang: spriteCanvas(BAT_FANG), batGuano: spriteCanvas(BAT_GUANO), bat: spriteCanvas(BAT), mole: spriteCanvas(MOLE), moleFur: spriteCanvas(MOLE_FUR), moleClaw: spriteCanvas(MOLE_CLAW), snapcap: spriteCanvas(SNAPCAP), snapcapGill: spriteCanvas(SNAPCAP_GILL), herbMimic: spriteCanvas(HERB_MIMIC), mimicLeaf: spriteCanvas(MIMIC_LEAF), boneRat: spriteCanvas(BONE_RAT), ratBone: spriteCanvas(RAT_BONE), oilTick: spriteCanvas(OIL_TICK), tickShell: spriteCanvas(TICK_SHELL), oilBladder: spriteCanvas(OIL_BLADDER), mimicGlass: spriteCanvas(MIMIC_GLASS), gloamWisp: spriteCanvas(GLOAM_WISP), venomSac: spriteCanvas(VENOM_SAC, null, { ...PAL, ...SCORPION_COLOURS[0] }), mimicHeart: spriteCanvas(MIMIC_HEART), gloamEye: spriteCanvas(GLOAM_EYE), bagTorch: spriteCanvas(BAG_TORCH), gloamberry: spriteCanvas(GLOAMBERRY), gloamberrySeed: spriteCanvas(GLOAMBERRY_SEED), berryBush: spriteCanvas(BERRY_BUSH), bareBush: spriteCanvas(BARE_BUSH), wood: spriteCanvas(WOODS[0]), workbench: spriteCanvas(WORKBENCH), chest: spriteCanvas(CHEST), bed: spriteCanvas(BED), gardenBed: spriteCanvas(GARDEN_BED), shelf: spriteCanvas(SHELF), sproutedBed: spriteCanvas(SPROUTED_BED), fedBed: spriteCanvas(FED_BED), berryBed: spriteCanvas(BERRY_BED), lostbag: spriteCanvas(LOSTBAG), pouch: spriteCanvas(POUCH), bigBag: spriteCanvas(BIG_BAG), rat: spriteCanvas(RAT), gloamling: spriteCanvas(GLOAMLING), lampmoth: spriteCanvas(LAMPMOTH), flaskMimic: spriteCanvas(FLASK_MIMIC), scorpion: spriteCanvas(SCORPION, null, { ...PAL, ...SCORPION_COLOURS[0] }), lureWisp: spriteCanvas(LURE_WISP), wispGlass: spriteCanvas(WISP_GLASS), centipede: spriteCanvas(CENTIPEDE), centipedeLeg: spriteCanvas(CENTIPEDE_LEG), antidote: spriteCanvas(ANTIDOTE), centipedeCharm: spriteCanvas(CENTIPEDE_CHARM), spitGrub: spriteCanvas(SPIT_GRUB), grubSkin: spriteCanvas(GRUB_SKIN), glowGland: spriteCanvas(GLOW_GLAND), locket: spriteCanvas(LOCKET), warden: spriteCanvas(WARDEN) }; // keyed by registry id
 const DEFS = { oilcap: OILCAP, heartcap: HEARTCAP, snapcap: SNAPCAP };
 // § tones: a mushroom with its cap's colours shifted by its tone, hue in degrees and
 // lightness in points (D-305); the spots, stem and outline stay. Each made once.
@@ -78,7 +79,10 @@ export function spriteOf(it) {
   }
   return TONED[key];
 }
-const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff'), scorpion: spriteCanvas(SCORPION, '#ffffff'), caveSpider: spriteCanvas(CAVE_SPIDER, '#ffffff'), bat: spriteCanvas(BAT, '#ffffff'), mole: spriteCanvas(MOLE, '#ffffff'), snapcap: spriteCanvas(SNAPCAP, '#ffffff'), herbMimic: spriteCanvas(HERB_MIMIC, '#ffffff'), boneRat: spriteCanvas(BONE_RAT, '#ffffff'), oilTick: spriteCanvas(OIL_TICK, '#ffffff'), lureWisp: spriteCanvas(LURE_WISP, '#ffffff'), centipede: spriteCanvas(CENTIPEDE, '#ffffff'), spitGrub: spriteCanvas(SPIT_GRUB, '#ffffff') };
+const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff'), scorpion: spriteCanvas(SCORPION, '#ffffff'), caveSpider: spriteCanvas(CAVE_SPIDER, '#ffffff'), bat: spriteCanvas(BAT, '#ffffff'), mole: spriteCanvas(MOLE, '#ffffff'), snapcap: spriteCanvas(SNAPCAP, '#ffffff'), herbMimic: spriteCanvas(HERB_MIMIC, '#ffffff'), boneRat: spriteCanvas(BONE_RAT, '#ffffff'), oilTick: spriteCanvas(OIL_TICK, '#ffffff'), lureWisp: spriteCanvas(LURE_WISP, '#ffffff'), centipede: spriteCanvas(CENTIPEDE, '#ffffff'), spitGrub: spriteCanvas(SPIT_GRUB, '#ffffff'), warden: spriteCanvas(WARDEN, '#ffffff') };
+// § sleeping (D-692): a creature that `sleeps` as itself, not in disguise, drawn asleep with its
+// eyes dull: the warden's violet eye slit in its rock's darkest grey
+const SLEEPING = { warden: spriteCanvas(WARDEN, null, { ...PAL, P: PAL.D }) };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');
@@ -217,7 +221,8 @@ export function drawItems(c, items, t, still) {
 
 // § enemies: on a shadow, standing still with no bob, each sprite moved down so its lowest pixel
 // rests just above its shadow, as the rat's feet do; one that `flies` held a fixed FLY_LIFT
-// higher (D-563). Asleep or shut, it bobs as the find it copies does (D-368, D-543).
+// higher (D-563). Asleep or shut, it bobs as the find it copies does (D-368, D-543); one that
+// `sleeps` as itself stands still in its sleeping look (D-692).
 // `hits`: the enemies flashing white just now, the spear's two at most (D-105, D-479). A hit that
 // killed it still flashes it once, then it is gone (D-113).
 // `at`: (enemy) → the tile it is shown on, part way along while it slides (D-128).
@@ -234,13 +239,13 @@ export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero
 const beside = (e, hero) => !!hero && Math.abs(e.x - hero.x) + Math.abs(e.y - hero.y) === 1;
 function drawEnemy(c, e, p, t, still, flash, hero) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);
-  if (e.asleep && !flash) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
+  if (e.asleep && !flash && !SLEEPING[e.id]) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
   const shutAs = get(e.id)?.shutAs;
   if (shutAs && !flash && !beside(e, hero)) return drawItems(c, [{ id: shutAs, tone: e.tone, x: p.x, y: p.y }], t, still); // shut, a heartcap in its tone (D-543)
   drawShadow(c, x, y, 8);
   if (get(e.id)?.glows && !glowing) return; // one that glows is drawn over the light, drawGlows (D-649)
   const left = e.facing === 'left';
-  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left);
+  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692)
   c.drawImage(sprite, x, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
 }
 const FLY_LIFT = 2; // pixels a flyer is held above its shadow (D-563)

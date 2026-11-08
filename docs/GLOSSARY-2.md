@@ -17,6 +17,7 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Snapcap:** a heartcap that bites; never moves, looks just like a heartcap until the hero stands beside it, then shows eyes and teeth; 2 hearts; from depth 2 (D-543).
 - **Herb mimic:** looks just like a herb until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; 2 hearts; from depth 3 (D-549).
 - **Bone rat:** a rat with nothing left but bone; chases and never flees, 3 hearts; from depth 4 (D-549, D-551).
+- **Warden:** an old stone guard made by Underhearth's people to guard their things; asleep as a statue until bumped, then chases; 4 hearts; beside the locket (D-692).
 - **Oil tick:** a round tick swollen with amber oil; chases, and beside the hero drinks 5% of the lantern's oil instead of biting, biting only once it is empty; 2 hearts; from depth 3 (D-606). The wicksucker of the list, named the oil tick for now.
 - **Lure wisp:** a small cold flame with two pink eyes; when the hero comes within 3 steps it drifts a tile away, toward the nearest other creature; it never bites, and its glow shows in the dark though it lights no tiles; 1 heart; from depth 4 (D-649).
 - **Centipede:** drawn side on, rust red with pale legs and green fangs; chases, and its bite leaves the hero poisoned; 2 hearts; from depth 3 (D-654).

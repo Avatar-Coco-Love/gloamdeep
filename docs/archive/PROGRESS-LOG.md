@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.141, Relics from the old city.** The owner's picks,
+  all recommended (D-689): relics are old-city things, found in hidden
+  spots and guarded rooms, each helping the hero set out or soften a
+  fall; the shelf holds all of them. The shelf comes first, then the
+  first relic, which keeps one find on a fall. Docs only.
 - **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
   recommended (D-688): look A, a glowworm glowing green in the dark; a
   Grub Skin and a rare Glow Gland. Built in one step at the owner's word:

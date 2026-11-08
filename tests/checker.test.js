@@ -87,9 +87,9 @@ test('every creature has a hit flash', () => {
 
 test('every creature lives somewhere', () => {
   const pool = new Set(poolAt(Infinity));
-  const places = read('src/core/room.js') + read('src/core/cave.js');
+  const places = read('src/core/room.js') + read('src/core/cave.js') + read('src/core/relic.js');
   const gaps = byKind('enemy').filter((e) => !pool.has(e.id) && !places.includes(`'${e.id}'`)).map(who);
-  report(gaps, "Add these to POOL in src/core/room.js, or place them in room.js or cave.js");
+  report(gaps, "Add these to POOL in src/core/room.js, or place them in room.js, cave.js or relic.js");
 });
 
 test('every entry is named in a test', () => {

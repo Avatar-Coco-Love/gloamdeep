@@ -9,7 +9,7 @@ import { ALL, get } from './registry.js';
 
 // § shows: whether creature e shows as itself, not in disguise (D-368, D-543)
 const beside = (e, hero) => Math.abs(e.x - hero.x) + Math.abs(e.y - hero.y) === 1;
-const shows = (state, e) => !e.asleep && !(get(e.id)?.shutAs && !beside(e, state.hero));
+const shows = (state, e) => !(e.asleep && get(e.id)?.looksLike) && !(get(e.id)?.shutAs && !beside(e, state.hero));
 
 // § meet: the state with each creature lit and showing, not met before, marked `met`, with a
 // `meet { id }` event for each

@@ -1,7 +1,7 @@
 // § room: a room written as a text map, one string per row, one letter per
 // tile (D-040). Letters are looked up in the registry. Plain data, no drawing.
 import { OUTSIDE } from './tiles.js';
-import { byLetter, get, LANDMARKS } from './registry.js';
+import { byLetter, get, LANDMARKS, asleepAtFirst } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
@@ -150,7 +150,7 @@ export function mixed(room, seed, depth) {
   return { ...room, enemies: dressed(seed, room.enemies.map((e, i) => ({ ...e, id: ids[i] }))) };
 }
 // Each creature in its colours and tone: a snapcap in a heartcap's tone (D-543); a herb mimic asleep (D-549)
-const dressed = (seed, enemies) => toned(seed, coloured(seed, enemies.map((e) => ({ ...e, ...(get(e.id).looksLike && { asleep: true }) }))));
+const dressed = (seed, enemies) => toned(seed, coloured(seed, enemies.map((e) => ({ ...e, ...(asleepAtFirst(get(e.id)) && { asleep: true }) }))));
 // § sized: a hall's or large room's other cells, a set each (D-651, sized.js)
 function sized(room, seed, depth, cell) {
   const more = withSize(seed, room, cell, sizeAt(depth), creaturesAt(depth), poolAt(depth));
@@ -173,7 +173,7 @@ export function peddlerRoom(seed) {
   return ids[Math.floor(r() * ids.length)];
 }
 // § the locket: on depth 4, the bottom of the caves, one room the seed picks holds the
-// Lightkeeper's Locket with a rat guarding it, never the room with the stairs up (D-691)
+// Lightkeeper's Locket with a warden guarding it (D-692), never the room with the stairs up (D-691)
 export const LOCKET_DEPTH = 4;
 export function locketRoom(seed) {
   const ids = layoutAt(seed, LOCKET_DEPTH).cells.map((c) => c.id).filter((id) => id !== placeAt(LOCKET_DEPTH));

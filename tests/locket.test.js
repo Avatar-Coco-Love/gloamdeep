@@ -1,4 +1,4 @@
-// § locket: biome 1's first relic (D-691): one room at depth 4, a rat guarding it, left once
+// § locket: biome 1's first relic (D-691): one room at depth 4, a warden guarding it (D-692), left once
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { get } from '../src/core/registry.js';
@@ -17,7 +17,7 @@ test('the Lightkeeper\'s Locket is in the registry, with its lines, one carried,
   assert.equal(priceOf('locket'), 0);
 });
 
-test('one room at depth 4 holds it, never the room with the stairs up, a rat beside it, left once', () => {
+test('one room at depth 4 holds it, never the room with the stairs up, a warden asleep beside it, left once', () => {
   for (let seed = 1; seed <= 60; seed++) {
     const at = locketRoom(seed);
     assert.notEqual(at, placeAt(LOCKET_DEPTH), `seed ${seed}`);
@@ -28,7 +28,7 @@ test('one room at depth 4 holds it, never the room with the stairs up, a rat bes
       if (c.id !== at) { assert.equal(lockets.length, 0, `seed ${seed} ${c.id}`); continue; }
       const [l] = lockets;
       assert.ok(l.once, `seed ${seed}`); assert.equal(p.map[l.y][l.x], '.', `seed ${seed} not on floor`);
-      assert.ok(p.enemies.some((e) => e.id === 'rat' && near(e, l) === 1), `seed ${seed} no rat beside it`);
+      assert.ok(p.enemies.some((e) => e.id === 'warden' && e.asleep && near(e, l) === 1), `seed ${seed} no warden beside it`);
     }
     assert.equal(found, 1, `seed ${seed}`);
   }
