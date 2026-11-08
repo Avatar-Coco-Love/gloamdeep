@@ -327,6 +327,9 @@ export const LINES = {
   glowGlandTake: { texts: ['A glow gland! A rare find.', 'It still glows a little.', 'The glow gland goes in your bag.'], warn: false }, // (D-688)
   glowGlandLook: { texts: ['A glow gland, for crafting later.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
   glowGlandFull: { text: "You can't carry more glow glands.", warn: false },
+  locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
+  locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
+  locketFull: { text: 'You already have the locket.', warn: false },
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

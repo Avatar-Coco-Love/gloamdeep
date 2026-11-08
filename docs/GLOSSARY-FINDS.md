@@ -66,3 +66,6 @@ neared 8 KB.
 - **Stump:** what a chopped tree leaves; four bumps fell a tree for 3 Wood,
   and the stump grows back into it (D-317).
 - **Grow back:** a picked thing returning after its time (D-306).
+- **Lightkeeper's Locket:** biome 1's first relic, a tarnished brass oval
+  on a chain; one lies at depth 4 with a rat guarding it; carried for now,
+  set on the shelf later, where it keeps a find on a fall (D-689, D-691).
