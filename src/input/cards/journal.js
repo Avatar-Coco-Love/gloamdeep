@@ -33,7 +33,9 @@ export function journalCard(app, ui, show, c) {
     if (!told(app.state, app.growthPick).button) return;
     const s = buyAt(app.state, app.growthPick);
     if (s === app.state) return;
+    const before = app.state;
     app.state = s;
+    ui.bought(before); // the first buy does "Spend your ember", no turn passing (D-713)
     spoken.textContent = journalPageWords();
   }
   // § bestiary's rows and pages (D-631)

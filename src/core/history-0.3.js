@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.166', date: '2026-11-08', title: 'The sixth teaching goal', lines: [
+    "The sixth teaching goal: at level 2, \"Spend your ember\" and \"Tap here, then Growth.\" show under the hearts panel, ahead of any other goal waiting. Buy a heart or Tough in the Journal's Growth tab and the goal turns gold with its reward once you close the Journal.",
+    "If you have already spent an ember on this journey, the goal is ticked quietly and pays its reward.",
+    "Fixed: 0.3.165 stopped the game from starting (a stray bracket); a new test now checks every code file for such typos.",
+    "Decisions: D-713.",
+  ] },
   { v: '0.3.165', date: '2026-11-08', title: 'The boons card', lines: [
     "The boons card: the first time you pick a boon, a glass card says what boons are, with Go to carry on. It shows only once.",
     "In the Journal's Quests tab, tap the done \"Take a boon\" (or press Enter there) to read the card again; Go goes back to the Journal.",
