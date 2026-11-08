@@ -10,7 +10,7 @@
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, LOOK_ROWS, tabOf, isLocked } from '../core/looks.js';
-import { priceNote } from '../core/feats.js';
+import { stageNote } from '../core/feats.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
@@ -19,7 +19,7 @@ import { onWipe } from './wipe.js';
 
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
-const boxH = (s) => 16 * s + 14; // a box's height with its hero s×: the hero, its name and the space round them
+const boxH = (s, named = true) => 16 * s + (named ? 14 : 6); // a box's height with its hero s×: the hero, its name (none on a view too short, D-700) and the space round them
 const ZOOM_MIN = 1, ZOOM_MAX = 12, BIG_BOXES = 6; // the big hero's zoom, as big as fits (D-523, D-526), under 3× only on the smallest views with the third row (D-533); the least zoom that still lets the boxes be 2×
 const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor at zoom z
 const LINE = FONT_H + 2; // a line of text and the gap under it
@@ -47,24 +47,26 @@ function tabsAt(x, y, w) {
     x += tw + TAB_GAP; return t;
   });
 }
-function boxesAt(vw, vh) {
+export function boxesAt(vw, vh) {
   const card = cardAt(vw, vh), inner = card.w - 2 * PAD, row = lookRowAt(vw, vh), top = card.y + RULE + 2, room = row.ok.y - 4 - top; // the card stops over the buttons
   const tall = isTall(vw, vh), at = { card, row };
   const standH = (z) => LINE + stageH(z) + LINE; // the name, the hero, the choice's name
-  const blockH = (s) => TABS_H + ROWS * boxH(s) + (ROWS - 1) * ROW_GAP; // the tabs and the boxes under them
+  const blockH = (s, named = true) => TABS_H + ROWS * boxH(s, named) + (ROWS - 1) * ROW_GAP; // the tabs and the boxes under them
   const gridW = (w) => Math.max(COLS * BOX_W + (COLS - 1) * GAP, w); // the boxes across w, never narrower than today's
   // The largest zoom that fits beside or over boxes s× high; then 2× boxes if the hero still gets BIG_BOXES (D-526)
-  const zoomFor = (s) => { let z = ZOOM_MAX; while (z > ZOOM_MIN && !(tall ? stageW(z) <= inner && standH(z) + 2 + blockH(s) <= room : stageW(z) + 12 + gridW(0) <= inner && standH(z) <= room)) z--; return z; };
-  let s = 2, z = zoomFor(2);
+  const fits = (z, s, named) => (tall ? stageW(z) <= inner && standH(z) + 2 + blockH(s, named) <= room : stageW(z) + 12 + gridW(0) <= inner && standH(z) <= room);
+  const zoomFor = (s, named = true) => { let z = ZOOM_MAX; while (z > ZOOM_MIN && !fits(z, s, named)) z--; return z; };
+  let s = 2, z = zoomFor(2), named = true;
   if (z < BIG_BOXES || (!tall && blockH(2) > room)) { s = 1; z = zoomFor(1); }
-  const sw = stageW(z), spare = Math.max(0, room - (tall ? standH(z) + 2 + blockH(s) : standH(z))); // the floor grows by this
+  if (s === 1 && (tall ? !fits(z, 1, true) : blockH(1) > room)) { named = false; z = zoomFor(1, false); } // too short for the boxes' names: the boxes without them (D-700)
+  const sw = stageW(z), spare = Math.max(0, room - (tall ? standH(z) + 2 + blockH(s, named) : standH(z))); // the floor grows by this
   const place = (gx, gw, gy) => { const bw = Math.floor((gw - (COLS - 1) * GAP) / COLS), w = COLS * bw + (COLS - 1) * GAP, x = gx + Math.floor((gw - w) / 2);
-    return { ...at, x, y: gy + TABS_H, bw, bh: boxH(s), s, tabs: tabsAt(x, gy, w) }; };
+    return { ...at, x, y: gy + TABS_H, bw, bh: boxH(s, named), s, named, tabs: tabsAt(x, gy, w) }; };
   if (tall) {
     const fw = Math.max(sw, Math.min(inner, sw + spare)), gw = gridW(inner); // the floor wider too as it grows, up to the card's width
     return { ...place(card.x + Math.floor((card.w - gw) / 2), gw, top + standH(z) + spare + 2), stage: { x: card.x + Math.floor((card.w - fw) / 2), y: top, z, w: fw, h: stageH(z) + spare } };
   }
-  const gx = card.x + PAD + sw + 12, gw = gridW(card.x + card.w - PAD - gx), H = blockH(s);
+  const gx = card.x + PAD + sw + 12, gw = gridW(card.x + card.w - PAD - gx), H = blockH(s, named);
   return { ...place(gx, gw, top + Math.max(0, Math.floor((room - H) / 2))), stage: { x: card.x + PAD, y: top, z, h: stageH(z) + spare } };
 }
 const boxAt = (at, k) => ({ x: at.x + k.col * (at.bw + GAP), y: at.y + (k.row - 1) * (at.bh + ROW_GAP) });
@@ -161,8 +163,8 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
     else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
-  drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, table[look[tab]]?.name ?? '', at.stage, t, still);
-  if (trying) drawNote(c, priceNote(table[trying].name, table[trying].price, shop.have), at);
+  drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, trying ? '' : table[look[tab]]?.name ?? '', at.stage, t, still);
+  if (trying) drawNote(c, stageNote(table[trying].name, table[trying].price, shop.have), at);
 }
 // § buy (D-696): BUY and the price where RANDOM was; dim with too few Glints, framed in gold
 // round it then when the arrows are on it, as the tabs are
@@ -170,18 +172,18 @@ function drawBuy(c, { x, y, w, h }, price, can, arrows) {
   drawButton(c, x, y, `BUY ${price}`, !can || !arrows, w, h, ROW_TEXT);
   if (!can && arrows) frame(c, x - 1, y - 1, w + 2, h + 2, GOLD);
 }
-// § note: a dark box under the boxes, or over their foot when there's no room, framed dim, its words wrapped to fit, the look's name in
-// gold, as in the mock-up (D-533)
-function drawNote(c, words, at) {
-  const w = COLS * at.bw + (COLS - 1) * GAP, lines = [];
-  for (const word of words.split(' ')) { const last = lines[lines.length - 1]; if (last && textWidth(`${last} ${word}`) <= w - 8) lines[lines.length - 1] = `${last} ${word}`; else lines.push(word); }
-  const h = lines.length * LINE + 4, foot = at.y + ROWS * at.bh + (ROWS - 1) * ROW_GAP, gold = words.split(' ')[0];
-  const y = Math.max(foot - h, Math.min(foot + 2, at.row.ok.y - 2 - h)); // under the boxes when there's room (sideways), else over their foot
-  c.fillStyle = K; c.fillRect(at.x, y, w, h); frame(c, at.x, y, w, h, DIM);
+// § note (D-700): while a pattern is tried on, its price and the Glints there are take the big hero's
+// name line, across the card upright or the floor's width sideways, the look's name in gold; wrapped,
+// the lines before the last go up over the floor's foot, each on a dark strip
+function drawNote(c, words, { card, stage }) {
+  const sw = stage.w ?? stageW(stage.z), [left, w] = card.tall ? [card.x + PAD, card.w - 2 * PAD] : [stage.x, sw], lines = [];
+  for (const word of words.split(' ')) { const last = lines[lines.length - 1]; if (last && textWidth(`${last} ${word}`) <= w) lines[lines.length - 1] = `${last} ${word}`; else lines.push(word); }
+  const foot = stage.y + LINE + (stage.h ?? stageH(stage.z)) + 2, gold = words.split(' ')[0], mid = left + Math.floor(w / 2);
   lines.forEach((line, i) => {
-    const ly = y + 3 + i * LINE;
-    if (i) { drawText(c, line, at.x + 4, ly, CORE); return; }
-    drawText(c, gold, at.x + 4, ly, GOLD); drawText(c, line.slice(gold.length), at.x + 4 + textWidth(gold), ly, CORE);
+    const ly = foot - (lines.length - 1 - i) * LINE, lw = textWidth(line), x = mid - Math.floor(lw / 2);
+    if (i < lines.length - 1) { c.fillStyle = K; c.fillRect(x - 2, ly - 1, lw + 4, LINE); }
+    if (i) { drawText(c, line, x, ly, CORE); return; }
+    drawText(c, gold, x, ly, GOLD); drawText(c, line.slice(gold.length), x + textWidth(gold), ly, CORE);
   });
 }
 // A tab: the open one filled in ember, its name dark; the others framed dim; gold around it when
@@ -196,25 +198,25 @@ const centred = (c, text, x, y, colour) => drawText(c, text, x - Math.floor(text
 
 // A box `bw` wide: the hero s× on its shadow, its name under it, gold when picked (D-520, D-526)
 // A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right
-function drawSmall(c, hero, name, x, y, { bw, s }, picked, locked = false) {
+function drawSmall(c, hero, name, x, y, { bw, s, named }, picked, locked = false) {
   const mid = x + Math.floor(bw / 2);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(mid - 6 * s, y + 3 + 15 * s, 12 * s, 2);
   if (locked) c.globalAlpha = 0.45;
   c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
   c.globalAlpha = 1;
   if (locked) drawText(c, 'LOCK', x + bw - 3 - textWidth('LOCK'), y + 2, EMBER);
-  centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY);
+  if (named) centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY); // none on a view too short (D-700)
 }
 // A choice's swatch colours: the eyes' one colour (D-527); the trim's cap shade over its base shade
 // (D-529); none for cloaks and clothes, which show the hero
 export const swatchOf = (choice) => (choice.colour ? [choice.colour] : choice.kind === 'trim' ? choice.shades : null);
 // A box `bw` wide for a swatch choice: dark, a square where the hero would stand, its colours in
 // bands top to bottom, its name under it as drawSmall's, gold when picked
-function drawSwatch(c, colours, name, x, y, { bw, bh, s }, picked) {
+function drawSwatch(c, colours, name, x, y, { bw, bh, s, named }, picked) {
   c.fillStyle = K; c.fillRect(x + 1, y + 1, bw - 2, bh - 2);
   const h = 16 * s - 4, band = Math.floor(h / colours.length);
   colours.forEach((colour, i) => { c.fillStyle = colour; c.fillRect(x + 5, y + 5 + i * band, bw - 10, i === colours.length - 1 ? h - i * band : band); });
-  centred(c, name, x + Math.floor(bw / 2), y + 16 * s + 4, picked ? GOLD : GREY);
+  if (named) centred(c, name, x + Math.floor(bw / 2), y + 16 * s + 4, picked ? GOLD : GREY);
 }
 // The big hero z× on the crypt floor (D-525), `name` over it and the choice's name under it (D-520, D-523);
 // the name card draws it too, with no choice (D-517)

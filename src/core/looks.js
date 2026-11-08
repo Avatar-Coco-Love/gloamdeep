@@ -21,6 +21,10 @@ export const CLOAKS = {
   zebra: { id: 'zebra', kind: 'cloak', name: 'Zebra', locked: true, price: 3, pattern: 'zebra', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#22262f', '#22262f'] },
   cow: { id: 'cow', kind: 'cloak', name: 'Cow', locked: true, price: 3, pattern: 'cow', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#463e2c', '#22262f'] },
   camo: { id: 'camo', kind: 'cloak', name: 'Camo', locked: true, price: 3, pattern: 'camo', shades: ['#b6dc8e', '#6fb04e', '#3c6e3a', '#223e24'], marks: ['#7a4430', '#223e24'], second: ['#3c6e3a', '#46261c'] },
+  // the second three (D-700): tiger rust with dark stripes, stars night indigo with bone and sky specks, moth sand with two eyespots
+  tiger: { id: 'tiger', kind: 'cloak', name: 'Tiger', locked: true, price: 3, pattern: 'tiger', shades: ['#f0c49c', '#e8b48c', '#c0744a', '#7a4430'], marks: ['#22262f', '#22262f'] },
+  stars: { id: 'stars', kind: 'cloak', name: 'Stars', locked: true, price: 3, pattern: 'stars', shades: ['#6c7ed0', '#3c4890', '#22285a', '#161a3c'], marks: ['#efe6cc', '#b0bcf0'], second: ['#a6e0e4', '#6c7ed0'] },
+  moth: { id: 'moth', kind: 'cloak', name: 'Moth', locked: true, price: 3, pattern: 'moth', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#7a6e52'], marks: ['#463e2c', '#22262f'], second: ['#a6e0e4', '#58a8b4'] },
 };
 export const CLOAK_IDS = Object.keys(CLOAKS);
 // A profile's cloak: the one it chose, or teal when it has none (profiles from before P3), or a
@@ -73,7 +77,7 @@ export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
 // § the look card (D-517, D-521): a tab for each part across its top, row 0; under it that
-// part's choices three to a row, the cloak's three locked patterns a third row (D-533); then RANDOM and OK on the last row, RANDOM under the first two
+// part's choices three to a row, the cloak's locked patterns a third and fourth row (D-533, D-700); then RANDOM and OK on the last row, RANDOM under the first two
 // columns (D-522; the round cross does what Back did, D-399). Walked as the seed pad's keys are, but Up from the choices lands on the open tab and
 // Down from a tab on the picked choice. The tabs are the same four keys, first, on every pad.
 export const LOOK_TABS = [

@@ -1,7 +1,7 @@
 // § feats (D-284, D-467, D-695, D-697, D-698): the Beaten, Deepest and Flasks Feats' 3 tiers, the Glints they pay, the tab and its note
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { FEATS, featRows, featsWords, featNote, glints, glintsText, glintsLeft, priceNote, shopOf } from '../src/core/feats.js';
+import { FEATS, featRows, featsWords, featNote, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
 import { journalAt } from '../src/render/journal.js';
 import { cardAt, PAD } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
@@ -78,4 +78,6 @@ test('buying a pattern spends its 3 Glints, and the tab shows those left (D-696)
 test('the note says the price and the Glints there are, and to earn more when too few (D-696)', () => {
   assert.equal(priceNote('Zebra', 3, 4), 'Zebra costs 3 Glints. You have 4.');
   assert.equal(priceNote('Zebra', 3, 1), 'Zebra costs 3 Glints. You have 1. Earn more from Feats.');
+  assert.equal(stageNote('Tiger', 3, 4), 'Tiger: 3 Glints. You have 4.'); // under the big hero (D-700)
+  assert.equal(stageNote('Tiger', 3, 1), 'Tiger: 3 Glints. You have 1. Earn more from Feats.');
 });

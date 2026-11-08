@@ -34,6 +34,8 @@ export function featRows(records) {
 // § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
 // has, and to earn more when they are too few
 export const priceNote = (name, price, have) => `${name} costs ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
+// The Look card's shorter one, in the big hero's name line (D-700)
+export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary. Esc or the close button goes back.';
 export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${featRows(p.records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
 

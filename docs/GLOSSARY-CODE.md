@@ -28,7 +28,7 @@ code; where this page and a decision disagree, the decision wins.
   button) on the slot screen (D-275 to D-278, D-289, D-397, D-513); each a glass
   card since D-399, and one LOOK card with a tab each since D-521 (its
   screen is still called `cloak` in the code). **Patterns:** cloaks in
-  their own colours (Zebra, Cow, Camo), `locked` until bought with Glints;
+  their own colours (Zebra, Cow, Camo, Tiger, Stars, Moth, D-700), `locked` until bought with Glints;
   shown dim with LOCK and tried on, never kept (D-515, D-533); `price` 3
   each, bought with BUY and kept in the profile's `bought` (D-696).
 - **Behaviour, way:** a reusable way a creature acts, named in its

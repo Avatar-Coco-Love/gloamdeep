@@ -32,7 +32,8 @@ the Look card. Narrowed by D-695: Beaten is the first Feat, its tiers
 paying 1, 2 and 3; a cloak pattern costs 3. Still open: the next Feats,
 and the prices of looks to come. Narrowed by D-698: Glints should match
 the shop; looks to come are more cloak patterns, lantern looks, then
-hats or hoods, each its own step.
+hats or hoods, each its own step. Narrowed by D-700: Tiger, Stars and
+Moth join at 3 each, so the patterns cost the 18 Feats pay.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a

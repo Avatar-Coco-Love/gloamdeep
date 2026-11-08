@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.150, Deepest, the second Feat.** The owner's picks,
+  all recommended (D-697): Deepest at depth 5, 10 and 20, paying 1 / 2 /
+  3 Glints; Rooms found and Torches lit wait, the owner unsure they fit
+  Feats (Q-057). Playtest: https://claude.ai/artifact/YToroiKXb2Npjh2MN1ZfBd
 - **2026-11-08, 0.3.149, Buying a pattern.** The owner's picks, all
   recommended (D-696): on the Look card a tried pattern turns RANDOM
   into BUY 3, bought at once with no asking; too few Glints dims it and
