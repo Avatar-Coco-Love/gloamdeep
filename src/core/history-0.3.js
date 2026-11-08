@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.143', date: '2026-11-08', title: 'The Lightkeeper\'s Locket', lines: [
+    "Biome 1's first relic, the Lightkeeper's Locket: a tarnished brass oval on a thin chain, a tiny flame scratched on its face. \"Kept close, whatever the dark took.\"",
+    "One lies in each world, in a room at depth 4 (never the one with the stairs up), in the room's far corner with a rat beside it guarding it. It is left once and never comes back.",
+    "Step on it to put it in your bag; you carry one. It can't be sold. Setting it on the shelf, and what it does there, come at the next steps.",
+    "Decisions: D-691. D-679 and D-680 moved to the archive, word for word.",
+  ] },
   { v: '0.3.142', date: '2026-11-08', title: 'The shelf', lines: [
     "Make a Shelf at the workbench, its last slot, from 4 Wood and 2 Stone: a tall wooden case with two empty shelves. You carry one at a time.",
     "Set it down on the surface as you do the bed. Relics will rest on it at later steps; for now it stands empty.",

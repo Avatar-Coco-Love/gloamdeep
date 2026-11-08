@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
+  recommended (D-688): look A, a glowworm glowing green in the dark; a
+  Grub Skin and a rare Glow Gland. Built in one step at the owner's word:
+  from depth 4 it spits a glob at the lit lantern down a clear row or
+  column; the glob flies a tile a turn and hits whatever it meets.
+  Playtest: https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map
+  preview: https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY
 - **2026-11-07, 0.3.139, Still play draws less.** As recommended
   (D-687): with reduced motion on, the room in play is drawn once and
   kept until something in it changes, so standing in the crypt takes

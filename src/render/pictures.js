@@ -507,6 +507,13 @@ const GLOW_GLAND = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.......kk.......', '......kAAk......', '.....kkVVkk.....', '....kVJJVVVk....',
   '...kVJJVVVVGk...', '...kVVVVVVVGk...', '...kVVVVVVGGk...', '....kGVVVGGk....', '.....kkkkkk.....'] };
 
+// § locket: look A (D-691), a tarnished brass oval on a thin chain, the lantern trim's pale
+// brass and bone's shade, darker at its right; a tiny flame scratched on its face
+const LOCKET = { mirror: false, rows: [
+  '', '.......kk.......', '......k..k......', '.......kk.......', '......kTOk......', '....kkkkkkkk....', '...kTTAAAAOOk...',
+  '..kTAAAAyAAAOk..', '..kTAAAyYyAAOk..', '..kTAAAAYAAAOk..', '..kTAAAAAAAAOk..', '...kTAAAAAAOk...', '....kkOOOOkk....',
+  '......kkkk......', '', ''] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -526,4 +533,5 @@ export {
   SPIT_GRUB,
   GRUB_SKIN,
   GLOW_GLAND,
+  LOCKET,
 };

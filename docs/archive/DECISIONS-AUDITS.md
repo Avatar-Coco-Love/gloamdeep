@@ -367,3 +367,21 @@ heap." …), their wait untouched. Before, bumps played his `digging`
 lines and the last freed him again, thanks and 5 turns anew. A rules
 test checks it. D-664 moved to `archive/DECISIONS-AUDITS.md`, word for
 word.
+
+**D-679 · 2026-11-07 · Drops clear of creatures** (the owner's picks,
+both recommended; R7 of D-660's findings, as D-666 set) No spill lands
+under a creature or a person: a beaten creature's drops, mined finds
+that don't fit in the bag and the garden bed's picked berries each skip
+a tile with one on it, as they skip items and the hero, sides before
+corners. With every tile round taken, it lies where it came from, as
+before. The beaten creature's own tile counts as free. Before, a rare
+drop could lie under another creature. A rules test checks it. D-665 and
+D-666 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-680 · 2026-11-07 · A card's action at once** (the owner's pick,
+recommended; I4 of D-660's findings, as D-666 set) Only a turn taken in
+play waits in line while the hero still slides or the stairs fade; a
+card's own action (the bag's Eat, Pour, Craft or Hold, the bench's Make)
+happens at once, and the slide goes on by itself. Before, it waited until
+the card closed. A fall still takes nothing. An input test checks it.
+D-667 moved to `archive/DECISIONS-AUDITS.md`, word for word.

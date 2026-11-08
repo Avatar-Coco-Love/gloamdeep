@@ -68,24 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-679 · 2026-11-07 · Drops clear of creatures** (the owner's picks,
-both recommended; R7 of D-660's findings, as D-666 set) No spill lands
-under a creature or a person: a beaten creature's drops, mined finds
-that don't fit in the bag and the garden bed's picked berries each skip
-a tile with one on it, as they skip items and the hero, sides before
-corners. With every tile round taken, it lies where it came from, as
-before. The beaten creature's own tile counts as free. Before, a rare
-drop could lie under another creature. A rules test checks it. D-665 and
-D-666 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-680 · 2026-11-07 · A card's action at once** (the owner's pick,
-recommended; I4 of D-660's findings, as D-666 set) Only a turn taken in
-play waits in line while the hero still slides or the stairs fade; a
-card's own action (the bag's Eat, Pour, Craft or Hold, the bench's Make)
-happens at once, and the slide goes on by itself. Before, it waited until
-the card closed. A fall still takes nothing. An input test checks it.
-D-667 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-681 · 2026-11-07 · A smaller card upright** (the owner's
 pick, recommended; D2 of D-660's findings, as D-666 set; changes D-671's
 line on upright tablets) Held upright, a card open in play is drawn at a
@@ -200,3 +182,17 @@ yet.", No picked, as the bed by day; Yes puts it back in the bag.
 Claude's drafts the owner may change: its lines and the tile's id,
 `relicShelf`. D-678 moved to `archive/DECISIONS-AUDITS.md`, word for
 word.
+
+**D-691 · 2026-11-08 · The Lightkeeper's Locket** (the owner's picks,
+all recommended; builds D-689, D-690) Biome 1's first relic is the
+Lightkeeper's Locket, look A: a tarnished brass oval on a thin chain, a
+tiny flame scratched on its face. Its story line: "Kept close, whatever
+the dark took." (the owner picked "A Lightkeeper kept one thing close,
+whatever the dark took.", too wide for the line strip). One per world
+lies in a room at depth 4 the seed picks, never the stairs' room, on its
+farthest free tile with a rat beside it guarding it, left once. Set on
+the shelf, a Normal fall brings home the bag's stack the peddler would
+pay most for. Three steps: found and carried (0.3.143), set on the
+shelf, then the fall. Claude's drafts the owner may change: its lines,
+the rat, the id `locket`. D-679 and D-680 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.

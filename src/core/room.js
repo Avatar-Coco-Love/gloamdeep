@@ -5,6 +5,7 @@ import { byLetter, get, LANDMARKS } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
+import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
@@ -171,6 +172,14 @@ export function peddlerRoom(seed) {
   const ids = layoutAt(seed, PEDDLER_DEPTH).cells.map((c) => c.id), r = rng(seedAt(seed, PEDDLER_DEPTH) ^ 0x5be0cd19);
   return ids[Math.floor(r() * ids.length)];
 }
+// § the locket: on depth 4, the bottom of the caves, one room the seed picks holds the
+// Lightkeeper's Locket with a rat guarding it, never the room with the stairs up (D-691)
+export const LOCKET_DEPTH = 4;
+export function locketRoom(seed) {
+  const ids = layoutAt(seed, LOCKET_DEPTH).cells.map((c) => c.id).filter((id) => id !== placeAt(LOCKET_DEPTH));
+  const r = rng(seedAt(seed, LOCKET_DEPTH) ^ 0x2a7f3c91);
+  return ids.length ? ids[Math.floor(r() * ids.length)] : placeAt(LOCKET_DEPTH);
+}
 // § the waystones: at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8 (the
 // dungeon), and of any band added later, then every 4th depth, 12, 16, 20… (D-579, D-594). On
 // each, one room the seed picks holds a waystone asleep, never the room with the stairs up, and
@@ -217,7 +226,8 @@ export function placeFor(id, seed = 1) {
   const bigger = mimicked && sized(mimicked, cell.seed, depth, cell); // more in a hall or large room (D-651)
   const guanoed = bigger && withGuano(cell.seed, bigger); // a pile by each bat, placed last (D-539)
   const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
-  const room = cached && landmark ? { ...cached, map: unpad(cached.map, landmark.mark, landmark.at) } : cached; // its pad floor again (D-620)
+  const relic = cached && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, cached) : cached; // placed after the rest (D-691)
+  const room = relic && landmark ? { ...relic, map: unpad(relic.map, landmark.mark, landmark.at) } : relic; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
 }
 

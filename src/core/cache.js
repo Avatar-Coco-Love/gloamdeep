@@ -13,7 +13,7 @@ const NEAR = 2; // how far from the far tile the finds may spread
 const same = (a, b) => a.x === b.x && a.y === b.y;
 
 // Steps from `from` to every floor tile, by "x,y"
-function steps(map, from) {
+export function steps(map, from) {
   const out = new Map([[`${from.x},${from.y}`, 0]]), queue = [from];
   while (queue.length) {
     const t = queue.shift();

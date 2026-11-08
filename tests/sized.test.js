@@ -1,7 +1,7 @@
 // § sized: halls and large rooms hold twice and four times a one-cell room's finds and creatures, a set a cell (D-651)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { placeFor, creaturesAt, poolAt } from '../src/core/room.js';
+import { placeFor, creaturesAt, poolAt, locketRoom, LOCKET_DEPTH } from '../src/core/room.js';
 import { layoutAt, sizeAt } from '../src/core/region.js';
 
 const plain = (p) => p.items.filter((i) => !i.once); // the dead end's cache aside (D-650)
@@ -14,7 +14,7 @@ test('a hall holds 2 flasks, herbs and oilcaps, a large room 4; their creatures 
     if (n === 2) halls++; if (n === 4) larges++;
     for (const id of ['flask', 'herb', 'oilcap']) assert.equal(of(plain(p), id).length, n, `${at} ${id}`);
     assert.ok(of(plain(p), 'heartcap').length <= n, at);
-    assert.equal(p.enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth) * n, at);
+    assert.equal(p.enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth) * n + (depth === LOCKET_DEPTH && c.id === locketRoom(seed) ? 1 : 0), at); // the locket's rat as well (D-691)
     assert.ok(p.enemies.every((e) => e.id === 'flaskMimic' || poolAt(depth).includes(e.id)), at);
     const spots = [p.start, ...p.items, ...p.enemies, ...p.people].map(({ x, y }) => `${x},${y}`);
     assert.equal(new Set(spots).size, spots.length, `${at} two on one tile`);

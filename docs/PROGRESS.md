@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.142 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.143 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 20, Relics (D-689): biome 1's first relic, which keeps one find on
-a fall. Propose its name, look, story line and place first.
+Step 20, Relics (D-691): the Lightkeeper's Locket set on the shelf,
+where it shows. Propose how it is set there and how it looks on it.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 20 Relics (D-689): the shelf (0.3.142)
+- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143)
 - [ ] 21 Feats
 
 **Next audit: 0.3.152** (D-518, D-660).
@@ -45,6 +45,12 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.143, The Lightkeeper's Locket.** The owner's picks,
+  all recommended (D-691): biome 1's first relic, a brass locket, lies
+  once at depth 4 with a rat guarding it; carried for now. On the shelf,
+  a Normal fall will bring home the most valuable stack. Three steps.
+  Playtest: https://claude.ai/artifact/6KZGjygR1CGg9evTG7SgtY; map
+  preview: https://claude.ai/artifact/9wRu5kuDnpw2HGvppniKDR
 - **2026-11-08, 0.3.142, The shelf.** The owner's picks, all
   recommended (D-690): look A, a wooden case with two empty shelves,
   made at the workbench from 4 Wood and 2 Stone, set down at home the
@@ -55,10 +61,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   spots and guarded rooms, each helping the hero set out or soften a
   fall; the shelf holds all of them. The shelf comes first, then the
   first relic, which keeps one find on a fall. Docs only.
-- **2026-11-08, 0.3.140, The Spit grub.** The owner's picks, all
-  recommended (D-688): look A, a glowworm glowing green in the dark; a
-  Grub Skin and a rare Glow Gland. Built in one step at the owner's word:
-  from depth 4 it spits a glob at the lit lantern down a clear row or
-  column; the glob flies a tile a turn and hits whatever it meets.
-  Playtest: https://claude.ai/artifact/DEsSDVK2Nt6BeUax8AVT6n; map
-  preview: https://claude.ai/artifact/NGTAZtDKbshuKMWR5dSWVY

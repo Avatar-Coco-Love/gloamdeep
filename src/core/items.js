@@ -203,4 +203,8 @@ export const ITEMS = {
   // Antidote: a tall green vial made in the bag from 1 Snapcap Gill and 1 herb; Drink ends
   // poisoned, healing nothing, and only while poisoned (D-652, D-655). Made, never found.
   antidote: { id: 'antidote', kind: 'item', name: 'Antidote', bag: true, max: 5, full: 'antidoteFull', cures: true, eats: 'antidoteDrink', verb: 'DRINK' },
+  // Lightkeeper's Locket (D-691): biome 1's first relic, found, never made, left once in one
+  // room at depth 4 with a rat guarding it (relic.js, room.js). Carried for now; set on the
+  // shelf and keeping a find on a fall come at their own steps. Not sold.
+  locket: { id: 'locket', kind: 'item', name: 'Lightkeeper\'s Locket', bag: true, max: 1, says: 'locketTake', look: 'locketLook', full: 'locketFull' },
 };

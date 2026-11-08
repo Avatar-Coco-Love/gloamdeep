@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.143 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.142 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.141 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.140 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -112,6 +113,14 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.140 (2026-11-08)
+- A new creature, the spit grub: a plump pale glowworm with a glowing green tail, drawn side on. It turns up from depth 4, never moves, and its faint green glow shows even in the dark. It has 1 heart, so one blow of anything ends it.
+- When it sees your lit lantern down a clear row or column, up to 5 tiles away, it spits a glowing glob. The glob flies 1 tile a turn, so you can step out of its way, and the grub then rests 2 turns: rush it then.
+- A glob hits whatever it meets for 1, you or another creature, and breaks on walls and rubble. Standing right beside the grub, it hits you at once. With your lantern off, the grub can't see you.
+- The grub's next move shows as a small glob mark, and every glob in flight shows where it goes next.
+- A beaten spit grub leaves a Grub Skin about 1 time in 2, sold for 1, and now and then a rare Glow Gland, sold for 5.
+- Decisions: D-688. D-675 moved to the archive, word for word.
 
 ## 0.3.139 (2026-11-07)
 - With reduced motion on, the room in play is drawn once and kept until something in it changes, as under a card, so a phone does much less work and saves battery. Play looks and feels the same.

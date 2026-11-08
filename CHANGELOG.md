@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.143 (2026-11-08)
+- Biome 1's first relic, the Lightkeeper's Locket: a tarnished brass oval on a thin chain, a tiny flame scratched on its face. "Kept close, whatever the dark took."
+- One lies in each world, in a room at depth 4 (never the one with the stairs up), in the room's far corner with a rat beside it guarding it. It is left once and never comes back.
+- Step on it to put it in your bag; you carry one. It can't be sold. Setting it on the shelf, and what it does there, come at the next steps.
+- Decisions: D-691. D-679 and D-680 moved to the archive, word for word.
+
 ## 0.3.142 (2026-11-08)
 - Make a Shelf at the workbench, its last slot, from 4 Wood and 2 Stone: a tall wooden case with two empty shelves. You carry one at a time.
 - Set it down on the surface as you do the bed. Relics will rest on it at later steps; for now it stands empty.
@@ -32,11 +38,3 @@ Entry format:
 ## 0.3.141 (2026-11-08)
 - Relics are planned: rare things from the old city under the ground, found in hidden spots and guarded rooms, never made. Each one helps you set out or softens a fall, and every relic found works once it sits on a shelf at home. The shelf comes first, then the first relic, which keeps one find on a fall. Nothing in play changes yet.
 - Decisions: D-689. D-676 and D-677 moved to the archive, word for word.
-
-## 0.3.140 (2026-11-08)
-- A new creature, the spit grub: a plump pale glowworm with a glowing green tail, drawn side on. It turns up from depth 4, never moves, and its faint green glow shows even in the dark. It has 1 heart, so one blow of anything ends it.
-- When it sees your lit lantern down a clear row or column, up to 5 tiles away, it spits a glowing glob. The glob flies 1 tile a turn, so you can step out of its way, and the grub then rests 2 turns: rush it then.
-- A glob hits whatever it meets for 1, you or another creature, and breaks on walls and rubble. Standing right beside the grub, it hits you at once. With your lantern off, the grub can't see you.
-- The grub's next move shows as a small glob mark, and every glob in flight shows where it goes next.
-- A beaten spit grub leaves a Grub Skin about 1 time in 2, sold for 1, and now and then a rare Glow Gland, sold for 5.
-- Decisions: D-688. D-675 moved to the archive, word for word.

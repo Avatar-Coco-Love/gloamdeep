@@ -21,7 +21,8 @@ const seed = () => seeds[seeds.length - 1];
 const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked, finds: $('finds').checked, labels: $('labels').checked, shapes: $('shapes').checked });
 
 // § finds and their dot colours; creatures are all one colour
-const FIND = { flask: '#f39a3b', herb: '#6fc06a', oilcap: '#e0c060', heartcap: '#e0607a' };
+const FIND = { flask: '#f39a3b', herb: '#6fc06a', oilcap: '#e0c060', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691)
+const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the locket is left once too
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
 // § shapes: a tint over each hall and large room (D-645), so they stand out
 const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
@@ -72,7 +73,7 @@ function numbers({ rooms, info }) {
   parts.push(`${rooms.length} rooms`);
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`,
-    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter((it) => it.once).length, 0)} cache finds`, `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
+    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
   return parts;
 }
 function biomeRooms(s) {
@@ -90,7 +91,7 @@ function draw() {
     const px = r.x * K, py = r.y * K, w = r.room.cols * K, h = r.room.rows * K, cell = f.layout?.cells.find((m) => m.id === r.id);
     if (show.shapes && cell && SHAPE_TINT[cell.w * cell.h]) { c.fillStyle = SHAPE_TINT[cell.w * cell.h]; c.fillRect(px, py, w, h); }
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
-    if (show.finds) for (const it of r.items) { if (it.once) ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
+    if (show.finds) for (const it of r.items) { if (it.once || it.id === 'locket') ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);
     for (const p of r.people) dot(c, r.x + p.x, r.y + p.y, PERSON, 0.8);
     if (show.labels) {
@@ -134,7 +135,7 @@ function room() {
   const rows = [
     ['Room', r.id], ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${SHAPE_NAME[cell.w * cell.h]}${cell.w * cell.h === 2 ? (cell.w === 2 ? ' side by side' : ', one above the other') : ''} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
     ...(role ? [['Where', `${role}${step !== undefined ? ` · ${step} joins from the stairs up` : ''}`]] : []),
-    ['Creatures', list(r.enemies)], ['Finds', list(r.items.filter((it) => !it.once))], ...(cell?.end ? [['Cache', list(r.items.filter((it) => it.once))]] : []), ['People', list(r.people)], ['Tiles', tiles],
+    ['Creatures', list(r.enemies)], ['Finds', list(r.items.filter((it) => !cached(it)))], ...(cell?.end ? [['Cache', list(r.items.filter(cached))]] : []), ['People', list(r.people)], ['Tiles', tiles],
   ];
   const dl = document.createElement('dl');
   for (const [k, v] of rows) dl.append(Object.assign(document.createElement('dt'), { textContent: k }), Object.assign(document.createElement('dd'), { textContent: v }));
