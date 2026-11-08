@@ -1,10 +1,10 @@
 // § journal: one book with tabs (D-262, D-270). Records is the first tab, Growth
-// the second (D-293), the Bestiary the third (D-630); later tabs join the row. Plain data, no drawing.
+// the second (D-293), the Bestiary the third (D-630), Feats the fourth (D-695); later tabs join the row. Plain data, no drawing.
 import { playedText } from './profile.js';
 import { embers, told, START_PICK } from './growth.js';
 import { BRANCHES } from './upgrades.js';
 
-export const TABS = [{ id: 'records', text: 'Records' }, { id: 'growth', text: 'Growth' }, { id: 'bestiary', text: 'Bestiary' }];
+export const TABS = [{ id: 'records', text: 'Records' }, { id: 'growth', text: 'Growth' }, { id: 'bestiary', text: 'Bestiary' }, { id: 'feats', text: 'Feats' }];
 
 // § records: the Records tab's rows, a name and its value, from a profile's records and its
 // play time in seconds, written as in its Profiles box (D-290, D-291)

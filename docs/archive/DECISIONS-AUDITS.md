@@ -435,3 +435,16 @@ same, pixel for pixel; painting a room takes about half the time (14 to
 8 ms each over 24 rooms on a computer). A test checks the pictures of
 12 rooms against fingerprints of the old painter's.
 D-672 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-686 · 2026-11-07 · The room holds still under a card** (the
+owner's picks, both recommended; S3 of D-660's findings, as D-666 set)
+Under a card (the bag, pause, the map, trade and the rest), the room
+behind the veil is drawn once and kept, not 60 times a second, so its
+torches and flame stop flickering until the card closes. It is drawn
+again when what it shows changes (a find eaten or dropped, the screen's
+size, a dev switch, the motion setting), and keeps being drawn until a
+moment running as the card opens has ended (a slide, a shake, a "+1", a
+beam, a rune kindling). The card's own flame and needle move as before.
+On a phone 4 times slower, a frame with the bag open takes about 1 ms,
+not 8. Reduced motion skipping frames in play is its own next step.
+D-673 moved to `archive/DECISIONS-AUDITS.md`, word for word.

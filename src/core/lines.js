@@ -331,6 +331,7 @@ export const LINES = {
   locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
   locketFull: { text: 'You already have the locket.', warn: false },
   locketShelfSet: { text: 'You set the locket on the shelf.', warn: false }, // (D-693)
+  featReached: { text: 'Feat reached: {n}.', warn: false }, // a Feat's tier reached, its Glints paid (D-695)
   locketKept: { text: 'The locket kept {n}.', warn: false }, // a Normal fall, the locket on the shelf (D-694)
   wardenWakes: { text: "The warden's eye lights up!", warn: false }, // (D-692), Claude's drafts the owner may change
   wardenHurt: { text: 'The warden cracks.', warn: false },

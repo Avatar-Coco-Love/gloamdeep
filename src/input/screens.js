@@ -80,6 +80,7 @@ import { playing as inPlay, slotName, playedText } from '../core/profile.js';
 import { bestiaryWords, pageWords } from '../core/bestiary.js';
 import { slotLines, slotsHeading } from '../render/slots.js';
 import { journalWords, growthWords } from '../core/journal.js';
+import { featsWords } from '../core/feats.js';
 import { START_PICK } from '../core/growth.js';
 import { setVersionGap } from '../render/bag.js';
 import { chestWords, stashAt } from '../core/chest.js';
@@ -159,7 +160,7 @@ export function createScreens(app, ui) {
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), closeJournal = backTo('journal');
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
   // Growth opens on Body's heart (D-481).
-  const journalPageWords = () => (app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
+  const journalPageWords = () => (app.tab === 'feats' ? featsWords(inPlay(app.profiles).records) : app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
   function openJournal() { app.tab = 'records'; app.growthPick = START_PICK; app.beastPick = 0; app.beastPage = null; show('journal'); }
   function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)
 

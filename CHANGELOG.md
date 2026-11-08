@@ -23,6 +23,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.148 (2026-11-08)
+- The Journal has a fourth tab, Feats, after the Bestiary. A Feat is one record's set of 3 tiers, and each tier you reach pays Glints, the money for looks.
+- The first Feat is Beaten: 10, 50 and 200 creatures, paying 1, 2 and 3 Glints. The tab shows your Glints in gold at the top, then Beaten with your count toward the next tier, such as 12 of 50, and 3 small marks that turn gold as you reach them.
+- Creatures beaten before now count too. Reaching a tier says so: "Feat reached: Beaten 10. +1 Glint."
+- On an upright phone the Journal's tabs sit in two rows, Records and Growth over Bestiary and Feats. Right from the Bestiary turns to Feats.
+- Buying a cloak pattern with Glints, 3 each, comes at the next step.
+- Decisions: D-695. D-686 moved to the archive, word for word.
+
 ## 0.3.147 (2026-11-08)
 - The Lightkeeper's Locket works on the shelf. In Normal, with the locket on a shelf, a fall brings home one stack from your bag: the one the peddler would pay most for in all, his price times how many. 3 Venom Sacs beat 1 Mimic Heart.
 - A tie goes to the stack first in your bag. With nothing in the bag he buys, nothing is kept. The rest stays in the bag where you fell, as before.
@@ -35,8 +43,3 @@ Entry format:
 - Bumped then, the shelf asks "Deconstruct shelf?" with "The locket rests here." Yes puts the shelf and the locket back in your bag together; with no room for both, your bag is full and both stay.
 - What the locket does there, on a fall, comes at the next step.
 - Decisions: D-693. D-683 and D-684 moved to the archive, word for word.
-
-## 0.3.145 (2026-11-08)
-- The Lightkeeper's Locket has its new look: open on its hinge, a gold case with a violet hollow and a tiny flame burning inside. The flame scratched on its lid is violet now.
-- Relics have their own glow: a violet halo that slowly swells and fades, seen even in the dark, though it lights nothing. Now and then a glint slides along the locket's edge. With reduced motion the glow holds steady and there is no glint.
-- Decisions: D-692.

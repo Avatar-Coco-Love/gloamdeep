@@ -1,6 +1,7 @@
 # Changelog: stage 0.3, part 1 (from 0.3.0)
 
 Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 0.3.20, 0.3.3 and 0.3.4 at 0.3.21, 0.3.5 and 0.3.6 at 0.3.22, 0.3.7 at 0.3.23, 0.3.8 at 0.3.24, 0.3.9 at 0.3.26, 0.3.10 at 0.3.27, 0.3.11 at 0.3.28, 0.3.12 at 0.3.29, 0.3.13 at 0.3.30, 0.3.14 and 0.3.15 at 0.3.31 (the 8 KB cap), and 0.3.16 to 0.3.28 at 0.3.32, the eighth audit (D-570).
+From 0.3.148 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.147 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.146 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.145 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
@@ -117,6 +118,11 @@ From 0.3.35 on, `tools/release.js` moves each version here once 3 newer ones are
 From 0.3.34 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
+
+## 0.3.145 (2026-11-08)
+- The Lightkeeper's Locket has its new look: open on its hinge, a gold case with a violet hollow and a tiny flame burning inside. The flame scratched on its lid is violet now.
+- Relics have their own glow: a violet halo that slowly swells and fades, seen even in the dark, though it lights nothing. Now and then a glint slides along the locket's edge. With reduced motion the glow holds steady and there is no glint.
+- Decisions: D-692.
 
 ## 0.3.144 (2026-11-08)
 - A new creature guards the Lightkeeper's Locket in place of the rat: the warden, an old stone guard made by Underhearth's people to guard their things. Cracked and mossy, with a chipped gold band and an eye slit.

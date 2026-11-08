@@ -2,7 +2,8 @@
 // arrows, tap and close, moved word for word from screens.js at the eighth audit (D-577). It
 // opens on Records (screens.js's openJournal). `c` holds journalPageWords and closeJournal. On the
 // Bestiary (D-630) Up and Down pick a row and Enter or a tap opens its page; there Esc, the
-// round cross or Left goes back to the table (D-631).
+// round cross or Left goes back to the table (D-631). Right from the Bestiary turns to Feats, and
+// Left there back (D-695).
 import { buyAt, movePick, told } from '../../core/growth.js';
 import { journalAt } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
@@ -44,12 +45,13 @@ export function journalCard(app, ui, show, c) {
   }
   function closePage() { app.beastPage = null; spoken.textContent = journalPageWords(); }
   // Enter turns to Growth, there buys the picked upgrade, and on the Bestiary opens the picked page
-  const pick = () => { if (app.tab === 'growth') buyPicked(); else if (app.tab === 'records') turnTab('growth'); else if (!app.beastPage) openPage(app.beastPick); };
+  const pick = () => { if (app.tab === 'growth') buyPicked(); else if (app.tab === 'records') turnTab('growth'); else if (app.tab === 'bestiary' && !app.beastPage) openPage(app.beastPick); };
   // The tabs (D-391), on Growth its tree (D-481): Right past Hands for the Bestiary, and Left there back to Growth (D-630)
   function dir(d) {
     if (app.tab === 'growth') { if (d === 'right' && app.growthPick.col === BRANCHES.length - 1) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d)); }
     else if (app.tab === 'bestiary' && app.beastPage) { if (d === 'left') closePage(); }
-    else if (app.tab === 'bestiary') { if (d === 'left') turnTab('growth'); else if (d === 'up' || d === 'down') pickBeast(movePickRow(book(), app.beastPick, d === 'up' ? -1 : 1)); }
+    else if (app.tab === 'bestiary') { if (d === 'left') turnTab('growth'); else if (d === 'right') turnTab('feats'); else if (d === 'up' || d === 'down') pickBeast(movePickRow(book(), app.beastPick, d === 'up' ? -1 : 1)); }
+    else if (app.tab === 'feats') { if (d === 'left') turnTab('bestiary'); }
     else if (d === 'right') turnTab('growth');
   }
   function tap(px, py, held) {

@@ -17,6 +17,7 @@ import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
+import { featNote } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary } from './core/profile.js';
 import { booked } from './core/bestiary.js';
 import { fit } from './core/parts.js';
@@ -121,6 +122,8 @@ function keepRecords(events) {
   let records = counted(was, events, app.jumped);
   if (d !== records.deepest) records = { ...records, deepest: d };
   if (records !== was) app.profiles = withRecords(app.profiles, records);
+  const feat = records !== was && featNote(was, records); // a Feat's tier reached says so (D-467, D-695)
+  if (feat) app.state = say(app.state, 'featReached', feat);
   const book = playing(app.profiles).bestiary, met = booked(book, events, app.jumped); // the Bestiary's counts (D-630)
   if (met !== book) app.profiles = withBestiary(app.profiles, met);
   if (records !== was || met !== book) saveProfiles(app.profiles);

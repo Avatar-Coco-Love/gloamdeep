@@ -68,19 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-686 · 2026-11-07 · The room holds still under a card** (the
-owner's picks, both recommended; S3 of D-660's findings, as D-666 set)
-Under a card (the bag, pause, the map, trade and the rest), the room
-behind the veil is drawn once and kept, not 60 times a second, so its
-torches and flame stop flickering until the card closes. It is drawn
-again when what it shows changes (a find eaten or dropped, the screen's
-size, a dev switch, the motion setting), and keeps being drawn until a
-moment running as the card opens has ended (a slide, a shake, a "+1", a
-beam, a rune kindling). The card's own flame and needle move as before.
-On a phone 4 times slower, a frame with the bag open takes about 1 ms,
-not 8. Reduced motion skipping frames in play is its own next step.
-D-673 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-687 · 2026-11-07 · Still play draws less** (the owner's pick,
 recommended; S3's second half, after D-686) With reduced motion on, the
 room in play is held the same way as under a card: drawn once and kept
@@ -186,4 +173,20 @@ holding only the kept stack is not left. The wake line names it: "The
 locket kept Venom Sac ×3." (the owner picked it after the fall line;
 both don't fit the strip, so it says it in the fall line's place).
 Claude's drafts the owner may change: its words. D-685 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-695 · 2026-11-08 · Feats and Glints begin** (the owner's picks, all
+recommended; builds D-284, D-467, D-516, narrows Q-055 and Q-057) A Feat
+is one record's set of 3 tiers. The first is Beaten, named as its
+Records line, at 10, 50 and 200 creatures. Each set's tiers pay 1, 2
+and 3 Glints (6 a set). A cloak pattern (Zebra, Cow, Camo) will cost 3
+Glints, all the same. The Journal gets a fourth tab, Feats, after the
+Bestiary: the Glints in gold at the top, then a row a Feat as Records'
+rows: its name, the count toward the next tier ("12 of 50") and 3 small
+marks, gold once reached. Glints are worked out from the Records, so
+creatures beaten before this count. Reaching a tier says "Feat reached:
+Beaten 10. +1 Glint." On a card too narrow for one row of tabs
+(upright), they go in two rows, as the How to play card's. Buying a
+pattern with Glints is the next step. Claude's drafts the owner may
+change: the note's words and the marks' look. D-686 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.

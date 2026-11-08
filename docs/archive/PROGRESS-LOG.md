@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.145, The locket's glow.** Built from the owner's
+  picks in D-692: the locket's look D, open, gold and violet with a flame
+  inside, and relics' own violet glow with the slow shimmer, as in the
+  mock-ups. Playtest:
+  https://claude.ai/artifact/2sTeS4hYPtGjLFKAgqT38j
 - **2026-11-08, 0.3.144, The warden.** The owner's ask and picks
   (D-692): the locket's guard is a new creature, the old-city warden,
   look A4, asleep as a statue until bumped, then chasing; 4 health. The
