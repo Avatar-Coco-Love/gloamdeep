@@ -68,17 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-687 · 2026-11-07 · Still play draws less** (the owner's pick,
-recommended; S3's second half, after D-686) With reduced motion on, the
-room in play is held the same way as under a card: drawn once and kept
-until what it shows changes (a step, a creature's move, a walk's dots,
-a framed creature, the workbench's marks) or while a moment runs (a
-hit's red, a "!", a "+1", a beam). The hearts, oil, buttons, round map
-and text line are still drawn every frame. Nothing in the room moves
-with reduced motion, so play looks and feels the same. In the crypt,
-standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
-D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-688 · 2026-11-08 · The Spit grub built** (the owner's picks, all
 recommended; mock-ups: https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L;
 builds D-659) Look A, a glowworm side on, a plump grub of bone-white
@@ -190,3 +179,16 @@ Beaten 10. +1 Glint." On a card too narrow for one row of tabs
 pattern with Glints is the next step. Claude's drafts the owner may
 change: the note's words and the marks' look. D-686 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-696 · 2026-11-08 · Buying a pattern** (the owner's picks, all
+recommended; builds D-516, D-533, D-695) On the Look card, a locked
+pattern tried on turns RANDOM into BUY 3; pressing it spends the Glints
+at once, with no asking, unlocks the pattern and wears it, and the
+flame goes on to OK. The note says "Zebra costs 3 Glints. You have 4.",
+adding "Earn more from Feats." with too few, when BUY is dim and does
+nothing. A bought pattern is that hero's for good: no LOCK, RANDOM can
+roll it. The Feats tab's gold number is the Glints left to spend.
+Claude's calls the owner may change: a buy is kept even if the card is
+then closed with the cross; the arrows keep the pattern tried on while
+they are on BUY or OK. D-687 moved to `archive/DECISIONS-AUDITS.md`,
+word for word.

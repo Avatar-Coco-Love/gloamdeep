@@ -448,3 +448,14 @@ beam, a rune kindling). The card's own flame and needle move as before.
 On a phone 4 times slower, a frame with the bag open takes about 1 ms,
 not 8. Reduced motion skipping frames in play is its own next step.
 D-673 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-687 · 2026-11-07 · Still play draws less** (the owner's pick,
+recommended; S3's second half, after D-686) With reduced motion on, the
+room in play is held the same way as under a card: drawn once and kept
+until what it shows changes (a step, a creature's move, a walk's dots,
+a framed creature, the workbench's marks) or while a moment runs (a
+hit's red, a "!", a "+1", a beam). The hearts, oil, buttons, round map
+and text line are still drawn every frame. Nothing in the room moves
+with reduced motion, so play looks and feels the same. In the crypt,
+standing, on a phone 4 times slower, a frame takes about 1 ms, not 9.
+D-674 moved to `archive/DECISIONS-AUDITS.md`, word for word.

@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.148 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.149 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 21, Feats: buy a cloak pattern with Glints, 3 each, in the Look
-card (D-695).
+Step 21, Feats: the next Feat, from another Records line (Q-057).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -35,7 +34,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [x] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145); set on the shelf (0.3.146); what it does there (0.3.147)
-- [ ] 21 Feats (D-695): the tab and Beaten (0.3.148)
+- [ ] 21 Feats (D-695): the tab and Beaten (0.3.148); buying a pattern (0.3.149)
 
 **Next audit: 0.3.152** (D-518, D-660).
 
@@ -45,6 +44,11 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.149, Buying a pattern.** The owner's picks, all
+  recommended (D-696): on the Look card a tried pattern turns RANDOM
+  into BUY 3, bought at once with no asking; too few Glints dims it and
+  the note says so; bought is the hero's for good; Feats shows Glints
+  left. Playtest: https://claude.ai/artifact/2yZUo1HbiEUdqCuEyGVg1Z
 - **2026-11-08, 0.3.148, Feats and Glints.** The owner's picks, all
   recommended (D-695): Beaten is the first Feat, 10 / 50 / 200 paying
   1 / 2 / 3 Glints; a pattern will cost 3. The Journal's Feats tab, the
@@ -55,10 +59,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   brings home the stack worth most to the peddler in all, a tie to the
   first, nothing if he buys none; "The locket kept Venom Sac ×3."
   Playtest: https://claude.ai/artifact/JJSZtGjbZs3cHSqFPrFo4z
-- **2026-11-08, 0.3.146, The locket on the shelf.** The owner's picks,
-  all recommended (D-693): bumped with the locket in the bag, the shelf
-  asks to set it there; it stays for good; deconstructed, both go back
-  together. Look A of the mock-ups, the locket small on the top shelf
-  in the relics' glow. Mock-ups:
-  https://claude.ai/artifact/Fmovh4KgJNiBPcNY2YttmJ; playtest:
-  https://claude.ai/artifact/VfM8TPZAWvxMzVTbvdG7Ea

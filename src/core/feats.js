@@ -1,6 +1,7 @@
 // § feats: achievements built on Records (D-284, D-467, D-695). A Feat is one record's set of
 // 3 tiers, each reached at a higher count and paying Glints, the look currency (D-516). Glints
 // are worked out from the Records, so the counts made before Feats came pay too. Plain data.
+import { spentOn } from './looks.js';
 
 // Each Feat: its name, the record it reads, its 3 tiers and the Glints each pays (D-695)
 export const FEATS = [
@@ -9,10 +10,15 @@ export const FEATS = [
 
 // How many of a Feat's tiers the records have reached
 export const reached = (feat, records) => feat.tiers.filter((n) => (records[feat.record] ?? 0) >= n).length;
-// The Glints all Feats have paid (spending them comes with the Look card's buying, D-695)
+// The Glints all Feats have paid
 export const glints = (records) => FEATS.reduce((g, f) => g + f.pays.slice(0, reached(f, records)).reduce((a, b) => a + b, 0), 0);
-const plural = (n) => `${n} Glint${n === 1 ? '' : 's'}`;
-export const glintsText = (records) => plural(glints(records));
+// The Glints a profile has left to spend: those paid less the patterns it bought (D-696)
+export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) - spentOn(p?.bought));
+// What a profile can spend on the Look card: its patterns bought and Glints left; none for a
+// hero not made yet (D-696)
+export const shopOf = (p) => ({ bought: p ? p.bought ?? [] : [], have: p ? glintsLeft(p) : 0 });
+export const plural = (n) => `${n} Glint${n === 1 ? '' : 's'}`;
+export const glintsText = (p) => plural(glintsLeft(p));
 
 // § rows: the Feats tab's rows: the name, the count toward the next tier ("12 of 50"), or the
 // last tier once all are reached, and how many of its 3 marks are lit
@@ -22,8 +28,11 @@ export function featRows(records) {
     return { id: f.id, text: f.text, value: n < f.tiers.length ? `${have} of ${f.tiers[n]}` : String(f.tiers.at(-1)), reached: n, tiers: f.tiers.length };
   });
 }
+// § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
+// has, and to earn more when they are too few
+export const priceNote = (name, price, have) => `${name} costs ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary. Esc or the close button goes back.';
-export const featsWords = (records) => `Journal, Feats tab. ${glintsText(records)}. ${featRows(records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
+export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${featRows(p.records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
 
 // § note: the tiers reached between two Records, as "Beaten 10. +1 Glint", the newest only
 export function featNote(was, now) {
