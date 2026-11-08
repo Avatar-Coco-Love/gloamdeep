@@ -52,7 +52,9 @@ records and achievements, buying only looks; trade coins are separate.
 Narrowed by D-516: it is Glints, paid by the Feats tiers and spent in
 the Look card. Narrowed by D-695: Beaten is the first Feat, its tiers
 paying 1, 2 and 3; a cloak pattern costs 3. Still open: the next Feats,
-and the prices of looks to come.
+and the prices of looks to come. Narrowed by D-698: Glints should match
+the shop; looks to come are more cloak patterns, lantern looks, then
+hats or hoods, each its own step.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
@@ -63,7 +65,8 @@ achievement, D-284) Narrowed by D-467: 3 tiers a set, each paying the
 look currency (Q-055), shown in a Feats tab with a note on reaching one.
 Narrowed by D-695: Beaten at 10, 50 and 200. Narrowed by D-697: Deepest
 at depth 5, 10 and 20; a count Feat would likely be 10, 50 and 200, as
-Beaten. Still open: which other records get a set, and their numbers;
+Beaten. Narrowed by D-698: Flasks, from Flasks poured, at 5, 25 and 100.
+Still open: which other records get a set, and their numbers;
 the owner is not sure Rooms found and Torches lit belong in Feats or in
 something else.
 

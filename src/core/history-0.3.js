@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.151', date: '2026-11-08', title: 'Flasks, the third Feat', lines: [
+    "A third Feat, Flasks: pour 5, 25 and 100 flasks for 1, 2 and 3 Glints. Its row on the Feats tab shows \"2 of 5\" and its 3 marks; Records still says Flasks poured.",
+    "Reaching a tier says so: \"Feat reached: Flasks 5. +1 Glint.\" Flasks poured before count too.",
+    "All three Feats now pay 18 Glints. New looks to spend them on come in later steps.",
+    "Decisions: D-698. D-688 moved to the archive, word for word.",
+  ] },
   { v: '0.3.150', date: '2026-11-08', title: 'Deepest, the second Feat', lines: [
     "A second Feat, Deepest: reach depth 5, 10 and 20 for 1, 2 and 3 Glints. Its row on the Feats tab shows \"3 of 5\" and its 3 marks.",
     "Reaching a tier says so: \"Feat reached: Deepest 5. +1 Glint.\" Depths walked to before count too.",
