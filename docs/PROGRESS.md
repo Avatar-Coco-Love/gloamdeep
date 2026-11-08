@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.143 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.144 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 20, Relics (D-691): the Lightkeeper's Locket set on the shelf,
-where it shows. Propose how it is set there and how it looks on it.
+Step 20, Relics (D-692): the relics' look, the locket's look D (open,
+violet and gold, a flame inside) with its own violet glow and slow
+shimmer; then the locket set on the shelf (D-691).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -34,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143)
+- [ ] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144)
 - [ ] 21 Feats
 
 **Next audit: 0.3.152** (D-518, D-660).
@@ -45,6 +46,13 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
 (D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).
 
 ## Log (last 3)
+- **2026-11-08, 0.3.144, The warden.** The owner's ask and picks
+  (D-692): the locket's guard is a new creature, the old-city warden,
+  look A4, asleep as a statue until bumped, then chasing; 4 health. The
+  relics' look picked too, built next. Mock-ups:
+  https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK; playtest:
+  https://claude.ai/artifact/7fcpw1nJMgj58KwRmua6Cv; map preview:
+  https://claude.ai/artifact/S9kUGLyQs8y42RzmKDnXFs
 - **2026-11-08, 0.3.143, The Lightkeeper's Locket.** The owner's picks,
   all recommended (D-691): biome 1's first relic, a brass locket, lies
   once at depth 4 with a rat guarding it; carried for now. On the shelf,
@@ -56,8 +64,3 @@ low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
   made at the workbench from 4 Wood and 2 Stone, set down at home the
   bed's way; bumped, it asks to be taken down, "Nothing on it yet."
   Playtest: https://claude.ai/artifact/ECjixk3D6LPY72pPeeR9Gg
-- **2026-11-08, 0.3.141, Relics from the old city.** The owner's picks,
-  all recommended (D-689): relics are old-city things, found in hidden
-  spots and guarded rooms, each helping the hero set out or soften a
-  fall; the shelf holds all of them. The shelf comes first, then the
-  first relic, which keeps one find on a fall. Docs only.

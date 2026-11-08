@@ -30,6 +30,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `lureWisp` | 1 | 0 | lures: within 3 steps of the hero it drifts a tile away, toward the nearest other creature in the room, or just away; never bites; its glow shows in the dark, lighting no tiles | the pool from depth 4 | D-643, D-649 |
 | `centipede` | 2 | 1 | chases; a bite that hurts `poisons` the hero | the pool from depth 3 | D-652, D-654 |
 | `spitGrub` | 1 | 1 | spits: never moves or bites; at the lit lantern down a clear row or column, up to 5 tiles, a glob flying a tile a turn, then rests 2 turns; `glows` | the pool from depth 4 | D-659, D-688 |
+| `warden` | 4 | 1 | chases, once bumped awake; `sleeps` as itself, a statue with dull eyes, then stands still again after 6 turns; an old stone guard of Underhearth | beside the locket only, never the pool | D-692 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees

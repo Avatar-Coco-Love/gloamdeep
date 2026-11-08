@@ -68,26 +68,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-681 · 2026-11-07 · A smaller card upright** (the owner's
-pick, recommended; D2 of D-660's findings, as D-666 set; changes D-671's
-line on upright tablets) Held upright, a card open in play is drawn at a
-smaller pixel size when that leaves the screen under 300 game pixels
-tall, as D-671 does sideways: 3 screen pixels each at 768 × 1024, so the
-bag's words fit above DROP and WEAR with a 9 or 12 slot bag. Pixels stay
-whole; phones are unchanged. Before, every item's words ran over the
-buttons there. A test checks five tablet sizes and every item's words.
-D-668 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
-**D-682 · 2026-11-07 · The wrench under pause** (the owner's picks,
-both recommended; D3 of D-660's findings, as D-666 set; changes D-381's
-spot on narrow screens) The dev wrench stands under pause, in the top
-right corner's group, when the hearts and oil panel at its widest (a
-row of hearts at level 99) would come within 8 px of it left of pause:
-a 320 px wide phone. Every other screen keeps it left of pause. Before,
-from level 10 the panel ran into it there. A test checks phones, phones
-held sideways and tablets at three pixel ratios.
-D-669 moved to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-683 · 2026-11-07 · Space on the name pad** (the owner's pick,
 recommended; I5 of D-660's findings, as D-666 set; Q-054 stays open)
 On the name pad, Space does nothing; Enter still presses the lit key,
@@ -195,4 +175,19 @@ the shelf, a Normal fall brings home the bag's stack the peddler would
 pay most for. Three steps: found and carried (0.3.143), set on the
 shelf, then the fall. Claude's drafts the owner may change: its lines,
 the rat, the id `locket`. D-679 and D-680 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
+`archive/DECISIONS-AUDITS.md`, word for word. Its rat and its look
+superseded by D-692 (2026-11-08).
+
+**D-692 · 2026-11-08 · The warden and the relics' look** (the owner's
+ask and picks; supersedes D-691's rat and look) The locket's guard is a
+new creature, the old-city warden, made by Underhearth's people to guard
+their things: look A4 of six stone takes, an old cracked stone guard,
+mossy, a chipped gold band, its eye slit violet. It stands asleep as a
+statue, eyes dull, until bumped, then chases for 6 turns and stands still
+again, the flask mimic's way; 4 health, a bite of 1 (recommended). Not
+in the pool, no drop yet. Relics get their own glow, a violet halo with
+a slow shimmer, and the locket look D: open, violet and gold, a flame
+inside (all recommended). The warden first (0.3.144), then the look.
+Claude's drafts the owner may change: its lines, the name Warden.
+Mock-ups: https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK
+D-681 and D-682 moved to `archive/DECISIONS-AUDITS.md`, word for word.

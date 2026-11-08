@@ -385,3 +385,23 @@ card's own action (the bag's Eat, Pour, Craft or Hold, the bench's Make)
 happens at once, and the slide goes on by itself. Before, it waited until
 the card closed. A fall still takes nothing. An input test checks it.
 D-667 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-681 · 2026-11-07 · A smaller card upright** (the owner's
+pick, recommended; D2 of D-660's findings, as D-666 set; changes D-671's
+line on upright tablets) Held upright, a card open in play is drawn at a
+smaller pixel size when that leaves the screen under 300 game pixels
+tall, as D-671 does sideways: 3 screen pixels each at 768 × 1024, so the
+bag's words fit above DROP and WEAR with a 9 or 12 slot bag. Pixels stay
+whole; phones are unchanged. Before, every item's words ran over the
+buttons there. A test checks five tablet sizes and every item's words.
+D-668 moved to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-682 · 2026-11-07 · The wrench under pause** (the owner's picks,
+both recommended; D3 of D-660's findings, as D-666 set; changes D-381's
+spot on narrow screens) The dev wrench stands under pause, in the top
+right corner's group, when the hearts and oil panel at its widest (a
+row of hearts at level 99) would come within 8 px of it left of pause:
+a 320 px wide phone. Every other screen keeps it left of pause. Before,
+from level 10 the panel ran into it there. A test checks phones, phones
+held sideways and tablets at three pixel ratios.
+D-669 moved to `archive/DECISIONS-AUDITS.md`, word for word.

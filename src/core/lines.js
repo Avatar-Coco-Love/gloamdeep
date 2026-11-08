@@ -330,6 +330,11 @@ export const LINES = {
   locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
   locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },
   locketFull: { text: 'You already have the locket.', warn: false },
+  wardenWakes: { text: "The warden's eye lights up!", warn: false }, // (D-692), Claude's drafts the owner may change
+  wardenHurt: { text: 'The warden cracks.', warn: false },
+  wardenSettles: { text: 'The warden stands still again.', warn: false },
+  wardenDie: { text: 'The warden crumbles and falls still.', warn: false },
+  wardenBite: { text: 'The warden strikes you.', warn: false, kind: 'harm' },
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

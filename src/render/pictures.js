@@ -18,6 +18,7 @@ const PAL = {
 
   z: '#c4553a', U: '#7e3020', Z: '#4e1c16', V: '#b6e07a', // the centipede's rust, light to dark, and venom's pale green (D-654)
   J: '#eaffb8', // the spit grub's bright glow, at the heart of venom's green (D-688)
+  P: '#a58ce0', // stairs and unusual things (ART-DIRECTION.md palette), the warden's eyes (D-692)
 };
 
 // § blank: the grey "?" a thing made by tools/make.js wears until it is drawn (D-622): plainly
@@ -514,6 +515,14 @@ const LOCKET = { mirror: false, rows: [
   '..kTAAAAyAAAOk..', '..kTAAAyYyAAOk..', '..kTAAAAYAAAOk..', '..kTAAAAAAAAOk..', '...kTAAAAAAOk...', '....kkOOOOkk....',
   '......kkkk......', '', ''] };
 
+// § warden: look A4 of its mock-up (D-692), an old stone guard made by Underhearth's people, worn
+// by the years: grey rock's face, a chipped gold band on its chest, cracks, moss on a shoulder and
+// a foot, and an eye slit lit violet; asleep, the slit is dull stone (sprites.js, SLEEPING)
+const WARDEN = { mirror: false, rows: [
+  '', '', '.....kkkkkk.....', '....kHHkHHLk....', '....kHPPPPLk....', '....kgHHHLLk....', '..kkkkkkkkkkkk..',
+  '.kggHHHHkHHLLMk.', '.kHkoookooookMk.', '.kHkHHHkHHLLkMk.', '.kLkHHHHkLLLkDk.', '.kkkHHHHLLLMkkk.', '...kHHHLLLMMk...',
+  '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -534,4 +543,5 @@ export {
   GRUB_SKIN,
   GLOW_GLAND,
   LOCKET,
+  WARDEN,
 };

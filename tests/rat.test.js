@@ -15,8 +15,8 @@ const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES);
 const nextToRat = () => ({ ...start(), hero: { x: 3, y: 10 }, seed: FLEES }); // the coin says flee (D-301)
 const FLEES = 5, STANDS = 1; // seeds whose coin, for these hits, says flee or stand
 
-test('the registry has the rat, the gloamling, the lampmoth, the flask mimic, the cave spider, the scorpion, the bat, the mole, the snapcap, the herb mimic, the bone rat, the oil tick, the lure wisp, the centipede and the spit grub as enemies', () => {
-  assert.deepEqual(byKind('enemy').map((e) => e.id), ['rat', 'gloamling', 'lampmoth', 'flaskMimic', 'caveSpider', 'scorpion', 'bat', 'mole', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede', 'spitGrub']);
+test('the registry has the rat, the gloamling, the lampmoth, the flask mimic, the cave spider, the scorpion, the bat, the mole, the snapcap, the herb mimic, the bone rat, the oil tick, the lure wisp, the centipede, the spit grub and the warden as enemies', () => {
+  assert.deepEqual(byKind('enemy').map((e) => e.id), ['rat', 'gloamling', 'lampmoth', 'flaskMimic', 'caveSpider', 'scorpion', 'bat', 'mole', 'snapcap', 'herbMimic', 'boneRat', 'oilTick', 'lureWisp', 'centipede', 'spitGrub', 'warden']);
 });
 
 test('the first room has the rat where the study put it', () => {

@@ -3,6 +3,12 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; stage 0.2's are
 // in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.144', date: '2026-11-08', title: 'The warden', lines: [
+    "A new creature guards the Lightkeeper's Locket in place of the rat: the warden, an old stone guard made by Underhearth's people to guard their things. Cracked and mossy, with a chipped gold band and an eye slit.",
+    "It stands asleep as a statue, its eye dull, until you bump it. Then its eye lights violet and it chases you for 6 turns, and stands still again. It has 4 health and bites for 1 heart: four lantern swings or two knife blows.",
+    "It is seen as it is, never in disguise, so the Bestiary meets it on sight. It turns up only beside the locket.",
+    "Decisions: D-692. D-681 and D-682 moved to the archive, word for word.",
+  ] },
   { v: '0.3.143', date: '2026-11-08', title: 'The Lightkeeper\'s Locket', lines: [
     "Biome 1's first relic, the Lightkeeper's Locket: a tarnished brass oval on a thin chain, a tiny flame scratched on its face. \"Kept close, whatever the dark took.\"",
     "One lies in each world, in a room at depth 4 (never the one with the stairs up), in the room's far corner with a rat beside it guarding it. It is left once and never comes back.",

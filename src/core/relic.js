@@ -1,12 +1,13 @@
 // § relic: biome 1's first relic, the Lightkeeper's Locket (D-691), lies in one room at
-// depth 4, on the open tile farthest to walk from the way in that is free, with a rat
-// beside it guarding it, as the rat guards a flask. Left once, never grows back. Placed
+// depth 4, on the open tile farthest to walk from the way in that is free, with a warden
+// beside it guarding it, asleep as a statue (D-692; a rat at first, D-691). Left once, never grows back. Placed
 // last, from its own draws, so the rest of a seed's room stays where it was. Which room
 // is picked in room.js (`locketRoom`). Plain data, no drawing.
 import { rng, int } from './rng.js';
 import { steps } from './cache.js';
+import { get, asleepAtFirst } from './registry.js';
 
-export const RELIC_GUARD = 'rat'; // Claude's draft the owner may change (D-691)
+export const RELIC_GUARD = 'warden'; // the old-city warden (D-692)
 const same = (a, b) => a.x === b.x && a.y === b.y;
 const AROUND = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 
@@ -22,7 +23,7 @@ export function withRelic(seed, room, id = 'locket') {
     const beside = AROUND.map(([dx, dy]) => ({ x: at.x + dx, y: at.y + dy })).filter((t) => free(t.x, t.y));
     if (!beside.length) continue;
     const guard = beside[int(r, 0, beside.length - 1)];
-    return { ...room, items: [...room.items, { id, x: at.x, y: at.y, once: true }], enemies: [...room.enemies, { id: RELIC_GUARD, x: guard.x, y: guard.y }] };
+    return { ...room, items: [...room.items, { id, x: at.x, y: at.y, once: true }], enemies: [...room.enemies, { id: RELIC_GUARD, x: guard.x, y: guard.y, ...(asleepAtFirst(get(RELIC_GUARD)) && { asleep: true }) }] };
   }
   return room;
 }

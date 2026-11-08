@@ -33,3 +33,5 @@ const BY_LETTER = new Map(Object.values(TILES).map((t) => [t.letter, t]));
 export const get = (id) => BY_ID.get(id);
 export const byLetter = (ch) => BY_LETTER.get(ch);
 export const byKind = (kind) => ALL.filter((e) => e.kind === kind);
+// A creature that starts asleep: one in disguise (D-368), or one that `sleeps` as itself (D-692)
+export const asleepAtFirst = (entry) => !!(entry?.looksLike || entry?.sleeps);

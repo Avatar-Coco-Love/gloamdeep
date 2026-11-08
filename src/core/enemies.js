@@ -2,7 +2,7 @@
 // tiles, one per tile, in `state.enemies`. registry.js gathers this table.
 // An enemy in the state is { id, x, y }, plus `health` once it has been hit,
 // `chasing` once it has noticed the hero (D-127, D-157), `flees`, the turns
-// of fleeing it has left (D-301), `asleep` for one in disguise, `stirs` on the
+// of fleeing it has left (D-301), `asleep` for one in disguise or one that `sleeps` (D-692), `stirs` on the
 // turn it wakes and `awake`, the turns it has left to chase (D-368), and `facing` ('left'
 // or 'right', drawn facing right until it walks, D-158), and `colour`, the set it
 // wears, for a kind with `colours` (D-373). `ways` names how it
@@ -75,6 +75,11 @@ export const ENEMIES = {
   // tiles, it spits a glob that flies a tile a turn and hits for its `bite`, then rests 2 turns.
   // Beaten, it may drop a Grub Skin, and now and then a Glow Gland.
   spitGrub: { id: 'spitGrub', kind: 'enemy', glows: true, name: 'Spit grub', acts: "Never moves. When it sees your lit lantern down a clear row or column, it spits a glowing glob that flies a tile a turn, then rests.", fights: "Step out of the glob's line, hide behind rock, or put your lantern out. Rush it while it rests: one blow ends it.", health: 1, bite: 1, drops: 'grubSkin', rare: 'glowGland', ways: ['spits'], die: 'spitGrubDie', spitsSay: 'spitGrubSpits', hitSay: 'spitGrubHit' },
+  // An old stone guard made by Underhearth's people to guard their things (D-692), look A4.
+  // It `sleeps` as itself, a statue, drawn with its eyes dull, not in disguise: a bump wakes it,
+  // with no harm, and it chases for `awakeTurns` turns, then stands still again, the flask
+  // mimic's way (D-368). Tough, as the mole is. It guards the locket (relic.js); no drop yet.
+  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it and it wakes and chases you, then stands still again.", fights: "The bump that wakes it gives you a free turn, so strike at once. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['chases'], sleeps: true, awakeTurns: 6, hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
