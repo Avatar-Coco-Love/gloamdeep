@@ -340,3 +340,22 @@ Growth and Bestiary, quests, Lore and Feats later; and Stone goes into
 the stash chest, the Stone Pick and the garden bed, not later crafts
 (found while checking). Docs only. D-661 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-676 · 2026-11-07 · Docs F to I: the small ones** (the owner's
+picks, all recommended; F to I of D-660's findings, as D-666 set)
+`TECH-2.md`'s layout lists the maker, `tools/make.js` (D-621, D-622),
+and the map preview's page half, `tools/mappreview/page.js` (D-646,
+found while checking). `DEV-TOOLS.md` says Go to depth runs 0 to 99,
+starting on 1, depth 0 the crypt (D-212), not 1 to 99. Q-076 says the
+lure wisp is built (D-649), not built next. Docs only. D-662 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-677 · 2026-11-07 · Doc E: good for making things** (the owner's
+picks, both recommended; E of D-660's findings, as D-666 set) The nine
+materials a recipe uses, Stone, Copper Ore, Rat Tail, Moth Dust, Gloam
+Wisp, Spider Silk, Mole Fur, Snapcap Gill and Mimic Heart, say "…, good
+for making things." as the first line when chosen in the bag, not "for
+crafting later"; their other two lines stay. The eleven no recipe uses
+yet keep "for crafting later" until one does. A rules test checks each
+line against the recipes. D-663 moved to `archive/DECISIONS-AUDITS.md`,
+word for word.
