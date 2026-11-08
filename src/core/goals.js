@@ -1,4 +1,4 @@
-// § goals: teaching goals (D-705, D-706), the Quests tab's first kind of quest. A goal
+// § goals: teaching goals (D-705, D-706, D-710), the Quests tab's first kind of quest. A goal
 // appears at its own moment, shows as a line under the hearts panel until done, then turns
 // gold for GOLD_TURNS turns and pays a reward rolled from REWARDS, the seed picking. Goals live
 // in the profile, { [id]: { done, paid? } } in the order they appeared; a goal already done in
@@ -35,6 +35,11 @@ export const GOALS = [
   // pick), so it is never done on arrival; ticked quietly when its plate is woken already (the owner's pick)
   { id: 'stone', goal: 'Find the waystone', how: 'Old standing stones, near home.',
     shows: (c) => c.state.place === HOME, does: (c) => nearStone(c.state),
+    before: (c) => !!plateAt(c.state, 'A') },
+  // Once the waystone is found (the owner's pick); done on the step that wakes its plate (the
+  // owner's pick); ticked quietly when it is woken already (the owner's pick)
+  { id: 'wake', goal: 'Wake the waystone', how: 'Step on the plate in its middle.',
+    shows: (c) => !!c.goals.stone?.done, does: (c) => !!plateAt(c.state, 'A'),
     before: (c) => !!plateAt(c.state, 'A') },
 ];
 // The rewards, each its chance in 100 (D-706); a Glint is kept on the profile (Claude's call)

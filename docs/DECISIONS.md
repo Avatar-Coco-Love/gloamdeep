@@ -117,6 +117,12 @@ is never done on arriving from the crypt wall's gap. Ticked quietly, never
 shown, when the home plate is woken already. D-700 to D-703 moved to
 `archive/DECISIONS-LOOKS.md`, word for word.
 
+**D-710 · 2026-11-08 · The fourth teaching goal built** (the owner's
+picks, all recommended; builds D-706) "Wake the waystone" / "Step on the
+plate in its middle." shows once "Find the waystone" is done, after its
+gold turns, and is done on the step that wakes the plate. Ticked quietly,
+never shown, when the plate is woken already.
+
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,

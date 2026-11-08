@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.163', date: '2026-11-08', title: 'The fourth teaching goal', lines: [
+    "The fourth teaching goal: once the waystone is found, \"Wake the waystone\" and \"Step on the plate in its middle.\" show under the hearts panel. Step on the plate to wake it and the goal turns gold with its reward.",
+    "If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.",
+    "Decisions: D-710.",
+  ] },
   { v: '0.3.162', date: '2026-11-08', title: 'The third teaching goal', lines: [
     "The third teaching goal: on reaching the woods, \"Find the waystone\" and \"Old standing stones, near home.\" show under the hearts panel. Walk within 4 tiles of the stone and it turns gold with its reward.",
     "If you have already woken the waystone's plate, the goal is ticked quietly and pays its reward.",

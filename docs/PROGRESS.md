@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.162 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.163 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The fourth teaching goal (D-706): "Wake the waystone" / "Step on the plate in its middle.", once it is seen. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
+The fifth teaching goal (D-706): "Take a boon" / "Step back on the plate. Pick 1 of 3.", on stepping off the woken plate with no boon ever held. Or first the free pick of a locked look for each new profile (D-704), the owner choosing.
 
 ## Waiting on the owner
 - The eleventh audit's findings: which to fix (D-699), any time.
@@ -43,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-08, 0.3.163, The fourth teaching goal.** "Wake the waystone"
+  once the stone is found. The owner's picks, all recommended: done on
+  the step that wakes the plate; ticked quietly if it is woken already
+  (D-710).
+  Playtest: https://claude.ai/artifact/E2dFtHKhVvZxpot7BTZik4
 - **2026-11-08, 0.3.162, The third teaching goal.** "Find the waystone"
   on reaching the woods. The owner's picks, all recommended: done within
   4 tiles of the stone's middle, so never on arrival; ticked quietly if
@@ -53,9 +58,3 @@ list in `RESEARCH.md`.
   the woods are reached by the crypt wall's gap, not stairs, so its how
   line goes by where the hero is (D-708).
   Playtest: https://claude.ai/artifact/RhSaFaUjhNEEB3bZbumKPZ
-- **2026-11-08, 0.3.160, The first teaching goal.** The owner's picks
-  from a mock-up (https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8), all
-  recommended: "Beat a rat" in two lines under the hearts panel once a
-  rat is seen, gold for 3 turns with its rolled reward when done; the
-  Journal's fifth tab, Quests, opened by tapping the line (D-707).
-  Playtest: https://claude.ai/artifact/BD7Hpa6K7zmvuehMVQMZtp

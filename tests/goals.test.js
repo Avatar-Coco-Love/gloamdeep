@@ -11,7 +11,7 @@ const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, plac
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -102,6 +102,25 @@ test('finding the waystone shows on reaching the woods, and is done within 4 til
 test('finding the waystone is ticked quietly when its plate is woken already (D-709)', () => {
   const after = goalsAfter({}, 0, {}, [], { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 18 } });
   assert.equal(after.goals.stone.done, true);
+  assert.deepEqual(after.done, []);
+});
+
+test('waking the waystone shows once it is found, and is done on the step that wakes its plate (D-710)', () => {
+  const near = { ...base, place: 'woods', room: woods(), hero: { x: 8, y: 11 } };
+  const found = goalsAfter({ stone: { done: false } }, 0, {}, [], near);
+  assert.deepEqual(found.done, ['stone']);
+  assert.deepEqual(found.goals.wake, { done: false }, 'shows with the waystone found');
+  assert.equal(goalLine(found.goals, { id: 'stone', until: base.turn + GOLD_TURNS }, base.turn).id, 'stone', 'the found goal stays gold first');
+  assert.equal(goalLine(found.goals, null, base.turn).goal, 'Wake the waystone');
+  assert.equal(goalsAfter(found.goals, 0, {}, [], { ...near, hero: { x: 8, y: 9 } }).goals, found.goals, 'not done beside the plate');
+  const woke = goalsAfter(found.goals, 0, {}, [], { ...near, room: woods('A'), hero: { x: 8, y: 8 } });
+  assert.deepEqual(woke.done, ['wake']);
+  assert.equal(doneWords(woke.goals, 'wake'), `Wake the waystone. ${rewardText(woke.goals.wake.paid)}`);
+});
+
+test('waking the waystone is ticked quietly when it is woken already (D-710)', () => {
+  const after = goalsAfter({}, 0, {}, [], { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 18 } });
+  assert.equal(after.goals.wake.done, true);
   assert.deepEqual(after.done, []);
 });
 
