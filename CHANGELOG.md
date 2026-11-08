@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.161 (2026-11-08)
+- The second teaching goal: once "Beat a rat" is done, "Go home to the woods" shows under the hearts panel. Deeper down it says "Take the stairs up to the crypt.", in the crypt "Leave by the gap in the crypt wall." Reach the woods and it turns gold with its reward, rolled as the rat's is.
+- If you have already been to the woods this journey, the goal is ticked quietly and pays its reward.
+- Decisions: D-708.
+
 ## 0.3.160 (2026-11-08)
 - The first teaching goal: once you see a rat, "Beat a rat" and "Walk into it to strike." show under the hearts panel. Beat one and the line turns gold for 3 turns with what it paid, rolled from an oil flask, 2 healing herbs, 3 oilcaps, a Glint or a healing potion. A find that doesn't fit your bag is set at your feet.
 - The Journal has a fifth tab, Quests, listing each goal, the done ones with their reward. Tapping the goal line opens it. A rat beaten before this version ticks the goal quietly and pays its reward.
@@ -32,8 +37,3 @@ Entry format:
 - Nothing in the game changed. The first six teaching goals now have their words, each a goal and one line saying how, such as "Beat a rat" and "Walk into it to strike." Each appears at its own moment: going home once a rat is beaten, spending your ember as soon as you reach level 2.
 - The goal will sit under the hearts panel and open the Journal when tapped. Done, it turns gold and says what it paid, rolled from an oil flask, herbs, oilcaps, a Glint or a potion. The first boon you pick will open a card saying what boons are.
 - Decisions: D-706. Questions closed: Q-087.
-
-## 0.3.158 (2026-11-08)
-- Nothing in the game changed. A teaching map lists every system, where you first meet it and what tells you how it works. Five are never explained: fighting, embers and Growth, going home to the woods, the waystone, and the Journal.
-- Teaching goals are planned for those five, one at a time, each appearing when it helps, such as "beat a rat" once you see one. They will live in a Quests tab in the Journal, and each pays a reward rolled from a short list.
-- Decisions: D-705. Questions opened: Q-087.

@@ -162,7 +162,7 @@ export function createScreens(app, ui) {
   const closeJournal = () => (app.pageFrom === 'play' ? show('play') : backFromJournal()); // opened from the goal line, back to play (D-706)
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
   // Growth opens on Body's heart (D-481).
-  const journalPageWords = () => (app.tab === 'quests' ? questsWords(inPlay(app.profiles).goals) : app.tab === 'feats' ? featsWords(inPlay(app.profiles)) : app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
+  const journalPageWords = () => (app.tab === 'quests' ? questsWords(inPlay(app.profiles).goals, app.state?.place) : app.tab === 'feats' ? featsWords(inPlay(app.profiles)) : app.tab === 'growth' ? growthWords(app.state, app.growthPick) : app.tab === 'bestiary' ? (app.beastPage ? pageWords(inPlay(app.profiles).bestiary, app.beastPage) : bestiaryWords(inPlay(app.profiles).bestiary, app.beastPick)) : journalWords(inPlay(app.profiles).records, inPlay(app.profiles).played));
   function openJournal(tab = 'records') { app.tab = tab; app.growthPick = START_PICK; app.beastPick = 0; app.beastPage = null; show('journal'); }
   const openQuests = () => { app.walk = null; openJournal('quests'); }; // a tap on the goal line, in play (D-706)
   function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)

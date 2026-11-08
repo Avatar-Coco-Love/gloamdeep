@@ -302,7 +302,7 @@ export function createFrame(app, ui) {
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
-    const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn); // the teaching goal (D-706)
+    const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place); // the teaching goal (D-706)
     const mk = marksSize(marks.length), gl = goalSize(goal), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const listY = goalY + (gl.h ? gl.h + 2 : 0); // the marks under the panel, the goal line under them, the list under it
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;

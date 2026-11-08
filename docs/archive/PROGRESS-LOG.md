@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.158, Teaching goals planned.** The owner asked
+  whether simple goals could teach the game's many systems. A teaching
+  map (https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) found 5 never
+  explained; goals for them come one at a time as each helps, in a
+  Quests tab, with rolled rewards (D-705). Docs only; nothing to play.
 - **2026-11-08, 0.3.157, More hats and hoods.** The owner's picks (D-704):
   Horned didn't show because only three of D-703's eight drafts went in,
   so all five left join the HEAD tab (Horned's horns bone white always);
