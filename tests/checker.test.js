@@ -1,5 +1,5 @@
 // § checker: every registry entry has all its pieces (D-621). Adding a creature,
-// find, tile or person touches several files (docs/TECH.md, "Adding content");
+// find, tile or person touches several files (docs/TECH-2.md, "Adding content");
 // each test here names what is still missing and the file to fix, so a gap
 // shows at `npm test`, not as a bug later. Drawing and sound files need a
 // browser, so they are read as text.

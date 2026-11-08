@@ -56,7 +56,7 @@ Read the smallest file that answers the question.
 | `docs/WORLD.md` | regions, ways between rooms (D-170); the map and the starting region in `-2` | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
-| `docs/TECH.md` | architecture, code rules, adding content; the layout in `TECH-2.md` | before writing code |
+| `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
 | `CHANGELOG.md` | versions, newest first | the top entry only |

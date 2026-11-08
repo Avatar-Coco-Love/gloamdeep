@@ -90,3 +90,12 @@ some build on ideas above.
   another way.
 - **A vertical slice goal**: one 10-minute run, surface to depth 10, that
   feels whole and tense; new steps are judged by whether they improve it.
+
+## Ideas for later, from the build plan
+Moved word for word from `PROGRESS.md` at 0.3.152, the eleventh audit
+(D-699), to keep that page small. **Nothing here is decided.**
+
+Ideas for later (and the owner's wish list in `RESEARCH.md`): the boon cards dealt face down (D-603); gathering (D-282); more Records lines; painting rooms and saving them to a file (D-214); a Depth Meter to find or craft (the owner's idea); polish the outside art, and many generated looks for cave mouths (the owner's wish); menu themes, a changing or moving title background and hero (D-181); landmarks, NPC houses, special items, a second region,
+lit rooms glowing ahead, swimming (Q-039); the lantern by itself at
+low oil (D-210); music and more sounds (`RESEARCH.md`); scarcer light deeper
+(D-159); more places (D-152, D-163); cheaper lighting for phones, the look unchanged (D-294, D-295; what is left in `RESEARCH-PAGES.md`); workstations for some crafts (D-296); trees, weather, sun and moon (Q-034, Q-035).

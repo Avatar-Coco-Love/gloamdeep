@@ -1,6 +1,6 @@
 // § make: the maker (D-621, D-622). Not part of the game, which has no build step.
 // `node tools/make.js <kind> <id> "<Name>"` writes every empty piece of a new creature, find,
-// tile or person (docs/TECH.md, "Adding content"): its registry entry, its lines, its picture
+// tile or person (docs/TECH-2.md, "Adding content"): its registry entry, its lines, its picture
 // (the grey "?"), its sprite (and a creature's hit flash, a tile's drawing), where it lives,
 // its test and its content row. What still needs the owner's numbers, words and art is a marked
 // blank, `/* blank */` after a value or a `// blank:` note, and a content row of `?`s; the
@@ -77,7 +77,7 @@ function addRow(f, p, heading, id, cells) {
   f.write(p, text.slice(0, at) + `\n| \`${id}\` |${' ? |'.repeat(cells)}` + text.slice(at));
 }
 
-// § kinds: what each writes (docs/TECH.md, "Adding content")
+// § kinds: what each writes (docs/TECH-2.md, "Adding content")
 const MAKE = {
   creature(f, id, name) {
     insert(f, 'src/core/enemies.js', 'export const ENEMIES = {', '\n};', `\n  // ${name}: made by tools/make.js (D-622); a sound of its own is optional (sound.js)\n  ${id}: { id: ${q(id)}, kind: 'enemy', name: ${q(name)}, health: 1 ${B}, bite: 1 ${B}, ways: [] ${B}, acts: '' ${B}, fights: '' ${B}, die: '${id}Die', bites: '${id}Bite' },`);
