@@ -204,7 +204,8 @@ export const ITEMS = {
   // poisoned, healing nothing, and only while poisoned (D-652, D-655). Made, never found.
   antidote: { id: 'antidote', kind: 'item', name: 'Antidote', bag: true, max: 5, full: 'antidoteFull', cures: true, eats: 'antidoteDrink', verb: 'DRINK' },
   // Lightkeeper's Locket (D-691): biome 1's first relic, found, never made, left once in one
-  // room at depth 4 with a rat guarding it (relic.js, room.js). Carried for now; set on the
-  // shelf and keeping a find on a fall come at their own steps. Not sold.
-  locket: { id: 'locket', kind: 'item', name: 'Lightkeeper\'s Locket', bag: true, max: 1, says: 'locketTake', look: 'locketLook', full: 'locketFull' },
+  // room at depth 4 with a warden guarding it (relic.js, room.js, D-692). Carried for now; set on the
+  // shelf and keeping a find on a fall come at their own steps. Not sold. A `relic`: drawn with
+  // its own violet glow over the dark (sprites.js, drawRelics, D-692).
+  locket: { id: 'locket', kind: 'item', relic: true, name: 'Lightkeeper\'s Locket', bag: true, max: 1, says: 'locketTake', look: 'locketLook', full: 'locketFull' },
 };
