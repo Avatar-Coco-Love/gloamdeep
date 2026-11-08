@@ -52,22 +52,6 @@ freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
 
-**D-688 · 2026-11-08 · The Spit grub built** (the owner's picks, all
-recommended; mock-ups: https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L;
-builds D-659) Look A, a glowworm side on, a plump grub of bone-white
-rings, its tail glowing venom green; it `glows` with a green halo. A
-Grub Skin, about 1 in 2, sold for 1; a rare Glow Gland, sold for 5 as
-every rare one is. Its new way `spits` (`spit.js`): the glob starts on
-the tile beside it, so beside the hero with the lantern lit it hits at
-once; a glob hurts a creature in its path as a blow does. Built in one
-step, not two (changed in the open PR at the owner's word: the grub
-should play as designed from its first version). Claude's drafts the
-owner may change: a creature a glob beats leaves no drop and no
-experience; armour never turns a glob aside; a glob breaks on a person
-unharmed and flies over water; the grub turns to face where it spits; a
-tap-walk stops at a spit; the names and lines. D-675 moved to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-689 · 2026-11-08 · Relics from the old city** (the owner's picks,
 all recommended; step 20 of D-482, builds D-465, D-469, D-633) Relics
 are things left from Underhearth and the Lightkeepers, found, never
@@ -188,3 +172,16 @@ gap between names and counts is 16 pixels, not Records' 20, so the rows
 fit the upright card. The owner is not sure yet whether Rooms found and
 Torches lit belong in Feats or elsewhere (Q-057). D-659 moved to
 `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-698 · 2026-11-08 · Flasks, the third Feat** (the owner's picks, all
+recommended; builds D-695, D-697, narrows Q-055 and Q-057) The third
+Feat reads Flasks poured, reached at 5, 25 and 100 flasks and paying 1,
+2 and 3 Glints as every set does, smaller than Beaten's since a flask is
+poured less often than a creature is beaten. On the Feats tab and in its
+note it is named Flasks ("Feat reached: Flasks 5. +1 Glint."), not
+Flasks poured, so its row fits the upright card; Records keeps Flasks
+poured. Flasks poured before this count. The owner wants Glints to match
+the shop: with 18 to earn and 9 of patterns to buy, new looks come next,
+each kind its own step (more cloak patterns, then lantern looks, then
+hats or hoods), Claude showing a set and the owner choosing which join.
+D-688 moved to `archive/DECISIONS-BIOME-1.md`, word for word.

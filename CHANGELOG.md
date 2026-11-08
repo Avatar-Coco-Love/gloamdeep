@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.151 (2026-11-08)
+- A third Feat, Flasks: pour 5, 25 and 100 flasks for 1, 2 and 3 Glints. Its row on the Feats tab shows "2 of 5" and its 3 marks; Records still says Flasks poured.
+- Reaching a tier says so: "Feat reached: Flasks 5. +1 Glint." Flasks poured before count too.
+- All three Feats now pay 18 Glints. New looks to spend them on come in later steps.
+- Decisions: D-698. D-688 moved to the archive, word for word.
+
 ## 0.3.150 (2026-11-08)
 - A second Feat, Deepest: reach depth 5, 10 and 20 for 1, 2 and 3 Glints. Its row on the Feats tab shows "3 of 5" and its 3 marks.
 - Reaching a tier says so: "Feat reached: Deepest 5. +1 Glint." Depths walked to before count too.
@@ -34,11 +40,3 @@ Entry format:
 - A bought pattern is that hero's for good. It loses its LOCK, and RANDOM can roll it.
 - The Feats tab's gold number is now the Glints you have left to spend.
 - Decisions: D-696. D-687 moved to the archive, word for word.
-
-## 0.3.148 (2026-11-08)
-- The Journal has a fourth tab, Feats, after the Bestiary. A Feat is one record's set of 3 tiers, and each tier you reach pays Glints, the money for looks.
-- The first Feat is Beaten: 10, 50 and 200 creatures, paying 1, 2 and 3 Glints. The tab shows your Glints in gold at the top, then Beaten with your count toward the next tier, such as 12 of 50, and 3 small marks that turn gold as you reach them.
-- Creatures beaten before now count too. Reaching a tier says so: "Feat reached: Beaten 10. +1 Glint."
-- On an upright phone the Journal's tabs sit in two rows, Records and Growth over Bestiary and Feats. Right from the Bestiary turns to Feats.
-- Buying a cloak pattern with Glints, 3 each, comes at the next step.
-- Decisions: D-695. D-686 moved to the archive, word for word.

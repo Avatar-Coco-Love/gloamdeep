@@ -159,3 +159,19 @@ shows as the others' do. Drafts the owner may change: 1 heart, spit 1,
 the 5 tiles and 2 turns. Its look, drop and lines are shown with
 mock-ups at its build step. D-647 moved to
 `archive/DECISIONS-CHECKUP.md`, word for word.
+
+**D-688 · 2026-11-08 · The Spit grub built** (the owner's picks, all
+recommended; mock-ups: https://claude.ai/artifact/2VP35g4oZNwBYigfmoys1L;
+builds D-659) Look A, a glowworm side on, a plump grub of bone-white
+rings, its tail glowing venom green; it `glows` with a green halo. A
+Grub Skin, about 1 in 2, sold for 1; a rare Glow Gland, sold for 5 as
+every rare one is. Its new way `spits` (`spit.js`): the glob starts on
+the tile beside it, so beside the hero with the lantern lit it hits at
+once; a glob hurts a creature in its path as a blow does. Built in one
+step, not two (changed in the open PR at the owner's word: the grub
+should play as designed from its first version). Claude's drafts the
+owner may change: a creature a glob beats leaves no drop and no
+experience; armour never turns a glob aside; a glob breaks on a person
+unharmed and flies over water; the grub turns to face where it spits; a
+tap-walk stops at a spit; the names and lines. D-675 moved to
+`archive/DECISIONS-AUDITS.md`, word for word.

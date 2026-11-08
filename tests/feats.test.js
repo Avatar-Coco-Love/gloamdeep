@@ -1,4 +1,4 @@
-// § feats (D-284, D-467, D-695, D-697): the Beaten and Deepest Feats' 3 tiers, the Glints they pay, the tab and its note
+// § feats (D-284, D-467, D-695, D-697, D-698): the Beaten, Deepest and Flasks Feats' 3 tiers, the Glints they pay, the tab and its note
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { FEATS, featRows, featsWords, featNote, glints, glintsText, glintsLeft, priceNote, shopOf } from '../src/core/feats.js';
@@ -25,6 +25,17 @@ test('the second Feat is Deepest: depth 5, 10 and 20, paying 1, 2 and 3 Glints (
   assert.equal(featNote(deep(19), deep(20)), 'Deepest 20. +3 Glints');
 });
 
+test('the third Feat is Flasks, from Flasks poured: 5, 25 and 100, paying 1, 2 and 3 Glints (D-698)', () => {
+  assert.deepEqual(FEATS.map((f) => [f.text, f.record, f.tiers, f.pays])[2], ['Flasks', 'poured', [5, 25, 100], [1, 2, 3]]);
+  const pour = (poured) => ({ ...at(0), poured });
+  assert.deepEqual([0, 4, 5, 24, 25, 100].map((n) => glints(pour(n))), [0, 0, 1, 1, 3, 6]);
+  assert.equal(glints({ ...at(200), deepest: 20, poured: 100 }), 18, 'all three Feats pay 18');
+  assert.deepEqual(featRows(pour(2))[2], { id: 'poured', text: 'Flasks', value: '2 of 5', reached: 0, tiers: 3 });
+  assert.equal(featRows(pour(150))[2].value, '100');
+  assert.equal(featNote(pour(4), pour(5)), 'Flasks 5. +1 Glint');
+  assert.equal(featNote(pour(99), pour(100)), 'Flasks 100. +3 Glints');
+});
+
 test('Glints come from the tiers reached, counts made before Feats came too', () => {
   assert.deepEqual([0, 9, 10, 49, 50, 199, 200, 999].map((n) => glints(at(n))), [0, 0, 1, 1, 3, 3, 6, 6]);
   assert.equal(glintsText({ records: at(10), bought: [] }), '1 Glint');
@@ -35,7 +46,7 @@ test('a row says the count toward the next tier and how many marks are lit', () 
   assert.deepEqual(featRows(at(12))[0], { id: 'beaten', text: 'Beaten', value: '12 of 50', reached: 1, tiers: 3 });
   assert.deepEqual(featRows(at(3))[0].value, '3 of 10');
   assert.deepEqual(featRows(at(250))[0], { id: 'beaten', text: 'Beaten', value: '200', reached: 3, tiers: 3 });
-  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Left for the Bestiary. Esc or the close button goes back.');
+  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Flasks, 0 of 5, 0 of 3 reached. Left for the Bestiary. Esc or the close button goes back.');
 });
 
 test('reaching a tier gives a note, once (D-467)', () => {

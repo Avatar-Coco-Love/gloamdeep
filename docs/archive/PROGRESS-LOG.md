@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.148, Feats and Glints.** The owner's picks, all
+  recommended (D-695): Beaten is the first Feat, 10 / 50 / 200 paying
+  1 / 2 / 3 Glints; a pattern will cost 3. The Journal's Feats tab, the
+  tabs in two rows upright. Playtest:
+  https://claude.ai/artifact/AsGcSvSX59pCWavdZTQRz8
 - **2026-11-08, 0.3.147, The locket keeps a stack.** The owner's picks,
   all recommended (D-694): with the locket on the shelf, a Normal fall
   brings home the stack worth most to the peddler in all, a tie to the
