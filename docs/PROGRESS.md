@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.192 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.193 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -44,6 +44,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.193, The playbook caught up.** All recommended
+  (D-741): how the game grew, our tools, lessons from bugs and design
+  habits, in a new `WORKFLOW-2.md`; a step that teaches something adds
+  a line as it goes, sorted at each audit. No playtest: nothing to play.
 - **2026-11-09, 0.3.192, The twelfth audit.** All recommended (D-740):
   the 0.3 history split again, D-699 and D-734 to D-737 archived, steps
   21 and 22 archived, the hook's message fixed, the playbook grown, all
@@ -55,9 +59,3 @@ list in `RESEARCH.md`.
   mouth's rocks only rounded; the owner asked for better cave mouths in
   several looks and outside art polish, set after the audit.
   Playtest: https://claude.ai/artifact/KYrbqQCH1trwQ6cuHyBw7Y
-- **2026-11-09, 0.3.190, Mountain rooms.** The owner's picks (D-738):
-  rocky slopes, 3 boulders, sticks and the branch, all three made the same
-  way; recommended but the rock's look, which the next step draws
-  rounded, with rock past the edge too.
-  Playtest: https://claude.ai/artifact/PqKbpD1xRpci2eT48i5pxt · Map
-  preview: https://claude.ai/artifact/7jMiv7PDZwQMM71xSM8i2G
