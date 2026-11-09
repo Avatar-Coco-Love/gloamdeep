@@ -41,7 +41,8 @@ Narrowed by D-704: five more heads at 3 each, Brim and Ears free, so
 looks now cost 45; next, a free pick of one look for each new profile.
 Narrowed by D-714: every profile picks one locked look free; next,
 Carriage and Zebra free for everyone. Narrowed by D-715: Carriage and
-Zebra free, so looks now cost 39.
+Zebra free, so looks now cost 39. Narrowed by D-721: Rooms joins the
+Feats, which now pay 24.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
@@ -53,9 +54,10 @@ look currency (Q-055), shown in a Feats tab with a note on reaching one.
 Narrowed by D-695: Beaten at 10, 50 and 200. Narrowed by D-697: Deepest
 at depth 5, 10 and 20; a count Feat would likely be 10, 50 and 200, as
 Beaten. Narrowed by D-698: Flasks, from Flasks poured, at 5, 25 and 100.
-Still open: which other records get a set, and their numbers;
-the owner is not sure Rooms found and Torches lit belong in Feats or in
-something else.
+Narrowed by D-721: Rooms (from Rooms found) at 10, 50 and 200, Steps at
+1000, 5000 and 20000, Torches lit at 5, 25 and 100, each its own step;
+Falls and Time played get none. Still open: Steps' and Torches lit's
+names on the tab, at their steps.
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each

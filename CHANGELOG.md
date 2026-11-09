@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.174 (2026-11-09)
+- The Journal's Feats tab has a fourth Feat, Rooms: find 10, 50 and 200 rooms, across all your journeys, for 1, 2 and 3 Glints. Rooms found before this count too. Reaching one says "Feat reached: Rooms 10. +1 Glint."
+- Decisions: D-721.
+
 ## 0.3.173 (2026-11-09)
 - Creatures and oil flasks made with the dev tools' Spawn no longer count toward your Records or Feats. Beating a spawned creature still gives experience and drops, and it is still met in the Bestiary, but its beaten count stays. Pouring a spawned flask adds nothing to Flasks poured.
 - Decisions: D-720.
@@ -31,7 +35,3 @@ Entry format:
 - Fixed: reaching two Feats in one turn now shows both in one note, such as "Feat reached: Beaten 10, Flasks 5. +2 Glints."
 - Fixed: a Feat note no longer hides that turn's own line, such as a level-up or "The locket kept…". That line shows first, and the Feat note follows on your next move.
 - Decisions: D-719.
-
-## 0.3.171 (2026-11-09)
-- Bats, lampmoths and lure wisps now fly over water, cave pools and the pond alike. Walk into one hovering over water to strike it, with the rod held or not; anything it drops lands on the nearest dry ground.
-- Decisions: D-718.
