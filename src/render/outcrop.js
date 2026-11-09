@@ -1,6 +1,6 @@
 // § outcrop: the surface's grey rock, by the cave mouth and in the mountain
 // rooms, drawn rounded as the cave's walls are (D-738, D-739): the same mask
-// (rock.js), its corners rounded and edges wandering, a sunlit cap, a front face
+// (rock.js), its corners rounded and edges wandering smoothly, no loose pixels (D-747), a sunlit cap, a front face
 // of piled chunks where open ground lies below, and shade on the grass under it.
 // Walking is still by tile, and an open tile's middle is never covered. In a
 // room whose edge is rock (mountain.js), the rock goes on past the edge but
@@ -14,7 +14,7 @@ import { mask, chunks, FACE_H } from './rock.js';
 // Lit by day (D-739): a sunlit grey cap, not the cave's near-black, and fuller,
 // so a lone rock tile stays a lump; the face and its foot as the cave's
 const CAP = '#4a5266', GRIT = '#555e73', EDGE = '#7a8499', FOOT = '#14161d';
-const WOBBLE = 0.45, LEVEL = 0.32; // the cave's are 0.55 and 0.5
+const WOBBLE = 0.6, LEVEL = 0.32; // the cave's are 0.55 and 0.5; the wobble is smooth (D-747)
 
 // (room) → the tiles' rock for the room's own drawing: past the edge, rock
 // in a room whose edge is rock but straight out from its open edge tiles
@@ -35,7 +35,7 @@ export function wideOutcrops(wide, out) {
 // (room, win, put, shade, walls, more): paint the rock into the pixels of
 // `win`, { x0, y0, w, h }. `more(x, y)`: more pixels of rock (the arch, mouth.js).
 export function paintOutcrops(room, win, put, shade, walls, more = () => false) {
-  const { x0: X0, y0: Y0, w: W, h: H } = win, m = mask(room, WOBBLE, win, { ...walls, level: LEVEL });
+  const { x0: X0, y0: Y0, w: W, h: H } = win, m = mask(room, WOBBLE, win, { ...walls, level: LEVEL, soft: true });
   const rock = (x, y) => (x < X0 || y < Y0 || x >= X0 + W || y >= Y0 + H ? walls.wall(Math.floor(x / T), Math.floor(y / T)) === 1 : m[(y - Y0) * W + x - X0] === 1 || more(x, y));
   for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
     if (!rock(x, y)) {

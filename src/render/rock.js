@@ -30,7 +30,7 @@ const STONES = 0.5; // the share of earth floor tiles with a stone
 
 // § mask: 1 for rock, for every pixel. Tile middles are 1 (wall) or 0, mixed
 // between middles and cut at a level that wobbles in 3-pixel steps, so edges
-// stay chunky pixel art. An opening in the room's edge stays clear to the
+// stay chunky pixel art (smoothly, for the surface's rock). An opening in the room's edge stays clear to the
 // edge: the tile beyond it counts as floor, and its own tile has no rock (D-201).
 // `win`: the pixels to work out, { x0, y0, w, h }, the room's own or wider.
 const floorDiv = (a, n) => Math.floor(a / n), mod = (a) => ((a % T) + T) % T; // right for pixels left of or above the room too
@@ -41,12 +41,16 @@ function roomWalls(room) {
   return { wall, gap };
 }
 // `solidAt`: a tile drawn whole as rock, the room's walls but for the surface's rock (outcrop.js);
-// `level`: where the cut lies between 0 and 1, lower for fuller rock
-export function mask(room, wobble, win, { wall, gap, solidAt = (x, y) => isWall(room, x, y), level = 0.5 }) {
+// `level`: where the cut lies between 0 and 1, lower for fuller rock; `soft`: the cut wobbles
+// smoothly, not in 3-pixel steps, and a lone pixel is cleaned off (the surface's rock, D-747)
+export function mask(room, wobble, win, { wall, gap, solidAt = (x, y) => isWall(room, x, y), level = 0.5, soft = false }) {
   const { x0: X0, y0: Y0, w: W, h: H } = win, m = new Uint8Array(W * H);
+  // Soft: worked out one pixel past the window all round, so the cleaning sees each pixel's
+  // four neighbours, the same wherever the window lies; no seam where two windows meet
+  const P = soft ? 1 : 0, RX = X0 - P, RY = Y0 - P, RW = W + 2 * P, RH = H + 2 * P, raw = soft ? new Uint8Array(RW * RH) : m;
   // Each tile worked out once, not for every pixel: its wall value, whether it is
   // a wall, and whether it stays clear (a way on, or an opening in the edge)
-  const TX = floorDiv(X0, T) - 1, TY = floorDiv(Y0, T) - 1, TW = floorDiv(X0 + W - 1, T) + 2 - TX, TH = floorDiv(Y0 + H - 1, T) + 2 - TY;
+  const TX = floorDiv(RX, T) - 1, TY = floorDiv(RY, T) - 1, TW = floorDiv(RX + RW - 1, T) + 2 - TX, TH = floorDiv(RY + RH - 1, T) + 2 - TY;
   const v1 = new Uint8Array(TW * TH), solid = new Uint8Array(TW * TH), clear = new Uint8Array(TW * TH);
   for (let ty = TY; ty < TY + TH; ty++) for (let tx = TX; tx < TX + TW; tx++) {
     const i = (ty - TY) * TW + tx - TX, isW = solidAt(tx, ty);
@@ -54,17 +58,28 @@ export function mask(room, wobble, win, { wall, gap, solidAt = (x, y) => isWall(
     clear[i] = +(!isW && (!!tileAt(room, tx, ty).leads || gap(tx, ty)));
   }
   const at = (tx, ty) => v1[(ty - TY) * TW + tx - TX];
-  for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
-    const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y), i = (ty - TY) * TW + tx - TX;
+  const open = (x, y) => { const i = (floorDiv(y, T) - TY) * TW + floorDiv(x, T) - TX, ix = mod(x), iy = mod(y); return !solid[i] && (clear[i] || ix > 3 && ix < 12 && iy > 3 && iy < 12); };
+  for (let y = RY; y < RY + RH; y++) for (let x = RX; x < RX + RW; x++) {
+    const i = (floorDiv(y, T) - TY) * TW + floorDiv(x, T) - TX;
     const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
     const v = (at(x0, y0) * (1 - ax) + at(x0 + 1, y0) * ax) * (1 - ay) + (at(x0, y0 + 1) * (1 - ax) + at(x0 + 1, y0 + 1) * ax) * ay;
-    let rock = v > level - (hash(floorDiv(x, 3), floorDiv(y, 3), 7) - 0.5) * wobble;
+    let rock = v > level - ((soft ? softNoise(x, y) : hash(floorDiv(x, 3), floorDiv(y, 3), 7)) - 0.5) * wobble;
     if (solid[i] && v > 0.95) rock = true;
-    if (!solid[i] && (clear[i] || ix > 3 && ix < 12 && iy > 3 && iy < 12)) rock = false;
-    m[(y - Y0) * W + x - X0] = rock ? 1 : 0;
+    if (open(x, y)) rock = false;
+    raw[(y - RY) * RW + x - RX] = rock ? 1 : 0;
+  }
+  if (soft) for (let y = Y0; y < Y0 + H; y++) for (let x = X0; x < X0 + W; x++) {
+    const j = (y - RY) * RW + x - RX, n = raw[j - 1] + raw[j + 1] + raw[j - RW] + raw[j + RW];
+    m[(y - Y0) * W + x - X0] = n <= 1 ? 0 : n >= 3 && !open(x, y) ? 1 : raw[j]; // a lone pixel or spike off, a notch filled
   }
   return m;
 }
+// Smooth value noise, two layers, for the soft cut: about 6 pixels across a bump
+function smooth(x, y, s) {
+  const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0, sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+  return (hash(x0, y0, s) * (1 - sx) + hash(x0 + 1, y0, s) * sx) * (1 - sy) + (hash(x0, y0 + 1, s) * (1 - sx) + hash(x0 + 1, y0 + 1, s) * sx) * sy;
+}
+const softNoise = (x, y) => smooth(x / 6, y / 6, 7) * 0.65 + smooth(x / 6 * 2.1, y / 6 * 2.1, 8) * 0.35;
 
 // § face: grey is piled chunks of rock, each the nearest of a few hashed
 // points, with dark seams between and the top of each chunk catching the light

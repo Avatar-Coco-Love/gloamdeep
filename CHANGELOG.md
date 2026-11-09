@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.199 (2026-11-09)
+- The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.
+- Decisions: D-747.
+
 ## 0.3.198 (2026-11-09)
 - A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.
 - Decisions: D-746.
@@ -31,8 +35,3 @@ Entry format:
 - The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.
 - The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.
 - Decisions: D-745.
-
-## 0.3.196 (2026-11-09)
-- A new look for the cave mouth: a craggy cave, wide and black, with teeth of rock hanging from its top. The seed picks it or the small arch, so worlds differ.
-- On a side or bottom edge, the rock roofs over the craggy cave and the ground dives black beneath it. A few pebbles lie at the rocks' feet. Walking is unchanged.
-- Decisions: D-744. New question: Q-089, falling down holes.
