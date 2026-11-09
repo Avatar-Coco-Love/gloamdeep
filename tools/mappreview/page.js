@@ -10,6 +10,7 @@ import { fresh } from '../../src/core/stairs.js';
 import { areaAt, tileAt } from '../../src/core/room.js';
 import { get } from '../../src/core/registry.js';
 import { SEED_MAX } from '../../src/core/rng.js';
+import { ROOMS as HEARTH, HOME_ID, isMountain, kindOf } from '../../src/core/hearthwood.js';
 
 // § state: the seeds seen this visit (Back steps through them), the depth, the marks shown
 const K = 8, DEPTHS = 13, BIOME_LAST = 8, CRYPT_ROOMS = ['first', 'south', 'second'];
@@ -28,6 +29,9 @@ const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#f
 const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
 const SHAPE_NAME = { 1: 'one cell', 2: 'a hall, 2 cells', 4: 'a large room, 2 × 2 cells' };
 const name = (id) => get(id)?.name || id;
+// § kinds: a Hearthwood room's kind, in words (D-738, D-756)
+const KIND_WORDS = { thick: 'thick woods', woods: 'woods, as before', glade: 'an open glade' };
+const kindWords = (s, id) => (!HEARTH.includes(id) ? null : isMountain(id) ? 'a mountain room' : id === HOME_ID ? 'home, woods as before' : KIND_WORDS[kindOf(s, id)]);
 
 // § the floor: its plan, every room's contents, and for a generated depth its way
 const cache = new Map();
@@ -133,7 +137,7 @@ function room() {
   const tiles = Object.entries(r.tiles).filter(([id]) => !id.startsWith('stairs')).map(([id, n]) => `${name(id)} ${n}`).join(', ') || 'none';
   panel.innerHTML = '';
   const rows = [
-    ['Room', r.id], ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${SHAPE_NAME[cell.w * cell.h]}${cell.w * cell.h === 2 ? (cell.w === 2 ? ' side by side' : ', one above the other') : ''} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
+    ['Room', r.id], ...(kindWords(seed(), r.id) ? [['Kind', kindWords(seed(), r.id)]] : []), ...(cell ? [['Cell', `${cell.x}, ${cell.y} · ${SHAPE_NAME[cell.w * cell.h]}${cell.w * cell.h === 2 ? (cell.w === 2 ? ' side by side' : ', one above the other') : ''} · ${cell.cols} × ${cell.rows} tiles · its seed ${cell.seed}`]] : []),
     ...(role ? [['Where', `${role}${step !== undefined ? ` · ${step} joins from the stairs up` : ''}`]] : []),
     ['Creatures', list(r.enemies)], ['Finds', list(r.items.filter((it) => !cached(it)))], ...(cell?.end ? [['Cache', list(r.items.filter(cached))]] : []), ['People', list(r.people)], ['Tiles', tiles],
   ];

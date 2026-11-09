@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { newJourney } from '../src/core/state.js';
 import { fall } from '../src/core/fall.js';
 import { setDown, step, takeDown } from '../src/core/turn.js';
+import { setSides } from '../src/core/bagturn.js';
 import { tileAt } from '../src/core/room.js';
 import { DUSK } from '../src/core/daytime.js';
 import { wakeSpot } from '../src/core/waking.js';
@@ -17,12 +18,14 @@ const wokeStone = (w) => {
   const id = stoneHome(w.seed), home = w.elsewhere[id], map = home.room.map.map((line) => line.replace('Z', 'A'));
   return { ...w, elsewhere: { ...w.elsewhere, [id]: { ...home, room: { ...home.room, map } } } };
 };
-// The bed set down beside the hero in the start room and slept in at dusk; `from` is where they stood
-function slept(w) {
-  const bag = setDown({ ...w, bag: [{ id: 'bed', n: 1 }] }, 0, 'right');
-  const bed = { x: w.hero.x + 1, y: w.hero.y };
+// The bed set down beside the hero in the start room and slept in at dusk; `from` is where they stood.
+// On the first side it fits, as a thick woods start room may have no room on the right (D-756).
+const SIDE = { right: [1, 0], left: [-1, 0], down: [0, 1], up: [0, -1] };
+function slept(w0) {
+  const w = { ...w0, bag: [{ id: 'bed', n: 1 }] }, dir = setSides(w, 0)[0], bag = setDown(w, 0, dir);
+  const from = { x: w.hero.x, y: w.hero.y }, bed = { x: from.x + SIDE[dir][0], y: from.y + SIDE[dir][1] };
   assert.equal(tileAt(bag.room, bed.x, bed.y).id, 'bedstead');
-  return { state: step({ ...bag, turn: DUSK, line: null }, 'right'), bed };
+  return { state: step({ ...bag, turn: DUSK, line: null }, dir), bed, from };
 }
 const walked = (s, hero) => ({ ...s, hero, health: 0 });
 
@@ -40,31 +43,31 @@ test('with the home waystone woken, a fall wakes on its plate, no boon offered',
 });
 
 test('the bed slept in is remembered; a fall wakes on the tile lain down from, before the waystone', () => {
-  const { state, bed } = slept(wokeStone(newJourney(42, 'normal')));
-  assert.deepEqual(state.bed, { place: state.place, x: bed.x, y: bed.y, from: { x: bed.x - 1, y: bed.y } });
-  const woke = fall(walked(state, { x: bed.x - 1, y: bed.y - 2 }));
+  const { state, bed, from } = slept(wokeStone(newJourney(42, 'normal')));
+  assert.deepEqual(state.bed, { place: state.place, x: bed.x, y: bed.y, from: from });
+  const woke = fall(walked(state, { x: from.x, y: from.y - 2 }));
   assert.equal(woke.place, state.place);
-  assert.deepEqual(woke.hero, { x: bed.x - 1, y: bed.y });
+  assert.deepEqual(woke.hero, from);
 });
 
 test('with something on that tile, the nearest open tile beside the bed', () => {
-  const { state, bed } = slept(newJourney(42, 'normal'));
-  const blocked = { ...state, items: [...state.items, { id: 'stick', x: bed.x - 1, y: bed.y }] };
+  const { state, bed, from } = slept(newJourney(42, 'normal'));
+  const blocked = { ...state, items: [...state.items, { id: 'stick', ...from }] };
   const spot = wakeSpot(blocked);
   assert.equal(spot.place, state.place);
-  assert.notDeepEqual(spot.hero, { x: bed.x - 1, y: bed.y });
+  assert.notDeepEqual(spot.hero, from);
   assert.equal(Math.abs(spot.hero.x - bed.x) + Math.abs(spot.hero.y - bed.y), 1, 'right beside it');
   assert.equal(tileAt(state.room, spot.hero.x, spot.hero.y).solid, false);
 });
 
 test('a fall in another room wakes beside the bed in its room', () => {
-  const { state, bed } = slept(newJourney(42, 'normal'));
+  const { state, bed, from } = slept(newJourney(42, 'normal'));
   const there = { room: state.room, lights: state.lights, enemies: state.enemies, items: state.items, people: [], taken: [], seen: state.seen };
   const away = { ...state, ...state.elsewhere.woods, place: 'woods', elsewhere: { ...state.elsewhere, [state.place]: there }, hero: { x: 5, y: 5 }, health: 0 };
   delete away.elsewhere.woods;
   const woke = fall(away);
   assert.equal(woke.place, state.place);
-  assert.deepEqual(woke.hero, { x: bed.x - 1, y: bed.y });
+  assert.deepEqual(woke.hero, from);
 });
 
 test('taking the bed down forgets it until slept in again', () => {

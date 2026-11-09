@@ -31,7 +31,10 @@ beside it by a path 3 tiles wide through the edge trees.
 - The other 6 cells: woods rooms.
 - How big each kind is and how its shape is made: Q-038.
 - Woods rooms range from thick woods to open glades, the seed picking
-  (D-733, planned).
+  (D-733). Since 0.3.207 (D-756) each of the 5 round home is thick
+  woods, woods as before or an open glade, at least one thick and one
+  glade each seed; home stays as before (`KINDS` in `woods.js`,
+  `kindsOf` in `hearthwood.js`).
 
 ## Fixed promises, every seed
 - **Home base** in the centre cell (D-182). Since 0.3.187 (D-735) a new
