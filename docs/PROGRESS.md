@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.177 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.178 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-A flask left unguarded (Q-075, D-724): propose how likely it is that a room's flask has no rat by it, and from which depth.
+Begin a journey on the surface (Q-081, D-725): propose how a journey could start on the surface, as its own small step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -20,8 +20,7 @@ A flask left unguarded (Q-075, D-724): propose how likely it is that a room's fl
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- A chance of an unguarded flask (Q-075), Next up.
-- Begin a journey on the surface (Q-081), as its own small step.
+- Begin a journey on the surface (Q-081), Next up.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 
@@ -40,6 +39,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.178, A flask left unguarded.** The owner's picks,
+  all recommended (D-725): from depth 2, each flask 1 in 4 with no rat by
+  it, a hall's each alone; the guard goes elsewhere in the dark, picked
+  again from the pool. Another creature still stands near about 1 in 3
+  of those by chance, left as is. Q-075 closed. Next, the surface (Q-081).
+  Playtest: https://claude.ai/artifact/CkWdSSvstF5PBfZHJFFamE
+  Map preview: https://claude.ai/artifact/QFnsLzyontkrDc87kmcJpb
 - **2026-11-09, 0.3.177, Glints and the prices of looks.** The owner's
   picks, both recommended (D-724): the balance stays, 13 locked looks at
   3 cost 39, the Feats' 36 and the free pick buy them all, goal Glints a
@@ -51,9 +57,3 @@ list in `RESEARCH.md`.
   count 13 pixels into the marks upright, Torches fits exactly. Q-057
   closed; step 21 done. Next, Glints and look prices (Q-055).
   Playtest: https://claude.ai/artifact/GmZGZdquFYAbPgT8anmafZ
-- **2026-11-09, 0.3.175, Steps, the fifth Feat.** The owner's picks,
-  both recommended (D-722): Steps at 1000, 5000 and 20000, named Steps
-  as in Records. "19999 of 20000" didn't fit the upright card, so the
-  tab writes the goal in k ("4321 of 5k") and the gap before the counts
-  is 8 pixels, not 16. Next, Torches lit.
-  Playtest: https://claude.ai/artifact/2gT3ENq2gAb5zGsitpodqh

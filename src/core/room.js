@@ -7,6 +7,7 @@ import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
 import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
+import { withUnguarded } from './unguarded.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -224,7 +225,8 @@ export function placeFor(id, seed = 1) {
   const moth = made && mixed(made, cell.seed, depth);
   const mimicked = moth && mimicRooms(seed, depth).includes(id) ? withMimic(cell.seed, moth) : moth;
   const bigger = mimicked && sized(mimicked, cell.seed, depth, cell); // more in a hall or large room (D-651)
-  const guanoed = bigger && withGuano(cell.seed, bigger); // a pile by each bat, placed last (D-539)
+  const loose = bigger && withUnguarded(cell.seed, bigger, poolAt(depth), (e) => dressed(cell.seed, [e])[0]); // 1 flask in 4 with no rat by it (D-725)
+  const guanoed = loose && withGuano(cell.seed, loose); // a pile by each bat, placed last (D-539)
   const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
   const relic = cached && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, cached) : cached; // placed after the rest (D-691)
   const room = relic && landmark ? { ...relic, map: unpad(relic.map, landmark.mark, landmark.at) } : relic; // its pad floor again (D-620)

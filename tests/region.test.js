@@ -4,6 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { layoutAt, sizeAt, roomSize } from '../src/core/region.js';
 import { seedFor } from '../src/core/rng.js';
+import { unguardedOf } from '../src/core/unguarded.js';
 import { placeFor, placeBeside, tileAt, depthOf, poolAt, sideAt } from '../src/core/room.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth, goToPlace } from '../src/core/stairs.js';
@@ -58,7 +59,7 @@ test('every room is made, not the fallback, with its stairs and contents', () =>
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);
     const ids = p.enemies.map((e) => e.id).filter((id) => id !== 'flaskMimic');
-    assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(depth).includes(id))); // the mix (D-534)
+    if (!unguardedOf(c.seed, 1)[0]) assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(depth).includes(id))); // the mix (D-534), the first guard moved when its flask is unguarded (D-725)
   }
 });
 
@@ -150,7 +151,7 @@ test('stairs up and their torch, and stairs down, each in one room; each room ha
     const sets = c.w * c.h, each = (ids) => Array.from({ length: sets }, () => ids).flat(); // a set a cell in a hall or large room (D-651)
     assert.deepEqual(p.items.filter((it) => !it.once).map((it) => it.id).filter((id) => id !== 'heartcap'), c.up ? ['flask', 'herb', 'knife', 'oilcap', ...each(['flask', 'herb', 'oilcap']).slice(3)] : each(['flask', 'herb', 'oilcap'])); // an oilcap in each (D-296) // the knife by the stairs up (D-252); a dead end's cache aside (D-650)
     const ids = p.enemies.map((e) => e.id);
-    assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(2).includes(id)));
+    if (!unguardedOf(c.seed, 1)[0]) assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(2).includes(id))); // (D-725)
   }
 });
 

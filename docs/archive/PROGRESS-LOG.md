@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.175, Steps, the fifth Feat.** The owner's picks,
+  both recommended (D-722): Steps at 1000, 5000 and 20000, named Steps
+  as in Records. "19999 of 20000" didn't fit the upright card, so the
+  tab writes the goal in k ("4321 of 5k") and the gap before the counts
+  is 8 pixels, not 16. Next, Torches lit.
+  Playtest: https://claude.ai/artifact/2gT3ENq2gAb5zGsitpodqh
 - **2026-11-09, 0.3.174, Rooms, the fourth Feat.** The owner's picks:
   Rooms found, Steps and Torches lit each get a Feat, one a step; Falls
   and Time played none (D-721). Rooms first, at 10, 50 and 200, named

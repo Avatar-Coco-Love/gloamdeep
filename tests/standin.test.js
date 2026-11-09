@@ -36,12 +36,12 @@ test('rooms that were made before come out exactly as they did', () => {
   // and at 0.3.97, when the rooms became cells of bigger grids, and at 0.3.98, with halls and large rooms (D-645),
   // and at 0.3.100, when the lure wisp joined the pool from depth 4 (D-649), and at 0.3.101, with the dead ends' caches (D-650),
   // and at 0.3.102, with more in the halls and large rooms (D-651), and at 0.3.106, when the centipede joined the pool from depth 3 (D-654),
-  // and at 0.3.140, when the spit grub joined the pool from depth 4 (D-659)
+  // and at 0.3.140, when the spit grub joined the pool from depth 4 (D-659), and at 0.3.178, when 1 flask in 4 lost its guard (D-725)
   for (let seed = 1; seed <= 20; seed++) for (const d of [8, 14, 20]) for (const c of layoutAt(seed, d).cells) {
     if (c.id === stoneRoom(seed, d)) continue; // made with its stone, every other room as before
     for (const ch of JSON.stringify(placeFor(c.id, seed))) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   }
-  assert.equal(h, 3121735182);
+  assert.equal(h, 1624872228);
 });
 
 test('an old save\'s stand-in is made again, and the rooms that fit stay as they were', () => {

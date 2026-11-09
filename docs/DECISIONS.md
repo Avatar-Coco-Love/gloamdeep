@@ -122,20 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-720 · 2026-11-09 · The audit's last fixes: the warden asleep, the
-spawned ones** (the owner's picks, all recommended; the eleventh audit's
-B4 and Q1, D-699) B4: the creature plaques are drawn only, for every
-creature, and one asleep gets none; the warden asleep as a statue never
-moves or notices the hero, so it needs none, as meant. Nothing changes.
-Q1: a creature the dev tools' Spawn makes is marked; beating it adds
-nothing to Beaten, the Feats or the Bestiary's beaten count (it is still
-met), and it still gives experience and drops. A spawned flask the same:
-poured, it adds nothing to Flasks poured. The bag keeps count of the
-spawned flasks picked up, and a flask poured while any are carried is
-one of them; a fall clears the count. Teaching goals are as before.
-Next, more Feats (Q-057). D-714 and D-715 move to
-`archive/DECISIONS-LOOKS.md`.
-
 **D-721 · 2026-11-09 · More Feats: Rooms first** (the owner's picks;
 builds D-695, narrows Q-057) Three more Records get a Feat, each its
 own step: Rooms found, then Steps, then Torches lit; Falls and Time
@@ -181,3 +167,17 @@ new set of looks comes with a new Feat, or new tiers, so Glints keep up
 with the shop. Next, the owner's pick, recommended: a flask left
 unguarded (Q-075). D-719 moves to `archive/DECISIONS-FEATS.md`, word
 for word.
+
+**D-725 · 2026-11-09 · A flask left unguarded** (the owner's picks, all
+recommended; answers Q-075, builds D-534) In every made room, from
+depth 2, each flask has a 1 in 4 chance, from the room's seed, of no rat
+by it; each flask of a hall or large room rolls alone, and the hand-made
+rooms keep their guard. The guard goes somewhere else in the dark, by
+its own rules but more than 2 tiles from every flask, picked again from
+the depth's pool, so the room keeps its count and at least two kinds; a
+guard with nowhere to go stays. Its own draws, so the rest of a seed's
+room stays where it was. Another creature may still stand near by
+chance (about 1 flask in 3 that rolls), left as is (the owner's pick,
+recommended), so about 1 flask in 6 has nothing by it. Next, the owner's
+pick, recommended: begin a journey on the surface (Q-081). D-720 moves
+to `archive/DECISIONS-AUDITS.md`, word for word.

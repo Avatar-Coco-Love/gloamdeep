@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { placeFor, creaturesAt, poolAt, locketRoom, LOCKET_DEPTH } from '../src/core/room.js';
 import { layoutAt, sizeAt } from '../src/core/region.js';
+import { unguardedOf } from '../src/core/unguarded.js';
 
 const plain = (p) => p.items.filter((i) => !i.once); // the dead end's cache aside (D-650)
 const of = (list, id) => list.filter((i) => i.id === id);
@@ -41,7 +42,8 @@ test('a hall\'s extra creatures are a mix: a rat by each extra flask, the rest o
     if (c.w * c.h < 2) continue;
     const p = placeFor(c.id, seed), extra = p.enemies.filter((e) => e.id !== 'flaskMimic').slice(creaturesAt(6));
     extra.forEach((e) => seen.add(e.id));
-    for (const f of of(plain(p), 'flask').slice(1)) {
+    const fs = of(plain(p), 'flask'), loose = unguardedOf(c.seed, fs.length);
+    for (const [i, f] of fs.entries()) if (i > 0 && !loose[i]) { // an unguarded flask's rat is elsewhere (D-725)
       assert.ok(p.enemies.some((e) => e.id === 'rat' && Math.abs(e.x - f.x) + Math.abs(e.y - f.y) <= 2), `seed ${seed} ${c.id} no rat by a flask`);
     }
   }
