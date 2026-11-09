@@ -158,3 +158,15 @@ it quietly, so every journey has it. While the dark is here and the
 lantern is off, it goes ahead of any goal waiting, as the ember's does.
 Claude's call the owner may change: switching the lantern, which passes
 no turn, checks the goals at once.
+
+**D-737 · 2026-11-09 · Waking after a fall** (the owner's picks, all
+recommended; builds D-733's step 3, supersedes D-119's crypt and D-735's
+"until step 3") A Normal or Gentle fall wakes the hero in the last bed
+slept in, on the tile they lay down from; with something there now, on
+the nearest open tile beside the bed. With no bed, on the home
+waystone's plate once it is woken, no boon offered until the hero steps
+off and back on. Otherwise in the room where the journey began, on its
+tile. Taking the bed down forgets it until it is slept in again. The
+fall line stays "You fall, and wake again." Hardcore still begins the
+world again. Claude's call the owner may change: the code is
+`src/core/waking.js`.

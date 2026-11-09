@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.189 (2026-11-09)
+- Where you wake after a fall: beside the last bed you slept in, on the spot you lay down from (or the nearest free spot beside the bed). With no bed, on the home waystone once it is woken; no boon is offered until you step off and back on. Otherwise, where the journey began. Taking the bed down forgets it until you sleep in it again. Hardcore still begins the world again.
+- Decisions: D-737.
+
 ## 0.3.188 (2026-11-09)
 - A new goal, Light your lantern: "Tap the lantern, or press L." It shows when the dark comes, halfway through dusk in the woods or on stepping somewhere the sky doesn't reach, with the lantern off, and goes ahead of any other goal while it is dark. Lighting the lantern, by hand or By itself, does it and pays its reward. If your lantern was already lit, it is ticked quietly.
 - Decisions: D-736.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.187 (2026-11-09)
 - A new journey begins in the woods now, not the crypt: in one of the rooms along the south of Hearthwood, never the one with the cave mouth, standing near the middle of the room. It is day, so your lantern starts off. The first words say so: "You wake among the trees of Hearthwood. Your lantern is cold; keep its oil for the dark. Something waits below." Your first goal is Find the waystone: "Home is in the middle of the woods." Go home to the woods is no longer asked. If you fall, you wake where the journey began, until beds and the waystone come in.
 - Decisions: D-735. Questions closed: Q-087. Questions opened: Q-088. D-727 and D-728 moved to the archive, word for word.
-
-## 0.3.186 (2026-11-09)
-- The woods are bigger: nine rooms of woods in a 3 by 3 square, home in the middle. Each room has a path three tiles wide through the trees to every room beside it, so you can walk any way. Home keeps its trees and everything you set down. The cave mouth has moved out of home into the room beside it, on that room's far side, so the way into the crypt is one room further. Every woods room has its own sticks, branch, pond and gloamberry bush; only home has the waystone. The map shows the nine rooms as you find them.
-- Decisions: D-734. Questions opened: Q-087. D-705 and D-706 moved to the archive, word for word.

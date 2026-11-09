@@ -9,15 +9,17 @@ import { note, fresh } from './events.js';
 import { DAY_TURNS, DUSK } from './daytime.js';
 import { maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
+import { sleptIn } from './waking.js';
 
 export const RESTED = 1; // the gold hearts a night's sleep gives
 
 // Whether the hero can sleep now: from dusk until the morning
 export const tired = (state) => state.turn % DAY_TURNS >= DUSK;
 
-export function sleep(state) {
+// The bed at x, y is remembered as slept in, for a fall to wake beside it (D-737)
+export function sleep(state, x, y) {
   if (!tired(state)) return say(state, 'notTired');
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const slept = fresh({ ...state, turn: morning, health: maxHealth(state) + RESTED });
+  const slept = fresh({ ...sleptIn(state, x, y), turn: morning, health: maxHealth(state) + RESTED });
   return endTurn(state, say(note(slept, 'sleep'), 'sleep'));
 }

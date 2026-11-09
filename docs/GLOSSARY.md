@@ -10,9 +10,10 @@ this page and a decision disagree, the decision wins.
   (D-019, D-238). Not a "run": the world stays and the journey goes on.
 - **Seed:** the number that sets a world's randomness; the same seed
   makes the same world (D-019, D-148).
-- **Fall:** what happens at 0 hearts: the hero lies down and wakes at
-  the start, keeping their level; the world stays as it was outside
-  Hardcore (D-234, D-246, D-332).
+- **Fall:** what happens at 0 hearts: the hero lies down and wakes
+  beside the last bed slept in, else on the woken home waystone, else
+  where the journey began, keeping their level; the world stays as it
+  was outside Hardcore (D-234, D-246, D-332, D-737).
 - **Gentle, Normal, Hardcore:** the three ways to play, by what a fall
   costs: the bag kept, the bag left where you fell, or one life (D-334).
   Changed in Settings during a journey, only toward easier (D-346).

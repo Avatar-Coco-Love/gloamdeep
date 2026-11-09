@@ -61,7 +61,7 @@ export function step(state, dir) {
   const flyer = tile.id === 'water' && enemyAt(state, x, y); // one that flies, over water: struck as on the floor, rod held or not (D-718)
   if (flyer) return attack(state, flyer);
   if (tile.solid) {
-    if (tile.sleeps) return sleep(state); // the bed (D-488)
+    if (tile.sleeps) return sleep(state, x, y); // the bed (D-488)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
     if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)

@@ -34,9 +34,9 @@ beside it by a path 3 tiles wide through the edge trees.
 - **Home base** in the centre cell (D-182). Since 0.3.187 (D-735) a new
   journey starts in one of the south woods rooms, never the cave's, the
   seed picking, and the hero walks north to find home; before, in the
-  crypt (D-119); D-020 said here. Planned (D-733): a fall wakes the
-  hero in the last bed slept in; with none, at the home waystone once
-  woken; otherwise in the room where the journey began, as it does now.
+  crypt (D-119); D-020 said here. Since 0.3.189 (D-737) a fall wakes the
+  hero beside the last bed slept in; with none, on the home waystone's
+  plate once woken; otherwise in the room where the journey began.
 - **The first cave's entrance** in one of the four side cells next to
   home: north, east, south or west, picked by the seed (D-184). If north,
   it is a mountain room. Since 0.3.186 the mouth stands on that room's
