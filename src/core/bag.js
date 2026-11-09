@@ -49,6 +49,14 @@ export function canCraft(bag, i) {
 export const isFlask = (id) => !!get(id)?.oil && !get(id).byHand;
 export const firstFlask = (bag) => bag.findIndex((s) => isFlask(s.id));
 export const flasksIn = (bag) => bag.reduce((a, s) => a + (isFlask(s.id) ? s.n : 0), 0);
+// § spawned flasks (D-720): `state.devFlasks` counts the flasks the dev tools spawned that went
+// into the bag, and a fall clears it. A flask poured while it is above 0 is one of them: its `pour` event is marked
+// `spawned` and the count goes down, never above the flasks left. (state, id, bag after) → { mark, rest }: the event's mark, the state's new count
+export function devPour(state, id, bag) {
+  const dev = Math.min(state.devFlasks || 0, flasksIn(state.bag)); // never more than the bag holds
+  if (!dev || !isFlask(id)) return { mark: {}, rest: {} };
+  return { mark: { spawned: true }, rest: { devFlasks: Math.min(dev - 1, flasksIn(bag)) } };
+}
 
 // The bag with n (one unless said) taken from slot i; an emptied slot is
 // gone, and the ones after it move up

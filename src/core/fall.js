@@ -35,6 +35,7 @@ export function fetchBag(state, found) {
 export function fall(state) {
   const kept = state.mode === 'normal' && lockets(state) ? keptStack(state.bag) : null; // the locket on the shelf (D-694)
   if (state.mode === 'normal' && state.bag.length) state = dropBag(state, kept);
+  if (state.devFlasks) state = { ...state, devFlasks: 0 }; // spawned flasks are no longer told apart (D-720)
   const { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn } = state;
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');

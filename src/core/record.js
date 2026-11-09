@@ -13,7 +13,8 @@ export const recordText = (record) => (record > 0 ? `Deepest: depth ${record}` :
 // § counts: the Records after an action's events: a creature beaten, a fall, a room found, a step (D-283),
 // a flask poured, by hand or by itself (D-285), not a minnow (D-611), a torch lit, each time (D-286)
 const COUNTED = { beat: 'beaten', fall: 'falls', found: 'found', step: 'steps', pour: 'poured', torch: 'torches' };
-const counts = (e) => COUNTED[e.type] && !(e.type === 'pour' && e.id && !isFlask(e.id));
+// A creature or flask the dev tools spawned counts in none (D-720)
+const counts = (e) => COUNTED[e.type] && !e.spawned && !(e.type === 'pour' && e.id && !isFlask(e.id));
 export function counted(records, events, jumped = false) {
   if (jumped || !events.some(counts)) return records;
   const next = { ...records };

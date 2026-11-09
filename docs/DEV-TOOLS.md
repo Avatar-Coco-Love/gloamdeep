@@ -41,7 +41,9 @@ tools to be chosen together later.
   them by name (D-624, were chips, D-089); tap one, then tap tiles; tap it
   again to drop it (D-048 to D-050, D-079). Pictures: `src/render/thumbs.js`. Torches, lit or unlit (D-123), go only where
   they can sit (D-100, D-102). Stairs can be spawned; they lead only where
-  the room's place has a room that way (D-130). Rules: `src/core/spawn.js`.
+  the room's place has a room that way (D-130). A spawned creature or
+  flask counts in no Records, Feat or Bestiary beaten count (D-720).
+  Rules: `src/core/spawn.js`.
 - Lighting off: a panel switch that shows the room unlit (D-057).
 - Reveal room (a switch) and Forget (a button) for fog of war; Reset room
   forgets too (D-061, D-062), and resets only the room the hero is in

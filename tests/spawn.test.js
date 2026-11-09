@@ -41,7 +41,7 @@ test('reset brings the room back, and the hero leaves a wall', () => {
 test('a flask spawns on floor, one per tile, never on a wall or the hero', () => {
   const s = start();
   const n = spawn(s, 'flask', 2, 2);
-  assert.deepEqual(n.items, [{ id: 'flask', x: 2, y: 2 }]);
+  assert.deepEqual(n.items, [{ id: 'flask', x: 2, y: 2, spawned: true }]);
   assert.equal(n.turn, 0);
   assert.deepEqual(s.items, [], 'the old state is not changed');
   assert.equal(spawn(n, 'flask', 2, 2), n);
