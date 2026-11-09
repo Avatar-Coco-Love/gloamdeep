@@ -60,6 +60,12 @@ export const nextSound = (id) => (id === 'on' ? 'off' : 'on');
 export const statsText = (id) => 'Stats line: ' + (id === 'on' ? 'On' : 'Off');
 export const statsShown = (s) => s.stats === 'on';
 
+// § attack marks: On or Off (D-730). Off, no creature's next move shows: not the icons on the
+// creature list's plaques, the framed one's arrow, a glob's next tile, nor the tiles a raised tail
+// will strike. Lines, the glob itself and a raised tail's tremble stay. On until picked.
+export const marksText = (id) => 'Attack marks: ' + (id === 'off' ? 'Off' : 'On');
+export const marksShown = (s) => s.marks !== 'off';
+
 // § storage: localStorage, wrapped (TECH.md)
 const KEY = 'gloamdeep-settings';
 export function loadSettings() {
@@ -78,7 +84,8 @@ export function loadSettings() {
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
   const stats = s?.stats === 'on' ? 'on' : 'off';
-  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, stats };
+  const marks = s?.marks === 'off' ? 'off' : 'on';
+  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, stats, marks };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify({ ...s, taps: 2 })); } catch { /* not kept */ }

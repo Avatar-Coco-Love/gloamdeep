@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -281,3 +281,17 @@ snuffer, glowworm, false light, wraith, still one and night prowler
 were shown). After the new ways, in this order: showing every
 creature's next move (D-349), the bestiary and trophies (D-466), packs
 and the brood, then varying creatures and injuries (D-374).
+
+**D-725 · 2026-11-09 · A flask left unguarded** (the owner's picks, all
+recommended; answers Q-075, builds D-534) In every made room, from
+depth 2, each flask has a 1 in 4 chance, from the room's seed, of no rat
+by it; each flask of a hall or large room rolls alone, and the hand-made
+rooms keep their guard. The guard goes somewhere else in the dark, by
+its own rules but more than 2 tiles from every flask, picked again from
+the depth's pool, so the room keeps its count and at least two kinds; a
+guard with nowhere to go stays. Its own draws, so the rest of a seed's
+room stays where it was. Another creature may still stand near by
+chance (about 1 flask in 3 that rolls), left as is (the owner's pick,
+recommended), so about 1 flask in 6 has nothing by it. Next, the owner's
+pick, recommended: begin a journey on the surface (Q-081). D-720 moves
+to `archive/DECISIONS-AUDITS.md`, word for word.

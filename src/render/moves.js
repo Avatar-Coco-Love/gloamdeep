@@ -7,6 +7,7 @@ const PINK = '#e8786a', DARK = '#0e0c16';
 const ARROW = ['oo...', 'o#o..', 'o##o.', 'o###o', 'o##o.', 'o#o..', 'oo...']; // pointing right
 const FANGS = ['ooooooo', 'o#####o', 'o#o.o#o', 'ooo.ooo']; // pointing down
 const GLOB = ['.ooo.', 'o###o', 'o###o', 'o###o', '.ooo.']; // a spit to come, the glob's mark (D-688)
+const STING = ['...o...', '..o#o..', '.o#o#o.', 'o#o.o#o', '.o#o#o.', '..o#o..', '...o...']; // a tile a raised tail will strike (D-729)
 
 // The arrow's rows turned to point dx, dy; the fangs only flip to point up
 import { onWipe } from './wipe.js';
@@ -27,10 +28,10 @@ function shape(rows) {
 }
 const key = (dx, dy) => `${dx},${dy}`;
 const WAYS = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-let ARROWS, BITES, SPIT; // made on first draw, once, and again after a wipe (D-588)
+let ARROWS, BITES, SPIT, STRUCK; // made on first draw, once, and again after a wipe (D-588)
 onWipe(() => { ARROWS = null; });
 function make() {
-  ARROWS = {}; BITES = {}; SPIT = shape(GLOB);
+  ARROWS = {}; BITES = {}; SPIT = shape(GLOB); STRUCK = shape(STING);
   for (const [dx, dy] of WAYS) { ARROWS[key(dx, dy)] = shape(turned(ARROW, dx, dy)); BITES[key(dx, dy)] = shape(dy === -1 ? [...FANGS].reverse() : FANGS); }
 }
 
@@ -48,5 +49,15 @@ export function drawMoves(c, moves, at, t, still) {
     const x = Math.round(p.x * 16) + 8 + dx * (8 + k), y = Math.round(p.y * 16) + 6 + dy * (8 + k);
     c.drawImage(img, Math.round(x - img.width / 2), Math.round(y - img.height / 2));
   }
+  c.globalAlpha = 1;
+}
+
+// § strike marks (D-729): a pink diamond on each tile a raised tail will strike, pulsing as the
+// marks do, for every raised one, framed or not, so the hero can step aside. `tiles` from struck (core/sting.js)
+export function drawStrikes(c, tiles, t, still) {
+  if (!tiles.length) return;
+  if (!ARROWS) make();
+  c.globalAlpha = still ? 1 : 0.6 + 0.4 * (Math.sin(t / 160) + 1) / 2;
+  for (const { x, y } of tiles) c.drawImage(STRUCK, x * 16 + 8 - 3, y * 16 + 6 - 3);
   c.globalAlpha = 1;
 }

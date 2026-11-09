@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.179, The mole burrows.** A playtester found the
+  creatures too alike. The owner's picks, all recommended (D-726): retune
+  chasers and add new kinds, ways Burrows then Pack. The mole digs down
+  on noticing, tunnels as a mound that can't be hit, comes up beside the
+  hero and bites the turn after. Next, the rat pack.
+  Playtest: https://claude.ai/artifact/GyX3uP1kukfmnA939Cqfes
 - **2026-11-09, 0.3.178, A flask left unguarded.** The owner's picks,
   all recommended (D-725): from depth 2, each flask 1 in 4 with no rat by
   it, a hall's each alone; the guard goes elsewhere in the dark, picked

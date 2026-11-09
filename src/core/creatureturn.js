@@ -15,6 +15,7 @@ import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
 import { spitTurn, aim } from './spit.js';
+import { stingTurn, reach } from './sting.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -32,10 +33,13 @@ import { spitTurn, aim } from './spit.js';
 // With Endless oil on (`state.endless`) a drink is the same but takes no oil (D-626).
 // One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654);
 // with Tough, only 1 time in 2 (D-657).
-// First of all the globs fly and the ones that spit spit (spit.js, D-688); a fall there ends the turn.
+// First of all the globs fly and the ones that spit spit (spit.js, D-688); then a raised tail
+// strikes (sting.js, D-729); a fall there ends the turn.
 export function enemiesAct(state) {
   const spat = spitTurn(state);
-  return spat.fell !== state.fell ? spat : settle(act(spat));
+  if (spat.fell !== state.fell) return spat;
+  const stung = stingTurn(spat);
+  return stung.fell !== state.fell ? stung : settle(act(stung));
 }
 function act(state) {
   const bites = biting(state);
@@ -117,6 +121,7 @@ function ahead(state) {
     const spits = traits(get(e.id)).spits && aim(next, e); // a glob mark toward the hero (D-659, D-688)
     if (spits) return [{ e, noticed: true, move: { e, kind: 'spit', ...spits } }];
     const to = moved[i];
+    if (to.raised) return [{ e, noticed: true, move: { e, kind: 'bite', ...to.raised } }]; // a raised tail: fangs its way (D-729)
     return [{ e, noticed, move: to.x === e.x && to.y === e.y ? null : { e, kind: 'step', dx: to.x - e.x, dy: to.y - e.y } }];
   });
 }
@@ -140,7 +145,7 @@ function ahead(state) {
 // One that lures (D-649) drifts away instead, while the hero is near (lureStep).
 function enemiesMove(state, bit = false) {
   const start = rally(state.enemies), claims = [];
-  let enemies = start, said = null;
+  let enemies = start, said = null, raised = false;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of start) {
     if (still(e)) continue;
@@ -157,6 +162,18 @@ function enemiesMove(state, bit = false) {
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
     const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
     const now = { ...state, enemies };
+    if (t.strikes && (e.raised || e.rests > 0)) { // raised, it strikes at the turn's start; after, it rests (D-729)
+      if (!e.raised) enemies = enemies.map((o) => (o === e ? { ...e, rests: e.rests - 1 } : o));
+      continue;
+    }
+    const way = t.strikes && chasing && !flees && !runs && reach(now, e);
+    if (way) {
+      const facing = way.dx < 0 ? 'left' : way.dx > 0 ? 'right' : e.facing;
+      enemies = enemies.map((o) => (o === e ? { ...e, raised: way, chasing: true, ...(facing && { facing }) } : o));
+      said = said || get(e.id).raises;
+      raised = true;
+      continue;
+    }
     if (t.burrows && (e.under || (!e.dug && chasing && !near && !flees && !runs))) {
       const { change, line } = burrowStep(now, e, near);
       enemies = enemies.map((o) => (o === e ? change : o));
@@ -170,7 +187,7 @@ function enemiesMove(state, bit = false) {
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
   enemies = rally(enemies); // one that noticed this turn brings its pack (D-727)
-  const next = enemies === state.enemies ? state : { ...state, enemies };
+  const moved = enemies === state.enemies ? state : { ...state, enemies }, next = raised ? note(moved, 'raise') : moved;
   return said && !bit ? say(next, said) : next; // a bite's line said this turn stays (D-117)
 }
 
