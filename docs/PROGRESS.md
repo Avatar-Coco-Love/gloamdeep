@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.214 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.215 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -48,6 +48,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.215, Dimmer doorway lines.** The owner found the
+  doorway lines too bright and picked half as bright, the map unchanged,
+  both recommended (D-764).
+  Playtest: https://claude.ai/artifact/Ped3SRVaKXSUNSRV1fEs5M
 - **2026-11-09, 0.3.214, The duskstar.** The owner's picks, all
   recommended, after the mock-up (D-763): look B, 2 in each woods room,
   back elsewhere in the room after a day, mirrored and shaded per flower.
@@ -57,8 +61,3 @@ list in `RESEARCH.md`.
   recommended (D-762): the cave herb in each woods room. Flowers next.
   Playtest: https://claude.ai/artifact/Hnyq83ZkUr3fG2hWANcSre
   Map preview: https://claude.ai/artifact/RVESCmSriTSqtA7GNBmFCm
-- **2026-11-09, 0.3.212, Loose stones.** The owner's picks, all
-  recommended (D-761): 2 loose stones in each mountain room, the bag's
-  pebble, growing back after a day.
-  Playtest: https://claude.ai/artifact/9FJfSSK9kS1iX1zGyh3kaB
-  Map preview: https://claude.ai/artifact/95B9dfLp4rP7rv1kNDd66G

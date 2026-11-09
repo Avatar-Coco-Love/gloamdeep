@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.215 (2026-11-09)
+- The pale blue lines across doorways are about half as bright, so they no longer glare. They still pulse gently, and hold still with reduced motion. The map's doorway squares are unchanged.
+- Decisions: D-764.
+
 ## 0.3.214 (2026-11-09)
 - The first flower grows outside: the duskstar, five violet petals round a yellow heart. 2 grow in each woods room, home too, on the grass; the mountain rooms have none. Each faces its own way and has its own slight shade of violet.
 - Walk onto a duskstar to put it in your bag, for crafts later. A day after you pick it, it grows again somewhere else in the same room.
@@ -33,8 +37,3 @@ Entry format:
 - Healing herbs now grow outside: one in each woods room, home too, on the grass. The mountain rooms have none. It is the same herb as in the caves: walk onto it hurt and you eat it, at full health it goes in your bag, and it grows back a day after you pick it.
 - In a saved game, woods rooms you haven't seen yet get their herb too; rooms you have seen stay as they were.
 - Decisions: D-762.
-
-## 0.3.212 (2026-11-09)
-- Loose stones now lie in the mountain rooms: 2 in each, on the grass, looking like the stone in your bag. Walk onto one to take it, and it grows back a day after you pick it. The woods rooms have none.
-- In a saved game, mountain rooms you haven't seen yet get their stones too; rooms you have seen stay as they were.
-- Decisions: D-761.
