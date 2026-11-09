@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.167, The free pick.** Every profile may take one
+  locked look free. The owner's picks, all recommended: each locked look
+  reads FREE in gold while the pick waits, and the button reads FREE; not
+  taken, it waits for Change Look; older profiles get one too. Next, the
+  Carriage lamp and Zebra free for everyone (D-714).
+  Playtest: https://claude.ai/artifact/VTvzFTbd74F7WS6bJGwCcU
 - **2026-11-08, 0.3.166, The sixth teaching goal.** "Spend your ember"
   at level 2, ahead of any goal waiting. The owner's picks, all
   recommended: done on the first buy in Growth, shown gold once the

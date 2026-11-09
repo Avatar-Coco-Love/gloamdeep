@@ -290,7 +290,8 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e) {
 // even out in the dark though it lights no tiles: a wider dithered halo of violet that swells and
 // fades over 4 seconds, and a single glint sliding along the locket's top edge once every 5
 // seconds; steady and without the glint with reduced motion. Then its sprite, bobbing as finds do.
-const RELIC_HALO = { reach: 15, inner: 'rgb(104,86,150)', outer: 'rgb(62,50,104)', dy: 9, cut: 0.25 }; // the mock-up's violet
+// Centred on the locket's case, 21 pixels across and a little dimmer (D-717, look A; was 31, centred low)
+const RELIC_HALO = { reach: 10, inner: 'rgb(78,64,112)', outer: 'rgb(46,37,78)', dx: 9, dy: 7, cut: 0.25 }; // the mock-up's violet, dimmed
 const GLINT = '#fffbe8';
 export function drawRelics(c, items, t, still) {
   const relics = items.filter((it) => get(it.id)?.relic);
@@ -298,7 +299,7 @@ export function drawRelics(c, items, t, still) {
   const pulse = still ? 0.92 : 0.8 + 0.2 * Math.sin(t / 1000 * (2 * Math.PI / 4));
   for (const it of relics) {
     const x = it.x * 16, y = it.y * 16, bob = still ? 0 : Math.floor(t / 700 + it.y) % 2;
-    halo(c, x + 8, y + RELIC_HALO.dy - bob, RELIC_HALO, pulse);
+    halo(c, x + RELIC_HALO.dx, y + RELIC_HALO.dy - bob, RELIC_HALO, pulse);
     c.drawImage(spriteOf(it), x, y - 2 - bob);
     const phase = ((t / 1000 + it.x * 0.7 + it.y * 1.3) % 5) / 0.9; // each relic's glint at its own time
     if (!still && phase < 1) {
