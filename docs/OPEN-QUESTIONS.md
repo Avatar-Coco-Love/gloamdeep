@@ -43,22 +43,11 @@ Narrowed by D-714: every profile picks one locked look free; next,
 Carriage and Zebra free for everyone. Narrowed by D-715: Carriage and
 Zebra free, so looks now cost 39. Narrowed by D-721: Rooms joins the
 Feats, which now pay 24. Narrowed by D-722: Steps joins, 30.
+Narrowed by D-723: Torches joins, the last Feat for now, 36.
 
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
 difficulty rating, and how the rating looks (stars, skulls, words).
-
-**Q-057 · Achievements: tiers and rewards** (before the first
-achievement, D-284) Narrowed by D-467: 3 tiers a set, each paying the
-look currency (Q-055), shown in a Feats tab with a note on reaching one.
-Narrowed by D-695: Beaten at 10, 50 and 200. Narrowed by D-697: Deepest
-at depth 5, 10 and 20; a count Feat would likely be 10, 50 and 200, as
-Beaten. Narrowed by D-698: Flasks, from Flasks poured, at 5, 25 and 100.
-Narrowed by D-721: Rooms (from Rooms found) at 10, 50 and 200, Steps at
-1000, 5000 and 20000, Torches lit at 5, 25 and 100, each its own step;
-Falls and Time played get none. Narrowed by D-722: Steps keeps its
-name, its goal in k on the tab. Still open: Torches lit's name on the
-tab, at its step.
 
 **Q-061 · Creature materials** (before the first, D-366, D-372)
 The owner wants beaten creatures to leave materials of their own, each

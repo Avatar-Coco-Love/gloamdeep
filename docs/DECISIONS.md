@@ -122,15 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-718 · 2026-11-09 · Flyers over water** (the owner's picks, all
-recommended; builds D-717) The bat, the lampmoth and the lure wisp (the
-registry's `flies`) may fly over water, a cave pool or the home pond; no
-other creature may. Walking into a flyer over water strikes it as on the
-floor, rod held or not; with none there the water acts as before. One
-beaten there leaves its drop on the nearest dry tile, as drops already
-lie. A spit grub's glob already flies over water and hits a flyer there.
-Next, the owner orders the audit's other fixes (B2, B3, B4, Q1).
-
 **D-719 · 2026-11-09 · The Feat note: two in one, after the turn's line**
 (the owner's picks, all recommended; the eleventh audit's B2 and B3,
 D-699) The owner grouped the audit's rest as two steps: B2 and B3 now,
@@ -177,3 +168,15 @@ and the screen reader say it whole. The gap between the names and the
 counts goes from 16 to 8 pixels on every card. Steps taken before this
 count. With Steps, the Feats pay 30 Glints. D-717 moves to
 `archive/DECISIONS-RELICS.md`, word for word.
+
+**D-723 · 2026-11-09 · Torches, the sixth Feat** (the owner's pick,
+recommended; builds D-721, answers Q-057) Torches lit gets its Feat now,
+at 5, 25 and 100 torches, paying 1, 2 and 3 Glints, the sixth and last
+row. On the Feats tab and in its note it is named Torches ("Feat
+reached: Torches 5. +1 Glint."), as Flasks and Rooms; Records keeps
+Torches lit. "Torches lit" was 47 pixels wide and pushed Steps'
+"19999 of 20k" 13 pixels into the marks on the upright card; Torches,
+34, fits it exactly. Torches lit before this count. With Torches, the
+Feats pay 36 Glints. Next, the owner's pick, recommended: Glints and
+the prices of looks (Q-055), the Feats now built. D-718 moves to `archive/DECISIONS-RELICS.md`,
+word for word.

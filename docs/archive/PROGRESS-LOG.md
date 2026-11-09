@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.173, Spawned ones don't count.** The audit's last
+  fixes, the owner's picks, all recommended (D-720): B4, the warden
+  asleep keeps no plaque, as meant; Q1, a creature or flask made with
+  Spawn adds nothing to Beaten, Flasks poured, the Feats or the
+  Bestiary's beaten count. Next, more Feats.
+  Playtest: https://claude.ai/artifact/RfpT1LB7ocoJALyUNbmkVJ
 - **2026-11-09, 0.3.172, The Feat note after the turn's line.** The
   audit's B2 and B3, the owner's picks, all recommended: the other fixes
   go in two steps; two Feats in one turn share one note, Glints added
