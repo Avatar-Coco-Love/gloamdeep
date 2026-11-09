@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.167 (2026-11-08)
+- The free pick: every profile may take one locked look free. On the Look card each locked look reads FREE in gold while the pick waits; try one on and press FREE to take it. The rest go back to LOCK.
+- Not taken when you make a hero? It waits for Change Look. Profiles made before this version get one too.
+- Decisions: D-714.
+
 ## 0.3.166 (2026-11-08)
 - The sixth teaching goal: at level 2, "Spend your ember" and "Tap here, then Growth." show under the hearts panel, ahead of any other goal waiting. Buy a heart or Tough in the Journal's Growth tab and the goal turns gold with its reward once you close the Journal.
 - If you have already spent an ember on this journey, the goal is ticked quietly and pays its reward.

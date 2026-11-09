@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.169 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.170 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The eleventh audit's other fixes (D-699, D-716): ask the owner which comes next of B2 and B3 (Feat notes), B4 (the warden's screen-reader plaque) and Q1 (dev creatures and Beaten), one small fix a step.
+Flyers over water (D-717): the bat, the lampmoth and the lure wisp may fly over water, with a test. Then the audit's other fixes (B2, B3, B4, Q1, D-716) and more Feats (Q-057), each its own step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.170, The relic's softer glow.** The owner found the
+  relic's glow misaligned and too bright. Their picks, all recommended:
+  look A, centred on the locket, 21 pixels across, not 31, and dimmer,
+  on the floor and the shelf. Next, every flyer may fly over water.
+  Playtest: https://claude.ai/artifact/VMkV6Y8FGiVtvvEBvDGoZR
 - **2026-11-09, 0.3.169, The old saves' locket.** The audit's first
   fixes, the owner's picks, all recommended: B1 first, an old journey
   that held the locket room before 0.3.143 gets the locket and its
@@ -56,9 +61,3 @@ list in `RESEARCH.md`.
   free pick", the button FREE. Carriage and Zebra free for everyone; a
   pick taken on one waits again. Next, the audit's fixes (D-715).
   Playtest: https://claude.ai/artifact/5aztX6gQmPePrGxr5qpofy
-- **2026-11-08, 0.3.167, The free pick.** Every profile may take one
-  locked look free. The owner's picks, all recommended: each locked look
-  reads FREE in gold while the pick waits, and the button reads FREE; not
-  taken, it waits for Change Look; older profiles get one too. Next, the
-  Carriage lamp and Zebra free for everyone (D-714).
-  Playtest: https://claude.ai/artifact/VTvzFTbd74F7WS6bJGwCcU

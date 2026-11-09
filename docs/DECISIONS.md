@@ -154,3 +154,14 @@ visible: the release tool says once, not each version, that it moves
 versions into the changelog archive; the 135 extra copies of that line
 are dropped. The rest of the findings (B2, B3, B4, Q1) wait for the
 owner's order. D-707 to D-711 move to `archive/DECISIONS-GOALS.md`.
+
+**D-717 · 2026-11-09 · The relic's softer glow, and what comes next**
+(the owner's ask and picks, all recommended; changes D-692's halo) The
+relic's violet glow sat 2 pixels below the locket and 1 to its left, and
+was too bright, 31 pixels across. Look A of three: centred on the
+locket's case, 21 pixels across, its violets dimmer; on the shelf the
+same smaller, dimmer glow round the small locket. The glint, the slow
+swell and the steady glow with reduced motion stay. Next, every flyer
+(the bat, the lampmoth, the lure wisp) may fly over water, all
+recommended; then the audit's fixes and more Feats.
+Mock-up: the picture in the conversation, now / A / B.
