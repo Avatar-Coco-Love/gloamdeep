@@ -52,3 +52,13 @@ test('three lantern hits beat it into a pile of bones, worth nothing yet (D-731)
   assert.equal(n.line.id, 'boneRatFalls');
   assert.equal(n.xp, 0);
 });
+
+// T2 (D-742): a spit grub's glob could hit the pile, which can't be hit (D-731)
+test('a spit grub\'s glob flies over a pile of bones, as over one under the earth', () => {
+  let s = at(5, 10);
+  for (let i = 0; i < 3; i++) s = step(s, 'up');
+  assert.equal(s.enemies[0].pile, 3);
+  const before = s.enemies[0].health, n = wait({ ...s, globs: [{ x: 5, y: 9, dx: 0, dy: 1, id: 'spitGrub' }] });
+  assert.equal(n.enemies[0].health, before, 'the pile not hit');
+  assert.ok(!n.events.some((e) => e.type === 'splash' && e.x === 5 && e.y === 10), 'no splash on the pile');
+});

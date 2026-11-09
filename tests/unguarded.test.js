@@ -6,6 +6,8 @@ import assert from 'node:assert/strict';
 import { placeFor, poolAt, creaturesAt, PLACES } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { unguardedOf, UNGUARDED_ODDS } from '../src/core/unguarded.js';
+import { rng } from '../src/core/rng.js';
+import { POOL_ODDS } from '../src/core/cave.js';
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 const rooms = function* (depths, seeds = 30) {
   for (let seed = 1; seed <= seeds; seed++) for (const depth of depths) for (const c of layoutAt(seed, depth).cells) yield { seed, depth, c, p: placeFor(c.id, seed) };
@@ -48,4 +50,15 @@ test('the room keeps its count, its pool and two kinds; no marks are left on the
 test('the hand-made rooms keep their guard', () => {
   for (const id of Object.keys(PLACES)) if (PLACES[id].guard) assert.ok(PLACES[id].enemies.length);
   assert.ok(!('guard' in placeFor('second', 5).enemies[0]));
+});
+
+// B5 (D-742): the first flask's roll and the pool's shared one number, so a pool hinted an unguarded flask
+test('the first flask rolls apart from the room\'s pool: an unguarded one finds a pool about as often as any', () => {
+  let loose = 0, both = 0;
+  for (let seed = 1; seed <= 4000; seed++) {
+    if (!unguardedOf(seed, 1)[0]) continue;
+    loose++;
+    if (rng(seed ^ 0x6a09e667)() < POOL_ODDS) both++; // the pool's first roll (cave.js withPool)
+  }
+  assert.ok(Math.abs(both / loose - POOL_ODDS) < 0.06, `${both} of ${loose}`);
 });

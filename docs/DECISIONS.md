@@ -116,3 +116,20 @@ under its cap. When a step teaches something about working together,
 its PR adds one line to `WORKFLOW.md`'s "Since the last audit"
 (`PR-CHECKLIST.md` reminds), and each audit moves the lines into place.
 Nothing visible changed.
+
+**D-742 · 2026-11-09 · The bug hunt's fixes** (the owner's picks, all
+recommended; the owner asked that every known bug be fixed, in one PR;
+answers D-740's list) All nine findings are fixed, each with a test.
+B1: cutting a path between Hearthwood rooms clears a fallen branch or
+berry bush in its way, as a tree. B2, B3: one save upgrade (20 → 21)
+makes each north room never seen, with nothing taken, today's mountain
+room, cuts every Hearthwood room's paths again, and brings the copies a
+fall and the dev Reset read up the same way, home's without the old
+mouth. B6: a goal the journey's start skips, waiting in an older
+profile, is ticked quietly, unpaid, and not listed. Claude's calls the
+owner may change: B4, goals done on one turn each roll their reward
+with the goal mixed in; B5 and T1, the unguarded flask and the rat
+pack roll with salts of their own, so unvisited rooms may change; T2, a
+spit grub's glob flies over a pile of bones; T3, a scorpion's tail
+raised as the hero left is lowered when they come back (a fall that
+wakes in the same room still keeps it).

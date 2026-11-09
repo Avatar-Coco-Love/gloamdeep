@@ -13,7 +13,7 @@ export const UNGUARDED_ODDS = 0.25, GUARD = 2;
 const same = (a, b) => a.x === b.x && a.y === b.y;
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 const key = (t) => `${t.x},${t.y}`;
-const draws = (seed) => rng(seed ^ 0x6a09e667);
+const draws = (seed) => rng(seed ^ 0x428a2f98); // its own salt, apart from the pool's (D-742, B5)
 
 // (seed, count) → for each of a room's `count` flasks, in order, whether it is unguarded
 export function unguardedOf(seed, count) {

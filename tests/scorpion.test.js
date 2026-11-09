@@ -7,6 +7,7 @@ import { makeState, step, wait, FIRST_START, nextMoves } from '../src/core/turn.
 import { biteSound } from '../src/core/enemies.js';
 import { get } from '../src/core/registry.js';
 import { LINES } from '../src/core/lines.js';
+import { goToPlace } from '../src/core/stairs.js';
 const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 
 const room = makeRoom(FIRST_ROOM);
@@ -97,4 +98,12 @@ test('a rat or lampmoth wears no colour set', () => {
 test('a scorpion keeps its colour as it moves', () => {
   const s = { ...at(5, 8), enemies: [{ id: 'scorpion', x: 5, y: 8, colour: 3 }] };
   assert.equal(wait(s).enemies[0].colour, 3);
+});
+
+// T3 (D-742): a tail raised as the hero left struck along the old line just after they came back
+test('a scorpion\'s tail raised when the hero leaves is lowered when they come back', () => {
+  const s = { ...at(5, 10), enemies: [{ id: 'scorpion', x: 5, y: 10, raised: { dx: 0, dy: 1 }, chasing: true }] };
+  const away = goToPlace(s, 'second'), back = goToPlace(away, 'first');
+  assert.ok(away.elsewhere.first.enemies[0].raised, 'kept raised while away, as it was left');
+  assert.ok(!back.enemies[0].raised, 'lowered on coming back');
 });

@@ -63,12 +63,15 @@ export function pathTiles({ dir, at }) {
 
 // § cut: (map, paths, start) → the map with each path's edge tiles open and, from its
 // middle one, the fewest trees cut to reach the ground joined to `start`. Only trees
-// ('T') are cut: water, rock, the waystone and things set down stay as they are.
+// ('T') are cut, and a fallen branch or berry bush in the way, as a tree is (D-742, B1):
+// water, rock, the waystone and things set down stay as they are.
+const CUT = 'TFGH'; // a tree, a fallen branch, a gloamberry bush, a bare bush
+const cuts = (ch) => ch !== undefined && CUT.includes(ch);
 export function cutPaths(map, paths, start) {
   const g = map.map((line) => line.split(''));
   for (const p of paths) {
     const tiles = pathTiles(p);
-    for (const t of tiles) if (g[t.y][t.x] === 'T') g[t.y][t.x] = '.';
+    for (const t of tiles) if (cuts(g[t.y][t.x])) g[t.y][t.x] = '.';
     cutTo(g, tiles[PATH >> 1], start);
   }
   return g.map((row) => row.join(''));
@@ -88,7 +91,7 @@ function joined(g, start) {
   return seen;
 }
 // The fewest trees to cut from `from` to the ground joined to `start` (0-1 steps: open free,
-// a tree costs one), then cut
+// a tree, branch or bush costs one), then cut
 function cutTo(g, from, start) {
   const home = joined(g, start), cost = new Map([[from.y * COLS + from.x, 0]]), back = new Map(), deque = [from];
   let end = null;
@@ -98,12 +101,12 @@ function cutTo(g, from, start) {
     for (const [dx, dy] of Object.values(STEP)) {
       const x = t.x + dx, y = t.y + dy, ch = g[y]?.[x];
       if (x <= 0 || y <= 0 || x >= COLS - 1 || y >= ROWS - 1) { if (!(ch !== undefined && open(ch) && home.has(y * COLS + x))) continue; }
-      if (ch !== 'T' && !open(ch)) continue;
-      const c = cost.get(k) + (ch === 'T' ? 1 : 0), nk = y * COLS + x;
+      if (!cuts(ch) && !open(ch)) continue;
+      const c = cost.get(k) + (cuts(ch) ? 1 : 0), nk = y * COLS + x;
       if (cost.has(nk) && cost.get(nk) <= c) continue;
       cost.set(nk, c); back.set(nk, t);
-      if (ch === 'T') deque.push({ x, y }); else deque.unshift({ x, y });
+      if (cuts(ch)) deque.push({ x, y }); else deque.unshift({ x, y });
     }
   }
-  for (let t = end; t; t = back.get(t.y * COLS + t.x)) if (g[t.y][t.x] === 'T') g[t.y][t.x] = '.';
+  for (let t = end; t; t = back.get(t.y * COLS + t.x)) if (cuts(g[t.y][t.x])) g[t.y][t.x] = '.';
 }

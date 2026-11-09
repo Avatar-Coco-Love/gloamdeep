@@ -5,6 +5,7 @@ import { makeRoom, FIRST_ROOM, placeFor } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { makeState, step, wait, FIRST_START } from '../src/core/turn.js';
 import { packOf, PACK_FROM } from '../src/core/pack.js';
+import { rng } from '../src/core/rng.js';
 
 const room = makeRoom(FIRST_ROOM);
 // The first room in the dark, so no rat notices by light; god mode, so bites never end it
@@ -67,4 +68,15 @@ test('the last of a pack acts as a rat alone', () => {
   const lone = [{ id: 'rat', x: 2, y: 7, chasing: true }];
   let a = at({ x: 6, y: 7 }, lone), b = at({ x: 6, y: 7 }, lone.map((e) => ({ ...e, pack: 1 })));
   for (let i = 0; i < 4; i++) { a = wait(a); b = wait(b); assert.deepEqual(where(b), where(a)); }
+});
+
+// T1 (D-742): a pack's roll and the flask mimic's spot shared one number
+test('a room\'s pack rolls apart from where its flask mimic stands', () => {
+  let packs = 0, low = 0;
+  for (let seed = 1; seed <= 4000; seed++) {
+    if (!packOf(seed, PACK_FROM)) continue;
+    packs++;
+    if (rng(seed ^ 0x510e527f)() < 1 / 3) low++; // the mimic's first roll (cave.js withMimic)
+  }
+  assert.ok(Math.abs(low / packs - 1 / 3) < 0.06, `${low} of ${packs}`);
 });

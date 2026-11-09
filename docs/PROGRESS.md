@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.193 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.194 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -27,7 +27,6 @@ mock-ups first.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 - Campfires (Q-088), after D-733's five steps.
-- The twelfth audit's bug hunt (D-740): which findings to fix, and when.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -44,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.194, The bug hunt's fixes.** All recommended
+  (D-742): the owner asked for every known bug fixed, in one PR. All
+  nine of the twelfth audit's findings are fixed, each with a test, with
+  one save upgrade for older journeys.
+  Playtest: https://claude.ai/artifact/HpPeLDYfBBGdZLpK2WGDmC
+  Map preview: https://claude.ai/artifact/73kdAXRK9SNqvGCon3Bggu
 - **2026-11-09, 0.3.193, The playbook caught up.** All recommended
   (D-741): how the game grew, our tools, lessons from bugs and design
   habits, in a new `WORKFLOW-2.md`; a step that teaches something adds
@@ -54,8 +59,3 @@ list in `RESEARCH.md`.
   word for word. Start read 10.2 KB.
   Findings: https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK
   No playtest: nothing to play.
-- **2026-11-09, 0.3.191, Rounded rock.** The owner's picks, all
-  recommended (D-739): rock lit by day and fuller, trees in front, the
-  mouth's rocks only rounded; the owner asked for better cave mouths in
-  several looks and outside art polish, set after the audit.
-  Playtest: https://claude.ai/artifact/KYrbqQCH1trwQ6cuHyBw7Y

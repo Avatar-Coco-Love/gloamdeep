@@ -74,6 +74,13 @@ test('every open tile of every room is joined to its paths and its middle', () =
   }
 });
 
+// B1 (D-742): a bush or branch just inside a path was left, cutting the path's end off
+test('every path can be walked to from the start: a bush or branch in its way is cut as a tree is', () => {
+  for (const seed of [...SEEDS, 72, 78, 142]) for (const id of ROOMS) {
+    const p = beginPlace(id, seed), reach = walk(p.room, p.start);
+    for (const path of pathsOf(seed, id)) assert.ok(reach.has(key(pathTiles(path)[PATH >> 1])), `seed ${seed} ${id} ${path.dir}`);
+  }
+});
 test('the waystone stands only at home; the mouth only in the room beside home the seed picks (D-184)', () => {
   const ways = new Set();
   for (const seed of SEEDS) {
@@ -127,6 +134,32 @@ test('an older save\'s home: the mouth and rocks made trees, the paths cut, the 
   }
   const none = { ...makeWorld('first', 1), elsewhere: {} };
   assert.equal(UPGRADES[19](none), none, 'no home yet: nothing changes');
+});
+
+// B2, B3 (D-742): a journey begun before the mountain rooms keeps woods in its unseen north
+// rooms; the dev Reset's copy of home keeps the old mouth; a path's way kept closed
+test('an older save renewed: unseen north rooms made mountains, seen ones kept, paths cut again, the kept copies too', () => {
+  for (const seed of [1, 4, 72, 4127]) {
+    const w = makeWorld(HOME_ID, seed), m = mouthOf(seed), north = ROOMS.filter(isMountain);
+    const woodsOf = (id) => ({ ...w.elsewhere[id].room, map: generateWoods(seedFor(seed, 0) + 1 + ROOMS.indexOf(id), null, { mark: true }).map });
+    const elsewhere = { ...w.elsewhere }, places = { ...w.home.places };
+    for (const id of north) { elsewhere[id] = { ...elsewhere[id], room: woodsOf(id) }; places[id] = { ...places[id], room: woodsOf(id) }; }
+    const seenOne = north[0], seen = new Uint8Array(w.elsewhere[seenOne].seen.length); seen[5] = 1;
+    elsewhere[seenOne] = { ...elsewhere[seenOne], seen };
+    const side = ROOMS.find((id) => !isMountain(id) && id !== HOME_ID), path = pathsOf(seed, side)[0], t = pathTiles(path)[PATH >> 1];
+    const shut = elsewhere[side].room.map.map((line, y) => (y === t.y ? line.slice(0, t.x) + 'G' + line.slice(t.x + 1) : line));
+    elsewhere[side] = { ...elsewhere[side], room: { ...elsewhere[side].room, map: shut } };
+    places[HOME_ID] = { ...places[HOME_ID], room: { ...places[HOME_ID].room, map: generateWoods(seedFor(seed, 0), m).map } };
+    const up = UPGRADES[20]({ ...w, elsewhere, home: { ...w.home, places } });
+    for (const id of north.slice(1)) {
+      assert.deepEqual(up.elsewhere[id].room.map, beginPlace(id, seed).room.map, `seed ${seed} ${id}`);
+      assert.deepEqual(up.home.places[id].room.map, beginPlace(id, seed).room.map);
+    }
+    assert.ok(!up.elsewhere[seenOne].room.map.join('').includes('R'), 'a north room already seen stays woods');
+    assert.equal(up.elsewhere[side].room.map[t.y][t.x], '.', 'the bush in the path cut');
+    assert.deepEqual(up.home.places[HOME_ID].room.map, beginPlace(HOME_ID, seed).room.map, 'Reset at home has today\'s home');
+    assert.deepEqual(up.room.map, w.room.map, 'a room already open is kept as it was');
+  }
 });
 
 test('every woods room\'s pond holds the home pond\'s fish', () => {
