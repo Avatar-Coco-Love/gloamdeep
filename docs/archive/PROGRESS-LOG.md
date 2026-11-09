@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.168, One free pick, shown once.** FREE on every
+  locked look read as if all were free. The owner's picks, all
+  recommended: locked looks keep LOCK; "1 FREE PICK" in gold on the Look
+  card's top line while it waits; trying one says its price "or your one
+  free pick", the button FREE. Carriage and Zebra free for everyone; a
+  pick taken on one waits again. Next, the audit's fixes (D-715).
+  Playtest: https://claude.ai/artifact/5aztX6gQmPePrGxr5qpofy
 - **2026-11-08, 0.3.167, The free pick.** Every profile may take one
   locked look free. The owner's picks, all recommended: each locked look
   reads FREE in gold while the pick waits, and the button reads FREE; not

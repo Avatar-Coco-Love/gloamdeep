@@ -189,10 +189,12 @@ function lightGoal(state, e) {
   return state.lights.filter((l) => get(l.id).reach).reduce((best, l) => (!best || steps(l) < steps(best) ? l : best), null);
 }
 
-// Whether enemy e may step onto tile x, y: nothing solid, no item, no other
-// enemy, no person (D-496), not the hero, and no light for one that shuns it unless `lit` (D-240)
+// Whether enemy e may step onto tile x, y: nothing solid (water is open to one that `flies`,
+// D-718), no item, no other enemy, no person (D-496), not the hero, and no light for one that
+// shuns it unless `lit` (D-240)
 function free(state, e, x, y, lit = false) {
-  if (tileAt(state.room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
+  const tile = tileAt(state.room, x, y);
+  if ((tile.solid && !(tile.id === 'water' && get(e.id).flies)) || itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
   return lit || traits(get(e.id)).intoLight || !litAt(state, x, y);
 }
 
