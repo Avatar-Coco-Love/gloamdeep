@@ -10,6 +10,7 @@ import { rng, int, pick, seedFor } from './rng.js';
 import { COLS, ROWS } from './cave.js';
 import { daylight } from './daytime.js';
 import { besideHome } from './hearthwood.js';
+import { TILES } from './tiles.js';
 
 // The crypt room and its gap, by the way the hero walks into the mouth
 const INTO = {
@@ -20,15 +21,17 @@ const INTO = {
 };
 const BACK = { up: 'down', down: 'up', left: 'right', right: 'left' };
 
-// (seed) → { dir, tile, from, room, gap }: the way in, the mouth's tile in its
-// woods room `from`, and the crypt room and gap it leads to. Worked out once per seed.
+// (seed) → { dir, tile, from, room, gap, look }: the way in, the mouth's tile in its
+// woods room `from`, the crypt room and gap it leads to, and its look, one of the
+// registry's (D-744), from its own stream so the rest stays as it was. Worked out once per seed.
 const made = new Map();
 export function mouthOf(seed = 1) {
   if (!made.has(seed)) {
     const r = rng(seedFor(seed, 0) ^ 0x6d0c7e11), dir = pick(r, Object.keys(INTO));
     const n = int(r, 2, (dir === 'up' || dir === 'down' ? COLS : ROWS) - 3);
     const tile = { up: { x: n, y: 0 }, down: { x: n, y: ROWS - 1 }, left: { x: 0, y: n }, right: { x: COLS - 1, y: n } }[dir];
-    made.set(seed, { dir, tile, from: besideHome(dir), ...INTO[dir] });
+    const look = pick(rng(seedFor(seed, 0) ^ 0x51c3a7e5), TILES.caveMouth.looks);
+    made.set(seed, { dir, tile, from: besideHome(dir), ...INTO[dir], look });
   }
   return made.get(seed);
 }

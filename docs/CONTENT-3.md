@@ -10,7 +10,7 @@ neared 8 KB.
 | id | What it does | Grows back | Where | Decisions |
 | --- | --- | --- | --- | --- |
 | `wall`, `floor` | solid and open ground | | everywhere | the style study |
-| `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface; the mountain rooms' rock | D-209, D-738, D-739 |
+| `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface; the mountain rooms' rock; the mouth in one of its looks, by the seed | D-209, D-738, D-739, D-744 |
 | `stairsDown`, `stairsUp` | lead between depths | | each floor | D-132, D-174 |
 | `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees; a few lone ones in the mountain rooms | D-209, D-317, D-321, D-738 |
 | `stump` | grows back into a tree | | where a tree was felled | D-317 |

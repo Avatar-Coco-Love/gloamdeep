@@ -136,9 +136,10 @@ const DRAW = {
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
 const OWN_GROUND = ['rock', 'earth', 'woods']; // looks drawn whole under their tiles (D-164, D-165, D-209)
-export function drawRoom(c, room) {
+// `mouth`: the cave mouth's look, the seed's (mouthOf, D-744); the small arch when not given
+export function drawRoom(c, room, mouth = 'arch') {
   const woods = room.look === 'woods';
-  if (woods) drawWoods(c, room);
+  if (woods) drawWoods(c, room, mouth);
   const rock = room.look === 'rock' || room.look === 'earth'; // D-164, D-165
   if (rock) drawRock(c, room);
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {

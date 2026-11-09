@@ -50,3 +50,11 @@ rounded the same way but fuller (cut at 0.32, wobble 0.45; the cave's
 0.5 and 0.55), and lit by day: cap `#4a5266`, grit `#555e73`, edge
 `#7a8499`; the face and its foot `#14161d` as the cave's. Trees stand in
 front. Past a mountain room's edge it goes on.
+
+## The cave mouth's looks (D-744)
+Code: `src/render/mouth.js`. The seed picks one. The small arch: earth
+going black, an arch on the top edge. The craggy cave: on the top edge a
+wide rough opening, its lip `#7a8499` lit left, `#5f697e` right, black
+`#0c0b12` with an overhang shadow `#07060a`, the earth floor going in
+`#3a2f26` `#2a221c` `#16110d`, rock teeth `#4b5468` tipped `#6a7489`; on
+another edge the rock roofs the outer part, the ground going black under it.

@@ -60,3 +60,8 @@ floors become grids; which rules each kind has is still open. Burrow
 floors are warrens (D-227), and from depth 8 dungeon halls (D-228).
 Sizes by depth for the caves, warrens and dungeon before D-645: D-580,
 built in D-584.
+
+**Q-089 · Falling down holes** (raised 2026-11-09, D-744) The owner
+would allow a hole in the ground as a cave mouth only if holes or
+chasms you can drop down to go deeper, as in some roguelikes, ever
+come. Whether they do, where, and what a fall costs: open, for later.

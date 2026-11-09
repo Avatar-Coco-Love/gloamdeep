@@ -115,3 +115,11 @@ test('through dusk the light shrinks and warms toward the torch orange', () => {
   assert.equal(dusk.r, day.r / 2);
   assert.ok(dusk.cb < day.cb && dusk.cr > day.cr);
 });
+
+test("the mouth's look: one of the registry's, from its own stream, every look in some world (D-744)", async () => {
+  const { TILES } = await import('../src/core/tiles.js');
+  const seen = new Set();
+  for (const seed of SEEDS) { const { look } = mouthOf(seed); assert.ok(TILES.caveMouth.looks.includes(look), `seed ${seed}`); seen.add(look); }
+  assert.deepEqual([...seen].sort(), [...TILES.caveMouth.looks].sort());
+  assert.deepEqual({ ...mouthOf(1), look: undefined }, { dir: 'right', tile: { x: 16, y: 12 }, from: mouthOf(1).from, room: 'first', gap: { x: 0, y: 3 }, look: undefined }); // where seed 1's mouth stands, as before
+});
