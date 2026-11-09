@@ -3,7 +3,7 @@
 // are worked out from the Records, so the counts made before Feats came pay too. Plain data.
 import { spentOn } from './looks.js';
 
-// Each Feat: its name, the record it reads, its 3 tiers and the Glints each pays (D-695, D-697, D-698, D-721)
+// Each Feat: its name, the record it reads, its 3 tiers and the Glints each pays (D-695, D-697, D-698, D-721, D-722)
 export const FEATS = [
   { id: 'beaten', text: 'Beaten', record: 'beaten', tiers: [10, 50, 200], pays: [1, 2, 3] },
   { id: 'deepest', text: 'Deepest', record: 'deepest', tiers: [5, 10, 20], pays: [1, 2, 3] },
@@ -11,6 +11,8 @@ export const FEATS = [
   { id: 'poured', text: 'Flasks', record: 'poured', tiers: [5, 25, 100], pays: [1, 2, 3] },
   // named Rooms, not its Records line's Rooms found, so its row fits the upright card (D-721)
   { id: 'found', text: 'Rooms', record: 'found', tiers: [10, 50, 200], pays: [1, 2, 3] },
+  // named Steps, as its Records line (D-722)
+  { id: 'steps', text: 'Steps', record: 'steps', tiers: [1000, 5000, 20000], pays: [1, 2, 3] },
 ];
 
 // How many of a Feat's tiers the records have reached
@@ -30,11 +32,15 @@ export const glintsText = (p) => plural(glintsLeft(p));
 
 // § rows: the Feats tab's rows: the name, the count toward the next tier ("12 of 50"), or the
 // last tier once all are reached, and how many of its 3 marks are lit
+// A goal of a thousand or more is written in k on the tab, "4321 of 5k", so Steps' row fits the
+// upright card; the count stays whole, and the note and the screen reader say it whole (D-722)
+const goalText = (n) => (n >= 1000 && n % 1000 === 0 ? `${n / 1000}k` : String(n));
+const countText = (f, records, write) => {
+  const n = reached(f, records), have = records[f.record] ?? 0;
+  return n < f.tiers.length ? `${have} of ${write(f.tiers[n])}` : write(f.tiers.at(-1));
+};
 export function featRows(records) {
-  return FEATS.map((f) => {
-    const n = reached(f, records), have = records[f.record] ?? 0;
-    return { id: f.id, text: f.text, value: n < f.tiers.length ? `${have} of ${f.tiers[n]}` : String(f.tiers.at(-1)), reached: n, tiers: f.tiers.length };
-  });
+  return FEATS.map((f) => ({ id: f.id, text: f.text, value: countText(f, records, goalText), reached: reached(f, records), tiers: f.tiers.length }));
 }
 // § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
 // has, and to earn more when they are too few
@@ -46,7 +52,7 @@ export const FREE_PICK = '1 FREE PICK';
 // The Look card's shorter one, in the big hero's name line (D-700)
 export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';
-export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${featRows(p.records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
+export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${FEATS.map((f) => `${f.text}, ${countText(f, p.records, String)}, ${reached(f, p.records)} of ${f.tiers.length} reached`).join('. ')}. ${TURN}`;
 
 // § note: the tiers reached between two Records, as "Beaten 10. +1 Glint"; two Feats in one note,
 // "Beaten 10, Flasks 5. +2 Glints", their Glints added up (D-719)

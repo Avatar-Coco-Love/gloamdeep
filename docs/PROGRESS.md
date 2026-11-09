@@ -4,18 +4,18 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.174 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.175 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Steps, the fifth Feat (D-721): 1000, 5000 and 20000 steps, paying 1, 2 and 3 Glints.
+Torches lit, the sixth Feat (D-721): 5, 25 and 100 torches, paying 1, 2 and 3 Glints; its name on the tab (Q-057).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
-- Glints: looks cost 39 and Feats pay 18; more Feats, and the prices of looks to come (Q-055).
+- Glints: looks cost 39 and Feats pay 30; more Feats, and the prices of looks to come (Q-055).
 - A region's name and rating (Q-056), with a second region.
-- Steps' and Torches lit's names on the Feats tab (Q-057), at their steps.
+- Torches lit's name on the Feats tab (Q-057), at its step.
 - Creature materials: looks and recipes (Q-061), each at its own step.
 - Rooms seen through the wall (Q-066), after the edge.
 - Half and Automatic for the light (Q-069), waiting for now (D-482).
@@ -33,7 +33,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151); Rooms (0.3.174)
+- [ ] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151); Rooms (0.3.174); Steps (0.3.175)
 - [x] 22 Looks (D-698, D-703, D-704), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156); more hats and hoods (0.3.157)
 
 **Next audit: 0.3.192** (D-518, D-699).
@@ -42,6 +42,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.175, Steps, the fifth Feat.** The owner's picks,
+  both recommended (D-722): Steps at 1000, 5000 and 20000, named Steps
+  as in Records. "19999 of 20000" didn't fit the upright card, so the
+  tab writes the goal in k ("4321 of 5k") and the gap before the counts
+  is 8 pixels, not 16. Next, Torches lit.
+  Playtest: https://claude.ai/artifact/2gT3ENq2gAb5zGsitpodqh
 - **2026-11-09, 0.3.174, Rooms, the fourth Feat.** The owner's picks:
   Rooms found, Steps and Torches lit each get a Feat, one a step; Falls
   and Time played none (D-721). Rooms first, at 10, 50 and 200, named
@@ -53,9 +59,3 @@ list in `RESEARCH.md`.
   Spawn adds nothing to Beaten, Flasks poured, the Feats or the
   Bestiary's beaten count. Next, more Feats.
   Playtest: https://claude.ai/artifact/RfpT1LB7ocoJALyUNbmkVJ
-- **2026-11-09, 0.3.172, The Feat note after the turn's line.** The
-  audit's B2 and B3, the owner's picks, all recommended: the other fixes
-  go in two steps; two Feats in one turn share one note, Glints added
-  up; a turn's own line shows first, the Feat note on the next move
-  that says none. Next, B4 and Q1.
-  Playtest: https://claude.ai/artifact/4i43wvgca6xjTSEo7jzkXL
