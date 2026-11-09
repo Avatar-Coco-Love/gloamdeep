@@ -59,6 +59,7 @@ Read the smallest file that answers the question.
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
+| `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732) | audits, or when the way of working changes |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
 | `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |
@@ -82,7 +83,8 @@ push to `main`; one PR per conversation; merging is the owner's call.
 - **An audit every 40 versions** (D-518): when the version in
   `docs/PROGRESS.md`'s "Next audit" line comes, the audit is Next up. It
   measures what a conversation reads at its start, archives, trims, and
-  splits one big code file, nothing visible changed, then sets the next.
+  splits one big code file, nothing visible changed, adds what we learned
+  about working together to `docs/WORKFLOW.md` (D-732), then sets the next.
   Nothing useful is lost (D-338): moved text stays word for word, and the
   PR lists every line reworded or dropped (check with `git diff -U0`).
 - Keep code files small. Mark sections with `// § name` so a file can be

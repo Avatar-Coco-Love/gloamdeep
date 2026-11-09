@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.183 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.184 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -42,6 +42,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.184, A playbook of how we work.** The owner asked
+  that our way of working be kept for future projects. Their picks, all
+  recommended (D-732): `docs/WORKFLOW.md`, one page on how we work, why,
+  and what we learned, added to at each audit. Nothing visible changed.
+  Next, the owner's pick, as before.
 - **2026-11-09, 0.3.183, The bone rat comes back.** The owner's picks,
   all recommended (D-731): beaten, it falls into a low heap of bones and
   stands up whole 3 turns later, every time, unless the hero steps onto
@@ -57,10 +62,3 @@ list in `RESEARCH.md`.
   mark (D-730). Ideas kept: gaps and a leap (D-463), a ranged attack
   for the hero (D-457), elements. Next, the bone rat comes back.
   Playtest: https://claude.ai/artifact/Q91FVBhiX7mcUdL7qjavzp
-- **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
-  (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
-  packmates; one noticing brings all three, each to its own side of the
-  hero, and a hurt one stands while 2 are left. Claude's drafts the owner
-  may change are in D-728. Next, the owner's pick.
-  Playtest: https://claude.ai/artifact/Fd9S73LizRPbm8s215Rppn
-  Map preview: https://claude.ai/artifact/QPq6MSkWuTiHyD9AvcS2WP

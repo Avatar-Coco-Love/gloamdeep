@@ -185,3 +185,10 @@ hit, and no creature steps onto it; it stands up chasing, acting from
 the next turn; the count waits while the hero is in another room; a
 scatter rattles; its lines and the Bestiary words. D-726 moves to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-732 · 2026-11-09 · A playbook of how we work** (the owner's picks,
+all recommended) The owner wants this project's way of working kept for
+future projects. `docs/WORKFLOW.md` gathers it in one place: the steps
+of a step, each habit and why, what changed along the way, and how to
+start a new project. Each audit adds what that stretch taught us about
+working together. Built now as its own step, nothing visible changed.
