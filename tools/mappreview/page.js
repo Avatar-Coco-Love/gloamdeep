@@ -104,7 +104,7 @@ function draw() {
   $('seed').value = seed();
   $('back').disabled = seeds.length < 2;
   const area = areaAt(depth);
-  $('heading').textContent = depth === 0 ? 'Depth 0 · the woods and the crypt' : `Depth ${depth} · ${area.area.toLowerCase()}`;
+  $('heading').textContent = depth === 0 ? 'Depth 0 · Hearthwood and the crypt' : `Depth ${depth} · ${area.area.toLowerCase()}`;
   $('numbers').replaceChildren(...numbers(f).map((t) => Object.assign(document.createElement('li'), { textContent: t })));
   $('biome').textContent = `Biome 1, depths 0 to 8: ${biomeRooms(seed())} rooms, the crypt's 3 counted (D-645 aims for about 69).`;
   document.querySelectorAll('#depths button').forEach((b) => b.setAttribute('aria-pressed', String(+b.dataset.depth === depth)));

@@ -71,5 +71,6 @@ test('daylight remembers the whole room, and the map shows it as the surface', (
   assert.equal(rememberAll(s), s);
   const plan = floorPlan(s);
   assert.equal(plan.depth, 0);
-  assert.equal(plan.rooms.length, 1);
+  assert.equal(plan.rooms.length, 9, "Hearthwood's 9 rooms (D-733)");
+  assert.deepEqual(plan.rooms.filter((r) => r.seen.some(Boolean)).map((r) => r.id), ['woods'], 'only home remembered');
 });

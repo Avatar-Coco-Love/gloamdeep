@@ -23,7 +23,7 @@ export const STRIKE_PASS_MS = 1000;
 
 // The fish in the water here: the home pond's, or a cave pool's (D-618); a float cast before it
 // kept its fish is the pond's
-export const fishHere = (state) => state.place === HOME ? POND_FISH : CAVE_FISH;
+export const fishHere = (state) => (state.place === HOME || state.room?.look === 'woods' ? POND_FISH : CAVE_FISH); // every woods pond's, since Hearthwood's 9 rooms (D-733)
 const fishOf = (f) => f?.fish ?? POND_FISH;
 // The strike meter's zone width for the fish on the line (D-618)
 export const zoneWidth = (f) => get(fishOf(f)).zone ?? STRIKE_ZONE;

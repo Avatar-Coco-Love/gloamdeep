@@ -17,6 +17,9 @@ code; where this page and a decision disagree, the decision wins.
   delete a profile (D-271); a glass card since D-397.
 - **Name pad:** the page of letters for naming a new profile (D-272), or
   renaming one (D-273); a glass card since D-398, split for thumbs since D-420.
+- **Hearthwood room, path:** one of the surface's 9 woods rooms, home
+  `woods`, the others `woods:x,y` by their cell; a path is the 3-tile gap
+  in the edge trees to the room beside (D-734, `src/core/hearthwood.js`).
 - **Opening card:** the glass card a new journey opens on, its first
   words and BEGIN (D-628).
 - **Ask card:** the small glass card in the middle that asks Yes or No:

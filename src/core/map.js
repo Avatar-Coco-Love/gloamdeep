@@ -14,6 +14,7 @@ import { layoutAt } from './region.js';
 import { mouthSpot, mouthOf } from './mouth.js';
 import { fresh } from './stairs.js';
 import { boonOf } from './boon.js';
+import { ROOMS as HEARTH } from './hearthwood.js';
 
 const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 
@@ -122,7 +123,7 @@ function withDoors(plan) {
   return { ...rest, doors: seams.filter((s) => s.ends.some(shownFloor)).map(({ x, y }) => ({ x, y })) };
 }
 
-// § whole surface: the woods and the crypt on one map, in the Seed Explorer
+// § whole surface: Hearthwood's 9 woods rooms (D-733) and the crypt on one map, in the Seed Explorer
 // only (D-214). The crypt sits where walking through the mouth takes you, the
 // mouth's tile a seam apart from the gap in the crypt's wall (D-216, D-224);
 // all revealed, no hero.
@@ -132,7 +133,7 @@ export function wholeSurface(state) {
 function surfaceParts(state) {
   const m = mouthOf(state.seed), woods = partPlan(state, true, 0, 'woods'), crypt = partPlan(state, true, 0, m.room);
   const at = (plan, id) => plan.rooms.find((r) => r.id === id);
-  const [sx, sy] = STEP[m.dir], mx = at(woods, 'woods').x + m.tile.x, my = at(woods, 'woods').y + m.tile.y;
+  const [sx, sy] = STEP[m.dir], mx = at(woods, m.from).x + m.tile.x, my = at(woods, m.from).y + m.tile.y;
   const dx = mx + 2 * sx - at(crypt, m.room).x - m.gap.x, dy = my + 2 * sy - at(crypt, m.room).y - m.gap.y;
   const all = [...woods.rooms, ...crypt.rooms.map((r) => ({ ...r, x: r.x + dx, y: r.y + dy }))];
   const seams = [...woods.seams, ...crypt.seams.map((s) => move(s, dx, dy)), seam(mx + sx, my + sy, sx, sy)];
@@ -152,7 +153,7 @@ function joinedSurface(state, reveal) {
   const been = (id) => (id === state.place ? state : state.elsewhere[id]);
   const visited = (id) => id === state.place || state.elsewhere[id]?.seen.some(Boolean);
   const crypt = partPlan(state, true, 0, mouthOf(state.seed).room).rooms.map((r) => r.id);
-  if (!reveal && !(visited('woods') && crypt.some(visited))) return null;
+  if (!reveal && !(HEARTH.some(visited) && crypt.some(visited))) return null;
   const whole = surfaceParts(state);
   const rooms = whole.rooms.filter((r) => reveal || been(r.id)).map((r) => ({ ...r, seen: reveal ? null : been(r.id).seen }));
   const here = rooms.find((r) => r.id === state.place);
