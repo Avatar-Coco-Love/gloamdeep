@@ -175,3 +175,14 @@ Claude's drafts the owner may change: after a strike it stands still
 one more turn; it strikes only the hero; armour can't turn it aside;
 its lines; a raised tail trembles and stops a walk. D-725 moves to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-730 · 2026-11-09 · Attack marks in Settings; the bone rat comes
+back next** (the owner's picks, all recommended; builds D-349) A new
+Settings switch, Attack marks, after Flasks: On at first, kept on the
+device. Off, no creature's next move shows: not the icons on the
+creature list's plaques, the framed one's arrow, a glob's next tile nor
+a raised tail's tiles. The plaques, the lines, the glob and the tremble
+stay. Built in 0.3.182 with the tail strike. The owner meant to pick
+the bone rat and wants it in the game, next: beaten, it falls into a
+pile of bones and stands up again 3 turns later, unless the hero steps
+onto the pile to scatter it.

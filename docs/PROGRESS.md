@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The owner's pick, proposed first: the next creature way (D-726), begin a journey on the surface (Q-081), or a new mechanic from the owner's list (2026-11-09): gaps in the floor and a leap over them (D-463), a ranged attack for the hero (D-457), or elements (not yet decided).
+The bone rat comes back (D-730): beaten, it falls into a pile of bones and stands up 3 turns later, unless the hero steps onto the pile. Its numbers and look proposed first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -41,12 +41,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
-- **2026-11-09, 0.3.182, The scorpion's tail strike.** The owner wanted
-  a new creature way or a new mechanic; the owner's picks: the next
-  creature way, the scorpion's tail strike (D-729). In line within 2
+- **2026-11-09, 0.3.182, The tail strike and Attack marks.** The
+  owner's picks: the scorpion's tail strike (D-729): in line within 2
   tiles it raises its tail a turn, both tiles marked, then strikes them
-  for 2 hearts; step aside and it misses and rests a turn. Next, the
-  owner's pick.
+  for 2 hearts; step aside and it misses and rests. Then the owner asked
+  for Attack marks in Settings, On at first, Off hiding every next-move
+  mark (D-730). Ideas kept: gaps and a leap (D-463), a ranged attack
+  for the hero (D-457), elements. Next, the bone rat comes back.
   Playtest: https://claude.ai/artifact/Q91FVBhiX7mcUdL7qjavzp
 - **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
   (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
