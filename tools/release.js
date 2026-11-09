@@ -148,9 +148,9 @@ function archiveChangelog(fs, minor, blocks, v, notes) {
     fs.write(rf, rl.join('\n'));
   }
   const al = text.split('\n');
-  // The header says once that the tool moves each version from now on (a pointer, D-338)
+  // The header says once that the tool moves each version from now on (a pointer, D-338), never again
   const said = al.findIndex((l) => l.startsWith('Moved unchanged'));
-  if (!al[said].includes('tools/release.js')) al.splice(said + 1, 0, `From ${v} on, ${TOOL} moves each version here once ${KEEP} newer ones are in \`CHANGELOG.md\` (D-572).`);
+  if (!al.some((l) => l.startsWith('From ') && l.includes(TOOL))) al.splice(said + 1, 0, `From ${v} on, ${TOOL} moves each version here once ${KEEP} newer ones are in \`CHANGELOG.md\` (D-572).`);
   const first = al.findIndex((l) => HEAD.test(l));
   const add = blocks.flatMap((b) => [...b.slice(0, b.length - (b[b.length - 1] === '' ? 1 : 0)), '']);
   if (first < 0) al.push('', ...add); else al.splice(first, 0, ...add);

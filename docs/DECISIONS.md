@@ -72,54 +72,6 @@ ticked on loading and pay their reward, never shown (recommended).
 The half-taught lines, finds saying what they are but not what next,
 are fixed later at their own step (recommended). Nothing is built yet.
 
-**D-707 · 2026-11-08 · The first teaching goal built** (the owner's
-picks, all recommended; builds D-706) From a mock-up
-(https://claude.ai/artifact/KgjZVyW7i4G9zeFwawJjj8). The goal line: two
-lines on one piece of glass as wide as its words, the goal amber and how
-grey, under the boon's mark and above the creature list. Done: both
-lines gold, the how line becoming the reward ("+1 Oil flask"), for 3
-turns, then gone. The Quests tab, fifth after Feats: a row a goal, newest
-first, a small diamond (gold once done), the goal (amber, gold once
-done), the reward paid on the right, how in grey under it; with none,
-"No goals yet." in grey. Claude's calls the owner may change: goal
-Glints count toward looks with the Feats'; a rat met before this version
-shows the goal on the first turn; goals don't move after a dev jump, as
-the Bestiary; the Journal opened from the goal line closes back to play;
-Right from Feats turns to Quests.
-
-**D-708 · 2026-11-08 · The second teaching goal built** (the owner's
-pick, recommended; builds D-706, changes its second how line) "Go home to
-the woods" shows once the rat goal is done, as the rat's line does, and is
-done standing in the woods. The woods are reached by the gap in the crypt
-wall, never by stairs, so its how line goes by where the hero is: "Take
-the stairs up to the crypt." deeper down, "Leave by the gap in the crypt
-wall." in the crypt. Claude's calls the owner may change: done however
-the hero reaches the woods; ticked quietly, never shown, when the woods
-were already walked to this journey.
-
-**D-709 · 2026-11-08 · The third teaching goal built** (the owner's
-picks, all recommended; builds D-706) "Find the waystone" / "Old standing
-stones, near home." shows on reaching the woods, and is done once the
-hero stands within 4 tiles of the stone's middle, across or along, so it
-is never done on arriving from the crypt wall's gap. Ticked quietly, never
-shown, when the home plate is woken already. D-700 to D-703 moved to
-`archive/DECISIONS-LOOKS.md`, word for word.
-
-**D-710 · 2026-11-08 · The fourth teaching goal built** (the owner's
-picks, all recommended; builds D-706) "Wake the waystone" / "Step on the
-plate in its middle." shows once "Find the waystone" is done, after its
-gold turns, and is done on the step that wakes the plate. Ticked quietly,
-never shown, when the plate is woken already.
-
-**D-711 · 2026-11-08 · The fifth teaching goal built** (the owner's
-picks, all recommended; builds D-706) "Take a boon" / "Step back on the
-plate. Pick 1 of 3." shows on stepping off the woken home plate, and is
-done on the pick; closing the boon card by its cross leaves it waiting.
-The first boon picked marks it on the profile, so a boon held once never
-shows it again; an older profile holding a boon now is ticked quietly,
-and one without is shown the goal. The boons card (D-706) is its own
-next step.
-
 **D-712 · 2026-11-08 · The boons card built** (the owner's picks, all
 recommended; builds D-706) The boons card shows right after the first
 boon is picked, on the same glass card as the opening's, the room dimmed.
@@ -189,3 +141,16 @@ trying a locked look on says "Cow: 3 Glints, or your one free pick."
 with the button reading FREE. The Carriage lamp and the Zebra pattern are
 free for everyone; Glints spent on them come back, and a free pick taken
 on one waits again. Both in one step.
+
+**D-716 · 2026-11-09 · The audit's first fixes: the old saves' locket,
+one pointer line** (the owner's picks, all recommended; the eleventh
+audit's B1 and T1, D-699) The owner set B1 first. A journey saved before
+0.3.143 that already held the depth-4 room the seed picks for the locket
+has it laid there once as the save loads, with its warden asleep beside
+it, where a new game lays them; the room stays as it is and nothing of
+the hero's moves. Only while the locket is nowhere in the journey (the
+bag, a chest, a lost bag, a floor, the shelf). T1 rides along, nothing
+visible: the release tool says once, not each version, that it moves
+versions into the changelog archive; the 135 extra copies of that line
+are dropped. The rest of the findings (B2, B3, B4, Q1) wait for the
+owner's order. D-707 to D-711 move to `archive/DECISIONS-GOALS.md`.

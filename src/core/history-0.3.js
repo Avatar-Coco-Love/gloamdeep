@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.169', date: '2026-11-09', title: 'The old saves\' locket', lines: [
+    "Fixed: a journey saved before 0.3.143 could have no Lightkeeper's Locket if you had already been in the depth-4 room it belongs in. Load that journey now and the locket lies in that room, with its warden asleep beside it, as in a new game. If the locket is already yours, nothing changes.",
+    "Behind the scenes: the record-keeping tool no longer writes the same note into the changelog archive every version.",
+    "Decisions: D-716.",
+  ] },
   { v: '0.3.168', date: '2026-11-09', title: 'One free pick, shown once', lines: [
     "The free pick is shown once now, not on every look: locked looks keep LOCK, and \"1 FREE PICK\" shows in gold at the top of the Look card while yours waits. Try a locked look on to see its price, or that it can be your one free pick, and press FREE to take it.",
     "The Carriage lamp and the Zebra pattern are now free for everyone. If you bought one, its Glints come back; if you took one as your free pick, the pick waits for you again.",
