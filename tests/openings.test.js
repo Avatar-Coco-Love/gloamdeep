@@ -79,8 +79,10 @@ test('doorways: the edge tiles that lead to the room beside, the mouth\'s alone 
   assert.ok(first.some((d) => d.x === 5 && d.y === 12 && d.dir === 'down'), 'the bottom doorway into the south room');
   for (const d of first) assert.equal(tileAt(s.room, d.x, d.y).solid, false);
   for (let seed = 1; seed <= 20; seed++) {
-    const w = makeWorld('first', seed), out = goToPlace(w, 'woods'), mo = mouthOf(seed);
-    assert.deepEqual(doorways('woods', out.room, seed), [{ ...mo.tile, dir: mo.dir }], 'only the mouth in the woods');
+    const w = makeWorld('first', seed), mo = mouthOf(seed), out = goToPlace(w, mo.from);
+    const ds = doorways(mo.from, out.room, seed);
+    assert.deepEqual(ds.filter((d) => d.dir === mo.dir), [{ ...mo.tile, dir: mo.dir }], 'only the mouth on its way');
+    assert.equal(ds.filter((d) => d.dir !== mo.dir).length % 3, 0, 'and a path of 3 to each room beside (D-733)');
   }
   const deep = goToDepth(s, 2), ds = doorways(deep.place, deep.room, 7);
   assert.ok(ds.length >= 1, 'a grid room has a doorway');

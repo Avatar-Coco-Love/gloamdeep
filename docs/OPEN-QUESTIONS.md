@@ -82,3 +82,12 @@ while a cleared room fills again, a creature picked from the depth's
 pool, so a different kind may take a beaten one's place. When, how
 often, and how it fits the bigger biomes are talked through at its own
 step, after biome 1 grows.
+
+**Q-087 · Random starts and their goals** (raised 2026-11-09, the
+owner's note; builds D-733, D-705) The owner notes that the hero could
+start in one of several random places, and where they start decides
+their goals and the order those goals come in. D-733 has a journey
+begin in a south woods room, the hero walking north to find the
+waystone. Which places a journey may begin in, and how each start sets
+its goals and their order, is settled at step 2, the south start (the
+owner's pick).

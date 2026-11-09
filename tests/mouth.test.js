@@ -7,6 +7,7 @@ import { makeWorld, step, followDaylight } from '../src/core/turn.js';
 import { floorPlan } from '../src/core/map.js';
 import { goToDepth } from '../src/core/stairs.js';
 import { COLS, ROWS } from '../src/core/cave.js';
+import { ROOMS as HEARTH } from '../src/core/hearthwood.js';
 
 const SEEDS = Array.from({ length: 300 }, (_, i) => i + 1);
 const AT = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] }; // from the mouth into the woods
@@ -25,10 +26,10 @@ function walk(room, from) {
   return out;
 }
 
-test('the mouth: on the woods edge the seed picks, off the corners, a rock either side, joined to the start', () => {
+test('the mouth: in the room beside home the way the seed picks, on its far edge (D-733), off the corners, a rock either side, joined to the start', () => {
   const ways = new Set();
   for (const seed of SEEDS) {
-    const m = mouthOf(seed), p = beginPlace('woods', seed), { room } = p, { x, y } = m.tile;
+    const m = mouthOf(seed), p = beginPlace(m.from, seed), { room } = p, { x, y } = m.tile;
     ways.add(m.dir);
     assert.equal(tileAt(room, x, y).id, 'caveMouth');
     const along = m.dir === 'up' || m.dir === 'down' ? x : y, len = m.dir === 'up' || m.dir === 'down' ? COLS : ROWS;
@@ -44,7 +45,7 @@ test('the mouth: on the woods edge the seed picks, off the corners, a rock eithe
 
 test('walking through the mouth: the crypt\'s facing gap, one turn; and back out onto the mouth', () => {
   for (const seed of [1, 2, 4, 6]) {
-    const m = mouthOf(seed), s = { ...makeWorld('woods', seed), hero: { ...m.tile } };
+    const m = mouthOf(seed), s = { ...makeWorld(m.from, seed), hero: { ...m.tile } };
     const into = step(s, m.dir);
     assert.equal(into.place, m.room);
     assert.deepEqual(into.hero, m.gap);
@@ -52,7 +53,7 @@ test('walking through the mouth: the crypt\'s facing gap, one turn; and back out
     assert.equal(tileAt(into.room, m.gap.x, m.gap.y).id, 'floor');
     const back = { up: 'down', down: 'up', left: 'right', right: 'left' }[m.dir];
     const out = step(into, back);
-    assert.equal(out.place, 'woods');
+    assert.equal(out.place, m.from);
     assert.deepEqual(out.hero, m.tile);
   }
 });
@@ -67,7 +68,7 @@ test('going up into the cave arrives in the south room; the other ways, in the f
 });
 
 test('the rocks beside the mouth are solid: nothing changes, no turn', () => {
-  const m = mouthOf(4), s = { ...makeWorld('woods', 4), hero: { ...m.tile } };
+  const m = mouthOf(4), s = { ...makeWorld(m.from, 4), hero: { ...m.tile } };
   assert.equal(m.dir, 'up');
   assert.equal(step(s, 'left'), s);
   assert.equal(step(s, 'right'), s);
@@ -76,14 +77,14 @@ test('the rocks beside the mouth are solid: nothing changes, no turn', () => {
 test('the woods and the crypt are both depth 0, and the map shows the part the hero is in until both are visited (D-212, D-222)', () => {
   for (const seed of [1, 4]) {
     const s = makeWorld('woods', seed);
-    assert.deepEqual(floorPlan(s).rooms.map((r) => r.id), ['woods']);
+    assert.deepEqual(floorPlan(s).rooms.map((r) => r.id).sort(), [...HEARTH].sort()); // Hearthwood's 9 rooms (D-733)
     assert.deepEqual(floorPlan(makeWorld('first', seed)).rooms.map((r) => r.id).sort(), ['first', 'south']);
     assert.deepEqual(floorPlan(goToDepth(s, 1), false, 0).rooms.map((r) => r.id).sort(), ['first', 'south']); // the way the stairs lead
   }
 });
 
 test('the lantern by itself lights as the hero walks in from the daylight', () => {
-  const m = mouthOf(6), s = { ...makeWorld('woods', 6), hero: { ...m.tile }, lit: false };
+  const m = mouthOf(6), s = { ...makeWorld(m.from, 6), hero: { ...m.tile }, lit: false };
   assert.equal(followDaylight(s, step(s, m.dir)).lit, true);
 });
 

@@ -49,57 +49,6 @@ archived; all word for word. One bug hunt read the code since 0.3.113
 from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
 
-**D-705 · 2026-11-08 · Teaching goals, the plan** (the owner's picks,
-recommended where marked; builds D-629's first kind of quest and D-640,
-opens Q-087) The game should teach its many systems. A teaching map
-(https://claude.ai/artifact/5bSXQiKobcF8yNcf3tTQor) lists 32 systems,
-where each is first met and what tells the player today: 9 taught, 16
-half, 5 not (fighting; levels, embers and Growth; going home to the
-woods; the waystone; the Journal), 2 to check in a playtest (sleep, the
-map). Teaching goals come first for those 5, one at a time
-(recommended), each appearing when it becomes useful: "beat a rat" once
-a rat is seen; going up to the woods any time; finding the waystone,
-then stepping on its plate to wake it; if no boon was ever held,
-stepping off the home plate asks the hero to come back for one; the
-first boon picked opens a glass card, like the opening card, saying
-what boons are, with a Journal entry too. The goal shows as a small
-line until done, unless something else is chosen; later, with several
-waiting, the player may choose which to follow. Goals live in the
-Quests tab (recommended, D-640), side quests joining later. A goal's
-reward is rolled from a short list, the seed picking (recommended):
-Glints, useful finds and so on. Goals already done in an older save are
-ticked on loading and pay their reward, never shown (recommended).
-The half-taught lines, finds saying what they are but not what next,
-are fixed later at their own step (recommended). Nothing is built yet.
-
-**D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
-picks, all recommended but the order; builds D-705, answers Q-087) From
-a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,
-each worded as a goal in amber and one grey line saying how: "Beat a
-rat" / "Walk into it to strike.", once a rat is seen; "Go home to the
-woods" / "Take the stairs up from the crypt." (how line changed by
-D-708, 2026-11-08), once the rat goal is done;
-"Find the waystone" / "Old standing stones, near home.", on reaching the
-woods; "Wake the waystone" / "Step on the plate in its middle.", once it
-is seen; "Take a boon" / "Step back on the plate. Pick 1 of 3.", on
-stepping off the woken plate with no boon ever held; "Spend your ember" /
-"Tap here, then Growth.", at level 2, going ahead of any goal waiting.
-The owner's own answer on the order: each goal's moment is its own, no
-one rule for all; with two waiting, the older shows (Claude's call). The
-goal line sits under the hearts panel, below the boon's mark, fading
-with it; tapping it opens the Journal at its Quests tab. Done turns it
-gold for a few turns, and the text line says "Goal done: Beat a rat. +1
-Oil flask." Each goal's reward is rolled from: Oil flask 30%, 2 Healing
-herbs 25%, 3 Oilcaps 20%, 1 Glint 15%, Healing potion 10%; goal Glints
-are kept on the profile beside the Records' (Claude's call), and a find
-with the bag full is set at the hero's feet (Claude's call). The boons
-card, once, after the first boon is picked: "That is a boon: a small
-help for one trip down." / "It lasts until you come home, or you fall."
-/ "Its mark sits under your hearts. Each time you set out, pick a new
-one." and Go; picking the done "Take a boon" in the Quests tab shows it
-again. D-695 to D-698 moved to `archive/DECISIONS-FEATS.md`, word for
-word.
-
 **D-727 · 2026-11-09 · Creatures walk over finds; the rat pack planned**
 (the owner's picks, all recommended; builds D-726) Creatures no longer
 go around a find on the floor: they step onto it and it stays there,
@@ -187,4 +136,19 @@ its place, and the cave mouth moves to a room beside home (D-184); 2 the
 south start, its teaching goal's words with it; 3 waking after a fall
 (supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
 and open glades. Nothing is built yet. D-712 and D-713 move to
+`archive/DECISIONS-GOALS.md`, word for word.
+
+**D-734 · 2026-11-09 · Hearthwood's 9 rooms built** (the owner's picks,
+all recommended; builds D-733's step 1, opens Q-087) The surface is
+Hearthwood's 3 × 3 woods rooms, home in the centre. Every room is joined
+to every room beside it, 12 joins, each a path 3 tiles wide through the
+edge trees, at the same spot on both sides, the seed picking where, kept
+3 tiles from the corners; the fewest trees are cut from it to the room's
+open ground. Claude's calls: home grows as before, so its trees stay,
+and an older save's home keeps everything, only its mouth and rocks
+made trees and its paths cut; the cave mouth stands in the room beside
+home the way the seed picked (D-184), on that room's far edge, the same
+spot along it, so the crypt is reached as before; only home has the
+waystone; every woods room has its sticks, branch, pond and bush, each
+pond holding the Pond Minnow. D-705 and D-706 move to
 `archive/DECISIONS-GOALS.md`, word for word.

@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.183, The bone rat comes back.** The owner's picks,
+  all recommended (D-731): beaten, it falls into a low heap of bones and
+  stands up whole 3 turns later, every time, unless the hero steps onto
+  the pile to scatter it; only the scatter gives its Rat Bone, Beaten
+  count and experience. Pink dots count 3, 2, 1, and "The bones stir."
+  Next, the owner's pick.
+  Playtest: https://claude.ai/artifact/Sxt9CrtJxjmV2CtGKa5APD
 - **2026-11-09, 0.3.182, The tail strike and Attack marks.** The
   owner's picks: the scorpion's tail strike (D-729): in line within 2
   tiles it raises its tail a turn, both tiles marked, then strikes them

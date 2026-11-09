@@ -1,12 +1,15 @@
 // § mouth: the first cave's mouth, on an edge of the woods (step 49, D-211).
 // Plain data, no drawing. The seed picks the edge (D-184) and a spot along
-// it, kept from the corners, so the rock beside it stays off them. Walking
+// it, kept from the corners, so the rock beside it stays off them. Since
+// Hearthwood's 9 rooms (D-733) it stands in the room beside home that way,
+// on that room's far edge, the same spot along it. Walking
 // through it arrives on the crypt's facing side, at a gap in its wall: going
 // up, the south room's bottom, then on up into the first room; going down,
 // left or right, the first room. And back out onto the mouth.
 import { rng, int, pick, seedFor } from './rng.js';
 import { COLS, ROWS } from './cave.js';
 import { daylight } from './daytime.js';
+import { besideHome } from './hearthwood.js';
 
 // The crypt room and its gap, by the way the hero walks into the mouth
 const INTO = {
@@ -17,15 +20,15 @@ const INTO = {
 };
 const BACK = { up: 'down', down: 'up', left: 'right', right: 'left' };
 
-// (seed) → { dir, tile, room, gap }: the way in, the mouth's tile in the
-// woods, and the crypt room and gap it leads to. Worked out once per seed.
+// (seed) → { dir, tile, from, room, gap }: the way in, the mouth's tile in its
+// woods room `from`, and the crypt room and gap it leads to. Worked out once per seed.
 const made = new Map();
 export function mouthOf(seed = 1) {
   if (!made.has(seed)) {
     const r = rng(seedFor(seed, 0) ^ 0x6d0c7e11), dir = pick(r, Object.keys(INTO));
     const n = int(r, 2, (dir === 'up' || dir === 'down' ? COLS : ROWS) - 3);
     const tile = { up: { x: n, y: 0 }, down: { x: n, y: ROWS - 1 }, left: { x: 0, y: n }, right: { x: COLS - 1, y: n } }[dir];
-    made.set(seed, { dir, tile, ...INTO[dir] });
+    made.set(seed, { dir, tile, from: besideHome(dir), ...INTO[dir] });
   }
   return made.get(seed);
 }
@@ -33,8 +36,8 @@ export function mouthOf(seed = 1) {
 // The way through the mouth from place `id`, as { direction: place }, or {}
 export function mouthSides(id, seed = 1) {
   const m = mouthOf(seed);
-  if (id === 'woods') return { [m.dir]: m.room };
-  if (id === m.room) return { [BACK[m.dir]]: 'woods' };
+  if (id === m.from) return { [m.dir]: m.room };
+  if (id === m.room) return { [BACK[m.dir]]: m.from };
   return {};
 }
 
@@ -42,8 +45,8 @@ export function mouthSides(id, seed = 1) {
 // the mouth, or null when that way isn't the mouth
 export function mouthSpot(seed, from, to) {
   const m = mouthOf(seed);
-  if (from === 'woods' && to === m.room) return m.gap;
-  if (from === m.room && to === 'woods') return m.tile;
+  if (from === m.from && to === m.room) return m.gap;
+  if (from === m.room && to === m.from) return m.tile;
   return null;
 }
 

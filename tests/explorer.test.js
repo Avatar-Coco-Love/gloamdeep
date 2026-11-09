@@ -1,6 +1,7 @@
 // § explorer: the Seed Explorer's seeds and its world (D-214)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { ROOMS as HEARTH } from '../src/core/hearthwood.js';
 import { mouthOf } from '../src/core/mouth.js';
 import { startSeeds, shownSeed, addSeed, canGoBack, backSeed, explorerWorld } from '../src/core/explorer.js';
 import { floorPlan, floorsShown, wholeSurface } from '../src/core/map.js';
@@ -34,14 +35,14 @@ test('its map shows the same rooms as the game\'s revealed map, with no hero', (
   }
 });
 
-test('the whole surface: the woods and the crypt joined at the mouth, for each way it faces (D-216)', () => {
+test('the whole surface: Hearthwood\'s rooms and the crypt joined at the mouth, for each way it faces (D-216)', () => {
   const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] }, ways = new Set();
   for (let seed = 1; seed <= 40; seed++) {
     const p = wholeSurface(explorerWorld(seed)), m = mouthOf(seed), at = (id) => p.rooms.find((r) => r.id === id);
     ways.add(m.dir);
-    assert.deepEqual(p.rooms.map((r) => r.id).sort(), ['first', 'south', 'woods']);
+    assert.deepEqual(p.rooms.map((r) => r.id).sort(), ['first', 'south', ...HEARTH].sort()); // Hearthwood's 9 rooms (D-733)
     assert.equal(p.hero, null);
-    const w = at('woods'), c = at(m.room);
+    const w = at(m.from), c = at(m.room);
     const [sx, sy] = STEP[m.dir]; // a seam tile apart, the doorway line on it (D-224)
     assert.deepEqual([w.x + m.tile.x + 2 * sx, w.y + m.tile.y + 2 * sy], [c.x + m.gap.x, c.y + m.gap.y]);
     assert.ok(p.doors.some((d) => d.x === w.x + m.tile.x + sx && d.y === w.y + m.tile.y + sy));
@@ -50,7 +51,7 @@ test('the whole surface: the woods and the crypt joined at the mouth, for each w
     assert.equal(Math.min(...p.rooms.map((r) => r.x)), 0);
     assert.equal(Math.min(...p.rooms.map((r) => r.y)), 0);
     const over = (a, b) => a.x < b.x + b.room.cols && b.x < a.x + a.room.cols && a.y < b.y + b.room.rows && b.y < a.y + a.room.rows;
-    assert.ok(!over(w, at('first')) && !over(w, at('south')));
+    for (const id of HEARTH) assert.ok(!over(at(id), at('first')) && !over(at(id), at('south')), `seed ${seed}: ${id}`);
   }
   assert.equal(ways.size, 4);
 });

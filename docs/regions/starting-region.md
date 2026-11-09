@@ -12,7 +12,10 @@ decision wins.
 
 ## Grid (D-182)
 3 × 3 cells. All 9 are used, every seed, in this region (other regions
-may leave cells empty).
+may leave cells empty). Built at 0.3.186 (D-734, `src/core/hearthwood.js`):
+all 9 are woods rooms of 17 × 20 for now, home keeping the id `woods`,
+the others `woods:x,y` by their cell. Each room is joined to every room
+beside it by a path 3 tiles wide through the edge trees.
 
 ```
  N   [mountain] [mountain] [mountain]
@@ -36,8 +39,9 @@ may leave cells empty).
   journey begins in the crypt (D-119); D-020 said here.
 - **The first cave's entrance** in one of the four side cells next to
   home: north, east, south or west, picked by the seed (D-184). If north,
-  it is a mountain room. Until the grid is built, the mouth sits on that
-  edge of the one woods room (D-211).
+  it is a mountain room. Since 0.3.186 the mouth stands on that room's
+  far edge (D-734); before, on that edge of the one woods room (D-211).
+- **Where a journey begins** and the goals each start sets: Q-087.
 
 ## Caves (D-184, D-185)
 - One cave entrance for now: the first cave. The sheet leaves room for

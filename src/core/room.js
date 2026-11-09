@@ -15,6 +15,7 @@ import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf, sizeAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
+import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths } from './hearthwood.js';
 import { spotIn, unpad } from './stamper.js';
 
 // § first room: the shape of style study 1's room (study lines 96–110), with
@@ -105,9 +106,20 @@ export const PLACES = {
   second: { map: SECOND_ROOM, start: { x: 1, y: 1 }, lights: SECOND_LIGHTS, enemies: SECOND_ENEMIES, items: SECOND_ITEMS, depth: 1, guard: true },
   south: { map: SOUTH_ROOM, start: { x: 5, y: 0 }, lights: SOUTH_LIGHTS, enemies: SOUTH_ENEMIES, items: SOUTH_ITEMS, depth: 0, slot: 1, sides: { up: 'first' } },
   // The first outside room, on the surface, depth 0, made from the seed in daylight (step 48, D-209),
-  // with the first cave's mouth on one edge (step 49, D-211). The dev Go outside button leads there too.
-  woods: { make: (s, seed) => generateWoods(s, mouthOf(seed)), depth: 0, look: 'woods', sky: true },
+  // home in Hearthwood's centre (D-733). The dev Go outside button leads there too.
+  // Hearthwood's other 8 rooms follow it (woods:x,y), added below.
+  woods: { make: (s, seed) => woodsRoom(HOME_ID, seed), depth: 0, look: 'woods', sky: true, sides: sidesOfWoods(HOME_ID) },
 };
+// § hearthwood: the 8 woods rooms round home (D-733), each joined to every room beside it
+for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => woodsRoom(id, seed), depth: 0, look: 'woods', sky: true, sides: sidesOfWoods(id) };
+// A Hearthwood room as it begins: home grows as it did with the mouth in its edge, so it keeps
+// its trees, but without the mouth or rocks, which stand in the room beside it now (D-733); that
+// room has the mouth, the rest neither. Then the paths to the rooms beside are cut.
+function woodsRoom(id, seed) {
+  const m = mouthOf(seed), home = id === HOME_ID;
+  const made = generateWoods(woodsSeed(seed, id), home || id === m.from ? m : null, { stone: home, mark: !home });
+  return { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
+}
 
 // § depth: the place at each depth, and back. The crypt is depth 0 with the
 // woods, the second room depth 1 (D-212); a depth's stairs lead to its first

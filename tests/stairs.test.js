@@ -1,6 +1,7 @@
 // § stairs: the stairs down, the second room and back up (D-130 to D-136)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { mouthOf } from '../src/core/mouth.js';
 import { tileAt, makeRoom, placeFor, SECOND_LIGHTS } from '../src/core/room.js';
 import { stairsFacing, glowsIn } from '../src/core/stairs.js';
 import { makeWorld, step, wait, switchLantern, FIRST_START, HERO_HEALTH } from '../src/core/turn.js';
@@ -81,7 +82,7 @@ test('back in through the doorway out, a rat left beside it doesn\'t bite at onc
   const seed = 10, w = makeWorld('first', seed); // the cave mouth leads to the first room's top doorway, at 5, 0
   let s = { ...w, hero: { x: 5, y: 0 }, enemies: [{ id: 'rat', x: 5, y: 1, chasing: true }] };
   s = step(s, 'up');
-  assert.equal(s.place, 'woods');
+  assert.equal(s.place, mouthOf(seed).from); // the room beside home with the mouth (D-733)
   s = step(s, 'down');
   assert.equal(s.place, 'first');
   assert.equal(s.health, HERO_HEALTH);

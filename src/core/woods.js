@@ -35,15 +35,18 @@ export const STONE_RING = 1;
 // edge with a rock either side, the two tiles in front of it open and
 // joined to the start (D-211). The home waystone stands just north of the
 // middle, set after the trees and before the rest, which keeps clear of it (D-589).
-export function generateWoods(seed, mouth = null) {
+// Options (hearthwood.js, D-733): `stone` false leaves the waystone out, for the rooms
+// round home; `mark` false keeps the mouth's front clear without the mouth itself, so
+// home grows as it did when the mouth stood in its edge.
+export function generateWoods(seed, mouth = null, { stone: withStone = true, mark = true } = {}) {
   const r = rng(seed), start = { x: COLS >> 1, y: ROWS >> 1 }, front = mouth ? inFront(mouth) : [];
   let g = null;
   for (let i = 0; i < TRIES && !g; i++) g = grow(r, start, front);
   g = g || Array.from({ length: ROWS }, (_, y) => Array.from({ length: COLS }, (_, x) => (depthIn(x, y) === 0 ? 'T' : '.')));
-  const stone = { x: start.x, y: start.y - STONE_UP }, ring = around(LANDMARKS.waystone, stone.x, stone.y, STONE_RING);
+  const stone = { x: start.x, y: start.y - STONE_UP }, ring = withStone ? around(LANDMARKS.waystone, stone.x, stone.y, STONE_RING) : [];
   for (const t of ring) g[t.y][t.x] = '.';
-  stamp(g, LANDMARKS.waystone, stone.x, stone.y);
-  if (mouth) {
+  if (withStone) stamp(g, LANDMARKS.waystone, stone.x, stone.y);
+  if (mouth && mark) {
     const { tile: t, dir } = mouth, [ax, ay] = dir === 'up' || dir === 'down' ? [1, 0] : [0, 1];
     g[t.y][t.x] = 'M'; g[t.y - ay][t.x - ax] = 'R'; g[t.y + ay][t.x + ax] = 'R';
   }
