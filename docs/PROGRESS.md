@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.204 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.205 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 25, 3 (D-751): with Waymark, stairs down too far for the round map
-show as a violet dot on its rim, pulsing, toward the nearest stairs down.
+Step 25, 4 (D-751): once the way down is found, the motes stay: about 2
+or 3, drifting slowly, more or fewer by the place, none under the sky.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -37,7 +37,7 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades
 - [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
-- [ ] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204)
+- [ ] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205)
 
 **Next audit: 0.3.232** (D-518, D-740).
 
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.205, Waymark's dot on the rim.** The owner's picks,
+  all recommended (D-754): with Waymark, a one-tile violet dot pulses
+  just inside the round map's rim toward the nearest stairs down, in a
+  straight line, found or not, once they are too far to fit on it.
+  Playtest: https://claude.ai/artifact/KwU6j9RDcBfBDwcWg4pHCU
 - **2026-11-09, 0.3.204, The waystone by the crypt's door.** The owner's
   picks, recommended but the spot (D-753): the home waystone stands in
   the cave mouth's room, 2 tiles north of its middle (the owner's pick);
@@ -58,9 +63,3 @@ list in `RESEARCH.md`.
   By itself does, it is ticked quietly; it pays a reward and goes ahead
   while the lantern burns by day.
   Playtest: https://claude.ai/artifact/RfvSrtSB6VL7JvygqTpqfZ
-- **2026-11-09, 0.3.202, Trees in groves.** The owner's picks, all
-  recommended: trees as A3, varied in size, place and three greens
-  shared by neighbours (D-750), ending step 24; and the owner's four
-  ideas planned as step 25, one step each (D-751).
-  Playtest: https://claude.ai/artifact/TUaLsunXYmLJVPrEf2vT7h
-  Mock-ups: https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ

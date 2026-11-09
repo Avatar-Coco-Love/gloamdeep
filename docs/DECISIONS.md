@@ -172,3 +172,11 @@ card's Home and a fall's waking follow the stone; "Go home to the
 woods" is still done in home. Partly supersedes D-583's home, D-589's
 room and D-735's words. D-747 to D-749 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-754 · 2026-11-09 · Waymark's dot on the rim** (the owner's picks,
+all recommended; step 25, 3, D-751) While Waymark is held and the
+nearest stairs down don't fit whole on the round map, a violet dot one
+tile big, as the marks are, sits just inside its rim toward them,
+pulsing as the marks do (steady with reduced motion). Nearest is in a
+straight line, and any stairs down count, found or not. None on another
+floor, or with the map revealed. Builds on D-601.

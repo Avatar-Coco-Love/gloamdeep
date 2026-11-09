@@ -38,15 +38,17 @@ export function floorPlan(state, reveal = false, depth = depthOf(state.place)) {
 // every room of the part shown, rooms not yet entered too, as floor tiles [{ x, y }], but not
 // those already remembered, which show as found stairs. Drawn pulsing over the map, never
 // written into the memory, so they go when the boon does. None with the map revealed. The
-// plan's `cells` (every room's corner, entered or not) are used here and dropped.
+// plan's `cells` (every room's corner, entered or not) are used here and dropped. `downs`
+// holds every stairs down of the part, found or not, for the round map's rim (D-754).
 function withWaymarks(state, reveal, { cells, ...plan }) {
-  if (reveal || !boonOf(state)?.stairs) return { ...plan, waymarks: [] };
+  if (reveal || !boonOf(state)?.stairs) return { ...plan, waymarks: [], downs: [] };
   const known = (id) => (id === state.place ? state : state.elsewhere[id]);
-  const waymarks = cells.flatMap(({ id, x, y }) => {
+  const all = cells.flatMap(({ id, x, y }) => {
     const p = known(id), cols = p ? p.room.cols : 0;
-    return (p ? downsOf(p.room) : downsAt(id, state.seed)).filter((d) => !p?.seen[d.y * cols + d.x]).map((d) => ({ x: x + d.x, y: y + d.y }));
+    return (p ? downsOf(p.room) : downsAt(id, state.seed)).map((d) => ({ x: x + d.x, y: y + d.y, found: !!p?.seen[d.y * cols + d.x] }));
   });
-  return { ...plan, waymarks };
+  const waymarks = all.filter((d) => !d.found).map(({ x, y }) => ({ x, y }));
+  return { ...plan, waymarks, downs: all.map(({ x, y }) => ({ x, y })) };
 }
 // The stairs down in a room, as its tiles [{ x, y }]
 export function downsOf(room) {
@@ -265,4 +267,18 @@ export function zoomView(view, plan, w, h, by, cx = w / 2, cy = h / 2) {
 export function aroundHero(plan, n, k) {
   const at = plan.hero || { x: (plan.cols - 1) / 2, y: (plan.rows - 1) / 2 };
   return { x: Math.round((n - k) / 2 - at.x * k), y: Math.round((n - k) / 2 - at.y * k) };
+}
+
+// § rim: (plan, n, k) → { x, y }, the top-left pixel of Waymark's dot on the round map's
+// rim (D-754), one tile, a tile in from the glass's edge, toward the stairs down nearest
+// the hero in a straight line, found or not; null when those stairs fit whole on the
+// round map (a circle n pixels across), or there are none, or the hero is on another floor
+export function rimDot(plan, n, k) {
+  if (!plan.hero || !plan.downs?.length) return null;
+  const { x: hx, y: hy } = plan.hero, far = (d) => (d.x - hx) ** 2 + (d.y - hy) ** 2;
+  const near = plan.downs.reduce((a, d) => (far(d) < far(a) ? d : a));
+  const dx = (near.x - hx) * k, dy = (near.y - hy) * k, len = Math.hypot(dx, dy), r = n / 2;
+  if (len + k * Math.SQRT1_2 <= r) return null;
+  const at = r - k, { x: mx, y: my } = aroundHero(plan, n, k), cx = mx + hx * k, cy = my + hy * k;
+  return { x: Math.round(cx + (dx / len) * at), y: Math.round(cy + (dy / len) * at) };
 }
