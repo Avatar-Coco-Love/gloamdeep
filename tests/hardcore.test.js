@@ -1,7 +1,7 @@
 // § hardcore: one life; a fall starts the world over from the same seed (D-334, MO2, D-344)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeWorld, wait, startOver, FIRST_START } from '../src/core/turn.js';
+import { makeWorld, newJourney, wait, startOver, FIRST_START } from '../src/core/turn.js';
 import { shownLine } from '../src/core/lines.js';
 import { eventsSince, has } from '../src/core/events.js';
 import { ENDED_MENU, ENDED_HEADING } from '../src/core/menu.js';
@@ -14,16 +14,16 @@ function fallen(mode = 'hardcore') {
 }
 
 test('a Hardcore fall begins the world again from the same seed, as on day one', () => {
-  const { s, n } = fallen(), day1 = makeWorld('first', 4321, 'hardcore');
+  const { s, n } = fallen(), day1 = newJourney(4321, 'hardcore'); // at the journey's start (D-735)
   assert.equal(n.seed, s.seed);
   assert.equal(n.mode, 'hardcore');
-  assert.equal(n.place, 'first');
-  assert.deepEqual(n.hero, FIRST_START);
+  assert.equal(n.place, day1.place);
+  assert.deepEqual(n.hero, day1.hero);
   assert.equal(n.turn, 0, 'the time of day too');
   assert.equal(n.xp, 0, 'the level too');
   assert.deepEqual(n.bag, []);
   assert.equal(n.held, null);
-  assert.deepEqual(n.found, ['first'], 'the map found too');
+  assert.deepEqual(n.found, [day1.place], 'the map found too');
   assert.deepEqual(n.stashes, {});
   assert.deepEqual(n.enemies.map(({ met, ...e }) => e), day1.enemies); // those lit at the start met as it began (D-630)
   assert.deepEqual(n.items, day1.items);

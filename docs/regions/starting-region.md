@@ -31,17 +31,18 @@ beside it by a path 3 tiles wide through the edge trees.
   (D-733, planned).
 
 ## Fixed promises, every seed
-- **Home base** in the centre cell (D-182). Planned (D-733): a new
+- **Home base** in the centre cell (D-182). Since 0.3.187 (D-735) a new
   journey starts in one of the south woods rooms, never the cave's, the
-  seed picking, and the hero walks north to find home. A fall wakes the
+  seed picking, and the hero walks north to find home; before, in the
+  crypt (D-119); D-020 said here. Planned (D-733): a fall wakes the
   hero in the last bed slept in; with none, at the home waystone once
-  woken; otherwise in the room where the journey began. Until built, a
-  journey begins in the crypt (D-119); D-020 said here.
+  woken; otherwise in the room where the journey began, as it does now.
 - **The first cave's entrance** in one of the four side cells next to
   home: north, east, south or west, picked by the seed (D-184). If north,
   it is a mountain room. Since 0.3.186 the mouth stands on that room's
   far edge (D-734); before, on that edge of the one woods room (D-211).
-- **Where a journey begins** and the goals each start sets: Q-087.
+- **Where a journey begins** and the goals each start sets: one entry
+  a start in `src/core/starts.js` (D-735); South woods, for now the only one.
 
 ## Caves (D-184, D-185)
 - One cave entrance for now: the first cave. The sheet leaves room for

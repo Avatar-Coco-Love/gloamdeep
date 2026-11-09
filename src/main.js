@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { makeWorld, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -97,7 +97,7 @@ const app = {
 };
 const newWorld = (mode) => {
   app.journeySeed = app.settings.seed || randomSeed();
-  return makeWorld('first', app.journeySeed, mode);
+  return beginJourney(app.journeySeed, mode); // in a south woods room (D-735)
 };
 // The profile's saved journey comes back as it was, ready for Continue (D-238); with none
 // in use, or none saved, a new world waits unsaved

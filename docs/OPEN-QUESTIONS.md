@@ -83,11 +83,14 @@ pool, so a different kind may take a beaten one's place. When, how
 often, and how it fits the bigger biomes are talked through at its own
 step, after biome 1 grows.
 
-**Q-087 · Random starts and their goals** (raised 2026-11-09, the
-owner's note; builds D-733, D-705) The owner notes that the hero could
-start in one of several random places, and where they start decides
-their goals and the order those goals come in. D-733 has a journey
-begin in a south woods room, the hero walking north to find the
-waystone. Which places a journey may begin in, and how each start sets
-its goals and their order, is settled at step 2, the south start (the
-owner's pick).
+**Q-088 · Campfires** (raised 2026-11-09, the owner's idea; talked
+through after D-733's five steps, the owner's pick) In the owner's
+words: "I also had a cool idea of having a chance to run into a
+campfire that will vary on how much it is lit, which will dictate the
+message that appears. Campfires that are out could potentially be
+started with the lantern if you have oil in it, using one move of oil.
+Perhaps even a way to add to the fire, or craft a fire yourself,
+confurring some sort of buff when used. These are just ideas and they
+need further discussion." Where they turn up, how lit each is and its
+words, what lighting one costs, feeding one, building one and the buff
+are all open.

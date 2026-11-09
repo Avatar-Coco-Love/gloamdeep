@@ -10,6 +10,7 @@ import { HOME } from './boon.js';
 import { depthOf, tileAt } from './room.js';
 import { levelOf } from './xp.js';
 import { embers } from './growth.js';
+import { STARTS } from './starts.js';
 
 // Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state, before }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
@@ -77,8 +78,11 @@ export const NONE = 'No goals yet.'; // the Quests tab with none shown (the owne
 const SALT = 0x90a15;
 
 export const goalOf = (id) => GOALS.find((g) => g.id === id);
-// A goal's how line where the hero stands
-export const howOf = (goal, place) => (typeof goal.how === 'function' ? goal.how(place) : goal.how);
+// A goal's how line where the hero stands; `start`, the journey's start id, may change it (D-735)
+export const howOf = (goal, place, start) => STARTS[start]?.goals.how[goal.id] ?? (typeof goal.how === 'function' ? goal.how(place) : goal.how);
+// The journey's start's goal rules (D-735): skipped, never shown; now, shown from its first turn
+const skips = (state, id) => !!STARTS[state?.start]?.goals.skip.includes(id);
+const now = (state, id) => !!STARTS[state?.start]?.goals.now.includes(id);
 // A reward's words: "+1 Oil flask", "+2 Healing herbs", "+1 Glint"
 export function rewardText(id) {
   const r = REWARDS.find((x) => x.id === id);
@@ -118,9 +122,9 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
   };
   for (const goal of GOALS) {
     const was = next[goal.id], c = { goals: next, book, events, state: s, before };
-    if (was?.done) continue;
+    if (was?.done || (!was && skips(s, goal.id))) continue; // a goal its start skips never shows (D-735)
     if (was) { if (goal.does(c)) finish(goal, false); continue; }
-    if (!goal.shows(c)) continue;
+    if (!goal.shows(c) && !now(s, goal.id)) continue;
     if (goal.before(c)) finish(goal, true); // done before it could show, as in a save from before goals
     else if (goal.does(c)) finish(goal, false);
     else next = { ...next, [goal.id]: { done: false } };
@@ -138,17 +142,17 @@ export function goalLine(goals = {}, gold = null, turn = 0, place = 'first', sta
   }
   const waiting = Object.keys(goals).filter((k) => !goals[k].done && goalOf(k));
   const id = waiting.find((k) => state && goalOf(k).ahead?.(state)) ?? waiting[0];
-  return id ? { id, goal: goalOf(id).goal, how: howOf(goalOf(id), place), done: false } : null;
+  return id ? { id, goal: goalOf(id).goal, how: howOf(goalOf(id), place, state?.start), done: false } : null;
 }
 // The text line's words when a goal is done: "Beat a rat. +1 Oil flask"
 export const doneWords = (goals, id) => `${goalOf(id).goal}. ${rewardText(goals[id].paid)}`;
 
 // § the Quests tab's rows, newest first: { id, goal, how, done, reward }
-export const questRows = (goals = {}, place = 'first') => Object.keys(goals).filter(goalOf).reverse()
-  .map((id) => ({ id, goal: goalOf(id).goal, how: howOf(goalOf(id), place), done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
+export const questRows = (goals = {}, place = 'first', start = null) => Object.keys(goals).filter(goalOf).reverse()
+  .map((id) => ({ id, goal: goalOf(id).goal, how: howOf(goalOf(id), place, start), done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
 const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
-export function questsWords(goals, place) {
-  const rows = questRows(goals, place);
+export function questsWords(goals, place, start = null) {
+  const rows = questRows(goals, place, start);
   const said = rows.length ? rows.map((r) => (r.done ? `${r.goal}, done, ${r.reward}` : `${r.goal}. ${r.how}`)).join('. ') : NONE.replace(/\.$/, '');
   const again = goals?.boon?.done ? ' Enter shows what boons are.' : ''; // the boons card again (D-712)
   return `Journal, Quests tab. ${said}.${again} ${TURN}`;

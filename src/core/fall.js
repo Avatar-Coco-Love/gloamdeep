@@ -7,7 +7,7 @@ import { say } from './lines.js';
 import { bagAdd, bagSize } from './bag.js';
 import { priceOf } from './trade.js';
 import { note } from './events.js';
-import { makeWorld, maxHealth, withoutBoon } from './state.js';
+import { newJourney, maxHealth, withoutBoon } from './state.js';
 
 // § fetch: walking onto the bag where you fell puts back what fits, a stack at a
 // time, kinds topping up their stacks first; all back, it is gone with "You take
@@ -72,4 +72,4 @@ function dropBag(state, kept) {
 // § start over: Hardcore's fall (MO2, D-344): a new Hardcore world from `seed`, as on
 // day one: every room, the bag, the level, the map found and the time of day. The
 // profile's Records are kept elsewhere (profile.js). "The world begins again." is said.
-export const startOver = (seed) => say(makeWorld('first', seed, 'hardcore'), 'anew');
+export const startOver = (seed) => say(newJourney(seed, 'hardcore'), 'anew'); // at the journey's start (D-735)

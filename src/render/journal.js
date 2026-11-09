@@ -137,7 +137,7 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
   const card = pageCard(whole, down), { y } = card;
   if (growth) { drawTree(c, card, state, pick, t, still); return; }
   if (tab === 'feats') { drawFeats(c, card, records, bought, goalGlints); return; }
-  if (tab === 'quests') { drawQuests(c, card, goals, state?.place); return; }
+  if (tab === 'quests') { drawQuests(c, card, goals, state?.place, state?.start); return; }
   if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
   // § rows: Records' values in one column, after its longest name
   const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
@@ -280,8 +280,8 @@ function drawFeats(c, card, records, bought, goalGlints = 0) {
   });
 }
 // § quests: a row a goal (D-706), as in the owner's pick from the mock-up; none yet, a grey line
-function drawQuests(c, card, goals, place) {
-  const nx = tabsLeft(card), right = card.x + card.w - PAD, rows = questRows(goals, place);
+function drawQuests(c, card, goals, place, start) {
+  const nx = tabsLeft(card), right = card.x + card.w - PAD, rows = questRows(goals, place, start);
   if (!rows.length) { drawText(c, NO_GOALS, nx, card.y + ROWS_Y, GREY); return; }
   rows.forEach((r, i) => {
     const y = card.y + ROWS_Y + i * QUEST_H;

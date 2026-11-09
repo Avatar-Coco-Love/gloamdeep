@@ -5,7 +5,11 @@ import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
 import { fresh } from './events.js';
 import { burnOf } from './parts.js';
-import { BOONS } from './registry.js';
+import { BOONS, STARTS, byLetter } from './registry.js';
+import { START } from './starts.js';
+import { idAt, SIZE } from './hearthwood.js';
+import { mouthOf } from './mouth.js';
+import { rng, pick, seedFor } from './rng.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -43,6 +47,40 @@ export function makeWorld(first = 'first', seed = 1, mode = 'normal') {
   const begun = beginAll(seed);
   const here = begun[first], state = makeState(here.room, here.start, here.lights, here.enemies, here.items, seed, here.people);
   return { ...state, mode, place: first, found: [first], elsewhere: away(begun, first, {}), home: { ...state.home, place: first, places: begun } };
+}
+
+// § new journey (D-735): the world begun at the start `id` (starts.js): its room the seed's pick
+// from the start's row, never the cave mouth's, the hero on its tile, the lantern as the start
+// says. `home` is that room as it began, so a fall wakes there until step 3 (the owner's pick).
+export function newJourney(seed = 1, mode = 'normal', id = START) {
+  const s = STARTS[id], place = startRoom(seed, s), w = makeWorld(place, seed, mode);
+  const hero = startTile(w, s);
+  return { ...w, start: id, lit: s.lit, hero, home: { ...w.home, hero } };
+}
+// The start's room: one of its row's, the seed picking, the mouth's room left out (D-733)
+export function startRoom(seed, s = STARTS[START]) {
+  const y = { north: 0, middle: 1, south: SIZE - 1 }[s.row];
+  const rooms = Array.from({ length: SIZE }, (_, x) => idAt(x, y)).filter((id) => id !== mouthOf(seed).from);
+  return pick(rng(seedFor(seed, 0) ^ 0x51a7e3d5), rooms);
+}
+// The start's tile: the open tile nearest the room's middle that the room's own start reaches
+// (so it is joined to every path), with nothing on it (the owner's pick: the middle)
+export function startTile(w, s = STARTS[START]) {
+  const { room, items, lights, enemies } = w, from = w.hero, mid = { x: (room.cols - 1) / 2, y: (room.rows - 1) / 2 };
+  if (s.tile !== 'middle') return from;
+  const taken = (x, y) => [...items, ...lights, ...enemies].some((t) => t.x === x && t.y === y);
+  const seen = new Set([from.y * room.cols + from.x]), queue = [from];
+  let best = from, far = Infinity;
+  while (queue.length) {
+    const t = queue.shift(), d = (t.x - mid.x) ** 2 + (t.y - mid.y) ** 2;
+    if (d < far && !taken(t.x, t.y)) { best = t; far = d; }
+    for (const [dx, dy] of Object.values(DIRS)) {
+      const x = t.x + dx, y = t.y + dy, k = y * room.cols + x;
+      if (x < 0 || y < 0 || x >= room.cols || y >= room.rows || seen.has(k) || byLetter(room.map[y][x])?.solid !== false) continue;
+      seen.add(k); queue.push({ x, y });
+    }
+  }
+  return { x: best.x, y: best.y };
 }
 
 // Every hand-made place as it begins with this seed

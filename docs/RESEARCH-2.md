@@ -90,6 +90,9 @@ some build on ideas above.
   another way.
 - **A vertical slice goal**: one 10-minute run, surface to depth 10, that
   feels whole and tense; new steps are judged by whether they improve it.
+- **Campfires** (2026-11-09, the owner's idea): fires met in the world, lit
+  more or less, each with its own words; lighting one with the lantern's
+  oil, feeding one, building one, a buff from it. Kept as Q-088.
 
 ## Ideas for later, from the build plan
 Moved word for word from `PROGRESS.md` at 0.3.152, the eleventh audit

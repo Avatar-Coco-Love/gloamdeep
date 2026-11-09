@@ -21,7 +21,10 @@ code; where this page and a decision disagree, the decision wins.
   `woods`, the others `woods:x,y` by their cell; a path is the 3-tile gap
   in the edge trees to the room beside (D-734, `src/core/hearthwood.js`).
 - **Opening card:** the glass card a new journey opens on, its first
-  words and BEGIN (D-628).
+  words and BEGIN (D-628); the words are the start's (D-735).
+- **Start:** where a new journey begins, one entry in `src/core/starts.js`
+  in the registry: its row, tile, lantern, card words and goal rules;
+  `state.start` names it, none in a journey begun in the crypt (D-735).
 - **Ask card:** the small glass card in the middle that asks Yes or No:
   Start over?, Delete …? and Play …? (D-400).
 - **Cloak, eyes, trim, clothes, look:** a profile's look is what its hero
