@@ -9,7 +9,7 @@ import { traits } from './behaviours.js';
 import { litAt, clearLine } from './sight.js';
 import { boonNotice } from './boon.js';
 import { note } from './events.js';
-import { DIRS, passTurn, itemAt } from './state.js';
+import { DIRS, passTurn } from './state.js';
 import { fall } from './fall.js';
 import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
@@ -210,11 +210,11 @@ function lightGoal(state, e) {
 }
 
 // Whether enemy e may step onto tile x, y: nothing solid (water is open to one that `flies`,
-// D-718), no item, no other enemy, no person (D-496), not the hero, and no light for one that
+// D-718), no other enemy (it walks over an item, D-727), no person (D-496), not the hero, and no light for one that
 // shuns it unless `lit` (D-240)
 function free(state, e, x, y, lit = false) {
   const tile = tileAt(state.room, x, y);
-  if ((tile.solid && !(tile.id === 'water' && get(e.id).flies)) || itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
+  if ((tile.solid && !(tile.id === 'water' && get(e.id).flies)) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
   return lit || traits(get(e.id)).intoLight || !litAt(state, x, y);
 }
 

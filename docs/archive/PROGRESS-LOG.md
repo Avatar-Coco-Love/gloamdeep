@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.177, Glints and the prices of looks.** The owner's
+  picks, both recommended (D-724): the balance stays, 13 locked looks at
+  3 cost 39, the Feats' 36 and the free pick buy them all, goal Glints a
+  spare; looks to come cost 3 each and come with a new Feat or tiers.
+  Q-055 closed. Nothing visible. Next, an unguarded flask (Q-075).
 - **2026-11-09, 0.3.176, Torches, the sixth Feat.** The owner's picks,
   both recommended (D-723): Torches lit's Feat at 5, 25 and 100, named
   Torches on the tab, as Flasks and Rooms; "Torches lit" pushed Steps'

@@ -49,3 +49,13 @@ for (const [foe, drop] of Object.entries(DROPS)) {
     assert.equal(shownLine(look({ ...makeState(room), bag: [{ id: drop, n: 1 }] }, 0)).text, lookLine);
   });
 }
+
+test('a foe beaten on an item leaves its drop on that tile too, and one step takes both (D-727)', () => {
+  const YES = seeds.find((seed) => itemAt(beat('scorpion', seed), 5, 10)?.id === 'stinger' && beat('scorpion', seed).items.length === 1);
+  const s = step({ ...makeState(room), seed: YES, hero: { x: 5, y: 11 }, items: [{ id: 'flask', x: 5, y: 10 }],
+    enemies: [{ id: 'scorpion', x: 5, y: 10, health: 1, chasing: true }] }, 'up');
+  assert.deepEqual(s.items.filter((it) => it.x === 5 && it.y === 10).map((it) => it.id), ['flask', 'stinger']);
+  const n = step(s, 'up');
+  assert.equal(n.items.filter((it) => it.x === 5 && it.y === 10).length, 0);
+  assert.ok(n.bag.some((b) => b.id === 'stinger'));
+});

@@ -65,8 +65,15 @@ test('a wall the farther way: it goes the other way', () => {
 });
 
 test('both ways blocked: it stays put', () => {
+  const s = with_({ x: 1, y: 5 }, [{ id: 'rat', x: 4, y: 6, chasing: true }, { id: 'flaskMimic', x: 4, y: 5, asleep: true }]);
+  assert.deepEqual(rats(wait(s)), [[4, 6], [4, 5]]);
+});
+
+test('an item in the way: it walks over it, and the item stays (D-727)', () => {
   const s = with_({ x: 1, y: 5 }, [{ id: 'rat', x: 4, y: 6, chasing: true }], { items: [{ id: 'flask', x: 4, y: 5 }] });
-  assert.deepEqual(rats(wait(s)), [[4, 6]]);
+  const n = wait(s);
+  assert.deepEqual(rats(n), [[4, 5]]);
+  assert.deepEqual(n.items.map(({ x, y }) => [x, y]), [[4, 5]]);
 });
 
 test('straight ahead blocked, with no other way toward the hero: it stays put', () => {

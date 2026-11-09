@@ -6,11 +6,13 @@ import { personAt } from './people.js';
 // k tiles for what didn't fit: x, y first, then the nearest open ones around it with
 // nothing on them and no hero, creature or person (R7), sides before corners; x, y
 // again when none is left.
-// With `free`, x, y too only when nothing lies on it (a drop, D-474).
+// With `free`, x, y too only when it is open (D-474); with `free` 'stack', open even with
+// something lying on it, so a beaten foe's drop lies beside what was there (D-727).
 export function spread(state, x, y, k, free = false) {
   const around = [[0, 0], [0, 1], [-1, 0], [1, 0], [0, -1], [-1, 1], [1, 1], [-1, -1], [1, -1]].map(([dx, dy]) => ({ x: x + dx, y: y + dy }));
+  const stacks = (t) => free === 'stack' && t.x === x && t.y === y;
   const open = around.filter((t) => (!free && t.x === x && t.y === y) || (!tileAt(state.room, t.x, t.y).solid
-    && !(t.x === state.hero.x && t.y === state.hero.y) && !state.items.some((o) => o.x === t.x && o.y === t.y)
+    && !(t.x === state.hero.x && t.y === state.hero.y) && (stacks(t) || !state.items.some((o) => o.x === t.x && o.y === t.y))
     && !(state.enemies || []).some((e) => e.x === t.x && e.y === t.y) && !personAt(state, t.x, t.y)));
   return Array.from({ length: k }, (_, i) => open[i] || { x, y });
 }

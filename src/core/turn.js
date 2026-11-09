@@ -165,14 +165,14 @@ function strike(state, foe, damage) {
 }
 
 // § drop: the items with what a beaten foe `drops`, about 1 time in 2 (D-453), on the
-// tile where it fell (creatures never stand on items), else the nearest open one. The coin is seeded, as a
+// tile where it fell, beside whatever already lies there (D-727). The coin is seeded, as a
 // flee's is, from the seed, the turn and its tile (D-474), so a replay drops the same.
 // Its `rare` one has a coin of its own from the same seed, about 1 in 10; with both,
 // the rare lies on the nearest open tile (D-476); Keen Eye makes the part 3 in 4 (D-596); a worn charm makes it about 1 in 5 (D-486), Lucky Find adds 15 in 100 (D-599). It never grows back, so it lies there until taken (D-474).
 function dropFrom(state, foe, entry) {
   const r = rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y + 4096));
   const ids = [entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
-  const at = spread(state, foe.x, foe.y, ids.length, true);
+  const at = spread(state, foe.x, foe.y, ids.length, 'stack');
   return [...state.items, ...ids.map((id, i) => ({ id, ...at[i] }))];
 }
 
