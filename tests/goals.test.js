@@ -175,6 +175,8 @@ test('the crypt reached before the goal shows, or a journey begun there, ticks i
   const back = goalsAfter({ boon: { done: true, paid: 'herb' } }, 0, {}, [], { ...base, place: 'woods', found: ['first', 'woods'] });
   assert.equal(back.goals.crypt.done, true);
   assert.deepEqual(back.done, []);
+  const below = goalsAfter({ boon: { done: true, paid: 'herb' } }, 0, {}, [], { ...base, place: 'depth3', found: ['woods', 'depth3'] });
+  assert.deepEqual(below.goals.crypt, { done: false }, 'another place below the surface is not the crypt');
 });
 
 test('spending an ember shows at level 2, goes ahead of a goal waiting, and is done on the first buy (D-713)', () => {

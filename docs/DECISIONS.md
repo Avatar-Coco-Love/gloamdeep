@@ -175,7 +175,9 @@ all recommended; builds D-745) Once the way in is the crypt's door, a
 new teaching goal sends the hero there: "Find the crypt", its how line
 "A broken door, beside home.". It shows once "Take a boon" is done and
 is done on walking into the crypt through the broken seal, paying a
-reward as every goal does (D-706). Claude's calls the owner may change:
-it is ticked quietly, unpaid in the line, when the crypt or anywhere
-below was reached already this journey, as in a journey begun in the
-crypt; reaching any depth below counts as the crypt.
+reward as every goal does (D-706). Only the crypt's own rooms count,
+not other places below the surface, as more ways down will come (the
+owner's pick; changed after review: any depth below no longer counts).
+Claude's call the owner may change: it is ticked quietly, unpaid in the
+line, when the crypt was reached already this journey, as in a journey
+begun in the crypt.
