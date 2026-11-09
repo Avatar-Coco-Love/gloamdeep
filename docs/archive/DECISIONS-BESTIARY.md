@@ -6,7 +6,7 @@ creature acts and how to fight it. In force.
 
 ---
 
-**D-628 · 2026-11-06 · The first words** (the owner's picks; step 19,
+**D-628 · 2026-11-06 · The first words** *Partly superseded by D-735 (2026-11-09): a journey begins in the woods, with the start's words.* (the owner's picks; step 19,
 Lore, its first piece) A new journey opens on a glass card in the middle
 of the room, the crypt dim around it, after the way to play is picked:
 "You wake in the dark of the crypt. Your lantern still burns, but its oil

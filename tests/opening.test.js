@@ -11,7 +11,7 @@ import { openingCard } from '../src/input/cards/opening.js';
 import { MODE_MENU } from '../src/core/menu.js';
 
 test('the words: three sentences, then Begin, and the same for the screen reader', () => {
-  assert.deepEqual(OPENING, ['You wake in the dark of the crypt.', 'Your lantern still burns, but its oil will not last.', 'Something waits below.']);
+  assert.deepEqual(OPENING, ['You wake among the trees of Hearthwood.', 'Your lantern is cold; keep its oil for the dark.', 'Something waits below.']); // D-735
   assert.equal(OPENING_BUTTON, 'Begin');
   assert.ok(openingWords().startsWith(OPENING.join(' ')));
 });

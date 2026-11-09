@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.184 (2026-11-09)
+- Nothing in the game changed. A new page for the makers, How we work: the way the owner and Claude build Gloamdeep together, why each habit exists, what changed along the way, and how to start a new project from it. Each audit will add to it.
+- Decisions: D-732.
+
 ## 0.3.183 (2026-11-09)
 - The bone rat comes back. Beaten, it falls into a low pile of bones, its skull on top, and three turns later it stands up again, whole. Small pink dots over the pile count the turns down, 3, 2, 1, and on the last one "The bones stir." Step onto the pile before then to scatter the bones for good. Only then is it beaten: its Rat Bone, its Beaten count and its experience come from the scatter. The dots hide with Attack marks Off.
 - Decisions: D-731.

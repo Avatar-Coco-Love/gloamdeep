@@ -68,6 +68,8 @@ themselves. Each kind also touches:
   lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`, drawn facing left; where
   it stands in `cave.js` (like `withTrapped`) or `room.js`; its row in
   `CONTENT-2.md` (D-490), or `CONTENT-3.md` for tiles, lights and places (D-618).
+- **A start** (D-735): its entry in `src/core/starts.js` (its `row`, `tile`,
+  `lit`, `opening` words and `goals` rules); `state.js`'s `newJourney` reads it.
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in
   `tests/registry.test.js` and the room tests, where they change.
   `npm test` runs the checker, `tests/checker.test.js` (D-621): it names

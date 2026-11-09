@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.184, A playbook of how we work.** The owner asked
+  that our way of working be kept for future projects. Their picks, all
+  recommended (D-732): `docs/WORKFLOW.md`, one page on how we work, why,
+  and what we learned, added to at each audit. Nothing visible changed.
+  Next, the owner's pick, as before.
 - **2026-11-09, 0.3.183, The bone rat comes back.** The owner's picks,
   all recommended (D-731): beaten, it falls into a low heap of bones and
   stands up whole 3 turns later, every time, unless the hero steps onto

@@ -8,6 +8,7 @@ import { ENEMIES } from './enemies.js';
 import { PEOPLE } from './people.js';
 import { UPGRADES as GROWTH_UPGRADES } from './upgrades.js';
 import { LANDMARKS as LANDMARK_TABLE } from './landmarks.js';
+import { STARTS as START_TABLE } from './starts.js';
 import { BOONS as BOON_TABLE, BOON_SORTS as BOON_SORT_NAMES } from './boons.js';
 import { CLOAKS as LOOK_CLOAKS, EYES as LOOK_EYES, TRIMS as LOOK_TRIMS, CLOTHES as LOOK_CLOTHES, LAMPS as LOOK_LAMPS, HEADS as LOOK_HEADS } from './looks.js';
 
@@ -26,6 +27,8 @@ export const LANDMARKS = LANDMARK_TABLE;
 // The home waystone's boons (D-583, D-596): picked for a trip, not things in the world either
 export const BOONS = BOON_TABLE;
 export const BOON_SORTS = BOON_SORT_NAMES;
+// Where a journey may begin (D-735): not things in the world either
+export const STARTS = START_TABLE;
 
 export const ALL = KINDS.flatMap((table) => Object.values(table));
 const BY_ID = new Map(ALL.map((e) => [e.id, e]));

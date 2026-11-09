@@ -33,7 +33,7 @@ import { dig, talk } from './rescue.js';
 import { bumpWater } from './fishing.js';
 import { fallen } from './bones.js';
 
-export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
+export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, newJourney, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';

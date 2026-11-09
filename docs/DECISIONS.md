@@ -49,32 +49,6 @@ archived; all word for word. One bug hunt read the code since 0.3.113
 from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
 
-**D-727 · 2026-11-09 · Creatures walk over finds; the rat pack planned**
-(the owner's picks, all recommended; builds D-726) Creatures no longer
-go around a find on the floor: they step onto it and it stays there,
-drawn under them. A foe beaten on a find leaves its drop on that tile
-too, so one step takes both; its rare one, with both, still lies on the
-nearest open tile (D-476). Built first, its own step. The rat pack,
-next: the plain rat gets the Pack way, so a rat alone acts as now. Once
-one rat of a pack notices the hero, its whole pack does, and each heads
-for its own free side of the hero, away from its packmates first. From
-depth 3, about 1 room in 3, the rat by the flask has 2 packmates, on top
-of the room's creatures. With 2 or more of its pack left a hurt rat
-stands its ground; the last one may flee as now. D-721 to D-723 move to
-`archive/DECISIONS-FEATS.md`, word for word.
-
-**D-728 · 2026-11-09 · The rat pack built** (the owner's ask; builds
-D-727) The plain rat now has the Pack way, built as D-727 says. Claude's
-drafts the owner may change: a pack is the rat by a room's first flask,
-so a room holds one pack at most; its 2 packmates stand within 2 tiles
-of it, by the guard's rules (out of the torch's light, 3 tiles from the
-stairs), and with no room for both it stays alone; the 1 in 3 is rolled
-for every room from depth 3, so a room whose flask lost its rat (D-725)
-has no pack, about 1 room in 4 in all. A rat heads for the free side
-farthest from its packmates, then the nearest to it; a pack that
-notices says no line. The rat's Bestiary words say so. D-724 moves to
-`archive/DECISIONS-FEATS.md`, word for word.
-
 **D-729 · 2026-11-09 · The scorpion's tail strike** (the owner's picks;
 builds D-726) The next creature way,
 the owner's pick: the scorpion gets Tail strike, `strikes`. It notices
@@ -152,3 +126,24 @@ spot along it, so the crypt is reached as before; only home has the
 waystone; every woods room has its sticks, branch, pond and bush, each
 pond holding the Pond Minnow. D-705 and D-706 move to
 `archive/DECISIONS-GOALS.md`, word for word.
+
+**D-735 · 2026-11-09 · Where a journey begins** (the owner's picks,
+recommended but where noted; builds D-733's step 2, answers Q-087) A
+start is one entry in the registry (`src/core/starts.js`): its rooms,
+its tile, the lantern, the opening card's words and its goal rules, so
+a later start is a new entry; its own aims beyond teaching are settled
+at that start. The one start, South woods: one of the south row's rooms,
+the seed picking, never the cave mouth's; the hero on the open tile
+nearest its middle; by day, so the lantern starts off (the owner's own
+answer). The card: "You wake among the trees of Hearthwood." / "Your
+lantern is cold; keep its oil for the dark." / "Something waits below."
+"Find the waystone" shows from the first turn, its how line "Home is in
+the middle of the woods."; "Go home to the woods" never shows; every
+other goal keeps its own moment. Until step 3, a fall wakes where the
+journey began, a Hardcore one starting there again. Next, the owner's
+own idea: a teaching goal "Light your lantern" / "Tap the lantern, or
+press L.", shown at dusk or on stepping into the dark with it off, done
+once lit. Claude's calls the owner may change: a start's skipped goal
+is never paid; the tile is one the room's paths reach, with nothing on
+it. Partly supersedes D-628's words and D-119's crypt. D-727 and D-728
+move to `archive/DECISIONS-PACK.md`, word for word.
