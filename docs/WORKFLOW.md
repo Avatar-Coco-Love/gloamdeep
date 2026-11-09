@@ -8,8 +8,8 @@ taught us about working together (D-518). The rules in force are in
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-09: version 0.3.183, about 460 pull
-requests, 731 decisions, 86 questions asked, 11 audits. One owner, who
+Started 2026-10-17. By 2026-11-09: version 0.3.192, about 467 pull
+requests, 740 decisions, 88 questions asked, 12 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -85,6 +85,28 @@ phone first, nothing outside the code (D-003).
   map previews (D-646).
 - **Research beside building** (D-590). Helpers research while the main
   conversation builds. Only one conversation builds at a time.
+
+## What the twelfth audit added (0.3.152 to 0.3.192)
+
+- **Plan the big step, then build it in pieces.** A bigger idea is
+  settled as one plan with numbered steps (D-733: the surface's five;
+  the teaching goals planned and worded before the first was built), then
+  one piece a conversation. The owner sees the whole before agreeing to
+  any part, and each piece stays small.
+- **Claude's calls, written down.** While building, Claude settles small
+  details itself and lists them in the decision as "Claude's calls the
+  owner may change" (D-734 on). The owner isn't asked about every corner,
+  yet can still see and change each one.
+- **The owner's own answers.** Many picks come with an idea of the
+  owner's own (the lantern cold by day, waking in the last bed). What
+  fits now is built; the rest becomes a question kept for later (Q-088,
+  campfires), so nothing is lost.
+- **An audit's bug hunt pays off as small steps.** The eleventh audit's
+  findings became their own steps, each fix with a test (0.3.169 to
+  0.3.173), so the owner picked which mattered and nothing was bundled.
+- **A check must say what is true.** The start-up hook brought the copy
+  up to date but printed an old `main`, because a fresh cloud copy holds
+  only recent history. Its message now names what is checked out (D-740).
 
 ## Starting a new project
 

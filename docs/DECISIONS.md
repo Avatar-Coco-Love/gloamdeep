@@ -36,19 +36,6 @@ but the size test already makes normal steps trim, and code splits are
 outgrown in an audit or two, while 20 versions is about a day. So an
 audit comes every 40 versions; the size test still guards in between.
 
-**D-699 · 2026-11-08 · The eleventh audit** (the owner's picks, all
-recommended) At 0.3.152, nothing visible changed. A conversation's start
-reads 9.7 KB, not 10.6. The in-game history's stage 0.3 file is split
-word for word: 0.3.0 to 0.3.75 go to `src/core/history-0.3-1.js` (78 KB
-to 40 and 39). D-689 to D-694 move to `archive/DECISIONS-RELICS.md` and
-D-660 to `archive/DECISIONS-AUDITS.md`; Q-037 and Q-038 to
-`OPEN-QUESTIONS-2.md`; TECH's "Adding content" to `TECH-2.md`;
-PROGRESS's ideas for later to `RESEARCH-2.md`; ticked step 20 is
-archived; all word for word. One bug hunt read the code since 0.3.113
-(Relics, Feats, Glints); its findings are listed for the owner to pick
-from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
-0.3.192.
-
 **D-732 · 2026-11-09 · A playbook of how we work** (the owner's picks,
 all recommended) The owner wants this project's way of working kept for
 future projects. `docs/WORKFLOW.md` gathers it in one place: the steps
@@ -73,65 +60,6 @@ south start, its teaching goal's words with it; 3 waking after a fall
 (supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
 and open glades. Nothing is built yet. D-712 and D-713 move to
 `archive/DECISIONS-GOALS.md`, word for word.
-
-**D-734 · 2026-11-09 · Hearthwood's 9 rooms built** (the owner's picks,
-all recommended; builds D-733's step 1, opens Q-087) The surface is
-Hearthwood's 3 × 3 woods rooms, home in the centre. Every room is joined
-to every room beside it, 12 joins, each a path 3 tiles wide through the
-edge trees, at the same spot on both sides, the seed picking where, kept
-3 tiles from the corners; the fewest trees are cut from it to the room's
-open ground. Claude's calls: home grows as before, so its trees stay,
-and an older save's home keeps everything, only its mouth and rocks
-made trees and its paths cut; the cave mouth stands in the room beside
-home the way the seed picked (D-184), on that room's far edge, the same
-spot along it, so the crypt is reached as before; only home has the
-waystone; every woods room has its sticks, branch, pond and bush, each
-pond holding the Pond Minnow. D-705 and D-706 move to
-`archive/DECISIONS-GOALS.md`, word for word.
-
-**D-735 · 2026-11-09 · Where a journey begins** (the owner's picks,
-recommended but where noted; builds D-733's step 2, answers Q-087) A
-start is one entry in the registry (`src/core/starts.js`): its rooms,
-its tile, the lantern, the opening card's words and its goal rules, so
-a later start is a new entry; its own aims beyond teaching are settled
-at that start. The one start, South woods: one of the south row's rooms,
-the seed picking, never the cave mouth's; the hero on the open tile
-nearest its middle; by day, so the lantern starts off (the owner's own
-answer). The card: "You wake among the trees of Hearthwood." / "Your
-lantern is cold; keep its oil for the dark." / "Something waits below."
-"Find the waystone" shows from the first turn, its how line "Home is in
-the middle of the woods."; "Go home to the woods" never shows; every
-other goal keeps its own moment. Until step 3, a fall wakes where the
-journey began, a Hardcore one starting there again. Next, the owner's
-own idea: a teaching goal "Light your lantern" / "Tap the lantern, or
-press L.", shown at dusk or on stepping into the dark with it off, done
-once lit. Claude's calls the owner may change: a start's skipped goal
-is never paid; the tile is one the room's paths reach, with nothing on
-it. Partly supersedes D-628's words and D-119's crypt. D-727 and D-728
-move to `archive/DECISIONS-PACK.md`, word for word.
-
-**D-736 · 2026-11-09 · Light your lantern** (the owner's picks, all
-recommended; builds D-735's goal) "Light your lantern" / "Tap the
-lantern, or press L." shows when daylight no longer lights the room:
-halfway through dusk under the sky, or on stepping where the sky doesn't
-reach. It is done once the lantern is lit, by hand or By itself, paid
-and gold. A lantern lit before then, by day or from a crypt start, ticks
-it quietly, so every journey has it. While the dark is here and the
-lantern is off, it goes ahead of any goal waiting, as the ember's does.
-Claude's call the owner may change: switching the lantern, which passes
-no turn, checks the goals at once.
-
-**D-737 · 2026-11-09 · Waking after a fall** (the owner's picks, all
-recommended; builds D-733's step 3, supersedes D-119's crypt and D-735's
-"until step 3") A Normal or Gentle fall wakes the hero in the last bed
-slept in, on the tile they lay down from; with something there now, on
-the nearest open tile beside the bed. With no bed, on the home
-waystone's plate once it is woken, no boon offered until the hero steps
-off and back on. Otherwise in the room where the journey began, on its
-tile. Taking the bed down forgets it until it is slept in again. The
-fall line stays "You fall, and wake again." Hardcore still begins the
-world again. Claude's call the owner may change: the code is
-`src/core/waking.js`.
 
 **D-738 · 2026-11-09 · Mountain rooms** (the owner's picks, all
 recommended but the rock's look; builds D-733's step 4) Hearthwood's
@@ -164,3 +92,16 @@ in steps of its own. Claude's calls the owner may change: a room's rock
 goes on past its edge when its edge holds rock and no tree or stump, so
 a mountain room an older save keeps as woods keeps its trees there; the
 code is `src/render/outcrop.js`.
+
+**D-740 · 2026-11-09 · The twelfth audit** (the owner's picks, all
+recommended) At 0.3.192, nothing visible changed. A conversation's start
+reads 10.2 KB, not 10.5. The in-game history's stage 0.3 file is split
+again word for word: 0.3.76 to 0.3.150 go to `src/core/history-0.3-2.js`
+(60 KB to 22 and 39). D-699 moves to `archive/DECISIONS-AUDITS.md`, and
+D-734 to D-737, built, to `archive/DECISIONS-SURFACE.md`; ticked steps
+21 and 22 are archived; all word for word. The start-up hook's message
+names the commit checked out, not the old local `main` a shallow cloud
+copy keeps. `WORKFLOW.md` gains what this stretch taught. One bug hunt
+read the code since 0.3.152; its findings are listed for the owner to
+pick from (FINDINGS_LINK), each fix its own small step with a test.
+The next audit is at 0.3.232.

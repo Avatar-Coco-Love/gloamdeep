@@ -6,6 +6,7 @@ D-336, the first audit, followed at 0.2.233 (D-524), and D-519, the
 seventh, at 0.3.32, the eighth (D-570). D-570 to D-578, the eighth
 audit's parts, followed at 0.3.39, the audit done (D-578). D-661, the
 tenth audit's first fixes (all built), followed at 0.3.127 (D-675).
+D-699, the eleventh audit, done, followed at 0.3.192, the twelfth (D-740).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -475,6 +476,19 @@ read the code alongside: 19 bugs, about 30 stale doc lines and one
 freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
+
+**D-699 · 2026-11-08 · The eleventh audit** (the owner's picks, all
+recommended) At 0.3.152, nothing visible changed. A conversation's start
+reads 9.7 KB, not 10.6. The in-game history's stage 0.3 file is split
+word for word: 0.3.0 to 0.3.75 go to `src/core/history-0.3-1.js` (78 KB
+to 40 and 39). D-689 to D-694 move to `archive/DECISIONS-RELICS.md` and
+D-660 to `archive/DECISIONS-AUDITS.md`; Q-037 and Q-038 to
+`OPEN-QUESTIONS-2.md`; TECH's "Adding content" to `TECH-2.md`;
+PROGRESS's ideas for later to `RESEARCH-2.md`; ticked step 20 is
+archived; all word for word. One bug hunt read the code since 0.3.113
+(Relics, Feats, Glints); its findings are listed for the owner to pick
+from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
+0.3.192.
 
 **D-716 · 2026-11-09 · The audit's first fixes: the old saves' locket,
 one pointer line** (the owner's picks, all recommended; the eleventh

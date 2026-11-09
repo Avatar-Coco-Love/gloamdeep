@@ -1,11 +1,14 @@
-# The surface decisions (D-209 to D-218)
+# The surface decisions (D-209 to D-218, D-734 to D-737)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
 switches itself, the cave mouth, depths moving up, day and night,
 daylight through the mouth) and the Seed Explorer, steps E1 and E2.
 These are still in force unless marked superseded. Grep for an ID or
-topic; never read this whole.
+topic; never read this whole. D-734 to D-737, Hearthwood's 9 rooms,
+where a journey begins, Light your lantern and waking after a fall, all
+built (D-733's steps 1 to 3), followed at 0.3.192, the twelfth audit
+(D-740), word for word.
 
 ---
 
@@ -115,3 +118,62 @@ warms toward the torches' orange, at night it is gone, and dawn brings it
 back the same way. It is real light: tiles it reaches are remembered,
 lantern or not, and a creature standing in it sees the hero. Weather
 waits for Q-035.
+
+**D-734 · 2026-11-09 · Hearthwood's 9 rooms built** (the owner's picks,
+all recommended; builds D-733's step 1, opens Q-087) The surface is
+Hearthwood's 3 × 3 woods rooms, home in the centre. Every room is joined
+to every room beside it, 12 joins, each a path 3 tiles wide through the
+edge trees, at the same spot on both sides, the seed picking where, kept
+3 tiles from the corners; the fewest trees are cut from it to the room's
+open ground. Claude's calls: home grows as before, so its trees stay,
+and an older save's home keeps everything, only its mouth and rocks
+made trees and its paths cut; the cave mouth stands in the room beside
+home the way the seed picked (D-184), on that room's far edge, the same
+spot along it, so the crypt is reached as before; only home has the
+waystone; every woods room has its sticks, branch, pond and bush, each
+pond holding the Pond Minnow. D-705 and D-706 move to
+`archive/DECISIONS-GOALS.md`, word for word.
+
+**D-735 · 2026-11-09 · Where a journey begins** (the owner's picks,
+recommended but where noted; builds D-733's step 2, answers Q-087) A
+start is one entry in the registry (`src/core/starts.js`): its rooms,
+its tile, the lantern, the opening card's words and its goal rules, so
+a later start is a new entry; its own aims beyond teaching are settled
+at that start. The one start, South woods: one of the south row's rooms,
+the seed picking, never the cave mouth's; the hero on the open tile
+nearest its middle; by day, so the lantern starts off (the owner's own
+answer). The card: "You wake among the trees of Hearthwood." / "Your
+lantern is cold; keep its oil for the dark." / "Something waits below."
+"Find the waystone" shows from the first turn, its how line "Home is in
+the middle of the woods."; "Go home to the woods" never shows; every
+other goal keeps its own moment. Until step 3, a fall wakes where the
+journey began, a Hardcore one starting there again. Next, the owner's
+own idea: a teaching goal "Light your lantern" / "Tap the lantern, or
+press L.", shown at dusk or on stepping into the dark with it off, done
+once lit. Claude's calls the owner may change: a start's skipped goal
+is never paid; the tile is one the room's paths reach, with nothing on
+it. Partly supersedes D-628's words and D-119's crypt. D-727 and D-728
+move to `archive/DECISIONS-PACK.md`, word for word.
+
+**D-736 · 2026-11-09 · Light your lantern** (the owner's picks, all
+recommended; builds D-735's goal) "Light your lantern" / "Tap the
+lantern, or press L." shows when daylight no longer lights the room:
+halfway through dusk under the sky, or on stepping where the sky doesn't
+reach. It is done once the lantern is lit, by hand or By itself, paid
+and gold. A lantern lit before then, by day or from a crypt start, ticks
+it quietly, so every journey has it. While the dark is here and the
+lantern is off, it goes ahead of any goal waiting, as the ember's does.
+Claude's call the owner may change: switching the lantern, which passes
+no turn, checks the goals at once.
+
+**D-737 · 2026-11-09 · Waking after a fall** (the owner's picks, all
+recommended; builds D-733's step 3, supersedes D-119's crypt and D-735's
+"until step 3") A Normal or Gentle fall wakes the hero in the last bed
+slept in, on the tile they lay down from; with something there now, on
+the nearest open tile beside the bed. With no bed, on the home
+waystone's plate once it is woken, no boon offered until the hero steps
+off and back on. Otherwise in the room where the journey began, on its
+tile. Taking the bed down forgets it until it is slept in again. The
+fall line stays "You fall, and wake again." Hardcore still begins the
+world again. Claude's call the owner may change: the code is
+`src/core/waking.js`.

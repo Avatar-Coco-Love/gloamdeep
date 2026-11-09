@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.189, Waking after a fall.** The owner's picks, all
+  recommended (D-737): beside the bed on the tile lain down from, else
+  the nearest open one; on the woken home plate with no boon offered;
+  taking the bed down forgets it; the fall line stays as it is.
+  Playtest: https://claude.ai/artifact/Ce1XpE3oKvGmdk3Bqmob13
 - **2026-11-09, 0.3.188, Light your lantern.** The owner's picks, all
   recommended (D-736): the goal shows as the dark comes with the lantern
   off, goes ahead of any goal waiting while it is dark, is done when the
@@ -2135,6 +2140,11 @@ Getting around first (D-582), then boons (D-583):
 Moved from `PROGRESS.md` at 0.3.152, the eleventh audit (D-699):
 
 - [x] 20 Relics (D-689): the shelf (0.3.142); the locket found (0.3.143); its warden (0.3.144); its look and glow (0.3.145); set on the shelf (0.3.146); what it does there (0.3.147)
+
+Moved from `PROGRESS.md` at 0.3.192, the twelfth audit (D-740):
+
+- [x] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151); Rooms (0.3.174); Steps (0.3.175); Torches (0.3.176)
+- [x] 22 Looks (D-698, D-703, D-704), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156); more hats and hoods (0.3.157)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 
