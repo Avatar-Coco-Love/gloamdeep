@@ -4,7 +4,8 @@ import assert from 'node:assert/strict';
 import { ROOMS, isMountain } from '../src/core/hearthwood.js';
 import { beginPlace, tileAt } from '../src/core/room.js';
 import { depthIn } from '../src/core/woods.js';
-import { LONE_IN, BOULDERS } from '../src/core/mountain.js';
+import { LONE_IN, BOULDERS, rockGoesOn } from '../src/core/mountain.js';
+import { doorways, widen } from '../src/core/openings.js';
 import { COLS, ROWS } from '../src/core/cave.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -56,4 +57,25 @@ test('a mountain boulder breaks as a cave\'s does: three bumps, a Stone in the b
   for (let i = 0; i < 3; i++) s = step(s, dir);
   assert.equal(tileAt(s.room, b.x, b.y).id, 'floor');
   assert.deepEqual(s.bag, [{ id: 'stone', n: 1 }]);
+});
+
+// § rock goes on (D-738's next step, D-739)
+test('past a mountain room\'s edge the rock goes on, but straight out from each way on; past a woods room, trees', () => {
+  for (const seed of SEEDS.slice(0, 12)) for (const id of ROOMS) {
+    const { room } = beginPlace(id, seed), doors = doorways(id, room, seed), wide = widen(room, doors);
+    assert.equal(rockGoesOn(room), isMountain(id), `seed ${seed} ${id}`);
+    const fill = isMountain(id) ? 'outcrop' : 'tree';
+    assert.equal(tileAt(wide, -2, -2).id, fill, `seed ${seed} ${id}`);
+    for (const d of doors.filter((d) => tileAt(room, d.x, d.y).id === 'floor')) {
+      const [x, y] = { up: [d.x, -1], down: [d.x, ROWS], left: [-1, d.y], right: [COLS, d.y] }[d.dir];
+      assert.equal(tileAt(wide, x, y).id, 'floor', `seed ${seed} ${id}: the way ${d.dir} at ${d.x},${d.y}`);
+    }
+  }
+});
+
+test('a mountain room with a tree on its edge, as an older save keeps it, has trees past its edge', () => {
+  const { room } = beginPlace('woods:0,0', 1), map = room.map.slice();
+  map[0] = 'T' + map[0].slice(1);
+  assert.equal(rockGoesOn({ ...room, map }), false);
+  assert.equal(rockGoesOn({ ...room, map: room.map.map((l) => l.replaceAll('R', 'T')) }), false);
 });

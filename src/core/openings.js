@@ -9,6 +9,7 @@
 import { sideAt, tileAt } from './room.js';
 import { arrive, fresh } from './stairs.js';
 import { mouthSpot } from './mouth.js';
+import { rockGoesOn } from './mountain.js';
 
 // True when x, y lies outside the room
 export const offEdge = (room, x, y) => x < 0 || y < 0 || x >= room.cols || y >= room.rows;
@@ -46,10 +47,11 @@ export function doorways(place, room, seed) {
 // § beyond: (room, doorways) → the room for drawing, past its edge the rock
 // or trees going on all around, and floor straight out from each doorway, a
 // passage on, but for the cave mouth, which leads down into the rock (D-403).
+// Past a mountain room's edge, rock goes on, not trees (D-738).
 // Only drawing and light read it; nothing walks there.
 const PAST = { up: (d, x, y) => x === d.x && y < 0, down: (d, x, y, r) => x === d.x && y >= r.rows,
   left: (d, x, y) => y === d.y && x < 0, right: (d, x, y, r) => y === d.y && x >= r.cols };
 export function widen(room, doors) {
-  const fill = room.look === 'woods' ? 'T' : '#', ways = doors.filter((d) => tileAt(room, d.x, d.y).id !== 'caveMouth');
+  const fill = rockGoesOn(room) ? 'R' : room.look === 'woods' ? 'T' : '#', ways = doors.filter((d) => tileAt(room, d.x, d.y).id !== 'caveMouth');
   return { ...room, beyond: (x, y) => (ways.some((d) => PAST[d.dir](d, x, y, room)) ? '.' : fill) };
 }

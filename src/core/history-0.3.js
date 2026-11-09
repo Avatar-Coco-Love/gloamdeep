@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.191', date: '2026-11-09', title: 'Rounded rock', lines: [
+    "The rock on the surface is rounded now, as the cave walls are, but lit by day: a sunlit grey top in place of the near-black squares. Rocks in the mountain rooms are fuller lumps, trees stand in front of them, and the two rocks beside the cave mouth are rounded too.",
+    "Past a mountain room's edge the rock goes on, with a grass path leading out to each room beside it, where trees stood before.",
+    "Decisions: D-739.",
+  ] },
   { v: '0.3.190', date: '2026-11-09', title: 'Mountain rooms', lines: [
     "The three rooms along the north of Hearthwood are mountain rooms now: rocky slopes of grass, rock standing where the trees would be, with a few lone trees. Each has 3 grey boulders to break for stone, as in the caves, and its own sticks and fallen branch, but no pond or bush. On the map, rock on the surface shows grey. If you have already been to one of these rooms, it stays woods.",
     "Decisions: D-738.",

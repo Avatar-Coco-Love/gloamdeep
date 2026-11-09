@@ -31,3 +31,18 @@ export function mountainOf(seed, room, keep = []) {
   }
   return { ...room, map: g.map((row) => row.join('')) };
 }
+
+// § rock goes on: true for a woods room whose edge is rock but for its ways, no tree, a mountain
+// room; past its edge the rock goes on, drawn so (D-738). Read from the room itself, so a
+// mountain room an older save keeps as woods keeps its trees past the edge too.
+export function rockGoesOn(room) {
+  if (room.look !== 'woods') return false;
+  const map = room.map, rows = map.length, cols = map[0].length;
+  let rock = false;
+  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
+    if (x && y && x < cols - 1 && y < rows - 1) continue;
+    if (map[y][x] === 'T' || map[y][x] === 'S') return false; // a tree or a felled one's stump
+    if (map[y][x] === 'R') rock = true;
+  }
+  return rock;
+}

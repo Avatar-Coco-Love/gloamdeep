@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729); D-726, the mole burrows, at 0.3.183 (D-731).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729); D-726, the mole burrows, at 0.3.183 (D-731); D-729 to D-731, the scorpion's tail strike, attack marks in Settings and the bone rat coming back, at 0.3.191 (D-739).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -310,3 +310,41 @@ only on the turn after, so the hero strikes first. Claude's drafts the
 owner may change: once up it never digs again and chases on foot;
 already beside the hero as it notices, it never digs; its three lines.
 Next, the owner's pick: the rat pack, proposed first.
+
+**D-729 · 2026-11-09 · The scorpion's tail strike** (the owner's picks;
+builds D-726) The next creature way,
+the owner's pick: the scorpion gets Tail strike, `strikes`. It notices
+and comes as one that chases does, but never bites beside the hero:
+with them in its row or column within 2 tiles and a clear line, it
+stops and raises its tail for a turn, with a warning line, and both
+tiles ahead are marked; on its next turn it strikes them, 2 hearts on
+the hero there, else it misses. A blow still beats it while raised.
+Claude's drafts the owner may change: after a strike it stands still
+one more turn; it strikes only the hero; armour can't turn it aside;
+its lines; a raised tail trembles and stops a walk. D-725 moves to
+`archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-730 · 2026-11-09 · Attack marks in Settings; the bone rat comes
+back next** (the owner's picks, all recommended; builds D-349) A new
+Settings switch, Attack marks, after Flasks: On at first, kept on the
+device. Off, no creature's next move shows: not the icons on the
+creature list's plaques, the framed one's arrow, a glob's next tile nor
+a raised tail's tiles. The plaques, the lines, the glob and the tremble
+stay. Built in 0.3.182 with the tail strike. The owner meant to pick
+the bone rat and wants it in the game, next: beaten, it falls into a
+pile of bones and stands up again 3 turns later, unless the hero steps
+onto the pile to scatter it.
+
+**D-731 · 2026-11-09 · The bone rat comes back** (the owner's picks, all
+recommended; builds D-730, D-551) Beaten, the bone rat falls into a pile
+of bones, look A of its mock-up: a low heap, its skull on top with the
+pink eye. 3 turns later it stands up again, whole with 3 hearts, every
+time, unless the hero steps onto the pile first and scatters it. Only
+the scatter beats it: the Rat Bone (about 1 in 2), the Beaten count and
+its experience. Small pink dots over the pile count its turns, 3, 2, 1,
+hidden with Attack marks Off, and on its last turn "The bones stir."
+Claude's drafts the owner may change: a pile bites no one, can't be
+hit, and no creature steps onto it; it stands up chasing, acting from
+the next turn; the count waits while the hero is in another room; a
+scatter rattles; its lines and the Bestiary words. D-726 moves to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

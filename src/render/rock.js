@@ -24,7 +24,7 @@ const LOOKS = {
     floor: ['#3d3229', '#47392e', '#2e251e', '#544435'], face: strata, spot: stone,
   },
 };
-const FACE_H = 11; // the front face's height in pixels, the crypt's 5 to 15
+export const FACE_H = 11; // the front face's height in pixels, the crypt's 5 to 15
 const PUDDLES = 0.12; // the share of grey floor tiles with a puddle
 const STONES = 0.5; // the share of earth floor tiles with a stone
 
@@ -40,14 +40,16 @@ function roomWalls(room) {
   const wall = (x, y) => inside(x, y) ? +isWall(room, x, y) : +!gap(Math.max(0, Math.min(room.cols - 1, x)), Math.max(0, Math.min(room.rows - 1, y)));
   return { wall, gap };
 }
-function mask(room, wobble, win, { wall, gap }) {
+// `solidAt`: a tile drawn whole as rock, the room's walls but for the surface's rock (outcrop.js);
+// `level`: where the cut lies between 0 and 1, lower for fuller rock
+export function mask(room, wobble, win, { wall, gap, solidAt = (x, y) => isWall(room, x, y), level = 0.5 }) {
   const { x0: X0, y0: Y0, w: W, h: H } = win, m = new Uint8Array(W * H);
   // Each tile worked out once, not for every pixel: its wall value, whether it is
   // a wall, and whether it stays clear (a way on, or an opening in the edge)
   const TX = floorDiv(X0, T) - 1, TY = floorDiv(Y0, T) - 1, TW = floorDiv(X0 + W - 1, T) + 2 - TX, TH = floorDiv(Y0 + H - 1, T) + 2 - TY;
   const v1 = new Uint8Array(TW * TH), solid = new Uint8Array(TW * TH), clear = new Uint8Array(TW * TH);
   for (let ty = TY; ty < TY + TH; ty++) for (let tx = TX; tx < TX + TW; tx++) {
-    const i = (ty - TY) * TW + tx - TX, isW = isWall(room, tx, ty);
+    const i = (ty - TY) * TW + tx - TX, isW = solidAt(tx, ty);
     v1[i] = wall(tx, ty); solid[i] = +isW;
     clear[i] = +(!isW && (!!tileAt(room, tx, ty).leads || gap(tx, ty)));
   }
@@ -56,7 +58,7 @@ function mask(room, wobble, win, { wall, gap }) {
     const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y), i = (ty - TY) * TW + tx - TX;
     const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
     const v = (at(x0, y0) * (1 - ax) + at(x0 + 1, y0) * ax) * (1 - ay) + (at(x0, y0 + 1) * (1 - ax) + at(x0 + 1, y0 + 1) * ax) * ay;
-    let rock = v > 0.5 - (hash(floorDiv(x, 3), floorDiv(y, 3), 7) - 0.5) * wobble;
+    let rock = v > level - (hash(floorDiv(x, 3), floorDiv(y, 3), 7) - 0.5) * wobble;
     if (solid[i] && v > 0.95) rock = true;
     if (!solid[i] && (clear[i] || ix > 3 && ix < 12 && iy > 3 && iy < 12)) rock = false;
     m[(y - Y0) * W + x - X0] = rock ? 1 : 0;
@@ -67,7 +69,7 @@ function mask(room, wobble, win, { wall, gap }) {
 // § face: grey is piled chunks of rock, each the nearest of a few hashed
 // points, with dark seams between and the top of each chunk catching the light
 const FACE = ['#4b5468', '#555e73', '#434b5d'], FACE_TOP = ['#6a7489', '#5f697e'], SEAM = '#262a35';
-function chunks(x, y) {
+export function chunks(x, y) {
   let best = 1e9, second = 1e9, id = 0;
   const cx = floorDiv(x, 7), cy = floorDiv(y, 6);
   for (let j = -1; j <= 1; j++) for (let i = -1; i <= 1; i++) {
