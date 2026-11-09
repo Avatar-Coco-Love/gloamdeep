@@ -137,16 +137,6 @@ owner may change: once up it never digs again and chases on foot;
 already beside the hero as it notices, it never digs; its three lines.
 Next, the owner's pick: the rat pack, proposed first.
 
-**D-724 · 2026-11-09 · Glints and the prices of looks** (the owner's
-picks, both recommended; builds D-695, D-714, D-723, answers Q-055) The
-balance stays as it is: 13 locked looks at 3 Glints each cost 39, and
-the six Feats' 36 with the free pick's look buy them all, the few goal
-Glints (D-706) a small spare. Looks to come cost 3 Glints each, and each
-new set of looks comes with a new Feat, or new tiers, so Glints keep up
-with the shop. Next, the owner's pick, recommended: a flask left
-unguarded (Q-075). D-719 moves to `archive/DECISIONS-FEATS.md`, word
-for word.
-
 **D-725 · 2026-11-09 · A flask left unguarded** (the owner's picks, all
 recommended; answers Q-075, builds D-534) In every made room, from
 depth 2, each flask has a 1 in 4 chance, from the room's seed, of no rat
@@ -173,4 +163,16 @@ for its own free side of the hero, away from its packmates first. From
 depth 3, about 1 room in 3, the rat by the flask has 2 packmates, on top
 of the room's creatures. With 2 or more of its pack left a hurt rat
 stands its ground; the last one may flee as now. D-721 to D-723 move to
+`archive/DECISIONS-FEATS.md`, word for word.
+
+**D-728 · 2026-11-09 · The rat pack built** (the owner's ask; builds
+D-727) The plain rat now has the Pack way, built as D-727 says. Claude's
+drafts the owner may change: a pack is the rat by a room's first flask,
+so a room holds one pack at most; its 2 packmates stand within 2 tiles
+of it, by the guard's rules (out of the torch's light, 3 tiles from the
+stairs), and with no room for both it stays alone; the 1 in 3 is rolled
+for every room from depth 3, so a room whose flask lost its rat (D-725)
+has no pack, about 1 room in 4 in all. A rat heads for the free side
+farthest from its packmates, then the nearest to it; a pack that
+notices says no line. The rat's Bestiary words say so. D-724 moves to
 `archive/DECISIONS-FEATS.md`, word for word.

@@ -14,7 +14,8 @@ export const ENEMIES = {
   // Two lantern hits kill it (D-109, D-110); it bites for 1 when next to the hero (D-114)
   // and chases them once it notices them (D-126). Once hurt, it may flee (D-292, D-301).
   // Its bite sounds of teeth (D-259). Beaten, it `drops` a Rat Tail now and then (D-453, D-454).
-  rat: { id: 'rat', kind: 'enemy', name: 'Rat', acts: "Comes at you once it sees you in the light. Hurt, it often turns and runs.", fights: "Wait for it to step beside you, and you strike first. A knife ends it in one blow, before it can run.", health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
+  // From depth 3 some come in packs of three (D-727, pack.js); alone it acts as before.
+  rat: { id: 'rat', kind: 'enemy', name: 'Rat', acts: "Comes at you once it sees you in the light. Hurt, it often turns and runs. Deeper down, rats run in packs of three that surround you.", fights: "Wait for it to step beside you, and you strike first. A knife ends it in one blow. A pack stands its ground: keep a wall at your back.", health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt', 'pack'], hurt: 'ratHurt', stands: 'ratStands', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
   // It chases, and shuns light (D-240). Beaten, it may drop a Gloam Wisp (D-475),
   // and now and then its `rare` Gloam Eye (D-476).
   gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', acts: "Hunts you from the dark, but will not step into the light. When the light finds it, it backs away.", fights: "It can't bite you from the light, so keep your lantern full. Back it into a corner and strike while your flame holds it.", health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },

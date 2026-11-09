@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.180 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.181 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The rat pack (D-727): build the Pack way for the plain rat as the owner picked it, the second new way, its own small step.
+The owner's pick, proposed first: begin a journey on the surface (Q-081), or the next creature way (D-726).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -20,7 +20,8 @@ The rat pack (D-727): build the Pack way for the plain rat as the owner picked i
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Begin a journey on the surface (Q-081), after the rat pack.
+- Begin a journey on the surface (Q-081), now.
+- The rat pack's drafts (D-728): one pack a room, sides, no line.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 
@@ -39,6 +40,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
+  (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
+  packmates; one noticing brings all three, each to its own side of the
+  hero, and a hurt one stands while 2 are left. Claude's drafts the owner
+  may change are in D-728. Next, the owner's pick.
+  Playtest: https://claude.ai/artifact/Fd9S73LizRPbm8s215Rppn
+  Map preview: https://claude.ai/artifact/QPq6MSkWuTiHyD9AvcS2WP
 - **2026-11-09, 0.3.180, Creatures walk over finds.** The owner's picks,
   all recommended (D-727): the rat pack is planned (the plain rat, each
   to its own side, the flask rat and 2 more from depth 3, brave while 2
@@ -52,10 +60,3 @@ list in `RESEARCH.md`.
   on noticing, tunnels as a mound that can't be hit, comes up beside the
   hero and bites the turn after. Next, the rat pack.
   Playtest: https://claude.ai/artifact/GyX3uP1kukfmnA939Cqfes
-- **2026-11-09, 0.3.178, A flask left unguarded.** The owner's picks,
-  all recommended (D-725): from depth 2, each flask 1 in 4 with no rat by
-  it, a hall's each alone; the guard goes elsewhere in the dark, picked
-  again from the pool. Another creature still stands near about 1 in 3
-  of those by chance, left as is. Q-075 closed. Next, the surface (Q-081).
-  Playtest: https://claude.ai/artifact/CkWdSSvstF5PBfZHJFFamE
-  Map preview: https://claude.ai/artifact/QFnsLzyontkrDc87kmcJpb

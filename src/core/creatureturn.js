@@ -139,9 +139,10 @@ function ahead(state) {
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
 // One that lures (D-649) drifts away instead, while the hero is near (lureStep).
 function enemiesMove(state, bit = false) {
-  let enemies = state.enemies, said = null;
+  const start = rally(state.enemies), claims = [];
+  let enemies = start, said = null;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
-  for (const e of state.enemies) {
+  for (const e of start) {
     if (still(e)) continue;
     const t = traits(get(e.id)), lit = litAt(state, e.x, e.y);
     if (t.moves === 'lure') {
@@ -162,15 +163,43 @@ function enemiesMove(state, bit = false) {
       if (line) said = said || get(e.id)[line];
       continue;
     }
-    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : chaseStep(now, e, 1, goal)) || e;
+    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : t.pack && !seeks ? packStep(now, e, claims) : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
     const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }) };
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
+  enemies = rally(enemies); // one that noticed this turn brings its pack (D-727)
   const next = enemies === state.enemies ? state : { ...state, enemies };
   return said && !bit ? say(next, said) : next; // a bite's line said this turn stays (D-117)
 }
+
+// § pack (D-727): one of a pack is one whose ways say `pack` and that carries a `pack` mark (pack.js).
+// Once one of a pack has noticed the hero, its whole pack has: `rally` marks them all chasing, the
+// same list back when nothing changes. With a packmate left, one chasing heads for a free side of the
+// hero no packmate holds or heads for this turn, the farthest from its packmates first, then the
+// nearest to it, then the first in DIRS order; with none free, or no step that way, it comes as one
+// that chases does. Alone it acts as its other ways say.
+const packed = (e) => e.pack && traits(get(e.id)).pack;
+const mates = (enemies, e) => enemies.filter((o) => o !== e && packed(o) && o.pack === e.pack);
+function rally(enemies) {
+  const called = new Set(enemies.filter((e) => packed(e) && e.chasing).map((e) => e.pack));
+  if (!enemies.some((e) => packed(e) && !e.chasing && called.has(e.pack))) return enemies;
+  return enemies.map((e) => (packed(e) && !e.chasing && called.has(e.pack) ? { ...e, chasing: true } : e));
+}
+function packStep(state, e, claims) {
+  const others = mates(state.enemies, e);
+  if (!others.length) return chaseStep(state, e);
+  const apart = (t) => Math.min(...others.map((o) => steps(o, t)));
+  const sides = Object.values(DIRS).map(([dx, dy]) => ({ x: state.hero.x + dx, y: state.hero.y + dy }))
+    .filter((t) => free(state, e, t.x, t.y) && !claims.some((c) => c.x === t.x && c.y === t.y));
+  const side = sides.reduce((best, t) => (!best || apart(t) > apart(best) || (apart(t) === apart(best) && steps(e, t) < steps(e, best)) ? t : best), null);
+  if (!side) return chaseStep(state, e);
+  claims.push(side);
+  return chaseStep(state, e, 1, side) || chaseStep(state, e);
+}
+// With 2 or more of its pack left, itself counted, a hurt one stands its ground (D-727)
+const brave = (enemies, foe) => packed(foe) && mates(enemies, foe).length >= 1;
 
 // § burrows (D-726): one that burrows and has noticed the hero digs down where it stands, `under`,
 // with its `digs` line; under, it comes a tile a turn toward them as one that chases does; beside
@@ -238,6 +267,7 @@ const fleeing = (e) => e.flees > 0;
 export function fleeOrStand(state, enemies, foe) {
   const t = traits(get(foe.id)), hurt = enemies.find((e) => e.x === foe.x && e.y === foe.y);
   if (t.whenHurt !== 'flee' || !hurt) return { enemies, stands: false };
+  if (brave(enemies, hurt)) return { enemies, stands: true }; // its pack beside it (D-727)
   const flees = rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y))() < t.fleeChance;
   return { enemies: flees ? enemies.map((e) => (e === hurt ? { ...e, flees: t.fleeTurns } : e)) : enemies, stands: !flees };
 }

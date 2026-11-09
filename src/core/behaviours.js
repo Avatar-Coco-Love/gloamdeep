@@ -29,6 +29,10 @@ export const BEHAVIOURS = {
   // comes a tile a turn under the floor, a mound of earth that can't be hit or bitten by; beside
   // the hero it comes up, biting only on the turn after, then chases on foot (creatureturn.js, D-726).
   burrows: { id: 'burrows', name: 'Burrows', notices: 'inLight', moves: 'toward', burrows: true },
+  // One of a pack (its `pack` mark, pack.js): once one notices the hero, the whole pack does; each
+  // heads for its own free side of the hero, away from its packmates first; hurt with 2 or more of
+  // its pack left, it stands its ground. Alone, it acts as its other ways say (creatureturn.js, D-727).
+  pack: { id: 'pack', name: 'Pack', pack: true },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

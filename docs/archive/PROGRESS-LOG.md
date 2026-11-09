@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.178, A flask left unguarded.** The owner's picks,
+  all recommended (D-725): from depth 2, each flask 1 in 4 with no rat by
+  it, a hall's each alone; the guard goes elsewhere in the dark, picked
+  again from the pool. Another creature still stands near about 1 in 3
+  of those by chance, left as is. Q-075 closed. Next, the surface (Q-081).
+  Playtest: https://claude.ai/artifact/CkWdSSvstF5PBfZHJFFamE
+  Map preview: https://claude.ai/artifact/QFnsLzyontkrDc87kmcJpb
 - **2026-11-09, 0.3.177, Glints and the prices of looks.** The owner's
   picks, both recommended (D-724): the balance stays, 13 locked looks at
   3 cost 39, the Feats' 36 and the free pick buy them all, goal Glints a
