@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.171 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.172 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner orders the audit's other fixes (B2, B3, B4, Q1, D-716, D-718); each is its own step with a test. Then more Feats (Q-057).
+The audit's last fixes, B4 and Q1, in one step (D-719): the owner picks whether the sleeping warden gets a screen-reader plaque, and whether dev-made creatures count toward Beaten. Then more Feats (Q-057).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.172, The Feat note after the turn's line.** The
+  audit's B2 and B3, the owner's picks, all recommended: the other fixes
+  go in two steps; two Feats in one turn share one note, Glints added
+  up; a turn's own line shows first, the Feat note on the next move
+  that says none. Next, B4 and Q1.
+  Playtest: https://claude.ai/artifact/4i43wvgca6xjTSEo7jzkXL
 - **2026-11-09, 0.3.171, Flyers over water.** The bat, the lampmoth and
   the lure wisp fly over water now; no other creature does. The owner's
   picks, all recommended: walking into one over water strikes it, rod
@@ -53,10 +59,3 @@ list in `RESEARCH.md`.
   look A, centred on the locket, 21 pixels across, not 31, and dimmer,
   on the floor and the shelf. Next, every flyer may fly over water.
   Playtest: https://claude.ai/artifact/VMkV6Y8FGiVtvvEBvDGoZR
-- **2026-11-09, 0.3.169, The old saves' locket.** The audit's first
-  fixes, the owner's picks, all recommended: B1 first, an old journey
-  that held the locket room before 0.3.143 gets the locket and its
-  warden once on loading, only while the locket is nowhere else; T1
-  rides along, the release tool's archive note said once (D-716). Next,
-  the owner orders the other fixes.
-  Playtest: https://claude.ai/artifact/2PG64e25pBfpxSVXNX5E67

@@ -46,11 +46,22 @@ export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You 
 const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';
 export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${featRows(p.records).map((r) => `${r.text}, ${r.value}, ${r.reached} of ${r.tiers} reached`).join('. ')}. ${TURN}`;
 
-// § note: the tiers reached between two Records, as "Beaten 10. +1 Glint", the newest only
+// § note: the tiers reached between two Records, as "Beaten 10. +1 Glint"; two Feats in one note,
+// "Beaten 10, Flasks 5. +2 Glints", their Glints added up (D-719)
 export function featNote(was, now) {
+  const names = [];
+  let pays = 0;
   for (const f of FEATS) {
     const a = reached(f, was), b = reached(f, now);
-    if (b > a) return `${f.text} ${f.tiers[b - 1]}. +${plural(f.pays[b - 1])}`;
+    if (b > a) { names.push(`${f.text} ${f.tiers[b - 1]}`); pays += f.pays.slice(a, b).reduce((x, y) => x + y, 0); }
   }
-  return null;
+  return names.length ? `${names.join(', ')}. +${plural(pays)}` : null;
+}
+// § note's turn (D-719): the Records the note counts from (those before a note still waiting, or
+// before this action), those now, and whether this action said its own line. With its own line,
+// that line shows and the note waits, counting from the same Records, for a move that says none
+export function featTurn(from, now, ownLine) {
+  const note = featNote(from, now);
+  if (!note) return { note: null, from: null };
+  return ownLine ? { note: null, from } : { note, from: null };
 }

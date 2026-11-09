@@ -1,7 +1,7 @@
 // § feats (D-284, D-467, D-695, D-697, D-698): the Beaten, Deepest and Flasks Feats' 3 tiers, the Glints they pay, the tab and its note
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { FEATS, featRows, featsWords, featNote, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
+import { FEATS, featRows, featsWords, featNote, featTurn, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
 import { journalAt } from '../src/render/journal.js';
 import { cardAt, PAD } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
@@ -54,6 +54,23 @@ test('reaching a tier gives a note, once (D-467)', () => {
   assert.equal(featNote(at(49), at(50)), 'Beaten 50. +2 Glints');
   assert.equal(featNote(at(10), at(11)), null);
   assert.equal(LINES.featReached.text.replace('{n}', featNote(at(9), at(10))), 'Feat reached: Beaten 10. +1 Glint.');
+});
+
+test('two Feats in one turn share one note, their Glints added up (B2, D-719)', () => {
+  const was = { ...at(9), poured: 4 }, now = { ...at(10), poured: 5 };
+  assert.equal(featNote(was, now), 'Beaten 10, Flasks 5. +2 Glints');
+  assert.equal(featNote({ ...at(49), poured: 24 }, { ...at(50), poured: 25 }), 'Beaten 50, Flasks 25. +4 Glints');
+});
+
+test("a turn's own line shows first, the Feat note on a move that says none (B3, D-719)", () => {
+  const waits = featTurn(at(9), at(10), true); // a level-up's line on the same kill
+  assert.deepEqual(waits, { note: null, from: at(9) });
+  assert.deepEqual(featTurn(waits.from, at(10), true), { note: null, from: at(9) }); // another own line: still waits
+  assert.deepEqual(featTurn(waits.from, at(10), false), { note: 'Beaten 10. +1 Glint', from: null });
+  assert.deepEqual(featTurn(waits.from, at(11), false).note, 'Beaten 10. +1 Glint'); // a kill past it says the same
+  assert.equal(featTurn(waits.from, { ...at(10), poured: 5 }, false).note, 'Beaten 10, Flasks 5. +2 Glints'); // one reached while it waits joins it
+  assert.deepEqual(featTurn(at(9), at(10), false), { note: 'Beaten 10. +1 Glint', from: null }); // no own line: at once
+  assert.deepEqual(featTurn(at(10), at(11), true), { note: null, from: null }); // no tier: nothing waits
 });
 
 test('the Feats tab is tapped on every card, one row sideways, two upright, and its row fits', () => {

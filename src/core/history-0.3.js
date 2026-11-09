@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.172', date: '2026-11-09', title: 'The Feat note after the turn\'s line', lines: [
+    "Fixed: reaching two Feats in one turn now shows both in one note, such as \"Feat reached: Beaten 10, Flasks 5. +2 Glints.\"",
+    "Fixed: a Feat note no longer hides that turn's own line, such as a level-up or \"The locket kept…\". That line shows first, and the Feat note follows on your next move.",
+    "Decisions: D-719.",
+  ] },
   { v: '0.3.171', date: '2026-11-09', title: 'Flyers over water', lines: [
     "Bats, lampmoths and lure wisps now fly over water, cave pools and the pond alike. Walk into one hovering over water to strike it, with the rod held or not; anything it drops lands on the nearest dry ground.",
     "Decisions: D-718.",
