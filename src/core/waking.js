@@ -5,8 +5,7 @@
 // forgets it until it is slept in again. Plain data, no drawing.
 import { tileAt } from './room.js';
 import { get } from './registry.js';
-
-const HOME = 'woods'; // where the home waystone stands (D-589)
+import { stoneHome } from './mouth.js';
 
 // The room of place `id` as the state holds it: the one stood in, one left, or none yet
 const roomOf = (state, id) => (id === state.place ? state.room : state.elsewhere?.[id]?.room);
@@ -40,10 +39,10 @@ function byBed(state) {
 
 // The home waystone's woken plate, once woken
 function byStone(state) {
-  const room = roomOf(state, HOME), plate = get('wokenPlate').letter;
+  const home = stoneHome(state.seed), room = roomOf(state, home), plate = get('wokenPlate').letter;
   for (let y = 0; room && y < room.rows; y++) {
     const x = room.map[y].indexOf(plate);
-    if (x >= 0) return { place: HOME, hero: { x, y } };
+    if (x >= 0) return { place: home, hero: { x, y } };
   }
   return null;
 }

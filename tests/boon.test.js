@@ -9,12 +9,13 @@ import { offer, offerable, takeBoon, offersBoons, stepOffersBoons, onHomePlate, 
 import { fall } from '../src/core/fall.js';
 import { OIL, reach } from '../src/core/oil.js';
 import { DROP_CHANCE, RARE_CHANCE } from '../src/core/enemies.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const SEED = 5;
 const plate = (room) => { for (let y = 0; y < room.rows; y++) { const x = room.map[y].search(/[ZA]/); if (x >= 0) return { x, y }; } return null; };
-// In the woods, on the home plate woken, no creature near
+// In the cave mouth's room, on the home plate woken (D-753), no creature near
 function onHome() {
-  const s = goToPlace(makeWorld('first', SEED), 'woods'), at = plate(s.room);
+  const s = goToPlace(makeWorld('first', SEED), stoneHome(SEED)), at = plate(s.room);
   return { ...s, room: withTile(s.room, at.x, at.y, get('wokenPlate')), hero: at, enemies: [] };
 }
 
@@ -58,7 +59,8 @@ test('boons: Stout Heart gives 2 more hearts, full, and they go home again', () 
   assert.equal(s.health, HERO_HEALTH + 2);
   const down = goToDepth(s, 2);
   assert.equal(down.boon, 'stoutHeart');
-  const home = goToPlace(down, 'woods');
+  assert.equal(goToPlace(down, 'woods').boon, 'stoutHeart', 'the middle room no longer ends it (D-753)');
+  const home = goToPlace(down, stoneHome(SEED));
   assert.equal(home.boon, null);
   assert.equal(home.health, HERO_HEALTH);
   assert.equal(maxHealth(home), HERO_HEALTH);
@@ -137,7 +139,7 @@ test('boons: Reckless hits for 1 more, the spear\'s second too, and takes 2 hear
   assert.equal(maxHealth(r), maxHealth(s) - 2);
   assert.equal(r.health, maxHealth(r)); // 5 of 5 becomes 3 of 3
   assert.equal(takeBoon({ ...s, health: 2 }, 'reckless').health, 2); // fewer than the new most: as it was
-  const home = goToPlace(goToDepth(r, 1), 'woods'); // the hearts come back empty
+  const home = goToPlace(goToDepth(r, 1), stoneHome(SEED)); // the hearts come back empty
   assert.equal(maxHealth(home), maxHealth(s));
   assert.equal(home.health, maxHealth(r));
   const fell = fall({ ...r, health: 1 }); // a fall heals in full, the boon gone

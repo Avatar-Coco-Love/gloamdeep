@@ -16,7 +16,7 @@ test('the start is one entry in the registry, the south woods', () => {
   assert.equal(LISTED, STARTS);
   assert.equal(START, 'southWoods');
   assert.equal(STARTS.southWoods.lit, false);
-  assert.deepEqual(STARTS.southWoods.goals, { skip: ['home'], now: ['stone'], how: { stone: 'Home is in the middle of the woods.' } });
+  assert.deepEqual(STARTS.southWoods.goals, { skip: ['home'], now: ['stone'], how: { stone: "Old standing stones, by the crypt's door." } });
   assert.equal(startOf({ start: 'southWoods' }), STARTS.southWoods);
   assert.equal(startOf({}), null, 'a journey begun in the crypt has none');
 });
@@ -59,8 +59,8 @@ test('a Normal fall wakes where the journey began, on its tile', () => {
 test('the start\'s goals: "Find the waystone" from the first turn with its words, "Go home" never', () => {
   const w = newJourney(42, 'normal'), after = goalsAfter({}, 0, {}, [], { ...w, turn: 1 }, w);
   assert.deepEqual(after.goals, { stone: { done: false } });
-  assert.deepEqual(goalLine(after.goals, null, 1, w.place, w), { id: 'stone', goal: 'Find the waystone', how: 'Home is in the middle of the woods.', done: false });
-  assert.equal(questRows(after.goals, w.place, w.start)[0].how, 'Home is in the middle of the woods.');
+  assert.deepEqual(goalLine(after.goals, null, 1, w.place, w), { id: 'stone', goal: 'Find the waystone', how: "Old standing stones, by the crypt's door.", done: false });
+  assert.equal(questRows(after.goals, w.place, w.start)[0].how, "Old standing stones, by the crypt's door.");
   const ratDone = goalsAfter({ rat: { done: true, paid: 'flask' } }, 0, {}, [], { ...w, turn: 2 }, w);
   assert.equal(ratDone.goals.home, undefined, 'skipped');
   const crypt = GOALS.find((g) => g.id === 'stone');

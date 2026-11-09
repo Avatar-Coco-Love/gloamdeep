@@ -7,6 +7,7 @@ import { offerable } from '../src/core/boon.js';
 import { tileAt } from '../src/core/room.js';
 import { BOONS } from '../src/core/registry.js';
 import { glowsIn } from '../src/core/stairs.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const held = (s) => ({ ...s, boon: 'farSight' });
 const floorTiles = (room) => { let n = 0; for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid) n++; return n; };
@@ -55,7 +56,7 @@ test('far sight: the walls beside it show; it is kept when the boon ends', () =>
   let walls = 0;
   for (let i = 0; i < seen.length; i++) if (seen[i] && tileAt(room, i % room.cols, Math.floor(i / room.cols)).solid) walls++;
   assert.ok(walls > 0);
-  const home = goToPlace(s, 'woods'), back = goToPlace(home, s.place);
+  const home = goToPlace(s, stoneHome(s.seed)), back = goToPlace(home, s.place);
   assert.equal(home.boon, null);
   assert.deepEqual(back.seen, seen);
 });

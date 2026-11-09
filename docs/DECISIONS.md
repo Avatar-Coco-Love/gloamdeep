@@ -120,43 +120,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-747 · 2026-11-09 · Smooth rock edges, and what to polish** (the
-owner's picks; builds D-739's step 24; mock-ups at
-https://claude.ai/artifact/DjvVKCpbeuDBnTBeTVmMcz) A look through all nine
-surface rooms found four things that look unnatural: the mountain rock's
-torn edges, star-shaped ponds with dripping rims, busy camouflage grass,
-and one tree stamp in rigid rows. The owner picked the rock first, and its
-look A: smooth edges, no loose pixels, nothing else changed. The edge's
-wobble is smooth noise, not a new random value every 3 pixels, and a lone
-pixel or spike is cleaned off. Caves keep their own rock as it was. For
-the trees, later, look A: still one round tree a tile (D-209), varied in
-size, place and three greens. For the ponds the owner likes both today's
-and the round, smooth look, and asked for a variation of that, shown as
-mock-ups at the ponds' step. Claude's calls the owner may change: the
-order after the rock is ponds, grass, trees, one a step; the grass's look
-is asked at its step; the code is `mask`'s `soft` in `src/render/rock.js`.
-
-**D-748 · 2026-11-09 · Ponds halfway to round** (the owner's picks, both
-recommended; builds D-747; mock-ups at
-https://claude.ai/artifact/EQfp8wLasizEnWkwonaWPi) Of four pond outlines,
-from today's to round, the owner picked B, halfway: half the tiles' blend,
-half a soft round blob on each water tile, the edge wobbling smoothly, a
-lone pixel cleaned off and a notch filled, so no star shapes and no
-dripping rim. The same tiles are water, so walking, fishing and the map
-are unchanged. Cave pools keep their own edge, as the caves' rock did.
-Claude's calls the owner may change: the code is `inPond` in
-`src/render/water.js`, chosen by the room's woods look; next is the grass.
-
-**D-749 · 2026-11-09 · Calmer grass** (the owner's picks, both
-recommended; builds D-747; mock-ups at
-https://claude.ai/artifact/VwxY2xAns7qoVPpwLPftyC) Of four grass looks,
-from today's camouflage to one flat green, the owner picked B: the same
-three greens in patches about three times bigger with smooth round edges,
-the middle green covering most of the ground, and the pale blades half as
-often. It is used for all surface grass, in the room and past its edge,
-so they match. Claude's calls the owner may change: the code is `grass`
-in `src/render/woods.js`; next are the trees, look A (D-747).
-
 **D-750 · 2026-11-09 · Trees in groves** (the owner's pick, recommended;
 builds D-747; mock-ups at
 https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ) Of four tree looks
@@ -192,3 +155,20 @@ daylight comes with the lantern lit, by stepping out of the dark or by
 dawn. Already out as the daylight comes, as By itself does, it is ticked
 quietly and paid nothing. It pays a reward like every goal and goes
 ahead of any goal waiting while the lantern burns in daylight.
+
+**D-753 · 2026-11-09 · The home waystone by the crypt's door** (the
+owner's picks, recommended but where noted; step 25, 2, D-751) The home
+waystone stands in the room with the cave mouth, near its middle, 2
+tiles north of it, as it stood at home (the owner's pick of three, over
+near the door and halfway). A boon ends on arriving in that room, by
+any way, no longer in home. "Find the waystone" shows on reaching that
+room, and the South woods start's line says "Old standing stones, by
+the crypt's door." In an older save the stone moves there, woken if it
+was; at home its 9 tiles become grass, things set down there staying.
+Claude's calls the owner may change: a new game's home grows as it did
+and its stone's 9 tiles are grass, so home looks as an older save's
+does; boulders keep off the stone's ring in a mountain room; the travel
+card's Home and a fall's waking follow the stone; "Go home to the
+woods" is still done in home. Partly supersedes D-583's home, D-589's
+room and D-735's words. D-747 to D-749 move to
+`archive/DECISIONS-SURFACE.md`, word for word.

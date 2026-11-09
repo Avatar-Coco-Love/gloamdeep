@@ -9,7 +9,8 @@ import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
 import { withPack } from './pack.js';
-import { generateWoods, inFront } from './woods.js';
+import { generateWoods, inFront, STONE_UP, STONE_RING } from './woods.js';
+import { around } from './landmarks.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
@@ -115,14 +116,22 @@ export const PLACES = {
 for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => woodsRoom(id, seed), depth: 0, look: 'woods', sky: true, sides: sidesOfWoods(id) };
 // A Hearthwood room as it begins: home grows as it did with the mouth in its edge, so it keeps
 // its trees, but without the mouth or rocks, which stand in the room beside it now (D-733); that
-// room has the mouth, the rest neither. Then the paths to the rooms beside are cut. A mountain
+// room has the mouth and the home waystone (D-753), the rest neither. Home still grows with the
+// stone, so its trees, sticks and pond stay as they were, and then its 9 tiles are made grass,
+// as an older save's are (movestone.js). Then the paths to the rooms beside are cut. A mountain
 // room, the north row, grows without its pond and bush, and after its paths its trees become
 // rock but for a few, with 3 boulders on its grass (D-738).
+// The waystone's tiles and the ring round it, kept clear of a mountain room's boulders
+const stoneRing = (start, ring = STONE_RING) => around(LANDMARKS.waystone, start.x, start.y - STONE_UP, ring);
+// A map with tiles `at` made grass
+const grassed = (map, at) => map.map((line, y) => [...line].map((ch, x) => (at.some((t) => t.x === x && t.y === y) ? '.' : ch)).join(''));
 function woodsRoom(id, seed) {
   const m = mouthOf(seed), home = id === HOME_ID, rock = isMountain(id), mouth = home || id === m.from ? m : null;
-  const made = generateWoods(woodsSeed(seed, id), mouth, { stone: home, mark: !home, wet: !rock });
+  const stone = id === m.from; // the home waystone stands in the mouth's room, near its middle (D-753)
+  const grown = generateWoods(woodsSeed(seed, id), mouth, { stone: stone || home, mark: !home, wet: !rock });
+  const made = home ? { ...grown, map: grassed(grown.map, stoneRing(grown.start, 0)) } : grown; // home grows as it did, its stone's spot grass
   const cut = { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
-  return rock ? mountainOf(woodsSeed(seed, id), cut, mouth ? inFront(mouth) : []) : cut;
+  return rock ? mountainOf(woodsSeed(seed, id), cut, [...(mouth ? inFront(mouth) : []), ...(stone ? stoneRing(made.start) : [])]) : cut;
 }
 
 // § depth: the place at each depth, and back. The crypt is depth 0 with the

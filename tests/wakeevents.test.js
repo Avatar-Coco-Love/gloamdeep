@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, makeWorld, step, FIRST_START } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const types = (s) => s.events.map((e) => e.type);
 const room = makeRoom(FIRST_ROOM);
@@ -20,7 +21,7 @@ for (const id of ['flaskMimic', 'herbMimic']) {
 }
 
 test("a waystone's plate stepped on sends 'stoneWake' at the plate, never 'wake'", () => {
-  const w = goToPlace(makeWorld('first', 5), 'woods');
+  const w = goToPlace(makeWorld('first', 5), stoneHome(5));
   let at = null;
   for (let y = 0; y < w.room.rows && !at; y++) { const x = w.room.map[y].indexOf('Z'); if (x >= 0) at = { x, y }; }
   const out = step({ ...w, hero: { x: at.x, y: at.y + 1 }, enemies: [], events: [] }, 'up');

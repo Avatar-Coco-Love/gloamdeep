@@ -1,7 +1,7 @@
 // § boon: the home waystone's boons (D-583, D-596). Stepping onto the woken home plate with
 // no boon held offers 3 (never on the step that wakes it, D-603), each of a different kind, drawn from the boons built so far; the
 // hero picks 1, or the cross skips it. `state.boon` holds its id until the hero is back in the
-// woods, by stairs or travel, or falls (withoutBoon, state.js). Its effects stack with gear.
+// home waystone's room, by stairs, travel or walking, or falls (withoutBoon, state.js). Its effects stack with gear.
 // The boons and their numbers are data (boons.js). Plain data, no drawing.
 import { BOONS, BOON_SORTS } from './registry.js';
 import { tileAt } from './room.js';
@@ -11,8 +11,9 @@ import { note } from './events.js';
 import { reach } from './oil.js';
 import { maxHealth } from './state.js';
 import { rareOf } from './worn.js';
+import { stoneHome } from './mouth.js';
 
-export const HOME = 'woods'; // where the home waystone stands (D-589)
+export const HOME = 'woods'; // home, Hearthwood's middle room (D-733)
 export const OFFERED = 3;
 
 // The boon held, its registry entry, or null
@@ -42,7 +43,8 @@ export const rareChance = (state, base) => rareOf(state, base) + Math.max(0, (bo
 export const offerable = () => Object.values(BOONS).filter((b) => !b.soon);
 
 // Whether the hero stands on the home waystone's woken plate
-export const onHomePlate = (state) => state.place === HOME && tileAt(state.room, state.hero.x, state.hero.y).id === 'wokenPlate';
+export const onHomePlate = (state) => state.place === stoneHome(state.seed) && // in the cave mouth's room (D-753)
+  tileAt(state.room, state.hero.x, state.hero.y).id === 'wokenPlate';
 // Whether the plate offers boons now: on it, holding none
 export const offersBoons = (state) => onHomePlate(state) && !state.boon;
 // Whether a step from `before` to `state` opens the boon card: the hero moved onto the plate

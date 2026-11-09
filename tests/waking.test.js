@@ -10,11 +10,12 @@ import { tileAt } from '../src/core/room.js';
 import { DUSK } from '../src/core/daytime.js';
 import { wakeSpot } from '../src/core/waking.js';
 import { offersBoons } from '../src/core/boon.js';
+import { stoneHome } from '../src/core/mouth.js';
 
-// The home waystone woken: its plate letter turned to the woken one
+// The home waystone woken, in the cave mouth's room (D-753): its plate letter turned to the woken one
 const wokeStone = (w) => {
-  const home = w.elsewhere.woods, map = home.room.map.map((line) => line.replace('Z', 'A'));
-  return { ...w, elsewhere: { ...w.elsewhere, woods: { ...home, room: { ...home.room, map } } } };
+  const id = stoneHome(w.seed), home = w.elsewhere[id], map = home.room.map.map((line) => line.replace('Z', 'A'));
+  return { ...w, elsewhere: { ...w.elsewhere, [id]: { ...home, room: { ...home.room, map } } } };
 };
 // The bed set down beside the hero in the start room and slept in at dusk; `from` is where they stood
 function slept(w) {
@@ -32,7 +33,7 @@ test('with no bed and the home waystone asleep, a fall wakes where the journey b
 
 test('with the home waystone woken, a fall wakes on its plate, no boon offered', () => {
   const w = wokeStone(newJourney(42, 'normal')), woke = fall({ ...w, health: 0 });
-  assert.equal(woke.place, 'woods');
+  assert.equal(woke.place, stoneHome(w.seed)); // the cave mouth's room (D-753)
   assert.equal(tileAt(woke.room, woke.hero.x, woke.hero.y).id, 'wokenPlate');
   assert.ok(!woke.boon);
   assert.equal(offersBoons(woke), true, 'the plate offers only once stepped onto again (main.js skips it on a fall)');

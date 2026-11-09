@@ -7,6 +7,7 @@
 import { LANDMARKS } from './registry.js';
 import { stamp, around } from './landmarks.js';
 import { STONE_UP, STONE_RING } from './woods.js';
+import { stoneHome } from './mouth.js';
 
 const MARK = LANDMARKS.waystone;
 const CLEARED = new Set(['.', 'T', 'S', 'F', 'G', 'H']); // grass, trees, stumps, branches, bushes
@@ -14,6 +15,7 @@ const PLATE = 'Z';
 
 // (state) → the state with the waystone in its woods room, and in the room as it began
 export function withHomeStone(s) {
+  if (stoneMoved(s)) return s; // a save already holding it in the cave mouth's room (D-753)
   const out = { ...s };
   if (s.place === 'woods') Object.assign(out, settle(s, s.hero));
   else if (s.elsewhere?.woods) out.elsewhere = { ...s.elsewhere, woods: settle(s.elsewhere.woods) };
@@ -22,9 +24,17 @@ export function withHomeStone(s) {
   return out;
 }
 
+// Whether the cave mouth's room holds the stone already, as only a save made since D-753 can
+// (no save from before D-589 had that room), so this step leaves it as it is
+function stoneMoved(s) {
+  const id = stoneHome(s.seed), room = s.place === id ? s.room : s.elsewhere?.[id]?.room;
+  return !!room?.map.some((line) => line.includes(PLATE) || line.includes('A'));
+}
+
 // One woods place ({ room, items, people, lights, taken }) with the stone set, or as it was when it
-// has one or no spot fits; `hero` stands there, when they are in it
-function settle(p, hero = null) {
+// has one or no spot fits; `hero` stands there, when they are in it. Also sets it in the cave
+// mouth's room for a save from before the stone moved there (movestone.js, D-753)
+export function settle(p, hero = null) {
   const room = p.room;
   if (!room || room.map.some((line) => line.includes(PLATE))) return p;
   const at = spotFor(p, hero);

@@ -7,6 +7,7 @@ import { rng, seedFor } from './rng.js';
 import { bagAdd, bagSize } from './bag.js';
 import { get } from './registry.js';
 import { HOME } from './boon.js';
+import { stoneHome } from './mouth.js';
 import { depthOf, tileAt } from './room.js';
 import { levelOf } from './xp.js';
 import { embers } from './growth.js';
@@ -16,16 +17,16 @@ import { inDaylight } from './daytime.js';
 // Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state, before }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
 export const NEAR = 4; // "Find the waystone" is done this many tiles from its middle, or nearer (the owner's pick)
-// Where the home waystone's plate is in the woods ('Z' asleep, 'A' woken), or null
+// Where the home waystone's plate is in its room, the cave mouth's (D-753) ('Z' asleep, 'A' woken), or null
 function plateAt(state, letters = 'ZA') {
-  if (state.place !== HOME) return null;
+  if (state.place !== stoneHome(state.seed)) return null;
   const map = state.room?.map || [];
   for (let y = 0; y < map.length; y++) for (let x = 0; x < map[y].length; x++) if (letters.includes(map[y][x])) return { x, y };
   return null;
 }
 const nearStone = (state) => { const at = plateAt(state); return !!at && Math.max(Math.abs(at.x - state.hero.x), Math.abs(at.y - state.hero.y)) <= NEAR; };
 // The hero stepped off the woken home plate this turn
-const steppedOff = (c) => c.state.place === HOME && c.before.place === HOME
+const steppedOff = (c) => c.state.place === stoneHome(c.state.seed) && c.before.place === c.state.place
   && (c.state.hero.x !== c.before.hero.x || c.state.hero.y !== c.before.hero.y)
   && tileAt(c.before.room, c.before.hero.x, c.before.hero.y).id === 'wokenPlate';
 const picked = (c) => c.events.some((e) => e.type === 'boon');
@@ -50,10 +51,10 @@ export const GOALS = [
   { id: 'home', goal: 'Go home to the woods', how: (place) => (depthOf(place) > 0 ? 'Take the stairs up to the crypt.' : 'Leave by the gap in the crypt wall.'),
     shows: (c) => !!c.goals.rat?.done, does: (c) => c.state.place === HOME,
     before: (c) => (c.state.found || []).includes(HOME) },
-  // On reaching the woods; done within NEAR tiles of the stone's middle, either way (the owner's
+  // On reaching the stone's room, the cave mouth's (D-753, Claude's call); done within NEAR tiles of the stone's middle, either way (the owner's
   // pick), so it is never done on arrival; ticked quietly when its plate is woken already (the owner's pick)
   { id: 'stone', goal: 'Find the waystone', how: 'Old standing stones, near home.',
-    shows: (c) => c.state.place === HOME, does: (c) => nearStone(c.state),
+    shows: (c) => c.state.place === stoneHome(c.state.seed), does: (c) => nearStone(c.state),
     before: (c) => !!plateAt(c.state, 'A') },
   // Once the waystone is found (the owner's pick); done on the step that wakes its plate (the
   // owner's pick); ticked quietly when it is woken already (the owner's pick)

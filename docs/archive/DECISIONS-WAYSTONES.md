@@ -56,6 +56,7 @@ built things, the pond, the cave mouth, a person or the hero stand; only
 trees, stumps, branches and bushes there are cleared, and nothing of the
 hero's moves. A new journey still begins in the crypt (Q-081). Its
 plate's place (2 tiles north) and look superseded by D-620 (2026-11-06).
+Its room superseded by D-753 (2026-11-09): the cave mouth's.
 
 **D-591 · 2026-11-05 · Waking the home waystone** (the owner's picks, all
 recommended; step 16's second part, builds on D-579 and D-589; answers
