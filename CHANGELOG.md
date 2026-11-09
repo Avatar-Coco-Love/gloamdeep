@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.176 (2026-11-09)
+- The Journal's Feats tab has a sixth Feat, Torches: light 5, 25 and 100 torches, across all your journeys, for 1, 2 and 3 Glints. Torches lit before this count too. Reaching one says "Feat reached: Torches 5. +1 Glint."
+- Decisions: D-723. Questions closed: Q-057.
+
 ## 0.3.175 (2026-11-09)
 - The Journal's Feats tab has a fifth Feat, Steps: walk 1000, 5000 and 20000 steps, across all your journeys, for 1, 2 and 3 Glints. Steps taken before this count too. Reaching one says "Feat reached: Steps 1000. +1 Glint."
 - On the Feats tab, a goal of a thousand or more is written short, "4321 of 5k", and the counts sit a little closer to the names, so Steps' row fits a phone held upright.
@@ -31,7 +35,3 @@ Entry format:
 ## 0.3.174 (2026-11-09)
 - The Journal's Feats tab has a fourth Feat, Rooms: find 10, 50 and 200 rooms, across all your journeys, for 1, 2 and 3 Glints. Rooms found before this count too. Reaching one says "Feat reached: Rooms 10. +1 Glint."
 - Decisions: D-721.
-
-## 0.3.173 (2026-11-09)
-- Creatures and oil flasks made with the dev tools' Spawn no longer count toward your Records or Feats. Beating a spawned creature still gives experience and drops, and it is still met in the Bestiary, but its beaten count stays. Pouring a spawned flask adds nothing to Flasks poured.
-- Decisions: D-720.

@@ -97,3 +97,12 @@ swell and the steady glow with reduced motion stay. Next, every flyer
 (the bat, the lampmoth, the lure wisp) may fly over water, all
 recommended; then the audit's fixes and more Feats.
 Mock-up: the picture in the conversation, now / A / B.
+
+**D-718 · 2026-11-09 · Flyers over water** (the owner's picks, all
+recommended; builds D-717) The bat, the lampmoth and the lure wisp (the
+registry's `flies`) may fly over water, a cave pool or the home pond; no
+other creature may. Walking into a flyer over water strikes it as on the
+floor, rod held or not; with none there the water acts as before. One
+beaten there leaves its drop on the nearest dry tile, as drops already
+lie. A spit grub's glob already flies over water and hits a flyer there.
+Next, the owner orders the audit's other fixes (B2, B3, B4, Q1).

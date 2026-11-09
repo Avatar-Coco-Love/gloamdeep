@@ -1,4 +1,4 @@
-// § feats (D-284, D-467, D-695, D-697, D-698, D-721, D-722): the Beaten, Deepest, Flasks, Rooms and Steps Feats' 3 tiers, the Glints they pay, the tab and its note
+// § feats (D-284, D-467, D-695, D-697, D-698, D-721, D-722, D-723): the Beaten, Deepest, Flasks, Rooms, Steps and Torches Feats' 3 tiers, the Glints they pay, the tab and its note
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { FEATS, featRows, featsWords, featNote, featTurn, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
@@ -62,6 +62,17 @@ test('the fifth Feat is Steps: 1000, 5000 and 20000, paying 1, 2 and 3 Glints, i
   assert.ok(featsWords({ records: walk(4321), bought: [] }).includes('Steps, 4321 of 5000, 1 of 3 reached.'), 'the screen reader says it whole');
 });
 
+test('the sixth Feat is Torches, from Torches lit: 5, 25 and 100, paying 1, 2 and 3 Glints (D-723)', () => {
+  assert.deepEqual(FEATS.map((f) => [f.text, f.record, f.tiers, f.pays])[5], ['Torches', 'torches', [5, 25, 100], [1, 2, 3]]);
+  const light = (torches) => ({ ...at(0), torches });
+  assert.deepEqual([0, 4, 5, 24, 25, 100].map((n) => glints(light(n))), [0, 0, 1, 1, 3, 6]);
+  assert.equal(glints({ ...at(200), deepest: 20, poured: 100, found: 200, steps: 20000, torches: 100 }), 36, 'all six Feats pay 36');
+  assert.deepEqual(featRows(light(2))[5], { id: 'torches', text: 'Torches', value: '2 of 5', reached: 0, tiers: 3 });
+  assert.equal(featRows(light(150))[5].value, '100');
+  assert.equal(featNote(light(4), light(5)), 'Torches 5. +1 Glint');
+  assert.equal(featNote(light(99), light(100)), 'Torches 100. +3 Glints');
+});
+
 test('Glints come from the tiers reached, counts made before Feats came too', () => {
   assert.deepEqual([0, 9, 10, 49, 50, 199, 200, 999].map((n) => glints(at(n))), [0, 0, 1, 1, 3, 3, 6, 6]);
   assert.equal(glintsText({ records: at(10), bought: [] }), '1 Glint');
@@ -72,7 +83,7 @@ test('a row says the count toward the next tier and how many marks are lit', () 
   assert.deepEqual(featRows(at(12))[0], { id: 'beaten', text: 'Beaten', value: '12 of 50', reached: 1, tiers: 3 });
   assert.deepEqual(featRows(at(3))[0].value, '3 of 10');
   assert.deepEqual(featRows(at(250))[0], { id: 'beaten', text: 'Beaten', value: '200', reached: 3, tiers: 3 });
-  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Flasks, 0 of 5, 0 of 3 reached. Rooms, 0 of 10, 0 of 3 reached. Steps, 0 of 1000, 0 of 3 reached. Left for the Bestiary, Right for Quests. Esc or the close button goes back.');
+  assert.equal(featsWords({ records: at(12), bought: [] }), 'Journal, Feats tab. 1 Glint. Beaten, 12 of 50, 1 of 3 reached. Deepest, 0 of 5, 0 of 3 reached. Flasks, 0 of 5, 0 of 3 reached. Rooms, 0 of 10, 0 of 3 reached. Steps, 0 of 1000, 0 of 3 reached. Torches, 0 of 5, 0 of 3 reached. Left for the Bestiary, Right for Quests. Esc or the close button goes back.');
 });
 
 test('reaching a tier gives a note, once (D-467)', () => {
@@ -106,7 +117,7 @@ test('the Feats tab is tapped on every card, one row sideways, two upright, and 
     assert.equal(tabs.at(-1), 'quests', `${vw}×${vh}`); // Quests after it (D-706)
     assert.ok(tabs.includes('feats'), `${vw}×${vh}`);
     const vx = PAD + 8 + Math.max(...FEATS.map((f) => textWidth(f.text))) + 8, marks = 3 * 9;
-    assert.ok(vx + textWidth('19999 of 20k') + 4 <= card.w - PAD - marks, `${vw}×${vh}`); // Steps' longest (D-722)
+    assert.ok(vx + textWidth('19999 of 20k') + 4 <= card.w - PAD - marks, `${vw}×${vh}`); // Steps' longest (D-722), with Torches' name the widest (D-723)
     assert.ok(68 + FEATS.length * 11 <= card.h, `${vw}×${vh}: every row fits the card`); // FEATS_Y, ROW_H
   }
 });
