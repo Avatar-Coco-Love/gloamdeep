@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.177', date: '2026-11-09', title: 'Glints and the prices of looks', lines: [
+    "The prices of looks are settled, and nothing in the game changes: the 13 locked looks cost 3 Glints each, 39 in all, and finishing all six Feats (36 Glints) plus your free pick buys every one, with goal Glints a small spare. Looks added later cost 3 Glints each too, and each new set comes with a new Feat, so Glints keep up.",
+    "Decisions: D-724. Questions closed: Q-055.",
+  ] },
   { v: '0.3.176', date: '2026-11-09', title: 'Torches, the sixth Feat', lines: [
     "The Journal's Feats tab has a sixth Feat, Torches: light 5, 25 and 100 torches, across all your journeys, for 1, 2 and 3 Glints. Torches lit before this count too. Reaching one says \"Feat reached: Torches 5. +1 Glint.\"",
     "Decisions: D-723. Questions closed: Q-057.",

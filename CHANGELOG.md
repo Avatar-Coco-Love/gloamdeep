@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.177 (2026-11-09)
+- The prices of looks are settled, and nothing in the game changes: the 13 locked looks cost 3 Glints each, 39 in all, and finishing all six Feats (36 Glints) plus your free pick buys every one, with goal Glints a small spare. Looks added later cost 3 Glints each too, and each new set comes with a new Feat, so Glints keep up.
+- Decisions: D-724. Questions closed: Q-055.
+
 ## 0.3.176 (2026-11-09)
 - The Journal's Feats tab has a sixth Feat, Torches: light 5, 25 and 100 torches, across all your journeys, for 1, 2 and 3 Glints. Torches lit before this count too. Reaching one says "Feat reached: Torches 5. +1 Glint."
 - Decisions: D-723. Questions closed: Q-057.
@@ -31,7 +35,3 @@ Entry format:
 - The Journal's Feats tab has a fifth Feat, Steps: walk 1000, 5000 and 20000 steps, across all your journeys, for 1, 2 and 3 Glints. Steps taken before this count too. Reaching one says "Feat reached: Steps 1000. +1 Glint."
 - On the Feats tab, a goal of a thousand or more is written short, "4321 of 5k", and the counts sit a little closer to the names, so Steps' row fits a phone held upright.
 - Decisions: D-722.
-
-## 0.3.174 (2026-11-09)
-- The Journal's Feats tab has a fourth Feat, Rooms: find 10, 50 and 200 rooms, across all your journeys, for 1, 2 and 3 Glints. Rooms found before this count too. Reaching one says "Feat reached: Rooms 10. +1 Glint."
-- Decisions: D-721.

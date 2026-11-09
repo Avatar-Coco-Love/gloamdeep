@@ -69,7 +69,7 @@ header says when it moved and why.
 | `DECISIONS-BESTIARY.md` | D-628 to D-632 | step 19: the first words, the lore plan, the Bestiary tab, how it acts, how to fight it | D-636 |
 | `DECISIONS-BIOME-1.md` | D-648 to D-659, D-688 | biome 1's halls and large rooms, the lure wisp, the dead-end cache, more in halls and large rooms, more content first (poison), the motes follow the way, the centipede and poisoned, the Antidote, the Centipede Charm, Tough, ideas from the review, the Spit grub, the Spit grub built | D-660, D-668, D-669, D-670, D-671, D-672, D-673, D-697, D-698 |
 | `DECISIONS-RELICS.md` | D-689 to D-694, D-717, D-718 | step 20: relics from the old city, the shelf, the Lightkeeper's Locket, its warden, its look and glow, set on the shelf, what it does there; the relic's softer glow; flyers over water | D-699, D-722, D-723 |
-| `DECISIONS-FEATS.md` | D-695 to D-698 | step 21: Feats and Glints begin, buying a pattern, Deepest, the second Feat, Flasks, the third Feat | D-706 |
+| `DECISIONS-FEATS.md` | D-695 to D-698, D-719 | step 21: Feats and Glints begin, buying a pattern, Deepest, the second Feat, Flasks, the third Feat; the Feat note, two in one | D-706, D-724 |
 | `DECISIONS-LOOKS.md` | D-700 to D-704, D-714, D-715 | step 22: three more cloak patterns, the Look card scrolls, lantern looks, hats and hoods, more hats and hoods; the free pick of a locked look, shown once | D-709, D-715, D-720 |
 | `DECISIONS-GOALS.md` | D-707 to D-711 | teaching goals: the first to the fifth built | D-716 |
 | `DECISIONS-SUPERSEDED.md` | any | superseded decisions | D-492, D-578 |
@@ -83,7 +83,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
 | `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.235 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, at 0.2.202, at 0.2.203, at 0.2.204, at 0.2.205, at 0.2.207, D-493, at 0.2.221, at 0.2.222, at 0.2.223, at 0.2.224, at 0.2.225, at 0.3.11, at 0.3.12, at 0.3.13, at 0.3.14, at 0.3.15, at 0.3.16, and at 0.3.17) |
-| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.173 (moved at 0.3.18 to 0.3.31, and at 0.3.32, D-570, then each by `tools/release.js`) |
+| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.174 (moved at 0.3.18 to 0.3.31, and at 0.3.32, D-570, then each by `tools/release.js`) |
 
 ## Progress
 

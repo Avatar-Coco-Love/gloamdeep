@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.174, Rooms, the fourth Feat.** The owner's picks:
+  Rooms found, Steps and Torches lit each get a Feat, one a step; Falls
+  and Time played none (D-721). Rooms first, at 10, 50 and 200, named
+  Rooms on the tab so it fits upright. Next, Steps.
+  Playtest: https://claude.ai/artifact/FenTRr7mwawTzLELS3Bite
 - **2026-11-09, 0.3.173, Spawned ones don't count.** The audit's last
   fixes, the owner's picks, all recommended (D-720): B4, the warden
   asleep keeps no plaque, as meant; Q1, a creature or flask made with
