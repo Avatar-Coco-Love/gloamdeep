@@ -102,27 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-755 · 2026-11-09 · The motes that stay** (the owner's picks, all
-recommended; step 25, 4, D-751) Once any of the floor's stairs down is
-remembered, 3 motes stay in the crypt and earth, 2 in grey rock, and 2
-in the dungeon, as grey rock (Claude's question, as D-751 left it out);
-none under the sky. Each wanders its own slow way, its heading bending
-gently, slower than the draft, fading in and out, only where the light
-falls, none with reduced motion or the lantern out. Builds on D-605.
-
-**D-756 · 2026-11-09 · Thick woods and glades** (the owner's picks, all
-recommended; builds D-733's step 5, its last) Each of the 5 woods rooms
-round home is thick woods, the woods as before or an open glade, the
-seed picking, with at least one thick and one glade each seed. Home
-stays as before, so what was set down keeps its place. In an older
-save a room already seen stays as it is; one never seen, with nothing
-taken, grows as its kind. The owner asked next for the surface to be
-filled: more to do, less empty (Q-090). Claude's calls the owner may
-change: thick trees 75, 55, 40 in 100 by ring in from the edge, at
-least 80 open tiles; glades 45, 12, then none; a room whose waystone
-is woken is never made again; the map preview names each room's kind.
-D-733 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-757 · 2026-11-09 · Filling the surface, campfires first** (the
 owner's picks; answers Q-090, Q-088's first step) Four things fill the
 surface: campfires, more to gather, landmarks and night creatures, about
@@ -170,3 +149,16 @@ the owner may change: a miss makes no sound; a spear's miss misses both;
 a bump that wakes one asleep never misses; another night out starts the
 count again. D-753 and D-754 move to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
+the recommended order and finds, and the owner's addition; builds
+D-757, opens Q-092) The surface fills in this order: gathering, then
+landmarks, then night creatures. Gathering starts with oilcaps, then
+loose stones, then plants and flowers to harvest (Q-092). Oilcaps first:
+one in each woods room, home too, none in the mountain rooms, on open
+grass beside a tree; picked, it grows back after a day as in the caves.
+In an older save only rooms never seen, with nothing taken, get theirs.
+Claude's calls the owner may change: beside means a tree straight
+beside, not a corner; never on the start, a stick, the mouth's front or
+the waystone's ring; each its own tone, as underground. D-755 and D-756
+move to `archive/DECISIONS-SURFACE.md`, word for word.

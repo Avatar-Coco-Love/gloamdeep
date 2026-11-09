@@ -4,6 +4,11 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.211', date: '2026-11-09', title: 'Oilcaps outside', lines: [
+    "Oilcaps now grow outside: one in each woods room, home too, at the foot of a tree. The mountain rooms have none. Walk onto it to take it, as in the caves, and it grows back a day after you pick it.",
+    "In a saved game, woods rooms you haven't seen yet get their oilcap too; rooms you have seen stay as they were.",
+    "Decisions: D-760. Questions opened: Q-092.",
+  ] },
   { v: '0.3.210', date: '2026-11-09', title: 'Stiff', lines: [
     "Waking from sleeping out now leaves you stiff for 20 turns: \"You wake on the cold ground, stiff.\" While stiff, 1 swing in 3 at a creature misses, \"Your stiff arm swings wide.\", and the turn still passes.",
     "Stiff shows as a pale blue Zz beside the poisoned drop under your hearts. Tap it to see the turns left. A fall ends it.",

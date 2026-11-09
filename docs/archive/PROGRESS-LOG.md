@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.208, Campfires.** The owner's picks (D-757):
+  campfires first, then gathering, landmarks, night creatures. One
+  campfire a seed, blazing, embers or ashes, each with its words; a
+  burning one glows; ashes ask Light the fire?, a turn of oil.
+  Playtest: https://claude.ai/artifact/LzMTnjJwER7wFuKVEAsN6h
+  Map preview: https://claude.ai/artifact/QeRDJSpZLCPFvnGx89wqtQ
 - **2026-11-09, 0.3.207, Thick woods and glades.** The owner's picks,
   all recommended (D-756): the 5 woods rooms round home are thick woods,
   as before or open glades, at least one thick and one glade a seed;

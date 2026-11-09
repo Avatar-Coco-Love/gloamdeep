@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.211 (2026-11-09)
+- Oilcaps now grow outside: one in each woods room, home too, at the foot of a tree. The mountain rooms have none. Walk onto it to take it, as in the caves, and it grows back a day after you pick it.
+- In a saved game, woods rooms you haven't seen yet get their oilcap too; rooms you have seen stay as they were.
+- Decisions: D-760. Questions opened: Q-092.
+
 ## 0.3.210 (2026-11-09)
 - Waking from sleeping out now leaves you stiff for 20 turns: "You wake on the cold ground, stiff." While stiff, 1 swing in 3 at a creature misses, "Your stiff arm swings wide.", and the turn still passes.
 - Stiff shows as a pale blue Zz beside the poisoned drop under your hearts. Tap it to see the turns left. A fall ends it.
@@ -32,9 +37,3 @@ Entry format:
 - Outside at night, with no creature after you, a moon button now shows above the lantern. Tap it and a card asks Sleep here until morning? Yes sleeps until the next morning, and the lantern burns no oil while you sleep.
 - Sleeping on the ground isn't a bed: you wake with the hearts you lay down with, no healing and no gold heart.
 - Decisions: D-758. Questions opened: Q-091.
-
-## 0.3.208 (2026-11-09)
-- A campfire now stands in one of the 8 surface rooms round home, the seed picking the room and how lit it is: blazing, low embers or cold ashes. Bump it to read what it says, a sentence a bump.
-- A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.
-- Bump cold ashes and a card asks Light the fire? Yes lights it into embers with one turn of your lantern's oil; with an empty lantern Yes is grey.
-- Decisions: D-757. Questions closed: Q-090.

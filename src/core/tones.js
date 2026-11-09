@@ -8,7 +8,8 @@ import { get } from './registry.js';
 import { rng } from './rng.js';
 
 const toneSeed = (seed, x, y) => (Math.imul(seed, 0x27d4eb2d) ^ Math.imul(x + 1, 0x165667b1) ^ Math.imul(y + 1, 0x9e3779b1)) >>> 0;
-const spread = (r, most) => Math.round((r() * 2 - 1) * most);
+// never -0, which a save writes as 0, so a saved room reads back just as it was
+const spread = (r, most) => Math.round((r() * 2 - 1) * most) || 0;
 
 // § colours: a creature kind with `colours` in the registry wears one of that
 // many colour sets, each one its own, picked the same way (D-373). One with no
