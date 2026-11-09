@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.170 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.171 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Flyers over water (D-717): the bat, the lampmoth and the lure wisp may fly over water, with a test. Then the audit's other fixes (B2, B3, B4, Q1, D-716) and more Feats (Q-057), each its own step.
+The owner orders the audit's other fixes (B2, B3, B4, Q1, D-716, D-718); each is its own step with a test. Then more Feats (Q-057).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.171, Flyers over water.** The bat, the lampmoth and
+  the lure wisp fly over water now; no other creature does. The owner's
+  picks, all recommended: walking into one over water strikes it, rod
+  held or not, and its drop lies on the nearest dry tile. Next, the
+  owner orders the audit's other fixes.
+  Playtest: https://claude.ai/artifact/4b56DUw6j7Wv19aHHEdNap
 - **2026-11-09, 0.3.170, The relic's softer glow.** The owner found the
   relic's glow misaligned and too bright. Their picks, all recommended:
   look A, centred on the locket, 21 pixels across, not 31, and dimmer,
@@ -54,10 +60,3 @@ list in `RESEARCH.md`.
   rides along, the release tool's archive note said once (D-716). Next,
   the owner orders the other fixes.
   Playtest: https://claude.ai/artifact/2PG64e25pBfpxSVXNX5E67
-- **2026-11-09, 0.3.168, One free pick, shown once.** FREE on every
-  locked look read as if all were free. The owner's picks, all
-  recommended: locked looks keep LOCK; "1 FREE PICK" in gold on the Look
-  card's top line while it waits; trying one says its price "or your one
-  free pick", the button FREE. Carriage and Zebra free for everyone; a
-  pick taken on one waits again. Next, the audit's fixes (D-715).
-  Playtest: https://claude.ai/artifact/5aztX6gQmPePrGxr5qpofy
