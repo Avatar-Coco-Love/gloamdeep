@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.195 (2026-11-09)
+- Words no longer run past the edge of a card. On a phone held upright, a quest's how wraps onto more lines, and a done goal's reward sits under it.
+- A Journal list longer than its card scrolls, with a thin bar at its right: swipe, the mouse wheel, or Up and Down. Upright, the Bestiary is one table instead of two squeezed together.
+- The goal line under the hearts wraps so the round map no longer covers its end. In the stash chest, a long name stays clear of STORE.
+- A new test draws every card at upright and sideways phone sizes with everything in the game, so words that don't fit are caught before they reach a phone.
+- Decisions: D-743.
+
 ## 0.3.194 (2026-11-09)
 - Every bug the twelfth audit found is fixed. A berry bush or fallen branch no longer blocks a path between woods rooms.
 - Journeys begun before the mountain rooms now get mountain rooms in the north row they haven't visited, and the dev Reset at home no longer brings back the old cave mouth.
@@ -34,8 +41,3 @@ Entry format:
 - The playbook of how we work is caught up with the whole project so far: how the game grew in stages, our tools, what bugs taught us and the design habits, in a new second page, WORKFLOW-2.md. Nothing in the game changes.
 - From now on, a step that teaches something about working together adds a line to the playbook as it goes; each audit sorts the lines into place.
 - Decisions: D-741.
-
-## 0.3.192 (2026-11-09)
-- The twelfth audit. Nothing in the game changes. The Version history's newest file is split again, word for word: 0.3.76 to 0.3.150 move to history-0.3-2.js.
-- Docs: finished decisions and the ticked plan steps moved to the archive, word for word, so a conversation starts by reading less. The start-up check now names the copy it brought up to date. A bug hunt's findings are listed for the owner. The playbook of how we work gains what this stretch taught. The next audit is at 0.3.232.
-- Decisions: D-740. D-699 and D-734 to D-737 moved to the archive, word for word.

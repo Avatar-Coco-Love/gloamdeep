@@ -109,6 +109,17 @@ export function createFrame(app, ui) {
   let listFor = null, listed = [], joined = 0; // the creature list, worked out again only when the state changes
   let markRow = null; // the marks as last drawn, for taps (D-604)
   let goalRow = null; // the goal line as last drawn, for taps (D-706)
+  // § goal's room (D-743): how wide the goal line's glass may be from ex, so it ends left of the
+  // round map and the buttons by it while level with them, and inside the screen
+  const GOAL_DOWN = 48; // the most the goal line reaches down, four lines of words
+  function goalRoom(ex, goalY) {
+    let right = view.w - ex;
+    for (const b of [mapButton, pauseButton, dev.wrench]) {
+      const a = b.area();
+      if (a.w && a.y < goalY + GOAL_DOWN && a.y + a.h > goalY) right = Math.min(right, Math.floor(a.x) - 2);
+    }
+    return Math.max(60, right - ex);
+  }
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
   let cover = { x: 0, y: 0 }; // what the dev sheet hides, eased so the room slides clear of it (D-623)
@@ -167,7 +178,7 @@ export function createFrame(app, ui) {
   // § the Journal's card, on the title's scene or the room (D-391), and the boons card on either (D-712)
   function journalOn(c, t) {
     const p = playing(app.profiles);
-    drawJournal(c, view.w, view.h, p.records, p.played, app.state, app.tab, t, still(), app.growthPick, p.bestiary, SPRITES, app.beastPick, app.beastPage, p.bought, p.goals, p.glints);
+    drawJournal(c, view.w, view.h, p.records, p.played, app.state, app.tab, t, still(), app.growthPick, p.bestiary, SPRITES, app.beastPick, app.beastPage, p.bought, p.goals, p.glints, app.journalScroll ?? 0);
   }
   const aboutBoonsOn = (c) => drawOpening(c, view.w, view.h, ABOUT_BOONS, ABOUT_BOONS_BUTTON);
 
@@ -319,7 +330,8 @@ export function createFrame(app, ui) {
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
-    const mk = marksSize(marks.length), gl = goalSize(goal), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
+    const mk = marksSize(marks.length), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
+    const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);
     const listY = goalY + (gl.h ? gl.h + 2 : 0); // the marks under the panel, the goal line under them, the list under it
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
     const under = { w: Math.max(panel.w, mk.w, gl.w, n ? PLAQUE_W : 0), h: listY - ey + (shownN + more) * (PLAQUE_H + 2) };
@@ -351,8 +363,8 @@ export function createFrame(app, ui) {
     Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
     markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
-    drawGoalLine(hc, goal, ex, goalY, panel.alpha);
-    goalRow = goal && { line: goal, x: ex, y: goalY }; // for taps (D-706)
+    drawGoalLine(hc, goal, ex, goalY, panel.alpha, goalW);
+    goalRow = goal && { line: goal, x: ex, y: goalY, w: goalW }; // for taps (D-706)
     row = null;
     if (list) {
       const isFramed = (e) => foeAt(e) === app.framed;
@@ -411,7 +423,7 @@ export function createFrame(app, ui) {
   // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654) whose mark is under px, py on the screen layer, or null
   const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
   // § goal line for taps (D-706): whether the goal line is under px, py on the screen layer, in play
-  const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py);
+  const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py, goalRow.w);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);
   return { draw, redraw, plaqueSpot, plaqueSpots, markSpot, goalSpot };
 }

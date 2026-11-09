@@ -14,27 +14,24 @@
 // (D-695): the Glints at the top, then each Feat's name, its count toward the next tier and
 // its 3 marks, lit gold once reached. Quests (D-706): a row a goal, newest first: a small diamond,
 // gold once done, the goal (amber waiting, gold done), the reward it paid on the right, the how in
-// grey under it.
+// grey under it. Those lists are drawn, and scroll, in journalrows.js (D-743).
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
 import { POISON_MARK } from './marks.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD } from './bag.js';
-import { TABS, recordRows } from '../core/journal.js';
+import { TABS } from '../core/journal.js';
 import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, placesOf, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
-import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
-import { featRows, glintsText } from '../core/feats.js';
-import { questRows, NONE as NO_GOALS } from '../core/goals.js';
+import { bestiaryRows } from '../core/bestiary.js';
+import { bestiaryTables, beastAt, showBeast, questAt, listOf, drawList, clampFirst } from './journalrows.js';
+export { bestiaryTables };
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
 const TABS_Y = 28, TABS_RULE_Y = 44; // inside the card: the tabs' top and the rule under them
-const AMBER = '#ffc65c', QUEST_H = 26; // the Quests tab's goal colour and its rows' height (D-707)
-const ROWS_Y = 52, ROW_H = 11; // Records' first row's top, and from one row's top to the next
 const MARK_W = 8; // the flame and its gap, left of the open tab and of the names
 const TAB_GAP = 24; // between two tabs
-const VALUE_GAP = 20; // between the longest name and the values' column
 const COST_GAP = 6; // between the cost and the button
 // § tree's measures, inside the card
 const INFO_W = 100; // what the picked place says, right of the line
@@ -90,8 +87,9 @@ const buttonOf = (card, text) => { const w = textWidth(text) + 8; return { x: ca
 // index, 'close' (the round cross), or null; outside the card, 'out'. tab: the one open; state
 // and pick: the journey and the place picked; book: the profile's Bestiary; page: the creature
 // whose page is open, if one is.
-// goals: the profile's, for the Quests tab's rows ({ quest: id }, D-712)
-export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null, goals = {}) {
+// goals: the profile's, for the Quests tab's rows ({ quest: id }, D-712); first: the open list's
+// top row shown, scrolled (D-743)
+export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = null, book = {}, page = null, goals = {}, first = 0) {
   const whole = cardAt(vw, vh);
   if (!inCard(whole, x, y)) return 'out';
   if (onCross(whole, x, y)) return 'close';
@@ -103,13 +101,12 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
     if (box) return { pick: { col: box.col, row: box.row, slot: box.slot } };
   }
   if (tab === 'bestiary' && !page) {
-    const n = bestiaryRows(book).length, { per, w, xs } = bestiaryTables(card, n);
-    const i = xs.findIndex((tx) => x >= tx && x < tx + w), j = Math.floor((y - card.y - BEASTS_Y) / BEAST_H);
-    if (i >= 0 && j >= 0 && j < per && i * per + j < n) return { beast: i * per + j };
+    const n = bestiaryRows(book).length, { hs, h } = bestiaryTables(card, n), k = beastAt(card, n, clampFirst(first, hs, h), x, y);
+    if (k >= 0) return { beast: k };
   }
   if (tab === 'quests') {
-    const rows = questRows(goals), j = Math.floor((y - card.y - ROWS_Y + 2) / QUEST_H);
-    if (y >= card.y + ROWS_Y - 2 && j >= 0 && j < rows.length && card.y + ROWS_Y + (j + 1) * QUEST_H <= card.y + card.h) return { quest: rows[j].id };
+    const id = questAt(card, goals, state?.place, state?.start, first, y);
+    if (id) return { quest: id };
   }
   if (y < whole.y + TABS_Y - 8 || y >= whole.y + TABS_RULE_Y + down) return null;
   const row = Math.max(0, Math.min(spots.at(-1).row, Math.floor((y - whole.y - TABS_Y + 8) / TAB_ROW)));
@@ -123,8 +120,8 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
 // tab, the one open; pick, Growth's picked place; still: prefers-reduced-motion; book, the
 // profile's Bestiary, and sprites its drawings by id (sprites.js's SPRITES, D-630); beast, the
 // Bestiary's picked row, and page the creature whose page is open, if one is (D-631); bought, the
-// patterns the profile bought, for the Glints left (D-696)
-export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null, bought = [], goals = {}, goalGlints = 0) {
+// patterns the profile bought, for the Glints left (D-696); first: the open list's top row shown (D-743)
+export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pick = START_PICK, book = {}, sprites = {}, beast = 0, page = null, bought = [], goals = {}, goalGlints = 0, first = 0) {
   const growth = tab === 'growth', whole = drawCard(c, vw, vh, 'JOURNAL', 0), { spots, down } = tabsAt(whole);
   TABS.forEach((s, i) => {
     const on = s.id === tab, at = spots[i];
@@ -134,17 +131,22 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
     c.fillStyle = GOLD; c.fillRect(at.x, at.y + 11, textWidth(s.text), 1);
   });
   c.fillStyle = LINE; c.fillRect(whole.x + 8, whole.y + TABS_RULE_Y + down, whole.w - 16, 1);
-  const card = pageCard(whole, down), { y } = card;
-  if (growth) { drawTree(c, card, state, pick, t, still); return; }
-  if (tab === 'feats') { drawFeats(c, card, records, bought, goalGlints); return; }
-  if (tab === 'quests') { drawQuests(c, card, goals, state?.place, state?.start); return; }
-  if (tab === 'bestiary') { if (page) drawPage(c, card, pageOf(book, page), sprites[page]); else drawBestiary(c, card, book, sprites, beast); return; }
-  // § rows: Records' values in one column, after its longest name
-  const rows = recordRows(records, played), nx = tabsLeft(card), vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + VALUE_GAP;
-  rows.forEach((row, i) => {
-    drawText(c, row.text, nx, y + ROWS_Y + i * ROW_H, GREY);
-    drawText(c, row.value, vx, y + ROWS_Y + i * ROW_H, CORE);
-  });
+  const card = pageCard(whole, down);
+  if (growth) drawTree(c, card, state, pick, t, still);
+  else drawList(c, card, tab, { records, played, bestiary: book, goals, bought }, state, first, { sprites, beast, page, glints: goalGlints });
+}
+
+// § scroll (D-743): the open list's top row after scrolling `by` rows (by > 0 down), kept in its
+// bounds, or null where it all fits (Growth, or a short list); p: { records, played, bestiary, goals }
+export function scrollJournal(first, by, vw, vh, tab, p, state, page) {
+  const whole = cardAt(vw, vh), list = listOf(pageCard(whole, tabsAt(whole).down), tab, p, state, page);
+  if (!list || clampFirst(Infinity, list.hs, list.h) === 0) return null;
+  return clampFirst(clampFirst(first, list.hs, list.h) + by, list.hs, list.h);
+}
+// The top row that keeps the Bestiary's row k in view
+export function showBeastRow(first, k, vw, vh, book) {
+  const whole = cardAt(vw, vh), n = bestiaryRows(book).length;
+  return n ? showBeast(pageCard(whole, tabsAt(whole).down), n, first, k) : 0;
 }
 
 // § tree: the root's glow and flame, the limbs, then each place over them
@@ -215,84 +217,4 @@ function drawTold(c, card, state, pick, above) {
   const text = said.button.text.toUpperCase(), b = buttonOf(card, text);
   drawButton(c, b.x, b.y, text, !said.button.can, b.w);
   drawText(c, said.button.cost, b.x - COST_GAP - textWidth(said.button.cost), b.y + 3, GREY);
-}
-
-// § bestiary: the creatures met, a table of rows (D-630): the drawing, the name, then the met
-// and beaten counts each right-aligned under its heading; past the card's foot, a second table
-// beside the first. None met yet, a grey line says so.
-const BEAST_H = 18, HEADS_Y = 50, BEASTS_Y = 62; // a row's height; the headings' and first row's tops
-const SPRITE_W = 16, NAME_GAP = 4, COUNT_GAP = 10, TABLE_GAP = 16;
-export function bestiaryTables(card, n) {
-  const fit = Math.max(1, Math.floor((card.h - BEASTS_Y - PAD + 2) / BEAST_H)), tables = n > fit ? 2 : 1;
-  const w = Math.floor((card.w - 2 * PAD - (tables - 1) * TABLE_GAP) / tables);
-  return { per: tables === 2 ? Math.ceil(n / 2) : n, w, xs: Array.from({ length: tables }, (_, i) => card.x + PAD + i * (w + TABLE_GAP)) };
-}
-function drawBestiary(c, card, book, sprites, beast) {
-  const rows = bestiaryRows(book), { y } = card;
-  if (!rows.length) { drawText(c, NONE, tabsLeft(card), y + HEADS_Y + 2, GREY); return; }
-  const { per, w, xs } = bestiaryTables(card, rows.length), beatenW = textWidth('Beaten');
-  xs.forEach((tx, i) => {
-    const part = rows.slice(i * per, (i + 1) * per);
-    if (!part.length) return;
-    const bx = tx + w, mx = bx - beatenW - COUNT_GAP; // the columns' right edges
-    drawText(c, 'Met', mx - textWidth('Met'), y + HEADS_Y, GREY);
-    drawText(c, 'Beaten', bx - beatenW, y + HEADS_Y, GREY);
-    part.forEach((r, j) => {
-      const ry = y + BEASTS_Y + j * BEAST_H, img = sprites[r.id];
-      if (img) c.drawImage(img, tx, ry);
-      drawText(c, r.name, tx + SPRITE_W + NAME_GAP, ry + 5, i * per + j === beast ? GOLD : CORE);
-      drawText(c, String(r.met), mx - textWidth(String(r.met)), ry + 5, CORE);
-      drawText(c, String(r.beaten), bx - textWidth(String(r.beaten)), ry + 5, CORE);
-    });
-  });
-}
-
-// § page: one creature's page (D-631), under the tabs: its drawing at twice the size, its name
-// and counts beside it, then how it acts in light words, or the hint in grey; under a gold
-// heading, how to fight it, or its count down in grey (D-632)
-const PAGE_Y = 54, BIG = 2 * SPRITE_W, ACTS_GAP = 12, LINE_H = 11, FIGHT_GAP = 8;
-function drawPage(c, card, p, img) {
-  const x = card.x + PAD, y = card.y + PAGE_Y, nx = x + BIG + 8, w = card.w - 2 * PAD;
-  if (img) { c.save(); c.imageSmoothingEnabled = false; c.drawImage(img, x, y, BIG, BIG); c.restore(); }
-  drawText(c, p.name, nx, y + 6, CORE);
-  drawText(c, p.counts, nx, y + 18, GREY);
-  const acts = wrapWords(p.acts, w), ay = y + BIG + ACTS_GAP;
-  acts.forEach((l, i) => drawText(c, l, x, ay + i * LINE_H, p.known ? CORE : GREY));
-  const fy = ay + acts.length * LINE_H + FIGHT_GAP;
-  drawText(c, FIGHT_HEADING, x, fy, GOLD);
-  wrapWords(p.fights, w).forEach((l, i) => drawText(c, l, x, fy + LINE_H + 2 + i * LINE_H, p.skilled ? CORE : GREY));
-}
-
-// § feats: the Glints in gold, then a row a Feat as Records' rows: its name grey, its count light,
-// and on the right its 3 marks, small diamonds, gold once reached and dim before (D-695); the
-// Glints are those left, the patterns bought taken off (D-696)
-const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
-const FEAT_GAP = 8; // narrower than Records' so Deepest's (D-697) and Steps' rows (D-722) and their marks fit the upright card
-function drawFeats(c, card, records, bought, goalGlints = 0) {
-  const nx = tabsLeft(card), rows = featRows(records), right = card.x + card.w - PAD;
-  drawText(c, glintsText({ records, bought, glints: goalGlints }), nx, card.y + GLINTS_Y, GOLD);
-  const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + FEAT_GAP;
-  rows.forEach((r, i) => {
-    const ry = card.y + FEATS_Y + i * ROW_H;
-    drawText(c, r.text, nx, ry, GREY);
-    drawText(c, r.value, vx, ry, CORE);
-    for (let k = 0; k < r.tiers; k++) drawDiamond(c, right - (r.tiers - k) * (MARK + MARK_GAP) + MARK_GAP, ry + 1, k < r.reached ? GOLD : DIM);
-  });
-}
-// § quests: a row a goal (D-706), as in the owner's pick from the mock-up; none yet, a grey line
-function drawQuests(c, card, goals, place, start) {
-  const nx = tabsLeft(card), right = card.x + card.w - PAD, rows = questRows(goals, place, start);
-  if (!rows.length) { drawText(c, NO_GOALS, nx, card.y + ROWS_Y, GREY); return; }
-  rows.forEach((r, i) => {
-    const y = card.y + ROWS_Y + i * QUEST_H;
-    if (y + QUEST_H > card.y + card.h) return;
-    drawDiamond(c, nx - MARK_W, y + 1, r.done ? GOLD : DIM);
-    drawText(c, r.goal, nx, y, r.done ? GOLD : AMBER);
-    if (r.done) drawText(c, r.reward, right - textWidth(r.reward), y, GREY);
-    drawText(c, r.how, nx, y + ROW_H, GREY);
-  });
-}
-function drawDiamond(c, x, y, colour) {
-  c.fillStyle = colour;
-  c.fillRect(x + 2, y, 1, 1); c.fillRect(x + 1, y + 1, 3, 1); c.fillRect(x, y + 2, 5, 1); c.fillRect(x + 1, y + 3, 3, 1); c.fillRect(x + 2, y + 4, 1, 1);
 }

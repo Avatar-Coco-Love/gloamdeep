@@ -102,7 +102,12 @@ export const textWidth = (text) => [...text].reduce((w, ch) => w + advance(ch), 
 
 // § draw: text with its top left at x, y, in one colour; `size` draws each pixel as a
 // size × size square (the name pad's twice-as-big letters, D-420)
+// § watch: a test sees every line of words drawn, its box in game pixels (tests/textfit.test.js,
+// D-743); null in play, so it costs nothing there
+let watcher = null;
+export const watchText = (f) => { watcher = f; };
 export function drawText(c, text, x, y, colour, size = 1) {
+  if (watcher) watcher({ text, x, y, w: textWidth(text) * size, h: FONT_H * size });
   c.fillStyle = colour;
   for (const ch of text) {
     if (ch !== ' ') glyph(ch).forEach((row, j) => {

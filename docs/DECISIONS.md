@@ -133,3 +133,21 @@ pack roll with salts of their own, so unvisited rooms may change; T2, a
 spit grub's glob flies over a pile of bones; T3, a scorpion's tail
 raised as the hero left is lowered when they come back (a fall that
 wakes in the same room still keeps it).
+
+**D-743 · 2026-11-09 · Words that fit** (the owner's picks, all
+recommended; the owner asked that words running past a card's edge,
+upright and elsewhere, be found and fixed, ready for what is added
+later) Every card was drawn at upright and sideways phone sizes with
+all content; six places failed. A quest's how wraps, and a done goal's
+reward goes on its own grey line under it where it doesn't fit beside
+the goal. A Journal list taller than its card (Records, the Bestiary,
+a creature's page, Feats, Quests) scrolls a row at a time by a swipe,
+the wheel or Up and Down, a page by Page Up and Down, with the thin bar
+Version history has; upright the Bestiary is one table, sideways two
+scroll together. The goal line's words wrap so it ends left of the
+round map. A test draws every card at those sizes with every item,
+creature, goal and boon, and fails when words leave a card or overlap.
+Claude's calls the owner may change: in the stash chest, a long name
+level with STORE wraps short of it, and the grey hint is left out where
+it would pass the card's foot; Up and Down on the Bestiary's table
+still pick a row, kept in view.
