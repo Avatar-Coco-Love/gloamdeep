@@ -34,6 +34,9 @@ const level = (state) => levelOf(state.xp ?? 0);
 const spent = (state) => embers({ xp: 0, ...state }) < level(state) - 1;
 // Daylight no longer lights the room the hero is in (daytime.js); false with no room known
 const dark = (state) => !!state.room?.dark && !inDaylight(state);
+// The crypt: its two rooms behind the broken seal (room.js, D-745); other places below the
+// surface don't count, as more ways down will come (the owner's pick, D-746)
+const inCrypt = (place) => place === 'first' || place === 'south';
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
@@ -61,6 +64,12 @@ export const GOALS = [
   { id: 'boon', goal: 'Take a boon', how: 'Step back on the plate. Pick 1 of 3.',
     shows: (c) => steppedOff(c) || picked(c), does: picked,
     before: (c) => !!c.state.boon },
+  // Once a boon is taken (the owner's pick); done on walking into the crypt through the broken
+  // seal (the owner's pick); ticked quietly when the crypt was reached already this journey, as
+  // in a journey begun in the crypt (Claude's call)
+  { id: 'crypt', goal: 'Find the crypt', how: 'A broken door, beside home.',
+    shows: (c) => !!c.goals.boon?.done, does: (c) => inCrypt(c.state.place),
+    before: (c) => (c.state.found || []).some(inCrypt) },
   // When daylight no longer lights the room: halfway through dusk under the sky, or on stepping
   // where the sky doesn't reach (D-735, the owner's picks). Done once lit, by hand or By itself;
   // ticked quietly when it was lit already, by day or from a crypt start, so every journey has it;

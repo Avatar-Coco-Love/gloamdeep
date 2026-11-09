@@ -135,3 +135,4 @@ line here (D-741). Each audit moves the lines into the right sections.
   decision, so it can be superseded when it changes.
 - Plan audits from the start. Each one also adds to this playbook.
 - Build the tools in `WORKFLOW-2.md` as soon as each job repeats.
+- The owner remembered a goal that was never built; searching the code first and saying so plainly turned it into a small new goal, not a rename of nothing (0.3.198).

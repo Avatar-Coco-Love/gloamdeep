@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.198 (2026-11-09)
+- A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.
+- Decisions: D-746.
+
 ## 0.3.197 (2026-11-09)
 - The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.
 - The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.
@@ -32,10 +36,3 @@ Entry format:
 - A new look for the cave mouth: a craggy cave, wide and black, with teeth of rock hanging from its top. The seed picks it or the small arch, so worlds differ.
 - On a side or bottom edge, the rock roofs over the craggy cave and the ground dives black beneath it. A few pebbles lie at the rocks' feet. Walking is unchanged.
 - Decisions: D-744. New question: Q-089, falling down holes.
-
-## 0.3.195 (2026-11-09)
-- Words no longer run past the edge of a card. On a phone held upright, a quest's how wraps onto more lines, and a done goal's reward sits under it.
-- A Journal list longer than its card scrolls, with a thin bar at its right: swipe, the mouse wheel, or Up and Down. Upright, the Bestiary is one table instead of two squeezed together.
-- The goal line under the hearts wraps so the round map no longer covers its end. In the stash chest, a long name stays clear of STORE.
-- A new test draws every card at upright and sideways phone sizes with everything in the game, so words that don't fit are caught before they reach a phone.
-- Decisions: D-743.

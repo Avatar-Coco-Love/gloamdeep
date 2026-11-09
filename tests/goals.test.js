@@ -13,7 +13,7 @@ const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, plac
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -157,6 +157,26 @@ test('a boon picked before the goal shows, or held from an older save, ticks it 
   assert.deepEqual(held.done, []);
   const home = { ...on, boon: null, hero: { x: 8, y: 9 } };
   assert.equal(goalsAfter(picked.goals, 0, {}, [], home, { ...home, hero: { x: 8, y: 8 } }).goals, picked.goals, 'held once, never shown again');
+});
+
+test('finding the crypt shows once a boon is taken, and is done on walking into the crypt (D-746)', () => {
+  const out = { ...base, place: 'woods', found: ['woods:1,2', 'woods'] }, boon = { stone: { done: true, paid: 'herb' }, wake: { done: true, paid: 'herb' }, boon: { done: true, paid: 'herb' } };
+  assert.equal(goalsAfter({}, 0, {}, [], out).goals.crypt, undefined, 'not before the boon');
+  const shown = goalsAfter(boon, 0, {}, [], out);
+  assert.deepEqual(shown.goals.crypt, { done: false });
+  assert.equal(goalLine(shown.goals, null, base.turn).goal, 'Find the crypt');
+  const inside = { ...out, place: 'south', found: [...out.found, 'south'] };
+  const found = goalsAfter(shown.goals, 0, {}, [], inside, out);
+  assert.deepEqual(found.done, ['crypt']);
+  assert.equal(doneWords(found.goals, 'crypt'), `Find the crypt. ${rewardText(found.goals.crypt.paid)}`);
+});
+
+test('the crypt reached before the goal shows, or a journey begun there, ticks it quietly (D-746)', () => {
+  const back = goalsAfter({ boon: { done: true, paid: 'herb' } }, 0, {}, [], { ...base, place: 'woods', found: ['first', 'woods'] });
+  assert.equal(back.goals.crypt.done, true);
+  assert.deepEqual(back.done, []);
+  const below = goalsAfter({ boon: { done: true, paid: 'herb' } }, 0, {}, [], { ...base, place: 'depth3', found: ['woods', 'depth3'] });
+  assert.deepEqual(below.goals.crypt, { done: false }, 'another place below the surface is not the crypt');
 });
 
 test('spending an ember shows at level 2, goes ahead of a goal waiting, and is done on the first buy (D-713)', () => {

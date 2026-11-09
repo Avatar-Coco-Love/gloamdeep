@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.198', date: '2026-11-09', title: 'Find the crypt', lines: [
+    "A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.",
+    "Decisions: D-746.",
+  ] },
   { v: '0.3.197', date: '2026-11-09', title: 'The broken seal', lines: [
     "The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.",
     "The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.",

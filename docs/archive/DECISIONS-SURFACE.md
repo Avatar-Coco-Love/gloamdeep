@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-734 to D-737)
+# The surface decisions (D-209 to D-218, D-734 to D-738)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -8,7 +8,8 @@ These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole. D-734 to D-737, Hearthwood's 9 rooms,
 where a journey begins, Light your lantern and waking after a fall, all
 built (D-733's steps 1 to 3), followed at 0.3.192, the twelfth audit
-(D-740), word for word.
+(D-740), word for word. D-738, mountain rooms, built (D-733's step 4),
+followed at 0.3.198 (D-746), word for word.
 
 ---
 
@@ -177,3 +178,18 @@ tile. Taking the bed down forgets it until it is slept in again. The
 fall line stays "You fall, and wake again." Hardcore still begins the
 world again. Claude's call the owner may change: the code is
 `src/core/waking.js`.
+
+**D-738 · 2026-11-09 · Mountain rooms** (the owner's picks, all
+recommended but the rock's look; builds D-733's step 4) Hearthwood's
+north row, every seed, is mountain rooms: rocky slopes, the woods' grass
+with rock where the trees would stand and a few lone trees inside. Each
+holds 3 grey boulders, as a Cave room does (D-282), and the woods' 3
+sticks and fallen branch; no pond or bush. The three are made the same
+way, only the seed differing. The next step, the owner's own picks:
+outside rock drawn rounded, as cave walls are, and rock going on past a
+mountain room's edges; till then it is drawn as the mouth's rocks.
+Claude's calls the owner may change: a tree 2 or more tiles in from the
+edge stays a tree 1 time in 4; a room grows as a woods room, its paths
+cut, then its trees made rock, so the paths stay where they were; a
+mountain room already visited in an older save stays woods; on the map,
+rock and boulders on the surface show in the cave rock's grey.
