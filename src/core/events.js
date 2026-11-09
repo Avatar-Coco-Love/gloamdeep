@@ -7,7 +7,7 @@
 // The kinds, each { type, ...details }:
 //   step                 the hero walked onto a new tile
 //   hit { id, held }     the hero hit creature `id`, with the item held (or null, the lantern)
-//   beat { id, unmet }   that creature was beaten; `unmet` when not met before, in the dark (D-630)
+//   beat { id, unmet, spawned }  that creature was beaten; `unmet` when not met before, in the dark (D-630); `spawned` by the dev tools (D-720)
 //   meet { id }          creature `id` was met: lit and showing itself for the first time (D-630)
 //   bite { id, hurt }    creature `id` bit, taking `hurt` hearts (god mode keeps them, D-625)
 //   poison { hurt }      poisoned's count reached a hurt, taking `hurt` hearts, 0 at 1 heart (D-654; god mode keeps them)
@@ -20,7 +20,7 @@
 //   level { n }          level n reached (D-246)
 //   take { id }          an item went into the bag or the hand
 //   eat { id }           a herb was eaten, or a heartcap or potion from the bag (D-308, D-309)
-//   pour { id, by }      a flask was poured, by 'hand' or by 'self' (D-249)
+//   pour { id, by, spawned }  a flask was poured, by 'hand' or by 'self' (D-249); `spawned`, one the dev tools made (D-720)
 //   torch                a torch was lit (D-121)
 //   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2); rubble too (D-491)
 //   free { id }          person `id` was freed from the rubble (D-491)

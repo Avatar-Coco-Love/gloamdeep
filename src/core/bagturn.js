@@ -8,7 +8,7 @@ import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, isFlask } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, isFlask, devPour } from './bag.js';
 import { note } from './events.js';
 import { pourOf, healOf } from './boon.js';
 import { joined } from './regrow.js';
@@ -26,8 +26,9 @@ import { isWorn } from './worn.js';
 export function pour(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.oil) return state;
-  const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand' });
-  return endTurn(state, { ...next, bag: bagTake(state.bag, i), oil: Math.min(1, next.oil + pourOf(state, entry)) });
+  const bag = bagTake(state.bag, i), dev = devPour(state, state.bag[i].id, bag); // one spawned counts in no Records (D-720)
+  const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand', ...dev.mark });
+  return endTurn(state, { ...next, ...dev.rest, bag, oil: Math.min(1, next.oil + pourOf(state, entry)) });
 }
 
 // § craft: Make on bag slot i turns its item's `craft.of` into one
@@ -246,7 +247,8 @@ export function pourByItself(before, after) {
   if (after.turn === before.turn || after.fell !== before.fell) return after;
   const i = after.bag.findIndex((s) => isFlask(s.id) && after.oil + pourOf(after, get(s.id)) <= 1 + 1e-9);
   if (i < 0) return after;
-  const poured = note({ ...after, bag: bagTake(after.bag, i), oil: Math.min(1, after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self' });
+  const bag = bagTake(after.bag, i), dev = devPour(after, after.bag[i].id, bag);
+  const poured = note({ ...after, ...dev.rest, bag, oil: Math.min(1, after.oil + pourOf(after, get(after.bag[i].id))) }, 'pour', { id: after.bag[i].id, by: 'self', ...dev.mark });
   const other = after.line?.turn === after.turn && !['oilLow', 'oilEmpty'].includes(after.line.id);
   return other ? poured : say(poured, 'flaskPour');
 }

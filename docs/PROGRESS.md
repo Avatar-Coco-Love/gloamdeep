@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.172 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.173 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's last fixes, B4 and Q1, in one step (D-719): the owner picks whether the sleeping warden gets a screen-reader plaque, and whether dev-made creatures count toward Beaten. Then more Feats (Q-057).
+More Feats (Q-057): the owner picks which other records get a set, and their numbers, and whether Rooms found and Torches lit belong in Feats.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.173, Spawned ones don't count.** The audit's last
+  fixes, the owner's picks, all recommended (D-720): B4, the warden
+  asleep keeps no plaque, as meant; Q1, a creature or flask made with
+  Spawn adds nothing to Beaten, Flasks poured, the Feats or the
+  Bestiary's beaten count. Next, more Feats.
+  Playtest: https://claude.ai/artifact/RfpT1LB7ocoJALyUNbmkVJ
 - **2026-11-09, 0.3.172, The Feat note after the turn's line.** The
   audit's B2 and B3, the owner's picks, all recommended: the other fixes
   go in two steps; two Feats in one turn share one note, Glints added
@@ -54,8 +60,3 @@ list in `RESEARCH.md`.
   held or not, and its drop lies on the nearest dry tile. Next, the
   owner orders the audit's other fixes.
   Playtest: https://claude.ai/artifact/4b56DUw6j7Wv19aHHEdNap
-- **2026-11-09, 0.3.170, The relic's softer glow.** The owner found the
-  relic's glow misaligned and too bright. Their picks, all recommended:
-  look A, centred on the locket, 21 pixels across, not 31, and dimmer,
-  on the floor and the shelf. Next, every flyer may fly over water.
-  Playtest: https://claude.ai/artifact/VMkV6Y8FGiVtvvEBvDGoZR

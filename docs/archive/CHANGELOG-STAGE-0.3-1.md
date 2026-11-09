@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.170 (2026-11-09)
+- The Lightkeeper's Locket's violet glow is now centred on the locket, not pooled below it, and softer: smaller and dimmer, on the floor and on the shelf.
+- Decisions: D-717.
+
 ## 0.3.169 (2026-11-09)
 - Fixed: a journey saved before 0.3.143 could have no Lightkeeper's Locket if you had already been in the depth-4 room it belongs in. Load that journey now and the locket lies in that room, with its warden asleep beside it, as in a new game. If the locket is already yours, nothing changes.
 - Behind the scenes: the record-keeping tool no longer writes the same note into the changelog archive every version.

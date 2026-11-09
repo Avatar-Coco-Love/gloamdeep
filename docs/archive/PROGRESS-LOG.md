@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.170, The relic's softer glow.** The owner found the
+  relic's glow misaligned and too bright. Their picks, all recommended:
+  look A, centred on the locket, 21 pixels across, not 31, and dimmer,
+  on the floor and the shelf. Next, every flyer may fly over water.
+  Playtest: https://claude.ai/artifact/VMkV6Y8FGiVtvvEBvDGoZR
 - **2026-11-09, 0.3.169, The old saves' locket.** The audit's first
   fixes, the owner's picks, all recommended: B1 first, an old journey
   that held the locket room before 0.3.143 gets the locket and its

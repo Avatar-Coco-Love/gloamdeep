@@ -30,7 +30,7 @@ export function booked(book, events, jumped = false) {
   const add = (id, k) => { next[id] = { met: 0, beaten: 0, ...next[id] }; next[id][k]++; };
   for (const e of events) {
     if (e.type === 'meet') add(e.id, 'met');
-    if (e.type === 'beat') { add(e.id, 'beaten'); if (e.unmet) add(e.id, 'met'); }
+    if (e.type === 'beat') { if (!e.spawned) add(e.id, 'beaten'); if (e.unmet) add(e.id, 'met'); } // one spawned is met, never beaten (D-720)
   }
   return next;
 }

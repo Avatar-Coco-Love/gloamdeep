@@ -3,7 +3,9 @@
 Moved word for word from `docs/DECISIONS.md` at 0.3.162 (D-709), so it
 stays under 12 KB: step 22, more cloak patterns, the Look card scrolling,
 lantern looks, and hats and hoods, all built. Still in force. D-704,
-more hats and hoods, moved word for word at 0.3.168 (D-715).
+more hats and hoods, moved word for word at 0.3.168 (D-715). D-714 and
+D-715, the free pick of a locked look, moved word for word at 0.3.173
+(D-720).
 
 ---
 
@@ -73,3 +75,23 @@ Ears are free from the start; Glints spent on Brim or Ears come back.
 Next, its own step: Carriage and one cloak pattern free, and a free pick
 of any one locked look for every new profile, shown clearly (owner's
 wish, how it is shown to be drafted).
+
+**D-714 · 2026-11-08 · The free pick of a locked look** (the owner's
+picks, all recommended; builds D-704, narrows Q-055) Every profile gets
+one look of all those locked, free. While it waits, each locked box on
+the Look card reads FREE in gold, not LOCK; trying one on says "your free
+pick. One look of all those locked." and the button where RANDOM was
+reads FREE. Taken, the rest go back to LOCK and their prices, and it costs
+no Glints. Not taken when a new hero is made, it waits for Change Look.
+Profiles made before get one each. Next, its own step: the Carriage lamp
+and the Zebra pattern free for everyone (the owner's pick, recommended).
+
+**D-715 · 2026-11-09 · The free pick shown once; Carriage and Zebra free**
+(the owner's picks, all recommended; changes how D-714 shows the pick,
+builds D-704, narrows Q-055) FREE on every locked box read as if all of
+them were free. Now every locked look keeps LOCK; while the free pick
+waits, "1 FREE PICK" shows in gold on the Look card's top line, and
+trying a locked look on says "Cow: 3 Glints, or your one free pick."
+with the button reading FREE. The Carriage lamp and the Zebra pattern are
+free for everyone; Glints spent on them come back, and a free pick taken
+on one waits again. Both in one step.

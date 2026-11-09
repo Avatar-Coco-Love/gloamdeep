@@ -122,26 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-714 · 2026-11-08 · The free pick of a locked look** (the owner's
-picks, all recommended; builds D-704, narrows Q-055) Every profile gets
-one look of all those locked, free. While it waits, each locked box on
-the Look card reads FREE in gold, not LOCK; trying one on says "your free
-pick. One look of all those locked." and the button where RANDOM was
-reads FREE. Taken, the rest go back to LOCK and their prices, and it costs
-no Glints. Not taken when a new hero is made, it waits for Change Look.
-Profiles made before get one each. Next, its own step: the Carriage lamp
-and the Zebra pattern free for everyone (the owner's pick, recommended).
-
-**D-715 · 2026-11-09 · The free pick shown once; Carriage and Zebra free**
-(the owner's picks, all recommended; changes how D-714 shows the pick,
-builds D-704, narrows Q-055) FREE on every locked box read as if all of
-them were free. Now every locked look keeps LOCK; while the free pick
-waits, "1 FREE PICK" shows in gold on the Look card's top line, and
-trying a locked look on says "Cow: 3 Glints, or your one free pick."
-with the button reading FREE. The Carriage lamp and the Zebra pattern are
-free for everyone; Glints spent on them come back, and a free pick taken
-on one waits again. Both in one step.
-
 **D-716 · 2026-11-09 · The audit's first fixes: the old saves' locket,
 one pointer line** (the owner's picks, all recommended; the eleventh
 audit's B1 and T1, D-699) The owner set B1 first. A journey saved before
@@ -183,3 +163,17 @@ then B4 and Q1. B2: two Feats reached in one turn share one note,
 B3: a turn that says its own line (a level-up, "The locket kept…", a
 goal done) shows it, and the Feat note waits for the next move that says
 none; a tier reached while it waits joins it. Next, B4 and Q1.
+
+**D-720 · 2026-11-09 · The audit's last fixes: the warden asleep, the
+spawned ones** (the owner's picks, all recommended; the eleventh audit's
+B4 and Q1, D-699) B4: the creature plaques are drawn only, for every
+creature, and one asleep gets none; the warden asleep as a statue never
+moves or notices the hero, so it needs none, as meant. Nothing changes.
+Q1: a creature the dev tools' Spawn makes is marked; beating it adds
+nothing to Beaten, the Feats or the Bestiary's beaten count (it is still
+met), and it still gives experience and drops. A spawned flask the same:
+poured, it adds nothing to Flasks poured. The bag keeps count of the
+spawned flasks picked up, and a flask poured while any are carried is
+one of them; a fall clears the count. Teaching goals are as before.
+Next, more Feats (Q-057). D-714 and D-715 move to
+`archive/DECISIONS-LOOKS.md`.

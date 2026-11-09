@@ -19,7 +19,7 @@ import { takeStairs } from './stairs.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
 import { xpOf, gain } from './xp.js';
-import { bagAdd, bagSize } from './bag.js';
+import { bagAdd, bagSize, isFlask } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
 import { spread } from './spread.js';
@@ -98,8 +98,8 @@ function pickUp(state, found) {
     return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
   }
   if (entry.bag) {
-    const bag = bagAdd(state.bag, id, found.form, bagSize(state));
-    if (bag) return note(entry.says ? say({ ...state, ...gone, bag }, entry.says) : { ...state, ...gone, bag }, 'take', { id });
+    const bag = bagAdd(state.bag, id, found.form, bagSize(state)), dev = found.spawned && isFlask(id) ? { devFlasks: (state.devFlasks || 0) + 1 } : {}; // a spawned flask is kept count of (D-720)
+    if (bag) return note(entry.says ? say({ ...state, ...gone, bag, ...dev }, entry.says) : { ...state, ...gone, bag, ...dev }, 'take', { id });
     if (state.bag.some((s) => s.id === id) && entry.full) return say(state, entry.full);
     return entry.eatHurt ? say(state, 'bagFull') : state; // a herb says so (D-511)
   }
@@ -134,7 +134,7 @@ export function drop(state, i) {
 // like a step, so oil burns (D-111). One that may flee flees or stands (D-301).
 // The foe's line is said, and an oil line
 // said on the same turn replaces it (D-112). A foe beaten is worth experience, its hearts and bite (D-245, D-371).
-// It is a `hit` event, and a foe beaten a `beat` too, `unmet` when the Bestiary hadn't met it (D-630). A foe beaten may leave a drop (dropFrom).
+// It is a `hit` event, and a foe beaten a `beat` too, `unmet` when the Bestiary hadn't met it (D-630), `spawned` when the dev tools made it (D-720). A foe beaten may leave a drop (dropFrom).
 // A weapon that hits `through` (the spear) hits the creature awake behind the foe too,
 // in the line from the hero, for that much; the foe's line is the one said (D-479).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
@@ -151,7 +151,7 @@ function attack(state, foe) {
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
   let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
-  for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) next = note(gain(next, xpOf(get(id))), 'beat', e.met ? { id } : { id, unmet: true }); // beaten in the dark, met too (D-630)
+  for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720)
   return endTurn(state, say(next, first.line));
 }
 // One creature hit for `damage`: the state with it hurt, fled or gone and its drop

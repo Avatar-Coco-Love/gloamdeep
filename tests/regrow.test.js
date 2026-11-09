@@ -20,7 +20,7 @@ const waitTill = (s, turns) => wait({ ...s, lit: false, turn: s.taken[0].at + tu
 
 test('a thing taken goes on the room\'s taken list with its turn', () => {
   const n = step(spawn(makeState(room), 'oilcap', 5, 10), 'up');
-  assert.deepEqual(n.taken, [{ id: 'oilcap', x: 5, y: 10, at: 1 }]);
+  assert.deepEqual(n.taken, [{ id: 'oilcap', x: 5, y: 10, at: 1, spawned: true }]);
   assert.deepEqual(n.items, []);
 });
 
