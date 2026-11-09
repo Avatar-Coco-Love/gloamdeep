@@ -10,7 +10,7 @@
 // (D-522, D-523), ember when the arrows are on one; the round cross goes back, as Back did.
 // heroIn (sprites.js) comes from frame.js, as the slots card's heroes do, so tests can load this.
 import { LOOK_PADS, LOOK_SHOWN, tabOf, tabRows, clampScroll, isLocked } from '../core/looks.js';
-import { stageNote, FREE_NOTE } from '../core/feats.js';
+import { stageNote, freeNote, FREE_PICK } from '../core/feats.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, isTall, PAD } from './bag.js';
 import { drawText, textWidth, FONT_H } from './font.js';
 import { drawSlab } from './slab.js';
@@ -169,8 +169,8 @@ const frame = (c, x, y, w, h, colour) => {
 // scroll: the choices' rows scrolled past, a bar at the boxes' right when there are more (D-701)
 export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh = false, t = 0, still = true, trying = null, shop = { bought: [], have: 0 }, scroll = 0) {
   const pad = LOOK_PADS[tab], { table } = tabOf(tab), wear = (l) => heroIn(l.cloak, l.eyes, l.trim, l.clothes, l.lamp, l.head);
-  const card = drawCard(c, vw, vh, 'LOOK', 0);
-  if (fresh) drawDots(c, card, 'LOOK', 1, 2); // a new hero's second and last step
+  const card = drawCard(c, vw, vh, 'LOOK', 0), pick = shop.free ? drawPick(c, card) : null;
+  if (fresh) drawDots(c, card, 'LOOK', 1, 2, pick ?? undefined); // a new hero's second and last step
   const at = boxesAt(vw, vh), ground = groundOf(at.bw - 2, at.bh - 2);
   c.imageSmoothingEnabled = false;
   scroll = clampScroll(scroll, tabRows(tab), at.shown);
@@ -182,12 +182,19 @@ export function drawLook(c, vw, vh, heroIn, look, tab, chosen, name = '', fresh 
     const { x, y } = boxAt(at, k, scroll), picked = k.id === look[tab], locked = isLocked(tab, k.id, shop.bought);
     const swatch = swatchOf(table[k.id]);
     if (swatch) drawSwatch(c, swatch, table[k.id].name, x, y, at, picked); // eyes and trim: a swatch, as their few pixels are hard to see (D-527, D-529)
-    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked, shop.free); }
+    else { c.drawImage(ground, x + 1, y + 1); drawSmall(c, wear({ ...look, [tab]: k.id }), table[k.id].name, x, y, at, picked, locked); }
     frame(c, x, y, at.bw, at.bh, picked ? GOLD : k.id === trying ? EMBER : DIM);
   });
   drawBar(c, at, scroll, tabRows(tab));
   drawStage(c, wear(trying ? { ...look, [tab]: trying } : look), name, trying ? '' : table[look[tab]]?.name ?? '', at.stage, t, still);
-  if (trying) drawNote(c, shop.free ? `${table[trying].name}: ${FREE_NOTE}` : stageNote(table[trying].name, table[trying].price, shop.have), at);
+  if (trying) drawNote(c, shop.free ? `${table[trying].name}: ${freeNote(table[trying].price)}` : stageNote(table[trying].name, table[trying].price, shop.have), at);
+}
+// § pick (D-715): while the free pick waits, "1 FREE PICK" in gold on the title's line, before the
+// close button; its left edge, for the new hero's dots to sit between it and the title
+function drawPick(c, card) {
+  const x = card.close.x - card.close.r - 4 - textWidth(FREE_PICK);
+  drawText(c, FREE_PICK, x, card.y + 7, GOLD);
+  return x;
 }
 // § bar (D-701): a thin track at the boxes' right, its gold thumb as long as the window is of all
 // the rows and as far down as the rows scrolled past; none when the tab's rows all fit
@@ -235,16 +242,15 @@ function drawTab(c, { x, y, w, h }, text, open, arrows) {
 const centred = (c, text, x, y, colour) => drawText(c, text, x - Math.floor(textWidth(text) / 2), y, colour);
 
 // A box `bw` wide: the hero s× on its shadow, its name under it, gold when picked (D-520, D-526)
-// A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right, or FREE in gold
-// while the free pick waits (D-714)
-function drawSmall(c, hero, name, x, y, { bw, s, named }, picked, locked = false, free = false) {
+// A locked one (D-533): the hero dim, a small LOCK in ember at the box's top right, the free pick
+// waiting or not (D-715)
+function drawSmall(c, hero, name, x, y, { bw, s, named }, picked, locked = false) {
   const mid = x + Math.floor(bw / 2);
   c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(mid - 6 * s, y + 3 + 15 * s, 12 * s, 2);
   if (locked) c.globalAlpha = 0.45;
   c.drawImage(hero, mid - 8 * s, y + 3, 16 * s, 16 * s);
   c.globalAlpha = 1;
-  const tag = free ? 'FREE' : 'LOCK';
-  if (locked) drawText(c, tag, x + bw - 3 - textWidth(tag), y + 2, free ? GOLD : EMBER);
+  if (locked) drawText(c, 'LOCK', x + bw - 3 - textWidth('LOCK'), y + 2, EMBER);
   if (named) centred(c, name, mid, y + 16 * s + 4, picked ? GOLD : GREY); // none on a view too short (D-700)
 }
 // A choice's swatch colours: the eyes' one colour (D-527); the trim's cap shade over its base shade
@@ -274,8 +280,8 @@ export function drawStage(c, hero, name, choice, { x, y, z, w = stageW(z), h = s
 // § dots: a new hero's steps in the card's top bar, centred between its heading and the round
 // cross, the steps done and this one gold, the ones left dim (D-517)
 const DOT = 4, DOT_GAP = 3;
-export function drawDots(c, card, title, step, steps) {
-  const left = card.x + PAD + textWidth(title), right = card.close.x - card.close.r, w = steps * DOT + (steps - 1) * DOT_GAP;
+export function drawDots(c, card, title, step, steps, right = card.close.x - card.close.r) {
+  const left = card.x + PAD + textWidth(title), w = steps * DOT + (steps - 1) * DOT_GAP;
   const x = Math.floor((left + right - w) / 2), y = card.close.y - DOT / 2;
   for (let i = 0; i < steps; i++) { c.fillStyle = i <= step ? GOLD : DIM; c.fillRect(x + i * (DOT + DOT_GAP), y, DOT, DOT); }
 }

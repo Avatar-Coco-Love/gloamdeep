@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.168 (2026-11-09)
+- The free pick is shown once now, not on every look: locked looks keep LOCK, and "1 FREE PICK" shows in gold at the top of the Look card while yours waits. Try a locked look on to see its price, or that it can be your one free pick, and press FREE to take it.
+- The Carriage lamp and the Zebra pattern are now free for everyone. If you bought one, its Glints come back; if you took one as your free pick, the pick waits for you again.
+- Decisions: D-715.
+
 ## 0.3.167 (2026-11-08)
 - The free pick: every profile may take one locked look free. On the Look card each locked look reads FREE in gold while the pick waits; try one on and press FREE to take it. The rest go back to LOCK.
 - Not taken when you make a hero? It waits for Change Look. Profiles made before this version get one too.
@@ -33,8 +38,3 @@ Entry format:
 - If you have already spent an ember on this journey, the goal is ticked quietly and pays its reward.
 - Fixed: 0.3.165 stopped the game from starting (a stray bracket); a new test now checks every code file for such typos.
 - Decisions: D-713.
-
-## 0.3.165 (2026-11-08)
-- The boons card: the first time you pick a boon, a glass card says what boons are, with Go to carry on. It shows only once.
-- In the Journal's Quests tab, tap the done "Take a boon" (or press Enter there) to read the card again; Go goes back to the Journal.
-- Decisions: D-712.

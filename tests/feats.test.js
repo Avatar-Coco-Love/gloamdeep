@@ -69,8 +69,8 @@ test('the Feats tab is tapped on every card, one row sideways, two upright, and 
 
 test('buying a pattern spends its 3 Glints, and the tab shows those left (D-696)', () => {
   assert.equal(glintsLeft({ records: at(50), bought: [] }), 3);
-  assert.equal(glintsLeft({ records: at(50), bought: ['zebra'] }), 0);
-  assert.equal(glintsLeft({ records: at(200), bought: ['zebra', 'cow'] }), 0);
+  assert.equal(glintsLeft({ records: at(50), bought: ['tiger'] }), 0);
+  assert.equal(glintsLeft({ records: at(200), bought: ['tiger', 'cow'] }), 0);
   assert.equal(glintsText({ records: at(200), bought: ['camo'] }), '3 Glints');
   assert.deepEqual(shopOf({ records: at(10), bought: ['cow'] }), { bought: ['cow'], have: 0, free: false }, 'never below none');
   assert.deepEqual(shopOf(false), { bought: [], have: 0, free: true }, 'a hero not made yet has none');

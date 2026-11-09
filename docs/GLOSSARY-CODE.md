@@ -28,18 +28,19 @@ code; where this page and a decision disagree, the decision wins.
   button) on the slot screen (D-275 to D-278, D-289, D-397, D-513); each a glass
   card since D-399, and one LOOK card with a tab each since D-521 (its
   screen is still called `cloak` in the code). **Patterns:** cloaks in
-  their own colours (Zebra, Cow, Camo, Tiger, Stars, Moth, D-700), `locked` until bought with Glints;
+  their own colours (Zebra, Cow, Camo, Tiger, Stars, Moth, D-700), `locked` until bought with Glints, Zebra free (D-715);
   shown dim with LOCK and tried on, never kept (D-515, D-533); `price` 3
   each, bought with BUY and kept in the profile's `bought` (D-696).
 - **Lamp:** the lantern's shape, the LAMP tab, fifth on the Look card
   (`lamp` in a look; `LAMPS` in `looks.js`, pixels in `pictures.js`): the
-  Lantern, free, then Carriage, Dish and Pierced, locked at 3 Glints (D-702).
+  Lantern and Carriage, free (D-715), then Dish and Pierced, locked at 3 Glints (D-702).
 - **Head:** a hat or hood, the HEAD tab, sixth on the Look card (`head`
   in a look; `HEADS` in `looks.js`, pixels in `pictures.js`): the Hood,
   Brim and Ears, free, then Helm, Horned, Pointed, Bobble, Circlet and
   Scarf, locked at 3 Glints (D-703, D-704).
 - **Free pick:** one locked look each profile takes for no Glints
-  (`gift` on a profile, null while it waits; `giftedSlot`, D-714).
+  (`gift` on a profile, null while it waits; `giftedSlot`, D-714); "1 FREE PICK"
+  on the Look card while it waits (`FREE_PICK`, D-715).
 - **Behaviour, way:** a reusable way a creature acts, named in its
   registry entry's `ways`, defined in `src/core/behaviours.js` (D-269).
 - **Registry:** the one list of all content (TECH.md, D-048).

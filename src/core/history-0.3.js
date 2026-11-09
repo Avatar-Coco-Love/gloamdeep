@@ -3,6 +3,11 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.168', date: '2026-11-09', title: 'One free pick, shown once', lines: [
+    "The free pick is shown once now, not on every look: locked looks keep LOCK, and \"1 FREE PICK\" shows in gold at the top of the Look card while yours waits. Try a locked look on to see its price, or that it can be your one free pick, and press FREE to take it.",
+    "The Carriage lamp and the Zebra pattern are now free for everyone. If you bought one, its Glints come back; if you took one as your free pick, the pick waits for you again.",
+    "Decisions: D-715.",
+  ] },
   { v: '0.3.167', date: '2026-11-08', title: 'The free pick', lines: [
     "The free pick: every profile may take one locked look free. On the Look card each locked look reads FREE in gold while the pick waits; try one on and press FREE to take it. The rest go back to LOCK.",
     "Not taken when you make a hero? It waits for Change Look. Profiles made before this version get one too.",

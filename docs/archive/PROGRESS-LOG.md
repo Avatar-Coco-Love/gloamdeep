@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.165, The boons card.** Once, right after the first
+  boon is picked, a glass card saying what boons are, with Go; the done
+  "Take a boon" in the Quests tab shows it again. The owner's picks, all
+  recommended: over the Journal and back to it; never for a profile
+  ticked quietly (D-712).
+  Playtest: https://claude.ai/artifact/7jxE1kBw7thc1C2FZUkED3
 - **2026-11-08, 0.3.164, The fifth teaching goal.** "Take a boon" on
   stepping off the woken plate with no boon ever held. The owner's
   picks, all recommended: done on the pick, the cross leaving it
