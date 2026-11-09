@@ -100,3 +100,5 @@ dim. None once any of the floor's stairs down is remembered, with the
 lantern out, or with reduced motion. D-603 archived. Mock-up:
 https://claude.ai/artifact/HRSKPsoV74UqBGaugBH15X
 The straight line through walls superseded by D-653 (2026-11-07).
+"None once any of the floor's stairs down is remembered" superseded by
+D-751 (2026-11-09), once its step is built.

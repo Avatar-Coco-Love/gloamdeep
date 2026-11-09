@@ -120,34 +120,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-745 · 2026-11-09 · The broken seal, the crypt's way in** (the owner's
-idea and picks, all recommended; supersedes D-744's looks for this way in;
-mock-ups at https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q) The way in
-from the woods leads into the crypt, so it is a crypt's door, not a cave
-mouth. Of three looks (the Lightkeepers' door, the broken seal, the tomb
-gate) the owner picked the broken seal: a doorway of the crypt's bricks
-under a pale stone lintel with a carved flame, bricked up long ago, a hole
-broken through, fallen bricks on the grass. On a side or bottom edge the
-wall's top shows from above along the edge, pale posts at each end, broken
-open between. The worn path in front stays. Every world has it. The small
-arch and the craggy cave are kept for later cave mouths into caves (the
-registry's `caveLooks`), and the overgrown mouth waits with them; its step
-comes off the plan. Walking is unchanged. Claude's calls the owner may
-change: the tile keeps its id and name in the code (`caveMouth`), so saves
-stay as they were; the drawing is `src/render/seal.js`.
-
-**D-746 · 2026-11-09 · Find the crypt** (the owner's idea and picks,
-all recommended; builds D-745) Once the way in is the crypt's door, a
-new teaching goal sends the hero there: "Find the crypt", its how line
-"A broken door, beside home.". It shows once "Take a boon" is done and
-is done on walking into the crypt through the broken seal, paying a
-reward as every goal does (D-706). Only the crypt's own rooms count,
-not other places below the surface, as more ways down will come (the
-owner's pick; changed after review: any depth below no longer counts).
-Claude's call the owner may change: it is ticked quietly, unpaid in the
-line, when the crypt was reached already this journey, as in a journey
-begun in the crypt.
-
 **D-747 · 2026-11-09 · Smooth rock edges, and what to polish** (the
 owner's picks; builds D-739's step 24; mock-ups at
 https://claude.ai/artifact/DjvVKCpbeuDBnTBeTVmMcz) A look through all nine
@@ -184,3 +156,32 @@ the middle green covering most of the ground, and the pale blades half as
 often. It is used for all surface grass, in the room and past its edge,
 so they match. Claude's calls the owner may change: the code is `grass`
 in `src/render/woods.js`; next are the trees, look A (D-747).
+
+**D-750 · 2026-11-09 · Trees in groves** (the owner's pick, recommended;
+builds D-747; mock-ups at
+https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ) Of four tree looks
+(today's, A1 gentle, A2 lively, A3 groves), the owner picked A3. Still
+one round tree a tile (D-209), each now 0.78 to 1.1 times the old size,
+moved up to 2 pixels, in one of three greens: the old green, a deep
+blue-green and a warm olive. Neighbouring trees share a green, so the
+woods shift colour in patches. Walking and cutting are unchanged; this
+ends step 24's polish. Claude's calls the owner may change: a crown may
+reach a little past its tile and is cut at the room's edge; the code is
+`paintTree` in `src/render/woods.js`.
+
+**D-751 · 2026-11-09 · Four ideas, and their order** (the owner's ideas
+and picks, all recommended) One small step each, in this order. 1. The
+oil tip: the first time the hero steps from the dark into daylight with
+the lantern lit, a goal like Light your lantern says "Put out your
+lantern" with "Tap the lantern, or press L, to save oil."; it goes once
+the lantern is out and never shows again. 2. The home waystone stands in
+the room with the cave mouth (the crypt's door), not the middle room,
+moved for old saves too, still awake if it was woken. 3. With Waymark,
+stairs down too far for the round map show as a violet dot on its rim,
+pulsing as the marks do, toward the nearest stairs down. 4. Once the
+way down is found, the motes stay: about 2 or 3, drifting slowly with
+no set direction, more or fewer by the place, most in the crypt and
+earth, fewer in grey rock, none under the sky. Supersedes D-605's
+"None once any of the floor's stairs down is remembered". Claude's
+calls the owner may change: the words, where the waystone stands in its
+new room and the motes' counts are shown at their steps.

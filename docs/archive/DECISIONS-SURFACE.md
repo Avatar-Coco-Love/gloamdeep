@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-734 to D-739, D-744)
+# The surface decisions (D-209 to D-218, D-734 to D-739, D-744 to D-746)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -12,6 +12,8 @@ built (D-733's steps 1 to 3), followed at 0.3.192, the twelfth audit
 followed at 0.3.198 (D-746), word for word. D-739, rounded rock, and
 D-744, a craggy cave mouth (partly superseded by D-745), built, followed
 at 0.3.199 (D-747), word for word, as `docs/DECISIONS.md` neared 12 KB.
+D-745, the broken seal, and D-746, Find the crypt, both built, followed
+at 0.3.202 (D-750), word for word, for the same reason.
 
 ---
 
@@ -229,3 +231,31 @@ owner may change: the looks are listed in the registry (`caveMouth`'s
 `looks`) and picked from their own seed stream, so each world's mouth
 stays where it was; a few pebbles lie at the rocks' feet, clear of the
 tile in front; the craggy cave has no worn path in front, as mocked.
+
+**D-745 · 2026-11-09 · The broken seal, the crypt's way in** (the owner's
+idea and picks, all recommended; supersedes D-744's looks for this way in;
+mock-ups at https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q) The way in
+from the woods leads into the crypt, so it is a crypt's door, not a cave
+mouth. Of three looks (the Lightkeepers' door, the broken seal, the tomb
+gate) the owner picked the broken seal: a doorway of the crypt's bricks
+under a pale stone lintel with a carved flame, bricked up long ago, a hole
+broken through, fallen bricks on the grass. On a side or bottom edge the
+wall's top shows from above along the edge, pale posts at each end, broken
+open between. The worn path in front stays. Every world has it. The small
+arch and the craggy cave are kept for later cave mouths into caves (the
+registry's `caveLooks`), and the overgrown mouth waits with them; its step
+comes off the plan. Walking is unchanged. Claude's calls the owner may
+change: the tile keeps its id and name in the code (`caveMouth`), so saves
+stay as they were; the drawing is `src/render/seal.js`.
+
+**D-746 · 2026-11-09 · Find the crypt** (the owner's idea and picks,
+all recommended; builds D-745) Once the way in is the crypt's door, a
+new teaching goal sends the hero there: "Find the crypt", its how line
+"A broken door, beside home.". It shows once "Take a boon" is done and
+is done on walking into the crypt through the broken seal, paying a
+reward as every goal does (D-706). Only the crypt's own rooms count,
+not other places below the surface, as more ways down will come (the
+owner's pick; changed after review: any depth below no longer counts).
+Claude's call the owner may change: it is ticked quietly, unpaid in the
+line, when the crypt was reached already this journey, as in a journey
+begun in the crypt.

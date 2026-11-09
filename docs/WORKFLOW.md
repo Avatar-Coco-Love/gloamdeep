@@ -121,6 +121,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 - The owner stopped a planned step to ask whether the look fit the story; checking the lore first turned a cave mouth into a crypt door before more cave art was built (0.3.197).
 - Asked for a look between two, a row of steps from one to the other let the owner pick the middle at a glance (0.3.200).
 - A walk through every surface room, by day and night, with each problem shown now and fixed in mock-ups from the game's own code, let the owner rank the polish and pick looks in one round (0.3.199).
+- New ideas sent with a step were asked as picks beside its look and planned as later steps; one visible change kept (0.3.202).
 
 ## Starting a new project
 

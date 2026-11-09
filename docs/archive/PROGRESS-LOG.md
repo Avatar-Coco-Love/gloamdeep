@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.199, Smooth rock edges.** The owner's picks from a
+  look at all nine surface rooms (D-747): the rock first, look A, smooth
+  edges with no loose pixels; then ponds, grass and trees, trees as look A.
+  Playtest: https://claude.ai/artifact/AkNFRNTiQ7yZJrknoYyVB4
+  Mock-ups: https://claude.ai/artifact/DjvVKCpbeuDBnTBeTVmMcz
 - **2026-11-09, 0.3.198, Find the crypt.** The owner's idea and picks,
   all recommended (D-746): with the way in a crypt's door, a new teaching
   goal, "Find the crypt", shows once a boon is taken and is done on
