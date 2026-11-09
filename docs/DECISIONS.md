@@ -163,3 +163,14 @@ and the round, smooth look, and asked for a variation of that, shown as
 mock-ups at the ponds' step. Claude's calls the owner may change: the
 order after the rock is ponds, grass, trees, one a step; the grass's look
 is asked at its step; the code is `mask`'s `soft` in `src/render/rock.js`.
+
+**D-748 · 2026-11-09 · Ponds halfway to round** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/EQfp8wLasizEnWkwonaWPi) Of four pond outlines,
+from today's to round, the owner picked B, halfway: half the tiles' blend,
+half a soft round blob on each water tile, the edge wobbling smoothly, a
+lone pixel cleaned off and a notch filled, so no star shapes and no
+dripping rim. The same tiles are water, so walking, fishing and the map
+are unchanged. Cave pools keep their own edge, as the caves' rock did.
+Claude's calls the owner may change: the code is `inPond` in
+`src/render/water.js`, chosen by the room's woods look; next is the grass.

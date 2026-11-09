@@ -74,3 +74,27 @@ test('the map shows a pool as water, not wall, once it is seen (D-502)', () => {
   assert.equal(markAt(room, null, w.x, w.y), 'water');
   assert.equal(markAt(room, seen, w.x, w.y), null);
 });
+
+// § pond shape (D-748): an outside pond's edge is halfway to round, with no lone pixel or drip;
+// a dry tile's middle stays dry, a wet tile's middle is water; a cave pool's is as it was
+import { inPool } from '../src/render/water.js';
+import { beginPlace } from '../src/core/room.js';
+test('an outside pond has a clean edge: no lone pixel, dry middles dry, wet middles wet (D-748)', () => {
+  for (const seed of [1, 2, 5, 6]) {
+    const { room } = beginPlace('woods', seed);
+    for (let y = 0; y < room.rows * 16; y++) for (let x = 0; x < room.cols * 16; x++) {
+      if (!inPool(room, x, y)) continue;
+      const n = [[1, 0], [-1, 0], [0, 1], [0, -1]].filter(([dx, dy]) => inPool(room, x + dx, y + dy)).length;
+      assert.ok(n >= 1, `seed ${seed}: a lone pond pixel at ${x},${y}`);
+    }
+    for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
+      assert.equal(inPool(room, tx * 16 + 8, ty * 16 + 8), tileAt(room, tx, ty).id === 'water', `seed ${seed}: tile ${tx},${ty}`);
+    }
+  }
+});
+test('a cave pool keeps its own edge, the pond shape only outside (D-748)', () => {
+  const { room } = beginPlace('woods', 2), cave = { ...room, look: 'rock' };
+  let differ = 0;
+  for (let y = 0; y < room.rows * 16; y++) for (let x = 0; x < room.cols * 16; x++) differ += inPool(room, x, y) !== inPool(cave, x, y);
+  assert.ok(differ > 50, `${differ} pixels differ`);
+});

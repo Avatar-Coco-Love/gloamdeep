@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.200 (2026-11-09)
+- Ponds outside are rounder and smooth-edged, halfway between their old shape and a round one: no more star shapes or dripping rims. The same tiles are water; cave pools are unchanged.
+- Decisions: D-748.
+
 ## 0.3.199 (2026-11-09)
 - The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.
 - Decisions: D-747.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.198 (2026-11-09)
 - A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.
 - Decisions: D-746.
-
-## 0.3.197 (2026-11-09)
-- The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.
-- The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.
-- Decisions: D-745.

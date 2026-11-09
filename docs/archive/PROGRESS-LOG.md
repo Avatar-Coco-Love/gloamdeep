@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.197, The broken seal.** The owner's idea and picks,
+  all recommended (D-745): the way in leads to the crypt, so it is now a
+  crypt's door, a bricked-up doorway broken open, on every edge. The cave
+  looks wait for later cave mouths; the overgrown mouth's step is off.
+  Playtest: https://claude.ai/artifact/X2yN3DAbtpoCyLeZEmb6Tw
+  Mock-ups: https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q
 - **2026-11-09, 0.3.196, A craggy cave mouth.** The owner's picks over
   three rounds of mock-ups (D-744): no hole and no grassy mound; the
   craggy cave and the overgrown mouth. The seed now picks the craggy

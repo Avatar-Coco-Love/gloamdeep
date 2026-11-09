@@ -1,6 +1,6 @@
-// § water (D-500): a still pool, its edge rounding off and wandering like the rock's, in
-// 2-pixel steps. Blue-grey, grown from the puddle's colours, the owner's pick of three:
-// a dark lip in the bank's shadow, a wet rim catching the light, deeper in the middle.
+// § water (D-500): a still pool, its edge rounding off and wandering like the rock's; an
+// outside pond's rounder and smooth (D-748). Blue-grey, grown from the puddle's colours,
+// the owner's pick of three: a dark lip in the bank's shadow, a wet rim catching the light, deeper in the middle.
 // Shared by the cave's rock (rock.js) and the pond at home (woods.js, D-503).
 import { hash } from '../core/noise.js';
 import { tileAt } from '../core/room.js';
@@ -15,10 +15,56 @@ export function wetAt(room, x, y) { // tile middles 1 (water) or 0, mixed betwee
   const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, x0 = Math.floor(fx), y0 = Math.floor(fy), ax = fx - x0, ay = fy - y0;
   return (isWet(room, x0, y0) * (1 - ax) + isWet(room, x0 + 1, y0) * ax) * (1 - ay) + (isWet(room, x0, y0 + 1) * (1 - ax) + isWet(room, x0 + 1, y0 + 1) * ax) * ay;
 }
-export function inPool(room, x, y) { // a dry tile's middle stays dry, so walking stays by tile
-  const tx = floorDiv(x, T), ty = floorDiv(y, T), ix = mod(x), iy = mod(y);
-  if (!isWet(room, tx, ty) && ix > 3 && ix < 12 && iy > 3 && iy < 12) return false;
+// A dry tile's middle stays dry, so walking stays by tile. A cave pool's edge wobbles in
+// 2-pixel steps as the rock's did; an outside pond's is the owner's pick B (D-748), below.
+export function inPool(room, x, y) {
+  if (room.look === 'woods') return inPond(room, x, y);
+  if (dryMiddle(room, x, y)) return false;
   return wetAt(room, x, y) > 0.5 - (hash(floorDiv(x, 2), floorDiv(y, 2), 31) - 0.5) * 0.45;
+}
+const dryMiddle = (room, x, y) => { const ix = mod(x), iy = mod(y); return !isWet(room, floorDiv(x, T), floorDiv(y, T)) && ix > 3 && ix < 12 && iy > 3 && iy < 12; };
+
+// § pond shape (D-748): halfway between the cave pool's outline and a round one. Each water
+// tile is also a soft round blob, blobs side by side melting together; the outline is half
+// that, half the tiles' blend, and wobbles smoothly, not in steps. A lone pixel or a spike
+// is cleaned off and a notch filled, so the rim never drips.
+const ROUND = 0.5, WOBBLE = 0.45;
+function roundAt(room, x, y) {
+  const fx = (x + 0.5) / T - 0.5, fy = (y + 0.5) / T - 0.5, cx = Math.round(fx), cy = Math.round(fy);
+  let s = 0;
+  for (let ty = cy - 1; ty <= cy + 1; ty++) for (let tx = cx - 1; tx <= cx + 1; tx++) {
+    if (!isWet(room, tx, ty)) continue;
+    const d2 = ((fx - tx) ** 2 + (fy - ty) ** 2) / 1.69; // a blob reaches 1.3 tiles from its middle
+    if (d2 < 1) s += (1 - d2) ** 2;
+  }
+  return Math.min(1, s);
+}
+function smooth(x, y, s) { // value noise, eased between whole points
+  const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0, sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+  return (hash(x0, y0, s) * (1 - sx) + hash(x0 + 1, y0, s) * sx) * (1 - sy) + (hash(x0, y0 + 1, s) * (1 - sx) + hash(x0 + 1, y0 + 1, s) * sx) * sy;
+}
+const softNoise = (x, y) => smooth(x / 6, y / 6, 31) * 0.65 + smooth(x / 6 * 2.1, y / 6 * 2.1, 32) * 0.35; // about 6 pixels a bump
+function pondAt(room, x, y) {
+  if (dryMiddle(room, x, y)) return 0;
+  const v = wetAt(room, x, y) * (1 - ROUND) + roundAt(room, x, y) * ROUND;
+  return v > 0.5 - (softNoise(x, y) - 0.5) * WOBBLE ? 1 : 0;
+}
+// Each pixel worked out once a room, as the cleaning and the colours ask about each one several times
+const known = new WeakMap();
+function rawPond(room, x, y) {
+  const w = room.cols * T, h = room.rows * T;
+  if (x < 0 || y < 0 || x >= w || y >= h) return pondAt(room, x, y);
+  let m = known.get(room);
+  if (!m) known.set(room, (m = new Int8Array(w * h).fill(-1)));
+  const i = y * w + x;
+  if (m[i] < 0) m[i] = pondAt(room, x, y);
+  return m[i];
+}
+function inPond(room, x, y) {
+  const n = rawPond(room, x - 1, y) + rawPond(room, x + 1, y) + rawPond(room, x, y - 1) + rawPond(room, x, y + 1);
+  if (n <= 1) return false;
+  if (n >= 3) return !dryMiddle(room, x, y);
+  return rawPond(room, x, y) === 1;
 }
 // A pool pixel's colour; `lip`, the two rows under the bank, dark rock's or the woods' grass
 export function water(room, x, y, lip = WATER.bank) {
