@@ -11,6 +11,7 @@ at build plan step 7 (D-039).
   `share.png`, the picture a shared link shows, drawn by the game's code
   through `tools/sharecard.js`, never by hand (D-425).
 - Phone first, held upright or sideways (D-505): the room shows about 11 tiles across the short side; a card on a view taller than wide (`isTall`, `render/bag.js`) stacks its sides; on a squarer screen held sideways a card in play is drawn smaller, at least 340 game pixels across (`cardZoom`, `render/screen.js`, D-671). Tap targets are at least 44 px.
+  Words wrap, never run off: a card's words stay inside it at every phone size, with all content, and a list that can grow scrolls (`render/journalrows.js`); `tests/textfit.test.js` checks it (D-743).
   Touch, mouse and keyboard all work (Pointer Events for tap and click).
 - 60 fps on a mid-range phone. Avoid allocating memory every frame. The
   style study's per-pixel lighting runs on a 176 × 208 canvas, so keep the

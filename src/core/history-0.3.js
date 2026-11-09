@@ -4,6 +4,13 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.195', date: '2026-11-09', title: 'Words that fit', lines: [
+    "Words no longer run past the edge of a card. On a phone held upright, a quest's how wraps onto more lines, and a done goal's reward sits under it.",
+    "A Journal list longer than its card scrolls, with a thin bar at its right: swipe, the mouse wheel, or Up and Down. Upright, the Bestiary is one table instead of two squeezed together.",
+    "The goal line under the hearts wraps so the round map no longer covers its end. In the stash chest, a long name stays clear of STORE.",
+    "A new test draws every card at upright and sideways phone sizes with everything in the game, so words that don't fit are caught before they reach a phone.",
+    "Decisions: D-743.",
+  ] },
   { v: '0.3.194', date: '2026-11-09', title: 'The bug hunt\'s fixes', lines: [
     "Every bug the twelfth audit found is fixed. A berry bush or fallen branch no longer blocks a path between woods rooms.",
     "Journeys begun before the mountain rooms now get mountain rooms in the north row they haven't visited, and the dev Reset at home no longer brings back the old cave mouth.",

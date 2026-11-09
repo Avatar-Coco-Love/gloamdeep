@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.192, The twelfth audit.** All recommended (D-740):
+  the 0.3 history split again, D-699 and D-734 to D-737 archived, steps
+  21 and 22 archived, the hook's message fixed, the playbook grown, all
+  word for word. Start read 10.2 KB.
+  Findings: https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK
+  No playtest: nothing to play.
 - **2026-11-09, 0.3.191, Rounded rock.** The owner's picks, all
   recommended (D-739): rock lit by day and fuller, trees in front, the
   mouth's rocks only rounded; the owner asked for better cave mouths in

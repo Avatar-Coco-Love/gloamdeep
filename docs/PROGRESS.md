@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.194 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.195 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -43,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.195, Words that fit.** All recommended (D-743): every
+  card drawn at phone sizes with all content; the six places where words
+  ran off or overlapped are fixed, Journal lists scroll, and a test now
+  catches words that don't fit.
+  Playtest: https://claude.ai/artifact/3Mn9rQxgXFzdm52mSYKej9
 - **2026-11-09, 0.3.194, The bug hunt's fixes.** All recommended
   (D-742): the owner asked for every known bug fixed, in one PR. All
   nine of the twelfth audit's findings are fixed, each with a test, with
@@ -53,9 +58,3 @@ list in `RESEARCH.md`.
   (D-741): how the game grew, our tools, lessons from bugs and design
   habits, in a new `WORKFLOW-2.md`; a step that teaches something adds
   a line as it goes, sorted at each audit. No playtest: nothing to play.
-- **2026-11-09, 0.3.192, The twelfth audit.** All recommended (D-740):
-  the 0.3 history split again, D-699 and D-734 to D-737 archived, steps
-  21 and 22 archived, the hook's message fixed, the playbook grown, all
-  word for word. Start read 10.2 KB.
-  Findings: https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK
-  No playtest: nothing to play.

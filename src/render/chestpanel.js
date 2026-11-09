@@ -7,7 +7,7 @@
 // round cross closes the card.
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, wrapWords, isTall, BUTTON, PAD, SLOT, SLOT_GAP, LINE_H, TAP_PAD } from './bag.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, isTall, BUTTON, PAD, SLOT, SLOT_GAP, LINE_H, TAP_PAD } from './bag.js';
 import { TAKE, TAKE_W, TALL_SPLIT, take } from './benchpanel.js';
 import { BAG_SLOTS } from '../core/bag.js';
 import { bagShape } from './bag.js';
@@ -61,5 +61,17 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
   const dx = x + b.x, dw = x + w - PAD - dx;
   const lines = [[`${get(s.id).name}, ${s.n} in the ${out ? 'chest' : 'bag'}`, CORE], [`Tap to move to the ${out ? 'bag' : 'chest'}.`, GREY]];
   let ly = y + b.name;
-  for (const [text, colour] of lines) for (const l of wrapWords(text, dw)) { drawText(c, l, dx, ly, colour); ly += LINE_H; }
+  // a line level with STORE ends left of it, on a short card with a big bag; the hint is left out
+  // where it would pass the card's foot (D-743)
+  const foot = y + card.h - 6, widthAt = (ty) => (ty + LINE_H > st.y ? st.x - 6 - dx : dw);
+  for (const [text, colour] of lines) {
+    if (colour === GREY && ly + 7 > foot) break;
+    let line = '';
+    for (const word of text.split(' ')) {
+      const next = line ? `${line} ${word}` : word;
+      if (!line || textWidth(next) <= widthAt(ly)) { line = next; continue; }
+      drawText(c, line, dx, ly, colour); ly += LINE_H; line = word;
+    }
+    if (line) { drawText(c, line, dx, ly, colour); ly += LINE_H; }
+  }
 }

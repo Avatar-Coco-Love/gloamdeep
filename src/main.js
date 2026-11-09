@@ -83,6 +83,7 @@ const app = {
   goalGold: null, // { id, until }: the goal just done, its line gold until that turn (D-706)
   page: 'touch', // How to play's page
   tab: 'records', // the Journal's open tab: Records or Growth (D-293)
+  journalScroll: 0, // the Journal's open list's top row shown, scrolled (D-743)
   entry: '', // the digits typed on the seed pad, or the letters on the name pad
   naming: 0, renaming: false, // the slot the name pad names: an empty one (D-272), or a profile renamed (D-273)
   padFrom: 'settings', // the screen the seed pad was opened from: Settings or the Explorer
