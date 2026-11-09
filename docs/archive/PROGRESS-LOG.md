@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.194, The bug hunt's fixes.** All recommended
+  (D-742): the owner asked for every known bug fixed, in one PR. All
+  nine of the twelfth audit's findings are fixed, each with a test, with
+  one save upgrade for older journeys.
+  Playtest: https://claude.ai/artifact/HpPeLDYfBBGdZLpK2WGDmC
+  Map preview: https://claude.ai/artifact/73kdAXRK9SNqvGCon3Bggu
 - **2026-11-09, 0.3.193, The playbook caught up.** All recommended
   (D-741): how the game grew, our tools, lessons from bugs and design
   habits, in a new `WORKFLOW-2.md`; a step that teaches something adds

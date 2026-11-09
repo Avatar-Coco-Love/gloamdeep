@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.197 (2026-11-09)
+- The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.
+- The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.
+- Decisions: D-745.
+
 ## 0.3.196 (2026-11-09)
 - A new look for the cave mouth: a craggy cave, wide and black, with teeth of rock hanging from its top. The seed picks it or the small arch, so worlds differ.
 - On a side or bottom edge, the rock roofs over the craggy cave and the ground dives black beneath it. A few pebbles lie at the rocks' feet. Walking is unchanged.
@@ -34,10 +39,3 @@ Entry format:
 - The goal line under the hearts wraps so the round map no longer covers its end. In the stash chest, a long name stays clear of STORE.
 - A new test draws every card at upright and sideways phone sizes with everything in the game, so words that don't fit are caught before they reach a phone.
 - Decisions: D-743.
-
-## 0.3.194 (2026-11-09)
-- Every bug the twelfth audit found is fixed. A berry bush or fallen branch no longer blocks a path between woods rooms.
-- Journeys begun before the mountain rooms now get mountain rooms in the north row they haven't visited, and the dev Reset at home no longer brings back the old cave mouth.
-- Goals done on the same turn each roll their own reward. On a South woods journey, an older profile's "Go home to the woods" is ticked quietly instead of showing crypt directions.
-- A pool no longer hints that a room's flask is unguarded, and rat packs no longer tell where a flask mimic stands. A spit grub's glob flies over a pile of bones, and a scorpion lowers its tail when you come back into its room.
-- Decisions: D-742.

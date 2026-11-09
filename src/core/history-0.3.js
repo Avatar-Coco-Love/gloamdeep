@@ -4,6 +4,11 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.197', date: '2026-11-09', title: 'The broken seal', lines: [
+    "The way into the crypt is now a crypt's door: the broken seal, a bricked-up doorway with a hole broken through it and fallen bricks on the grass, on every edge.",
+    "The small arch and the craggy cave are kept for later cave mouths; the overgrown mouth waits with them.",
+    "Decisions: D-745.",
+  ] },
   { v: '0.3.196', date: '2026-11-09', title: 'A craggy cave mouth', lines: [
     "A new look for the cave mouth: a craggy cave, wide and black, with teeth of rock hanging from its top. The seed picks it or the small arch, so worlds differ.",
     "On a side or bottom edge, the rock roofs over the craggy cave and the ground dives black beneath it. A few pebbles lie at the rocks' feet. Walking is unchanged.",

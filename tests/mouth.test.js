@@ -123,3 +123,17 @@ test("the mouth's look: one of the registry's, from its own stream, every look i
   assert.deepEqual([...seen].sort(), [...TILES.caveMouth.looks].sort());
   assert.deepEqual({ ...mouthOf(1), look: undefined }, { dir: 'right', tile: { x: 16, y: 12 }, from: mouthOf(1).from, room: 'first', gap: { x: 0, y: 3 }, look: undefined }); // where seed 1's mouth stands, as before
 });
+
+test('the broken seal: the crypt way in, drawn on its tile on every edge, inside the room (D-745)', async () => {
+  const { TILES } = await import('../src/core/tiles.js');
+  const { paintSeals } = await import('../src/render/seal.js');
+  assert.deepEqual(TILES.caveMouth.looks, ['seal']);
+  assert.deepEqual(TILES.caveMouth.caveLooks, ['arch', 'craggy']); // kept for later cave mouths
+  const room = { cols: 17, rows: 20 };
+  for (const [dir, x, y] of [['up', 2, 0], ['down', 14, 19], ['left', 0, 2], ['right', 16, 17]]) {
+    const hit = new Set(), out = [];
+    paintSeals(room, [{ x, y, dir }], (px, py) => { if (px < 0 || py < 0 || px >= 17 * 16 || py >= 20 * 16) out.push([px, py]); hit.add(`${px >> 4},${py >> 4}`); });
+    assert.equal(out.length, 0, dir);
+    assert.ok(hit.has(`${x},${y}`), dir);
+  }
+});
