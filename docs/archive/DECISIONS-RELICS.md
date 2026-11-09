@@ -86,3 +86,14 @@ locket kept Venom Sac ×3." (the owner picked it after the fall line;
 both don't fit the strip, so it says it in the fall line's place).
 Claude's drafts the owner may change: its words. D-685 moved to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-717 · 2026-11-09 · The relic's softer glow, and what comes next**
+(the owner's ask and picks, all recommended; changes D-692's halo) The
+relic's violet glow sat 2 pixels below the locket and 1 to its left, and
+was too bright, 31 pixels across. Look A of three: centred on the
+locket's case, 21 pixels across, its violets dimmer; on the shelf the
+same smaller, dimmer glow round the small locket. The glint, the slow
+swell and the steady glow with reduced motion stay. Next, every flyer
+(the bat, the lampmoth, the lure wisp) may fly over water, all
+recommended; then the audit's fixes and more Feats.
+Mock-up: the picture in the conversation, now / A / B.

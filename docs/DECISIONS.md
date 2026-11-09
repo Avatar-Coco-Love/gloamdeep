@@ -122,17 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-717 · 2026-11-09 · The relic's softer glow, and what comes next**
-(the owner's ask and picks, all recommended; changes D-692's halo) The
-relic's violet glow sat 2 pixels below the locket and 1 to its left, and
-was too bright, 31 pixels across. Look A of three: centred on the
-locket's case, 21 pixels across, its violets dimmer; on the shelf the
-same smaller, dimmer glow round the small locket. The glint, the slow
-swell and the steady glow with reduced motion stay. Next, every flyer
-(the bat, the lampmoth, the lure wisp) may fly over water, all
-recommended; then the audit's fixes and more Feats.
-Mock-up: the picture in the conversation, now / A / B.
-
 **D-718 · 2026-11-09 · Flyers over water** (the owner's picks, all
 recommended; builds D-717) The bat, the lampmoth and the lure wisp (the
 registry's `flies`) may fly over water, a cave pool or the home pond; no
@@ -176,3 +165,15 @@ card, as Flasks (D-698); Records keeps Rooms found. Rooms found before
 this count. Steps comes next, at 1000, 5000 and 20000; then Torches
 lit, at 5, 25 and 100. With Rooms, the Feats pay 24 Glints. D-716
 moves to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-722 · 2026-11-09 · Steps, the fifth Feat** (the owner's picks, both
+recommended; builds D-721, narrows Q-057) Steps comes now, from Steps,
+at 1000, 5000 and 20000 steps, paying 1, 2 and 3 Glints, the fifth row.
+It keeps its Records name, Steps ("Feat reached: Steps 1000. +1
+Glint."). "19999 of 20000" ran 17 pixels into the marks on the upright
+card, so on the tab a goal of a thousand or more is written in k
+("4321 of 5k", "20k" once all are reached), the count whole; the note
+and the screen reader say it whole. The gap between the names and the
+counts goes from 16 to 8 pixels on every card. Steps taken before this
+count. With Steps, the Feats pay 30 Glints. D-717 moves to
+`archive/DECISIONS-RELICS.md`, word for word.

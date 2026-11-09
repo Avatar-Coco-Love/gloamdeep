@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.172 (2026-11-09)
+- Fixed: reaching two Feats in one turn now shows both in one note, such as "Feat reached: Beaten 10, Flasks 5. +2 Glints."
+- Fixed: a Feat note no longer hides that turn's own line, such as a level-up or "The locket kept…". That line shows first, and the Feat note follows on your next move.
+- Decisions: D-719.
+
 ## 0.3.171 (2026-11-09)
 - Bats, lampmoths and lure wisps now fly over water, cave pools and the pond alike. Walk into one hovering over water to strike it, with the rod held or not; anything it drops lands on the nearest dry ground.
 - Decisions: D-718.

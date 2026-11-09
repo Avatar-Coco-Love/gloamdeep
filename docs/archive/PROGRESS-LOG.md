@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.172, The Feat note after the turn's line.** The
+  audit's B2 and B3, the owner's picks, all recommended: the other fixes
+  go in two steps; two Feats in one turn share one note, Glints added
+  up; a turn's own line shows first, the Feat note on the next move
+  that says none. Next, B4 and Q1.
+  Playtest: https://claude.ai/artifact/4i43wvgca6xjTSEo7jzkXL
 - **2026-11-09, 0.3.171, Flyers over water.** The bat, the lampmoth and
   the lure wisp fly over water now; no other creature does. The owner's
   picks, all recommended: walking into one over water strikes it, rod
