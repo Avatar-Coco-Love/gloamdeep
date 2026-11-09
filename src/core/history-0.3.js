@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.185', date: '2026-11-09', title: 'A bigger surface, the plan', lines: [
+    "Nothing in the game changed. The plan for a bigger surface: the woods grow to nine rooms, with mountains along the north, home in the middle and the cave in a room beside it. A new journey will begin in a woods room to the south, and you walk north to find home. After a fall you will wake in the last bed you slept in, or at the home waystone once woken, or else where the journey began. Some woods will be thick, some open glades. Five small steps, the nine rooms first.",
+    "Decisions: D-733. Questions closed: Q-081. D-712 and D-713 moved to the archive, word for word.",
+  ] },
   { v: '0.3.184', date: '2026-11-09', title: 'A playbook of how we work', lines: [
     "Nothing in the game changed. A new page for the makers, How we work: the way the owner and Claude build Gloamdeep together, why each habit exists, what changed along the way, and how to start a new project from it. Each audit will add to it.",
     "Decisions: D-732.",

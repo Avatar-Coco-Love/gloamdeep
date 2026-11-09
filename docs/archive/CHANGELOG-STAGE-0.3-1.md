@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.182 (2026-11-09)
+- The scorpion now strikes with its tail. It never bites beside you. Once you are in line with it, up to two tiles away, it stops and raises its tail for a turn, and both tiles ahead are marked. On its next turn it strikes them: two hearts if you are still there. Step out of its line and the sting hits bare floor, then it stands still a turn, open to your blow. One blow of anything still kills it.
+- A new switch in Settings, Attack marks, after Flasks. It starts On. Turn it Off and no creature's next move shows: no arrows, fangs, glob arrows or strike marks, on the room or on the creature list. You read the creatures by watching them and their lines.
+- Decisions: D-729, D-730.
+
 ## 0.3.181 (2026-11-09)
 - Rats now hunt in packs. From depth 3, in about 1 room in 3, the rat by the flask has two packmates beside it. Once one of them sees you, all three come, and each heads for its own side of you to surround you. While two of a pack are left, a hurt rat stands its ground; the last one may still run. A rat on its own acts as before. The rat's Bestiary page says so.
 - Decisions: D-727, D-728.

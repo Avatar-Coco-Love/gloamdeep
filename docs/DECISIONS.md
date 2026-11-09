@@ -72,16 +72,6 @@ ticked on loading and pay their reward, never shown (recommended).
 The half-taught lines, finds saying what they are but not what next,
 are fixed later at their own step (recommended). Nothing is built yet.
 
-**D-712 · 2026-11-08 · The boons card built** (the owner's picks, all
-recommended; builds D-706) The boons card shows right after the first
-boon is picked, on the same glass card as the opening's, the room dimmed.
-A profile whose "Take a boon" was ticked quietly is never shown it on its
-own. Picking the done "Take a boon" in the Quests tab shows it over the
-Journal, and Go goes back to the Quests tab. Claude's calls the owner may
-change: Enter on the Quests tab shows it too; the first pick is the one
-that marks "Take a boon" done, so a profile that never held a boon sees
-it even if the goal was ticked quietly at that pick.
-
 **D-706 · 2026-11-08 · The first teaching goals' words** (the owner's
 picks, all recommended but the order; builds D-705, answers Q-087) From
 a mock-up (https://claude.ai/artifact/1KHuhUs8hCtGHxYhaxeHJa). Six goals,
@@ -109,18 +99,6 @@ help for one trip down." / "It lasts until you come home, or you fall."
 one." and Go; picking the done "Take a boon" in the Quests tab shows it
 again. D-695 to D-698 moved to `archive/DECISIONS-FEATS.md`, word for
 word.
-
-**D-713 · 2026-11-08 · The sixth teaching goal built** (the owner's
-picks, all recommended; builds D-706) "Spend your ember" / "Tap here,
-then Growth." shows at level 2 and is done on the first buy in Growth
-(a heart or Tough); no turn passes in the Journal, so the line turns gold
-and the text line says so once it closes. Tapping the line opens the
-Quests tab, as every goal's does. Ticked quietly, never shown, when an
-ember is spent already this journey. Claude's call the owner may change:
-it goes ahead of an older goal waiting only while an ember is there to
-spend, so after a fall back to level 1 the older goal shows. A stray
-bracket from 0.3.165 that stopped the game from starting is fixed here,
-with a test that every code file parses (the owner's pick, recommended).
 
 **D-727 · 2026-11-09 · Creatures walk over finds; the rat pack planned**
 (the owner's picks, all recommended; builds D-726) Creatures no longer
@@ -192,3 +170,21 @@ future projects. `docs/WORKFLOW.md` gathers it in one place: the steps
 of a step, each habit and why, what changed along the way, and how to
 start a new project. Each audit adds what that stretch taught us about
 working together. Built now as its own step, nothing visible changed.
+
+**D-733 · 2026-11-09 · A bigger surface, the plan** (the owner's picks,
+all recommended but where a fall wakes; builds D-182 to D-184, answers
+Q-081) The surface grows to Hearthwood's 3 × 3 rooms, mountains in the
+north row, woods elsewhere, home in the centre (D-182, D-183). A new
+journey no longer begins in the crypt nor at home or the cave: the seed
+picks one of the south woods rooms, never the cave's, and the hero walks
+north to find the waystone. A fall wakes the hero (the owner's own
+answer): in the last bed slept in; with none, at the home waystone once
+woken; otherwise in the room where the journey began. The rooms differ:
+mountain rooms, and woods from thick to open glades, the seed picking.
+The order, one step each: 1 the 9 rooms, all woods, walking off an edge
+into the next; home stays today's woods room, so what was set down keeps
+its place, and the cave mouth moves to a room beside home (D-184); 2 the
+south start, its teaching goal's words with it; 3 waking after a fall
+(supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
+and open glades. Nothing is built yet. D-712 and D-713 move to
+`archive/DECISIONS-GOALS.md`, word for word.

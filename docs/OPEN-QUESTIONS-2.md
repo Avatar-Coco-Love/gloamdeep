@@ -39,12 +39,6 @@ The cave mouth is settled (D-218). Still open: daylight down stairs from
 outside, how weather dims it, and how strong the glow from an unfound
 lit room is (D-173).
 
-**Q-081 · Does a new journey begin on the surface?** (raised 2026-11-05, D-589)
-Today a new journey begins in the crypt, and a fall wakes the hero there
-(D-119). The owner is open to beginning in the woods at the home
-waystone's foot. Ask as its own small step: where a journey begins,
-and where a fall wakes the hero.
-
 **Q-037 · How regions are generated and joined** (stage 0.3)
 Proposed in `WORLD.md`: two passes, the region's layout first, then each
 room made to fit its ways in, each room with its own seed. Built for
