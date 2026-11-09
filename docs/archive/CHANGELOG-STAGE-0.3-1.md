@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.177 (2026-11-09)
+- The prices of looks are settled, and nothing in the game changes: the 13 locked looks cost 3 Glints each, 39 in all, and finishing all six Feats (36 Glints) plus your free pick buys every one, with goal Glints a small spare. Looks added later cost 3 Glints each too, and each new set comes with a new Feat, so Glints keep up.
+- Decisions: D-724. Questions closed: Q-055.
+
 ## 0.3.176 (2026-11-09)
 - The Journal's Feats tab has a sixth Feat, Torches: light 5, 25 and 100 torches, across all your journeys, for 1, 2 and 3 Glints. Torches lit before this count too. Reaching one says "Feat reached: Torches 5. +1 Glint."
 - Decisions: D-723. Questions closed: Q-057.

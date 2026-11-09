@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.179 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.180 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The rat pack (D-726): propose how a pack of rats acts and where it turns up, the second new way, as its own small step.
+The rat pack (D-727): build the Pack way for the plain rat as the owner picked it, the second new way, its own small step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -39,6 +39,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.180, Creatures walk over finds.** The owner's picks,
+  all recommended (D-727): the rat pack is planned (the plain rat, each
+  to its own side, the flask rat and 2 more from depth 3, brave while 2
+  are left). The owner noticed creatures went around finds: now they
+  walk over them, and a drop lies beside a find on one tile, built first.
+  Next, the rat pack.
+  Playtest: https://claude.ai/artifact/GmH2vcYXaaERPWHpRcqLMU
 - **2026-11-09, 0.3.179, The mole burrows.** A playtester found the
   creatures too alike. The owner's picks, all recommended (D-726): retune
   chasers and add new kinds, ways Burrows then Pack. The mole digs down
@@ -52,8 +59,3 @@ list in `RESEARCH.md`.
   of those by chance, left as is. Q-075 closed. Next, the surface (Q-081).
   Playtest: https://claude.ai/artifact/CkWdSSvstF5PBfZHJFFamE
   Map preview: https://claude.ai/artifact/QFnsLzyontkrDc87kmcJpb
-- **2026-11-09, 0.3.177, Glints and the prices of looks.** The owner's
-  picks, both recommended (D-724): the balance stays, 13 locked looks at
-  3 cost 39, the Feats' 36 and the free pick buy them all, goal Glints a
-  spare; looks to come cost 3 each and come with a new Feat or tiers.
-  Q-055 closed. Nothing visible. Next, an unguarded flask (Q-075).

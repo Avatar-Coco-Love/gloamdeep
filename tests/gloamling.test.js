@@ -61,8 +61,8 @@ test('next to the hero in light it does not bite, and backs away', () => {
 });
 
 test('cornered in light it stays put and does not bite', () => {
-  const s = { ...at(1, 11), hero: { x: 2, y: 11 }, items: [{ id: 'flask', x: 1, y: 10 }] }, n = wait(s);
-  assert.deepEqual(where(n), [[1, 11]]);
+  const s = { ...at(1, 11), hero: { x: 2, y: 11 } }, n = wait({ ...s, enemies: [...s.enemies, { id: 'flaskMimic', x: 1, y: 10, asleep: true }] });
+  assert.deepEqual(where(n), [[1, 11], [1, 10]]);
   assert.equal(n.health, 5);
 });
 

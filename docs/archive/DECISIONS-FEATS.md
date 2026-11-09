@@ -68,3 +68,39 @@ then B4 and Q1. B2: two Feats reached in one turn share one note,
 B3: a turn that says its own line (a level-up, "The locket kept…", a
 goal done) shows it, and the Feat note waits for the next move that says
 none; a tier reached while it waits joins it. Next, B4 and Q1.
+
+**D-721 · 2026-11-09 · More Feats: Rooms first** (the owner's picks;
+builds D-695, narrows Q-057) Three more Records get a Feat, each its
+own step: Rooms found, then Steps, then Torches lit; Falls and Time
+played get none. Each pays 1, 2 and 3 Glints as every set does. Rooms
+comes now, from Rooms found, at 10, 50 and 200 rooms, the fourth row.
+On the Feats tab and in its note it is named Rooms ("Feat reached:
+Rooms 10. +1 Glint."), not Rooms found, so its row fits the upright
+card, as Flasks (D-698); Records keeps Rooms found. Rooms found before
+this count. Steps comes next, at 1000, 5000 and 20000; then Torches
+lit, at 5, 25 and 100. With Rooms, the Feats pay 24 Glints. D-716
+moves to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-722 · 2026-11-09 · Steps, the fifth Feat** (the owner's picks, both
+recommended; builds D-721, narrows Q-057) Steps comes now, from Steps,
+at 1000, 5000 and 20000 steps, paying 1, 2 and 3 Glints, the fifth row.
+It keeps its Records name, Steps ("Feat reached: Steps 1000. +1
+Glint."). "19999 of 20000" ran 17 pixels into the marks on the upright
+card, so on the tab a goal of a thousand or more is written in k
+("4321 of 5k", "20k" once all are reached), the count whole; the note
+and the screen reader say it whole. The gap between the names and the
+counts goes from 16 to 8 pixels on every card. Steps taken before this
+count. With Steps, the Feats pay 30 Glints. D-717 moves to
+`archive/DECISIONS-RELICS.md`, word for word.
+
+**D-723 · 2026-11-09 · Torches, the sixth Feat** (the owner's pick,
+recommended; builds D-721, answers Q-057) Torches lit gets its Feat now,
+at 5, 25 and 100 torches, paying 1, 2 and 3 Glints, the sixth and last
+row. On the Feats tab and in its note it is named Torches ("Feat
+reached: Torches 5. +1 Glint."), as Flasks and Rooms; Records keeps
+Torches lit. "Torches lit" was 47 pixels wide and pushed Steps'
+"19999 of 20k" 13 pixels into the marks on the upright card; Torches,
+34, fits it exactly. Torches lit before this count. With Torches, the
+Feats pay 36 Glints. Next, the owner's pick, recommended: Glints and
+the prices of looks (Q-055), the Feats now built. D-718 moves to `archive/DECISIONS-RELICS.md`,
+word for word.
