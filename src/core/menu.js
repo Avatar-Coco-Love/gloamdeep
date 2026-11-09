@@ -17,10 +17,15 @@ export const BED_HEADING = 'Deconstruct bed?';
 export const BED_NOTE = "You aren't tired.";
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
-export const TAKE_ASKS = { bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693)
+export const TAKE_ASKS = { campfireAshes: ['Light the fire?', 'No one has sat here for a long time.'], bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693)
 // The shelf bumped with the locket in the bag asks to set it there instead, No picked; Yes `shelve`s it (D-693)
 export const SHELVE_ASK = ['Set the locket on the shelf?', 'Kept close, whatever the dark took.'];
 export const SHELVE_MENU = [{ id: 'shelve', text: 'Yes' }, { id: 'no', text: 'No' }];
+// Cold ashes bumped ask Light the fire?, the second half of the ashes' words under it, the text
+// line saying the first, Cold ashes. (the card too narrow for both), No picked; Yes `kindle`s it,
+// grey with an empty lantern (D-757)
+export const KINDLE_MENU = [{ id: 'kindle', text: 'Yes' }, { id: 'no', text: 'No' }];
+export const kindleMenu = (can) => dimFirst(KINDLE_MENU, can);
 // Grown, Pick takes Plant's place, picked (D-568)
 export const GARDEN_MENU = [{ id: 'plant', text: 'Plant' }, { id: 'take', text: 'Deconstruct' }];
 export const PICK_MENU = [{ id: 'pick', text: 'Pick' }, { id: 'take', text: 'Deconstruct' }];

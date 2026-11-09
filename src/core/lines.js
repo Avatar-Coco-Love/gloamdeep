@@ -347,6 +347,10 @@ export const LINES = {
   wardenSettles: { text: 'The warden stands still again.', warn: false },
   wardenDie: { text: 'The warden crumbles and falls still.', warn: false },
   wardenBite: { text: 'The warden strikes you.', warn: false, kind: 'harm' },
+  campfireBlazing: { texts: ['A campfire, burning high.', 'Someone was here not long ago.'], warn: false }, // a campfire bumped, a sentence a bump (D-757)
+  campfireEmbers: { texts: ['The coals still glow.', 'Whoever sat here is gone.'], warn: false },
+  campfireAshes: { text: 'Cold ashes.', warn: false }, // said as cold ashes' card opens, its note the rest (D-757)
+  campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

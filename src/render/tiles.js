@@ -132,6 +132,9 @@ const DRAW = {
   waystonePath: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePath(c, x, y); },
   waystonePlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y); },
   wokenPlate: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawWaystonePlate(c, x, y, true); }, // its rune lit (D-591)
+  campfire: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfire); }, // its flames after the light (D-757)
+  campfireEmbers: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireEmbers); },
+  campfireAshes: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireAshes); },
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

@@ -10,6 +10,7 @@ import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
 import { withPack } from './pack.js';
 import { generateWoods, inFront, STONE_UP, STONE_RING } from './woods.js';
+import { withCampfire } from './campfire.js';
 import { around } from './landmarks.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -121,7 +122,8 @@ for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => w
 // as an older save's are (movestone.js). Then the paths to the rooms beside are cut. A mountain
 // room, the north row, grows without its pond and bush, and after its paths its trees become
 // rock but for a few, with 3 boulders on its grass (D-738). The other woods rooms grow thick,
-// as they first did, or as glades, the seed picking (D-756).
+// as they first did, or as glades, the seed picking (D-756). Last, one of the 8 outside home gets
+// the campfire, picked after the rest so each room stays as it was (campfire.js, D-757).
 // The waystone's tiles and the ring round it, kept clear of a mountain room's boulders
 const stoneRing = (start, ring = STONE_RING) => around(LANDMARKS.waystone, start.x, start.y - STONE_UP, ring);
 // A map with tiles `at` made grass
@@ -132,7 +134,8 @@ function woodsRoom(id, seed) {
   const grown = generateWoods(woodsSeed(seed, id), mouth, { stone: stone || home, mark: !home, wet: !rock, kind: kindOf(seed, id) });
   const made = home ? { ...grown, map: grassed(grown.map, stoneRing(grown.start, 0)) } : grown; // home grows as it did, its stone's spot grass
   const cut = { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
-  return rock ? mountainOf(woodsSeed(seed, id), cut, [...(mouth ? inFront(mouth) : []), ...(stone ? stoneRing(made.start) : [])]) : cut;
+  const keep = [...(mouth ? inFront(mouth) : []), ...(stone ? stoneRing(made.start) : [])];
+  return withCampfire(seed, id, rock ? mountainOf(woodsSeed(seed, id), cut, keep) : cut, keep); // its campfire, in one room (D-757)
 }
 
 // § depth: the place at each depth, and back. The crypt is depth 0 with the

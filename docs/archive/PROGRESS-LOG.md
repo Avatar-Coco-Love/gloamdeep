@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.205, Waymark's dot on the rim.** The owner's picks,
+  all recommended (D-754): with Waymark, a one-tile violet dot pulses
+  just inside the round map's rim toward the nearest stairs down, in a
+  straight line, found or not, once they are too far to fit on it.
+  Playtest: https://claude.ai/artifact/KwU6j9RDcBfBDwcWg4pHCU
 - **2026-11-09, 0.3.204, The waystone by the crypt's door.** The owner's
   picks, recommended but the spot (D-753): the home waystone stands in
   the cave mouth's room, 2 tiles north of its middle (the owner's pick);

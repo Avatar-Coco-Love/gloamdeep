@@ -2,14 +2,14 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { newJourney as beginJourney, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
 import { strikeFish, needleAt } from './core/fishing.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
-import { beginPlace, depthOf } from './core/room.js';
+import { beginPlace, depthOf, tileAt as roomTileAt } from './core/room.js';
 import { SEED_MAX, rng } from './core/rng.js';
 import { createScreen } from './render/screen.js';
 import { setOil } from './core/oil.js';
@@ -222,12 +222,13 @@ function tryStep(dir) {
   else if (dir.make !== undefined) app.state = makeAt(app.state, dir.make); // a thing made at the workbench, one turn, its panel kept open (CH1, D-326)
   else if (dir.set !== undefined) app.state = setDown(app.state, dir.set, dir.side); // the workbench beside the hero, one turn (WB2, D-322)
   else if (dir.shelve !== undefined) app.state = shelve(app.state, dir.shelve.x, dir.shelve.y); // the locket on the shelf, one turn (D-693)
+  else if (dir.kindle !== undefined) app.state = kindle(app.state, dir.kindle.x, dir.kindle.y); // cold ashes lit with the lantern's oil, one turn (D-757)
   else if (dir.plant !== undefined) app.state = plant(app.state, dir.plant.x, dir.plant.y); // a seed in the garden bed, one turn (D-566)
   else if (dir.pick !== undefined) app.state = pick(app.state, dir.pick.x, dir.pick.y); // the grown bed's berries, one turn (D-568)
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
   else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { app.state = step(app.state, dir); screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494)
-  else if (panelBeside(before, dir)) { screens.openPanel(panelBeside(before, dir)); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3)
+  else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
   else {
     const next = step(app.state, dir);
     const [dx, dy] = DIRS[dir], foe = enemyAt(app.state, app.state.hero.x + dx, app.state.hero.y + dy);
@@ -377,7 +378,7 @@ const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
-  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
+  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)

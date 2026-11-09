@@ -80,5 +80,6 @@ Decided when the second region is designed (Q-037).
 ## Creatures and finds
 A pond at home in the woods, 5 to 9 tiles (D-503). A gloamberry bush
 in each woods room (D-531). 3 grey boulders in each mountain room, and
-no pond or bush (D-738). The rest is not decided yet. Landmarks and special items are ideas for later (see
+no pond or bush (D-738). One campfire a seed in one of the 8 rooms
+round home, blazing, embers or cold ashes (D-757). The rest is not decided yet. Landmarks and special items are ideas for later (see
 "Ideas for later" in `PROGRESS.md`).

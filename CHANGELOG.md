@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.208 (2026-11-09)
+- A campfire now stands in one of the 8 surface rooms round home, the seed picking the room and how lit it is: blazing, low embers or cold ashes. Bump it to read what it says, a sentence a bump.
+- A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.
+- Bump cold ashes and a card asks Light the fire? Yes lights it into embers with one turn of your lantern's oil; with an empty lantern Yes is grey.
+- Decisions: D-757. Questions closed: Q-090.
+
 ## 0.3.207 (2026-11-09)
 - The woods round home now differ: each of the 5 rooms is thick woods, the woods as before, or an open glade, the seed picking, with at least one thick room and one glade every journey. Home stays as it was.
 - In a saved game, a woods room you have already been to stays as it is; one you have never seen grows as its new kind.
@@ -31,7 +37,3 @@ Entry format:
 ## 0.3.206 (2026-11-09)
 - Once you have found the way down, a few dust motes now stay in the lantern light, each wandering its own slow way: 3 in the crypt and earth, 2 in grey rock and the dungeon, none under the sky.
 - Decisions: D-755.
-
-## 0.3.205 (2026-11-09)
-- With Waymark, when the nearest stairs down are too far to fit on the round map, a violet dot now sits on its rim, pointing toward them. It pulses as the map's marks do, and counts stairs you have already found too.
-- Decisions: D-754.
