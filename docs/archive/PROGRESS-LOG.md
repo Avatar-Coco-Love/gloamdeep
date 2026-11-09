@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
+  (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
+  packmates; one noticing brings all three, each to its own side of the
+  hero, and a hurt one stands while 2 are left. Claude's drafts the owner
+  may change are in D-728. Next, the owner's pick.
+  Playtest: https://claude.ai/artifact/Fd9S73LizRPbm8s215Rppn
+  Map preview: https://claude.ai/artifact/QPq6MSkWuTiHyD9AvcS2WP
 - **2026-11-09, 0.3.180, Creatures walk over finds.** The owner's picks,
   all recommended (D-727): the rat pack is planned (the plain rat, each
   to its own side, the flask rat and 2 more from depth 3, brave while 2
