@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.199 (2026-11-09)
+- The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.
+- Decisions: D-747.
+
 ## 0.3.198 (2026-11-09)
 - A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.
 - Decisions: D-746.
