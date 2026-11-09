@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.201 (2026-11-09)
+- The grass outside is calmer: the same three greens in big soft patches, mostly the middle green, with fewer pale blades. No more camouflage look.
+- Decisions: D-749.
+
 ## 0.3.200 (2026-11-09)
 - Ponds outside are rounder and smooth-edged, halfway between their old shape and a round one: no more star shapes or dripping rims. The same tiles are water; cave pools are unchanged.
 - Decisions: D-748.

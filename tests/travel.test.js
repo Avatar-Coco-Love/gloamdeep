@@ -6,6 +6,7 @@ import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { stoneAt, withTile, tileAt } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { stonesOf, travel, onWokenPlate, creatureNear, stoneName, stoneNote } from '../src/core/travel.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const SEED = 5;
 const plate = (room) => { for (let y = 0; y < room.rows; y++) { const x = room.map[y].search(/[ZA]/); if (x >= 0) return { x, y }; } return null; };
@@ -16,13 +17,13 @@ function onStone(s, place) {
 }
 // Both stones woken, the hero on depth 2's
 function bothWoken() {
-  const home = onStone(makeWorld('first', SEED), 'woods');
+  const home = onStone(makeWorld('first', SEED), stoneHome(SEED));
   return onStone(home, stoneAt(SEED).id);
 }
 
 test('travel: the card lists home first, then depth 2, ??? until woken', () => {
   const s = makeWorld('first', SEED), rows = stonesOf(s);
-  assert.deepEqual(rows.map((r) => r.place), ['woods', stoneAt(SEED).id]);
+  assert.deepEqual(rows.map((r) => r.place), [stoneHome(SEED), stoneAt(SEED).id]);
   assert.ok(rows.every((r) => !r.woken));
   assert.deepEqual(rows.map(stoneName), ['???', '???']);
   const both = stonesOf(bothWoken()); // on depth 2: the next stone, depth 5's, shows too
@@ -37,15 +38,15 @@ test('travel: the card lists down to the next stone below the deepest floor reac
   assert.deepEqual(at(5), [0, 2, 5, 8]);
   assert.deepEqual(at(9), [0, 2, 5, 8, 12]);
   assert.deepEqual(at(12), [0, 2, 5, 8, 12, 16]);
-  const back = goToPlace(goToDepth(makeWorld('first', SEED), 9), 'woods'); // home again, the deepest kept
+  const back = goToPlace(goToDepth(makeWorld('first', SEED), 9), stoneHome(SEED)); // home again, the deepest kept
   assert.deepEqual(stonesOf(back).map((r) => r.depth), [0, 2, 5, 8, 12]);
   const woken = onStone(goToDepth(makeWorld('first', SEED), 8), stoneAt(SEED, 8).id);
   assert.deepEqual(stonesOf(woken).filter((r) => r.woken).map((r) => [stoneName(r), stoneNote(r)]), [['Depth 8', 'You are here.']]);
 });
 
 test('travel: picking home goes onto its plate, free: no turn, no oil, no creature moves', () => {
-  const s = { ...bothWoken(), lit: true }, out = travel(s, 'woods');
-  assert.equal(out.place, 'woods');
+  const s = { ...bothWoken(), lit: true }, out = travel(s, stoneHome(SEED));
+  assert.equal(out.place, stoneHome(SEED));
   assert.equal(tileAt(out.room, out.hero.x, out.hero.y).id, 'wokenPlate');
   assert.equal(out.turn, s.turn);
   assert.equal(out.oil, s.oil);
@@ -60,7 +61,7 @@ test('travel: picking home goes onto its plate, free: no turn, no oil, no creatu
 
 test('travel: a stone not woken, or the one stood on, takes nowhere', () => {
   const s = onStone(makeWorld('first', SEED), stoneAt(SEED).id);
-  assert.equal(travel(s, 'woods'), s); // home not yet woken
+  assert.equal(travel(s, stoneHome(SEED)), s); // home not yet woken
   assert.equal(travel(s, s.place), s);
 });
 
@@ -68,12 +69,12 @@ test('travel: barred with a creature awake beside the hero or chasing, not one a
   const s = bothWoken(), { x, y } = s.hero;
   const beside = { ...s, enemies: [{ id: 'rat', x: x + 1, y: y + 1, health: 2 }] };
   assert.ok(creatureNear(beside));
-  const out = travel(beside, 'woods');
+  const out = travel(beside, stoneHome(SEED));
   assert.equal(out.place, s.place);
   assert.equal(out.line.id, 'stoneNear');
   const chasing = { ...s, enemies: [{ id: 'rat', x: 1, y: 1, health: 2, chasing: true }] };
   assert.ok(creatureNear(chasing));
   const asleep = { ...s, enemies: [{ id: 'flaskMimic', x: x + 1, y, health: 2, asleep: true }] };
   assert.ok(!creatureNear(asleep));
-  assert.equal(travel(asleep, 'woods').place, 'woods');
+  assert.equal(travel(asleep, stoneHome(SEED)).place, stoneHome(SEED));
 });

@@ -8,8 +8,10 @@ import { LINES } from '../src/core/lines.js';
 import { goalSize, onGoal } from '../src/render/goalline.js';
 import { xpFor } from '../src/core/xp.js';
 import { addHeart, addTough } from '../src/core/growth.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, place: 'first', found: ['first'] };
+const STONE = stoneHome(7); // the home waystone's room, the cave mouth's (D-753)
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
@@ -85,7 +87,9 @@ test('going home shows once the rat goal is done, and is done in the woods (D-70
   const home = goalsAfter(ratDone.goals, 0, {}, [], { ...later, place: 'woods', found: ['first', 'woods'] });
   assert.deepEqual(home.done, ['home']);
   assert.equal(doneWords(home.goals, 'home'), `Go home to the woods. ${rewardText(home.goals.home.paid)}`);
-  assert.deepEqual(questRows(home.goals).map((r) => r.id), ['stone', 'home', 'rat'], 'reaching the woods shows the waystone goal');
+  assert.deepEqual(questRows(home.goals).map((r) => r.id), ['home', 'rat'], 'the waystone goal waits for its room (D-753)');
+  const there = goalsAfter(home.goals, 0, {}, [], { ...later, place: STONE, room: woods(), hero: { x: 8, y: 18 }, found: ['first', 'woods', STONE] });
+  assert.deepEqual(questRows(there.goals).map((r) => r.id), ['stone', 'home', 'rat'], 'reaching the cave mouth\'s room shows it');
 });
 
 test('going home is not shown before the rat goal, and is ticked quietly if the woods were already walked to', () => {
@@ -95,11 +99,11 @@ test('going home is not shown before the rat goal, and is ticked quietly if the 
   assert.deepEqual(after.done, []);
 });
 
-// A woods room 17 wide with the home stone's plate at (8, 8), asleep ('Z') or woken ('A')
+// A woods room 17 wide, the cave mouth's, with the home stone's plate at (8, 8), asleep ('Z') or woken ('A')
 const woods = (plate = 'Z') => ({ map: Array.from({ length: 20 }, (_, y) => (y === 8 ? '........' + plate + '........' : '.'.repeat(17))) });
-test('finding the waystone shows on reaching the woods, and is done within 4 tiles of its middle (D-709)', () => {
+test('finding the waystone shows on reaching its room, the cave mouth\'s, and is done within 4 tiles of its middle (D-709)', () => {
   assert.equal(NEAR, 4);
-  const far = { ...base, place: 'woods', room: woods(), hero: { x: 8, y: 18 } };
+  const far = { ...base, place: STONE, room: woods(), hero: { x: 8, y: 18 } };
   const shown = goalsAfter({}, 0, {}, [], far);
   assert.deepEqual(shown.goals.stone, { done: false }, 'shows, not done on arrival far off');
   assert.equal(goalsAfter({}, 0, {}, [], { ...base, room: woods() }).goals.stone, undefined, 'not in the crypt');
@@ -110,13 +114,13 @@ test('finding the waystone shows on reaching the woods, and is done within 4 til
 });
 
 test('finding the waystone is ticked quietly when its plate is woken already (D-709)', () => {
-  const after = goalsAfter({}, 0, {}, [], { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 18 } });
+  const after = goalsAfter({}, 0, {}, [], { ...base, place: STONE, room: woods('A'), hero: { x: 8, y: 18 } });
   assert.equal(after.goals.stone.done, true);
   assert.deepEqual(after.done, []);
 });
 
 test('waking the waystone shows once it is found, and is done on the step that wakes its plate (D-710)', () => {
-  const near = { ...base, place: 'woods', room: woods(), hero: { x: 8, y: 11 } };
+  const near = { ...base, place: STONE, room: woods(), hero: { x: 8, y: 11 } };
   const found = goalsAfter({ stone: { done: false } }, 0, {}, [], near);
   assert.deepEqual(found.done, ['stone']);
   assert.deepEqual(found.goals.wake, { done: false }, 'shows with the waystone found');
@@ -129,13 +133,13 @@ test('waking the waystone shows once it is found, and is done on the step that w
 });
 
 test('waking the waystone is ticked quietly when it is woken already (D-710)', () => {
-  const after = goalsAfter({}, 0, {}, [], { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 18 } });
+  const after = goalsAfter({}, 0, {}, [], { ...base, place: STONE, room: woods('A'), hero: { x: 8, y: 18 } });
   assert.equal(after.goals.wake.done, true);
   assert.deepEqual(after.done, []);
 });
 
 test('taking a boon shows on stepping off the woken plate, and is done on the pick (D-711)', () => {
-  const on = { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 8 } }, off = { ...on, hero: { x: 8, y: 9 } };
+  const on = { ...base, place: STONE, room: woods('A'), hero: { x: 8, y: 8 } }, off = { ...on, hero: { x: 8, y: 9 } };
   const done = { stone: { done: true, paid: 'flask' }, wake: { done: true, paid: 'flask' } };
   assert.equal(goalsAfter(done, 0, {}, [], off, off).goals.boon, undefined, 'not just standing near it');
   const shown = goalsAfter(done, 0, {}, [], off, on);
@@ -148,7 +152,7 @@ test('taking a boon shows on stepping off the woken plate, and is done on the pi
 });
 
 test('a boon picked before the goal shows, or held from an older save, ticks it quietly (D-711)', () => {
-  const on = { ...base, place: 'woods', room: woods('A'), hero: { x: 8, y: 8 }, boon: 'wideGlow' };
+  const on = { ...base, place: STONE, room: woods('A'), hero: { x: 8, y: 8 }, boon: 'wideGlow' };
   const picked = goalsAfter({}, 0, {}, [{ type: 'boon', id: 'wideGlow' }], on, { ...on, boon: null });
   assert.equal(picked.goals.boon.done, true);
   assert.deepEqual(picked.done, []);

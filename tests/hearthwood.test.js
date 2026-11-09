@@ -81,7 +81,7 @@ test('every path can be walked to from the start: a bush or branch in its way is
     for (const path of pathsOf(seed, id)) assert.ok(reach.has(key(pathTiles(path)[PATH >> 1])), `seed ${seed} ${id} ${path.dir}`);
   }
 });
-test('the waystone stands only at home; the mouth only in the room beside home the seed picks (D-184)', () => {
+test('the waystone and the mouth stand only in the room beside home the seed picks (D-184, D-753)', () => {
   const ways = new Set();
   for (const seed of SEEDS) {
     const m = mouthOf(seed);
@@ -90,20 +90,20 @@ test('the waystone stands only at home; the mouth only in the room beside home t
     assert.notEqual(m.from, HOME_ID);
     for (const id of ROOMS) {
       const { map } = beginPlace(id, seed).room, all = map.join('');
-      assert.equal(all.includes('Z'), id === HOME_ID, `seed ${seed} ${id}: the waystone`);
+      assert.equal(all.includes('Z'), id === m.from, `seed ${seed} ${id}: the waystone`);
       assert.equal(all.includes('M'), id === m.from, `seed ${seed} ${id}: the mouth`);
     }
   }
   assert.equal(ways.size, 4);
 });
 
-test('home keeps today\'s trees: only the mouth and its rocks go, and only trees are cut for the paths', () => {
+test('home keeps today\'s trees: only the mouth and its rocks go, only trees are cut for the paths, and the stone is grass (D-753)', () => {
   for (const seed of SEEDS) {
     const m = mouthOf(seed), was = generateWoods(seedFor(seed, 0), m).map, now = beginPlace(HOME_ID, seed).room.map;
     for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) {
       const a = was[y][x], b = now[y][x];
       if (a === b) continue;
-      assert.ok((a === 'T' && b === '.') || ('MR'.includes(a) && 'T.'.includes(b)), `seed ${seed}: ${x},${y} was ${a}, now ${b}`); // the mouth's spot may be on a path
+      assert.ok((a === 'T' && b === '.') || ('XYZ'.includes(a) && b === '.') || ('MR'.includes(a) && 'T.'.includes(b)), `seed ${seed}: ${x},${y} was ${a}, now ${b}`); // the mouth's spot may be on a path
     }
   }
 });
@@ -125,10 +125,10 @@ test('an older save\'s home: the mouth and rocks made trees, the paths cut, the 
   for (const seed of [1, 4, 6, 9, 4127]) {
     const m = mouthOf(seed), w = makeWorld(HOME_ID, seed);
     const old = { ...w.room, map: generateWoods(seedFor(seed, 0), m).map };
-    const here = UPGRADES[19]({ ...w, room: old, hero: { ...m.tile } });
+    const here = UPGRADES[21](UPGRADES[19]({ ...w, room: old, hero: { ...m.tile } })); // and its stone moved (D-753)
     assert.deepEqual(here.room.map, beginPlace(HOME_ID, seed).room.map);
     assert.ok(!tileAt(here.room, here.hero.x, here.hero.y).solid, 'stepped in off the old mouth');
-    const away = goToPlace({ ...w, room: old }, 'first'), up = UPGRADES[19](away);
+    const away = goToPlace({ ...w, room: old }, 'first'), up = UPGRADES[21](UPGRADES[19](away));
     assert.deepEqual(up.elsewhere[HOME_ID].room.map, beginPlace(HOME_ID, seed).room.map);
     assert.equal(up.place, 'first');
   }
@@ -150,7 +150,7 @@ test('an older save renewed: unseen north rooms made mountains, seen ones kept, 
     const shut = elsewhere[side].room.map.map((line, y) => (y === t.y ? line.slice(0, t.x) + 'G' + line.slice(t.x + 1) : line));
     elsewhere[side] = { ...elsewhere[side], room: { ...elsewhere[side].room, map: shut } };
     places[HOME_ID] = { ...places[HOME_ID], room: { ...places[HOME_ID].room, map: generateWoods(seedFor(seed, 0), m).map } };
-    const up = UPGRADES[20]({ ...w, elsewhere, home: { ...w.home, places } });
+    const up = UPGRADES[21](UPGRADES[20]({ ...w, elsewhere, home: { ...w.home, places } })); // and its stone moved (D-753)
     for (const id of north.slice(1)) {
       assert.deepEqual(up.elsewhere[id].room.map, beginPlace(id, seed).room.map, `seed ${seed} ${id}`);
       assert.deepEqual(up.home.places[id].room.map, beginPlace(id, seed).room.map);

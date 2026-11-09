@@ -13,7 +13,7 @@ export const STARTS = {
       'Your lantern is cold; keep its oil for the dark.',
       'Something waits below.',
     ],
-    goals: { skip: ['home'], now: ['stone'], how: { stone: 'Home is in the middle of the woods.' } },
+    goals: { skip: ['home'], now: ['stone'], how: { stone: "Old standing stones, by the crypt's door." } },
   },
 };
 // The start every new journey uses, for now the only one (D-733)

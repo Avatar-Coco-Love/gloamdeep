@@ -76,12 +76,14 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Waystone:** a 3 × 3 standing-stone circle: a walkable cross, an old
   mossy stone in each corner tile, the plate in the middle (D-579, D-587,
   D-620). The home
-  waystone stands in the woods, asleep until the hero steps on its
+  waystone stands in the cave mouth's room, near its middle (D-753),
+  asleep until the hero steps on its
   plate; woken, its rune is lit violet (D-589, D-591). Others sleep at the
   top of each band of floors, depths 2, 5 and 8, then every 4th depth,
   12, 16, 20… (D-579, D-592, D-594). On a woken plate, the travel card goes to another (D-593).
 - **Boon:** a small help picked, 1 of 3, at the home waystone as the
-  hero sets out; it lasts until home again or a fall (D-583). Stepping
+  hero sets out; it lasts until back in the stone's room or a fall
+  (D-583, D-753). Stepping
   onto the woken home plate offers 3, each of a different kind; the list
   is `src/core/boons.js` (D-596).
 - **Mark:** a small glass square under the hearts panel with a picture:

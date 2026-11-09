@@ -98,7 +98,8 @@ for the screen wraps onto more rows, growing upward. D-602 archived.
 and picks; builds on D-579 and the shrine idea in `RESEARCH.md`) Each
 time the hero sets out from the home waystone, it offers 3 boons drawn
 at random from a pool, and the hero picks 1. A boon lasts until the
-hero is home again or falls. The pool holds all four kinds: light and
+hero is home again or falls (home for this: the home waystone's room,
+superseded by D-753, 2026-11-09). The pool holds all four kinds: light and
 oil, hearts and fighting, finding things, and getting around. The
 exact boons and their numbers are shown to the owner as a list before
 anything is built (Q-077). Boons are their own step, right after the

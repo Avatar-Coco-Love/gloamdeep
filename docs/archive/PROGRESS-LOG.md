@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.201, Calmer grass.** The owner's picks, both
+  recommended (D-749): of four grass looks, B, today's three greens in
+  big soft patches, mostly the middle green, fewer pale blades; used for
+  all surface grass, past the room's edge too.
+  Playtest: https://claude.ai/artifact/2usn6Kx2xCT2v7xKyge32d
+  Mock-ups: https://claude.ai/artifact/VwxY2xAns7qoVPpwLPftyC
 - **2026-11-09, 0.3.200, Ponds halfway to round.** The owner's picks,
   both recommended (D-748): of four pond outlines, B, halfway between
   today's and the round look, with a clean edge; cave pools stay as

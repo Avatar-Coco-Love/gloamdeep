@@ -36,6 +36,9 @@ export function mouthOf(seed = 1) {
   return made.get(seed);
 }
 
+// The room the home waystone stands in (D-751, D-753): the one with the cave mouth, the crypt's door
+export const stoneHome = (seed = 1) => mouthOf(seed).from;
+
 // The way through the mouth from place `id`, as { direction: place }, or {}
 export function mouthSides(id, seed = 1) {
   const m = mouthOf(seed);

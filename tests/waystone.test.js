@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateWoods, STONE_UP } from '../src/core/woods.js';
-import { mouthOf } from '../src/core/mouth.js';
+import { mouthOf, stoneHome } from '../src/core/mouth.js';
 import { makeRoom, tileAt } from '../src/core/room.js';
 import { LANDMARKS, get } from '../src/core/registry.js';
 import { around } from '../src/core/landmarks.js';
@@ -41,19 +41,27 @@ const unstoned = (room, extra = []) => {
   return { ...room, map: g.map((r) => r.join('')) };
 };
 const plateIn = (room) => { for (let y = 0; y < room.rows; y++) { const x = room.map[y].indexOf('Z'); if (x >= 0) return { x, y }; } return null; };
+// A world as a save from before D-753 had it: no cave mouth's room kept yet, so no stone there
+const oldWorld = (seed) => {
+  const w = makeWorld('first', seed), id = stoneHome(seed), elsewhere = { ...w.elsewhere }, places = { ...w.home.places };
+  delete elsewhere[id]; delete places[id];
+  return { ...w, elsewhere, home: { ...w.home, places } };
+};
 
 test('waystone: an old save gets it in the woods once, where a new game puts it when that is clear', () => {
-  const w = makeWorld('first', 5), woods = w.elsewhere.woods;
+  const w = oldWorld(5), woods = w.elsewhere.woods;
   const old = { ...w, elsewhere: { ...w.elsewhere, woods: { ...woods, room: unstoned(woods.room) } } };
   const s = UPGRADES[12](old), at = plateIn(s.elsewhere.woods.room);
   assert.deepEqual(at, { x: woods.room.cols >> 1, y: (woods.room.rows >> 1) - STONE_UP });
   assert.deepEqual(UPGRADES[12](s), s); // once
   assert.ok(plateIn(s.home.places.woods.room)); // the room as it began has it too
-  assert.equal(upgradeState(12, old).elsewhere.woods.room.map.join(), s.elsewhere.woods.room.map.join());
+  const now = upgradeState(12, old); // then moved to the cave mouth's room (D-753)
+  assert.equal(plateIn(now.elsewhere.woods.room), null);
+  assert.ok(plateIn(now.elsewhere[stoneHome(5)].room));
 });
 
 test('waystone: a built thing on the spot stays, and the stone stands at the nearest clear spot', () => {
-  const w = makeWorld('first', 5), woods = w.elsewhere.woods, cx = woods.room.cols >> 1, cy = (woods.room.rows >> 1) - STONE_UP;
+  const w = oldWorld(5), woods = w.elsewhere.woods, cx = woods.room.cols >> 1, cy = (woods.room.rows >> 1) - STONE_UP;
   const room = unstoned(woods.room, [[cx, cy, 'W'], [cx + 1, cy, 'C']]); // a workbench and a chest
   const s = UPGRADES[12]({ ...w, elsewhere: { ...w.elsewhere, woods: { ...woods, room, taken: [{ id: 'tree', x: cx, y: cy + 7, at: 0 }] } } });
   const got = s.elsewhere.woods.room, at = plateIn(got);
@@ -64,7 +72,7 @@ test('waystone: a built thing on the spot stays, and the stone stands at the nea
 });
 
 test('waystone: in the woods, the hero is never under the stone', () => {
-  const w = goToPlace(makeWorld('first', 9), 'woods'), cx = w.room.cols >> 1, cy = (w.room.rows >> 1) - STONE_UP;
+  const w = goToPlace(oldWorld(9), 'woods'), cx = w.room.cols >> 1, cy = (w.room.rows >> 1) - STONE_UP;
   const s = UPGRADES[12]({ ...w, room: unstoned(w.room), hero: { x: cx, y: cy } });
   const at = plateIn(s.room);
   assert.ok(at);
@@ -78,7 +86,7 @@ import { shownLine } from '../src/core/lines.js';
 
 // The home woods with the hero just below the plate, at the foot of the cross's middle
 const belowPlate = () => {
-  const s = goToPlace(makeWorld('first', 5), 'woods'), at = plateIn(s.room);
+  const s = goToPlace(makeWorld('first', 5), stoneHome(5)), at = plateIn(s.room);
   return { ...s, hero: { x: at.x, y: at.y + 1 }, enemies: [], events: [] };
 };
 
@@ -106,8 +114,8 @@ test('waking: a woken plate glows faintly, like the stairs; a sleeping one gives
   assert.deepEqual(g && [g.r, g.cr, g.cg, g.cb], [16, get('stairsDown').glow.cr, get('stairsDown').glow.cg, get('stairsDown').glow.cb]);
 });
 
-test('waking: the woods keeps it woken after going away and coming back', () => {
-  const woke = step(belowPlate(), 'up'), at = woke.hero, away = goToPlace(woke, 'first'), back = goToPlace(away, 'woods');
+test('waking: its room keeps it woken after going away and coming back', () => {
+  const woke = step(belowPlate(), 'up'), at = woke.hero, away = goToPlace(woke, 'first'), back = goToPlace(away, stoneHome(5));
   assert.equal(tileAt(back.room, at.x, at.y).id, 'wokenPlate');
 });
 

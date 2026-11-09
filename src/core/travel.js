@@ -11,15 +11,16 @@ import { arrive, fresh as freshPlace } from './stairs.js';
 import { endTurn } from './endturn.js';
 import { say } from './lines.js';
 import { note, fresh } from './events.js';
+import { stoneHome } from './mouth.js';
 
 const WOKEN = 'A'; // the woken plate's letter (tiles.js)
 
-// The waystones' places the card lists, home first, then by depth: the woods' (D-589), then each
+// The waystones' places the card lists, home first, then by depth: the cave mouth's room (D-753), then each
 // stone down to the next one below `deepest`, the deepest floor reached (D-592, D-594)
 export function stonePlaces(seed, deepest = 0) {
   const depths = [];
   for (let d = STONE_DEPTH, last = nextStoneDepth(Math.max(deepest, STONE_DEPTH - 1)); d <= last; d = nextStoneDepth(d)) depths.push(d);
-  return ['woods', ...depths.map((d) => stoneRoom(seed, d))].filter(Boolean);
+  return [stoneHome(seed), ...depths.map((d) => stoneRoom(seed, d))].filter(Boolean);
 }
 // The deepest floor the journey has reached: the deepest of the places stood in and left
 export const deepestOf = (state) => Math.max(0, ...[state.place, ...Object.keys(state.elsewhere || {})].map(depthOf).filter(Number.isFinite));

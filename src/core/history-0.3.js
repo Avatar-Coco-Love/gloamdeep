@@ -4,6 +4,13 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.204', date: '2026-11-09', title: 'The waystone by the crypt\'s door', lines: [
+    "The home waystone now stands in the room with the cave mouth, the crypt's door, 2 tiles north of the room's middle, as it stood in the middle room. Where it stood in the middle room is grass now.",
+    "A boon now lasts until you are back in the waystone's room, however you come: up from the crypt, by waystone or through the woods. The middle room no longer ends it.",
+    "Find the waystone shows on reaching its room, and in a journey begun in the south woods it says \"Old standing stones, by the crypt's door.\"",
+    "In a saved game the waystone moves there too, still awake if you woke it. Anything you set down where it stood stays.",
+    "Decisions: D-753.",
+  ] },
   { v: '0.3.203', date: '2026-11-09', title: 'Put out your lantern', lines: [
     "A new goal, Put out your lantern: \"Tap the lantern, or press L, to save oil.\" It shows the first time daylight comes while your lantern is lit, stepping out of the dark or at dawn, and goes ahead of any other goal while the lantern burns in daylight. Putting it out does it and pays its reward. If the lantern was already out, as By itself does, it is ticked quietly. It never shows again.",
     "Decisions: D-752.",

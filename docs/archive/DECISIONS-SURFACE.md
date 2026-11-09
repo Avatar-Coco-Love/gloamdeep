@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-734 to D-739, D-744 to D-746)
+# The surface decisions (D-209 to D-218, D-734 to D-739, D-744 to D-749)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -14,6 +14,8 @@ D-744, a craggy cave mouth (partly superseded by D-745), built, followed
 at 0.3.199 (D-747), word for word, as `docs/DECISIONS.md` neared 12 KB.
 D-745, the broken seal, and D-746, Find the crypt, both built, followed
 at 0.3.202 (D-750), word for word, for the same reason.
+D-747 to D-749, smooth rock edges, ponds and grass, all built, followed
+at 0.3.204 (D-753), word for word, for the same reason.
 
 ---
 
@@ -150,7 +152,7 @@ nearest its middle; by day, so the lantern starts off (the owner's own
 answer). The card: "You wake among the trees of Hearthwood." / "Your
 lantern is cold; keep its oil for the dark." / "Something waits below."
 "Find the waystone" shows from the first turn, its how line "Home is in
-the middle of the woods."; "Go home to the woods" never shows; every
+the middle of the woods." (superseded by D-753, 2026-11-09); "Go home to the woods" never shows; every
 other goal keeps its own moment. Until step 3, a fall wakes where the
 journey began, a Hardcore one starting there again. Next, the owner's
 own idea: a teaching goal "Light your lantern" / "Tap the lantern, or
@@ -259,3 +261,40 @@ owner's pick; changed after review: any depth below no longer counts).
 Claude's call the owner may change: it is ticked quietly, unpaid in the
 line, when the crypt was reached already this journey, as in a journey
 begun in the crypt.
+
+**D-747 · 2026-11-09 · Smooth rock edges, and what to polish** (the
+owner's picks; builds D-739's step 24; mock-ups at
+https://claude.ai/artifact/DjvVKCpbeuDBnTBeTVmMcz) A look through all nine
+surface rooms found four things that look unnatural: the mountain rock's
+torn edges, star-shaped ponds with dripping rims, busy camouflage grass,
+and one tree stamp in rigid rows. The owner picked the rock first, and its
+look A: smooth edges, no loose pixels, nothing else changed. The edge's
+wobble is smooth noise, not a new random value every 3 pixels, and a lone
+pixel or spike is cleaned off. Caves keep their own rock as it was. For
+the trees, later, look A: still one round tree a tile (D-209), varied in
+size, place and three greens. For the ponds the owner likes both today's
+and the round, smooth look, and asked for a variation of that, shown as
+mock-ups at the ponds' step. Claude's calls the owner may change: the
+order after the rock is ponds, grass, trees, one a step; the grass's look
+is asked at its step; the code is `mask`'s `soft` in `src/render/rock.js`.
+
+**D-748 · 2026-11-09 · Ponds halfway to round** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/EQfp8wLasizEnWkwonaWPi) Of four pond outlines,
+from today's to round, the owner picked B, halfway: half the tiles' blend,
+half a soft round blob on each water tile, the edge wobbling smoothly, a
+lone pixel cleaned off and a notch filled, so no star shapes and no
+dripping rim. The same tiles are water, so walking, fishing and the map
+are unchanged. Cave pools keep their own edge, as the caves' rock did.
+Claude's calls the owner may change: the code is `inPond` in
+`src/render/water.js`, chosen by the room's woods look; next is the grass.
+
+**D-749 · 2026-11-09 · Calmer grass** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/VwxY2xAns7qoVPpwLPftyC) Of four grass looks,
+from today's camouflage to one flat green, the owner picked B: the same
+three greens in patches about three times bigger with smooth round edges,
+the middle green covering most of the ground, and the pale blades half as
+often. It is used for all surface grass, in the room and past its edge,
+so they match. Claude's calls the owner may change: the code is `grass`
+in `src/render/woods.js`; next are the trees, look A (D-747).
