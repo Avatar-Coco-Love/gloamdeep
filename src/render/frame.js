@@ -20,7 +20,8 @@ import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
-import { drawMoves } from './moves.js';
+import { drawMoves, drawStrikes } from './moves.js';
+import { struck } from '../core/sting.js';
 import { drawTitle, drawScene, drawName } from './title.js';
 import { drawTitleCard, nameTop } from './titlecard.js';
 import { VEIL } from './menu.js';
@@ -277,6 +278,7 @@ export function createFrame(app, ui) {
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)
         drawGlobs(rc, s.globs, t, still()); // the Spit grub's globs in flight, seen in the dark (D-688)
         drawMoves(rc, (s.globs ?? []).map((g) => ({ e: g, kind: 'step', dx: g.dx, dy: g.dy })), (g) => g, t, still()); // each glob's next tile (D-688)
+        drawStrikes(rc, s.enemies.flatMap((e) => struck(s, e)), t, still()); // the tiles a raised tail will strike (D-729)
         drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
         if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)

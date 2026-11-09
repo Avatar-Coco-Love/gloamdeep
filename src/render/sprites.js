@@ -255,7 +255,8 @@ function drawEnemy(c, e, p, t, still, flash, hero) {
   if (get(e.id)?.glows && !glowing) return; // one that glows is drawn over the light, drawGlows (D-649)
   const left = e.facing === 'left';
   const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692)
-  c.drawImage(sprite, x, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
+  const shake = e.raised && !still ? (Math.floor(t / 90) % 2 ? 1 : -1) : 0; // a raised tail trembles (D-729)
+  c.drawImage(sprite, x + shake, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
 }
 const FLY_LIFT = 2; // pixels a flyer is held above its shadow (D-563)
 // § glows (D-649): a creature with its own faint glow, the lure wisp, drawn after the light so it

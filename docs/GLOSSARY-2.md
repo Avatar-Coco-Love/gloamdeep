@@ -10,7 +10,7 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Gloamling:** chases, and shuns light (D-240).
 - **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
 - **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
-- **Scorpion:** drawn from above; chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370).
+- **Scorpion:** drawn from above; chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370). Its sting is a tail strike: in line within 2 tiles it raises its tail a turn, then strikes both tiles ahead (D-729).
 - **Cave spider:** drawn from above, low and squat; shuns light only, so it waits in the dark and bites only from there; from depth 2 (D-535).
 - **Bat:** drawn from above, wings spread; seeks light, and once hurt flees for 4 turns or stands, on a coin toss; from depth 3 (D-537).
 - **Mole:** drawn side on, as the rat is; chases and never flees, 4 hearts; from depth 5 (D-541).

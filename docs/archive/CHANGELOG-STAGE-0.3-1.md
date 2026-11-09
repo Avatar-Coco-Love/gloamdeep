@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.179 (2026-11-09)
+- The mole now burrows. Once it sees you in the light, it digs down and tunnels toward you, a mound of earth moving a tile a turn. You can't hit the mound. Beside you it bursts up, and you get the first swing before it bites.
+- Decisions: D-726.
+
 ## 0.3.178 (2026-11-09)
 - In the rooms below the first depth, about 1 flask in 4 now has no rat waiting by it. Each flask in a hall rolls on its own. That rat is still somewhere else in the room's dark, and it may be any of the depth's creatures, so a room holds as many as before.
 - Decisions: D-725. Questions closed: Q-075.

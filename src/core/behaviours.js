@@ -33,6 +33,10 @@ export const BEHAVIOURS = {
   // heads for its own free side of the hero, away from its packmates first; hurt with 2 or more of
   // its pack left, it stands its ground. Alone, it acts as its other ways say (creatureturn.js, D-727).
   pack: { id: 'pack', name: 'Pack', pack: true },
+  // It notices and comes as one that chases does, but never bites beside the hero: with them in its
+  // row or column within `reach` tiles it raises its tail for a turn, then strikes those tiles, and
+  // rests `rest` turns (sting.js, D-729).
+  strikes: { id: 'strikes', name: 'Tail strike', notices: 'inLight', moves: 'toward', bites: false, strikes: { reach: 2, rest: 1 } },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

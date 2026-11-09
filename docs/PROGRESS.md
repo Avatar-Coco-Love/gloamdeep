@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.181 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.182 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner's pick, proposed first: begin a journey on the surface (Q-081), or the next creature way (D-726).
+The owner's pick, proposed first: the next creature way (D-726), begin a journey on the surface (Q-081), or a new mechanic from the owner's list (2026-11-09): gaps in the floor and a leap over them (D-463), a ranged attack for the hero (D-457), or elements (not yet decided).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -22,6 +22,7 @@ The owner's pick, proposed first: begin a journey on the surface (Q-081), or the
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Begin a journey on the surface (Q-081), now.
 - The rat pack's drafts (D-728): one pack a room, sides, no line.
+- The scorpion's drafts (D-729): a turn of rest, only the hero, no glance.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 
@@ -40,6 +41,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.182, The scorpion's tail strike.** The owner wanted
+  a new creature way or a new mechanic; the owner's picks: the next
+  creature way, the scorpion's tail strike (D-729). In line within 2
+  tiles it raises its tail a turn, both tiles marked, then strikes them
+  for 2 hearts; step aside and it misses and rests a turn. Next, the
+  owner's pick.
+  Playtest: https://claude.ai/artifact/Q91FVBhiX7mcUdL7qjavzp
 - **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
   (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
   packmates; one noticing brings all three, each to its own side of the
@@ -54,9 +62,3 @@ list in `RESEARCH.md`.
   walk over them, and a drop lies beside a find on one tile, built first.
   Next, the rat pack.
   Playtest: https://claude.ai/artifact/GmH2vcYXaaERPWHpRcqLMU
-- **2026-11-09, 0.3.179, The mole burrows.** A playtester found the
-  creatures too alike. The owner's picks, all recommended (D-726): retune
-  chasers and add new kinds, ways Burrows then Pack. The mole digs down
-  on noticing, tunnels as a mound that can't be hit, comes up beside the
-  hero and bites the turn after. Next, the rat pack.
-  Playtest: https://claude.ai/artifact/GyX3uP1kukfmnA939Cqfes

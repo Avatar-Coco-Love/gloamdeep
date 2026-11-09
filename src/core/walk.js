@@ -57,7 +57,7 @@ export const cameIntoView = (before, after) => foesSeen(after) > foesSeen(before
 // D-408): a bite (D-410), a find coming into view, and a creature as it comes into
 // view ('sight'), or once more creatures have noticed the hero ('noticed', as the plaques show them)
 export function stopsWalk(before, after, stop) {
-  if (after.events.some((e) => e.type === 'bite' || e.type === 'drink' || e.type === 'spit')) return true; // a drink too (D-606), and a spit (D-688)
+  if (after.events.some((e) => e.type === 'bite' || e.type === 'drink' || e.type === 'spit' || e.type === 'raise')) return true; // a drink too (D-606), a spit (D-688), a raised tail (D-729)
   if (stop !== 'noticed') return cameIntoView(before, after);
   return findCame(before, after) || creatureList(after).length > creatureList(before).length;
 }

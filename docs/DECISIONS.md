@@ -137,20 +137,6 @@ owner may change: once up it never digs again and chases on foot;
 already beside the hero as it notices, it never digs; its three lines.
 Next, the owner's pick: the rat pack, proposed first.
 
-**D-725 · 2026-11-09 · A flask left unguarded** (the owner's picks, all
-recommended; answers Q-075, builds D-534) In every made room, from
-depth 2, each flask has a 1 in 4 chance, from the room's seed, of no rat
-by it; each flask of a hall or large room rolls alone, and the hand-made
-rooms keep their guard. The guard goes somewhere else in the dark, by
-its own rules but more than 2 tiles from every flask, picked again from
-the depth's pool, so the room keeps its count and at least two kinds; a
-guard with nowhere to go stays. Its own draws, so the rest of a seed's
-room stays where it was. Another creature may still stand near by
-chance (about 1 flask in 3 that rolls), left as is (the owner's pick,
-recommended), so about 1 flask in 6 has nothing by it. Next, the owner's
-pick, recommended: begin a journey on the surface (Q-081). D-720 moves
-to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-727 · 2026-11-09 · Creatures walk over finds; the rat pack planned**
 (the owner's picks, all recommended; builds D-726) Creatures no longer
 go around a find on the floor: they step onto it and it stays there,
@@ -176,3 +162,16 @@ has no pack, about 1 room in 4 in all. A rat heads for the free side
 farthest from its packmates, then the nearest to it; a pack that
 notices says no line. The rat's Bestiary words say so. D-724 moves to
 `archive/DECISIONS-FEATS.md`, word for word.
+
+**D-729 · 2026-11-09 · The scorpion's tail strike** (the owner's picks;
+builds D-726) The next creature way,
+the owner's pick: the scorpion gets Tail strike, `strikes`. It notices
+and comes as one that chases does, but never bites beside the hero:
+with them in its row or column within 2 tiles and a clear line, it
+stops and raises its tail for a turn, with a warning line, and both
+tiles ahead are marked; on its next turn it strikes them, 2 hearts on
+the hero there, else it misses. A blow still beats it while raised.
+Claude's drafts the owner may change: after a strike it stands still
+one more turn; it strikes only the hero; armour can't turn it aside;
+its lines; a raised tail trembles and stops a walk. D-725 moves to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

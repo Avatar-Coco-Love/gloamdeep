@@ -19,6 +19,8 @@ export const LINES = {
   lampmothBite: { text: 'The lampmoth bites you.', warn: false, kind: 'harm' }, // (D-356)
   scorpionDie: { text: 'The scorpion curls up and falls still.', warn: false }, // (D-370)
   scorpionBite: { text: 'The scorpion stings you.', warn: false, kind: 'harm' }, // (D-370)
+  scorpionRaises: { text: 'The scorpion raises its tail!', warn: true }, // it strikes (D-729), Claude's drafts the owner may change
+  scorpionMisses: { text: 'The sting strikes the bare floor.', warn: false },
   caveSpiderHurt: { text: 'The cave spider hisses.', warn: false }, // (D-535)
   caveSpiderDie: { text: 'The cave spider falls still.', warn: false }, // (D-535)
   caveSpiderBite: { text: 'The cave spider bites you.', warn: false, kind: 'harm' }, // (D-535)

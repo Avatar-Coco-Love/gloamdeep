@@ -66,7 +66,7 @@ ground, water plants. Waits for a way to carry water (D-569).
 The owner wants more kinds, and to talk them over first, then keeps
 adding them one at a time, each fully in the game (D-535). The cave
 spider is the first (D-535), the bat the second (D-537), the mole the third (D-541), the snapcap the fourth (D-543), the herb mimic the fifth (D-549), the bone
-rat the sixth (D-551), the oil tick (the wicksucker) the seventh and the first new way (D-606); the plan ahead is D-607; each biome's kinds are drafted on the content map, and the lure wisp, the eighth, is built (D-649); biome 1 gets a 15th kind that poisons the hero, picked from 2 or 3 drafts (D-652): the centipede (D-654); the first that attacks from range is the Spit grub, the 16th (D-659), built (D-688); the mole burrows, the first chaser given a way of its own, and the rat pack, the second, is built (D-728). A list of 26 was shown in chat: from
+rat the sixth (D-551), the oil tick (the wicksucker) the seventh and the first new way (D-606); the plan ahead is D-607; each biome's kinds are drafted on the content map, and the lure wisp, the eighth, is built (D-649); biome 1 gets a 15th kind that poisons the hero, picked from 2 or 3 drafts (D-652): the centipede (D-654); the first that attacks from range is the Spit grub, the 16th (D-659), built (D-688); the mole burrows, the first chaser given a way of its own, and the rat pack, the second, is built (D-728); the scorpion's tail strike is the third (D-729). A list of 26 was shown in chat: from
 today's ways, snapcap, mole, bat, herb mimic, oilcap mimic, shade
 hound, bone rat; with a new way each, wicksucker, snuffer, glowworm,
 wraith, burrower, centipede, mudcrawler, pebble thrower, slime, shell
