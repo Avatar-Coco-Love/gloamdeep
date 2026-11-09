@@ -81,5 +81,5 @@ Decided when the second region is designed (Q-037).
 A pond at home in the woods, 5 to 9 tiles (D-503). A gloamberry bush
 in each woods room (D-531). 3 grey boulders in each mountain room, and
 no pond or bush (D-738). One campfire a seed in one of the 8 rooms
-round home, blazing, embers or cold ashes (D-757). An oilcap beside a tree in each woods room, home too, none in the mountain rooms (D-760). 2 loose stones on the grass in each mountain room (D-761). The rest is not decided yet. Landmarks and special items are ideas for later (see
+round home, blazing, embers or cold ashes (D-757). An oilcap beside a tree in each woods room, home too, none in the mountain rooms (D-760). 2 loose stones on the grass in each mountain room (D-761). A herb on the grass in each woods room, home too (D-762). The rest is not decided yet. Landmarks and special items are ideas for later (see
 "Ideas for later" in `PROGRESS.md`).

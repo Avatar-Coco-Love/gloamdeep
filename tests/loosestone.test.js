@@ -34,7 +34,7 @@ test('the same seed lays the same stones; picked, a stone grows back after a day
 });
 
 test('an older save: unseen mountain rooms get their stones; seen, taken from or stood in stay', () => {
-  assert.equal(FORMAT, 25); assert.equal(UPGRADES[24], strewn);
+  assert.ok(FORMAT >= 25); assert.equal(UPGRADES[24], strewn);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), bare = (p) => ({ ...p, items: p.items.filter((it) => it.id !== 'stone') });
     const hills = ROOMS.filter((id) => isMountain(id) && id !== w.place), [a, b, c] = hills, wood = ROOMS.find((id) => !isMountain(id) && id !== w.place);

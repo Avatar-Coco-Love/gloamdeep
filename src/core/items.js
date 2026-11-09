@@ -23,7 +23,8 @@ export const ITEMS = {
   // behind it, in a line, for `through`. It lies only in depth 3's first room.
   spear: { id: 'spear', kind: 'item', name: 'Spear', hit: 2, through: 1, hold: true, says: 'spearTake', bagged: 'spearBag', holds: 'spearHold', away: 'spearAway' },
   // Walking onto a herb hurt eats it on the spot (`eatHurt`); at full health it goes
-  // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156).
+  // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156). One grows
+  // in each woods room outside too, the same herb (woodsherb.js, D-762).
   herb: { id: 'herb', kind: 'item', name: 'Healing herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS },
   // The first resource (D-296): an amber mushroom, one in every generated room.
   // Walking onto it puts it in the bag with one of its `says` lines, in turn;

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.210, Stiff.** The owner's picks, all recommended
+  (D-759), the mark after its mock-up: waking from sleeping out leaves
+  the hero stiff for 20 turns, 1 swing in 3 missing; a pale blue Zz
+  mark; a fall ends it.
+  Playtest: https://claude.ai/artifact/M8w597HkyPnXSsLgobr9oF
 - **2026-11-09, 0.3.209, Sleeping out.** The owner's idea (D-758): a
   moon outside at night asks Sleep here until morning?; you wake
   unhealed. Theft waits (Q-091).

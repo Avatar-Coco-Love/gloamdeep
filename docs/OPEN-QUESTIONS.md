@@ -106,8 +106,12 @@ chilled." What can be taken and how often, who takes it, the quest to
 get it back, and each place's own cost are all open, for once people
 and quests grow (D-470) and other places are outside.
 
-**Q-092 · Plants and flowers to harvest** (raised 2026-11-09, the
-owner's addition to D-760's gathering) In the owner's words: "Actual
-harvestable plants, and flowers." Which plants and flowers, their
-names and looks, where they grow, what harvesting one gives and what it
-is for are all open, at their own step after oilcaps and loose stones.
+**Q-092 · Flowers to harvest** (raised 2026-11-09, the owner's addition
+to D-760's gathering; the herbs outside came first, D-762) In the
+owner's words: "Actual harvestable plants, and flowers.", "I want
+flowers as well, which can be used in potion making.", "I think it would
+depend on the type of plant and the place." and "there are going to be
+more than one kind, and there needs to be variations in the way they
+are drawn." Picked, a flower goes in the bag for crafts later (D-762).
+Which kinds, their names and looks, where each grows and which potions
+they make are open, each at its own step.
