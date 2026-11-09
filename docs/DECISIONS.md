@@ -103,5 +103,5 @@ D-734 to D-737, built, to `archive/DECISIONS-SURFACE.md`; ticked steps
 names the commit checked out, not the old local `main` a shallow cloud
 copy keeps. `WORKFLOW.md` gains what this stretch taught. One bug hunt
 read the code since 0.3.152; its findings are listed for the owner to
-pick from (FINDINGS_LINK), each fix its own small step with a test.
+pick from (https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK), each fix its own small step with a test.
 The next audit is at 0.3.232.
