@@ -7,6 +7,11 @@ import { hash } from './noise.js';
 // D-194 half as bright, reaching 1 tile: the stairs and a touch beside them.
 const GLOW = { reach: 1, cr: 0.325, cg: 0.275, cb: 0.44 };
 
+// A burning campfire's glow (D-757): the torch's colour (lights.js), blazing reaching 3 tiles as a
+// torch does, embers 2
+const FIRE_COLOUR = { cr: 1.2, cg: 0.78, cb: 0.42 };
+const FIRE = { blazing: { reach: 3, ...FIRE_COLOUR }, embers: { reach: 2, ...FIRE_COLOUR } };
+
 export const TILES = {
   wall: { id: 'wall', kind: 'tile', letter: '#', name: 'Wall', solid: true, blocksLight: true },
   // A still pool's water (D-500): solid until the hero can swim (Q-039), light passing over it
@@ -120,6 +125,15 @@ export const TILES = {
   // Stepping onto stairs takes them (D-130); they glow a faint, steady violet once found (D-134, D-194).
   stairsDown: { id: 'stairsDown', kind: 'tile', letter: '>', name: 'Stairs down', solid: false, blocksLight: false, leads: 'down', arrive: 'stairsUp', line: 'stairsDown', glow: GLOW },
   stairsUp: { id: 'stairsUp', kind: 'tile', letter: '<', name: 'Stairs up', solid: false, blocksLight: false, leads: 'up', arrive: 'stairsDown', line: 'stairsUp', glow: GLOW },
+  // § campfire (D-757, Q-088's first step): a ring of stones round a fire, one in one of
+  // Hearthwood's 8 rooms outside home, the seed picking the room and how lit it is. Solid,
+  // light passing over it; a burning one lights round it with its `glow` (stairs.js), blazing as
+  // far as a torch, embers less, and stays as it is. Bumped, its `bump` line, free. Cold ashes
+  // bumped open the bed's ask card, Light the fire?, where Yes `kindles` it into embers for one
+  // turn's oil, `oil` (oil.js), Yes grey with an empty lantern (campfire.js).
+  campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireBlazing', fire: true, glow: FIRE.blazing },
+  campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireEmbers', fire: true, glow: FIRE.embers },
+  campfireAshes: { id: 'campfireAshes', kind: 'tile', letter: 'a', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'campfireEmbers', says: 'campfireLit' } },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

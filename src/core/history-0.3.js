@@ -4,6 +4,12 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.208', date: '2026-11-09', title: 'Campfires', lines: [
+    "A campfire now stands in one of the 8 surface rooms round home, the seed picking the room and how lit it is: blazing, low embers or cold ashes. Bump it to read what it says, a sentence a bump.",
+    "A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.",
+    "Bump cold ashes and a card asks Light the fire? Yes lights it into embers with one turn of your lantern's oil; with an empty lantern Yes is grey.",
+    "Decisions: D-757. Questions closed: Q-090.",
+  ] },
   { v: '0.3.207', date: '2026-11-09', title: 'Thick woods and glades', lines: [
     "The woods round home now differ: each of the 5 rooms is thick woods, the woods as before, or an open glade, the seed picking, with at least one thick room and one glade every journey. Home stays as it was.",
     "In a saved game, a woods room you have already been to stays as it is; one you have never seen grows as its new kind.",

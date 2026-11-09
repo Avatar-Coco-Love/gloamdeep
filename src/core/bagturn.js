@@ -17,6 +17,7 @@ import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
 import { forgetBed } from './waking.js';
 import { endTurn } from './endturn.js';
+import { burnOil } from './oil.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
 
@@ -162,6 +163,18 @@ export function shelve(state, x, y) {
   const next = note(passTurn({ ...state, room, bag: bagTake(state.bag, i) }), 'shelve', { id: shelves.relic });
   return endTurn(state, say(next, shelves.says));
 }
+// § kindle: Yes on cold ashes' ask, Light the fire? (D-757): the lantern's oil lights it, one
+// turn's worth (`OIL.burn`, the owner's "one move of oil"), the tile turning into its `into`,
+// embers, and passes a turn, with its line. With no oil, nothing changes. A `kindle` event.
+export function kindle(state, x, y) {
+  const kindles = tileAt(state.room, x, y)?.kindles;
+  if (!kindles || !canKindle(state, x, y)) return state;
+  const room = withTile(state.room, x, y, get(kindles.into));
+  const next = note(passTurn({ ...state, room, oil: burnOil(state.oil) }), 'kindle', { id: kindles.into });
+  return endTurn(state, say(next, kindles.says));
+}
+// Whether the tile at x, y can be lit now: it `kindles`, and the lantern has oil (D-757)
+export const canKindle = (state, x, y) => !!tileAt(state.room, x, y)?.kindles && state.oil > 0;
 // Whether the shelf at x, y would take a relic now: its `shelves` relic in the bag (D-693)
 export const canShelve = (state, x, y) => { const shelves = tileAt(state.room, x, y)?.shelves; return !!shelves && state.bag.some((s) => s.id === shelves.relic); };
 // § plant: Plant on the card of the garden bed at x, y puts one of its `plants` seed from

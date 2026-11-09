@@ -59,6 +59,7 @@ import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn, bagSize } from '../core/bag.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
+import { drawFires } from './campfire.js';
 import { depthOf } from '../core/room.js';
 import { shownLine } from '../core/lines.js';
 import { levelOf } from '../core/xp.js';
@@ -286,6 +287,7 @@ export function createFrame(app, ui) {
       }
       inRoom(() => {
         drawFlames(rc, s.room, s.lights, t, still());
+        drawFires(rc, s.room, t, still()); // a burning campfire's flames and coals (D-757)
         drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)

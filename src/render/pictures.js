@@ -580,6 +580,15 @@ const WARDEN = { mirror: false, rows: [
   '.kggHHHHkHHLLMk.', '.kHkoookooookMk.', '.kHkHHHkHHLLkMk.', '.kLkHHHHkLLLkDk.', '.kkkHHHHLLLMkkk.', '...kHHHLLLMMk...',
   '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
 
+// § campfire (D-757): a ring of grey stones round crossed logs, seen a little from above; its
+// flames are drawn after the light (campfire.js in render). Embers: the logs charred, coals
+// glowing between them. Cold ashes: a grey heap with a burnt stick in it.
+const FIRE_RING = (a, b, c) => ['', '', '', '', '', '', '', '...kkk.kk.kkk...', '..kHHLkHLkHHLk..',
+  `.kHLk${a}kHLk.`, `.kLDk${b}kLDk.`, `.kHLk${c}kHLk.`, '..kLDkHLkHLkDk..', '...kkkkkkkkkk...'];
+const CAMPFIRE = { mirror: false, rows: FIRE_RING('WWkkNN', 'nNWWNn', 'kNnnNk') };
+const CAMPFIRE_EMBERS = { mirror: false, rows: FIRE_RING('nnkknn', 'YnooNY', 'knYYnk') };
+const CAMPFIRE_ASHES = { mirror: false, rows: FIRE_RING('ssddss', 'sdnnsd', 'kddddk') };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -603,4 +612,7 @@ export {
   LOCKET_COLOURS,
   LOCKET_GLINT,
   WARDEN,
+  CAMPFIRE,
+  CAMPFIRE_EMBERS,
+  CAMPFIRE_ASHES,
 };

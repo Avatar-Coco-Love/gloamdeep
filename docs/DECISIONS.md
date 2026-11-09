@@ -183,3 +183,18 @@ change: thick trees 75, 55, 40 in 100 by ring in from the edge, at
 least 80 open tiles; glades 45, 12, then none; a room whose waystone
 is woken is never made again; the map preview names each room's kind.
 D-733 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-757 · 2026-11-09 · Filling the surface, campfires first** (the
+owner's picks; answers Q-090, Q-088's first step) Four things fill the
+surface: campfires, more to gather, landmarks and night creatures, about
+one thing in each room. Campfires come first; the order of the rest is
+picked later. One campfire a seed, in one of Hearthwood's 8 rooms
+outside home: blazing, embers or cold ashes, each with its words
+("A campfire, burning high. Someone was here not long ago." "The coals
+still glow. Whoever sat here is gone." "Cold ashes. No one has sat here
+for a long time."). Burning, it lights 3 tiles, embers 2; none burns
+down yet. Bumped, cold ashes ask Light the fire?, No picked; Yes makes
+them embers for one turn of oil. Claude's calls the owner may change:
+each level and room as likely; 2 tiles in from the edge; a line too
+long for the strip shows a sentence a bump, and cold ashes' first
+sentence on the strip, the rest on the card; "The fire catches."

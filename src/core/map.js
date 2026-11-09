@@ -213,7 +213,7 @@ export function stairsIn(plan, roomId, id) {
 export function markAt(room, seen, x, y) {
   if (seen && !seen[y * room.cols + x]) return null;
   const t = tileAt(room, x, y);
-  if (t.glow) return 'stairs';
+  if (t.glow && !t.fire) return 'stairs'; // a campfire's glow is no stairs (D-757)
   if (t.id === 'water') return 'water';
   if (!t.solid) return 'floor';
   for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
