@@ -1,8 +1,9 @@
-# Teaching goals built (D-707 to D-711)
+# Teaching goals built (D-707 to D-713)
 
 Moved word for word from `docs/DECISIONS.md` at 0.3.169 (D-716), so it
 stays under 12 KB: the first five teaching goals, all built. Still in
-force.
+force. D-712 and D-713, the boons card and the sixth goal, both built,
+followed at 0.3.185 (D-733).
 
 ---
 
@@ -53,3 +54,25 @@ The first boon picked marks it on the profile, so a boon held once never
 shows it again; an older profile holding a boon now is ticked quietly,
 and one without is shown the goal. The boons card (D-706) is its own
 next step.
+
+**D-712 · 2026-11-08 · The boons card built** (the owner's picks, all
+recommended; builds D-706) The boons card shows right after the first
+boon is picked, on the same glass card as the opening's, the room dimmed.
+A profile whose "Take a boon" was ticked quietly is never shown it on its
+own. Picking the done "Take a boon" in the Quests tab shows it over the
+Journal, and Go goes back to the Quests tab. Claude's calls the owner may
+change: Enter on the Quests tab shows it too; the first pick is the one
+that marks "Take a boon" done, so a profile that never held a boon sees
+it even if the goal was ticked quietly at that pick.
+
+**D-713 · 2026-11-08 · The sixth teaching goal built** (the owner's
+picks, all recommended; builds D-706) "Spend your ember" / "Tap here,
+then Growth." shows at level 2 and is done on the first buy in Growth
+(a heart or Tough); no turn passes in the Journal, so the line turns gold
+and the text line says so once it closes. Tapping the line opens the
+Quests tab, as every goal's does. Ticked quietly, never shown, when an
+ember is spent already this journey. Claude's call the owner may change:
+it goes ahead of an older goal waiting only while an ember is there to
+spend, so after a fall back to level 1 the older goal shows. A stray
+bracket from 0.3.165 that stopped the game from starting is fixed here,
+with a test that every code file parses (the owner's pick, recommended).

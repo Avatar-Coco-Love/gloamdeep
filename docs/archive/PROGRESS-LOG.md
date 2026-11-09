@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.182, The tail strike and Attack marks.** The
+  owner's picks: the scorpion's tail strike (D-729): in line within 2
+  tiles it raises its tail a turn, both tiles marked, then strikes them
+  for 2 hearts; step aside and it misses and rests. Then the owner asked
+  for Attack marks in Settings, On at first, Off hiding every next-move
+  mark (D-730). Ideas kept: gaps and a leap (D-463), a ranged attack
+  for the hero (D-457), elements. Next, the bone rat comes back.
+  Playtest: https://claude.ai/artifact/Q91FVBhiX7mcUdL7qjavzp
 - **2026-11-09, 0.3.181, The rat pack.** Built as the owner picked it
   (D-727): from depth 3, about 1 room in 3, the flask's rat has 2
   packmates; one noticing brings all three, each to its own side of the
