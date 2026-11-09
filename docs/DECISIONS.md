@@ -49,44 +49,6 @@ archived; all word for word. One bug hunt read the code since 0.3.113
 from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
 
-**D-729 · 2026-11-09 · The scorpion's tail strike** (the owner's picks;
-builds D-726) The next creature way,
-the owner's pick: the scorpion gets Tail strike, `strikes`. It notices
-and comes as one that chases does, but never bites beside the hero:
-with them in its row or column within 2 tiles and a clear line, it
-stops and raises its tail for a turn, with a warning line, and both
-tiles ahead are marked; on its next turn it strikes them, 2 hearts on
-the hero there, else it misses. A blow still beats it while raised.
-Claude's drafts the owner may change: after a strike it stands still
-one more turn; it strikes only the hero; armour can't turn it aside;
-its lines; a raised tail trembles and stops a walk. D-725 moves to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
-**D-730 · 2026-11-09 · Attack marks in Settings; the bone rat comes
-back next** (the owner's picks, all recommended; builds D-349) A new
-Settings switch, Attack marks, after Flasks: On at first, kept on the
-device. Off, no creature's next move shows: not the icons on the
-creature list's plaques, the framed one's arrow, a glob's next tile nor
-a raised tail's tiles. The plaques, the lines, the glob and the tremble
-stay. Built in 0.3.182 with the tail strike. The owner meant to pick
-the bone rat and wants it in the game, next: beaten, it falls into a
-pile of bones and stands up again 3 turns later, unless the hero steps
-onto the pile to scatter it.
-
-**D-731 · 2026-11-09 · The bone rat comes back** (the owner's picks, all
-recommended; builds D-730, D-551) Beaten, the bone rat falls into a pile
-of bones, look A of its mock-up: a low heap, its skull on top with the
-pink eye. 3 turns later it stands up again, whole with 3 hearts, every
-time, unless the hero steps onto the pile first and scatters it. Only
-the scatter beats it: the Rat Bone (about 1 in 2), the Beaten count and
-its experience. Small pink dots over the pile count its turns, 3, 2, 1,
-hidden with Attack marks Off, and on its last turn "The bones stir."
-Claude's drafts the owner may change: a pile bites no one, can't be
-hit, and no creature steps onto it; it stands up chasing, acting from
-the next turn; the count waits while the hero is in another room; a
-scatter rattles; its lines and the Bestiary words. D-726 moves to
-`archive/DECISIONS-CREATURES-2.md`, word for word.
-
 **D-732 · 2026-11-09 · A playbook of how we work** (the owner's picks,
 all recommended) The owner wants this project's way of working kept for
 future projects. `docs/WORKFLOW.md` gathers it in one place: the steps
@@ -185,3 +147,20 @@ edge stays a tree 1 time in 4; a room grows as a woods room, its paths
 cut, then its trees made rock, so the paths stay where they were; a
 mountain room already visited in an older save stays woods; on the map,
 rock and boulders on the surface show in the cave rock's grey.
+
+**D-739 · 2026-11-09 · Rounded rock** (the owner's picks, all
+recommended; builds D-738's next step, added to D-733's plan before its
+step 5) The surface's rock,
+in the mountain rooms and by the cave mouth, is drawn rounded, as the cave
+walls are, but lit by day: a sunlit grey top, not the cave's near-black,
+and fuller, so a lone rock stays a lump, not a chip. Trees stand in front
+of the rock. Past a mountain room's edge the rock goes on, but for a
+grass passage straight out from each way on. The cave mouth's rocks are
+only rounded; the mouth's own look waits for its step. Next, the owner's
+picks: after the audit, a new cave mouth, one of a few looks the seed
+picks, shown first as mock-ups (rock arch in a mound, an overgrown mouth,
+a hole in the ground, a fallen-stone doorway); the outside art polished
+in steps of its own. Claude's calls the owner may change: a room's rock
+goes on past its edge when its edge holds rock and no tree or stump, so
+a mountain room an older save keeps as woods keeps its trees there; the
+code is `src/render/outcrop.js`.

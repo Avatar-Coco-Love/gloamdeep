@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.188 (2026-11-09)
+- A new goal, Light your lantern: "Tap the lantern, or press L." It shows when the dark comes, halfway through dusk in the woods or on stepping somewhere the sky doesn't reach, with the lantern off, and goes ahead of any other goal while it is dark. Lighting the lantern, by hand or By itself, does it and pays its reward. If your lantern was already lit, it is ticked quietly.
+- Decisions: D-736.
+
 ## 0.3.187 (2026-11-09)
 - A new journey begins in the woods now, not the crypt: in one of the rooms along the south of Hearthwood, never the one with the cave mouth, standing near the middle of the room. It is day, so your lantern starts off. The first words say so: "You wake among the trees of Hearthwood. Your lantern is cold; keep its oil for the dark. Something waits below." Your first goal is Find the waystone: "Home is in the middle of the woods." Go home to the woods is no longer asked. If you fall, you wake where the journey began, until beds and the waystone come in.
 - Decisions: D-735. Questions closed: Q-087. Questions opened: Q-088. D-727 and D-728 moved to the archive, word for word.

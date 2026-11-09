@@ -4,6 +4,7 @@ import { hash } from '../core/noise.js';
 import { tileAt } from '../core/room.js';
 import { TILE as T } from './screen.js';
 import { paintMouths } from './mouth.js';
+import { paintOutcrops, wideOutcrops } from './outcrop.js';
 import { inPool, wetAt, water, GRASS_LIP } from './water.js';
 
 // Value noise: hash at whole points, mixed between them
@@ -47,10 +48,10 @@ export function drawWoods(c, room) {
   const shade = (x, y, k) => { const i = (y * w + x) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
   for (let y = 0; y < room.rows * T; y++) for (let x = 0; x < w; x++) grass(put, x, y);
   paintPond(room, put, shade);
+  paintMouths(room, d, put, shade); // the cave mouth and the rock (D-211, D-738), the trees in front
   for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
     if (tileAt(room, tx, ty).id === 'tree') paintTree(put, shade, tx, ty);
   }
-  paintMouths(room, d, put, shade); // the cave mouth and its rocks (D-211)
   c.putImageData(img, 0, 0);
 }
 
@@ -72,7 +73,7 @@ export function drawTree(c, room, tx, ty) {
   paintTree(put, shade, tx, ty);
 }
 
-// § beyond: the grass and trees going on `mx` tiles past the left and right
+// § beyond: the grass, rock and trees going on `mx` tiles past the left and right
 // edges and `my` past the top and bottom, around `wide`, a room widened by
 // openings.js (D-403), into `c`, as big as all that. The room's own pixels
 // are left clear, for drawWoods.
@@ -83,6 +84,8 @@ export function drawWoodsBeyond(c, wide, mx, my) {
   const put = (x, y, hex) => { if (!mine(x, y)) return; const [r, g, b] = rgb(hex), i = ((y + oy) * w + x + ox) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
   const shade = (x, y, k) => { if (!mine(x, y)) return; const i = ((y + oy) * w + x + ox) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
   for (let y = -oy; y < h - oy; y++) for (let x = -ox; x < w - ox; x++) if (mine(x, y)) grass(put, x, y);
+  const out = (x, y) => x < -mx || y < -my || x >= wide.cols + mx || y >= wide.rows + my;
+  paintOutcrops(wide, { x0: -ox, y0: -oy, w, h }, put, shade, wideOutcrops(wide, out)); // a mountain room's rock going on (D-738)
   for (let ty = -my; ty < wide.rows + my; ty++) for (let tx = -mx; tx < wide.cols + mx; tx++) {
     if (tileAt(wide, tx, ty).id === 'tree' && (tx < 0 || ty < 0 || tx >= wide.cols || ty >= wide.rows)) paintTree(put, shade, tx, ty);
   }

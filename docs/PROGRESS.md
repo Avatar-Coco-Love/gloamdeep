@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.190 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.191 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Rounded rock (D-738): outside rock drawn rounded, as cave walls are, and
-rock going on past a mountain room's edges.
+The twelfth audit (D-518), at 0.3.192: nothing visible changes.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -35,7 +34,8 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [x] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151); Rooms (0.3.174); Steps (0.3.175); Torches (0.3.176)
-- [ ] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock; thick woods and glades
+- [ ] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades
+- [ ] 24 The surface's looks (D-739), after the audit: a new cave mouth, one of a few looks the seed picks, mock-ups first; the outside art polished, step by step
 - [x] 22 Looks (D-698, D-703, D-704), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156); more hats and hoods (0.3.157)
 
 **Next audit: 0.3.192** (D-518, D-699).
@@ -44,6 +44,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.191, Rounded rock.** The owner's picks, all
+  recommended (D-739): rock lit by day and fuller, trees in front, the
+  mouth's rocks only rounded; the owner asked for better cave mouths in
+  several looks and outside art polish, set after the audit.
+  Playtest: https://claude.ai/artifact/KYrbqQCH1trwQ6cuHyBw7Y
 - **2026-11-09, 0.3.190, Mountain rooms.** The owner's picks (D-738):
   rocky slopes, 3 boulders, sticks and the branch, all three made the same
   way; recommended but the rock's look, which the next step draws
@@ -55,8 +60,3 @@ list in `RESEARCH.md`.
   the nearest open one; on the woken home plate with no boon offered;
   taking the bed down forgets it; the fall line stays as it is.
   Playtest: https://claude.ai/artifact/Ce1XpE3oKvGmdk3Bqmob13
-- **2026-11-09, 0.3.188, Light your lantern.** The owner's picks, all
-  recommended (D-736): the goal shows as the dark comes with the lantern
-  off, goes ahead of any goal waiting while it is dark, is done when the
-  lantern is lit by hand or By itself, and is ticked quietly if it was lit.
-  Playtest: https://claude.ai/artifact/NG7iLfTyzz8c55WvRr8tg4

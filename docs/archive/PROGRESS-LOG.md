@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.188, Light your lantern.** The owner's picks, all
+  recommended (D-736): the goal shows as the dark comes with the lantern
+  off, goes ahead of any goal waiting while it is dark, is done when the
+  lantern is lit by hand or By itself, and is ticked quietly if it was lit.
+  Playtest: https://claude.ai/artifact/NG7iLfTyzz8c55WvRr8tg4
 - **2026-11-09, 0.3.187, The south start.** The owner's picks (D-735):
   a start is one registry entry, so more can come; South woods for now.
   The owner's idea: by day the lantern starts off, and next a goal asks
