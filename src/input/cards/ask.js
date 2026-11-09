@@ -5,7 +5,7 @@ import { SURE_MENU, moveChoice } from '../../core/menu.js';
 import { askCardAt } from '../../render/askcard.js';
 import { view } from '../../render/screen.js';
 
-export const ASKS = new Set(['sure', 'drop', 'easier', 'bed']); // and the bed's by day (D-488), or the garden bed's (D-565)
+export const ASKS = new Set(['sure', 'drop', 'easier', 'bed', 'sleepOut']); // and the bed's by day (D-488), or the garden bed's (D-565); Sleep here until morning? (D-758)
 
 // An arrow or swipe: YES and NO side by side (D-400)
 export const askDir = (app) => (dir) => { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); };

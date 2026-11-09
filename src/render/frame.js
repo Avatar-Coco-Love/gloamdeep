@@ -23,6 +23,7 @@ import { drawFramed } from './framed.js';
 import { drawMoves, drawStrikes, drawPiles } from './moves.js';
 import { struck } from '../core/sting.js';
 import { litAt } from '../core/sight.js';
+import { canSleepOut } from '../core/sleepout.js';
 import { drawTitle, drawScene, drawName } from './title.js';
 import { drawTitleCard, nameTop } from './titlecard.js';
 import { VEIL } from './menu.js';
@@ -86,13 +87,16 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
+const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+// The moon button's ask, worked out once a state, not each frame (D-758)
+let sleepFor = null, sleepOk = false;
+const sleepsOut = (s) => { if (s !== sleepFor) { sleepFor = s; sleepOk = canSleepOut(s); } return sleepOk; };
 
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -354,7 +358,7 @@ export function createFrame(app, ui) {
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
     pauseButton.fade(roundAlpha); dev.wrench.fade(roundAlpha);
     // § round lantern: bottom right, with the bag and the quick slot on its arc, one piece fading the same way (D-442)
-    const low = [lanternButton, bagButton, quickSlot];
+    const low = [lanternButton, bagButton, quickSlot, sleepButton];
     lanternAlpha = app.screen === 'play' ? fade(lanternAlpha, low.some((b) => covers(b.area())) ? UNDER_ALPHA : 1) : 1;
     for (const b of low) b.fade(lanternAlpha);
     // § arrow pad: bottom left, in play with its switch on, fading the same way (D-406)
@@ -379,7 +383,7 @@ export function createFrame(app, ui) {
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
-    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); // WAIT or PULL while a line is out (D-612)
+    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
@@ -388,7 +392,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float)); // the strike meter, the room paused (D-614)
     else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
     else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
-    else if (app.screen === 'easier' || app.screen === 'bed') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
+    else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)

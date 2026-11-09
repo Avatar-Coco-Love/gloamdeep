@@ -95,3 +95,13 @@ need further discussion." Where they turn up, how lit each is and its
 words, what lighting one costs, feeding one, building one and the buff
 are all open. The first step, fires met in the world and lighting cold
 ashes, is D-757; feeding one, building one and the buff stay open.
+
+**Q-091 · Sleeping out's later costs** (raised 2026-11-09, the owner's
+ideas, with D-758) In the owner's words: "Maybe at some point in the
+future, they could even wake to a message saying something of theirs was
+stolen, but with a side quest to get it back (if it was of high or
+significant value)", and "Depending on the environment, there could be
+other effects, such as a snowy environment causing the player to be
+chilled." What can be taken and how often, who takes it, the quest to
+get it back, and each place's own cost are all open, for once people
+and quests grow (D-470) and other places are outside.

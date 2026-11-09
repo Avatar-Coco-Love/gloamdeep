@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.206, The motes that stay.** The owner's picks, all
+  recommended (D-755): once the way down is found, 3 motes stay in the
+  crypt and earth, 2 in grey rock and the dungeon, none under the sky,
+  each wandering its own slow way.
+  Playtest: https://claude.ai/artifact/QDJgUbLQ4QBqjAmQdJPxVe
 - **2026-11-09, 0.3.205, Waymark's dot on the rim.** The owner's picks,
   all recommended (D-754): with Waymark, a one-tile violet dot pulses
   just inside the round map's rim toward the nearest stairs down, in a

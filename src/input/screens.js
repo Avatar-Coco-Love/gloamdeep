@@ -71,7 +71,7 @@ import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SLEEP_OUT_ASK } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
@@ -112,14 +112,14 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `shelve(x, y)`, `plant(x, y)`, `pick(x, y)`, `feed(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
-  const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion } = ui;
+  const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion } = ui;
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
-    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
+    : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
     : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
-  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
+  const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
   const menuTop = () => (onTitle() ? titleTop(menuOf(app.screen).length) : pauseTop(menuOf(app.screen).length, app.screen === 'settings'));
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
@@ -137,17 +137,19 @@ export function createScreens(app, ui) {
   const boonsMenu = () => (app.offer || []).map(boonRow);
   const boonsWords = () => `Pick a boon. ${boonsMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} It lasts until you are home again. Esc or the close button goes on without one.`;
   // § the strike card (D-614): opened on the pull, its clock started
+  // § sleeping out (D-758): the moon button's ask, No picked
+  function openSleepOut() { app.queued = null; show('sleepOut', SURE_MENU.findIndex((l) => l.id === 'no')); }
   function openStrike() { app.queued = null; app.strike = { start: performance.now() }; show('strike'); }
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
-  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
+  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'sleepOut' ? SLEEP_OUT_ASK : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || (next === 'journal' && app.screen !== 'aboutBoons')) app.pageFrom = app.screen; // back from the boons card, the Journal keeps where it came from (D-712)
     const playing = next === 'play';
     if ((playing || next === 'opening') && (onTitle() || app.screen === 'paused')) ui.goFullScreen(); // Play, Continue or Resume: full screen, held either way (D-377, D-505)
     app.screen = next; app.chosen = at;
-    lanternButton.hide(!playing); quickSlot.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
+    lanternButton.hide(!playing); quickSlot.hide(!playing); sleepButton.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     version.hidden = !(onTitle() || next === 'paused'); // the version number on the title and the pause menu, not in play (D-407)
     setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)
@@ -155,7 +157,7 @@ export function createScreens(app, ui) {
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
       : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'history' ? HISTORY_WORDS
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
-      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' ? askWords(next)
+      : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' || next === 'sleepOut' ? askWords(next)
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
@@ -263,5 +265,5 @@ export function createScreens(app, ui) {
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { show, endJourney, onWheel, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }
