@@ -9,11 +9,12 @@ import { withTool } from './gear.js';
 import { refloor, restand, restone, restones } from './refloor.js';
 import { withHomeStone } from './homestone.js';
 import { withSmallStones } from './smallstone.js';
+import { withOldLocket } from './oldlocket.js';
 
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 18;
+export const FORMAT = 19;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -32,6 +33,7 @@ export const UPGRADES = {
   15: withSmallStones, // 15 → 16: every waystone made 3 × 3 where it stands, asleep or woken as it was (D-620)
   16: refloor, // 16 → 17: every generated room made again on its floor's bigger grid, one cell each (D-645)
   17: refloor, // 17 → 18: every generated room made again, with the floors' halls and large rooms (D-645)
+  18: withOldLocket, // 18 → 19: the locket and its warden laid in the room the seed picks, if the locket is nowhere (D-716)
 };
 // Every room's taken list, empty (regrow.js)
 function withTaken(s) {

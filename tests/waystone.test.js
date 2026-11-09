@@ -125,7 +125,7 @@ test('waystone: an old 5 × 5 stone becomes 3 × 3 where it stands, woken as it 
 });
 
 test('waystone: an old save has every waystone made 3 × 3: here, elsewhere and as the woods began', () => {
-  assert.equal(FORMAT, 18); // the cells came after it, then the halls and large rooms (D-645)
+  assert.ok(FORMAT >= 18); // the cells came after it, then the halls and large rooms (D-645)
   const w = makeWorld('first', 5), woods = w.elsewhere.woods, big = { ...woods, room: { ...woods.room, map: woods.room.map.map((l, y) => (y >= 1 && y <= 7 ? l.slice(0, 1) + BIG[y - 1] + l.slice(8) : l)) } };
   const old = { ...w, elsewhere: { ...w.elsewhere, woods: big }, home: { ...w.home, places: { ...w.home.places, woods: big } }, room: { ...w.room, map: BIG } };
   const s = UPGRADES[15](old), want = shrinkMap(big.room.map);

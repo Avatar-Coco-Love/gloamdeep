@@ -12,10 +12,10 @@ const same = (a, b) => a.x === b.x && a.y === b.y;
 const AROUND = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 
 // (seed, room, id) → the room with relic `id` and its guard, or the room as it was when
-// no free tile has a free tile beside it
+// no free tile has a free tile beside it; never on the room's `hero`, when one is given (D-716)
 export function withRelic(seed, room, id = 'locket') {
   const r = rng(seed ^ 0x3c6ef372), map = room.map, rows = map.length, cols = map[0].length;
-  const things = [room.start, ...room.items, ...room.enemies, ...(room.people || [])].filter(Boolean);
+  const things = [room.start, room.hero, ...room.items, ...room.enemies, ...(room.people || [])].filter(Boolean);
   const free = (x, y) => x > 0 && y > 0 && x < cols - 1 && y < rows - 1 && map[y][x] === '.' && !things.some((o) => same(o, { x, y }));
   const far = [...steps(map, room.start)].map(([k, n]) => { const [x, y] = k.split(',').map(Number); return { x, y, n }; })
     .filter((t) => free(t.x, t.y)).sort((a, b) => b.n - a.n);

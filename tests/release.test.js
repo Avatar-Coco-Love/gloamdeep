@@ -46,6 +46,16 @@ test('it sets VERSION, adds the history, keeps 3 of each and moves the rest word
   assert.equal(JSON.stringify(fs.disk), once);
 });
 
+test('the archive says once that the tool moves each version, never again (T1, D-716)', () => {
+  const fs = repo(), af = 'docs/archive/CHANGELOG-STAGE-0.9-1.md';
+  fs.write(af, fs.read(af).replace('0.9.0 to 0.9.5.\n', '0.9.0 to 0.9.5.\nFrom 0.9.4 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).\n'));
+  plan(fs);
+  assert.equal(fs.read(af).split('\n').filter((l) => l.includes('moves each version here')).length, 1);
+  const fresh = repo();
+  plan(fresh);
+  assert.equal(fresh.read(af).split('\n').filter((l) => l.includes('moves each version here')).length, 1);
+});
+
 test('it stops when the log entry is missing, and warns as DECISIONS.md nears its cap', () => {
   const fs = repo();
   fs.write('docs/PROGRESS.md', fs.read('docs/PROGRESS.md').replace('0.9.9, the ninth', '0.9.8, the ninth'));

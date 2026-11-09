@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.168 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.169 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The eleventh audit's fixes (D-699): show the owner the findings to pick the order, one small fix a step.
+The eleventh audit's other fixes (D-699, D-716): ask the owner which comes next of B2 and B3 (Feat notes), B4 (the warden's screen-reader plaque) and Q1 (dev creatures and Beaten), one small fix a step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -42,6 +42,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.169, The old saves' locket.** The audit's first
+  fixes, the owner's picks, all recommended: B1 first, an old journey
+  that held the locket room before 0.3.143 gets the locket and its
+  warden once on loading, only while the locket is nowhere else; T1
+  rides along, the release tool's archive note said once (D-716). Next,
+  the owner orders the other fixes.
+  Playtest: https://claude.ai/artifact/2PG64e25pBfpxSVXNX5E67
 - **2026-11-09, 0.3.168, One free pick, shown once.** FREE on every
   locked look read as if all were free. The owner's picks, all
   recommended: locked looks keep LOCK; "1 FREE PICK" in gold on the Look
@@ -55,10 +62,3 @@ list in `RESEARCH.md`.
   taken, it waits for Change Look; older profiles get one too. Next, the
   Carriage lamp and Zebra free for everyone (D-714).
   Playtest: https://claude.ai/artifact/VTvzFTbd74F7WS6bJGwCcU
-- **2026-11-08, 0.3.166, The sixth teaching goal.** "Spend your ember"
-  at level 2, ahead of any goal waiting. The owner's picks, all
-  recommended: done on the first buy in Growth, shown gold once the
-  Journal closes; ticked quietly if an ember is spent already; the tap
-  opens Quests as every goal's does (D-713). Also fixed: 0.3.165's
-  stray bracket that stopped the game from starting, now tested.
-  Playtest: https://claude.ai/artifact/RrphwJEKTiSGoyeoqJQXxc

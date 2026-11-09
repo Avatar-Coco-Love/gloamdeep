@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-08, 0.3.166, The sixth teaching goal.** "Spend your ember"
+  at level 2, ahead of any goal waiting. The owner's picks, all
+  recommended: done on the first buy in Growth, shown gold once the
+  Journal closes; ticked quietly if an ember is spent already; the tap
+  opens Quests as every goal's does (D-713). Also fixed: 0.3.165's
+  stray bracket that stopped the game from starting, now tested.
+  Playtest: https://claude.ai/artifact/RrphwJEKTiSGoyeoqJQXxc
 - **2026-11-08, 0.3.165, The boons card.** Once, right after the first
   boon is picked, a glass card saying what boons are, with Go; the done
   "Take a boon" in the Quests tab shows it again. The owner's picks, all
