@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.200 (2026-11-09)
+- Ponds outside are rounder and smooth-edged, halfway between their old shape and a round one: no more star shapes or dripping rims. The same tiles are water; cave pools are unchanged.
+- Decisions: D-748.
+
 ## 0.3.199 (2026-11-09)
 - The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.
 - Decisions: D-747.

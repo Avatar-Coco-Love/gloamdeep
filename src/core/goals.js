@@ -34,6 +34,8 @@ const level = (state) => levelOf(state.xp ?? 0);
 const spent = (state) => embers({ xp: 0, ...state }) < level(state) - 1;
 // Daylight no longer lights the room the hero is in (daytime.js); false with no room known
 const dark = (state) => !!state.room?.dark && !inDaylight(state);
+// Daylight lights the room the hero is in; false with no room known
+const lightByDay = (state) => !!state.room?.dark && inDaylight(state);
 // The crypt: its two rooms behind the broken seal (room.js, D-745); other places below the
 // surface don't count, as more ways down will come (the owner's pick, D-746)
 const inCrypt = (place) => place === 'first' || place === 'south';
@@ -77,6 +79,13 @@ export const GOALS = [
   { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern, or press L.', ahead: (state) => !state.lit && dark(state),
     shows: (c) => dark(c.state), does: (c) => !!c.state.lit,
     before: (c) => !!c.before.lit && !!c.state.lit },
+  // The oil tip (D-751): when daylight comes while the lantern is lit, by stepping out of the dark
+  // or by dawn (the owner's pick). Done once the lantern is out; ticked quietly, unseen, when it is
+  // already out as the daylight comes, as By itself does (the owner's pick); it goes ahead of any
+  // goal waiting while the lantern burns in daylight (the owner's pick)
+  { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, or press L, to save oil.', ahead: (state) => !!state.lit && lightByDay(state),
+    shows: (c) => dark(c.before) && lightByDay(c.state), does: (c) => !c.state.lit,
+    before: (c) => !c.state.lit },
   // At level 2, going ahead of any goal waiting (D-706) while an ember is there to spend (Claude's
   // call); done on the first buy in Growth, which passes no turn, so main.js checks again then
   // (the owner's pick); ticked quietly when an ember is spent already (the owner's pick)

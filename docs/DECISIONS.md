@@ -185,3 +185,10 @@ earth, fewer in grey rock, none under the sky. Supersedes D-605's
 "None once any of the floor's stairs down is remembered". Claude's
 calls the owner may change: the words, where the waystone stands in its
 new room and the motes' counts are shown at their steps.
+
+**D-752 · 2026-11-09 · The oil tip's rules** (the owner's picks, all
+recommended; step 25, 1, D-751) "Put out your lantern" shows when
+daylight comes with the lantern lit, by stepping out of the dark or by
+dawn. Already out as the daylight comes, as By itself does, it is ticked
+quietly and paid nothing. It pays a reward like every goal and goes
+ahead of any goal waiting while the lantern burns in daylight.
