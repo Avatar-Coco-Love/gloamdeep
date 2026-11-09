@@ -9,7 +9,7 @@ import { CLOAKS as REGISTERED, EYES as REGISTERED_EYES, TRIMS as REGISTERED_TRIM
 
 test('six cloaks, teal first, then the three locked patterns, each with four shades; the registry has them', () => {
   assert.deepEqual(CLOAK_IDS, ['teal', 'moss', 'heather', 'rust', 'indigo', 'sand', 'zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']);
-  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked), ['zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']); // D-515, D-533, D-700
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked), ['cow', 'camo', 'tiger', 'stars', 'moth']); // D-515, D-533, D-700; Zebra free (D-715)
   for (const id of ['zebra', 'cow', 'camo', 'tiger', 'stars', 'moth']) { assert.equal(CLOAKS[id].pattern, id); assert.equal(CLOAKS[id].marks.length, 2); }
   assert.equal(REGISTERED, CLOAKS);
   for (const k of Object.values(CLOAKS)) {
@@ -27,7 +27,7 @@ test('a profile from before P3, or with an unknown cloak, wears teal', () => {
   assert.equal(cloakOf({ look: { cloak: 'plaid' } }), 'teal');
   assert.equal(cloakOf(undefined), 'teal');
   assert.equal(cloakOf({ look: { cloak: 'heather' } }), 'heather');
-  assert.equal(cloakOf({ look: { cloak: 'zebra' } }), 'teal'); // locked, never worn (D-533)
+  assert.equal(cloakOf({ look: { cloak: 'cow' } }), 'teal'); // locked, never worn (D-533)
 });
 
 test('six eye colours, bone first; the registry has them; none kept out', () => {
@@ -187,11 +187,11 @@ test('eyes and trims show as swatches, cloaks and clothes as heroes (D-527, D-52
 });
 
 test('a bought pattern is worn, picked and rolled; one not bought is not (D-696)', () => {
-  assert.equal(cloakOf({ look: { cloak: 'zebra' }, bought: ['zebra'] }), 'zebra');
-  assert.equal(cloakOf({ look: { cloak: 'cow' }, bought: ['zebra'] }), 'teal');
-  assert.ok(!isLocked('cloak', 'zebra', ['zebra']) && isLocked('cloak', 'cow', ['zebra']));
-  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked).map((id) => CLOAKS[id].price), [3, 3, 3, 3, 3, 3]); // D-695, D-700
+  assert.equal(cloakOf({ look: { cloak: 'cow' }, bought: ['cow'] }), 'cow');
+  assert.equal(cloakOf({ look: { cloak: 'tiger' }, bought: ['cow'] }), 'teal');
+  assert.ok(!isLocked('cloak', 'cow', ['cow']) && isLocked('cloak', 'tiger', ['cow']));
+  assert.deepEqual(CLOAK_IDS.filter((id) => CLOAKS[id].locked).map((id) => CLOAKS[id].price), [3, 3, 3, 3, 3]); // D-695, D-700, D-715
   const r = rng(3), cloaks = new Set(Array.from({ length: 300 }, () => rollLook(r, ['camo']).cloak));
-  assert.ok(cloaks.has('camo') && !cloaks.has('zebra') && !cloaks.has('cow'));
-  assert.equal(spentOn(['zebra', 'camo']), 6);
+  assert.ok(cloaks.has('camo') && cloaks.has('zebra') && !cloaks.has('cow'));
+  assert.equal(spentOn(['cow', 'camo']), 6);
 });

@@ -18,7 +18,7 @@ export const newProfiles = (deepest = 0) => ({ current: 0, slots: [newProfile(de
 
 // § upgrades: as the journey save's (D-266). When the profiles' shape changes,
 // raise FORMAT and add the step from the old number to the new; never edit a merged step.
-export const FORMAT = 10;
+export const FORMAT = 11;
 export const UPGRADES = {
   // 1 → 2: the Records' counts, none yet (D-270)
   1: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { ...p, records: { beaten: 0, falls: 0, found: 0, ...p.records } }) }),
@@ -38,7 +38,10 @@ export const UPGRADES = {
   8: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { goals: {}, glints: 0, ...p }) }),
   // 9 → 10: a free pick of one locked look, waiting, for every profile (D-714)
   9: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && { gift: null, ...p }) }),
+  // 10 → 11: Carriage and Zebra free for everyone; a free pick taken on one waits again (D-715)
+  10: (ps) => ({ ...ps, slots: ps.slots.map((p) => p && (FREED.includes(p.gift) ? { ...p, gift: null } : p)) }),
 };
+const FREED = ['carriage', 'zebra'];
 
 // § reading: a kept profile list, checked and upgraded, or null when it can't be read
 const isCount = (n) => Number.isInteger(n) && n >= 0;

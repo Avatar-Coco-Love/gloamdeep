@@ -7,11 +7,11 @@ import { HERO, dressed } from '../src/render/pictures.js';
 import { boxesAt, lookCardAt, barAt } from '../src/render/cloak.js';
 import { rng } from '../src/core/rng.js';
 
-test('four lamps, the study\'s lantern first and free; Carriage, Dish and Pierced locked at 3 Glints; the registry has them', () => {
+test('four lamps, the study\'s lantern first; it and Carriage free (D-715); Dish and Pierced locked at 3 Glints; the registry has them', () => {
   assert.deepEqual(LAMP_IDS, ['lantern', 'carriage', 'dish', 'pierced']);
   assert.equal(DEFAULT_LAMP, 'lantern');
-  assert.ok(!LAMPS.lantern.locked);
-  for (const id of ['carriage', 'dish', 'pierced']) assert.ok(LAMPS[id].locked && LAMPS[id].price === 3, id);
+  assert.ok(!LAMPS.lantern.locked && !LAMPS.carriage.locked);
+  for (const id of ['dish', 'pierced']) assert.ok(LAMPS[id].locked && LAMPS[id].price === 3, id);
   assert.equal(REGISTERED, LAMPS);
 });
 
@@ -24,9 +24,9 @@ test('a profile from before D-702, or with a lamp it hasn\'t bought, carries the
 });
 
 test('a bought lamp costs its Glints and can be rolled; one not bought never is', () => {
-  assert.equal(spentOn(['zebra', 'carriage']), 6);
+  assert.equal(spentOn(['cow', 'dish']), 6);
   const r = rng(5), lamps = new Set(Array.from({ length: 300 }, () => rollLook(r, ['dish']).lamp));
-  assert.deepEqual([...lamps].sort(), ['dish', 'lantern']);
+  assert.deepEqual([...lamps].sort(), ['carriage', 'dish', 'lantern']);
 });
 
 test('each lamp is drawn in place of the lantern: the lantern\'s own pixels kept, the others their own, the flame in each', () => {

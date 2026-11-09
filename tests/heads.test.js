@@ -30,7 +30,7 @@ test('a profile from before D-703, or with a head it hasn\'t bought, wears the h
 });
 
 test('a bought head costs its Glints and can be rolled; one not bought never is', () => {
-  assert.equal(spentOn(['zebra', 'dish', 'helm']), 9);
+  assert.equal(spentOn(['cow', 'dish', 'helm']), 9);
   assert.equal(spentOn(['brim', 'ears']), 0, 'Brim and Ears bought before D-704 cost nothing now');
   const r = rng(5), heads = new Set(Array.from({ length: 400 }, () => rollLook(r, ['scarf']).head));
   assert.deepEqual([...heads].sort(), ['brim', 'ears', 'hood', 'scarf']);

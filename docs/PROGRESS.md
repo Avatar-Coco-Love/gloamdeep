@@ -4,17 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.167 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.168 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Carriage lamp and the Zebra pattern free for everyone (D-704, D-714).
+The eleventh audit's fixes (D-699): show the owner the findings to pick the order, one small fix a step.
 
 ## Waiting on the owner
-- The eleventh audit's findings: which to fix (D-699), any time.
 - A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
-- Glints: looks cost 45 and Feats pay 18; more Feats, and the prices of looks to come (Q-055).
+- Glints: looks cost 39 and Feats pay 18; more Feats, and the prices of looks to come (Q-055).
 - A region's name and rating (Q-056), with a second region.
 - Feats' other records, and whether Rooms found and Torches lit belong in Feats (Q-057).
 - Creature materials: looks and recipes (Q-061), each at its own step.
@@ -43,6 +42,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.168, One free pick, shown once.** FREE on every
+  locked look read as if all were free. The owner's picks, all
+  recommended: locked looks keep LOCK; "1 FREE PICK" in gold on the Look
+  card's top line while it waits; trying one says its price "or your one
+  free pick", the button FREE. Carriage and Zebra free for everyone; a
+  pick taken on one waits again. Next, the audit's fixes (D-715).
+  Playtest: https://claude.ai/artifact/5aztX6gQmPePrGxr5qpofy
 - **2026-11-08, 0.3.167, The free pick.** Every profile may take one
   locked look free. The owner's picks, all recommended: each locked look
   reads FREE in gold while the pick waits, and the button reads FREE; not
@@ -56,9 +62,3 @@ list in `RESEARCH.md`.
   opens Quests as every goal's does (D-713). Also fixed: 0.3.165's
   stray bracket that stopped the game from starting, now tested.
   Playtest: https://claude.ai/artifact/RrphwJEKTiSGoyeoqJQXxc
-- **2026-11-08, 0.3.165, The boons card.** Once, right after the first
-  boon is picked, a glass card saying what boons are, with Go; the done
-  "Take a boon" in the Quests tab shows it again. The owner's picks, all
-  recommended: over the Journal and back to it; never for a profile
-  ticked quietly (D-712).
-  Playtest: https://claude.ai/artifact/7jxE1kBw7thc1C2FZUkED3

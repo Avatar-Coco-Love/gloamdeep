@@ -37,8 +37,10 @@ export function featRows(records) {
 // § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
 // has, and to earn more when they are too few
 export const priceNote = (name, price, have) => `${name} costs ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
-// The free pick's note, after a look's name (D-714)
-export const FREE_NOTE = 'your free pick. One look of all those locked.';
+// The free pick's note, after a look's name (D-714): its price, or the one free pick (D-715)
+export const freeNote = (price) => `${plural(price)}, or your one free pick.`;
+// The Look card's gold line while the free pick waits (D-715)
+export const FREE_PICK = '1 FREE PICK';
 // The Look card's shorter one, in the big hero's name line (D-700)
 export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';

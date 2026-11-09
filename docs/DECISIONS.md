@@ -49,18 +49,6 @@ archived; all word for word. One bug hunt read the code since 0.3.113
 from (https://claude.ai/artifact/MqecMUebWQKqaiK9gPPMBH), each fix its own small step with a test. The next audit is at
 0.3.192.
 
-**D-704 · 2026-11-08 · More hats and hoods** (the owner's picks; builds
-D-703, narrows Q-055) The five drafts left from D-703's mock-up join the
-HEAD tab at 3 Glints each, with their draft names: Horned (the hood with
-two curled horns, always bone white whatever the cloak and trim),
-Pointed, Bobble, Circlet and Scarf. Pointed is one row shorter than its
-draft so its brim clears the eyes. Brim is all in the trim's colours, its
-band the trim's dark shade; the hoods keep the cloak's. Hood, Brim and
-Ears are free from the start; Glints spent on Brim or Ears come back.
-Next, its own step: Carriage and one cloak pattern free, and a free pick
-of any one locked look for every new profile, shown clearly (owner's
-wish, how it is shown to be drafted).
-
 **D-705 · 2026-11-08 · Teaching goals, the plan** (the owner's picks,
 recommended where marked; builds D-629's first kind of quest and D-640,
 opens Q-087) The game should teach its many systems. A teaching map
@@ -191,3 +179,13 @@ reads FREE. Taken, the rest go back to LOCK and their prices, and it costs
 no Glints. Not taken when a new hero is made, it waits for Change Look.
 Profiles made before get one each. Next, its own step: the Carriage lamp
 and the Zebra pattern free for everyone (the owner's pick, recommended).
+
+**D-715 · 2026-11-09 · The free pick shown once; Carriage and Zebra free**
+(the owner's picks, all recommended; changes how D-714 shows the pick,
+builds D-704, narrows Q-055) FREE on every locked box read as if all of
+them were free. Now every locked look keeps LOCK; while the free pick
+waits, "1 FREE PICK" shows in gold on the Look card's top line, and
+trying a locked look on says "Cow: 3 Glints, or your one free pick."
+with the button reading FREE. The Carriage lamp and the Zebra pattern are
+free for everyone; Glints spent on them come back, and a free pick taken
+on one waits again. Both in one step.

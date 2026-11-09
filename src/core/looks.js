@@ -17,8 +17,8 @@ export const CLOAKS = {
   // § patterns (D-515): each in its own colours, its base four shades and its marks' colours on the
   // light and dark sides (a second mark's for camo); `pattern` says where the marks fall
   // (sprites.js). Locked until bought with Glints (D-516); shown in the grid with a lock (D-533);
-// `price`: the Glints it costs, 3 each (D-695).
-  zebra: { id: 'zebra', kind: 'cloak', name: 'Zebra', locked: true, price: 3, pattern: 'zebra', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#22262f', '#22262f'] },
+// `price`: the Glints it costs, 3 each (D-695). Zebra free for everyone (D-715).
+  zebra: { id: 'zebra', kind: 'cloak', name: 'Zebra', pattern: 'zebra', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#22262f', '#22262f'] },
   cow: { id: 'cow', kind: 'cloak', name: 'Cow', locked: true, price: 3, pattern: 'cow', shades: ['#efe6cc', '#d8cdb0', '#b9ab88', '#8f8468'], marks: ['#463e2c', '#22262f'] },
   camo: { id: 'camo', kind: 'cloak', name: 'Camo', locked: true, price: 3, pattern: 'camo', shades: ['#b6dc8e', '#6fb04e', '#3c6e3a', '#223e24'], marks: ['#7a4430', '#223e24'], second: ['#3c6e3a', '#46261c'] },
   // the second three (D-700): tiger rust with dark stripes, stars night indigo with bone and sky specks, moth sand with two eyespots
@@ -77,10 +77,10 @@ export const DEFAULT_CLOTHES = 'cloak';
 export const clothesOf = (p) => (CLOTHES[p?.look?.clothes] ? p.look.clothes : DEFAULT_CLOTHES);
 
 // § lamps (D-702): the lantern's shape; it takes the trim's colours, and the flame and its light stay
-// where they are. The study's lantern first and free; the rest locked until bought, 3 Glints each.
+// where they are. The study's lantern and Carriage free (D-715); the rest locked until bought, 3 Glints each.
 export const LAMPS = {
   lantern: { id: 'lantern', kind: 'lamp', name: 'Lantern' }, // the study's
-  carriage: { id: 'carriage', kind: 'lamp', name: 'Carriage', locked: true, price: 3 }, // a wide roof and a wide foot
+  carriage: { id: 'carriage', kind: 'lamp', name: 'Carriage' }, // a wide roof and a wide foot; free (D-715)
   dish: { id: 'dish', kind: 'lamp', name: 'Dish', locked: true, price: 3 }, // a bare flame on a dish, no glass
   pierced: { id: 'pierced', kind: 'lamp', name: 'Pierced', locked: true, price: 3 }, // dark tin, light through its holes
 };
