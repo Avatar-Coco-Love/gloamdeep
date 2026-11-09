@@ -15,12 +15,13 @@ import { renew } from './renew.js';
 import { regrove } from './regrove.js';
 import { recap } from './recap.js';
 import { strewn } from './strewn.js';
+import { reherb } from './reherb.js';
 import { moveStone } from './movestone.js';
 
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 25;
+export const FORMAT = 26;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -46,6 +47,7 @@ export const UPGRADES = {
   22: regrove, // 22 → 23: unseen woods rooms round home made again as their kinds, thick, as before or glades (D-756)
   23: recap, // 23 → 24: an oilcap laid in each unseen woods room, beside a tree (D-760)
   24: strewn, // 24 → 25: 2 loose stones laid in each unseen mountain room (D-761)
+  25: reherb, // 25 → 26: a herb laid in each unseen woods room (D-762)
 };
 // Every room's taken list, empty (regrow.js)
 function withTaken(s) {

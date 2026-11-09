@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.213 (2026-11-09)
+- Healing herbs now grow outside: one in each woods room, home too, on the grass. The mountain rooms have none. It is the same herb as in the caves: walk onto it hurt and you eat it, at full health it goes in your bag, and it grows back a day after you pick it.
+- In a saved game, woods rooms you haven't seen yet get their herb too; rooms you have seen stay as they were.
+- Decisions: D-762.
+
 ## 0.3.212 (2026-11-09)
 - Loose stones now lie in the mountain rooms: 2 in each, on the grass, looking like the stone in your bag. Walk onto one to take it, and it grows back a day after you pick it. The woods rooms have none.
 - In a saved game, mountain rooms you haven't seen yet get their stones too; rooms you have seen stay as they were.
@@ -32,8 +37,3 @@ Entry format:
 - Oilcaps now grow outside: one in each woods room, home too, at the foot of a tree. The mountain rooms have none. Walk onto it to take it, as in the caves, and it grows back a day after you pick it.
 - In a saved game, woods rooms you haven't seen yet get their oilcap too; rooms you have seen stay as they were.
 - Decisions: D-760. Questions opened: Q-092.
-
-## 0.3.210 (2026-11-09)
-- Waking from sleeping out now leaves you stiff for 20 turns: "You wake on the cold ground, stiff." While stiff, 1 swing in 3 at a creature misses, "Your stiff arm swings wide.", and the turn still passes.
-- Stiff shows as a pale blue Zz beside the poisoned drop under your hearts. Tap it to see the turns left. A fall ends it.
-- Decisions: D-759.
