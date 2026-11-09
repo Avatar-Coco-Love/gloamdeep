@@ -8,7 +8,7 @@ taught us about working together (D-518). The rules in force are in
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-09: version 0.3.183, about 320 pull
+Started 2026-10-17. By 2026-11-09: version 0.3.183, about 460 pull
 requests, 731 decisions, 86 questions asked, 11 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
