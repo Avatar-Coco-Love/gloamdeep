@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.171, Flyers over water.** The bat, the lampmoth and
+  the lure wisp fly over water now; no other creature does. The owner's
+  picks, all recommended: walking into one over water strikes it, rod
+  held or not, and its drop lies on the nearest dry tile. Next, the
+  owner orders the audit's other fixes.
+  Playtest: https://claude.ai/artifact/4b56DUw6j7Wv19aHHEdNap
 - **2026-11-09, 0.3.170, The relic's softer glow.** The owner found the
   relic's glow misaligned and too bright. Their picks, all recommended:
   look A, centred on the locket, 21 pixels across, not 31, and dimmer,

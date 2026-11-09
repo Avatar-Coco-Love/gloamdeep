@@ -475,3 +475,16 @@ read the code alongside: 19 bugs, about 30 stale doc lines and one
 freeze on depth 2's first frame, listed for the owner to pick from
 (https://claude.ai/artifact/FjFbsg9mGELYQB2aCap496); each fix is its
 own small step with a test. The next audit is at 0.3.152.
+
+**D-716 · 2026-11-09 · The audit's first fixes: the old saves' locket,
+one pointer line** (the owner's picks, all recommended; the eleventh
+audit's B1 and T1, D-699) The owner set B1 first. A journey saved before
+0.3.143 that already held the depth-4 room the seed picks for the locket
+has it laid there once as the save loads, with its warden asleep beside
+it, where a new game lays them; the room stays as it is and nothing of
+the hero's moves. Only while the locket is nowhere in the journey (the
+bag, a chest, a lost bag, a floor, the shelf). T1 rides along, nothing
+visible: the release tool says once, not each version, that it moves
+versions into the changelog archive; the 135 extra copies of that line
+are dropped. The rest of the findings (B2, B3, B4, Q1) wait for the
+owner's order. D-707 to D-711 move to `archive/DECISIONS-GOALS.md`.

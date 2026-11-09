@@ -122,19 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-716 · 2026-11-09 · The audit's first fixes: the old saves' locket,
-one pointer line** (the owner's picks, all recommended; the eleventh
-audit's B1 and T1, D-699) The owner set B1 first. A journey saved before
-0.3.143 that already held the depth-4 room the seed picks for the locket
-has it laid there once as the save loads, with its warden asleep beside
-it, where a new game lays them; the room stays as it is and nothing of
-the hero's moves. Only while the locket is nowhere in the journey (the
-bag, a chest, a lost bag, a floor, the shelf). T1 rides along, nothing
-visible: the release tool says once, not each version, that it moves
-versions into the changelog archive; the 135 extra copies of that line
-are dropped. The rest of the findings (B2, B3, B4, Q1) wait for the
-owner's order. D-707 to D-711 move to `archive/DECISIONS-GOALS.md`.
-
 **D-717 · 2026-11-09 · The relic's softer glow, and what comes next**
 (the owner's ask and picks, all recommended; changes D-692's halo) The
 relic's violet glow sat 2 pixels below the locket and 1 to its left, and
@@ -177,3 +164,15 @@ spawned flasks picked up, and a flask poured while any are carried is
 one of them; a fall clears the count. Teaching goals are as before.
 Next, more Feats (Q-057). D-714 and D-715 move to
 `archive/DECISIONS-LOOKS.md`.
+
+**D-721 · 2026-11-09 · More Feats: Rooms first** (the owner's picks;
+builds D-695, narrows Q-057) Three more Records get a Feat, each its
+own step: Rooms found, then Steps, then Torches lit; Falls and Time
+played get none. Each pays 1, 2 and 3 Glints as every set does. Rooms
+comes now, from Rooms found, at 10, 50 and 200 rooms, the fourth row.
+On the Feats tab and in its note it is named Rooms ("Feat reached:
+Rooms 10. +1 Glint."), not Rooms found, so its row fits the upright
+card, as Flasks (D-698); Records keeps Rooms found. Rooms found before
+this count. Steps comes next, at 1000, 5000 and 20000; then Torches
+lit, at 5, 25 and 100. With Rooms, the Feats pay 24 Glints. D-716
+moves to `archive/DECISIONS-AUDITS.md`, word for word.

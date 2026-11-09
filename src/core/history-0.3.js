@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.174', date: '2026-11-09', title: 'Rooms, the fourth Feat', lines: [
+    "The Journal's Feats tab has a fourth Feat, Rooms: find 10, 50 and 200 rooms, across all your journeys, for 1, 2 and 3 Glints. Rooms found before this count too. Reaching one says \"Feat reached: Rooms 10. +1 Glint.\"",
+    "Decisions: D-721.",
+  ] },
   { v: '0.3.173', date: '2026-11-09', title: 'Spawned ones don\'t count', lines: [
     "Creatures and oil flasks made with the dev tools' Spawn no longer count toward your Records or Feats. Beating a spawned creature still gives experience and drops, and it is still met in the Bestiary, but its beaten count stays. Pouring a spawned flask adds nothing to Flasks poured.",
     "Decisions: D-720.",
