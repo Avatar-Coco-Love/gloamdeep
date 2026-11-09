@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.180, Creatures walk over finds.** The owner's picks,
+  all recommended (D-727): the rat pack is planned (the plain rat, each
+  to its own side, the flask rat and 2 more from depth 3, brave while 2
+  are left). The owner noticed creatures went around finds: now they
+  walk over them, and a drop lies beside a find on one tile, built first.
+  Next, the rat pack.
+  Playtest: https://claude.ai/artifact/GmH2vcYXaaERPWHpRcqLMU
 - **2026-11-09, 0.3.179, The mole burrows.** A playtester found the
   creatures too alike. The owner's picks, all recommended (D-726): retune
   chasers and add new kinds, ways Burrows then Pack. The mole digs down

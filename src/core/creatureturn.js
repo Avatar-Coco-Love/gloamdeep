@@ -16,6 +16,7 @@ import { glanceOf } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
 import { spitTurn, aim } from './spit.js';
 import { stingTurn, reach } from './sting.js';
+import { rise } from './bones.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -39,7 +40,7 @@ export function enemiesAct(state) {
   const spat = spitTurn(state);
   if (spat.fell !== state.fell) return spat;
   const stung = stingTurn(spat);
-  return stung.fell !== state.fell ? stung : settle(act(stung));
+  return stung.fell !== state.fell ? stung : rise(settle(act(stung))); // last, a pile of bones counts down (bones.js, D-731)
 }
 function act(state) {
   const bites = biting(state);
@@ -87,8 +88,8 @@ function settle(state) {
   });
   return settled ? say({ ...state, enemies }, get(settled.id).settles) : { ...state, enemies };
 }
-// One asleep, or stirring as it wakes, does nothing (D-368)
-const still = (e) => e.asleep || e.stirs;
+// One asleep, or stirring as it wakes, does nothing (D-368); nor does a pile of bones (D-731)
+const still = (e) => e.asleep || e.stirs || e.pile;
 // One under the earth (D-726) can't bite until it has come up
 const under = (e) => !!e.under;
 // The enemies that bite this turn, and the enemies with those marked as having noticed the hero
@@ -115,7 +116,7 @@ function ahead(state) {
   const next = passTurn(state), bites = biting(next);
   const moved = enemiesMove({ ...next, enemies: chased(next.enemies, bites) }).enemies;
   return state.enemies.flatMap((e, i) => {
-    if (e.asleep || !litAt(state, e.x, e.y)) return []; // one asleep in disguise is hidden (D-368)
+    if (e.asleep || e.pile || !litAt(state, e.x, e.y)) return []; // one asleep in disguise is hidden (D-368); a pile of bones has no move (D-731)
     const noticed = !!moved[i].chasing || (state.lit && traits(get(e.id)).moves === 'toLight') || luring(state, e);
     if (bites.includes(next.enemies[i])) return [{ e, noticed, move: { e, kind: 'bite', dx: state.hero.x - e.x, dy: state.hero.y - e.y } }];
     const spits = traits(get(e.id)).spits && aim(next, e); // a glob mark toward the hero (D-659, D-688)

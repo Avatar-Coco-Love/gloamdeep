@@ -31,6 +31,7 @@ import { sleep } from './sleep.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
 import { bumpWater } from './fishing.js';
+import { fallen } from './bones.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -68,12 +69,13 @@ export function step(state, dir) {
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
   const foe = enemyAt(state, x, y);
-  if (foe) return attack(state, foe);
+  if (foe && !foe.pile) return attack(state, foe);
   const person = personAt(state, x, y);
   if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they stay a little longer (D-496)
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
-  for (const found of state.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
+  if (foe) next = scatter(next, foe, state.hero); // a pile of bones, scattered: its drop lies here, taken at once (D-731)
+  for (const found of next.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
   return endTurn(state, takeStairs(next) || wakeStone(next));
 }
 
@@ -143,7 +145,7 @@ export const heroHit = (state) => ((state.held && get(state.held)?.hit) || LANTE
 export function behind(state, foe) {
   if (!(state.held && get(state.held)?.through)) return null;
   const e = enemyAt(state, 2 * foe.x - state.hero.x, 2 * foe.y - state.hero.y);
-  return e && !e.asleep && !e.under ? e : null; // not one under the earth (D-726)
+  return e && !e.asleep && !e.under && !e.pile ? e : null; // not one under the earth (D-726), nor a pile of bones (D-731)
 }
 function attack(state, foe) {
   if (foe.under) return say(state, get(foe.id).underSay); // under the earth, out of reach: its line, free (D-726)
@@ -159,7 +161,9 @@ function attack(state, foe) {
 // lying, the line it says, and its id when beaten
 function strike(state, foe, damage) {
   const entry = get(foe.id), hit = hitEnemy(state.enemies, foe, entry, damage);
-  const dead = hit.length < state.enemies.length, { enemies, stands } = fleeOrStand(state, hit, foe);
+  const dead = hit.length < state.enemies.length;
+  if (dead && entry.rises) return { state: { ...state, enemies: state.enemies.map((e) => (e === foe ? fallen(foe, entry) : e)) }, line: entry.falls, beaten: false }; // a pile of bones, not beaten yet (D-731)
+  const { enemies, stands } = fleeOrStand(state, hit, foe);
   const items = dead ? dropFrom({ ...state, enemies: hit }, foe, entry) : state.items; // the fallen one's tile is free
   return { state: { ...state, enemies, items }, line: dead ? entry.die : stands ? entry.stands : entry.hurt, beaten: dead && foe.id };
 }
@@ -174,6 +178,17 @@ function dropFrom(state, foe, entry) {
   const ids = [entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
   const at = spread(state, foe.x, foe.y, ids.length, 'stack');
   return [...state.items, ...ids.map((id, i) => ({ id, ...at[i] }))];
+}
+
+// § scatter (D-731): the hero steps onto a pile of bones (bones.js) and it is gone for good:
+// beaten now, with its experience, its `beat` event and its drop on the tile, and its `scatters`
+// line. A `scatter` event too, for its rattle. `from`: where the hero stepped from, so the drop
+// lies on the pile's own tile, under the hero, as if dropped before the step.
+function scatter(state, foe, from) {
+  const entry = get(foe.id), enemies = state.enemies.filter((e) => e !== foe);
+  const next = { ...state, enemies, items: dropFrom({ ...state, hero: from, enemies }, foe, entry) };
+  const beat = note(gain(next, xpOf(entry)), 'beat', { id: foe.id, ...(!foe.met && { unmet: true }), ...(foe.spawned && { spawned: true }) });
+  return say(note(beat, 'scatter', { id: foe.id }), entry.scatters);
 }
 
 // § wake: bumping a creature asleep in disguise wakes it, with no harm and no

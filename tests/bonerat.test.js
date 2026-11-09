@@ -42,12 +42,13 @@ test('hurt, it never flees: it stays and keeps coming, whatever the seed', () =>
   }
 });
 
-test('three lantern hits beat it, worth 4', () => {
+test('three lantern hits beat it into a pile of bones, worth nothing yet (D-731)', () => {
   let s = at(5, 10);
   for (let i = 0; i < 2; i++) s = step(s, 'up');
   assert.equal(s.enemies[0].health, 1);
   const n = step(s, 'up');
-  assert.deepEqual(n.enemies, []);
-  assert.equal(n.line.id, 'boneRatDie');
-  assert.equal(n.xp, 4);
+  assert.deepEqual(where(n), [[5, 10]]);
+  assert.equal(n.enemies[0].pile, 3);
+  assert.equal(n.line.id, 'boneRatFalls');
+  assert.equal(n.xp, 0);
 });

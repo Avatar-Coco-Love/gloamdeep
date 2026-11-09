@@ -56,9 +56,10 @@ export const ENEMIES = {
   // its rare one waits on the owner (Q-077).
   herbMimic: { id: 'herbMimic', kind: 'enemy', name: 'Herb mimic', acts: "Sleeps looking like a herb. Bump it and it wakes and chases you, then settles down again.", fights: "The bump that wakes it gives you a free turn, so strike at once. A knife ends it in one blow.", health: 2, bite: 1, drops: 'mimicLeaf', ways: ['chases'], looksLike: 'herb', awakeTurns: 6, hurt: 'herbMimicHurt', wakes: 'herbMimicWakes', settles: 'herbMimicSettles', die: 'herbMimicDie', bites: 'herbMimicBite', sound: 'rustle' },
   // A rat with nothing left but bone (D-549, D-551): it chases and never flees, as the mole does,
-  // a tougher rat for the middle depths. Its bite rattles, then snaps (D-551). Beaten, it may drop
-  // a Rat Bone; its rare one waits on the owner (Q-061).
-  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', acts: "A rat with nothing left to fear. It chases you and never runs.", fights: "It never runs, so it fights to the end. Wait for it to step beside you; a knife needs two blows.", health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
+  // a tougher rat for the middle depths. Its bite rattles, then snaps (D-551). Beaten, it falls into a
+  // pile of bones that stands up whole `rises` turns later, unless the hero steps onto it to scatter
+  // it; only then may it drop a Rat Bone (bones.js, D-731). Its rare one waits on the owner (Q-061).
+  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', acts: "A rat with nothing left to fear. It chases you and never runs. Beaten, it falls into a pile of bones and stands up again three turns later.", fights: "Wait for it to step beside you; a knife needs two blows. Then step onto its bones to scatter them before it stands.", health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], rises: 3, falls: 'boneRatFalls', stirsSay: 'boneRatStirs', scatters: 'boneRatScatters', hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
   // A tick swollen with the oil it drank (D-606, the first light way, Q-076): it chases, and
   // beside the hero it `drinks` 5% of the lantern's oil instead of biting, with a wet sip; with
   // the lantern empty it bites for 1, of teeth. Beaten, it may drop a Tick Shell, and now and

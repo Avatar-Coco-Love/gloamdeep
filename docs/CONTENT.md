@@ -25,7 +25,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `mole` | 4 | 1 | burrows, never flees: digs down on noticing, comes under the floor as a mound that can't be hit, up beside the hero, biting the turn after | the pool from depth 5 | D-365, D-541, D-542, D-726 |
 | `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
-| `boneRat` | 3 | 1 | chases, never flees | the pool from depth 4 | D-549, D-551 |
+| `boneRat` | 3 | 1 | chases, never flees; beaten, a pile of bones that stands up whole 3 turns later unless stepped on | the pool from depth 4 | D-549, D-551, D-731 |
 | `oilTick` | 2 | 1 | chases; beside the hero `drinks` 5% oil instead of biting, biting once the lantern is empty | the pool from depth 3 | D-606, D-607 |
 | `lureWisp` | 1 | 0 | lures: within 3 steps of the hero it drifts a tile away, toward the nearest other creature in the room, or just away; never bites; its glow shows in the dark, lighting no tiles | the pool from depth 4 | D-643, D-649 |
 | `centipede` | 2 | 1 | chases; a bite that hurts `poisons` the hero | the pool from depth 3 | D-652, D-654 |
