@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.198, Find the crypt.** The owner's idea and picks,
+  all recommended (D-746): with the way in a crypt's door, a new teaching
+  goal, "Find the crypt", shows once a boon is taken and is done on
+  walking in through the broken seal.
+  Playtest: https://claude.ai/artifact/N3giKEcZDKhaizjqC3fDcU
 - **2026-11-09, 0.3.197, The broken seal.** The owner's idea and picks,
   all recommended (D-745): the way in leads to the crypt, so it is now a
   crypt's door, a bricked-up doorway broken open, on every edge. The cave

@@ -174,3 +174,13 @@ dripping rim. The same tiles are water, so walking, fishing and the map
 are unchanged. Cave pools keep their own edge, as the caves' rock did.
 Claude's calls the owner may change: the code is `inPond` in
 `src/render/water.js`, chosen by the room's woods look; next is the grass.
+
+**D-749 · 2026-11-09 · Calmer grass** (the owner's picks, both
+recommended; builds D-747; mock-ups at
+https://claude.ai/artifact/VwxY2xAns7qoVPpwLPftyC) Of four grass looks,
+from today's camouflage to one flat green, the owner picked B: the same
+three greens in patches about three times bigger with smooth round edges,
+the middle green covering most of the ground, and the pale blades half as
+often. It is used for all surface grass, in the room and past its edge,
+so they match. Claude's calls the owner may change: the code is `grass`
+in `src/render/woods.js`; next are the trees, look A (D-747).

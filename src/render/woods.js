@@ -16,11 +16,18 @@ function noise(x, y, s) {
 const RGB = new Map();
 const rgb = (hex) => RGB.get(hex) || RGB.set(hex, [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16))).get(hex);
 
-// § grass: three greens in soft patches, a rare paler blade two pixels tall
+// Smooth value noise, eased between whole points, for the grass's soft patches
+function smooth(x, y, s) {
+  const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0, sx = fx * fx * (3 - 2 * fx), sy = fy * fy * (3 - 2 * fy);
+  return (hash(x0, y0, s) * (1 - sx) + hash(x0 + 1, y0, s) * sx) * (1 - sy) + (hash(x0, y0 + 1, s) * (1 - sx) + hash(x0 + 1, y0 + 1, s) * sx) * sy;
+}
+
+// § grass: three greens in big soft patches, mostly the middle one, and a
+// rare paler blade two pixels tall (look B, D-749)
 function grass(put, x, y) {
-  const n = noise(x / 5, y / 5, 1), r = hash(x, y, 2);
-  put(x, y, n < 0.33 ? '#345a2c' : n > 0.7 ? '#4a7a3a' : '#3f6b34');
-  if (r > 0.975 && y > 0) { put(x, y, '#5a8c44'); put(x, y - 1, '#5a8c44'); }
+  const n = smooth(x / 13, y / 13, 1) * 0.7 + smooth(x / 6, y / 6, 9) * 0.3, r = hash(x, y, 2);
+  put(x, y, n < 0.36 ? '#345a2c' : n > 0.68 ? '#4a7a3a' : '#3f6b34');
+  if (r > 0.985 && y > 0) { put(x, y, '#5a8c44'); put(x, y - 1, '#5a8c44'); }
 }
 
 // § tree: a ground shadow, a short trunk, and a lumpy round crown with a dark
