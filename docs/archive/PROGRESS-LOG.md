@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.169, The old saves' locket.** The audit's first
+  fixes, the owner's picks, all recommended: B1 first, an old journey
+  that held the locket room before 0.3.143 gets the locket and its
+  warden once on loading, only while the locket is nowhere else; T1
+  rides along, the release tool's archive note said once (D-716). Next,
+  the owner orders the other fixes.
+  Playtest: https://claude.ai/artifact/2PG64e25pBfpxSVXNX5E67
 - **2026-11-09, 0.3.168, One free pick, shown once.** FREE on every
   locked look read as if all were free. The owner's picks, all
   recommended: locked looks keep LOCK; "1 FREE PICK" in gold on the Look

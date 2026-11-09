@@ -17,7 +17,7 @@ import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, stillMotion } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
-import { featNote } from './core/feats.js';
+import { featTurn } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
 import { booked } from './core/bestiary.js';
 import { goalsAfter, doneWords, GOLD_TURNS } from './core/goals.js';
@@ -74,6 +74,7 @@ const app = {
   journeySeed: 0, state: null,
   // Who plays: the profiles on this device (D-268), the one in use picked on the slot screen (D-271)
   profiles: loadProfiles(),
+  featFrom: null, // the Records a Feat note waiting behind a turn's own line counts from (D-719)
   jumped: false, // a dev jump stops this journey counting towards the deepest depth (D-232)
   // screen: 'slots', 'name', 'cloak' (the look card, D-521), 'drop', 'title', 'play', 'paused', 'settings', 'seed', 'howto', 'map', 'bag', 'place' (setting the workbench down, WB2), 'bench' (its panel, WB3), 'chest' (the stash chest's, CH3), 'trade' (the peddler's card, D-494), 'bed' (the bed's ask by day, D-488), 'explore', 'history', 'journal' or 'opening' (a new journey's first words, D-628) or 'aboutBoons' (the boons card, D-712)
   screen: 'slots', chosen: 0,
@@ -102,7 +103,7 @@ const newWorld = (mode) => {
 // in use, or none saved, a new world waits unsaved
 function loadInto(slot) {
   const kept = slot === null ? null : loadJourney(slot);
-  app.saved = !!kept;
+  app.saved = !!kept; app.featFrom = null; // another profile's Records (D-719)
   if (kept) { app.state = kept.state; app.jumped = kept.jumped; app.journeySeed = kept.state.seed; }
   else { app.state = newWorld(); app.jumped = false; }
 }
@@ -117,18 +118,20 @@ function keepJourney() {
   if (!kept && !unsaved) app.state = say(app.state, 'unsaved');
   unsaved = !kept; savedState = app.state; app.saved = true;
 }
-function keepRecords(events, before) {
+function keepRecords(events, before, lineBefore = before?.line) {
   // The profile's Records (D-021, D-232, D-268, D-270): the deepest depth walked to,
   // and the creatures beaten, falls, rooms found, steps, flasks poured and torches lit that this action's events bring
   const was = playing(app.profiles).records, d = deeper(was.deepest, depthOf(app.state.place), app.jumped);
   let records = counted(was, events, app.jumped);
   if (d !== records.deepest) records = { ...records, deepest: d };
   if (records !== was) app.profiles = withRecords(app.profiles, records);
-  const feat = records !== was && featNote(was, records); // a Feat's tier reached says so (D-467, D-695)
-  if (feat) app.state = say(app.state, 'featReached', feat);
   const book = playing(app.profiles).bestiary, met = booked(book, events, app.jumped); // the Bestiary's counts (D-630)
   if (met !== book) app.profiles = withBestiary(app.profiles, met);
   const goaled = keepGoals(events, before);
+  // A Feat's tier reached says so (D-467, D-695); after the action's own line, a goal's too, on a move that says none (D-719)
+  const feat = featTurn(app.featFrom ?? was, records, app.state.line !== lineBefore);
+  app.featFrom = feat.from;
+  if (feat.note) app.state = say(app.state, 'featReached', feat.note);
   if (records !== was || met !== book || goaled) saveProfiles(app.profiles);
 }
 // § goals (D-706): a teaching goal shows once its moment comes; done, it pays its reward, says so
@@ -266,7 +269,7 @@ function strikeAt(n) {
   const before = app.state;
   app.state = strikeFish(before, n);
   const events = eventsSince(before, app.state);
-  hear(events); keepRecords(events);
+  hear(events); keepRecords(events, undefined, before.line);
   app.strike = null; screens.show('play');
 }
 // The fall is shown in the room where it happened, then the hero wakes at the start (D-234)
