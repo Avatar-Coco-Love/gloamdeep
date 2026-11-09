@@ -354,3 +354,28 @@ daylight comes with the lantern lit, by stepping out of the dark or by
 dawn. Already out as the daylight comes, as By itself does, it is ticked
 quietly and paid nothing. It pays a reward like every goal and goes
 ahead of any goal waiting while the lantern burns in daylight.
+
+**D-753 · 2026-11-09 · The home waystone by the crypt's door** (the
+owner's picks, recommended but where noted; step 25, 2, D-751) The home
+waystone stands in the room with the cave mouth, near its middle, 2
+tiles north of it, as it stood at home (the owner's pick of three, over
+near the door and halfway). A boon ends on arriving in that room, by
+any way, no longer in home. "Find the waystone" shows on reaching that
+room, and the South woods start's line says "Old standing stones, by
+the crypt's door." In an older save the stone moves there, woken if it
+was; at home its 9 tiles become grass, things set down there staying.
+Claude's calls the owner may change: a new game's home grows as it did
+and its stone's 9 tiles are grass, so home looks as an older save's
+does; boulders keep off the stone's ring in a mountain room; the travel
+card's Home and a fall's waking follow the stone; "Go home to the
+woods" is still done in home. Partly supersedes D-583's home, D-589's
+room and D-735's words. D-747 to D-749 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-754 · 2026-11-09 · Waymark's dot on the rim** (the owner's picks,
+all recommended; step 25, 3, D-751) While Waymark is held and the
+nearest stairs down don't fit whole on the round map, a violet dot one
+tile big, as the marks are, sits just inside its rim toward them,
+pulsing as the marks do (steady with reduced motion). Nearest is in a
+straight line, and any stairs down count, found or not. None on another
+floor, or with the map revealed. Builds on D-601.

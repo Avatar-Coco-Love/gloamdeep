@@ -13,7 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt, POISON_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -336,6 +336,7 @@ export function createFrame(app, ui) {
     const end = lineTop() - 2; // the creature list stops above the text line (D-381), upright raised (D-505)
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
+    if (state.stiff > 0) marks.push(STIFF_MARK); // stiff after it, a pale blue Zz (D-759)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
     const mk = marksSize(marks.length), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);
@@ -427,7 +428,7 @@ export function createFrame(app, ui) {
     const i = plaqueAt(row.list.length, row.x, row.y, row.across, row.end, px, py);
     return i < 0 ? null : foeAt(row.list[i].e);
   }
-  // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654) whose mark is under px, py on the screen layer, or null
+  // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654, or 'stiff', D-759) whose mark is under px, py on the screen layer, or null
   const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
   // § goal line for taps (D-706): whether the goal line is under px, py on the screen layer, in play
   const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py, goalRow.w);

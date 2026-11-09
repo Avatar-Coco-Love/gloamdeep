@@ -10,13 +10,15 @@ import { toward, panelBeside } from '../core/turn.js';
 import { wayTo, stopsWalk } from '../core/walk.js';
 import { offEdge } from '../core/openings.js';
 import { poisonLeft } from '../core/poison.js';
+import { stiffLeft } from '../core/stiff.js';
 
 export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt, ALERT_MS, openQuests }) {
   // § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
-  // name and its card's line, or poisoned's turns left (D-654); no turn passes
+  // name and its card's line, or poisoned's turns left (D-654), or stiff's (D-759); no turn passes
   const tellMark = (picX, picY) => {
     const id = frame.markSpot(...toLayer([picX, picY])), b = BOONS[id];
     if (id === 'poisoned') app.state = say(app.state, 'poisonHeld', poisonLeft(app.state)); // its turns left (D-654)
+    else if (id === 'stiff') app.state = say(app.state, 'stiffHeld', stiffLeft(app.state)); // its turns left (D-759)
     else if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
   };
   let hovered = null; // the mark under the mouse, said once as it comes onto it

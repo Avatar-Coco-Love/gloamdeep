@@ -10,6 +10,7 @@ import { get } from './registry.js';
 import { withTile } from './room.js';
 import { leave, send, arrive, greet } from './homeward.js';
 import { fishTurn } from './fishing.js';
+import { stiffTick } from './stiff.js';
 import { meet } from './bestiary.js';
 import { poisonTick } from './poison.js';
 
@@ -36,7 +37,7 @@ export const endTurn = (before, cast) => {
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
-  const ticked = poisonTick(done); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654)
+  const ticked = poisonTick(stiffTick(done)); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : enemiesAct(ticked); // a room left leaves its globs behind (D-688)
   const next = grow(burnOut(regrow(acted, moved), moved));

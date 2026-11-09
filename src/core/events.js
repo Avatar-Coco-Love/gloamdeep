@@ -7,6 +7,7 @@
 // The kinds, each { type, ...details }:
 //   step                 the hero walked onto a new tile
 //   hit { id, held }     the hero hit creature `id`, with the item held (or null, the lantern)
+//   miss { id, held }    the hero, stiff, swung at creature `id` and missed (D-759)
 //   beat { id, unmet, spawned }  that creature was beaten; `unmet` when not met before, in the dark (D-630); `spawned` by the dev tools (D-720)
 //   meet { id }          creature `id` was met: lit and showing itself for the first time (D-630)
 //   bite { id, hurt }    creature `id` bit, taking `hurt` hearts (god mode keeps them, D-625)

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.209 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.210 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sleeping out, step 2 (D-758): Stiff; propose its turns and mark.
-Then filling the surface (D-757, Q-088).
+Filling the surface (D-757, Q-088): propose the order of gathering,
+landmarks and night creatures, then the first.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -40,7 +40,7 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
 - [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
 - [ ] 26 Filling the surface (D-757): campfires (0.3.208); gathering, landmarks, night creatures (order later)
-- [ ] 27 Sleeping out (D-758): the moon button (0.3.209); Stiff
+- [x] 27 Sleeping out (D-758, D-759): the moon button (0.3.209); Stiff (0.3.210)
 
 **Next audit: 0.3.232** (D-518, D-740).
 
@@ -48,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.210, Stiff.** The owner's picks, all recommended
+  (D-759), the mark after its mock-up: waking from sleeping out leaves
+  the hero stiff for 20 turns, 1 swing in 3 missing; a pale blue Zz
+  mark; a fall ends it.
+  Playtest: https://claude.ai/artifact/M8w597HkyPnXSsLgobr9oF
 - **2026-11-09, 0.3.209, Sleeping out.** The owner's idea (D-758): a
   moon outside at night asks Sleep here until morning?; you wake
   unhealed. Theft waits (Q-091).
@@ -58,10 +63,3 @@ list in `RESEARCH.md`.
   burning one glows; ashes ask Light the fire?, a turn of oil.
   Playtest: https://claude.ai/artifact/LzMTnjJwER7wFuKVEAsN6h
   Map preview: https://claude.ai/artifact/QeRDJSpZLCPFvnGx89wqtQ
-- **2026-11-09, 0.3.207, Thick woods and glades.** The owner's picks,
-  all recommended (D-756): the 5 woods rooms round home are thick woods,
-  as before or open glades, at least one thick and one glade a seed;
-  home as before; an older save's unseen rooms grow as their kind. Next,
-  the owner asked to fill the surface (Q-090).
-  Playtest: https://claude.ai/artifact/81QxJf9c9ZUZF7D537qD2N
-  Map preview: https://claude.ai/artifact/KSuCEbJVYRgYfoxkr5YezT

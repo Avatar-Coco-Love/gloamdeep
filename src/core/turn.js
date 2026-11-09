@@ -32,6 +32,7 @@ import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
 import { bumpWater } from './fishing.js';
 import { fallen } from './bones.js';
+import { misses } from './stiff.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, newJourney, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -140,6 +141,7 @@ export function drop(state, i) {
 // It is a `hit` event, and a foe beaten a `beat` too, `unmet` when the Bestiary hadn't met it (D-630), `spawned` when the dev tools made it (D-720). A foe beaten may leave a drop (dropFrom).
 // A weapon that hits `through` (the spear) hits the creature awake behind the foe too,
 // in the line from the hero, for that much; the foe's line is the one said (D-479).
+// While stiff, 1 swing in 3 misses: a `miss` event, the turn passed, its line (stiff.js, D-759).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => ((state.held && get(state.held)?.hit) || LANTERN_HIT) + boonHit(state);
 // The creature awake behind `foe`, seen from the hero, that the weapon held hits too, or null
@@ -151,6 +153,7 @@ export function behind(state, foe) {
 function attack(state, foe) {
   if (foe.under) return say(state, get(foe.id).underSay); // under the earth, out of reach: its line, free (D-726)
   if (foe.asleep) return wake(state, foe);
+  if (misses(state)) return endTurn(state, say(note(passTurn(state), 'miss', { id: foe.id, held: state.held }), 'stiffMiss')); // stiff: the swing goes wide, nothing hurt (D-759)
   const back = behind(state, foe), first = strike(state, foe, heroHit(state));
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
   let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
