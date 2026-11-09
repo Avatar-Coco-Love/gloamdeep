@@ -24,27 +24,6 @@ Names are A to Z only for now (D-272). A space would allow "OLD TOM",
 digits "COCO2". The owner is unsure and wants it kept for later.
 Meanwhile, Space does nothing on the name pad (D-683).
 
-**Q-055 · The play-earned currency** (before the first unlock, D-280)
-Narrowed by D-418: it is the look currency, earned only from deeds,
-records and achievements, buying only looks; trade coins are separate.
-Narrowed by D-516: it is Glints, paid by the Feats tiers and spent in
-the Look card. Narrowed by D-695: Beaten is the first Feat, its tiers
-paying 1, 2 and 3; a cloak pattern costs 3. Still open: the next Feats,
-and the prices of looks to come. Narrowed by D-698: Glints should match
-the shop; looks to come are more cloak patterns, lantern looks, then
-hats or hoods, each its own step. Narrowed by D-700: Tiger, Stars and
-Moth join at 3 each, so the patterns cost the 18 Feats pay. Narrowed by
-D-702: Carriage, Dish and Pierced lamps join at 3 each, so looks now cost
-27, more than the three Feats pay. Narrowed by D-703: Brim, Ears and Helm
-heads join at 3 each, so looks now cost 36, twice what the Feats pay.
-Narrowed by D-704: five more heads at 3 each, Brim and Ears free, so
-looks now cost 45; next, a free pick of one look for each new profile.
-Narrowed by D-714: every profile picks one locked look free; next,
-Carriage and Zebra free for everyone. Narrowed by D-715: Carriage and
-Zebra free, so looks now cost 39. Narrowed by D-721: Rooms joins the
-Feats, which now pay 24. Narrowed by D-722: Steps joins, 30.
-Narrowed by D-723: Torches joins, the last Feat for now, 36.
-
 **Q-056 · A region's name and difficulty on entering** (with a second
 region, D-281) Whether the name shows on screen when you enter, with a
 difficulty rating, and how the rating looks (stars, skulls, words).

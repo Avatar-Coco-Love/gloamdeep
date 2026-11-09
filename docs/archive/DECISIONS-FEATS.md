@@ -59,3 +59,12 @@ the shop: with 18 to earn and 9 of patterns to buy, new looks come next,
 each kind its own step (more cloak patterns, then lantern looks, then
 hats or hoods), Claude showing a set and the owner choosing which join.
 D-688 moved to `archive/DECISIONS-BIOME-1.md`, word for word.
+
+**D-719 · 2026-11-09 · The Feat note: two in one, after the turn's line**
+(the owner's picks, all recommended; the eleventh audit's B2 and B3,
+D-699) The owner grouped the audit's rest as two steps: B2 and B3 now,
+then B4 and Q1. B2: two Feats reached in one turn share one note,
+"Feat reached: Beaten 10, Flasks 5. +2 Glints.", their Glints added up.
+B3: a turn that says its own line (a level-up, "The locket kept…", a
+goal done) shows it, and the Feat note waits for the next move that says
+none; a tier reached while it waits joins it. Next, B4 and Q1.

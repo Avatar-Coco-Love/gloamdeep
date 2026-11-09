@@ -122,15 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-719 · 2026-11-09 · The Feat note: two in one, after the turn's line**
-(the owner's picks, all recommended; the eleventh audit's B2 and B3,
-D-699) The owner grouped the audit's rest as two steps: B2 and B3 now,
-then B4 and Q1. B2: two Feats reached in one turn share one note,
-"Feat reached: Beaten 10, Flasks 5. +2 Glints.", their Glints added up.
-B3: a turn that says its own line (a level-up, "The locket kept…", a
-goal done) shows it, and the Feat note waits for the next move that says
-none; a tier reached while it waits joins it. Next, B4 and Q1.
-
 **D-720 · 2026-11-09 · The audit's last fixes: the warden asleep, the
 spawned ones** (the owner's picks, all recommended; the eleventh audit's
 B4 and Q1, D-699) B4: the creature plaques are drawn only, for every
@@ -180,3 +171,13 @@ Torches lit. "Torches lit" was 47 pixels wide and pushed Steps'
 Feats pay 36 Glints. Next, the owner's pick, recommended: Glints and
 the prices of looks (Q-055), the Feats now built. D-718 moves to `archive/DECISIONS-RELICS.md`,
 word for word.
+
+**D-724 · 2026-11-09 · Glints and the prices of looks** (the owner's
+picks, both recommended; builds D-695, D-714, D-723, answers Q-055) The
+balance stays as it is: 13 locked looks at 3 Glints each cost 39, and
+the six Feats' 36 with the free pick's look buy them all, the few goal
+Glints (D-706) a small spare. Looks to come cost 3 Glints each, and each
+new set of looks comes with a new Feat, or new tiers, so Glints keep up
+with the shop. Next, the owner's pick, recommended: a flask left
+unguarded (Q-075). D-719 moves to `archive/DECISIONS-FEATS.md`, word
+for word.
