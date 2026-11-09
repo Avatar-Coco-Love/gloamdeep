@@ -11,7 +11,7 @@ import { drawKindle, drawRing } from './kindle.js';
 import { running, sameKey, holdsRoom } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
-import { draftTo } from '../core/draft.js';
+import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { drawMarks, marksSize, markAt, POISON_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
@@ -295,7 +295,8 @@ export function createFrame(app, ui) {
           drawStrikes(rc, s.enemies.flatMap((e) => struck(s, e)), t, still()); // the tiles a raised tail will strike (D-729)
           drawPiles(rc, s.enemies.filter((e) => e.pile && litAt(s, e.x, e.y)), t, still()); // a lit pile of bones' turns left (D-731)
         }
-        drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
+        const motesOn = lightOn && s.lit && !lying && !travel && !fall && !dev.revealed();
+        drawMotes(rc, motesOn ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still(), motesOn ? stayingMotes(s) : 0); // a draft toward the stairs down not yet seen, then a few that stay (D-581, D-605, D-755)
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)
         if (s.lit && !lying) { rc.fillStyle = '#fff5d6'; rc.fillRect(lx, ly, 1, 1); } // the lit flame's core is always bright (study line 446)
         drawDoors(rc, doors, dev.revealed() ? null : s.seen, s.room.cols, t, still()); // over the light, so remembered ones show (D-225)

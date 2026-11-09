@@ -4,8 +4,9 @@
 // straight line through walls): the motes aim at the farthest tile of that way
 // the hero can see from where they stand, so they turn together at a bend or
 // junction. Nothing once any of the floor's stairs down is remembered, or the
-// floor has none (not counting the far side of the cave mouth).
-import { depthOf, tileAt } from './room.js';
+// floor has none (not counting the far side of the cave mouth); then a few
+// stay, wandering, by the place (D-751, D-755): see stayingMotes.
+import { depthOf, tileAt, areaAt } from './room.js';
 import { partPlan, downsOf } from './map.js';
 
 // § layout: the floor laid out from this room, worked out once per seed and room:
@@ -52,15 +53,29 @@ function inSight({ at }, ax, ay, bx, by) {
 // (maybe outside it), or null when there is no draft. Worked out once per tile the hero stands on.
 let last = { k: null, to: null };
 export function draftTo(state) {
-  const known = (id) => (id === state.place ? state : state.elsewhere[id]);
   const f = layout(state);
-  for (const { id, downs } of f.rooms) {
-    const seen = known(id)?.seen, cols = known(id)?.room.cols;
-    if (downs.some((d) => seen?.[d.y * cols + d.x])) return null;
-  }
+  if (wayFound(state, f)) return null;
   const k = `${state.seed}:${state.place}:${state.hero.x},${state.hero.y}`;
   if (last.k !== k) last = { k, to: wayFrom(f, state.hero.x + f.here.x, state.hero.y + f.here.y) };
   return last.to && { x: last.to.x - f.here.x, y: last.to.y - f.here.y };
+}
+
+// Whether any of the floor's stairs down is remembered
+function wayFound(state, f = layout(state)) {
+  const known = (id) => (id === state.place ? state : state.elsewhere[id]);
+  return f.rooms.some(({ id, downs }) => {
+    const seen = known(id)?.seen, cols = known(id)?.room.cols;
+    return downs.some((d) => seen?.[d.y * cols + d.x]);
+  });
+}
+
+// § stay: (state) → how many motes stay, wandering, once the way down is found
+// (D-751, D-755): 3 in the crypt and earth, 2 in grey rock and the dungeon,
+// none under the sky or before the way is found.
+const STAY = { crypt: 3, earth: 3, rock: 2, dungeon: 2 };
+export function stayingMotes(state) {
+  if (state.room.dark?.sky || !wayFound(state)) return 0;
+  return STAY[areaAt(depthOf(state.place))?.look] ?? 0;
 }
 
 // Down the steps from the hero's floor tile, to the farthest tile still in sight
