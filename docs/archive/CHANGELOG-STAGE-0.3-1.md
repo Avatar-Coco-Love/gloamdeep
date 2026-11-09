@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.186 (2026-11-09)
+- The woods are bigger: nine rooms of woods in a 3 by 3 square, home in the middle. Each room has a path three tiles wide through the trees to every room beside it, so you can walk any way. Home keeps its trees and everything you set down. The cave mouth has moved out of home into the room beside it, on that room's far side, so the way into the crypt is one room further. Every woods room has its own sticks, branch, pond and gloamberry bush; only home has the waystone. The map shows the nine rooms as you find them.
+- Decisions: D-734. Questions opened: Q-087. D-705 and D-706 moved to the archive, word for word.
+
 ## 0.3.185 (2026-11-09)
 - Nothing in the game changed. The plan for a bigger surface: the woods grow to nine rooms, with mountains along the north, home in the middle and the cave in a room beside it. A new journey will begin in a woods room to the south, and you walk north to find home. After a fall you will wake in the last bed you slept in, or at the home waystone once woken, or else where the journey began. Some woods will be thick, some open glades. Five small steps, the nine rooms first.
 - Decisions: D-733. Questions closed: Q-081. D-712 and D-713 moved to the archive, word for word.

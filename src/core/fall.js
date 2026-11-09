@@ -8,6 +8,7 @@ import { bagAdd, bagSize } from './bag.js';
 import { priceOf } from './trade.js';
 import { note } from './events.js';
 import { newJourney, maxHealth, withoutBoon } from './state.js';
+import { wakeSpot } from './waking.js';
 
 // § fetch: walking onto the bag where you fell puts back what fits, a stack at a
 // time, kinds topping up their stacks first; all back, it is gone with "You take
@@ -25,7 +26,8 @@ export function fetchBag(state, found) {
   return note(say({ ...state, bag, items }, entry.says), 'take', { id: found.id });
 }
 
-// § fall: back to the start of the first room, with full health and the starting
+// § fall: the hero wakes in the last bed slept in, else on the woken home waystone's plate,
+// else where the journey began (wakeSpot, waking.js, D-737), with full health and the starting
 // oil (D-119, D-136). The world stays as it was: the same seed, every room as left,
 // with what was set down, what chests keep and what grows back (D-332). `fell` keeps
 // the room as the hero fell in it, for the fall to be shown before they wake (D-234).
@@ -39,7 +41,7 @@ export function fall(state) {
   const { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn } = state;
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
-  const { place, hero } = state.home;
+  const { place, hero } = wakeSpot(state);
   const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
   const awake = { ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, float: null, globs: [], ...(kept && { bag: [kept] }) };
   return note(kept ? say(awake, 'locketKept', stackWords(kept)) : say(awake, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and the line (D-667)

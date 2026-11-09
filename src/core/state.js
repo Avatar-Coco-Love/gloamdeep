@@ -51,7 +51,7 @@ export function makeWorld(first = 'first', seed = 1, mode = 'normal') {
 
 // § new journey (D-735): the world begun at the start `id` (starts.js): its room the seed's pick
 // from the start's row, never the cave mouth's, the hero on its tile, the lantern as the start
-// says. `home` is that room as it began, so a fall wakes there until step 3 (the owner's pick).
+// says. `home` is that room as it began, where a fall wakes with no bed nor woken waystone (D-737).
 export function newJourney(seed = 1, mode = 'normal', id = START) {
   const s = STARTS[id], place = startRoom(seed, s), w = makeWorld(place, seed, mode);
   const hero = startTile(w, s);

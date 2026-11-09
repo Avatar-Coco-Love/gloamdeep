@@ -15,6 +15,7 @@ import { joined } from './regrow.js';
 import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
+import { forgetBed } from './waking.js';
 import { endTurn } from './endturn.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
@@ -147,7 +148,7 @@ export function takeDown(state, x, y) {
   if (takes.both && !also) return say(state, 'bagFull'); // the shelf and its locket together, or neither (D-693)
   const bag = also || bed; // the seed planted too, when it fits (D-566)
   const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
-  const next = note(passTurn(unsow({ ...state, room, bag, ...(stashes && { stashes }) }, x, y)), 'take', { id: takes.item });
+  const next = note(passTurn(unsow({ ...forgetBed(state, x, y), room, bag, ...(stashes && { stashes }) }, x, y)), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
 

@@ -1,5 +1,5 @@
 // § starts (D-735): a new journey begins in a south woods room, the hero in its middle, the
-// lantern off; the start's goal rules; a fall wakes where the journey began (until step 3)
+// lantern off; the start's goal rules; with no bed nor woken waystone, a fall wakes where the journey began (D-737)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { newJourney, startRoom } from '../src/core/state.js';

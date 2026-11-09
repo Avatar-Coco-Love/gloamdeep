@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.186, Hearthwood's nine rooms.** The owner's picks,
+  all recommended (D-734): every room joined to every room beside it by
+  a path 3 tiles wide. The surface is 9 woods rooms, home in the centre
+  as it was, the cave mouth in the room beside it. The owner noted that
+  a journey could start in several random places, each setting its own
+  goals and order: Q-087, settled at step 2, next.
+  Playtest: https://claude.ai/artifact/Ha5nVPp84eEFyBWqiScKNR
+  Map preview: https://claude.ai/artifact/1BGXRR2DFdtWmrUvtfjumD
 - **2026-11-09, 0.3.185, A bigger surface, the plan.** The owner asked
   for a bigger surface, more rooms and variety, and a journey that does
   not begin at home or the cave. Their picks (D-733): Hearthwood's 3 × 3
