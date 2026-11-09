@@ -61,21 +61,6 @@ south start, its teaching goal's words with it; 3 waking after a fall
 and open glades. Nothing is built yet. D-712 and D-713 move to
 `archive/DECISIONS-GOALS.md`, word for word.
 
-**D-738 · 2026-11-09 · Mountain rooms** (the owner's picks, all
-recommended but the rock's look; builds D-733's step 4) Hearthwood's
-north row, every seed, is mountain rooms: rocky slopes, the woods' grass
-with rock where the trees would stand and a few lone trees inside. Each
-holds 3 grey boulders, as a Cave room does (D-282), and the woods' 3
-sticks and fallen branch; no pond or bush. The three are made the same
-way, only the seed differing. The next step, the owner's own picks:
-outside rock drawn rounded, as cave walls are, and rock going on past a
-mountain room's edges; till then it is drawn as the mouth's rocks.
-Claude's calls the owner may change: a tree 2 or more tiles in from the
-edge stays a tree 1 time in 4; a room grows as a woods room, its paths
-cut, then its trees made rock, so the paths stay where they were; a
-mountain room already visited in an older save stays woods; on the map,
-rock and boulders on the surface show in the cave rock's grey.
-
 **D-739 · 2026-11-09 · Rounded rock** (the owner's picks, all
 recommended; builds D-738's next step, added to D-733's plan before its
 step 5) The surface's rock,
@@ -184,3 +169,13 @@ registry's `caveLooks`), and the overgrown mouth waits with them; its step
 comes off the plan. Walking is unchanged. Claude's calls the owner may
 change: the tile keeps its id and name in the code (`caveMouth`), so saves
 stay as they were; the drawing is `src/render/seal.js`.
+
+**D-746 · 2026-11-09 · Find the crypt** (the owner's idea and picks,
+all recommended; builds D-745) Once the way in is the crypt's door, a
+new teaching goal sends the hero there: "Find the crypt", its how line
+"A broken door, beside home.". It shows once "Take a boon" is done and
+is done on walking into the crypt through the broken seal, paying a
+reward as every goal does (D-706). Claude's calls the owner may change:
+it is ticked quietly, unpaid in the line, when the crypt or anywhere
+below was reached already this journey, as in a journey begun in the
+crypt; reaching any depth below counts as the crypt.

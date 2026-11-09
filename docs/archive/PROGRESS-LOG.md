@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.195, Words that fit.** All recommended (D-743): every
+  card drawn at phone sizes with all content; the six places where words
+  ran off or overlapped are fixed, Journal lists scroll, and a test now
+  catches words that don't fit.
+  Playtest: https://claude.ai/artifact/3Mn9rQxgXFzdm52mSYKej9
 - **2026-11-09, 0.3.194, The bug hunt's fixes.** All recommended
   (D-742): the owner asked for every known bug fixed, in one PR. All
   nine of the twelfth audit's findings are fixed, each with a test, with
