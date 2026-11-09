@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.206 (2026-11-09)
+- Once you have found the way down, a few dust motes now stay in the lantern light, each wandering its own slow way: 3 in the crypt and earth, 2 in grey rock and the dungeon, none under the sky.
+- Decisions: D-755.
+
 ## 0.3.205 (2026-11-09)
 - With Waymark, when the nearest stairs down are too far to fit on the round map, a violet dot now sits on its rim, pointing toward them. It pulses as the map's marks do, and counts stairs you have already found too.
 - Decisions: D-754.
@@ -33,7 +37,3 @@ Entry format:
 - Find the waystone shows on reaching its room, and in a journey begun in the south woods it says "Old standing stones, by the crypt's door."
 - In a saved game the waystone moves there too, still awake if you woke it. Anything you set down where it stood stays.
 - Decisions: D-753.
-
-## 0.3.203 (2026-11-09)
-- A new goal, Put out your lantern: "Tap the lantern, or press L, to save oil." It shows the first time daylight comes while your lantern is lit, stepping out of the dark or at dawn, and goes ahead of any other goal while the lantern burns in daylight. Putting it out does it and pays its reward. If the lantern was already out, as By itself does, it is ticked quietly. It never shows again.
-- Decisions: D-752.

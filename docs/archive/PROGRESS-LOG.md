@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.203, Put out your lantern.** The owner's picks, all
+  recommended (D-752): the oil tip shows when daylight comes with the
+  lantern lit, by stepping out of the dark or at dawn; already out, as
+  By itself does, it is ticked quietly; it pays a reward and goes ahead
+  while the lantern burns by day.
+  Playtest: https://claude.ai/artifact/RfvSrtSB6VL7JvygqTpqfZ
 - **2026-11-09, 0.3.202, Trees in groves.** The owner's picks, all
   recommended: trees as A3, varied in size, place and three greens
   shared by neighbours (D-750), ending step 24; and the owner's four

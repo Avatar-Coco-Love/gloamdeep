@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.206', date: '2026-11-09', title: 'The motes that stay', lines: [
+    "Once you have found the way down, a few dust motes now stay in the lantern light, each wandering its own slow way: 3 in the crypt and earth, 2 in grey rock and the dungeon, none under the sky.",
+    "Decisions: D-755.",
+  ] },
   { v: '0.3.205', date: '2026-11-09', title: 'Waymark\'s dot on the rim', lines: [
     "With Waymark, when the nearest stairs down are too far to fit on the round map, a violet dot now sits on its rim, pointing toward them. It pulses as the map's marks do, and counts stairs you have already found too.",
     "Decisions: D-754.",

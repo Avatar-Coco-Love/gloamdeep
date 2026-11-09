@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { makeWorld } from '../src/core/turn.js';
 import { goToDepth } from '../src/core/stairs.js';
 import { floorPlan, downsOf } from '../src/core/map.js';
-import { draftTo } from '../src/core/draft.js';
+import { draftTo, stayingMotes } from '../src/core/draft.js';
 import { tileAt } from '../src/core/room.js';
 
 // The floor tile at floor x, y, from the revealed plan
@@ -49,4 +49,18 @@ test('draft: none once the floor\'s stairs down are remembered', () => {
   assert.ok(draftTo(s));
   const seen = s.seen.slice(); seen[d.y * s.room.cols + d.x] = 1;
   assert.equal(draftTo({ ...s, seen }), null);
+});
+
+test('draft: once the stairs down are remembered, a few motes stay by the place (D-755)', () => {
+  const found = (s) => { // remember one of the floor's stairs down, in whichever room it is
+    const r = floorPlan(s, true).rooms.find((r) => downsOf(r.room).length), d = downsOf(r.room)[0];
+    const seen = new Uint8Array(r.room.cols * r.room.rows); seen[d.y * r.room.cols + d.x] = 1;
+    return r.id === s.place ? { ...s, seen } : { ...s, elsewhere: { ...s.elsewhere, [r.id]: { room: r.room, seen } } };
+  };
+  for (const [depth, n] of [[1, 3], [3, 2], [6, 3], [9, 2]]) {
+    const s = goToDepth(makeWorld('first', 7), depth);
+    assert.equal(stayingMotes(s), 0, `depth ${depth}: none before the way is found`);
+    assert.equal(stayingMotes(found(s)), n, `depth ${depth}: ${n} stay`);
+  }
+  assert.equal(stayingMotes(makeWorld('first', 7)), 0, 'none under the sky');
 });

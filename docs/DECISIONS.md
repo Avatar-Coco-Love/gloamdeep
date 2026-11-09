@@ -180,3 +180,11 @@ tile big, as the marks are, sits just inside its rim toward them,
 pulsing as the marks do (steady with reduced motion). Nearest is in a
 straight line, and any stairs down count, found or not. None on another
 floor, or with the map revealed. Builds on D-601.
+
+**D-755 · 2026-11-09 · The motes that stay** (the owner's picks, all
+recommended; step 25, 4, D-751) Once any of the floor's stairs down is
+remembered, 3 motes stay in the crypt and earth, 2 in grey rock, and 2
+in the dungeon, as grey rock (Claude's question, as D-751 left it out);
+none under the sky. Each wanders its own slow way, its heading bending
+gently, slower than the draft, fading in and out, only where the light
+falls, none with reduced motion or the lantern out. Builds on D-605.
