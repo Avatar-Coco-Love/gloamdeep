@@ -45,8 +45,9 @@ neared 8 KB.
   break it for a stone (D-311, D-312).
 - **Pond:** still water in each woods room, 5 to 9 tiles (D-503, D-734).
 - **Pool:** still water in a Cave room; not yet to step in (D-500).
-- **Stone:** a small grey pebble from a deposit; it goes into the stash
-  chest, the Stone Pick and the garden bed (D-312, D-324, D-480, D-562).
+- **Stone:** a small grey pebble from a deposit, or lying loose in the
+  mountain rooms; it goes into the stash chest, the Stone Pick and the
+  garden bed (D-312, D-324, D-480, D-562, D-761).
 - **Copper vein:** a deposit's boulder flecked with copper, one in each
   Cave room from depth 3; four bumps with the Stone Pick break it for
   Copper Ore, the first ore (D-450, D-480).

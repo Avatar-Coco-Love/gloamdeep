@@ -42,9 +42,10 @@ export const ITEMS = {
   // Made from heartcaps, never found (D-309). Drunk from the bag the heartcap's
   // way, its button saying `verb`, it heals 4 hearts, never above full.
   potion: { id: 'potion', kind: 'item', name: 'Healing potion', bag: true, max: 5, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
-  // A plain stone from a broken deposit, never found lying (D-311, O2), for crafts
-  // later. Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
-  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, look: 'stoneLook', full: 'stoneFull' },
+  // A plain stone from a broken deposit (D-311, O2), for crafts; loose ones lie in the
+  // mountain rooms, 2 a room, picked up with one of its `says` lines and growing back after a day
+  // (loosestone.js, D-761). Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
+  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, says: 'looseStoneTake', look: 'stoneLook', full: 'stoneFull', regrow: DAY_TURNS },
   // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,
   // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
   // (D-333); with every stack full it stays, with its `full` line. It never grows back.

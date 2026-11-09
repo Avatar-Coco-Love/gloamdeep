@@ -32,7 +32,7 @@ test('the same seed lays the same oilcap; it grows back after a day, as in the c
 });
 
 test('an older save: unseen woods rooms get their oilcap; seen, taken from or stood in stay', () => {
-  assert.equal(FORMAT, 24); assert.equal(UPGRADES[23], recap);
+  assert.ok(FORMAT >= 24); assert.equal(UPGRADES[23], recap);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), bare = (p) => ({ ...p, items: p.items.filter((it) => it.id !== 'oilcap') });
     const woods = ROOMS.filter((id) => !isMountain(id) && id !== w.place), [a, b, c] = woods, hill = ROOMS.find(isMountain);

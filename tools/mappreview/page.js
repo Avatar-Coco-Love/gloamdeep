@@ -22,7 +22,7 @@ const seed = () => seeds[seeds.length - 1];
 const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked, finds: $('finds').checked, labels: $('labels').checked, shapes: $('shapes').checked });
 
 // § finds and their dot colours; creatures are all one colour
-const FIND = { flask: '#f39a3b', herb: '#6fc06a', oilcap: '#e0c060', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691)
+const FIND = { flask: '#f39a3b', herb: '#6fc06a', oilcap: '#e0c060', stone: '#9aa6b4', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691); a loose stone, grey (D-761)
 const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the locket is left once too
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
 // § shapes: a tint over each hall and large room (D-645), so they stand out

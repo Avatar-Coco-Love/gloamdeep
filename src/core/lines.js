@@ -97,6 +97,7 @@ export const LINES = {
   depositChip: { text: 'You chip at the boulder.', warn: false }, // the first bump (O2)
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
+  looseStoneTake: { texts: ['You pick up a loose stone.', 'A stone from the slope. You keep it.', 'You lift a stone from the grass.'], warn: false }, // a loose stone (D-761)
   stoneLook: { texts: ['A plain stone, good for making things.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
   veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)

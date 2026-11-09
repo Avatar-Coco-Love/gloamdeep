@@ -162,3 +162,16 @@ Claude's calls the owner may change: beside means a tree straight
 beside, not a corner; never on the start, a stick, the mouth's front or
 the waystone's ring; each its own tone, as underground. D-755 and D-756
 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-761 · 2026-11-09 · Gathering, step 2: loose stones** (the owner's
+picks, all recommended, the look after its mock-up; builds D-760) Loose
+stones lie in the mountain rooms only, the woods rooms keeping their
+sticks and oilcap: 2 in each, on open grass. Each is a plain Stone,
+drawn as the bag's pebble (look A of three), taken by walking onto it.
+Picked, it grows back after a day, 300 turns, as the oilcap outside.
+In an older save only mountain rooms never seen, with nothing taken,
+get theirs. Claude's calls the owner may change: never on the start, a
+find, the mouth's front or the waystone's ring; any open grass tile,
+not only beside rock; its lines "You pick up a loose stone.", "A stone
+from the slope. You keep it." and "You lift a stone from the grass.";
+a stone a boulder leaves when the bag is full still never grows back.

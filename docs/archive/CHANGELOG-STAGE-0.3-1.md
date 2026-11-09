@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.209 (2026-11-09)
+- Outside at night, with no creature after you, a moon button now shows above the lantern. Tap it and a card asks Sleep here until morning? Yes sleeps until the next morning, and the lantern burns no oil while you sleep.
+- Sleeping on the ground isn't a bed: you wake with the hearts you lay down with, no healing and no gold heart.
+- Decisions: D-758. Questions opened: Q-091.
+
 ## 0.3.208 (2026-11-09)
 - A campfire now stands in one of the 8 surface rooms round home, the seed picking the room and how lit it is: blazing, low embers or cold ashes. Bump it to read what it says, a sentence a bump.
 - A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.

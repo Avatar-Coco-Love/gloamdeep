@@ -36,7 +36,7 @@ test('a mountain room: no water or bush, 3 boulders off the edge, trees only as 
 test('a mountain room keeps the woods\' 3 sticks and fallen branch', () => {
   for (const seed of SEEDS) for (const id of MOUNTAINS) {
     const { room, items } = beginPlace(id, seed);
-    assert.equal(items.length, 3, `seed ${seed} ${id}`);
+    assert.equal(items.filter((it) => it.id === 'wood').length, 3, `seed ${seed} ${id}`);
     assert.equal(ids(room).filter((t) => t.id === 'branch').length, 1, `seed ${seed} ${id}`);
   }
 });

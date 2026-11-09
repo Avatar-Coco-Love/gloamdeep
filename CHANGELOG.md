@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.212 (2026-11-09)
+- Loose stones now lie in the mountain rooms: 2 in each, on the grass, looking like the stone in your bag. Walk onto one to take it, and it grows back a day after you pick it. The woods rooms have none.
+- In a saved game, mountain rooms you haven't seen yet get their stones too; rooms you have seen stay as they were.
+- Decisions: D-761.
+
 ## 0.3.211 (2026-11-09)
 - Oilcaps now grow outside: one in each woods room, home too, at the foot of a tree. The mountain rooms have none. Walk onto it to take it, as in the caves, and it grows back a day after you pick it.
 - In a saved game, woods rooms you haven't seen yet get their oilcap too; rooms you have seen stay as they were.
@@ -32,8 +37,3 @@ Entry format:
 - Waking from sleeping out now leaves you stiff for 20 turns: "You wake on the cold ground, stiff." While stiff, 1 swing in 3 at a creature misses, "Your stiff arm swings wide.", and the turn still passes.
 - Stiff shows as a pale blue Zz beside the poisoned drop under your hearts. Tap it to see the turns left. A fall ends it.
 - Decisions: D-759.
-
-## 0.3.209 (2026-11-09)
-- Outside at night, with no creature after you, a moon button now shows above the lantern. Tap it and a card asks Sleep here until morning? Yes sleeps until the next morning, and the lantern burns no oil while you sleep.
-- Sleeping on the ground isn't a bed: you wake with the hearts you lay down with, no healing and no gold heart.
-- Decisions: D-758. Questions opened: Q-091.
