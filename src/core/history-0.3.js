@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.201', date: '2026-11-09', title: 'Calmer grass', lines: [
+    "The grass outside is calmer: the same three greens in big soft patches, mostly the middle green, with fewer pale blades. No more camouflage look.",
+    "Decisions: D-749.",
+  ] },
   { v: '0.3.200', date: '2026-11-09', title: 'Ponds halfway to round', lines: [
     "Ponds outside are rounder and smooth-edged, halfway between their old shape and a round one: no more star shapes or dripping rims. The same tiles are water; cave pools are unchanged.",
     "Decisions: D-748.",

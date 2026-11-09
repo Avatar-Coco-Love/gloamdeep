@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.201 (2026-11-09)
+- The grass outside is calmer: the same three greens in big soft patches, mostly the middle green, with fewer pale blades. No more camouflage look.
+- Decisions: D-749.
+
 ## 0.3.200 (2026-11-09)
 - Ponds outside are rounder and smooth-edged, halfway between their old shape and a round one: no more star shapes or dripping rims. The same tiles are water; cave pools are unchanged.
 - Decisions: D-748.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.199 (2026-11-09)
 - The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.
 - Decisions: D-747.
-
-## 0.3.198 (2026-11-09)
-- A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.
-- Decisions: D-746.
