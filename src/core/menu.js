@@ -15,6 +15,9 @@ export const SURE_MENU = [{ id: 'yes', text: 'Yes' }, { id: 'no', text: 'No' }];
 // The bed bumped by day: an ask to take it down (D-488)
 export const BED_HEADING = 'Deconstruct bed?';
 export const BED_NOTE = "You aren't tired.";
+// The moon button outside at night asks first, No picked; Yes sleeps until morning (D-758),
+// its words drafted for the playtest
+export const SLEEP_OUT_ASK = ['Sleep here until morning?', 'The ground is hard and cold.'];
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
 export const TAKE_ASKS = { campfireAshes: ['Light the fire?', 'No one has sat here for a long time.'], bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693)

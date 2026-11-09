@@ -9,16 +9,18 @@ import { onWipe } from '../render/wipe.js';
 
 // § place: the button's spot (D-199, D-377, D-381, D-383, D-384): slot 0 the
 // lantern, 1 the pause button, 2 the round map (D-205), 3 the bag (D-247), 4
-// the quick slot, 5 the arrow pad (D-406), -1 the dev wrench. On the room, which fills the screen: the
+// the quick slot, 5 the arrow pad (D-406), 6 the moon (D-758), -1 the dev wrench. On the room, which fills the screen: the
 // round map in the top right corner, pause left of it and the wrench left of
 // pause, clear of the glass panel top left, or under pause on a screen so narrow
 // the panel at its widest would come too close (D-682); the lantern in the bottom right
 // corner, under the thumb, and the bag and the quick slot on an arc around it,
 // the quick slot to its left and the bag up and left; the arrow pad in the bottom
-// left corner, the round map's twin. `canvas` is the room's.
+// left corner, the round map's twin; the moon, outside at night, straight above the lantern,
+// a wider ring than the arc's so it clears the bag (D-758). `canvas` is the room's.
 // Placed again whenever the page or the room changes size; then(top, left,
 // picture) hears where it went.
-const ON_ARC = { 3: 120, 4: 180 }; // degrees round from the lantern's right, up
+const ON_ARC = { 3: 120, 4: 180, 6: 90 }; // degrees round from the lantern's right, up
+const RING = { 6: 100 }; // from the lantern's middle, where not the arc's (D-758)
 export function keepPlaced(canvas, button, slot, then) {
   const place = () => {
     const r = canvas.getBoundingClientRect(), s = button.style;
@@ -29,7 +31,8 @@ export function keepPlaced(canvas, button, slot, then) {
     else if (slot === 5) { top = r.bottom - GAP - PAD_DISC; x = r.left + GAP; }
     else if (ON_ARC[slot]) {
       const a = ON_ARC[slot] * Math.PI / 180;
-      top = Math.round(my - ARC * Math.sin(a) - SIZE / 2); x = Math.round(mx + ARC * Math.cos(a) - SIZE / 2);
+      const out = RING[slot] ?? ARC;
+      top = Math.round(my - out * Math.sin(a) - SIZE / 2); x = Math.round(mx + out * Math.cos(a) - SIZE / 2);
     } else { top = r.top + GAP; x = slot === 2 ? right - DISC : slot < 0 ? row - GAP - SIZE : row; }
     const box = canvas.parentElement;
     if (slot < 0 && wrenchLow(x, box.getBoundingClientRect().left, box.clientWidth, box.clientHeight)) { top += SIZE + GAP; x = row; }

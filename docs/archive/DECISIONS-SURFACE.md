@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-733 to D-739, D-744 to D-749)
+# The surface decisions (D-209 to D-218, D-733 to D-739, D-744 to D-752)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -318,3 +318,39 @@ the middle green covering most of the ground, and the pale blades half as
 often. It is used for all surface grass, in the room and past its edge,
 so they match. Claude's calls the owner may change: the code is `grass`
 in `src/render/woods.js`; next are the trees, look A (D-747).
+
+**D-750 · 2026-11-09 · Trees in groves** (the owner's pick, recommended;
+builds D-747; mock-ups at
+https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ) Of four tree looks
+(today's, A1 gentle, A2 lively, A3 groves), the owner picked A3. Still
+one round tree a tile (D-209), each now 0.78 to 1.1 times the old size,
+moved up to 2 pixels, in one of three greens: the old green, a deep
+blue-green and a warm olive. Neighbouring trees share a green, so the
+woods shift colour in patches. Walking and cutting are unchanged; this
+ends step 24's polish. Claude's calls the owner may change: a crown may
+reach a little past its tile and is cut at the room's edge; the code is
+`paintTree` in `src/render/woods.js`.
+
+**D-751 · 2026-11-09 · Four ideas, and their order** (the owner's ideas
+and picks, all recommended) One small step each, in this order. 1. The
+oil tip: the first time the hero steps from the dark into daylight with
+the lantern lit, a goal like Light your lantern says "Put out your
+lantern" with "Tap the lantern, or press L, to save oil."; it goes once
+the lantern is out and never shows again. 2. The home waystone stands in
+the room with the cave mouth (the crypt's door), not the middle room,
+moved for old saves too, still awake if it was woken. 3. With Waymark,
+stairs down too far for the round map show as a violet dot on its rim,
+pulsing as the marks do, toward the nearest stairs down. 4. Once the
+way down is found, the motes stay: about 2 or 3, drifting slowly with
+no set direction, more or fewer by the place, most in the crypt and
+earth, fewer in grey rock, none under the sky. Supersedes D-605's
+"None once any of the floor's stairs down is remembered". Claude's
+calls the owner may change: the words, where the waystone stands in its
+new room and the motes' counts are shown at their steps.
+
+**D-752 · 2026-11-09 · The oil tip's rules** (the owner's picks, all
+recommended; step 25, 1, D-751) "Put out your lantern" shows when
+daylight comes with the lantern lit, by stepping out of the dark or by
+dawn. Already out as the daylight comes, as By itself does, it is ticked
+quietly and paid nothing. It pays a reward like every goal and goes
+ahead of any goal waiting while the lantern burns in daylight.

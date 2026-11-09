@@ -102,42 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-750 · 2026-11-09 · Trees in groves** (the owner's pick, recommended;
-builds D-747; mock-ups at
-https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ) Of four tree looks
-(today's, A1 gentle, A2 lively, A3 groves), the owner picked A3. Still
-one round tree a tile (D-209), each now 0.78 to 1.1 times the old size,
-moved up to 2 pixels, in one of three greens: the old green, a deep
-blue-green and a warm olive. Neighbouring trees share a green, so the
-woods shift colour in patches. Walking and cutting are unchanged; this
-ends step 24's polish. Claude's calls the owner may change: a crown may
-reach a little past its tile and is cut at the room's edge; the code is
-`paintTree` in `src/render/woods.js`.
-
-**D-751 · 2026-11-09 · Four ideas, and their order** (the owner's ideas
-and picks, all recommended) One small step each, in this order. 1. The
-oil tip: the first time the hero steps from the dark into daylight with
-the lantern lit, a goal like Light your lantern says "Put out your
-lantern" with "Tap the lantern, or press L, to save oil."; it goes once
-the lantern is out and never shows again. 2. The home waystone stands in
-the room with the cave mouth (the crypt's door), not the middle room,
-moved for old saves too, still awake if it was woken. 3. With Waymark,
-stairs down too far for the round map show as a violet dot on its rim,
-pulsing as the marks do, toward the nearest stairs down. 4. Once the
-way down is found, the motes stay: about 2 or 3, drifting slowly with
-no set direction, more or fewer by the place, most in the crypt and
-earth, fewer in grey rock, none under the sky. Supersedes D-605's
-"None once any of the floor's stairs down is remembered". Claude's
-calls the owner may change: the words, where the waystone stands in its
-new room and the motes' counts are shown at their steps.
-
-**D-752 · 2026-11-09 · The oil tip's rules** (the owner's picks, all
-recommended; step 25, 1, D-751) "Put out your lantern" shows when
-daylight comes with the lantern lit, by stepping out of the dark or by
-dawn. Already out as the daylight comes, as By itself does, it is ticked
-quietly and paid nothing. It pays a reward like every goal and goes
-ahead of any goal waiting while the lantern burns in daylight.
-
 **D-753 · 2026-11-09 · The home waystone by the crypt's door** (the
 owner's picks, recommended but where noted; step 25, 2, D-751) The home
 waystone stands in the room with the cave mouth, near its middle, 2
@@ -198,3 +162,22 @@ them embers for one turn of oil. Claude's calls the owner may change:
 each level and room as likely; 2 tiles in from the edge; a line too
 long for the strip shows a sentence a bump, and cold ashes' first
 sentence on the strip, the rest on the card; "The fire catches."
+
+**D-758 · 2026-11-09 · Sleeping out, step 1** (the owner's idea and
+picks, all recommended, and the owner's addition; opens Q-091) In the
+owner's words: "I don't like running out of light in the middle of the
+night with no oil." From dusk until morning, in a room under the sky,
+with no creature after the hero, a moon button shows; it asks "Sleep
+here until morning?", No picked, and Yes sleeps until the next morning
+in one go as the bed does (D-488), the lantern burning nothing. With no
+bed the hero wakes with the hearts they lay down with: no healing, no
+gold heart. Step 2 adds Stiff, a mark beside Poisoned: for some turns
+after waking, the hero's hits miss 1 time in 3 (its numbers set at its
+step). The owner added that places may add their own cost, such as
+chilled in snow; that and waking robbed wait in Q-091. Claude's calls
+the owner may change: the moon's spot, straight above the lantern
+clear of the bag, and its pale blue crescent; "The ground is hard and
+cold." and "You wake on the cold ground."; a creature after the hero
+is one chasing, or one in the light that has noticed them; the spot
+isn't remembered as a bed for a fall (D-737). D-750 to D-752
+move to `archive/DECISIONS-SURFACE.md`, word for word.

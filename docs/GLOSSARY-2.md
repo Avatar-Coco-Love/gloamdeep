@@ -57,6 +57,9 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Bed, sleep, rested:** the first home piece, from the workbench, set
   down on the surface; bumped from dusk, the hero sleeps until morning
   and wakes healed and rested, a gold heart after the red (D-488).
+- **Sleeping out, the moon button:** outside from dusk, nothing after
+  the hero, the moon asks Sleep here until morning?; the hero wakes with
+  the hearts they had, no healing, no gold heart (D-758).
 - **Garden bed:** made at the workbench from 3 Wood and 2 Stone, set
   down on the surface; a box of soil where a seed is planted, one plant
   each; bumped, its card, Plant or Deconstruct (D-562, D-565, D-566).

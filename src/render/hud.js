@@ -77,6 +77,15 @@ export function drawBagIcon(c) {
   BAG_ICON.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(x, y, 1, 1); }));
 }
 
+// § moon icon: the sleep button outside at night (D-758), a crescent in the sky's pale blue,
+// drafted for the playtest
+const MOON_ICON = ['.xxx.', 'xx...', 'x....', 'xx...', '.xxx.'];
+export function drawMoonIcon(c) {
+  c.clearRect(0, 0, 5, 5);
+  c.fillStyle = '#b0bcf0';
+  MOON_ICON.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(x, y, 1, 1); }));
+}
+
 // § flask slot icon: the quick slot (D-384), the bag's flask sprite with how
 // many are carried at its lower right, light on a dark rim; dim with none.
 // A 20 × 16 map.

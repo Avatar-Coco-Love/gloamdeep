@@ -290,6 +290,7 @@ export const LINES = {
   shelfLook: { texts: ['A wooden shelf, in pieces.', 'Set it down on the surface.', 'Relics rest on it.'], warn: false }, // (D-690), drafted for the playtest
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
+  sleepOut: { text: 'You wake on the cold ground.', warn: false }, // the moon button outside, no bed (D-758), drafted for the playtest
   bagFull: { text: 'Your bag is full.', warn: false }, // Deconstruct with every slot taken, free; or a stack out of a chest (D-331), or the bag where you fell (D-345)
   setDown: { text: 'You set it down.', warn: false }, // Drop in the bag, free (D-546)
   bagBack: { text: 'You take back your bag.', warn: false }, // all of the bag where you fell, back in (MO3, D-345)

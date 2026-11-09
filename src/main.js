@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { newJourney as beginJourney, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, craft, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -39,6 +39,7 @@ import { createPauseButton } from './input/pause.js';
 import { createMapButton } from './input/mapbutton.js';
 import { createBagButton } from './input/bagbutton.js';
 import { createQuickSlot } from './input/quickslot.js';
+import { createSleepButton } from './input/sleepbutton.js';
 import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
@@ -226,6 +227,7 @@ function tryStep(dir) {
   else if (dir.plant !== undefined) app.state = plant(app.state, dir.plant.x, dir.plant.y); // a seed in the garden bed, one turn (D-566)
   else if (dir.pick !== undefined) app.state = pick(app.state, dir.pick.x, dir.pick.y); // the grown bed's berries, one turn (D-568)
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
+  else if (dir.sleepOut) app.state = sleepOut(app.state); // the moon button's Yes: until morning, no bed (D-758)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
   else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { app.state = step(app.state, dir); screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494)
   else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
@@ -354,6 +356,9 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => {
   if (s.float) { const d = towardFloat(s); if (d) tryStep(d); } else if (i >= 0) tryStep({ pour: i });
 } });
 
+// § sleep button: outside at night, nothing after the hero, it asks Sleep here until morning? (D-758)
+const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.screen === 'play' && !app.fall && canSleepOut(app.state)) screens.openSleepOut(); } });
+
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
@@ -376,9 +381,9 @@ function newJourney(mode) {
 const { useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
-  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
+  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
@@ -412,7 +417,7 @@ const onDir = (dir, how) => {
 };
 const onPoint = (px, py, held) => {
   if (app.screen === 'play') stepToward(px, py, held); // held: from a finger held still (D-408)
-  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
+  else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.space(); };
 // Tab frames the first plaque, then the next, then none (CL2)
@@ -456,7 +461,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   settings: () => app.settings,
   camera: () => app.cam,
 }, hudCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, dev, screens, still, foeAt });
 const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS, openQuests: () => screens.openQuests() });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 

@@ -4,6 +4,11 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.209', date: '2026-11-09', title: 'Sleeping out', lines: [
+    "Outside at night, with no creature after you, a moon button now shows above the lantern. Tap it and a card asks Sleep here until morning? Yes sleeps until the next morning, and the lantern burns no oil while you sleep.",
+    "Sleeping on the ground isn't a bed: you wake with the hearts you lay down with, no healing and no gold heart.",
+    "Decisions: D-758. Questions opened: Q-091.",
+  ] },
   { v: '0.3.208', date: '2026-11-09', title: 'Campfires', lines: [
     "A campfire now stands in one of the 8 surface rooms round home, the seed picking the room and how lit it is: blazing, low embers or cold ashes. Bump it to read what it says, a sentence a bump.",
     "A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.",
