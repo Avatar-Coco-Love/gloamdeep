@@ -105,3 +105,9 @@ other effects, such as a snowy environment causing the player to be
 chilled." What can be taken and how often, who takes it, the quest to
 get it back, and each place's own cost are all open, for once people
 and quests grow (D-470) and other places are outside.
+
+**Q-092 · Plants and flowers to harvest** (raised 2026-11-09, the
+owner's addition to D-760's gathering) In the owner's words: "Actual
+harvestable plants, and flowers." Which plants and flowers, their
+names and looks, where they grow, what harvesting one gives and what it
+is for are all open, at their own step after oilcaps and loose stones.

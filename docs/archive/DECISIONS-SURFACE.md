@@ -379,3 +379,24 @@ tile big, as the marks are, sits just inside its rim toward them,
 pulsing as the marks do (steady with reduced motion). Nearest is in a
 straight line, and any stairs down count, found or not. None on another
 floor, or with the map revealed. Builds on D-601.
+
+**D-755 · 2026-11-09 · The motes that stay** (the owner's picks, all
+recommended; step 25, 4, D-751) Once any of the floor's stairs down is
+remembered, 3 motes stay in the crypt and earth, 2 in grey rock, and 2
+in the dungeon, as grey rock (Claude's question, as D-751 left it out);
+none under the sky. Each wanders its own slow way, its heading bending
+gently, slower than the draft, fading in and out, only where the light
+falls, none with reduced motion or the lantern out. Builds on D-605.
+
+**D-756 · 2026-11-09 · Thick woods and glades** (the owner's picks, all
+recommended; builds D-733's step 5, its last) Each of the 5 woods rooms
+round home is thick woods, the woods as before or an open glade, the
+seed picking, with at least one thick and one glade each seed. Home
+stays as before, so what was set down keeps its place. In an older
+save a room already seen stays as it is; one never seen, with nothing
+taken, grows as its kind. The owner asked next for the surface to be
+filled: more to do, less empty (Q-090). Claude's calls the owner may
+change: thick trees 75, 55, 40 in 100 by ring in from the edge, at
+least 80 open tiles; glades 45, 12, then none; a room whose waystone
+is woken is never made again; the map preview names each room's kind.
+D-733 moves to `archive/DECISIONS-SURFACE.md`, word for word.

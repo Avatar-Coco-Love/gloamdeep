@@ -13,7 +13,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `knife` | held, hits for 2; in the bag, Hold | held, or 1 a slot | never | the first room of depth 2 | D-252, D-347, D-479 |
 | `spear` | held, hits for 2 and the one behind for 1; in the bag, Hold | held, or 1 a slot | never | the first room of depth 3 | D-479 |
 | `herb` | heals 2 where it lies when hurt; at full health into the bag, Eat: 2 hearts | 5 | 300 | each generated room | D-155, D-511 |
-| `oilcap` | 3 make a flask | 20 | 300 | each generated room | D-296, D-299 |
+| `oilcap` | 3 make a flask | 20 | 300 | each generated room; each woods room on the surface, home too, on grass beside a tree (`woodscap.js`), none in the mountain rooms | D-296, D-299, D-760 |
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `antidote` | Drink: ends poisoned, healing nothing; only while poisoned | 5 | never | 1 Snapcap Gill and 1 herb, made in the bag | D-652, D-655 |
