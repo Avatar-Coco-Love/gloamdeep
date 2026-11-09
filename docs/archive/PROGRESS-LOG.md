@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.202, Trees in groves.** The owner's picks, all
+  recommended: trees as A3, varied in size, place and three greens
+  shared by neighbours (D-750), ending step 24; and the owner's four
+  ideas planned as step 25, one step each (D-751).
+  Playtest: https://claude.ai/artifact/TUaLsunXYmLJVPrEf2vT7h
+  Mock-ups: https://claude.ai/artifact/MKPM5jTsPD8t5aPJy9NNnJ
 - **2026-11-09, 0.3.201, Calmer grass.** The owner's picks, both
   recommended (D-749): of four grass looks, B, today's three greens in
   big soft patches, mostly the middle green, fewer pale blades; used for

@@ -17,7 +17,7 @@
 // between them; the window is shorter.
 import { drawText, textWidth } from './font.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, PAD } from './bag.js';
-import { markAt, aroundHero } from '../core/map.js';
+import { markAt, aroundHero, rimDot } from '../core/map.js';
 import { areaAt, tileAt } from '../core/room.js';
 import { onWipe } from './wipe.js';
 
@@ -88,11 +88,13 @@ export function drawPlan(into, plan, k) {
   c.fillStyle = DOOR;
   for (const { x, y } of plan.doors) c.fillRect(x * k, y * k, k, k);
 }
+// Waymark's slow pulse (steady with reduced motion, D-601)
+const pulse = (t, still) => (still ? 1 : 0.35 + 0.65 * (Math.sin(t / 400) + 1) / 2);
 // The hero's blinking gold dot, each bag where you fell and Waymark's stairs, on a plan drawn
 // at mx, my, k pixels a tile
 function drawMarks(c, plan, mx, my, k, t, still) {
   c.fillStyle = SHOWN.stairs;
-  c.globalAlpha = still ? 1 : 0.35 + 0.65 * (Math.sin(t / 400) + 1) / 2;
+  c.globalAlpha = pulse(t, still);
   for (const w of plan.waymarks || []) c.fillRect(mx + w.x * k, my + w.y * k, k, k);
   c.globalAlpha = 1;
   c.fillStyle = BAG;
@@ -102,12 +104,20 @@ function drawMarks(c, plan, mx, my, k, t, still) {
 
 // § round map: the floor around the hero, the hero in the middle, on the round
 // map top right (D-383): `drawn` the plan from drawPlan at k pixels a tile, c the
-// round map's own canvas, cleared so its glass shows where nothing is found
+// round map's own canvas, cleared so its glass shows where nothing is found. With
+// Waymark, stairs down too far for it show as a violet dot on its rim, pulsing as the
+// marks do, toward the nearest (D-754)
 export function drawRoundMap(c, plan, drawn, k, t, still) {
   const n = c.canvas.width, { x: mx, y: my } = aroundHero(plan, n, k);
   c.clearRect(0, 0, n, n);
   c.drawImage(drawn, mx, my);
   drawMarks(c, plan, mx, my, k, t, still);
+  const rim = rimDot(plan, n, k);
+  if (!rim) return;
+  c.fillStyle = SHOWN.stairs;
+  c.globalAlpha = pulse(t, still);
+  c.fillRect(rim.x, rim.y, k, k);
+  c.globalAlpha = 1;
 }
 
 // The Explorer's row: bar the layout's; seed the seed shown, back whether Back has a seed to go to
