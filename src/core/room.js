@@ -9,13 +9,14 @@ import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
 import { withPack } from './pack.js';
-import { generateWoods } from './woods.js';
+import { generateWoods, inFront } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf, sizeAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
-import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths } from './hearthwood.js';
+import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths, isMountain } from './hearthwood.js';
+import { mountainOf } from './mountain.js';
 import { spotIn, unpad } from './stamper.js';
 
 // § first room: the shape of style study 1's room (study lines 96–110), with
@@ -114,11 +115,14 @@ export const PLACES = {
 for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => woodsRoom(id, seed), depth: 0, look: 'woods', sky: true, sides: sidesOfWoods(id) };
 // A Hearthwood room as it begins: home grows as it did with the mouth in its edge, so it keeps
 // its trees, but without the mouth or rocks, which stand in the room beside it now (D-733); that
-// room has the mouth, the rest neither. Then the paths to the rooms beside are cut.
+// room has the mouth, the rest neither. Then the paths to the rooms beside are cut. A mountain
+// room, the north row, grows without its pond and bush, and after its paths its trees become
+// rock but for a few, with 3 boulders on its grass (D-738).
 function woodsRoom(id, seed) {
-  const m = mouthOf(seed), home = id === HOME_ID;
-  const made = generateWoods(woodsSeed(seed, id), home || id === m.from ? m : null, { stone: home, mark: !home });
-  return { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
+  const m = mouthOf(seed), home = id === HOME_ID, rock = isMountain(id), mouth = home || id === m.from ? m : null;
+  const made = generateWoods(woodsSeed(seed, id), mouth, { stone: home, mark: !home, wet: !rock });
+  const cut = { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
+  return rock ? mountainOf(woodsSeed(seed, id), cut, mouth ? inFront(mouth) : []) : cut;
 }
 
 // § depth: the place at each depth, and back. The crypt is depth 0 with the

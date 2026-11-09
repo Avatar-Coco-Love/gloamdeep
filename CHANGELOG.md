@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.190 (2026-11-09)
+- The three rooms along the north of Hearthwood are mountain rooms now: rocky slopes of grass, rock standing where the trees would be, with a few lone trees. Each has 3 grey boulders to break for stone, as in the caves, and its own sticks and fallen branch, but no pond or bush. On the map, rock on the surface shows grey. If you have already been to one of these rooms, it stays woods.
+- Decisions: D-738.
+
 ## 0.3.189 (2026-11-09)
 - Where you wake after a fall: beside the last bed you slept in, on the spot you lay down from (or the nearest free spot beside the bed). With no bed, on the home waystone once it is woken; no boon is offered until you step off and back on. Otherwise, where the journey began. Taking the bed down forgets it until you sleep in it again. Hardcore still begins the world again.
 - Decisions: D-737.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.188 (2026-11-09)
 - A new goal, Light your lantern: "Tap the lantern, or press L." It shows when the dark comes, halfway through dusk in the woods or on stepping somewhere the sky doesn't reach, with the lantern off, and goes ahead of any other goal while it is dark. Lighting the lantern, by hand or By itself, does it and pays its reward. If your lantern was already lit, it is ticked quietly.
 - Decisions: D-736.
-
-## 0.3.187 (2026-11-09)
-- A new journey begins in the woods now, not the crypt: in one of the rooms along the south of Hearthwood, never the one with the cave mouth, standing near the middle of the room. It is day, so your lantern starts off. The first words say so: "You wake among the trees of Hearthwood. Your lantern is cold; keep its oil for the dark. Something waits below." Your first goal is Find the waystone: "Home is in the middle of the woods." Go home to the woods is no longer asked. If you fall, you wake where the journey began, until beds and the waystone come in.
-- Decisions: D-735. Questions closed: Q-087. Questions opened: Q-088. D-727 and D-728 moved to the archive, word for word.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.187, The south start.** The owner's picks (D-735):
+  a start is one registry entry, so more can come; South woods for now.
+  The owner's idea: by day the lantern starts off, and next a goal asks
+  to light it. Their campfire idea is kept as Q-088.
+  Playtest: https://claude.ai/artifact/8NdDbkxdhqx1wXQmmmN7qJ
 - **2026-11-09, 0.3.186, Hearthwood's nine rooms.** The owner's picks,
   all recommended (D-734): every room joined to every room beside it by
   a path 3 tiles wide. The surface is 9 woods rooms, home in the centre

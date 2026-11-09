@@ -18,7 +18,7 @@
 import { drawText, textWidth } from './font.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, BUTTON, PAD } from './bag.js';
 import { markAt, aroundHero } from '../core/map.js';
-import { areaAt } from '../core/room.js';
+import { areaAt, tileAt } from '../core/room.js';
 import { onWipe } from './wipe.js';
 
 const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
@@ -27,6 +27,9 @@ const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green
 const TONE = { crypt: '#69748b', rock: '#7a8396', earth: '#8e7a62', dungeon: '#4c5a84', woods: '#4f8a3f' };
 const wallOf = (room) => TONE[room.look] || SHOWN.wall;
+// Rock and boulders in the woods, the mountain rooms' (D-738) and the mouth's, in the cave rock's grey
+const ROCKY = new Set(['outcrop', 'deposit', 'vein']);
+const wallAt = (room, x, y) => (room.look === 'woods' && ROCKY.has(tileAt(room, x, y).id) ? TONE.rock : wallOf(room));
 const BAG = '#9a7350'; // the bag where you fell, in its leather brown (MO3, D-345)
 const DOOR = '#a6e0e4'; // the cloak's pale blue, not the stairs' violet or the lantern's amber
 const RULE = 20, TOP = 26, INSET = 8; // the card's rule under its heading; the window's top and sides inside the card
@@ -79,7 +82,7 @@ export function drawPlan(into, plan, k) {
   for (const { x: ox, y: oy, room, seen } of plan.rooms) {
     for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
       const mark = markAt(room, seen, x, y);
-      if (mark) { c.fillStyle = mark === 'wall' ? wallOf(room) : SHOWN[mark]; c.fillRect((ox + x) * k, (oy + y) * k, k, k); }
+      if (mark) { c.fillStyle = mark === 'wall' ? wallAt(room, x, y) : SHOWN[mark]; c.fillRect((ox + x) * k, (oy + y) * k, k, k); }
     }
   }
   c.fillStyle = DOOR;
