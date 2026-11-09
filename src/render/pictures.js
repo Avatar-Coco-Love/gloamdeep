@@ -19,6 +19,7 @@ const PAL = {
   z: '#c4553a', U: '#7e3020', Z: '#4e1c16', V: '#b6e07a', // the centipede's rust, light to dark, and venom's pale green (D-654)
   J: '#eaffb8', // the spit grub's bright glow, at the heart of venom's green (D-688)
   P: '#a58ce0', // stairs and unusual things (ART-DIRECTION.md palette), the warden's eyes (D-692)
+  j: '#6e58a8', // the duskstar's violet shade, under the unusual things' violet (D-763)
 };
 
 // § blank: the grey "?" a thing made by tools/make.js wears until it is drawn (D-622): plainly
@@ -87,6 +88,12 @@ const FLASK = { mirror: true, rows: [
 const HERB = { mirror: false, rows: [
   '', '', '', '', '.......kk.......', '......kggk......', '......kgGk......', '..kkk..kGk.kkk..',
   '.kgggk.kGk.kgggk', '..kgGGkkGkkGGgk.', '...kkGGkGkGGkk..', '.....kkGGGkk....', '.......kGk......', '.......kkk......'] };
+
+// § duskstar: five violet petals, lit and shaded, round a yellow heart, on a stem with one leaf
+// (look B of the flower mock-up, D-763). `toned`: the petals' letters, shifted per flower.
+const DUSKSTAR = { mirror: false, toned: 'Pj', rows: [
+  '', '', '.......kk.......', '......kPPk......', '.kkk..kPjk..kkk.', 'kPPPkkkPjkkkPPPk', '.kPjPkyyyykPjPk.', '..kkjkyYYykjkk..',
+  '....kkyyyykk....', '...kPjkkkkjPk...', '..kPjk.kGk.kjPk.', '..kkk..kGk..kkk.', '...kgk.kGk......', '....kgkkGk......', '.....kkGGk......', '......kkkk......'] };
 
 // § oilcap: an amber mushroom cap, light spots and a dark rim on one side,
 // on a short pale stem (D-296). `toned`: the cap's letters, shifted per mushroom (D-305).
@@ -590,7 +597,7 @@ const CAMPFIRE_EMBERS = { mirror: false, rows: FIRE_RING('nnkknn', 'YnooNY', 'kn
 const CAMPFIRE_ASHES = { mirror: false, rows: FIRE_RING('ssddss', 'sdnnsd', 'kddddk') };
 
 export {
-  PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
+  PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,

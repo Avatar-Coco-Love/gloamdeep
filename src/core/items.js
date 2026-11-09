@@ -5,6 +5,8 @@
 import { DAY_TURNS } from './daytime.js';
 // How far a mushroom's tone may shift (D-305, the owner's pick of three)
 export const MUSHROOM_TONE = { hue: 12, light: 7 };
+// How far a flower's petals may shift (D-763), a little more than a mushroom's
+export const FLOWER_TONE = { hue: 16, light: 6 };
 export const ITEMS = {
   // Walking onto it puts it in the bag; poured from there into the lantern,
   // never above full (D-078, D-247). With every flask stack full and no slot free
@@ -47,6 +49,10 @@ export const ITEMS = {
   // mountain rooms, 2 a room, picked up with one of its `says` lines and growing back after a day
   // (loosestone.js, D-761). Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
   stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, says: 'looseStoneTake', look: 'stoneLook', full: 'stoneFull', regrow: DAY_TURNS },
+  // The first flower (D-763, Q-092): a violet duskstar, 2 in each woods room (duskstar.js), each in
+  // its own tone and facing its own way. Walking onto it puts it in the bag, for crafts later. Picked,
+  // it `roam`s: a day later it grows again on another free grass tile of the room (regrow.js, D-530).
+  duskstar: { id: 'duskstar', kind: 'item', name: 'Duskstar', bag: true, max: 20, says: 'duskstarTake', look: 'duskstarLook', full: 'duskstarFull', tone: FLOWER_TONE, regrow: DAY_TURNS, roam: true },
   // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,
   // about 1 time in 2 (turn.js). Into the bag in stacks of 20 with its lines in turn
   // (D-333); with every stack full it stays, with its `full` line. It never grows back.

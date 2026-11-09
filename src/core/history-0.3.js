@@ -4,6 +4,12 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.214', date: '2026-11-09', title: 'The duskstar', lines: [
+    "The first flower grows outside: the duskstar, five violet petals round a yellow heart. 2 grow in each woods room, home too, on the grass; the mountain rooms have none. Each faces its own way and has its own slight shade of violet.",
+    "Walk onto a duskstar to put it in your bag, for crafts later. A day after you pick it, it grows again somewhere else in the same room.",
+    "In a saved game, woods rooms you haven't seen yet get their duskstars too; rooms you have seen stay as they were.",
+    "Decisions: D-763.",
+  ] },
   { v: '0.3.213', date: '2026-11-09', title: 'Herbs outside', lines: [
     "Healing herbs now grow outside: one in each woods room, home too, on the grass. The mountain rooms have none. It is the same herb as in the caves: walk onto it hurt and you eat it, at full health it goes in your bag, and it grows back a day after you pick it.",
     "In a saved game, woods rooms you haven't seen yet get their herb too; rooms you have seen stay as they were.",

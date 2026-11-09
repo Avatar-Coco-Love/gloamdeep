@@ -42,7 +42,7 @@ Named colours are in the study's `PAL` (lines 121–128). Key roles:
 | Bone, pale highlights | `#efe6cc` `#b9ab88` |
 | Hostile marks (eyes) | `#e8786a` |
 | Hero eyes | `#efe6cc`; a profile may pick one of five more (`src/core/looks.js`, D-276) |
-| Stairs and unusual things | `#a58ce0` |
+| Stairs and unusual things | `#a58ce0`; the duskstar's petals shade it with `#6e58a8` (D-763) |
 | Crypt floor (base, light, mortar) | `#3a4050` `#454c5e` `#22262f` |
 | Crypt wall brick (base, top edge, mortar) | `#535d72` `#69748b` `#2b303c` |
 | Moss | `#6fb04e` `#3c6e3a` |
