@@ -5,6 +5,8 @@ exists, and what changed along the way. It is written so a future
 project can start from it (D-732). Each audit adds what that stretch
 taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
+`WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us
+and the design habits (D-741).
 
 ## The project so far
 
@@ -108,6 +110,13 @@ phone first, nothing outside the code (D-003).
   up to date but printed an old `main`, because a fresh cloud copy holds
   only recent history. Its message now names what is checked out (D-740).
 
+## Since the last audit
+
+When a step teaches something about working together, its PR adds one
+line here (D-741). Each audit moves the lines into the right sections.
+
+(Nothing yet.)
+
 ## Starting a new project
 
 - Write `CLAUDE.md` on day one: who decides, the step size, how
@@ -122,3 +131,4 @@ phone first, nothing outside the code (D-003).
 - Agree the pace in the first conversation and write it down as a
   decision, so it can be superseded when it changes.
 - Plan audits from the start. Each one also adds to this playbook.
+- Build the tools in `WORKFLOW-2.md` as soon as each job repeats.

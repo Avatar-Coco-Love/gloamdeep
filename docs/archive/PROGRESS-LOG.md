@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.190, Mountain rooms.** The owner's picks (D-738):
+  rocky slopes, 3 boulders, sticks and the branch, all three made the same
+  way; recommended but the rock's look, which the next step draws
+  rounded, with rock past the edge too.
+  Playtest: https://claude.ai/artifact/PqKbpD1xRpci2eT48i5pxt · Map
+  preview: https://claude.ai/artifact/7jMiv7PDZwQMM71xSM8i2G
 - **2026-11-09, 0.3.189, Waking after a fall.** The owner's picks, all
   recommended (D-737): beside the bed on the tile lain down from, else
   the nearest open one; on the woken home plate with no boon offered;

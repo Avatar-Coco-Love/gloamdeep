@@ -59,7 +59,7 @@ Read the smallest file that answers the question.
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
-| `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732) | audits, or when the way of working changes |
+| `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732); growth, tools, bugs and design habits in `-2` (D-741) | audits, or when the way of working changes |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
 | `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |

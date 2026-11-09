@@ -44,6 +44,9 @@ or updating a PR.
   superseded entries to `docs/archive/DECISIONS-SUPERSEDED.md`, and the
   rest of a finished stage to its own archive file (as D-041 did), and
   add the new file's line to `docs/archive/README.md`.
+- **The playbook**: when a step taught something about working
+  together, add one line to `docs/WORKFLOW.md`'s "Since the last audit"
+  (D-741).
 - Once code exists, the `VERSION` constant in the code must match the top
   `CHANGELOG.md` entry.
 

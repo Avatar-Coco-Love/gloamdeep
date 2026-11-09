@@ -105,3 +105,14 @@ copy keeps. `WORKFLOW.md` gains what this stretch taught. One bug hunt
 read the code since 0.3.152; its findings are listed for the owner to
 pick from (https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK), each fix its own small step with a test.
 The next audit is at 0.3.232.
+
+**D-741 · 2026-11-09 · The playbook caught up, and kept up** (the owner's
+picks, all recommended; builds D-732) The owner asked that the playbook
+hold everything done so far and grow as we go. Four parts are added:
+how the game grew (stages, a playtest setting each plan, groundwork
+first, only what works shows), our tools, lessons from bugs and design
+habits. They go in a new `docs/WORKFLOW-2.md`, so `WORKFLOW.md` stays
+under its cap. When a step teaches something about working together,
+its PR adds one line to `WORKFLOW.md`'s "Since the last audit"
+(`PR-CHECKLIST.md` reminds), and each audit moves the lines into place.
+Nothing visible changed.
