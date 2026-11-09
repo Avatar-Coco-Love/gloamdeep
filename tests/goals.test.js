@@ -13,7 +13,7 @@ const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, plac
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -170,6 +170,35 @@ test('an ember spent already ticks spending one quietly (D-713)', () => {
   assert.equal(quiet.goals.ember.done, true);
   assert.deepEqual(quiet.done, []);
   assert.deepEqual(goalsAfter({}, 0, {}, [], { ...base, xp: xpFor(3) }).goals.ember, { done: false }, 'past level 2, nothing spent: shown');
+});
+
+// § lighting the lantern (D-735): under the sky the room darkens halfway through dusk (turn 185 of
+// 300); a room without sky is dark at any turn
+const dusky = { ...base, room: { dark: { sky: true } }, lit: false };
+const cave = { ...base, room: { dark: { sky: false } }, lit: false };
+test('lighting the lantern shows when it gets dark, at dusk or below ground, and is done once lit (D-735)', () => {
+  assert.equal(goalsAfter({}, 0, {}, [], { ...dusky, turn: 185 }).goals.lantern, undefined, 'still daylight');
+  const dusk = goalsAfter({}, 0, {}, [], { ...dusky, turn: 186 }, { ...dusky, turn: 185 });
+  assert.deepEqual(dusk.goals.lantern, { done: false });
+  assert.deepEqual(goalLine(dusk.goals, null, 186), { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern, or press L.', done: false });
+  assert.deepEqual(goalsAfter({}, 0, {}, [], cave).goals.lantern, { done: false }, 'stepping into the dark with it off');
+  const both = goalsAfter({ stone: { done: false } }, 0, {}, [], { ...dusky, turn: 186 }).goals;
+  assert.equal(goalLine(both, null, 186, 'first', { ...dusky, turn: 186 }).goal, 'Light your lantern', 'ahead of the waystone in the dark');
+  assert.equal(goalLine(both, null, 290, 'first', { ...dusky, turn: 290 }).goal, 'Find the waystone', 'not ahead by day');
+  const lit = goalsAfter(dusk.goals, 0, {}, [], { ...dusky, turn: 186, lit: true }, { ...dusky, turn: 186 });
+  assert.deepEqual(lit.done, ['lantern'], 'by hand: gold, paid');
+  assert.equal(doneWords(lit.goals, 'lantern'), `Light your lantern. ${rewardText(lit.goals.lantern.paid)}`);
+  const self = goalsAfter({}, 0, {}, [], { ...dusky, turn: 186, lit: true }, { ...dusky, turn: 185 });
+  assert.deepEqual(self.done, ['lantern'], 'By itself at dusk: done in play too');
+});
+
+test('a lantern lit already when it gets dark ticks lighting it quietly (D-735)', () => {
+  const early = goalsAfter({}, 0, {}, [], { ...dusky, turn: 186, lit: true }, { ...dusky, turn: 185, lit: true });
+  assert.equal(early.goals.lantern.done, true);
+  assert.deepEqual(early.done, []);
+  const crypt = goalsAfter({}, 0, {}, [], { ...cave, lit: true });
+  assert.equal(crypt.goals.lantern.done, true, 'a crypt start, lit from the first turn');
+  assert.deepEqual(crypt.done, []);
 });
 
 test('the Quests tab lists each goal, the done one with its reward, or says none yet', () => {

@@ -147,3 +147,14 @@ once lit. Claude's calls the owner may change: a start's skipped goal
 is never paid; the tile is one the room's paths reach, with nothing on
 it. Partly supersedes D-628's words and D-119's crypt. D-727 and D-728
 move to `archive/DECISIONS-PACK.md`, word for word.
+
+**D-736 · 2026-11-09 · Light your lantern** (the owner's picks, all
+recommended; builds D-735's goal) "Light your lantern" / "Tap the
+lantern, or press L." shows when daylight no longer lights the room:
+halfway through dusk under the sky, or on stepping where the sky doesn't
+reach. It is done once the lantern is lit, by hand or By itself, paid
+and gold. A lantern lit before then, by day or from a crypt start, ticks
+it quietly, so every journey has it. While the dark is here and the
+lantern is off, it goes ahead of any goal waiting, as the ember's does.
+Claude's call the owner may change: switching the lantern, which passes
+no turn, checks the goals at once.

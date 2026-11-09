@@ -11,6 +11,7 @@ import { depthOf, tileAt } from './room.js';
 import { levelOf } from './xp.js';
 import { embers } from './growth.js';
 import { STARTS } from './starts.js';
+import { inDaylight } from './daytime.js';
 
 // Each goal: its words (D-706), how either words or words by the place the hero is in, and three tests of what happened, c = { goals, book, events, state, before }:
 // shows, its moment come; before, done before it could show (paid quietly); does, done now
@@ -31,6 +32,8 @@ const picked = (c) => c.events.some((e) => e.type === 'boon');
 // The level reached, and whether an ember is spent this journey (growth.js)
 const level = (state) => levelOf(state.xp ?? 0);
 const spent = (state) => embers({ xp: 0, ...state }) < level(state) - 1;
+// Daylight no longer lights the room the hero is in (daytime.js); false with no room known
+const dark = (state) => !!state.room?.dark && !inDaylight(state);
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
@@ -58,6 +61,13 @@ export const GOALS = [
   { id: 'boon', goal: 'Take a boon', how: 'Step back on the plate. Pick 1 of 3.',
     shows: (c) => steppedOff(c) || picked(c), does: picked,
     before: (c) => !!c.state.boon },
+  // When daylight no longer lights the room: halfway through dusk under the sky, or on stepping
+  // where the sky doesn't reach (D-735, the owner's picks). Done once lit, by hand or By itself;
+  // ticked quietly when it was lit already, by day or from a crypt start, so every journey has it;
+  // it goes ahead of any goal waiting while the dark is here and the lantern is off (the owner's pick)
+  { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern, or press L.', ahead: (state) => !state.lit && dark(state),
+    shows: (c) => dark(c.state), does: (c) => !!c.state.lit,
+    before: (c) => !!c.before.lit && !!c.state.lit },
   // At level 2, going ahead of any goal waiting (D-706) while an ember is there to spend (Claude's
   // call); done on the first buy in Growth, which passes no turn, so main.js checks again then
   // (the owner's pick); ticked quietly when an ember is spent already (the owner's pick)

@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.188', date: '2026-11-09', title: 'Light your lantern', lines: [
+    "A new goal, Light your lantern: \"Tap the lantern, or press L.\" It shows when the dark comes, halfway through dusk in the woods or on stepping somewhere the sky doesn't reach, with the lantern off, and goes ahead of any other goal while it is dark. Lighting the lantern, by hand or By itself, does it and pays its reward. If your lantern was already lit, it is ticked quietly.",
+    "Decisions: D-736.",
+  ] },
   { v: '0.3.187', date: '2026-11-09', title: 'The south start', lines: [
     "A new journey begins in the woods now, not the crypt: in one of the rooms along the south of Hearthwood, never the one with the cave mouth, standing near the middle of the room. It is day, so your lantern starts off. The first words say so: \"You wake among the trees of Hearthwood. Your lantern is cold; keep its oil for the dark. Something waits below.\" Your first goal is Find the waystone: \"Home is in the middle of the woods.\" Go home to the woods is no longer asked. If you fall, you wake where the journey began, until beds and the waystone come in.",
     "Decisions: D-735. Questions closed: Q-087. Questions opened: Q-088. D-727 and D-728 moved to the archive, word for word.",

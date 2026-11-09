@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.185, A bigger surface, the plan.** The owner asked
+  for a bigger surface, more rooms and variety, and a journey that does
+  not begin at home or the cave. Their picks (D-733): Hearthwood's 3 × 3
+  rooms as planned; a journey begins in a south woods room; a fall wakes
+  in the last bed slept in, else at the woken home waystone, else where
+  the journey began; mountain rooms, and thick woods to open glades.
+  Five steps, the 9 rooms first. Nothing visible changed.
 - **2026-11-09, 0.3.184, A playbook of how we work.** The owner asked
   that our way of working be kept for future projects. Their picks, all
   recommended (D-732): `docs/WORKFLOW.md`, one page on how we work, why,

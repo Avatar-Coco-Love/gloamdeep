@@ -336,8 +336,9 @@ function hear(events) {
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
-// § switch: the lantern button and the L key, free at any time in play (D-080, D-081); it ticks (D-257)
-const switchIt = () => { if (app.screen === 'play') { const before = app.state; app.state = switchLantern(before); hear(eventsSince(before, app.state)); } };
+// § switch: the lantern button and the L key, free at any time in play (D-080, D-081); it ticks (D-257);
+// the goals checked, as lighting it does "Light your lantern" (D-735)
+const switchIt = () => { if (app.screen === 'play') { const before = app.state; app.state = switchLantern(before); hear(eventsSince(before, app.state)); keepRecords([], before); } };
 const lanternButton = createLanternButton(hudCanvas, { onSwitch: switchIt });
 const pauseButton = createPauseButton(hudCanvas, { onPause: () => screens.pause() });
 const mapButton = createMapButton(hudCanvas, { onMap: () => screens.toggleMap() });
