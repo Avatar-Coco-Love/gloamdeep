@@ -170,3 +170,18 @@ tile. Taking the bed down forgets it until it is slept in again. The
 fall line stays "You fall, and wake again." Hardcore still begins the
 world again. Claude's call the owner may change: the code is
 `src/core/waking.js`.
+
+**D-738 · 2026-11-09 · Mountain rooms** (the owner's picks, all
+recommended but the rock's look; builds D-733's step 4) Hearthwood's
+north row, every seed, is mountain rooms: rocky slopes, the woods' grass
+with rock where the trees would stand and a few lone trees inside. Each
+holds 3 grey boulders, as a Cave room does (D-282), and the woods' 3
+sticks and fallen branch; no pond or bush. The three are made the same
+way, only the seed differing. The next step, the owner's own picks:
+outside rock drawn rounded, as cave walls are, and rock going on past a
+mountain room's edges; till then it is drawn as the mouth's rocks.
+Claude's calls the owner may change: a tree 2 or more tiles in from the
+edge stays a tree 1 time in 4; a room grows as a woods room, its paths
+cut, then its trees made rock, so the paths stay where they were; a
+mountain room already visited in an older save stays woods; on the map,
+rock and boulders on the surface show in the cave rock's grey.

@@ -28,7 +28,7 @@ A woods room, 17 × 20, made from the seed (`src/core/woods.js`): one
 round tree a tile, thick at the edges. Plain daylight shows and
 remembers it whole. It is depth 0, called SURFACE for now; the cave mouth
 leads there (step 49, `src/core/mouth.js`), and dev Go outside.
-Since 0.3.186 it is home, the centre of Hearthwood's 9 woods rooms,
+Since 0.3.186 it is home, the centre of Hearthwood's 9 woods rooms (the north row mountain rooms since 0.3.190, D-738),
 joined by paths, the mouth in a room beside it (D-734).
 Day and night pass with the turns, 300 to a day, with dusk and dawn
 fades; at night it is dark like a cave, memory a moonlit blue (D-217,

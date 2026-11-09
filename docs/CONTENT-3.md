@@ -10,14 +10,14 @@ neared 8 KB.
 | id | What it does | Grows back | Where | Decisions |
 | --- | --- | --- | --- | --- |
 | `wall`, `floor` | solid and open ground | | everywhere | the style study |
-| `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface | D-209 |
+| `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface; the mountain rooms' rock | D-209, D-738 |
 | `stairsDown`, `stairsUp` | lead between depths | | each floor | D-132, D-174 |
-| `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees | D-209, D-317, D-321 |
+| `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees; a few lone ones in the mountain rooms | D-209, D-317, D-321, D-738 |
 | `stump` | grows back into a tree | | where a tree was felled | D-317 |
-| `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods room | D-316 |
+| `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods and mountain room | D-316, D-738 |
 | `berryBush` | 1 bump: 2 Gloamberries, leaves it bare | 300 | 1 in each woods room | D-531 |
 | `bareBush` | a picked bush, solid; fills again on its tile | | where a bush was picked | D-531 |
-| `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room | D-311, D-312 |
+| `deposit` | 3 bumps: 1 Stone | 900 | 3 in each Cave room and mountain room | D-311, D-312, D-738 |
 | `vein` | with the pick in the Tool slot, 4 bumps: 1 Copper Ore | 1800 | 1 of the 3 deposits in each Cave room from depth 3 | D-480, D-552 |
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
@@ -45,7 +45,7 @@ neared 8 KB.
 | Place | What it is | Decisions |
 | --- | --- | --- |
 | `first`, `second`, `south` | the hand-made rooms of the crypt | D-106, D-138, D-192 |
-| `woods` | the surface's generated woods rooms | D-209, D-233 |
+| `woods` | the surface's generated woods rooms; the north row's are mountain rooms | D-209, D-233, D-738 |
 | generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
 
 Regions: Hearthwood, the starting region (D-348, `docs/regions/`).

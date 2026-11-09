@@ -37,8 +37,9 @@ export const STONE_RING = 1;
 // middle, set after the trees and before the rest, which keeps clear of it (D-589).
 // Options (hearthwood.js, D-733): `stone` false leaves the waystone out, for the rooms
 // round home; `mark` false keeps the mouth's front clear without the mouth itself, so
-// home grows as it did when the mouth stood in its edge.
-export function generateWoods(seed, mouth = null, { stone: withStone = true, mark = true } = {}) {
+// home grows as it did when the mouth stood in its edge; `wet` false leaves out the pond
+// and the bush, for a mountain room (mountain.js, D-738).
+export function generateWoods(seed, mouth = null, { stone: withStone = true, mark = true, wet = true } = {}) {
   const r = rng(seed), start = { x: COLS >> 1, y: ROWS >> 1 }, front = mouth ? inFront(mouth) : [];
   let g = null;
   for (let i = 0; i < TRIES && !g; i++) g = grow(r, start, front);
@@ -52,8 +53,8 @@ export function generateWoods(seed, mouth = null, { stone: withStone = true, mar
   }
   const items = sticks(r, g, [start, ...front]);
   branches(r, g, start, [start, ...front, ...items, ...ring]);
-  pond(seed, g, start, front, items, ring);
-  bush(seed, g, start, front, [...items, ...ring]);
+  if (wet) pond(seed, g, start, front, items, ring);
+  if (wet) bush(seed, g, start, front, [...items, ...ring]);
   return { map: g.map((row) => row.join('')), start, lights: [], enemies: [], items };
 }
 
@@ -121,7 +122,7 @@ function pond(seed, g, start, front, items, ring = []) {
 
 // Whether every open tile of g, the cave mouth and the waystone's cross too, can be walked to from `start`
 const WALKED = new Set(['.', 'M', 'X', 'Z']);
-function joinedFrom(g, start) {
+export function joinedFrom(g, start) {
   const walk = (x, y) => WALKED.has(g[y]?.[x]);
   let all = 0;
   for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (walk(x, y)) all++;
@@ -151,13 +152,13 @@ function sticks(r, g, keep) {
 }
 
 // The two tiles in front of the mouth, nearest first
-function inFront({ tile: t, dir }) {
+export function inFront({ tile: t, dir }) {
   const [dx, dy] = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] }[dir];
   return [1, 2].map((k) => ({ x: t.x + dx * k, y: t.y + dy * k }));
 }
 
 // How many tiles in from the room's edge tile x, y is: 0 on it
-const depthIn = (x, y) => Math.min(x, y, COLS - 1 - x, ROWS - 1 - y);
+export const depthIn = (x, y) => Math.min(x, y, COLS - 1 - x, ROWS - 1 - y);
 
 // One try: trees by chance, the start and `keep` tiles kept open, then any
 // open tile cut off from the start becomes a tree. Null when too little is

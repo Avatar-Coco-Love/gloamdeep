@@ -13,8 +13,9 @@ decision wins.
 ## Grid (D-182)
 3 × 3 cells. All 9 are used, every seed, in this region (other regions
 may leave cells empty). Built at 0.3.186 (D-734, `src/core/hearthwood.js`):
-all 9 are woods rooms of 17 × 20 for now, home keeping the id `woods`,
-the others `woods:x,y` by their cell. Each room is joined to every room
+all 9 are rooms of 17 × 20, home keeping the id `woods`, the others
+`woods:x,y` by their cell; since 0.3.190 the north row's are mountain
+rooms (D-738, `src/core/mountain.js`). Each room is joined to every room
 beside it by a path 3 tiles wide through the edge trees.
 
 ```
@@ -24,7 +25,9 @@ beside it by a path 3 tiles wide through the edge trees.
 ```
 
 ## Kinds of room (D-183)
-- The north row (3 cells): mountain rooms, every seed.
+- The north row (3 cells): mountain rooms, every seed. Since 0.3.190
+  (D-738) rocky slopes: grass, rock where the trees would stand, a few
+  lone trees, 3 grey boulders, 3 sticks and a fallen branch.
 - The other 6 cells: woods rooms.
 - How big each kind is and how its shape is made: Q-038.
 - Woods rooms range from thick woods to open glades, the seed picking
@@ -73,5 +76,6 @@ Decided when the second region is designed (Q-037).
 
 ## Creatures and finds
 A pond at home in the woods, 5 to 9 tiles (D-503). A gloamberry bush
-in each woods room (D-531). The rest is not decided yet. Landmarks and special items are ideas for later (see
+in each woods room (D-531). 3 grey boulders in each mountain room, and
+no pond or bush (D-738). The rest is not decided yet. Landmarks and special items are ideas for later (see
 "Ideas for later" in `PROGRESS.md`).

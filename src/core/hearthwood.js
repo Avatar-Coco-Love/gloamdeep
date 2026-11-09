@@ -1,5 +1,5 @@
 // § hearthwood: the starting region's 3 × 3 rooms on the surface (D-182, D-733, step 1).
-// Plain data, no drawing. Every room is woods for now (mountains come at step 4). Home
+// Plain data, no drawing. The north row is mountain rooms (mountain.js, D-738), the rest woods. Home
 // is the centre cell and keeps the id 'woods', so a save's home stays as it was; the
 // others are woods:x,y by their cell. Each room is joined to every room beside it by a
 // path 3 tiles wide through the trees, at the same spot on both sides, the seed picking
@@ -33,6 +33,8 @@ export function sidesOfWoods(id) {
   for (const [dir, [dx, dy]] of Object.entries(STEP)) { const to = idAt(c.x + dx, c.y + dy); if (to) out[dir] = to; }
   return out;
 }
+// Whether room `id` is a mountain room: the north row, every seed (D-183, D-738)
+export const isMountain = (id) => cellOfWoods(id)?.y === 0;
 // The room the way `dir` from home, where the cave mouth stands (D-184, D-733)
 export const besideHome = (dir) => idAt(HOME_CELL.x + STEP[dir][0], HOME_CELL.y + STEP[dir][1]);
 

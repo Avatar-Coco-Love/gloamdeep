@@ -1,7 +1,7 @@
 // § hearthwood: the starting region's 9 woods rooms, joined by paths (D-733, step 1)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { ROOMS, HOME_ID, PATH, CORNER, sidesOfWoods, cellOfWoods, pathsOf, pathTiles, besideHome } from '../src/core/hearthwood.js';
+import { ROOMS, HOME_ID, PATH, CORNER, sidesOfWoods, cellOfWoods, pathsOf, pathTiles, besideHome, isMountain } from '../src/core/hearthwood.js';
 import { beginPlace, tileAt, depthOf } from '../src/core/room.js';
 import { mouthOf } from '../src/core/mouth.js';
 import { generateWoods } from '../src/core/woods.js';
@@ -43,7 +43,7 @@ test('9 rooms on a 3 × 3 grid, home in the centre, all at depth 0, each joined 
   assert.equal(Object.keys(sidesOfWoods(HOME_ID)).length, 4);
 });
 
-test('each path is 3 tiles of open edge, kept 3 from the corners, at the same spot in both rooms; the rest of the edge is trees', () => {
+test('each path is 3 tiles of open edge, kept 3 from the corners, at the same spot in both rooms; the rest of the edge is trees, rock in the mountains', () => {
   for (const seed of SEEDS) {
     const m = mouthOf(seed);
     for (const id of ROOMS) {
@@ -60,7 +60,7 @@ test('each path is 3 tiles of open edge, kept 3 from the corners, at the same sp
           const at = tileAt(room, t.x, t.y).id;
           if (cut.has(key(t))) assert.equal(at, 'floor', `seed ${seed} ${id}: the path is open`);
           else if (id === m.from && dir === m.dir && Math.abs(t.x - m.tile.x) + Math.abs(t.y - m.tile.y) <= 1) assert.ok(['caveMouth', 'outcrop'].includes(at));
-          else assert.equal(at, 'tree', `seed ${seed} ${id} ${dir}: ${key(t)}`);
+          else assert.equal(at, isMountain(id) ? 'outcrop' : 'tree', `seed ${seed} ${id} ${dir}: ${key(t)}`);
         }
       }
     }
@@ -130,6 +130,6 @@ test('an older save\'s home: the mouth and rocks made trees, the paths cut, the 
 });
 
 test('every woods room\'s pond holds the home pond\'s fish', () => {
-  for (const id of ROOMS) assert.equal(fishHere(goToPlace(makeWorld('first', 3), id)), POND_FISH);
+  for (const id of ROOMS.filter((r) => !isMountain(r))) assert.equal(fishHere(goToPlace(makeWorld('first', 3), id)), POND_FISH);
   assert.notEqual(fishHere(makeWorld('first', 3)), POND_FISH);
 });

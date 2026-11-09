@@ -24,7 +24,7 @@ this page and a decision disagree, the decision wins.
 ## The world (more in `WORLD.md`)
 - **World, region, cell, room, opening:** see `WORLD.md`, "Words we
   use" (D-169, D-171). In the code a room is a "place".
-- **Hearthwood:** the starting region, home in its centre (D-348); 9 woods rooms joined by paths (D-734).
+- **Hearthwood:** the starting region, home in its centre (D-348); 9 rooms joined by paths (D-734), woods but for the north row's mountain rooms (D-738).
 - **Surface:** depth 0, the woods and the way into the crypt (D-233).
 - **Depth:** how far down a floor is. **Floor:** all the rooms at one
   depth.
