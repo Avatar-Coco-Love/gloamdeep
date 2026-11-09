@@ -46,8 +46,8 @@ colour times 0.78, 0.66, 0.55, 0.45, 0.36 by step, inside a 1-pixel rim.
 
 ## Rock on the surface (D-738, D-739)
 Code: `src/render/outcrop.js`. The grey rock's mask and face (rock.js),
-rounded the same way but fuller (cut at 0.32, wobble 0.45; the cave's
-0.5 and 0.55), and lit by day: cap `#4a5266`, grit `#555e73`, edge
+rounded the same way but fuller (cut at 0.32, wobble 0.6, smooth, lone
+pixels cleaned off, D-747; the cave's 0.5 and 0.55, in 3-pixel steps), and lit by day: cap `#4a5266`, grit `#555e73`, edge
 `#7a8499`; the face and its foot `#14161d` as the cave's. Trees stand in
 front. Past a mountain room's edge it goes on.
 

@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-734 to D-738)
+# The surface decisions (D-209 to D-218, D-734 to D-739, D-744)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -9,7 +9,9 @@ topic; never read this whole. D-734 to D-737, Hearthwood's 9 rooms,
 where a journey begins, Light your lantern and waking after a fall, all
 built (D-733's steps 1 to 3), followed at 0.3.192, the twelfth audit
 (D-740), word for word. D-738, mountain rooms, built (D-733's step 4),
-followed at 0.3.198 (D-746), word for word.
+followed at 0.3.198 (D-746), word for word. D-739, rounded rock, and
+D-744, a craggy cave mouth (partly superseded by D-745), built, followed
+at 0.3.199 (D-747), word for word, as `docs/DECISIONS.md` neared 12 KB.
 
 ---
 
@@ -193,3 +195,37 @@ edge stays a tree 1 time in 4; a room grows as a woods room, its paths
 cut, then its trees made rock, so the paths stay where they were; a
 mountain room already visited in an older save stays woods; on the map,
 rock and boulders on the surface show in the cave rock's grey.
+
+**D-739 · 2026-11-09 · Rounded rock** (the owner's picks, all
+recommended; builds D-738's next step, added to D-733's plan before its
+step 5) The surface's rock,
+in the mountain rooms and by the cave mouth, is drawn rounded, as the cave
+walls are, but lit by day: a sunlit grey top, not the cave's near-black,
+and fuller, so a lone rock stays a lump, not a chip. Trees stand in front
+of the rock. Past a mountain room's edge the rock goes on, but for a
+grass passage straight out from each way on. The cave mouth's rocks are
+only rounded; the mouth's own look waits for its step. Next, the owner's
+picks: after the audit, a new cave mouth, one of a few looks the seed
+picks, shown first as mock-ups (rock arch in a mound, an overgrown mouth,
+a hole in the ground, a fallen-stone doorway); the outside art polished
+in steps of its own. Claude's calls the owner may change: a room's rock
+goes on past its edge when its edge holds rock and no tree or stump, so
+a mountain room an older save keeps as woods keeps its trees there; the
+code is `src/render/outcrop.js`.
+
+**D-744 · 2026-11-09 · A craggy cave mouth** (Partly superseded by D-745, 2026-11-09: the crypt's way in is the broken seal; the cave looks wait for later caves) (the owner's picks; builds
+D-739's step 24; mock-ups at https://claude.ai/artifact/MdF3oCUuabfT9v4EBbv2HS)
+Of round 1's four looks the owner turned down the hole in the ground
+(unless falling down holes ever comes, Q-089) and the grassy mound, which
+didn't look good and hardly read as a cave. Of round 2's five, darker and
+plainer, the owner picked the craggy cave and the overgrown mouth. The
+seed picks the mouth's look (mouthOf), today's small arch kept as a third.
+One look a step, each with its side and bottom edge mock-up first. First
+the craggy cave: on the top edge a wide, rough mouth in the rock, black
+inside, rock teeth hanging from its top; on another edge the rock roofs
+over the outer part of the tile, joining the rocks either side, and the
+ground dives black under it. Walking is unchanged. Claude's calls the
+owner may change: the looks are listed in the registry (`caveMouth`'s
+`looks`) and picked from their own seed stream, so each world's mouth
+stays where it was; a few pebbles lie at the rocks' feet, clear of the
+tile in front; the craggy cave has no worn path in front, as mocked.

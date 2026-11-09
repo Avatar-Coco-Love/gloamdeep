@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.196, A craggy cave mouth.** The owner's picks over
+  three rounds of mock-ups (D-744): no hole and no grassy mound; the
+  craggy cave and the overgrown mouth. The seed now picks the craggy
+  cave or the small arch; on a side or bottom edge the rock roofs over it.
+  Playtest: https://claude.ai/artifact/2cN2DggyE26DtmvsjV2SMS
+  Mock-ups: https://claude.ai/artifact/MdF3oCUuabfT9v4EBbv2HS
 - **2026-11-09, 0.3.195, Words that fit.** All recommended (D-743): every
   card drawn at phone sizes with all content; the six places where words
   ran off or overlapped are fixed, Journal lists scroll, and a test now

@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.199', date: '2026-11-09', title: 'Smooth rock edges', lines: [
+    "The mountain rock outside has smooth, natural edges: no more torn outlines, loose pixels or spikes. Shapes, colours and walking are unchanged.",
+    "Decisions: D-747.",
+  ] },
   { v: '0.3.198', date: '2026-11-09', title: 'Find the crypt', lines: [
     "A new goal, Find the crypt: once you take a boon, the Quests tab sends you through the broken door beside home, and walking in pays a reward.",
     "Decisions: D-746.",
