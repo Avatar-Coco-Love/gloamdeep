@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.207, Thick woods and glades.** The owner's picks,
+  all recommended (D-756): the 5 woods rooms round home are thick woods,
+  as before or open glades, at least one thick and one glade a seed;
+  home as before; an older save's unseen rooms grow as their kind. Next,
+  the owner asked to fill the surface (Q-090).
+  Playtest: https://claude.ai/artifact/81QxJf9c9ZUZF7D537qD2N
+  Map preview: https://claude.ai/artifact/KSuCEbJVYRgYfoxkr5YezT
 - **2026-11-09, 0.3.206, The motes that stay.** The owner's picks, all
   recommended (D-755): once the way down is found, 3 motes stay in the
   crypt and earth, 2 in grey rock and the dungeon, none under the sky,

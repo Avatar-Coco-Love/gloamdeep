@@ -24,6 +24,7 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Spit grub:** a glowworm drawn side on, a plump pale grub with a glowing green tail; never moves, and its glow shows in the dark; spits a glob at the lit lantern down a clear row or column, then rests; 1 heart; from depth 4 (D-659, D-688).
 - **Glob:** the Spit grub's spit, a glowing green ball flying a tile a turn; it hits the hero or a creature for 1, and breaks on walls and rubble (D-659, D-688).
 - **Poisoned:** the first debuff, from Venom (D-636): 6 turns, a heart every 3, 2 in all, the last heart too since the Antidote (D-655); a new bite starts it again; a green drop mark beside the boon's (D-652, D-654).
+- **Stiff:** waking from sleeping out (D-758): 20 turns, 1 swing in 3 misses; a pale blue Zz mark beside poisoned's; a fall ends it (D-759).
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649); **Spits** (D-688).
 - **Next move:** what a seen creature does if the hero waits (D-349).

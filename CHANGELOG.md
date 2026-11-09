@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.210 (2026-11-09)
+- Waking from sleeping out now leaves you stiff for 20 turns: "You wake on the cold ground, stiff." While stiff, 1 swing in 3 at a creature misses, "Your stiff arm swings wide.", and the turn still passes.
+- Stiff shows as a pale blue Zz beside the poisoned drop under your hearts. Tap it to see the turns left. A fall ends it.
+- Decisions: D-759.
+
 ## 0.3.209 (2026-11-09)
 - Outside at night, with no creature after you, a moon button now shows above the lantern. Tap it and a card asks Sleep here until morning? Yes sleeps until the next morning, and the lantern burns no oil while you sleep.
 - Sleeping on the ground isn't a bed: you wake with the hearts you lay down with, no healing and no gold heart.
@@ -33,8 +38,3 @@ Entry format:
 - A burning campfire lights the dark round it at night, blazing as far as a torch, embers a little less.
 - Bump cold ashes and a card asks Light the fire? Yes lights it into embers with one turn of your lantern's oil; with an empty lantern Yes is grey.
 - Decisions: D-757. Questions closed: Q-090.
-
-## 0.3.207 (2026-11-09)
-- The woods round home now differ: each of the 5 rooms is thick woods, the woods as before, or an open glade, the seed picking, with at least one thick room and one glade every journey. Home stays as it was.
-- In a saved game, a woods room you have already been to stays as it is; one you have never seen grows as its new kind.
-- Decisions: D-756. Questions opened: Q-090.

@@ -30,7 +30,7 @@ test('Yes sleeps until morning: no oil burnt, no healing, no gold heart, no bed 
   assert.equal(slept.oil, 0.5);
   assert.equal(slept.health, 2);
   assert.equal(slept.bed, undefined);
-  assert.equal(shownLine(slept).text, 'You wake on the cold ground.');
+  assert.equal(shownLine(slept).text, 'You wake on the cold ground, stiff.');
   assert.ok(slept.events.some((e) => e.type === 'sleep'));
 });
 
