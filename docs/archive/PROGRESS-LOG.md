@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.209, Sleeping out.** The owner's idea (D-758): a
+  moon outside at night asks Sleep here until morning?; you wake
+  unhealed. Theft waits (Q-091).
+  Playtest: https://claude.ai/artifact/SmPb4DgEHTRD3AyDRGCAXi
 - **2026-11-09, 0.3.208, Campfires.** The owner's picks (D-757):
   campfires first, then gathering, landmarks, night creatures. One
   campfire a seed, blazing, embers or ashes, each with its words; a

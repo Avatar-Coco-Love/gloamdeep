@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.211 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.212 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Gathering, step 2 (D-760): loose stones in the woods rooms; ask how
-many, where and how they look, then build it.
+Gathering, step 3 (D-760): plants and flowers to harvest (Q-092); ask
+which, where and how they look, then build it.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -29,7 +29,6 @@ many, where and how they look, then build it.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Plants and flowers to harvest (Q-092), after loose stones.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -40,7 +39,7 @@ The rest of the scope, proposed (D-482; may change):
 - [x] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades (0.3.207)
 - [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
 - [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
-- [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones, plants and flowers (Q-092); then landmarks; then night creatures
+- [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), plants and flowers (Q-092); then landmarks; then night creatures
 - [x] 27 Sleeping out (D-758, D-759): the moon button (0.3.209); Stiff (0.3.210)
 
 **Next audit: 0.3.232** (D-518, D-740).
@@ -49,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.212, Loose stones.** The owner's picks, all
+  recommended (D-761): 2 loose stones in each mountain room, the bag's
+  pebble, growing back after a day.
+  Playtest: https://claude.ai/artifact/9FJfSSK9kS1iX1zGyh3kaB
+  Map preview: https://claude.ai/artifact/95B9dfLp4rP7rv1kNDd66G
 - **2026-11-09, 0.3.211, Oilcaps outside.** The owner's picks, all
   recommended, and an addition (D-760): gathering, then landmarks, then
   night creatures; gathering is oilcaps, loose stones, then plants and
@@ -61,7 +65,3 @@ list in `RESEARCH.md`.
   the hero stiff for 20 turns, 1 swing in 3 missing; a pale blue Zz
   mark; a fall ends it.
   Playtest: https://claude.ai/artifact/M8w597HkyPnXSsLgobr9oF
-- **2026-11-09, 0.3.209, Sleeping out.** The owner's idea (D-758): a
-  moon outside at night asks Sleep here until morning?; you wake
-  unhealed. Theft waits (Q-091).
-  Playtest: https://claude.ai/artifact/SmPb4DgEHTRD3AyDRGCAXi

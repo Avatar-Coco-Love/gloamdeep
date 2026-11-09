@@ -4,6 +4,11 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.212', date: '2026-11-09', title: 'Loose stones', lines: [
+    "Loose stones now lie in the mountain rooms: 2 in each, on the grass, looking like the stone in your bag. Walk onto one to take it, and it grows back a day after you pick it. The woods rooms have none.",
+    "In a saved game, mountain rooms you haven't seen yet get their stones too; rooms you have seen stay as they were.",
+    "Decisions: D-761.",
+  ] },
   { v: '0.3.211', date: '2026-11-09', title: 'Oilcaps outside', lines: [
     "Oilcaps now grow outside: one in each woods room, home too, at the foot of a tree. The mountain rooms have none. Walk onto it to take it, as in the caves, and it grows back a day after you pick it.",
     "In a saved game, woods rooms you haven't seen yet get their oilcap too; rooms you have seen stay as they were.",
