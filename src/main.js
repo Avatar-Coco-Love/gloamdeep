@@ -231,8 +231,8 @@ function tryStep(dir) {
     const next = step(app.state, dir);
     const [dx, dy] = DIRS[dir], foe = enemyAt(app.state, app.state.hero.x + dx, app.state.hero.y + dy);
     to = { x: before.hero.x + dx, y: before.hero.y + dy };
-    if (foe && !foe.asleep) app.hit = { enemies: [foe, behind(app.state, foe)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479)
-    if (foe && !foe.asleep && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
+    if (foe && !foe.asleep && !foe.under) app.hit = { enemies: [foe, behind(app.state, foe)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479)
+    if (foe && !foe.asleep && !foe.under && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
     app.state = next;
   }

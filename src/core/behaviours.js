@@ -25,6 +25,10 @@ export const BEHAVIOURS = {
   // tiles, it spits a glob that flies a tile a turn down that line, then rests `rest` turns
   // (spit.js, D-659, D-688).
   spits: { id: 'spits', name: 'Spits', bites: false, spits: { range: 5, rest: 2 } },
+  // It notices as one that chases does, then digs down where it stands instead of stepping, and
+  // comes a tile a turn under the floor, a mound of earth that can't be hit or bitten by; beside
+  // the hero it comes up, biting only on the turn after, then chases on foot (creatureturn.js, D-726).
+  burrows: { id: 'burrows', name: 'Burrows', notices: 'inLight', moves: 'toward', burrows: true },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

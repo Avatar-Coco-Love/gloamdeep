@@ -1,4 +1,4 @@
-// § mole: chases and never flees, 4 hearts (step 0.3.10, D-365, D-541, D-542)
+// § mole: burrows and never flees, 4 hearts (step 0.3.10, D-365, D-541, D-542; burrows, D-726)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, poolAt } from '../src/core/room.js';
@@ -12,12 +12,12 @@ const room = makeRoom(FIRST_ROOM);
 const at = (x, y, health, seed) => ({ ...makeState(room, FIRST_START, [], []), hero: { x: 5, y: 11 }, enemies: [{ id: 'mole', x, y, ...(health && { health }) }], ...(seed ? { seed } : {}) });
 const where = (s) => s.enemies.map(({ x, y }) => [x, y]);
 
-test('a mole has 4 health and a bite of 1, only chases, and drops Mole Fur and Mole Claw', () => {
+test('a mole has 4 health and a bite of 1, burrows, and drops Mole Fur and Mole Claw', () => {
   const m = get('mole');
   assert.equal(m.name, 'Mole'); assert.equal(m.health, 4); assert.equal(m.bite, 1);
-  assert.deepEqual(m.ways, ['chases']);
+  assert.deepEqual(m.ways, ['burrows']);
   assert.equal(m.drops, 'moleFur'); assert.equal(m.rare, 'moleClaw');
-  for (const id of [m.hurt, m.die, m.bites]) assert.ok(LINES[id], id);
+  for (const id of [m.hurt, m.die, m.bites, m.digs, m.surfaces, m.underSay]) assert.ok(LINES[id], id);
   assert.equal(get('moleFur').sells, 1); assert.equal(get('moleClaw').sells, 5);
 });
 
@@ -51,4 +51,38 @@ test('four lantern hits beat it, worth 5', () => {
   assert.deepEqual(n.enemies, []);
   assert.equal(n.line.id, 'moleDie');
   assert.equal(n.xp, 5);
+});
+
+// § burrows (D-726)
+test('seeing the hero in the light, it digs down where it stands, with its line', () => {
+  const n = wait(at(5, 8));
+  assert.deepEqual(where(n), [[5, 8]]);
+  assert.equal(n.enemies[0].under, true);
+  assert.equal(n.line.id, 'moleDigs');
+});
+
+test('under the earth it comes a tile a turn, comes up beside the hero, and bites only on the turn after', () => {
+  let s = wait(at(5, 8));
+  s = wait(s); assert.deepEqual(where(s), [[5, 9]]); assert.ok(s.enemies[0].under);
+  s = wait(s); assert.deepEqual(where(s), [[5, 10]]); assert.ok(s.enemies[0].under);
+  const full = s.health;
+  s = wait(s);
+  assert.ok(!s.enemies[0].under, 'up'); assert.ok(s.enemies[0].dug);
+  assert.equal(s.line.id, 'moleSurfaces'); assert.equal(s.health, full, 'no bite as it comes up');
+  s = wait(s);
+  assert.equal(s.health, full - 1); assert.equal(s.line.id, 'moleBite');
+});
+
+test('its mound can not be hit: a bump says so, free, and hurts nothing', () => {
+  const s = { ...at(5, 10), enemies: [{ id: 'mole', x: 5, y: 10, under: true, chasing: true }] }, n = step(s, 'up');
+  assert.equal(n.turn, s.turn, 'free');
+  assert.equal(n.line.id, 'moleUnder');
+  assert.equal(n.enemies[0].health, undefined);
+  assert.deepEqual(where(n), [[5, 10]]);
+});
+
+test('once up, it never digs again: it chases on foot', () => {
+  const s = { ...at(5, 8), enemies: [{ id: 'mole', x: 5, y: 8, dug: true, chasing: true }] }, n = wait(s);
+  assert.deepEqual(where(n), [[5, 9]]);
+  assert.ok(!n.enemies[0].under);
 });

@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.176 (2026-11-09)
+- The Journal's Feats tab has a sixth Feat, Torches: light 5, 25 and 100 torches, across all your journeys, for 1, 2 and 3 Glints. Torches lit before this count too. Reaching one says "Feat reached: Torches 5. +1 Glint."
+- Decisions: D-723. Questions closed: Q-057.
+
 ## 0.3.175 (2026-11-09)
 - The Journal's Feats tab has a fifth Feat, Steps: walk 1000, 5000 and 20000 steps, across all your journeys, for 1, 2 and 3 Glints. Steps taken before this count too. Reaching one says "Feat reached: Steps 1000. +1 Glint."
 - On the Feats tab, a goal of a thousand or more is written short, "4321 of 5k", and the counts sit a little closer to the names, so Steps' row fits a phone held upright.

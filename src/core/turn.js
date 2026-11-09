@@ -143,9 +143,10 @@ export const heroHit = (state) => ((state.held && get(state.held)?.hit) || LANTE
 export function behind(state, foe) {
   if (!(state.held && get(state.held)?.through)) return null;
   const e = enemyAt(state, 2 * foe.x - state.hero.x, 2 * foe.y - state.hero.y);
-  return e && !e.asleep ? e : null;
+  return e && !e.asleep && !e.under ? e : null; // not one under the earth (D-726)
 }
 function attack(state, foe) {
+  if (foe.under) return say(state, get(foe.id).underSay); // under the earth, out of reach: its line, free (D-726)
   if (foe.asleep) return wake(state, foe);
   const back = behind(state, foe), first = strike(state, foe, heroHit(state));
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;

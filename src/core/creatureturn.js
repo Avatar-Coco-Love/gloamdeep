@@ -51,7 +51,7 @@ function act(state) {
   const after = poisoned ? poisonedBy({ ...state, health, oil, enemies }) : { ...state, health, oil, enemies };
   let bitten = stood ? after : say(after, said);
   bites.forEach((e, i) => { bitten = drank[i] > 0 ? note(bitten, 'drink', { id: e.id, oil: drank[i] }) : note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });
-  return health > 0 ? enemiesMove(bitten) : fall(bitten);
+  return health > 0 ? enemiesMove(bitten, true) : fall(bitten);
 }
 // § drinks: (state, bites) → the oil each creature beside the hero drinks this turn, in turn
 // order. One that `drinks` takes that much from the lantern, lit or not, instead of biting;
@@ -85,8 +85,10 @@ function settle(state) {
 }
 // One asleep, or stirring as it wakes, does nothing (D-368)
 const still = (e) => e.asleep || e.stirs;
+// One under the earth (D-726) can't bite until it has come up
+const under = (e) => !!e.under;
 // The enemies that bite this turn, and the enemies with those marked as having noticed the hero
-const biting = (state) => biters(state.enemies, state.hero).filter((e) => !still(e) && traits(get(e.id)).bites !== false)
+const biting = (state) => biters(state.enemies, state.hero).filter((e) => !still(e) && !under(e) && traits(get(e.id)).bites !== false)
   .filter((e) => traits(get(e.id)).bitesLit || !litAt(state, e.x, e.y))
   .filter((e) => !fleeing(e) || !fleeStep(state, e));
 const chased = (enemies, bites) => enemies.map((e) => (bites.includes(e) ? { ...e, chasing: true } : e));
@@ -136,8 +138,8 @@ function ahead(state) {
 // One that seeks light (D-351) needs no noticing: it steps toward the hero
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
 // One that lures (D-649) drifts away instead, while the hero is near (lureStep).
-function enemiesMove(state) {
-  let enemies = state.enemies;
+function enemiesMove(state, bit = false) {
+  let enemies = state.enemies, said = null;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of state.enemies) {
     if (still(e)) continue;
@@ -154,13 +156,31 @@ function enemiesMove(state) {
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
     const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
     const now = { ...state, enemies };
+    if (t.burrows && (e.under || (!e.dug && chasing && !near && !flees && !runs))) {
+      const { change, line } = burrowStep(now, e, near);
+      enemies = enemies.map((o) => (o === e ? change : o));
+      if (line) said = said || get(e.id)[line];
+      continue;
+    }
     const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
     const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }) };
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
-  return enemies === state.enemies ? state : { ...state, enemies };
+  const next = enemies === state.enemies ? state : { ...state, enemies };
+  return said && !bit ? say(next, said) : next; // a bite's line said this turn stays (D-117)
+}
+
+// § burrows (D-726): one that burrows and has noticed the hero digs down where it stands, `under`,
+// with its `digs` line; under, it comes a tile a turn toward them as one that chases does; beside
+// them it comes up with its `surfaces` line, `dug`, to bite on the turn after and chase on foot
+// from then on. Already beside them as it notices, it never digs.
+function burrowStep(state, e, near) {
+  if (!e.under) return { change: { ...e, under: true, chasing: true }, line: 'digs' };
+  if (near) { const { under, ...up } = e; return { change: { ...up, dug: true }, line: 'surfaces' }; }
+  const to = chaseStep(state, e) || e, facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
+  return { change: { ...e, x: to.x, y: to.y, ...(facing && { facing }) }, line: null };
 }
 
 // § lures (D-649): whether one that lures has the hero within its `near` steps, and the tile

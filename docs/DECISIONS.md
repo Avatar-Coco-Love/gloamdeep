@@ -134,6 +134,21 @@ this count. Steps comes next, at 1000, 5000 and 20000; then Torches
 lit, at 5, 25 and 100. With Rooms, the Feats pay 24 Glints. D-716
 moves to `archive/DECISIONS-AUDITS.md`, word for word.
 
+**D-726 · 2026-11-09 · More variety: the mole burrows** (the owner's
+picks, all recommended; builds Q-076, D-541, D-607) A playtester found
+the creatures too alike: 9 of the 16 just come and bite. The owner's
+pick: both retune today's creatures that chase with ways of their own
+and add new kinds, each its own step; the first new ways are Burrows,
+then Pack (rats in groups that try to surround). The mole now burrows:
+once it notices the hero as one that chases does, it digs down where it
+stands instead of stepping, then comes a tile a turn under the floor,
+drawn as a moving mound of earth; it can't be hit there (a bump says so,
+free) and a glob flies over it. Beside the hero it comes up and bites
+only on the turn after, so the hero strikes first. Claude's drafts the
+owner may change: once up it never digs again and chases on foot;
+already beside the hero as it notices, it never digs; its three lines.
+Next, the owner's pick: the rat pack, proposed first.
+
 **D-722 · 2026-11-09 · Steps, the fifth Feat** (the owner's picks, both
 recommended; builds D-721, narrows Q-057) Steps comes now, from Steps,
 at 1000, 5000 and 20000 steps, paying 1, 2 and 3 Glints, the fifth row.

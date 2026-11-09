@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.176, Torches, the sixth Feat.** The owner's picks,
+  both recommended (D-723): Torches lit's Feat at 5, 25 and 100, named
+  Torches on the tab, as Flasks and Rooms; "Torches lit" pushed Steps'
+  count 13 pixels into the marks upright, Torches fits exactly. Q-057
+  closed; step 21 done. Next, Glints and look prices (Q-055).
+  Playtest: https://claude.ai/artifact/GmZGZdquFYAbPgT8anmafZ
 - **2026-11-09, 0.3.175, Steps, the fifth Feat.** The owner's picks,
   both recommended (D-722): Steps at 1000, 5000 and 20000, named Steps
   as in Records. "19999 of 20000" didn't fit the upright card, so the
