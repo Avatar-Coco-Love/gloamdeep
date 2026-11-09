@@ -192,7 +192,7 @@ function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'r
   // § more rats deeper: each extra rat anywhere open by the first rat's
   // rules, but not guarding the flask (D-231). Picked after the herb, so the
   // rest of a seed's room stays as it was; one that doesn't fit is left out.
-  const enemies = [{ id: 'rat', x: rat.x, y: rat.y }], taken = [flask, herb, rat];
+  const enemies = [{ id: 'rat', x: rat.x, y: rat.y, guard: true }], taken = [flask, herb, rat];
   for (let i = 1; i < count; i++) {
     const spots = open.filter((f) => dark(f) && !taken.some((t) => same(t, f)));
     if (!spots.length) break;

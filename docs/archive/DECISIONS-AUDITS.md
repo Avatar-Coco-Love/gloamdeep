@@ -488,3 +488,17 @@ visible: the release tool says once, not each version, that it moves
 versions into the changelog archive; the 135 extra copies of that line
 are dropped. The rest of the findings (B2, B3, B4, Q1) wait for the
 owner's order. D-707 to D-711 move to `archive/DECISIONS-GOALS.md`.
+
+**D-720 · 2026-11-09 · The audit's last fixes: the warden asleep, the
+spawned ones** (the owner's picks, all recommended; the eleventh audit's
+B4 and Q1, D-699) B4: the creature plaques are drawn only, for every
+creature, and one asleep gets none; the warden asleep as a statue never
+moves or notices the hero, so it needs none, as meant. Nothing changes.
+Q1: a creature the dev tools' Spawn makes is marked; beating it adds
+nothing to Beaten, the Feats or the Bestiary's beaten count (it is still
+met), and it still gives experience and drops. A spawned flask the same:
+poured, it adds nothing to Flasks poured. The bag keeps count of the
+spawned flasks picked up, and a flask poured while any are carried is
+one of them; a fall clears the count. Teaching goals are as before.
+Next, more Feats (Q-057). D-714 and D-715 move to
+`archive/DECISIONS-LOOKS.md`.

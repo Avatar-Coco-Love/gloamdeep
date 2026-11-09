@@ -3,6 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateRoom } from '../src/core/cave.js';
+import { unguardedOf } from '../src/core/unguarded.js';
 import { layoutAt } from '../src/core/region.js';
 import { kindAt, placeFor, placeBeside, poolAt } from '../src/core/room.js';
 
@@ -24,7 +25,7 @@ test('every dungeon room is made, not the fallback, and the stairs line up from 
       assert.equal(count(p.map, '<'), c.up ? 1 : 0);
       assert.equal(count(p.map, '>'), c.down ? 1 : 0);
       const ids = p.enemies.map((e) => e.id);
-      assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(depth).includes(id))); // the mix (D-534)
+      if (!unguardedOf(c.seed, 1)[0]) assert.equal(ids[0], 'rat'); assert.ok(ids.every((id) => poolAt(depth).includes(id))); // the mix (D-534), the first guard moved when its flask is unguarded (D-725)
     }
     const above = layoutAt(seed, 7).cells.find((c) => c.down), up = layoutAt(seed, 8).cells.find((c) => c.up);
     assert.deepEqual({ x: up.x, y: up.y }, { x: above.x, y: above.y });

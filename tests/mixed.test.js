@@ -5,6 +5,7 @@ import assert from 'node:assert/strict';
 import { placeFor, poolAt, creaturesAt, peddlerRoom, placeAt, SPEAR_DEPTH } from '../src/core/room.js';
 import { generateRoom } from '../src/core/cave.js';
 import { layoutAt } from '../src/core/region.js';
+import { unguardedOf } from '../src/core/unguarded.js';
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const DEPTHS = [2, 3, 4, 5, 6, 8, 12];
 const kinds = (id, seed) => placeFor(id, seed).enemies.filter((e) => e.id !== 'flaskMimic');
@@ -32,7 +33,8 @@ test('every room: its count, all from the pool, at least two kinds, a rat first'
 test('the mix leaves the room and the creatures\' tiles where the seed put them', () => {
   for (const seed of SEEDS.slice(0, 10)) for (const c of layoutAt(seed, 3).cells) {
     const p = placeFor(c.id, seed), plain = generateRoom(c.seed, 'chambers', { ...c, rats: 3, deposits: 3, veins: 1, pool: true, weapon: c.id === placeAt(SPEAR_DEPTH) ? 'spear' : null, trapped: c.id === peddlerRoom(seed) ? 'peddler' : null }); // his room with him in it, things moved aside (D-586)
-    assert.deepEqual(p.enemies.filter((e) => e.id !== 'flaskMimic').slice(0, plain.enemies.length).map(({ x, y }) => [x, y]), plain.enemies.map(({ x, y }) => [x, y])); // a hall's or large room's other sets after (D-651)
+    const from = unguardedOf(c.seed, 1)[0] ? 1 : 0; // an unguarded flask's rat moved (D-725)
+    assert.deepEqual(p.enemies.filter((e) => e.id !== 'flaskMimic').slice(from, plain.enemies.length).map(({ x, y }) => [x, y]), plain.enemies.slice(from).map(({ x, y }) => [x, y])); // a hall's or large room's other sets after (D-651)
   }
 });
 

@@ -18,7 +18,7 @@ const STEP = [[1, 0], [-1, 0], [0, 1], [0, -1]];
 const walk = (ch) => ch === '.' || ch === '<' || ch === '>';
 
 // Steps from `from` to every tile that can be walked, by "x,y"
-function steps(map, from) {
+export function steps(map, from) {
   const out = new Map([[key(from), 0]]), queue = [from];
   while (queue.length) {
     const t = queue.shift();
@@ -67,7 +67,7 @@ export function withSize(seed, room, cell, size, count, pool) {
     if (!herbs.length) return null;
     const herb = pick(r, herbs);
     taken.push(flask, rat, herb);
-    const set = [{ id: 'rat', x: rat.x, y: rat.y }];
+    const set = [{ id: 'rat', x: rat.x, y: rat.y, guard: true }];
     for (let i = 1; i < count; i++) {
       const spots = open.filter((t) => dark(t) && free(t));
       if (!spots.length) break;
