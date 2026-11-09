@@ -1,12 +1,13 @@
 // § doorways: a thin pale blue line across each doorway's outer edge, where
 // you step through to the next room (D-225), in room pixels. It pulses
 // gently, steady with reduced motion, and shows once the tile is remembered.
+// Half as bright as at first (D-764): 30% to 50%, steady at 45%.
 const MARK = '166,224,228'; // the cloak's pale blue, as on the map (D-224)
 const T = 16;
 
 // doors: [{ x, y, dir }] (core/openings.js); seen: one byte per tile, or null for all
 export function drawDoors(c, doors, seen, cols, t, still) {
-  const a = still ? 0.85 : 0.6 + 0.35 * (Math.sin(t / 400) + 1) / 2;
+  const a = still ? 0.45 : 0.3 + 0.2 * (Math.sin(t / 400) + 1) / 2;
   for (const { x, y, dir } of doors) {
     if (seen && !seen[y * cols + x]) continue;
     const px = x * T, py = y * T;

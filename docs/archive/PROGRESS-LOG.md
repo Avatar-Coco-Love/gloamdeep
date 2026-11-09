@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.212, Loose stones.** The owner's picks, all
+  recommended (D-761): 2 loose stones in each mountain room, the bag's
+  pebble, growing back after a day.
+  Playtest: https://claude.ai/artifact/9FJfSSK9kS1iX1zGyh3kaB
+  Map preview: https://claude.ai/artifact/95B9dfLp4rP7rv1kNDd66G
 - **2026-11-09, 0.3.211, Oilcaps outside.** The owner's picks, all
   recommended, and an addition (D-760): gathering, then landmarks, then
   night creatures; gathering is oilcaps, loose stones, then plants and
