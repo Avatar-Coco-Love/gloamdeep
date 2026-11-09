@@ -9,7 +9,7 @@ import { rng, pick } from './rng.js';
 export const PACK_FROM = 3, PACK_ODDS = 1 / 3, PACKMATES = 2, PACK_NEAR = 2;
 const same = (a, b) => a.x === b.x && a.y === b.y;
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
-const draws = (seed) => rng(seed ^ 0x510e527f);
+const draws = (seed) => rng(seed ^ 0x71374491); // its own salt, apart from the flask mimic's (D-742, T1)
 
 // (seed, depth) → whether a made room at that depth holds a pack
 export const packOf = (seed, depth) => depth >= PACK_FROM && draws(seed)() < PACK_ODDS;

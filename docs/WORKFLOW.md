@@ -115,7 +115,7 @@ phone first, nothing outside the code (D-003).
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 
-(Nothing yet.)
+- A bug list with one fix choice each let the owner settle nine fixes in one round of questions, then take them as one PR (0.3.194).
 
 ## Starting a new project
 

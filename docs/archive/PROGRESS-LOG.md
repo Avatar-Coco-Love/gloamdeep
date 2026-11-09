@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.191, Rounded rock.** The owner's picks, all
+  recommended (D-739): rock lit by day and fuller, trees in front, the
+  mouth's rocks only rounded; the owner asked for better cave mouths in
+  several looks and outside art polish, set after the audit.
+  Playtest: https://claude.ai/artifact/KYrbqQCH1trwQ6cuHyBw7Y
 - **2026-11-09, 0.3.190, Mountain rooms.** The owner's picks (D-738):
   rocky slopes, 3 boulders, sticks and the branch, all three made the same
   way; recommended but the rock's look, which the next step draws

@@ -66,3 +66,14 @@ test('the start\'s goals: "Find the waystone" from the first turn with its words
   const crypt = GOALS.find((g) => g.id === 'stone');
   assert.equal(howOf(crypt, 'first'), 'Old standing stones, near home.', 'a crypt journey keeps its words');
 });
+
+// B6 (D-742): an older profile with "Go home" waiting showed the crypt's words in the woods
+test('an older profile\'s "Go home" waiting is ticked quietly on a South woods journey: no line, no reward', () => {
+  const w = newJourney(42, 'normal'), was = { rat: { done: true, paid: 'flask' }, home: { done: false } };
+  const after = goalsAfter(was, 0, {}, [], { ...w, turn: 2 }, w);
+  assert.deepEqual(after.goals.home, { done: true });
+  assert.deepEqual(after.done, [], 'quiet');
+  assert.equal(after.state.bag, w.bag, 'nothing paid');
+  assert.notEqual(goalLine(after.goals, null, 2, w.place, w)?.id, 'home');
+  assert.ok(!questRows(after.goals, w.place, w.start).some((r) => r.how === 'Leave by the gap in the crypt wall.'));
+});

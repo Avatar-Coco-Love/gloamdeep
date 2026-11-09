@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.191 (2026-11-09)
+- The rock on the surface is rounded now, as the cave walls are, but lit by day: a sunlit grey top in place of the near-black squares. Rocks in the mountain rooms are fuller lumps, trees stand in front of them, and the two rocks beside the cave mouth are rounded too.
+- Past a mountain room's edge the rock goes on, with a grass path leading out to each room beside it, where trees stood before.
+- Decisions: D-739.
+
 ## 0.3.190 (2026-11-09)
 - The three rooms along the north of Hearthwood are mountain rooms now: rocky slopes of grass, rock standing where the trees would be, with a few lone trees. Each has 3 grey boulders to break for stone, as in the caves, and its own sticks and fallen branch, but no pond or bush. On the map, rock on the surface shows grey. If you have already been to one of these rooms, it stays woods.
 - Decisions: D-738.

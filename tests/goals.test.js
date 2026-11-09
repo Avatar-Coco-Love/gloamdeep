@@ -28,6 +28,14 @@ test('the roll follows the seed, and over many turns each reward comes near its 
   for (const r of REWARDS) assert.ok(Math.abs(n[r.id] / 40 - r.chance) < 4, `${r.id} ${n[r.id] / 40}`);
 });
 
+// B4 (D-742): goals done on one turn each rolled the same reward
+test('goals done on the same turn each roll their own reward', () => {
+  for (let seed = 1; seed <= 6; seed++) {
+    const s = { ...base, seed }, paid = GOALS.map((g) => rollReward(s, g.id));
+    assert.ok(new Set(paid).size > 1, `seed ${seed}: ${paid}`);
+  }
+});
+
 test('a find goes in the bag; what doesn\'t fit is set at the hero\'s feet; a Glint changes no state', () => {
   assert.deepEqual(payInto(base, 'herb').bag, [{ id: 'herb', n: 2 }]);
   const full = { ...base, bag: Array.from({ length: 6 }, () => ({ id: 'stone', n: 99 })) };

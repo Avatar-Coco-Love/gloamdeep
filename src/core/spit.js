@@ -75,6 +75,6 @@ function strikes(state, g) {
     return note(note(say({ ...state, health }, get(g.id).hitSay), 'bite', { id: g.id, hurt }), 'splash', { x: g.x, y: g.y });
   }
   const foe = enemyAt(state, g.x, g.y);
-  if (!foe || foe.under) return null; // one under the earth, flown over (D-726)
+  if (!foe || foe.under || foe.pile) return null; // one under the earth, flown over (D-726); a bone rat's pile too, which can't be hit (D-731, D-742)
   return note({ ...state, enemies: hitEnemy(state.enemies, foe, get(foe.id), hurt) }, 'splash', { x: g.x, y: g.y });
 }

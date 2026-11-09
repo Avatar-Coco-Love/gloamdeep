@@ -100,9 +100,12 @@ export function rewardText(id) {
   const name = r.id === 'glint' ? 'Glint' : get(r.id).name;
   return `+${r.n} ${name}${r.n > 1 ? 's' : ''}`;
 }
-// § roll: the reward, from the journey's seed and the turn
-export function rollReward(state) {
-  let left = rng(seedFor(state.seed ^ state.turn, SALT))() * 100;
+// § roll: the reward, from the journey's seed, the turn and the goal, so goals done on one
+// turn each roll their own (D-742, B4)
+export function rollReward(state, id = '') {
+  let mix = 0;
+  for (const ch of id) mix = (Math.imul(mix, 31) + ch.charCodeAt(0)) >>> 0;
+  let left = rng(seedFor(state.seed ^ state.turn, SALT ^ mix))() * 100;
   for (const r of REWARDS) { left -= r.chance; if (left < 0) return r.id; }
   return REWARDS[0].id;
 }
@@ -124,7 +127,7 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
   let next = goals, s = state, g = glints;
   const done = [];
   const finish = (goal, quiet) => {
-    const paid = rollReward(s);
+    const paid = rollReward(s, goal.id);
     next = { ...next, [goal.id]: { done: true, paid } };
     s = payInto(s, paid);
     if (paid === 'glint') g += 1;
@@ -132,7 +135,8 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
   };
   for (const goal of GOALS) {
     const was = next[goal.id], c = { goals: next, book, events, state: s, before };
-    if (was?.done || (!was && skips(s, goal.id))) continue; // a goal its start skips never shows (D-735)
+    if (was?.done) continue;
+    if (skips(s, goal.id)) { if (was) next = { ...next, [goal.id]: { done: true } }; continue; } // a goal its start skips never shows (D-735); one waiting in an older profile is ticked quietly, unpaid (D-742, B6)
     if (was) { if (goal.does(c)) finish(goal, false); continue; }
     if (!goal.shows(c) && !now(s, goal.id)) continue;
     if (goal.before(c)) finish(goal, true); // done before it could show, as in a save from before goals
@@ -157,8 +161,9 @@ export function goalLine(goals = {}, gold = null, turn = 0, place = 'first', sta
 // The text line's words when a goal is done: "Beat a rat. +1 Oil flask"
 export const doneWords = (goals, id) => `${goalOf(id).goal}. ${rewardText(goals[id].paid)}`;
 
-// § the Quests tab's rows, newest first: { id, goal, how, done, reward }
-export const questRows = (goals = {}, place = 'first', start = null) => Object.keys(goals).filter(goalOf).reverse()
+// § the Quests tab's rows, newest first: { id, goal, how, done, reward }; none for a goal the
+// journey's start skips, ticked quietly in an older profile (D-742, B6)
+export const questRows = (goals = {}, place = 'first', start = null) => Object.keys(goals).filter((id) => goalOf(id) && !STARTS[start]?.goals.skip.includes(id)).reverse()
   .map((id) => ({ id, goal: goalOf(id).goal, how: howOf(goalOf(id), place, start), done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
 const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
 export function questsWords(goals, place, start = null) {
