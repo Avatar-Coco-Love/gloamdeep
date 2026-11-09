@@ -7,10 +7,15 @@ import { get, LANDMARKS } from './registry.js';
 import { stamp, around } from './landmarks.js';
 
 // § trees: the chance a tile holds a tree, by how many tiles in from the edge
-// it is: the edge itself is always trees; deeper in than the list, the last one
-const TREES = [1, 0.6, 0.35, 0.15];
-// At least this many open tiles, as in a cave of this size (cave.js)
-const MIN_OPEN = 107;
+// it is: the edge itself is always trees; deeper in than the list, the last one.
+// One list for each kind of woods room (D-756): thick woods, the woods as they
+// first were, and open glades; `open` is the fewest open tiles a room keeps, the
+// woods' as in a cave of this size (cave.js)
+export const KINDS = {
+  thick: { trees: [1, 0.75, 0.55, 0.4], open: 80 },
+  woods: { trees: [1, 0.6, 0.35, 0.15], open: 107 },
+  glade: { trees: [1, 0.45, 0.12, 0], open: 107 },
+};
 const TRIES = 200;
 
 // § sticks: how many lie in each woods room, as Wood (W1, D-314)
@@ -38,11 +43,12 @@ export const STONE_RING = 1;
 // Options (hearthwood.js, D-733): `stone` false leaves the waystone out, for the rooms
 // round home; `mark` false keeps the mouth's front clear without the mouth itself, so
 // home grows as it did when the mouth stood in its edge; `wet` false leaves out the pond
-// and the bush, for a mountain room (mountain.js, D-738).
-export function generateWoods(seed, mouth = null, { stone: withStone = true, mark = true, wet = true } = {}) {
-  const r = rng(seed), start = { x: COLS >> 1, y: ROWS >> 1 }, front = mouth ? inFront(mouth) : [];
+// and the bush, for a mountain room (mountain.js, D-738); `kind` picks how thick its trees
+// grow (KINDS, D-756), the woods as they first were by default.
+export function generateWoods(seed, mouth = null, { stone: withStone = true, mark = true, wet = true, kind = 'woods' } = {}) {
+  const r = rng(seed), start = { x: COLS >> 1, y: ROWS >> 1 }, front = mouth ? inFront(mouth) : [], k = KINDS[kind] || KINDS.woods;
   let g = null;
-  for (let i = 0; i < TRIES && !g; i++) g = grow(r, start, front);
+  for (let i = 0; i < TRIES && !g; i++) g = grow(r, start, front, k);
   g = g || Array.from({ length: ROWS }, (_, y) => Array.from({ length: COLS }, (_, x) => (depthIn(x, y) === 0 ? 'T' : '.')));
   const stone = { x: start.x, y: start.y - STONE_UP }, ring = withStone ? around(LANDMARKS.waystone, stone.x, stone.y, STONE_RING) : [];
   for (const t of ring) g[t.y][t.x] = '.';
@@ -163,9 +169,9 @@ export const depthIn = (x, y) => Math.min(x, y, COLS - 1 - x, ROWS - 1 - y);
 // One try: trees by chance, the start and `keep` tiles kept open, then any
 // open tile cut off from the start becomes a tree. Null when too little is
 // left open, or a `keep` tile is cut off.
-function grow(r, start, keep) {
+function grow(r, start, keep, { trees, open }) {
   const g = Array.from({ length: ROWS }, (_, y) => Array.from({ length: COLS }, (_, x) =>
-    (r() < TREES[Math.min(depthIn(x, y), TREES.length - 1)] ? 'T' : '.')));
+    (r() < trees[Math.min(depthIn(x, y), trees.length - 1)] ? 'T' : '.')));
   for (const t of [start, ...keep]) g[t.y][t.x] = '.';
   const joined = new Set([start.y * COLS + start.x]), queue = [start];
   while (queue.length) {
@@ -176,7 +182,7 @@ function grow(r, start, keep) {
       joined.add(y * COLS + x); queue.push({ x, y });
     }
   }
-  if (joined.size < MIN_OPEN || keep.some((t) => !joined.has(t.y * COLS + t.x))) return null;
+  if (joined.size < open || keep.some((t) => !joined.has(t.y * COLS + t.x))) return null;
   for (let y = 0; y < ROWS; y++) for (let x = 0; x < COLS; x++) if (!joined.has(y * COLS + x)) g[y][x] = 'T';
   return g;
 }

@@ -94,3 +94,9 @@ confurring some sort of buff when used. These are just ideas and they
 need further discussion." Where they turn up, how lit each is and its
 words, what lighting one costs, feeding one, building one and the buff
 are all open.
+
+**Q-090 · Filling the surface** (raised 2026-11-09, the owner's wish,
+with D-756) In the owner's words: "After all of this, after expanding
+the surface, now we need to fill it with new content, make it less
+boring and empty. There needs to be more stuff to do." What goes where,
+and in which order, is open; campfires (Q-088) may be one part.

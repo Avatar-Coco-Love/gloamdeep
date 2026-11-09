@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.204, The waystone by the crypt's door.** The owner's
+  picks, recommended but the spot (D-753): the home waystone stands in
+  the cave mouth's room, 2 tiles north of its middle (the owner's pick);
+  a boon ends there; "Old standing stones, by the crypt's door."; an old
+  save's stone moves there, woken if it was, its old spot grass.
+  Playtest: https://claude.ai/artifact/MQeqL2vkygzsCbhvFJdw7m
+  Map preview: https://claude.ai/artifact/9D3Hes4T9XHDsCj1GTKPAg
 - **2026-11-09, 0.3.203, Put out your lantern.** The owner's picks, all
   recommended (D-752): the oil tip shows when daylight comes with the
   lantern lit, by stepping out of the dark or at dawn; already out, as

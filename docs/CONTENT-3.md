@@ -12,7 +12,7 @@ neared 8 KB.
 | `wall`, `floor` | solid and open ground | | everywhere | the style study |
 | `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface; the mountain rooms' rock; the way in drawn as the broken seal, the cave looks kept for later caves | D-209, D-738, D-739, D-744, D-745 |
 | `stairsDown`, `stairsUp` | lead between depths | | each floor | D-132, D-174 |
-| `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees; a few lone ones in the mountain rooms | D-209, D-317, D-321, D-738 |
+| `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees, thicker or thinner inside by the room's kind; a few lone ones in the mountain rooms | D-209, D-317, D-321, D-738, D-756 |
 | `stump` | grows back into a tree | | where a tree was felled | D-317 |
 | `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods and mountain room | D-316, D-738 |
 | `berryBush` | 1 bump: 2 Gloamberries, leaves it bare | 300 | 1 in each woods room | D-531 |
@@ -45,7 +45,7 @@ neared 8 KB.
 | Place | What it is | Decisions |
 | --- | --- | --- |
 | `first`, `second`, `south` | the hand-made rooms of the crypt | D-106, D-138, D-192 |
-| `woods` | the surface's generated woods rooms; the north row's are mountain rooms | D-209, D-233, D-738 |
+| `woods` | the surface's generated woods rooms; the north row's are mountain rooms; the 5 round home thick, as before or glades, at least one thick and one glade (`KINDS`, woods.js) | D-209, D-233, D-738, D-756 |
 | generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
 
 Regions: Hearthwood, the starting region (D-348, `docs/regions/`).

@@ -43,24 +43,6 @@ of a step, each habit and why, what changed along the way, and how to
 start a new project. Each audit adds what that stretch taught us about
 working together. Built now as its own step, nothing visible changed.
 
-**D-733 · 2026-11-09 · A bigger surface, the plan** (the owner's picks,
-all recommended but where a fall wakes; builds D-182 to D-184, answers
-Q-081) The surface grows to Hearthwood's 3 × 3 rooms, mountains in the
-north row, woods elsewhere, home in the centre (D-182, D-183). A new
-journey no longer begins in the crypt nor at home or the cave: the seed
-picks one of the south woods rooms, never the cave's, and the hero walks
-north to find the waystone. A fall wakes the hero (the owner's own
-answer): in the last bed slept in; with none, at the home waystone once
-woken; otherwise in the room where the journey began. The rooms differ:
-mountain rooms, and woods from thick to open glades, the seed picking.
-The order, one step each: 1 the 9 rooms, all woods, walking off an edge
-into the next; home stays today's woods room, so what was set down keeps
-its place, and the cave mouth moves to a room beside home (D-184); 2 the
-south start, its teaching goal's words with it; 3 waking after a fall
-(supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
-and open glades. Nothing is built yet. D-712 and D-713 move to
-`archive/DECISIONS-GOALS.md`, word for word.
-
 **D-740 · 2026-11-09 · The twelfth audit** (the owner's picks, all
 recommended) At 0.3.192, nothing visible changed. A conversation's start
 reads 10.2 KB, not 10.5. The in-game history's stage 0.3 file is split
@@ -188,3 +170,16 @@ in the dungeon, as grey rock (Claude's question, as D-751 left it out);
 none under the sky. Each wanders its own slow way, its heading bending
 gently, slower than the draft, fading in and out, only where the light
 falls, none with reduced motion or the lantern out. Builds on D-605.
+
+**D-756 · 2026-11-09 · Thick woods and glades** (the owner's picks, all
+recommended; builds D-733's step 5, its last) Each of the 5 woods rooms
+round home is thick woods, the woods as before or an open glade, the
+seed picking, with at least one thick and one glade each seed. Home
+stays as before, so what was set down keeps its place. In an older
+save a room already seen stays as it is; one never seen, with nothing
+taken, grows as its kind. The owner asked next for the surface to be
+filled: more to do, less empty (Q-090). Claude's calls the owner may
+change: thick trees 75, 55, 40 in 100 by ring in from the edge, at
+least 80 open tiles; glades 45, 12, then none; a room whose waystone
+is woken is never made again; the map preview names each room's kind.
+D-733 moves to `archive/DECISIONS-SURFACE.md`, word for word.

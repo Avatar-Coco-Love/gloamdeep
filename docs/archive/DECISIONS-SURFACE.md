@@ -1,4 +1,4 @@
-# The surface decisions (D-209 to D-218, D-734 to D-739, D-744 to D-749)
+# The surface decisions (D-209 to D-218, D-733 to D-739, D-744 to D-749)
 
 Moved unchanged from `docs/DECISIONS.md` at step 51b (D-221), when it
 neared 12 KB: the surface steps 48 to 51 (the woods, the lantern that
@@ -16,6 +16,8 @@ D-745, the broken seal, and D-746, Find the crypt, both built, followed
 at 0.3.202 (D-750), word for word, for the same reason.
 D-747 to D-749, smooth rock edges, ponds and grass, all built, followed
 at 0.3.204 (D-753), word for word, for the same reason.
+D-733, a bigger surface's plan, all five steps built, followed at
+0.3.207 (D-756), word for word.
 
 ---
 
@@ -125,6 +127,24 @@ warms toward the torches' orange, at night it is gone, and dawn brings it
 back the same way. It is real light: tiles it reaches are remembered,
 lantern or not, and a creature standing in it sees the hero. Weather
 waits for Q-035.
+
+**D-733 · 2026-11-09 · A bigger surface, the plan** (the owner's picks,
+all recommended but where a fall wakes; builds D-182 to D-184, answers
+Q-081) The surface grows to Hearthwood's 3 × 3 rooms, mountains in the
+north row, woods elsewhere, home in the centre (D-182, D-183). A new
+journey no longer begins in the crypt nor at home or the cave: the seed
+picks one of the south woods rooms, never the cave's, and the hero walks
+north to find the waystone. A fall wakes the hero (the owner's own
+answer): in the last bed slept in; with none, at the home waystone once
+woken; otherwise in the room where the journey began. The rooms differ:
+mountain rooms, and woods from thick to open glades, the seed picking.
+The order, one step each: 1 the 9 rooms, all woods, walking off an edge
+into the next; home stays today's woods room, so what was set down keeps
+its place, and the cave mouth moves to a room beside home (D-184); 2 the
+south start, its teaching goal's words with it; 3 waking after a fall
+(supersedes D-119's crypt when built); 4 mountain rooms; 5 thick woods
+and open glades. Nothing is built yet. D-712 and D-713 move to
+`archive/DECISIONS-GOALS.md`, word for word.
 
 **D-734 · 2026-11-09 · Hearthwood's 9 rooms built** (the owner's picks,
 all recommended; builds D-733's step 1, opens Q-087) The surface is

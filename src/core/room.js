@@ -16,7 +16,7 @@ import { scatter } from './scatter.js';
 import { coloured, toned } from './tones.js';
 import { cellOf, downPlaceIn, seedAt, layoutAt, beyondOf, sizeAt } from './region.js';
 import { mouthOf, mouthSides, withGap } from './mouth.js';
-import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths, isMountain } from './hearthwood.js';
+import { ROOMS as HEARTH, HOME_ID, sidesOfWoods, woodsSeed, pathsOf, cutPaths, isMountain, kindOf } from './hearthwood.js';
 import { mountainOf } from './mountain.js';
 import { spotIn, unpad } from './stamper.js';
 
@@ -120,7 +120,8 @@ for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => w
 // stone, so its trees, sticks and pond stay as they were, and then its 9 tiles are made grass,
 // as an older save's are (movestone.js). Then the paths to the rooms beside are cut. A mountain
 // room, the north row, grows without its pond and bush, and after its paths its trees become
-// rock but for a few, with 3 boulders on its grass (D-738).
+// rock but for a few, with 3 boulders on its grass (D-738). The other woods rooms grow thick,
+// as they first did, or as glades, the seed picking (D-756).
 // The waystone's tiles and the ring round it, kept clear of a mountain room's boulders
 const stoneRing = (start, ring = STONE_RING) => around(LANDMARKS.waystone, start.x, start.y - STONE_UP, ring);
 // A map with tiles `at` made grass
@@ -128,7 +129,7 @@ const grassed = (map, at) => map.map((line, y) => [...line].map((ch, x) => (at.s
 function woodsRoom(id, seed) {
   const m = mouthOf(seed), home = id === HOME_ID, rock = isMountain(id), mouth = home || id === m.from ? m : null;
   const stone = id === m.from; // the home waystone stands in the mouth's room, near its middle (D-753)
-  const grown = generateWoods(woodsSeed(seed, id), mouth, { stone: stone || home, mark: !home, wet: !rock });
+  const grown = generateWoods(woodsSeed(seed, id), mouth, { stone: stone || home, mark: !home, wet: !rock, kind: kindOf(seed, id) });
   const made = home ? { ...grown, map: grassed(grown.map, stoneRing(grown.start, 0)) } : grown; // home grows as it did, its stone's spot grass
   const cut = { ...made, map: cutPaths(made.map, pathsOf(seed, id), made.start) };
   return rock ? mountainOf(woodsSeed(seed, id), cut, [...(mouth ? inFront(mouth) : []), ...(stone ? stoneRing(made.start) : [])]) : cut;

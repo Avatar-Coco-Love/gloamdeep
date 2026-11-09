@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.206 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.207 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 23, the last part (D-733): thick woods and glades (proposed, the
-owner may pick another).
+Filling the surface (Q-090, the owner's wish): propose what to add and
+in which order; campfires (Q-088) may be one part.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -26,7 +26,7 @@ owner may pick another).
 - The bone rat's drafts (D-731): a pile can't be hit, it stands up chasing, the count waits in another room.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
-- Campfires (Q-088), after D-733's five steps.
+- Campfires (Q-088), with filling the surface (Q-090).
 - Falling down holes (Q-089), for later.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -35,7 +35,7 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [ ] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades
+- [x] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades (0.3.207)
 - [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
 - [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
 
@@ -45,6 +45,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.207, Thick woods and glades.** The owner's picks,
+  all recommended (D-756): the 5 woods rooms round home are thick woods,
+  as before or open glades, at least one thick and one glade a seed;
+  home as before; an older save's unseen rooms grow as their kind. Next,
+  the owner asked to fill the surface (Q-090).
+  Playtest: https://claude.ai/artifact/81QxJf9c9ZUZF7D537qD2N
+  Map preview: https://claude.ai/artifact/KSuCEbJVYRgYfoxkr5YezT
 - **2026-11-09, 0.3.206, The motes that stay.** The owner's picks, all
   recommended (D-755): once the way down is found, 3 motes stay in the
   crypt and earth, 2 in grey rock and the dungeon, none under the sky,
@@ -55,10 +62,3 @@ list in `RESEARCH.md`.
   just inside the round map's rim toward the nearest stairs down, in a
   straight line, found or not, once they are too far to fit on it.
   Playtest: https://claude.ai/artifact/KwU6j9RDcBfBDwcWg4pHCU
-- **2026-11-09, 0.3.204, The waystone by the crypt's door.** The owner's
-  picks, recommended but the spot (D-753): the home waystone stands in
-  the cave mouth's room, 2 tiles north of its middle (the owner's pick);
-  a boon ends there; "Old standing stones, by the crypt's door."; an old
-  save's stone moves there, woken if it was, its old spot grass.
-  Playtest: https://claude.ai/artifact/MQeqL2vkygzsCbhvFJdw7m
-  Map preview: https://claude.ai/artifact/9D3Hes4T9XHDsCj1GTKPAg

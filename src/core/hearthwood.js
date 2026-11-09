@@ -35,6 +35,19 @@ export function sidesOfWoods(id) {
 }
 // Whether room `id` is a mountain room: the north row, every seed (D-183, D-738)
 export const isMountain = (id) => cellOfWoods(id)?.y === 0;
+// § kinds: how thick each woods room round home grows (D-756, D-733's step 5): thick woods,
+// the woods as they first were, or an open glade, the seed picking; at least one thick and
+// one glade each seed, the rest by chance. Home stays as it first was, so what was set down
+// keeps its place; a mountain room grows as the woods did (mountain.js).
+export const KIND_NAMES = ['thick', 'woods', 'glade'];
+export const ROUND_HOME = ROOMS.filter((id) => id !== HOME_ID && !isMountain(id));
+export function kindsOf(seed) {
+  const r = rng(seedFor(seed, 0) ^ 0x6b43a9b5), left = [...ROUND_HOME], out = {};
+  for (const kind of ['thick', 'glade']) out[left.splice(int(r, 0, left.length - 1), 1)[0]] = kind;
+  for (const id of left) out[id] = KIND_NAMES[int(r, 0, KIND_NAMES.length - 1)];
+  return out;
+}
+export const kindOf = (seed, id) => kindsOf(seed)[id] || 'woods';
 // The room the way `dir` from home, where the cave mouth stands (D-184, D-733)
 export const besideHome = (dir) => idAt(HOME_CELL.x + STEP[dir][0], HOME_CELL.y + STEP[dir][1]);
 
