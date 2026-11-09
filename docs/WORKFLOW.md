@@ -117,6 +117,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 
 - A bug list with one fix choice each let the owner settle nine fixes in one round of questions, then take them as one PR (0.3.194).
 - Drawing every card with all content at real phone sizes found layout bugs no playtest had; pictures of each let the owner pick fixes at a glance (0.3.195).
+- Art mock-ups drawn with the game's own code, in rounds, let the owner turn down two looks, ask for clearer caves and settle the edges before any building (0.3.196).
 
 ## Starting a new project
 

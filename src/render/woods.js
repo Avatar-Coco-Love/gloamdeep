@@ -42,13 +42,13 @@ export function paintTree(put, shade, tx, ty) {
 }
 
 // § room: the whole woods room at once, pixel by pixel
-export function drawWoods(c, room) {
+export function drawWoods(c, room, mouth = 'arch') {
   const w = room.cols * T, img = c.createImageData(w, room.rows * T), d = img.data;
   const put = (x, y, hex) => { const [r, g, b] = rgb(hex), i = (y * w + x) * 4; d[i] = r; d[i + 1] = g; d[i + 2] = b; d[i + 3] = 255; };
   const shade = (x, y, k) => { const i = (y * w + x) * 4; d[i] *= k; d[i + 1] *= k; d[i + 2] *= k; };
   for (let y = 0; y < room.rows * T; y++) for (let x = 0; x < w; x++) grass(put, x, y);
   paintPond(room, put, shade);
-  paintMouths(room, d, put, shade); // the cave mouth and the rock (D-211, D-738), the trees in front
+  paintMouths(room, d, put, shade, mouth); // the cave mouth, in its look (D-744), and the rock (D-211, D-738), the trees in front
   for (let ty = 0; ty < room.rows; ty++) for (let tx = 0; tx < room.cols; tx++) {
     if (tileAt(room, tx, ty).id === 'tree') paintTree(put, shade, tx, ty);
   }

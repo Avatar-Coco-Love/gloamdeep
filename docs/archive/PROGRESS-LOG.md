@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.193, The playbook caught up.** All recommended
+  (D-741): how the game grew, our tools, lessons from bugs and design
+  habits, in a new `WORKFLOW-2.md`; a step that teaches something adds
+  a line as it goes, sorted at each audit. No playtest: nothing to play.
 - **2026-11-09, 0.3.192, The twelfth audit.** All recommended (D-740):
   the 0.3 history split again, D-699 and D-734 to D-737 archived, steps
   21 and 22 archived, the hook's message fixed, the playbook grown, all

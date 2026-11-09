@@ -151,3 +151,20 @@ Claude's calls the owner may change: in the stash chest, a long name
 level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
+
+**D-744 · 2026-11-09 · A craggy cave mouth** (the owner's picks; builds
+D-739's step 24; mock-ups at https://claude.ai/artifact/MdF3oCUuabfT9v4EBbv2HS)
+Of round 1's four looks the owner turned down the hole in the ground
+(unless falling down holes ever comes, Q-089) and the grassy mound, which
+didn't look good and hardly read as a cave. Of round 2's five, darker and
+plainer, the owner picked the craggy cave and the overgrown mouth. The
+seed picks the mouth's look (mouthOf), today's small arch kept as a third.
+One look a step, each with its side and bottom edge mock-up first. First
+the craggy cave: on the top edge a wide, rough mouth in the rock, black
+inside, rock teeth hanging from its top; on another edge the rock roofs
+over the outer part of the tile, joining the rocks either side, and the
+ground dives black under it. Walking is unchanged. Claude's calls the
+owner may change: the looks are listed in the registry (`caveMouth`'s
+`looks`) and picked from their own seed stream, so each world's mouth
+stays where it was; a few pebbles lie at the rocks' feet, clear of the
+tile in front; the craggy cave has no worn path in front, as mocked.

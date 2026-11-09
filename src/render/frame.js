@@ -64,7 +64,7 @@ import { shownLine } from '../core/lines.js';
 import { levelOf } from '../core/xp.js';
 import { daylight, darkNow } from '../core/daytime.js';
 import { shownSeed, canGoBack } from '../core/explorer.js';
-import { mouthLight } from '../core/mouth.js';
+import { mouthLight, mouthOf } from '../core/mouth.js';
 import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { shopOf, newShop } from '../core/feats.js';
@@ -228,7 +228,7 @@ export function createFrame(app, ui) {
     if (s.room !== drawnRoom) {
       drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
       base.width = drawnRoom.cols * TILE; base.height = drawnRoom.rows * TILE;
-      drawRoom(base.getContext('2d'), drawnRoom);
+      drawRoom(base.getContext('2d'), drawnRoom, mouthOf(s.seed).look);
       wide = widen(drawnRoom, doors); mx = my = 0;
     }
     if (past(wide.cols, roomView.w) > mx || past(wide.rows, roomView.h) > my) { // a new room, or a wider screen
