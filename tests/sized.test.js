@@ -4,6 +4,8 @@ import assert from 'node:assert/strict';
 import { placeFor, creaturesAt, poolAt, locketRoom, LOCKET_DEPTH } from '../src/core/room.js';
 import { layoutAt, sizeAt } from '../src/core/region.js';
 import { unguardedOf } from '../src/core/unguarded.js';
+// A pack's 2 rats stand on top of the room's creatures (D-727)
+const packless = (enemies) => { const lead = enemies.findIndex((e) => e.pack); return enemies.filter((e, i) => !e.pack || i === lead); };
 
 const plain = (p) => p.items.filter((i) => !i.once); // the dead end's cache aside (D-650)
 const of = (list, id) => list.filter((i) => i.id === id);
@@ -15,7 +17,7 @@ test('a hall holds 2 flasks, herbs and oilcaps, a large room 4; their creatures 
     if (n === 2) halls++; if (n === 4) larges++;
     for (const id of ['flask', 'herb', 'oilcap']) assert.equal(of(plain(p), id).length, n, `${at} ${id}`);
     assert.ok(of(plain(p), 'heartcap').length <= n, at);
-    assert.equal(p.enemies.filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth) * n + (depth === LOCKET_DEPTH && c.id === locketRoom(seed) ? 1 : 0), at); // the locket's warden as well (D-691, D-692)
+    assert.equal(packless(p.enemies).filter((e) => e.id !== 'flaskMimic').length, creaturesAt(depth) * n + (depth === LOCKET_DEPTH && c.id === locketRoom(seed) ? 1 : 0), at); // the locket's warden as well (D-691, D-692)
     assert.ok(p.enemies.every((e) => e.id === 'flaskMimic' || e.id === 'warden' || poolAt(depth).includes(e.id)), at);
     const spots = [p.start, ...p.items, ...p.enemies, ...p.people].map(({ x, y }) => `${x},${y}`);
     assert.equal(new Set(spots).size, spots.length, `${at} two on one tile`);

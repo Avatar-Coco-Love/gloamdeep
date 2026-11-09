@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.181', date: '2026-11-09', title: 'The rat pack', lines: [
+    "Rats now hunt in packs. From depth 3, in about 1 room in 3, the rat by the flask has two packmates beside it. Once one of them sees you, all three come, and each heads for its own side of you to surround you. While two of a pack are left, a hurt rat stands its ground; the last one may still run. A rat on its own acts as before. The rat's Bestiary page says so.",
+    "Decisions: D-727, D-728.",
+  ] },
   { v: '0.3.180', date: '2026-11-09', title: 'Creatures walk over finds', lines: [
     "Creatures no longer walk around things lying on the floor. They step right over them, and the find stays where it lies. Beat a creature standing on a find, and what it drops lies on that same tile, so one step picks up both.",
     "Decisions: D-727.",

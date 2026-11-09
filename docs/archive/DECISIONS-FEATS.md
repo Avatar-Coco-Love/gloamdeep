@@ -104,3 +104,13 @@ Torches lit. "Torches lit" was 47 pixels wide and pushed Steps'
 Feats pay 36 Glints. Next, the owner's pick, recommended: Glints and
 the prices of looks (Q-055), the Feats now built. D-718 moves to `archive/DECISIONS-RELICS.md`,
 word for word.
+
+**D-724 · 2026-11-09 · Glints and the prices of looks** (the owner's
+picks, both recommended; builds D-695, D-714, D-723, answers Q-055) The
+balance stays as it is: 13 locked looks at 3 Glints each cost 39, and
+the six Feats' 36 with the free pick's look buy them all, the few goal
+Glints (D-706) a small spare. Looks to come cost 3 Glints each, and each
+new set of looks comes with a new Feat, or new tiers, so Glints keep up
+with the shop. Next, the owner's pick, recommended: a flask left
+unguarded (Q-075). D-719 moves to `archive/DECISIONS-FEATS.md`, word
+for word.

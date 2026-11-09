@@ -8,6 +8,7 @@ import { withCache } from './cache.js';
 import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
+import { withPack } from './pack.js';
 import { generateWoods } from './woods.js';
 import { seedFor, rng } from './rng.js';
 import { scatter } from './scatter.js';
@@ -229,7 +230,8 @@ export function placeFor(id, seed = 1) {
   const guanoed = loose && withGuano(cell.seed, loose); // a pile by each bat, placed last (D-539)
   const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
   const relic = cached && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, cached) : cached; // placed after the rest (D-691)
-  const room = relic && landmark ? { ...relic, map: unpad(relic.map, landmark.mark, landmark.at) } : relic; // its pad floor again (D-620)
+  const packed = relic && withPack(cell.seed, relic, depth); // from depth 3, 1 room in 3, the flask's rat in a pack of 3, placed after the rest (D-727)
+  const room = packed && landmark ? { ...packed, map: unpad(packed.map, landmark.mark, landmark.at) } : packed; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
 }
 
