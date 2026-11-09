@@ -88,7 +88,7 @@ test('a page says how to fight the creature once 3 are beaten, counting down bef
   assert.equal(at(2).fights, 'Beat 1 more to learn how to fight it.');
   assert.equal(at(2).skilled, false);
   assert.equal(at(3).skilled, true);
-  assert.equal(at(3).fights, 'Four lantern swings or two knife blows. Wait for it to come to you, and start with your hearts full.');
+  assert.equal(at(3).fights, "You can't hit it under the earth. Watch the mound: when the mole comes up, strike first. Four lantern swings or two knife blows.");
   assert.equal(at(4).fights, at(3).fights);
 });
 

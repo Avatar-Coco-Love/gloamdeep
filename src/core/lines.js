@@ -25,6 +25,9 @@ export const LINES = {
   moleHurt: { text: 'The mole grunts and digs in.', warn: false }, // hurt, it keeps coming (D-541)
   moleDie: { text: 'The mole slumps and falls still.', warn: false },
   moleBite: { text: 'The mole claws you.', warn: false, kind: 'harm' },
+  moleDigs: { text: 'The mole digs down into the earth!', warn: false }, // it burrows (D-726), Claude's drafts the owner may change
+  moleSurfaces: { text: 'The mole bursts up beside you!', warn: false },
+  moleUnder: { text: 'It is under the earth, out of reach.', warn: false },
   snapcapHurt: { text: 'The snapcap squelches and snaps.', warn: false }, // it never moves (D-543)
   snapcapDie: { text: 'The snapcap splits and falls still.', warn: false },
   snapcapBite: { text: 'The snapcap snaps at you.', warn: false, kind: 'harm' },

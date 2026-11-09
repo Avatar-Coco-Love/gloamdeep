@@ -431,6 +431,11 @@ const BAT_GUANO = { mirror: false, rows: [
 const MOLE = { mirror: false, rows: [
   '', '', '', '', '', '', '....kkkkkkk.....', '..kkNWWWWWWkk...', '.kNNNNNNNNNWWk..', 'kNNNNNNNNNNpNNk.', 'knNNNNNNNNNNNNNp',
   'knnNNNNNNNNNNNk.', '.knnnnnnnnnnnk..', '..kakak...kakak.'] };
+// § mole mound: the mole under the earth (D-726), a low heap of churned soil, lit on top, a few
+// clods and pebbles thrown up beside it
+const MOLE_MOUND = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '', '......kkkk......', '....kkWWWEkk....', '..k.kWEEWEEFk.k.', '.kWkEEFEEfFFfkEk',
+  '.kkEFFfFFFfFffkk', '..kFfFffFfffffk.', '...kkkkkkkkkkk..'] };
 // § mole fur: a soft tuft of the mole's brown fur, lit on top, a few loose hairs (D-541)
 const MOLE_FUR = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '.......k..k.....', '....kkkWkkWk....', '...kWWNWNWNNk...', '..kWNNNNNNNnnk..',
@@ -577,7 +582,7 @@ export {
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER,
-  SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_FUR, MOLE_CLAW, SNAPCAP,
+  SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP,
   SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
   SCORPION_COLOURS, BAG_TORCH, WISP_CHARM, HEART_CHARM,
   LURE_WISP,

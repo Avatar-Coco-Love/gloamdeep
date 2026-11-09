@@ -39,7 +39,9 @@ export const ENEMIES = {
   bat: { id: 'bat', kind: 'enemy', flies: true, name: 'Bat', acts: "Flies to the light, as a lampmoth does. Hurt, it often flutters away.", fights: "Let it fly to you, then strike first. A knife ends it in one blow, before it can flutter off.", health: 2, bite: 1, drops: 'batWing', rare: 'batFang', ways: ['seeksLight', 'fleesHurt'], hurt: 'batHurt', stands: 'batStands', die: 'batDie', bites: 'batBite', sound: 'squeak' },
   // It chases and never flees, a tough one for the deep floors, 4 hearts (D-365, D-541). Its
   // bite snuffles and scrapes (D-542). Beaten, it may drop Mole Fur, and now and then a Mole Claw (D-541).
-  mole: { id: 'mole', kind: 'enemy', name: 'Mole', acts: "Tough, and it never runs. Once it sees you in the light, it keeps coming.", fights: "Four lantern swings or two knife blows. Wait for it to come to you, and start with your hearts full.", health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['chases'], hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
+  // It burrows (D-726): noticing the hero, it digs down with its `digs` line and comes under the
+  // earth, `surfaces` beside them; a bump on its mound says its `underSay`, free.
+  mole: { id: 'mole', kind: 'enemy', name: 'Mole', acts: "Tough, and it never runs. Once it sees you in the light, it digs down and tunnels to you, a mound of earth, then comes up beside you.", fights: "You can't hit it under the earth. Watch the mound: when the mole comes up, strike first. Four lantern swings or two knife blows.", health: 4, bite: 1, drops: 'moleFur', rare: 'moleClaw', ways: ['burrows'], digs: 'moleDigs', surfaces: 'moleSurfaces', underSay: 'moleUnder', hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
   // A heartcap that bites (D-365, D-543): no ways, so it never moves or notices, and bites
   // whoever stands beside it. Drawn `shutAs` a heartcap, in a heartcap's `tone`, until the
   // hero stands beside it; then its eyes and teeth show. Its bite is a wet snap (D-544).

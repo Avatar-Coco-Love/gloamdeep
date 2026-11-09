@@ -22,7 +22,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `caveSpider` | 2 | 1 | shunsLight only, so it never comes: waits in the dark, backs out of light, bites only from the dark | the pool from depth 2 | D-365, D-535, D-536 |
 | `scorpion` | 1 | 2 | chases; wears one of 5 colour sets | the pool from depth 3 | D-370, D-373, D-475, D-476, D-534 |
 | `bat` | 2 | 1 | seeksLight, fleesHurt | the pool from depth 3 | D-365, D-537, D-538 |
-| `mole` | 4 | 1 | chases, never flees | the pool from depth 5 | D-365, D-541, D-542 |
+| `mole` | 4 | 1 | burrows, never flees: digs down on noticing, comes under the floor as a mound that can't be hit, up beside the hero, biting the turn after | the pool from depth 5 | D-365, D-541, D-542, D-726 |
 | `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
 | `boneRat` | 3 | 1 | chases, never flees | the pool from depth 4 | D-549, D-551 |
@@ -37,8 +37,9 @@ comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch),
 **lures** (drifts away from a near hero toward another creature, never bites),
-**spits** (a glob down a clear row or column at the lit lantern, hitting what it meets; `spit.js`)
-(D-269, D-351, D-649, D-688). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
+**spits** (a glob down a clear row or column at the lit lantern, hitting what it meets; `spit.js`),
+**burrows** (notices as one that chases, then digs down and comes `under` the floor, up beside the hero, `dug`, then on foot)
+(D-269, D-351, D-649, D-688, D-726). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563), and may fly over water, where walking into it strikes it (D-718). One that `glows` is drawn over the dark (D-649).
 Which creatures a generated room holds, and the pool by depth: in `CONTENT-3.md`, "Places" (moved word for word at 0.3.100).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).

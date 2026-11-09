@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.178 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.179 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Begin a journey on the surface (Q-081, D-725): propose how a journey could start on the surface, as its own small step.
+The rat pack (D-726): propose how a pack of rats acts and where it turns up, the second new way, as its own small step.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -20,7 +20,7 @@ Begin a journey on the surface (Q-081, D-725): propose how a journey could start
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Begin a journey on the surface (Q-081), Next up.
+- Begin a journey on the surface (Q-081), after the rat pack.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 
@@ -39,6 +39,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.179, The mole burrows.** A playtester found the
+  creatures too alike. The owner's picks, all recommended (D-726): retune
+  chasers and add new kinds, ways Burrows then Pack. The mole digs down
+  on noticing, tunnels as a mound that can't be hit, comes up beside the
+  hero and bites the turn after. Next, the rat pack.
 - **2026-11-09, 0.3.178, A flask left unguarded.** The owner's picks,
   all recommended (D-725): from depth 2, each flask 1 in 4 with no rat by
   it, a hall's each alone; the guard goes elsewhere in the dark, picked
@@ -51,9 +56,3 @@ list in `RESEARCH.md`.
   3 cost 39, the Feats' 36 and the free pick buy them all, goal Glints a
   spare; looks to come cost 3 each and come with a new Feat or tiers.
   Q-055 closed. Nothing visible. Next, an unguarded flask (Q-075).
-- **2026-11-09, 0.3.176, Torches, the sixth Feat.** The owner's picks,
-  both recommended (D-723): Torches lit's Feat at 5, 25 and 100, named
-  Torches on the tab, as Flasks and Rooms; "Torches lit" pushed Steps'
-  count 13 pixels into the marks upright, Torches fits exactly. Q-057
-  closed; step 21 done. Next, Glints and look prices (Q-055).
-  Playtest: https://claude.ai/artifact/GmZGZdquFYAbPgT8anmafZ
