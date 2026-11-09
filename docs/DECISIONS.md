@@ -152,7 +152,7 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-744 · 2026-11-09 · A craggy cave mouth** (the owner's picks; builds
+**D-744 · 2026-11-09 · A craggy cave mouth** (Partly superseded by D-745, 2026-11-09: the crypt's way in is the broken seal; the cave looks wait for later caves) (the owner's picks; builds
 D-739's step 24; mock-ups at https://claude.ai/artifact/MdF3oCUuabfT9v4EBbv2HS)
 Of round 1's four looks the owner turned down the hole in the ground
 (unless falling down holes ever comes, Q-089) and the grassy mound, which
@@ -168,3 +168,19 @@ owner may change: the looks are listed in the registry (`caveMouth`'s
 `looks`) and picked from their own seed stream, so each world's mouth
 stays where it was; a few pebbles lie at the rocks' feet, clear of the
 tile in front; the craggy cave has no worn path in front, as mocked.
+
+**D-745 · 2026-11-09 · The broken seal, the crypt's way in** (the owner's
+idea and picks, all recommended; supersedes D-744's looks for this way in;
+mock-ups at https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q) The way in
+from the woods leads into the crypt, so it is a crypt's door, not a cave
+mouth. Of three looks (the Lightkeepers' door, the broken seal, the tomb
+gate) the owner picked the broken seal: a doorway of the crypt's bricks
+under a pale stone lintel with a carved flame, bricked up long ago, a hole
+broken through, fallen bricks on the grass. On a side or bottom edge the
+wall's top shows from above along the edge, pale posts at each end, broken
+open between. The worn path in front stays. Every world has it. The small
+arch and the craggy cave are kept for later cave mouths into caves (the
+registry's `caveLooks`), and the overgrown mouth waits with them; its step
+comes off the plan. Walking is unchanged. Claude's calls the owner may
+change: the tile keeps its id and name in the code (`caveMouth`), so saves
+stay as they were; the drawing is `src/render/seal.js`.

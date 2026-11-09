@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.196 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.197 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 24 (D-744): the overgrown mouth, the seed's third look; its side and
-bottom edge mock-up first.
+Step 24 (D-739, D-745): the outside art polished, one small step at a
+time; first, what to polish, proposed to the owner.
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -36,7 +36,7 @@ when merged, with its version, and move ticked steps there at each audit.
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades
-- [ ] 24 The surface's looks (D-739, D-744): the craggy cave mouth (0.3.196); the overgrown mouth; the outside art polished, step by step
+- [ ] 24 The surface's looks (D-739, D-744, D-745): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); the outside art polished, step by step
 
 **Next audit: 0.3.232** (D-518, D-740).
 
@@ -44,6 +44,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.197, The broken seal.** The owner's idea and picks,
+  all recommended (D-745): the way in leads to the crypt, so it is now a
+  crypt's door, a bricked-up doorway broken open, on every edge. The cave
+  looks wait for later cave mouths; the overgrown mouth's step is off.
+  Playtest: https://claude.ai/artifact/X2yN3DAbtpoCyLeZEmb6Tw
+  Mock-ups: https://claude.ai/artifact/B8QBEGU6jtmhF9MEhoWn7q
 - **2026-11-09, 0.3.196, A craggy cave mouth.** The owner's picks over
   three rounds of mock-ups (D-744): no hole and no grassy mound; the
   craggy cave and the overgrown mouth. The seed now picks the craggy
@@ -55,9 +61,3 @@ list in `RESEARCH.md`.
   ran off or overlapped are fixed, Journal lists scroll, and a test now
   catches words that don't fit.
   Playtest: https://claude.ai/artifact/3Mn9rQxgXFzdm52mSYKej9
-- **2026-11-09, 0.3.194, The bug hunt's fixes.** All recommended
-  (D-742): the owner asked for every known bug fixed, in one PR. All
-  nine of the twelfth audit's findings are fixed, each with a test, with
-  one save upgrade for older journeys.
-  Playtest: https://claude.ai/artifact/HpPeLDYfBBGdZLpK2WGDmC
-  Map preview: https://claude.ai/artifact/73kdAXRK9SNqvGCon3Bggu

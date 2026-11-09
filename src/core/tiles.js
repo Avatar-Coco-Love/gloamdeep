@@ -25,8 +25,9 @@ export const TILES = {
   stump: { id: 'stump', kind: 'tile', letter: 'S', name: 'Stump', solid: false, blocksLight: false, forms: 3 },
   // The first cave's mouth on a woods edge, with a rock either side (D-211). Walking
   // off the edge from the mouth goes into the cave, as through any opening (D-197).
-  // One of its `looks`, picked by the seed (mouthOf, D-744): the small arch, the craggy cave.
-  caveMouth: { id: 'caveMouth', kind: 'tile', letter: 'M', name: 'Cave mouth', solid: false, blocksLight: false, looks: ['arch', 'craggy'] },
+  // One of its `looks`, picked by the seed (mouthOf, D-744): the broken seal, as it leads into
+  // the crypt (D-745). `caveLooks`, the small arch and the craggy cave, wait for later cave mouths.
+  caveMouth: { id: 'caveMouth', kind: 'tile', letter: 'M', name: 'Cave mouth', solid: false, blocksLight: false, looks: ['seal'], caveLooks: ['arch', 'craggy'] },
   outcrop: { id: 'outcrop', kind: 'tile', letter: 'R', name: 'Rock', solid: true, blocksLight: true },
   // A round boulder on a cave floor (D-282, D-311): solid, but light passes over it.
   // Bumped `mine.hits` times, a turn each, with its `chips` lines, it breaks to floor and

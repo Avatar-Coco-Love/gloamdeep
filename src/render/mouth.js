@@ -3,11 +3,14 @@
 // D-738. The mouth is bare earth going black toward the edge; on the top edge
 // it is an arch in the rock. The tile in front of it is worn to earth. Or, as
 // the seed picks (D-744), a craggy cave (§ craggy). Drawn into the woods'
-// pixels, after the grass, before the trees (woods.js).
+// pixels, after the grass, before the trees (woods.js). The crypt's way in is
+// the broken seal (seal.js, D-745), drawn over the small arch; the small arch
+// and the craggy cave are kept for later cave mouths.
 import { hash } from '../core/noise.js';
 import { tileAt } from '../core/room.js';
 import { TILE as T } from './screen.js';
 import { paintOutcrops, roomOutcrops } from './outcrop.js';
+import { paintSeals } from './seal.js';
 
 const EARTH = [[58, 46, 36], [70, 56, 44]], PATH = ['#3e3126', '#4a3a2c'];
 
@@ -24,6 +27,7 @@ export function paintMouths(room, d, put, shade, look = 'arch') {
     if (tileAt(room, x, y).id === 'caveMouth') mouths.push({ x, y, dir: wayIn(room, x, y) });
   }
   if (look === 'craggy') return paintCraggy(room, mouths, put, shade);
+  if (look === 'seal') { paintMouths(room, d, put, shade, 'arch'); return paintSeals(room, mouths, put); }
   const dark = (x, y, rgb, k) => { const i = (y * W + x) * 4; d[i] = rgb[0] * k; d[i + 1] = rgb[1] * k; d[i + 2] = rgb[2] * k; };
   // § ground: the mouth's earth, black at the edge, and worn earth in front
   for (const { x: tx, y: ty, dir } of mouths) {
