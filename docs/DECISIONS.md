@@ -122,21 +122,6 @@ spend, so after a fall back to level 1 the older goal shows. A stray
 bracket from 0.3.165 that stopped the game from starting is fixed here,
 with a test that every code file parses (the owner's pick, recommended).
 
-**D-726 · 2026-11-09 · More variety: the mole burrows** (the owner's
-picks, all recommended; builds Q-076, D-541, D-607) A playtester found
-the creatures too alike: 9 of the 16 just come and bite. The owner's
-pick: both retune today's creatures that chase with ways of their own
-and add new kinds, each its own step; the first new ways are Burrows,
-then Pack (rats in groups that try to surround). The mole now burrows:
-once it notices the hero as one that chases does, it digs down where it
-stands instead of stepping, then comes a tile a turn under the floor,
-drawn as a moving mound of earth; it can't be hit there (a bump says so,
-free) and a glob flies over it. Beside the hero it comes up and bites
-only on the turn after, so the hero strikes first. Claude's drafts the
-owner may change: once up it never digs again and chases on foot;
-already beside the hero as it notices, it never digs; its three lines.
-Next, the owner's pick: the rat pack, proposed first.
-
 **D-727 · 2026-11-09 · Creatures walk over finds; the rat pack planned**
 (the owner's picks, all recommended; builds D-726) Creatures no longer
 go around a find on the floor: they step onto it and it stays there,
@@ -186,3 +171,17 @@ stay. Built in 0.3.182 with the tail strike. The owner meant to pick
 the bone rat and wants it in the game, next: beaten, it falls into a
 pile of bones and stands up again 3 turns later, unless the hero steps
 onto the pile to scatter it.
+
+**D-731 · 2026-11-09 · The bone rat comes back** (the owner's picks, all
+recommended; builds D-730, D-551) Beaten, the bone rat falls into a pile
+of bones, look A of its mock-up: a low heap, its skull on top with the
+pink eye. 3 turns later it stands up again, whole with 3 hearts, every
+time, unless the hero steps onto the pile first and scatters it. Only
+the scatter beats it: the Rat Bone (about 1 in 2), the Beaten count and
+its experience. Small pink dots over the pile count its turns, 3, 2, 1,
+hidden with Attack marks Off, and on its last turn "The bones stir."
+Claude's drafts the owner may change: a pile bites no one, can't be
+hit, and no creature steps onto it; it stands up chasing, acting from
+the next turn; the count waits while the hero is in another room; a
+scatter rattles; its lines and the Bestiary words. D-726 moves to
+`archive/DECISIONS-CREATURES-2.md`, word for word.

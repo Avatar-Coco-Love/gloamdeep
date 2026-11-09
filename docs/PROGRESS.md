@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.182 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.183 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bone rat comes back (D-730): beaten, it falls into a pile of bones and stands up 3 turns later, unless the hero steps onto the pile. Its numbers and look proposed first.
+The owner's pick for the next step, proposed first: another creature way (D-726), or beginning a journey on the surface (Q-081).
 
 ## Waiting on the owner
 - A space or digits in names (Q-054), any time.
@@ -23,6 +23,7 @@ The bone rat comes back (D-730): beaten, it falls into a pile of bones and stand
 - Begin a journey on the surface (Q-081), now.
 - The rat pack's drafts (D-728): one pack a room, sides, no line.
 - The scorpion's drafts (D-729): a turn of rest, only the hero, no glance.
+- The bone rat's drafts (D-731): a pile can't be hit, it stands up chasing, the count waits in another room.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 
@@ -41,6 +42,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-09, 0.3.183, The bone rat comes back.** The owner's picks,
+  all recommended (D-731): beaten, it falls into a low heap of bones and
+  stands up whole 3 turns later, every time, unless the hero steps onto
+  the pile to scatter it; only the scatter gives its Rat Bone, Beaten
+  count and experience. Pink dots count 3, 2, 1, and "The bones stir."
+  Next, the owner's pick.
+  Playtest: https://claude.ai/artifact/Sxt9CrtJxjmV2CtGKa5APD
 - **2026-11-09, 0.3.182, The tail strike and Attack marks.** The
   owner's picks: the scorpion's tail strike (D-729): in line within 2
   tiles it raises its tail a turn, both tiles marked, then strikes them
@@ -56,10 +64,3 @@ list in `RESEARCH.md`.
   may change are in D-728. Next, the owner's pick.
   Playtest: https://claude.ai/artifact/Fd9S73LizRPbm8s215Rppn
   Map preview: https://claude.ai/artifact/QPq6MSkWuTiHyD9AvcS2WP
-- **2026-11-09, 0.3.180, Creatures walk over finds.** The owner's picks,
-  all recommended (D-727): the rat pack is planned (the plain rat, each
-  to its own side, the flask rat and 2 more from depth 3, brave while 2
-  are left). The owner noticed creatures went around finds: now they
-  walk over them, and a drop lies beside a find on one tile, built first.
-  Next, the rat pack.
-  Playtest: https://claude.ai/artifact/GmH2vcYXaaERPWHpRcqLMU

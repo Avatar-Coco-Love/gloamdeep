@@ -231,8 +231,8 @@ function tryStep(dir) {
     const next = step(app.state, dir);
     const [dx, dy] = DIRS[dir], foe = enemyAt(app.state, app.state.hero.x + dx, app.state.hero.y + dy);
     to = { x: before.hero.x + dx, y: before.hero.y + dy };
-    if (foe && !foe.asleep && !foe.under) app.hit = { enemies: [foe, behind(app.state, foe)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479)
-    if (foe && !foe.asleep && !foe.under && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
+    if (foe && !foe.asleep && !foe.under && !foe.pile) app.hit = { enemies: [foe, behind(app.state, foe)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479)
+    if (foe && !foe.asleep && !foe.under && !foe.pile && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
     app.state = next;
   }
@@ -320,7 +320,7 @@ function nudgeToward(dir) {
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
 // a tile walked, unless the hero fell (D-255), a waystone's bells as it wakes (D-591), and
-// the plop of a cast and the splash of a catch (D-613)
+// the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
@@ -332,6 +332,7 @@ function hear(events) {
   if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)
   if (has(events, 'cast')) sound.plop(); // the line cast (D-613)
   if (has(events, 'catch')) sound.splash(); // a fish caught (D-613)
+  if (has(events, 'scatter')) sound.rattle(); // a pile of bones scattered: the bone rat's rattle (D-731)
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);

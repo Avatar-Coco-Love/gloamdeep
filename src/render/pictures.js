@@ -460,6 +460,11 @@ const HERB_MIMIC = { mirror: false, rows: HERB.rows.map((r, i) => ({ 8: '.kgpgk.
 // fur was, darker bone for its shading and legs, the pink eye and tail tip kept, as in its mock-up
 const BONE_RAT = { mirror: false, rows: RAT.rows.map((r, i) => ({ 11: '..kaAaAaAaAaaaak', 12: 'A.kAaaaaaaaaaakp', 13: '.AkAAAAAAAAAAkw.', 14: '..AkkAAkkkkAAk..', 15: '....kAk...kAk...' })[i] ?? r)
   .map((r) => r.replace(/S/g, 'a').replace(/s/g, 'A').replace(/d/g, 'A')) };
+// § bone pile: a beaten bone rat fallen into a low heap of bones, its skull on top with the pink
+// eye, look A of its mock-up (D-731)
+const BONE_PILE = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '', '......kkkk......', '.....kaaaak.....', '....kaApaAak....', '..kkkaaaaaakkk..',
+  '.kwaAkkAAkkaAwk.', 'kAAAaaAkkAaaAAAk', '.kkkkkkkkkkkkkk.'] };
 // § oil tick: look B of its mock-up (D-606): side on and facing right, a round tick swollen with
 // the amber oil it drank, lit on top and darker below, a small dusky head with the pink eye,
 // a short drinking beak and six thin legs
@@ -583,7 +588,7 @@ export {
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER,
   SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP,
-  SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
+  SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
   SCORPION_COLOURS, BAG_TORCH, WISP_CHARM, HEART_CHARM,
   LURE_WISP,
   WISP_GLASS,

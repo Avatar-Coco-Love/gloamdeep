@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729); D-726, the mole burrows, at 0.3.183 (D-731).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -295,3 +295,18 @@ chance (about 1 flask in 3 that rolls), left as is (the owner's pick,
 recommended), so about 1 flask in 6 has nothing by it. Next, the owner's
 pick, recommended: begin a journey on the surface (Q-081). D-720 moves
 to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-726 · 2026-11-09 · More variety: the mole burrows** (the owner's
+picks, all recommended; builds Q-076, D-541, D-607) A playtester found
+the creatures too alike: 9 of the 16 just come and bite. The owner's
+pick: both retune today's creatures that chase with ways of their own
+and add new kinds, each its own step; the first new ways are Burrows,
+then Pack (rats in groups that try to surround). The mole now burrows:
+once it notices the hero as one that chases does, it digs down where it
+stands instead of stepping, then comes a tile a turn under the floor,
+drawn as a moving mound of earth; it can't be hit there (a bump says so,
+free) and a glob flies over it. Beside the hero it comes up and bites
+only on the turn after, so the hero strikes first. Claude's drafts the
+owner may change: once up it never digs again and chases on foot;
+already beside the hero as it notices, it never digs; its three lines.
+Next, the owner's pick: the rat pack, proposed first.

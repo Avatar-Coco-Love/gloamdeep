@@ -40,6 +40,9 @@ export const LINES = {
   herbMimicBite: { text: 'The herb mimic bites you.', warn: false, kind: 'harm' },
   boneRatHurt: { text: 'The bone rat rattles and keeps coming.', warn: false }, // hurt, it never flees (D-551)
   boneRatDie: { text: 'The bone rat falls apart.', warn: false },
+  boneRatFalls: { text: 'The bone rat falls into a pile of bones.', warn: false }, // it comes back (D-731), Claude's drafts the owner may change
+  boneRatStirs: { text: 'The bones stir.', warn: true }, // its last turn as a pile (D-731)
+  boneRatScatters: { text: 'You scatter the bones for good.', warn: false }, // stepped on (D-731)
   boneRatBite: { text: 'The bone rat bites you.', warn: false, kind: 'harm' },
   oilTickHurt: { text: 'The oil tick squirts and keeps coming.', warn: false }, // (D-606)
   oilTickDie: { text: 'The oil tick bursts and falls still.', warn: false },

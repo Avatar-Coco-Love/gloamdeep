@@ -20,8 +20,9 @@ import { KIND_LOOKS } from './boons.js';
 import { lineTop } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
-import { drawMoves, drawStrikes } from './moves.js';
+import { drawMoves, drawStrikes, drawPiles } from './moves.js';
 import { struck } from '../core/sting.js';
+import { litAt } from '../core/sight.js';
 import { drawTitle, drawScene, drawName } from './title.js';
 import { drawTitleCard, nameTop } from './titlecard.js';
 import { VEIL } from './menu.js';
@@ -281,6 +282,7 @@ export function createFrame(app, ui) {
         if (marksShown(app.settings)) { // Attack marks (D-730)
           drawMoves(rc, (s.globs ?? []).map((g) => ({ e: g, kind: 'step', dx: g.dx, dy: g.dy })), (g) => g, t, still()); // each glob's next tile (D-688)
           drawStrikes(rc, s.enemies.flatMap((e) => struck(s, e)), t, still()); // the tiles a raised tail will strike (D-729)
+          drawPiles(rc, s.enemies.filter((e) => e.pile && litAt(s, e.x, e.y)), t, still()); // a lit pile of bones' turns left (D-731)
         }
         drawMotes(rc, lightOn && s.lit && !lying && !travel && !fall && !dev.revealed() ? draftTo(s) : null, lx, ly, lights[0]?.r || 0, still()); // a draft toward the stairs down not yet seen (D-581, D-605)
         drawRing(rc, app.kindle, t); // and its ring, over the light (D-591)

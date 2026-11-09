@@ -11,7 +11,7 @@ import {
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER,
   SPIDER_SILK, BAT, BAT_WING, BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP,
-  SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
+  SNAPCAP_GILL, HERB_MIMIC, BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF,
   SCORPION_COLOURS, BAG_TORCH, WISP_CHARM, HEART_CHARM,
   LURE_WISP,
   WISP_GLASS,
@@ -82,6 +82,7 @@ export function spriteOf(it) {
   return TONED[key];
 }
 const MOUND = spriteCanvas(MOLE_MOUND); // the mole under the earth (D-726)
+const PILE = spriteCanvas(BONE_PILE); // a bone rat fallen into its pile of bones (D-731)
 const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLOAMLING, '#ffffff'), lampmoth: spriteCanvas(LAMPMOTH, '#ffffff'), flaskMimic: spriteCanvas(FLASK_MIMIC, '#ffffff'), scorpion: spriteCanvas(SCORPION, '#ffffff'), caveSpider: spriteCanvas(CAVE_SPIDER, '#ffffff'), bat: spriteCanvas(BAT, '#ffffff'), mole: spriteCanvas(MOLE, '#ffffff'), snapcap: spriteCanvas(SNAPCAP, '#ffffff'), herbMimic: spriteCanvas(HERB_MIMIC, '#ffffff'), boneRat: spriteCanvas(BONE_RAT, '#ffffff'), oilTick: spriteCanvas(OIL_TICK, '#ffffff'), lureWisp: spriteCanvas(LURE_WISP, '#ffffff'), centipede: spriteCanvas(CENTIPEDE, '#ffffff'), spitGrub: spriteCanvas(SPIT_GRUB, '#ffffff'), warden: spriteCanvas(WARDEN, '#ffffff') };
 // § sleeping (D-692): a creature that `sleeps` as itself, not in disguise, drawn asleep with its
 // eyes dull: the warden's violet eye slit in its rock's darkest grey
@@ -251,6 +252,7 @@ function drawEnemy(c, e, p, t, still, flash, hero) {
   const shutAs = get(e.id)?.shutAs;
   if (shutAs && !flash && !beside(e, hero)) return drawItems(c, [{ id: shutAs, tone: e.tone, x: p.x, y: p.y }], t, still); // shut, a heartcap in its tone (D-543)
   if (e.under) return c.drawImage(MOUND, x, y - 2 + 15 - lowest(MOUND)); // under the earth, its mound (D-726)
+  if (e.pile && !flash) return c.drawImage(PILE, x, y - 2 + 15 - lowest(PILE)); // a pile of bones, flat on the floor; a hit's flash shows the rat (D-731)
   drawShadow(c, x, y, 8);
   if (get(e.id)?.glows && !glowing) return; // one that glows is drawn over the light, drawGlows (D-649)
   const left = e.facing === 'left';

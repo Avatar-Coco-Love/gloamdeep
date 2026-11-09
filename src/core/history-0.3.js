@@ -3,6 +3,10 @@
 // tests/history.test.js checks every one. Plain data. New versions go at the top here; 0.3.0 to 0.3.75
 // are in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.183', date: '2026-11-09', title: 'The bone rat comes back', lines: [
+    "The bone rat comes back. Beaten, it falls into a low pile of bones, its skull on top, and three turns later it stands up again, whole. Small pink dots over the pile count the turns down, 3, 2, 1, and on the last one \"The bones stir.\" Step onto the pile before then to scatter the bones for good. Only then is it beaten: its Rat Bone, its Beaten count and its experience come from the scatter. The dots hide with Attack marks Off.",
+    "Decisions: D-731.",
+  ] },
   { v: '0.3.182', date: '2026-11-09', title: 'The tail strike and Attack marks', lines: [
     "The scorpion now strikes with its tail. It never bites beside you. Once you are in line with it, up to two tiles away, it stops and raises its tail for a turn, and both tiles ahead are marked. On its next turn it strikes them: two hearts if you are still there. Step out of its line and the sting hits bare floor, then it stands still a turn, open to your blow. One blow of anything still kills it.",
     "A new switch in Settings, Attack marks, after Flasks. It starts On. Turn it Off and no creature's next move shows: no arrows, fangs, glob arrows or strike marks, on the room or on the creature list. You read the creatures by watching them and their lines.",
