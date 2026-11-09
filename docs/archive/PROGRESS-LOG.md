@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.200, Ponds halfway to round.** The owner's picks,
+  both recommended (D-748): of four pond outlines, B, halfway between
+  today's and the round look, with a clean edge; cave pools stay as
+  they were.
+  Playtest: https://claude.ai/artifact/CraK7Pt1b6EShN8p7KtpH1
+  Mock-ups: https://claude.ai/artifact/EQfp8wLasizEnWkwonaWPi
 - **2026-11-09, 0.3.199, Smooth rock edges.** The owner's picks from a
   look at all nine surface rooms (D-747): the rock first, look A, smooth
   edges with no loose pixels; then ponds, grass and trees, trees as look A.

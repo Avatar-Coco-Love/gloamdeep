@@ -13,7 +13,7 @@ const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, plac
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Put out your lantern', 'Tap the lantern, or press L, to save oil.', 'Tap the lantern, or press L, to save oil.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -250,4 +250,27 @@ test('the goal line is as wide as its longest words, and taps on it are found', 
   assert.deepEqual([w, h], [98, 23]);
   assert.ok(onGoal(line, 5, 40, 5, 40) && onGoal(line, 5, 40, 5 + w - 1, 40 + h - 1));
   assert.ok(!onGoal(line, 5, 40, 5 + w, 40) && !onGoal(null, 5, 40, 6, 41));
+});
+
+// § the oil tip (D-751): daylight comes with the lantern lit, by stepping out of the dark or by dawn
+const sunny = { ...base, room: { dark: { sky: true } }, turn: 100, lit: true };
+test('putting out the lantern shows when daylight comes with it lit, and is done once out (D-751)', () => {
+  const out = goalsAfter({}, 0, {}, [], sunny, { ...cave, lit: true });
+  assert.deepEqual(out.goals.oil, { done: false }, 'stepping out of the dark, lit');
+  assert.deepEqual(goalsAfter({}, 0, {}, [], { ...sunny, turn: 285 }, { ...sunny, turn: 284 }).goals.oil, { done: false }, 'dawn, lit');
+  assert.equal(goalsAfter({}, 0, {}, [], sunny, sunny).goals.oil, undefined, 'daylight already: nothing');
+  assert.equal(goalsAfter({}, 0, {}, [], cave, { ...sunny, lit: false }).goals.oil, undefined, 'into the dark: nothing');
+  const both = { stone: { done: false }, ...out.goals };
+  assert.deepEqual(goalLine(both, null, 100, 'first', sunny), { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, or press L, to save oil.', done: false }, 'ahead while it burns by day');
+  assert.equal(goalLine(both, null, 100, 'first', { ...sunny, lit: false }).goal, 'Find the waystone', 'not ahead once out');
+  const done = goalsAfter(out.goals, 0, {}, [], { ...sunny, lit: false }, sunny);
+  assert.deepEqual(done.done, ['oil'], 'put out: gold, paid');
+  assert.equal(doneWords(done.goals, 'oil'), `Put out your lantern. ${rewardText(done.goals.oil.paid)}`);
+  assert.equal(goalsAfter(done.goals, 0, {}, [], sunny, { ...cave, lit: true }).goals.oil.done, true, 'never again');
+});
+
+test('a lantern already out as daylight comes, as By itself does, ticks the tip quietly (D-751)', () => {
+  const quiet = goalsAfter({}, 0, {}, [], { ...sunny, lit: false }, { ...cave, lit: true });
+  assert.equal(quiet.goals.oil.done, true);
+  assert.deepEqual(quiet.done, []);
 });
