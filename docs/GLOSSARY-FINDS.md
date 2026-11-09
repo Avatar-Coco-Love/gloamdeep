@@ -19,6 +19,9 @@ neared 8 KB.
   Not a world's **Seed**.
 - **Gloamberry bush:** a low round bush, one in each woods room; picked,
   it stands **bare** and fills again 300 turns later (D-530, D-531).
+- **Duskstar:** the first flower, five violet petals round a yellow
+  heart; 2 in each woods room, into the bag for crafts later; picked, it
+  comes back a day later on another grass tile of the room (D-763).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;

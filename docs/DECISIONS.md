@@ -117,39 +117,6 @@ each level and room as likely; 2 tiles in from the edge; a line too
 long for the strip shows a sentence a bump, and cold ashes' first
 sentence on the strip, the rest on the card; "The fire catches."
 
-**D-758 · 2026-11-09 · Sleeping out, step 1** (the owner's idea and
-picks, all recommended, and the owner's addition; opens Q-091) In the
-owner's words: "I don't like running out of light in the middle of the
-night with no oil." From dusk until morning, in a room under the sky,
-with no creature after the hero, a moon button shows; it asks "Sleep
-here until morning?", No picked, and Yes sleeps until the next morning
-in one go as the bed does (D-488), the lantern burning nothing. With no
-bed the hero wakes with the hearts they lay down with: no healing, no
-gold heart. Step 2 adds Stiff, a mark beside Poisoned: for some turns
-after waking, the hero's hits miss 1 time in 3 (its numbers set at its
-step). The owner added that places may add their own cost, such as
-chilled in snow; that and waking robbed wait in Q-091. Claude's calls
-the owner may change: the moon's spot, straight above the lantern
-clear of the bag, and its pale blue crescent; "The ground is hard and
-cold." and "You wake on the cold ground."; a creature after the hero
-is one chasing, or one in the light that has noticed them; the spot
-isn't remembered as a bed for a fall (D-737). D-750 to D-752
-move to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-759 · 2026-11-09 · Sleeping out, step 2: Stiff** (the owner's picks,
-all recommended, the mark after its mock-up; D-758) Waking from sleeping
-out leaves the hero stiff for 20 turns, counted down by each passed turn
-as poisoned is. While stiff, a swing at a creature misses 1 time in 3 by
-the seeded dice: the turn passes, nothing is hurt or flashes, and "Your
-stiff arm swings wide." is said. Its mark beside poisoned's is a Zz in
-the moon button's pale blue; a tap says "Stiff: 1 hit in 3 misses, N
-turns left." Waking says "You wake on the cold ground, stiff.", and as
-it wears off, "The stiffness wears off." A fall ends it. Claude's calls
-the owner may change: a miss makes no sound; a spear's miss misses both;
-a bump that wakes one asleep never misses; another night out starts the
-count again. D-753 and D-754 move to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
 the recommended order and finds, and the owner's addition; builds
 D-757, opens Q-092) The surface fills in this order: gathering, then
@@ -189,3 +156,19 @@ for crafts later, potion making among them, each growing where it suits
 its kind (Q-092). Claude's calls the owner may change: never on the
 start, a find, the mouth's front or the waystone's ring; any open grass
 tile, not only beside a tree.
+
+**D-763 · 2026-11-09 · Gathering, step 4: the duskstar** (the owner's
+picks, all recommended, the look after its mock-up:
+https://claude.ai/artifact/G4ixYQbiLTsSrcNoAR4PKQ; builds D-762 and
+D-530, the first of Q-092's flowers) The first flower is look B, the
+**Duskstar**: five violet petals round a yellow heart. 2 grow in each
+woods room, home too, none in the mountain rooms, on open grass. Each
+faces left or right and has its own slight shade of violet, the seed
+picking. Walking onto one puts it in the bag, for crafts later. Picked,
+it comes back after a day, 300 turns, on another open grass tile of the
+same room (D-530). In an older save only woods rooms never seen, with
+nothing taken, get theirs. Claude's calls the owner may change: stacks
+of 20; never on the start, a find, the mouth's front or the waystone's
+ring when laid, any free grass tile out of sight when it comes back; its
+lines ("You pick a duskstar." and two more); a new violet shade, `#6e58a8`.
+D-758 and D-759 move to `archive/DECISIONS-SLEEPING-OUT.md`, word for word.

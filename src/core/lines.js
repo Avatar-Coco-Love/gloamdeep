@@ -98,6 +98,9 @@ export const LINES = {
   depositCrack: { text: 'The boulder cracks.', warn: false }, // the second bump (O2)
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   looseStoneTake: { texts: ['You pick up a loose stone.', 'A stone from the slope. You keep it.', 'You lift a stone from the grass.'], warn: false }, // a loose stone (D-761)
+  duskstarTake: { texts: ['You pick a duskstar.', 'A violet flower. You keep it.', 'You pick the little star of petals.'], warn: false }, // the first flower (D-763)
+  duskstarLook: { texts: ['A duskstar, for crafting later.', 'Violet petals, a yellow heart.', 'A small flower from the woods.'], warn: false },
+  duskstarFull: { text: "You can't carry more duskstars.", warn: false },
   stoneLook: { texts: ['A plain stone, good for making things.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
   veinChip: { text: 'Your pick bites the rock.', warn: false }, // the first bump (D-480)

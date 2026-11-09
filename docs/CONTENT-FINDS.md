@@ -18,6 +18,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `antidote` | Drink: ends poisoned, healing nothing; only while poisoned | 5 | never | 1 Snapcap Gill and 1 herb, made in the bag | D-652, D-655 |
 | `stone` | for crafts | 20 | 300 when lying loose; never from a deposit | a deposit; 2 loose on open grass in each mountain room (`loosestone.js`), none in the woods rooms | D-312, D-761 |
+| `duskstar` | for crafts later | 20 | 300, on another grass tile of its room | 2 on open grass in each woods room (`duskstar.js`), none in the mountain rooms | D-763 |
 | `ratTail` | 4 with 1 Wood make the Rat Hide Vest; 2 with 4 Wood, the bed | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474, D-484, D-488 |
 | `mothDust` | with 1 Wood makes a torch | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475, D-478 |
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |

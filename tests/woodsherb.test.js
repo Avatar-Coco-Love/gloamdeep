@@ -30,7 +30,7 @@ test('the same seed lays the same herb; it is the cave herb, growing back after 
 });
 
 test('an older save: unseen woods rooms get their herb; seen, taken from or stood in stay', () => {
-  assert.equal(FORMAT, 26); assert.equal(UPGRADES[25], reherb);
+  assert.ok(FORMAT >= 26); assert.equal(UPGRADES[25], reherb);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), bare = (p) => ({ ...p, items: p.items.filter((it) => it.id !== 'herb') });
     const woods = ROOMS.filter((id) => !isMountain(id) && id !== w.place), [a, b, c] = woods, hill = ROOMS.find(isMountain);

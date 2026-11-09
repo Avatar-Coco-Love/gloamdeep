@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.211, Oilcaps outside.** The owner's picks, all
+  recommended, and an addition (D-760): gathering, then landmarks, then
+  night creatures; gathering is oilcaps, loose stones, then plants and
+  flowers (Q-092). One oilcap beside a tree in each woods room, growing
+  back after a day.
+  Playtest: https://claude.ai/artifact/1Ve1xmyt2Urkk9iWMkUvpJ
+  Map preview: https://claude.ai/artifact/4PFfnbEApQ3aqHH1JEmY7a
 - **2026-11-09, 0.3.210, Stiff.** The owner's picks, all recommended
   (D-759), the mark after its mock-up: waking from sleeping out leaves
   the hero stiff for 20 turns, 1 swing in 3 missing; a pale blue Zz

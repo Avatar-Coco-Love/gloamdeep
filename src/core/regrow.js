@@ -9,7 +9,8 @@
 // floor tile within `near` steps of where it stood (diagonals count), or its own
 // again, picked by the seed: off the edge, never cutting the room in two (D-313).
 // A tree comes back only on its own stump (`on`, W3, D-317), and waits while
-// that would cut the room; a gloamberry bush fills again on its bare bush (D-531).
+// that would cut the room; a gloamberry bush fills again on its bare bush (D-531). A flower, which
+// `roam`s, comes back on another grass tile of the room (D-763).
 // Plain data, no drawing.
 import { get } from './registry.js';
 import { litAt } from './sight.js';
@@ -33,10 +34,10 @@ export function regrow(state, came = false) {
   let now = { ...state, taken: [] };
   for (const t of taken) {
     const entry = get(t.id), due = state.turn - t.at >= entry.regrow;
-    const at = due && (entry.kind === 'tile' ? spotNear(now, t, entry, came) : free(now, t, came) && t);
+    const at = due && (entry.kind === 'tile' ? spotNear(now, t, entry, came) : entry.roam ? roamTo(now, t, came) : free(now, t, came) && t);
     if (!at) now = { ...now, taken: [...now.taken, t] };
     else if (entry.kind === 'tile') now = { ...now, room: withTile(now.room, at.x, at.y, entry) };
-    else { const { at: _, ...item } = t; now = { ...now, items: [...now.items, item] }; }
+    else { const { at: _, ...item } = t; now = { ...now, items: [...now.items, { ...item, x: at.x, y: at.y }] }; }
   }
   return now.taken.length === taken.length ? state : now;
 }
@@ -50,6 +51,15 @@ function spotNear(state, t, entry, came) {
     if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came, !!entry.on)) continue;
     if (joined(withTile(room, x, y, entry))) spots.push({ x, y });
   }
+  return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
+}
+
+// § roam: a flower comes back on another grass tile of its room, not its own (D-530, D-763): any
+// open tile off the edge, free and out of sight, picked by the seed; null when none is
+function roamTo(state, t, came) {
+  const { room } = state, spots = [];
+  for (let y = 1; y < room.rows - 1; y++) for (let x = 1; x < room.cols - 1; x++)
+    if ((x !== t.x || y !== t.y) && tileAt(room, x, y).id === 'floor' && free(state, { x, y }, came)) spots.push({ x, y });
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
 }
 
