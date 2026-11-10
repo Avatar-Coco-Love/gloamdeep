@@ -103,7 +103,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Check that a new thing has room before proposing where it is made: the workbench card was full, found only after the mortar's picks, which opened the Make tab question (0.3.236).
 - A gap with many pieces gets a plan page of picks first, each piece with 2 or 3 uses (0.3.247); and the bench's room was missed again: check a station's free slots before proposing a recipe there.
 - Draw a system full of made-up content before it grows (0.3.257).
-- Check what opens a locked thing before proposing what goes in it: row 2 opens at biome 2, which is not built, so when it opens was asked first (0.3.260).
 - Check that the game can answer a rule before the owner picks it: "shown once held" (D-418) needed a memory of held finds the save didn't have, asked about only at the build (0.3.237).
 - A rule the owner asked for in an earlier conversation can be lost if no PR wrote it down: the copyable next prompts were asked for before but never reached the handoff rule, so write a request into the docs in the same PR (0.3.238).
 - Check a new name against the narrowest screen before proposing it: "Steady Wick" overflowed its Growth box at 176 pixels, found only by the fit test after the pick (0.3.246).
