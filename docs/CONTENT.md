@@ -16,7 +16,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | id | Hearts | Bite | Ways | Where | Decisions |
 | --- | --- | --- | --- | --- | --- |
 | `rat` | 2 | 1 | chases, fleesHurt, pack | the first rooms; the pool from depth 2, and always the one by each room's flask; from depth 3 about 1 room in 3, that one in a pack of 3 | D-106, D-110, D-114, D-126, D-149, D-231, D-292, D-301, D-474, D-534, D-727, D-728 |
-| `gloamling` | 2 | 1 | chases, shunsLight | the pool from depth 5 | D-240, D-244, D-475, D-476, D-534 |
+| `gloamling` | 2 | 1 | chases, shunsLight | the pool from depth 5; on the surface, a rare one each night in one woods room round home, gone by day | D-240, D-244, D-475, D-476, D-534, D-780 |
 | `lampmoth` | 1 | 1 | seeksLight | the pool from depth 2; on the surface, one each night in each woods room round home, gone by day | D-351, D-356, D-475, D-534, D-778 |
 | `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369, D-475, D-476 |
 | `caveSpider` | 2 | 1 | shunsLight only, so it never comes: waits in the dark, backs out of light, bites only from the dark | the pool from depth 2 | D-365, D-535, D-536 |

@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.230', date: '2026-11-10', title: 'Night creatures, third: gloamling', lines: [
+    "Night creatures, third: the rare gloamling. Each night one of the woods rooms round home, picked by your seed, has a gloamling too, beside its lampmoth and bat. It hunts you from the dark but will not step into your light, and leaves a Gloam Wisp or a rare Gloam Eye as it does below. Gone by morning like the others.",
+    "Decisions: D-780. D-778 moved to the archive, word for word.",
+  ] },
   { v: '0.3.229', date: '2026-11-10', title: 'Night creatures, second: the bat', lines: [
     "Night creatures, second: the bat. Once dusk darkens the woods, a bat comes out too in each woods room round home, never at home, and flies for your lantern, beside the lampmoth. One beaten stays beaten till the next night, and any still about are gone by morning.",
     "Decisions: D-779. D-772 moved to the archive, word for word.",

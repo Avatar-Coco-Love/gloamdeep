@@ -537,3 +537,16 @@ It comes after the alchemy station and its recipes (D-771), the owner's
 order. Its damage, range, how it aims on a phone, arrows, where it is
 made or found and its look are open (Q-094), asked at its step.
 D-770 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-778 · 2026-11-10 · Night creatures, first: lampmoths** (the
+owner's picks, all recommended; builds D-760, D-217) Night creatures
+start with a creature the game has: the lampmoth, so no new way. One
+comes out each night in each woods room round home, never home and
+never a mountain room: once daylight stops lighting the room (halfway
+through dusk), and any still standing are gone once it lights it again
+(halfway through dawn). New night kinds come later, one a step.
+Claude's calls the owner may change: on open grass off the edge, out
+of the hero's sight, picked by the seed and the night; one beaten stays
+beaten till the next night; they go by day without a word; they count
+in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
