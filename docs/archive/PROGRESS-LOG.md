@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.243, The Ward Draught.** The owner's picks
+  (D-795): the mortar's fourth recipe, from 2 Centipede Leg and 1 Herb;
+  drunk, it ends poison and no bite poisons for 60 turns, with the Glow
+  Draught's rules and a pale green-white mark; next prompts only after
+  the merge.
+  Playtest: https://claude.ai/artifact/9ZBaRxt4pJUPrVtkXoyCku
 - **2026-11-10, 0.3.242, The Mending Draught.** The owner's picks
   (D-794): the mortar's third recipe, from 2 Mimic Leaf and 1 Herb;
   drunk, a heart every 15 turns for 60 turns, 4 in all, with the Glow

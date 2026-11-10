@@ -86,17 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-789 · 2026-11-10 · The mortar's card** (the owner's picks, all
-recommended; builds D-786) Bumped, day or night, the set-down Mortar and
-Pestle opens the workbench's card titled MORTAR, its grid empty until
-the Glow Draught's step, a grey line saying "Nothing to make here yet."
-DECONSTRUCT takes it back into the bag with no ask, as the workbench's
-does. Its lines: "You make a mortar and pestle.", "You set down the
-mortar.", "You take down the mortar.", "You already carry a mortar."; its
-look: "A stone bowl and a wooden pestle.", "Set it down on the
-surface.", "Grind finds into draughts." It shows on the Make tab once
-Stone and Wood have been held. Claude's call: the tile's letter `e`.
-
 **D-790 · 2026-11-10 · Copyable next prompts** (the owner's request)
 Each PR's handoff ends, before merging, with a few short prompts the
 owner can copy to pick the next direction, one per choice, or a single
@@ -191,3 +180,20 @@ beside the room's rock when such a tile is free; its lines (it claws);
 no sound of its own; the Lurker Claw holds 20 and sells for 1.
 D-796 and D-788 move to `archive/DECISIONS-SURFACE.md`, word for word, and
 `GLOSSARY-2.md`'s home words to a new `GLOSSARY-HOME.md`, word for word.
+
+**D-798 · 2026-11-10 · Steady Wick, Light's first upgrade** (the
+owner's picks, all recommended) The gaps are worked through one step a
+time, quickest first: the Growth tree; uses for the finds kept for
+crafts later; the herb mimic's and bone rat's rare drops; the lantern's
+parts; weapons; the forge and cooking; then found abilities, bosses,
+trophies and people. The Growth tree's Light branch gets its first
+upgrade, Steady Wick: 1 ember, bought once, for good; a lit turn burns
+9/10 of its oil, a full tank lasting about 66 turns, not 60, added to
+the wick, the charm, the boon and Slowburn. Where its box is too narrow
+for the name, it says "Steady". Others offered: drop uses or the lab
+first; Fuller Pour (a flask 50%, not 45%); Brighter Glass (1 tile
+farther); two lines in the box, or a shorter name. Claude's calls: its
+words "The lantern burns a little slower, for good."; its button "Get
+Steady Wick"; a small flame in the lantern's gold, dim until bought; it
+is kept on a Normal fall, as Tough is. D-789 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

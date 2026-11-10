@@ -20,7 +20,8 @@ test('the Growth tab says the embers left, then the picked place: Body\'s heart 
   const tail = 'Arrows pick another place, Left past Light for Records, Right past Hands for the Bestiary. Esc or the close button goes back.';
   assert.equal(growthWords(s), `Journal, Growth tab. Embers, 1. Body, row 1, Heart. Hearts 6 of 10. One more heart for good, arriving full. Add a heart, 1 ember. ${tail}`);
   assert.equal(growthWords({ xp: 0, health: 5 }, START_PICK), `Journal, Growth tab. Embers, 0. Body, row 1, Heart. Hearts 5 of 10. One more heart for good, arriving full. Add a heart, 1 ember, not now. ${tail}`);
-  assert.equal(growthWords(s, { col: 0, row: 0 }), `Journal, Growth tab. Embers, 1. Light, row 1, To come. More to grow here later. ${tail}`);
+  assert.equal(growthWords(s, { col: 0, row: 0 }), `Journal, Growth tab. Embers, 1. Light, row 1, Steady Wick. The lantern burns a little slower, for good. Get Steady Wick, 1 ember. ${tail}`);
+  assert.equal(growthWords(s, { col: 2, row: 0 }), `Journal, Growth tab. Embers, 1. Hands, row 1, To come. More to grow here later. ${tail}`);
   assert.equal(growthWords(s, { col: 2, row: 1 }), `Journal, Growth tab. Embers, 1. Hands, row 2, Locked. Opens deeper down. ${tail}`);
 });
 
@@ -65,7 +66,7 @@ test('on Growth a tap on a place picks it, and on the picked heart\'s button buy
   const { x, y, w, button } = cardAt(VW, VH), st = { xp: 10, health: 5 };
   const buy = [x + w - PAD - 10, button.y + 6];
   assert.equal(journalAt(...buy, VW, VH, 'growth', st, START_PICK), 'buy');
-  assert.equal(journalAt(...buy, VW, VH, 'growth', st, { col: 0, row: 0 }), null, 'a place to come has no button');
+  assert.equal(journalAt(...buy, VW, VH, 'growth', st, { col: 2, row: 0 }), null, 'a place to come has no button');
   assert.equal(journalAt(...buy, VW, VH, 'records', st, START_PICK), null);
   const picks = [];
   for (let py = y + 50; py < y + 130; py += 2) for (let px = x; px < x + w; px += 2) { const at = journalAt(px, py, VW, VH, 'growth', st, START_PICK); if (at?.pick) picks.push(`${at.pick.col},${at.pick.row},${at.pick.slot}`); }

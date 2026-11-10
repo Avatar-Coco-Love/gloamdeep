@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.245 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.246 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Another brand-new creature (Q-076), or the alchemy lab (Q-093), the
-owner's pick.
+The gaps, quickest first (D-798): the Growth tree's next upgrade, the
+first on Hands; then uses for the finds kept for crafts later.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.246, Steady Wick.** The owner's picks (D-798): the
+  gaps worked through quickest first; Light's first Growth upgrade, 1
+  ember, the lantern burning 9/10 of its oil for good, a full tank about
+  66 turns; "Steady" in a box too narrow.
+  Playtest: https://claude.ai/artifact/2kQ85ubssrTuqLsR9AcTiq
 - **2026-11-10, 0.3.245, The rim lurker.** The owner's picks (D-797):
   a brand-new creature, one each night in each mountain room, waiting
   by the rock until the hero is within 3 steps, then chasing; look B,
@@ -55,9 +60,3 @@ list in `RESEARCH.md`.
   a loose stone until the hero is beside it, then pinching; 2 hearts,
   never moves, may leave a Crab Shell.
   Playtest: https://claude.ai/artifact/4Wea5XoHPWPM3KmA3ontz4
-- **2026-11-10, 0.3.243, The Ward Draught.** The owner's picks
-  (D-795): the mortar's fourth recipe, from 2 Centipede Leg and 1 Herb;
-  drunk, it ends poison and no bite poisons for 60 turns, with the Glow
-  Draught's rules and a pale green-white mark; next prompts only after
-  the merge.
-  Playtest: https://claude.ai/artifact/9ZBaRxt4pJUPrVtkXoyCku

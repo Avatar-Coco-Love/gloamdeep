@@ -1,7 +1,7 @@
 // § growth: what levels give (D-293, answers Q-050). Each level past the first
 // gives an ember, spent in the Journal's Growth tab. Plain data, no drawing.
 // `state.hearts` counts the hearts bought; a journey without it has bought none. `state.tough`
-// is true once Tough is bought (D-657).
+// is true once Tough is bought (D-657), `state.steady` once Steady Wick is (D-798).
 import { levelOf } from './xp.js';
 import { maxHealth, HERO_HEALTH } from './turn.js';
 import { BRANCHES, UPGRADES } from './upgrades.js';
@@ -10,11 +10,13 @@ export const HEART_COST = 1; // embers for one more heart
 export const HEARTS_MORE = 5; // at most 5 more, 10 in all
 
 export const TOUGH_COST = 1; // embers for Tough, bought once (D-657)
+export const STEADY_COST = 1; // embers for Steady Wick, bought once (D-798)
 
 export const heartsBought = (state) => state.hearts ?? 0;
 export const isTough = (state) => !!state.tough;
+export const isSteady = (state) => !!state.steady;
 // The embers left: one for each level reached past the first, less those spent
-export const embers = (state) => levelOf(state.xp) - 1 - heartsBought(state) * HEART_COST - (isTough(state) ? TOUGH_COST : 0);
+export const embers = (state) => levelOf(state.xp) - 1 - heartsBought(state) * HEART_COST - (isTough(state) ? TOUGH_COST : 0) - (isSteady(state) ? STEADY_COST : 0);
 export const canAddHeart = (state) => embers(state) >= HEART_COST && heartsBought(state) < HEARTS_MORE;
 
 // § add a heart: one more heart for good, arriving full (D-293). It can't be
@@ -27,10 +29,13 @@ export function addHeart(state) {
 // § add Tough: bought once, for good (D-657). No turn passes.
 export const canAddTough = (state) => embers(state) >= TOUGH_COST && !isTough(state);
 export const addTough = (state) => (canAddTough(state) ? { ...state, tough: true } : state);
+// § add Steady Wick: Light's first, bought once, for good (D-798). No turn passes.
+export const canAddSteady = (state) => embers(state) >= STEADY_COST && !isSteady(state);
+export const addSteady = (state) => (canAddSteady(state) ? { ...state, steady: true } : state);
 // The picked place's upgrade bought, or the state unchanged
 export function buyAt(state, pick) {
   const u = upgradeAt(pick);
-  return u?.id === 'heart' ? addHeart(state) : u?.id === 'tough' ? addTough(state) : state;
+  return u?.id === 'heart' ? addHeart(state) : u?.id === 'tough' ? addTough(state) : u?.id === 'steadyWick' ? addSteady(state) : state;
 }
 
 // § tree (D-462, D-481): Growth's three branches side by side, each a column of rows, one row
@@ -71,6 +76,7 @@ export function told(state, pick) {
   const u = upgradeAt(pick);
   if (pick.row >= ROWS_OPEN) return { name: 'Locked', value: null, words: 'Opens deeper down.', button: null };
   if (!u) return { name: 'To come', value: null, words: 'More to grow here later.', button: null };
+  if (u.id === 'steadyWick') return { name: u.name, value: isSteady(state) ? 'Bought' : null, words: u.words, button: isSteady(state) ? null : { text: 'Get Steady Wick', cost: `${STEADY_COST} ember`, can: canAddSteady(state) } };
   if (u.id === 'tough') return { name: u.name, value: isTough(state) ? 'Bought' : null, words: u.words, button: isTough(state) ? null : { text: 'Get Tough', cost: `${TOUGH_COST} ember`, can: canAddTough(state) } };
   return { name: u.name, value: `Hearts ${maxHealth(state)} of ${HERO_HEALTH + HEARTS_MORE}`, words: u.words, button: { text: 'Add a heart', cost: `${HEART_COST} ember`, can: canAddHeart(state) } };
 }

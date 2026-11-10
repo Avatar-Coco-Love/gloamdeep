@@ -18,10 +18,10 @@
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawHearts } from './hearts.js';
-import { POISON_MARK } from './marks.js';
+import { POISON_MARK, GLOW_MARK } from './marks.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { TABS } from '../core/journal.js';
-import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, placesOf, told, upgradeAt } from '../core/growth.js';
+import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, isSteady, placesOf, told, upgradeAt } from '../core/growth.js';
 import { BRANCHES } from '../core/upgrades.js';
 import { bestiaryRows } from '../core/bestiary.js';
 import { bestiaryTables, beastAt, showBeast, questAt, listOf, drawList, clampFirst } from './journalrows.js';
@@ -173,9 +173,10 @@ function drawTree(c, card, state, pick, t, still) {
 }
 
 // § place: an upgrade in a box with its name, a heart's row of hearts bought, Tough's drop of
-// venom, dim until bought (D-657); a place still to come or not open yet, dashed and dim, a
+// venom (D-657) and Steady Wick's small flame on its wick in the lantern's gold (D-798), dim until bought; a name too wide for its box, its `short` one; a place still to come or not open yet, dashed and dim, a
 // locked one with a small lock
 const LOCK = ['.xxx.', 'x...x', 'xxxxx', 'xx.xx', 'xxxxx'];
+const FLAME = ['....#....', '...##....', '...###...', '..####...', '..#####..', '.###.##..', '.##..###.', '..##.##..', '....#....'];
 const dots = (c, rows, x, y, colour, on = 'x') => { c.fillStyle = colour; rows.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === on) c.fillRect(x + i, y + j, 1, 1); })); };
 function drawPlace(c, p, ms, state, picked) {
   const u = upgradeAt(p), open = p.row < ROWS_OPEN;
@@ -188,8 +189,9 @@ function drawPlace(c, p, ms, state, picked) {
     dots(c, LOCK, lx, ly, DIM);
   } else if (!u) drawText(c, 'to come', p.x + Math.floor((p.w - textWidth('to come')) / 2), p.y + Math.floor(p.h / 2) - 4, DIM);
   else {
-    drawText(c, u.name, p.x + 4, p.y + ms.name, CORE);
-    if (u.id === 'tough') dots(c, POISON_MARK.icon, p.x + 3, p.y + ms.drop, isTough(state) ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
+    drawText(c, textWidth(u.name) + 8 > p.w && u.short ? u.short : u.name, p.x + 4, p.y + ms.name, CORE); // its short name where the box is too narrow (D-798)
+    if (u.id === 'steadyWick') dots(c, FLAME, p.x + 3, p.y + ms.drop, isSteady(state) ? GLOW_MARK.tint : DIM, '#');
+    else if (u.id === 'tough') dots(c, POISON_MARK.icon, p.x + 3, p.y + ms.drop, isTough(state) ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
     else drawHearts(c, heartsBought(state), HEARTS_MORE, p.x + 4, p.y + ms.hearts);
   }
 }

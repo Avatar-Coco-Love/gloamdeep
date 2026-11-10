@@ -34,6 +34,8 @@ D-787, the bag's Make tab, built, followed at 0.3.243 (D-795), word for
 word, for the same reason.
 D-796, the skulker crab, built, and D-788, the Make tab's details,
 built, followed at 0.3.245 (D-797), word for word, for the same reason.
+D-789, the mortar's card, built, followed at 0.3.246 (D-798), word for
+word, for the same reason.
 
 ---
 
@@ -701,3 +703,14 @@ on a tab, turns the tabs; a find's MAKE (and C) opens its own recipe, or
 else the first it is in, and is dim only before that recipe shows; a
 cost is counted from the whole bag, so 2 and 1 Oilcaps in two stacks
 make a flask.
+
+**D-789 · 2026-11-10 · The mortar's card** (the owner's picks, all
+recommended; builds D-786) Bumped, day or night, the set-down Mortar and
+Pestle opens the workbench's card titled MORTAR, its grid empty until
+the Glow Draught's step, a grey line saying "Nothing to make here yet."
+DECONSTRUCT takes it back into the bag with no ask, as the workbench's
+does. Its lines: "You make a mortar and pestle.", "You set down the
+mortar.", "You take down the mortar.", "You already carry a mortar."; its
+look: "A stone bowl and a wooden pestle.", "Set it down on the
+surface.", "Grind finds into draughts." It shows on the Make tab once
+Stone and Wood have been held. Claude's call: the tile's letter `e`.
