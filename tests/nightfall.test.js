@@ -131,3 +131,27 @@ test('one beaten stays beaten till the next day; by night it is gone', () => {
   assert.equal(moles(next).length, 1);
   assert.equal(next.room.day, 1);
 });
+
+// The audit's bug fixes (D-783)
+const steps = (s, m) => Math.max(Math.abs(m.x - s.hero.x), Math.abs(m.y - s.hero.y));
+
+test('B1: an earlier night\'s creatures still standing go before the new night\'s come out', () => {
+  const first = nightfall(at(ROOM, 220)), next = nightfall({ ...first, turn: 520 });
+  assert.deepEqual(moths(next).map((m) => m.id), ['lampmoth', 'bat']);
+  const day = nightfall(at(ROOM, 100)), later = nightfall({ ...day, turn: 400 });
+  assert.equal(moles(later).length, 1, 'and an earlier day\'s mole');
+});
+
+test('B2: night creatures leave before any creature acts, so none bites on waking', () => {
+  const night = nightfall(at(ROOM, 220)), { x, y } = night.hero, moth = { ...moths(night)[0], x: x + 1, y };
+  const woke = wait({ ...night, enemies: [moth], turn: 599 }); // the turn passes into the half dawn
+  assert.equal(moths(woke).length, 0);
+  assert.equal(woke.health, night.health);
+});
+
+test('B3: night creatures come out 4 steps or more from the hero, even with the lantern out', () => {
+  for (const room of ROUND_HOME) for (let n = 0; n < 10; n++) {
+    const s = { ...at(room, 220 + 600 * n), lit: false }, night = nightfall(s); // every tile is out of sight
+    for (const m of moths(night)) assert.ok(steps(s, m) >= 4, `${room}, night ${n}`);
+  }
+});

@@ -98,3 +98,13 @@ three bugs, all to be fixed in the next PR (the owner's call): night
 or day creatures piling up across nights (B1), a bite on waking from
 sleeping out (B2), night creatures coming out beside the hero in the
 dark (B3). The next audit is at 0.3.272.
+
+**D-783 · 2026-11-10 · The audit's bug fixes** (the owner's call at
+the audit, D-782; fixes D-778 to D-781) An earlier night's or day's
+creatures still standing go before the new ones come out, so they never
+pile up in a room left and come back to (B1). Night creatures leave by
+day, and day creatures by night, before any creature acts, so none
+bites the hero on waking from sleeping out (B2). Night creatures come
+out at least 4 steps from the hero, as the mole, as well as out of
+sight, so none appears beside them with the lantern out (B3). Each has
+a test.

@@ -8,6 +8,9 @@
 // Day creatures are the same turned round (D-781): a mole each day in each woods room round home,
 // from halfway through dawn till halfway through dusk; as daylight shows every tile, it comes out
 // on open grass at least 4 steps from the hero instead of out of sight (Claude's call).
+// The audit's bug fixes (D-783): an earlier night's or day's creatures are cleared before new
+// ones come out (B1); the other half's leave before any creature acts, so none bites on waking
+// (B2); and night creatures come out at least 4 steps away too, as the mole (B3).
 import { daylight, DAY_TURNS } from './daytime.js';
 import { ROUND_HOME, woodsSeed } from './hearthwood.js';
 import { tileAt } from './room.js';
@@ -23,7 +26,7 @@ export const rareRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x2c1b3
 
 // § day kinds: what comes out each day, one of each, in each room (D-781)
 export const DAY_KINDS = ['mole'];
-const FAR = 4; // by day, at least this many steps from the hero
+const FAR = 4; // at least this many steps from the hero, by day and by night (B3)
 
 // The night a turn falls in: the day's own number, as all its dark lies inside one day (D-217)
 export const nightOf = (turn) => Math.floor(turn / DAY_TURNS);
@@ -37,8 +40,13 @@ export const dayOf = (turn) => Math.floor((turn + 15) / DAY_TURNS);
 // when nothing changes, or no tile fits yet (it waits for the next turn)
 export function nightfall(state) {
   if (!ROUND_HOME.includes(state.place)) return state;
-  return darkOut(state.turn) ? comeOut(goneBy(state, 'day'), 'night') : comeOut(goneBy(state, 'night'), 'day');
+  return comeOut(leaveByLight(state), darkOut(state.turn) ? 'night' : 'day');
 }
+
+// (state) → the state with the other half's creatures gone: day ones by night, night ones by day.
+// The turn's end runs it before the creatures act, so one gone with the light never bites (B2)
+export const leaveByLight = (state) => !ROUND_HOME.includes(state.place) ? state
+  : goneBy(state, darkOut(state.turn) ? 'day' : 'night');
 
 // (state, when) → the state with the creatures of the other half gone ('night' by day, 'day' by night)
 const goneBy = (state, when) => state.enemies.some((e) => e[when])
@@ -48,7 +56,7 @@ const goneBy = (state, when) => state.enemies.some((e) => e[when])
 function comeOut(state, when) {
   const night = when === 'night', n = night ? nightOf(state.turn) : dayOf(state.turn);
   if (state.room[when] === n) return state;
-  const spots = night ? openSpots(state) : openSpots(state, FAR);
+  const spots = openSpots(state, night);
   if (!spots.length) return state;
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place) ^ (night ? 0 : 0x5d4f1a37), n + 1)), out = [];
   const kinds = !night ? DAY_KINDS : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
@@ -56,17 +64,18 @@ function comeOut(state, when) {
     const left = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
     if (left.length) out.push({ id, ...pick(r, left), [when]: true });
   }
-  return { ...state, room: { ...state.room, [when]: n }, enemies: [...state.enemies, ...out] };
+  const stay = state.enemies.filter((e) => !e[when]); // an earlier night's or day's still standing go first (B1)
+  return { ...state, room: { ...state.room, [when]: n }, enemies: [...stay, ...out] };
 }
 
-// Every grass tile off the edge with nothing on it, not the hero's, and out of their sight; by
-// day, when every tile is in sight, `far` steps or more from them instead
-function openSpots(state, far = 0) {
+// Every grass tile off the edge with nothing on it, `FAR` steps or more from the hero; by night
+// out of their sight too (B3)
+function openSpots(state, night) {
   const { room } = state, spots = [], on = (list, x, y) => (list || []).some((o) => o.x === x && o.y === y);
   for (let y = 1; y < room.rows - 1; y++) for (let x = 1; x < room.cols - 1; x++) {
     if (tileAt(room, x, y).id !== 'floor' || (state.hero.x === x && state.hero.y === y)) continue;
     if (on(state.enemies, x, y) || on(state.items, x, y) || on(state.people, x, y)) continue;
-    if (far ? Math.max(Math.abs(x - state.hero.x), Math.abs(y - state.hero.y)) < far : litAt(state, x, y)) continue;
+    if (Math.max(Math.abs(x - state.hero.x), Math.abs(y - state.hero.y)) < FAR || (night && litAt(state, x, y))) continue;
     spots.push({ x, y });
   }
   return spots;

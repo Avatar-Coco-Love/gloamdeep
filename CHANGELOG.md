@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.233 (2026-11-10)
+- The audit's bug fixes. Night and day creatures no longer pile up in a woods room left and come back to on a later night or day: the earlier ones go first.
+- Waking from sleeping out, a night creature beside the hero has already gone with the dawn, and no longer bites.
+- Night creatures come out at least 4 steps from the hero, as the mole does, so none appears right beside them with the lantern out.
+- Decisions: D-783.
+
 ## 0.3.232 (2026-11-10)
 - The thirteenth audit. Nothing in the game changes. Three big code files are split, word for word: the Version history's newest file again (0.3.151 to 0.3.200 move to history-0.3-3.js), the creatures' pictures (to pictures-creatures.js) and the creatures' lines (to lines-creatures.js).
 - Docs: finished decisions, ticked plan steps and three of the surface's questions moved to the archive or their own files, word for word, so a conversation starts by reading less. Four creatures' glossary lines, the sound packs in use and the ponds now match the game. A bug hunt found three bugs, fixed next. The playbook gains what this stretch taught, in a new WORKFLOW-3.md. The next audit is at 0.3.272.
@@ -31,7 +37,3 @@ Entry format:
 ## 0.3.231 (2026-11-10)
 - Day creatures, first: the mole. Each day a mole comes out in each of the woods rooms round home, never at home, on the grass at least 4 steps from you. It digs down when it sees you, tunnels over as a mound and comes up beside you, and leaves its fur or a rare claw as it does below. Gone by nightfall, back the next day.
 - Decisions: D-781. D-779 moved to the archive, word for word.
-
-## 0.3.230 (2026-11-10)
-- Night creatures, third: the rare gloamling. Each night one of the woods rooms round home, picked by your seed, has a gloamling too, beside its lampmoth and bat. It hunts you from the dark but will not step into your light, and leaves a Gloam Wisp or a rare Gloam Eye as it does below. Gone by morning like the others.
-- Decisions: D-780. D-778 moved to the archive, word for word.

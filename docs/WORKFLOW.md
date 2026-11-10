@@ -97,3 +97,4 @@ Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782).
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+- A bug fix's test is checked against the old code first: B3's first test passed without the fix, as one night's pick happened to land far away, and only trying many nights caught it (0.3.233).
