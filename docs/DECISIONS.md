@@ -113,24 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-809 · 2026-11-10 · The Fang Charm** (the owner's picks, all
-recommended; builds D-799) Bat Fang's first use, made on the
-workbench's GEAR tab from 1 Bat Fang and 1 Copper Ore, as the other
-charms are. Worn, each creature beaten gives back 1 heart about 1 time
-in 4, never past the most. Healed, its line shows and a small red heart
-rises beside the "+1" over the hero (steady with reduced motion).
-Others offered: 2 Bat Fang and 1 Copper Ore; 1 Bat Fang and 1 Spider
-Silk; 1 time in 3 or 5; a line only; nothing extra. Claude's calls the
-owner may change: GEAR lists it last; a pile of bones scattered counts
-as beaten, struck down into its pile does not; the spear's two beaten
-are a coin each; at full hearts nothing happens, no line; the coin is
-seeded as a drop's is; its line ("The fang drinks. You feel better.")
-is said over the creature's own; its look, a pale bat fang pointing down
-in the charms' copper setting; its other lines ("You make a fang
-charm.", "You put on the fang charm.", "Beaten creatures may mend
-you."); the Bat Fang's look line names it. D-805 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-810 · 2026-11-10 · The Mole Claw Pick** (the owner's picks, all
 recommended; builds D-799, D-480) Mole Claw's first use, the last quick
 one, made on the workbench's BUILD tab from 1 Mole Claw, 2 Wood and 2
@@ -180,4 +162,17 @@ limb; past a row's ends, Records and the Bestiary (offered too: limb by
 limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
 a small screen; the tree scrolls by a swipe or the wheel and follows
 the pick, a small arrow where rows are hidden. D-808 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-813 · 2026-11-10 · Quick Hands** (the owner's picks, all
+recommended; the last step of D-811) Hands' first upgrade, in the
+first row: a tree, a stone deposit or a fallen branch, gathered by
+hand, takes 1 bump fewer (a tree 3, a deposit 2, a branch 1; a berry
+bush stays 1). A tool's own count is kept: copper veins and rubble
+are unchanged. 1 ember, bought once; its tile's picture a pale open
+hand. Others offered: Full Hands, 1 more Wood or Stone from each;
+Deep Pockets, 1 more bag slot; 2 embers; a small axe or a sack.
+Claude's calls the owner may change: its name and words ("Trees,
+stone and branches take 1 bump fewer."); rubble around a trapped
+person is not gathering, so keeps its 3 bumps. D-809 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

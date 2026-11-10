@@ -12,6 +12,9 @@ export const UPGRADES = {
   steadyWick: { id: 'steadyWick', branch: 'light', row: 0, slot: 0, name: 'Steady Wick', short: 'Steady', words: 'The lantern burns a little slower, for good.', cost: 1, most: 1, look: 'flame', burn: 0.9 },
   heart: { id: 'heart', branch: 'body', row: 0, slot: 0, name: 'Heart', words: 'One more heart for good, arriving full.', cost: 1, most: 5, look: 'hearts', get: 'Add a heart', heals: 1 },
   // A bite that hurts poisons the hero only this often, by the seeded dice (D-657)
+  // Hands' first (D-813): a tree, a stone deposit or a branch, gathered by hand, takes `fewer`
+  // bumps less, never under 1; a tool's own count is kept (gear.js)
+  quickHands: { id: 'quickHands', branch: 'hands', row: 0, slot: 0, name: 'Quick Hands', words: 'Trees, stone and branches take 1 bump fewer.', cost: 1, most: 1, look: 'hand', fewer: 1, tiles: ['tree', 'deposit', 'branch'] },
   tough: { id: 'tough', branch: 'body', row: 0, slot: 1, name: 'Tough', words: 'A bite that hurts poisons you only 1 time in 2.', cost: 1, most: 1, look: 'drop', poisons: 0.5 },
 };
 // § grown: how many times a journey bought an upgrade, 0 for none (D-811)

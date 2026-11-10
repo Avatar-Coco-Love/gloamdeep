@@ -58,7 +58,7 @@ test('the tree has three branches, Light, Body and Hands, and the heart is Body\
   assert.equal(upgradeAt(START_PICK), UPGRADES.heart);
   assert.equal(GATHERED, UPGRADES);
   assert.equal(upgradeAt({ col: 0, row: 0 }), UPGRADES.steadyWick, 'Light\'s first (D-798)');
-  assert.equal(upgradeAt({ col: 2, row: 0 }), null, 'Hands, none yet');
+  assert.equal(upgradeAt({ col: 2, row: 0 }), UPGRADES.quickHands, 'Hands\' first (D-813)');
   assert.equal(ROWS, 2, 'the open row and one locked');
 });
 
@@ -80,9 +80,9 @@ test('the arrows read a row: Left and Right walk its places across the branches,
   assert.deepEqual(rowPlaces(0), [steady, START_PICK, tough, hands]);
 });
 
-test('the heart\'s button is dim without an ember; a place to come or locked has none', () => {
+test('the heart\'s button is dim without an ember; a locked place has none', () => {
   assert.equal(told(at(0), START_PICK).button.can, false);
   assert.equal(told(at(10), START_PICK).button.can, true);
-  assert.equal(told(at(10), { col: 2, row: 0 }).button, null);
+  assert.equal(told(at(10), { col: 1, row: 1 }).button, null);
   assert.equal(told(at(10), { col: 1, row: 1 }).name, 'Locked');
 });

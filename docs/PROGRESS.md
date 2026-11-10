@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.258 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.259 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Hands upgrade (D-811's last step): Hands' first upgrade on the
-twigs, now one entry in the list and its tile's picture. The finds plan's later steps wait for
+Claude proposes the next step from the build plan (step 26, filling
+the surface, or more Growth upgrades). The finds plan's later steps wait for
 the lantern's parts and the weapons (D-799).
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
@@ -46,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.259, Quick Hands.** The owner's picks (D-813):
+  Hands' first upgrade, 1 ember, once, a pale open hand; a tree, a
+  stone deposit or a branch takes 1 bump fewer by hand.
+  Playtest: https://claude.ai/artifact/L2Wz2UspySzKpDiAauizss
 - **2026-11-10, 0.3.258, The Growth tree's twigs.** The owner's picks
   (D-812): each row a twig, upgrades small tiles side by side; a dashed
   tile only on an empty limb; the arrows read a row.
@@ -54,7 +58,3 @@ list in `RESEARCH.md`.
   picks (D-811): the tree's next look, twigs; first, nothing visible, one
   list of upgrades and one save record of what was bought.
   Nothing visible, so no playtest. Look page: https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y
-- **2026-11-10, 0.3.256, The Mole Claw Pick.** The owner's picks (D-810):
-  the workbench's BUILD tab, 1 Mole Claw, 2 Wood and 2 Stone; held, it
-  works as the Stone Pick, a copper vein in 2 bumps and rubble in 2.
-  Playtest: https://claude.ai/artifact/Jzyd4pD9QK65ELUNwTYtXL

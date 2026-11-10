@@ -63,7 +63,8 @@ Body and Hands. Body: Heart, one more heart, up to 5 (D-293); Tough, a hurting b
 poisons only 1 time in 2, above Heart in the first row (D-657). Light:
 Steady Wick, a lit turn burning 9/10 of its oil, for good, a full tank
 about 66 turns, not 60; "Steady" in a box too narrow (D-798). Hands:
-none yet.
+Quick Hands, a tree, a stone deposit or a branch gathered by hand takes
+1 bump fewer, never under 1; tools keep their own count (D-813).
 
 ## Tiles, lights, places
 Moved to `CONTENT-3.md` word for word at 0.3.73 (D-618).
