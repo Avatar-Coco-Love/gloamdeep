@@ -362,6 +362,8 @@ export const LINES = {
   campfireAshes: { text: 'Cold ashes.', warn: false }, // said as cold ashes' card opens, its note the rest (D-757)
   campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
   lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)
+  minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)
+  campPickTaken: { text: 'You take the old pick.', warn: false }, // Claude's draft the owner may change (D-770)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

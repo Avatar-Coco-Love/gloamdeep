@@ -55,7 +55,8 @@ neared 8 KB.
   Cave room from depth 3; four bumps with the Stone Pick break it for
   Copper Ore, the first ore (D-450, D-480).
 - **Stone Pick:** the first pick, made at the workbench, held in the
-  Tool slot, where it breaks copper (D-480, D-552).
+  Tool slot, where it breaks copper (D-480, D-552); one waits at the
+  miners' camp (D-770).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
 - **Pond Minnow:** the first fish, from the pond at home; poured for 15% oil, or eaten for 1 heart (D-608, D-610, D-611, D-615).

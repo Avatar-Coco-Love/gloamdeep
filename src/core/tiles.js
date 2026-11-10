@@ -138,6 +138,13 @@ export const TILES = {
   // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,
   // as the campfire; bumped, it says its words, free.
   lamppost: { id: 'lamppost', kind: 'tile', letter: 'b', name: 'Lamppost', solid: true, blocksLight: false, bump: 'lamppost' },
+  // § miners' camp (D-770, the second landmark): a slumped tent and a crate, the old pick leaning on
+  // it, 3 × 2 tiles, one a seed in one of Hearthwood's mountain rooms (camp.js). Solid, light passing
+  // it, as the campfire. Bumped, it says its first words and asks Take the pick?, No picked; Yes
+  // `takes` the Stone Pick into the bag, every tile of the camp turning bare; bare, its words, free.
+  minersCamp: { id: 'minersCamp', kind: 'tile', letter: 'c', name: "Miners' camp", solid: true, blocksLight: false, panel: 'bed', says: 'minersCamp',
+    takes: { item: 'pick', into: 'minersCampBare', says: 'campPickTaken' } },
+  minersCampBare: { id: 'minersCampBare', kind: 'tile', letter: 'd', name: "Miners' camp", solid: true, blocksLight: false, bump: 'minersCamp' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

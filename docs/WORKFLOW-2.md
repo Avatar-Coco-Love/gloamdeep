@@ -97,6 +97,7 @@ exists because doing the job by hand went wrong or was slow.
 - **Plan the whole before the parts.** The full scope was drawn up in
   eight parts as multiple choice (D-413), and each big feature is
   planned as numbered steps before the first is built (D-705, D-733).
+- Drawing a mock-up's prop freehand let the owner catch that it must be the game's own picture and must leave once taken; mock-ups now reuse the game's sprites for anything the hero can carry (0.3.221).
 
 ## Starting a new project
 

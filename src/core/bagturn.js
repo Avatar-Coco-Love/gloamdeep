@@ -20,6 +20,7 @@ import { endTurn } from './endturn.js';
 import { burnOil } from './oil.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
+import { campCorner, campTiles } from './camp.js';
 
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
@@ -137,21 +138,27 @@ export function setDown(state, i, dir) {
 // chest) puts it back in the bag whole as its `takes` item, and its `also` item when
 // there is room (a planted garden bed's seed, D-566), floor left where it stood,
 // and passes a turn, with its line (WB3, D-323; CH5). A chest holding anything says
-// its `empty` line instead. With one already carried, that item's `full` line; with
+// its `empty` line instead. The miners' camp's pick leaves its every tile `into` the bare
+// camp's instead of floor (D-770). With one already carried, held too, that item's `full` line; with
 // every slot taken, "Your bag is full."; all free, and it stays. A `take` event.
 export function takeDown(state, x, y) {
   const takes = tileAt(state.room, x, y).takes;
   if (!takes) return state;
   if (takes.empty && stashAt(state, x, y).length) return say(state, takes.empty);
-  const bed = bagAdd(state.bag, takes.item, undefined, bagSize(state));
-  if (!bed) return say(state, state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
+  const held = state.tool === takes.item; // a pick in the Tool slot is carried too (D-770)
+  const bed = !held && bagAdd(state.bag, takes.item, undefined, bagSize(state));
+  if (!bed) return say(state, held || state.bag.some((s) => s.id === takes.item) ? get(takes.item).full : 'bagFull');
   const also = takes.also && bagAdd(bed, takes.also, undefined, bagSize(state));
   if (takes.both && !also) return say(state, 'bagFull'); // the shelf and its locket together, or neither (D-693)
   const bag = also || bed; // the seed planted too, when it fits (D-566)
-  const room = withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
+  const room = takes.into ? intoBare(state.room, x, y, get(takes.into)) : withTile(state.room, x, y, get('floor')), stashes = withoutStash(state, x, y);
   const next = note(passTurn(unsow({ ...forgetBed(state, x, y), room, bag, ...(stashes && { stashes }) }, x, y)), 'take', { id: takes.item });
   return endTurn(state, say(next, takes.says));
 }
+
+// The room with every tile of the camp at x, y made `tile` (camp.js, D-770)
+// whose tile is the one bumped's, so one spawned alone by the dev tools turns alone
+const intoBare = (room, x, y, tile) => { const at = campCorner(room, x, y), was = room.map[y][x]; return campTiles(at.x, at.y).filter((t) => room.map[t.y]?.[t.x] === was).reduce((r, t) => withTile(r, t.x, t.y, tile), room); };
 
 // § shelve: Yes on the shelf's ask sets its `shelves` relic from the bag on it, the tile
 // turning into its `into` tile with the relic shown, and passes a turn, with its line

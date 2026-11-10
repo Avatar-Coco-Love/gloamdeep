@@ -602,6 +602,45 @@ const LAMPPOST = { mirror: false, rows: ['.....kkkkkk.....', '....kdssssdk....',
   '....kdk..kkkkk..', '....kdk..kSssk..', '....kdk..kxQxk..', '....kdk..kxxxk..', '....kdk..kkkkk..', '....kdk.........',
   '....kdk.........', '....kdk.........', '....kdk.........', '...kkdkk........', '...ksddsk.......', '...kkkkkk.......'] };
 
+// § miners' camp (D-770, look A of three): 3 × 2 tiles, 48 × 32 pixels, a slumped canvas tent, its
+// flap open on the dark, and an old crate; the Stone Pick (PICK) leans on the crate at CAMP_PICK
+// until it is taken (sprites.js)
+const CAMP = { rows: [
+  '................................................',
+  '...............kk...............................',
+  '..............kNNk..............................',
+  '..............kNNk..............................',
+  '..............kNNk..............................',
+  '..............kNNk..............................',
+  '..............kNNk..............................',
+  '..............kaaAk.............................',
+  '..............kaaAk.............................',
+  '.............kaaaAAk............................',
+  '.............kaaaAAk............................',
+  '............kaaaaAAAk...........................',
+  '...........kaaaaaAAAAk..........................',
+  '...........kaaaanAAAAk..........................',
+  '..........kaaaaanAAAAAk.........................',
+  '.........kaaaaannAaAAAAk........................',
+  '.........kaaaaannnaAAAAk........................',
+  '........kaaaaaannnAaAAAAk.......................',
+  '........kaaaaannnnAaAOAAk.......................',
+  '.......kaaaaaannnnnaAAAAAk......................',
+  '......kaaaaOannnnnnAaAAAAAk....kkkkkkkkkkkkk....',
+  '......kaaaaaannnnnnAaAAAAAk...kaaaaaaaaaaaaak...',
+  '.....kaaaaaaannnnnnnAaAOAAAk..kWWWWWWWWWWWWWk...',
+  '....kaaaaaaannnnnnnnAaAAOAAAk.kWWnWWWWWWWWWWk...',
+  '....kaaaaOaannnnnnnnAaAAAAAAk.kWWWWWWWWWWWWWk...',
+  '...kaaaaaaaannnnnnnnnAaAAAAAAkkNNNNNNNNNNNNNk...',
+  '...kaaaaaaannnnnnnnnnAaAAAAAAkkWWWWWWWWWWWWWk...',
+  '..kaaaaaaaannnnnnnnnnAaAAAAAAAkWWWWWWWWWWnWWk...',
+  '.kaaaaaaaaannnnnnnnnnnAaAAAAAAAWWWWWWWWWWWWWk...',
+  '.kaaaaaaaannnnnnnnnnnnAaAAAAAAANNNNNNNNNNNNNk...',
+  '..kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk....',
+  '................................................',
+] };
+const CAMP_PICK = [33, 7];
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -629,4 +668,6 @@ export {
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,
   LAMPPOST,
+  CAMP,
+  CAMP_PICK,
 };

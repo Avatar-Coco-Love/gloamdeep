@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.218, The sting hits creatures too.** The owner's
+  picks, all recommended (D-768): a creature on the scorpion's marked
+  tiles takes 2 hearts, no find, no experience; it shields no one; the
+  line names it. Playtest: https://claude.ai/artifact/Gt7t31TU9Rt2CUxKkr1F8i
 - **2026-11-10, 0.3.217, The rat pack's warning.** The owner's picks, all
   recommended (D-767): a pack warns each time it notices, its three
   lines taking turns, in amber; a bite that turn keeps its line.

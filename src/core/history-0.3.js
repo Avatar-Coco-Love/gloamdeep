@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.221', date: '2026-11-10', title: 'A miners\' camp', lines: [
+    "The second landmark: a miners' camp now stands in one of the 3 mountain rooms, never the one with the campfire or the lamppost. It's a slumped canvas tent and an old crate, 3 tiles wide and 2 tall, with a stone pick leaning on the crate. Bump it and it says \"A miners' camp, long left.\" and asks \"Take the pick?\" Yes puts a Stone Pick in your bag and the pick is gone from the camp; after that, a bump only says its words. With a pick already carried, or a full bag, it tells you so and keeps its pick. In an older journey, its room gets it if you haven't been there yet.",
+    "Decisions: D-770. D-763 moved to the archive, word for word.",
+  ] },
   { v: '0.3.220', date: '2026-11-10', title: 'A dead lamppost', lines: [
     "The first landmark: a dead lamppost now stands in one of the 8 rooms around home, never the one with the campfire. It's an old Lightkeeper's iron post with its cold lamp hanging from the arm. You can't walk through it, and light passes it. Bump it and it says \"An old lamppost.\", then \"Its lamp went out long ago.\" In an older journey, its room gets it if you haven't been there yet.",
     "Decisions: D-769. D-762 moved to the archive, word for word. The rare materials' table moved from CONTENT-3.md to CONTENT-FINDS.md, word for word.",

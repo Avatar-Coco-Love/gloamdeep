@@ -455,3 +455,19 @@ for crafts later, potion making among them, each growing where it suits
 its kind (Q-092). Claude's calls the owner may change: never on the
 start, a find, the mouth's front or the waystone's ring; any open grass
 tile, not only beside a tree.
+
+**D-763 · 2026-11-09 · Gathering, step 4: the duskstar** (the owner's
+picks, all recommended, the look after its mock-up:
+https://claude.ai/artifact/G4ixYQbiLTsSrcNoAR4PKQ; builds D-762 and
+D-530, the first of Q-092's flowers) The first flower is look B, the
+**Duskstar**: five violet petals round a yellow heart. 2 grow in each
+woods room, home too, none in the mountain rooms, on open grass. Each
+faces left or right and has its own slight shade of violet, the seed
+picking. Walking onto one puts it in the bag, for crafts later. Picked,
+it comes back after a day, 300 turns, on another open grass tile of the
+same room (D-530). In an older save only woods rooms never seen, with
+nothing taken, get theirs. Claude's calls the owner may change: stacks
+of 20; never on the start, a find, the mouth's front or the waystone's
+ring when laid, any free grass tile out of sight when it comes back; its
+lines ("You pick a duskstar." and two more); a new violet shade, `#6e58a8`.
+D-758 and D-759 move to `archive/DECISIONS-SLEEPING-OUT.md`, word for word.

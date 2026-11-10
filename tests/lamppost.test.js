@@ -52,7 +52,7 @@ test('bumped, it says its words a sentence a bump, free, and the hero stays put'
 });
 
 test('an older save gets it in its room when unseen and untouched; a seen room stays (D-266)', () => {
-  assert.equal(FORMAT, 28); assert.equal(UPGRADES[27], relamp);
+  assert.ok(FORMAT >= 28); assert.equal(UPGRADES[27], relamp);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), id = lamppostRoom(seed), at = postIn(w.elsewhere[id].room.map);
     assert.ok(at, `${seed}: a new journey has it`);
