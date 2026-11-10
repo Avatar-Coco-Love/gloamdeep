@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.236 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.237 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bag's Make tab (D-787): BAG and MAKE tabs on the bag card, today's
-bag recipes in a grid, and a find's MAKE showing what it makes; then
-the mortar (D-786), then the Glow Draught. Or the third day creature
-(D-784) first, the owner's pick.
+The Mortar and Pestle (D-786): made on the bag's Make tab, set down at
+home like the bed, its card listing what it makes; then the Glow
+Draught. Or the third day creature (D-784) first, the owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -47,6 +46,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.237, The bag's Make tab.** The owner's picks
+  (D-788): BAG and MAKE tabs on the bag card; the Make tab lists the bag
+  recipes once their finds have been held, the game now remembering them;
+  the two flask recipes side by side; a grey line while it is empty; the
+  bag always opens on BAG. A find's MAKE opens its recipe there, with
+  "Makes an Oil flask" above it.
+  Playtest: https://claude.ai/artifact/H2kMZbaEG6RVSwi43kfH43
 - **2026-11-10, 0.3.236, Mortar and Make tab, the plan.** The
   owner's picks (D-786, D-787): the Mortar and Pestle, a stone bowl on a
   stump, from 4 Stone and 1 Wood; the Glow Draught from 2 Duskstar and
@@ -57,8 +63,3 @@ list in `RESEARCH.md`.
   picks (D-785): a mortar and pestle first, an alchemy lab later; fixed
   recipes; the first potion makes the lantern reach farther; cooking
   after, at the kitchen fire and at lit campfires. Nothing visible.
-- **2026-11-10, 0.3.234, Day creatures, second: the bunny.** The owner's
-  idea and picks (D-784): a shy brown bunny each day at home and in each
-  woods room round home; it never bites, hops away within 3 steps, and
-  may leave Bunny Fur. No rare day creature yet.
-  Playtest: https://claude.ai/artifact/Ufa2KEq6c2zLbtmpMmM36D

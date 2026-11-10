@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.234, Day creatures, second: the bunny.** The owner's
+  idea and picks (D-784): a shy brown bunny each day at home and in each
+  woods room round home; it never bites, hops away within 3 steps, and
+  may leave Bunny Fur. No rare day creature yet.
+  Playtest: https://claude.ai/artifact/Ufa2KEq6c2zLbtmpMmM36D
 - **2026-11-10, 0.3.233, The audit's bug fixes.** The owner's call at the
   audit (D-783): night and day creatures no longer pile up across nights
   (B1), none bites on waking (B2), and night ones come out 4 steps away

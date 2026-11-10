@@ -17,6 +17,7 @@ import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
 import { forgetBed } from './waking.js';
 import { endTurn } from './endturn.js';
+import { costOf } from './bagmake.js';
 import { burnOil } from './oil.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
@@ -44,6 +45,16 @@ export function craft(state, i) {
   if (!canCraft(state.bag, i)) return state;
   const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, recipe.of) : bagPay(state.bag, recipe.of);
   const bag = bagAdd(paid, recipe.into, undefined, bagSize(state));
+  if (!bag) return say(state, get(recipe.into).full);
+  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+}
+
+// § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s `craft.into`, its
+// cost taken from the whole bag, as craft above does otherwise
+export function makeFrom(state, from) {
+  const recipe = get(from)?.craft, of = recipe && costOf(from);
+  if (!recipe || !bagHas(state.bag, of)) return state;
+  const bag = bagAdd(bagPay(state.bag, of), recipe.into, undefined, bagSize(state));
   if (!bag) return say(state, get(recipe.into).full);
   return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
 }

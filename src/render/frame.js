@@ -40,6 +40,9 @@ import { drawLook } from './cloak.js';
 import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
+import { drawMakeCard } from './makecard.js';
+import { bagMakes, makeFor } from '../core/bagmake.js';
+import { get } from '../core/registry.js';
 import { drawChestPanel } from './chestpanel.js';
 import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
@@ -86,9 +89,14 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
+// What the chosen find's MAKE makes, for the line above it on the Bag tab, or null (D-787)
+function makesOf(state, i) {
+  const s = state.bag[i], at = s && get(s.id)?.craft ? makeFor(state, s.id) : -1;
+  return at >= 0 ? bagMakes(state)[at].item : null;
+}
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
-const CLEAR_OVER = new Set(['play', 'map', 'bag', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
-const CARDS = new Set(['bag', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
+const CLEAR_OVER = new Set(['play', 'map', 'bag', 'make', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
+const CARDS = new Set(['bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 // The moon button's ask, worked out once a state, not each frame (D-758)
 let sleepFor = null, sleepOk = false;
 const sleepsOut = (s) => { if (s !== sleepFor) { sleepFor = s; sleepOk = canSleepOut(s); } return sleepOk; };
@@ -401,8 +409,12 @@ export function createFrame(app, ui) {
     else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0); // a card on the room (D-385), its STORE with a chest in reach (D-558)
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen)); // a card on the room (D-385), its STORE with a chest in reach (D-558)
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
+    }
+    else if (app.screen === 'make') {
+      drawMakeCard(hc, view.w, view.h, bagMakes(state), app.chosen, spriteOf, state.told); // the bag's Make tab, a card on the room (D-787)
+      textLine.draw(hc, line, t, still()); // "You make an oil flask."
     }
     else if (app.screen === 'bench') {
       drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag, bagSize(state), nearStacks(state)), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)

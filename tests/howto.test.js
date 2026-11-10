@@ -66,7 +66,7 @@ test('the Bag and Bench pages say how making works, whatever the Controls switch
   assert.deepEqual(howtoRows('bag', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Make', 'Drop', 'Oilcap', 'Glass', 'Dust', 'Wood']);
   assert.deepEqual(howtoRows('bench', { swipe: 'on', tap: 'off' }).map((r) => r.action), ['Bench', 'Make', 'Pick', 'Wick', 'Vest', 'Charm', 'Bed']);
   for (const p of ['bag', 'bench']) assert.deepEqual(howtoRows(p, { swipe: 'off', tap: 'walk' }), howtoRows(p, { swipe: 'on', tap: 'walk' }));
-  assert.match(howtoWords('bag', 'both'), /^How to play, Bag\. Make: Pick a stack in the bag then press Make\./);
+  assert.match(howtoWords('bag', 'both'), /^How to play, Bag\. Make: The bag's Make tab or Make on a find\./);
   assert.match(howtoWords('bench', 'both'), /^How to play, Bench\. Bench: Bump it to make more\./);
 });
 

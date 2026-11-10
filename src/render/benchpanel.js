@@ -15,7 +15,10 @@ const GREY = '#9790a4', CORE = '#efe6cc';
 export const TAKE = 'DECONSTRUCT'; // the stash chest's card too (D-387)
 export const TAKE_W = textWidth(TAKE) + 8;
 const COST_H = 18; // the cost rows under the name, a sprite each
-const TOP = 28, SPLIT = PAD + BENCH_COLS * (SLOT + SLOT_GAP) - SLOT_GAP + 12, DETAIL_X = SPLIT + 9; // the grid's top, the line beside it and the words' left, as the stash chest's
+// the grid's top, the line beside it and the words' left, as the stash chest's; the Make tab's too (D-787)
+export const TOP = 28;
+export const SPLIT = PAD + BENCH_COLS * (SLOT + SLOT_GAP) - SLOT_GAP + 12;
+export const DETAIL_X = SPLIT + 9;
 export const TALL_SPLIT = TOP + (BENCH_SLOTS / BENCH_COLS) * (SLOT + SLOT_GAP) - SLOT_GAP + 10; // upright, the line under the grid (D-505), the stash chest's too
 export const take = (card) => ({ x: card.x + PAD, y: card.button.y });
 
