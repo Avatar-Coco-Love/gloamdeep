@@ -49,7 +49,7 @@ test('a fall wakes the hero with every heart bought, and keeps them', () => {
 });
 
 // § tree (D-462, D-481)
-import { ROWS, START_PICK, upgradeAt, movePick, told } from '../src/core/growth.js';
+import { ROWS, START_PICK, upgradeAt, movePick, rowEnd, rowPlaces, told } from '../src/core/growth.js';
 import { BRANCHES, UPGRADES } from '../src/core/upgrades.js';
 import { UPGRADES as GATHERED } from '../src/core/registry.js';
 
@@ -62,18 +62,22 @@ test('the tree has three branches, Light, Body and Hands, and the heart is Body\
   assert.equal(ROWS, 2, 'the open row and one locked');
 });
 
-test('the arrows move the pick, Up climbs, and Left past Light gives null for Records', () => {
-  const tough = { col: 1, row: 0, slot: 1 }, locked = { col: 1, row: 1, slot: 0 };
-  assert.deepEqual(movePick(START_PICK, 'up'), tough, 'Tough above the heart (D-657)');
-  assert.deepEqual(movePick(tough, 'up'), locked);
-  assert.deepEqual(movePick(locked, 'up'), locked);
-  assert.deepEqual(movePick(tough, 'down'), START_PICK);
-  assert.deepEqual(movePick(START_PICK, 'down'), START_PICK);
-  assert.deepEqual(movePick(START_PICK, 'right'), { col: 2, row: 0, slot: 0 });
-  assert.deepEqual(movePick(tough, 'left'), { col: 0, row: 1, slot: 0 }, 'as high on Light: its locked place');
-  assert.deepEqual(movePick(locked, 'right'), { col: 2, row: 1, slot: 0 }, 'Hands\' top');
-  assert.deepEqual(movePick({ col: 2, row: 0 }, 'right'), { col: 2, row: 0, slot: 0 });
-  assert.equal(movePick({ col: 0, row: 1 }, 'left'), null);
+test('the arrows read a row: Left and Right walk its places across the branches, Up and Down change row, Left past its first gives null for Records (D-811)', () => {
+  const steady = { col: 0, row: 0, slot: 0 }, tough = { col: 1, row: 0, slot: 1 }, hands = { col: 2, row: 0, slot: 0 };
+  assert.deepEqual(movePick(START_PICK, 'right'), tough, 'Tough beside the heart');
+  assert.deepEqual(movePick(tough, 'right'), hands);
+  assert.deepEqual(movePick(hands, 'right'), hands, 'the row\'s end');
+  assert.ok(rowEnd(hands) && !rowEnd(tough), 'Right there turns to the Bestiary');
+  assert.deepEqual(movePick(tough, 'left'), START_PICK);
+  assert.deepEqual(movePick(START_PICK, 'left'), steady);
+  assert.equal(movePick(steady, 'left'), null);
+  assert.deepEqual(movePick(tough, 'up'), { col: 1, row: 1, slot: 0 }, 'the locked row, its one place on Body');
+  assert.deepEqual(movePick({ col: 1, row: 1, slot: 0 }, 'up'), { col: 1, row: 1, slot: 0 }, 'the top');
+  assert.deepEqual(movePick({ col: 1, row: 1, slot: 0 }, 'down'), START_PICK);
+  assert.deepEqual(movePick(START_PICK, 'down'), START_PICK, 'the bottom');
+  assert.deepEqual(movePick({ col: 1, row: 1, slot: 0 }, 'right'), { col: 2, row: 1, slot: 0 });
+  assert.equal(movePick({ col: 0, row: 1, slot: 0 }, 'left'), null);
+  assert.deepEqual(rowPlaces(0), [steady, START_PICK, tough, hands]);
 });
 
 test('the heart\'s button is dim without an ember; a place to come or locked has none', () => {

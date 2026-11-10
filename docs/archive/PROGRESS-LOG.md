@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.255, The Fang Charm.** The owner's picks (D-809):
+  the workbench's GEAR tab, 1 Bat Fang and 1 Copper Ore; worn, a beaten
+  creature gives back 1 heart 1 time in 4, a red heart rising by the "+1".
+  Playtest: https://claude.ai/artifact/GBfTreq1MNi4caw2RCi7hV
 - **2026-11-10, 0.3.254, The Glow Lamp.** The owner's picks (D-808):
   made in the bag from 1 Glow Gland and 1 Wood; set down as a torch is,
   it lights 3 tiles in steady green for 300 turns, then goes dark.

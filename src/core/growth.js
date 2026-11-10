@@ -25,35 +25,40 @@ export function buy(state, id) {
 // The picked place's upgrade bought, or the state unchanged
 export const buyAt = (state, pick) => buy(state, upgradeAt(pick)?.id);
 
-// § tree (D-462, D-481): Growth's three branches side by side, each a column of rows, one row
-// for each biome reached; embers buy any upgrade in an open row, in any order. Today's hearts
-// are Body's first, Tough stacked above them in the same row (D-657); the branches and upgrades
-// are in upgrades.js. A place is { col, row, slot }: an open row has one place for each of its
-// upgrades on that branch, or one to come; the locked row one.
+// § tree (D-462, D-481, D-811): Growth's three branches side by side, each a limb, and across
+// them a twig for each biome reached, row 0 the first at the bottom; embers buy any upgrade in an
+// open row, in any order. On a row's twig each branch's upgrades sit side by side, by their slot
+// (Tough beside the heart); the branches and upgrades are in upgrades.js. A place is
+// { col, row, slot }: an open row has one place for each of a branch's upgrades in it, or one
+// to come where it has none; the locked row one a branch.
 export const ROWS_OPEN = 1; // the first biome's row; each next one opens on reaching the next biome (D-462)
 export const ROWS = ROWS_OPEN + 1; // and one more shown, dim and locked (D-481)
 export const START_PICK = { col: 1, row: 0, slot: 0 }; // Body's first, the heart
 export const upgradeAt = ({ col, row, slot = 0 }) => Object.values(UPGRADES).find((u) => u.branch === BRANCHES[col]?.id && u.row === row && u.slot === slot) ?? null;
-// A branch's places from the bottom up
-export function placesOf(col) {
-  const here = Object.values(UPGRADES).filter((u) => u.branch === BRANCHES[col]?.id);
-  return Array.from({ length: ROWS }, (_, row) => {
-    const n = row < ROWS_OPEN ? Math.max(1, ...here.filter((u) => u.row === row).map((u) => u.slot + 1)) : 1;
-    return Array.from({ length: n }, (_, slot) => ({ col, row, slot }));
-  }).flat();
+// How many places a branch has in a row
+export function placesIn(col, row) {
+  const here = Object.values(UPGRADES).filter((u) => u.branch === BRANCHES[col]?.id && u.row === row);
+  return row < ROWS_OPEN ? Math.max(1, ...here.map((u) => u.slot + 1)) : 1;
 }
-// How high a place stands on its branch, 0 at the bottom
-const heightOf = ({ col, row, slot = 0 }) => Math.max(0, placesOf(col).findIndex((p) => p.row === row && p.slot === slot));
+// A row's places as read, left to right across the branches
+export const rowPlaces = (row) => BRANCHES.flatMap((_, col) => Array.from({ length: placesIn(col, row) }, (_, slot) => ({ col, row, slot })));
+// Every place on the tree, row by row from the bottom
+export const allPlaces = () => Array.from({ length: ROWS }, (_, row) => rowPlaces(row)).flat();
 
-// § pick: an arrow moves the gold outline over the tree's places, row 0 at the bottom, so Up
-// climbs (D-481) through a branch's places, Tough above the heart (D-657). Left and Right go to
-// the place as high on the next branch, or its top one. Gives the new place, the same one at the
-// tree's top, bottom or right edge, or null past Light, the left edge, for the Records tab.
+// § pick (D-811): an arrow moves the gold outline over the tree's places as a row is read: Left
+// and Right walk the row's places one by one, across the branches; Up and Down go to the row
+// above or below (row 0 at the bottom, so Up climbs, D-481), on the same branch, its place as
+// far along or its last. Gives the new place, the same one at the tree's top or bottom or the
+// row's right end (rowEnd, where the input turns to the Bestiary), or null past the row's first,
+// for the Records tab.
+const sameAs = (p) => (q) => q.col === p.col && q.slot === (p.slot ?? 0);
+export const rowEnd = (pick) => sameAs(pick)(rowPlaces(pick.row).at(-1));
 export function movePick(pick, dir) {
-  const { col } = pick, h = heightOf(pick), on = (c, i) => { const ps = placesOf(c); return ps[Math.max(0, Math.min(i, ps.length - 1))]; };
-  if (dir === 'left') return col === 0 ? null : on(col - 1, h);
-  if (dir === 'right') return on(Math.min(col + 1, BRANCHES.length - 1), h);
-  return on(col, dir === 'up' ? h + 1 : h - 1);
+  const ps = rowPlaces(pick.row), i = Math.max(0, ps.findIndex(sameAs(pick)));
+  if (dir === 'left') return i === 0 ? null : ps[i - 1];
+  if (dir === 'right') return ps[Math.min(i + 1, ps.length - 1)];
+  const row = Math.max(0, Math.min(ROWS - 1, pick.row + (dir === 'up' ? 1 : -1)));
+  return { col: pick.col, row, slot: Math.min(pick.slot ?? 0, placesIn(pick.col, row) - 1) };
 }
 
 // § told: what the picked place says beside the tree: its name, a value line or null, its words,
