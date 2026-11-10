@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.249, The Fur Bedroll.** The owner's picks (D-803):
+  the BUILD tab's last slot, 4 Bunny Fur and 1 Spider Silk, kept in the
+  bag; sleeping out with it wakes the hero with 2 hearts back, not stiff.
+  Playtest: https://claude.ai/artifact/Tt4uV3cJma85sa6KVgVidL
 - **2026-11-10, 0.3.248, The Spitproof Draught.** The owner's picks
   (D-802): the mortar's fifth recipe, 2 Grub Skin and 1 Herb; for 60
   turns a spit grub's glob splashes off, hurting nothing; dusty rose.

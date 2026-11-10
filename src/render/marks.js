@@ -2,7 +2,7 @@
 // picture in its colour: the boon held, its kind's picture from its card (render/boons.js); the
 // place for what else the hero carries for a while: poisoned, a pale green drop (D-654); stiff, a Zz in the moon's pale blue (D-759);
 // the Glow Draught, a gold bottle with its turns left beside it, the glass wider (D-791);
-// Slowburn, the same bottle in deep amber with its turns (D-792); the Mending Draught's in moss green (D-794); the Ward Draught's in pale green-white (D-795); the Spitproof Draught's in dusty rose (D-802). marks: [{ icon, tint, n? }].
+// Slowburn, the same bottle in deep amber with its turns (D-792); the Mending Draught's in moss green (D-794); the Ward Draught's in pale green-white (D-795); the Spitproof Draught's in dusty rose (D-802); the Shade Draught's in dusky violet (D-806). marks: [{ icon, tint, n? }].
 import { drawGlass } from './glass.js';
 import { drawText, textWidth } from './font.js';
 
@@ -22,6 +22,8 @@ export const MEND_MARK = { ...GLOW_MARK, id: 'mending', tint: '#6fb04e' };
 export const WARD_MARK = { ...GLOW_MARK, id: 'ward', tint: '#dcf0d4' };
 // § the Spitproof Draught's mark: the same bottle in dusty rose, the spit grub's eye (D-802)
 export const SPIT_MARK = { ...GLOW_MARK, id: 'spitproof', tint: '#e0a0aa' };
+// § the Shade Draught's mark: the same bottle in dusky violet, the rim lurker's (D-806)
+export const SHADE_MARK = { ...GLOW_MARK, id: 'shade', tint: '#b39ad0' };
 // A mark's width: its square, and a number's room after the picture when it has one
 const NUM_GAP = 2;
 export const markW = (m) => (m && m.n !== undefined ? MARK + NUM_GAP + textWidth(String(m.n)) : MARK);

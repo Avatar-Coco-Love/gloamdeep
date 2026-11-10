@@ -24,9 +24,9 @@ test('the Spitproof Draught is a made find of 5 a stack, drunk, with its lines',
   for (const line of ['spitproofMake', 'spitproofShort', 'spitproofFull', 'spitproofDrink', 'spitproofLook', 'spitproofSplash', 'spitproofEnds', 'spitproofHeld']) assert.ok(LINES[line], line);
 });
 
-test('the mortar shows it once Grub Skin and Herb have both been held, last', () => {
+test('the mortar shows it once Grub Skin and Herb have both been held, fifth', () => {
   const tile = get('mortarStand');
-  assert.equal(tile.makes.at(-1), 'spitproofDraught');
+  assert.equal(tile.makes.at(4), 'spitproofDraught');
   assert.deepEqual(stationMakes(tile, parts, 6, [], new Set(['grubSkin'])), []);
   const [m] = stationMakes(tile, parts, 6, [], new Set(['grubSkin', 'herb']));
   assert.equal(m.item, 'spitproofDraught'); assert.equal(m.dim, false);

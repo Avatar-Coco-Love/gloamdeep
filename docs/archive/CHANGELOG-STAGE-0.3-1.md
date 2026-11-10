@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.249 (2026-11-10)
+- New: the Fur Bedroll, the Bunny Fur's first use. The workbench's BUILD tab makes it from 4 Bunny Fur and 1 Spider Silk. Keep it in your bag: when you sleep out under the sky, you wake with 2 hearts back and not stiff. It is never used up. The bed at home still heals you fully.
+- With the bedroll in your bag, the moon's ask says "Your fur bedroll is warm." Bunny Fur now says "for a fur bedroll."
+- Decisions: D-803.
+
 ## 0.3.248 (2026-11-10)
 - New: the Spitproof Draught, a dusty rose bottle, the Grub Skin's first use. Once you have held Grub Skin and Herb, the mortar makes it from 2 Grub Skin and 1 Herb. Drink it from your bag and for 60 turns a spit grub's glob splashes off you and hurts nothing; the grubs still spit. A rose bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
 - Grub Skin now says "Two make a Spitproof."

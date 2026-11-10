@@ -113,7 +113,7 @@ export const CREATURE_LINES = {
   rimLurkerDie: { text: 'The rim lurker sinks into the dark.', warn: false },
   rimLurkerBite: { text: 'The rim lurker claws you.', warn: false, kind: 'harm' },
   lurkerClawTake: { texts: ['You pick up the lurker claw.', 'Long and pale, still sharp.', 'The lurker claw goes in your bag.'], warn: false }, // (D-797)
-  lurkerClawLook: { texts: ['A lurker claw, for crafting later.', 'Pale as bone, cold to hold.', 'Long, hooked and sharp.'], warn: false },
+  lurkerClawLook: { texts: ['A lurker claw. Two make a Shade.', 'Pale as bone, cold to hold.', 'Long, hooked and sharp.'], warn: false },
   lurkerClawFull: { text: "You can't carry more lurker claws.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },

@@ -113,17 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-801 · 2026-11-10 · The Shell Vest** (the owner's picks, all
-recommended; builds D-484, D-799) The second armour piece, on the GEAR
-tab: 4 Crab Shell, 1 Wood. Worn in the armour slot, in the Rat Hide
-Vest's place, it takes 1 off a bite of 2 or more, the scorpion's tail
-strike too, so the rim lurker and the scorpion hurt 1, not 2. Its look:
-overlapping stony grey plates with rust edges, the crab's colours.
-Claude's calls the owner may change: never below 1; its lines ("You
-put on the shell vest.", "A shell vest. Hard bites hurt less.");
-the Crab Shell's look line names it. D-791, D-792 and D-794 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-802 · 2026-11-10 · The Spitproof Draught, the mortar's fifth
 recipe** (the owner's picks, all recommended; builds D-799) Made at the
 mortar from 2 Grub Skin and 1 Herb. Drunk from the bag, for 60 turns a
@@ -190,3 +179,21 @@ folded bat wing in the charms' copper setting; its lines ("You make an
 echo charm.", "You put on the echo charm.", "Near creatures show in
 the dark."); the Bat Wing's look line names it. D-800 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-806 · 2026-11-10 · The Shade Draught, the mortar's sixth recipe**
+(the owner's picks, all recommended; builds D-799) Lurker Claw's first
+use, made at the mortar from 2 Lurker Claw and 1 Duskstar. Drunk from
+the bag, for 60 turns a creature that has not noticed the hero notices
+them only within 2 steps, by light, by line or lurking; one already
+after the hero keeps coming, lampmoths still fly to the lantern and
+spit grubs still spit. Its rules are the Spitproof Draught's (D-802):
+drunk again, back to 60; any time; a night uses its turns and a fall
+ends it; it holds 5; a small mark under the hearts with the turns left.
+Its bottle and mark are dusky violet, the rim lurker's. Others offered:
+2 Lurker Claw and 1 Herb; 3 Lurker Claw; within 1 or 3 steps; chasers
+losing the hero too; grubs spitting only near; smoky grey; deep indigo.
+Claude's calls the owner may change: steps counted the lurker's way, no
+diagonals; its lines ("The dark folds round you.", "The shade lifts
+from you." as it ends); the mortar lists it last; the Lurker Claw's
+look line names it. D-801 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

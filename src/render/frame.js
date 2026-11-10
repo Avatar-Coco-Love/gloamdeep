@@ -13,7 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -353,7 +353,8 @@ export function createFrame(app, ui) {
     if (state.slowburn > 0) marks.push({ ...SLOW_MARK, n: state.slowburn }); // Slowburn, an amber bottle and its turns left (D-792)
     if (state.mending > 0) marks.push({ ...MEND_MARK, n: state.mending }); // the Mending Draught, a moss green bottle and its turns left (D-794)
     if (state.ward > 0) marks.push({ ...WARD_MARK, n: state.ward }); // the Ward Draught, a pale green-white bottle and its turns left (D-795)
-    if (state.spitproof > 0) marks.push({ ...SPIT_MARK, n: state.spitproof }); // the Spitproof Draught last, a dusty rose bottle and its turns left (D-802)
+    if (state.spitproof > 0) marks.push({ ...SPIT_MARK, n: state.spitproof }); // the Spitproof Draught, a dusty rose bottle and its turns left (D-802)
+    if (state.shade > 0) marks.push({ ...SHADE_MARK, n: state.shade }); // the Shade Draught last, a dusky violet bottle and its turns left (D-806)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
     const mk = marksSize(marks), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);

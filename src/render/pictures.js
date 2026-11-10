@@ -543,6 +543,9 @@ const WARD_COLOURS = { l: '#dcf0d4', m: '#8fb898' };
 // § spitproof draught: the same bottle in dusty rose, light and shade, from the spit grub's pink eye (D-802)
 const SPITPROOF_DRAUGHT = WARD_DRAUGHT;
 const SPITPROOF_COLOURS = { l: '#e0a0aa', m: '#a8606e' };
+// § shade draught: the same bottle in dusky violet, light and shade, the rim lurker's (D-806)
+const SHADE_DRAUGHT = WARD_DRAUGHT;
+const SHADE_COLOURS = { l: '#b39ad0', m: '#6e5a8c' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -578,4 +581,6 @@ export {
   WARD_COLOURS,
   SPITPROOF_DRAUGHT,
   SPITPROOF_COLOURS,
+  SHADE_DRAUGHT,
+  SHADE_COLOURS,
 };

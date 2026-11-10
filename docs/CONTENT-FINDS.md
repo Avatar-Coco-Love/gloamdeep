@@ -42,12 +42,13 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); there, a Normal fall brings home the bag's stack worth most to the peddler (D-694) | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693, D-694 |
 | `bunnyFur` | 4 with 1 Spider Silk make the Fur Bedroll (D-803); sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
 | `crabShell` | 4 with 1 Wood make the Shell Vest (D-801); sold for 1 | 20 | never | a beaten skulker crab, about 1 in 2 | D-796 |
-| `lurkerClaw` | for crafts later; sold for 1 | 20 | never | a beaten rim lurker, about 1 in 2 | D-797 |
+| `lurkerClaw` | 2 with 1 Duskstar make the Shade Draught at the mortar (D-806); sold for 1 | 20 | never | a beaten rim lurker, about 1 in 2 | D-797 |
 | `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
 | `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
 | `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Herb | D-794 |
 | `wardDraught` | Drink, in the bag, any time: ends poisoned, and for 60 turns a bite never poisons | 5 | never | made at the mortar: 2 Centipede Leg, 1 Herb | D-795 |
 | `spitproofDraught` | Drink, in the bag, any time: for 60 turns a spit grub's glob splashes off and hurts nothing | 5 | never | made at the mortar: 2 Grub Skin, 1 Herb | D-802 |
+| `shadeDraught` | Drink, in the bag, any time: for 60 turns a creature notices the hero only within 2 steps; one already after them keeps coming | 5 | never | made at the mortar: 2 Lurker Claw, 1 Duskstar | D-806 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,
