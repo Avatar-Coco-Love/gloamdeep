@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.238, The Mortar and Pestle.** The owner's picks
+  (D-789): made on the bag's Make tab from 4 Stone and 1 Wood, set down
+  at home like the bed; bumped any time, the workbench's card as MORTAR,
+  empty for now; Deconstruct with no ask. Handoffs now end with copyable
+  next prompts (D-790).
+  Playtest: https://claude.ai/artifact/JsbFyJVSWeJFwJEDLVwzYR
 - **2026-11-10, 0.3.237, The bag's Make tab.** The owner's picks
   (D-788): BAG and MAKE tabs on the bag card; the Make tab lists the bag
   recipes once their finds have been held, the game now remembering them;

@@ -86,21 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-785 · 2026-11-10 · Alchemy and cooking, the shape** (the owner's
-picks, all recommended, with the owner's addition; narrows Q-093,
-Q-088; changes D-456's "stations don't improve for now" for alchemy)
-Alchemy starts at a mortar and pestle, a station built at home; an
-alchemy lab comes later as the better station, with stronger recipes.
-Recipes there are fixed, as Make is today: set finds always make the
-same thing, shown once their parts have been held (D-418); a base
-potion with add-ins was offered and not picked. Its first new potion
-makes the lantern reach farther for a while; its finds, amounts and
-turns are proposed at its step. Cooking comes after alchemy, at the
-kitchen fire (D-771), and simple food can also be cooked at a lit
-campfire in the world (the owner's addition). The mortar's cost and
-look, the lab and each recipe come at their own steps. Nothing in the
-game changes yet.
-
 **D-786 · 2026-11-10 · The mortar and pestle and the Glow Draught**
 (the owner's picks, all recommended, from a mock-up drawn with the
 game's own code, https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4;
@@ -191,3 +176,16 @@ no longer drawn dim at full health, as it never was. The handoff's next
 prompts are each in their own fenced code block, never an inline list
 (the owner's correction, D-790). D-784 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-793 · 2026-11-10 · Day creatures, third: the rare herb mimic**
+(the owner's picks, from the herb mimic, scorpion and centipede, as a
+rare one, recommended; builds D-784) Each day the seed and the day pick
+one of the 5 woods rooms round home, and a herb mimic comes out there
+beside that room's mole and bunny, with the day creatures' rules
+(D-781); never home. Day matches night: two that come each day, one
+rare. It acts and leaves finds as it does below. Claude's calls the
+owner may change: it comes out asleep, looking like a herb, on open
+grass 4 steps or more from the hero; it may pick the same room two days
+running; it never shares a tile with the others. The owner also wants
+brand-new kinds of creature, not only ones from below (Q-076). D-785
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

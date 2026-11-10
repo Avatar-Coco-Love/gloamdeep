@@ -13,9 +13,12 @@
 // (B2); and night creatures come out at least 4 steps away too, as the mole (B3).
 // The second day creature, the bunny (D-784), the first that means no harm: one each day in each
 // woods room round home beside the mole, and one in the home room too, the only creature there.
+// The third, the rare herb mimic (D-793): one woods room round home a day, picked by the seed and
+// the day, as the gloamling by night; it comes out asleep, looking like a herb.
 import { daylight, DAY_TURNS } from './daytime.js';
 import { ROUND_HOME, HOME_ID, woodsSeed } from './hearthwood.js';
 import { tileAt } from './room.js';
+import { get, asleepAtFirst } from './registry.js';
 import { litAt } from './sight.js';
 import { rng, pick, seedFor } from './rng.js';
 
@@ -28,6 +31,10 @@ export const rareRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x2c1b3
 
 // § day kinds: what comes out each day, one of each, in each room (D-781)
 export const DAY_KINDS = ['mole', 'bunny'];
+// The rare one by day: a herb mimic, in one woods room round home a day, picked by the seed and
+// the day, beside that room's mole and bunny (D-793); never home
+export const RARE_DAY_KIND = 'herbMimic';
+export const rareDayRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x6a09e667, n + 1)), ROUND_HOME);
 // The home room's: only the bunny, which never bites (D-784); nothing comes out there by night
 export const HOME_KINDS = ['bunny'];
 // The rooms where creatures come out: the home room and the woods rooms round it
@@ -66,10 +73,11 @@ function comeOut(state, when) {
   const spots = openSpots(state, night);
   if (!spots.length) return state;
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place) ^ (night ? 0 : 0x5d4f1a37), n + 1)), out = [];
-  const kinds = !night ? (state.place === HOME_ID ? HOME_KINDS : DAY_KINDS) : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
+  const kinds = !night ? (state.place === HOME_ID ? HOME_KINDS : rareDayRoom(state.seed ?? 1, n) === state.place ? [...DAY_KINDS, RARE_DAY_KIND] : DAY_KINDS)
+    : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
   for (const id of kinds) {
     const left = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
-    if (left.length) out.push({ id, ...pick(r, left), [when]: true });
+    if (left.length) out.push({ id, ...pick(r, left), ...(asleepAtFirst(get(id)) && { asleep: true }), [when]: true }); // a mimic comes out asleep, looking like its find
   }
   const stay = state.enemies.filter((e) => !e[when]); // an earlier night's or day's still standing go first (B1)
   return { ...state, room: { ...state.room, [when]: n }, enemies: [...stay, ...out] };
