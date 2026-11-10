@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.237 (2026-11-10)
+- The bag has two tabs, BAG and MAKE. The Make tab lists everything you can make from your bag: pick one to see its cost from what you carry, then press MAKE. A recipe shows once you have held each of its finds, and stays after.
+- On the Bag tab, a find's MAKE now opens the Make tab on its recipe, and a line above it shows what it makes ("Makes an Oil flask"). Tab switches the tabs.
+- Decisions: D-788.
+
 ## 0.3.236 (2026-11-10)
 - Nothing in the game changes. The plan for the first potion station is set. The Mortar and Pestle is a stone bowl on a stump, made from 4 Stone and 1 Wood. Its first recipe is the Glow Draught, made from 2 Duskstar and 1 Wisp Glass, which makes your lantern reach 1 tile farther for 60 turns. The workbench has no room left, so first the bag gets a Make tab listing everything you can make from your bag.
 - Decisions: D-786, D-787. Questions: Q-093 narrowed.

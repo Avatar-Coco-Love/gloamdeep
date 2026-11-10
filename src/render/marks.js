@@ -1,7 +1,8 @@
 // § marks: a row of small glass squares under the hearts panel (D-604), each with a 9 × 9
 // picture in its colour: the boon held, its kind's picture from its card (render/boons.js); the
 // place for what else the hero carries for a while: poisoned, a pale green drop (D-654); stiff, a Zz in the moon's pale blue (D-759);
-// the Glow Draught, a gold bottle with its turns left beside it, the glass wider (D-791). marks: [{ icon, tint, n? }].
+// the Glow Draught, a gold bottle with its turns left beside it, the glass wider (D-791);
+// Slowburn, the same bottle in deep amber with its turns (D-792). marks: [{ icon, tint, n? }].
 import { drawGlass } from './glass.js';
 import { drawText, textWidth } from './font.js';
 
@@ -13,6 +14,8 @@ export const POISON_MARK = { id: 'poisoned', tint: '#b6e07a', icon: ['....#....'
 export const STIFF_MARK = { id: 'stiff', tint: '#b0bcf0', icon: ['#####....', '...#.....', '..#......', '.#.......', '#####....', '....####.', '......#..', '.....#...', '....####.'] };
 // § glow's mark: a round bottle in the lantern's gold, the potion's shape (D-791)
 export const GLOW_MARK = { id: 'glow', tint: '#ffd66b', icon: ['...###...', '....#....', '...###...', '..#####..', '.##.####.', '.#.######', '.########', '..#######', '...####..'] };
+// § Slowburn's mark: the same bottle in the oil bar's deep amber (D-792)
+export const SLOW_MARK = { ...GLOW_MARK, id: 'slowburn', tint: '#e9a94a' };
 // A mark's width: its square, and a number's room after the picture when it has one
 const NUM_GAP = 2;
 export const markW = (m) => (m && m.n !== undefined ? MARK + NUM_GAP + textWidth(String(m.n)) : MARK);

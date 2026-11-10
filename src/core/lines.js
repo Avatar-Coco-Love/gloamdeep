@@ -266,6 +266,13 @@ export const LINES = {
   glowDraughtLook: { texts: ['A gold draught that glows.', 'Drink it: the light reaches farther.', 'Made at the mortar.'], warn: false },
   glowEnds: { text: 'The glow fades.', warn: false }, // its turns run out (D-791)
   glowHeld: { text: 'Glow Draught: {n} turns left.', warn: false }, // a tap on its mark (D-791)
+  slowburnMake: { text: 'You make a Slowburn.', warn: false }, // MORTAR's card, a turn (D-792)
+  slowburnShort: { text: 'You need 2 Tick Shell and 1 Oilcap.', warn: false }, // too few, free
+  slowburnFull: { text: "You can't carry more Slowburns.", warn: false }, // every stack full, no slot free
+  slowburnDrink: { texts: ['You drink the Slowburn.', 'The flame settles low and steady.', 'The lantern drinks slower.'], warn: false }, // drunk from the bag, any time (D-792)
+  slowburnLook: { texts: ['A dark draught, thick as oil.', 'Drink it: the lantern burns slower.', 'Made at the mortar.'], warn: false },
+  slowEnds: { text: 'The flame burns hungry again.', warn: false }, // its turns run out (D-792)
+  slowHeld: { text: 'Slowburn: {n} turns left.', warn: false }, // a tap on its mark (D-792)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

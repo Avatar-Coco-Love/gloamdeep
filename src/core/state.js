@@ -5,7 +5,7 @@ import { blankMemory } from './fog.js';
 import { OIL, burnOil } from './oil.js';
 import { fresh } from './events.js';
 import { burnOf } from './parts.js';
-import { BOONS, STARTS, byLetter } from './registry.js';
+import { BOONS, STARTS, byLetter, get } from './registry.js';
 import { START } from './starts.js';
 import { idAt, SIZE } from './hearthwood.js';
 import { mouthOf } from './mouth.js';
@@ -25,6 +25,8 @@ export const HERO_HEALTH = 5;
 // boon.js can use maxHealth without a circular import; boon.js passes them on.
 export const boonHearts = (state) => (state.boon && BOONS[state.boon]?.hearts) || 0;
 export const boonBurn = (state) => (state.boon && BOONS[state.boon]?.burn) || 1;
+// What the Slowburn draught multiplies a lit turn's oil by while it works, 1 without (slowburn.js, D-792)
+export const draughtBurn = (state) => (state.slowburn > 0 ? get('slowburn').slow.burn : 1);
 export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0) + boonHearts(state);
 // § without boon: the boon ends as the hero is home again or falls (D-583): its hearts go,
 // any health above the most without it with them (boon.js)
@@ -102,7 +104,7 @@ function away(begun, here, seen) {
 
 // A passed turn starts a new list of events (events.js)
 // With Endless oil on (`state.endless`, a dev switch) a lit turn burns nothing (D-626).
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state)) : state.oil });
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state) * draughtBurn(state)) : state.oil });
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

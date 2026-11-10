@@ -12,6 +12,7 @@ import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, i
 import { note } from './events.js';
 import { pourOf, healOf } from './boon.js';
 import { glowing } from './glow.js';
+import { slowing } from './slowburn.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
@@ -101,12 +102,14 @@ function growBag(state, id, recipe, { from, to }) {
 // A potion is drunk this way, for 4 hearts (D-309).
 // At full health it stays, "You aren't hurt." is said, free. An `eat` event.
 // An antidote (`cures`) ends poisoned instead, healing nothing; not poisoned, it stays
-// and "You aren't poisoned." is said, free (D-655). A Glow Draught (`glow`) lights farther (D-791).
+// and "You aren't poisoned." is said, free (D-655). A Glow Draught (`glow`) lights farther (D-791),
+// and Slowburn (`slow`) burns slower (D-792).
 export function eat(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.eats) return state;
   if (entry.cures) return cure(state, i, entry);
   if (entry.glow) return glow(state, i, entry);
+  if (entry.slow) return glow(state, i, entry, slowing);
   if (state.health >= maxHealth(state)) return say(state, 'notHurt');
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
   return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + healOf(state, entry)) });
@@ -119,10 +122,11 @@ function cure(state, i, entry) {
 }
 
 // A Glow Draught is drunk any time, even at full health or with the lantern empty; its count
-// starts whole after the turn's own tick (glow.js, D-791)
-function glow(state, i, entry) {
+// starts whole after the turn's own tick (glow.js, D-791); Slowburn is drunk the same way, `starts`
+// its own count (slowburn.js, D-792)
+function glow(state, i, entry, starts = glowing) {
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
-  return glowing(endTurn(state, { ...next, bag: bagTake(state.bag, i) }), entry);
+  return starts(endTurn(state, { ...next, bag: bagTake(state.bag, i) }), entry);
 }
 
 // § hold: Hold on bag slot i puts its weapon in the hand, or its tool in the Tool slot,

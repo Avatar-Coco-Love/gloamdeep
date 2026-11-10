@@ -521,6 +521,8 @@ const CAMP_PICK = [33, 7];
 
 // § glow draught: the red potion's round bottle in the lantern's gold, light and shade (D-786)
 const GLOW_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'y').replace(/R/g, 'Y')) };
+// § slowburn: the same bottle, dark as lamp oil: amber-deep, its shade the wood's dark brown (D-792)
+const SLOWBURN = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'O').replace(/R/g, 'N')) };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -549,4 +551,5 @@ export {
   CAMP,
   CAMP_PICK,
   GLOW_DRAUGHT,
+  SLOWBURN,
 };

@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.240 (2026-11-10)
+- New: Slowburn, a bottle dark as lamp oil. Once you have held Tick Shell and Oilcap, the mortar makes it from 2 Tick Shell and 1 Oilcap. Drink it from your bag and your lantern burns slower for 60 turns: a full tank lasts 70 turns, not 60, on top of the Heart Charm. An amber bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while your lantern is empty or you sleep, and a fall ends it.
+- Tick Shell now says "good for making things", and its card shows "Makes a Slowburn at the mortar".
+- Fixed: the Glow Draught's DRINK button looked dim at full health, though it could always be drunk.
+- Decisions: D-792.
+
 ## 0.3.239 (2026-11-10)
 - New: the Glow Draught, a gold bottle. Once you have held Duskstar and Wisp Glass, the mortar makes it from 2 Duskstar and 1 Wisp Glass. Drink it from your bag and your lantern's light reaches 1 tile farther for 60 turns, on top of Wide Glow. A gold bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while your lantern is empty or you sleep, and a fall ends it.
 - Duskstar and Wisp Glass now say "good for making things", and their card shows "Makes a Glow Draught at the mortar".
@@ -31,8 +37,3 @@ Entry format:
 ## 0.3.238 (2026-11-10)
 - New: the Mortar and Pestle, a stone bowl on a stump. Make it on the bag's Make tab from 4 Stone and 1 Wood, then set it down outside like the bed. Bump it, day or night, to open its card; it has nothing to make yet, and the Glow Draught comes next. DECONSTRUCT puts it back in your bag.
 - Decisions: D-789, D-790.
-
-## 0.3.237 (2026-11-10)
-- The bag has two tabs, BAG and MAKE. The Make tab lists everything you can make from your bag: pick one to see its cost from what you carry, then press MAKE. A recipe shows once you have held each of its finds, and stays after.
-- On the Bag tab, a find's MAKE now opens the Make tab on its recipe, and a line above it shows what it makes ("Makes an Oil flask"). Tab switches the tabs.
-- Decisions: D-788.
