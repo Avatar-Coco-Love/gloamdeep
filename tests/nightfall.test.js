@@ -2,7 +2,7 @@
 // and a rare gloamling in one of them (D-780)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom } from '../src/core/nightfall.js';
+import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom, RARE_DAY_KIND, rareDayRoom } from '../src/core/nightfall.js';
 import { passTime } from '../src/core/daytime.js';
 import { makeWorld, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -11,7 +11,7 @@ import { litAt } from '../src/core/sight.js';
 
 const at = (place, turns) => ({ ...passTime(goToPlace(makeWorld('first', 4127), place), turns), lit: true });
 const moths = (s) => s.enemies.filter((e) => e.night);
-const ROOM = ROUND_HOME.find((id) => id !== rareRoom(4127, 0) && id !== rareRoom(4127, 1)); // no gloamling these nights
+const ROOM = ROUND_HOME.find((id) => ![0, 1].some((n) => id === rareRoom(4127, n) || id === rareDayRoom(4127, n))); // no gloamling these nights, no herb mimic these days
 
 test('the lampmoth and the bat come out at night, from halfway through dusk to halfway through dawn', () => {
   assert.deepEqual(NIGHT_KINDS, ['lampmoth', 'bat']);
@@ -182,4 +182,31 @@ test('one bunny comes out by day in the home room, the only creature there; none
 test('never a bunny in a mountain room', () => {
   const mountain = ['woods:0,0', 'woods:1,0', 'woods:2,0'].find(isMountain);
   assert.equal(bunnies(nightfall(at(mountain, 100))).length, 0);
+});
+
+// The third day creature: a rare herb mimic, in one woods room round home a day (D-793)
+test('each day the seed picks one woods room round home for the herb mimic', () => {
+  assert.equal(RARE_DAY_KIND, 'herbMimic');
+  const rooms = new Set();
+  for (let n = 0; n < 40; n++) {
+    const id = rareDayRoom(4127, n);
+    assert.ok(ROUND_HOME.includes(id));
+    assert.equal(rareDayRoom(4127, n), id);
+    rooms.add(id);
+  }
+  assert.ok(rooms.size > 1, 'not the same room every day');
+});
+
+test('the herb mimic comes out only in its room, asleep, beside the mole and the bunny', () => {
+  const room = rareDayRoom(4127, 0), s = at(room, 100), day = nightfall(s);
+  const out = day.enemies.filter((e) => e.day);
+  assert.deepEqual(out.map((m) => m.id), ['mole', 'bunny', RARE_DAY_KIND]);
+  const [m] = out.filter((e) => e.id === RARE_DAY_KIND);
+  assert.equal(m.asleep, true, 'looking like a herb');
+  assert.equal(day.room.map[m.y][m.x], '.');
+  assert.ok(steps(s, m) >= 4);
+  for (const other of ROUND_HOME.filter((id) => id !== room))
+    assert.ok(!nightfall(at(other, 100)).enemies.some((e) => e.id === RARE_DAY_KIND));
+  assert.ok(!nightfall(at(HOME_ID, 100)).enemies.some((e) => e.id === RARE_DAY_KIND), 'never home');
+  assert.ok(!nightfall({ ...day, turn: 220 }).enemies.some((e) => e.id === RARE_DAY_KIND), 'gone by night');
 });
