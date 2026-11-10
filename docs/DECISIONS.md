@@ -102,14 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-772 · 2026-11-10 · A bow, after the alchemy station** (the owner's
-wish; builds D-457, D-652; opens Q-094) The hero gets a bow for ranged
-attacks, the first ranged weapon, where D-457's example named a sling.
-It comes after the alchemy station and its recipes (D-771), the owner's
-order. Its damage, range, how it aims on a phone, arrows, where it is
-made or found and its look are open (Q-094), asked at its step.
-D-770 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-773 · 2026-11-10 · Sounds from files, the old ones wiped** (the
 owner's wish and picks, recommended but for wiping all at once;
 changes D-003's "everything exists in code"; supersedes the sounds of
@@ -191,3 +183,14 @@ of the hero's sight, picked by the seed and the night; one beaten stays
 beaten till the next night; they go by day without a word; they count
 in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-779 · 2026-11-10 · Night creatures, second: the bat** (the owner's
+picks, the recommended plan after the owner's own answer; builds D-778)
+Of the three kinds shown (gloamling, bat, cave spider), the owner liked
+the gloamling as a rare one and the bat too. The bat comes now: one each
+night in each woods room round home, as the lampmoth, with the same
+rules (D-778). Next, a rare gloamling: each night the seed picks one of
+the woods rooms round home for it. Claude's calls the owner may change:
+a night bat leaves no guano, which lies only by a bat a room is made
+with; it never shares a tile with the lampmoth. D-772 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

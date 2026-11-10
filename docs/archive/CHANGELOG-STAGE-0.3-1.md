@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.226 (2026-11-10)
+- Footsteps below ground: underground, each step the hero walks now sounds too, by the ground. Stone in the crypt, the rock caves and the dungeon halls, with a faint echo off the walls; soft packed earth in the burrows (floors 5 to 7). With Sound: Off, nothing plays.
+- Decisions: D-776. D-767 moved to the archive, word for word. Questions: Q-095 narrowed.
+
 ## 0.3.225 (2026-11-10)
 - The lantern clicks: a small metal click each time it goes on or off, by hand or by itself, higher for on and lower for off, as loud as a footstep. It plays above ground and below. With Sound: Off, nothing plays.
 - Decisions: D-775. D-766 moved to the archive, word for word. Questions: Q-095 narrowed.

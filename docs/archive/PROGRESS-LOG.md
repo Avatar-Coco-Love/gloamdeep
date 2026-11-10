@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.226, Steps below.** The owner's picks (D-776), by
+  ear: concrete with a faint echo below, muffled grass for earth in the
+  burrows, as loud as the grass.
+  Playtest: https://claude.ai/artifact/43puBe1GjpFGv52x2HW7bq
+  Sound board: https://claude.ai/artifact/QnKJKsPY3FfeeXrnPUYxq5
 - **2026-11-10, 0.3.225, The lantern's metal click.** The owner's picks
   (D-775), by ear from a board: on 12% higher, off 11% lower, at half
   loudness, as loud as a step; by hand or by itself, above and below.

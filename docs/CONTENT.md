@@ -21,7 +21,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `flaskMimic` | 3 | 1 | chases, once bumped awake; asleep it looks like a flask, for 6 turns | depths 3 to 5, about 1 room in 4, as well as the rest | D-365 to D-369, D-475, D-476 |
 | `caveSpider` | 2 | 1 | shunsLight only, so it never comes: waits in the dark, backs out of light, bites only from the dark | the pool from depth 2 | D-365, D-535, D-536 |
 | `scorpion` | 1 | 2 | strikes; wears one of 5 colour sets | the pool from depth 3 | D-370, D-373, D-475, D-476, D-534, D-729 |
-| `bat` | 2 | 1 | seeksLight, fleesHurt | the pool from depth 3 | D-365, D-537, D-538 |
+| `bat` | 2 | 1 | seeksLight, fleesHurt | the pool from depth 3; on the surface, one each night in each woods room round home, gone by day, no guano | D-365, D-537, D-538, D-779 |
 | `mole` | 4 | 1 | burrows, never flees: digs down on noticing, comes under the floor as a mound that can't be hit, up beside the hero, biting the turn after | the pool from depth 5 | D-365, D-541, D-542, D-726 |
 | `snapcap` | 2 | 1 | none, so it never moves and bites whoever stands beside it; drawn `shutAs` a heartcap, in its tone, until the hero is beside it | the pool from depth 2 | D-365, D-543, D-544 |
 | `herbMimic` | 2 | 1 | chases, once bumped awake; asleep it looks like a herb, for 6 turns | the pool from depth 3 | D-549, D-550 |
