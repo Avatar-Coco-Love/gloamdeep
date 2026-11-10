@@ -62,7 +62,8 @@ neared 8 KB.
   Centipede Leg the twentieth, and its rare one a Venom Sac, as the scorpion's (D-654);
   the spit grub's Grub Skin and rare Glow Gland the twenty-first and twenty-second (D-688);
   the bunny's Bunny Fur, for crafts later, the twenty-third (D-784);
-  the skulker crab's Crab Shell, the twenty-fourth (D-796).
+  the skulker crab's Crab Shell, the twenty-fourth (D-796);
+  the rim lurker's Lurker Claw, the twenty-fifth (D-797).
 - **Bat Guano:** a pile of bat droppings, one beside each bat as a room
   is made; it grows back, and is kept for the garden (D-539, D-540).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).

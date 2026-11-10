@@ -86,18 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-788 · 2026-11-10 · The Make tab's details** (the owner's picks, all
-recommended; builds D-787) The game remembers every find ever in the bag
-(`known` in the save); an older save starts it from what is in its bag
-and stash chests. The two recipes making an Oil flask (3 Oilcaps; Mimic
-Glass with 2 Oilcaps) are two slots side by side. With nothing shown
-yet, the tab says "Nothing to make yet. Recipes show once you have held
-their finds." The bag always opens on BAG. Claude's calls: Tab, or a tap
-on a tab, turns the tabs; a find's MAKE (and C) opens its own recipe, or
-else the first it is in, and is dim only before that recipe shows; a
-cost is counted from the whole bag, so 2 and 1 Oilcaps in two stacks
-make a flask.
-
 **D-789 · 2026-11-10 · The mortar's card** (the owner's picks, all
 recommended; builds D-786) Bumped, day or night, the set-down Mortar and
 Pestle opens the workbench's card titled MORTAR, its grid empty until
@@ -183,20 +171,23 @@ prompts are given once, after the owner merges, not also before (the
 owner's request; changes D-790). D-787 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-796 · 2026-11-10 · The skulker crab, the mountain rooms' first
-creature** (the owner's picks, all recommended; answers part of Q-076; mock-up:
-https://claude.ai/artifact/GVg8chN5wsic1iZR58aQ3n)
-A brand-new creature, the skulker crab, from the Q-076 list. It never
-moves and bites whoever stands beside it, the snapcap's way (D-543),
-and looks like a loose stone until the hero is beside it. Look B of its
-mock-up: a stony grey shell, rust legs and claws, pink eyes on stalks.
-2 hearts, a bite of 1; beaten, it may drop a Crab Shell, about 1 in 2,
-for crafts later. One comes out each day in each of the 3 mountain
-rooms, with the day creatures' rules (D-781); nothing there by night,
-never underground. Others offered: by night, in the woods or below; a
-mountain goat, shy as the bunny; a rock lizard with the rat's ways; a
-rare one; two a room; looks A (all grey) and C (eyes and teeth); 3 or 1
-hearts; a Crab Claw. Claude's calls the owner may change: its lines (a
-pinch, not a bite); it has no sound of its own; the Crab Shell holds
-20 and sells for 1. D-793 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
+**D-797 · 2026-11-10 · The rim lurker, the mountain rooms' first night
+creature** (the owner's picks; answers part of Q-076; mock-up:
+https://claude.ai/artifact/MW9qmr5aUJTzq75sHE7LMv)
+A brand-new creature, the rim lurker, from the Q-076 list. One comes
+out each night in each of the 3 mountain rooms, with the night
+creatures' rules (D-778); never by day, never underground. Look B of its
+mock-up: a hunched shade of dusky violet, long arms, pale claws, pink
+eyes. It waits where it came out until the hero comes within 3 steps,
+lit or not; then it chases, the rat's way, and keeps coming. 3 hearts,
+a bite of 2 (the owner's own pick); beaten, it may drop a Lurker Claw,
+about 1 in 2, for crafts later. Others offered: the gloamberry mimic,
+the dozing brute, the brood mother; the woods by night or day, or below;
+looks A (a grey crag stalker) and C (a rim lizard); chasing from the
+start, or shunning the lantern; 2 or 1 hearts with a bite of 1; no find.
+Claude's calls the owner may change: the new way is named Lurks, and it
+needs a clear line to the hero, as a chaser does; it comes out on grass
+beside the room's rock when such a tile is free; its lines (it claws);
+no sound of its own; the Lurker Claw holds 20 and sells for 1.
+D-796 and D-788 move to `archive/DECISIONS-SURFACE.md`, word for word, and
+`GLOSSARY-2.md`'s home words to a new `GLOSSARY-HOME.md`, word for word.

@@ -16,7 +16,9 @@
 // The third, the rare herb mimic (D-793): one woods room round home a day, picked by the seed and
 // the day, as the gloamling by night; it comes out asleep, looking like a herb.
 // The first brand-new creature of the mountain rooms, the skulker crab (D-796): one each day in
-// each of the 3 mountain rooms, shut, looking like a loose stone; nothing there by night.
+// each of the 3 mountain rooms, shut, looking like a loose stone.
+// The mountain rooms' first night creature, the rim lurker (D-797): one each night in each of
+// the 3 mountain rooms, on open grass beside the room's rock when there is such a tile (Claude's call).
 import { daylight, DAY_TURNS } from './daytime.js';
 import { ROOMS, ROUND_HOME, HOME_ID, woodsSeed, isMountain } from './hearthwood.js';
 import { tileAt } from './room.js';
@@ -39,8 +41,9 @@ export const RARE_DAY_KIND = 'herbMimic';
 export const rareDayRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x6a09e667, n + 1)), ROUND_HOME);
 // The home room's: only the bunny, which never bites (D-784); nothing comes out there by night
 export const HOME_KINDS = ['bunny'];
-// The mountain rooms': only the skulker crab, by day (D-796); nothing comes out there by night
+// The mountain rooms': the skulker crab by day (D-796), the rim lurker by night (D-797)
 export const MOUNTAIN_KINDS = ['skulkerCrab'];
+export const MOUNTAIN_NIGHT_KINDS = ['rimLurker'];
 // The rooms where creatures come out: the home room, the woods rooms round it and the mountain rooms
 const OUT = [HOME_ID, ...ROUND_HOME, ...ROOMS.filter(isMountain)];
 const FAR = 4; // at least this many steps from the hero, by day and by night (B3)
@@ -58,8 +61,7 @@ export const dayOf = (turn) => Math.floor((turn + 15) / DAY_TURNS);
 export function nightfall(state) {
   if (!OUT.includes(state.place)) return state;
   const when = darkOut(state.turn) ? 'night' : 'day';
-  const dayOnly = state.place === HOME_ID || isMountain(state.place); // home and the mountain rooms have no night creatures
-  return dayOnly && when === 'night' ? leaveByLight(state) : comeOut(leaveByLight(state), when);
+  return state.place === HOME_ID && when === 'night' ? leaveByLight(state) : comeOut(leaveByLight(state), when); // home has no night creatures
 }
 
 // (state) → the state with the other half's creatures gone: day ones by night, night ones by day.
@@ -79,9 +81,11 @@ function comeOut(state, when) {
   if (!spots.length) return state;
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place) ^ (night ? 0 : 0x5d4f1a37), n + 1)), out = [];
   const kinds = !night ? (state.place === HOME_ID ? HOME_KINDS : isMountain(state.place) ? MOUNTAIN_KINDS : rareDayRoom(state.seed ?? 1, n) === state.place ? [...DAY_KINDS, RARE_DAY_KIND] : DAY_KINDS)
-    : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
+    : isMountain(state.place) ? MOUNTAIN_NIGHT_KINDS : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
   for (const id of kinds) {
-    const left = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
+    const free = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
+    const byRock = id === 'rimLurker' ? free.filter((s) => besideRock(state.room, s)) : [];
+    const left = byRock.length ? byRock : free; // the rim lurker waits by the rock (D-797)
     if (left.length) out.push({ id, ...pick(r, left), ...(asleepAtFirst(get(id)) && { asleep: true }), [when]: true }); // a mimic comes out asleep, looking like its find
   }
   const stay = state.enemies.filter((e) => !e[when]); // an earlier night's or day's still standing go first (B1)
@@ -100,3 +104,7 @@ function openSpots(state, night) {
   }
   return spots;
 }
+
+// (room, tile) → whether one of its four sides is the room's rock (D-797)
+const besideRock = (room, { x, y }) => [[1, 0], [-1, 0], [0, 1], [0, -1]]
+  .some(([dx, dy]) => tileAt(room, x + dx, y + dy).id === 'outcrop');

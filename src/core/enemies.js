@@ -96,6 +96,11 @@ export const ENEMIES = {
   // so it never moves and bites whoever stands beside it, drawn `shutAs` a loose stone until the hero
   // is beside it. Out by day, one in each mountain room (nightfall.js), never underground.
   skulkerCrab: { id: 'skulkerCrab', kind: 'enemy', name: 'Skulker crab', acts: "Looks like a loose stone in the mountain rooms until you stand beside it. It never moves, but it pinches anyone next to it.", fights: "Stepping beside it costs a pinch, so come with a knife: it cracks in one blow.", health: 2, bite: 1, drops: 'crabShell', ways: [], shutAs: 'stone', hurt: 'skulkerCrabHurt', die: 'skulkerCrabDie', bites: 'skulkerCrabBite' },
+  // A rim lurker (D-797), the mountain rooms' first night creature: look B of its mock-up, a hunched
+  // shade of dusky violet with long arms and pale claws, pink eyes. It lurks: it waits where it came out,
+  // by the room's rock, till the hero comes within 3 steps, then chases and never runs. Out by night,
+  // one in each mountain room (nightfall.js), never underground.
+  rimLurker: { id: 'rimLurker', kind: 'enemy', name: 'Rim lurker', acts: "Waits in the dark by the mountain rocks. Come within three steps of it, lit or not, and it chases you and never runs.", fights: "Its claws take two hearts, so strike first: wait for it to step beside you. Three lantern swings, or two knife blows.", health: 3, bite: 2, drops: 'lurkerClaw', ways: ['lurks'], hurt: 'rimLurkerHurt', die: 'rimLurkerDie', bites: 'rimLurkerBite' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

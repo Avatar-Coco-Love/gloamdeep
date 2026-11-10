@@ -32,6 +32,8 @@ D-793, the rare herb mimic, built, followed at 0.3.244 (D-796), word
 for word, for the same reason.
 D-787, the bag's Make tab, built, followed at 0.3.243 (D-795), word for
 word, for the same reason.
+D-796, the skulker crab, built, and D-788, the Make tab's details,
+built, followed at 0.3.245 (D-797), word for word, for the same reason.
 
 ---
 
@@ -669,3 +671,33 @@ grass 4 steps or more from the hero; it may pick the same room two days
 running; it never shares a tile with the others. The owner also wants
 brand-new kinds of creature, not only ones from below (Q-076). D-785
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-796 · 2026-11-10 · The skulker crab, the mountain rooms' first
+creature** (the owner's picks, all recommended; answers part of Q-076; mock-up:
+https://claude.ai/artifact/GVg8chN5wsic1iZR58aQ3n)
+A brand-new creature, the skulker crab, from the Q-076 list. It never
+moves and bites whoever stands beside it, the snapcap's way (D-543),
+and looks like a loose stone until the hero is beside it. Look B of its
+mock-up: a stony grey shell, rust legs and claws, pink eyes on stalks.
+2 hearts, a bite of 1; beaten, it may drop a Crab Shell, about 1 in 2,
+for crafts later. One comes out each day in each of the 3 mountain
+rooms, with the day creatures' rules (D-781); nothing there by night,
+never underground. Others offered: by night, in the woods or below; a
+mountain goat, shy as the bunny; a rock lizard with the rat's ways; a
+rare one; two a room; looks A (all grey) and C (eyes and teeth); 3 or 1
+hearts; a Crab Claw. Claude's calls the owner may change: its lines (a
+pinch, not a bite); it has no sound of its own; the Crab Shell holds
+20 and sells for 1. D-793 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-788 · 2026-11-10 · The Make tab's details** (the owner's picks, all
+recommended; builds D-787) The game remembers every find ever in the bag
+(`known` in the save); an older save starts it from what is in its bag
+and stash chests. The two recipes making an Oil flask (3 Oilcaps; Mimic
+Glass with 2 Oilcaps) are two slots side by side. With nothing shown
+yet, the tab says "Nothing to make yet. Recipes show once you have held
+their finds." The bag always opens on BAG. Claude's calls: Tab, or a tap
+on a tab, turns the tabs; a find's MAKE (and C) opens its own recipe, or
+else the first it is in, and is dim only before that recipe shows; a
+cost is counted from the whole bag, so 2 and 1 Oilcaps in two stacks
+make a flask.

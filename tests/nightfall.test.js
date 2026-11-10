@@ -2,7 +2,7 @@
 // and a rare gloamling in one of them (D-780)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom, RARE_DAY_KIND, rareDayRoom, MOUNTAIN_KINDS } from '../src/core/nightfall.js';
+import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom, RARE_DAY_KIND, rareDayRoom, MOUNTAIN_KINDS, MOUNTAIN_NIGHT_KINDS } from '../src/core/nightfall.js';
 import { passTime } from '../src/core/daytime.js';
 import { makeWorld, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -46,7 +46,7 @@ test('never at home nor in a mountain room', () => {
   assert.ok(!ROUND_HOME.includes(HOME_ID));
   assert.ok(ROUND_HOME.every((id) => !isMountain(id)));
   const mountain = ['woods:0,0', 'woods:1,0', 'woods:2,0'].find(isMountain);
-  assert.equal(moths(nightfall(at(mountain, 220))).length, 0);
+  assert.ok(!moths(nightfall(at(mountain, 220))).some((e) => NIGHT_KINDS.includes(e.id)));
 });
 
 test('one a night: one beaten stays beaten till the next night', () => {
@@ -213,7 +213,7 @@ test('the herb mimic comes out only in its room, asleep, beside the mole and the
 
 // The mountain rooms' first creature: a skulker crab, one each day in each mountain room (D-796)
 const MOUNTAINS = ['woods:0,0', 'woods:1,0', 'woods:2,0'].filter(isMountain);
-test('a skulker crab comes out by day in each mountain room, shut, the only creature there; none by night', () => {
+test('a skulker crab comes out by day in each mountain room, shut, the only creature there; gone by night', () => {
   assert.deepEqual(MOUNTAIN_KINDS, ['skulkerCrab']);
   assert.equal(MOUNTAINS.length, 3);
   for (const id of MOUNTAINS) {
@@ -224,10 +224,27 @@ test('a skulker crab comes out by day in each mountain room, shut, the only crea
     assert.ok(steps(s, c) >= 4);
     assert.ok(!day.items.some((it) => it.x === c.x && it.y === c.y), 'never on a loose stone');
     const night = nightfall({ ...day, turn: 220 });
-    assert.equal(night.enemies.length, 0, 'gone by night, and nothing comes out there');
+    assert.ok(!night.enemies.some((e) => e.id === 'skulkerCrab'), 'gone by night');
     const beaten = nightfall({ ...day, enemies: [] });
     assert.equal(beaten.enemies.length, 0, 'one beaten stays beaten till the next day');
     assert.equal(nightfall({ ...beaten, turn: 400 }).enemies.length, 1);
   }
   for (const id of [HOME_ID, ...ROUND_HOME]) assert.ok(!nightfall(at(id, 100)).enemies.some((e) => e.id === 'skulkerCrab'), id);
+});
+
+test('a rim lurker comes out by night in each mountain room, beside the rock, the only creature there; gone by day', () => {
+  assert.deepEqual(MOUNTAIN_NIGHT_KINDS, ['rimLurker']);
+  for (const id of MOUNTAINS) {
+    const s = at(id, 220), night = nightfall(s);
+    assert.deepEqual(night.enemies.map((e) => e.id), ['rimLurker'], id);
+    const [c] = night.enemies;
+    assert.equal(night.room.map[c.y][c.x], '.');
+    assert.ok(steps(s, c) >= 4);
+    assert.ok(!litAt(s, c.x, c.y), 'out of sight');
+    assert.ok([[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dy]) => night.room.map[c.y + dy][c.x + dx] === 'R'), 'beside the rock');
+    const beaten = nightfall({ ...night, enemies: [] });
+    assert.equal(beaten.enemies.length, 0, 'one beaten stays beaten till the next night');
+    assert.ok(!nightfall({ ...night, turn: 400 }).enemies.some((e) => e.id === 'rimLurker'), 'gone by day');
+  }
+  for (const id of [HOME_ID, ...ROUND_HOME]) assert.ok(!nightfall(at(id, 220)).enemies.some((e) => e.id === 'rimLurker'), id);
 });

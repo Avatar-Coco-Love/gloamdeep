@@ -76,6 +76,7 @@ this page and a decision disagree, the decision wins.
 ## Home
 Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,
 stash chest, bed, station; the garden bed joined them there.
+They moved on to `GLOSSARY-HOME.md` word for word at 0.3.245 (D-797).
 
 ## Creatures
 Moved to `GLOSSARY-2.md` word for word at 0.3.3 (D-531): creatures,

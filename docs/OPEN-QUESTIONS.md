@@ -72,7 +72,7 @@ skulker crab; with a new way, false light, brood mother, still one, rat
 pack, dozing brute. Which next, and in which pools? For the surface's
 day creatures too, the owner wants brand-new kinds altogether, not only
 ones from below (D-793); the first, the skulker crab, by day in the
-mountain rooms (D-796).
+mountain rooms (D-796); the rim lurker, by night there (D-797).
 
 **Q-086 · Rooms that fill again** (raised 2026-11-07, the owner's idea;
 builds D-643, D-644) Today a room keeps the creatures it was made with,
