@@ -67,6 +67,12 @@ export const LINES = {
   pickLook: { texts: ['A stone pick. It breaks copper veins.', 'Hold it to use it.', 'A sharp stone, lashed to a stick.'], warn: false }, // the second was "Keep it in the bag to use it." until D-552
   pickHold: { text: 'You hold the stone pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn (D-552)
   pickAway: { text: 'You put the stone pick away.', warn: false }, // Take off, into the bag, free (D-554)
+  moleClawPickMake: { text: 'You make a mole claw pick.', warn: false }, // its line on the bench's BUILD tab, a turn (D-810)
+  moleClawPickFull: { text: 'You already carry a mole claw pick.', warn: false }, // only 1 is carried, free
+  moleClawPickShort: { text: 'Need 1 Mole Claw, 2 Wood, 2 Stone.', warn: false }, // too few, free
+  moleClawPickLook: { texts: ['A mole claw pick. It digs fast.', 'Veins and rubble go in 2 bumps.', "A mole's claw, lashed to a stick."], warn: false },
+  moleClawPickHold: { text: 'You hold the mole claw pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn
+  moleClawPickAway: { text: 'You put the mole claw pick away.', warn: false }, // Take off, into the bag, free
   rodMake: { text: 'You make a wooden rod.', warn: false }, // its line on the bench panel, a turn (D-609)
   rodFull: { text: 'You already carry a wooden rod.', warn: false }, // only 1 is carried, free
   rodShort: { text: 'You need 2 Wood and 2 Spider Silk.', warn: false }, // too few, free

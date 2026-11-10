@@ -135,6 +135,12 @@ const PICK = { mirror: false, rows: [
   '', '', '....kkkk........', '...kHHLLkk......', '....kkkLLMk.....', '.......kkMMk....', '.......kWkMMk...', '......kWk.kMk...',
   '.....kWk..kDk...', '....kNk...kDk...', '...kNk.....kk...', '..kNk...........', '.kNk............', '.kk.............', '', ''] };
 
+// § mole claw pick: the Stone Pick's handle, its head a mole's pale claw lashed on with dark cord,
+// curving down to a blunt point (D-810)
+const MOLE_CLAW_PICK = { mirror: false, rows: [
+  '', '', '....kkkk........', '...kwwaakk......', '....kkkaaAk.....', '.......knAAk....', '.......kWkaAk...', '......kWk.kAk...',
+  '.....kWk..kAk...', '....kNk....kk...', '...kNk..........', '..kNk...........', '.kNk............', '.kk.............', '', ''] };
+
 // § rod: a straight wooden pole up and right, darker at the grip, a silk line from its tip to a
 // red-and-white float (look A of the fishing step 1 mock-up, D-609)
 const ROD = { mirror: false, rows: [
@@ -572,7 +578,7 @@ const SHADE_COLOURS = { l: '#b39ad0', m: '#6e5a8c' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
-  COPPER_ORE, PICK, ROD, ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
+  COPPER_ORE, PICK, MOLE_CLAW_PICK, ROD, ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, MORTAR, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,

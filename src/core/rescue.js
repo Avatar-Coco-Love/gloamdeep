@@ -17,9 +17,10 @@ import { note } from './events.js';
 import { passTurn } from './state.js';
 import { endTurn } from './endturn.js';
 import { personBeside } from './people.js';
+import { bumpsFor } from './gear.js';
 
 export function dig(state, x, y) {
-  const tile = tileAt(state.room, x, y), { hits, chips, breaks } = tile.dig;
+  const tile = tileAt(state.room, x, y), { chips, breaks } = tile.dig, hits = bumpsFor(state, tile.id, tile.dig.hits); // fewer with the Mole Claw Pick held (D-810)
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
   const near = personBeside(state, x, y), person = near?.leaves === undefined ? near : null, who = person && get(person.id); // one already freed isn't freed again (D-678)

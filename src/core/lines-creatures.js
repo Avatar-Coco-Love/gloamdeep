@@ -131,6 +131,6 @@ export const CREATURE_LINES = {
   batFangLook: { texts: ['A bat fang, for a fang charm.', 'Small, white and very sharp.', 'Mind your fingers.'], warn: false },
   batFangFull: { text: "You can't carry more bat fangs.", warn: false },
   moleClawTake: { texts: ['A mole claw! A rare find.', 'A broad claw, made for digging.', 'The mole claw goes in your bag.'], warn: false }, // (D-541)
-  moleClawLook: { texts: ['A mole claw, for crafting later.', 'Wide, pale and blunt-tipped.', 'Still gritty with earth.'], warn: false },
+  moleClawLook: { texts: ['A mole claw, for a mole claw pick.', 'Wide, pale and blunt-tipped.', 'Still gritty with earth.'], warn: false },
   moleClawFull: { text: "You can't carry more mole claws.", warn: false },
 };
