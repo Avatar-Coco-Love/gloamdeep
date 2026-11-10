@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.247', date: '2026-11-10', title: 'The Shell Vest', lines: [
+    "New at the workbench: two tabs, BUILD and GEAR, where its title was. BUILD holds the chest, Stone Pick, bed, bag upgrades, garden bed, rod and shelf; GEAR holds the Copper Wick, the vests and the charms. Tap a tab, or press Tab, to turn it.",
+    "New armour: the Shell Vest, the Crab Shell's first use. Make it on the GEAR tab from 4 Crab Shell and 1 Wood, then Wear it from the bag in the Rat Hide Vest's place. It takes 1 off any hit of 2 or more, so the rim lurker's bite and the scorpion's tail strike hurt 1 instead of 2. It is drawn as stony grey crab plates with rust edges.",
+    "Decisions: D-799, D-800, D-801.",
+  ] },
   { v: '0.3.246', date: '2026-11-10', title: 'Steady Wick', lines: [
     "New in Growth: Steady Wick, the first upgrade on the Light branch. Spend 1 ember on it in the Journal's Growth tab and your lantern burns a little slower for good: a full tank lasts about 66 turns instead of 60, on top of the wick, charms, boons and Slowburn. Its box shows a small flame, gold once bought. You keep it after a fall in Normal.",
     "Decisions: D-798.",

@@ -5,16 +5,16 @@ import assert from 'node:assert/strict';
 import { makeRoom, SKY, tileAt } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, setDown, takeDown, panelBeside } from '../src/core/turn.js';
-import { benchMakes, TAKE_ASKS } from '../src/core/menu.js';
+import { benchMakes, TAKE_ASKS, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag = [{ id: 'shelf', n: 1 }]) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag });
 
-test("the Shelf is the bench's last slot: 4 Wood and 2 Stone, dim with too few; Make takes it", () => {
-  const made = benchMakes([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }]).at(-1);
+test("the Shelf is the BUILD tab's last slot (D-800): 4 Wood and 2 Stone, dim with too few; Make takes it", () => {
+  const made = benchMakes([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-1);
   assert.deepEqual(made, { item: 'shelf', cost: [{ id: 'wood', n: 4, have: 4 }, { id: 'stone', n: 2, have: 2 }], dim: false });
-  assert.equal(benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }]).at(-1).dim, true);
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-1).dim, true);
   assert.equal(get('shelf').max, 1);
   const bag = makeAt(outside([{ id: 'wood', n: 5 }, { id: 'stone', n: 2 }]), 'shelf');
   assert.deepEqual(bag.bag, [{ id: 'wood', n: 1 }, { id: 'shelf', n: 1 }]);
@@ -22,8 +22,8 @@ test("the Shelf is the bench's last slot: 4 Wood and 2 Stone, dim with too few; 
   assert.equal(shownLine(makeAt(outside([{ id: 'wood', n: 4 }]), 'shelf')).text, 'You need 4 Wood, 2 Stone.');
 });
 
-test('the bench still shows 12 slots at most, whichever bag upgrade is offered', () => {
-  for (const size of [6, 9, 12]) assert.ok(benchMakes([], size).length <= 12, `bag of ${size}`);
+test('each bench tab still shows 12 slots at most, whichever bag upgrade is offered (D-800)', () => {
+  for (const size of [6, 9, 12]) for (const tab of ['build', 'gear']) assert.ok(benchMakes([], size, [], benchTabOf(tab).makes).length <= 12, `bag of ${size}, ${tab}`);
 });
 
 test('it is set down on the surface as the shelf tile, solid, and taken down whole', () => {

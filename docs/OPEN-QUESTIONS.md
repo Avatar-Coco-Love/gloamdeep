@@ -88,16 +88,16 @@ recipes, a farther-reaching lantern potion first, cooking after at the
 kitchen fire and at campfires; by D-786: the mortar's name, look and
 cost, and the Glow Draught's finds and numbers; by D-791: the draught's
 details, built; by D-792: Slowburn, the mortar's second recipe; by D-794: the Mending
-Draught, its third; by D-795: the Ward Draught, its fourth) Open:
-the lab and its recipes;
-which of the finds "for crafts later" go into which recipes, at
-alchemy and the other stations; what is cooked, at home and at a
+Draught, its third; by D-795: the Ward Draught, its fourth; by D-799:
+each find's first use, planned) Open: the lab and its recipes; each
+planned use's numbers, at its step; what is cooked, at home and at a
 campfire.
 
 **Q-094 · The bow** (raised 2026-11-10, D-772) Open: its hits and
 reach, how a shot is aimed by touch, mouse and keys, whether it needs
 arrows and where they come from, where it is made or found, its look
-and sound. After the alchemy station (Q-093).
+and sound. After the alchemy station (Q-093). The owner's wish (D-799):
+a switch to show creatures' coming attacks, and one to show the hero's.
 
 **Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: which
 file for each other line of `docs/SOUNDS.md` (in: the steps, the

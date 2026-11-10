@@ -165,6 +165,12 @@ const RAT_VEST = { mirror: false, rows: [
   '', '', '...kkk....kkk...', '..kSSsk..ksSSk..', '.kWWWWNkkNWWWWk.', '.kWWWWWkkWWWWWk.', '.kkWWWWpkWWWWkk.', '..kWWWWkpWWWWk..',
   '..kWWWWpkWWWWk..', '..kWWWWkpWWWWk..', '..kNWWWpkWWWNk..', '..kNNNNkpNNNNk..', '..knnnnkknnnnk..', '..kkkkkkkkkkkk..', '', ''] };
 
+// § shell vest: overlapping stony grey plates of crab shell, rust at each plate's edge, the
+// skulker crab's colours, the rat hide vest's shape (D-801)
+const SHELL_VEST = { mirror: false, rows: [
+  '', '', '...kkk....kkk...', '..kzHUk..kUHzk..', '.kHHLLMkkMLLHHk.', '.kzzzzzkkzzzzzk.', '.kkHHLLkkLLHHkk.', '..kLLMMkkMMLLk..',
+  '..kzzzzkkzzzzk..', '..kHLLMkkMLLHk..', '..kLMMDkkDMMLk..', '..kUUUUkkUUUUk..', '..kMDDDkkDDDMk..', '..kkkkkkkkkkkk..', '', ''] };
+
 // § rat tail: the rat's pink tail curled into a loop, a grey stub where it joined
 // the rat (look A of the Rat Tail mock-up, D-474)
 const RAT_TAIL = { mirror: false, rows: [
@@ -531,7 +537,7 @@ const WARD_COLOURS = { l: '#dcf0d4', m: '#8fb898' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
-  COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
+  COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, MORTAR, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,

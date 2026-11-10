@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.244 (2026-11-10)
+- New creature: the skulker crab, the first creature in the mountain rooms. By day, one in each of the 3 mountain rooms looks just like a loose stone until you stand beside it; then its rust claws and pink eyes show and it pinches you for 1. It never moves and has 2 hearts. Beaten, it may leave a Crab Shell, kept for crafts later. Gone by nightfall.
+- Decisions: D-796.
+
 ## 0.3.243 (2026-11-10)
 - New: the Ward Draught, a pale green-white bottle. Once you have held Centipede Leg and Herb, the mortar makes it from 2 Centipede Leg and 1 Herb. Drink it from your bag and any poison ends at once, and for 60 turns a centipede's bite still hurts but never poisons you. A pale bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
 - Decisions: D-795.

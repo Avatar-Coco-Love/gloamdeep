@@ -16,6 +16,11 @@ const effects = (state, key) => wornIds(state).map((id) => get(id)?.wear?.[key])
 // The chance a bite glances off and hurts nothing: the worn pieces' `glance`, or 0 (D-484)
 export const glanceOf = (state) => Math.max(0, ...effects(state, 'glance'));
 
+// How much less a bite or strike of 2 or more hurts: the worn pieces' `blunt`, or 0 (D-801)
+export const bluntOf = (state) => Math.max(0, ...effects(state, 'blunt'));
+// A blow of n hearts as it lands on the hero: blunted by 1 when n is 2 or more, never below 1 (D-801)
+export const blunted = (state, n) => (n >= 2 ? Math.max(1, n - bluntOf(state)) : n);
+
 // The chance a beaten creature leaves its rare material: the worn pieces' `rare`, or `base` (D-486)
 export const rareOf = (state, base) => Math.max(base, ...effects(state, 'rare'));
 

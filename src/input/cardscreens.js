@@ -3,7 +3,7 @@
 // CH4, D-387, D-494, D-495, D-546, D-554). Split from screens.js at the eighth audit
 // (D-570): `app` and `ui` as there, `show` to open a screen, and `menuOf` for a card's lines.
 import { tileAt } from '../core/room.js';
-import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU } from '../core/menu.js';
+import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU, BENCH_TABS, benchTabOf } from '../core/menu.js';
 import { bagSize, bagCols } from '../core/bag.js';
 import { bagMakes, makeFor, knownOf } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
@@ -183,8 +183,18 @@ export function createCardScreens(app, ui, show, menuOf) {
   }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, you have ${c.have}`).join(' and ')}${m.dim ? ', too few' : ''}`;
   const station = () => tileAt(app.state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state), knownOf(app.state));
-  const benchWords = () => { const name = station().name, makes = stationNow(); return `${name}. ${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${STATION_NONE} `}Make, Deconstruct ${stationTitle(station()).toLowerCase()}, or Close.`; };
+  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state), knownOf(app.state), app.benchTab);
+  const tabWords = () => (station().makes ? '' : `${benchTabOf(app.benchTab).text[0]}${benchTabOf(app.benchTab).text.slice(1).toLowerCase()} tab. `); // the workbench's (D-800)
+  const benchWords = () => { const name = station().name, makes = stationNow(); return `${name}. ${tabWords()}${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${STATION_NONE} `}Make, Deconstruct ${stationTitle(station()).toLowerCase()}, or Close.`; };
+  // § bench tabs (D-800): the workbench's other tab, or `tab`, opened on its first slot; the
+  // mortar has none, so false
+  function turnBenchTab(tab) {
+    if (station().makes) return false;
+    const i = BENCH_TABS.findIndex((t) => t.id === app.benchTab);
+    app.benchTab = tab ?? BENCH_TABS[(i + 1) % BENCH_TABS.length].id;
+    show('bench', 0);
+    return true;
+  }
   // § bench card (D-387): the frame on a slot says what is made there and its cost
   function pickBench(i) {
     app.chosen = i;
@@ -192,5 +202,5 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = i === BENCH_TAKE ? `Deconstruct ${stationTitle(station()).toLowerCase()}` : m ? costWords(m) : 'Empty';
   }
 
-  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
+  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
 }

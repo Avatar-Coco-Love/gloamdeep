@@ -92,56 +92,6 @@ owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`). When they are
 given changed by D-795 (2026-11-10): once, after the merge.
 
-**D-791 · 2026-11-10 · The Glow Draught's details** (the owner's picks,
-all recommended; builds D-786) Drunk again while it works, its time goes
-back to 60 turns, never more. A small gold bottle mark under the hearts
-panel shows it, with the turns left beside it, and a tap on it says
-"Glow Draught: {n} turns left."; lines as it is drunk and as it fades
-("The glow fades."). It can be drunk any time, the lantern empty too:
-its turns count down every turn, a night's sleep uses them, and the
-extra tile shows again once there is oil. The mortar lists it once
-Duskstar and Wisp Glass have both been held. A Duskstar's and a Wisp
-Glass's card then shows the draught's picture and "Makes a Glow Draught
-at the mortar" where MAKE sits, with no button. Claude's calls: a fall
-ends it, as it ends poisoned; its other lines ("You make a Glow
-Draught.", "You need 2 Duskstar and 1 Wisp Glass.", "You can't carry
-more Glow Draughts.", the three drink and look lines); the two finds'
-first look line says "good for making things" (D-677). D-780 and D-781
-move to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-792 · 2026-11-10 · Slowburn, the mortar's second recipe** (the
-owner's picks, both recommended, from Slowburn, a Ward Draught against
-poison and a Mending Draught offered; narrows Q-093) Slowburn is made at
-the mortar from 2 Tick Shell and 1 Oilcap. Drunk from the bag, for 60
-turns a lit turn burns 6/7 of its oil, so a full tank lasts 70 turns,
-not 60, as the Heart Charm does and added to it. Its rules are the Glow
-Draught's (D-791): drunk again, back to 60; any time, the turns running
-on; a night uses them and a fall ends it; it holds 5; a small mark
-under the hearts with the turns left. Claude's calls the owner may
-change: the red potion's bottle dark as lamp oil, its mark in the oil
-bar's deep amber; its lines ("The flame burns hungry again." as it
-fades); the mortar lists it after the Glow Draught; a Tick Shell's card
-then shows "Makes a Slowburn at the mortar". The Glow Draught's DRINK is
-no longer drawn dim at full health, as it never was. The handoff's next
-prompts are each in their own fenced code block, never an inline list
-(the owner's correction, D-790). D-784 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-794 · 2026-11-10 · The Mending Draught, the mortar's third recipe**
-(the owner's picks, all recommended, from a Mending Draught, a Ward
-Draught against poison, or both in turn; narrows Q-093) The Mending
-Draught is made at the mortar from 2 Mimic Leaf and 1 Herb. Drunk from
-the bag, it gives a heart every 15 turns for 60 turns, 4 in all, never
-above full. Its rules are the Glow Draught's (D-791): drunk again, back
-to 60; any time, full health too, the turns running on; a night uses
-them and a fall ends it; it holds 5; a small mark under the hearts with
-the turns left. Claude's calls the owner may change: the red potion's
-bottle in moss green, its mark too; a night's turns give no hearts; its
-heart comes before poison's in a turn; its lines ("The warmth fades."
-as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
-then shows "Makes a Mending Draught at the mortar". D-786 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-795 · 2026-11-10 · The Ward Draught, the mortar's fourth recipe**
 (the owner's picks, all recommended; narrows Q-093) The Ward Draught is
 made at the mortar from 2 Centipede Leg and 1 Herb. Drunk from the bag,
@@ -196,4 +146,44 @@ farther); two lines in the box, or a shorter name. Claude's calls: its
 words "The lantern burns a little slower, for good."; its button "Get
 Steady Wick"; a small flame in the lantern's gold, dim until bought; it
 is kept on a Normal fall, as Tough is. D-789 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-799 · 2026-11-10 · The finds plan** (the owner's picks, all
+recommended, from a plan page: https://claude.ai/artifact/GnPo6RnybF7g6ogTdiET6y;
+narrows Q-061 and Q-093) Each find kept for crafts later gets one first
+use, with more uses free to come later: Crab Shell, the Shell Vest
+(D-801); Grub Skin, a Spitproof Draught; Bunny Fur, a Fur Bedroll for
+sleeping out; Bat Wing, an Echo Charm showing creatures in the dark
+near by; Lurker Claw, a Shade Draught, creatures noticing the hero only
+near; Rat Bone, a Bone Hook for the rod; Glow Gland, a Glow Lamp, a
+longer torch; Bat Fang, a Fang Charm, a heart back now and then from a
+beaten creature; Mole Claw, the Mole Claw Pick. With later steps: Oil
+Bladder, the lantern's first tank; Gloam Eye, its first glass, showing
+creatures in disguise; Stinger, a Stinger Spear poisoning creatures;
+Venom Sac, a Venom Oil for weapons. Kept for later too: Bunny Fur, a
+warm lining; Bat Wing, arrows' fletching; Stinger, arrowheads; Rat Bone,
+a Bone Club; claw weapons. They are built one a step, in that order,
+each one's numbers settled at its step (the plan's are drafts). The
+owner's wish for weapons (Q-094): a switch to show creatures' coming
+attacks and one to show the hero's. Others offered: two or three a PR;
+a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
+an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
+
+**D-800 · 2026-11-10 · The workbench's two tabs** (the owner's pick,
+recommended, from a fourth row or pages) The workbench's card was full,
+12 slots, so it gets two tabs where its title was, as the bag's: BUILD
+(the chest, Stone Pick, bed, bag upgrades, garden bed, rod, shelf) and
+GEAR (the wick, the vests, the charms), a 4 × 3 grid each. A tap on one
+or Tab turns it. Claude's calls: the tab last open is kept while the
+game runs; the mortar keeps its title, with no tabs.
+
+**D-801 · 2026-11-10 · The Shell Vest** (the owner's picks, all
+recommended; builds D-484, D-799) The second armour piece, on the GEAR
+tab: 4 Crab Shell, 1 Wood. Worn in the armour slot, in the Rat Hide
+Vest's place, it takes 1 off a bite of 2 or more, the scorpion's tail
+strike too, so the rim lurker and the scorpion hurt 1, not 2. Its look:
+overlapping stony grey plates with rust edges, the crab's colours.
+Claude's calls the owner may change: never below 1; its lines ("You
+put on the shell vest.", "A shell vest. Hard bites hurt less.");
+the Crab Shell's look line names it. D-791, D-792 and D-794 move to
 `archive/DECISIONS-SURFACE.md`, word for word.

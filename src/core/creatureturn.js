@@ -12,7 +12,7 @@ import { note } from './events.js';
 import { DIRS, passTurn } from './state.js';
 import { fall } from './fall.js';
 import { personAt } from './people.js';
-import { glanceOf } from './worn.js';
+import { glanceOf, blunted } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
 import { warded } from './ward.js';
 import { spitTurn, aim } from './spit.js';
@@ -28,7 +28,7 @@ import { rise } from './bones.js';
 // Then the others come one tile closer (D-126 to D-129).
 // Each bite is a `bite` event, in the order they bite. Worn armour turns some aside:
 // each bite has its `glance` chance, from the seed, to hurt nothing, and when none
-// hurts, the glance line shows (D-484). One that `drinks` takes oil instead of
+// hurts, the glance line shows (D-484). The Shell Vest takes 1 off a bite of 2 or more (D-801). One that `drinks` takes oil instead of
 // a heart while the lantern holds any, a `drink` event (D-606).
 // In god mode (`state.god`, a dev switch) a bite is the same but takes no heart,
 // so the hero never falls from one; its event still says what it would take (D-625).
@@ -47,7 +47,7 @@ function act(state) {
   const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
   const drank = drinks(state, bites);
-  const hurts = bites.map((e, i) => (drank[i] > 0 || glances(state, e) ? 0 : get(e.id).bite)), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
+  const hurts = bites.map((e, i) => (drank[i] > 0 || glances(state, e) ? 0 : blunted(state, get(e.id).bite))), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
   const health = state.god ? state.health : Math.max(0, state.health - hurts.reduce((sum, n) => sum + n, 0));
   const oil = state.endless ? state.oil : Math.max(0, state.oil - drank.reduce((sum, n) => sum + n, 0));
   const enemies = chased(state.enemies, bites);

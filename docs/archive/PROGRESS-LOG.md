@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.244, The skulker crab.** The owner's picks (D-796):
+  a brand-new creature, one each day in each mountain room, looking like
+  a loose stone until the hero is beside it, then pinching; 2 hearts,
+  never moves, may leave a Crab Shell.
+  Playtest: https://claude.ai/artifact/4Wea5XoHPWPM3KmA3ontz4
 - **2026-11-10, 0.3.243, The Ward Draught.** The owner's picks
   (D-795): the mortar's fourth recipe, from 2 Centipede Leg and 1 Herb;
   drunk, it ends poison and no bite poisons for 60 turns, with the Glow

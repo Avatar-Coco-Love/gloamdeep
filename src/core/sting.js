@@ -10,7 +10,8 @@
 // earth or a pile of bones is passed over. A creature in front doesn't shield the hero behind.
 // Hitting nothing, its `misses` line. Then it stands still `rest` turns as well as the one it
 // struck in (`rests`). A blow still beats it while raised; one stung while raised strikes no more.
-// Claude's drafts the owner may change: a reach of 2, a rest of 1, and armour can't turn a strike aside.
+// Claude's drafts the owner may change: a reach of 2, a rest of 1, and armour can't turn a strike aside;
+// the Shell Vest blunts it, a strike of 2 hurting 1 (D-801).
 import { get } from './registry.js';
 import { enemyAt, hitEnemy } from './enemies.js';
 import { traits } from './behaviours.js';
@@ -19,6 +20,7 @@ import { clearLine } from './sight.js';
 import { say } from './lines.js';
 import { note } from './events.js';
 import { fall } from './fall.js';
+import { blunted } from './worn.js';
 
 export function stingTurn(state) {
   if (!state.enemies.some((e) => e.raised)) return state;
@@ -67,6 +69,6 @@ function strike(state, e) {
     s = { ...s, enemies: hitEnemy(s.enemies, o, get(o.id), entry.bite) };
   }
   if (!hit) return foe ? say(s, 'stingsFoe', get(foe.id).name.toLowerCase()) : say(s, entry.misses);
-  const health = state.god ? state.health : Math.max(0, state.health - entry.bite);
-  return note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt: entry.bite });
+  const hurt = blunted(state, entry.bite), health = state.god ? state.health : Math.max(0, state.health - hurt);
+  return note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt });
 }

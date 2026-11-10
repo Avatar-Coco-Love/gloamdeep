@@ -107,7 +107,7 @@ export const CREATURE_LINES = {
   skulkerCrabDie: { text: 'The skulker crab cracks open.', warn: false },
   skulkerCrabBite: { text: 'The skulker crab pinches you.', warn: false, kind: 'harm' },
   crabShellTake: { texts: ['You pick up the crab shell.', 'Stony grey, rough as rock.', 'The crab shell goes in your bag.'], warn: false }, // (D-796)
-  crabShellLook: { texts: ['A crab shell, for crafting later.', 'It looks just like a stone.', 'Hard and light, hollow inside.'], warn: false },
+  crabShellLook: { texts: ['A crab shell, for a shell vest.', 'It looks just like a stone.', 'Hard and light, hollow inside.'], warn: false },
   crabShellFull: { text: "You can't carry more crab shells.", warn: false },
   rimLurkerHurt: { text: 'The rim lurker hisses.', warn: false }, // (D-797)
   rimLurkerDie: { text: 'The rim lurker sinks into the dark.', warn: false },

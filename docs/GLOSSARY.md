@@ -67,6 +67,8 @@ this page and a decision disagree, the decision wins.
   in the bag, puts a part in the lantern, free (D-483).
 - **Rat Hide Vest, Wear, glance:** the first armour; Wear, in the bag,
   puts it on, free; worn, a bite may glance off and hurt nothing (D-484).
+- **Shell Vest, blunt:** the second armour, from Crab Shell, worn in the
+  vest's place; a bite or strike of 2 or more hurts 1 less (D-801).
 - **Wisp Charm:** the first charm, worn from the bag; worn, rare drops
   come about 1 in 5 (D-486).
 - **Heart Charm:** the second charm, worn beside it; worn, the oil

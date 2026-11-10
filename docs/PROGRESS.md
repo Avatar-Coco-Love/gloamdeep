@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.246 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.247 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The gaps, quickest first (D-798): the Growth tree's next upgrade, the
-first on Hands; then uses for the finds kept for crafts later.
+The finds plan (D-799), one a step: next Grub Skin's Spitproof Draught,
+then the Fur Bedroll and the Echo Charm. The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.247, The Shell Vest.** The owner's picks (D-799 to
+  D-801): a first use planned for each find kept for crafts later; the
+  workbench split into BUILD and GEAR tabs; the Shell Vest, 4 Crab Shell
+  and 1 Wood, a hit of 2 or more hurting 1.
+  Playtest: https://claude.ai/artifact/3oJ8oGawvFyQ6821DTVYX3
 - **2026-11-10, 0.3.246, Steady Wick.** The owner's picks (D-798): the
   gaps worked through quickest first; Light's first Growth upgrade, 1
   ember, the lantern burning 9/10 of its oil for good, a full tank about
@@ -55,8 +60,3 @@ list in `RESEARCH.md`.
   by the rock until the hero is within 3 steps, then chasing; look B,
   a hunched violet shade; 3 hearts, a bite of 2; may leave a Lurker Claw.
   Playtest: https://claude.ai/artifact/KVGtPa47QyX13yfASmztHY
-- **2026-11-10, 0.3.244, The skulker crab.** The owner's picks (D-796):
-  a brand-new creature, one each day in each mountain room, looking like
-  a loose stone until the hero is beside it, then pinching; 2 hearts,
-  never moves, may leave a Crab Shell.
-  Playtest: https://claude.ai/artifact/4Wea5XoHPWPM3KmA3ontz4
