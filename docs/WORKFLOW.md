@@ -126,3 +126,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - With the lines already chosen, four small picks on timing, order, colour and bites were all the step needed before building (0.3.217).
 - The owner remembered a goal that was never built; searching the code first and saying so plainly turned it into a small new goal, not a rename of nothing (0.3.198).
 - Taking an existing rule as the recommended answer (the glob, for the sting) let the owner settle a new mechanic's four details in one round (0.3.218).
+- An owner's "just a thought" was answered with options, then parked as a note on the question it belongs to, so nothing was built early (0.3.219).

@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.218 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.219 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -44,6 +44,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.219, A note for bosses.** Docs only. The owner
+  noticed a sting or glob landing a boss's last blow would lose its
+  rewards; noted under Q-083 with three options, asked at that step.
 - **2026-11-10, 0.3.218, The sting hits creatures too.** The owner's
   picks, all recommended (D-768): a creature on the scorpion's marked
   tiles takes 2 hearts, no find, no experience; it shields no one; the
@@ -52,8 +55,3 @@ list in `RESEARCH.md`.
   recommended (D-767): a pack warns each time it notices, its three
   lines taking turns, in amber; a bite that turn keeps its line.
   Playtest: https://claude.ai/artifact/YUEAeU4JiSVT4Sp5Ns7c8M
-- **2026-11-10, 0.3.216, Names with spaces and digits.** The owner
-  sorted the 16 things waiting on them: 4 settled now, the rest parked
-  until their step. Names hold digits and spaces, with a 123 key (D-765);
-  the three creatures' drafts kept, a pack line and a wider sting next
-  (D-766). Playtest: https://claude.ai/artifact/AaE4dYPWNzJ29K14Amyd6D
