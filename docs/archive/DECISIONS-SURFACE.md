@@ -844,3 +844,19 @@ Claude's calls the owner may change: never below 1; its lines ("You
 put on the shell vest.", "A shell vest. Hard bites hurt less.");
 the Crab Shell's look line names it. D-791, D-792 and D-794 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-802 · 2026-11-10 · The Spitproof Draught, the mortar's fifth
+recipe** (the owner's picks, all recommended; builds D-799) Made at the
+mortar from 2 Grub Skin and 1 Herb. Drunk from the bag, for 60 turns a
+spit grub's glob that reaches the hero splashes off and hurts nothing;
+grubs still spit. Its rules are the Ward Draught's (D-795): drunk
+again, back to 60; any time; a night uses its turns and a fall ends it;
+it holds 5; a small mark under the hearts with the turns left. Its
+bottle and mark are dusty rose, from the grub's pink eye. Others
+offered: 3 Grub Skin; 2 Grub Skin and 1 Oilcap; a glob hurting less,
+never the last heart; grubs not seeing the hero; waxy bone-cream; slate
+blue-grey. Claude's calls the owner may change: its lines ("The glob
+splashes off you.", "Your skin feels dry again." as it ends); the glob
+breaks on the hero, flying no farther; the mortar lists it last; the
+Grub Skin's look line names it. D-795 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

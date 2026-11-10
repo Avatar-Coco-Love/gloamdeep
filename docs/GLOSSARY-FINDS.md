@@ -65,7 +65,7 @@ neared 8 KB.
   the bat's Bat Wing and rare Bat Fang the tenth and eleventh (D-537);
   the mole's Mole Fur and rare Mole Claw the twelfth and thirteenth (D-541);
   the snapcap's Snapcap Gill the fourteenth (D-543); the herb mimic's Mimic
-  Leaf the fifteenth (D-549); the bone rat's Rat Bone the sixteenth (D-551);
+  Leaf the fifteenth (D-549); the bone rat's Rat Bone, for the Bone Hook (D-807), the sixteenth (D-551);
   the oil tick's Tick Shell and rare Oil Bladder the seventeenth and eighteenth (D-606);
   the lure wisp's Wisp Glass, sold for 2, the nineteenth (D-649); the centipede's
   Centipede Leg the twentieth, and its rare one a Venom Sac, as the scorpion's (D-654);
@@ -91,6 +91,8 @@ neared 8 KB.
   miners' camp (D-770).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
+- **Bone Hook:** made at the workbench from 3 Rat Bone and 1 Spider Silk,
+  fitted to the rod for good; the strike meter's zone half again as wide (D-807).
 - **Pond Minnow:** the first fish, from the pond at home; poured for 15% oil, or eaten for 1 heart (D-608, D-610, D-611, D-615).
 - **Blind Cavefish:** the cave pools' fish, pale and eyeless; poured for 20% oil, eaten for 1 heart, sold for 2 coins (D-618).
 - **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).

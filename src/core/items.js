@@ -278,4 +278,10 @@ export const ITEMS = {
   // Its SLEEP button sleeps out where the hero stands; SET DOWN `sets` it on the ground (D-804).
   furBedroll: { id: 'furBedroll', kind: 'item', name: 'Fur Bedroll', bag: true, max: 1, look: 'furBedrollLook', full: 'furBedrollFull', rest: { heal: 2 }, sets: { tile: 'bedroll', says: 'bedrollSet' },
     bench: { of: { bunnyFur: 4, spiderSilk: 1 }, says: 'furBedrollMake', short: 'furBedrollShort' } },
+  // The Bone Hook (D-807), the Rat Bone's first use (D-799): made on the workbench's BUILD tab,
+  // never found. Fit, in the bag, ties it to the rod for good, free, the Copper Wick's way, only
+  // with the rod carried (`part.on`); fitted, the strike meter's zone is `part.wide` times as wide
+  // (fishing.js), and the rod is drawn with it.
+  boneHook: { id: 'boneHook', kind: 'item', name: 'Bone Hook', bag: true, max: 1, look: 'boneHookLook', full: 'boneHookFull',
+    bench: { of: { ratBone: 3, spiderSilk: 1 }, says: 'boneHookMake', short: 'boneHookShort' }, part: { slot: 'hook', on: 'rod', wide: 1.5 }, fits: 'boneHookFit' },
 };

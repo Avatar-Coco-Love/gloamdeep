@@ -10,6 +10,7 @@ import { passTurn } from './state.js';
 import { note, fresh } from './events.js';
 import { HOME } from './homeward.js';
 import { get } from './registry.js';
+import { zoneByParts } from './parts.js';
 
 export const NIBBLE_CHANCE = 1 / 6; // each turn the line waits, a nibble, then the bite (D-608, D-613)
 export const POND_FISH = 'pondMinnow'; // the home pond's fish (D-608)
@@ -25,8 +26,9 @@ export const STRIKE_PASS_MS = 1000;
 // kept its fish is the pond's
 export const fishHere = (state) => (state.place === HOME || state.room?.look === 'woods' ? POND_FISH : CAVE_FISH); // every woods pond's, since Hearthwood's 9 rooms (D-733)
 const fishOf = (f) => f?.fish ?? POND_FISH;
-// The strike meter's zone width for the fish on the line (D-618)
-export const zoneWidth = (f) => get(fishOf(f)).zone ?? STRIKE_ZONE;
+// The strike meter's zone width for the fish on the line (D-618), half again with the Bone Hook
+// on the rod (D-807)
+export const zoneWidth = (f, state) => (get(fishOf(f)).zone ?? STRIKE_ZONE) * (state ? zoneByParts(state) : 1);
 
 // § bump: bumping water with the rod held, a turn (endTurn follows, in turn.js). With a fish
 // on the line, the pull: the strike meter's card opens, its zone placed by the seed (D-614).
@@ -34,7 +36,7 @@ export const zoneWidth = (f) => get(fishOf(f)).zone ?? STRIKE_ZONE;
 // (D-613). Otherwise the line is cast, the float landing on the bumped tile, with a plop.
 export function bumpWater(state, x, y) {
   const next = passTurn(state), f = state.float;
-  if (f?.bite) return { ...next, float: { ...f, bite: false, strike: zoneFor(state, zoneWidth(f)) } };
+  if (f?.bite) return { ...next, float: { ...f, bite: false, strike: zoneFor(state, zoneWidth(f, state)) } };
   if (f) return next;
   return note(say({ ...next, float: { x, y, at: next.turn, bite: false, nibble: false, fish: fishHere(state) } }, 'castLine'), 'cast');
 }
@@ -57,7 +59,7 @@ export const inZone = (zone, n, w = STRIKE_ZONE) => n !== null && n >= zone && n
 export function strikeFish(state, n) {
   const f = state.float, now = fresh(state), id = fishOf(f), fish = get(id);
   if (f?.strike === undefined) return state;
-  if (!inZone(f.strike, n, zoneWidth(f))) return say({ ...now, float: null }, 'fishAway');
+  if (!inZone(f.strike, n, zoneWidth(f, state))) return say({ ...now, float: null }, 'fishAway');
   const bag = bagAdd(state.bag, id, undefined, bagSize(state));
   if (!bag) return say({ ...now, float: null }, fish.slips);
   return note(note(say({ ...now, bag, float: null }, fish.caught), 'take', { id }), 'catch', { id });

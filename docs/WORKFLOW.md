@@ -113,3 +113,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Say a rule once: the next prompts came both before and after the merge, twice the reading for the owner; they now come once, after it (0.3.243).
 - Look for where the world is empty before asking where something goes: the mountain rooms had no creatures at all, which made the first question easy to answer (0.3.244).
 - Count a doc's bytes before adding to it: a page a few bytes under its cap needs a word-for-word split first, done in the same step (0.3.245).
+- A plan page keeps its drafts: the finds plan's Artifact still held the Bone Hook's draft recipe and effect, so reading it first made the offered options its own (0.3.253).

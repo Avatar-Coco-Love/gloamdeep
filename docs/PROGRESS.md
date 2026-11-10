@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.252 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.253 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The finds plan (D-799), one a step: next Rat Bone's Bone Hook for the
-rod, then the Glow Lamp and the Fang Charm. The Hands upgrade when wanted.
+The finds plan (D-799), one a step: next Glow Gland's Glow Lamp, then
+the Fang Charm. The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.253, The Bone Hook.** The owner's picks (D-807):
+  the workbench's BUILD tab, 3 Rat Bone and 1 Spider Silk; FIT ties it
+  to the rod for good, and the strike meter's zone is half again as wide.
+  Playtest: https://claude.ai/artifact/DurKfNfgwi6y76ePo7hn9T
 - **2026-11-10, 0.3.252, The Shade Draught.** The owner's picks
   (D-806): the mortar's sixth recipe, 2 Lurker Claw and 1 Duskstar; for
   60 turns creatures notice the hero only within 2 steps, chasers still
@@ -54,7 +58,3 @@ list in `RESEARCH.md`.
   the GEAR tab's last slot, 3 Bat Wing and 1 Copper Ore; worn, creatures
   within 4 tiles in the dark, walls or not, show as pale outlines.
   Playtest: https://claude.ai/artifact/XstDHemBrGQdGVk3UqM1B7
-- **2026-11-10, 0.3.250, The bedroll laid out.** The owner's idea and
-  picks (D-804): SLEEP and SET DOWN in the bag; laid out, bumped from
-  dusk to sleep on it, by day to roll it up; no bed for a fall.
-  Playtest: https://claude.ai/artifact/Tt4uV3cJma85sa6KVgVidL

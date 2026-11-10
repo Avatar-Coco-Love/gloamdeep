@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.250 (2026-11-10)
+- New: the Fur Bedroll has two buttons in your bag. SLEEP sleeps right where you stand, the moon's way; it is dim by day, below ground, or with a creature after you, and a tap says why. SET DOWN lays the bedroll out beside you on the surface.
+- Laid out, bump the bedroll from dusk to sleep on it: 2 hearts back and not stiff. By day a bump asks "Roll up the bedroll?" to put it back in your bag. It is not your bed for a fall; home's bed still is.
+- Decisions: D-804.
+
 ## 0.3.249 (2026-11-10)
 - New: the Fur Bedroll, the Bunny Fur's first use. The workbench's BUILD tab makes it from 4 Bunny Fur and 1 Spider Silk. Keep it in your bag: when you sleep out under the sky, you wake with 2 hearts back and not stiff. It is never used up. The bed at home still heals you fully.
 - With the bedroll in your bag, the moon's ask says "Your fur bedroll is warm." Bunny Fur now says "for a fur bedroll."
