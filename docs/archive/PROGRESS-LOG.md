@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.257, The Growth tree, ready to grow.** The owner's
+  picks (D-811): the tree's next look, twigs; first, nothing visible, one
+  list of upgrades and one save record of what was bought.
+  Nothing visible, so no playtest. Look page: https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y
 - **2026-11-10, 0.3.256, The Mole Claw Pick.** The owner's picks (D-810):
   the workbench's BUILD tab, 1 Mole Claw, 2 Wood and 2 Stone; held, it
   works as the Stone Pick, a copper vein in 2 bumps and rubble in 2.
