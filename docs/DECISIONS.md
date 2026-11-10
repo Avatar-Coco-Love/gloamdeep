@@ -102,17 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-767 · 2026-11-10 · The rat pack's warning** (the owner's picks, all
-recommended; builds D-766's first addition) A pack that notices the hero
-says its line on that turn, each time it notices anew, so a pack that
-lost the hero and finds them again warns again. The three lines take
-turns, as the rat's other lines do (D-297), and show in amber, as the
-scorpion's raised tail does. A bite on that turn keeps its own line
-(D-117). Claude's calls the owner may change: the last rat of a pack is
-alone and stays silent; the warning replaces any other line that turn
-but a bite's or a drink's. D-760 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-768 · 2026-11-10 · The sting hits creatures too** (the owner's
 picks, all recommended; builds D-766's second addition) A creature on
 the scorpion's marked tiles is hurt 2, as a glob hurts one (D-688):
@@ -188,3 +177,16 @@ tell and still sound like one lantern), at half the file's loudness,
 which peaks as high as the grass steps. Unlike the steps, it is the
 same each time, with no straying pitch. It plays above ground and
 below. D-766 moves to `archive/DECISIONS-PACK.md`, word for word.
+
+**D-776 · 2026-11-10 · Steps below: stone and packed earth** (the
+owner's picks, all recommended, from a board of 4 stone and 4 earth
+steps; builds D-774; answers part of Q-095) Underground, each step the
+hero walks now sounds too, by the ground: in the burrows (floors 5 to
+7) the grass steps muffled into packed earth (the bright crack
+filtered off above 1400 Hz), at a quarter loudness like the grass;
+everywhere else below (the crypt, rock caves, dungeon halls) Kenney's
+concrete steps at a tenth loudness, as loud as the grass, with a faint
+echo off the walls (a repeat after 0.09 s, fading). The steps both
+vary as the grass does. Sounds now come in small related groups, one
+board and one PR each, the owner's pick. D-767 moves to
+`archive/DECISIONS-PACK.md`, word for word.

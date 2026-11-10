@@ -4,7 +4,8 @@ Every sound the game needs, one line each (D-773). It grows with the
 game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
-the first (D-774), the lantern's click the second (D-775).
+the first (D-774), the lantern's click the second (D-775), the steps
+below the third (D-776).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -31,6 +32,8 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
 | `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at a quarter loudness, CC0 |
+| `stoneStep` | the hero walks below: the crypt, rock caves, dungeon halls (D-776) | stone, with a faint echo off the walls | `kenney-impact-sounds/footstep_concrete_000` to `004`, at a tenth loudness, a 0.09 s echo, CC0 |
+| `earthStep` | the hero walks in the burrows, floors 5 to 7 (D-776) | soft packed earth | the grass files, muffled above 1400 Hz, at a quarter loudness, CC0 |
 | | the hero falls (D-119) | a slide and a thud | — |
 | | the hero wakes after a fall | a groan or a breath | — |
 | | a new floor reached | a low, far rumble | — |
@@ -126,10 +129,10 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 
 ## Maybe (for the owner to pick)
 
-None of these is decided (Q-095): footsteps that change with the
-ground (grass, stone, water; a wood step is picked, D-774: the grass
-files at a quarter loudness, muffled, with the bright crack filtered
-off above 1400 Hz); sounds all around, such as wind on the
+None of these is decided (Q-095): steps on more grounds (water,
+wood; a wood step is picked, D-774: the grass files at a quarter
+loudness, muffled, with the bright crack filtered off above 1400 Hz,
+the same as the burrows' earth, D-776); sounds all around, such as wind on the
 surface, birds by day, crickets at night, drips in caves; music; a
 warning when the oil runs low; a heartbeat at the last heart.
 

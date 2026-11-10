@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.226', date: '2026-11-10', title: 'Steps below', lines: [
+    "Footsteps below ground: underground, each step the hero walks now sounds too, by the ground. Stone in the crypt, the rock caves and the dungeon halls, with a faint echo off the walls; soft packed earth in the burrows (floors 5 to 7). With Sound: Off, nothing plays.",
+    "Decisions: D-776. D-767 moved to the archive, word for word. Questions: Q-095 narrowed.",
+  ] },
   { v: '0.3.225', date: '2026-11-10', title: 'The lantern\'s metal click', lines: [
     "The lantern clicks: a small metal click each time it goes on or off, by hand or by itself, higher for on and lower for off, as loud as a footstep. It plays above ground and below. With Sound: Off, nothing plays.",
     "Decisions: D-775. D-766 moved to the archive, word for word. Questions: Q-095 narrowed.",

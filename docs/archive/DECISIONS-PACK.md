@@ -1,7 +1,7 @@
 # Decisions: the rat pack
 
 Moved word for word from `DECISIONS.md` at 0.3.187 (D-735); D-766 at
-0.3.225 (D-775). Still in force.
+0.3.225 (D-775); D-767 at 0.3.226 (D-776). Still in force.
 
 ---
 
@@ -39,3 +39,14 @@ varying between "The pack closes in!", "Rats squeak all around you!" and
 "A pack of rats comes for you!" (lone rats stay silent); and the
 scorpion's sting also hits a creature on its marked tiles, 2 hearts, as
 it does the hero (changes D-729's "it strikes only the hero").
+
+**D-767 · 2026-11-10 · The rat pack's warning** (the owner's picks, all
+recommended; builds D-766's first addition) A pack that notices the hero
+says its line on that turn, each time it notices anew, so a pack that
+lost the hero and finds them again warns again. The three lines take
+turns, as the rat's other lines do (D-297), and show in amber, as the
+scorpion's raised tail does. A bite on that turn keeps its own line
+(D-117). Claude's calls the owner may change: the last rat of a pack is
+alone and stays silent; the warning replaces any other line that turn
+but a bite's or a drink's. D-760 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -9,7 +9,7 @@ import { eventsSince, has } from './core/events.js';
 import { strikeFish, needleAt } from './core/fishing.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
-import { beginPlace, depthOf, tileAt as roomTileAt } from './core/room.js';
+import { areaAt, beginPlace, depthOf, tileAt as roomTileAt } from './core/room.js';
 import { SEED_MAX, rng } from './core/rng.js';
 import { createScreen } from './render/screen.js';
 import { setOil } from './core/oil.js';
@@ -49,7 +49,7 @@ import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
-import { createSound } from './render/sound.js';
+import { createSound, stepOf } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
@@ -325,7 +325,7 @@ function nudgeToward(dir) {
 
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
-// a tile walked on the surface, unless the hero fell (D-255, D-774), a waystone's bells as it wakes (D-591), and
+// a tile walked, its step by the ground, unless the hero fell (D-255, D-774, D-776), a waystone's bells as it wakes (D-591), and
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
@@ -333,7 +333,7 @@ function hear(events) {
   if (drink) sound[drink](!!hit); // the oil tick's sip (D-606)
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);
-  if (has(events, 'step') && !has(events, 'fall') && app.state.room.dark?.sky) sound.footstep(); // on the surface only, for now (D-774)
+  if (has(events, 'step') && !has(events, 'fall')) sound[stepOf(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look)](); // grass, earth or stone (D-776)
   if (has(events, 'stoneWake')) sound.bells(); // the waystone wakes (D-591); a mimic wakes silently (D-368)
   if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)
   if (has(events, 'cast')) sound.plop(); // the line cast (D-613)

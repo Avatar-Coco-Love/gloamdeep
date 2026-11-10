@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.225 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.226 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 Night creatures (D-760), after a proposal; then day creatures (D-771).
-More sound files (Q-095) whenever the owner wants.
+More sound files (Q-095) whenever the owner wants, a small related
+group at a time (D-776).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -25,8 +26,8 @@ More sound files (Q-095) whenever the owner wants.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): a file for each other sound, a stone
-  step underground, and the "Maybe" sounds.
+- Sounds from files (Q-095): a file for each other sound, and the
+  "Maybe" sounds.
 - The alchemy station and new recipes (Q-093), after day creatures;
   then the bow (Q-094).
 
@@ -48,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.226, Steps below.** The owner's picks (D-776), by
+  ear from a board: concrete steps with a faint echo below, the grass
+  steps muffled into packed earth in the burrows, as loud as the grass.
+  Playtest: PLAYTEST
+  Sound board: BOARD
 - **2026-11-10, 0.3.225, The lantern's metal click.** The owner's picks
   (D-775), by ear from a board: on 12% higher, off 11% lower, at half
   loudness, as loud as a step; by hand or by itself, above and below.
@@ -58,7 +64,3 @@ list in `RESEARCH.md`.
   the surface only, at a quarter loudness; the metal click next for the
   lantern. ObsydianX's interface pack kept whole. Playtest: https://claude.ai/artifact/NQG8jGfQLEoTky3DZAsB3i
   Sound board: https://claude.ai/artifact/Stde3DZoQbHoJJQiJr8Uwa
-- **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
-  (D-773): sound files from Kenney's free packs; all 15 old sounds
-  wiped, so the game is silent; every sound needed listed in
-  `docs/SOUNDS.md`. Four Kenney packs kept in `sounds/packs/`.
