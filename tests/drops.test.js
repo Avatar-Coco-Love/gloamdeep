@@ -14,7 +14,7 @@ const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, good for mak
   mimicGlass: ['You pick up the mimic glass.', 'Mimic glass. With 2 oilcaps, a flask.', "You can't carry more mimic glass."],
   gloamWisp: ['You catch the gloam wisp.', 'A gloam wisp, good for making things.', "You can't carry more gloam wisps."],
   spiderSilk: ['You pick up the spider silk.', 'Spider silk, good for making things.', "You can't carry more spider silk."],
-  batWing: ['You pick up the bat wing.', 'A bat wing, for crafting later.', "You can't carry more bat wings."],
+  batWing: ['You pick up the bat wing.', 'A bat wing, for an echo charm.', "You can't carry more bat wings."],
   moleFur: ['You pick up the mole fur.', 'Mole fur, good for making things.', "You can't carry more mole fur."],
   snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, good for making things.', "You can't carry more snapcap gills."],
   mimicLeaf: ['You pick up the mimic leaf.', 'A mimic leaf, good for making things.', "You can't carry more mimic leaves."] };

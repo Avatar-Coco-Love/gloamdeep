@@ -23,6 +23,8 @@ import { drawFramed } from './framed.js';
 import { drawMoves, drawStrikes, drawPiles } from './moves.js';
 import { struck } from '../core/sting.js';
 import { litAt } from '../core/sight.js';
+import { echoed } from '../core/echo.js';
+import { drawEchoes } from './echo.js';
 import { canSleepOut } from '../core/sleepout.js';
 import { drawTitle, drawScene, drawName } from './title.js';
 import { drawTitleCard, nameTop } from './titlecard.js';
@@ -302,6 +304,7 @@ export function createFrame(app, ui) {
         drawFlames(rc, s.room, s.lights, t, still());
         drawFires(rc, s.room, t, still()); // a burning campfire's flames and coals (D-757)
         drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
+        if (lightOn) drawEchoes(rc, echoed(s), t, still(), foeAt); // the Echo Charm's pale outlines, near creatures in the dark (D-805)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)
         drawGlobs(rc, s.globs, t, still()); // the Spit grub's globs in flight, seen in the dark (D-688)

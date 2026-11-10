@@ -187,6 +187,10 @@ export const ITEMS = {
   // poisoned lasts `wear.poison` turns, not 6, so it takes 1 heart, not 2 (poison.js).
   centipedeCharm: { id: 'centipedeCharm', kind: 'item', name: 'Centipede Charm', bag: true, max: 1, look: 'centipedeCharmLook', full: 'centipedeCharmFull',
     bench: { of: { centipedeLeg: 3, copperOre: 1 }, says: 'centipedeCharmMake', short: 'centipedeCharmShort' }, wear: { slot: 'charm', poison: 3 }, wears: 'centipedeCharmWear' },
+  // The charm for the dark (D-805): made at the workbench's GEAR tab, never found; worn, a creature
+  // within `wear.echo` tiles, walls or not, shows as a pale outline over the dark (echo.js).
+  echoCharm: { id: 'echoCharm', kind: 'item', name: 'Echo Charm', bag: true, max: 1, look: 'echoCharmLook', full: 'echoCharmFull',
+    bench: { of: { batWing: 3, copperOre: 1 }, says: 'echoCharmMake', short: 'echoCharmShort' }, wear: { slot: 'charm', echo: 4 }, wears: 'echoCharmWear' },
   // The first home piece (D-488): made at the workbench, never found, set down on the surface
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',

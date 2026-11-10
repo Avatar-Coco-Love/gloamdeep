@@ -25,7 +25,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `mimicGlass` | with 2 oilcaps makes a flask | 20 | never | a beaten flask mimic, about 1 in 2 | D-454, D-475, D-477 |
 | `gloamWisp` | 3 with 1 Copper Ore make the Wisp Charm | 20 | never | a beaten gloamling, about 1 in 2 | D-454, D-475, D-486 |
 | `spiderSilk` | 2 in the Pouch, 3 in the Big Bag | 20 | never | a beaten cave spider, about 1 in 2 | D-535 |
-| `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
+| `batWing` | 3 with 1 Copper Ore make the Echo Charm (D-805) | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
 | `mimicLeaf` | 2 with 1 Herb make the Mending Draught at the mortar (D-794) | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |

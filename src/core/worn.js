@@ -27,6 +27,9 @@ export const rareOf = (state, base) => Math.max(base, ...effects(state, 'rare'))
 // How much of a lit turn's oil still burns: the worn pieces' `burn`, multiplied, or 1 (D-487)
 export const burnByWorn = (state) => effects(state, 'burn').reduce((a, b) => a * b, 1);
 
+// How many tiles away a creature shows in the dark: the worn pieces' `echo`, or 0 (D-805)
+export const echoOf = (state) => Math.max(0, ...effects(state, 'echo'));
+
 // How many turns poisoned lasts: the worn pieces' `poison`, or `base` (D-656)
 export const poisonTurnsOf = (state, base) => Math.min(base, ...effects(state, 'poison'));
 

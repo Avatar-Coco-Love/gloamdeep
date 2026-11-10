@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.251', date: '2026-11-10', title: 'The Echo Charm', lines: [
+    "New: the Echo Charm, the Bat Wing's first use. The workbench's GEAR tab makes it from 3 Bat Wing and 1 Copper Ore. Wear it, and each creature within 4 tiles that no light reaches shows as a pale outline of its shape, even behind a wall. A creature in disguise stays hidden.",
+    "Bat Wing now says \"for an echo charm.\"",
+    "Decisions: D-805.",
+  ] },
   { v: '0.3.250', date: '2026-11-10', title: 'The bedroll laid out', lines: [
     "New: the Fur Bedroll has two buttons in your bag. SLEEP sleeps right where you stand, the moon's way; it is dim by day, below ground, or with a creature after you, and a tap says why. SET DOWN lays the bedroll out beside you on the surface.",
     "Laid out, bump the bedroll from dusk to sleep on it: 2 hearts back and not stiff. By day a bump asks \"Roll up the bedroll?\" to put it back in your bag. It is not your bed for a fall; home's bed still is.",
