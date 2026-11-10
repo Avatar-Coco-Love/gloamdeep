@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
+  The owner asked if there are enough materials for more recipes and
+  stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
+  after night and day creatures (Q-093); then a bow (D-772, Q-094).
 - **2026-11-10, 0.3.221, A miners' camp.** The owner's picks (D-770):
   look A, a tent and a crate, in a mountain room; the pick is the
   game's own Stone Pick, gone from the camp once taken; bumped, Take

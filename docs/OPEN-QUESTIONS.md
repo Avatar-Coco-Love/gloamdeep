@@ -125,6 +125,6 @@ and sound. After the alchemy station (Q-093).
 
 **Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: which
 file for each other line of `docs/SOUNDS.md` (the footstep is in,
-D-774; the lantern's metal click next); the "Maybe" sounds (footsteps by
+D-774, and the lantern's metal click, D-775); the "Maybe" sounds (footsteps by
 ground, where the wood step plays, sounds all around, music, an oil warning, a heartbeat); where
 the credits show; whether a sound is cached for playing offline.
