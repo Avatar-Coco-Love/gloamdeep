@@ -25,6 +25,7 @@ Entry format:
 
 ## 0.3.223 (2026-11-10)
 - The game is silent for now: every sound made in code is gone, since none sounded good. Sounds will come from sound files instead, from a free pack (Kenney's first, which needs no credit).
+- Four free sound packs from Kenney (335 sounds, no credit needed) are saved in the game's files, ready to choose from; the game doesn't play them yet.
 - A new list, docs/SOUNDS.md, names every sound the game needs, when each plays and how it should feel. It grows with the game.
 - Decisions: D-773. D-764 moved to the archive, word for word. Questions: Q-095 opened.
 

@@ -8,8 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Sounds (D-773, Q-095): match `SOUNDS.md` to Kenney's packs, the owner
-downloads them, then the first sounds go in. Then night creatures
+Sounds (D-773, Q-095): match `SOUNDS.md` to the four Kenney packs in
+`sounds/packs/`, a sound board to pick by ear, then the first go in. Then night creatures
 (D-760), after a proposal; then day creatures (D-771).
 
 ## Waiting on the owner
@@ -49,10 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
-- **2026-11-10, 0.3.223, Sounds from files.** The owner found the
-  sounds made in code poor. Their picks (D-773): sound files allowed,
-  from Kenney's free packs; all 15 old sounds wiped now, so the game
-  is silent; a full list of every sound needed, `docs/SOUNDS.md`.
+- **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
+  (D-773): sound files from Kenney's free packs; all 15 old sounds
+  wiped, so the game is silent; every sound needed listed in
+  `docs/SOUNDS.md`. Four Kenney packs kept in `sounds/packs/`.
 - **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
   The owner asked if there are enough materials for more recipes and
   stations: yes, 16 wait. Their picks (D-771): alchemy its own station,

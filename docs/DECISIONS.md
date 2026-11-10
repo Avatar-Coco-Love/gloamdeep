@@ -181,4 +181,5 @@ measures, trims and plugs them in. All 15 old sounds are wiped now, so
 the game is silent until the new ones are in. The code that knows when
 each plays, the Sound switch and the sound board (D-256) stay.
 `docs/SOUNDS.md` lists every sound the game needs and grows with it.
+The owner's first four Kenney packs are kept in `sounds/packs/`.
 D-764 moves to `archive/DECISIONS-SURFACE.md`, word for word.

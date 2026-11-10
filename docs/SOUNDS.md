@@ -12,6 +12,17 @@ what it should sound like, a first guess for the owner to change.
 A sound goes in only after the owner hears it on the sound board
 (D-256).
 
+**Packs on hand** (`sounds/packs/`, not yet played by the game; each
+folder keeps its `License.txt`). All four are Kenney's, CC0 (no credit
+needed), `.ogg` files:
+
+| Folder | Files | Good for |
+| --- | --- | --- |
+| `kenney-impact-sounds` | 130 | footsteps on many grounds, hits, thuds |
+| `kenney-rpg-audio` | 52 | cloth, coins, books, doors, metal, footsteps |
+| `kenney-interface-sounds` | 100 | menus: open, close, back, error |
+| `kenney-ui-audio` | 52 | menus: clicks and switches |
+
 ## Moving
 
 | Name | When | Feel | File |
