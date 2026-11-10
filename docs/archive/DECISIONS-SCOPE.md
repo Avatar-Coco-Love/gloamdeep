@@ -22,7 +22,7 @@ and food is a bonus that heals or boosts. Wood, stone and oil are found
 everywhere, and each biome adds its own set, deeper ones making better
 things. Gear and crafting lead the ways of getting stronger (D-038).
 
-**D-415 · 2026-10-28 · Crafts and loot** (the owner's picks, all
+**D-415 · 2026-10-28 · Crafts and loot** *Partly superseded by D-771 (2026-11-10): alchemy is a family and station of its own, apart from cooking.* (the owner's picks, all
 recommended, with the owner's addition) Seven craft families: lampcraft,
 cooking and alchemy, smithing and tools, building, leatherwork, and
 (the owner's addition) electronic and arcane, both found below and then
