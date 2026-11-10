@@ -102,22 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-763 · 2026-11-09 · Gathering, step 4: the duskstar** (the owner's
-picks, all recommended, the look after its mock-up:
-https://claude.ai/artifact/G4ixYQbiLTsSrcNoAR4PKQ; builds D-762 and
-D-530, the first of Q-092's flowers) The first flower is look B, the
-**Duskstar**: five violet petals round a yellow heart. 2 grow in each
-woods room, home too, none in the mountain rooms, on open grass. Each
-faces left or right and has its own slight shade of violet, the seed
-picking. Walking onto one puts it in the bag, for crafts later. Picked,
-it comes back after a day, 300 turns, on another open grass tile of the
-same room (D-530). In an older save only woods rooms never seen, with
-nothing taken, get theirs. Claude's calls the owner may change: stacks
-of 20; never on the start, a find, the mouth's front or the waystone's
-ring when laid, any free grass tile out of sight when it comes back; its
-lines ("You pick a duskstar." and two more); a new violet shade, `#6e58a8`.
-D-758 and D-759 move to `archive/DECISIONS-SLEEPING-OUT.md`, word for word.
-
 **D-764 · 2026-11-09 · Dimmer doorway lines** (the owner's picks, both
 recommended, after a mock-up; changes D-225's brightness) The owner
 found the pale blue doorway lines too bright. In the game they are now
@@ -187,3 +171,24 @@ as the campfire; its words a sentence a bump, as they are too long for
 the strip; in an older save, its room gets it if never seen, with
 nothing taken. D-762 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-770 · 2026-11-10 · Landmarks, step 2: the miners' camp** (the
+owner's picks, the look after its mock-up:
+https://claude.ai/artifact/UFEKsFHF3XZBC8L5r51UcY; builds D-769) The
+camp is look A of three: a slumped canvas tent, its flap open on the
+dark, and an old crate with a pick leaning on it, 3 × 2 tiles, all
+solid, light passing them. The pick is the game's own Stone Pick
+picture (the owner's words), and it is gone from the camp once taken.
+One a seed, in one of Hearthwood's 3 mountain rooms, never the
+campfire's or the lamppost's. Bumped, "A miners' camp, long left." on
+the text line and the card Take the pick?, "An old pick leans on the
+crate.", No picked, as cold ashes ask; Yes puts a plain Stone Pick in
+the bag, a turn, and the camp turns bare; bare, a bump says its first
+words, free. This changes D-769's "The pick is rusted through.", as
+the pick now works. Claude's calls the owner may change: "An old pick
+leans on the crate." and "You take the old pick."; with a pick already
+carried, held too, "You already carry a stone pick.", with the bag
+full "Your bag is full.", free, the camp keeping its pick; on open
+grass 2 tiles in from the edge, never cutting the room; in an older
+save, its room gets it if never seen, with nothing taken. D-763 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.

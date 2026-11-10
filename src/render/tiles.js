@@ -7,7 +7,8 @@ import { TILE as T } from './screen.js';
 import { drawRock, drawRockBeyond } from './rock.js';
 import { drawSlab } from './slab.js';
 import { drawWoods, drawTree, drawWoodsBeyond } from './woods.js';
-import { drawDeposit, drawBranch, drawStump, drawBench, SPRITES } from './sprites.js';
+import { drawDeposit, drawBranch, drawStump, drawBench, drawShadow, SPRITES, CAMPS } from './sprites.js';
+import { campCorner } from '../core/camp.js';
 import { formOf } from '../core/tiles.js';
 import { get } from '../core/registry.js';
 import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waystone.js';
@@ -136,10 +137,21 @@ const DRAW = {
   campfireEmbers: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireEmbers); },
   campfireAshes: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.campfireAshes); },
   lamppost: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.lamppost); }, // the dead lamppost (D-769)
+  minersCamp: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCamp), // the miners' camp, the pick on its crate (D-770)
+  minersCampBare: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCampBare), // and once the pick is taken
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
 const OWN_GROUND = ['rock', 'earth', 'woods']; // looks drawn whole under their tiles (D-164, D-165, D-209)
+// § camp: the miners' camp drawn whole from its top-left tile, 2 pixels up on a wide shadow as a
+// deposit is; its other tiles draw only the floor under it, off the woods (D-770)
+function drawCamp(c, room, x, y, sprite) {
+  if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y);
+  const at = campCorner(room, x, y);
+  if (at.x !== x || at.y !== y) return;
+  drawShadow(c, x * T + 16, y * T + 12, 44);
+  c.drawImage(sprite, x * T, y * T - 2);
+}
 // `mouth`: the cave mouth's look, the seed's (mouthOf, D-744); the small arch when not given
 export function drawRoom(c, room, mouth = 'arch') {
   const woods = room.look === 'woods';

@@ -135,7 +135,7 @@ export const ITEMS = {
   chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
     bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
     sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
-  // The first pick, made at the workbench as the chest is, never found (D-480). Only `max` 1
+  // The first pick, made at the workbench as the chest is (D-480), or taken at the miners' camp (D-770). Only `max` 1
   // is carried. A `tool`: Hold, in the bag, puts it in the Tool slot, a turn, and only there does
   // a copper vein break (D-552, which supersedes D-480's "never held"). Made with that slot
   // empty, it goes straight into it.
