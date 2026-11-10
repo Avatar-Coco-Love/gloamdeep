@@ -168,3 +168,10 @@ on the Bag tab stays, and opens the Make tab with its recipe chosen
 it makes: the result's picture and "Makes a Flask" (look A of three).
 This lets a find be in more than one recipe. The first step adds the tab
 with today's bag recipes only.
+
+**D-788 · 2026-11-10 · Copyable prompts at the handoff** (the owner's
+request) Every conversation's handoff ends with a brief prompt for each
+likely next direction, each in its own copyable block, the recommended
+one first, so the owner picks one and pastes it into a new conversation.
+Only one prompt when there is only one direction. Written into the
+handoff rule in `docs/PR-CHECKLIST.md`.

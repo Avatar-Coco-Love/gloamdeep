@@ -73,3 +73,7 @@ or updating a PR.
   match the branch (D-076).
 - End every conversation with a handoff of at most 5 lines: the PR link,
   what changed, what is waiting on the owner, and the proposed next step.
+  Then give a short prompt for each likely next direction, in its own
+  copyable code block, the recommended one first, so the owner can
+  paste one into a new conversation; just one when only one direction
+  makes sense (D-788).
