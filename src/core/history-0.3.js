@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.237', date: '2026-11-10', title: 'The bag\'s Make tab', lines: [
+    "The bag has two tabs, BAG and MAKE. The Make tab lists everything you can make from your bag: pick one to see its cost from what you carry, then press MAKE. A recipe shows once you have held each of its finds, and stays after.",
+    "On the Bag tab, a find's MAKE now opens the Make tab on its recipe, and a line above it shows what it makes (\"Makes an Oil flask\"). Tab switches the tabs.",
+    "Decisions: D-788.",
+  ] },
   { v: '0.3.236', date: '2026-11-10', title: 'Mortar and Make tab, the plan', lines: [
     "Nothing in the game changes. The plan for the first potion station is set. The Mortar and Pestle is a stone bowl on a stump, made from 4 Stone and 1 Wood. Its first recipe is the Glow Draught, made from 2 Duskstar and 1 Wisp Glass, which makes your lantern reach 1 tile farther for 60 turns. The workbench has no room left, so first the bag gets a Make tab listing everything you can make from your bag.",
     "Decisions: D-786, D-787. Questions: Q-093 narrowed.",

@@ -168,3 +168,15 @@ on the Bag tab stays, and opens the Make tab with its recipe chosen
 it makes: the result's picture and "Makes a Flask" (look A of three).
 This lets a find be in more than one recipe. The first step adds the tab
 with today's bag recipes only.
+
+**D-788 · 2026-11-10 · The Make tab's details** (the owner's picks, all
+recommended; builds D-787) The game remembers every find ever in the bag
+(`known` in the save); an older save starts it from what is in its bag
+and stash chests. The two recipes making an Oil flask (3 Oilcaps; Mimic
+Glass with 2 Oilcaps) are two slots side by side. With nothing shown
+yet, the tab says "Nothing to make yet. Recipes show once you have held
+their finds." The bag always opens on BAG. Claude's calls: Tab, or a tap
+on a tab, turns the tabs; a find's MAKE (and C) opens its own recipe, or
+else the first it is in, and is dim only before that recipe shows; a
+cost is counted from the whole bag, so 2 and 1 Oilcaps in two stacks
+make a flask.

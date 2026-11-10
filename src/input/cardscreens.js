@@ -4,7 +4,9 @@
 // (D-570): `app` and `ui` as there, `show` to open a screen, and `menuOf` for a card's lines.
 import { tileAt } from '../core/room.js';
 import { benchMakes, BENCH_TAKE, SURE_MENU } from '../core/menu.js';
-import { bagSize, bagCols, canCraft } from '../core/bag.js';
+import { bagSize, bagCols } from '../core/bag.js';
+import { bagMakes, makeFor } from '../core/bagmake.js';
+import { NONE_YET } from '../render/makecard.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { gearChosen, BAG_STORE, BAG_SORT } from '../render/bag.js';
@@ -17,9 +19,9 @@ export function createCardScreens(app, ui, show, menuOf) {
   const { spoken } = ui;
   // § bag (D-247): opens on the first slot; no turn passes until a flask is poured
   const slotWords = (i) => { const s = app.state.bag[i]; return s ? `${get(s.id).name}, ${s.n}` : 'Empty'; };
-  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, makes, eats, drinks, holds, fits, wears or takes off, C makes, E eats a fish, I or Esc closes.`;
+  const bagWords = () => `Bag. ${gearWords(app.state)}. ${app.state.bag.length ? app.state.bag.map((s, i) => slotWords(i)).join('. ') : 'Empty'}. The arrows choose, Up from the top row reaches the gear, Up again ${canStore() ? 'Store, for the chests nearby, Left of it Sort' : 'Sort'}, Enter pours, eats, drinks, holds, fits, wears or takes off, or opens the Make tab on what a find makes, as C does, E eats a fish, Tab opens the Make tab, I or Esc closes.`;
   function toggleBag() {
-    if (app.screen === 'bag' || app.screen === 'place') show('play');
+    if (app.screen === 'bag' || app.screen === 'make' || app.screen === 'place') show('play');
     else if (app.screen === 'play') { app.queued = null; show('bag'); }
   }
   function pickSlot(i) { app.chosen = i; spoken.textContent = slotWords(i); ui.lookAt(i); } // choosing says an item's look line (D-297)
@@ -92,14 +94,26 @@ export function createCardScreens(app, ui, show, menuOf) {
       spoken.textContent = slotWords(app.chosen);
       return;
     }
-    if (!entry?.craft || !canCraft(app.state.bag, app.chosen)) return; // dim: nothing happens
-    const turn = app.state.turn;
-    ui.craft(app.chosen);
-    if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
-    if (app.state.turn === turn) return; // no room for the flask: its line, and the oilcaps stay
-    app.chosen = app.state.bag.findIndex((o) => o.id === entry.craft.into);
-    spoken.textContent = slotWords(app.chosen);
+    const at = entry?.craft ? makeFor(app.state, entry.id) : -1; // MAKE opens the Make tab on its recipe (D-787)
+    if (at >= 0) show('make', at); // dim, its recipe not shown yet: nothing happens
   }
+  // § make tab (D-787): the bag's recipes; the frame on a slot says what it makes and its cost,
+  // MAKE makes it, a turn, the tab kept open on it
+  const makeWords = () => { const makes = bagMakes(app.state); return `Bag, Make tab. ${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${NONE_YET} `}Enter makes, Tab goes back to the bag, I or Esc closes.`; };
+  function pickMake(i) {
+    app.chosen = i;
+    const m = bagMakes(app.state)[i];
+    spoken.textContent = m ? costWords(m) : 'Empty';
+  }
+  function makeChosen() {
+    const m = bagMakes(app.state)[app.chosen];
+    if (!m || m.dim) return; // dim: nothing happens
+    ui.makeBag(m.from);
+    if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
+    pickMake(Math.max(0, bagMakes(app.state).findIndex((o) => o.from === m.from)));
+  }
+  // Tab, or a tap on a tab: the bag's other tab, on its first slot
+  const turnBagTab = (tab = app.screen === 'make' ? 'bag' : 'make') => { if (tab !== app.screen) show(tab, 0); };
 
   // § set down (WB2, D-322): the bag closes and the sides the workbench can go on are
   // marked (`app.setting.sides`); off the surface, or with no side free, its line, free,
@@ -176,5 +190,5 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
   }
 
-  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords };
+  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
 }

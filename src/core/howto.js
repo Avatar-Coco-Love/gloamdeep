@@ -41,7 +41,7 @@ export function howtoRows(page, settings) {
   }
   if (page === 'bag') {
     return [
-      { action: 'Make', ways: ['Pick a stack in the bag', 'then press Make'] },
+      { action: 'Make', ways: ['The bag\'s Make tab', 'or Make on a find'] }, // the Make tab (D-787)
       { action: 'Drop', ways: ['Sets a stack at your feet', 'Walk on it to take it back'] },
       { action: 'Oilcap', ways: ['3 make an oil flask'] },
       { action: 'Glass', ways: ['With 2 oilcaps, a flask'] },

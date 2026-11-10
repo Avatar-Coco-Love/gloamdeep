@@ -12,6 +12,7 @@ import { leave, send, arrive, greet } from './homeward.js';
 import { fishTurn } from './fishing.js';
 import { stiffTick } from './stiff.js';
 import { meet } from './bestiary.js';
+import { learn } from './bagmake.js';
 import { poisonTick } from './poison.js';
 import { nightfall, leaveByLight } from './nightfall.js';
 
@@ -43,7 +44,7 @@ export const endTurn = (before, cast) => {
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : packWarns(before, enemiesAct(leaveByLight(ticked))); // night or day creatures gone with the light leave first, so none bites on waking (D-783, B2); a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
   const next = grow(burnOut(nightfall(regrow(acted, moved)), moved)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
-  return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)
+  return learn(meet(greet(arrive(sent)))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630); the bag's finds are known (D-787)
 };
 
 // § burn out: a torch set down goes out on its `out` turn, leaving bare floor where its

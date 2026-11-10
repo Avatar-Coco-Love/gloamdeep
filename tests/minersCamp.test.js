@@ -93,7 +93,7 @@ test('bare, a bump says its words, free, with no card', () => {
 });
 
 test('an older save gets it in its room when unseen and untouched; a seen room stays (D-266)', () => {
-  assert.equal(FORMAT, 29); assert.equal(UPGRADES[28], recamp);
+  assert.ok(FORMAT >= 29); assert.equal(UPGRADES[28], recamp);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), id = campRoom(seed);
     assert.ok(cornerIn(w.elsewhere[id].room.map), `${seed}: a new journey has it`);

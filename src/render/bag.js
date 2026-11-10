@@ -1,6 +1,6 @@
 // § bag card: a glass card filling the room's canvas but for a thin edge, the
 // room nearly dark around it, so its buttons sit near the thumbs (D-385; was a
-// box over the room's foot, D-247). "BAG" in ember at its top left and a round
+// box over the room's foot, D-247). Its tabs, BAG in ember and MAKE (D-787), at its top left and a round
 // cross at its top right that closes it. Across its top, the gear row (D-552): Weapon,
 // Tool, Armour and two Charms, an empty one showing its kind faintly, "GEAR" after it
 // when there is room. Under it, on the left, the six slots in a 3 × 2
@@ -15,12 +15,14 @@
 // item has Drop at the item side's bottom left (D-546).
 import { drawText, textWidth } from './font.js';
 import { drawGlass, GLASS, GLASS_EDGE as EDGE } from './glass.js';
-import { BAG_SLOTS, bagCols, canCraft } from '../core/bag.js';
+import { BAG_SLOTS, bagCols } from '../core/bag.js';
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
 import { GEAR } from '../core/gear.js';
 import { view } from './screen.js';
 import { drawMarker } from './menu.js';
+import { drawBagTabs } from './bagtabs.js';
+import { makesWords } from '../core/bagmake.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -237,10 +239,12 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // empty slot (gear.js); full: whether the hero is at full health, or, given
 // `poisoned`, an antidote's Drink is dim when the hero isn't poisoned (D-655); told: the state's told
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
-// still for its marker when chosen (D-558); SORT always shows (D-559)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false) {
+// still for its marker when chosen (D-558); SORT always shows (D-559); makes: what the chosen
+// find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787)
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null) {
   const shape = bagShape(size);
-  const card = { ...drawCard(c, vw, vh, 'BAG', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
+  const card = { ...drawCard(c, vw, vh, '', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
+  drawBagTabs(c, card, 'bag'); // BAG and MAKE in the title row (D-787)
   if (store) {
     const st = storeAt(card);
     drawButton(c, st.x, st.y, STORE, false, STORE_W);
@@ -263,11 +267,19 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   drawButton(c, card.drop.x, card.drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (!text) return;
-  const few = entry.craft && !canCraft(bag, chosen);
+  const few = entry.craft && !makes; // MAKE opens the Make tab on its recipe, dim before that shows (D-787)
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
   drawButton(c, card.button.x, card.button.y, text, entry.cures ? !poisoned : entry.eats && !entry.oil ? full : few);
   const second = secondText(entry);
   if (second) drawButton(c, card.make.x, card.make.y, second, second === 'EAT' ? full : few);
+  if (makes) drawMakes(c, text === 'MAKE' ? card.button : card.make, makes, spriteOf);
+}
+// § makes line: above a find's MAKE, the picture of what it makes and "Makes an Oil flask",
+// their right end at MAKE's (look A, D-787)
+function drawMakes(c, at, into, spriteOf) {
+  const words = makesWords(into), tx = at.x + BUTTON.w - textWidth(words), ty = at.y - LINE_H - 2;
+  c.drawImage(spriteOf({ id: into, n: 1 }), tx - 19, ty - 5);
+  drawText(c, words, tx, ty, GREY);
 }
 
 // § gear's words: a gear slot chosen, its piece's name, its slot's name and its Look line, as

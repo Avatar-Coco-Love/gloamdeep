@@ -100,3 +100,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A bug fix's test is checked against the old code first: B3's first test passed without the fix, as one night's pick happened to land far away, and only trying many nights caught it (0.3.233).
 - The owner may answer a list of picks with an idea of their own ("a bunny"): ask its details as multiple choice before building, and only then build (0.3.234).
 - Check that a new thing has room before proposing where it is made: the workbench card was full, found only after the mortar's picks, which opened the Make tab question (0.3.236).
+- Check that the game can answer a rule before the owner picks it: "shown once held" (D-418) needed a memory of held finds the save didn't have, asked about only at the build (0.3.237).
