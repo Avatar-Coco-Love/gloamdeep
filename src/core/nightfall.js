@@ -1,6 +1,6 @@
 // § nightfall: night creatures come out in the woods (D-778, D-760's last step, its first
-// creature). Plain data, no drawing. In each woods room round home, never home and never a
-// mountain room, one lampmoth comes out each night: once daylight stops lighting the room
+// creature; the bat the second, D-779). Plain data, no drawing. In each woods room round home,
+// never home and never a mountain room, one of each night kind comes out each night: once daylight stops lighting the room
 // (halfway through dusk), on an open grass tile off the edge, free and out of the hero's sight,
 // picked by the seed and the night. The room notes the night it came (`night`), so one beaten
 // stays beaten till the next night. Halfway through dawn, as daylight lights the room again,
@@ -12,7 +12,7 @@ import { litAt } from './sight.js';
 import { rng, pick, seedFor } from './rng.js';
 
 // § kinds: what comes out each night, one of each, in each room
-export const NIGHT_KINDS = ['lampmoth'];
+export const NIGHT_KINDS = ['lampmoth', 'bat']; // a night bat leaves no guano: that lies only by a bat a room is made with (D-779)
 
 // The night a turn falls in: the day's own number, as all its dark lies inside one day (D-217)
 export const nightOf = (turn) => Math.floor(turn / DAY_TURNS);
