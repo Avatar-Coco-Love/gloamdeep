@@ -1,10 +1,11 @@
-# The name pad, the pad's guard, the edge (D-420, D-422, D-424)
+# The name pad, the pad's guard, the edge (D-420, D-422, D-424, D-765)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.167 (D-426), when it
 neared 12 KB: a bigger name pad, a guard round the arrow pad with Tap to
 walk off, and no walking past the room's edge, all built. These are still
 in force unless marked superseded. Grep for an ID or topic; never read
-this whole.
+this whole. D-765, names with spaces and digits, moved here at
+0.3.224 (D-774), unchanged.
 
 ---
 
@@ -32,3 +33,15 @@ recommended; changes D-409's far tap) A tap or held finger past the
 room's edge, where the rock, brick or trees go on (D-403), does nothing,
 even beside a doorway. A tap on a wall or unknown dark inside the room
 still walks as near as it can (D-408, D-409). Built in 0.2.165.
+
+**D-765 · 2026-11-10 · Names with spaces and digits** (the owner's
+picks, all recommended; answers Q-054; changes D-272 and D-683) A name
+may hold letters, digits and spaces, still up to 12. The name pad gets a
+123 key, as on a phone: it swaps the letters for 1 to 8 across the top
+row and 9 and 0 under them, ABC swaps back, and the bottom row stays: M,
+Del, Z, Space, 123 or ABC, OK. Spaces are tidy: never first, never two
+in a row, one at the end dropped on OK. Space on a keyboard types a
+space, and digits type too. Claude's calls the owner may change: the
+Space key reads SPC; on a narrow card a word too wide for its key is
+drawn at half size; the pad opens on its letters. D-757 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

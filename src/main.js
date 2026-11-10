@@ -111,7 +111,7 @@ function loadInto(slot) {
   else { app.state = newWorld(); app.jumped = false; }
 }
 loadInto(app.profiles.current);
-const sound = createSound(() => app.settings.sound === 'on'); // silent until the sound files are in (D-773)
+const sound = createSound(() => app.settings.sound === 'on'); // from sound files, each silent until its file is in (D-773)
 // Saved after every turn, or any change, once the journey has begun (D-238)
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
@@ -325,7 +325,7 @@ function nudgeToward(dir) {
 
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
-// a tile walked, unless the hero fell (D-255), a waystone's bells as it wakes (D-591), and
+// a tile walked on the surface, unless the hero fell (D-255, D-774), a waystone's bells as it wakes (D-591), and
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
@@ -333,7 +333,7 @@ function hear(events) {
   if (drink) sound[drink](!!hit); // the oil tick's sip (D-606)
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);
-  if (has(events, 'step') && !has(events, 'fall')) sound.footstep();
+  if (has(events, 'step') && !has(events, 'fall') && app.state.room.dark?.sky) sound.footstep(); // on the surface only, for now (D-774)
   if (has(events, 'stoneWake')) sound.bells(); // the waystone wakes (D-591); a mimic wakes silently (D-368)
   if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)
   if (has(events, 'cast')) sound.plop(); // the line cast (D-613)

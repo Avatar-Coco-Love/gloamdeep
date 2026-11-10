@@ -4,6 +4,11 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.224', date: '2026-11-10', title: 'Grass steps, the first sound file', lines: [
+    "The first sound from a file: on the surface, each step the hero walks sounds of soft grass, one of 5 recordings in turn, never the same twice running and a little higher or lower each time. Underground stays silent for now. With Sound: Off, nothing plays.",
+    "A fifth free sound pack is saved in the game's files: ObsydianX's Interface SFX Pack 1 (222 menu tones, no credit needed), cut of its silence.",
+    "Decisions: D-774. D-765 moved to the archive, word for word. Questions: Q-095 narrowed.",
+  ] },
   { v: '0.3.223', date: '2026-11-10', title: 'Sounds from files', lines: [
     "The game is silent for now: every sound made in code is gone, since none sounded good. Sounds will come from sound files instead, from a free pack (Kenney's first, which needs no credit).",
     "Four free sound packs from Kenney (335 sounds, no credit needed) are saved in the game's files, ready to choose from; the game doesn't play them yet.",

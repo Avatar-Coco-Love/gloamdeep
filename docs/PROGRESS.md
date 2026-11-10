@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.223 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.224 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sounds (D-773, Q-095): match `SOUNDS.md` to the four Kenney packs in
-`sounds/packs/`, a sound board to pick by ear, then the first go in. Then night creatures
-(D-760), after a proposal; then day creatures (D-771).
+Sounds (D-773, D-774): the lantern's metal click, higher for on and
+lower for off, after the owner hears the grass steps. Then night
+creatures (D-760), after a proposal; then day creatures (D-771).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -26,8 +26,8 @@ Sounds (D-773, Q-095): match `SOUNDS.md` to the four Kenney packs in
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): which pack and file for each sound,
-  and the "Maybe" sounds.
+- Sounds from files (Q-095): a file for each other sound, a stone
+  step underground, and the "Maybe" sounds.
 - The alchemy station and new recipes (Q-093), after day creatures;
   then the bow (Q-094).
 
@@ -49,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.224, Grass steps, the first sound file.** The
+  owner's picks (D-774), by ear from a board: Kenney's grass step, on
+  the surface only, at half loudness; the metal click next for the
+  lantern. ObsydianX's interface pack kept whole. Playtest: https://claude.ai/artifact/NQG8jGfQLEoTky3DZAsB3i
+  Sound board: https://claude.ai/artifact/Stde3DZoQbHoJJQiJr8Uwa
 - **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
   (D-773): sound files from Kenney's free packs; all 15 old sounds
   wiped, so the game is silent; every sound needed listed in
@@ -57,8 +62,3 @@ list in `RESEARCH.md`.
   The owner asked if there are enough materials for more recipes and
   stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
   after night and day creatures (Q-093); then a bow (D-772, Q-094).
-- **2026-11-10, 0.3.221, A miners' camp.** The owner's picks (D-770):
-  look A, a tent and a crate, in a mountain room; the pick is the
-  game's own Stone Pick, gone from the camp once taken; bumped, Take
-  the pick?, as cold ashes ask. Playtest: https://claude.ai/artifact/3oT7VgjMEys8nd7sF8Du8H
-  Map preview: https://claude.ai/artifact/Ujr62pL5ANpeUzbRSsLHnN

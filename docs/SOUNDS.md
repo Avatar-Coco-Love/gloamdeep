@@ -3,7 +3,8 @@
 Every sound the game needs, one line each (D-773). It grows with the
 game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
-credit), and none is in yet: the game is silent until each file is in.
+credit). Each sound is silent until its file is in; the footstep is
+the first (D-774).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -29,7 +30,7 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `footstep` | the hero walks a tile | soft, light, never two alike | — |
+| `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at half loudness, CC0 |
 | | the hero falls (D-119) | a slide and a thud | — |
 | | the hero wakes after a fall | a groan or a breath | — |
 | | a new floor reached | a low, far rumble | — |

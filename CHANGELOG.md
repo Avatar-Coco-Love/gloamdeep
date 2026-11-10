@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.224 (2026-11-10)
+- The first sound from a file: on the surface, each step the hero walks sounds of soft grass, one of 5 recordings in turn, never the same twice running and a little higher or lower each time. Underground stays silent for now. With Sound: Off, nothing plays.
+- A fifth free sound pack is saved in the game's files: ObsydianX's Interface SFX Pack 1 (222 menu tones, no credit needed), cut of its silence.
+- Decisions: D-774. D-765 moved to the archive, word for word. Questions: Q-095 narrowed.
+
 ## 0.3.223 (2026-11-10)
 - The game is silent for now: every sound made in code is gone, since none sounded good. Sounds will come from sound files instead, from a free pack (Kenney's first, which needs no credit).
 - Four free sound packs from Kenney (335 sounds, no credit needed) are saved in the game's files, ready to choose from; the game doesn't play them yet.
@@ -32,7 +37,3 @@ Entry format:
 ## 0.3.222 (2026-11-10)
 - Nothing in the game changes. Alchemy will get a station of its own at home, apart from the kitchen fire: a mortar and pestle, an alchemy lab, or both, still to choose. 16 finds already wait for recipes. It comes after the night creatures and then the day creatures. After that, the hero gets a bow for ranged attacks.
 - Decisions: D-771, D-772. D-769 and D-770 moved to the archive, word for word. Questions: Q-093 and Q-094 opened.
-
-## 0.3.221 (2026-11-10)
-- The second landmark: a miners' camp now stands in one of the 3 mountain rooms, never the one with the campfire or the lamppost. It's a slumped canvas tent and an old crate, 3 tiles wide and 2 tall, with a stone pick leaning on the crate. Bump it and it says "A miners' camp, long left." and asks "Take the pick?" Yes puts a Stone Pick in your bag and the pick is gone from the camp; after that, a bump only says its words. With a pick already carried, or a full bag, it tells you so and keeps its pick. In an older journey, its room gets it if you haven't been there yet.
-- Decisions: D-770. D-763 moved to the archive, word for word.

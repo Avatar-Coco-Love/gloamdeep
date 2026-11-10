@@ -124,7 +124,7 @@ arrows and where they come from, where it is made or found, its look
 and sound. After the alchemy station (Q-093).
 
 **Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: which
-Kenney packs and which file for each line of `docs/SOUNDS.md`; the
-sounds marked "Maybe" there (footsteps by ground, sounds all around,
-music, an oil warning, a heartbeat); the folder and file format; where
+file for each other line of `docs/SOUNDS.md` (the footstep is in,
+D-774; the lantern's metal click next); the "Maybe" sounds (footsteps by
+ground, sounds all around, music, an oil warning, a heartbeat); where
 the credits show; whether a sound is cached for playing offline.

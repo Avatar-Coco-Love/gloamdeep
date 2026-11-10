@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.221, A miners' camp.** The owner's picks (D-770):
+  look A, a tent and a crate, in a mountain room; the pick is the
+  game's own Stone Pick, gone from the camp once taken; bumped, Take
+  the pick?, as cold ashes ask. Playtest: https://claude.ai/artifact/3oT7VgjMEys8nd7sF8Du8H
+  Map preview: https://claude.ai/artifact/Ujr62pL5ANpeUzbRSsLHnN
 - **2026-11-10, 0.3.220, A dead lamppost.** The owner's picks, all
   recommended (D-769): the first landmark, an old crook lamppost gone
   cold (look B), one a seed outside home, never the campfire's room;
