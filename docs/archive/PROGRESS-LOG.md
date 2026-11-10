@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.219, A note for bosses.** Docs only. The owner
+  noticed a sting or glob landing a boss's last blow would lose its
+  rewards; noted under Q-083 with three options, asked at that step.
 - **2026-11-10, 0.3.218, The sting hits creatures too.** The owner's
   picks, all recommended (D-768): a creature on the scorpion's marked
   tiles takes 2 hearts, no find, no experience; it shields no one; the

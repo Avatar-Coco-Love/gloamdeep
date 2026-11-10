@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.221 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.222 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 Night creatures (D-760), the surface's last filling: which comes
-first, after a proposal. A second flower (Q-092) can come any time.
+first, after a proposal; then day creatures (D-771). A second flower
+(Q-092) can come any time.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -25,6 +26,7 @@ first, after a proposal. A second flower (Q-092) can come any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
+- The alchemy station and new recipes (Q-093), after day creatures.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -44,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
+  The owner asked if there are enough materials for more recipes and
+  stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
+  after night and day creatures (Q-093).
 - **2026-11-10, 0.3.221, A miners' camp.** The owner's picks (D-770):
   look A, a tent and a crate, in a mountain room; the pick is the
   game's own Stone Pick, gone from the camp once taken; bumped, Take
@@ -54,6 +60,3 @@ list in `RESEARCH.md`.
   cold (look B), one a seed outside home, never the campfire's room;
   bumped, it speaks. The miners' camp comes next. Playtest: https://claude.ai/artifact/SX8v3mURFHmL2rHb6XcqcG
   Map preview: https://claude.ai/artifact/CCaEX7HbiHMYrnHxfL9tSj
-- **2026-11-10, 0.3.219, A note for bosses.** Docs only. The owner
-  noticed a sting or glob landing a boss's last blow would lose its
-  rewards; noted under Q-083 with three options, asked at that step.

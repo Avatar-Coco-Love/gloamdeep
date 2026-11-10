@@ -53,7 +53,7 @@ what fits its creature: Moth Dust and Gloam Wisp to lampcraft, Stinger
 and Venom Sac to weapons and antidotes, Rat Tail and Mimic Glass to
 leatherwork and flasks, the rare ones to finer gear. Recipes are part 4.
 
-**D-455 · 2026-10-30 · The scope, part 4: where things are made** (the
+**D-455 · 2026-10-30 · The scope, part 4: where things are made** *Partly superseded by D-771 (2026-11-10): alchemy has a station of its own, apart from the kitchen fire.* (the
 owner's picks, all recommended; builds D-296, D-415) Small things, such
 as flasks, potions and torches, are made in the bag, anywhere. Building,
 tools and leatherwork are made at the workbench. Later each bigger

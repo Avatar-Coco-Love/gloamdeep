@@ -111,3 +111,9 @@ are drawn." Picked, a flower goes in the bag for crafts later (D-762).
 The first is the Duskstar, in the woods rooms (D-763). The other kinds,
 their names and looks, where each grows and which potions they make are
 open, each at its own step.
+
+**Q-093 · The alchemy station and new recipes** (raised 2026-11-10,
+D-771) Open: the station's form (a mortar and pestle, an alchemy lab,
+or both), name, look and cost; which of the finds "for crafts later"
+go into which recipes, at alchemy and the other stations. After night
+creatures, then day creatures (the owner's addition, all open).

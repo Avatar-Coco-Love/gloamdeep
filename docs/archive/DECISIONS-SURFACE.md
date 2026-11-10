@@ -471,3 +471,19 @@ of 20; never on the start, a find, the mouth's front or the waystone's
 ring when laid, any free grass tile out of sight when it comes back; its
 lines ("You pick a duskstar." and two more); a new violet shade, `#6e58a8`.
 D-758 and D-759 move to `archive/DECISIONS-SLEEPING-OUT.md`, word for word.
+
+**D-769 · 2026-11-10 · The first landmark: a dead lamppost** (the
+owner's picks, all recommended, the look after its mock-up; builds D-760,
+whose landmarks come after gathering) The landmarks start with a dead
+lamppost, then a miners' camp at its own step ("A miners' camp, long
+left. The pick is rusted through."). The lamppost is an old Lightkeeper's
+iron crook post, its cold lamp hanging from the arm (look B of three);
+solid, light passing it, as the campfire. It only looks and speaks for
+now: bumped, "An old lamppost. Its lamp went out long ago." One a seed,
+in one of Hearthwood's 8 rooms outside home, never the campfire's, so
+each room holds about one thing (D-757). Claude's calls the owner may
+change: on open grass 2 tiles in from the edge, never cutting the room,
+as the campfire; its words a sentence a bump, as they are too long for
+the strip; in an older save, its room gets it if never seen, with
+nothing taken. D-762 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
