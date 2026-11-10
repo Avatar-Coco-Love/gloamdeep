@@ -134,6 +134,10 @@ export const TILES = {
   campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireBlazing', fire: true, glow: FIRE.blazing },
   campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireEmbers', fire: true, glow: FIRE.embers },
   campfireAshes: { id: 'campfireAshes', kind: 'tile', letter: 'a', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'campfireEmbers', says: 'campfireLit' } },
+  // § lamppost (D-769, the first landmark): an old Lightkeeper's lamppost, its lamp long cold,
+  // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,
+  // as the campfire; bumped, it says its words, free.
+  lamppost: { id: 'lamppost', kind: 'tile', letter: 'b', name: 'Lamppost', solid: true, blocksLight: false, bump: 'lamppost' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

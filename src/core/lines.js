@@ -361,6 +361,7 @@ export const LINES = {
   campfireEmbers: { texts: ['The coals still glow.', 'Whoever sat here is gone.'], warn: false },
   campfireAshes: { text: 'Cold ashes.', warn: false }, // said as cold ashes' card opens, its note the rest (D-757)
   campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
+  lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

@@ -441,3 +441,17 @@ find, the mouth's front or the waystone's ring; any open grass tile,
 not only beside rock; its lines "You pick up a loose stone.", "A stone
 from the slope. You keep it." and "You lift a stone from the grass.";
 a stone a boulder leaves when the bag is full still never grows back.
+
+**D-762 · 2026-11-09 · Gathering, step 3: herbs outside** (the owner's
+picks, all recommended, and the owner's words on flowers; builds D-760,
+part of Q-092) The first of Q-092's plants is the cave herb, growing
+outside too: one in each woods room, home too, none in the mountain
+rooms, on open grass. It is the same herb in every way: hurt, walking
+onto it eats it, 2 hearts; at full health into the bag; it makes the
+Antidote. Picked, it grows back after a day, 300 turns. In an older save
+only woods rooms never seen, with nothing taken, get theirs. Flowers come
+at their own steps: more than one kind, each drawn differently, picked
+for crafts later, potion making among them, each growing where it suits
+its kind (Q-092). Claude's calls the owner may change: never on the
+start, a find, the mouth's front or the waystone's ring; any open grass
+tile, not only beside a tree.

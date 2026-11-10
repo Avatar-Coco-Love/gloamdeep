@@ -596,6 +596,12 @@ const CAMPFIRE = { mirror: false, rows: FIRE_RING('WWkkNN', 'nNWWNn', 'kNnnNk') 
 const CAMPFIRE_EMBERS = { mirror: false, rows: FIRE_RING('nnkknn', 'YnooNY', 'knYYnk') };
 const CAMPFIRE_ASHES = { mirror: false, rows: FIRE_RING('ssddss', 'sdnnsd', 'kddddk') };
 
+// § lamppost (D-769, look B of three): an iron crook post on a stone foot, its cold lamp, the
+// glass dark, hanging from the arm
+const LAMPPOST = { mirror: false, rows: ['.....kkkkkk.....', '....kdssssdk....', '....kdkkkkkdk...', '....kdk...kdk...',
+  '....kdk..kkkkk..', '....kdk..kSssk..', '....kdk..kxQxk..', '....kdk..kxxxk..', '....kdk..kkkkk..', '....kdk.........',
+  '....kdk.........', '....kdk.........', '....kdk.........', '...kkdkk........', '...ksddsk.......', '...kkkkkk.......'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -622,4 +628,5 @@ export {
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,
+  LAMPPOST,
 };

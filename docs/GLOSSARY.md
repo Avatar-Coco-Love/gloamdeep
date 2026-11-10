@@ -27,6 +27,7 @@ this page and a decision disagree, the decision wins.
 - **Hearthwood:** the starting region, home in its centre (D-348); 9 rooms joined by paths (D-734), woods but for the north row's mountain rooms (D-738); the woods round home are thick woods, woods as before or open glades, the seed picking (D-756).
 - **Surface:** depth 0, the woods and the way into the crypt (D-233).
 - **Campfire:** a ring of stones round a fire on the surface, blazing, embers or cold ashes; ashes are lit with the lantern's oil (D-757).
+- **Landmark:** a hand-made place on the surface to find and look at; the first is the **dead lamppost**, an old Lightkeeper's lamppost gone cold, one a seed (D-769).
 - **Depth:** how far down a floor is. **Floor:** all the rooms at one
   depth.
 - **Area:** a depth's kind of place: Crypt (1), Cave (2 to 4), Warren

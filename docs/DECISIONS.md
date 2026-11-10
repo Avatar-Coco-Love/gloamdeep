@@ -102,20 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-762 · 2026-11-09 · Gathering, step 3: herbs outside** (the owner's
-picks, all recommended, and the owner's words on flowers; builds D-760,
-part of Q-092) The first of Q-092's plants is the cave herb, growing
-outside too: one in each woods room, home too, none in the mountain
-rooms, on open grass. It is the same herb in every way: hurt, walking
-onto it eats it, 2 hearts; at full health into the bag; it makes the
-Antidote. Picked, it grows back after a day, 300 turns. In an older save
-only woods rooms never seen, with nothing taken, get theirs. Flowers come
-at their own steps: more than one kind, each drawn differently, picked
-for crafts later, potion making among them, each growing where it suits
-its kind (Q-092). Claude's calls the owner may change: never on the
-start, a find, the mouth's front or the waystone's ring; any open grass
-tile, not only beside a tree.
-
 **D-763 · 2026-11-09 · Gathering, step 4: the duskstar** (the owner's
 picks, all recommended, the look after its mock-up:
 https://claude.ai/artifact/G4ixYQbiLTsSrcNoAR4PKQ; builds D-762 and
@@ -185,3 +171,19 @@ rat stung to nothing falls to no pile, as with a glob; no sound but the
 hero's sting, as a miss is silent; its Bestiary page says the sting
 hurts any creature in its way. D-761 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-769 · 2026-11-10 · The first landmark: a dead lamppost** (the
+owner's picks, all recommended, the look after its mock-up; builds D-760,
+whose landmarks come after gathering) The landmarks start with a dead
+lamppost, then a miners' camp at its own step ("A miners' camp, long
+left. The pick is rusted through."). The lamppost is an old Lightkeeper's
+iron crook post, its cold lamp hanging from the arm (look B of three);
+solid, light passing it, as the campfire. It only looks and speaks for
+now: bumped, "An old lamppost. Its lamp went out long ago." One a seed,
+in one of Hearthwood's 8 rooms outside home, never the campfire's, so
+each room holds about one thing (D-757). Claude's calls the owner may
+change: on open grass 2 tiles in from the edge, never cutting the room,
+as the campfire; its words a sentence a bump, as they are too long for
+the strip; in an older save, its room gets it if never seen, with
+nothing taken. D-762 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

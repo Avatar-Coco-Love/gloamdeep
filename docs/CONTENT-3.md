@@ -33,6 +33,7 @@ neared 8 KB.
 | `standingStone`, `waystonePath`, `waystonePlate` | the home waystone, asleep, 3 × 3 from its plan (`landmarks.js`): an old mossy standing stone in each corner tile, solid and blocking light like rock; flagstones on the cross and the plate in the middle, walked on; stepping on the plate wakes it (`wakes`) into `wokenPlate`, its rune lit violet with the stairs' faint glow; on a woken plate the travel card goes to another (`travel.js`) | | the cave mouth's room, 2 tiles north of the middle (D-753); in an old save, the nearest clear spot there, woken if it was | D-579, D-587, D-589, D-591, D-593, D-620, D-753 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 | `campfire`, `campfireEmbers`, `campfireAshes` | a ring of stones round a fire, solid, light passing over it: blazing, glowing 3 tiles round in the torch's colour; embers, 2; cold ashes, none. Bumped, a burning one says its words, a sentence a bump, free; cold ashes say "Cold ashes." and open Light the fire?, "No one has sat here for a long time.", No picked, where Yes (`kindles`) makes them embers for one turn's oil, Yes grey with no oil. None burns down yet (`campfire.js`) | | one a seed, in one of Hearthwood's 8 rooms outside home, the seed picking the room and blazing, embers or ashes, on open grass 2 tiles in from the edge | D-757 |
+| `lamppost` | the first landmark: an old Lightkeeper's iron crook post, its cold lamp hanging dark from the arm; solid, light passing it. Bumped, it says "An old lamppost.", then "Its lamp went out long ago.", a sentence a bump, free (`lamppost.js`) | | one a seed, in one of Hearthwood's 8 rooms outside home, never the campfire's, on open grass 2 tiles in from the edge; in an old save, its room if never seen (`relamp.js`) | D-769 |
 
 ## Lights (`src/core/lights.js`)
 
@@ -57,17 +58,6 @@ rooms, never the cave mouth's; the lantern off, by day.
 Moved from `CONTENT.md` word for word at 0.3.100, as that page passed 8 KB:
 Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask (gone elsewhere in the dark, picked from the pool, for 1 flask in 4, D-725), the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551), the oil tick at depth 3 (D-606), the lure wisp at depth 4 (D-649).
 
-## Rare materials (`src/core/items.js`)
-
-Moved from `CONTENT.md` word for word at 0.3.106, as that page passed 8 KB;
-the Venom Sac's row since names the centipede too (D-654).
-
-| id | What it does | Stack | Grows back | Where, or how made | Decisions |
-| --- | --- | --- | --- | --- | --- |
-| `venomSac` | for crafts later | 20 | never | a beaten scorpion or centipede, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
-| `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
-| `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
-| `glowGland` | for crafts later | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |
+## Rare materials
+Moved to `CONTENT-FINDS.md` word for word at 0.3.220, as this page
+passed 8 KB.

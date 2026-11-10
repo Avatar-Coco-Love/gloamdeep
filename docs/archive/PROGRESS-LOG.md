@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.217, The rat pack's warning.** The owner's picks, all
+  recommended (D-767): a pack warns each time it notices, its three
+  lines taking turns, in amber; a bite that turn keeps its line.
+  Playtest: https://claude.ai/artifact/YUEAeU4JiSVT4Sp5Ns7c8M
 - **2026-11-10, 0.3.216, Names with spaces and digits.** The owner
   sorted the 16 things waiting on them: 4 settled now, the rest parked
   until their step. Names hold digits and spaces, with a 123 key (D-765);
