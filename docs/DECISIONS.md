@@ -102,21 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-757 · 2026-11-09 · Filling the surface, campfires first** (the
-owner's picks; answers Q-090, Q-088's first step) Four things fill the
-surface: campfires, more to gather, landmarks and night creatures, about
-one thing in each room. Campfires come first; the order of the rest is
-picked later. One campfire a seed, in one of Hearthwood's 8 rooms
-outside home: blazing, embers or cold ashes, each with its words
-("A campfire, burning high. Someone was here not long ago." "The coals
-still glow. Whoever sat here is gone." "Cold ashes. No one has sat here
-for a long time."). Burning, it lights 3 tiles, embers 2; none burns
-down yet. Bumped, cold ashes ask Light the fire?, No picked; Yes makes
-them embers for one turn of oil. Claude's calls the owner may change:
-each level and room as likely; 2 tiles in from the edge; a line too
-long for the strip shows a sentence a bump, and cold ashes' first
-sentence on the strip, the rest on the card; "The fire catches."
-
 **D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
 the recommended order and finds, and the owner's addition; builds
 D-757, opens Q-092) The surface fills in this order: gathering, then
@@ -179,3 +164,24 @@ found the pale blue doorway lines too bright. In the game they are now
 about half as bright: they pulse from 30% to 50% strength, steady at
 45% with reduced motion. The fainter inner line stays 40% of the bright
 one. The map's doorway squares stay as they were.
+
+**D-765 · 2026-11-10 · Names with spaces and digits** (the owner's
+picks, all recommended; answers Q-054; changes D-272 and D-683) A name
+may hold letters, digits and spaces, still up to 12. The name pad gets a
+123 key, as on a phone: it swaps the letters for 1 to 8 across the top
+row and 9 and 0 under them, ABC swaps back, and the bottom row stays: M,
+Del, Z, Space, 123 or ABC, OK. Spaces are tidy: never first, never two
+in a row, one at the end dropped on OK. Space on a keyboard types a
+space, and digits type too. Claude's calls the owner may change: the
+Space key reads SPC; on a narrow card a word too wide for its key is
+drawn at half size; the pad opens on its letters. D-757 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-766 · 2026-11-10 · Three creatures' drafts kept, two additions**
+(the owner's picks) Claude's drafts in D-728 (the rat pack), D-729 (the
+scorpion) and D-731 (the bone rat) are kept as built. Two additions,
+each its own step: a rat pack that notices the hero says a warning line,
+varying between "The pack closes in!", "Rats squeak all around you!" and
+"A pack of rats comes for you!" (lone rats stay silent); and the
+scorpion's sting also hits a creature on its marked tiles, 2 hearts, as
+it does the hero (changes D-729's "it strikes only the hero").

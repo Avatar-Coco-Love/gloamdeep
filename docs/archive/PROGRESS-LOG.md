@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.213, Herbs outside.** The owner's picks, all
+  recommended (D-762): the cave herb in each woods room. Flowers next.
+  Playtest: https://claude.ai/artifact/Hnyq83ZkUr3fG2hWANcSre
+  Map preview: https://claude.ai/artifact/RVESCmSriTSqtA7GNBmFCm
 - **2026-11-09, 0.3.212, Loose stones.** The owner's picks, all
   recommended (D-761): 2 loose stones in each mountain room, the bag's
   pebble, growing back after a day.

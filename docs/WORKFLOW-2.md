@@ -2,7 +2,8 @@
 
 The second half of the playbook (D-732, D-741): how the game grew in
 stages, the tools that keep the work fast and safe, what bugs taught
-us, and the habits behind the art, the story and the plans. `WORKFLOW.md` has how a step runs and why.
+us, and the habits behind the art, the story and the plans, and how to start a
+new project (moved from `WORKFLOW.md` at 0.3.216). `WORKFLOW.md` has how a step runs and why.
 
 ## How the game grew
 
@@ -96,3 +97,19 @@ exists because doing the job by hand went wrong or was slow.
 - **Plan the whole before the parts.** The full scope was drawn up in
   eight parts as multiple choice (D-413), and each big feature is
   planned as numbered steps before the first is built (D-705, D-733).
+
+## Starting a new project
+
+- Write `CLAUDE.md` on day one: who decides, the step size, how
+  questions are asked, the hard technical rules, and a table of where
+  things live.
+- Make these files from the start: `PROGRESS.md` (Next up, waiting on
+  the owner, the last 3 logs), `DECISIONS.md`, `OPEN-QUESTIONS.md`,
+  `CHANGELOG.md`, `GLOSSARY.md`, `PR-CHECKLIST.md` and an archive with
+  one index.
+- Add on day one, not later: the start-up sync hook, a size test for
+  docs, a playtest bundler, and a release tool for the bookkeeping.
+- Agree the pace in the first conversation and write it down as a
+  decision, so it can be superseded when it changes.
+- Plan audits from the start. Each one also adds to this playbook.
+- Build the tools in `WORKFLOW-2.md` as soon as each job repeats.

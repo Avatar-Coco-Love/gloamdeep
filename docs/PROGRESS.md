@@ -4,15 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.215 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.216 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Gathering, step 5 (D-763): ask whether a second flower (Q-092) comes
-next or the landmarks (D-760), then build the first step of the pick.
+The rat pack's warning line (D-766): a pack that notices the hero says
+one of its three lines. Then the scorpion's sting hits creatures too
+(D-766), then gathering, step 5 (D-763): a second flower (Q-092) or the
+landmarks (D-760).
 
 ## Waiting on the owner
-- A space or digits in names (Q-054), any time.
 - Play data: kept on the device or sent (Q-052), near 1.0.
 - A region's name and rating (Q-056), with a second region.
 - Creature materials: looks and recipes (Q-061), each at its own step.
@@ -21,9 +22,6 @@ next or the landmarks (D-760), then build the first step of the pick.
 - Water and the garden (Q-071), once water can be carried (D-569).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- The rat pack's drafts (D-728): one pack a room, sides, no line.
-- The scorpion's drafts (D-729): a turn of rest, only the hero, no glance.
-- The bone rat's drafts (D-731): a pile can't be hit, it stands up chasing, the count waits in another room.
 - Special creatures with histories (Q-083), at their own step.
 - Rooms that fill again (Q-086), after biome 1 grows.
 - Campfires' next steps (Q-088): feeding, building, the buff.
@@ -48,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.216, Names with spaces and digits.** The owner
+  sorted the 16 things waiting on them: 4 settled now, the rest parked
+  until their step. Names hold digits and spaces, with a 123 key (D-765);
+  the three creatures' drafts kept, a pack line and a wider sting next
+  (D-766). Playtest: https://claude.ai/artifact/AaE4dYPWNzJ29K14Amyd6D
 - **2026-11-09, 0.3.215, Dimmer doorway lines.** The owner found the
   doorway lines too bright and picked half as bright, the map unchanged,
   both recommended (D-764).
@@ -57,7 +60,3 @@ list in `RESEARCH.md`.
   back elsewhere in the room after a day, mirrored and shaded per flower.
   Playtest: https://claude.ai/artifact/Eyot5FM1BF5zsprMwvL3aU
   Map preview: https://claude.ai/artifact/C3rnKcYWqUxqzvucasAzem
-- **2026-11-09, 0.3.213, Herbs outside.** The owner's picks, all
-  recommended (D-762): the cave herb in each woods room. Flowers next.
-  Playtest: https://claude.ai/artifact/Hnyq83ZkUr3fG2hWANcSre
-  Map preview: https://claude.ai/artifact/RVESCmSriTSqtA7GNBmFCm

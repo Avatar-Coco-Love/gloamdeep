@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.216 (2026-11-10)
+- A name can now hold digits and spaces as well as letters, up to 12 in all, so OLD TOM and COCO 2 both work.
+- The name pad's bottom row is M, Del, then Z, Spc, 123 and OK. Press 123 to swap the letters for the digits 1 to 9 and 0, and ABC to swap back.
+- A space never starts a name or follows another space, and one left at the end is dropped when you press OK. On a keyboard, Space now types a space and digits type too.
+- The rat pack, the scorpion and the bone rat stay as they are; the details Claude filled in are now settled.
+- Decisions: D-765, D-766. Questions closed: Q-054. D-757 moved to the archive, word for word.
+
 ## 0.3.215 (2026-11-09)
 - The pale blue lines across doorways are about half as bright, so they no longer glare. They still pulse gently, and hold still with reduced motion. The map's doorway squares are unchanged.
 - Decisions: D-764.
@@ -32,8 +39,3 @@ Entry format:
 - Walk onto a duskstar to put it in your bag, for crafts later. A day after you pick it, it grows again somewhere else in the same room.
 - In a saved game, woods rooms you haven't seen yet get their duskstars too; rooms you have seen stay as they were.
 - Decisions: D-763.
-
-## 0.3.213 (2026-11-09)
-- Healing herbs now grow outside: one in each woods room, home too, on the grass. The mountain rooms have none. It is the same herb as in the caves: walk onto it hurt and you eat it, at full health it goes in your bag, and it grows back a day after you pick it.
-- In a saved game, woods rooms you haven't seen yet get their herb too; rooms you have seen stay as they were.
-- Decisions: D-762.

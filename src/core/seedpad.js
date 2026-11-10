@@ -31,8 +31,10 @@ export function moveOn(pad, i, dir) {
     const next = pad[i + (dir === 'left' ? -1 : 1)];
     return next && next.row === k.row ? i + (dir === 'left' ? -1 : 1) : i;
   }
-  const row = k.row + (dir === 'up' ? -1 : 1);
-  const keys = pad.filter((p) => p.row === row);
+  // A row with no keys is stepped over (the name pad's digits, D-765)
+  const step = dir === 'up' ? -1 : 1, last = Math.max(...pad.map((p) => p.row));
+  let row = k.row + step, keys = [];
+  while (row >= 0 && row <= last && !(keys = pad.filter((p) => p.row === row)).length) row += step;
   if (!keys.length) return i;
   const under = keys.find((p) => k.col >= p.col && k.col < p.col + p.span) || keys[keys.length - 1];
   return pad.indexOf(under);

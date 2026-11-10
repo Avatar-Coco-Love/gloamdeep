@@ -1,7 +1,7 @@
 // § profile screens: a new profile's name pad, then its look card, and Rename and Look from the
 // slot screen (D-272, D-273, P3 to P6, D-521). Split from screens.js at the
 // fourth audit (D-421): `app` and `ui` as there, and `show` to open a screen.
-import { NAME_PAD, typeLetter } from '../core/namepad.js';
+import { NAME_PAD, padOf, typeLetter, finishName } from '../core/namepad.js';
 import { LOOK_TABS, CLOAK_IDS, cloakOf, EYE_IDS, eyesOf, TRIM_IDS, trimOf, CLOTHES_IDS, clothesOf, LAMP_IDS, lampOf, HEAD_IDS, headOf, LOOK_PADS, tabOf, moveLook, rollLook, isLocked, choiceOf, tabRows, clampScroll, lookScrollTo } from '../core/looks.js';
 import { shopOf as shopFor, newShop, priceNote, plural, freeNote } from '../core/feats.js';
 import { boxesAt } from '../render/cloak.js';
@@ -13,8 +13,8 @@ export function createProfileScreens(app, ui, show) {
   // Claude's call) and opens the title; the round cross, a tap outside or Esc goes back to the slot
   // screen with nothing made (D-398). Renaming (D-273) opens on the name kept; OK keeps the new one
   // (none: unnamed again) and goes back to the slot screen; the cross or Esc leaves the old name.
-  const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, then OK. Esc or the close button goes back.` : 'Name your profile. Type up to 12 letters, then OK. Esc or the close button goes back.');
-  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; app.gift = null; wearOf(renaming && app.profiles.slots[i]); show('name'); }
+  const nameWords = () => (app.renaming ? `Rename profile. ${app.entry || 'nothing typed'}. Type up to 12 letters, digits or spaces, then OK. 123 swaps to digits. Esc or the close button goes back.` : 'Name your profile. Type up to 12 letters, digits or spaces, then OK. 123 swaps to digits. Esc or the close button goes back.');
+  function openName(i, renaming) { app.naming = i; app.renaming = renaming; app.entry = renaming ? app.profiles.slots[i].name : ''; app.digits = false; app.gift = null; wearOf(renaming && app.profiles.slots[i]); show('name'); }
   // The look the name and look cards show: a profile's own, or a new hero's first free one (D-517)
   function wearOf(p) {
     app.cloak = p ? cloakOf(p) : CLOAK_IDS[0]; app.eyes = p ? eyesOf(p) : EYE_IDS[0];
@@ -24,8 +24,14 @@ export function createProfileScreens(app, ui, show) {
   }
   function closeName() { app.picking = null; show('slots', app.naming); }
   function pressName(id) {
+    if (id === 'ok') app.entry = finishName(app.entry); // a space at the end is dropped (D-765)
     if (id === 'ok' && app.renaming) { ui.renameSlot(app.naming, app.entry); closeName(); }
     else if (id === 'ok') openCloak(app.naming, true);
+    else if (id === 'digits' || id === 'letters') { // 123 and ABC swap the pad, the flame on the swap key (D-765)
+      app.digits = id === 'digits';
+      app.chosen = padOf(app.digits).findIndex((k) => k.id === (app.digits ? 'letters' : 'digits'));
+      spoken.textContent = app.digits ? 'Digits' : 'Letters';
+    }
     else { app.entry = typeLetter(app.entry, id); spoken.textContent = app.entry || 'nothing typed'; }
   }
   // § look (D-517, D-521; were four cards, P3 to P6): a new profile's comes after its name, open
@@ -47,7 +53,7 @@ export function createProfileScreens(app, ui, show) {
     show('cloak', LOOK_PADS.cloak.findIndex((k) => !k.tab && k.id === app.cloak));
   }
   function closeCloak() {
-    if (app.cloakNew) show('name', NAME_PAD.findIndex((k) => k.id === 'ok'));
+    if (app.cloakNew) { app.digits = false; show('name', NAME_PAD.findIndex((k) => k.id === 'ok')); }
     else { app.picking = null; show('slots', app.naming); }
   }
   // The flame moves to key i of the open tab's pad; on a tab, that tab opens; on a hero, that
