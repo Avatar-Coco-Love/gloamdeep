@@ -193,6 +193,10 @@ export const ITEMS = {
   // within `wear.echo` tiles, walls or not, shows as a pale outline over the dark (echo.js).
   echoCharm: { id: 'echoCharm', kind: 'item', name: 'Echo Charm', bag: true, max: 1, look: 'echoCharmLook', full: 'echoCharmFull',
     bench: { of: { batWing: 3, copperOre: 1 }, says: 'echoCharmMake', short: 'echoCharmShort' }, wear: { slot: 'charm', echo: 4 }, wears: 'echoCharmWear' },
+  // The charm for hearts back (D-809): made at the workbench's GEAR tab, never found; worn, a creature
+  // beaten gives back 1 heart about `wear.fang` in 1, never past the most (fang.js).
+  fangCharm: { id: 'fangCharm', kind: 'item', name: 'Fang Charm', bag: true, max: 1, look: 'fangCharmLook', full: 'fangCharmFull',
+    bench: { of: { batFang: 1, copperOre: 1 }, says: 'fangCharmMake', short: 'fangCharmShort' }, wear: { slot: 'charm', fang: 0.25 }, wears: 'fangCharmWear' },
   // The first home piece (D-488): made at the workbench, never found, set down on the surface
   // the chest's way as the bed tile, where sleeping at night rests the hero (sleep.js).
   bed: { id: 'bed', kind: 'item', name: 'Bed', bag: true, max: 1, look: 'bedLook', full: 'bedFull',

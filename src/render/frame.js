@@ -328,7 +328,7 @@ export function createFrame(app, ui) {
         if (app.screen === 'place') for (const d of app.setting.sides) drawMark(rc, state.hero.x + DIRS[d][0], state.hero.y + DIRS[d][1], t, still()); // where the workbench or stash chest can go (WB2, CH2)
         drawBite(rc, s.float); // a fish on the line: the "!" over its float (D-610)
         if (t < app.alertUntil) drawAlert(rc, sx + nx, sy + ny);
-        else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still()); // after a "!", not over it
+        else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still(), app.gain.heart); // the Fang Charm's heart beside it (D-809) // after a "!", not over it
       });
       // § shake: the room jumps a pixel left and right after a hit; none with reduced motion (study line 432, D-105)
       // A bite shakes it the same way (D-118).

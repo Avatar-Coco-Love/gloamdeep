@@ -113,23 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-805 · 2026-11-10 · The Echo Charm** (the owner's picks, all
-recommended; builds D-799) Bat Wing's first use, made on the workbench's
-GEAR tab from 3 Bat Wing and 1 Copper Ore, as the other charms are.
-Worn, each creature within 4 tiles of the hero, walls between or not,
-that no light shines on shows as a pale outline of its shape over the
-dark, slowly pulsing (steady with reduced motion). Others offered: 3 Bat
-Wing and 1 Spider Silk; 4 Bat Wing and 1 Copper Ore; a ripple ring only;
-the creature itself, very dim; 3 or 5 tiles; only creatures in the
-open. Claude's calls the owner may change: GEAR lists it last; tiles are
-counted the king's way, a diagonal one step; one in disguise stays
-hidden, that being the Gloam Eye's work (D-799), and one with its own
-glow shows already; echoed is not met in the Bestiary; its look, a
-folded bat wing in the charms' copper setting; its lines ("You make an
-echo charm.", "You put on the echo charm.", "Near creatures show in
-the dark."); the Bat Wing's look line names it. D-800 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-806 · 2026-11-10 · The Shade Draught, the mortar's sixth recipe**
 (the owner's picks, all recommended; builds D-799) Lurker Claw's first
 use, made at the mortar from 2 Lurker Claw and 1 Duskstar. Drunk from
@@ -182,3 +165,21 @@ in no Torches feat; its lines ("You make a glow lamp.", "You set down
 the glow lamp.", "Your glow lamp goes dark."); the Glow Gland's look line
 names it. D-803 and D-804 move to `archive/DECISIONS-SURFACE.md`, and
 the lights' table to `CONTENT-2.md`, word for word.
+
+**D-809 · 2026-11-10 · The Fang Charm** (the owner's picks, all
+recommended; builds D-799) Bat Fang's first use, made on the
+workbench's GEAR tab from 1 Bat Fang and 1 Copper Ore, as the other
+charms are. Worn, each creature beaten gives back 1 heart about 1 time
+in 4, never past the most. Healed, its line shows and a small red heart
+rises beside the "+1" over the hero (steady with reduced motion).
+Others offered: 2 Bat Fang and 1 Copper Ore; 1 Bat Fang and 1 Spider
+Silk; 1 time in 3 or 5; a line only; nothing extra. Claude's calls the
+owner may change: GEAR lists it last; a pile of bones scattered counts
+as beaten, struck down into its pile does not; the spear's two beaten
+are a coin each; at full hearts nothing happens, no line; the coin is
+seeded as a drop's is; its line ("The fang drinks. You feel better.")
+is said over the creature's own; its look, a pale bat fang pointing down
+in the charms' copper setting; its other lines ("You make a fang
+charm.", "You put on the fang charm.", "Beaten creatures may mend
+you."); the Bat Fang's look line names it. D-805 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

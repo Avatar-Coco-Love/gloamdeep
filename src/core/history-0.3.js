@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.255', date: '2026-11-10', title: 'The Fang Charm', lines: [
+    "New: the Fang Charm, the Bat Fang's first use. The workbench's GEAR tab makes it from 1 Bat Fang and 1 Copper Ore: a pale bat fang set in copper. Wear it, and each creature you beat gives you back 1 heart about 1 time in 4, never past your most. When it does, \"The fang drinks. You feel better.\" shows and a small red heart rises beside the \"+1\" over you. A pile of bones scattered counts as beaten too.",
+    "Bat Fang now says \"A bat fang, for a fang charm.\"",
+    "Decisions: D-809.",
+  ] },
   { v: '0.3.254', date: '2026-11-10', title: 'The Glow Lamp', lines: [
     "New: the Glow Lamp, the Glow Gland's first use. Once you have held a Glow Gland and Wood, your bag's Make tab makes it from 1 Glow Gland and 1 Wood, as a torch is made. Set it down anywhere, as a torch: the gland sits in a small copper cup on the torch's stick and lights 3 tiles in a soft, steady green, for 300 turns, three times a torch. Then it goes dark, leaving bare floor. Lampmoths and bats fly to it as to any light.",
     "Glow Gland now says \"A glow gland. With wood, a glow lamp.\"",

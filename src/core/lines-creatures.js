@@ -128,7 +128,7 @@ export const CREATURE_LINES = {
   gloamEyeLook: { texts: ['A gloam eye, for crafting later.', 'It still seems to watch you.', 'It blinks away from your light.'], warn: false },
   gloamEyeFull: { text: "You can't carry more gloam eyes.", warn: false },
   batFangTake: { texts: ['A bat fang! A rare find.', 'A tiny fang, needle sharp.', 'The bat fang goes in your bag.'], warn: false }, // (D-537)
-  batFangLook: { texts: ['A bat fang, for crafting later.', 'Small, white and very sharp.', 'Mind your fingers.'], warn: false },
+  batFangLook: { texts: ['A bat fang, for a fang charm.', 'Small, white and very sharp.', 'Mind your fingers.'], warn: false },
   batFangFull: { text: "You can't carry more bat fangs.", warn: false },
   moleClawTake: { texts: ['A mole claw! A rare find.', 'A broad claw, made for digging.', 'The mole claw goes in your bag.'], warn: false }, // (D-541)
   moleClawLook: { texts: ['A mole claw, for crafting later.', 'Wide, pale and blunt-tipped.', 'Still gritty with earth.'], warn: false },

@@ -128,6 +128,12 @@ export const LINES = {
   echoCharmShort: { text: 'Need 3 Bat Wing, 1 Copper Ore.', warn: false }, // too few, free
   echoCharmLook: { texts: ['An echo charm, for the dark.', 'A bat wing, set in copper.', 'Near creatures show in the dark.'], warn: false },
   echoCharmWear: { text: 'You put on the echo charm.', warn: false }, // Wear in the bag, free (D-805)
+  fangCharmMake: { text: 'You make a fang charm.', warn: false }, // its line on the bench panel, a turn (D-809)
+  fangCharmFull: { text: 'You already have a fang charm.', warn: false }, // carried or worn, free
+  fangCharmShort: { text: 'Need 1 Bat Fang, 1 Copper Ore.', warn: false }, // too few, free
+  fangCharmLook: { texts: ['A fang charm, for hearts back.', 'A bat fang, set in copper.', 'Beaten creatures may mend you.'], warn: false },
+  fangCharmWear: { text: 'You put on the fang charm.', warn: false }, // Wear in the bag, free (D-809)
+  fangCharmMend: { text: 'The fang drinks. You feel better.', warn: false }, // a heart back from a creature beaten (D-809)
   boneHookMake: { text: 'You make a bone hook.', warn: false }, // its line on the bench's BUILD tab, a turn (D-807)
   boneHookFull: { text: 'You already have a bone hook.', warn: false }, // carried or fitted, free
   boneHookShort: { text: 'Need 3 Rat Bone, 1 Spider Silk.', warn: false }, // too few, free

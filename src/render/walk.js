@@ -1,5 +1,6 @@
 // § walk marks: the walk's target, its way and its stop (D-220, D-406), in room pixels.
 import { drawText, textWidth } from './font.js';
+import { HEART, HEART_W } from './hearts.js';
 
 const AMBER = '#ffc65c', DARK = '#0e0c16'; // the menu's amber, outlined in the deepest dark
 
@@ -30,14 +31,28 @@ export function drawAlert(c, x, y) {
 
 // § gain: a "+1" rising over the hero as experience is earned (D-245), in the
 // "!"'s amber and outline. It rises 6 pixels and fades over GAIN_MS from
-// `at`; with reduced motion it stays put and goes at the end.
+// `at`; with reduced motion it stays put and goes at the end. `heart`: a heart given back by
+// the Fang Charm (D-809), a small red heart rising after the "+1", outlined the same way.
 export const GAIN_MS = 900;
-export function drawGain(c, n, x, y, t, at, still) {
+export function drawGain(c, n, x, y, t, at, still, heart = false) {
   const k = (t - at) / GAIN_MS;
   if (k < 0 || k >= 1) return;
-  const text = `+${n}`, gx = x + 8 - Math.floor(textWidth(text) / 2), gy = Math.max(1, y - 11 - (still ? 0 : Math.round(6 * k))); // kept inside the room on its top row
+  const text = n ? `+${n}` : '', tw = textWidth(text), w = tw + (heart ? (text ? 2 : 0) + HEART_W : 0);
+  const gx = x + 8 - Math.floor(w / 2), gy = Math.max(1, y - 11 - (still ? 0 : Math.round(6 * k))); // kept inside the room on its top row
   c.globalAlpha = still ? 1 : Math.min(1, 3 * (1 - k));
   for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) drawText(c, text, gx + dx, gy + dy, DARK);
   drawText(c, text, gx, gy, AMBER);
+  if (heart) drawRisingHeart(c, gx + w - HEART_W, gy + 1);
   c.globalAlpha = 1;
+}
+// The hearts panel's heart (hearts.js), outlined in the deepest dark
+function drawRisingHeart(c, x0, y0) {
+  const on = (x, y) => HEART[y]?.[x] === 'x';
+  c.fillStyle = DARK;
+  HEART.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) if (!on(x + dx, y + dy)) c.fillRect(x0 + x + dx, y0 + y + dy, 1, 1); }));
+  HEART.forEach((row, y) => [...row].forEach((ch, x) => {
+    if (ch !== 'x') return;
+    c.fillStyle = on(x, y + 1) ? '#e8786a' : '#c4473a'; // the panel's red, its lower edge deeper
+    c.fillRect(x0 + x, y0 + y, 1, 1);
+  }));
 }

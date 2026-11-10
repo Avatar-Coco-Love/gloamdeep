@@ -12,7 +12,7 @@ const RARES = { scorpion: 'venomSac', flaskMimic: 'mimicHeart', gloamling: 'gloa
 const FIRST = { venomSac: ['A venom sac! A rare find.', 'A venom sac, for crafting later.', "You can't carry more venom sacs."],
   mimicHeart: ['A mimic heart! A rare find.', 'A mimic heart, good for making things.', "You can't carry more mimic hearts."],
   gloamEye: ['A gloam eye! A rare find.', 'A gloam eye, for crafting later.', "You can't carry more gloam eyes."],
-  batFang: ['A bat fang! A rare find.', 'A bat fang, for crafting later.', "You can't carry more bat fangs."],
+  batFang: ['A bat fang! A rare find.', 'A bat fang, for a fang charm.', "You can't carry more bat fangs."],
   moleClaw: ['A mole claw! A rare find.', 'A mole claw, for crafting later.', "You can't carry more mole claws."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.
 const beat = (id, seed, s = makeState(room)) => step({ ...s, seed, hero: { x: 5, y: 11 }, items: [],

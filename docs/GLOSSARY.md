@@ -77,6 +77,8 @@ this page and a decision disagree, the decision wins.
   3 turns, not 6 (D-656).
 - **Echo Charm:** the charm for the dark, from Bat Wing; worn, creatures
   within 4 tiles show as pale outlines where no light is (D-805).
+- **Fang Charm:** the charm for hearts back, from Bat Fang; worn, a
+  beaten creature gives back 1 heart about 1 time in 4 (D-809).
 
 ## Home
 Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,
