@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.233, The audit's bug fixes.** The owner's call at the
+  audit (D-783): night and day creatures no longer pile up across nights
+  (B1), none bites on waking (B2), and night ones come out 4 steps away
+  (B3). Each with a test that fails on the old code.
+  Playtest: https://claude.ai/artifact/YAZcNCgUZGctcP459jCqB3
 - **2026-11-10, 0.3.232, The thirteenth audit.** The owner's picks
   (D-782): every split (history, creatures' pictures and lines), every
   archive and the playbook, word for word; nothing visible changed. Bug

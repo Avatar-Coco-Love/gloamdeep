@@ -24,6 +24,9 @@ neared 8 KB.
   comes back a day later on another grass tile of the room (D-763).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
+- **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
+  1 Wisp Glass; Drink: the lantern reaches 1 tile farther for 60 turns
+  (D-786). Not in the game yet.
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
