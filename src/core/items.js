@@ -48,7 +48,8 @@ export const ITEMS = {
   // A plain stone from a broken deposit (D-311, O2), for crafts; loose ones lie in the
   // mountain rooms, 2 a room, picked up with one of its `says` lines and growing back after a day
   // (loosestone.js, D-761). Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
-  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, says: 'looseStoneTake', look: 'stoneLook', full: 'stoneFull', regrow: DAY_TURNS },
+  stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, says: 'looseStoneTake', look: 'stoneLook', full: 'stoneFull', regrow: DAY_TURNS,
+    craft: { into: 'mortar', of: { stone: 4, wood: 1 }, says: 'mortarMake' } }, // 4 Stone and 1 Wood make the Mortar and Pestle, on the bag's Make tab (D-786)
   // The first flower (D-763, Q-092): a violet duskstar, 2 in each woods room (duskstar.js), each in
   // its own tone and facing its own way. Walking onto it puts it in the bag, for crafts later. Picked,
   // it `roam`s: a day later it grows again on another free grass tile of the room (regrow.js, D-530).
@@ -193,6 +194,10 @@ export const ITEMS = {
   // surface the bed's way as the shelf tile, empty; relics are set on it at later steps.
   shelf: { id: 'shelf', kind: 'item', name: 'Shelf', bag: true, max: 1, look: 'shelfLook', full: 'shelfFull',
     bench: { of: { wood: 4, stone: 2 }, says: 'shelfMake', short: 'shelfShort' }, sets: { tile: 'relicShelf', says: 'shelfSet' } },
+  // The first alchemy station (D-785, D-786): made in the bag from 4 Stone and 1 Wood (Stone's
+  // `craft`), never found, set down on the surface the bed's way as the mortar's tile.
+  mortar: { id: 'mortar', kind: 'item', name: 'Mortar and Pestle', bag: true, max: 1, look: 'mortarLook', full: 'mortarFull',
+    sets: { tile: 'mortarStand', says: 'mortarSet' } },
   // The bag upgrades (D-545, D-547): made at the workbench, never found, never in the bag.
   // Made, the bag `grows` from 6 slots to 9 (the Pouch), then 9 to 12 (the Big Bag), for good.
   pouch: { id: 'pouch', kind: 'item', name: 'Pouch', max: 1, look: 'pouchLook', full: 'pouchFull',

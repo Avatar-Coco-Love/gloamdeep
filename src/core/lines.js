@@ -167,6 +167,10 @@ export const LINES = {
   shelfShort: { text: 'You need 4 Wood, 2 Stone.', warn: false }, // too few, free
   shelfSet: { text: 'You set down the shelf.', warn: false }, // a turn
   shelfTake: { text: 'You take down the shelf.', warn: false }, // Yes on Deconstruct shelf?, a turn
+  mortarMake: { text: 'You make a mortar and pestle.', warn: false }, // MAKE on the bag's Make tab, a turn (D-786)
+  mortarFull: { text: 'You already carry a mortar.', warn: false }, // only 1 is carried, free
+  mortarSet: { text: 'You set down the mortar.', warn: false }, // a turn
+  mortarTake: { text: 'You take down the mortar.', warn: false }, // Deconstruct on its card, a turn
   gardenBedPlant: { text: 'You plant a gloamberry seed.', warn: false }, // Plant on its card, a turn (D-566)
   gardenBedPick: { text: 'You pick three gloamberries.', warn: false }, // Pick on the grown bed's card, a turn (D-568)
   gardenBedFeed: { text: 'You feed the soil with guano.', warn: false }, // Feed on the sprout's card, a turn (D-569)
@@ -184,6 +188,7 @@ export const LINES = {
   bedLook: { texts: ['A bed, folded small.', 'Set it down on the surface.', 'Sleep in it at night.'], warn: false },
   gardenBedLook: { texts: ['A box of soft soil.', 'Set it down on the surface.', 'Seeds grow in it.'], warn: false }, // (D-565)
   shelfLook: { texts: ['A wooden shelf, in pieces.', 'Set it down on the surface.', 'Relics rest on it.'], warn: false }, // (D-690), drafted for the playtest
+  mortarLook: { texts: ['A stone bowl and a wooden pestle.', 'Set it down on the surface.', 'Grind finds into draughts.'], warn: false }, // (D-786)
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   sleepOut: { text: 'You wake on the cold ground, stiff.', warn: false }, // the moon button outside, no bed (D-758), stiff (D-759)

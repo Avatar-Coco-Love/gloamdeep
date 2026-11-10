@@ -310,6 +310,12 @@ const SHELF = { mirror: false, rows: [
   '', '..kkkkkkkkkkkk..', '..kWWWWWWWWWWk..', '..kNkkkkkkkkNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..',
   '..kNNNNNNNNNNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kNffffffffNk..', '..kWWWWWWWWWWk..', '..kNNNNNNNNNNk..', '..knnnnnnnnnnk..', '..kkkkkkkkkkkk..'] };
 
+// § mortar: the Mortar and Pestle (D-786, look A of three), a grey stone bowl in the rock's greys
+// on a short stump in the trunk's browns, its wooden pestle leaning out to the right
+const MORTAR = { mirror: false, rows: [
+  '..........kWk', '.........kWNk', '..kkkkkkkWNkkk', '..kHHHHkWNkHHk', '..kLxxxxNxxxLk', '..kHLLLLLLLLMk', '...kLLLLLLMMk', '....kDDDDDDk',
+  '...kkkkkkkkkk', '...kWWWWWWWNk', '...kWNWWWWNNk', '...kNNWNNNNnk', '...knnnnnnnnk', '...kkkkkkkkkk'] };
+
 // § shelf with the locket (D-693, look A of its mock-up): the shelf, the locket small on its top
 // shelf, open, its gold lid swung out to the left with the violet flame, a violet flame in its
 // hollow and its violet bail; its own letters, LOCKET_SHELF_COLOURS, so the shelf keeps its browns
@@ -517,7 +523,7 @@ export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
-  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
+  BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, MORTAR, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
   LOSTBAG, POTION, KNIFE, SPEAR, BAG_TORCH, WISP_CHARM, HEART_CHARM,
   LURE_WISP,

@@ -4,6 +4,10 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.238', date: '2026-11-10', title: 'The Mortar and Pestle', lines: [
+    "New: the Mortar and Pestle, a stone bowl on a stump. Make it on the bag's Make tab from 4 Stone and 1 Wood, then set it down outside like the bed. Bump it, day or night, to open its card; it has nothing to make yet, and the Glow Draught comes next. DECONSTRUCT puts it back in your bag.",
+    "Decisions: D-789, D-790.",
+  ] },
   { v: '0.3.237', date: '2026-11-10', title: 'The bag\'s Make tab', lines: [
     "The bag has two tabs, BAG and MAKE. The Make tab lists everything you can make from your bag: pick one to see its cost from what you carry, then press MAKE. A recipe shows once you have held each of its finds, and stays after.",
     "On the Bag tab, a find's MAKE now opens the Make tab on its recipe, and a line above it shows what it makes (\"Makes an Oil flask\"). Tab switches the tabs.",

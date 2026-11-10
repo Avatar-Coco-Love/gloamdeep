@@ -33,8 +33,9 @@ phone first, nothing outside the code (D-003).
 6. **Let the owner try it.** A private playtest page for anything
    visible (D-073), a sound board for sounds (D-256), and a map preview
    for generation (D-646).
-7. **Hand off.** One PR, at most 5 lines of handoff, then a new
-   conversation for the next step (D-431). Merging is the owner's call.
+7. **Hand off.** One PR, at most 5 lines of handoff and a few copyable
+   prompts for the next direction (D-790), then a new conversation for
+   the next step (D-431). Merging is the owner's call.
 
 ## Habits and why they exist
 
@@ -101,3 +102,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - The owner may answer a list of picks with an idea of their own ("a bunny"): ask its details as multiple choice before building, and only then build (0.3.234).
 - Check that a new thing has room before proposing where it is made: the workbench card was full, found only after the mortar's picks, which opened the Make tab question (0.3.236).
 - Check that the game can answer a rule before the owner picks it: "shown once held" (D-418) needed a memory of held finds the save didn't have, asked about only at the build (0.3.237).
+- A rule the owner asked for in an earlier conversation can be lost if no PR wrote it down: the copyable next prompts were asked for before but never reached the handoff rule, so write a request into the docs in the same PR (0.3.238).

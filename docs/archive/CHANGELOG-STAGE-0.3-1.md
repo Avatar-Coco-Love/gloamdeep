@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.235 (2026-11-10)
+- Nothing in the game changes. Alchemy's plan is set: first a mortar and pestle built at home, later an alchemy lab with stronger potions. Its recipes are fixed, like Make today, and its first new potion will make your lantern reach farther for a while. Cooking comes after, at a kitchen fire at home, and simple food can also be cooked at a lit campfire.
+- Decisions: D-785. Questions: Q-093 and Q-088 narrowed.
+
 ## 0.3.234 (2026-11-10)
 - Day creatures, second: the bunny, the first creature that means no harm. Each day one comes out in the home room and one in each woods room round home, beside the mole. It never bites, and hops away once you come within 3 steps; corner it and one blow beats it, and it may leave Bunny Fur, for crafts later. Gone by nightfall, back the next day.
 - Decisions: D-784.

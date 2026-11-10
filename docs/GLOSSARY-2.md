@@ -64,8 +64,8 @@ word for word at 0.3.234 (D-784), as this page passed 8 KB.
   grows in 150 turns from planting instead of 300, once (D-569).
 - **Station:** a place to make one bigger craft family, built at home on
   the surface: forge, kitchen fire, power bench, altar (D-455), and an
-  alchemy station: the Mortar and Pestle first, a lab later (D-771,
-  D-785, D-786). Not in the game yet.
+  alchemy station: the Mortar and Pestle first, in the game (D-789),
+  a lab later (D-771, D-785, D-786).
 - **Waystone:** a 3 × 3 standing-stone circle: a walkable cross, an old
   mossy stone in each corner tile, the plate in the middle (D-579, D-587,
   D-620). The home

@@ -37,15 +37,16 @@ export function benchAt(x, y, vw, vh) {
 }
 
 // c: the room's canvas, `vw` × `vh`; makes: benchMakes(bag) (core/menu.js); chosen: a slot
-// or BENCH_TAKE; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297)
-export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still) {
-  const card = drawCard(c, vw, vh, 'WORKBENCH', SPLIT, true, TALL_SPLIT), { x, y, w } = card, at = take(card);
+// or BENCH_TAKE; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297);
+// title: the station's, WORKBENCH or MORTAR; none: the grey line while nothing is listed (D-786)
+export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still, title = 'WORKBENCH', none = '') {
+  const card = drawCard(c, vw, vh, title, SPLIT, true, TALL_SPLIT), { x, y, w } = card, at = take(card);
   for (let i = 0; i < BENCH_SLOTS; i++) { const s = slotAt(card, i, TOP, BENCH_COLS); drawSlot(c, s.x, s.y, makes[i] && { id: makes[i].item, n: 1 }, i === chosen, spriteOf); }
   drawButton(c, at.x, at.y, TAKE, false, TAKE_W);
   if (chosen === BENCH_TAKE) drawMarker(c, at.x - 7, at.y + 4, t, still);
   const make = makes[chosen], entry = make && get(make.item);
-  if (!entry) return;
   const { dx, dy } = detailAt(card, vw, vh, DETAIL_X, HELD_Y, TALL_SPLIT), dw = x + w - PAD - dx; // upright, under the grid (D-505)
+  if (!entry) { if (!makes.length && none) wrapWords(none, dw).forEach((l, i) => drawText(c, l, dx, dy + i * LINE_H, GREY)); return; } // the mortar's, empty (D-786)
   drawText(c, entry.name, dx, dy, CORE);
   make.cost.forEach(({ id, n, have }, i) => {
     const cy = dy + LINE_H + i * COST_H;

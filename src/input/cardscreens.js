@@ -3,7 +3,7 @@
 // CH4, D-387, D-494, D-495, D-546, D-554). Split from screens.js at the eighth audit
 // (D-570): `app` and `ui` as there, `show` to open a screen, and `menuOf` for a card's lines.
 import { tileAt } from '../core/room.js';
-import { benchMakes, BENCH_TAKE, SURE_MENU } from '../core/menu.js';
+import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU } from '../core/menu.js';
 import { bagSize, bagCols } from '../core/bag.js';
 import { bagMakes, makeFor } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
@@ -182,12 +182,14 @@ export function createCardScreens(app, ui, show, menuOf) {
     pickTrade(to >= 0 && to < tradeCount() ? to : app.chosen); // the bag's grid, his wares fewer
   }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, you have ${c.have}`).join(' and ')}${m.dim ? ', too few' : ''}`;
-  const benchWords = () => `Workbench. ${benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state)).map((m) => `${costWords(m)}. `).join('')}Make, Deconstruct workbench, or Close.`;
+  const station = () => tileAt(app.state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
+  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state));
+  const benchWords = () => { const name = station().name, makes = stationNow(); return `${name}. ${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${STATION_NONE} `}Make, Deconstruct ${stationTitle(station()).toLowerCase()}, or Close.`; };
   // § bench card (D-387): the frame on a slot says what is made there and its cost
   function pickBench(i) {
     app.chosen = i;
-    const m = benchMakes(app.state.bag, bagSize(app.state), nearStacks(app.state))[i];
-    spoken.textContent = i === BENCH_TAKE ? 'Deconstruct workbench' : m ? costWords(m) : 'Empty';
+    const m = stationNow()[i];
+    spoken.textContent = i === BENCH_TAKE ? `Deconstruct ${stationTitle(station()).toLowerCase()}` : m ? costWords(m) : 'Empty';
   }
 
   return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
