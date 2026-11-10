@@ -6,12 +6,13 @@ project can start from it (D-732). Each audit adds what that stretch
 taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
 `WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
-the design habits (D-741) and starting a new project.
+the design habits (D-741) and starting a new project; `WORKFLOW-3.md`
+what each audit added (D-782).
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-09: version 0.3.192, about 467 pull
-requests, 740 decisions, 88 questions asked, 12 audits. One owner, who
+Started 2026-10-17. By 2026-11-10: version 0.3.232, about 507 pull
+requests, 782 decisions, 95 questions asked, 13 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -88,43 +89,11 @@ phone first, nothing outside the code (D-003).
 - **Research beside building** (D-590). Helpers research while the main
   conversation builds. Only one conversation builds at a time.
 
-## What the twelfth audit added (0.3.152 to 0.3.192)
+## What each audit added
 
-- **Plan the big step, then build it in pieces.** A bigger idea is
-  settled as one plan with numbered steps (D-733: the surface's five;
-  the teaching goals planned and worded before the first was built), then
-  one piece a conversation. The owner sees the whole before agreeing to
-  any part, and each piece stays small.
-- **Claude's calls, written down.** While building, Claude settles small
-  details itself and lists them in the decision as "Claude's calls the
-  owner may change" (D-734 on). The owner isn't asked about every corner,
-  yet can still see and change each one.
-- **The owner's own answers.** Many picks come with an idea of the
-  owner's own (the lantern cold by day, waking in the last bed). What
-  fits now is built; the rest becomes a question kept for later (Q-088,
-  campfires), so nothing is lost.
-- **An audit's bug hunt pays off as small steps.** The eleventh audit's
-  findings became their own steps, each fix with a test (0.3.169 to
-  0.3.173), so the owner picked which mattered and nothing was bundled.
-- **A check must say what is true.** The start-up hook brought the copy
-  up to date but printed an old `main`, because a fresh cloud copy holds
-  only recent history. Its message now names what is checked out (D-740).
+Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782).
 
 ## Since the last audit
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
-
-- A bug list with one fix choice each let the owner settle nine fixes in one round of questions, then take them as one PR (0.3.194).
-- Drawing every card with all content at real phone sizes found layout bugs no playtest had; pictures of each let the owner pick fixes at a glance (0.3.195).
-- Art mock-ups drawn with the game's own code, in rounds, let the owner turn down two looks, ask for clearer caves and settle the edges before any building (0.3.196).
-- The owner stopped a planned step to ask whether the look fit the story; checking the lore first turned a cave mouth into a crypt door before more cave art was built (0.3.197).
-- Asked for a look between two, a row of steps from one to the other let the owner pick the middle at a glance (0.3.200).
-- A walk through every surface room, by day and night, with each problem shown now and fixed in mock-ups from the game's own code, let the owner rank the polish and pick looks in one round (0.3.199).
-- New ideas sent with a step were asked as picks beside its look and planned as later steps; one visible change kept (0.3.202).
-- Sorting the waiting list into ready now, better at its own step and parked let the owner settle four items in one round of questions (0.3.216).
-- With the lines already chosen, four small picks on timing, order, colour and bites were all the step needed before building (0.3.217).
-- Offering ideas drawn from the lore let the owner pick two at once; asking their order kept one visible change a step and settled the second's words early (0.3.220).
-- The owner remembered a goal that was never built; searching the code first and saying so plainly turned it into a small new goal, not a rename of nothing (0.3.198).
-- Taking an existing rule as the recommended answer (the glob, for the sting) let the owner settle a new mechanic's four details in one round (0.3.218).
-- An owner's "just a thought" was answered with options, then parked as a note on the question it belongs to, so nothing was built early (0.3.219).

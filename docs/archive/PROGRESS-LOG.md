@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.229, Night creatures, second: the bat.** The
+  owner's picks (D-779): the bat now, as the lampmoth; next a rare
+  gloamling, one woods room a night.
+  Playtest: https://claude.ai/artifact/GKvUeiNBS3niDUgMbjZE96
 - **2026-11-10, 0.3.228, Night creatures, first: lampmoths.** The
   owner's picks (D-778), all recommended: a lampmoth comes out each
   night in each woods room round home, never home, from halfway
@@ -2347,6 +2351,13 @@ Moved from `PROGRESS.md` at 0.3.192, the twelfth audit (D-740):
 
 - [x] 21 Feats (D-695, D-698): the tab and Beaten (0.3.148); buying a pattern (0.3.149); Deepest (0.3.150); Flasks (0.3.151); Rooms (0.3.174); Steps (0.3.175); Torches (0.3.176)
 - [x] 22 Looks (D-698, D-703, D-704), each a step: more cloak patterns (0.3.153); the Look card scrolls (0.3.154); lantern looks (0.3.155); hats and hoods (0.3.156); more hats and hoods (0.3.157)
+
+Moved from `PROGRESS.md` at 0.3.232, the thirteenth audit (D-782):
+
+- [x] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades (0.3.207)
+- [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
+- [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
+- [x] 27 Sleeping out (D-758, D-759): the moon button (0.3.209); Stiff (0.3.210)
 
 - [x] U1, U2 UI and dev tools: sideways, the dev drawer, 0.2.17, 0.2.18
 

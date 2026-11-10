@@ -46,7 +46,7 @@ neared 8 KB.
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
 - **Deposit:** a round grey boulder, 3 in each Cave room; three bumps
   break it for a stone (D-311, D-312).
-- **Pond:** still water in each woods room, 5 to 9 tiles (D-503, D-734).
+- **Pond:** still water in most woods rooms, 5 to 9 tiles; a thick-woods room where none fits has none (D-503, D-734).
 - **Pool:** still water in a Cave room; not yet to step in (D-500).
 - **Stone:** a small grey pebble from a deposit, or lying loose in the
   mountain rooms; it goes into the stash chest, the Stone Pick and the

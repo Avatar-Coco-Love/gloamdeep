@@ -1,9 +1,10 @@
-# The menu cards, part 2 (D-393 to D-400)
+# The menu cards, part 2 (D-393 to D-400, D-743)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.152 (D-401), when it
 neared 12 KB: Version history, the seed pad, the map, the way to play, the
 profiles, the name pad, the looks and the asks as cards, all built. These
-are still in force unless marked superseded. Grep for an ID or topic;
+are still in force unless marked superseded. D-743, words that fit on
+every card, built, followed at 0.3.232, the thirteenth audit (D-782). Grep for an ID or topic;
 never read this whole.
 
 ---
@@ -88,3 +89,21 @@ ember top left like the other cards' names, the round cross top right,
 the grey note centred under the rule, YES and NO as buttons like Make
 (D-299) along its foot, NO picked first. The cross, Esc and a tap outside
 mean No. Your journey ends. (D-344) stays a page for now. Built in 0.2.151.
+
+**D-743 · 2026-11-09 · Words that fit** (the owner's picks, all
+recommended; the owner asked that words running past a card's edge,
+upright and elsewhere, be found and fixed, ready for what is added
+later) Every card was drawn at upright and sideways phone sizes with
+all content; six places failed. A quest's how wraps, and a done goal's
+reward goes on its own grey line under it where it doesn't fit beside
+the goal. A Journal list taller than its card (Records, the Bestiary,
+a creature's page, Feats, Quests) scrolls a row at a time by a swipe,
+the wheel or Up and Down, a page by Page Up and Down, with the thin bar
+Version history has; upright the Bestiary is one table, sideways two
+scroll together. The goal line's words wrap so it ends left of the
+round map. A test draws every card at those sizes with every item,
+creature, goal and boon, and fails when words leave a card or overlap.
+Claude's calls the owner may change: in the stash chest, a long name
+level with STORE wraps short of it, and the grey hint is left out where
+it would pass the card's foot; Up and Down on the Bestiary's table
+still pick a row, kept in view.

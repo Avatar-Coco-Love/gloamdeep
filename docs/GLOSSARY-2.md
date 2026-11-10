@@ -7,13 +7,13 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
-- **Gloamling:** chases, and shuns light (D-240).
-- **Lampmoth:** a pale moth that seeks light, one room a floor on depths 2 to 4 (D-356).
+- **Gloamling:** chases, and shuns light (D-240); by night in one woods room round home (D-780).
+- **Lampmoth:** a pale moth that seeks light, one room a floor from depth 2 (D-356); by night in each woods room round home (D-778).
 - **Flask mimic:** looks just like an oil flask until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; about 1 room in 4 on depths 3 to 5 (D-366, D-368).
 - **Scorpion:** drawn from above; chases and stings for 2, but one hit kills it; one room a floor on depths 3 and 4 (D-370). Its sting is a tail strike: in line within 2 tiles it raises its tail a turn, then strikes both tiles ahead (D-729).
 - **Cave spider:** drawn from above, low and squat; shuns light only, so it waits in the dark and bites only from there; from depth 2 (D-535).
-- **Bat:** drawn from above, wings spread; seeks light, and once hurt flees for 4 turns or stands, on a coin toss; from depth 3 (D-537).
-- **Mole:** drawn side on, as the rat is; chases and never flees, 4 hearts; from depth 5 (D-541).
+- **Bat:** drawn from above, wings spread; seeks light, and once hurt flees for 4 turns or stands, on a coin toss; from depth 3 (D-537); by night as the lampmoth (D-779).
+- **Mole:** drawn side on, as the rat is; chases and never flees, 4 hearts; from depth 5 (D-541); by day in each woods room round home (D-781).
 - **Snapcap:** a heartcap that bites; never moves, looks just like a heartcap until the hero stands beside it, then shows eyes and teeth; 2 hearts; from depth 2 (D-543).
 - **Herb mimic:** looks just like a herb until bumped; then it wakes, with eyes and teeth, and chases for 6 turns before it settles back down; 2 hearts; from depth 3 (D-549).
 - **Bone rat:** a rat with nothing left but bone; chases and never flees, 3 hearts; from depth 4 (D-549, D-551). Beaten, it falls into a **pile of bones** that stands up again 3 turns later; stepping onto it **scatters** it for good (D-731).

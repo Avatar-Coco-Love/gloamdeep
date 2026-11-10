@@ -4,12 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.231 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.232 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit, 0.3.232 (D-518). Then day creatures, second (D-781): which
-kind next, and whether a rare one comes too, as the gloamling did.
+The audit's bug fixes, 0.3.233 (D-782): B1, clear an earlier night's or
+day's creatures before new ones come out; B2, the night ones leave
+before creatures act on waking; B3, night creatures come out at least 4
+steps away, as the mole. Each with a test. Then day creatures, second
+(D-781): which kind next, and whether a rare one comes too, as the
+gloamling did.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -37,18 +41,18 @@ when merged, with its version, and move ticked steps there at each audit.
 
 The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
-- [x] 23 A bigger surface (D-733): the 9 rooms (0.3.186); the south start (0.3.187); its lantern goal (0.3.188); waking after a fall (0.3.189); mountain rooms (0.3.190); rounded rock (0.3.191); thick woods and glades (0.3.207)
-- [x] 24 The surface's looks (D-739, D-744, D-745, D-747): the craggy cave mouth (0.3.196); the broken seal, the crypt's way in (0.3.197); Find the crypt (0.3.198); smooth rock edges (0.3.199); ponds (0.3.200); grass (0.3.201); trees (0.3.202)
-- [x] 25 The owner's four ideas (D-751), in order: the oil tip; the home waystone by the crypt's door; Waymark's dot on the round map's rim; motes that stay. The oil tip (0.3.203); the waystone by the crypt's door (0.3.204); Waymark's dot on the rim (0.3.205); motes that stay (0.3.206)
 - [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), herbs (0.3.213), the duskstar (0.3.214), more flowers (Q-092); then landmarks: the dead lamppost (0.3.220), the miners' camp (0.3.221); then night creatures: lampmoths (0.3.228), bats (0.3.229), the rare gloamling (0.3.230); then day creatures: the mole (0.3.231)
-- [x] 27 Sleeping out (D-758, D-759): the moon button (0.3.209); Stiff (0.3.210)
 
-**Next audit: 0.3.232** (D-518, D-740).
+**Next audit: 0.3.272** (D-518, D-782).
 
 Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.232, The thirteenth audit.** The owner's picks
+  (D-782): every split (history, creatures' pictures and lines), every
+  archive and the playbook, word for word; nothing visible changed. Bug
+  hunt: three bugs, fixed next.
 - **2026-11-10, 0.3.231, Day creatures, first: the mole.** The owner's
   picks (D-781): a mole comes out each day in each woods room round
   home, never home, gone by night, the night rules turned round.
@@ -58,7 +62,3 @@ list in `RESEARCH.md`.
   one woods room round home, and a gloamling joins its lampmoth and bat,
   with its usual finds.
   Playtest: https://claude.ai/artifact/DmsbfsvWAMk3s4YaZVdnCt
-- **2026-11-10, 0.3.229, Night creatures, second: the bat.** The
-  owner's picks (D-779): the bat now, as the lampmoth; next a rare
-  gloamling, one woods room a night.
-  Playtest: https://claude.ai/artifact/GKvUeiNBS3niDUgMbjZE96

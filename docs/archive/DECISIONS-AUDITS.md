@@ -7,6 +7,8 @@ seventh, at 0.3.32, the eighth (D-570). D-570 to D-578, the eighth
 audit's parts, followed at 0.3.39, the audit done (D-578). D-661, the
 tenth audit's first fixes (all built), followed at 0.3.127 (D-675).
 D-699, the eleventh audit, done, followed at 0.3.192, the twelfth (D-740).
+D-740, the twelfth audit, done, and D-742, its bug hunt's fixes, built,
+followed at 0.3.232, the thirteenth (D-782).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -516,3 +518,33 @@ spawned flasks picked up, and a flask poured while any are carried is
 one of them; a fall clears the count. Teaching goals are as before.
 Next, more Feats (Q-057). D-714 and D-715 move to
 `archive/DECISIONS-LOOKS.md`.
+
+**D-740 · 2026-11-09 · The twelfth audit** (the owner's picks, all
+recommended) At 0.3.192, nothing visible changed. A conversation's start
+reads 10.2 KB, not 10.5. The in-game history's stage 0.3 file is split
+again word for word: 0.3.76 to 0.3.150 go to `src/core/history-0.3-2.js`
+(60 KB to 22 and 39). D-699 moves to `archive/DECISIONS-AUDITS.md`, and
+D-734 to D-737, built, to `archive/DECISIONS-SURFACE.md`; ticked steps
+21 and 22 are archived; all word for word. The start-up hook's message
+names the commit checked out, not the old local `main` a shallow cloud
+copy keeps. `WORKFLOW.md` gains what this stretch taught. One bug hunt
+read the code since 0.3.152; its findings are listed for the owner to
+pick from (https://claude.ai/artifact/NYbJtLXs97xmn7s1YBV4kK), each fix its own small step with a test.
+The next audit is at 0.3.232.
+
+**D-742 · 2026-11-09 · The bug hunt's fixes** (the owner's picks, all
+recommended; the owner asked that every known bug be fixed, in one PR;
+answers D-740's list) All nine findings are fixed, each with a test.
+B1: cutting a path between Hearthwood rooms clears a fallen branch or
+berry bush in its way, as a tree. B2, B3: one save upgrade (20 → 21)
+makes each north room never seen, with nothing taken, today's mountain
+room, cuts every Hearthwood room's paths again, and brings the copies a
+fall and the dev Reset read up the same way, home's without the old
+mouth. B6: a goal the journey's start skips, waiting in an older
+profile, is ticked quietly, unpaid, and not listed. Claude's calls the
+owner may change: B4, goals done on one turn each roll their reward
+with the goal mixed in; B5 and T1, the unguarded flask and the rat
+pack roll with salts of their own, so unvisited rooms may change; T2, a
+spit grub's glob flies over a pile of bones; T3, a scorpion's tail
+raised as the hero left is lowered when they come back (a fall that
+wakes in the same room still keeps it).
