@@ -75,9 +75,24 @@ this page and a decision disagree, the decision wins.
 Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,
 stash chest, bed, station; the garden bed joined them there.
 
-## Creatures, people
+## Creatures
 Moved to `GLOSSARY-2.md` word for word at 0.3.3 (D-531): creatures,
-colour sets, the creature list, the peddler, trade coins, rubble.
+colour sets, the creature list. The peddler, trade coins and rubble
+went with them, and came back word for word at 0.3.234 (D-784):
+
+### People
+- **Peddler:** the first person, found trapped in a ring of rubble on
+  depth 3; freed by digging one heap, he stands at home in the woods,
+  and is the first vendor: bumped there, his card opens and he buys
+  creature materials and sells a flask and a torch (D-471, D-490,
+  D-491, D-492, D-494, D-495).
+- **Trade coins (coins):** earned only by selling to a vendor, each find
+  at its own price: 1 for most common creature materials (Wisp Glass 2),
+  5 for a rare one; kept on a fall, but not
+  when Hardcore starts over; spent at a vendor (D-472, D-494, D-495,
+  D-649, D-674).
+- **Rubble:** a heap of fallen rock, solid, light passing over it; dug
+  away by hand in 3 bumps (D-490, D-491).
 
 ## Menus and tools
 Moved to `GLOSSARY-CODE.md` (D-490): glass panel, Journal, Bestiary,

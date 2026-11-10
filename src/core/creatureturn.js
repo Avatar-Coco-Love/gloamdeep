@@ -242,7 +242,7 @@ function burrowStep(state, e, near) {
 
 // § lures (D-649): whether one that lures has the hero within its `near` steps, and the tile
 // it drifts to: of the free tiles beside it farther from the hero, the one nearest (in steps)
-// the nearest other creature in the room, or with none the farthest from the hero; the first
+// the nearest other creature in the room, or with none (or for one shy, D-784) the farthest from the hero; the first
 // in DIRS order on a tie; else null, it stays
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 function luring(state, e) {
@@ -250,7 +250,7 @@ function luring(state, e) {
   return t.moves === 'lure' && steps(e, state.hero) <= t.near;
 }
 function lureStep(state, e) {
-  const others = state.enemies.filter((o) => o.x !== e.x || o.y !== e.y);
+  const others = traits(get(e.id)).alone ? [] : state.enemies.filter((o) => o.x !== e.x || o.y !== e.y); // one that is shy heads for no one (D-784)
   const goal = others.reduce((best, o) => (!best || steps(o, e) < steps(best, e) ? o : best), null);
   const away = Object.values(DIRS).map(([dx, dy]) => ({ x: e.x + dx, y: e.y + dy }))
     .filter((t) => steps(t, state.hero) > steps(e, state.hero) && free(state, e, t.x, t.y));

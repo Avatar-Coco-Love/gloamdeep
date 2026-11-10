@@ -98,3 +98,4 @@ Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782).
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 - A bug fix's test is checked against the old code first: B3's first test passed without the fix, as one night's pick happened to land far away, and only trying many nights caught it (0.3.233).
+- The owner may answer a list of picks with an idea of their own ("a bunny"): ask its details as multiple choice before building, and only then build (0.3.234).

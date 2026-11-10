@@ -4,6 +4,10 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.234', date: '2026-11-10', title: 'Day creatures, second: the bunny', lines: [
+    "Day creatures, second: the bunny, the first creature that means no harm. Each day one comes out in the home room and one in each woods room round home, beside the mole. It never bites, and hops away once you come within 3 steps; corner it and one blow beats it, and it may leave Bunny Fur, for crafts later. Gone by nightfall, back the next day.",
+    "Decisions: D-784.",
+  ] },
   { v: '0.3.233', date: '2026-11-10', title: 'The audit\'s bug fixes', lines: [
     "The audit's bug fixes. Night and day creatures no longer pile up in a woods room left and come back to on a later night or day: the earlier ones go first.",
     "Waking from sleeping out, a night creature beside the hero has already gone with the dawn, and no longer bites.",

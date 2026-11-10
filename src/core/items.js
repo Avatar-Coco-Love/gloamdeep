@@ -216,4 +216,6 @@ export const ITEMS = {
   // shelf and keeping a find on a fall come at their own steps. Not sold. A `relic`: drawn with
   // its own violet glow over the dark (sprites.js, drawRelics, D-692).
   locket: { id: 'locket', kind: 'item', relic: true, name: 'Lightkeeper\'s Locket', bag: true, max: 1, says: 'locketTake', look: 'locketLook', full: 'locketFull' },
+  // A beaten bunny's fur, about 1 in 2 (D-784), for crafts later, sold as the other furs are
+  bunnyFur: { id: 'bunnyFur', kind: 'item', name: 'Bunny Fur', bag: true, max: 20, says: 'bunnyFurTake', look: 'bunnyFurLook', full: 'bunnyFurFull', sells: 1 },
 };

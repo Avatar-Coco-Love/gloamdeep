@@ -11,8 +11,10 @@
 // The audit's bug fixes (D-783): an earlier night's or day's creatures are cleared before new
 // ones come out (B1); the other half's leave before any creature acts, so none bites on waking
 // (B2); and night creatures come out at least 4 steps away too, as the mole (B3).
+// The second day creature, the bunny (D-784), the first that means no harm: one each day in each
+// woods room round home beside the mole, and one in the home room too, the only creature there.
 import { daylight, DAY_TURNS } from './daytime.js';
-import { ROUND_HOME, woodsSeed } from './hearthwood.js';
+import { ROUND_HOME, HOME_ID, woodsSeed } from './hearthwood.js';
 import { tileAt } from './room.js';
 import { litAt } from './sight.js';
 import { rng, pick, seedFor } from './rng.js';
@@ -25,7 +27,11 @@ export const RARE_KIND = 'gloamling';
 export const rareRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x2c1b3c6d, n + 1)), ROUND_HOME);
 
 // § day kinds: what comes out each day, one of each, in each room (D-781)
-export const DAY_KINDS = ['mole'];
+export const DAY_KINDS = ['mole', 'bunny'];
+// The home room's: only the bunny, which never bites (D-784); nothing comes out there by night
+export const HOME_KINDS = ['bunny'];
+// The rooms where creatures come out: the home room and the woods rooms round it
+const OUT = [HOME_ID, ...ROUND_HOME];
 const FAR = 4; // at least this many steps from the hero, by day and by night (B3)
 
 // The night a turn falls in: the day's own number, as all its dark lies inside one day (D-217)
@@ -39,13 +45,14 @@ export const dayOf = (turn) => Math.floor((turn + 15) / DAY_TURNS);
 // (state) → the state with tonight's creatures out, or last night's gone by day; the same state
 // when nothing changes, or no tile fits yet (it waits for the next turn)
 export function nightfall(state) {
-  if (!ROUND_HOME.includes(state.place)) return state;
-  return comeOut(leaveByLight(state), darkOut(state.turn) ? 'night' : 'day');
+  if (!OUT.includes(state.place)) return state;
+  const when = darkOut(state.turn) ? 'night' : 'day';
+  return state.place === HOME_ID && when === 'night' ? leaveByLight(state) : comeOut(leaveByLight(state), when);
 }
 
 // (state) → the state with the other half's creatures gone: day ones by night, night ones by day.
 // The turn's end runs it before the creatures act, so one gone with the light never bites (B2)
-export const leaveByLight = (state) => !ROUND_HOME.includes(state.place) ? state
+export const leaveByLight = (state) => !OUT.includes(state.place) ? state
   : goneBy(state, darkOut(state.turn) ? 'day' : 'night');
 
 // (state, when) → the state with the creatures of the other half gone ('night' by day, 'day' by night)
@@ -59,7 +66,7 @@ function comeOut(state, when) {
   const spots = openSpots(state, night);
   if (!spots.length) return state;
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place) ^ (night ? 0 : 0x5d4f1a37), n + 1)), out = [];
-  const kinds = !night ? DAY_KINDS : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
+  const kinds = !night ? (state.place === HOME_ID ? HOME_KINDS : DAY_KINDS) : rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
   for (const id of kinds) {
     const left = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
     if (left.length) out.push({ id, ...pick(r, left), [when]: true });

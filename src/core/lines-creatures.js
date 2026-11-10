@@ -99,6 +99,10 @@ export const CREATURE_LINES = {
   wispGlassTake: { texts: ['You pick up the wisp glass.', 'A sliver of cold blue glass.', 'The wisp glass goes in your bag.'], warn: false }, // (D-649)
   wispGlassLook: { texts: ['Wisp glass, for crafting later.', 'It holds a faint blue glimmer.', 'Cold to the touch, still.'], warn: false },
   wispGlassFull: { text: "You can't carry more wisp glass.", warn: false },
+  bunnyDie: { text: 'The bunny goes still.', warn: false }, // (D-784); it never bites, so it has no bite line
+  bunnyFurTake: { texts: ['You pick up the bunny fur.', 'Soft and warm, pale at the tips.', 'The bunny fur goes in your bag.'], warn: false }, // (D-784)
+  bunnyFurLook: { texts: ['Bunny fur, for crafting later.', 'Soft brown fur, pale at the tips.', 'It smells of grass.'], warn: false },
+  bunnyFurFull: { text: "You can't carry more bunny fur.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },
