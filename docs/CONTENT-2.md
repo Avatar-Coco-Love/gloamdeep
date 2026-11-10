@@ -53,8 +53,10 @@ as "1 FREE PICK" in gold on the Look card while it waits (D-714, D-715).
 
 Bought with embers on the Journal's Growth tree (D-462, D-481): Light,
 Body and Hands. Body: Heart, one more heart, up to 5 (D-293); Tough, a hurting bite
-poisons only 1 time in 2, above Heart in the first row (D-657). Light and
-Hands: none yet.
+poisons only 1 time in 2, above Heart in the first row (D-657). Light:
+Steady Wick, a lit turn burning 9/10 of its oil, for good, a full tank
+about 66 turns, not 60; "Steady" in a box too narrow (D-798). Hands:
+none yet.
 
 ## Tiles, lights, places
 Moved to `CONTENT-3.md` word for word at 0.3.73 (D-618).

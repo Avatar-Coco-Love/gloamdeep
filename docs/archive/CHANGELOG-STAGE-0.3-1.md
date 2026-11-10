@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.243 (2026-11-10)
+- New: the Ward Draught, a pale green-white bottle. Once you have held Centipede Leg and Herb, the mortar makes it from 2 Centipede Leg and 1 Herb. Drink it from your bag and any poison ends at once, and for 60 turns a centipede's bite still hurts but never poisons you. A pale bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
+- Decisions: D-795.
+
 ## 0.3.242 (2026-11-10)
 - New: the Mending Draught, a moss green bottle. Once you have held Mimic Leaf and Herb, the mortar makes it from 2 Mimic Leaf and 1 Herb. Drink it from your bag and it heals you slowly: a heart every 15 turns for 60 turns, 4 in all, never above full. A green bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, giving no hearts then, and a fall ends it.
 - Mimic Leaf now says "good for making things", and its card shows "Makes a Mending Draught at the mortar".
