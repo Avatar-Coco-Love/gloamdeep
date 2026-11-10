@@ -171,19 +171,6 @@ underfoot make no thud, as their rattle is theirs; a miss stays silent
 (D-759). D-768 moves to `archive/DECISIONS-CREATURES-2.md`, word for
 word.
 
-**D-778 · 2026-11-10 · Night creatures, first: lampmoths** (the
-owner's picks, all recommended; builds D-760, D-217) Night creatures
-start with a creature the game has: the lampmoth, so no new way. One
-comes out each night in each woods room round home, never home and
-never a mountain room: once daylight stops lighting the room (halfway
-through dusk), and any still standing are gone once it lights it again
-(halfway through dawn). New night kinds come later, one a step.
-Claude's calls the owner may change: on open grass off the edge, out
-of the hero's sight, picked by the seed and the night; one beaten stays
-beaten till the next night; they go by day without a word; they count
-in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-779 · 2026-11-10 · Night creatures, second: the bat** (the owner's
 picks, the recommended plan after the owner's own answer; builds D-778)
 Of the three kinds shown (gloamling, bat, cave spider), the owner liked
@@ -194,3 +181,13 @@ the woods rooms round home for it. Claude's calls the owner may change:
 a night bat leaves no guano, which lies only by a bat a room is made
 with; it never shares a tile with the lampmoth. D-772 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-780 · 2026-11-10 · Night creatures, third: the rare gloamling**
+(the owner's picks, all recommended; builds D-779) Each night the seed
+and the night pick one of the 5 woods rooms round home, and a gloamling
+comes out there beside that room's lampmoth and bat, with the same
+rules (D-778). It acts and leaves finds as it does below: a Gloam Wisp
+about 1 in 2, a Gloam Eye about 1 in 10. Claude's calls the owner may
+change: it may pick the same room two nights running; it never shares a
+tile with the others. D-778 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

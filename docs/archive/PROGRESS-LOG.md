@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.227, The fight's sounds.** The owner's picks
+  (D-777), by ear: a muffled punch for the lantern, knife slices for a
+  weapon in hand, a soft heavy thud when a creature is beaten, all as
+  loud as a step.
+  Playtest: https://claude.ai/artifact/1gFKiXkMYwBXJkMAZR67tw
+  Sound board: https://claude.ai/artifact/1qLyGikeZH1sWfVy9kE4xN
 - **2026-11-10, 0.3.226, Steps below.** The owner's picks (D-776), by
   ear: concrete with a faint echo below, muffled grass for earth in the
   burrows, as loud as the grass.

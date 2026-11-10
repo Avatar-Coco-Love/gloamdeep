@@ -1,5 +1,5 @@
 // § nightfall: night creatures come out in the woods (D-778, D-760's last step, its first
-// creature; the bat the second, D-779). Plain data, no drawing. In each woods room round home,
+// creature; the bat the second, D-779; the rare gloamling the third, D-780). Plain data, no drawing. In each woods room round home,
 // never home and never a mountain room, one of each night kind comes out each night: once daylight stops lighting the room
 // (halfway through dusk), on an open grass tile off the edge, free and out of the hero's sight,
 // picked by the seed and the night. The room notes the night it came (`night`), so one beaten
@@ -13,6 +13,10 @@ import { rng, pick, seedFor } from './rng.js';
 
 // § kinds: what comes out each night, one of each, in each room
 export const NIGHT_KINDS = ['lampmoth', 'bat']; // a night bat leaves no guano: that lies only by a bat a room is made with (D-779)
+// The rare one: a gloamling, in one woods room round home a night, picked by the seed and the
+// night, beside that room's lampmoth and bat (D-780)
+export const RARE_KIND = 'gloamling';
+export const rareRoom = (seed, n) => pick(rng(seedFor(seedFor(seed, 0) ^ 0x2c1b3c6d, n + 1)), ROUND_HOME);
 
 // The night a turn falls in: the day's own number, as all its dark lies inside one day (D-217)
 export const nightOf = (turn) => Math.floor(turn / DAY_TURNS);
@@ -31,7 +35,8 @@ export function nightfall(state) {
   const spots = openSpots(state);
   if (!spots.length) return state;
   const r = rng(seedFor(woodsSeed(state.seed ?? 1, state.place), n + 1)), out = [];
-  for (const id of NIGHT_KINDS) {
+  const kinds = rareRoom(state.seed ?? 1, n) === state.place ? [...NIGHT_KINDS, RARE_KIND] : NIGHT_KINDS;
+  for (const id of kinds) {
     const left = spots.filter((s) => !out.some((o) => o.x === s.x && o.y === s.y));
     if (left.length) out.push({ id, ...pick(r, left), night: true });
   }

@@ -1,7 +1,8 @@
-// Night creatures in the woods: a lampmoth and a bat each night in each woods room round home (D-778, D-779)
+// Night creatures in the woods: a lampmoth and a bat each night in each woods room round home (D-778, D-779),
+// and a rare gloamling in one of them (D-780)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nightfall, nightOf, darkOut, NIGHT_KINDS } from '../src/core/nightfall.js';
+import { nightfall, nightOf, darkOut, NIGHT_KINDS, RARE_KIND, rareRoom } from '../src/core/nightfall.js';
 import { passTime } from '../src/core/daytime.js';
 import { makeWorld, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -10,7 +11,7 @@ import { litAt } from '../src/core/sight.js';
 
 const at = (place, turns) => ({ ...passTime(goToPlace(makeWorld('first', 4127), place), turns), lit: true });
 const moths = (s) => s.enemies.filter((e) => e.night);
-const ROOM = ROUND_HOME[0];
+const ROOM = ROUND_HOME.find((id) => id !== rareRoom(4127, 0) && id !== rareRoom(4127, 1)); // no gloamling these nights
 
 test('the lampmoth and the bat come out at night, from halfway through dusk to halfway through dawn', () => {
   assert.deepEqual(NIGHT_KINDS, ['lampmoth', 'bat']);
@@ -68,4 +69,27 @@ test('the same seed and night give the same tile', () => {
 
 test('a turn passed in the woods at night brings it out', () => {
   assert.equal(moths(wait(at(ROOM, 220))).length, 2);
+});
+
+// The rare gloamling: one woods room round home a night, picked by the seed (D-780)
+test('each night the seed picks one woods room round home for the gloamling', () => {
+  const rooms = new Set();
+  for (let n = 0; n < 40; n++) {
+    const id = rareRoom(4127, n);
+    assert.ok(ROUND_HOME.includes(id));
+    assert.equal(rareRoom(4127, n), id);
+    rooms.add(id);
+  }
+  assert.equal(rooms.size, ROUND_HOME.length);
+});
+
+test('the gloamling comes out only in its room, beside the lampmoth and the bat', () => {
+  const room = rareRoom(4127, 0);
+  const night = nightfall(at(room, 220)), out = moths(night);
+  assert.deepEqual(out.map((m) => m.id), ['lampmoth', 'bat', RARE_KIND]);
+  assert.equal(new Set(out.map((m) => `${m.x},${m.y}`)).size, 3);
+  for (const other of ROUND_HOME.filter((id) => id !== room)) {
+    assert.ok(!moths(nightfall(at(other, 220))).some((m) => m.id === RARE_KIND));
+  }
+  assert.ok(!moths(nightfall(at(HOME_ID, 220))).some((m) => m.id === RARE_KIND));
 });
