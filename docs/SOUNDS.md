@@ -14,8 +14,8 @@ what it should sound like, a first guess for the owner to change.
 A sound goes in only after the owner hears it on the sound board
 (D-256).
 
-**Packs on hand** (`sounds/packs/`, not yet played by the game; each
-folder keeps its `License.txt`). All five are CC0 (no credit needed),
+**Packs on hand** (`sounds/packs/`; the game plays from Kenney's Impact
+Sounds and RPG Audio so far; each folder keeps its `License.txt`). All five are CC0 (no credit needed),
 `.ogg` files: four of Kenney's and one of ObsydianX's (itch.io), whose
 222 tones were cut of their silence when saved, nothing else changed:
 

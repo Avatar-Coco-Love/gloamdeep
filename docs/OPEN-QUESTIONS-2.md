@@ -3,7 +3,9 @@
 Moved word for word from `OPEN-QUESTIONS.md` at 0.3.32, the eighth audit
 (D-570), as it reached 8 KB: the questions that wait for outside places,
 and swimming. Q-037 and Q-038, how regions join and the kinds of room,
-moved here word for word at 0.3.152, the eleventh audit (D-699). Its
+moved here word for word at 0.3.152, the eleventh audit (D-699), and
+Q-088, Q-091 and Q-092, the surface's campfires, sleeping out's later
+costs and flowers, at 0.3.232, the thirteenth (D-782). Its
 rules hold here too: when the owner answers one, record a decision that
 cites it, then delete the entry here.
 
@@ -65,3 +67,37 @@ built in D-584.
 would allow a hole in the ground as a cave mouth only if holes or
 chasms you can drop down to go deeper, as in some roguelikes, ever
 come. Whether they do, where, and what a fall costs: open, for later.
+
+**Q-088 · Campfires** (raised 2026-11-09, the owner's idea; talked
+through after D-733's five steps, the owner's pick) In the owner's
+words: "I also had a cool idea of having a chance to run into a
+campfire that will vary on how much it is lit, which will dictate the
+message that appears. Campfires that are out could potentially be
+started with the lantern if you have oil in it, using one move of oil.
+Perhaps even a way to add to the fire, or craft a fire yourself,
+confurring some sort of buff when used. These are just ideas and they
+need further discussion." Where they turn up, how lit each is and its
+words, what lighting one costs, feeding one, building one and the buff
+are all open. The first step, fires met in the world and lighting cold
+ashes, is D-757; feeding one, building one and the buff stay open.
+
+**Q-091 · Sleeping out's later costs** (raised 2026-11-09, the owner's
+ideas, with D-758) In the owner's words: "Maybe at some point in the
+future, they could even wake to a message saying something of theirs was
+stolen, but with a side quest to get it back (if it was of high or
+significant value)", and "Depending on the environment, there could be
+other effects, such as a snowy environment causing the player to be
+chilled." What can be taken and how often, who takes it, the quest to
+get it back, and each place's own cost are all open, for once people
+and quests grow (D-470) and other places are outside.
+
+**Q-092 · Flowers to harvest** (raised 2026-11-09, the owner's addition
+to D-760's gathering; the herbs outside came first, D-762) In the
+owner's words: "Actual harvestable plants, and flowers.", "I want
+flowers as well, which can be used in potion making.", "I think it would
+depend on the type of plant and the place." and "there are going to be
+more than one kind, and there needs to be variations in the way they
+are drawn." Picked, a flower goes in the bag for crafts later (D-762).
+The first is the Duskstar, in the woods rooms (D-763). The other kinds,
+their names and looks, where each grows and which potions they make are
+open, each at its own step.

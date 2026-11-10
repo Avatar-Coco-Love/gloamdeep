@@ -52,14 +52,15 @@ tool, the creature list, saves and the bag read the registry by
 themselves. Each kind also touches:
 
 - **A creature:** its entry in `src/core/enemies.js` (hearts, bite, ways,
-  line ids, `acts` and `fights` for its Bestiary page, D-631, D-632); its lines in `src/core/lines.js`; its picture in
-  `src/render/pictures.js` (D-617), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
+  line ids, `acts` and `fights` for its Bestiary page, D-631, D-632); its lines in `src/core/lines-creatures.js`; its picture in
+  `src/render/pictures-creatures.js` (D-617, D-782; `tools/make.js` starts both in `lines.js` and `pictures.js`), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
   flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (its `POOL` entry, like `{ id: 'lampmoth', from: 2 }`; a mimic through `mimicRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
   the sound board, and its line in `docs/SOUNDS.md`, D-773). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
 - **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,
-  what it does); its lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`;
+  what it does); its lines in `lines.js` (a creature's find: `lines-creatures.js`); its picture in `pictures.js`
+  (a creature's find: `pictures-creatures.js`), its sprite in `sprites.js`;
   where it lies in `cave.js` (`finds`), `woods.js` or `room.js`.
 - **A tile:** its entry in `src/core/tiles.js` with a new `letter`; its
   drawing in `src/render/tiles.js` (and `sprites.js`); where it stands in
