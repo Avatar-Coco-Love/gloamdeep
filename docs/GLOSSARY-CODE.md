@@ -83,7 +83,9 @@ code; where this page and a decision disagree, the decision wins.
   goals, rewards and rules), `src/render/goalline.js` (the line); a
   profile's `goals` and `glints` (the Glints goals paid).
 - **Growth:** the Journal's tab for spending embers (D-293), a tree with
-  three branches, Light, Body and Hands (D-462, D-481).
+  three branches, Light, Body and Hands (D-462, D-481); its upgrades are one
+  list in `src/core/upgrades.js`, and a journey's `grown` records how many
+  times each was bought (D-811).
 - **Records:** the Journal's facts about how you've played: deepest,
   beaten, falls, rooms found, steps, flasks poured, torches lit, time played
   (D-262, D-270, D-283, D-285, D-286, D-291).

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.254, The Glow Lamp.** The owner's picks (D-808):
+  made in the bag from 1 Glow Gland and 1 Wood; set down as a torch is,
+  it lights 3 tiles in steady green for 300 turns, then goes dark.
+  Playtest: https://claude.ai/artifact/89rxGFroZHfTwZkv4FwESw
 - **2026-11-10, 0.3.253, The Bone Hook.** The owner's picks (D-807):
   the workbench's BUILD tab, 3 Rat Bone and 1 Spider Silk; FIT ties it
   to the rod for good, and the strike meter's zone is half again as wide.

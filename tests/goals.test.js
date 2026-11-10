@@ -7,7 +7,7 @@ import { glintsLeft } from '../src/core/feats.js';
 import { LINES } from '../src/core/lines.js';
 import { goalSize, onGoal } from '../src/render/goalline.js';
 import { xpFor } from '../src/core/xp.js';
-import { addHeart, addTough } from '../src/core/growth.js';
+import { buy } from '../src/core/growth.js';
 import { stoneHome } from '../src/core/mouth.js';
 
 const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, place: 'first', found: ['first'] };
@@ -191,14 +191,14 @@ test('spending an ember shows at level 2, goes ahead of a goal waiting, and is d
   assert.equal(goalLine(shown.goals, null, base.turn, 'first', two).goal, 'Spend your ember', 'ahead of the rat');
   assert.equal(goalLine(shown.goals, null, base.turn, 'first', { ...base, xp: 0 }).goal, 'Beat a rat', 'not ahead with no ember to spend');
   assert.equal(goalLine(shown.goals, null, base.turn).goal, 'Beat a rat', 'the oldest without a journey');
-  const bought = addHeart(two), did = goalsAfter(shown.goals, 0, {}, [], bought, two);
+  const bought = buy(two, 'heart'), did = goalsAfter(shown.goals, 0, {}, [], bought, two);
   assert.deepEqual(did.done, ['ember']);
   assert.equal(doneWords(did.goals, 'ember'), `Spend your ember. ${rewardText(did.goals.ember.paid)}`);
   assert.equal(goalLine(did.goals, null, base.turn, 'first', bought).goal, 'Beat a rat');
 });
 
 test('an ember spent already ticks spending one quietly (D-713)', () => {
-  const tough = addTough({ ...base, xp: xpFor(3) }), quiet = goalsAfter({}, 0, {}, [], tough);
+  const tough = buy({ ...base, xp: xpFor(3) }, 'tough'), quiet = goalsAfter({}, 0, {}, [], tough);
   assert.equal(quiet.goals.ember.done, true);
   assert.deepEqual(quiet.done, []);
   assert.deepEqual(goalsAfter({}, 0, {}, [], { ...base, xp: xpFor(3) }).goals.ember, { done: false }, 'past level 2, nothing spent: shown');

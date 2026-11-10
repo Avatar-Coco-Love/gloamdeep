@@ -3,7 +3,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
 import { makeState, wait, maxHealth, HERO_HEALTH } from '../src/core/turn.js';
-import { embers, canAddHeart, addHeart, HEARTS_MORE } from '../src/core/growth.js';
+import { embers, canBuy, buy, HEARTS_MORE } from '../src/core/growth.js';
+import { grown } from '../src/core/upgrades.js';
+
+const addHeart = (s) => buy(s, 'heart');
 
 const room = makeRoom(FIRST_ROOM);
 const at = (xp, more = {}) => ({ ...makeState(room, undefined, FIRST_LIGHTS, []), xp, ...more });
@@ -17,7 +20,7 @@ test('level 1 has no embers; each level past it gives one, older journeys too', 
 
 test('a heart costs an ember, arrives full and stays', () => {
   const s = addHeart({ ...at(10), health: 3 });
-  assert.equal(s.hearts, 1);
+  assert.equal(grown(s, 'heart'), 1);
   assert.equal(s.health, 4);
   assert.equal(maxHealth(s), HERO_HEALTH + 1);
   assert.equal(embers(s), 0);
@@ -26,22 +29,22 @@ test('a heart costs an ember, arrives full and stays', () => {
 
 test('no embers, no heart', () => {
   const s = at(9);
-  assert.equal(canAddHeart(s), false);
+  assert.equal(canBuy(s, 'heart'), false);
   assert.equal(addHeart(s), s);
 });
 
 test('at most 5 more hearts, 10 in all', () => {
   let s = at(100000);
   for (let i = 0; i < 8; i++) s = addHeart(s);
-  assert.equal(s.hearts, HEARTS_MORE);
+  assert.equal(grown(s, 'heart'), HEARTS_MORE);
   assert.equal(maxHealth(s), 10);
-  assert.equal(canAddHeart(s), false);
+  assert.equal(canBuy(s, 'heart'), false);
 });
 
 test('a fall wakes the hero with every heart bought, and keeps them', () => {
-  const s = { ...at(10, { hearts: 1 }), health: 1, enemies: [{ id: 'rat', x: 6, y: 11 }] };
+  const s = { ...at(10, { grown: { heart: 1 } }), health: 1, enemies: [{ id: 'rat', x: 6, y: 11 }] };
   const n = wait({ ...s, hero: { x: 5, y: 11 } });
-  assert.equal(n.hearts, 1);
+  assert.equal(grown(n, 'heart'), 1);
   assert.equal(n.health, 6);
 });
 

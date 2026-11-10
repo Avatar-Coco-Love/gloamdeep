@@ -6,14 +6,14 @@ import { OIL } from './oil.js';
 import { say } from './lines.js';
 import { bagTake } from './bag.js';
 import { burnByWorn } from './worn.js';
-import { UPGRADES } from './upgrades.js';
+import { UPGRADES, grown } from './upgrades.js';
 
 export const fitted = (state) => state.parts ?? {};
 export const isFitted = (state, id) => Object.values(fitted(state)).includes(id);
 
 // How much oil a lit turn burns: a fitted part's `burn`, else the plain lantern's (D-483),
 // times a worn charm's (D-487), times Steady Wick's once bought (D-798)
-export const steadyBurn = (state) => (state.steady ? UPGRADES.steadyWick.burn : 1);
+export const steadyBurn = (state) => (grown(state, 'steadyWick') ? UPGRADES.steadyWick.burn : 1);
 export function burnOf(state) {
   const burns = Object.values(fitted(state)).map((id) => get(id)?.part?.burn).filter(Boolean);
   return (burns.length ? Math.min(...burns) : OIL.burn) * burnByWorn(state) * steadyBurn(state);

@@ -16,7 +16,7 @@ test('Records is the first tab, Growth the second (D-293), the Bestiary the thir
 });
 
 test('the Growth tab says the embers left, then the picked place: Body\'s heart first (D-293, D-481)', () => {
-  const s = { xp: 30, hearts: 1, health: 6 }; // level 3: two embers, one spent
+  const s = { xp: 30, grown: { heart: 1 }, health: 6 }; // level 3: two embers, one spent
   const tail = 'Arrows pick another place, Left past Light for Records, Right past Hands for the Bestiary. Esc or the close button goes back.';
   assert.equal(growthWords(s), `Journal, Growth tab. Embers, 1. Body, row 1, Heart. Hearts 6 of 10. One more heart for good, arriving full. Add a heart, 1 ember. ${tail}`);
   assert.equal(growthWords({ xp: 0, health: 5 }, START_PICK), `Journal, Growth tab. Embers, 0. Body, row 1, Heart. Hearts 5 of 10. One more heart for good, arriving full. Add a heart, 1 ember, not now. ${tail}`);

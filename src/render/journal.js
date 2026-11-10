@@ -21,7 +21,8 @@ import { drawHearts } from './hearts.js';
 import { POISON_MARK, GLOW_MARK } from './marks.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { TABS } from '../core/journal.js';
-import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, isTough, isSteady, placesOf, told, upgradeAt } from '../core/growth.js';
+import { ROWS_OPEN, HEARTS_MORE, START_PICK, embers, heartsBought, placesOf, told, upgradeAt } from '../core/growth.js';
+import { grown } from '../core/upgrades.js';
 import { BRANCHES } from '../core/upgrades.js';
 import { bestiaryRows } from '../core/bestiary.js';
 import { bestiaryTables, beastAt, showBeast, questAt, listOf, drawList, clampFirst } from './journalrows.js';
@@ -190,8 +191,9 @@ function drawPlace(c, p, ms, state, picked) {
   } else if (!u) drawText(c, 'to come', p.x + Math.floor((p.w - textWidth('to come')) / 2), p.y + Math.floor(p.h / 2) - 4, DIM);
   else {
     drawText(c, textWidth(u.name) + 8 > p.w && u.short ? u.short : u.name, p.x + 4, p.y + ms.name, CORE); // its short name where the box is too narrow (D-798)
-    if (u.id === 'steadyWick') dots(c, FLAME, p.x + 3, p.y + ms.drop, isSteady(state) ? GLOW_MARK.tint : DIM, '#');
-    else if (u.id === 'tough') dots(c, POISON_MARK.icon, p.x + 3, p.y + ms.drop, isTough(state) ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
+    const on = grown(state, u.id) > 0; // its look, from the registry (D-811)
+    if (u.look === 'flame') dots(c, FLAME, p.x + 3, p.y + ms.drop, on ? GLOW_MARK.tint : DIM, '#');
+    else if (u.look === 'drop') dots(c, POISON_MARK.icon, p.x + 3, p.y + ms.drop, on ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
     else drawHearts(c, heartsBought(state), HEARTS_MORE, p.x + 4, p.y + ms.hearts);
   }
 }

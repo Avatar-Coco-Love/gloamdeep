@@ -84,3 +84,11 @@ test('a save tells whether it was kept: not when storage is full or blocked (D-4
   globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
   try { assert.equal(saveJourney(makeWorld('first', 3), false), true); } finally { delete globalThis.localStorage; }
 });
+
+test('a format 30 save keeps its hearts, Tough and Steady Wick, moved into one record (D-811)', () => {
+  const old = { ...makeWorld('first', 3), hearts: 2, tough: true, steady: true, xp: 400 };
+  const s = UPGRADES[30](old);
+  assert.deepEqual(s.grown, { heart: 2, tough: 1, steadyWick: 1 });
+  assert.equal('hearts' in s || 'tough' in s || 'steady' in s, false, 'the old entries go');
+  assert.deepEqual(UPGRADES[30](makeWorld('first', 3)).grown, {}, 'nothing bought, nothing kept');
+});

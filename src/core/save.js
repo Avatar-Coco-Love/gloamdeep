@@ -24,7 +24,7 @@ import { moveStone } from './movestone.js';
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 30;
+export const FORMAT = 31;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -55,11 +55,20 @@ export const UPGRADES = {
   27: relamp, // 27 → 28: the dead lamppost stood in its room, if unseen (D-769)
   28: recamp, // 28 → 29: the miners' camp stood in its mountain room, if unseen (D-770)
   29: withKnown, // 29 → 30: the finds held so far, from what is in the bag and the stash chests now (D-787)
+  30: withGrown, // 30 → 31: hearts, Tough and Steady Wick bought, moved into one record of Growth's upgrades (D-811)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {
   const stacks = [...(s.bag || []), ...Object.values(s.stashes || {}).flat()];
   return { ...s, known: [...new Set(stacks.filter(Boolean).map((o) => o.id))] };
+}
+// Growth's upgrades bought, each kept as it was: the hearts' count, Tough and Steady Wick once each
+function withGrown(s) {
+  const { hearts, tough, steady, ...rest } = s, grown = {};
+  if (hearts) grown.heart = hearts;
+  if (tough) grown.tough = 1;
+  if (steady) grown.steadyWick = 1;
+  return { ...rest, grown };
 }
 // Every room's taken list, empty (regrow.js)
 function withTaken(s) {

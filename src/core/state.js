@@ -10,6 +10,7 @@ import { START } from './starts.js';
 import { idAt, SIZE } from './hearthwood.js';
 import { mouthOf } from './mouth.js';
 import { rng, pick, seedFor } from './rng.js';
+import { grown } from './upgrades.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -27,7 +28,7 @@ export const boonHearts = (state) => (state.boon && BOONS[state.boon]?.hearts) |
 export const boonBurn = (state) => (state.boon && BOONS[state.boon]?.burn) || 1;
 // What the Slowburn draught multiplies a lit turn's oil by while it works, 1 without (slowburn.js, D-792)
 export const draughtBurn = (state) => (state.slowburn > 0 ? get('slowburn').slow.burn : 1);
-export const maxHealth = (state) => HERO_HEALTH + (state.hearts ?? 0) + boonHearts(state);
+export const maxHealth = (state) => HERO_HEALTH + grown(state, 'heart') + boonHearts(state); // hearts bought in Growth (D-811)
 // § without boon: the boon ends as the hero is home again or falls (D-583): its hearts go,
 // any health above the most without it with them (boon.js)
 export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, health: Math.min(state.health, maxHealth({ ...state, boon: null })) } : state);
@@ -37,7 +38,7 @@ export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, heal
 // `seed` sets every generated depth (D-148).
 export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1, people = []) {
   const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items, people };
-  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, found: ['first'], bag: [], known: [], held: null, tool: null, float: null, events: [], told: {}, stashes: {}, coins: 0 };
+  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, grown: {}, found: ['first'], bag: [], known: [], held: null, tool: null, float: null, events: [], told: {}, stashes: {}, coins: 0 };
 }
 
 // § world: every place, the hero in the first one. The others wait in
