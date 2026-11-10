@@ -982,3 +982,22 @@ in the charms' copper setting; its other lines ("You make a fang
 charm.", "You put on the fang charm.", "Beaten creatures may mend
 you."); the Bat Fang's look line names it. D-805 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-810 · 2026-11-10 · The Mole Claw Pick** (the owner's picks, all
+recommended; builds D-799, D-480) Mole Claw's first use, the last quick
+one, made on the workbench's BUILD tab from 1 Mole Claw, 2 Wood and 2
+Stone; one at most. A Tool of its own beside the Stone Pick, one in the
+Tool slot at a time, swapped there as the rod is. Held, it does all the
+Stone Pick does, and copper veins and rubble break in half the bumps,
+rounded up: a vein in 2, not 4; rubble in 2, not 3. Other tiles, stone
+heaps among them, take their own. Others offered: stone heaps too;
+veins only; one bump fewer; 1 bump always; the Stone Pick made over
+with the claw, used up; 1 Mole Claw, 1 Copper Ore and 2 Wood; replacing
+the Stone Pick. Claude's calls the owner may change: BUILD lists it
+after the Stone Pick; made with the Tool slot empty it goes straight
+there, the Stone Pick's way; a vein's first bump says its first line,
+the second breaks it; its look, the Stone Pick's handle with a mole's
+pale claw lashed on as its head; its lines ("You make a mole claw
+pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
+bumps."); the Mole Claw's look line names it. D-806 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

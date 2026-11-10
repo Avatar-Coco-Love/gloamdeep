@@ -113,25 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-810 · 2026-11-10 · The Mole Claw Pick** (the owner's picks, all
-recommended; builds D-799, D-480) Mole Claw's first use, the last quick
-one, made on the workbench's BUILD tab from 1 Mole Claw, 2 Wood and 2
-Stone; one at most. A Tool of its own beside the Stone Pick, one in the
-Tool slot at a time, swapped there as the rod is. Held, it does all the
-Stone Pick does, and copper veins and rubble break in half the bumps,
-rounded up: a vein in 2, not 4; rubble in 2, not 3. Other tiles, stone
-heaps among them, take their own. Others offered: stone heaps too;
-veins only; one bump fewer; 1 bump always; the Stone Pick made over
-with the claw, used up; 1 Mole Claw, 1 Copper Ore and 2 Wood; replacing
-the Stone Pick. Claude's calls the owner may change: BUILD lists it
-after the Stone Pick; made with the Tool slot empty it goes straight
-there, the Stone Pick's way; a vein's first bump says its first line,
-the second breaks it; its look, the Stone Pick's handle with a mole's
-pale claw lashed on as its head; its lines ("You make a mole claw
-pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
-bumps."); the Mole Claw's look line names it. D-806 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-811 · 2026-11-10 · The Growth tree, ready to grow** (the owner's
 picks, all recommended, from a page of three looks:
 https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y; builds D-462, D-481)
@@ -175,4 +156,21 @@ Deep Pockets, 1 more bag slot; 2 embers; a small axe or a sack.
 Claude's calls the owner may change: its name and words ("Trees,
 stone and branches take 1 bump fewer."); rubble around a trapped
 person is not gathering, so keeps its 3 bumps. D-809 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-814 · 2026-11-10 · Growth's second row** (the owner's picks, all
+recommended, from the map's row 2 drafts, D-639; builds D-462, D-811)
+Biome 2 is not built yet, so row 2 opens the first time the hero goes
+deeper than depth 8, biome 1's last floor (offered too: shown but
+locked until biome 2; more upgrades in row 1 instead). Each 1 ember,
+bought once. Light: Quick Pour, pouring a flask takes no turn (offered
+too: Long Torch, a set torch 200 turns; Last Drops, the last 5% of oil
+lasting twice as long). Body: Guard, about 1 bite in 6 glances off and
+does no harm, by the seeded dice (offered too: Second Wind, eating at 1
+heart heals 2 more; Quick Swap, a weapon swapped with no turn). Hands:
+Thrift, making something keeps its cheapest part about 1 time in 4
+(offered too: Steady Line, a wider light on the strike card; Deep
+Pockets, a bag slot). Built in four steps, one a PR: row 2 opening at
+depth 9 with a dashed tile a limb; then Quick Pour; Guard; Thrift. Each
+one's words, look and details are settled at its step. D-810 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
