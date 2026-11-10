@@ -423,7 +423,7 @@ export function createFrame(app, ui) {
     }
     else if (app.screen === 'bench') {
       const station = tileAt(state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state)), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE); // a card on the room (D-387)
+      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state), app.benchTab), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE, station.makes ? null : app.benchTab); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {

@@ -4,18 +4,18 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, wait } from '../src/core/turn.js';
-import { benchMakes } from '../src/core/menu.js';
+import { benchMakes, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { fit, fitted, burnOf } from '../src/core/parts.js';
 import { OIL } from '../src/core/oil.js';
 
 const start = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 
-test('the Copper Wick is the bench\'s third slot: 3 Copper Ore and 1 Wood, dim with too few', () => {
+test('the Copper Wick is the first slot of the bench\'s GEAR tab (D-800): 3 Copper Ore and 1 Wood, dim with too few', () => {
   assert.equal(get('copperWick').name, 'Copper Wick');
-  const [, , wick] = benchMakes([{ id: 'copperOre', n: 3 }, { id: 'wood', n: 1 }]);
+  const [wick] = benchMakes([{ id: 'copperOre', n: 3 }, { id: 'wood', n: 1 }], 6, [], benchTabOf('gear').makes);
   assert.deepEqual(wick, { item: 'copperWick', cost: [{ id: 'copperOre', n: 3, have: 3 }, { id: 'wood', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'copperOre', n: 2 }, { id: 'wood', n: 1 }])[2].dim, true);
+  assert.equal(benchMakes([{ id: 'copperOre', n: 2 }, { id: 'wood', n: 1 }], 6, [], benchTabOf('gear').makes)[0].dim, true);
 });
 
 test('Make takes its cost for a wick, a turn; too few, one carried or one fitted is free', () => {

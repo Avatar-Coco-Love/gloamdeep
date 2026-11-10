@@ -168,6 +168,11 @@ export const ITEMS = {
   // `wear.glance` chance to glance off and hurt nothing (creatureturn.js).
   ratVest: { id: 'ratVest', kind: 'item', name: 'Rat Hide Vest', bag: true, max: 1, look: 'ratVestLook', full: 'ratVestFull',
     bench: { of: { ratTail: 4, wood: 1 }, says: 'vestMake', short: 'vestShort' }, wear: { slot: 'armour', glance: 0.25 }, wears: 'vestWear' },
+  // The second armour piece (D-801), the first use of the Crab Shell (D-799): made at the
+  // workbench's GEAR tab, never found, worn in the armour slot in the vest's place. Worn, a bite
+  // or a tail's strike of 2 or more hurts `wear.blunt` less (creatureturn.js, sting.js).
+  shellVest: { id: 'shellVest', kind: 'item', name: 'Shell Vest', bag: true, max: 1, look: 'shellVestLook', full: 'shellVestFull',
+    bench: { of: { crabShell: 4, wood: 1 }, says: 'shellVestMake', short: 'shellVestShort' }, wear: { slot: 'armour', blunt: 1 }, wears: 'shellVestWear' },
   // The first charm (D-486): made at the workbench, never found. Wear, in the bag, puts it on,
   // free, in the `charm` slot; worn, a beaten creature leaves its rare material about `wear.rare`
   // of the time, not 1 in 10 (turn.js).

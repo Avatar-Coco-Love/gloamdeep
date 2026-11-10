@@ -5,17 +5,17 @@ import assert from 'node:assert/strict';
 import { makeRoom, SKY, tileAt } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, setDown, takeDown, panelBeside } from '../src/core/turn.js';
-import { benchMakes, TAKE_ASKS } from '../src/core/menu.js';
+import { benchMakes, TAKE_ASKS, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag = [{ id: 'gardenBed', n: 1 }]) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag });
 
-test('the garden bed is the bench\'s slot before the rod (D-609) and the shelf (D-690): 3 Wood and 2 Stone, dim with too few; Make takes it', () => {
+test('the garden bed is the BUILD tab\'s slot before the rod and the shelf (D-609, D-690, D-800): 3 Wood and 2 Stone, dim with too few; Make takes it', () => {
   const made = benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }]).find((m) => m.item === 'gardenBed');
   assert.deepEqual(made, { item: 'gardenBed', cost: [{ id: 'wood', n: 3, have: 3 }, { id: 'stone', n: 2, have: 2 }], dim: false });
-  assert.equal(benchMakes([]).at(-4).item, 'gardenBed');
-  assert.equal(benchMakes([{ id: 'wood', n: 3 }]).at(-4).dim, true);
+  assert.equal(benchMakes([], 6, [], benchTabOf('build').makes).at(-3).item, 'gardenBed');
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }], 6, [], benchTabOf('build').makes).at(-3).dim, true);
   const bag = makeAt(outside([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }]), 'gardenBed');
   assert.deepEqual(bag.bag, [{ id: 'wood', n: 1 }, { id: 'gardenBed', n: 1 }]);
   assert.equal(shownLine(bag).text, 'You make a garden bed.');

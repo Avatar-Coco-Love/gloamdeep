@@ -5,18 +5,18 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, step } from '../src/core/turn.js';
-import { benchMakes } from '../src/core/menu.js';
+import { benchMakes, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { wear, rareOf } from '../src/core/worn.js';
 
 const room = makeRoom(FIRST_ROOM);
 const start = (bag) => ({ ...makeState(room), bag });
 
-test('the Wisp Charm is the bench\'s fifth slot: 3 Gloam Wisp and 1 Copper Ore, dim with too few', () => {
+test('the Wisp Charm is the GEAR tab\'s fourth slot (D-800): 3 Gloam Wisp and 1 Copper Ore, dim with too few', () => {
   assert.equal(get('wispCharm').name, 'Wisp Charm');
-  const charm = benchMakes([{ id: 'gloamWisp', n: 3 }, { id: 'copperOre', n: 1 }])[4];
+  const charm = benchMakes([{ id: 'gloamWisp', n: 3 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes)[3];
   assert.deepEqual(charm, { item: 'wispCharm', cost: [{ id: 'gloamWisp', n: 3, have: 3 }, { id: 'copperOre', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'gloamWisp', n: 2 }, { id: 'copperOre', n: 1 }])[4].dim, true);
+  assert.equal(benchMakes([{ id: 'gloamWisp', n: 2 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes)[3].dim, true);
 });
 
 test('Make takes its cost for a charm, a turn; too few or one worn is free', () => {

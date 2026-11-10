@@ -714,3 +714,56 @@ mortar.", "You take down the mortar.", "You already carry a mortar."; its
 look: "A stone bowl and a wooden pestle.", "Set it down on the
 surface.", "Grind finds into draughts." It shows on the Make tab once
 Stone and Wood have been held. Claude's call: the tile's letter `e`.
+
+D-791, D-792 and D-794, the mortar's first three draughts' rules, moved from
+`docs/DECISIONS.md` at 0.3.247 (D-801), word for word.
+
+**D-791 · 2026-11-10 · The Glow Draught's details** (the owner's picks,
+all recommended; builds D-786) Drunk again while it works, its time goes
+back to 60 turns, never more. A small gold bottle mark under the hearts
+panel shows it, with the turns left beside it, and a tap on it says
+"Glow Draught: {n} turns left."; lines as it is drunk and as it fades
+("The glow fades."). It can be drunk any time, the lantern empty too:
+its turns count down every turn, a night's sleep uses them, and the
+extra tile shows again once there is oil. The mortar lists it once
+Duskstar and Wisp Glass have both been held. A Duskstar's and a Wisp
+Glass's card then shows the draught's picture and "Makes a Glow Draught
+at the mortar" where MAKE sits, with no button. Claude's calls: a fall
+ends it, as it ends poisoned; its other lines ("You make a Glow
+Draught.", "You need 2 Duskstar and 1 Wisp Glass.", "You can't carry
+more Glow Draughts.", the three drink and look lines); the two finds'
+first look line says "good for making things" (D-677). D-780 and D-781
+move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-792 · 2026-11-10 · Slowburn, the mortar's second recipe** (the
+owner's picks, both recommended, from Slowburn, a Ward Draught against
+poison and a Mending Draught offered; narrows Q-093) Slowburn is made at
+the mortar from 2 Tick Shell and 1 Oilcap. Drunk from the bag, for 60
+turns a lit turn burns 6/7 of its oil, so a full tank lasts 70 turns,
+not 60, as the Heart Charm does and added to it. Its rules are the Glow
+Draught's (D-791): drunk again, back to 60; any time, the turns running
+on; a night uses them and a fall ends it; it holds 5; a small mark
+under the hearts with the turns left. Claude's calls the owner may
+change: the red potion's bottle dark as lamp oil, its mark in the oil
+bar's deep amber; its lines ("The flame burns hungry again." as it
+fades); the mortar lists it after the Glow Draught; a Tick Shell's card
+then shows "Makes a Slowburn at the mortar". The Glow Draught's DRINK is
+no longer drawn dim at full health, as it never was. The handoff's next
+prompts are each in their own fenced code block, never an inline list
+(the owner's correction, D-790). D-784 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-794 · 2026-11-10 · The Mending Draught, the mortar's third recipe**
+(the owner's picks, all recommended, from a Mending Draught, a Ward
+Draught against poison, or both in turn; narrows Q-093) The Mending
+Draught is made at the mortar from 2 Mimic Leaf and 1 Herb. Drunk from
+the bag, it gives a heart every 15 turns for 60 turns, 4 in all, never
+above full. Its rules are the Glow Draught's (D-791): drunk again, back
+to 60; any time, full health too, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Claude's calls the owner may change: the red potion's
+bottle in moss green, its mark too; a night's turns give no hearts; its
+heart comes before poison's in a turn; its lines ("The warmth fades."
+as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
+then shows "Makes a Mending Draught at the mortar". D-786 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

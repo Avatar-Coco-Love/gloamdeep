@@ -98,6 +98,11 @@ export const LINES = {
   vestShort: { text: 'You need 4 Rat Tail and 1 Wood.', warn: false }, // too few, free
   ratVestLook: { texts: ['A rat hide vest. Wear it to turn bites.', 'Rat tails, stitched tight.', 'It smells of the tunnels too.'], warn: false },
   vestWear: { text: 'You put on the rat hide vest.', warn: false }, // Wear in the bag, free (D-484)
+  shellVestMake: { text: 'You make a shell vest.', warn: false }, // its line on the bench's GEAR tab, a turn (D-801)
+  shellVestFull: { text: 'You already have a shell vest.', warn: false }, // carried or worn, free
+  shellVestShort: { text: 'You need 4 Crab Shell and 1 Wood.', warn: false }, // too few, free
+  shellVestLook: { texts: ['A shell vest. Hard bites hurt less.', 'Crab shells, plated like stone.', 'Heavy, but the claws slide off.'], warn: false },
+  shellVestWear: { text: 'You put on the shell vest.', warn: false }, // Wear in the bag, free (D-801)
   glance: { text: 'The bite glances off your vest.', warn: false }, // worn, a bite that hurts nothing (D-484)
   charmMake: { text: 'You make a wisp charm.', warn: false }, // its line on the bench panel, a turn (D-486)
   wispCharmFull: { text: 'You already have a wisp charm.', warn: false }, // carried or worn, free

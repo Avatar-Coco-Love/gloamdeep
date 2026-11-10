@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt } from '../src/core/turn.js';
-import { benchMakes } from '../src/core/menu.js';
+import { benchMakes, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { wear, rareOf, SLOTS } from '../src/core/worn.js';
 import { burnOf } from '../src/core/parts.js';
@@ -16,11 +16,11 @@ const room = makeRoom(FIRST_ROOM);
 const start = (bag) => ({ ...makeState(room), bag });
 const tank = (state) => Math.round(1 / burnOf(state));
 
-test('the Heart Charm is the bench\'s sixth slot: 1 Mimic Heart and 1 Copper Ore, dim with too few', () => {
+test('the Heart Charm is the GEAR tab\'s fifth slot (D-800): 1 Mimic Heart and 1 Copper Ore, dim with too few', () => {
   assert.equal(get('heartCharm').name, 'Heart Charm');
-  const charm = benchMakes([{ id: 'mimicHeart', n: 1 }, { id: 'copperOre', n: 1 }])[5];
+  const charm = benchMakes([{ id: 'mimicHeart', n: 1 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes)[4];
   assert.deepEqual(charm, { item: 'heartCharm', cost: [{ id: 'mimicHeart', n: 1, have: 1 }, { id: 'copperOre', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'copperOre', n: 1 }])[5].dim, true);
+  assert.equal(benchMakes([{ id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes)[4].dim, true);
 });
 
 test('Make takes its cost for the heart charm, a turn; too few or one worn is free', () => {

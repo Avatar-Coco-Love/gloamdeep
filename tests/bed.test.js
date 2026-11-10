@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { makeRoom, SKY, tileAt } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, setDown, step, takeDown, panelBeside, maxHealth } from '../src/core/turn.js';
-import { benchMakes } from '../src/core/menu.js';
+import { benchMakes, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { enemiesAct } from '../src/core/creatureturn.js';
 import { tired } from '../src/core/sleep.js';
@@ -15,10 +15,10 @@ const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag = [{ id: 'bed', n: 1 }]) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag });
 const inBed = (turn, health = 2) => ({ ...setDown(outside(), 0, 'right'), turn, health, oil: 0.5, line: null });
 
-test('the bed is the bench\'s seventh slot: 4 Wood and 2 Rat Tail, dim with too few; Make takes it', () => {
-  const bed = benchMakes([{ id: 'wood', n: 4 }, { id: 'ratTail', n: 2 }])[6];
+test('the bed is the BUILD tab\'s third slot (D-800): 4 Wood and 2 Rat Tail, dim with too few; Make takes it', () => {
+  const bed = benchMakes([{ id: 'wood', n: 4 }, { id: 'ratTail', n: 2 }], 6, [], benchTabOf('build').makes)[2];
   assert.deepEqual(bed, { item: 'bed', cost: [{ id: 'wood', n: 4, have: 4 }, { id: 'ratTail', n: 2, have: 2 }], dim: false });
-  assert.equal(benchMakes([{ id: 'wood', n: 4 }])[6].dim, true);
+  assert.equal(benchMakes([{ id: 'wood', n: 4 }], 6, [], benchTabOf('build').makes)[2].dim, true);
   const made = makeAt(outside([{ id: 'wood', n: 5 }, { id: 'ratTail', n: 2 }]), 'bed');
   assert.deepEqual(made.bag, [{ id: 'wood', n: 1 }, { id: 'bed', n: 1 }]);
   assert.equal(shownLine(made).text, 'You make a bed.');

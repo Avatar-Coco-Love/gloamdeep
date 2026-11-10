@@ -5,17 +5,17 @@ import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { get } from '../src/core/registry.js';
 import { makeState, makeAt, step } from '../src/core/turn.js';
 import { enemiesAct } from '../src/core/creatureturn.js';
-import { benchMakes } from '../src/core/menu.js';
+import { benchMakes, benchTabOf } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
 import { wear, wornOf, glanceOf } from '../src/core/worn.js';
 
 const start = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 
-test('the Rat Hide Vest is the bench\'s fourth slot: 4 Rat Tail and 1 Wood, dim with too few', () => {
+test('the Rat Hide Vest is the GEAR tab\'s second slot (D-800): 4 Rat Tail and 1 Wood, dim with too few', () => {
   assert.equal(get('ratVest').name, 'Rat Hide Vest');
-  const vest = benchMakes([{ id: 'ratTail', n: 4 }, { id: 'wood', n: 1 }])[3];
+  const vest = benchMakes([{ id: 'ratTail', n: 4 }, { id: 'wood', n: 1 }], 6, [], benchTabOf('gear').makes)[1];
   assert.deepEqual(vest, { item: 'ratVest', cost: [{ id: 'ratTail', n: 4, have: 4 }, { id: 'wood', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'ratTail', n: 3 }, { id: 'wood', n: 1 }])[3].dim, true);
+  assert.equal(benchMakes([{ id: 'ratTail', n: 3 }, { id: 'wood', n: 1 }], 6, [], benchTabOf('gear').makes)[1].dim, true);
 });
 
 test('Make takes its cost for a vest, a turn; too few, one carried or one worn is free', () => {

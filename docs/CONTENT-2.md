@@ -10,7 +10,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 
 | id | What it does | Stack | Grows back | Where, or how made | Decisions |
 | --- | --- | --- | --- | --- | --- |
-| `workbench` | set down as the bench tile | 1 | never | 3 Wood | D-319, D-322 |
+| `workbench` | set down as the bench tile; its card's tabs BUILD and GEAR (D-800) | 1 | never | 3 Wood | D-319, D-322 |
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
 | `pick` | the Stone Pick: in the Tool slot, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone; one at the miners' camp | D-480, D-552, D-770 |
 | `rod` | the Wooden Rod: in the Tool slot; bumping water casts, the home pond or a cave pool | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610, D-618 |
@@ -19,6 +19,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `copperOre` | the first ore: the wick, the charms | 20 | never | a copper vein | D-480 |
 | `copperWick` | Fit in the bag: the lantern's wick, a full tank lasting 75 turns, not 60 | 1 | never | the workbench: 3 Copper Ore, 1 Wood | D-483 |
 | `ratVest` | Wear in the bag: the armour, each bite 1 in 4 to glance off and hurt nothing | 1 | never | the workbench: 4 Rat Tail, 1 Wood | D-484 |
+| `shellVest` | Wear in the bag: the armour, each bite or tail strike of 2 or more hurting 1 less, never below 1 | 1 | never | the workbench's GEAR tab: 4 Crab Shell, 1 Wood | D-799, D-801 |
 | `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |
 | `heartCharm` | Wear in the bag: the second charm, a full tank about 70 turns, not 60 | 1 | never | the workbench: 1 Mimic Heart, 1 Copper Ore | D-487 |
 | `centipedeCharm` | Wear in the bag: the charm against poison, poisoned 3 turns and 1 heart, not 6 and 2 | 1 | never | the workbench: 3 Centipede Leg, 1 Copper Ore | D-656 |

@@ -234,7 +234,7 @@ export function createScreens(app, ui) {
     });
   }
 
-  const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, slotWords, makeWords, pickMake, makeChosen, turnBagTab } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
+  const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
 
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
@@ -260,10 +260,10 @@ export function createScreens(app, ui) {
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { turnBagTab, show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { turnBagTab, turnBenchTab, show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }
