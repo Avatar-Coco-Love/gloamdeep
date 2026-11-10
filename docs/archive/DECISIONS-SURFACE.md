@@ -787,3 +787,24 @@ mortar lists it after the Mending Draught. The handoff's copyable next
 prompts are given once, after the owner merges, not also before (the
 owner's request; changes D-790). D-787 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-797 · 2026-11-10 · The rim lurker, the mountain rooms' first night
+creature** (the owner's picks; answers part of Q-076; mock-up:
+https://claude.ai/artifact/MW9qmr5aUJTzq75sHE7LMv)
+A brand-new creature, the rim lurker, from the Q-076 list. One comes
+out each night in each of the 3 mountain rooms, with the night
+creatures' rules (D-778); never by day, never underground. Look B of its
+mock-up: a hunched shade of dusky violet, long arms, pale claws, pink
+eyes. It waits where it came out until the hero comes within 3 steps,
+lit or not; then it chases, the rat's way, and keeps coming. 3 hearts,
+a bite of 2 (the owner's own pick); beaten, it may drop a Lurker Claw,
+about 1 in 2, for crafts later. Others offered: the gloamberry mimic,
+the dozing brute, the brood mother; the woods by night or day, or below;
+looks A (a grey crag stalker) and C (a rim lizard); chasing from the
+start, or shunning the lantern; 2 or 1 hearts with a bite of 1; no find.
+Claude's calls the owner may change: the new way is named Lurks, and it
+needs a clear line to the hero, as a chaser does; it comes out on grass
+beside the room's rock when such a tile is free; its lines (it claws);
+no sound of its own; the Lurker Claw holds 20 and sells for 1.
+D-796 and D-788 move to `archive/DECISIONS-SURFACE.md`, word for word, and
+`GLOSSARY-2.md`'s home words to a new `GLOSSARY-HOME.md`, word for word.

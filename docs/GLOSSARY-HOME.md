@@ -20,6 +20,9 @@ at 0.3.245 (D-797), as that page neared 8 KB.
 - **Sleeping out, the moon button:** outside from dusk, nothing after
   the hero, the moon asks Sleep here until morning?; the hero wakes with
   the hearts they had, no healing, no gold heart (D-758).
+- **Fur Bedroll:** made at the workbench from 4 Bunny Fur and 1 Spider
+  Silk, carried in the bag; sleeping out with it, the hero wakes with 2
+  hearts back and not stiff (D-803).
 - **Garden bed:** made at the workbench from 3 Wood and 2 Stone, set
   down on the surface; a box of soil where a seed is planted, one plant
   each; bumped, its card, Plant or Deconstruct (D-562, D-565, D-566).

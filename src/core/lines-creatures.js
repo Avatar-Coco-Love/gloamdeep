@@ -101,7 +101,7 @@ export const CREATURE_LINES = {
   wispGlassFull: { text: "You can't carry more wisp glass.", warn: false },
   bunnyDie: { text: 'The bunny goes still.', warn: false }, // (D-784); it never bites, so it has no bite line
   bunnyFurTake: { texts: ['You pick up the bunny fur.', 'Soft and warm, pale at the tips.', 'The bunny fur goes in your bag.'], warn: false }, // (D-784)
-  bunnyFurLook: { texts: ['Bunny fur, for crafting later.', 'Soft brown fur, pale at the tips.', 'It smells of grass.'], warn: false },
+  bunnyFurLook: { texts: ['Bunny fur, for a fur bedroll.', 'Soft brown fur, pale at the tips.', 'It smells of grass.'], warn: false },
   bunnyFurFull: { text: "You can't carry more bunny fur.", warn: false },
   skulkerCrabHurt: { text: 'The skulker crab clicks.', warn: false }, // it never moves (D-796)
   skulkerCrabDie: { text: 'The skulker crab cracks open.', warn: false },

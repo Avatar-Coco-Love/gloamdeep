@@ -92,27 +92,6 @@ owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`). When they are
 given changed by D-795 (2026-11-10): once, after the merge.
 
-**D-797 · 2026-11-10 · The rim lurker, the mountain rooms' first night
-creature** (the owner's picks; answers part of Q-076; mock-up:
-https://claude.ai/artifact/MW9qmr5aUJTzq75sHE7LMv)
-A brand-new creature, the rim lurker, from the Q-076 list. One comes
-out each night in each of the 3 mountain rooms, with the night
-creatures' rules (D-778); never by day, never underground. Look B of its
-mock-up: a hunched shade of dusky violet, long arms, pale claws, pink
-eyes. It waits where it came out until the hero comes within 3 steps,
-lit or not; then it chases, the rat's way, and keeps coming. 3 hearts,
-a bite of 2 (the owner's own pick); beaten, it may drop a Lurker Claw,
-about 1 in 2, for crafts later. Others offered: the gloamberry mimic,
-the dozing brute, the brood mother; the woods by night or day, or below;
-looks A (a grey crag stalker) and C (a rim lizard); chasing from the
-start, or shunning the lantern; 2 or 1 hearts with a bite of 1; no find.
-Claude's calls the owner may change: the new way is named Lurks, and it
-needs a clear line to the hero, as a chaser does; it comes out on grass
-beside the room's rock when such a tile is free; its lines (it claws);
-no sound of its own; the Lurker Claw holds 20 and sells for 1.
-D-796 and D-788 move to `archive/DECISIONS-SURFACE.md`, word for word, and
-`GLOSSARY-2.md`'s home words to a new `GLOSSARY-HOME.md`, word for word.
-
 **D-798 · 2026-11-10 · Steady Wick, Light's first upgrade** (the
 owner's picks, all recommended) The gaps are worked through one step a
 time, quickest first: the Growth tree; uses for the finds kept for
@@ -184,4 +163,19 @@ blue-grey. Claude's calls the owner may change: its lines ("The glob
 splashes off you.", "Your skin feels dry again." as it ends); the glob
 breaks on the hero, flying no farther; the mortar lists it last; the
 Grub Skin's look line names it. D-795 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-803 · 2026-11-10 · The Fur Bedroll** (the owner's picks, all
+recommended; builds D-758, D-759, D-799) Bunny Fur's first use, made on
+the workbench's BUILD tab from 4 Bunny Fur and 1 Spider Silk; one at
+most, carried in the bag, taking a slot, never used up. Sleeping out
+with it in the bag, the hero wakes with 2 hearts back, never above full,
+and not stiff; the bed at home still heals to full. Its look: a roll of
+fur in the Bunny Fur's colours, tied round the middle with a pale silk
+cord. Others offered: healing to full; 3 Bunny Fur and 1 Spider Silk;
+5 Bunny Fur alone; the GEAR tab; a folded blanket. Claude's calls the
+owner may change: BUILD lists it last; its lines ("You make a fur
+bedroll.", "You wake warm in your fur bedroll."); the moon's ask says
+"Your fur bedroll is warm." while it is carried; only the bag counts,
+not a chest; the Bunny Fur's look line names it. D-797 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

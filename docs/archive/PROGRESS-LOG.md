@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.246, Steady Wick.** The owner's picks (D-798): the
+  gaps worked through quickest first; Light's first Growth upgrade, 1
+  ember, the lantern burning 9/10 of its oil for good, a full tank about
+  66 turns; "Steady" in a box too narrow.
+  Playtest: https://claude.ai/artifact/2kQ85ubssrTuqLsR9AcTiq
 - **2026-11-10, 0.3.245, The rim lurker.** The owner's picks (D-797):
   a brand-new creature, one each night in each mountain room, waiting
   by the rock until the hero is within 3 steps, then chasing; look B,

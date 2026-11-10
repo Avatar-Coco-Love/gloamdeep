@@ -140,6 +140,11 @@ const BUNNY = { mirror: false, rows: [
   '...knnnnnnnnk...', '..kkNkk...kkNk..'] };
 // § bunny fur: the mole fur's tuft (D-541) in the bunny's lighter brown, pale at the tips (D-784)
 const BUNNY_FUR = { mirror: false, rows: MOLE_FUR.rows.map((r) => r.replace(/[WNn]/g, (c) => ({ W: 'w', N: 'W', n: 'N' })[c])) };
+// § fur bedroll: a roll of bunny fur on its side, its rolled end to the left, pale tips on its
+// brown, tied round the middle with a pale silk cord (D-803)
+const FUR_BEDROLL = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '..kkkkkkkkkkkk..', '.kWWNkwWwakwWwk.', 'kWNnWkWWWawWWWk.', 'kNnWNkWwWaWWwWk.',
+  'kWNNWkNWWaWWNWk.', '.kWWkkNNNaNNNNk.', '..kkkkkkkkkkkk..'] };
 
 // § skulker crab: look B of its mock-up (D-796), the loose stone (D-761) lifted on rust legs: a
 // stony grey shell, two rust claws and pink eyes on stalks
@@ -164,5 +169,5 @@ export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
   BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR, SKULKER_CRAB, CRAB_SHELL,
-  RIM_LURKER, LURKER_CLAW,
+  RIM_LURKER, LURKER_CLAW, FUR_BEDROLL,
 };

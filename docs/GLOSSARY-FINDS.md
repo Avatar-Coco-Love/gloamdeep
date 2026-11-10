@@ -66,7 +66,7 @@ neared 8 KB.
   the lure wisp's Wisp Glass, sold for 2, the nineteenth (D-649); the centipede's
   Centipede Leg the twentieth, and its rare one a Venom Sac, as the scorpion's (D-654);
   the spit grub's Grub Skin and rare Glow Gland the twenty-first and twenty-second (D-688);
-  the bunny's Bunny Fur, for crafts later, the twenty-third (D-784);
+  the bunny's Bunny Fur, for the Fur Bedroll (D-803), the twenty-third (D-784);
   the skulker crab's Crab Shell, the twenty-fourth (D-796);
   the rim lurker's Lurker Claw, the twenty-fifth (D-797).
 - **Bat Guano:** a pile of bat droppings, one beside each bat as a room
