@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776).
+below the third (D-776), the fight's hit and beaten the fourth (D-777).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -54,10 +54,10 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `hit` | the hero hits with the lantern | a dull knock | — |
-| `hit` | the hero hits with the knife | a quick slice | — |
+| `hit` | the hero hits with the lantern (D-777) | a dull knock | `kenney-impact-sounds/impactPunch_medium_000` to `004`, at a quarter loudness, CC0 |
+| `hit` | the hero hits with the knife or spear (D-777) | a quick slice | `kenney-rpg-audio/knifeSlice` and `knifeSlice2`, at a quarter loudness, CC0 |
 | | the hero, stiff, swings and misses (D-759) | a swish through air | — |
-| | a creature is beaten | a short fall or crumple | — |
+| `beaten` | a creature is beaten (D-777) | a short fall or crumple, 0.12 s after the hit | `kenney-impact-sounds/impactSoft_heavy_000` to `004`, at a quarter loudness, CC0 |
 | | the hero is hurt (any bite) | a small gasp | — |
 | | poison takes a heart (D-654) | a sick, low pulse | — |
 | | a level reached (D-246) | a short rising note | — |

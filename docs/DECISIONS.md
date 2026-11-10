@@ -102,21 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-768 · 2026-11-10 · The sting hits creatures too** (the owner's
-picks, all recommended; builds D-766's second addition) A creature on
-the scorpion's marked tiles is hurt 2, as a glob hurts one (D-688):
-beaten, it leaves no find and gives no experience. A creature in front
-doesn't shield the hero behind: every marked tile is struck. Any
-creature can be hit, other scorpions too; one under the earth or a pile
-of bones is passed over, as the glob passes them. Hitting a creature but
-not the hero, the line is "The sting strikes the rat." with its name;
-the hero's own line wins when both are hit. Claude's calls the owner may
-change: a scorpion stung while its tail is up strikes no more; a bone
-rat stung to nothing falls to no pile, as with a glob; no sound but the
-hero's sting, as a miss is silent; its Bestiary page says the sting
-hurts any creature in its way. D-761 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-771 · 2026-11-10 · Alchemy, a station of its own** (the owner's
 picks, recommended, with the owner's addition; changes D-415, D-455;
 opens Q-093) The owner asked if there are enough materials for more
@@ -190,3 +175,18 @@ echo off the walls (a repeat after 0.09 s, fading). The steps both
 vary as the grass does. Sounds now come in small related groups, one
 board and one PR each, the owner's pick. D-767 moves to
 `archive/DECISIONS-PACK.md`, word for word.
+
+**D-777 · 2026-11-10 · The fight's sounds: hit and beaten** (the
+owner's picks, all recommended, from a board of 4 lantern hits, 3 knife
+hits, 4 beaten sounds and 3 loudnesses; builds D-774; answers part of
+Q-095) A hit with the lantern is Kenney's medium punch, a muffled
+thump; with a knife in hand, RPG Audio's two knife slices. When a
+creature is beaten, Kenney's heavy soft thud plays 0.12 s after the
+hit. All three at a quarter loudness, as loud as a step at its peak, a
+little higher or lower each time, never the same file twice running.
+The owner leaned towards the quieter, metal set (a clank, a scrape, a
+sack dropped, at half) and may come back to it. Claude's calls the
+owner may change: the spear sounds like the knife; bones scattered
+underfoot make no thud, as their rattle is theirs; a miss stays silent
+(D-759). D-768 moves to `archive/DECISIONS-CREATURES-2.md`, word for
+word.

@@ -5,7 +5,7 @@ passed 12 KB: more creatures next, the flask mimic, the scorpion,
 experience from creatures, creature materials and how creatures vary.
 D-534, mixed creatures, joined at 0.3.9 (D-540); D-535 and D-536, the cave
 spider, at 0.3.10 (D-541); D-541 and D-542, the mole, at 0.3.13 (D-547); D-543 and D-544, the
-snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729); D-726, the mole burrows, at 0.3.183 (D-731); D-729 to D-731, the scorpion's tail strike, attack marks in Settings and the bone rat coming back, at 0.3.191 (D-739).
+snapcap, at 0.3.14 (D-549); D-549 and D-550, the herb mimic, at 0.3.16 (D-552); D-606, the oil tick, at 0.3.64 (D-609); D-725, a flask left unguarded, at 0.3.182 (D-729); D-726, the mole burrows, at 0.3.183 (D-731); D-729 to D-731, the scorpion's tail strike, attack marks in Settings and the bone rat coming back, at 0.3.191 (D-739); D-768, the sting hits creatures too, at 0.3.227 (D-777).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -348,3 +348,18 @@ hit, and no creature steps onto it; it stands up chasing, acting from
 the next turn; the count waits while the hero is in another room; a
 scatter rattles; its lines and the Bestiary words. D-726 moves to
 `archive/DECISIONS-CREATURES-2.md`, word for word.
+
+**D-768 · 2026-11-10 · The sting hits creatures too** (the owner's
+picks, all recommended; builds D-766's second addition) A creature on
+the scorpion's marked tiles is hurt 2, as a glob hurts one (D-688):
+beaten, it leaves no find and gives no experience. A creature in front
+doesn't shield the hero behind: every marked tile is struck. Any
+creature can be hit, other scorpions too; one under the earth or a pile
+of bones is passed over, as the glob passes them. Hitting a creature but
+not the hero, the line is "The sting strikes the rat." with its name;
+the hero's own line wins when both are hit. Claude's calls the owner may
+change: a scorpion stung while its tail is up strikes no more; a bone
+rat stung to nothing falls to no pile, as with a glob; no sound but the
+hero's sting, as a miss is silent; its Bestiary page says the sting
+hurts any creature in its way. D-761 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

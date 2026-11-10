@@ -326,10 +326,12 @@ function nudgeToward(dir) {
 // § hear: the sounds of an action's events (events.js, D-267): the hit's (D-258), the
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
 // a tile walked, its step by the ground, unless the hero fell (D-255, D-774, D-776), a waystone's bells as it wakes (D-591), and
-// the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731)
+// the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731);
+// a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
+  if (has(events, 'beat') && !has(events, 'scatter')) sound.beaten(!!hit);
   if (drink) sound[drink](!!hit); // the oil tick's sip (D-606)
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
   if (bite) sound[bite](!!hit);

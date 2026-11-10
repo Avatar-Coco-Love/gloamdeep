@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.226 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.227 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -48,6 +48,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.227, The fight's sounds.** The owner's picks
+  (D-777), by ear: a muffled punch for the lantern, knife slices for a
+  weapon in hand, a soft heavy thud when a creature is beaten, all as
+  loud as a step.
+  Playtest: https://claude.ai/artifact/1gFKiXkMYwBXJkMAZR67tw
+  Sound board: https://claude.ai/artifact/1qLyGikeZH1sWfVy9kE4xN
 - **2026-11-10, 0.3.226, Steps below.** The owner's picks (D-776), by
   ear: concrete with a faint echo below, muffled grass for earth in the
   burrows, as loud as the grass.
@@ -58,8 +64,3 @@ list in `RESEARCH.md`.
   loudness, as loud as a step; by hand or by itself, above and below.
   Playtest: https://claude.ai/artifact/NjYeSLe8iD2hMLr36964EM
   Sound board: https://claude.ai/artifact/XNUZfhLpgyYbtciUQPwKcc
-- **2026-11-10, 0.3.224, Grass steps, the first sound file.** The
-  owner's picks (D-774), by ear from a board: Kenney's grass step, on
-  the surface only, at a quarter loudness; the metal click next for the
-  lantern. ObsydianX's interface pack kept whole. Playtest: https://claude.ai/artifact/NQG8jGfQLEoTky3DZAsB3i
-  Sound board: https://claude.ai/artifact/Stde3DZoQbHoJJQiJr8Uwa

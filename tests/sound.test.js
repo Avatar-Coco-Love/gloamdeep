@@ -51,3 +51,15 @@ test('The steps change with the ground', () => {
   assert.equal(FILES.earthStep.muffle, 1400);
   assert.deepEqual(FILES.earthStep.files, FILES.footstep.files);
 });
+
+// § fighting: a muffled punch for the lantern, a knife's slice with a weapon in hand,
+// and a soft heavy thud a moment after the hit when a creature is beaten (D-777)
+test('The hit sounds by what is in hand, and the beaten thud comes after it', () => {
+  assert.equal(FILES.hit.as(false), 'lanternHit');
+  assert.equal(FILES.hit.as(true), 'knifeHit');
+  assert.ok(FILES.lanternHit.files.every((f) => f.includes('impactPunch_medium')));
+  assert.deepEqual(FILES.knifeHit.files, ['kenney-rpg-audio/knifeSlice.ogg', 'kenney-rpg-audio/knifeSlice2.ogg']);
+  assert.ok(FILES.beaten.files.every((f) => f.includes('impactSoft_heavy')));
+  for (const v of ['lanternHit', 'knifeHit', 'beaten']) assert.equal(FILES[v].gain, 0.25); // as loud as a step
+  assert.equal(FILES.beaten.after, 0.12);
+});

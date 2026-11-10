@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.227 (2026-11-10)
+- The fight's sounds: a hit with the lantern now lands with a muffled thump, and a hit with the knife or spear with a quick slice. When a creature is beaten, a soft heavy thud follows a moment after the hit. All as loud as a step. With Sound: Off, nothing plays.
+- Decisions: D-777. D-768 moved to the archive, word for word. Questions: Q-095 narrowed.
+
 ## 0.3.226 (2026-11-10)
 - Footsteps below ground: underground, each step the hero walks now sounds too, by the ground. Stone in the crypt, the rock caves and the dungeon halls, with a faint echo off the walls; soft packed earth in the burrows (floors 5 to 7). With Sound: Off, nothing plays.
 - Decisions: D-776. D-767 moved to the archive, word for word. Questions: Q-095 narrowed.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.225 (2026-11-10)
 - The lantern clicks: a small metal click each time it goes on or off, by hand or by itself, higher for on and lower for off, as loud as a footstep. It plays above ground and below. With Sound: Off, nothing plays.
 - Decisions: D-775. D-766 moved to the archive, word for word. Questions: Q-095 narrowed.
-
-## 0.3.224 (2026-11-10)
-- The first sound from a file: on the surface, each step the hero walks sounds of soft grass, one of 5 recordings in turn, never the same twice running and a little higher or lower each time. Underground stays silent for now. With Sound: Off, nothing plays.
-- A fifth free sound pack is saved in the game's files: ObsydianX's Interface SFX Pack 1 (222 menu tones, no credit needed), cut of its silence.
-- Decisions: D-774. D-765 moved to the archive, word for word. Questions: Q-095 narrowed.
