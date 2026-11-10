@@ -23,3 +23,15 @@ test("A rat's bite sounds of teeth, a gloamling's of nothing", () => {
   assert.equal(biteSound([bite('gloamling'), bite('rat'), { type: 'fall' }]), 'teeth');
   assert.equal(biteSound([{ type: 'step' }]), undefined);
 });
+
+// § lantern click: one metal click, higher for on and lower for off, as loud as a step's peak (D-775)
+import { FILES } from '../src/render/sound.js';
+
+test("The lantern's click is higher for on than for off", () => {
+  const { files, gain, pitch, pitchOf } = FILES.lantern;
+  assert.deepEqual(files, ['kenney-rpg-audio/metalClick.ogg']);
+  assert.equal(gain, 0.5);
+  assert.equal(pitch, 0); // the same each time
+  assert.equal(pitchOf(true), 1.12);
+  assert.equal(pitchOf(false), 0.89);
+});

@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.224 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.225 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sounds (D-773, D-774): the lantern's metal click, higher for on and
-lower for off, after the owner hears the grass steps. Then night
-creatures (D-760), after a proposal; then day creatures (D-771).
+Night creatures (D-760), after a proposal; then day creatures (D-771).
+More sound files (Q-095) whenever the owner wants.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -49,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.225, The lantern's metal click.** The owner's picks
+  (D-775), by ear from a board: on 12% higher, off 11% lower, at half
+  loudness, as loud as a step; by hand or by itself, above and below.
+  Playtest: https://claude.ai/artifact/NjYeSLe8iD2hMLr36964EM
+  Sound board: https://claude.ai/artifact/XNUZfhLpgyYbtciUQPwKcc
 - **2026-11-10, 0.3.224, Grass steps, the first sound file.** The
   owner's picks (D-774), by ear from a board: Kenney's grass step, on
   the surface only, at a quarter loudness; the metal click next for the
@@ -58,7 +62,3 @@ list in `RESEARCH.md`.
   (D-773): sound files from Kenney's free packs; all 15 old sounds
   wiped, so the game is silent; every sound needed listed in
   `docs/SOUNDS.md`. Four Kenney packs kept in `sounds/packs/`.
-- **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
-  The owner asked if there are enough materials for more recipes and
-  stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
-  after night and day creatures (Q-093); then a bow (D-772, Q-094).

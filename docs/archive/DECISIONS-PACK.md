@@ -1,6 +1,7 @@
 # Decisions: the rat pack
 
-Moved word for word from `DECISIONS.md` at 0.3.187 (D-735). Still in force.
+Moved word for word from `DECISIONS.md` at 0.3.187 (D-735); D-766 at
+0.3.225 (D-775). Still in force.
 
 ---
 
@@ -29,3 +30,12 @@ has no pack, about 1 room in 4 in all. A rat heads for the free side
 farthest from its packmates, then the nearest to it; a pack that
 notices says no line. The rat's Bestiary words say so. D-724 moves to
 `archive/DECISIONS-FEATS.md`, word for word.
+
+**D-766 · 2026-11-10 · Three creatures' drafts kept, two additions**
+(the owner's picks) Claude's drafts in D-728 (the rat pack), D-729 (the
+scorpion) and D-731 (the bone rat) are kept as built. Two additions,
+each its own step: a rat pack that notices the hero says a warning line,
+varying between "The pack closes in!", "Rats squeak all around you!" and
+"A pack of rats comes for you!" (lone rats stay silent); and the
+scorpion's sting also hits a creature on its marked tiles, 2 hearts, as
+it does the hero (changes D-729's "it strikes only the hero").

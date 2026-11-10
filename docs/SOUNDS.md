@@ -4,7 +4,7 @@ Every sound the game needs, one line each (D-773). It grows with the
 game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
-the first (D-774).
+the first (D-774), the lantern's click the second (D-775).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -40,8 +40,8 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `lantern` | the lantern goes on, by hand or by itself | a soft click and a catch of flame | — |
-| `lantern` | the lantern goes off | a soft click, a puff | — |
+| `lantern` | the lantern goes on, by hand or by itself (D-775) | a metal click, higher | `kenney-rpg-audio/metalClick`, 12% higher, at half loudness, CC0 |
+| `lantern` | the lantern goes off, by hand or by itself (D-775) | the same click, lower | `kenney-rpg-audio/metalClick`, 11% lower, at half loudness, CC0 |
 | | a flask poured, by hand or by itself (D-249) | oil glugging into glass | — |
 | | the oil runs out | a flame guttering out | — |
 | | a torch lit (D-121) | a whoosh of fire | — |

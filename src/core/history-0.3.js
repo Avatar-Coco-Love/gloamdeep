@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.225', date: '2026-11-10', title: 'The lantern\'s metal click', lines: [
+    "The lantern clicks: a small metal click each time it goes on or off, by hand or by itself, higher for on and lower for off, as loud as a footstep. It plays above ground and below. With Sound: Off, nothing plays.",
+    "Decisions: D-775. D-766 moved to the archive, word for word. Questions: Q-095 narrowed.",
+  ] },
   { v: '0.3.224', date: '2026-11-10', title: 'Grass steps, the first sound file', lines: [
     "The first sound from a file: on the surface, each step the hero walks sounds of soft grass, one of 5 recordings in turn, never the same twice running and a little higher or lower each time. Underground stays silent for now. With Sound: Off, nothing plays.",
     "A fifth free sound pack is saved in the game's files: ObsydianX's Interface SFX Pack 1 (222 menu tones, no credit needed), cut of its silence.",

@@ -102,15 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-766 · 2026-11-10 · Three creatures' drafts kept, two additions**
-(the owner's picks) Claude's drafts in D-728 (the rat pack), D-729 (the
-scorpion) and D-731 (the bone rat) are kept as built. Two additions,
-each its own step: a rat pack that notices the hero says a warning line,
-varying between "The pack closes in!", "Rats squeak all around you!" and
-"A pack of rats comes for you!" (lone rats stay silent); and the
-scorpion's sting also hits a creature on its marked tiles, 2 hearts, as
-it does the hero (changes D-729's "it strikes only the hero").
-
 **D-767 · 2026-11-10 · The rat pack's warning** (the owner's picks, all
 recommended; builds D-766's first addition) A pack that notices the hero
 says its line on that turn, each time it notices anew, so a pack that
@@ -187,3 +178,13 @@ files straight from `sounds/packs/`, as `.ogg`. ObsydianX's Interface
 SFX Pack 1 (CC0, 222 tones) is kept whole there, cut of its silence;
 files never used may be deleted once the game is big enough to be
 sure. D-765 moves to `archive/DECISIONS-PAD-EDGE.md`, word for word.
+
+**D-775 · 2026-11-10 · The lantern's metal click** (the owner's picks,
+both recommended, from a board of 3 pitches and 2 loudnesses; builds
+D-774) The lantern clicks with RPG Audio's metal click whenever it goes
+on or off, by hand or by itself: on plays 12% higher than the file,
+off 11% lower (two steps of a scale apart, so on and off are easy to
+tell and still sound like one lantern), at half the file's loudness,
+which peaks as high as the grass steps. Unlike the steps, it is the
+same each time, with no straying pitch. It plays above ground and
+below. D-766 moves to `archive/DECISIONS-PACK.md`, word for word.
