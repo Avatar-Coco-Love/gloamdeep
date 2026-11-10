@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.228, Night creatures, first: lampmoths.** The
+  owner's picks (D-778), all recommended: a lampmoth comes out each
+  night in each woods room round home, never home, from halfway
+  through dusk to halfway through dawn.
+  Playtest: https://claude.ai/artifact/89qys4FDDgRFydpNHGrMjF
 - **2026-11-10, 0.3.227, The fight's sounds.** The owner's picks
   (D-777), by ear: a muffled punch for the lantern, knife slices for a
   weapon in hand, a soft heavy thud when a creature is beaten, all as
