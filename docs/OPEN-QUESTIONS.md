@@ -84,7 +84,8 @@ D-771; narrowed by D-785: a mortar and pestle first, a lab later, fixed
 recipes, a farther-reaching lantern potion first, cooking after at the
 kitchen fire and at campfires; by D-786: the mortar's name, look and
 cost, and the Glow Draught's finds and numbers; by D-791: the draught's
-details, built) Open: the lab and its recipes;
+details, built; by D-792: Slowburn, the mortar's second recipe) Open:
+the lab and its recipes;
 which of the finds "for crafts later" go into which recipes, at
 alchemy and the other stations; what is cooked, at home and at a
 campfire.

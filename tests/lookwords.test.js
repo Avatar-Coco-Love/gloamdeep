@@ -17,5 +17,5 @@ test('"good for making things" only on a material a recipe uses', () => {
   const wrong = ALL.filter((e) => !used.has(e.id) && first(e).includes('good for making things')).map((e) => e.id);
   assert.deepEqual(wrong, []);
   const all = ALL.filter((e) => first(e).endsWith(', good for making things.')).map((e) => e.id).sort();
-  assert.deepEqual(all, ['copperOre', 'duskstar', 'gloamWisp', 'mimicHeart', 'moleFur', 'mothDust', 'ratTail', 'snapcapGill', 'spiderSilk', 'stone', 'wispGlass']); // Duskstar and Wisp Glass with the Glow Draught (D-791)
+  assert.deepEqual(all, ['copperOre', 'duskstar', 'gloamWisp', 'mimicHeart', 'moleFur', 'mothDust', 'ratTail', 'snapcapGill', 'spiderSilk', 'stone', 'tickShell', 'wispGlass']); // Duskstar and Wisp Glass with the Glow Draught (D-791), Tick Shell with Slowburn (D-792)
 });

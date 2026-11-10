@@ -229,4 +229,10 @@ export const ITEMS = {
   glowDraught: { id: 'glowDraught', kind: 'item', name: 'Glow Draught', bag: true, max: 5, look: 'glowDraughtLook', full: 'glowDraughtFull',
     eats: 'glowDraughtDrink', verb: 'DRINK', glow: { reach: 1, turns: 60 },
     bench: { of: { duskstar: 2, wispGlass: 1 }, says: 'glowDraughtMake', short: 'glowDraughtShort' } },
+  // Slowburn (D-792): made at the mortar from 2 Tick Shell and 1 Oilcap, never found; Drink, in
+  // the bag, any time: for `slow.turns` turns a lit turn burns `slow.burn` of its oil, so a full
+  // tank lasts 70 turns, not 60, as the Heart Charm does and added to it (slowburn.js)
+  slowburn: { id: 'slowburn', kind: 'item', name: 'Slowburn', bag: true, max: 5, look: 'slowburnLook', full: 'slowburnFull',
+    eats: 'slowburnDrink', verb: 'DRINK', slow: { burn: 6 / 7, turns: 60 },
+    bench: { of: { tickShell: 2, oilcap: 1 }, says: 'slowburnMake', short: 'slowburnShort' } },
 };

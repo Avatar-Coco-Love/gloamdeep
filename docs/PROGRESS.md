@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.239 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.240 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The third day creature (D-784), or the next alchemy recipe (Q-093), the
-owner's pick.
+The third day creature (D-784), or the mortar's third recipe (Q-093),
+the owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,22 +45,20 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.240, Slowburn.** The owner's picks (D-792): made
+  at the mortar from 2 Tick Shell and 1 Oilcap; drunk, a full tank lasts
+  70 turns, not 60, for 60 turns, with the Glow Draught's rules and an
+  amber mark; the Glow Draught's DRINK no longer dim at full health.
+  Playtest: https://claude.ai/artifact/U3tjteJv4bFdjfEqkDEWZQ
 - **2026-11-10, 0.3.239, The Glow Draught.** The owner's picks (D-791):
   made at the mortar from 2 Duskstar and 1 Wisp Glass; drunk, the
   lantern 1 tile farther for 60 turns, back to 60 if drunk again; a gold
   bottle mark with the turns left; any time, the turns running on; the
   two finds' cards say "Makes a Glow Draught at the mortar".
-  Playtest: PLAYTEST
+  Playtest: https://claude.ai/artifact/NXKBeSAENPN1eF9Qo8VHLG
 - **2026-11-10, 0.3.238, The Mortar and Pestle.** The owner's picks
   (D-789): made on the bag's Make tab from 4 Stone and 1 Wood, set down
   at home like the bed; bumped any time, the workbench's card as MORTAR,
   empty for now; Deconstruct with no ask. Handoffs now end with copyable
   next prompts (D-790).
   Playtest: https://claude.ai/artifact/JsbFyJVSWeJFwJEDLVwzYR
-- **2026-11-10, 0.3.237, The bag's Make tab.** The owner's picks
-  (D-788): BAG and MAKE tabs on the bag card; the Make tab lists the bag
-  recipes once their finds have been held, the game now remembering them;
-  the two flask recipes side by side; a grey line while it is empty; the
-  bag always opens on BAG. A find's MAKE opens its recipe there, with
-  "Makes an Oil flask" above it.
-  Playtest: https://claude.ai/artifact/H2kMZbaEG6RVSwi43kfH43

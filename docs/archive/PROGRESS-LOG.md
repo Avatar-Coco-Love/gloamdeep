@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.237, The bag's Make tab.** The owner's picks
+  (D-788): BAG and MAKE tabs on the bag card; the Make tab lists the bag
+  recipes once their finds have been held, the game now remembering them;
+  the two flask recipes side by side; a grey line while it is empty; the
+  bag always opens on BAG. A find's MAKE opens its recipe there, with
+  "Makes an Oil flask" above it.
+  Playtest: https://claude.ai/artifact/H2kMZbaEG6RVSwi43kfH43
 - **2026-11-10, 0.3.236, Mortar and Make tab, the plan.** The
   owner's picks (D-786, D-787): the Mortar and Pestle, a stone bowl on a
   stump, from 4 Stone and 1 Wood; the Glow Draught from 2 Duskstar and

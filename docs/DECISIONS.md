@@ -86,23 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-784 · 2026-11-10 · Day creatures, second: the bunny** (the owner's
-idea, from the herb mimic, scorpion and centipede offered; the rest of
-its picks all recommended; builds D-781) A new creature, the first that
-means no harm: a bunny, soft brown with a pale tail. It never bites.
-Within 3 steps of the hero it hops a tile away, its way `shy`: the lure
-wisp's way (D-649) but just away, never toward another creature. One
-heart; beaten, it may drop Bunny Fur, about 1 in 2, for crafts later.
-One comes out each day in each woods room round home, beside the mole,
-and one in the home room too, the first creature there; never by night,
-never underground. No rare day creature yet. Claude's calls the owner
-may change: its look (a dark eye, not a creature's pink one); Bunny Fur
-holds 20 and sells for 1, as the other furs; its lines; it has no sound
-of its own. A bunny within 3 steps counts as a creature near
-for sleeping out, as the lure wisp does. The people's glossary lines
-move back to `GLOSSARY.md` word for word, so `GLOSSARY-2.md` stays
-under 8 KB.
-
 **D-785 · 2026-11-10 · Alchemy and cooking, the shape** (the owner's
 picks, all recommended, with the owner's addition; narrows Q-093,
 Q-088; changes D-456's "stations don't improve for now" for alchemy)
@@ -190,3 +173,21 @@ Draught.", "You need 2 Duskstar and 1 Wisp Glass.", "You can't carry
 more Glow Draughts.", the three drink and look lines); the two finds'
 first look line says "good for making things" (D-677). D-780 and D-781
 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-792 · 2026-11-10 · Slowburn, the mortar's second recipe** (the
+owner's picks, both recommended, from Slowburn, a Ward Draught against
+poison and a Mending Draught offered; narrows Q-093) Slowburn is made at
+the mortar from 2 Tick Shell and 1 Oilcap. Drunk from the bag, for 60
+turns a lit turn burns 6/7 of its oil, so a full tank lasts 70 turns,
+not 60, as the Heart Charm does and added to it. Its rules are the Glow
+Draught's (D-791): drunk again, back to 60; any time, the turns running
+on; a night uses them and a fall ends it; it holds 5; a small mark
+under the hearts with the turns left. Claude's calls the owner may
+change: the red potion's bottle dark as lamp oil, its mark in the oil
+bar's deep amber; its lines ("The flame burns hungry again." as it
+fades); the mortar lists it after the Glow Draught; a Tick Shell's card
+then shows "Makes a Slowburn at the mortar". The Glow Draught's DRINK is
+no longer drawn dim at full health, as it never was. The handoff's next
+prompts are each in their own fenced code block, never an inline list
+(the owner's correction, D-790). D-784 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -91,7 +91,7 @@ export const CREATURE_LINES = {
   ratBoneLook: { texts: ['A rat bone, for crafting later.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },
   ratBoneFull: { text: "You can't carry more rat bones.", warn: false },
   tickShellTake: { texts: ['You pick up the tick shell.', 'A split dusky shell, light as paper.', 'The tick shell goes in your bag.'], warn: false }, // (D-606)
-  tickShellLook: { texts: ['A tick shell, for crafting later.', 'Thin, dark and a little oily.', 'It smells faintly of the lantern.'], warn: false },
+  tickShellLook: { texts: ['A tick shell, good for making things.', 'Thin, dark and a little oily.', 'It smells faintly of the lantern.'], warn: false },
   tickShellFull: { text: "You can't carry more tick shells.", warn: false },
   oilBladderTake: { texts: ['You pick up an oil bladder.', 'The sac the tick kept its oil in.', 'The oil bladder goes in your bag.'], warn: false }, // (D-606)
   oilBladderLook: { texts: ['An oil bladder, for crafting later.', 'Amber oil sloshes inside.', 'It is warm, and full.'], warn: false },

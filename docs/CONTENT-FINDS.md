@@ -13,7 +13,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `knife` | held, hits for 2; in the bag, Hold | held, or 1 a slot | never | the first room of depth 2 | D-252, D-347, D-479 |
 | `spear` | held, hits for 2 and the one behind for 1; in the bag, Hold | held, or 1 a slot | never | the first room of depth 3 | D-479 |
 | `herb` | heals 2 where it lies when hurt; at full health into the bag, Eat: 2 hearts | 5 | 300 | each generated room; 1 in each woods room outside | D-155, D-511, D-762 |
-| `oilcap` | 3 make a flask | 20 | 300 | each generated room; each woods room on the surface, home too, on grass beside a tree (`woodscap.js`), none in the mountain rooms | D-296, D-299, D-760 |
+| `oilcap` | 3 make a flask; 1 with 2 Tick Shell, Slowburn at the mortar (D-792) | 20 | 300 | each generated room; each woods room on the surface, home too, on grass beside a tree (`woodscap.js`), none in the mountain rooms | D-296, D-299, D-760 |
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `antidote` | Drink: ends poisoned, healing nothing; only while poisoned | 5 | never | 1 Snapcap Gill and 1 herb, made in the bag | D-652, D-655 |
@@ -30,7 +30,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
 | `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
-| `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
+| `tickShell` | 2 with 1 Oilcap make Slowburn at the mortar (D-792) | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |
 | `wispGlass` | 1 with 2 Duskstar make the Glow Draught at the mortar (D-786); sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
@@ -42,6 +42,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); there, a Normal fall brings home the bag's stack worth most to the peddler (D-694) | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693, D-694 |
 | `bunnyFur` | for crafts later; sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
 | `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
+| `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,

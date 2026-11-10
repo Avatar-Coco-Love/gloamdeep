@@ -26,11 +26,16 @@ neared 8 KB.
   bag, heals 4 hearts (D-309).
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
   the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
-  card, MORTAR, lists what it makes: the Glow Draught (D-786, D-789).
+  card, MORTAR, lists what it makes: the Glow Draught and Slowburn (D-786,
+  D-789, D-792).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
   1 Wisp Glass; Drink, any time: the lantern reaches 1 tile farther for
   60 turns, its gold bottle mark under the hearts with the turns left
   (D-786, D-791).
+- **Slowburn:** a bottle dark as lamp oil made at the mortar from 2 Tick
+  Shell and 1 Oilcap; Drink, any time: the lantern burns slower for 60
+  turns, a full tank lasting 70, its amber bottle mark under the hearts
+  with the turns left (D-792).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
