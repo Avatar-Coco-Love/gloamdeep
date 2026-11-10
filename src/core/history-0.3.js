@@ -4,6 +4,10 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.245', date: '2026-11-10', title: 'The rim lurker', lines: [
+    "New creature: the rim lurker, the first night creature in the mountain rooms. Each night, one in each of the 3 mountain rooms waits in the dark beside the rock: a hunched shade of dusky violet with long arms, pale claws and pink eyes. It stays still until you come within 3 steps, lit lantern or not, then chases you and never runs. It has 3 hearts and its claws take 2. Beaten, it may leave a Lurker Claw, kept for crafts later. Gone by daybreak.",
+    "Decisions: D-797.",
+  ] },
   { v: '0.3.244', date: '2026-11-10', title: 'The skulker crab', lines: [
     "New creature: the skulker crab, the first creature in the mountain rooms. By day, one in each of the 3 mountain rooms looks just like a loose stone until you stand beside it; then its rust claws and pink eyes show and it pinches you for 1. It never moves and has 2 hearts. Beaten, it may leave a Crab Shell, kept for crafts later. Gone by nightfall.",
     "Decisions: D-796.",

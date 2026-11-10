@@ -150,9 +150,19 @@ const SKULKER_CRAB = { mirror: false, rows: [
 const CRAB_SHELL = { mirror: false, rows: [
   '', '', '', '', '', '', '', '', '......kkkk......', '....kkHHLLkk....', '...kHLLLLMMMk...', '..kLLLLxMMMDDk..',
   '..kMMMxMMMDDDk..', '..kzzzzzzzzzUk..', '...kkkkkkkkkk...'] };
+// § rim lurker: look B of its mock-up (D-797), a hunched shade of dusky violet, the cave
+// spider's (D-535), with long arms, pale bone claws and the pink hostile eyes
+const RIM_LURKER = { mirror: false, rows: [
+  '', '', '', '', '.....kkkkk......', '....kqqqqqk.....', '...kqqpqpqqk....', '...kqqqqqqqk....', '..kqQqqqqqQqk...',
+  '.kqQkqqqqqkQqk..', '.kqkkQqqqQkkqk..', '.kqk.kQQQk.kqk..', 'kAk..kQkQk..kAk.', 'kk..kQk.kQk..kk.', '....kk...kk.....'] };
+// § lurker claw: one long pale claw, hooked at the tip, its dusky violet root (D-797)
+const LURKER_CLAW = { mirror: false, rows: [
+  '', '', '', '', '', '', '..........kk....', '.........kwAk...', '........kwAk....', '.......kwAk.....',
+  '......kwAk......', '.....kwwAk......', '....kQqqk.......', '....kQQk........', '.....kk.........'] };
 
 export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
   BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR, SKULKER_CRAB, CRAB_SHELL,
+  RIM_LURKER, LURKER_CLAW,
 };

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.245 (2026-11-10)
+- New creature: the rim lurker, the first night creature in the mountain rooms. Each night, one in each of the 3 mountain rooms waits in the dark beside the rock: a hunched shade of dusky violet with long arms, pale claws and pink eyes. It stays still until you come within 3 steps, lit lantern or not, then chases you and never runs. It has 3 hearts and its claws take 2. Beaten, it may leave a Lurker Claw, kept for crafts later. Gone by daybreak.
+- Decisions: D-797.
+
 ## 0.3.244 (2026-11-10)
 - New creature: the skulker crab, the first creature in the mountain rooms. By day, one in each of the 3 mountain rooms looks just like a loose stone until you stand beside it; then its rust claws and pink eyes show and it pinches you for 1. It never moves and has 2 hearts. Beaten, it may leave a Crab Shell, kept for crafts later. Gone by nightfall.
 - Decisions: D-796.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.243 (2026-11-10)
 - New: the Ward Draught, a pale green-white bottle. Once you have held Centipede Leg and Herb, the mortar makes it from 2 Centipede Leg and 1 Herb. Drink it from your bag and any poison ends at once, and for 60 turns a centipede's bite still hurts but never poisons you. A pale bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
 - Decisions: D-795.
-
-## 0.3.242 (2026-11-10)
-- New: the Mending Draught, a moss green bottle. Once you have held Mimic Leaf and Herb, the mortar makes it from 2 Mimic Leaf and 1 Herb. Drink it from your bag and it heals you slowly: a heart every 15 turns for 60 turns, 4 in all, never above full. A green bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, giving no hearts then, and a fall ends it.
-- Mimic Leaf now says "good for making things", and its card shows "Makes a Mending Draught at the mortar".
-- Decisions: D-794.

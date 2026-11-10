@@ -186,6 +186,7 @@ const POOL = [
   { id: 'spitGrub', from: 4 }, // (D-659)
   { id: 'bunny', from: Infinity }, // never underground: out by day on the surface only (D-784)
   { id: 'skulkerCrab', from: Infinity }, // never underground: out by day in the mountain rooms only (D-796)
+  { id: 'rimLurker', from: Infinity }, // never underground: out by night in the mountain rooms only (D-797)
 ];
 export const poolAt = (depth) => POOL.filter((c) => depth >= c.from).map((c) => c.id);
 // § mixing: the rat by the flask stays a rat; each other creature is picked from

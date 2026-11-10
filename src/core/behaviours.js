@@ -40,6 +40,9 @@ export const BEHAVIOURS = {
   // It notices and comes as one that chases does, but never bites beside the hero: with them in its
   // row or column within `reach` tiles it raises its tail for a turn, then strikes those tiles, and
   // rests `rest` turns (sting.js, D-729).
+  // It waits where it stands, lit or not, until the hero comes within `near` steps along a clear line
+  // (or bites or hits it); then it comes as one that chases does, and keeps coming (D-797).
+  lurks: { id: 'lurks', name: 'Lurks', notices: 'near', near: 3, moves: 'toward' },
   strikes: { id: 'strikes', name: 'Tail strike', notices: 'inLight', moves: 'toward', bites: false, strikes: { reach: 2, rest: 1 } },
 };
 

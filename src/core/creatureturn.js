@@ -145,6 +145,7 @@ function ahead(state) {
 // One that seeks light (D-351) needs no noticing: it steps toward the hero
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
 // One that lures (D-649) drifts away instead, while the hero is near (lureStep).
+// One that lurks (D-797) notices them within its `near` steps along a clear line, lit or not.
 function enemiesMove(state, bit = false) {
   const start = rally(state.enemies), claims = [];
   let enemies = start, said = null, raised = false;
@@ -158,7 +159,8 @@ function enemiesMove(state, bit = false) {
       continue;
     }
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
-    const sees = t.notices === 'anyLine' || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
+    const sees = t.notices === 'anyLine' || (t.notices === 'near' && steps(e, state.hero) <= t.near) // one that lurks: near, lit or not (D-797)
+      || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
     const chasing = !seeks && (e.chasing || (sees && clearLine(state.room, e, state.hero)));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;

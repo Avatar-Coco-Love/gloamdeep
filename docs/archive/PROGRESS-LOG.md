@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.242, The Mending Draught.** The owner's picks
+  (D-794): the mortar's third recipe, from 2 Mimic Leaf and 1 Herb;
+  drunk, a heart every 15 turns for 60 turns, 4 in all, with the Glow
+  Draught's rules and a moss green mark.
+  Playtest: https://claude.ai/artifact/4FKPbiqYhJiSjfDYmdqe2D
 - **2026-11-10, 0.3.241, The rare herb mimic.** The owner's picks
   (D-793): the third day creature, a herb mimic asleep as a herb in one
   woods room round home a day, picked by the seed; the owner wants
