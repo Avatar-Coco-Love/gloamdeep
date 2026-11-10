@@ -82,8 +82,8 @@ step, after biome 1 grows.
 **Q-093 · The alchemy station and new recipes** (raised 2026-11-10,
 D-771; narrowed by D-785: a mortar and pestle first, a lab later, fixed
 recipes, a farther-reaching lantern potion first, cooking after at the
-kitchen fire and at campfires) Open: the mortar's name, look and cost;
-the first potion's finds, reach and turns; the lab and its recipes;
+kitchen fire and at campfires; by D-786: the mortar's name, look and
+cost, and the Glow Draught's finds and numbers) Open: the lab and its recipes;
 which of the finds "for crafts later" go into which recipes, at
 alchemy and the other stations; what is cooked, at home and at a
 campfire.

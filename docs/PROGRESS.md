@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.235 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.236 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The mortar and pestle (D-785, Q-093): its cost and look, and the
-lantern potion's finds and numbers, proposed with a mock-up; or the
-third day creature (D-784) first, the owner's pick.
+The bag's Make tab (D-787): BAG and MAKE tabs on the bag card, today's
+bag recipes in a grid, and a find's MAKE showing what it makes; then
+the mortar (D-786), then the Glow Draught. Or the third day creature
+(D-784) first, the owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -29,7 +30,7 @@ More sounds (Q-095) when the owner wants, a small group a time (D-776).
 - Sleeping out's later costs (Q-091).
 - Sounds from files (Q-095): a file for each other sound, and the
   "Maybe" sounds.
-- The mortar, the lab and their recipes (Q-093, D-785); then the bow
+- The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
@@ -46,6 +47,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.236, Mortar and Make tab, the plan.** The
+  owner's picks (D-786, D-787): the Mortar and Pestle, a stone bowl on a
+  stump, from 4 Stone and 1 Wood; the Glow Draught from 2 Duskstar and
+  1 Wisp Glass, the lantern 1 tile farther for 60 turns. The workbench
+  is full, so the bag gets a Make tab first. Nothing visible.
+  Mock-up: https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4
 - **2026-11-10, 0.3.235, Alchemy and cooking, the plan.** The owner's
   picks (D-785): a mortar and pestle first, an alchemy lab later; fixed
   recipes; the first potion makes the lantern reach farther; cooking
@@ -55,8 +62,3 @@ list in `RESEARCH.md`.
   woods room round home; it never bites, hops away within 3 steps, and
   may leave Bunny Fur. No rare day creature yet.
   Playtest: https://claude.ai/artifact/Ufa2KEq6c2zLbtmpMmM36D
-- **2026-11-10, 0.3.233, The audit's bug fixes.** The owner's call at the
-  audit (D-783): night and day creatures no longer pile up across nights
-  (B1), none bites on waking (B2), and night ones come out 4 steps away
-  (B3). Each with a test that fails on the old code.
-  Playtest: https://claude.ai/artifact/YAZcNCgUZGctcP459jCqB3

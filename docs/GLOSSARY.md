@@ -54,7 +54,8 @@ this page and a decision disagree, the decision wins.
 - **Finds:** oilcap to grow back, with fishing and wood, moved to
   `GLOSSARY-FINDS.md` word for word at 0.3.72 (D-617).
 - **Craft, Make:** turning things in the bag into another; Make is its
-  button in the bag (D-299).
+  button in the bag (D-299). The bag's **Make tab** will list what is
+  made in the bag (D-787); not in the game yet.
 - **Gear, held:** what the hero holds in hand, first the knife (D-252), then the spear, which hits through to the creature behind (D-479). **Hold**, in the bag, swaps a weapon into the hand, or a tool into the Tool slot (D-552). **Take off**, on the Weapon or Tool slot chosen in the gear row, puts it back in the bag, free (D-554).
 - **Gear slots:** the row of five across the bag's top: Weapon, Tool, Armour, Charm, Charm (D-552). A tool works only from the **Tool slot**: the Stone Pick breaks copper there.
 - **Armour, charm, lantern part:** gear worn or fitted: one armour piece
