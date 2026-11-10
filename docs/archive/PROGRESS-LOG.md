@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.215, Dimmer doorway lines.** The owner found the
+  doorway lines too bright and picked half as bright, the map unchanged,
+  both recommended (D-764).
+  Playtest: https://claude.ai/artifact/Ped3SRVaKXSUNSRV1fEs5M
 - **2026-11-09, 0.3.214, The duskstar.** The owner's picks, all
   recommended, after the mock-up (D-763): look B, 2 in each woods room,
   back elsewhere in the room after a day, mirrored and shaded per flower.

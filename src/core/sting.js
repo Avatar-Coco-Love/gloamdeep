@@ -4,11 +4,15 @@
 // tail instead of stepping: `raised`, the way { dx, dy } it will strike, with its `raises` line
 // and a `raise` event. On the creatures' next turn, before the others bite or move (stingTurn),
 // it strikes the `reach` tiles ahead that way, stopping at a tile that blocks light: on the hero
-// there, its `bite` in hearts (none in god mode), a `bite` event, its `bites` line; else its
-// `misses` line. Then it stands still `rest` turns as well as the one it struck in (`rests`).
-// A blow still beats it while raised. Claude's drafts the owner may change: a reach of 2, a rest
-// of 1, it strikes only the hero, and armour can't turn a strike aside.
+// there, its `bite` in hearts (none in god mode), a `bite` event, its `bites` line; a creature
+// there is hurt its `bite` too, as a glob hurts one, beaten with no drop and no experience, and
+// the `stingsFoe` line names it unless the hero was hit as well (D-766, D-768). One under the
+// earth or a pile of bones is passed over. A creature in front doesn't shield the hero behind.
+// Hitting nothing, its `misses` line. Then it stands still `rest` turns as well as the one it
+// struck in (`rests`). A blow still beats it while raised; one stung while raised strikes no more.
+// Claude's drafts the owner may change: a reach of 2, a rest of 1, and armour can't turn a strike aside.
 import { get } from './registry.js';
+import { enemyAt, hitEnemy } from './enemies.js';
 import { traits } from './behaviours.js';
 import { tileAt } from './room.js';
 import { clearLine } from './sight.js';
@@ -19,8 +23,9 @@ import { fall } from './fall.js';
 export function stingTurn(state) {
   if (!state.enemies.some((e) => e.raised)) return state;
   let s = state;
-  for (const e of state.enemies) {
-    if (!e.raised) continue;
+  for (const was of state.enemies) {
+    const e = was.raised && s.enemies.find((o) => o.x === was.x && o.y === was.y && o.id === was.id && o.raised);
+    if (!e) continue; // stung by another first
     s = strike(s, e);
     if (s.health <= 0 && !state.god) return fall(s);
   }
@@ -51,11 +56,17 @@ export function struck(state, e) {
 }
 
 function strike(state, e) {
-  const entry = get(e.id), way = traits(entry).strikes;
-  const hit = struck(state, e).some((t) => t.x === state.hero.x && t.y === state.hero.y);
+  const entry = get(e.id), way = traits(entry).strikes, tiles = struck(state, e);
+  const hit = tiles.some((t) => t.x === state.hero.x && t.y === state.hero.y);
   const { raised, ...down } = e, rested = { ...down, rests: way.rest + 1 };
-  const s = { ...state, enemies: state.enemies.map((o) => (o === e ? rested : o)) };
-  if (!hit) return say(s, entry.misses);
+  let s = { ...state, enemies: state.enemies.map((o) => (o === e ? rested : o)) }, foe = null;
+  for (const t of tiles) {
+    const o = enemyAt(s, t.x, t.y);
+    if (!o || o.under || o.pile) continue; // under the earth (D-726), or a pile of bones (D-731), passed over as a glob passes them
+    foe = foe || o;
+    s = { ...s, enemies: hitEnemy(s.enemies, o, get(o.id), entry.bite) };
+  }
+  if (!hit) return foe ? say(s, 'stingsFoe', get(foe.id).name.toLowerCase()) : say(s, entry.misses);
   const health = state.god ? state.health : Math.max(0, state.health - entry.bite);
   return note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt: entry.bite });
 }
