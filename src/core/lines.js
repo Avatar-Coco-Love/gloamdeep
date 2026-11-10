@@ -201,6 +201,10 @@ export const LINES = {
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   sleepOut: { text: 'You wake on the cold ground, stiff.', warn: false }, // the moon button outside, no bed (D-758), stiff (D-759)
+  bedrollSet: { text: 'You lay out the fur bedroll.', warn: false }, // a turn (D-804)
+  bedrollTake: { text: 'You roll up the fur bedroll.', warn: false }, // Yes on Roll up the bedroll?, a turn (D-804)
+  sleepChased: { text: 'Not with a creature after you.', warn: false }, // SLEEP or the bedroll with one after the hero, free (D-804)
+  sleepUnder: { text: 'Only under the sky.', warn: false }, // SLEEP below ground, free (D-804)
   sleepOutRoll: { text: 'You wake warm in your fur bedroll.', warn: false }, // sleeping out with the Fur Bedroll in the bag: 2 hearts, not stiff (D-803)
   stiffMiss: { text: 'Your stiff arm swings wide.', warn: false }, // a hit missed while stiff (D-759)
   stiffEnds: { text: 'The stiffness wears off.', warn: false }, // (D-759)

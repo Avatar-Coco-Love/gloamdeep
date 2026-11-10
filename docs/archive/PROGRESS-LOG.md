@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.247, The Shell Vest.** The owner's picks (D-799 to
+  D-801): a first use planned for each find kept for crafts later; the
+  workbench split into BUILD and GEAR tabs; the Shell Vest, 4 Crab Shell
+  and 1 Wood, a hit of 2 or more hurting 1.
+  Playtest: https://claude.ai/artifact/3oJ8oGawvFyQ6821DTVYX3
 - **2026-11-10, 0.3.246, Steady Wick.** The owner's picks (D-798): the
   gaps worked through quickest first; Light's first Growth upgrade, 1
   ember, the lantern burning 9/10 of its oil for good, a full tank about

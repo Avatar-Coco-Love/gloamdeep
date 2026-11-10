@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.247 (2026-11-10)
+- New at the workbench: two tabs, BUILD and GEAR, where its title was. BUILD holds the chest, Stone Pick, bed, bag upgrades, garden bed, rod and shelf; GEAR holds the Copper Wick, the vests and the charms. Tap a tab, or press Tab, to turn it.
+- New armour: the Shell Vest, the Crab Shell's first use. Make it on the GEAR tab from 4 Crab Shell and 1 Wood, then Wear it from the bag in the Rat Hide Vest's place. It takes 1 off any hit of 2 or more, so the rim lurker's bite and the scorpion's tail strike hurt 1 instead of 2. It is drawn as stony grey crab plates with rust edges.
+- Decisions: D-799, D-800, D-801.
+
 ## 0.3.246 (2026-11-10)
 - New in Growth: Steady Wick, the first upgrade on the Light branch. Spend 1 ember on it in the Journal's Growth tab and your lantern burns a little slower for good: a full tank lasts about 66 turns instead of 60, on top of the wick, charms, boons and Slowburn. Its box shows a small flame, gold once bought. You keep it after a fall in Normal.
 - Decisions: D-798.

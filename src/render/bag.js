@@ -57,12 +57,13 @@ export function bagShape(size = BAG_SLOTS) {
 // Make, for an item that also heals, just left of it
 export const BUTTON = { w: Math.max(textWidth('POUR'), textWidth('MAKE'), textWidth('EAT'), textWidth('DRINK'), textWidth('HOLD'), textWidth('FIT'), textWidth('WEAR')) + 8, h: 13 };
 const SET = 'SET DOWN', SET_W = textWidth(SET) + 8; // Set down's own width
+const SLEEP = 'SLEEP', SLEEP_W = textWidth(SLEEP) + 8; // the bedroll's second button, left of SET DOWN (D-804)
 export const DROP = 'DROP', DROP_W = textWidth(DROP) + 8; // Drop's, at the item side's bottom left, for every item (D-546)
 export const OFF = 'TAKE OFF', OFF_W = textWidth(OFF) + 8; // Take off's, at the same right end, for a gear slot chosen (D-554)
 const buttonText = (entry) => (entry.oil ? 'POUR' : entry.eats ? entry.verb ?? 'EAT' : entry.craft ? 'MAKE' : entry.sets ? SET : entry.hold || entry.tool ? 'HOLD' : entry.part ? 'FIT' : entry.wear ? 'WEAR' : null);
 // The second button, left of the first: Make beside a heartcap's Eat (D-309), Eat beside a
 // minnow's Pour (D-615), or none
-export const secondText = (entry) => (entry?.eats ? (entry.craft ? 'MAKE' : entry.oil ? 'EAT' : null) : null);
+export const secondText = (entry) => (entry?.rest ? SLEEP : entry?.eats ? (entry.craft ? 'MAKE' : entry.oil ? 'EAT' : null) : null);
 export const twoButtons = (entry) => !!secondText(entry);
 export const TAP_PAD = 4; // game pixels around a slot, the cross or a button that still pick it
 // § cross's place: the round cross in the middle of the title's strip, as far in from the
@@ -109,9 +110,10 @@ const footGap = () => (clearVersion ? Math.max(0, Math.ceil(VERSION_CLEAR / (vie
 export function cardAt(vw, vh, left = DETAIL_X) {
   const x = EDGE_GAP, y = EDGE_GAP, w = Math.max(0, vw - 2 * EDGE_GAP), h = Math.max(0, vh - 2 * EDGE_GAP - footGap());
   const by = y + h - PAD - BUTTON.h, bx = x + w - PAD - BUTTON.w;
-  const tall = isTall(vw, vh), make = { x: bx - 4 - BUTTON.w, y: by }, set = { x: bx + BUTTON.w - SET_W, y: by };
+  const tall = isTall(vw, vh), make = { x: bx - 4 - BUTTON.w, y: by }, set = { x: bx + BUTTON.w - SET_W, y: by }, rest = { x: set.x - 4 - SLEEP_W, y: by };
   const dx = x + (tall ? PAD : left), cramped = dx + DROP_W + 4 > Math.min(make.x, set.x); // on a small screen, a row up
-  return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, drop: { x: dx, y: cramped ? by - BUTTON.h - 4 : by } };
+  const restCramped = dx + DROP_W + 4 > rest.x; // with SLEEP beside SET DOWN (D-804)
+  return { x, y, w, h, tall, close: crossAt(x, y, w), button: { x: bx, y: by }, make, set, rest, drop: { x: dx, y: cramped ? by - BUTTON.h - 4 : by }, restDrop: { x: dx, y: restCramped ? by - BUTTON.h - 4 : by } };
 }
 // Slot i's top left in the 3 × 2 grid, whose top is `top` and left `left` inside the card's,
 // `cols` wide (the stash chest's 4 × 3, D-387), its slots `size` wide (a bigger bag's, D-548)
@@ -143,8 +145,8 @@ export const onCross = ({ close }, x, y) => Math.hypot(x - close.x, y - close.y)
 // 'drop' (Drop, when `filled`: a filled slot is chosen, D-546), { gear: g } (a gear slot, D-554),
 // 'act' too for Take off, when `off` (a Weapon or Tool chosen, filled),
 // 'store' and 'sort' (the title strip's buttons, D-558, D-559), 'close' (the round cross), or null; outside the card, 'out'. size: the bag's slots (D-548)
-export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS, off = false, store = false) {
-  const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), { button, make, set, drop } = card;
+export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, size = BAG_SLOTS, off = false, store = false, rest = false) {
+  const shape = bagShape(size), card = cardAt(vw, vh, shape.detail), { button, make, set } = card, drop = rest ? card.restDrop : card.drop;
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
   const st = storeAt(card);
@@ -158,8 +160,9 @@ export function bagAt(x, y, vw, vh, two = false, wide = false, filled = false, s
   const foot = y >= button.y - TAP_PAD && y < button.y + BUTTON.h + TAP_PAD;
   if (off) return foot && x >= button.x + BUTTON.w - OFF_W - TAP_PAD && x < button.x + BUTTON.w + TAP_PAD ? 'act' : null;
   if (filled && y >= drop.y - 2 && y < drop.y + BUTTON.h + 2 && x >= drop.x - TAP_PAD && x < drop.x + DROP_W + 2) return 'drop';
+  if (rest && foot && x >= card.rest.x - TAP_PAD && x < set.x - 2) return 'make'; // SLEEP, the bedroll's (D-804)
   if (foot && x >= (wide ? set.x : button.x) - (two ? 2 : TAP_PAD) && x < button.x + BUTTON.w + TAP_PAD) return 'act';
-  if (two && foot && x >= make.x - TAP_PAD && x < button.x) return 'make';
+  if (two && !rest && foot && x >= make.x - TAP_PAD && x < button.x) return 'make';
   return null;
 }
 
@@ -241,7 +244,7 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
 // still for its marker when chosen (D-558); SORT always shows (D-559); makes: what the chosen
 // find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null) {
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false) {
   const shape = bagShape(size);
   const card = { ...drawCard(c, vw, vh, '', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   drawBagTabs(c, card, 'bag'); // BAG and MAKE in the title row (D-787)
@@ -264,12 +267,13 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const look = lookLine(entry, told);
   if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
-  drawButton(c, card.drop.x, card.drop.y, DROP, false, DROP_W);
+  const drop = entry.rest ? card.restDrop : card.drop; // a row up when SLEEP crowds it (D-804)
+  drawButton(c, drop.x, drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (makes?.at && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
   if (!text) return;
   const few = entry.craft && !makes; // MAKE opens the Make tab on its recipe, dim before that shows (D-787)
-  if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
+  if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); if (entry.rest) drawButton(c, card.rest.x, card.rest.y, SLEEP, !sleepy, SLEEP_W); return; } // SLEEP dim when the hero can't sleep out (D-804)
   const anyTime = entry.glow || entry.slow || entry.mend || entry.ward || entry.spitproof; // a draught drunk any time is never dim, full health or not (D-791, D-792, D-794, D-795, D-802)
   drawButton(c, card.button.x, card.button.y, text, entry.cures ? !poisoned : anyTime ? false : entry.eats && !entry.oil ? full : few);
   const second = secondText(entry);

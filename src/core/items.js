@@ -265,6 +265,7 @@ export const ITEMS = {
   // The Fur Bedroll (D-803), the Bunny Fur's first use (D-799): made on the workbench's BUILD tab,
   // never found. Only `max` 1 is carried, taking a bag slot, never used up. In the bag, sleeping
   // out heals `rest.heal` hearts, never above full, and the hero wakes not stiff (sleepout.js).
-  furBedroll: { id: 'furBedroll', kind: 'item', name: 'Fur Bedroll', bag: true, max: 1, look: 'furBedrollLook', full: 'furBedrollFull', rest: { heal: 2 },
+  // Its SLEEP button sleeps out where the hero stands; SET DOWN `sets` it on the ground (D-804).
+  furBedroll: { id: 'furBedroll', kind: 'item', name: 'Fur Bedroll', bag: true, max: 1, look: 'furBedrollLook', full: 'furBedrollFull', rest: { heal: 2 }, sets: { tile: 'bedroll', says: 'bedrollSet' },
     bench: { of: { bunnyFur: 4, spiderSilk: 1 }, says: 'furBedrollMake', short: 'furBedrollShort' } },
 };

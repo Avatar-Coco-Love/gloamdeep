@@ -4,7 +4,7 @@
 // the bed does (D-488). Without a bed the hero wakes with only the hearts they lay down with:
 // no healing and no gold heart, and the spot isn't remembered as a bed for a fall (D-737).
 // They wake stiff, step 2 (stiff.js, D-759). With the Fur Bedroll in the bag they wake with 2
-// hearts back, never above full, and not stiff (D-803). It is a `sleep` event. Plain data, no drawing.
+// hearts back, never above full, and not stiff (D-803), or beside one set down (D-804). It is a `sleep` event. Plain data, no drawing.
 import { say } from './lines.js';
 import { note, fresh } from './events.js';
 import { DAY_TURNS } from './daytime.js';
@@ -13,6 +13,9 @@ import { tired } from './sleep.js';
 import { creatureList } from './creatureturn.js';
 import { maxHealth } from './state.js';
 import { get } from './registry.js';
+import { DIRS } from './state.js';
+import { tileAt } from './room.js';
+import { offEdge } from './openings.js';
 import { stiffen } from './stiff.js';
 import { glowSlept } from './glow.js';
 import { slowSlept } from './slowburn.js';
@@ -25,16 +28,28 @@ export const chased = (state) => state.enemies.some((e) => e.chasing && !e.aslee
 
 // The Fur Bedroll in the bag, or null (D-803)
 export const rolled = (state) => state.bag.find((s) => get(s.id)?.rest) ?? null;
+// A set-down bedroll beside the hero, a side away, or null (D-804)
+export const rollBeside = (state) => Object.values(DIRS).map(([dx, dy]) => ({ x: state.hero.x + dx, y: state.hero.y + dy }))
+  .find((at) => !offEdge(state.room, at.x, at.y) && tileAt(state.room, at.x, at.y).camps) ?? null;
+// Whether the night's sleep is warm: the bedroll in the bag or beside the hero (D-803, D-804)
+export const warm = (state) => !!(rolled(state) || rollBeside(state));
 
 // Whether the moon button shows: under the sky, from dusk until morning, nothing after the hero
 export const canSleepOut = (state) => !!state.room.dark.sky && tired(state) && !chased(state);
 
+// Whether bumping side `dir` asks to sleep: a set-down bedroll there, and the hero can sleep out (D-804)
+export const campAsks = (state, dir) => { const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1]; return !offEdge(state.room, x, y) && !!tileAt(state.room, x, y).camps && canSleepOut(state); };
+
+// Why the hero can't sleep out now, a line's id, or null when they can: below ground, by day,
+// or a creature after them; SLEEP in the bag and a bumped bedroll say it, free (D-804)
+export const noSleepOut = (state) => (!state.room.dark.sky ? 'sleepUnder' : !tired(state) ? 'notTired' : chased(state) ? 'sleepChased' : null);
+
 export function sleepOut(state) {
   if (!canSleepOut(state)) return state;
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const roll = rolled(state);
+  const roll = warm(state);
   const woke = endTurn(state, say(note(fresh({ ...spitproofSlept(wardSlept(mendSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, the Mending Draught's, the Ward Draught's and the Spitproof Draught's turns (D-802, D-795, D-794, D-792, D-791)
   if (woke.fell !== state.fell) return woke; // poison took the last heart in the night
-  if (roll) return { ...woke, health: Math.min(maxHealth(woke), woke.health + get(roll.id).rest.heal) }; // warm: hearts back, not stiff (D-803)
+  if (roll) return { ...woke, health: Math.min(maxHealth(woke), woke.health + get('furBedroll').rest.heal) }; // warm: hearts back, not stiff (D-803, D-804)
   return stiffen(woke); // stiff from waking, its count whole (D-759)
 }

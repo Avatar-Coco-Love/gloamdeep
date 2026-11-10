@@ -264,11 +264,11 @@ export const canFeed = (state, x, y) => { const feeds = tileAt(state.room, x, y)
 export const canPick = (state, x, y) => !!tileAt(state.room, x, y).picks;
 
 // The tile beside the hero on side `dir` when bumping it opens a panel (the bench, WB3), else null.
-// The bed opens its card only by day; at night a bump sleeps (D-488), unless `any`.
+// The bed opens its card only by day; at night a bump sleeps (D-488), unless `any`; the bedroll's too (D-804).
 export function panelBeside(state, dir, any = false) {
   const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1];
   const tile = !offEdge(state.room, x, y) && tileAt(state.room, x, y);
-  return tile?.panel && (any || !(tile.sleeps && tired(state))) ? { x, y } : null;
+  return tile?.panel && (any || !((tile.sleeps || tile.camps) && tired(state))) ? { x, y } : null; // the bedroll from dusk asks to sleep instead (D-804)
 }
 
 // The sides bag slot i's item can be set down on now, in DIRS' order; none off the surface

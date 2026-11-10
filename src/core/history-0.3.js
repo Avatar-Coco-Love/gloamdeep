@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.250', date: '2026-11-10', title: 'The bedroll laid out', lines: [
+    "New: the Fur Bedroll has two buttons in your bag. SLEEP sleeps right where you stand, the moon's way; it is dim by day, below ground, or with a creature after you, and a tap says why. SET DOWN lays the bedroll out beside you on the surface.",
+    "Laid out, bump the bedroll from dusk to sleep on it: 2 hearts back and not stiff. By day a bump asks \"Roll up the bedroll?\" to put it back in your bag. It is not your bed for a fall; home's bed still is.",
+    "Decisions: D-804.",
+  ] },
   { v: '0.3.249', date: '2026-11-10', title: 'The Fur Bedroll', lines: [
     "New: the Fur Bedroll, the Bunny Fur's first use. The workbench's BUILD tab makes it from 4 Bunny Fur and 1 Spider Silk. Keep it in your bag: when you sleep out under the sky, you wake with 2 hearts back and not stiff. It is never used up. The bed at home still heals you fully.",
     "With the bedroll in your bag, the moon's ask says \"Your fur bedroll is warm.\" Bunny Fur now says \"for a fur bedroll.\"",

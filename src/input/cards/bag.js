@@ -17,7 +17,7 @@ export function bagCard(app, ui, show, c) {
     const tab = bagTabAt(cardAt(view.w, view.h), px, py); // BAG and MAKE in the title row (D-787)
     if (tab) { turnBagTab(tab); return; }
     const s = app.state.bag[app.chosen], g = gearChosen(app.chosen); // a gear slot chosen: only Take off's corner (D-554)
-    const at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state), g >= 0, canStore());
+    const at = bagAt(px, py, view.w, view.h, twoButtons(s && get(s.id)), !!(s && get(s.id).sets), !!s, bagSize(app.state), g >= 0, canStore(), !!(s && get(s.id).rest));
     if (at === 'out' || at === 'close') show('play');
     else if (at === 'store') { pickStore(); storeNear(); }
     else if (at === 'sort') { pickSort(); sortBag(); }

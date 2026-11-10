@@ -108,6 +108,7 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Read the handoff rule before writing a handoff, even in a proposal-only reply: the next prompts went out as an inline list, not one fenced block each, and the owner had to ask again (0.3.240).
 - Options offered and not picked are worth keeping in the decision: D-792 named the Ward and Mending Draughts, so the next recipe's choices were ready without searching (0.3.242).
 - A line can pass every check and still not fit the message strip: "You need 4 Bunny Fur and 1 Spider Silk." was too wide; the recipe lines use a comma, "4 Bunny Fur, 1 Spider Silk." (0.3.249).
+- A sleep or rest rule touches more than one door: the bedroll needed the moon button, the bag and the bump to agree, so list every way in before building (0.3.250).
 - Say a rule once: the next prompts came both before and after the merge, twice the reading for the owner; they now come once, after it (0.3.243).
 - Look for where the world is empty before asking where something goes: the mountain rooms had no creatures at all, which made the first question easy to answer (0.3.244).
 - Count a doc's bytes before adding to it: a page a few bytes under its cap needs a word-for-word split first, done in the same step (0.3.245).

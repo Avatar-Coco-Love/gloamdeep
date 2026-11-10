@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -233,6 +233,7 @@ function tryStep(dir) {
   else if (dir.sleepOut) app.state = sleepOut(app.state); // the moon button's Yes: until morning, no bed (D-758)
   else if (dir.take !== undefined) app.state = takeDown(app.state, dir.take.x, dir.take.y); // the bench or an empty stash chest back into the bag, one turn (WB3, D-323; CH5)
   else if (buyerAt(before, before.hero.x + DIRS[dir][0], before.hero.y + DIRS[dir][1])) { app.state = step(app.state, dir); screens.openTrade(); return; } // bumping the peddler at home: his line and his card, free (D-494)
+  else if (campAsks(before, dir)) { screens.openSleepOut(); return; } // a set-down bedroll from dusk asks Sleep here until morning?, free (D-804)
   else if (panelBeside(before, dir)) { const at = panelBeside(before, dir), says = roomTileAt(app.state.room, at.x, at.y).says; if (says) app.state = say(app.state, says); screens.openPanel(at); return; } // bumping the bench or a stash chest opens its panel, free (WB3, CH3); a tile's `says` line with it, cold ashes' (D-757)
   else {
     const next = step(app.state, dir);
@@ -391,6 +392,7 @@ const screens = createScreens(app, {
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
+  tell: (id) => { app.state = say(app.state, id); }, // a line, free: why SLEEP can't (D-804)
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
   wear: (slot) => { app.state = wear(app.state, slot); }, // armour put on, free (D-484)

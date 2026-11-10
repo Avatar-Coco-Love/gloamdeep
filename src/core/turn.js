@@ -38,7 +38,8 @@ export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, newJou
 export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';
-export { sleepOut, canSleepOut } from './sleepout.js';
+export { sleepOut, canSleepOut, noSleepOut, warm, campAsks } from './sleepout.js';
+import { noSleepOut } from './sleepout.js';
 export { pour, craft, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid
@@ -64,6 +65,7 @@ export function step(state, dir) {
   if (flyer) return attack(state, flyer);
   if (tile.solid) {
     if (tile.sleeps) return sleep(state, x, y); // the bed (D-488)
+    if (tile.camps) return say(state, noSleepOut(state) ?? 'notTired'); // the bedroll from dusk: its ask opens instead (main.js), or why not, free (D-804)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
     if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)

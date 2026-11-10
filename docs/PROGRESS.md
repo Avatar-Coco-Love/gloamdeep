@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.249 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.250 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -45,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.250, The bedroll laid out.** The owner's idea and
+  picks (D-804): SLEEP and SET DOWN in the bag; laid out, bumped from
+  dusk to sleep on it, by day to roll it up; no bed for a fall.
+  Playtest: https://claude.ai/artifact/Tt4uV3cJma85sa6KVgVidL
 - **2026-11-10, 0.3.249, The Fur Bedroll.** The owner's picks (D-803):
   the BUILD tab's last slot, 4 Bunny Fur and 1 Spider Silk, kept in the
   bag; sleeping out with it wakes the hero with 2 hearts back, not stiff.
@@ -53,8 +57,3 @@ list in `RESEARCH.md`.
   (D-802): the mortar's fifth recipe, 2 Grub Skin and 1 Herb; for 60
   turns a spit grub's glob splashes off, hurting nothing; dusty rose.
   Playtest: https://claude.ai/artifact/4Qm6SbLz1RcuxBDNCChidE
-- **2026-11-10, 0.3.247, The Shell Vest.** The owner's picks (D-799 to
-  D-801): a first use planned for each find kept for crafts later; the
-  workbench split into BUILD and GEAR tabs; the Shell Vest, 4 Crab Shell
-  and 1 Wood, a hit of 2 or more hurting 1.
-  Playtest: https://claude.ai/artifact/3oJ8oGawvFyQ6821DTVYX3

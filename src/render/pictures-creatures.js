@@ -142,6 +142,11 @@ const BUNNY = { mirror: false, rows: [
 const BUNNY_FUR = { mirror: false, rows: MOLE_FUR.rows.map((r) => r.replace(/[WNn]/g, (c) => ({ W: 'w', N: 'W', n: 'N' })[c])) };
 // § fur bedroll: a roll of bunny fur on its side, its rolled end to the left, pale tips on its
 // brown, tied round the middle with a pale silk cord (D-803)
+// § bedroll laid out: the Fur Bedroll unrolled on the ground, seen from above, its head end still
+// rolled, the fur pale-tipped, the silk cord loose at its side (D-804)
+const BEDROLL_LAID = { mirror: false, rows: [
+  '', '..kkkkkkkkkkkk..', '.kwWWwWWwWWwWWk.', '.kNNNNNNNNNNNNk.', '.kkkkkkkkkkkkkk.', '.kwWWWWNWWWWWWka', '.kWWNWWWWWNWWWka',
+  '.kWWWWWWWWWWWWk.', '.kWNWWWNWWWWNWk.', '.kWWWWWWWWWWWWk.', '.kWWWNWWWWNWWWk.', '.kWWWWWWWWWWWWk.', '.kNWWWWWWWWWWNk.', '.kNNNNNNNNNNNNk.', '..kkkkkkkkkkkk..'] };
 const FUR_BEDROLL = { mirror: false, rows: [
   '', '', '', '', '', '', '', '..kkkkkkkkkkkk..', '.kWWNkwWwakwWwk.', 'kWNnWkWWWawWWWk.', 'kNnWNkWwWaWWwWk.',
   'kWNNWkNWWaWWNWk.', '.kWWkkNNNaNNNNk.', '..kkkkkkkkkkkk..'] };
@@ -169,5 +174,5 @@ export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
   BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR, SKULKER_CRAB, CRAB_SHELL,
-  RIM_LURKER, LURKER_CLAW, FUR_BEDROLL,
+  RIM_LURKER, LURKER_CLAW, FUR_BEDROLL, BEDROLL_LAID,
 };
