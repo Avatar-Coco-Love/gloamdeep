@@ -32,7 +32,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `ratBone` | for crafts later | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
 | `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
-| rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106 | | | | |
+| rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |
 | `wispGlass` | for crafts later; sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
 | `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
 | `grubSkin` | for crafts later; sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
@@ -44,3 +44,18 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 
 The workbench and the things made after it, from `workbench` to `lostbag`,
 moved to `CONTENT-2.md` word for word at 0.3.15.
+
+## Rare materials (`src/core/items.js`)
+
+Moved from `CONTENT.md` word for word at 0.3.106, as that page passed 8 KB;
+the Venom Sac's row since names the centipede too (D-654).
+
+| id | What it does | Stack | Grows back | Where, or how made | Decisions |
+| --- | --- | --- | --- | --- | --- |
+| `venomSac` | for crafts later | 20 | never | a beaten scorpion or centipede, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
+| `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
+| `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
+| `batFang` | for crafts later | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
+| `moleClaw` | for crafts later | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
+| `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
+| `glowGland` | for crafts later | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |

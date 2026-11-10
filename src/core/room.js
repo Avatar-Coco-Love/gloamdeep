@@ -11,6 +11,7 @@ import { withUnguarded } from './unguarded.js';
 import { withPack } from './pack.js';
 import { generateWoods, inFront, STONE_UP, STONE_RING } from './woods.js';
 import { withCampfire } from './campfire.js';
+import { withLamppost } from './lamppost.js';
 import { withWoodscap } from './woodscap.js';
 import { withLooseStones } from './loosestone.js';
 import { withWoodsHerb } from './woodsherb.js';
@@ -130,7 +131,8 @@ for (const id of HEARTH) if (id !== HOME_ID) PLACES[id] = { make: (s, seed) => w
 // the campfire, picked after the rest so each room stays as it was (campfire.js, D-757), and
 // each woods room, home too, its oilcap beside a tree, picked after that (woodscap.js, D-760),
 // and each mountain room its 2 loose stones (loosestone.js, D-761), and each woods room its herb
-// (woodsherb.js, D-762) and its 2 duskstars, picked last (duskstar.js, D-763).
+// (woodsherb.js, D-762) and its 2 duskstars (duskstar.js, D-763); then, last, one of the 8 outside
+// home, never the campfire's, gets the dead lamppost (lamppost.js, D-769).
 // The waystone's tiles and the ring round it, kept clear of a mountain room's boulders
 const stoneRing = (start, ring = STONE_RING) => around(LANDMARKS.waystone, start.x, start.y - STONE_UP, ring);
 // A map with tiles `at` made grass
@@ -146,7 +148,8 @@ function woodsRoom(id, seed) {
   const capped = withWoodscap(seed, id, lit, keep); // its oilcap, in each woods room (D-760)
   const stoned = withLooseStones(seed, id, capped, keep); // its loose stones, in each mountain room (D-761)
   const herbed = withWoodsHerb(seed, id, stoned, keep); // its herb, in each woods room (D-762)
-  return withDuskstars(seed, id, herbed, keep); // its 2 duskstars, in each woods room (D-763)
+  const starred = withDuskstars(seed, id, herbed, keep); // its 2 duskstars, in each woods room (D-763)
+  return withLamppost(seed, id, starred, keep); // its dead lamppost, in one room (D-769)
 }
 
 // § depth: the place at each depth, and back. The crypt is depth 0 with the

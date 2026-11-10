@@ -49,7 +49,7 @@ test('picked, a duskstar comes back a day later on another grass tile of its roo
 });
 
 test('an older save: unseen woods rooms get their duskstars; seen, taken from or stood in stay', () => {
-  assert.equal(FORMAT, 27); assert.equal(UPGRADES[26], restar);
+  assert.ok(FORMAT >= 27); assert.equal(UPGRADES[26], restar);
   for (const seed of SEEDS.slice(0, 8)) {
     const w = makeWorld('first', seed), bare = (p) => ({ ...p, items: p.items.filter((it) => it.id !== 'duskstar') });
     const woods = ROOMS.filter((id) => !isMountain(id) && id !== w.place), [a, b, c] = woods, hill = ROOMS.find(isMountain);
