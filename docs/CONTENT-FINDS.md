@@ -40,7 +40,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); there, a Normal fall brings home the bag's stack worth most to the peddler (D-694) | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693, D-694 |
-| `bunnyFur` | for crafts later; sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
+| `bunnyFur` | 4 with 1 Spider Silk make the Fur Bedroll (D-803); sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
 | `crabShell` | 4 with 1 Wood make the Shell Vest (D-801); sold for 1 | 20 | never | a beaten skulker crab, about 1 in 2 | D-796 |
 | `lurkerClaw` | for crafts later; sold for 1 | 20 | never | a beaten rim lurker, about 1 in 2 | D-797 |
 | `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |

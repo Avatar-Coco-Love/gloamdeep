@@ -262,4 +262,9 @@ export const ITEMS = {
   spitproofDraught: { id: 'spitproofDraught', kind: 'item', name: 'Spitproof Draught', bag: true, max: 5, look: 'spitproofLook', full: 'spitproofFull',
     eats: 'spitproofDrink', verb: 'DRINK', spitproof: { turns: 60 },
     bench: { of: { grubSkin: 2, herb: 1 }, says: 'spitproofMake', short: 'spitproofShort' } },
+  // The Fur Bedroll (D-803), the Bunny Fur's first use (D-799): made on the workbench's BUILD tab,
+  // never found. Only `max` 1 is carried, taking a bag slot, never used up. In the bag, sleeping
+  // out heals `rest.heal` hearts, never above full, and the hero wakes not stiff (sleepout.js).
+  furBedroll: { id: 'furBedroll', kind: 'item', name: 'Fur Bedroll', bag: true, max: 1, look: 'furBedrollLook', full: 'furBedrollFull', rest: { heal: 2 },
+    bench: { of: { bunnyFur: 4, spiderSilk: 1 }, says: 'furBedrollMake', short: 'furBedrollShort' } },
 };

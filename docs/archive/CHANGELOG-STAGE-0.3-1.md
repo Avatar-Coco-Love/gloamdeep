@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.246 (2026-11-10)
+- New in Growth: Steady Wick, the first upgrade on the Light branch. Spend 1 ember on it in the Journal's Growth tab and your lantern burns a little slower for good: a full tank lasts about 66 turns instead of 60, on top of the wick, charms, boons and Slowburn. Its box shows a small flame, gold once bought. You keep it after a fall in Normal.
+- Decisions: D-798.
+
 ## 0.3.245 (2026-11-10)
 - New creature: the rim lurker, the first night creature in the mountain rooms. Each night, one in each of the 3 mountain rooms waits in the dark beside the rock: a hunched shade of dusky violet with long arms, pale claws and pink eyes. It stays still until you come within 3 steps, lit lantern or not, then chases you and never runs. It has 3 hearts and its claws take 2. Beaten, it may leave a Lurker Claw, kept for crafts later. Gone by daybreak.
 - Decisions: D-797.

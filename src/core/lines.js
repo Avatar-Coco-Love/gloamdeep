@@ -103,6 +103,10 @@ export const LINES = {
   shellVestShort: { text: 'You need 4 Crab Shell and 1 Wood.', warn: false }, // too few, free
   shellVestLook: { texts: ['A shell vest. Hard bites hurt less.', 'Crab shells, plated like stone.', 'Heavy, but the claws slide off.'], warn: false },
   shellVestWear: { text: 'You put on the shell vest.', warn: false }, // Wear in the bag, free (D-801)
+  furBedrollMake: { text: 'You make a fur bedroll.', warn: false }, // its line on the bench's BUILD tab, a turn (D-803)
+  furBedrollFull: { text: 'You already have a fur bedroll.', warn: false }, // carried, free
+  furBedrollShort: { text: 'You need 4 Bunny Fur, 1 Spider Silk.', warn: false }, // too few, free
+  furBedrollLook: { texts: ['A fur bedroll, for sleeping out.', 'Bunny fur, rolled and tied with silk.', 'Soft, warm and light to carry.'], warn: false },
   glance: { text: 'The bite glances off your vest.', warn: false }, // worn, a bite that hurts nothing (D-484)
   charmMake: { text: 'You make a wisp charm.', warn: false }, // its line on the bench panel, a turn (D-486)
   wispCharmFull: { text: 'You already have a wisp charm.', warn: false }, // carried or worn, free
@@ -197,6 +201,7 @@ export const LINES = {
   sleep: { text: 'You sleep and wake rested.', warn: false }, // the bed at night (D-488)
   notTired: { text: "You aren't tired.", warn: false }, // the bed by day, free
   sleepOut: { text: 'You wake on the cold ground, stiff.', warn: false }, // the moon button outside, no bed (D-758), stiff (D-759)
+  sleepOutRoll: { text: 'You wake warm in your fur bedroll.', warn: false }, // sleeping out with the Fur Bedroll in the bag: 2 hearts, not stiff (D-803)
   stiffMiss: { text: 'Your stiff arm swings wide.', warn: false }, // a hit missed while stiff (D-759)
   stiffEnds: { text: 'The stiffness wears off.', warn: false }, // (D-759)
   stiffHeld: { text: 'Stiff: 1 hit in 3 misses, {n} turns left.', warn: false }, // a tap on its mark (D-759)

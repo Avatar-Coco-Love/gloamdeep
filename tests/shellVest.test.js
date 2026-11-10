@@ -23,7 +23,7 @@ test('the bench has two tabs, BUILD and GEAR, each one of its makes in one tab o
   assert.equal(new Set(BENCH_MAKES).size, BENCH_MAKES.length);
   assert.equal(benchTabOf('nonsense').id, 'build');
   const bench = get('bench');
-  assert.deepEqual(stationMakes(bench, [], 6).map((m) => m.item), ['chest', 'pick', 'bed', 'pouch', 'gardenBed', 'rod', 'shelf']);
+  assert.deepEqual(stationMakes(bench, [], 6).map((m) => m.item), ['chest', 'pick', 'bed', 'pouch', 'gardenBed', 'rod', 'shelf', 'furBedroll']);
   assert.equal(stationMakes(bench, [], 6, [], new Set(), 'gear')[2].item, 'shellVest');
 });
 

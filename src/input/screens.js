@@ -71,11 +71,12 @@ import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SLEEP_OUT_ASK } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SLEEP_OUT_ASK, SLEEP_OUT_ROLL_ASK } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
 import { canPlant, canPick, canFeed, canShelve, canKindle } from '../core/turn.js';
+import { rolled } from '../core/sleepout.js';
 import { playing as inPlay, slotName, playedText } from '../core/profile.js';
 import { bestiaryWords, pageWords } from '../core/bestiary.js';
 import { slotLines, slotsHeading } from '../render/slots.js';
@@ -142,7 +143,7 @@ export function createScreens(app, ui) {
   function openStrike() { app.queued = null; app.strike = { start: performance.now() }; show('strike'); }
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
-  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'sleepOut' ? SLEEP_OUT_ASK : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
+  const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'sleepOut' ? (rolled(app.state) ? SLEEP_OUT_ROLL_ASK : SLEEP_OUT_ASK) : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
   const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
     if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || (next === 'journal' && app.screen !== 'aboutBoons')) app.pageFrom = app.screen; // back from the boons card, the Journal keeps where it came from (D-712)

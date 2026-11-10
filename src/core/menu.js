@@ -18,6 +18,7 @@ export const BED_NOTE = "You aren't tired.";
 // The moon button outside at night asks first, No picked; Yes sleeps until morning (D-758),
 // its words drafted for the playtest
 export const SLEEP_OUT_ASK = ['Sleep here until morning?', 'The ground is hard and cold.'];
+export const SLEEP_OUT_ROLL_ASK = ['Sleep here until morning?', 'Your fur bedroll is warm.']; // with the Fur Bedroll in the bag (D-803)
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
 export const TAKE_ASKS = { campfireAshes: ['Light the fire?', 'No one has sat here for a long time.'], minersCamp: ['Take the pick?', 'An old pick leans on the crate.'], bedstead: [BED_HEADING, BED_NOTE], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693); the miners' camp's, its first words on the text line, No picked (D-770)
@@ -102,10 +103,10 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // Its two tabs (D-800), as the bag's (D-787): BUILD, the home pieces, bag upgrades and tools; GEAR,
 // the lantern's parts, armour and charms; a 4 × 3 grid each. BENCH_MAKES, every one, BUILD's first.
 export const BENCH_TABS = [
-  { id: 'build', text: 'BUILD', makes: ['chest', 'pick', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'shelf'] },
+  { id: 'build', text: 'BUILD', makes: ['chest', 'pick', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'shelf', 'furBedroll'] },
   { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm'] },
 ];
-export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801)
+export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801), the fur bedroll (D-803)
 export const benchTabOf = (id) => BENCH_TABS.find((t) => t.id === id) ?? BENCH_TABS[0];
 export const BENCH_COLS = 4;
 export const BENCH_SLOTS = 12;
