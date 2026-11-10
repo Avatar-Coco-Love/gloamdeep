@@ -110,6 +110,12 @@ export const benchMakes = (bag, size = 6, stored = []) => BENCH_MAKES.filter((id
   const of = get(id).bench.of, all = [...bag, ...stored];
   return { item: id, cost: Object.entries(of).map(([at, n]) => ({ id: at, n, have: carried(all, at) })), dim: !bagHas(all, of) };
 });
+// § station: a set-down station opens the workbench's card, its own title over it: the bench's,
+// or the mortar's (D-786), a tile with `makes`, its recipes; none till the Glow Draught's step,
+// so its card says so in grey. tile: the station's tile
+export const STATION_NONE = 'Nothing to make here yet.';
+export const stationTitle = (tile) => tile.title || 'WORKBENCH';
+export const stationMakes = (tile, bag, size, stored) => (tile.makes ? [] : benchMakes(bag, size, stored));
 // The arrows on the card: the grid, Down from its bottom row to Deconstruct, Up from it back
 export function moveBench(i, dir) {
   if (i === BENCH_TAKE) return dir === 'up' ? BENCH_SLOTS - BENCH_COLS : i;

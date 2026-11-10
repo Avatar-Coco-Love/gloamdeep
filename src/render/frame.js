@@ -64,7 +64,7 @@ import { flasksIn, bagSize } from '../core/bag.js';
 import { maxHealth, DIRS, creatureList } from '../core/turn.js';
 import { glowsIn } from '../core/stairs.js';
 import { drawFires } from './campfire.js';
-import { depthOf } from '../core/room.js';
+import { depthOf, tileAt } from '../core/room.js';
 import { shownLine } from '../core/lines.js';
 import { levelOf } from '../core/xp.js';
 import { daylight, darkNow } from '../core/daytime.js';
@@ -74,7 +74,7 @@ import { cameraAt } from '../core/camera.js';
 import { playing, slotName } from '../core/profile.js';
 import { shopOf, newShop } from '../core/feats.js';
 import { cloakOf, eyesOf, trimOf, clothesOf, lampOf, headOf } from '../core/looks.js';
-import { PAUSE_MENU, pauseFacts, benchMakes, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
+import { PAUSE_MENU, pauseFacts, stationMakes, stationTitle, STATION_NONE, SURE_MENU, ENDED_MENU, ENDED_HEADING } from '../core/menu.js';
 import { doorways, widen } from '../core/openings.js';
 import { watch, onWipe, onCheck, blankAt } from './wipe.js';
 
@@ -417,7 +417,8 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // "You make an oil flask."
     }
     else if (app.screen === 'bench') {
-      drawBenchPanel(hc, view.w, view.h, benchMakes(state.bag, bagSize(state), nearStacks(state)), app.chosen, spriteOf, state.told, t, still()); // a card on the room (D-387)
+      const station = tileAt(state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
+      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state)), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {

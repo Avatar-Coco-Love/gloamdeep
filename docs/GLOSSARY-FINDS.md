@@ -24,6 +24,9 @@ neared 8 KB.
   comes back a day later on another grass tile of the room (D-763).
 - **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
+- **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
+  the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
+  card, MORTAR, lists what it makes, nothing yet (D-786, D-789).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
   1 Wisp Glass; Drink: the lantern reaches 1 tile farther for 60 turns
   (D-786). Not in the game yet.

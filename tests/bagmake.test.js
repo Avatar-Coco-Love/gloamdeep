@@ -13,8 +13,8 @@ const room = makeRoom(FIRST_ROOM);
 const carrying = (bag, known = []) => ({ ...setOil(makeState(room), 0.5), bag, known });
 
 test('the recipes are every find that makes something, the two flasks side by side', () => {
-  assert.deepEqual(BAG_MAKES.map((m) => m.from), ['oilcap', 'mimicGlass', 'heartcap', 'mothDust', 'snapcapGill', 'gloamberry', 'wood']);
-  assert.deepEqual(BAG_MAKES.map((m) => m.into), ['flask', 'flask', 'potion', 'bagTorch', 'antidote', 'gloamberrySeed', 'workbench']);
+  assert.deepEqual(BAG_MAKES.map((m) => m.from), ['oilcap', 'mimicGlass', 'heartcap', 'stone', 'mothDust', 'snapcapGill', 'gloamberry', 'wood']);
+  assert.deepEqual(BAG_MAKES.map((m) => m.into), ['flask', 'flask', 'potion', 'mortar', 'bagTorch', 'antidote', 'gloamberrySeed', 'workbench']);
 });
 
 test('a recipe shows once each of its parts has been held, and stays after', () => {

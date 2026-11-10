@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.235, Alchemy and cooking, the plan.** The owner's
+  picks (D-785): a mortar and pestle first, an alchemy lab later; fixed
+  recipes; the first potion makes the lantern reach farther; cooking
+  after, at the kitchen fire and at lit campfires. Nothing visible.
 - **2026-11-10, 0.3.234, Day creatures, second: the bunny.** The owner's
   idea and picks (D-784): a shy brown bunny each day at home and in each
   woods room round home; it never bites, hops away within 3 steps, and
