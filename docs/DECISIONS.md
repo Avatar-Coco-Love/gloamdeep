@@ -102,18 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-771 · 2026-11-10 · Alchemy, a station of its own** (the owner's
-picks, recommended, with the owner's addition; changes D-415, D-455;
-opens Q-093) The owner asked if there are enough materials for more
-recipes and kinds of station, such as a mortar and pestle or an
-alchemy lab. There are: 16 finds wait "for crafts later". Alchemy
-becomes its own family and station at home, apart from the kitchen
-fire, which keeps cooking; small things are still made in the bag.
-Its form (a mortar and pestle, an alchemy lab, or both), its recipes
-and the other stations' are open (Q-093). They come after night
-creatures and then day creatures, the owner's order and addition.
-D-769 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-772 · 2026-11-10 · A bow, after the alchemy station** (the owner's
 wish; builds D-457, D-652; opens Q-094) The hero gets a bow for ranged
 attacks, the first ranged weapon, where D-457's example named a sling.
@@ -190,3 +178,16 @@ owner may change: the spear sounds like the knife; bones scattered
 underfoot make no thud, as their rattle is theirs; a miss stays silent
 (D-759). D-768 moves to `archive/DECISIONS-CREATURES-2.md`, word for
 word.
+
+**D-778 · 2026-11-10 · Night creatures, first: lampmoths** (the
+owner's picks, all recommended; builds D-760, D-217) Night creatures
+start with a creature the game has: the lampmoth, so no new way. One
+comes out each night in each woods room round home, never home and
+never a mountain room: once daylight stops lighting the room (halfway
+through dusk), and any still standing are gone once it lights it again
+(halfway through dawn). New night kinds come later, one a step.
+Claude's calls the owner may change: on open grass off the edge, out
+of the hero's sight, picked by the seed and the night; one beaten stays
+beaten till the next night; they go by day without a word; they count
+in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -18,6 +18,8 @@ D-747 to D-749, smooth rock edges, ponds and grass, all built, followed
 at 0.3.204 (D-753), word for word, for the same reason.
 D-733, a bigger surface's plan, all five steps built, followed at
 0.3.207 (D-756), word for word.
+D-771, alchemy, a station of its own, followed at 0.3.228 (D-778),
+word for word, as `docs/DECISIONS.md` neared 12 KB.
 
 ---
 
@@ -508,6 +510,18 @@ full "Your bag is full.", free, the camp keeping its pick; on open
 grass 2 tiles in from the edge, never cutting the room; in an older
 save, its room gets it if never seen, with nothing taken. D-763 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-771 · 2026-11-10 · Alchemy, a station of its own** (the owner's
+picks, recommended, with the owner's addition; changes D-415, D-455;
+opens Q-093) The owner asked if there are enough materials for more
+recipes and kinds of station, such as a mortar and pestle or an
+alchemy lab. There are: 16 finds wait "for crafts later". Alchemy
+becomes its own family and station at home, apart from the kitchen
+fire, which keeps cooking; small things are still made in the bag.
+Its form (a mortar and pestle, an alchemy lab, or both), its recipes
+and the other stations' are open (Q-093). They come after night
+creatures and then day creatures, the owner's order and addition.
+D-769 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 
 **D-764 · 2026-11-09 · Dimmer doorway lines** (the owner's picks, both
 recommended, after a mock-up; changes D-225's brightness) The owner
