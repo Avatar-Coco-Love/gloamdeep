@@ -113,24 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-806 · 2026-11-10 · The Shade Draught, the mortar's sixth recipe**
-(the owner's picks, all recommended; builds D-799) Lurker Claw's first
-use, made at the mortar from 2 Lurker Claw and 1 Duskstar. Drunk from
-the bag, for 60 turns a creature that has not noticed the hero notices
-them only within 2 steps, by light, by line or lurking; one already
-after the hero keeps coming, lampmoths still fly to the lantern and
-spit grubs still spit. Its rules are the Spitproof Draught's (D-802):
-drunk again, back to 60; any time; a night uses its turns and a fall
-ends it; it holds 5; a small mark under the hearts with the turns left.
-Its bottle and mark are dusky violet, the rim lurker's. Others offered:
-2 Lurker Claw and 1 Herb; 3 Lurker Claw; within 1 or 3 steps; chasers
-losing the hero too; grubs spitting only near; smoky grey; deep indigo.
-Claude's calls the owner may change: steps counted the lurker's way, no
-diagonals; its lines ("The dark folds round you.", "The shade lifts
-from you." as it ends); the mortar lists it last; the Lurker Claw's
-look line names it. D-801 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
-
 **D-807 · 2026-11-10 · The Bone Hook** (the owner's picks, all
 recommended; builds D-799, D-614) Rat Bone's first use, made on the
 workbench's BUILD tab from 3 Rat Bone and 1 Spider Silk; one at most.
@@ -182,4 +164,23 @@ is said over the creature's own; its look, a pale bat fang pointing down
 in the charms' copper setting; its other lines ("You make a fang
 charm.", "You put on the fang charm.", "Beaten creatures may mend
 you."); the Bat Fang's look line names it. D-805 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-810 · 2026-11-10 · The Mole Claw Pick** (the owner's picks, all
+recommended; builds D-799, D-480) Mole Claw's first use, the last quick
+one, made on the workbench's BUILD tab from 1 Mole Claw, 2 Wood and 2
+Stone; one at most. A Tool of its own beside the Stone Pick, one in the
+Tool slot at a time, swapped there as the rod is. Held, it does all the
+Stone Pick does, and copper veins and rubble break in half the bumps,
+rounded up: a vein in 2, not 4; rubble in 2, not 3. Other tiles, stone
+heaps among them, take their own. Others offered: stone heaps too;
+veins only; one bump fewer; 1 bump always; the Stone Pick made over
+with the claw, used up; 1 Mole Claw, 1 Copper Ore and 2 Wood; replacing
+the Stone Pick. Claude's calls the owner may change: BUILD lists it
+after the Stone Pick; made with the Tool slot empty it goes straight
+there, the Stone Pick's way; a vein's first bump says its first line,
+the second breaks it; its look, the Stone Pick's handle with a mole's
+pale claw lashed on as its head; its lines ("You make a mole claw
+pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
+bumps."); the Mole Claw's look line names it. D-806 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

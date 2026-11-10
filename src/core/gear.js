@@ -34,6 +34,12 @@ export function withTool(s) {
   return { ...s, tool: s.bag[i].id, bag: s.bag.filter((o, j) => j !== i) };
 }
 
+// § tool at work: whether the Tool slot holds what a tile `needs`, itself or one that works `as` it
+// (the Mole Claw Pick as the Stone Pick, D-810); and the bumps a tile takes, the tool's `quick`
+// count for it, if it has one, else the tile's own `hits`
+export const toolFits = (state, needs) => !!state.tool && (state.tool === needs || get(state.tool)?.as === needs);
+export const bumpsFor = (state, tileId, hits) => (state.tool && get(state.tool)?.quick?.[tileId]) || hits;
+
 // § take off: Take off on gear slot g (the Weapon's or the Tool's) puts its piece back in the
 // bag with its `away` line, free: no turn passes (D-553, D-554). With no room, "Your bag is
 // full." and it stays. Worn pieces can't come off (D-484): their slots have no `key`.

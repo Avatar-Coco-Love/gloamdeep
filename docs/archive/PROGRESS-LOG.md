@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.253, The Bone Hook.** The owner's picks (D-807):
+  the workbench's BUILD tab, 3 Rat Bone and 1 Spider Silk; FIT ties it
+  to the rod for good, and the strike meter's zone is half again as wide.
+  Playtest: https://claude.ai/artifact/DurKfNfgwi6y76ePo7hn9T
 - **2026-11-10, 0.3.252, The Shade Draught.** The owner's picks
   (D-806): the mortar's sixth recipe, 2 Lurker Claw and 1 Duskstar; for
   60 turns creatures notice the hero only within 2 steps, chasers still

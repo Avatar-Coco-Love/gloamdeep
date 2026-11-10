@@ -294,4 +294,11 @@ export const ITEMS = {
   // (fishing.js), and the rod is drawn with it.
   boneHook: { id: 'boneHook', kind: 'item', name: 'Bone Hook', bag: true, max: 1, look: 'boneHookLook', full: 'boneHookFull',
     bench: { of: { ratBone: 3, spiderSilk: 1 }, says: 'boneHookMake', short: 'boneHookShort' }, part: { slot: 'hook', on: 'rod', wide: 1.5 }, fits: 'boneHookFit' },
+  // The Mole Claw Pick (D-810), the Mole Claw's first use (D-799): made on the workbench's BUILD
+  // tab, never found, the Stone Pick's way. A `tool` that works `as` the Stone Pick, so it breaks
+  // copper veins too; held, the tiles in `quick` break in that many bumps, half, rounded up.
+  // Both picks may be carried, one in the Tool slot at a time, swapped there as the rod is.
+  moleClawPick: { id: 'moleClawPick', kind: 'item', name: 'Mole Claw Pick', bag: true, max: 1, tool: true, as: 'pick', quick: { vein: 2, rubble: 2 },
+    holds: 'moleClawPickHold', away: 'moleClawPickAway', look: 'moleClawPickLook', full: 'moleClawPickFull',
+    bench: { of: { moleClaw: 1, wood: 2, stone: 2 }, says: 'moleClawPickMake', short: 'moleClawPickShort' } },
 };

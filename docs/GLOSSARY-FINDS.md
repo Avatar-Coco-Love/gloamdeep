@@ -65,7 +65,7 @@ neared 8 KB.
   Heart, Gloam Eye (D-453, D-454). All eight are in the game (D-474
   to D-476). The cave spider's Spider Silk is the ninth (D-535);
   the bat's Bat Wing and rare Bat Fang the tenth and eleventh (D-537);
-  the mole's Mole Fur and rare Mole Claw the twelfth and thirteenth (D-541);
+  the mole's Mole Fur and rare Mole Claw, for the Mole Claw Pick (D-810), the twelfth and thirteenth (D-541);
   the snapcap's Snapcap Gill the fourteenth (D-543); the herb mimic's Mimic
   Leaf the fifteenth (D-549); the bone rat's Rat Bone, for the Bone Hook (D-807), the sixteenth (D-551);
   the oil tick's Tick Shell and rare Oil Bladder the seventeenth and eighteenth (D-606);
@@ -91,6 +91,8 @@ neared 8 KB.
 - **Stone Pick:** the first pick, made at the workbench, held in the
   Tool slot, where it breaks copper (D-480, D-552); one waits at the
   miners' camp (D-770).
+- **Mole Claw Pick:** made at the workbench from 1 Mole Claw, 2 Wood and
+  2 Stone; held, it works as the Stone Pick, copper veins and rubble in 2 bumps (D-810).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
 - **Bone Hook:** made at the workbench from 3 Rat Bone and 1 Spider Silk,

@@ -31,6 +31,7 @@ import { sleep } from './sleep.js';
 import { fangMend } from './fang.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
+import { toolFits, bumpsFor } from './gear.js';
 import { bumpWater } from './fishing.js';
 import { fallen } from './bones.js';
 import { misses } from './stiff.js';
@@ -233,11 +234,13 @@ function lightTorch(state, x, y) {
 // Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
 // cracks, before that, stay until it breaks.
 // Each bump is a `chip` event, and the drops a `take`. One that `needs` a tool (a
-// copper vein, the pick, D-480) is bumped only with it in the Tool slot (D-552);
-// without, its `hard` line, free.
+// copper vein, the pick, D-480) is bumped only with it in the Tool slot (D-552),
+// or one that works `as` it (D-810); without, its `hard` line, free. A tool `quick`
+// on the tile breaks it in its own count of bumps (bumpsFor, D-810).
 function mine(state, x, y) {
-  const tile = tileAt(state.room, x, y), { hits, chips, drops, n: count = 1, breaks, full, leaves = 'floor', needs, hard } = tile.mine;
-  if (needs && state.tool !== needs) return say(state, hard);
+  const tile = tileAt(state.room, x, y), { chips, drops, n: count = 1, breaks, full, leaves = 'floor', needs, hard } = tile.mine;
+  if (needs && !toolFits(state, needs)) return say(state, hard);
+  const hits = bumpsFor(state, tile.id, tile.mine.hits);
   const key = `${x},${y}`, n = (state.room.chips?.[key] ?? 0) + 1;
   const { [key]: was, ...rest } = state.room.chips ?? {};
   if (n < hits) {
