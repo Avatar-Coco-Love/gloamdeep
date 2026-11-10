@@ -141,8 +141,18 @@ const BUNNY = { mirror: false, rows: [
 // § bunny fur: the mole fur's tuft (D-541) in the bunny's lighter brown, pale at the tips (D-784)
 const BUNNY_FUR = { mirror: false, rows: MOLE_FUR.rows.map((r) => r.replace(/[WNn]/g, (c) => ({ W: 'w', N: 'W', n: 'N' })[c])) };
 
+// § skulker crab: look B of its mock-up (D-796), the loose stone (D-761) lifted on rust legs: a
+// stony grey shell, two rust claws and pink eyes on stalks
+const SKULKER_CRAB = { mirror: false, rows: [
+  '', '', '', '', '', '.....k....k.....', '....kpk..kpk....', '.....k.kk.k.....', '..kk..kHHk..kk..', '.kzzk.kHLLk.kzzk',
+  '.kzUkkHLLLMkkzUk', '..kkkLLLMMDkkk..', '....kMMMMDDk....', '...kkDDDDDDkk...', '..kUk.kUkU.kUk..', '.kU..k.kk.k..Uk.'] };
+// § crab shell: a cracked half of its stony grey shell, lying open, a rust rim (D-796)
+const CRAB_SHELL = { mirror: false, rows: [
+  '', '', '', '', '', '', '', '', '......kkkk......', '....kkHHLLkk....', '...kHLLLLMMMk...', '..kLLLLxMMMDDk..',
+  '..kMMMxMMMDDDk..', '..kzzzzzzzzzUk..', '...kkkkkkkkkk...'] };
+
 export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
-  BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR,
+  BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR, SKULKER_CRAB, CRAB_SHELL,
 };

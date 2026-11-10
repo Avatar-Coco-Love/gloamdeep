@@ -223,6 +223,8 @@ export const ITEMS = {
   locket: { id: 'locket', kind: 'item', relic: true, name: 'Lightkeeper\'s Locket', bag: true, max: 1, says: 'locketTake', look: 'locketLook', full: 'locketFull' },
   // A beaten bunny's fur, about 1 in 2 (D-784), for crafts later, sold as the other furs are
   bunnyFur: { id: 'bunnyFur', kind: 'item', name: 'Bunny Fur', bag: true, max: 20, says: 'bunnyFurTake', look: 'bunnyFurLook', full: 'bunnyFurFull', sells: 1 },
+  // A beaten skulker crab's shell, about 1 in 2 (D-796), for crafts later, sold as the furs are
+  crabShell: { id: 'crabShell', kind: 'item', name: 'Crab Shell', bag: true, max: 20, says: 'crabShellTake', look: 'crabShellLook', full: 'crabShellFull', sells: 1 },
   // The Glow Draught (D-786, D-791): made at the mortar from 2 Duskstar and 1 Wisp Glass, never
   // found; Drink, in the bag, any time: the lantern's light reaches `glow.reach` tile farther for
   // `glow.turns` turns, added to Wide Glow's, none while the lantern is empty (glow.js)

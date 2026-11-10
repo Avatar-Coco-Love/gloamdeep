@@ -150,19 +150,6 @@ prompts are each in their own fenced code block, never an inline list
 (the owner's correction, D-790). D-784 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-793 · 2026-11-10 · Day creatures, third: the rare herb mimic**
-(the owner's picks, from the herb mimic, scorpion and centipede, as a
-rare one, recommended; builds D-784) Each day the seed and the day pick
-one of the 5 woods rooms round home, and a herb mimic comes out there
-beside that room's mole and bunny, with the day creatures' rules
-(D-781); never home. Day matches night: two that come each day, one
-rare. It acts and leaves finds as it does below. Claude's calls the
-owner may change: it comes out asleep, looking like a herb, on open
-grass 4 steps or more from the hero; it may pick the same room two days
-running; it never shares a tile with the others. The owner also wants
-brand-new kinds of creature, not only ones from below (Q-076). D-785
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-794 · 2026-11-10 · The Mending Draught, the mortar's third recipe**
 (the owner's picks, all recommended, from a Mending Draught, a Ward
 Draught against poison, or both in turn; narrows Q-093) The Mending
@@ -195,3 +182,21 @@ mortar lists it after the Mending Draught. The handoff's copyable next
 prompts are given once, after the owner merges, not also before (the
 owner's request; changes D-790). D-787 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-796 · 2026-11-10 · The skulker crab, the mountain rooms' first
+creature** (the owner's picks, all recommended; answers part of Q-076; mock-up:
+https://claude.ai/artifact/GVg8chN5wsic1iZR58aQ3n)
+A brand-new creature, the skulker crab, from the Q-076 list. It never
+moves and bites whoever stands beside it, the snapcap's way (D-543),
+and looks like a loose stone until the hero is beside it. Look B of its
+mock-up: a stony grey shell, rust legs and claws, pink eyes on stalks.
+2 hearts, a bite of 1; beaten, it may drop a Crab Shell, about 1 in 2,
+for crafts later. One comes out each day in each of the 3 mountain
+rooms, with the day creatures' rules (D-781); nothing there by night,
+never underground. Others offered: by night, in the woods or below; a
+mountain goat, shy as the bunny; a rock lizard with the rat's ways; a
+rare one; two a room; looks A (all grey) and C (eyes and teeth); 3 or 1
+hearts; a Crab Claw. Claude's calls the owner may change: its lines (a
+pinch, not a bite); it has no sound of its own; the Crab Shell holds
+20 and sells for 1. D-793 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

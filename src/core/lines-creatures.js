@@ -103,6 +103,12 @@ export const CREATURE_LINES = {
   bunnyFurTake: { texts: ['You pick up the bunny fur.', 'Soft and warm, pale at the tips.', 'The bunny fur goes in your bag.'], warn: false }, // (D-784)
   bunnyFurLook: { texts: ['Bunny fur, for crafting later.', 'Soft brown fur, pale at the tips.', 'It smells of grass.'], warn: false },
   bunnyFurFull: { text: "You can't carry more bunny fur.", warn: false },
+  skulkerCrabHurt: { text: 'The skulker crab clicks.', warn: false }, // it never moves (D-796)
+  skulkerCrabDie: { text: 'The skulker crab cracks open.', warn: false },
+  skulkerCrabBite: { text: 'The skulker crab pinches you.', warn: false, kind: 'harm' },
+  crabShellTake: { texts: ['You pick up the crab shell.', 'Stony grey, rough as rock.', 'The crab shell goes in your bag.'], warn: false }, // (D-796)
+  crabShellLook: { texts: ['A crab shell, for crafting later.', 'It looks just like a stone.', 'Hard and light, hollow inside.'], warn: false },
+  crabShellFull: { text: "You can't carry more crab shells.", warn: false },
   batGuanoTake: { texts: ['You scoop up the guano.', 'You bag a handful of guano.', 'It crumbles as you lift it.'], warn: false }, // (D-540)
   batGuanoLook: { texts: ['Bat guano. It smells sharp.', 'Dry and crumbly, it reeks.', 'Gardeners prize this.'], warn: false },
   batGuanoFull: { text: "You can't carry more guano.", warn: false },

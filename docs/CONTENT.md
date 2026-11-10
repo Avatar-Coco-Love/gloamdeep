@@ -32,6 +32,7 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `spitGrub` | 1 | 1 | spits: never moves or bites; at the lit lantern down a clear row or column, up to 5 tiles, a glob flying a tile a turn, then rests 2 turns; `glows` | the pool from depth 4 | D-659, D-688 |
 | `warden` | 4 | 1 | chases, once bumped awake; `sleeps` as itself, a statue with dull eyes, then stands still again after 6 turns; an old stone guard of Underhearth | beside the locket only, never the pool | D-692 |
 | `bunny` | 1 | 0 | shy: within 3 steps of the hero it hops a tile away, just away, never toward another creature; never bites; soft brown, the first creature that means no harm | never underground; on the surface, one each day in the home room and in each woods room round home, gone by night | D-784 |
+| `skulkerCrab` | 2 | 1 | none, so it never moves and pinches whoever stands beside it; drawn `shutAs` a loose stone until the hero is beside it; a stony grey shell, rust legs and claws | never underground; on the surface, one each day in each mountain room, gone by night | D-796 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
