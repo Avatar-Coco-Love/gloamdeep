@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.241 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.242 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The mortar's third recipe (Q-093), or a brand-new creature (Q-076),
-the owner's pick.
+A brand-new creature (Q-076), or the Ward Draught against poison, or
+the alchemy lab (Q-093), the owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.242, The Mending Draught.** The owner's picks
+  (D-794): the mortar's third recipe, from 2 Mimic Leaf and 1 Herb;
+  drunk, a heart every 15 turns for 60 turns, 4 in all, with the Glow
+  Draught's rules and a moss green mark.
+  Playtest: https://claude.ai/artifact/4FKPbiqYhJiSjfDYmdqe2D
 - **2026-11-10, 0.3.241, The rare herb mimic.** The owner's picks
   (D-793): the third day creature, a herb mimic asleep as a herb in one
   woods room round home a day, picked by the seed; the owner wants
@@ -55,9 +60,3 @@ list in `RESEARCH.md`.
   70 turns, not 60, for 60 turns, with the Glow Draught's rules and an
   amber mark; the Glow Draught's DRINK no longer dim at full health.
   Playtest: https://claude.ai/artifact/U3tjteJv4bFdjfEqkDEWZQ
-- **2026-11-10, 0.3.239, The Glow Draught.** The owner's picks (D-791):
-  made at the mortar from 2 Duskstar and 1 Wisp Glass; drunk, the
-  lantern 1 tile farther for 60 turns, back to 60 if drunk again; a gold
-  bottle mark with the turns left; any time, the turns running on; the
-  two finds' cards say "Makes a Glow Draught at the mortar".
-  Playtest: https://claude.ai/artifact/NXKBeSAENPN1eF9Qo8VHLG

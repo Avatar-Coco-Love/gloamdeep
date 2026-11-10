@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.239, The Glow Draught.** The owner's picks (D-791):
+  made at the mortar from 2 Duskstar and 1 Wisp Glass; drunk, the
+  lantern 1 tile farther for 60 turns, back to 60 if drunk again; a gold
+  bottle mark with the turns left; any time, the turns running on; the
+  two finds' cards say "Makes a Glow Draught at the mortar".
+  Playtest: https://claude.ai/artifact/NXKBeSAENPN1eF9Qo8VHLG
 - **2026-11-10, 0.3.238, The Mortar and Pestle.** The owner's picks
   (D-789): made on the bag's Make tab from 4 Stone and 1 Wood, set down
   at home like the bed; bumped any time, the workbench's card as MORTAR,

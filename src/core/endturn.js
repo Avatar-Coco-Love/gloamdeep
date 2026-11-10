@@ -13,6 +13,7 @@ import { fishTurn } from './fishing.js';
 import { stiffTick } from './stiff.js';
 import { glowTick } from './glow.js';
 import { slowTick } from './slowburn.js';
+import { mendTick } from './mending.js';
 import { meet } from './bestiary.js';
 import { learn } from './bagmake.js';
 import { poisonTick } from './poison.js';
@@ -41,7 +42,7 @@ export const endTurn = (before, cast) => {
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
-  const ticked = poisonTick(stiffTick(slowTick(glowTick(done)))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792)
+  const ticked = poisonTick(mendTick(stiffTick(slowTick(glowTick(done))))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792); the Mending Draught's heart comes before poison's (mending.js, D-794)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : packWarns(before, enemiesAct(leaveByLight(ticked))); // night or day creatures gone with the light leave first, so none bites on waking (D-783, B2); a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
   const next = grow(burnOut(nightfall(regrow(acted, moved)), moved)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)

@@ -104,3 +104,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Check that the game can answer a rule before the owner picks it: "shown once held" (D-418) needed a memory of held finds the save didn't have, asked about only at the build (0.3.237).
 - A rule the owner asked for in an earlier conversation can be lost if no PR wrote it down: the copyable next prompts were asked for before but never reached the handoff rule, so write a request into the docs in the same PR (0.3.238).
 - Read the handoff rule before writing a handoff, even in a proposal-only reply: the next prompts went out as an inline list, not one fenced block each, and the owner had to ask again (0.3.240).
+- Options offered and not picked are worth keeping in the decision: D-792 named the Ward and Mending Draughts, so the next recipe's choices were ready without searching (0.3.242).

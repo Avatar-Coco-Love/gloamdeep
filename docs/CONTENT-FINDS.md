@@ -28,7 +28,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `batWing` | for crafts later | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
-| `mimicLeaf` | for crafts later | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
+| `mimicLeaf` | 2 with 1 Herb make the Mending Draught at the mortar (D-794) | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | for crafts later | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
 | `tickShell` | 2 with 1 Oilcap make Slowburn at the mortar (D-792) | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
@@ -43,6 +43,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `bunnyFur` | for crafts later; sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
 | `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
 | `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
+| `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Herb | D-794 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,

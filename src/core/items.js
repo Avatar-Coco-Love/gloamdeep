@@ -235,4 +235,10 @@ export const ITEMS = {
   slowburn: { id: 'slowburn', kind: 'item', name: 'Slowburn', bag: true, max: 5, look: 'slowburnLook', full: 'slowburnFull',
     eats: 'slowburnDrink', verb: 'DRINK', slow: { burn: 6 / 7, turns: 60 },
     bench: { of: { tickShell: 2, oilcap: 1 }, says: 'slowburnMake', short: 'slowburnShort' } },
+  // The Mending Draught (D-794): made at the mortar from 2 Mimic Leaf and 1 Herb, never found;
+  // Drink, in the bag, any time: for `mend.turns` turns a heart every `mend.every`, 4 in all,
+  // never above full (mending.js)
+  mendingDraught: { id: 'mendingDraught', kind: 'item', name: 'Mending Draught', bag: true, max: 5, look: 'mendingLook', full: 'mendingFull',
+    eats: 'mendingDrink', verb: 'DRINK', mend: { every: 15, turns: 60 },
+    bench: { of: { mimicLeaf: 2, herb: 1 }, says: 'mendingMake', short: 'mendingShort' } },
 };

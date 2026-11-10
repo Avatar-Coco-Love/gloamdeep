@@ -17,7 +17,7 @@ const FIRST = { mothDust: ['You gather the moth dust.', 'Moth dust, good for mak
   batWing: ['You pick up the bat wing.', 'A bat wing, for crafting later.', "You can't carry more bat wings."],
   moleFur: ['You pick up the mole fur.', 'Mole fur, good for making things.', "You can't carry more mole fur."],
   snapcapGill: ['You pick up the snapcap gill.', 'A snapcap gill, good for making things.', "You can't carry more snapcap gills."],
-  mimicLeaf: ['You pick up the mimic leaf.', 'A mimic leaf, for crafting later.', "You can't carry more mimic leaves."] };
+  mimicLeaf: ['You pick up the mimic leaf.', 'A mimic leaf, good for making things.', "You can't carry more mimic leaves."] };
 // The hero at 5,11 and the creature one hit from beaten on 5,10, one step up.
 const beat = (id, seed, s = makeState(room)) => step({ ...s, seed, hero: { x: 5, y: 11 }, items: [],
   enemies: [{ id, x: 5, y: 10, health: 1, chasing: true }] }, 'up');

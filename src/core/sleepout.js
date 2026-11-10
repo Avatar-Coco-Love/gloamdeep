@@ -13,6 +13,7 @@ import { creatureList } from './creatureturn.js';
 import { stiffen } from './stiff.js';
 import { glowSlept } from './glow.js';
 import { slowSlept } from './slowburn.js';
+import { mendSlept } from './mending.js';
 
 // A creature is after the hero: one chasing, even in the dark, or one seen that has noticed them
 export const chased = (state) => state.enemies.some((e) => e.chasing && !e.asleep && !e.pile) || creatureList(state).length > 0;
@@ -23,6 +24,6 @@ export const canSleepOut = (state) => !!state.room.dark.sky && tired(state) && !
 export function sleepOut(state) {
   if (!canSleepOut(state)) return state;
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const woke = endTurn(state, say(note(fresh({ ...slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), 'sleepOut')); // the night uses the Glow Draught's and Slowburn's turns (D-792, D-791)
+  const woke = endTurn(state, say(note(fresh({ ...mendSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), 'sleepOut')); // the night uses the Glow Draught's, Slowburn's and the Mending Draught's turns (D-794, D-792, D-791)
   return woke.fell !== state.fell ? woke : stiffen(woke); // stiff from waking, its count whole, unless poison took the last heart (D-759)
 }
