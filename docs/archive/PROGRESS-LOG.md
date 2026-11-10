@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.224, Grass steps, the first sound file.** The
+  owner's picks (D-774), by ear from a board: Kenney's grass step, on
+  the surface only, at a quarter loudness; the metal click next for the
+  lantern. ObsydianX's interface pack kept whole. Playtest: https://claude.ai/artifact/NQG8jGfQLEoTky3DZAsB3i
+  Sound board: https://claude.ai/artifact/Stde3DZoQbHoJJQiJr8Uwa
 - **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
   (D-773): sound files from Kenney's free packs; all 15 old sounds
   wiped, so the game is silent; every sound needed listed in
