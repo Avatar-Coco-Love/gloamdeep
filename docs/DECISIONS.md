@@ -113,23 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-808 · 2026-11-10 · The Glow Lamp** (the owner's picks, all
-recommended; builds D-799, D-478) Glow Gland's first use, made in the
-bag (Make on the Glow Gland) from 1 Glow Gland and 1 Wood, as a torch
-is; 5 a stack. Set down the torch's way, anywhere, on the same stone
-foot: it lights 3 tiles in the gland's soft green, steady, no flicker,
-for 300 turns, then goes dark, leaving bare floor; it can't be picked
-back up. Others offered: the bench's BUILD tab from 1 Glow Gland and 1
-Copper Ore; 1 Glow Gland, 1 Moth Dust and 1 Wood; 200 turns; never
-going out; the torch's orange; green, 4 tiles; picked back up by a bump.
-Claude's calls the owner may change: its look, the gland in a small
-copper cup on the torch's stick, in its ring of stones, drawn bright
-with no embers; lampmoths and bats fly to it as to any light; it counts
-in no Torches feat; its lines ("You make a glow lamp.", "You set down
-the glow lamp.", "Your glow lamp goes dark."); the Glow Gland's look line
-names it. D-803 and D-804 move to `archive/DECISIONS-SURFACE.md`, and
-the lights' table to `CONTENT-2.md`, word for word.
-
 **D-809 · 2026-11-10 · The Fang Charm** (the owner's picks, all
 recommended; builds D-799) Bat Fang's first use, made on the
 workbench's GEAR tab from 1 Bat Fang and 1 Copper Ore, as the other
@@ -181,4 +164,20 @@ the most times it can be bought and its look, and one record in the
 save of what was bought, older saves keeping their hearts, Tough and
 Steady Wick (offered too: each upgrade its own entry, as before); then
 the twigs; then the Hands upgrade. D-807 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-812 · 2026-11-10 · The Growth tree's twigs** (the owner's picks, all
+recommended, from a page of mock-ups:
+https://claude.ai/artifact/9U2gRwJi4C88wFJKev2RWU; builds D-811) The
+tree's look A: each row a twig across the three limbs, its number dim at
+the left; a branch's upgrades small picture tiles side by side; a bought
+tile's picture lit and its frame faintly gold; the heart a heart with
+how many are bought in its corner; one lock tile a limb on the locked
+row. A dashed "to come" tile only where a limb has nothing yet (offered
+too: a spare on every limb; none). The arrows read a row: Left and Right
+walk its tiles across the limbs, Up and Down change row on the same
+limb; past a row's ends, Records and the Bestiary (offered too: limb by
+limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
+a small screen; the tree scrolls by a swipe or the wheel and follows
+the pick, a small arrow where rows are hidden. D-808 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

@@ -947,3 +947,20 @@ one rod; its look, a rat bone bent into a J; its lines ("You make a bone
 hook.", "You tie the bone hook to your rod.", "A bone hook, for your
 rod."); the Rat Bone's look line names it. D-802 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-808 · 2026-11-10 · The Glow Lamp** (the owner's picks, all
+recommended; builds D-799, D-478) Glow Gland's first use, made in the
+bag (Make on the Glow Gland) from 1 Glow Gland and 1 Wood, as a torch
+is; 5 a stack. Set down the torch's way, anywhere, on the same stone
+foot: it lights 3 tiles in the gland's soft green, steady, no flicker,
+for 300 turns, then goes dark, leaving bare floor; it can't be picked
+back up. Others offered: the bench's BUILD tab from 1 Glow Gland and 1
+Copper Ore; 1 Glow Gland, 1 Moth Dust and 1 Wood; 200 turns; never
+going out; the torch's orange; green, 4 tiles; picked back up by a bump.
+Claude's calls the owner may change: its look, the gland in a small
+copper cup on the torch's stick, in its ring of stones, drawn bright
+with no embers; lampmoths and bats fly to it as to any light; it counts
+in no Torches feat; its lines ("You make a glow lamp.", "You set down
+the glow lamp.", "Your glow lamp goes dark."); the Glow Gland's look line
+names it. D-803 and D-804 move to `archive/DECISIONS-SURFACE.md`, and
+the lights' table to `CONTENT-2.md`, word for word.
