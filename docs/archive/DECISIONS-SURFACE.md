@@ -28,6 +28,8 @@ D-785, alchemy and cooking's shape, followed at 0.3.241 (D-793), word
 for word, for the same reason.
 D-786, the mortar and pestle and the Glow Draught, built, followed at
 0.3.242 (D-794), word for word, for the same reason.
+D-787, the bag's Make tab, built, followed at 0.3.243 (D-795), word for
+word, for the same reason.
 
 ---
 
@@ -640,3 +642,15 @@ kept: the names; the draught is the red potion's bottle in the
 lantern's gold and holds 5; the mortar bumped opens a card listing what
 it makes. Built in steps: the Make tab, then the mortar, then the
 draught.
+
+**D-787 · 2026-11-10 · The bag's Make tab** (the owner's idea, from the
+mortar's step; the owner's picks, from a mock-up, same link as D-786)
+The bag card gets two tabs, BAG and MAKE, in its title row. Make shows
+the recipes made in the bag in a grid like the workbench card's: a
+recipe shows once each of its parts has been held (D-418) and stays
+after, its cost counted from the bag, MAKE dim when short. A find's MAKE
+on the Bag tab stays, and opens the Make tab with its recipe chosen
+(its first, if it is in several). Above that button a line shows what
+it makes: the result's picture and "Makes a Flask" (look A of three).
+This lets a find be in more than one recipe. The first step adds the tab
+with today's bag recipes only.

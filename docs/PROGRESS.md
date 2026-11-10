@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.242 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.243 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-A brand-new creature (Q-076), or the Ward Draught against poison, or
-the alchemy lab (Q-093), the owner's pick.
+A brand-new creature (Q-076), or the alchemy lab (Q-093), the
+owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.243, The Ward Draught.** The owner's picks
+  (D-795): the mortar's fourth recipe, from 2 Centipede Leg and 1 Herb;
+  drunk, it ends poison and no bite poisons for 60 turns, with the Glow
+  Draught's rules and a pale green-white mark; next prompts only after
+  the merge.
+  Playtest: https://claude.ai/artifact/9ZBaRxt4pJUPrVtkXoyCku
 - **2026-11-10, 0.3.242, The Mending Draught.** The owner's picks
   (D-794): the mortar's third recipe, from 2 Mimic Leaf and 1 Herb;
   drunk, a heart every 15 turns for 60 turns, 4 in all, with the Glow
@@ -55,8 +61,3 @@ list in `RESEARCH.md`.
   woods room round home a day, picked by the seed; the owner wants
   brand-new creatures too (Q-076).
   Playtest: https://claude.ai/artifact/Ky4bCoH6Gi1RC8wA6DqBYj
-- **2026-11-10, 0.3.240, Slowburn.** The owner's picks (D-792): made
-  at the mortar from 2 Tick Shell and 1 Oilcap; drunk, a full tank lasts
-  70 turns, not 60, for 60 turns, with the Glow Draught's rules and an
-  amber mark; the Glow Draught's DRINK no longer dim at full health.
-  Playtest: https://claude.ai/artifact/U3tjteJv4bFdjfEqkDEWZQ

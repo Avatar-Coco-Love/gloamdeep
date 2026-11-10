@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.240, Slowburn.** The owner's picks (D-792): made
+  at the mortar from 2 Tick Shell and 1 Oilcap; drunk, a full tank lasts
+  70 turns, not 60, for 60 turns, with the Glow Draught's rules and an
+  amber mark; the Glow Draught's DRINK no longer dim at full health.
+  Playtest: https://claude.ai/artifact/U3tjteJv4bFdjfEqkDEWZQ
 - **2026-11-10, 0.3.239, The Glow Draught.** The owner's picks (D-791):
   made at the mortar from 2 Duskstar and 1 Wisp Glass; drunk, the
   lantern 1 tile farther for 60 turns, back to 60 if drunk again; a gold

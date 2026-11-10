@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.243 (2026-11-10)
+- New: the Ward Draught, a pale green-white bottle. Once you have held Centipede Leg and Herb, the mortar makes it from 2 Centipede Leg and 1 Herb. Drink it from your bag and any poison ends at once, and for 60 turns a centipede's bite still hurts but never poisons you. A pale bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
+- Decisions: D-795.
+
 ## 0.3.242 (2026-11-10)
 - New: the Mending Draught, a moss green bottle. Once you have held Mimic Leaf and Herb, the mortar makes it from 2 Mimic Leaf and 1 Herb. Drink it from your bag and it heals you slowly: a heart every 15 turns for 60 turns, 4 in all, never above full. A green bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, giving no hearts then, and a fall ends it.
 - Mimic Leaf now says "good for making things", and its card shows "Makes a Mending Draught at the mortar".
@@ -31,9 +35,3 @@ Entry format:
 ## 0.3.241 (2026-11-10)
 - Day creatures, third: the rare herb mimic. Each day one of the woods rooms round home, picked by your seed, has a herb mimic too, beside its mole and bunny. It sleeps on the grass looking just like a herb, wakes with a bump and chases you, and leaves a Mimic Leaf as it does below. Gone by nightfall like the others.
 - Decisions: D-793.
-
-## 0.3.240 (2026-11-10)
-- New: Slowburn, a bottle dark as lamp oil. Once you have held Tick Shell and Oilcap, the mortar makes it from 2 Tick Shell and 1 Oilcap. Drink it from your bag and your lantern burns slower for 60 turns: a full tank lasts 70 turns, not 60, on top of the Heart Charm. An amber bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while your lantern is empty or you sleep, and a fall ends it.
-- Tick Shell now says "good for making things", and its card shows "Makes a Slowburn at the mortar".
-- Fixed: the Glow Draught's DRINK button looked dim at full health, though it could always be drunk.
-- Decisions: D-792.

@@ -525,6 +525,9 @@ const GLOW_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, '
 const SLOWBURN = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'O').replace(/R/g, 'N')) };
 // § mending draught: the same bottle in the moss's green, light and shade (D-794)
 const MENDING_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'g').replace(/R/g, 'G')) };
+// § ward draught: the same bottle in pale green-white, light and shade, its own colours (D-795)
+const WARD_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'l').replace(/R/g, 'm')) };
+const WARD_COLOURS = { l: '#dcf0d4', m: '#8fb898' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -555,4 +558,6 @@ export {
   GLOW_DRAUGHT,
   SLOWBURN,
   MENDING_DRAUGHT,
+  WARD_DRAUGHT,
+  WARD_COLOURS,
 };

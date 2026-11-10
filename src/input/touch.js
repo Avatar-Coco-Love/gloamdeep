@@ -14,10 +14,11 @@ import { stiffLeft } from '../core/stiff.js';
 import { glowLeft } from '../core/glow.js';
 import { slowLeft } from '../core/slowburn.js';
 import { mendLeft } from '../core/mending.js';
+import { wardLeft } from '../core/ward.js';
 
 export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt, ALERT_MS, openQuests }) {
   // § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
-  // name and its card's line, or poisoned's turns left (D-654), or stiff's (D-759), or the Glow Draught's (D-791), or Slowburn's (D-792), or the Mending Draught's (D-794); no turn passes
+  // name and its card's line, or poisoned's turns left (D-654), or stiff's (D-759), or the Glow Draught's (D-791), or Slowburn's (D-792), or the Mending Draught's (D-794), or the Ward Draught's (D-795); no turn passes
   const tellMark = (picX, picY) => {
     const id = frame.markSpot(...toLayer([picX, picY])), b = BOONS[id];
     if (id === 'poisoned') app.state = say(app.state, 'poisonHeld', poisonLeft(app.state)); // its turns left (D-654)
@@ -25,6 +26,7 @@ export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt,
     else if (id === 'glow') app.state = say(app.state, 'glowHeld', glowLeft(app.state)); // its turns left (D-791)
     else if (id === 'slowburn') app.state = say(app.state, 'slowHeld', slowLeft(app.state)); // its turns left (D-792)
     else if (id === 'mending') app.state = say(app.state, 'mendHeld', mendLeft(app.state)); // its turns left (D-794)
+    else if (id === 'ward') app.state = say(app.state, 'wardHeld', wardLeft(app.state)); // its turns left (D-795)
     else if (b) app.state = say(app.state, 'boonHeld', `${b.name}: ${b.words}`);
   };
   let hovered = null; // the mark under the mouse, said once as it comes onto it

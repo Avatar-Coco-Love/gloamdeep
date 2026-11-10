@@ -86,18 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-787 · 2026-11-10 · The bag's Make tab** (the owner's idea, from the
-mortar's step; the owner's picks, from a mock-up, same link as D-786)
-The bag card gets two tabs, BAG and MAKE, in its title row. Make shows
-the recipes made in the bag in a grid like the workbench card's: a
-recipe shows once each of its parts has been held (D-418) and stays
-after, its cost counted from the bag, MAKE dim when short. A find's MAKE
-on the Bag tab stays, and opens the Make tab with its recipe chosen
-(its first, if it is in several). Above that button a line shows what
-it makes: the result's picture and "Makes a Flask" (look A of three).
-This lets a find be in more than one recipe. The first step adds the tab
-with today's bag recipes only.
-
 **D-788 · 2026-11-10 · The Make tab's details** (the owner's picks, all
 recommended; builds D-787) The game remembers every find ever in the bag
 (`known` in the save); an older save starts it from what is in its bag
@@ -124,7 +112,8 @@ Stone and Wood have been held. Claude's call: the tile's letter `e`.
 **D-790 · 2026-11-10 · Copyable next prompts** (the owner's request)
 Each PR's handoff ends, before merging, with a few short prompts the
 owner can copy to pick the next direction, one per choice, or a single
-one when there is only one way on (`PR-CHECKLIST.md`).
+one when there is only one way on (`PR-CHECKLIST.md`). When they are
+given changed by D-795 (2026-11-10): once, after the merge.
 
 **D-791 · 2026-11-10 · The Glow Draught's details** (the owner's picks,
 all recommended; builds D-786) Drunk again while it works, its time goes
@@ -187,4 +176,22 @@ bottle in moss green, its mark too; a night's turns give no hearts; its
 heart comes before poison's in a turn; its lines ("The warmth fades."
 as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
 then shows "Makes a Mending Draught at the mortar". D-786 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-795 · 2026-11-10 · The Ward Draught, the mortar's fourth recipe**
+(the owner's picks, all recommended; narrows Q-093) The Ward Draught is
+made at the mortar from 2 Centipede Leg and 1 Herb. Drunk from the bag,
+it ends poisoned at once, and for 60 turns a bite that hurts never
+leaves the hero poisoned. Its rules are the Glow Draught's (D-791):
+drunk again, back to 60; any time, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Its bottle and mark are a pale green-white, apart from
+poison's sick green and the Mending Draught's moss. Others offered: a
+ward only, no cure; poison milder, as the Centipede Charm; 1 Venom Sac
+and 1 Herb; 2 Stinger and 1 Snapcap Gill; pale blue; bone white.
+Claude's calls the owner may change: its lines ("The ward wears off."
+as it ends); a bite on the turn it is drunk is cured with the rest; the
+mortar lists it after the Mending Draught. The handoff's copyable next
+prompts are given once, after the owner merges, not also before (the
+owner's request; changes D-790). D-787 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
