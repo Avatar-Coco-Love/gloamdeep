@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.220, A dead lamppost.** The owner's picks, all
+  recommended (D-769): the first landmark, an old crook lamppost gone
+  cold (look B), one a seed outside home, never the campfire's room;
+  bumped, it speaks. The miners' camp comes next. Playtest: https://claude.ai/artifact/SX8v3mURFHmL2rHb6XcqcG
+  Map preview: https://claude.ai/artifact/CCaEX7HbiHMYrnHxfL9tSj
 - **2026-11-10, 0.3.219, A note for bosses.** Docs only. The owner
   noticed a sting or glob landing a boss's last blow would lose its
   rewards; noted under Q-083 with three options, asked at that step.

@@ -122,3 +122,9 @@ creatures, then day creatures (the owner's addition, all open).
 reach, how a shot is aimed by touch, mouse and keys, whether it needs
 arrows and where they come from, where it is made or found, its look
 and sound. After the alchemy station (Q-093).
+
+**Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: which
+Kenney packs and which file for each line of `docs/SOUNDS.md`; the
+sounds marked "Maybe" there (footsteps by ground, sounds all around,
+music, an oil warning, a heartbeat); the folder and file format; where
+the credits show; whether a sound is cached for playing offline.

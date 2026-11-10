@@ -56,7 +56,7 @@ themselves. Each kind also touches:
   `src/render/pictures.js` (D-617), its sprite in `src/render/sprites.js`, added to `SPRITES` and to `FLASHES` (the hit
   flash), and to `COLOURS` with a registry `colours` count if it has colour sets (D-373); where it lives in `src/core/room.js` (its `POOL` entry, like `{ id: 'lampmoth', from: 2 }`; a mimic through `mimicRooms`) or
   `src/core/cave.js`; a sound, if its own, in `src/render/sound.js` (and
-  the sound board). Only a new way touches `src/core/behaviours.js` and
+  the sound board, and its line in `docs/SOUNDS.md`, D-773). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
 - **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,
   what it does); its lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`;

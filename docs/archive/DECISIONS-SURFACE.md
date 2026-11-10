@@ -508,3 +508,10 @@ full "Your bag is full.", free, the camp keeping its pick; on open
 grass 2 tiles in from the edge, never cutting the room; in an older
 save, its room gets it if never seen, with nothing taken. D-763 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-764 · 2026-11-09 · Dimmer doorway lines** (the owner's picks, both
+recommended, after a mock-up; changes D-225's brightness) The owner
+found the pale blue doorway lines too bright. In the game they are now
+about half as bright: they pulse from 30% to 50% strength, steady at
+45% with reduced motion. The fainter inner line stays 40% of the bright
+one. The map's doorway squares stay as they were.

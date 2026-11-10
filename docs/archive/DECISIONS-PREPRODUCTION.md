@@ -17,7 +17,7 @@ the name reminds them of playing Dungeon Siege as a kid.
 In the owner's words: a "grid based, survival, action, turn-based, strategy"
 tiny RPG.
 
-**D-003 · 2026-10-17 · Platform and technology**
+**D-003 · 2026-10-17 · Platform and technology** *No external assets changed by D-773 (2026-11-10): sound files are allowed.*
 Designed primarily for phones, and also plays on PC in any browser. HTML,
 CSS and JavaScript, with files on GitHub. No external assets: everything
 exists in code.

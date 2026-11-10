@@ -77,7 +77,7 @@ Settings line past 5 lifts the title's hero a tile (builds D-249).
 Checked at 0.2.52: PRs #1 to #89 are versions 0.0.1 to 0.2.51, one
 each, with no gaps or repeats; only the build plan's step numbers jump.
 
-**D-255 · 2026-10-23 · The first sound: a footstep** (owner's picks)
+**D-255 · 2026-10-23 · The first sound: a footstep** *Its footstep superseded by D-773 (2026-11-10); the Sound switch stays.* (owner's picks)
 The game's first sound is a soft, light footstep each time the hero
 walks a tile, made in code with Web Audio. No two steps sound alike
 (changed after the playtest: a low thump dropped, half as loud, and
@@ -94,7 +94,7 @@ board: a page with one button per game sound, built with
 sound code. Its link goes in the chat, the PR body and the log entry,
 republished to the same link each time.
 
-**D-257 · 2026-10-23 · The lantern's tick** (owner's picks)
+**D-257 · 2026-10-23 · The lantern's tick** *Superseded by D-773 (2026-11-10): sounds come from files.* (owner's picks)
 The second sound: a soft, low "tok" each time the lantern goes on or
 off, a little higher for on (1200 Hz) and lower for off (850 Hz), about
 as loud as the footstep (D-255). It plays at every switch: by hand (the
@@ -102,7 +102,7 @@ button or L) and By itself at the daylight's edge (D-210). Picked from a
 preview of three; the first pick, higher and louder, was too loud and
 sharp, so three softer ones followed and the owner took the middle one.
 
-**D-258 · 2026-10-23 · The hit's sound** (owner's picks)
+**D-258 · 2026-10-23 · The hit's sound** *Superseded by D-773 (2026-11-10): sounds come from files.* (owner's picks)
 The third sound: each time the hero hits a creature, a soft, low "dmp",
 a falling tone (110 to 60 Hz) under muffled noise, quieter than the
 footstep's peak. With the knife held (D-252), a small tick like the
@@ -111,7 +111,7 @@ to a tenth and loudness from 70% to full, like the steps (D-255).
 Picked from four moments (hit, bite, pour, pick up), then from three
 hits: the softer one.
 
-**D-259 · 2026-10-23 · A rat's bite** (owner's picks)
+**D-259 · 2026-10-23 · A rat's bite** *Superseded by D-773 (2026-11-10): sounds come from files.* (owner's picks)
 The fourth sound: when a rat bites the hero, two low, dry snaps of
 teeth (700 Hz, 0.04 s apart) and a hint of breath. Hit and bitten in
 one turn, the bite comes 0.18 s after the hit (D-258). Each bite varies
