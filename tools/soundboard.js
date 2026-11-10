@@ -1,12 +1,14 @@
 // § soundboard: one page with a button for each of the game's sounds, so the
 // owner can hear a new sound straight from the chat (D-256). It packs the game's
 // own src/render/sound.js, so what plays is what the game plays. Not part of the
-// game. No dependencies.
+// game. No dependencies. Only the sounds that have their files are listed (D-773);
+// the page fetches them from sounds/packs/, so publish those files beside it.
 //
 //   node tools/soundboard.js out.html
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FILES } from '../src/render/sound.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -51,6 +53,10 @@ const SOUNDS = [
   { label: 'A fish caught (the splash)', play: 'later(0, () => sound.splash())' },
 ];
 
+// § heard: only buttons whose every sound has its files
+const heard = (s) => [...s.play.matchAll(/sound\.(\w+)/g)].every(([, v]) => FILES[v]);
+const LISTED = SOUNDS.filter(heard);
+
 const out = process.argv[2];
 if (!out) throw new Error('usage: node tools/soundboard.js out.html');
 writeFileSync(out, `<!doctype html>
@@ -80,7 +86,7 @@ ${plain(read('src/render/sound.js'))}
 const sound = createSound(() => true);
 const START_MS = 120; // the sound maker's first start takes a moment
 const later = (ms, f) => setTimeout(f, START_MS + ms);
-const SOUNDS = [${SOUNDS.map((s) => `[${JSON.stringify(s.label)}, () => { ${s.play}; }]`).join(', ')}];
+const SOUNDS = [${LISTED.map((s) => `[${JSON.stringify(s.label)}, () => { ${s.play}; }]`).join(', ')}];
 for (const [label, play] of SOUNDS) {
   const b = document.createElement('button');
   b.textContent = label;
@@ -91,4 +97,4 @@ for (const [label, play] of SOUNDS) {
 </body>
 </html>
 `);
-console.log(`soundboard: ${SOUNDS.length} sounds → ${out}`);
+console.log(`soundboard: ${LISTED.length} sounds → ${out}`);

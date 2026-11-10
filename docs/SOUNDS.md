@@ -3,7 +3,8 @@
 Every sound the game needs, one line each (D-773). It grows with the
 game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
-credit), and none is in yet: the game is silent until each file is in.
+credit). Each sound is silent until its file is in; the footstep is
+the first (D-774).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -13,8 +14,9 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`, not yet played by the game; each
-folder keeps its `License.txt`). All four are Kenney's, CC0 (no credit
-needed), `.ogg` files:
+folder keeps its `License.txt`). All five are CC0 (no credit needed),
+`.ogg` files: four of Kenney's and one of ObsydianX's (itch.io), whose
+222 tones were cut of their silence when saved, nothing else changed:
 
 | Folder | Files | Good for |
 | --- | --- | --- |
@@ -22,12 +24,13 @@ needed), `.ogg` files:
 | `kenney-rpg-audio` | 52 | cloth, coins, books, doors, metal, footsteps |
 | `kenney-interface-sounds` | 100 | menus: open, close, back, error |
 | `kenney-ui-audio` | 52 | menus: clicks and switches |
+| `obsydianx-interface-sfx-1` | 222 | menus: clean electronic tones; confirm, back, error (5 or 6 styles, 7 each, plain and echo) and cursor (5) |
 
 ## Moving
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `footstep` | the hero walks a tile | soft, light, never two alike | — |
+| `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at a quarter loudness, CC0 |
 | | the hero falls (D-119) | a slide and a thud | — |
 | | the hero wakes after a fall | a groan or a breath | — |
 | | a new floor reached | a low, far rumble | — |
@@ -124,7 +127,9 @@ needed), `.ogg` files:
 ## Maybe (for the owner to pick)
 
 None of these is decided (Q-095): footsteps that change with the
-ground (grass, stone, water); sounds all around, such as wind on the
+ground (grass, stone, water; a wood step is picked, D-774: the grass
+files at a quarter loudness, muffled, with the bright crack filtered
+off above 1400 Hz); sounds all around, such as wind on the
 surface, birds by day, crickets at night, drips in caves; music; a
 warning when the oil runs low; a heartbeat at the last heart.
 

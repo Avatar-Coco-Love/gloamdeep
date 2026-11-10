@@ -102,18 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-765 · 2026-11-10 · Names with spaces and digits** (the owner's
-picks, all recommended; answers Q-054; changes D-272 and D-683) A name
-may hold letters, digits and spaces, still up to 12. The name pad gets a
-123 key, as on a phone: it swaps the letters for 1 to 8 across the top
-row and 9 and 0 under them, ABC swaps back, and the bottom row stays: M,
-Del, Z, Space, 123 or ABC, OK. Spaces are tidy: never first, never two
-in a row, one at the end dropped on OK. Space on a keyboard types a
-space, and digits type too. Claude's calls the owner may change: the
-Space key reads SPC; on a narrow card a word too wide for its key is
-drawn at half size; the pad opens on its letters. D-757 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-766 · 2026-11-10 · Three creatures' drafts kept, two additions**
 (the owner's picks) Claude's drafts in D-728 (the rat pack), D-729 (the
 scorpion) and D-731 (the bone rat) are kept as built. Two additions,
@@ -183,3 +171,19 @@ each plays, the Sound switch and the sound board (D-256) stay.
 `docs/SOUNDS.md` lists every sound the game needs and grows with it.
 The owner's first four Kenney packs are kept in `sounds/packs/`.
 D-764 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-774 · 2026-11-10 · The first sound file: grass steps** (the owner's
+picks, from a board of 6 steps and 9 clicks; builds D-773; answers part
+of Q-095) The footstep is Kenney's grass step, its 5 files in turn,
+never the same twice running, a little higher or lower each time (up to
+6%), at a quarter of the file's loudness (changed after the playtest:
+half sounded like banging into something). It plays on the surface only;
+underground stays silent until a stone step is picked. Wood was too
+quiet, snow and dirt far too loud. The same grass files muffled (the
+bright crack filtered off) are kept as a wood step, for where wood
+underfoot comes. The lantern gets RPG Audio's metal
+click next, after the steps are heard in a playtest. The game plays
+files straight from `sounds/packs/`, as `.ogg`. ObsydianX's Interface
+SFX Pack 1 (CC0, 222 tones) is kept whole there, cut of its silence;
+files never used may be deleted once the game is big enough to be
+sure. D-765 moves to `archive/DECISIONS-PAD-EDGE.md`, word for word.
