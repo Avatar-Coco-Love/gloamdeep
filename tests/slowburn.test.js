@@ -25,7 +25,7 @@ test('Slowburn is a made find of 5 a stack, drunk, with its lines', () => {
 
 test('the mortar shows it once Tick Shell and Oilcap have both been held, after the Glow Draught', () => {
   const tile = get('mortarStand');
-  assert.deepEqual(tile.makes, ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught']);
+  assert.deepEqual(tile.makes, ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught', 'spitproofDraught']);
   assert.deepEqual(stationMakes(tile, parts, 6, [], new Set(['tickShell'])), []);
   const [m] = stationMakes(tile, parts, 6, [], new Set(['tickShell', 'oilcap']));
   assert.equal(m.item, 'slowburn'); assert.equal(m.dim, false);

@@ -534,6 +534,9 @@ const MENDING_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g
 // § ward draught: the same bottle in pale green-white, light and shade, its own colours (D-795)
 const WARD_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'l').replace(/R/g, 'm')) };
 const WARD_COLOURS = { l: '#dcf0d4', m: '#8fb898' };
+// § spitproof draught: the same bottle in dusty rose, light and shade, from the spit grub's pink eye (D-802)
+const SPITPROOF_DRAUGHT = WARD_DRAUGHT;
+const SPITPROOF_COLOURS = { l: '#e0a0aa', m: '#a8606e' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -566,4 +569,6 @@ export {
   MENDING_DRAUGHT,
   WARD_DRAUGHT,
   WARD_COLOURS,
+  SPITPROOF_DRAUGHT,
+  SPITPROOF_COLOURS,
 };

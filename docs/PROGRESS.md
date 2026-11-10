@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.247 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.248 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The finds plan (D-799), one a step: next Grub Skin's Spitproof Draught,
-then the Fur Bedroll and the Echo Charm. The Hands upgrade when wanted.
+The finds plan (D-799), one a step: next Bunny Fur's Fur Bedroll,
+then the Echo Charm and the Shade Draught. The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.248, The Spitproof Draught.** The owner's picks
+  (D-802): the mortar's fifth recipe, 2 Grub Skin and 1 Herb; for 60
+  turns a spit grub's glob splashes off, hurting nothing; dusty rose.
+  Playtest: https://claude.ai/artifact/4Qm6SbLz1RcuxBDNCChidE
 - **2026-11-10, 0.3.247, The Shell Vest.** The owner's picks (D-799 to
   D-801): a first use planned for each find kept for crafts later; the
   workbench split into BUILD and GEAR tabs; the Shell Vest, 4 Crab Shell
@@ -55,8 +59,3 @@ list in `RESEARCH.md`.
   ember, the lantern burning 9/10 of its oil for good, a full tank about
   66 turns; "Steady" in a box too narrow.
   Playtest: https://claude.ai/artifact/2kQ85ubssrTuqLsR9AcTiq
-- **2026-11-10, 0.3.245, The rim lurker.** The owner's picks (D-797):
-  a brand-new creature, one each night in each mountain room, waiting
-  by the rock until the hero is within 3 steps, then chasing; look B,
-  a hunched violet shade; 3 hearts, a bite of 2; may leave a Lurker Claw.
-  Playtest: https://claude.ai/artifact/KVGtPa47QyX13yfASmztHY

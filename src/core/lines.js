@@ -240,7 +240,7 @@ export const LINES = {
   spitGrubSpits: { text: 'The spit grub spits a glowing glob.', warn: false }, // (D-688)
   spitGrubHit: { text: 'The glob splashes you.', warn: false, kind: 'harm' }, // a glob hits the hero (D-688)
   grubSkinTake: { texts: ['You pick up the grub skin.', 'A thin pale skin, shed and curled.', 'The grub skin goes in your bag.'], warn: false }, // (D-688)
-  grubSkinLook: { texts: ['A grub skin, for crafting later.', 'Thin, pale and papery.', 'It crackles when you fold it.'], warn: false },
+  grubSkinLook: { texts: ['A grub skin. Two make a Spitproof.', 'Thin, pale and papery.', 'It crackles when you fold it.'], warn: false },
   grubSkinFull: { text: "You can't carry more grub skins.", warn: false },
   glowGlandTake: { texts: ['A glow gland! A rare find.', 'It still glows a little.', 'The glow gland goes in your bag.'], warn: false }, // (D-688)
   glowGlandLook: { texts: ['A glow gland, for crafting later.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
@@ -292,6 +292,14 @@ export const LINES = {
   wardLook: { texts: ['A pale draught, clear as frost.', 'Drink it: no poison takes you.', 'Made at the mortar.'], warn: false },
   wardEnds: { text: 'The ward wears off.', warn: false }, // its turns run out (D-795)
   wardHeld: { text: 'Ward Draught: {n} turns left.', warn: false }, // a tap on its mark (D-795)
+  spitproofMake: { text: 'You make a Spitproof Draught.', warn: false }, // MORTAR's card, a turn (D-802)
+  spitproofShort: { text: 'You need 2 Grub Skin and 1 Herb.', warn: false }, // too few, free
+  spitproofFull: { text: "You can't carry more Spitproofs.", warn: false }, // every stack full, no slot free
+  spitproofDrink: { texts: ['You drink the Spitproof Draught.', 'It tastes of wax and dust.', 'Your skin feels slick.'], warn: false }, // drunk from the bag, any time (D-802)
+  spitproofLook: { texts: ['A rose-pink draught, thick as wax.', "Drink it: a grub's spit slides off.", 'Made at the mortar.'], warn: false },
+  spitproofSplash: { text: 'The glob splashes off you.', warn: false }, // a glob reaches the hero while it works (D-802)
+  spitproofEnds: { text: 'Your skin feels dry again.', warn: false }, // its turns run out (D-802)
+  spitproofHeld: { text: 'Spitproof Draught: {n} turns left.', warn: false }, // a tap on its mark (D-802)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

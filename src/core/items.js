@@ -256,4 +256,10 @@ export const ITEMS = {
   wardDraught: { id: 'wardDraught', kind: 'item', name: 'Ward Draught', bag: true, max: 5, look: 'wardLook', full: 'wardFull',
     eats: 'wardDrink', verb: 'DRINK', ward: { turns: 60 },
     bench: { of: { centipedeLeg: 2, herb: 1 }, says: 'wardMake', short: 'wardShort' } },
+  // The Spitproof Draught (D-802): made at the mortar from 2 Grub Skin and 1 Herb, never found;
+  // Drink, in the bag, any time: for `spitproof.turns` turns a spit grub's glob splashes off
+  // the hero and hurts nothing (spitproof.js, spit.js)
+  spitproofDraught: { id: 'spitproofDraught', kind: 'item', name: 'Spitproof Draught', bag: true, max: 5, look: 'spitproofLook', full: 'spitproofFull',
+    eats: 'spitproofDrink', verb: 'DRINK', spitproof: { turns: 60 },
+    bench: { of: { grubSkin: 2, herb: 1 }, says: 'spitproofMake', short: 'spitproofShort' } },
 };
