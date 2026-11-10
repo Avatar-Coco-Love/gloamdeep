@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
+  (D-773): sound files from Kenney's free packs; all 15 old sounds
+  wiped, so the game is silent; every sound needed listed in
+  `docs/SOUNDS.md`. Four Kenney packs kept in `sounds/packs/`.
 - **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
   The owner asked if there are enough materials for more recipes and
   stations: yes, 16 wait. Their picks (D-771): alchemy its own station,

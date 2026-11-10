@@ -35,3 +35,19 @@ test("The lantern's click is higher for on than for off", () => {
   assert.equal(pitchOf(true), 1.12);
   assert.equal(pitchOf(false), 0.89);
 });
+
+// § steps below: stone with an echo below, packed earth in the burrows, grass above (D-776)
+import { stepOf } from '../src/render/sound.js';
+
+test('The steps change with the ground', () => {
+  assert.equal(stepOf(true, undefined), 'footstep');
+  assert.equal(stepOf(undefined, 'crypt'), 'stoneStep');
+  assert.equal(stepOf(false, 'rock'), 'stoneStep');
+  assert.equal(stepOf(false, 'dungeon'), 'stoneStep');
+  assert.equal(stepOf(false, 'earth'), 'earthStep');
+  assert.equal(stepOf(false, undefined), 'stoneStep');
+  assert.ok(FILES.stoneStep.echo && FILES.stoneStep.files[0].includes('concrete'));
+  assert.equal(FILES.stoneStep.gain, 0.1);
+  assert.equal(FILES.earthStep.muffle, 1400);
+  assert.deepEqual(FILES.earthStep.files, FILES.footstep.files);
+});
