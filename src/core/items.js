@@ -266,6 +266,12 @@ export const ITEMS = {
   spitproofDraught: { id: 'spitproofDraught', kind: 'item', name: 'Spitproof Draught', bag: true, max: 5, look: 'spitproofLook', full: 'spitproofFull',
     eats: 'spitproofDrink', verb: 'DRINK', spitproof: { turns: 60 },
     bench: { of: { grubSkin: 2, herb: 1 }, says: 'spitproofMake', short: 'spitproofShort' } },
+  // The Shade Draught (D-806): made at the mortar from 2 Lurker Claw and 1 Duskstar, never found;
+  // Drink, in the bag, any time: for `shade.turns` turns a creature notices the hero only within
+  // 2 steps (shade.js, creatureturn.js)
+  shadeDraught: { id: 'shadeDraught', kind: 'item', name: 'Shade Draught', bag: true, max: 5, look: 'shadeLook', full: 'shadeFull',
+    eats: 'shadeDrink', verb: 'DRINK', shade: { turns: 60 },
+    bench: { of: { lurkerClaw: 2, duskstar: 1 }, says: 'shadeMake', short: 'shadeShort' } },
   // The Fur Bedroll (D-803), the Bunny Fur's first use (D-799): made on the workbench's BUILD tab,
   // never found. Only `max` 1 is carried, taking a bag slot, never used up. In the bag, sleeping
   // out heals `rest.heal` hearts, never above full, and the hero wakes not stiff (sleepout.js).

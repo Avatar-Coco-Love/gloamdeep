@@ -16,6 +16,7 @@ import { slowing } from './slowburn.js';
 import { mendingBy } from './mending.js';
 import { wardingBy } from './ward.js';
 import { spitproofBy } from './spitproof.js';
+import { shadeBy } from './shade.js';
 import { joined } from './regrow.js';
 import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
@@ -108,7 +109,8 @@ function growBag(state, id, recipe, { from, to }) {
 // and "You aren't poisoned." is said, free (D-655). A Glow Draught (`glow`) lights farther (D-791),
 // and Slowburn (`slow`) burns slower (D-792), and the Mending Draught (`mend`) heals slowly (D-794);
 // the Ward Draught (`ward`) ends poisoned before the turn and wards off poison (D-795);
-// the Spitproof Draught (`spitproof`) turns the spit grub's globs aside (D-802).
+// the Spitproof Draught (`spitproof`) turns the spit grub's globs aside (D-802);
+// the Shade Draught (`shade`) lets creatures notice the hero only near (D-806).
 export function eat(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.eats) return state;
@@ -118,6 +120,7 @@ export function eat(state, i) {
   if (entry.mend) return glow(state, i, entry, mendingBy);
   if (entry.ward) return glow({ ...state, poisoned: 0 }, i, entry, wardingBy);
   if (entry.spitproof) return glow(state, i, entry, spitproofBy);
+  if (entry.shade) return glow(state, i, entry, shadeBy);
   if (state.health >= maxHealth(state)) return say(state, 'notHurt');
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
   return endTurn(state, { ...next, bag: bagTake(state.bag, i), health: Math.min(maxHealth(next), next.health + healOf(state, entry)) });

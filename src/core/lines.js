@@ -314,6 +314,13 @@ export const LINES = {
   spitproofSplash: { text: 'The glob splashes off you.', warn: false }, // a glob reaches the hero while it works (D-802)
   spitproofEnds: { text: 'Your skin feels dry again.', warn: false }, // its turns run out (D-802)
   spitproofHeld: { text: 'Spitproof Draught: {n} turns left.', warn: false }, // a tap on its mark (D-802)
+  shadeMake: { text: 'You make a Shade Draught.', warn: false }, // MORTAR's card, a turn (D-806)
+  shadeShort: { text: 'Need 2 Lurker Claw, 1 Duskstar.', warn: false }, // too few, free
+  shadeFull: { text: "You can't carry more Shade Draughts.", warn: false }, // every stack full, no slot free
+  shadeDrink: { texts: ['You drink the Shade Draught.', 'It tastes of cold stone.', 'The dark folds round you.'], warn: false }, // drunk from the bag, any time (D-806)
+  shadeLook: { texts: ['A dusky violet draught, still as night.', 'Drink it: creatures see you only near.', 'Made at the mortar.'], warn: false },
+  shadeEnds: { text: 'The shade lifts from you.', warn: false }, // its turns run out (D-806)
+  shadeHeld: { text: 'Shade Draught: {n} turns left.', warn: false }, // a tap on its mark (D-806)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

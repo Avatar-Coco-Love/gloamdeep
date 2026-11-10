@@ -27,8 +27,8 @@ neared 8 KB.
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
   the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
   card, MORTAR, lists what it makes: the Glow Draught, Slowburn, the
-  Mending Draught, the Ward Draught and the Spitproof Draught (D-786,
-  D-789, D-792, D-794, D-795, D-802).
+  Mending Draught, the Ward Draught, the Spitproof Draught and the Shade
+  Draught (D-786, D-789, D-792, D-794, D-795, D-802, D-806).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
   1 Wisp Glass; Drink, any time: the lantern reaches 1 tile farther for
   60 turns, its gold bottle mark under the hearts with the turns left
@@ -49,6 +49,10 @@ neared 8 KB.
   Grub Skin and 1 Herb; Drink, any time: for 60 turns a spit grub's
   glob splashes off and hurts nothing, its rose bottle mark under the
   hearts with the turns left (D-802).
+- **Shade Draught:** a dusky violet bottle made at the mortar from 2
+  Lurker Claw and 1 Duskstar; Drink, any time: for 60 turns creatures
+  notice the hero only within 2 steps, its violet bottle mark under the
+  hearts with the turns left (D-806).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a

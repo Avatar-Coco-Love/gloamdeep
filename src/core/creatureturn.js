@@ -15,6 +15,7 @@ import { personAt } from './people.js';
 import { glanceOf, blunted } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
 import { warded } from './ward.js';
+import { shaded, SHADE_NEAR } from './shade.js';
 import { spitTurn, aim } from './spit.js';
 import { stingTurn, reach } from './sting.js';
 import { rise } from './bones.js';
@@ -146,6 +147,8 @@ function ahead(state) {
 // while the lantern is lit, else toward the nearest lit torch, and stays by it.
 // One that lures (D-649) drifts away instead, while the hero is near (lureStep).
 // One that lurks (D-797) notices them within its `near` steps along a clear line, lit or not.
+// While the Shade Draught works (D-806) none notices them farther than `SHADE_NEAR` steps,
+// however it would; one already after them keeps coming, and the light seekers are as they were.
 function enemiesMove(state, bit = false) {
   const start = rally(state.enemies), claims = [];
   let enemies = start, said = null, raised = false;
@@ -161,7 +164,8 @@ function enemiesMove(state, bit = false) {
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
     const sees = t.notices === 'anyLine' || (t.notices === 'near' && steps(e, state.hero) <= t.near) // one that lurks: near, lit or not (D-797)
       || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
-    const chasing = !seeks && (e.chasing || (sees && clearLine(state.room, e, state.hero)));
+    const hidden = shaded(state) && steps(e, state.hero) > SHADE_NEAR; // the Shade Draught: noticed only near (D-806)
+    const chasing = !seeks && (e.chasing || (sees && !hidden && clearLine(state.room, e, state.hero)));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
     const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;

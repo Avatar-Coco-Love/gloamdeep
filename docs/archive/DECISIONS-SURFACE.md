@@ -833,3 +833,14 @@ recommended, from a fourth row or pages) The workbench's card was full,
 GEAR (the wick, the vests, the charms), a 4 × 3 grid each. A tap on one
 or Tab turns it. Claude's calls: the tab last open is kept while the
 game runs; the mortar keeps its title, with no tabs.
+
+**D-801 · 2026-11-10 · The Shell Vest** (the owner's picks, all
+recommended; builds D-484, D-799) The second armour piece, on the GEAR
+tab: 4 Crab Shell, 1 Wood. Worn in the armour slot, in the Rat Hide
+Vest's place, it takes 1 off a bite of 2 or more, the scorpion's tail
+strike too, so the rim lurker and the scorpion hurt 1, not 2. Its look:
+overlapping stony grey plates with rust edges, the crab's colours.
+Claude's calls the owner may change: never below 1; its lines ("You
+put on the shell vest.", "A shell vest. Hard bites hurt less.");
+the Crab Shell's look line names it. D-791, D-792 and D-794 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
