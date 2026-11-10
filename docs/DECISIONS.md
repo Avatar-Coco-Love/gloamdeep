@@ -156,27 +156,6 @@ hero's sting, as a miss is silent; its Bestiary page says the sting
 hurts any creature in its way. D-761 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-770 · 2026-11-10 · Landmarks, step 2: the miners' camp** (the
-owner's picks, the look after its mock-up:
-https://claude.ai/artifact/UFEKsFHF3XZBC8L5r51UcY; builds D-769) The
-camp is look A of three: a slumped canvas tent, its flap open on the
-dark, and an old crate with a pick leaning on it, 3 × 2 tiles, all
-solid, light passing them. The pick is the game's own Stone Pick
-picture (the owner's words), and it is gone from the camp once taken.
-One a seed, in one of Hearthwood's 3 mountain rooms, never the
-campfire's or the lamppost's. Bumped, "A miners' camp, long left." on
-the text line and the card Take the pick?, "An old pick leans on the
-crate.", No picked, as cold ashes ask; Yes puts a plain Stone Pick in
-the bag, a turn, and the camp turns bare; bare, a bump says its first
-words, free. This changes D-769's "The pick is rusted through.", as
-the pick now works. Claude's calls the owner may change: "An old pick
-leans on the crate." and "You take the old pick."; with a pick already
-carried, held too, "You already carry a stone pick.", with the bag
-full "Your bag is full.", free, the camp keeping its pick; on open
-grass 2 tiles in from the edge, never cutting the room; in an older
-save, its room gets it if never seen, with nothing taken. D-763 moves
-to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-771 · 2026-11-10 · Alchemy, a station of its own** (the owner's
 picks, recommended, with the owner's addition; changes D-415, D-455;
 opens Q-093) The owner asked if there are enough materials for more
@@ -188,3 +167,11 @@ Its form (a mortar and pestle, an alchemy lab, or both), its recipes
 and the other stations' are open (Q-093). They come after night
 creatures and then day creatures, the owner's order and addition.
 D-769 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-772 · 2026-11-10 · A bow, after the alchemy station** (the owner's
+wish; builds D-457, D-652; opens Q-094) The hero gets a bow for ranged
+attacks, the first ranged weapon, where D-457's example named a sling.
+It comes after the alchemy station and its recipes (D-771), the owner's
+order. Its damage, range, how it aims on a phone, arrows, where it is
+made or found and its look are open (Q-094), asked at its step.
+D-770 moves to `archive/DECISIONS-SURFACE.md`, word for word.

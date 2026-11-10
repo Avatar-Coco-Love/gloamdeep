@@ -26,7 +26,8 @@ first, after a proposal; then day creatures (D-771). A second flower
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- The alchemy station and new recipes (Q-093), after day creatures.
+- The alchemy station and new recipes (Q-093), after day creatures;
+  then the bow (Q-094).
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -49,7 +50,7 @@ list in `RESEARCH.md`.
 - **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
   The owner asked if there are enough materials for more recipes and
   stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
-  after night and day creatures (Q-093).
+  after night and day creatures (Q-093); then a bow (D-772, Q-094).
 - **2026-11-10, 0.3.221, A miners' camp.** The owner's picks (D-770):
   look A, a tent and a crate, in a mountain room; the pick is the
   game's own Stone Pick, gone from the camp once taken; bumped, Take

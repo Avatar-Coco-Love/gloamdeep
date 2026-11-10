@@ -117,3 +117,8 @@ D-771) Open: the station's form (a mortar and pestle, an alchemy lab,
 or both), name, look and cost; which of the finds "for crafts later"
 go into which recipes, at alchemy and the other stations. After night
 creatures, then day creatures (the owner's addition, all open).
+
+**Q-094 · The bow** (raised 2026-11-10, D-772) Open: its hits and
+reach, how a shot is aimed by touch, mouse and keys, whether it needs
+arrows and where they come from, where it is made or found, its look
+and sound. After the alchemy station (Q-093).
