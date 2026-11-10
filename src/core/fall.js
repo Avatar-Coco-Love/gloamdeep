@@ -43,8 +43,8 @@ export function fall(state) {
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = wakeSpot(state);
   const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
-  const awake = { ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, stiff: 0, glow: 0, slowburn: 0, mending: 0, ward: 0, float: null, globs: [], ...(kept && { bag: [kept] }) };
-  return note(kept ? say(awake, 'locketKept', stackWords(kept)) : say(awake, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and stiff (D-759), and the Glow Draught (D-791) and Slowburn (D-792) and the Mending Draught (D-794) and the Ward Draught (D-795), and the line (D-667)
+  const awake = { ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, stiff: 0, glow: 0, slowburn: 0, mending: 0, ward: 0, spitproof: 0, float: null, globs: [], ...(kept && { bag: [kept] }) };
+  return note(kept ? say(awake, 'locketKept', stackWords(kept)) : say(awake, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and stiff (D-759), and the Glow Draught (D-791) and Slowburn (D-792) and the Mending Draught (D-794) and the Ward Draught (D-795) and the Spitproof Draught (D-802), and the line (D-667)
 }
 // § the locket on the shelf (step 20, D-691, D-694): with a shelf holding the locket in
 // any room of the world, a Normal fall brings home the bag's stack the peddler would pay

@@ -36,6 +36,8 @@ D-796, the skulker crab, built, and D-788, the Make tab's details,
 built, followed at 0.3.245 (D-797), word for word, for the same reason.
 D-789, the mortar's card, built, followed at 0.3.246 (D-798), word for
 word, for the same reason.
+D-795, the Ward Draught, built, followed at 0.3.248 (D-802), word for
+word, for the same reason.
 
 ---
 
@@ -766,4 +768,22 @@ bottle in moss green, its mark too; a night's turns give no hearts; its
 heart comes before poison's in a turn; its lines ("The warmth fades."
 as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
 then shows "Makes a Mending Draught at the mortar". D-786 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-795 · 2026-11-10 · The Ward Draught, the mortar's fourth recipe**
+(the owner's picks, all recommended; narrows Q-093) The Ward Draught is
+made at the mortar from 2 Centipede Leg and 1 Herb. Drunk from the bag,
+it ends poisoned at once, and for 60 turns a bite that hurts never
+leaves the hero poisoned. Its rules are the Glow Draught's (D-791):
+drunk again, back to 60; any time, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Its bottle and mark are a pale green-white, apart from
+poison's sick green and the Mending Draught's moss. Others offered: a
+ward only, no cure; poison milder, as the Centipede Charm; 1 Venom Sac
+and 1 Herb; 2 Stinger and 1 Snapcap Gill; pale blue; bone white.
+Claude's calls the owner may change: its lines ("The ward wears off."
+as it ends); a bite on the turn it is drunk is cured with the rest; the
+mortar lists it after the Mending Draught. The handoff's copyable next
+prompts are given once, after the owner merges, not also before (the
+owner's request; changes D-790). D-787 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

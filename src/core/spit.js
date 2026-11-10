@@ -7,7 +7,9 @@
 //    and breaks on whatever blocks light (walls, rubble), or on a person, unharmed; flying into
 //    the hero or a creature, it hits. A hit takes its spitter's `bite`: from the hero 1 heart
 //    (none in god mode), a creature hurt as a blow hurts it, beaten with no drop and no
-//    experience (Claude's draft). It is a `bite` event for the hero, with the hit line.
+//    experience (Claude's draft). It is a `bite` event for the hero, with the hit line. While
+//    the Spitproof Draught works, a glob reaching the hero splashes off, hurting nothing, with
+//    its own line and no `bite` event (spitproof.js, D-802).
 // 2. Every one that spits and is awake, resting no more, sees the lit lantern along a clear
 //    row or column, no tile that blocks light between, up to its way's `range` tiles: it spits.
 //    The glob starts on the tile beside it toward the hero, so beside the hero it hits at once
@@ -22,6 +24,7 @@ import { clearLine } from './sight.js';
 import { say } from './lines.js';
 import { note } from './events.js';
 import { fall } from './fall.js';
+import { spitproofed } from './spitproof.js';
 
 export function spitTurn(state) {
   if (!state.globs?.length && !state.enemies.some((e) => traits(get(e.id)).spits)) return state;
@@ -50,8 +53,8 @@ function spit(state, e) {
   const to = aim(state, e);
   if (!to) return e.rests > 0 ? swap(state, e, { ...e, rests: e.rests - 1 }) : state;
   const facing = to.dx < 0 ? 'left' : to.dx > 0 ? 'right' : e.facing; // it turns to spit, as a step left or right turns one (D-158)
-  const rested = swap(state, e, { ...e, rests: traits(get(e.id)).spits.rest, ...(facing && { facing }) }), hit = state.events.some((v) => v.type === 'bite');
-  const s = note(hit ? rested : say(rested, get(e.id).spitsSay), 'spit', { id: e.id }); // a hit's line this turn stays
+  const rested = swap(state, e, { ...e, rests: traits(get(e.id)).spits.rest, ...(facing && { facing }) }), hit = state.events.some((v) => v.type === 'bite' || v.off);
+  const s = note(hit ? rested : say(rested, get(e.id).spitsSay), 'spit', { id: e.id }); // a hit's line this turn stays, or a splash off the hero's (D-802)
   return land(s, { x: e.x + to.dx, y: e.y + to.dy, dx: to.dx, dy: to.dy, id: e.id });
 }
 const swap = (state, e, next) => ({ ...state, enemies: state.enemies.map((o) => (o === e ? next : o)) });
@@ -71,6 +74,7 @@ function land(state, g) {
 function strikes(state, g) {
   const hurt = get(g.id).bite;
   if (state.hero.x === g.x && state.hero.y === g.y) {
+    if (spitproofed(state)) return note(say(state, 'spitproofSplash'), 'splash', { x: g.x, y: g.y, off: true }); // it breaks on the hero, harmless (D-802)
     const health = state.god ? state.health : Math.max(0, state.health - hurt);
     return note(note(say({ ...state, health }, get(g.id).hitSay), 'bite', { id: g.id, hurt }), 'splash', { x: g.x, y: g.y });
   }

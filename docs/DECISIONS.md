@@ -92,24 +92,6 @@ owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`). When they are
 given changed by D-795 (2026-11-10): once, after the merge.
 
-**D-795 · 2026-11-10 · The Ward Draught, the mortar's fourth recipe**
-(the owner's picks, all recommended; narrows Q-093) The Ward Draught is
-made at the mortar from 2 Centipede Leg and 1 Herb. Drunk from the bag,
-it ends poisoned at once, and for 60 turns a bite that hurts never
-leaves the hero poisoned. Its rules are the Glow Draught's (D-791):
-drunk again, back to 60; any time, the turns running on; a night uses
-them and a fall ends it; it holds 5; a small mark under the hearts with
-the turns left. Its bottle and mark are a pale green-white, apart from
-poison's sick green and the Mending Draught's moss. Others offered: a
-ward only, no cure; poison milder, as the Centipede Charm; 1 Venom Sac
-and 1 Herb; 2 Stinger and 1 Snapcap Gill; pale blue; bone white.
-Claude's calls the owner may change: its lines ("The ward wears off."
-as it ends); a bite on the turn it is drunk is cured with the rest; the
-mortar lists it after the Mending Draught. The handoff's copyable next
-prompts are given once, after the owner merges, not also before (the
-owner's request; changes D-790). D-787 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-797 · 2026-11-10 · The rim lurker, the mountain rooms' first night
 creature** (the owner's picks; answers part of Q-076; mock-up:
 https://claude.ai/artifact/MW9qmr5aUJTzq75sHE7LMv)
@@ -186,4 +168,20 @@ overlapping stony grey plates with rust edges, the crab's colours.
 Claude's calls the owner may change: never below 1; its lines ("You
 put on the shell vest.", "A shell vest. Hard bites hurt less.");
 the Crab Shell's look line names it. D-791, D-792 and D-794 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-802 · 2026-11-10 · The Spitproof Draught, the mortar's fifth
+recipe** (the owner's picks, all recommended; builds D-799) Made at the
+mortar from 2 Grub Skin and 1 Herb. Drunk from the bag, for 60 turns a
+spit grub's glob that reaches the hero splashes off and hurts nothing;
+grubs still spit. Its rules are the Ward Draught's (D-795): drunk
+again, back to 60; any time; a night uses its turns and a fall ends it;
+it holds 5; a small mark under the hearts with the turns left. Its
+bottle and mark are dusty rose, from the grub's pink eye. Others
+offered: 3 Grub Skin; 2 Grub Skin and 1 Oilcap; a glob hurting less,
+never the last heart; grubs not seeing the hero; waxy bone-cream; slate
+blue-grey. Claude's calls the owner may change: its lines ("The glob
+splashes off you.", "Your skin feels dry again." as it ends); the glob
+breaks on the hero, flying no farther; the mortar lists it last; the
+Grub Skin's look line names it. D-795 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

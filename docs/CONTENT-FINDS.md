@@ -35,7 +35,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |
 | `wispGlass` | 1 with 2 Duskstar make the Glow Draught at the mortar (D-786); sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
 | `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm; 2 with 1 Herb, the Ward Draught at the mortar (D-795) | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
-| `grubSkin` | for crafts later; sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
+| `grubSkin` | 2 with 1 Herb make the Spitproof Draught at the mortar (D-802); sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
@@ -47,6 +47,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
 | `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Herb | D-794 |
 | `wardDraught` | Drink, in the bag, any time: ends poisoned, and for 60 turns a bite never poisons | 5 | never | made at the mortar: 2 Centipede Leg, 1 Herb | D-795 |
+| `spitproofDraught` | Drink, in the bag, any time: for 60 turns a spit grub's glob splashes off and hurts nothing | 5 | never | made at the mortar: 2 Grub Skin, 1 Herb | D-802 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,

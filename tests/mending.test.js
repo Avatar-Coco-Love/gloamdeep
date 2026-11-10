@@ -25,7 +25,7 @@ test('the Mending Draught is a made find of 5 a stack, drunk, with its lines', (
 
 test('the mortar shows it once Mimic Leaf and Herb have both been held, after Slowburn', () => {
   const tile = get('mortarStand');
-  assert.deepEqual(tile.makes, ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught']);
+  assert.deepEqual(tile.makes, ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught', 'spitproofDraught']);
   assert.deepEqual(stationMakes(tile, parts, 6, [], new Set(['mimicLeaf'])), []);
   const [m] = stationMakes(tile, parts, 6, [], new Set(['mimicLeaf', 'herb']));
   assert.equal(m.item, 'mendingDraught'); assert.equal(m.dim, false);

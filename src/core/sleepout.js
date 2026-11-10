@@ -15,6 +15,7 @@ import { glowSlept } from './glow.js';
 import { slowSlept } from './slowburn.js';
 import { mendSlept } from './mending.js';
 import { wardSlept } from './ward.js';
+import { spitproofSlept } from './spitproof.js';
 
 // A creature is after the hero: one chasing, even in the dark, or one seen that has noticed them
 export const chased = (state) => state.enemies.some((e) => e.chasing && !e.asleep && !e.pile) || creatureList(state).length > 0;
@@ -25,6 +26,6 @@ export const canSleepOut = (state) => !!state.room.dark.sky && tired(state) && !
 export function sleepOut(state) {
   if (!canSleepOut(state)) return state;
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const woke = endTurn(state, say(note(fresh({ ...wardSlept(mendSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, the Mending Draught's and the Ward Draught's turns (D-795, D-794, D-792, D-791)
+  const woke = endTurn(state, say(note(fresh({ ...spitproofSlept(wardSlept(mendSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, the Mending Draught's, the Ward Draught's and the Spitproof Draught's turns (D-802, D-795, D-794, D-792, D-791)
   return woke.fell !== state.fell ? woke : stiffen(woke); // stiff from waking, its count whole, unless poison took the last heart (D-759)
 }

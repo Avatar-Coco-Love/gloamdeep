@@ -23,9 +23,9 @@ test('the Ward Draught is a made find of 5 a stack, drunk, with its lines', () =
   for (const line of ['wardMake', 'wardShort', 'wardFull', 'wardDrink', 'wardLook', 'wardEnds', 'wardHeld']) assert.ok(LINES[line], line);
 });
 
-test('the mortar shows it once Centipede Leg and Herb have both been held, last', () => {
+test('the mortar shows it once Centipede Leg and Herb have both been held, fourth', () => {
   const tile = get('mortarStand');
-  assert.equal(tile.makes.at(-1), 'wardDraught');
+  assert.equal(tile.makes.at(3), 'wardDraught');
   assert.deepEqual(stationMakes(tile, parts, 6, [], new Set(['centipedeLeg'])), []);
   const [m] = stationMakes(tile, parts, 6, [], new Set(['centipedeLeg', 'herb']));
   assert.equal(m.item, 'wardDraught'); assert.equal(m.dim, false);

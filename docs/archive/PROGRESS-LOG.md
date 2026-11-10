@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.245, The rim lurker.** The owner's picks (D-797):
+  a brand-new creature, one each night in each mountain room, waiting
+  by the rock until the hero is within 3 steps, then chasing; look B,
+  a hunched violet shade; 3 hearts, a bite of 2; may leave a Lurker Claw.
+  Playtest: https://claude.ai/artifact/KVGtPa47QyX13yfASmztHY
 - **2026-11-10, 0.3.244, The skulker crab.** The owner's picks (D-796):
   a brand-new creature, one each day in each mountain room, looking like
   a loose stone until the hero is beside it, then pinching; 2 hearts,
