@@ -2,13 +2,15 @@
 // 437–445). The bracket is drawn before the light, so the light falls on it;
 // the flame and its embers are drawn after, always bright (ART-DIRECTION.md).
 // Each torch takes the look of its mount (D-099); a side mount pokes out over
-// the open tile next to it. A torch set down stands on its stone foot (D-478).
+// the open tile next to it. A torch set down stands on its stone foot (D-478), a glow
+// lamp on the same foot, its green gland where the flame would be (D-808).
 import { get } from '../core/registry.js';
 import { mountAt } from '../core/mount.js';
 import { LIGHT_AT } from '../core/lights.js';
 import { hash } from '../core/noise.js';
 import { flicker } from './light.js';
 import { TILE as T } from './screen.js';
+import { GLOW_LAMP, PAL } from './pictures.js';
 
 const K = '#0e0c16', N = '#6b4a33', NL = '#9c6f45'; // outline, wood, wood highlight
 const FLAME_Y = '#f39a3b', FLAME_y = '#ffd66b', CORE = '#fff5d6';
@@ -27,6 +29,10 @@ const STAND_COLOURS = { k: K, W: NL, N, O: '#a8642c', t: '#e8d5a0', H: '#6a7489'
 const STAND_ROWS = ['......kkkk......', '.....kOtOtk.....', '.....ktOtOk.....', '......kkkk......', '......kWNk......', '......kWNk......',
   '......kWNk......', '...kkkkWNkkkk...', '..kHHLDkkHHLDk..', '...kkkk..kkkk...'];
 BRACKET.stand = STAND_ROWS.flatMap((r, y) => [...r].flatMap((ch, x) => (ch === '.' ? [] : [[x, y + 6, 1, 1, STAND_COLOURS[ch]]])));
+// A glow lamp set down (D-808): its picture's stick, cup and stones as the foot, before the
+// light; its gland, rows 2 to 7, in place of a flame, after it, steady, with no embers.
+const lampPx = (from, to) => GLOW_LAMP.rows.slice(from, to).flatMap((r, j) => [...r].flatMap((ch, x) => (ch === '.' ? [] : [[x, from + j, 1, 1, PAL[ch]]])));
+const LAMP_FOOT = lampPx(8, 16), LAMP_BULB = lampPx(2, 8);
 // How far the flame sits from the study's spot. Where the light comes from is in core/lights.js.
 const FLAME_DX = { face: 0, right: 10, left: -10, stand: 0 }, FLAME_DY = { stand: 1 };
 
@@ -41,7 +47,7 @@ const burning = (room, lights) => mounted(room, lights).filter(({ l }) => get(l.
 export function drawBrackets(c, room, lights) {
   const fill = (l, dx, [x, y, w, h, col]) => { c.fillStyle = col; c.fillRect(l.x * T + dx + x, l.y * T + y, w, h); };
   for (const { l, m } of mounted(room, lights)) {
-    for (const r of BRACKET[m]) fill(l, 0, r);
+    for (const r of (m === 'stand' && get(l.id).bulb ? LAMP_FOOT : BRACKET[m])) fill(l, 0, r);
     if (!get(l.id).reach) for (const r of STUB) fill(l, FLAME_DX[m], r);
   }
 }
@@ -63,6 +69,7 @@ const embers = [];
 let emberCount = 0;
 export function drawFlames(c, room, lights, t, still) {
   burning(room, lights).forEach(({ l, m }, i) => {
+    if (get(l.id).bulb) { for (const [x, y, w, h, col] of LAMP_BULB) { c.fillStyle = col; c.fillRect(l.x * T + FLAME_DX[m] + x, l.y * T + y, w, h); } return; }
     const x0 = l.x * T + FLAME_DX[m], y0 = l.y * T + (FLAME_DY[m] || 0), ph = still ? 0 : Math.floor(t / 110 + i) % 3;
     c.fillStyle = FLAME_Y; c.fillRect(x0 + 6, y0 + 4, 4, 3);
     c.fillStyle = FLAME_y; c.fillRect(x0 + 7, y0 + 3, 2, 4); c.fillRect(x0 + [7, 8, 7][ph], y0 + 2 - (ph === 1 ? 1 : 0), 1, 2);

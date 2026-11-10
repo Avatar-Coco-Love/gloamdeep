@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.251 (2026-11-10)
+- New: the Echo Charm, the Bat Wing's first use. The workbench's GEAR tab makes it from 3 Bat Wing and 1 Copper Ore. Wear it, and each creature within 4 tiles that no light reaches shows as a pale outline of its shape, even behind a wall. A creature in disguise stays hidden.
+- Bat Wing now says "for an echo charm."
+- Decisions: D-805.
+
 ## 0.3.250 (2026-11-10)
 - New: the Fur Bedroll has two buttons in your bag. SLEEP sleeps right where you stand, the moon's way; it is dim by day, below ground, or with a creature after you, and a tap says why. SET DOWN lays the bedroll out beside you on the surface.
 - Laid out, bump the bedroll from dusk to sleep on it: 2 hearts back and not stiff. By day a bump asks "Roll up the bedroll?" to put it back in your bag. It is not your bed for a fall; home's bed still is.

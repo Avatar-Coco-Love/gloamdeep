@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.253 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.254 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The finds plan (D-799), one a step: next Glow Gland's Glow Lamp, then
-the Fang Charm. The Hands upgrade when wanted.
+The finds plan (D-799), one a step: next Bat Fang's Fang Charm, then
+the Mole Claw Pick. The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.254, The Glow Lamp.** The owner's picks (D-808):
+  made in the bag from 1 Glow Gland and 1 Wood; set down as a torch is,
+  it lights 3 tiles in steady green for 300 turns, then goes dark.
+  Playtest: https://claude.ai/artifact/89rxGFroZHfTwZkv4FwESw
 - **2026-11-10, 0.3.253, The Bone Hook.** The owner's picks (D-807):
   the workbench's BUILD tab, 3 Rat Bone and 1 Spider Silk; FIT ties it
   to the rod for good, and the strike meter's zone is half again as wide.
@@ -54,7 +58,3 @@ list in `RESEARCH.md`.
   60 turns creatures notice the hero only within 2 steps, chasers still
   coming; dusky violet.
   Playtest: https://claude.ai/artifact/VNc7o2ck8qLidUsbRm3aw4
-- **2026-11-10, 0.3.251, The Echo Charm.** The owner's picks (D-805):
-  the GEAR tab's last slot, 3 Bat Wing and 1 Copper Ore; worn, creatures
-  within 4 tiles in the dark, walls or not, show as pale outlines.
-  Playtest: https://claude.ai/artifact/XstDHemBrGQdGVk3UqM1B7

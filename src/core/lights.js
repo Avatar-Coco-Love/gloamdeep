@@ -5,6 +5,9 @@ export const LIGHTS = {
   torch: { id: 'torch', kind: 'light', name: 'Torch', reach: 3, cr: 1.2, cg: 0.78, cb: 0.42, flicker: 0.09 },
   // Gives no light until the hero lights it with the lantern; then it is a torch (D-121).
   unlitTorch: { id: 'unlitTorch', kind: 'light', name: 'Unlit torch', reach: 0, lightsTo: 'torch' },
+  // A Glow Lamp set down (D-808): the gland's soft green, as far as a torch, steady, no flicker;
+  // drawn as a `bulb`, not a flame (torches.js), with its own line as it goes `out` (endturn.js).
+  glowLampLight: { id: 'glowLampLight', kind: 'light', name: 'Glow lamp', reach: 3, cr: 0.62, cg: 1.12, cb: 0.5, flicker: 0, bulb: true, outSays: 'glowLampOut' },
 };
 
 // Where a mounted torch's light comes from, in pixels from its tile's corner (D-099);

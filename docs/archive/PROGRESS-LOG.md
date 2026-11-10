@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.251, The Echo Charm.** The owner's picks (D-805):
+  the GEAR tab's last slot, 3 Bat Wing and 1 Copper Ore; worn, creatures
+  within 4 tiles in the dark, walls or not, show as pale outlines.
+  Playtest: https://claude.ai/artifact/XstDHemBrGQdGVk3UqM1B7
 - **2026-11-10, 0.3.250, The bedroll laid out.** The owner's idea and
   picks (D-804): SLEEP and SET DOWN in the bag; laid out, bumped from
   dusk to sleep on it, by day to roll it up; no bed for a fall.

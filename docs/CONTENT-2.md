@@ -33,6 +33,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
 | `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
+| `glowLamp` | set down on the torch stand, its steady green light 300 turns | 5 | never | 1 Glow Gland, 1 Wood | D-808 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 
 ## People (`src/core/people.js`)
@@ -64,3 +65,12 @@ none yet.
 
 ## Tiles, lights, places
 Moved to `CONTENT-3.md` word for word at 0.3.73 (D-618).
+
+## Lights (`src/core/lights.js`)
+Moved back from `CONTENT-3.md` word for word at 0.3.254, as that page passed 8 KB.
+
+| id | What it does | Where | Decisions |
+| --- | --- | --- | --- |
+| `torch` | lights 3 tiles around, flickering | the first rooms; by the stairs up in generated rooms; on a torch stand, out after 100 turns | D-121, D-149, D-478 |
+| `unlitTorch` | lit for good by walking into its wall | the first rooms | D-121, D-122 |
+| `glowLampLight` | a Glow Lamp set down: lights 3 tiles in the gland's soft green, steady, its gland drawn where a flame would be | on a torch stand, dark after 300 turns | D-808 |

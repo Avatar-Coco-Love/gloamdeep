@@ -61,5 +61,5 @@ function burnOut(state, came) {
   if (!out.length) return state;
   const room = out.reduce((r, l) => withTile(r, l.x, l.y, get('floor')), state.room);
   const next = { ...state, room, lights: state.lights.filter((l) => !out.includes(l)) };
-  return came ? next : say(next, 'torchOut');
+  return came ? next : say(next, get(out[0].id).outSays || 'torchOut'); // a glow lamp's own line (D-808)
 }
