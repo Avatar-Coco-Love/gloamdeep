@@ -270,7 +270,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (!text) return;
   const few = entry.craft && !makes; // MAKE opens the Make tab on its recipe, dim before that shows (D-787)
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
-  const anyTime = entry.glow || entry.slow || entry.mend; // a draught drunk any time is never dim, full health or not (D-791, D-792, D-794)
+  const anyTime = entry.glow || entry.slow || entry.mend || entry.ward; // a draught drunk any time is never dim, full health or not (D-791, D-792, D-794, D-795)
   drawButton(c, card.button.x, card.button.y, text, entry.cures ? !poisoned : anyTime ? false : entry.eats && !entry.oil ? full : few);
   const second = secondText(entry);
   if (second) drawButton(c, card.make.x, card.make.y, second, second === 'EAT' ? full : few);

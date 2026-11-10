@@ -14,6 +14,7 @@ import { fall } from './fall.js';
 import { personAt } from './people.js';
 import { glanceOf } from './worn.js';
 import { poisonedBy, shrugs } from './poison.js';
+import { warded } from './ward.js';
 import { spitTurn, aim } from './spit.js';
 import { stingTurn, reach } from './sting.js';
 import { rise } from './bones.js';
@@ -33,7 +34,7 @@ import { rise } from './bones.js';
 // so the hero never falls from one; its event still says what it would take (D-625).
 // With Endless oil on (`state.endless`) a drink is the same but takes no oil (D-626).
 // One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654);
-// with Tough, only 1 time in 2 (D-657).
+// with Tough, only 1 time in 2 (D-657); never while the Ward Draught works (ward.js, D-795).
 // First of all the globs fly and the ones that spit spit (spit.js, D-688); then a raised tail
 // strikes (sting.js, D-729); a fall there ends the turn.
 export function enemiesAct(state) {
@@ -52,7 +53,7 @@ function act(state) {
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
   const said = first < 0 ? 'glance' : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;
-  const poisoned = bites.some((e, i) => hurts[i] > 0 && get(e.id).poisons) && !shrugs(state);
+  const poisoned = bites.some((e, i) => hurts[i] > 0 && get(e.id).poisons) && !warded(state) && !shrugs(state);
   const after = poisoned ? poisonedBy({ ...state, health, oil, enemies }) : { ...state, health, oil, enemies };
   let bitten = stood ? after : say(after, said);
   bites.forEach((e, i) => { bitten = drank[i] > 0 ? note(bitten, 'drink', { id: e.id, oil: drank[i] }) : note(bitten, 'bite', { id: e.id, hurt: hurts[i] }); });

@@ -73,7 +73,8 @@ or updating a PR.
   match the branch (D-076).
 - End every conversation with a handoff of at most 5 lines: the PR link,
   what changed, what is waiting on the owner, and the proposed next step.
-  Under it, before the owner merges, give 2 to 4 brief prompts the owner
+  Once the owner has merged, and only then (never also before, D-795),
+  give 2 to 4 brief prompts the owner
   can copy, each in its own fenced code block (never inline code or a
   list, so each has its own copy button, D-792), one per direction to take next
   (just one when there is only one way on) (D-790).

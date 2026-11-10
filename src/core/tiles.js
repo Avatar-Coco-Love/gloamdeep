@@ -107,7 +107,7 @@ export const TILES = {
   // The Mortar and Pestle set down on the surface, the bed's way (D-786): solid, light passing
   // over it. Bumped, day or night, it opens the workbench's card under its `title`, listing its
   // `makes`, none yet (the Glow Draught comes at its own step); Deconstruct `takes` it back.
-  mortarStand: { id: 'mortarStand', kind: 'tile', letter: 'e', name: 'Mortar and Pestle', solid: true, blocksLight: false, panel: 'bench', title: 'MORTAR', makes: ['glowDraught', 'slowburn', 'mendingDraught'], at: 'at the mortar', takes: { item: 'mortar', says: 'mortarTake' } },
+  mortarStand: { id: 'mortarStand', kind: 'tile', letter: 'e', name: 'Mortar and Pestle', solid: true, blocksLight: false, panel: 'bench', title: 'MORTAR', makes: ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught'], at: 'at the mortar', takes: { item: 'mortar', says: 'mortarTake' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
   torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, blocksLight: false },

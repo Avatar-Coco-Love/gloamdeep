@@ -26,8 +26,8 @@ neared 8 KB.
   bag, heals 4 hearts (D-309).
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
   the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
-  card, MORTAR, lists what it makes: the Glow Draught, Slowburn and the
-  Mending Draught (D-786, D-789, D-792, D-794).
+  card, MORTAR, lists what it makes: the Glow Draught, Slowburn, the
+  Mending Draught and the Ward Draught (D-786, D-789, D-792, D-794, D-795).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
   1 Wisp Glass; Drink, any time: the lantern reaches 1 tile farther for
   60 turns, its gold bottle mark under the hearts with the turns left
@@ -40,6 +40,10 @@ neared 8 KB.
   Mimic Leaf and 1 Herb; Drink, any time: a heart every 15 turns for 60
   turns, 4 in all, its green bottle mark under the hearts with the turns
   left (D-794).
+- **Ward Draught:** a pale green-white bottle made at the mortar from 2
+  Centipede Leg and 1 Herb; Drink, any time: ends poisoned, and for 60
+  turns no bite poisons, its pale bottle mark under the hearts with the
+  turns left (D-795).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a

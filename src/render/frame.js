@@ -13,7 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -348,7 +348,8 @@ export function createFrame(app, ui) {
     if (state.stiff > 0) marks.push(STIFF_MARK); // stiff after it, a pale blue Zz (D-759)
     if (state.glow > 0) marks.push({ ...GLOW_MARK, n: state.glow }); // the Glow Draught, a gold bottle and its turns left (D-791)
     if (state.slowburn > 0) marks.push({ ...SLOW_MARK, n: state.slowburn }); // Slowburn, an amber bottle and its turns left (D-792)
-    if (state.mending > 0) marks.push({ ...MEND_MARK, n: state.mending }); // the Mending Draught last, a moss green bottle and its turns left (D-794)
+    if (state.mending > 0) marks.push({ ...MEND_MARK, n: state.mending }); // the Mending Draught, a moss green bottle and its turns left (D-794)
+    if (state.ward > 0) marks.push({ ...WARD_MARK, n: state.ward }); // the Ward Draught last, a pale green-white bottle and its turns left (D-795)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
     const mk = marksSize(marks), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);

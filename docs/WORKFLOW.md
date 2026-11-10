@@ -34,7 +34,7 @@ phone first, nothing outside the code (D-003).
    visible (D-073), a sound board for sounds (D-256), and a map preview
    for generation (D-646).
 7. **Hand off.** One PR, at most 5 lines of handoff and a few copyable
-   prompts for the next direction (D-790), then a new conversation for
+   prompts for the next direction once merged (D-790, D-795), then a new conversation for
    the next step (D-431). Merging is the owner's call.
 
 ## Habits and why they exist
@@ -105,3 +105,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A rule the owner asked for in an earlier conversation can be lost if no PR wrote it down: the copyable next prompts were asked for before but never reached the handoff rule, so write a request into the docs in the same PR (0.3.238).
 - Read the handoff rule before writing a handoff, even in a proposal-only reply: the next prompts went out as an inline list, not one fenced block each, and the owner had to ask again (0.3.240).
 - Options offered and not picked are worth keeping in the decision: D-792 named the Ward and Mending Draughts, so the next recipe's choices were ready without searching (0.3.242).
+- Say a rule once: the next prompts came both before and after the merge, twice the reading for the owner; they now come once, after it (0.3.243).

@@ -241,4 +241,10 @@ export const ITEMS = {
   mendingDraught: { id: 'mendingDraught', kind: 'item', name: 'Mending Draught', bag: true, max: 5, look: 'mendingLook', full: 'mendingFull',
     eats: 'mendingDrink', verb: 'DRINK', mend: { every: 15, turns: 60 },
     bench: { of: { mimicLeaf: 2, herb: 1 }, says: 'mendingMake', short: 'mendingShort' } },
+  // The Ward Draught (D-795): made at the mortar from 2 Centipede Leg and 1 Herb, never found;
+  // Drink, in the bag, any time: ends poisoned, and for `ward.turns` turns a bite never
+  // poisons (ward.js)
+  wardDraught: { id: 'wardDraught', kind: 'item', name: 'Ward Draught', bag: true, max: 5, look: 'wardLook', full: 'wardFull',
+    eats: 'wardDrink', verb: 'DRINK', ward: { turns: 60 },
+    bench: { of: { centipedeLeg: 2, herb: 1 }, says: 'wardMake', short: 'wardShort' } },
 };

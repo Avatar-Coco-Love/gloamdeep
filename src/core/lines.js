@@ -280,6 +280,13 @@ export const LINES = {
   mendingLook: { texts: ['A green draught, bitter as leaves.', 'Drink it: it mends you slowly.', 'Made at the mortar.'], warn: false },
   mendEnds: { text: 'The warmth fades.', warn: false }, // its turns run out (D-794)
   mendHeld: { text: 'Mending Draught: {n} turns left.', warn: false }, // a tap on its mark (D-794)
+  wardMake: { text: 'You make a Ward Draught.', warn: false }, // MORTAR's card, a turn (D-795)
+  wardShort: { text: 'You need 2 Centipede Leg and 1 Herb.', warn: false }, // too few, free
+  wardFull: { text: "You can't carry more Ward Draughts.", warn: false }, // every stack full, no slot free
+  wardDrink: { texts: ['You drink the Ward Draught.', 'It tastes clean and cold.', 'Your blood runs clear.'], warn: false }, // drunk from the bag, any time (D-795)
+  wardLook: { texts: ['A pale draught, clear as frost.', 'Drink it: no poison takes you.', 'Made at the mortar.'], warn: false },
+  wardEnds: { text: 'The ward wears off.', warn: false }, // its turns run out (D-795)
+  wardHeld: { text: 'Ward Draught: {n} turns left.', warn: false }, // a tap on its mark (D-795)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study
