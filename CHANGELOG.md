@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.231 (2026-11-10)
+- Day creatures, first: the mole. Each day a mole comes out in each of the woods rooms round home, never at home, on the grass at least 4 steps from you. It digs down when it sees you, tunnels over as a mound and comes up beside you, and leaves its fur or a rare claw as it does below. Gone by nightfall, back the next day.
+- Decisions: D-781. D-779 moved to the archive, word for word.
+
 ## 0.3.230 (2026-11-10)
 - Night creatures, third: the rare gloamling. Each night one of the woods rooms round home, picked by your seed, has a gloamling too, beside its lampmoth and bat. It hunts you from the dark but will not step into your light, and leaves a Gloam Wisp or a rare Gloam Eye as it does below. Gone by morning like the others.
 - Decisions: D-780. D-778 moved to the archive, word for word.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.229 (2026-11-10)
 - Night creatures, second: the bat. Once dusk darkens the woods, a bat comes out too in each woods room round home, never at home, and flies for your lantern, beside the lampmoth. One beaten stays beaten till the next night, and any still about are gone by morning.
 - Decisions: D-779. D-772 moved to the archive, word for word.
-
-## 0.3.228 (2026-11-10)
-- Night creatures, first: lampmoths. Once dusk darkens the woods, a lampmoth comes out in each woods room round home, never at home, and flies for your lantern. One beaten stays beaten till the next night, and any still about are gone by morning.
-- Decisions: D-778. D-771 moved to the archive, word for word.

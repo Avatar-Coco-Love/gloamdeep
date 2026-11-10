@@ -25,7 +25,7 @@ test('a Hardcore fall begins the world again from the same seed, as on day one',
   assert.equal(n.held, null);
   assert.deepEqual(n.found, [day1.place], 'the map found too');
   assert.deepEqual(n.stashes, {});
-  assert.deepEqual(n.enemies.map(({ met, ...e }) => e), day1.enemies); // those lit at the start met as it began (D-630)
+  assert.deepEqual(n.enemies.filter((e) => !e.day).map(({ met, ...e }) => e), day1.enemies); // those lit at the start met as it began (D-630); the day's mole comes with the first turn (D-781)
   assert.deepEqual(n.items, day1.items);
   assert.equal(n.health, day1.health);
   assert.equal(n.oil, day1.oil);

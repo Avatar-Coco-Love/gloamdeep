@@ -550,3 +550,14 @@ of the hero's sight, picked by the seed and the night; one beaten stays
 beaten till the next night; they go by day without a word; they count
 in Records like any other. D-771 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-779 · 2026-11-10 · Night creatures, second: the bat** (the owner's
+picks, the recommended plan after the owner's own answer; builds D-778)
+Of the three kinds shown (gloamling, bat, cave spider), the owner liked
+the gloamling as a rare one and the bat too. The bat comes now: one each
+night in each woods room round home, as the lampmoth, with the same
+rules (D-778). Next, a rare gloamling: each night the seed picks one of
+the woods rooms round home for it. Claude's calls the owner may change:
+a night bat leaves no guano, which lies only by a bat a room is made
+with; it never shares a tile with the lampmoth. D-772 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
