@@ -13,7 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -41,7 +41,7 @@ import { drawMap } from './map.js';
 import { drawBag } from './bag.js';
 import { drawBenchPanel } from './benchpanel.js';
 import { drawMakeCard } from './makecard.js';
-import { bagMakes, makeFor } from '../core/bagmake.js';
+import { bagMakes, makeFor, knownOf, stationFor } from '../core/bagmake.js';
 import { get } from '../core/registry.js';
 import { drawChestPanel } from './chestpanel.js';
 import { drawTradePanel } from './tradepanel.js';
@@ -89,10 +89,11 @@ const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (
 // get while the hero, or a creature next to them, is under them (D-380), and how fast
 const UNDER_ALPHA = 0.25, FADE_PANEL_MS = 150;
 
-// What the chosen find's MAKE makes, for the line above it on the Bag tab, or null (D-787)
+// What the chosen find's MAKE makes, for the line above it on the Bag tab, or null (D-787);
+// a find made into something at a station only, { into, at }, "Makes a Glow Draught at the mortar" (D-791)
 function makesOf(state, i) {
   const s = state.bag[i], at = s && get(s.id)?.craft ? makeFor(state, s.id) : -1;
-  return at >= 0 ? bagMakes(state)[at].item : null;
+  return at >= 0 ? bagMakes(state)[at].item : s && !get(s.id)?.craft ? stationFor(state, s.id) : null;
 }
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
 const CLEAR_OVER = new Set(['play', 'map', 'bag', 'make', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
@@ -345,8 +346,9 @@ export function createFrame(app, ui) {
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
     if (state.stiff > 0) marks.push(STIFF_MARK); // stiff after it, a pale blue Zz (D-759)
+    if (state.glow > 0) marks.push({ ...GLOW_MARK, n: state.glow }); // the Glow Draught last, a gold bottle and its turns left (D-791)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
-    const mk = marksSize(marks.length), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
+    const mk = marksSize(marks), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);
     const listY = goalY + (gl.h ? gl.h + 2 : 0); // the marks under the panel, the goal line under them, the list under it
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
@@ -378,7 +380,7 @@ export function createFrame(app, ui) {
     const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
     Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
     drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
-    markRow = { ids: marks.map((m) => m.id), x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
+    markRow = { ids: marks.map((m) => m.id), marks, x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
     drawGoalLine(hc, goal, ex, goalY, panel.alpha, goalW);
     goalRow = goal && { line: goal, x: ex, y: goalY, w: goalW }; // for taps (D-706)
     row = null;
@@ -418,7 +420,7 @@ export function createFrame(app, ui) {
     }
     else if (app.screen === 'bench') {
       const station = tileAt(state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state)), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE); // a card on the room (D-387)
+      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state)), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {
@@ -442,7 +444,7 @@ export function createFrame(app, ui) {
     return i < 0 ? null : foeAt(row.list[i].e);
   }
   // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654, or 'stiff', D-759) whose mark is under px, py on the screen layer, or null
-  const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.ids.length, markRow.x, markRow.y, px, py)] ?? null : null);
+  const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.marks, markRow.x, markRow.y, px, py)] ?? null : null);
   // § goal line for taps (D-706): whether the goal line is under px, py on the screen layer, in play
   const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py, goalRow.w);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);

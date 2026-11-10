@@ -54,29 +54,6 @@ its PR adds one line to `WORKFLOW.md`'s "Since the last audit"
 (`PR-CHECKLIST.md` reminds), and each audit moves the lines into place.
 Nothing visible changed.
 
-**D-780 · 2026-11-10 · Night creatures, third: the rare gloamling**
-(the owner's picks, all recommended; builds D-779) Each night the seed
-and the night pick one of the 5 woods rooms round home, and a gloamling
-comes out there beside that room's lampmoth and bat, with the same
-rules (D-778). It acts and leaves finds as it does below: a Gloam Wisp
-about 1 in 2, a Gloam Eye about 1 in 10. Claude's calls the owner may
-change: it may pick the same room two nights running; it never shares a
-tile with the others. D-778 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
-**D-781 · 2026-11-10 · Day creatures, first: the mole** (the owner's
-picks, from the herb mimic, scorpion, centipede and mole; builds D-778,
-D-771's order) Day creatures are night creatures turned round, starting
-with a creature the game has: the mole. One comes out each day in each
-woods room round home, never home and never a mountain room, from
-halfway through dawn, and any still standing are gone from halfway
-through dusk. It acts and leaves finds as it does below. Claude's calls
-the owner may change: as daylight shows every tile, it comes out on
-open grass off the edge at least 4 steps from the hero, picked by the
-seed and the day; one beaten stays beaten till the next day; the start
-room is one of these rooms, so a mole may meet a new journey on its
-first turn. D-779 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-782 · 2026-11-10 · The thirteenth audit** (the owner's picks: every
 split, every archive and the playbook; ponds as recommended) At
 0.3.232, nothing visible changed. A conversation's start reads 10.4 KB,
@@ -196,3 +173,20 @@ Stone and Wood have been held. Claude's call: the tile's letter `e`.
 Each PR's handoff ends, before merging, with a few short prompts the
 owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`).
+
+**D-791 · 2026-11-10 · The Glow Draught's details** (the owner's picks,
+all recommended; builds D-786) Drunk again while it works, its time goes
+back to 60 turns, never more. A small gold bottle mark under the hearts
+panel shows it, with the turns left beside it, and a tap on it says
+"Glow Draught: {n} turns left."; lines as it is drunk and as it fades
+("The glow fades."). It can be drunk any time, the lantern empty too:
+its turns count down every turn, a night's sleep uses them, and the
+extra tile shows again once there is oil. The mortar lists it once
+Duskstar and Wisp Glass have both been held. A Duskstar's and a Wisp
+Glass's card then shows the draught's picture and "Makes a Glow Draught
+at the mortar" where MAKE sits, with no button. Claude's calls: a fall
+ends it, as it ends poisoned; its other lines ("You make a Glow
+Draught.", "You need 2 Duskstar and 1 Wisp Glass.", "You can't carry
+more Glow Draughts.", the three drink and look lines); the two finds'
+first look line says "good for making things" (D-677). D-780 and D-781
+move to `archive/DECISIONS-SURFACE.md`, word for word.

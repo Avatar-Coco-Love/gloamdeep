@@ -26,10 +26,11 @@ neared 8 KB.
   bag, heals 4 hearts (D-309).
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
   the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
-  card, MORTAR, lists what it makes, nothing yet (D-786, D-789).
+  card, MORTAR, lists what it makes: the Glow Draught (D-786, D-789).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
-  1 Wisp Glass; Drink: the lantern reaches 1 tile farther for 60 turns
-  (D-786). Not in the game yet.
+  1 Wisp Glass; Drink, any time: the lantern reaches 1 tile farther for
+  60 turns, its gold bottle mark under the hearts with the turns left
+  (D-786, D-791).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a

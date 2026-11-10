@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.238 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.239 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Glow Draught (D-786): made at the mortar from 2 Duskstar and 1 Wisp
-Glass, drunk from the bag, the lantern 1 tile farther for 60 turns. Or
-the third day creature (D-784) first, the owner's pick.
+The third day creature (D-784), or the next alchemy recipe (Q-093), the
+owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -46,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.239, The Glow Draught.** The owner's picks (D-791):
+  made at the mortar from 2 Duskstar and 1 Wisp Glass; drunk, the
+  lantern 1 tile farther for 60 turns, back to 60 if drunk again; a gold
+  bottle mark with the turns left; any time, the turns running on; the
+  two finds' cards say "Makes a Glow Draught at the mortar".
+  Playtest: PLAYTEST
 - **2026-11-10, 0.3.238, The Mortar and Pestle.** The owner's picks
   (D-789): made on the bag's Make tab from 4 Stone and 1 Wood, set down
   at home like the bed; bumped any time, the workbench's card as MORTAR,
@@ -59,9 +64,3 @@ list in `RESEARCH.md`.
   bag always opens on BAG. A find's MAKE opens its recipe there, with
   "Makes an Oil flask" above it.
   Playtest: https://claude.ai/artifact/H2kMZbaEG6RVSwi43kfH43
-- **2026-11-10, 0.3.236, Mortar and Make tab, the plan.** The
-  owner's picks (D-786, D-787): the Mortar and Pestle, a stone bowl on a
-  stump, from 4 Stone and 1 Wood; the Glow Draught from 2 Duskstar and
-  1 Wisp Glass, the lantern 1 tile farther for 60 turns. The workbench
-  is full, so the bag gets a Make tab first. Nothing visible.
-  Mock-up: https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4

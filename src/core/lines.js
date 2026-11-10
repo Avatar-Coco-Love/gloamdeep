@@ -51,7 +51,7 @@ export const LINES = {
   stoneTake: { texts: ['The boulder breaks. You take a stone.', 'The rock splits. A stone comes free.', 'The rock crumbles. You keep a stone.'], warn: false }, // the third (O2)
   looseStoneTake: { texts: ['You pick up a loose stone.', 'A stone from the slope. You keep it.', 'You lift a stone from the grass.'], warn: false }, // a loose stone (D-761)
   duskstarTake: { texts: ['You pick a duskstar.', 'A violet flower. You keep it.', 'You pick the little star of petals.'], warn: false }, // the first flower (D-763)
-  duskstarLook: { texts: ['A duskstar, for crafting later.', 'Violet petals, a yellow heart.', 'A small flower from the woods.'], warn: false },
+  duskstarLook: { texts: ['A duskstar, good for making things.', 'Violet petals, a yellow heart.', 'A small flower from the woods.'], warn: false },
   duskstarFull: { text: "You can't carry more duskstars.", warn: false },
   stoneLook: { texts: ['A plain stone, good for making things.', 'It is heavy and grey.', 'Cold and rough in your hand.'], warn: false },
   veinHard: { texts: ['Too hard to break by hand.', 'It glints with copper. It needs a pick.', 'Your knuckles ache. A pick would do it.'], warn: false }, // no pick in the Tool slot, free (D-480, D-552)
@@ -259,6 +259,13 @@ export const LINES = {
   lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)
   minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)
   campPickTaken: { text: 'You take the old pick.', warn: false }, // Claude's draft the owner may change (D-770)
+  glowDraughtMake: { text: 'You make a Glow Draught.', warn: false }, // MORTAR's card, a turn (D-786)
+  glowDraughtShort: { text: 'You need 2 Duskstar and 1 Wisp Glass.', warn: false }, // too few, free
+  glowDraughtFull: { text: "You can't carry more Glow Draughts.", warn: false }, // every stack full, no slot free
+  glowDraughtDrink: { texts: ['You drink the Glow Draught.', 'Warmth runs into the lantern.', 'The light reaches farther.'], warn: false }, // drunk from the bag, any time (D-791)
+  glowDraughtLook: { texts: ['A gold draught that glows.', 'Drink it: the light reaches farther.', 'Made at the mortar.'], warn: false },
+  glowEnds: { text: 'The glow fades.', warn: false }, // its turns run out (D-791)
+  glowHeld: { text: 'Glow Draught: {n} turns left.', warn: false }, // a tap on its mark (D-791)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

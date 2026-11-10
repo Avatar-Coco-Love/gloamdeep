@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.239 (2026-11-10)
+- New: the Glow Draught, a gold bottle. Once you have held Duskstar and Wisp Glass, the mortar makes it from 2 Duskstar and 1 Wisp Glass. Drink it from your bag and your lantern's light reaches 1 tile farther for 60 turns, on top of Wide Glow. A gold bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while your lantern is empty or you sleep, and a fall ends it.
+- Duskstar and Wisp Glass now say "good for making things", and their card shows "Makes a Glow Draught at the mortar".
+- Decisions: D-791.
+
 ## 0.3.238 (2026-11-10)
 - New: the Mortar and Pestle, a stone bowl on a stump. Make it on the bag's Make tab from 4 Stone and 1 Wood, then set it down outside like the bed. Bump it, day or night, to open its card; it has nothing to make yet, and the Glow Draught comes next. DECONSTRUCT puts it back in your bag.
 - Decisions: D-789, D-790.
@@ -31,7 +36,3 @@ Entry format:
 - The bag has two tabs, BAG and MAKE. The Make tab lists everything you can make from your bag: pick one to see its cost from what you carry, then press MAKE. A recipe shows once you have held each of its finds, and stays after.
 - On the Bag tab, a find's MAKE now opens the Make tab on its recipe, and a line above it shows what it makes ("Makes an Oil flask"). Tab switches the tabs.
 - Decisions: D-788.
-
-## 0.3.236 (2026-11-10)
-- Nothing in the game changes. The plan for the first potion station is set. The Mortar and Pestle is a stone bowl on a stump, made from 4 Stone and 1 Wood. Its first recipe is the Glow Draught, made from 2 Duskstar and 1 Wisp Glass, which makes your lantern reach 1 tile farther for 60 turns. The workbench has no room left, so first the bag gets a Make tab listing everything you can make from your bag.
-- Decisions: D-786, D-787. Questions: Q-093 narrowed.

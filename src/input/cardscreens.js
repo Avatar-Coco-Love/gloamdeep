@@ -5,7 +5,7 @@
 import { tileAt } from '../core/room.js';
 import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU } from '../core/menu.js';
 import { bagSize, bagCols } from '../core/bag.js';
-import { bagMakes, makeFor } from '../core/bagmake.js';
+import { bagMakes, makeFor, knownOf } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
 import { setSides, DIRS } from '../core/turn.js';
 import { get } from '../core/registry.js';
@@ -183,7 +183,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   }
   const costWords = (m) => `${get(m.item).name}, ${m.cost.map((c) => `${c.n} ${get(c.id).name}, you have ${c.have}`).join(' and ')}${m.dim ? ', too few' : ''}`;
   const station = () => tileAt(app.state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state));
+  const stationNow = () => stationMakes(station(), app.state.bag, bagSize(app.state), nearStacks(app.state), knownOf(app.state));
   const benchWords = () => { const name = station().name, makes = stationNow(); return `${name}. ${makes.length ? makes.map((m) => `${costWords(m)}. `).join('') : `${STATION_NONE} `}Make, Deconstruct ${stationTitle(station()).toLowerCase()}, or Close.`; };
   // § bench card (D-387): the frame on a slot says what is made there and its cost
   function pickBench(i) {

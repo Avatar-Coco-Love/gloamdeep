@@ -10,6 +10,7 @@ import { DAY_TURNS, DUSK } from './daytime.js';
 import { maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
 import { sleptIn } from './waking.js';
+import { glowSlept } from './glow.js';
 
 export const RESTED = 1; // the gold hearts a night's sleep gives
 
@@ -20,6 +21,6 @@ export const tired = (state) => state.turn % DAY_TURNS >= DUSK;
 export function sleep(state, x, y) {
   if (!tired(state)) return say(state, 'notTired');
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const slept = fresh({ ...sleptIn(state, x, y), turn: morning, health: maxHealth(state) + RESTED });
+  const slept = fresh({ ...glowSlept(sleptIn(state, x, y), morning - state.turn), turn: morning, health: maxHealth(state) + RESTED });
   return endTurn(state, say(note(slept, 'sleep'), 'sleep'));
 }
