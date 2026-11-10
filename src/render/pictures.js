@@ -417,6 +417,11 @@ const CENTIPEDE_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokkwVkkOk...',
   '...kokVVggkOk...', '...kokkgGkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § fang charm: a bat fang, pale and pointing down, in the wisp charm's copper setting and loop (D-809)
+const FANG_CHARM = { mirror: false, rows: [
+  '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokwwwAkOk...',
+  '...kokkwAkkOk...', '...kokkwkkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
+
 // § echo charm: a folded bat wing, a bone spar over dark leather with a scalloped edge, in the
 // wisp charm's copper setting and loop (D-805)
 const ECHO_CHARM = { mirror: false, rows: [
@@ -579,6 +584,7 @@ export {
   ANTIDOTE,
   CENTIPEDE_CHARM,
   ECHO_CHARM,
+  FANG_CHARM,
   SPIT_GRUB,
   GRUB_SKIN,
   GLOW_GLAND,

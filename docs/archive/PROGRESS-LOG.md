@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.252, The Shade Draught.** The owner's picks
+  (D-806): the mortar's sixth recipe, 2 Lurker Claw and 1 Duskstar; for
+  60 turns creatures notice the hero only within 2 steps, chasers still
+  coming; dusky violet.
+  Playtest: https://claude.ai/artifact/VNc7o2ck8qLidUsbRm3aw4
 - **2026-11-10, 0.3.251, The Echo Charm.** The owner's picks (D-805):
   the GEAR tab's last slot, 3 Bat Wing and 1 Copper Ore; worn, creatures
   within 4 tiles in the dark, walls or not, show as pale outlines.

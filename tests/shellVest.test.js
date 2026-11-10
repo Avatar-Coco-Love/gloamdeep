@@ -19,7 +19,7 @@ const SHELL = { armour: ['shellVest'] };
 
 test('the bench has two tabs, BUILD and GEAR, each one of its makes in one tab only (D-800)', () => {
   assert.deepEqual(BENCH_TABS.map((t) => t.text), ['BUILD', 'GEAR']);
-  assert.deepEqual(benchTabOf('gear').makes, ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm']);
+  assert.deepEqual(benchTabOf('gear').makes, ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm', 'fangCharm']);
   assert.equal(new Set(BENCH_MAKES).size, BENCH_MAKES.length);
   assert.equal(benchTabOf('nonsense').id, 'build');
   const bench = get('bench');

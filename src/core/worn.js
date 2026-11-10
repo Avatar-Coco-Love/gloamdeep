@@ -46,3 +46,6 @@ export function wear(state, i) {
   const now = [...(full ? there.slice(1) : there), s.id];
   return say({ ...state, bag, worn: { ...wornOf(state), [on.slot]: now } }, get(s.id).wears);
 }
+
+// The chance a beaten creature gives back a heart: the worn pieces' `fang`, or 0 (D-809)
+export const fangOf = (state) => Math.max(0, ...effects(state, 'fang'));

@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.254 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.255 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The finds plan (D-799), one a step: next Bat Fang's Fang Charm, then
-the Mole Claw Pick. The Hands upgrade when wanted.
+The finds plan (D-799), one a step: next the Mole Claw Pick, the last
+quick one; its later steps wait for the lantern's parts and the weapons.
+The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.255, The Fang Charm.** The owner's picks (D-809):
+  the workbench's GEAR tab, 1 Bat Fang and 1 Copper Ore; worn, a beaten
+  creature gives back 1 heart 1 time in 4, a red heart rising by the "+1".
+  Playtest: https://claude.ai/artifact/GBfTreq1MNi4caw2RCi7hV
 - **2026-11-10, 0.3.254, The Glow Lamp.** The owner's picks (D-808):
   made in the bag from 1 Glow Gland and 1 Wood; set down as a torch is,
   it lights 3 tiles in steady green for 300 turns, then goes dark.
@@ -53,8 +58,3 @@ list in `RESEARCH.md`.
   the workbench's BUILD tab, 3 Rat Bone and 1 Spider Silk; FIT ties it
   to the rod for good, and the strike meter's zone is half again as wide.
   Playtest: https://claude.ai/artifact/DurKfNfgwi6y76ePo7hn9T
-- **2026-11-10, 0.3.252, The Shade Draught.** The owner's picks
-  (D-806): the mortar's sixth recipe, 2 Lurker Claw and 1 Duskstar; for
-  60 turns creatures notice the hero only within 2 steps, chasers still
-  coming; dusky violet.
-  Playtest: https://claude.ai/artifact/VNc7o2ck8qLidUsbRm3aw4

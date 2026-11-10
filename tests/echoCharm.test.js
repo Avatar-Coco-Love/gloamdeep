@@ -18,12 +18,12 @@ const hero = { x: 5, y: 11 };
 const dark = (enemies, more = {}) => ({ ...makeState(room, FIRST_START, [], []), hero, enemies, lit: false, ...more });
 const ids = (s) => echoed(s).map((e) => `${e.id}@${e.x},${e.y}`);
 
-test("the Echo Charm is the GEAR tab's last slot: 3 Bat Wing and 1 Copper Ore, dim with too few", () => {
+test("the Echo Charm is on the GEAR tab, before the Fang Charm (D-809): 3 Bat Wing and 1 Copper Ore, dim with too few", () => {
   const c = get('echoCharm');
   assert.equal(c.name, 'Echo Charm'); assert.equal(c.max, 1); assert.deepEqual(c.wear, { slot: 'charm', echo: 4 });
-  const slot = benchMakes([{ id: 'batWing', n: 3 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-1);
+  const slot = benchMakes([{ id: 'batWing', n: 3 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-2);
   assert.deepEqual(slot, { item: 'echoCharm', cost: [{ id: 'batWing', n: 3, have: 3 }, { id: 'copperOre', n: 1, have: 1 }], dim: false });
-  assert.equal(benchMakes([{ id: 'batWing', n: 2 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-1).dim, true);
+  assert.equal(benchMakes([{ id: 'batWing', n: 2 }, { id: 'copperOre', n: 1 }], 6, [], benchTabOf('gear').makes).at(-2).dim, true);
 });
 
 test('Make takes its cost, a turn; too few or one worn is free', () => {

@@ -28,6 +28,7 @@ import { endTurn } from './endturn.js';
 import { fleeOrStand } from './creatureturn.js';
 import { fetchBag } from './fall.js';
 import { sleep } from './sleep.js';
+import { fangMend } from './fang.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
 import { bumpWater } from './fishing.js';
@@ -161,7 +162,9 @@ function attack(state, foe) {
   let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
   for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720)
-  return endTurn(state, say(next, first.line));
+  let said = say(next, first.line);
+  for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
+  return endTurn(state, said);
 }
 // One creature hit for `damage`: the state with it hurt, fled or gone and its drop
 // lying, the line it says, and its id when beaten
@@ -194,7 +197,7 @@ function scatter(state, foe, from) {
   const entry = get(foe.id), enemies = state.enemies.filter((e) => e !== foe);
   const next = { ...state, enemies, items: dropFrom({ ...state, hero: from, enemies }, foe, entry) };
   const beat = note(gain(next, xpOf(entry)), 'beat', { id: foe.id, ...(!foe.met && { unmet: true }), ...(foe.spawned && { spawned: true }) });
-  return say(note(beat, 'scatter', { id: foe.id }), entry.scatters);
+  return fangMend(say(note(beat, 'scatter', { id: foe.id }), entry.scatters), foe); // the Fang Charm's heart back (D-809)
 }
 
 // § wake: bumping a creature asleep in disguise wakes it, with no harm and no

@@ -894,3 +894,20 @@ warm too, the moon's ask saying so; "You lay out the fur bedroll." and
 "You roll up the fur bedroll."; laid out, it is drawn from above, its
 head end still rolled. D-798 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-805 · 2026-11-10 · The Echo Charm** (the owner's picks, all
+recommended; builds D-799) Bat Wing's first use, made on the workbench's
+GEAR tab from 3 Bat Wing and 1 Copper Ore, as the other charms are.
+Worn, each creature within 4 tiles of the hero, walls between or not,
+that no light shines on shows as a pale outline of its shape over the
+dark, slowly pulsing (steady with reduced motion). Others offered: 3 Bat
+Wing and 1 Spider Silk; 4 Bat Wing and 1 Copper Ore; a ripple ring only;
+the creature itself, very dim; 3 or 5 tiles; only creatures in the
+open. Claude's calls the owner may change: GEAR lists it last; tiles are
+counted the king's way, a diagonal one step; one in disguise stays
+hidden, that being the Gloam Eye's work (D-799), and one with its own
+glow shows already; echoed is not met in the Bestiary; its look, a
+folded bat wing in the charms' copper setting; its lines ("You make an
+echo charm.", "You put on the echo charm.", "Near creatures show in
+the dark."); the Bat Wing's look line names it. D-800 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
