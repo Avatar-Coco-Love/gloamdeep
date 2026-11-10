@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.232, The thirteenth audit.** The owner's picks
+  (D-782): every split (history, creatures' pictures and lines), every
+  archive and the playbook, word for word; nothing visible changed. Bug
+  hunt: three bugs, fixed next.
 - **2026-11-10, 0.3.231, Day creatures, first: the mole.** The owner's
   picks (D-781): a mole comes out each day in each woods room round
   home, never home, gone by night, the night rules turned round.

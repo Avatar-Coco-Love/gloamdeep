@@ -80,11 +80,13 @@ often, and how it fits the bigger biomes are talked through at its own
 step, after biome 1 grows.
 
 **Q-093 · The alchemy station and new recipes** (raised 2026-11-10,
-D-771) Open: the station's form (a mortar and pestle, an alchemy lab,
-or both), name, look and cost; which of the finds "for crafts later"
-go into which recipes, at alchemy and the other stations. After night
-creatures, then day creatures (the owner's addition; the mole came
-first, D-781).
+D-771; narrowed by D-785: a mortar and pestle first, a lab later, fixed
+recipes, a farther-reaching lantern potion first, cooking after at the
+kitchen fire and at campfires) Open: the mortar's name, look and cost;
+the first potion's finds, reach and turns; the lab and its recipes;
+which of the finds "for crafts later" go into which recipes, at
+alchemy and the other stations; what is cooked, at home and at a
+campfire.
 
 **Q-094 · The bow** (raised 2026-11-10, D-772) Open: its hits and
 reach, how a shot is aimed by touch, mouse and keys, whether it needs

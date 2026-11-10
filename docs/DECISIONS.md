@@ -125,3 +125,18 @@ of its own. A bunny within 3 steps counts as a creature near
 for sleeping out, as the lure wisp does. The people's glossary lines
 move back to `GLOSSARY.md` word for word, so `GLOSSARY-2.md` stays
 under 8 KB.
+
+**D-785 · 2026-11-10 · Alchemy and cooking, the shape** (the owner's
+picks, all recommended, with the owner's addition; narrows Q-093,
+Q-088; changes D-456's "stations don't improve for now" for alchemy)
+Alchemy starts at a mortar and pestle, a station built at home; an
+alchemy lab comes later as the better station, with stronger recipes.
+Recipes there are fixed, as Make is today: set finds always make the
+same thing, shown once their parts have been held (D-418); a base
+potion with add-ins was offered and not picked. Its first new potion
+makes the lantern reach farther for a while; its finds, amounts and
+turns are proposed at its step. Cooking comes after alchemy, at the
+kitchen fire (D-771), and simple food can also be cooked at a lit
+campfire in the world (the owner's addition). The mortar's cost and
+look, the lab and each recipe come at their own steps. Nothing in the
+game changes yet.

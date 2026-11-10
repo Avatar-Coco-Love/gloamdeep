@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.234 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.235 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Day creatures, third (D-784): another kind, a rare one, or on to the
-alchemy station (Q-093), the owner's pick.
+The mortar and pestle (D-785, Q-093): its cost and look, and the
+lantern potion's finds and numbers, proposed with a mock-up; or the
+third day creature (D-784) first, the owner's pick.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -28,8 +29,8 @@ More sounds (Q-095) when the owner wants, a small group a time (D-776).
 - Sleeping out's later costs (Q-091).
 - Sounds from files (Q-095): a file for each other sound, and the
   "Maybe" sounds.
-- The alchemy station and new recipes (Q-093), after day creatures;
-  then the bow (Q-094).
+- The mortar, the lab and their recipes (Q-093, D-785); then the bow
+  (Q-094); then cooking, at home and at campfires.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step
@@ -45,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.235, Alchemy and cooking, the plan.** The owner's
+  picks (D-785): a mortar and pestle first, an alchemy lab later; fixed
+  recipes; the first potion makes the lantern reach farther; cooking
+  after, at the kitchen fire and at lit campfires. Nothing visible.
 - **2026-11-10, 0.3.234, Day creatures, second: the bunny.** The owner's
   idea and picks (D-784): a shy brown bunny each day at home and in each
   woods room round home; it never bites, hops away within 3 steps, and
@@ -55,7 +60,3 @@ list in `RESEARCH.md`.
   (B1), none bites on waking (B2), and night ones come out 4 steps away
   (B3). Each with a test that fails on the old code.
   Playtest: https://claude.ai/artifact/YAZcNCgUZGctcP459jCqB3
-- **2026-11-10, 0.3.232, The thirteenth audit.** The owner's picks
-  (D-782): every split (history, creatures' pictures and lines), every
-  archive and the playbook, word for word; nothing visible changed. Bug
-  hunt: three bugs, fixed next.
