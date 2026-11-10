@@ -266,6 +266,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
   drawButton(c, card.drop.x, card.drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
+  if (makes?.at && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
   if (!text) return;
   const few = entry.craft && !makes; // MAKE opens the Make tab on its recipe, dim before that shows (D-787)
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); return; }
@@ -275,11 +276,14 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (makes) drawMakes(c, text === 'MAKE' ? card.button : card.make, makes, spriteOf);
 }
 // § makes line: above a find's MAKE, the picture of what it makes and "Makes an Oil flask",
-// their right end at MAKE's (look A, D-787)
-function drawMakes(c, at, into, spriteOf) {
-  const words = makesWords(into), tx = at.x + BUTTON.w - textWidth(words), ty = at.y - LINE_H - 2;
-  c.drawImage(spriteOf({ id: into, n: 1 }), tx - 19, ty - 5);
-  drawText(c, words, tx, ty, GREY);
+// their right end at MAKE's (look A, D-787); one made at a station adds where, "at the mortar",
+// in MAKE's own place, on a second line when the two don't fit in `dw` (D-791)
+function drawMakes(c, at, into, spriteOf, where = null, dw = Infinity) {
+  const one = makesWords(into), whole = where && `${one} ${where}`;
+  const lines = !where ? [one] : textWidth(whole) + 19 <= dw ? [whole] : [one, where];
+  const right = at.x + BUTTON.w, ty = (where ? at.y + 4 : at.y - LINE_H - 2) - (lines.length - 1) * LINE_H;
+  lines.forEach((l, k) => drawText(c, l, right - textWidth(l), ty + k * LINE_H, GREY));
+  c.drawImage(spriteOf({ id: into, n: 1 }), right - textWidth(lines[0]) - 19, ty - 5);
 }
 
 // § gear's words: a gear slot chosen, its piece's name, its slot's name and its Look line, as

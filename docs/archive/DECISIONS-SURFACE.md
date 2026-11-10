@@ -20,6 +20,8 @@ D-733, a bigger surface's plan, all five steps built, followed at
 0.3.207 (D-756), word for word.
 D-771, alchemy, a station of its own, followed at 0.3.228 (D-778),
 word for word, as `docs/DECISIONS.md` neared 12 KB.
+D-780 and D-781, the rare gloamling and the mole, both built, followed
+at 0.3.239 (D-791), word for word, for the same reason.
 
 ---
 
@@ -561,3 +563,26 @@ the woods rooms round home for it. Claude's calls the owner may change:
 a night bat leaves no guano, which lies only by a bat a room is made
 with; it never shares a tile with the lampmoth. D-772 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-780 · 2026-11-10 · Night creatures, third: the rare gloamling**
+(the owner's picks, all recommended; builds D-779) Each night the seed
+and the night pick one of the 5 woods rooms round home, and a gloamling
+comes out there beside that room's lampmoth and bat, with the same
+rules (D-778). It acts and leaves finds as it does below: a Gloam Wisp
+about 1 in 2, a Gloam Eye about 1 in 10. Claude's calls the owner may
+change: it may pick the same room two nights running; it never shares a
+tile with the others. D-778 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-781 · 2026-11-10 · Day creatures, first: the mole** (the owner's
+picks, from the herb mimic, scorpion, centipede and mole; builds D-778,
+D-771's order) Day creatures are night creatures turned round, starting
+with a creature the game has: the mole. One comes out each day in each
+woods room round home, never home and never a mountain room, from
+halfway through dawn, and any still standing are gone from halfway
+through dusk. It acts and leaves finds as it does below. Claude's calls
+the owner may change: as daylight shows every tile, it comes out on
+open grass off the edge at least 4 steps from the hero, picked by the
+seed and the day; one beaten stays beaten till the next day; the start
+room is one of these rooms, so a mole may meet a new journey on its
+first turn. D-779 moves to `archive/DECISIONS-SURFACE.md`, word for word.

@@ -519,6 +519,9 @@ const CAMP = { rows: [
 ] };
 const CAMP_PICK = [33, 7];
 
+// § glow draught: the red potion's round bottle in the lantern's gold, light and shade (D-786)
+const GLOW_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'y').replace(/R/g, 'Y')) };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -545,4 +548,5 @@ export {
   LAMPPOST,
   CAMP,
   CAMP_PICK,
+  GLOW_DRAUGHT,
 };

@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.239', date: '2026-11-10', title: 'The Glow Draught', lines: [
+    "New: the Glow Draught, a gold bottle. Once you have held Duskstar and Wisp Glass, the mortar makes it from 2 Duskstar and 1 Wisp Glass. Drink it from your bag and your lantern's light reaches 1 tile farther for 60 turns, on top of Wide Glow. A gold bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while your lantern is empty or you sleep, and a fall ends it.",
+    "Duskstar and Wisp Glass now say \"good for making things\", and their card shows \"Makes a Glow Draught at the mortar\".",
+    "Decisions: D-791.",
+  ] },
   { v: '0.3.238', date: '2026-11-10', title: 'The Mortar and Pestle', lines: [
     "New: the Mortar and Pestle, a stone bowl on a stump. Make it on the bag's Make tab from 4 Stone and 1 Wood, then set it down outside like the bed. Bump it, day or night, to open its card; it has nothing to make yet, and the Glow Draught comes next. DECONSTRUCT puts it back in your bag.",
     "Decisions: D-789, D-790.",

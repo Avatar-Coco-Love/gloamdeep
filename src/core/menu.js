@@ -106,16 +106,18 @@ export const BENCH_TAKE = BENCH_SLOTS;
 // A bag upgrade shows only while the bag is its `grows.from`: the Pouch at 6 slots, the
 // Big Bag at 9; both made, neither shows (D-547). size: the bag's slots
 const offered = (id, size) => { const g = get(id).grows; return !g || g.from === size; };
-export const benchMakes = (bag, size = 6, stored = []) => BENCH_MAKES.filter((id) => offered(id, size)).map((id) => {
+export const benchMakes = (bag, size = 6, stored = [], ids = BENCH_MAKES) => ids.filter((id) => offered(id, size)).map((id) => {
   const of = get(id).bench.of, all = [...bag, ...stored];
   return { item: id, cost: Object.entries(of).map(([at, n]) => ({ id: at, n, have: carried(all, at) })), dim: !bagHas(all, of) };
 });
 // § station: a set-down station opens the workbench's card, its own title over it: the bench's,
-// or the mortar's (D-786), a tile with `makes`, its recipes; none till the Glow Draught's step,
-// so its card says so in grey. tile: the station's tile
+// or the mortar's (D-786), a tile with `makes`, its recipes, each shown once all its parts have
+// been held (`known`, D-418, D-791); none shown, its card says so in grey. tile: the station's tile
 export const STATION_NONE = 'Nothing to make here yet.';
 export const stationTitle = (tile) => tile.title || 'WORKBENCH';
-export const stationMakes = (tile, bag, size, stored) => (tile.makes ? [] : benchMakes(bag, size, stored));
+const shown = (id, known) => Object.keys(get(id).bench.of).every((at) => known.has(at));
+export const stationMakes = (tile, bag, size, stored, known = new Set()) => (tile.makes
+  ? benchMakes(bag, size, stored, tile.makes.filter((id) => shown(id, known))) : benchMakes(bag, size, stored));
 // The arrows on the card: the grid, Down from its bottom row to Deconstruct, Up from it back
 export function moveBench(i, dir) {
   if (i === BENCH_TAKE) return dir === 'up' ? BENCH_SLOTS - BENCH_COLS : i;

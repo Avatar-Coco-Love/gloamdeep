@@ -18,7 +18,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `potion` | Drink: 4 hearts | 5 | never | 3 heartcaps | D-309 |
 | `antidote` | Drink: ends poisoned, healing nothing; only while poisoned | 5 | never | 1 Snapcap Gill and 1 herb, made in the bag | D-652, D-655 |
 | `stone` | for crafts; 4 with 1 Wood make the Mortar and Pestle (D-786) | 20 | 300 when lying loose; never from a deposit | a deposit; 2 loose on open grass in each mountain room (`loosestone.js`), none in the woods rooms | D-312, D-761 |
-| `duskstar` | for crafts later | 20 | 300, on another grass tile of its room | 2 on open grass in each woods room (`duskstar.js`), none in the mountain rooms | D-763 |
+| `duskstar` | 2 with 1 Wisp Glass make the Glow Draught at the mortar (D-786) | 20 | 300, on another grass tile of its room | 2 on open grass in each woods room (`duskstar.js`), none in the mountain rooms | D-763 |
 | `ratTail` | 4 with 1 Wood make the Rat Hide Vest; 2 with 4 Wood, the bed | 20 | never | a beaten rat, about 1 in 2 | D-453, D-454, D-474, D-484, D-488 |
 | `mothDust` | with 1 Wood makes a torch | 20 | never | a beaten lampmoth, about 1 in 2 | D-454, D-475, D-478 |
 | `stinger` | for crafts later | 20 | never | a beaten scorpion, about 1 in 2; always Sand | D-454, D-475 |
@@ -33,7 +33,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `tickShell` | for crafts later | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |
-| `wispGlass` | for crafts later; sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
+| `wispGlass` | 1 with 2 Duskstar make the Glow Draught at the mortar (D-786); sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
 | `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
 | `grubSkin` | for crafts later; sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
@@ -41,6 +41,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |
 | `locket` | the Lightkeeper's Locket, biome 1's first relic: set on the shelf for good (D-693); there, a Normal fall brings home the bag's stack worth most to the peddler (D-694) | 1 | never | one room at depth 4, a warden guarding it | D-689, D-691, D-692, D-693, D-694 |
 | `bunnyFur` | for crafts later; sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
+| `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,

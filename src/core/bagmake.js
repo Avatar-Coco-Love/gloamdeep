@@ -42,3 +42,14 @@ export function makeFor(state, id) {
 }
 // "Makes an Oil flask": the line above a find's MAKE on the Bag tab (D-787)
 export const makesWords = (into) => { const name = get(into).name; return `Makes ${/^[aeiou]/i.test(name) ? 'an' : 'a'} ${name}`; };
+// § at a station: what find `id` makes at a set-down station (the mortar's Glow Draught), once
+// that recipe shows, all its parts held: { into, at: 'at the mortar' }, or null (D-791)
+const STATIONS = ALL.filter((e) => e.kind === 'tile' && e.makes);
+export function stationFor(state, id) {
+  const known = knownOf(state);
+  for (const tile of STATIONS) {
+    const into = tile.makes.find((m) => { const of = get(m).bench.of; return of[id] && Object.keys(of).every((at) => known.has(at)); });
+    if (into) return { into, at: tile.at };
+  }
+  return null;
+}

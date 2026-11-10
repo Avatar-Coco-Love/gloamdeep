@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.236, Mortar and Make tab, the plan.** The
+  owner's picks (D-786, D-787): the Mortar and Pestle, a stone bowl on a
+  stump, from 4 Stone and 1 Wood; the Glow Draught from 2 Duskstar and
+  1 Wisp Glass, the lantern 1 tile farther for 60 turns. The workbench
+  is full, so the bag gets a Make tab first. Nothing visible.
+  Mock-up: https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4
 - **2026-11-10, 0.3.235, Alchemy and cooking, the plan.** The owner's
   picks (D-785): a mortar and pestle first, an alchemy lab later; fixed
   recipes; the first potion makes the lantern reach farther; cooking

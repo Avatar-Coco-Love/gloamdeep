@@ -12,6 +12,7 @@ import { reach } from './oil.js';
 import { maxHealth } from './state.js';
 import { rareOf } from './worn.js';
 import { stoneHome } from './mouth.js';
+import { glowReach } from './glow.js';
 
 export const HOME = 'woods'; // home, Hearthwood's middle room (D-733)
 export const OFFERED = 3;
@@ -22,8 +23,8 @@ export const boonOf = (state) => (state.boon && BOONS[state.boon]) || null;
 export { boonHearts, boonBurn } from './state.js';
 // The tiles more the lantern's light reaches (Wide Glow), 0 without
 export const boonReach = (state) => boonOf(state)?.reach ?? 0;
-// The lantern's light reach in pixels, with the boon's tiles; the empty ember stays as it is
-export const lanternReach = (state) => reach(state.oil) + (state.oil > 0 ? boonReach(state) * 16 : 0);
+// The lantern's light reach in pixels, with the boon's tiles and the Glow Draught's (D-786); the empty ember stays as it is
+export const lanternReach = (state) => reach(state.oil) + (state.oil > 0 ? (boonReach(state) + glowReach(state)) * 16 : 0);
 // The tiles shorter the lantern's light is for a creature noticing the hero (Soft Step), 0 without
 export const boonNotice = (state) => boonOf(state)?.notice ?? 0;
 // What it adds to every hit the hero lands (Hard Blow), 0 without

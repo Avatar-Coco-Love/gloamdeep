@@ -5,13 +5,14 @@ import { stationMakes, BENCH_TAKE, moveBench } from '../../core/menu.js';
 import { tileAt } from '../../core/room.js';
 import { bagSize } from '../../core/bag.js';
 import { nearStacks } from '../../core/chest.js';
+import { knownOf } from '../../core/bagmake.js';
 import { benchAt } from '../../render/benchpanel.js';
 import { view } from '../../render/screen.js';
 
 export function benchCard(app, ui, show, c) {
   const { pickBench, takeDownBench } = c;
   // Enter, Space or Make: the thing on the slot made, or Deconstruct takes it down
-  function pick(i) { const m = stationMakes(tileAt(app.state.room, app.bench.x, app.bench.y), app.state.bag, bagSize(app.state), nearStacks(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); }
+  function pick(i) { const m = stationMakes(tileAt(app.state.room, app.bench.x, app.bench.y), app.state.bag, bagSize(app.state), nearStacks(app.state), knownOf(app.state))[i]; if (i === BENCH_TAKE) takeDownBench(); else if (m) ui.make(m.item); }
   const dir = (dir) => { pickBench(moveBench(app.chosen, dir)); }; // the bag's grid, Deconstruct under it (D-387)
   function tap(px, py, held) {
     if (held) return;
