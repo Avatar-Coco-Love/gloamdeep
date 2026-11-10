@@ -118,6 +118,7 @@ const DRAW = {
   bench: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y); },
   stash: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.chest); }, // the bench's way (CH2, D-329)
   rubble: (c, room, x, y) => { if (!['rock', 'earth', 'woods'].includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.rubble); }, // a deposit's way (D-490)
+  bedroll: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bedrollLaid); }, // the bed's way (D-804)
   bedstead: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.bed); }, // the bench's way (D-488)
   mortarStand: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.mortar); }, // the bed's way (D-786)
   relicShelf: (c, room, x, y) => { if (room.look !== 'woods') drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.shelf); }, // the bed's way (D-690)

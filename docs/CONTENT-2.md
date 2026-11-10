@@ -26,7 +26,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
 | `gardenBed` | set down as the garden bed tile, one seed planted in it | 1 | never | the workbench: 3 Wood, 2 Stone | D-562, D-565, D-566 |
 | `shelf` | set down as the shelf tile, empty; the locket can be set on it (D-693) | 1 | never | the workbench: 4 Wood, 2 Stone | D-689, D-690 |
-| `furBedroll` | carried in the bag, never used up: sleeping out heals 2 hearts, never above full, and the hero wakes not stiff | 1 | never | the workbench's BUILD tab: 4 Bunny Fur, 1 Spider Silk | D-799, D-803 |
+| `furBedroll` | carried in the bag, never used up: sleeping out heals 2 hearts, never above full, and the hero wakes not stiff; SLEEP in the bag, or SET DOWN as the bedroll tile (D-804) | 1 | never | the workbench's BUILD tab: 4 Bunny Fur, 1 Spider Silk | D-799, D-803, D-804 |
 | `mortar` | the Mortar and Pestle, the first alchemy station: set down as its tile | 1 | never | the bag's Make tab: 4 Stone, 1 Wood | D-785, D-786 |
 | `pouch` | made, the bag holds 9, never in the bag | – | never | the workbench: 4 Rat Tail, 2 Spider Silk | D-545, D-547, D-548 |
 | `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |

@@ -92,23 +92,6 @@ owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`). When they are
 given changed by D-795 (2026-11-10): once, after the merge.
 
-**D-798 · 2026-11-10 · Steady Wick, Light's first upgrade** (the
-owner's picks, all recommended) The gaps are worked through one step a
-time, quickest first: the Growth tree; uses for the finds kept for
-crafts later; the herb mimic's and bone rat's rare drops; the lantern's
-parts; weapons; the forge and cooking; then found abilities, bosses,
-trophies and people. The Growth tree's Light branch gets its first
-upgrade, Steady Wick: 1 ember, bought once, for good; a lit turn burns
-9/10 of its oil, a full tank lasting about 66 turns, not 60, added to
-the wick, the charm, the boon and Slowburn. Where its box is too narrow
-for the name, it says "Steady". Others offered: drop uses or the lab
-first; Fuller Pour (a flask 50%, not 45%); Brighter Glass (1 tile
-farther); two lines in the box, or a shorter name. Claude's calls: its
-words "The lantern burns a little slower, for good."; its button "Get
-Steady Wick"; a small flame in the lantern's gold, dim until bought; it
-is kept on a Normal fall, as Tough is. D-789 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-799 · 2026-11-10 · The finds plan** (the owner's picks, all
 recommended, from a plan page: https://claude.ai/artifact/GnPo6RnybF7g6ogTdiET6y;
 narrows Q-061 and Q-093) Each find kept for crafts later gets one first
@@ -179,3 +162,22 @@ bedroll.", "You wake warm in your fur bedroll."); the moon's ask says
 "Your fur bedroll is warm." while it is carried; only the bag counts,
 not a chest; the Bunny Fur's look line names it. D-797 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-804 · 2026-11-10 · The Fur Bedroll laid out, and SLEEP** (the
+owner's idea and picks, all recommended; builds D-758, D-803) In the
+bag the bedroll has SET DOWN and, left of it, SLEEP. SET DOWN lays it
+beside the hero, the bed's way, only under the sky. Bumped from dusk,
+it asks Sleep here until morning?; Yes is the bedroll's night, 2 hearts
+back and not stiff; by day it asks Roll up the bedroll?, Yes putting it
+back in the bag. SLEEP asks the same where the hero stands, dim by day,
+below ground or with a creature after the hero. It is no bed for a
+fall: home's bed still is (D-737). The moon button stays. Others
+offered: one card with Sleep and Roll up; USE or REST; a bedroll slept
+on as the bed for a fall; the moon hidden while carried. Claude's calls
+the owner may change: SLEEP or a bump that can't says why, free ("Only
+under the sky.", "Not with a creature after you.", "You aren't
+tired."); C in the bag is SLEEP; asleep beside a laid-out bedroll is
+warm too, the moon's ask saying so; "You lay out the fur bedroll." and
+"You roll up the fur bedroll."; laid out, it is drawn from above, its
+head end still rolled. D-798 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

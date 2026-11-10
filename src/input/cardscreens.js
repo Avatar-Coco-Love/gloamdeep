@@ -7,7 +7,7 @@ import { stationMakes, stationTitle, STATION_NONE, BENCH_TAKE, SURE_MENU, BENCH_
 import { bagSize, bagCols } from '../core/bag.js';
 import { bagMakes, makeFor, knownOf } from '../core/bagmake.js';
 import { NONE_YET } from '../render/makecard.js';
-import { setSides, DIRS } from '../core/turn.js';
+import { setSides, DIRS, noSleepOut } from '../core/turn.js';
 import { get } from '../core/registry.js';
 import { gearChosen, BAG_STORE, BAG_SORT } from '../render/bag.js';
 import { CHEST_BAG, CHEST_TAKE, CHEST_STORE, stashAt, chestsNear, nearStacks } from '../core/chest.js';
@@ -73,6 +73,7 @@ export function createCardScreens(app, ui, show, menuOf) {
     if (app.chosen === BAG_SORT) { if (!make) sortBag(); return; }
     if (gearChosen(app.chosen) >= 0) { if (!make) takeOffChosen(); return; }
     const s = app.state.bag[app.chosen], entry = s && get(s.id);
+    if (make && entry?.rest) { const why = noSleepOut(app.state); if (why) ui.tell(why); else { app.queued = null; show('sleepOut', SURE_MENU.findIndex((l) => l.id === 'no')); } return; } // SLEEP: the moon's ask, or why not, free (D-804)
     if (make && !entry?.craft && !entry?.eats) return;
     if (entry?.oil && !make) { show('play'); ui.pour(app.chosen); return; }
     if (entry?.sets && !make) { startSetting(); return; }

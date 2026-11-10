@@ -71,6 +71,10 @@ export const TILES = {
   // Bumped at night it `sleeps` (sleep.js); by day it opens its ask card, Deconstruct bed?,
   // where Yes `takes` it back into the bag.
   bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
+  // The Fur Bedroll set down on the surface, the bed's way (D-804): solid, light passing over it.
+  // Bumped from dusk it `camps`: Sleep here until morning? as the moon button asks, with no creature
+  // after the hero (sleepout.js); by day its ask card, Roll up the bedroll?, `takes` it back.
+  bedroll: { id: 'bedroll', kind: 'tile', letter: 'f', name: 'Fur Bedroll', solid: true, blocksLight: false, panel: 'bed', camps: true, takes: { item: 'furBedroll', says: 'bedrollTake' } },
   // A garden bed set down on the surface, the bed's way (garden step 2, D-565): solid, light
   // passing over it. Bumped, it opens the bed's card (D-566): Plant `plants` a Gloamberry
   // Seed from the bag, turning it into the sprout's tile; Deconstruct `takes` it back. A

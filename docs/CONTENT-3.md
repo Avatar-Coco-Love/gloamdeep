@@ -22,6 +22,7 @@ neared 8 KB.
 | `bench` | the workbench's panel | | set down on the surface | D-320, D-322, D-323 |
 | `stash` | a chest's 12 slots | | set down on the surface | D-325, D-330, D-340 |
 | `bedstead` | the bed: at night sleep till morning, healed, a gold heart; by day, Deconstruct bed? | | set down on the surface | D-488 |
+| `bedroll` | the Fur Bedroll laid out: from dusk, Sleep here until morning? (2 hearts, not stiff); by day, Roll up the bedroll? | | set down on the surface | D-804 |
 | `plot` | the garden bed: bumped, its card, Plant (a Gloamberry Seed) or Deconstruct | | set down on the surface | D-565, D-566 |
 | `sprout` | the garden bed planted, a sprout showing; its card, Feed (a Bat Guano) or Deconstruct, which gives back the seed too | | planted from the bed's card | D-566, D-567, D-569 |
 | `fedSprout` | the sprout fed, guano flecks on its soil; grows 150 turns after planting; Feed dim | | Feed on the sprout's card | D-569 |
