@@ -929,3 +929,21 @@ diagonals; its lines ("The dark folds round you.", "The shade lifts
 from you." as it ends); the mortar lists it last; the Lurker Claw's
 look line names it. D-801 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-807 · 2026-11-10 · The Bone Hook** (the owner's picks, all
+recommended; builds D-799, D-614) Rat Bone's first use, made on the
+workbench's BUILD tab from 3 Rat Bone and 1 Spider Silk; one at most.
+FIT in the bag ties it to the rod for good, free, the Copper Wick's way;
+it leaves the bag, and the rod is drawn with a small pale bone hook under
+its float. Fitted, the strike meter's amber zone is half again as wide:
+the minnow's 3/8 of the bar, not 1/4, the cavefish's 3/10, not 1/5;
+waiting for a bite stays the same. Others offered: bites coming sooner,
+1 turn in 4; a second try after a miss; a third wider; double; working
+from the bag; the rod made over at the bench; 2 Rat Bone and 1 Spider
+Silk; 4 Rat Bone. Claude's calls the owner may change: BUILD lists it
+last; FIT only with the rod carried, in the bag or the Tool slot, else
+"You have no rod to fit it to.", free; it stays on for good, there being
+one rod; its look, a rat bone bent into a J; its lines ("You make a bone
+hook.", "You tie the bone hook to your rod.", "A bone hook, for your
+rod."); the Rat Bone's look line names it. D-802 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

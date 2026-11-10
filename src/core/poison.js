@@ -12,7 +12,7 @@ import { note } from './events.js';
 import { fall } from './fall.js';
 import { poisonTurnsOf } from './worn.js';
 import { rng, seedFor } from './rng.js';
-import { UPGRADES } from './upgrades.js';
+import { UPGRADES, grown } from './upgrades.js';
 
 export const POISON = { turns: 6, every: 3 };
 
@@ -26,7 +26,7 @@ export const poisonedBy = (state) => ({ ...state, poisoned: poisonTurnsOf(state,
 // § shrugs: (state) → whether Tough turns this turn's poison aside, by the seeded dice (D-657);
 // never without Tough
 const TOUGH_SALT = 8192; // keeps Tough's dice apart from the glance's and the flee's
-export const shrugs = (state) => !!state.tough && rng(seedFor(state.seed ^ state.turn, TOUGH_SALT))() >= UPGRADES.tough.poisons;
+export const shrugs = (state) => grown(state, 'tough') > 0 && rng(seedFor(state.seed ^ state.turn, TOUGH_SALT))() >= UPGRADES.tough.poisons;
 
 // § tick: (state) → the state a passed turn later: the count one down, a heart on every
 // POISON.every-th turn counted back from the end, the last one too, so the hero falls (D-655), and the line as it wears off

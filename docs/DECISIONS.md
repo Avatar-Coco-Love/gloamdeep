@@ -113,24 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-807 · 2026-11-10 · The Bone Hook** (the owner's picks, all
-recommended; builds D-799, D-614) Rat Bone's first use, made on the
-workbench's BUILD tab from 3 Rat Bone and 1 Spider Silk; one at most.
-FIT in the bag ties it to the rod for good, free, the Copper Wick's way;
-it leaves the bag, and the rod is drawn with a small pale bone hook under
-its float. Fitted, the strike meter's amber zone is half again as wide:
-the minnow's 3/8 of the bar, not 1/4, the cavefish's 3/10, not 1/5;
-waiting for a bite stays the same. Others offered: bites coming sooner,
-1 turn in 4; a second try after a miss; a third wider; double; working
-from the bag; the rod made over at the bench; 2 Rat Bone and 1 Spider
-Silk; 4 Rat Bone. Claude's calls the owner may change: BUILD lists it
-last; FIT only with the rod carried, in the bag or the Tool slot, else
-"You have no rod to fit it to.", free; it stays on for good, there being
-one rod; its look, a rat bone bent into a J; its lines ("You make a bone
-hook.", "You tie the bone hook to your rod.", "A bone hook, for your
-rod."); the Rat Bone's look line names it. D-802 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-808 · 2026-11-10 · The Glow Lamp** (the owner's picks, all
 recommended; builds D-799, D-478) Glow Gland's first use, made in the
 bag (Make on the Glow Gland) from 1 Glow Gland and 1 Wood, as a torch
@@ -183,4 +165,20 @@ the second breaks it; its look, the Stone Pick's handle with a mole's
 pale claw lashed on as its head; its lines ("You make a mole claw
 pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
 bumps."); the Mole Claw's look line names it. D-806 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-811 · 2026-11-10 · The Growth tree, ready to grow** (the owner's
+picks, all recommended, from a page of three looks:
+https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y; builds D-462, D-481)
+Before the Hands upgrade, the tree is made ready for many more. Its look
+will be A, twigs: one drawn tree kept, each row a twig across the three
+limbs, its upgrades small picture tiles side by side, up to 3 a branch
+in a row, the name and words on the right when picked, and the tree
+scrolling once there are more rows than fit. Offered too: branch pages,
+one limb's tree a page; lists, like the Bestiary. In three steps: first,
+nothing visible, one list of upgrades in the code, each with its cost,
+the most times it can be bought and its look, and one record in the
+save of what was bought, older saves keeping their hearts, Tough and
+Steady Wick (offered too: each upgrade its own entry, as before); then
+the twigs; then the Hands upgrade. D-807 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
