@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.216, Names with spaces and digits.** The owner
+  sorted the 16 things waiting on them: 4 settled now, the rest parked
+  until their step. Names hold digits and spaces, with a 123 key (D-765);
+  the three creatures' drafts kept, a pack line and a wider sting next
+  (D-766). Playtest: https://claude.ai/artifact/AaE4dYPWNzJ29K14Amyd6D
 - **2026-11-09, 0.3.215, Dimmer doorway lines.** The owner found the
   doorway lines too bright and picked half as bright, the map unchanged,
   both recommended (D-764).

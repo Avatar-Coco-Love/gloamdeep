@@ -28,6 +28,13 @@ numbers, and when each kind comes. Asked at its own step, after the
 Bestiary (step 19). Old Maren, the hero's teacher, is one boss with a
 history, freed when beaten (D-633, `LORE.md`), fought near the end after the 4
 biome bosses; about 8 wanderers and rare named ones (D-634).
+A note (raised 2026-11-10, the owner's thought on D-768): a creature
+beaten by a sting or a glob leaves no find and gives no experience, so a
+stray blow landing the last hit on a boss could lose its found ability,
+and with it the way on. Claude's options for this step, to ask then: its
+big rewards (found ability, Feat, relic) are never lost, whatever lands
+the last blow (recommended); stings and globs can't hurt it; or the rule
+stays as it is.
 
 **Q-084 · Who the keeper is** (raised 2026-11-07, D-633) One lone
 keeper leaves the oil flasks, herbs and other finds, never caught and

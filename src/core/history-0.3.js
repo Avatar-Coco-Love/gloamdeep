@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.219', date: '2026-11-10', title: 'A note for bosses', lines: [
+    "Nothing in the game changes. A note is kept for when bosses are designed: a boss beaten by a scorpion's sting or a glob could lose its found ability, so its big rewards may need to come whatever lands the last blow.",
+    "Decisions: none. Questions: a note added to Q-083.",
+  ] },
   { v: '0.3.218', date: '2026-11-10', title: 'The sting hits creatures too', lines: [
     "The scorpion's sting now hits creatures too. A creature on its marked tiles takes 2 hearts, just as you would, and the line says \"The sting strikes the rat.\" with its name. One beaten this way leaves nothing and gives no experience. A creature in front of you doesn't shield you: every marked tile is struck. Other scorpions are hit too, and one stung with its tail up strikes no more. A mole under the earth and a pile of bones are passed over. The scorpion's Bestiary page says so.",
     "Decisions: D-768. D-761 moved to the archive, word for word.",
