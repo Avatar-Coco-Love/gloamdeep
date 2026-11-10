@@ -1,7 +1,7 @@
 // § sound: the game's sounds, from sound files (D-773), each from the list in
 // docs/SOUNDS.md and played with Web Audio. They go in one by one; a sound with
 // no file yet stays silent. The first is the footstep: Kenney's grass steps, on
-// the surface only, at half loudness, a little higher or lower each time (D-774).
+// the surface only, at a quarter loudness, a little higher or lower each time (D-774).
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -14,7 +14,7 @@ import { rng } from '../core/rng.js';
 const PACKS = 'sounds/packs/';
 const grass = [0, 1, 2, 3, 4].map((n) => `kenney-impact-sounds/footstep_grass_00${n}.ogg`);
 export const FILES = {
-  footstep: { files: grass, gain: 0.5, pitch: 0.06 },
+  footstep: { files: grass, gain: 0.25, pitch: 0.06 },
 };
 
 // § voices: every sound the game asks for, each silent until its file is in

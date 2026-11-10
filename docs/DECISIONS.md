@@ -176,9 +176,12 @@ D-764 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 picks, from a board of 6 steps and 9 clicks; builds D-773; answers part
 of Q-095) The footstep is Kenney's grass step, its 5 files in turn,
 never the same twice running, a little higher or lower each time (up to
-6%), at half the file's loudness. It plays on the surface only;
+6%), at a quarter of the file's loudness (changed after the playtest:
+half sounded like banging into something). It plays on the surface only;
 underground stays silent until a stone step is picked. Wood was too
-quiet, snow and dirt far too loud. The lantern gets RPG Audio's metal
+quiet, snow and dirt far too loud. The same grass files muffled (the
+bright crack filtered off) are kept as a wood step, for where wood
+underfoot comes. The lantern gets RPG Audio's metal
 click next, after the steps are heard in a playtest. The game plays
 files straight from `sounds/packs/`, as `.ogg`. ObsydianX's Interface
 SFX Pack 1 (CC0, 222 tones) is kept whole there, cut of its silence;

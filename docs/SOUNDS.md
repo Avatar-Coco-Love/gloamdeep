@@ -30,7 +30,7 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at half loudness, CC0 |
+| `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at a quarter loudness, CC0 |
 | | the hero falls (D-119) | a slide and a thud | — |
 | | the hero wakes after a fall | a groan or a breath | — |
 | | a new floor reached | a low, far rumble | — |
@@ -127,7 +127,9 @@ folder keeps its `License.txt`). All five are CC0 (no credit needed),
 ## Maybe (for the owner to pick)
 
 None of these is decided (Q-095): footsteps that change with the
-ground (grass, stone, water); sounds all around, such as wind on the
+ground (grass, stone, water; a wood step is picked, D-774: the grass
+files at a quarter loudness, muffled, with the bright crack filtered
+off above 1400 Hz); sounds all around, such as wind on the
 surface, birds by day, crickets at night, drips in caves; music; a
 warning when the oil runs low; a heartbeat at the last heart.
 
