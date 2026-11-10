@@ -132,8 +132,17 @@ const SCORPION_COLOURS = [
   { o: '#e6dcc4', O: '#a89c80', a: '#6b7686' },
 ];
 
+// § bunny: side on and facing right (D-784), soft brown with a pale tail, long ears up, a dark eye
+// (not a creature's pink one: it is harmless) and a pink nose
+const BUNNY = { mirror: false, rows: [
+  '', '', '.........kk.....', '........kWNk....', '........kWNkkk..', '.........kWkWNk.', '.........kWkWNk.', '..........kWWk..',
+  '.....kkkkkWWWWk.', '...kkWWWWWWWkWWk', '..kWWWWWWWWWWWWp', '.kwkWWWWWWWWWNk.', 'kwwkNWWWWWWNNk..', '.kkNNNNNNNNNk...',
+  '...knnnnnnnnk...', '..kkNkk...kkNk..'] };
+// § bunny fur: the mole fur's tuft (D-541) in the bunny's lighter brown, pale at the tips (D-784)
+const BUNNY_FUR = { mirror: false, rows: MOLE_FUR.rows.map((r) => r.replace(/[WNn]/g, (c) => ({ W: 'w', N: 'W', n: 'N' })[c])) };
+
 export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
-  BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS,
+  BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR,
 };

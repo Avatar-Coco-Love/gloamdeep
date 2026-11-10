@@ -3,7 +3,8 @@
 `GLOSSARY.md` continued, under its rules: use these words in the game,
 the docs and the code; where this page and a decision disagree, the
 decision wins. Creatures and people moved here word for word at 0.3.3
-(D-531), as that page neared 8 KB; the home pieces at 0.3.27 (D-565).
+(D-531), as that page neared 8 KB; the home pieces at 0.3.27 (D-565). The people moved back to `GLOSSARY.md`
+word for word at 0.3.234 (D-784), as this page passed 8 KB.
 
 ## Creatures
 - **Rat:** chases once it notices the hero (D-126, D-226), and once hurt flees for 4 turns or stands its ground, on a coin toss (D-292, D-301).
@@ -20,31 +21,18 @@ decision wins. Creatures and people moved here word for word at 0.3.3
 - **Warden:** an old stone guard made by Underhearth's people to guard their things; asleep as a statue until bumped, then chases; 4 hearts; beside the locket (D-692).
 - **Oil tick:** a round tick swollen with amber oil; chases, and beside the hero drinks 5% of the lantern's oil instead of biting, biting only once it is empty; 2 hearts; from depth 3 (D-606). The wicksucker of the list, named the oil tick for now.
 - **Lure wisp:** a small cold flame with two pink eyes; when the hero comes within 3 steps it drifts a tile away, toward the nearest other creature; it never bites, and its glow shows in the dark though it lights no tiles; 1 heart; from depth 4 (D-649).
+- **Bunny:** drawn side on, soft brown with a pale tail and a dark eye; the first creature that means no harm: it never bites, and hops away once the hero is within 3 steps; 1 heart; by day only, in the home room and each woods room round home (D-784).
 - **Centipede:** drawn side on, rust red with pale legs and green fangs; chases, and its bite leaves the hero poisoned; 2 hearts; from depth 3 (D-654).
 - **Spit grub:** a glowworm drawn side on, a plump pale grub with a glowing green tail; never moves, and its glow shows in the dark; spits a glob at the lit lantern down a clear row or column, then rests; 1 heart; from depth 4 (D-659, D-688).
 - **Glob:** the Spit grub's spit, a glowing green ball flying a tile a turn; it hits the hero or a creature for 1, and breaks on walls and rubble (D-659, D-688).
 - **Poisoned:** the first debuff, from Venom (D-636): 6 turns, a heart every 3, 2 in all, the last heart too since the Antidote (D-655); a new bite starts it again; a green drop mark beside the boon's (D-652, D-654).
 - **Stiff:** waking from sleeping out (D-758): 20 turns, 1 swing in 3 misses; a pale blue Zz mark beside poisoned's; a fall ends it (D-759).
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
-- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649); **Spits** (D-688).
+- **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649); **Spits** (D-688); **Shy**, hopping just away, the bunny's (D-784).
 - **Next move:** what a seen creature does if the hero waits (D-349).
 - **Creature list:** the column of plaques under the glass panel, one for each
   creature that has noticed the hero; a plaque shows its face and next move (D-357, D-380).
   Tapping one **frames** its creature: amber corners, name and hearts (D-359).
-
-## People
-- **Peddler:** the first person, found trapped in a ring of rubble on
-  depth 3; freed by digging one heap, he stands at home in the woods,
-  and is the first vendor: bumped there, his card opens and he buys
-  creature materials and sells a flask and a torch (D-471, D-490,
-  D-491, D-492, D-494, D-495).
-- **Trade coins (coins):** earned only by selling to a vendor, each find
-  at its own price: 1 for most common creature materials (Wisp Glass 2),
-  5 for a rare one; kept on a fall, but not
-  when Hardcore starts over; spent at a vendor (D-472, D-494, D-495,
-  D-649, D-674).
-- **Rubble:** a heap of fallen rock, solid, light passing over it; dug
-  away by hand in 3 bumps (D-490, D-491).
 
 ## Home
 - **Workbench:** made in the bag from 3 Wood, set down on the surface;

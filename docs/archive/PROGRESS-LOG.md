@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.231, Day creatures, first: the mole.** The owner's
+  picks (D-781): a mole comes out each day in each woods room round
+  home, never home, gone by night, the night rules turned round.
+  Playtest: https://claude.ai/artifact/BY3XwQiQDqXP8xEDHF8qVP
 - **2026-11-10, 0.3.230, Night creatures, third: gloamling.**
   The owner's picks (D-780), all recommended: each night the seed picks
   one woods room round home, and a gloamling joins its lampmoth and bat,

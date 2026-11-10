@@ -2,7 +2,7 @@
 // and a rare gloamling in one of them (D-780)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, RARE_KIND, rareRoom } from '../src/core/nightfall.js';
+import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom } from '../src/core/nightfall.js';
 import { passTime } from '../src/core/daytime.js';
 import { makeWorld, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -95,10 +95,12 @@ test('the gloamling comes out only in its room, beside the lampmoth and the bat'
 });
 
 // Day creatures: a mole each day in each woods room round home (D-781)
-const moles = (s) => s.enemies.filter((e) => e.day);
+const moles = (s) => s.enemies.filter((e) => e.day && e.id === 'mole');
+const bunnies = (s) => s.enemies.filter((e) => e.day && e.id === 'bunny');
 
 test('a day runs from halfway through dawn to halfway through dusk', () => {
-  assert.deepEqual(DAY_KINDS, ['mole']);
+  assert.deepEqual(DAY_KINDS, ['mole', 'bunny']);
+  assert.deepEqual(HOME_KINDS, ['bunny']);
   assert.equal(dayOf(0), 0);
   assert.equal(dayOf(184), 0);
   assert.equal(dayOf(285), 1);
@@ -126,7 +128,8 @@ test('one beaten stays beaten till the next day; by night it is gone', () => {
   assert.equal(moles(nightfall(beaten)).length, 0);
   const night = nightfall({ ...day, turn: 220 });
   assert.equal(moles(night).length, 0);
-  assert.equal(moles(night).length + moths(night).length, 2);
+  assert.equal(moths(night).length, 2);
+  assert.equal(bunnies(night).length, 0, 'the day\'s bunny is gone too');
   const next = nightfall({ ...beaten, turn: 400 });
   assert.equal(moles(next).length, 1);
   assert.equal(next.room.day, 1);
@@ -154,4 +157,29 @@ test('B3: night creatures come out 4 steps or more from the hero, even with the 
     const s = { ...at(room, 220 + 600 * n), lit: false }, night = nightfall(s); // every tile is out of sight
     for (const m of moths(night)) assert.ok(steps(s, m) >= 4, `${room}, night ${n}`);
   }
+});
+
+// The second day creature: a bunny, beside each woods room's mole and in the home room (D-784)
+test('a bunny comes out by day beside the mole, on open grass, 4 steps or more from the hero', () => {
+  const s = at(ROOM, 100), day = nightfall(s), [b] = bunnies(day), [m] = moles(day);
+  assert.ok(b && m);
+  assert.ok(b.x !== m.x || b.y !== m.y, 'apart');
+  assert.equal(day.room.map[b.y][b.x], '.');
+  assert.ok(steps(s, b) >= 4);
+});
+
+test('one bunny comes out by day in the home room, the only creature there; none by night', () => {
+  const s = at(HOME_ID, 100), day = nightfall(s);
+  assert.deepEqual(day.enemies.map((e) => e.id), ['bunny']);
+  assert.ok(steps(s, day.enemies[0]) >= 4);
+  const night = nightfall({ ...day, turn: 220 });
+  assert.equal(night.enemies.length, 0, 'gone by night, and nothing comes out at home');
+  const beaten = nightfall({ ...day, enemies: [] });
+  assert.equal(beaten.enemies.length, 0, 'one beaten stays beaten till the next day');
+  assert.equal(bunnies(nightfall({ ...beaten, turn: 400 })).length, 1);
+});
+
+test('never a bunny in a mountain room', () => {
+  const mountain = ['woods:0,0', 'woods:1,0', 'woods:2,0'].find(isMountain);
+  assert.equal(bunnies(nightfall(at(mountain, 100))).length, 0);
 });

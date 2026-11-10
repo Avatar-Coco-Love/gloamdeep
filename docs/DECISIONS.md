@@ -108,3 +108,20 @@ bites the hero on waking from sleeping out (B2). Night creatures come
 out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
+
+**D-784 · 2026-11-10 · Day creatures, second: the bunny** (the owner's
+idea, from the herb mimic, scorpion and centipede offered; the rest of
+its picks all recommended; builds D-781) A new creature, the first that
+means no harm: a bunny, soft brown with a pale tail. It never bites.
+Within 3 steps of the hero it hops a tile away, its way `shy`: the lure
+wisp's way (D-649) but just away, never toward another creature. One
+heart; beaten, it may drop Bunny Fur, about 1 in 2, for crafts later.
+One comes out each day in each woods room round home, beside the mole,
+and one in the home room too, the first creature there; never by night,
+never underground. No rare day creature yet. Claude's calls the owner
+may change: its look (a dark eye, not a creature's pink one); Bunny Fur
+holds 20 and sells for 1, as the other furs; its lines; it has no sound
+of its own. A bunny within 3 steps counts as a creature near
+for sleeping out, as the lure wisp does. The people's glossary lines
+move back to `GLOSSARY.md` word for word, so `GLOSSARY-2.md` stays
+under 8 KB.

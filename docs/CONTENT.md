@@ -31,12 +31,14 @@ bite in experience (D-371). "Grows back" is the `regrow` time (D-306).
 | `centipede` | 2 | 1 | chases; a bite that hurts `poisons` the hero | the pool from depth 3 | D-652, D-654 |
 | `spitGrub` | 1 | 1 | spits: never moves or bites; at the lit lantern down a clear row or column, up to 5 tiles, a glob flying a tile a turn, then rests 2 turns; `glows` | the pool from depth 4 | D-659, D-688 |
 | `warden` | 4 | 1 | chases, once bumped awake; `sleeps` as itself, a statue with dull eyes, then stands still again after 6 turns; an old stone guard of Underhearth | beside the locket only, never the pool | D-692 |
+| `bunny` | 1 | 0 | shy: within 3 steps of the hero it hops a tile away, just away, never toward another creature; never bites; soft brown, the first creature that means no harm | never underground; on the surface, one each day in the home room and in each woods room round home, gone by night | D-784 |
 
 The ways so far: **chases** (notices in light along a clear line, then
 comes), **shunsLight** (never steps into light, backs out of it, sees
 along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **seeksLight** (walks to the lit lantern, else the nearest lit torch),
 **lures** (drifts away from a near hero toward another creature, never bites),
+**shy** (hops just away from a near hero, never bites; D-784),
 **spits** (a glob down a clear row or column at the lit lantern, hitting what it meets; `spit.js`),
 **burrows** (notices as one that chases, then digs down and comes `under` the floor, up beside the hero, `dug`, then on foot),
 **strikes** (comes as one that chases, never bites beside; in line within 2 tiles it is `raised` a turn, then strikes both tiles ahead, then `rests`; `sting.js`)

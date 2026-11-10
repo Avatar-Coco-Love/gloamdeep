@@ -86,6 +86,11 @@ export const ENEMIES = {
   // with no harm, and it chases for `awakeTurns` turns, then stands still again, the flask
   // mimic's way (D-368). Tough, as the mole is. It guards the locket (relic.js); no drop yet.
   warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it and it wakes and chases you, then stands still again.", fights: "The bump that wakes it gives you a free turn, so strike at once. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['chases'], sleeps: true, awakeTurns: 6, hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' },
+  // A bunny, side on and facing right (D-784), soft brown with a pale tail: the first creature that
+  // means no harm. It never bites (its way's `bites: false`); `shy`, it hops away once the hero is
+  // within 3 steps. Out by day in the home room and each woods room round home (nightfall.js), never
+  // underground. One hit beats it; it may drop Bunny Fur, and has no rare one.
+  bunny: { id: 'bunny', kind: 'enemy', name: 'Bunny', acts: "A shy bunny of the woods, out by day. It never bites, and hops away once you come near.", fights: "It means no harm. Corner it against a wall or a tree and one blow of anything beats it.", health: 1, bite: 0, drops: 'bunnyFur', ways: ['shy'], die: 'bunnyDie' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

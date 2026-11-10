@@ -21,6 +21,10 @@ export const BEHAVIOURS = {
   // them, to the tile nearest the nearest other creature in the room, or just the farthest
   // from the hero with none; lit or not, it needs no noticing (D-649).
   lures: { id: 'lures', name: 'Lures', moves: 'lure', near: 3, bites: false },
+  // It never bites. When the hero comes within `near` steps it hops a tile a turn away from them,
+  // `alone`: to the free tile farthest from them, never toward another creature; lit or not, it
+  // needs no noticing. The lure wisp's way without the lure (D-784)
+  shy: { id: 'shy', name: 'Shy', moves: 'lure', near: 3, bites: false, alone: true },
   // It never moves or bites. Seeing the lit lantern along a clear row or column, up to `range`
   // tiles, it spits a glob that flies a tile a turn down that line, then rests `rest` turns
   // (spit.js, D-659, D-688).

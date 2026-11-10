@@ -40,7 +40,8 @@ neared 8 KB.
   the oil tick's Tick Shell and rare Oil Bladder the seventeenth and eighteenth (D-606);
   the lure wisp's Wisp Glass, sold for 2, the nineteenth (D-649); the centipede's
   Centipede Leg the twentieth, and its rare one a Venom Sac, as the scorpion's (D-654);
-  the spit grub's Grub Skin and rare Glow Gland the twenty-first and twenty-second (D-688).
+  the spit grub's Grub Skin and rare Glow Gland the twenty-first and twenty-second (D-688);
+  the bunny's Bunny Fur, for crafts later, the twenty-third (D-784).
 - **Bat Guano:** a pile of bat droppings, one beside each bat as a room
   is made; it grows back, and is kept for the garden (D-539, D-540).
 - **Tone:** a mushroom's own slight shift of colour (D-304, D-305).
