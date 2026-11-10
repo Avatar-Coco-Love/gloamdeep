@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.217', date: '2026-11-10', title: 'The rat pack\'s warning', lines: [
+    "A rat pack now warns you. The turn a pack notices you, one of its three lines shows in amber: \"The pack closes in!\", \"Rats squeak all around you!\" or \"A pack of rats comes for you!\", taking turns. A pack that loses you and finds you again warns again. A rat alone, or the last of a pack, stays silent, and a bite that turn keeps its own line.",
+    "Decisions: D-767. D-760 moved to the archive, word for word.",
+  ] },
   { v: '0.3.216', date: '2026-11-10', title: 'Names with spaces and digits', lines: [
     "A name can now hold digits and spaces as well as letters, up to 12 in all, so OLD TOM and COCO 2 both work.",
     "The name pad's bottom row is M, Del, then Z, Spc, 123 and OK. Press 123 to swap the letters for the digits 1 to 9 and 0, and ABC to swap back.",

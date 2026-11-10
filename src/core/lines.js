@@ -10,6 +10,7 @@ export const LINES = {
   ratHurt: { text: 'The rat squeaks and flees.', warn: false }, // hurt, it flees (D-292; was the study's line, D-107)
   // Hurt, it stands its ground: the lines take turns (D-297, D-301)
   ratStands: { texts: ['The rat stands its ground.', 'The rat squeaks and bares its teeth.', 'The rat squeaks.'], warn: false },
+  ratPack: { texts: ['The pack closes in!', 'Rats squeak all around you!', 'A pack of rats comes for you!'], warn: true }, // a pack notices (D-766)
   ratDie: { text: 'The rat squeaks and falls still.', warn: false }, // (D-112)
   ratBite: { text: 'The rat bites you.', warn: false, kind: 'harm' }, // (D-117)
   gloamlingHurt: { text: 'The gloamling hisses at you.', warn: false }, // (D-240)
