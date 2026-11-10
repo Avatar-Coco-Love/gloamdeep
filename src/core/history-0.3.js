@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.242', date: '2026-11-10', title: 'The Mending Draught', lines: [
+    "New: the Mending Draught, a moss green bottle. Once you have held Mimic Leaf and Herb, the mortar makes it from 2 Mimic Leaf and 1 Herb. Drink it from your bag and it heals you slowly: a heart every 15 turns for 60 turns, 4 in all, never above full. A green bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, giving no hearts then, and a fall ends it.",
+    "Mimic Leaf now says \"good for making things\", and its card shows \"Makes a Mending Draught at the mortar\".",
+    "Decisions: D-794.",
+  ] },
   { v: '0.3.241', date: '2026-11-10', title: 'The rare herb mimic', lines: [
     "Day creatures, third: the rare herb mimic. Each day one of the woods rooms round home, picked by your seed, has a herb mimic too, beside its mole and bunny. It sleeps on the grass looking just like a herb, wakes with a bump and chases you, and leaves a Mimic Leaf as it does below. Gone by nightfall like the others.",
     "Decisions: D-793.",

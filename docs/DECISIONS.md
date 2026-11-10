@@ -86,22 +86,6 @@ out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
 
-**D-786 · 2026-11-10 · The mortar and pestle and the Glow Draught**
-(the owner's picks, all recommended, from a mock-up drawn with the
-game's own code, https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4;
-builds D-785, narrows Q-093) The Mortar and Pestle is a grey stone bowl
-on a short wooden stump, its wooden pestle leaning out (look A of
-three). It costs 4 Stone and 1 Wood. The workbench's 12 slots are all
-taken, so it is made in the bag, on the Make tab (D-787), and set down
-at home on the surface like the bed. Its first recipe is the Glow
-Draught: 2 Duskstar and 1 Wisp Glass, made at the mortar. Drunk from the
-bag, the lantern reaches 1 tile farther for 60 turns, as Wide Glow does
-and added to it; an empty lantern gets nothing. Claude's calls the owner
-kept: the names; the draught is the red potion's bottle in the
-lantern's gold and holds 5; the mortar bumped opens a card listing what
-it makes. Built in steps: the Make tab, then the mortar, then the
-draught.
-
 **D-787 · 2026-11-10 · The bag's Make tab** (the owner's idea, from the
 mortar's step; the owner's picks, from a mock-up, same link as D-786)
 The bag card gets two tabs, BAG and MAKE, in its title row. Make shows
@@ -189,3 +173,18 @@ grass 4 steps or more from the hero; it may pick the same room two days
 running; it never shares a tile with the others. The owner also wants
 brand-new kinds of creature, not only ones from below (Q-076). D-785
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-794 · 2026-11-10 · The Mending Draught, the mortar's third recipe**
+(the owner's picks, all recommended, from a Mending Draught, a Ward
+Draught against poison, or both in turn; narrows Q-093) The Mending
+Draught is made at the mortar from 2 Mimic Leaf and 1 Herb. Drunk from
+the bag, it gives a heart every 15 turns for 60 turns, 4 in all, never
+above full. Its rules are the Glow Draught's (D-791): drunk again, back
+to 60; any time, full health too, the turns running on; a night uses
+them and a fall ends it; it holds 5; a small mark under the hearts with
+the turns left. Claude's calls the owner may change: the red potion's
+bottle in moss green, its mark too; a night's turns give no hearts; its
+heart comes before poison's in a turn; its lines ("The warmth fades."
+as it ends); the mortar lists it after Slowburn; a Mimic Leaf's card
+then shows "Makes a Mending Draught at the mortar". D-786 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

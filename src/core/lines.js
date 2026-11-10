@@ -273,6 +273,13 @@ export const LINES = {
   slowburnLook: { texts: ['A dark draught, thick as oil.', 'Drink it: the lantern burns slower.', 'Made at the mortar.'], warn: false },
   slowEnds: { text: 'The flame burns hungry again.', warn: false }, // its turns run out (D-792)
   slowHeld: { text: 'Slowburn: {n} turns left.', warn: false }, // a tap on its mark (D-792)
+  mendingMake: { text: 'You make a Mending Draught.', warn: false }, // MORTAR's card, a turn (D-794)
+  mendingShort: { text: 'You need 2 Mimic Leaf and 1 Herb.', warn: false }, // too few, free
+  mendingFull: { text: "You can't carry more Mending Draughts.", warn: false }, // every stack full, no slot free
+  mendingDrink: { texts: ['You drink the Mending Draught.', 'It tastes green and bitter.', 'A slow warmth settles in.'], warn: false }, // drunk from the bag, any time (D-794)
+  mendingLook: { texts: ['A green draught, bitter as leaves.', 'Drink it: it mends you slowly.', 'Made at the mortar.'], warn: false },
+  mendEnds: { text: 'The warmth fades.', warn: false }, // its turns run out (D-794)
+  mendHeld: { text: 'Mending Draught: {n} turns left.', warn: false }, // a tap on its mark (D-794)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

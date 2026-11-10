@@ -85,7 +85,7 @@ export const CREATURE_LINES = {
   snapcapGillLook: { texts: ['A snapcap gill, good for making things.', 'Pale pink, fine as paper.', 'It smells faintly sweet.'], warn: false },
   snapcapGillFull: { text: "You can't carry more snapcap gills.", warn: false },
   mimicLeafTake: { texts: ['You pick up the mimic leaf.', 'A leaf with a pink spot, like an eye.', 'The mimic leaf goes in your bag.'], warn: false }, // (D-549)
-  mimicLeafLook: { texts: ['A mimic leaf, for crafting later.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
+  mimicLeafLook: { texts: ['A mimic leaf, good for making things.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
   mimicLeafFull: { text: "You can't carry more mimic leaves.", warn: false },
   ratBoneTake: { texts: ['You pick up the rat bone.', 'A small pale bone with knobbed ends.', 'The rat bone goes in your bag.'], warn: false }, // (D-551)
   ratBoneLook: { texts: ['A rat bone, for crafting later.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },

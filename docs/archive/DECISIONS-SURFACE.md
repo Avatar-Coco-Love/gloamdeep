@@ -26,6 +26,8 @@ D-784, the bunny, built, followed at 0.3.240 (D-792), word for word,
 for the same reason.
 D-785, alchemy and cooking's shape, followed at 0.3.241 (D-793), word
 for word, for the same reason.
+D-786, the mortar and pestle and the Glow Draught, built, followed at
+0.3.242 (D-794), word for word, for the same reason.
 
 ---
 
@@ -622,3 +624,19 @@ kitchen fire (D-771), and simple food can also be cooked at a lit
 campfire in the world (the owner's addition). The mortar's cost and
 look, the lab and each recipe come at their own steps. Nothing in the
 game changes yet.
+
+**D-786 · 2026-11-10 · The mortar and pestle and the Glow Draught**
+(the owner's picks, all recommended, from a mock-up drawn with the
+game's own code, https://claude.ai/artifact/DwTohmU1v4fTrkkLTxBWL4;
+builds D-785, narrows Q-093) The Mortar and Pestle is a grey stone bowl
+on a short wooden stump, its wooden pestle leaning out (look A of
+three). It costs 4 Stone and 1 Wood. The workbench's 12 slots are all
+taken, so it is made in the bag, on the Make tab (D-787), and set down
+at home on the surface like the bed. Its first recipe is the Glow
+Draught: 2 Duskstar and 1 Wisp Glass, made at the mortar. Drunk from the
+bag, the lantern reaches 1 tile farther for 60 turns, as Wide Glow does
+and added to it; an empty lantern gets nothing. Claude's calls the owner
+kept: the names; the draught is the red potion's bottle in the
+lantern's gold and holds 5; the mortar bumped opens a card listing what
+it makes. Built in steps: the Make tab, then the mortar, then the
+draught.

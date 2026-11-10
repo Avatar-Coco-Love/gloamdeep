@@ -523,6 +523,8 @@ const CAMP_PICK = [33, 7];
 const GLOW_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'y').replace(/R/g, 'Y')) };
 // § slowburn: the same bottle, dark as lamp oil: amber-deep, its shade the wood's dark brown (D-792)
 const SLOWBURN = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'O').replace(/R/g, 'N')) };
+// § mending draught: the same bottle in the moss's green, light and shade (D-794)
+const MENDING_DRAUGHT = { ...POTION, rows: POTION.rows.map((r) => r.replace(/r/g, 'g').replace(/R/g, 'G')) };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -552,4 +554,5 @@ export {
   CAMP_PICK,
   GLOW_DRAUGHT,
   SLOWBURN,
+  MENDING_DRAUGHT,
 };
