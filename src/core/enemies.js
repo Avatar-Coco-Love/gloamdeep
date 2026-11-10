@@ -91,6 +91,11 @@ export const ENEMIES = {
   // within 3 steps. Out by day in the home room and each woods room round home (nightfall.js), never
   // underground. One hit beats it; it may drop Bunny Fur, and has no rare one.
   bunny: { id: 'bunny', kind: 'enemy', name: 'Bunny', acts: "A shy bunny of the woods, out by day. It never bites, and hops away once you come near.", fights: "It means no harm. Corner it against a wall or a tree and one blow of anything beats it.", health: 1, bite: 0, drops: 'bunnyFur', ways: ['shy'], die: 'bunnyDie' },
+  // A skulker crab (D-796), the first brand-new creature of the mountain rooms: a crab under a
+  // stony grey shell, rust legs and claws, pink eyes on stalks. The snapcap's way (D-543): no ways,
+  // so it never moves and bites whoever stands beside it, drawn `shutAs` a loose stone until the hero
+  // is beside it. Out by day, one in each mountain room (nightfall.js), never underground.
+  skulkerCrab: { id: 'skulkerCrab', kind: 'enemy', name: 'Skulker crab', acts: "Looks like a loose stone in the mountain rooms until you stand beside it. It never moves, but it pinches anyone next to it.", fights: "Stepping beside it costs a pinch, so come with a knife: it cracks in one blow.", health: 2, bite: 1, drops: 'crabShell', ways: [], shutAs: 'stone', hurt: 'skulkerCrabHurt', die: 'skulkerCrabDie', bites: 'skulkerCrabBite' },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

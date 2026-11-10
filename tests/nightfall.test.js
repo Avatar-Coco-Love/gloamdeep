@@ -2,7 +2,7 @@
 // and a rare gloamling in one of them (D-780)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom, RARE_DAY_KIND, rareDayRoom } from '../src/core/nightfall.js';
+import { nightfall, nightOf, darkOut, dayOf, NIGHT_KINDS, DAY_KINDS, HOME_KINDS, RARE_KIND, rareRoom, RARE_DAY_KIND, rareDayRoom, MOUNTAIN_KINDS } from '../src/core/nightfall.js';
 import { passTime } from '../src/core/daytime.js';
 import { makeWorld, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
@@ -209,4 +209,25 @@ test('the herb mimic comes out only in its room, asleep, beside the mole and the
     assert.ok(!nightfall(at(other, 100)).enemies.some((e) => e.id === RARE_DAY_KIND));
   assert.ok(!nightfall(at(HOME_ID, 100)).enemies.some((e) => e.id === RARE_DAY_KIND), 'never home');
   assert.ok(!nightfall({ ...day, turn: 220 }).enemies.some((e) => e.id === RARE_DAY_KIND), 'gone by night');
+});
+
+// The mountain rooms' first creature: a skulker crab, one each day in each mountain room (D-796)
+const MOUNTAINS = ['woods:0,0', 'woods:1,0', 'woods:2,0'].filter(isMountain);
+test('a skulker crab comes out by day in each mountain room, shut, the only creature there; none by night', () => {
+  assert.deepEqual(MOUNTAIN_KINDS, ['skulkerCrab']);
+  assert.equal(MOUNTAINS.length, 3);
+  for (const id of MOUNTAINS) {
+    const s = at(id, 100), day = nightfall(s);
+    assert.deepEqual(day.enemies.map((e) => e.id), ['skulkerCrab'], id);
+    const [c] = day.enemies;
+    assert.equal(day.room.map[c.y][c.x], '.');
+    assert.ok(steps(s, c) >= 4);
+    assert.ok(!day.items.some((it) => it.x === c.x && it.y === c.y), 'never on a loose stone');
+    const night = nightfall({ ...day, turn: 220 });
+    assert.equal(night.enemies.length, 0, 'gone by night, and nothing comes out there');
+    const beaten = nightfall({ ...day, enemies: [] });
+    assert.equal(beaten.enemies.length, 0, 'one beaten stays beaten till the next day');
+    assert.equal(nightfall({ ...beaten, turn: 400 }).enemies.length, 1);
+  }
+  for (const id of [HOME_ID, ...ROUND_HOME]) assert.ok(!nightfall(at(id, 100)).enemies.some((e) => e.id === 'skulkerCrab'), id);
 });

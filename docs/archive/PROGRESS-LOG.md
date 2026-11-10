@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.241, The rare herb mimic.** The owner's picks
+  (D-793): the third day creature, a herb mimic asleep as a herb in one
+  woods room round home a day, picked by the seed; the owner wants
+  brand-new creatures too (Q-076).
+  Playtest: https://claude.ai/artifact/Ky4bCoH6Gi1RC8wA6DqBYj
 - **2026-11-10, 0.3.240, Slowburn.** The owner's picks (D-792): made
   at the mortar from 2 Tick Shell and 1 Oilcap; drunk, a full tank lasts
   70 turns, not 60, for 60 turns, with the Glow Draught's rules and an

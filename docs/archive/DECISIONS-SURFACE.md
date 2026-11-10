@@ -28,6 +28,8 @@ D-785, alchemy and cooking's shape, followed at 0.3.241 (D-793), word
 for word, for the same reason.
 D-786, the mortar and pestle and the Glow Draught, built, followed at
 0.3.242 (D-794), word for word, for the same reason.
+D-793, the rare herb mimic, built, followed at 0.3.244 (D-796), word
+for word, for the same reason.
 D-787, the bag's Make tab, built, followed at 0.3.243 (D-795), word for
 word, for the same reason.
 
@@ -654,3 +656,16 @@ on the Bag tab stays, and opens the Make tab with its recipe chosen
 it makes: the result's picture and "Makes a Flask" (look A of three).
 This lets a find be in more than one recipe. The first step adds the tab
 with today's bag recipes only.
+
+**D-793 · 2026-11-10 · Day creatures, third: the rare herb mimic**
+(the owner's picks, from the herb mimic, scorpion and centipede, as a
+rare one, recommended; builds D-784) Each day the seed and the day pick
+one of the 5 woods rooms round home, and a herb mimic comes out there
+beside that room's mole and bunny, with the day creatures' rules
+(D-781); never home. Day matches night: two that come each day, one
+rare. It acts and leaves finds as it does below. Claude's calls the
+owner may change: it comes out asleep, looking like a herb, on open
+grass 4 steps or more from the hero; it may pick the same room two days
+running; it never shares a tile with the others. The owner also wants
+brand-new kinds of creature, not only ones from below (Q-076). D-785
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
