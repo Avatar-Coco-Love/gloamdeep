@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.217 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.218 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The scorpion's sting hits creatures too (D-766): a creature on its
-marked tiles takes 2 hearts, as the hero does. Then gathering, step 5
-(D-763): a second flower (Q-092) or the landmarks (D-760).
+Gathering, step 5 (D-763): a second flower (Q-092) or the landmarks
+(D-760).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -45,6 +44,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.218, The sting hits creatures too.** The owner's
+  picks, all recommended (D-768): a creature on the scorpion's marked
+  tiles takes 2 hearts, no find, no experience; it shields no one; the
+  line names it. Playtest: https://claude.ai/artifact/Gt7t31TU9Rt2CUxKkr1F8i
 - **2026-11-10, 0.3.217, The rat pack's warning.** The owner's picks, all
   recommended (D-767): a pack warns each time it notices, its three
   lines taking turns, in amber; a bite that turn keeps its line.
@@ -54,7 +57,3 @@ list in `RESEARCH.md`.
   until their step. Names hold digits and spaces, with a 123 key (D-765);
   the three creatures' drafts kept, a pack line and a wider sting next
   (D-766). Playtest: https://claude.ai/artifact/AaE4dYPWNzJ29K14Amyd6D
-- **2026-11-09, 0.3.215, Dimmer doorway lines.** The owner found the
-  doorway lines too bright and picked half as bright, the map unchanged,
-  both recommended (D-764).
-  Playtest: https://claude.ai/artifact/Ped3SRVaKXSUNSRV1fEs5M

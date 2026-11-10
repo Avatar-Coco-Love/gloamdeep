@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.218', date: '2026-11-10', title: 'The sting hits creatures too', lines: [
+    "The scorpion's sting now hits creatures too. A creature on its marked tiles takes 2 hearts, just as you would, and the line says \"The sting strikes the rat.\" with its name. One beaten this way leaves nothing and gives no experience. A creature in front of you doesn't shield you: every marked tile is struck. Other scorpions are hit too, and one stung with its tail up strikes no more. A mole under the earth and a pile of bones are passed over. The scorpion's Bestiary page says so.",
+    "Decisions: D-768. D-761 moved to the archive, word for word.",
+  ] },
   { v: '0.3.217', date: '2026-11-10', title: 'The rat pack\'s warning', lines: [
     "A rat pack now warns you. The turn a pack notices you, one of its three lines shows in amber: \"The pack closes in!\", \"Rats squeak all around you!\" or \"A pack of rats comes for you!\", taking turns. A pack that loses you and finds you again warns again. A rat alone, or the last of a pack, stays silent, and a bite that turn keeps its own line.",
     "Decisions: D-767. D-760 moved to the archive, word for word.",

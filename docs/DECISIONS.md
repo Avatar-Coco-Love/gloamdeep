@@ -102,19 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-761 · 2026-11-09 · Gathering, step 2: loose stones** (the owner's
-picks, all recommended, the look after its mock-up; builds D-760) Loose
-stones lie in the mountain rooms only, the woods rooms keeping their
-sticks and oilcap: 2 in each, on open grass. Each is a plain Stone,
-drawn as the bag's pebble (look A of three), taken by walking onto it.
-Picked, it grows back after a day, 300 turns, as the oilcap outside.
-In an older save only mountain rooms never seen, with nothing taken,
-get theirs. Claude's calls the owner may change: never on the start, a
-find, the mouth's front or the waystone's ring; any open grass tile,
-not only beside rock; its lines "You pick up a loose stone.", "A stone
-from the slope. You keep it." and "You lift a stone from the grass.";
-a stone a boulder leaves when the bag is full still never grows back.
-
 **D-762 · 2026-11-09 · Gathering, step 3: herbs outside** (the owner's
 picks, all recommended, and the owner's words on flowers; builds D-760,
 part of Q-092) The first of Q-092's plants is the cave herb, growing
@@ -183,3 +170,18 @@ scorpion's raised tail does. A bite on that turn keeps its own line
 alone and stays silent; the warning replaces any other line that turn
 but a bite's or a drink's. D-760 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-768 · 2026-11-10 · The sting hits creatures too** (the owner's
+picks, all recommended; builds D-766's second addition) A creature on
+the scorpion's marked tiles is hurt 2, as a glob hurts one (D-688):
+beaten, it leaves no find and gives no experience. A creature in front
+doesn't shield the hero behind: every marked tile is struck. Any
+creature can be hit, other scorpions too; one under the earth or a pile
+of bones is passed over, as the glob passes them. Hitting a creature but
+not the hero, the line is "The sting strikes the rat." with its name;
+the hero's own line wins when both are hit. Claude's calls the owner may
+change: a scorpion stung while its tail is up strikes no more; a bone
+rat stung to nothing falls to no pile, as with a glob; no sound but the
+hero's sting, as a miss is silent; its Bestiary page says the sting
+hurts any creature in its way. D-761 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
