@@ -38,12 +38,8 @@ neared 8 KB.
 | `lamppost` | the first landmark: an old Lightkeeper's iron crook post, its cold lamp hanging dark from the arm; solid, light passing it. Bumped, it says "An old lamppost.", then "Its lamp went out long ago.", a sentence a bump, free (`lamppost.js`) | | one a seed, in one of Hearthwood's 8 rooms outside home, never the campfire's, on open grass 2 tiles in from the edge; in an old save, its room if never seen (`relamp.js`) | D-769 |
 | `minersCamp`, `minersCampBare` | the second landmark: a slumped canvas tent and an old crate, 3 × 2 tiles, the Stone Pick leaning on the crate; all solid, light passing them. Bumped, it says "A miners' camp, long left." and opens Take the pick?, "An old pick leans on the crate.", No picked, where Yes (`takes`) puts the Stone Pick in the bag, a turn, the camp turning bare; bare, its words, free (`camp.js`) | | one a seed, in one of Hearthwood's 3 mountain rooms, never the campfire's or the lamppost's, on open grass 2 tiles in from the edge; in an old save, its room if never seen (`recamp.js`) | D-770 |
 
-## Lights (`src/core/lights.js`)
-
-| id | What it does | Where | Decisions |
-| --- | --- | --- | --- |
-| `torch` | lights 3 tiles around, flickering | the first rooms; by the stairs up in generated rooms; on a torch stand, out after 100 turns | D-121, D-149, D-478 |
-| `unlitTorch` | lit for good by walking into its wall | the first rooms | D-121, D-122 |
+## Lights
+Moved to `CONTENT-2.md` word for word at 0.3.254, as this page passed 8 KB.
 
 ## Places (`src/core/room.js`)
 

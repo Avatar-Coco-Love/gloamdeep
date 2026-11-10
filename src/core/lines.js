@@ -240,6 +240,11 @@ export const LINES = {
   bagTorchFull: { text: "You can't carry more torches.", warn: false },
   torchSet: { text: 'You set down the torch.', warn: false }, // a turn (D-478)
   torchOut: { text: 'Your torch burns out.', warn: false }, // in sight, 100 turns after (D-478)
+  glowLampMake: { text: 'You make a glow lamp.', warn: false }, // 1 glow gland, 1 wood (D-808)
+  glowLampLook: { texts: ['A glow lamp. Set it down for light.', 'A glow gland on a stick, glowing green.', 'It glows a long while, then goes dark.'], warn: false },
+  glowLampFull: { text: "You can't carry more glow lamps.", warn: false },
+  glowLampSet: { text: 'You set down the glow lamp.', warn: false }, // a turn (D-808)
+  glowLampOut: { text: 'Your glow lamp goes dark.', warn: false }, // in sight, 300 turns after (D-808)
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
@@ -263,7 +268,7 @@ export const LINES = {
   grubSkinLook: { texts: ['A grub skin. Two make a Spitproof.', 'Thin, pale and papery.', 'It crackles when you fold it.'], warn: false },
   grubSkinFull: { text: "You can't carry more grub skins.", warn: false },
   glowGlandTake: { texts: ['A glow gland! A rare find.', 'It still glows a little.', 'The glow gland goes in your bag.'], warn: false }, // (D-688)
-  glowGlandLook: { texts: ['A glow gland, for crafting later.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
+  glowGlandLook: { texts: ['A glow gland. With wood, a glow lamp.', 'A soft green light, sealed in.', 'It glows faintly in the dark.'], warn: false },
   glowGlandFull: { text: "You can't carry more glow glands.", warn: false },
   locketTake: { texts: ['A locket! A relic of the old city.', 'Kept close, whatever the dark took.', 'The locket goes in your bag.'], warn: false }, // (D-691)
   locketLook: { texts: ['A locket from the old city.', 'A tiny flame is scratched on its face.', 'Kept close, whatever the dark took.'], warn: false },

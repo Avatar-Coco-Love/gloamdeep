@@ -4,6 +4,11 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.254', date: '2026-11-10', title: 'The Glow Lamp', lines: [
+    "New: the Glow Lamp, the Glow Gland's first use. Once you have held a Glow Gland and Wood, your bag's Make tab makes it from 1 Glow Gland and 1 Wood, as a torch is made. Set it down anywhere, as a torch: the gland sits in a small copper cup on the torch's stick and lights 3 tiles in a soft, steady green, for 300 turns, three times a torch. Then it goes dark, leaving bare floor. Lampmoths and bats fly to it as to any light.",
+    "Glow Gland now says \"A glow gland. With wood, a glow lamp.\"",
+    "Decisions: D-808.",
+  ] },
   { v: '0.3.253', date: '2026-11-10', title: 'The Bone Hook', lines: [
     "New: the Bone Hook, the Rat Bone's first use. The workbench's BUILD tab makes it from 3 Rat Bone and 1 Spider Silk. In your bag, FIT ties it to your rod for good, so you need the rod with you; after that the rod shows a small pale bone hook under its float. With it, the amber zone on the strike meter is half again as wide, so fish are easier to land: 3/8 of the bar for a pond minnow, 3/10 for a blind cavefish. Waiting for a bite is the same.",
     "Rat Bone now says \"A rat bone, for a bone hook.\"",

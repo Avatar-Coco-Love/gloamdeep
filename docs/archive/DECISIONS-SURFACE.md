@@ -860,3 +860,37 @@ splashes off you.", "Your skin feels dry again." as it ends); the glob
 breaks on the hero, flying no farther; the mortar lists it last; the
 Grub Skin's look line names it. D-795 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-803 · 2026-11-10 · The Fur Bedroll** (the owner's picks, all
+recommended; builds D-758, D-759, D-799) Bunny Fur's first use, made on
+the workbench's BUILD tab from 4 Bunny Fur and 1 Spider Silk; one at
+most, carried in the bag, taking a slot, never used up. Sleeping out
+with it in the bag, the hero wakes with 2 hearts back, never above full,
+and not stiff; the bed at home still heals to full. Its look: a roll of
+fur in the Bunny Fur's colours, tied round the middle with a pale silk
+cord. Others offered: healing to full; 3 Bunny Fur and 1 Spider Silk;
+5 Bunny Fur alone; the GEAR tab; a folded blanket. Claude's calls the
+owner may change: BUILD lists it last; its lines ("You make a fur
+bedroll.", "You wake warm in your fur bedroll."); the moon's ask says
+"Your fur bedroll is warm." while it is carried; only the bag counts,
+not a chest; the Bunny Fur's look line names it. D-797 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-804 · 2026-11-10 · The Fur Bedroll laid out, and SLEEP** (the
+owner's idea and picks, all recommended; builds D-758, D-803) In the
+bag the bedroll has SET DOWN and, left of it, SLEEP. SET DOWN lays it
+beside the hero, the bed's way, only under the sky. Bumped from dusk,
+it asks Sleep here until morning?; Yes is the bedroll's night, 2 hearts
+back and not stiff; by day it asks Roll up the bedroll?, Yes putting it
+back in the bag. SLEEP asks the same where the hero stands, dim by day,
+below ground or with a creature after the hero. It is no bed for a
+fall: home's bed still is (D-737). The moon button stays. Others
+offered: one card with Sleep and Roll up; USE or REST; a bedroll slept
+on as the bed for a fall; the moon hidden while carried. Claude's calls
+the owner may change: SLEEP or a bump that can't says why, free ("Only
+under the sky.", "Not with a creature after you.", "You aren't
+tired."); C in the bag is SLEEP; asleep beside a laid-out bedroll is
+warm too, the moon's ask saying so; "You lay out the fur bedroll." and
+"You roll up the fur bedroll."; laid out, it is drawn from above, its
+head end still rolled. D-798 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

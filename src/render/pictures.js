@@ -468,6 +468,13 @@ const GLOW_GLAND = { mirror: false, rows: [
   '', '', '', '', '', '', '', '.......kk.......', '......kAAk......', '.....kkVVkk.....', '....kVJJVVVk....',
   '...kVJJVVVVGk...', '...kVVVVVVVGk...', '...kVVVVVVGGk...', '....kGVVVGGk....', '.....kkkkkk.....'] };
 
+// § glow lamp: a glow gland in a small copper cup on the torch's stick, in its ring of stones
+// (D-808); rows 2 to 7 are the gland, drawn bright after the light when it is set down (torches.js)
+const GLOW_LAMP = { mirror: false, rows: [
+  '', '', '......kkkk......', '.....kJJVVk.....', '....kVJJVVVk....', '....kVVVVVGk....', '....kVVVVGGk....', '.....kGGGGk.....',
+  '.....kOooOk.....', '......kkkk......', '......kWNk......', '......kWNk......', '......kWNk......', '...kkkkWNkkkk...',
+  '..kHHLDkkHHLDk..', '...kkkk..kkkk...'] };
+
 // § locket: look D of its mock-up (D-692), open on its hinge: a gold case, its lid swung out to
 // the left with the scratched flame (D-691) in violet on it, a violet hollow with a tiny flame
 // burning inside, on a violet bail and thin chain; its own colours, LOCKET_COLOURS
@@ -594,4 +601,5 @@ export {
   SPITPROOF_COLOURS,
   SHADE_DRAUGHT,
   SHADE_COLOURS,
+  GLOW_LAMP,
 };

@@ -57,6 +57,8 @@ neared 8 KB.
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
   floor tile anywhere; it burns 100 turns, then goes out (D-478).
+- **Glow Lamp:** made in the bag from 1 Glow Gland and 1 Wood, set down
+  as a torch is; its steady green light lasts 300 turns (D-808).
 - **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309), Drink an antidote's too (D-655); a minnow's Eat sits left of its Pour (D-615).
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic

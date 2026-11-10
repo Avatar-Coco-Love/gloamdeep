@@ -108,7 +108,9 @@ export const ITEMS = {
   // An oil tick's rare Oil Bladder, from depth 3 down, taken and kept the same way (D-606).
   oilBladder: { id: 'oilBladder', kind: 'item', name: 'Oil Bladder', bag: true, max: 20, says: 'oilBladderTake', look: 'oilBladderLook', full: 'oilBladderFull', sells: 5 },
   // A Spit grub's rare Glow Gland, from depth 4 down, taken and kept the same way (D-688).
-  glowGland: { id: 'glowGland', kind: 'item', name: 'Glow Gland', bag: true, max: 20, says: 'glowGlandTake', look: 'glowGlandLook', full: 'glowGlandFull', sells: 5 },
+  // Make on it turns 1 with 1 Wood into a Glow Lamp (D-808).
+  glowGland: { id: 'glowGland', kind: 'item', name: 'Glow Gland', bag: true, max: 20, says: 'glowGlandTake', look: 'glowGlandLook', full: 'glowGlandFull', sells: 5,
+    craft: { into: 'glowLamp', of: { glowGland: 1, wood: 1 }, says: 'glowLampMake' } },
   // Picked from a gloamberry bush in the woods, 2 a bump (step 13b, D-531), into the bag the
   // oilcap's way in stacks of 20. Eaten from the bag the heartcap's way: 1 heart, a turn.
   // Make turns 3 into a Gloamberry Seed, the heartcap's way (garden step 1, D-564).
@@ -218,6 +220,10 @@ export const ITEMS = {
   // `burns` that many turns, then goes out and leaves bare floor (endturn.js).
   bagTorch: { id: 'bagTorch', kind: 'item', name: 'Torch', bag: true, max: 5, look: 'bagTorchLook', full: 'bagTorchFull',
     sets: { tile: 'torchStand', says: 'torchSet', anywhere: true, light: 'torch', burns: 100 } },
+  // Glow Gland's first use (D-808): made in the bag from 1 Glow Gland and 1 Wood, set down the
+  // torch's way on the same stone foot, its steady green light burning 300 turns, not 100.
+  glowLamp: { id: 'glowLamp', kind: 'item', name: 'Glow Lamp', bag: true, max: 5, look: 'glowLampLook', full: 'glowLampFull',
+    sets: { tile: 'torchStand', says: 'glowLampSet', anywhere: true, light: 'glowLampLight', burns: 300 } },
   // Normal's fall leaves the bag where the hero fell, `holds` its stacks (MO3, D-334, D-345).
   // Walking onto it puts back what fits, with its `says` line; the rest stays in it,
   // with its `full` line. Each fall leaves its own. It never grows back.

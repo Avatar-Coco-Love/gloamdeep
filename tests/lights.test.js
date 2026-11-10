@@ -12,7 +12,7 @@ const room = makeRoom(FIRST_ROOM);
 const start = () => makeState(room, FIRST_START, FIRST_LIGHTS);
 
 test('the torch is in the registry as a light', () => {
-  assert.deepEqual(byKind('light').map((e) => e.id), ['torch', 'unlitTorch']);
+  assert.deepEqual(byKind('light').map((e) => e.id), ['torch', 'unlitTorch', 'glowLampLight']);
 });
 
 test('a torch picks its mount: face, then left, then right, else none', () => {
