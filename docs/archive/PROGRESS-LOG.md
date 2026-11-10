@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.250, The bedroll laid out.** The owner's idea and
+  picks (D-804): SLEEP and SET DOWN in the bag; laid out, bumped from
+  dusk to sleep on it, by day to roll it up; no bed for a fall.
+  Playtest: https://claude.ai/artifact/Tt4uV3cJma85sa6KVgVidL
 - **2026-11-10, 0.3.249, The Fur Bedroll.** The owner's picks (D-803):
   the BUILD tab's last slot, 4 Bunny Fur and 1 Spider Silk, kept in the
   bag; sleeping out with it wakes the hero with 2 hearts back, not stiff.

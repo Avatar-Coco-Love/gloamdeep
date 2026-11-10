@@ -128,6 +128,12 @@ export const LINES = {
   echoCharmShort: { text: 'Need 3 Bat Wing, 1 Copper Ore.', warn: false }, // too few, free
   echoCharmLook: { texts: ['An echo charm, for the dark.', 'A bat wing, set in copper.', 'Near creatures show in the dark.'], warn: false },
   echoCharmWear: { text: 'You put on the echo charm.', warn: false }, // Wear in the bag, free (D-805)
+  boneHookMake: { text: 'You make a bone hook.', warn: false }, // its line on the bench's BUILD tab, a turn (D-807)
+  boneHookFull: { text: 'You already have a bone hook.', warn: false }, // carried or fitted, free
+  boneHookShort: { text: 'Need 3 Rat Bone, 1 Spider Silk.', warn: false }, // too few, free
+  boneHookLook: { texts: ['A bone hook, for your rod.', 'Rat bone, bent and tied with silk.', 'Fish land easier on it.'], warn: false },
+  boneHookFit: { text: 'You tie the bone hook to your rod.', warn: false }, // Fit in the bag, free (D-807)
+  boneHookNoRod: { text: 'You have no rod to fit it to.', warn: false }, // Fit with no rod carried, free
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   gloamberryTake: { texts: ['You pick two gloamberries.', 'Dark berries, cool to the touch.', 'The bush gives up its berries.'], warn: false }, // a full bush bumped (D-531)
   gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)

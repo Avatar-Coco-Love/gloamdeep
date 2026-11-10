@@ -29,7 +29,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
 | `mimicLeaf` | 2 with 1 Herb make the Mending Draught at the mortar (D-794) | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
-| `ratBone` | for crafts later | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
+| `ratBone` | the Bone Hook (D-807) | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
 | `tickShell` | 2 with 1 Oilcap make Slowburn at the mortar (D-792) | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |

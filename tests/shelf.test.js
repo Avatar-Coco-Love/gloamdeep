@@ -11,10 +11,10 @@ import { shownLine } from '../src/core/lines.js';
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag = [{ id: 'shelf', n: 1 }]) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), bag });
 
-test("the Shelf is the BUILD tab's slot before the Fur Bedroll (D-800, D-803): 4 Wood and 2 Stone, dim with too few; Make takes it", () => {
-  const made = benchMakes([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-2);
+test("the Shelf is the BUILD tab's slot before the Fur Bedroll and the Bone Hook (D-800, D-803, D-807): 4 Wood and 2 Stone, dim with too few; Make takes it", () => {
+  const made = benchMakes([{ id: 'wood', n: 4 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-3);
   assert.deepEqual(made, { item: 'shelf', cost: [{ id: 'wood', n: 4, have: 4 }, { id: 'stone', n: 2, have: 2 }], dim: false });
-  assert.equal(benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-2).dim, true);
+  assert.equal(benchMakes([{ id: 'wood', n: 3 }, { id: 'stone', n: 2 }], 6, [], benchTabOf('build').makes).at(-3).dim, true);
   assert.equal(get('shelf').max, 1);
   const bag = makeAt(outside([{ id: 'wood', n: 5 }, { id: 'stone', n: 2 }]), 'shelf');
   assert.deepEqual(bag.bag, [{ id: 'wood', n: 1 }, { id: 'shelf', n: 1 }]);

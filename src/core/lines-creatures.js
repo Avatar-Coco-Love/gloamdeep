@@ -88,7 +88,7 @@ export const CREATURE_LINES = {
   mimicLeafLook: { texts: ['A mimic leaf, good for making things.', 'Its pink spot still seems to stare.', 'It smells green and bitter.'], warn: false },
   mimicLeafFull: { text: "You can't carry more mimic leaves.", warn: false },
   ratBoneTake: { texts: ['You pick up the rat bone.', 'A small pale bone with knobbed ends.', 'The rat bone goes in your bag.'], warn: false }, // (D-551)
-  ratBoneLook: { texts: ['A rat bone, for crafting later.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },
+  ratBoneLook: { texts: ['A rat bone, for a bone hook.', 'Dry, light and very clean.', 'It clicks against the others.'], warn: false },
   ratBoneFull: { text: "You can't carry more rat bones.", warn: false },
   tickShellTake: { texts: ['You pick up the tick shell.', 'A split dusky shell, light as paper.', 'The tick shell goes in your bag.'], warn: false }, // (D-606)
   tickShellLook: { texts: ['A tick shell, good for making things.', 'Thin, dark and a little oily.', 'It smells faintly of the lantern.'], warn: false },

@@ -60,6 +60,7 @@ import { drawMark, drawDots, drawAlert, drawGain } from './walk.js';
 import { drawFloat, drawBite } from './float.js';
 import { drawStrikeCard } from './strikecard.js';
 import { needleAt, zoneWidth } from '../core/fishing.js';
+import { isFitted } from '../core/parts.js';
 import { drawDoors } from './doors.js';
 import { LANTERN, LANTERN_AT } from '../core/light.js';
 import { flasksIn, bagSize } from '../core/bag.js';
@@ -106,6 +107,9 @@ const sleepsOut = (s) => { if (s !== sleepFor) { sleepFor = s; sleepOk = canSlee
 
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
+// A bag or gear slot's sprite: the rod drawn with its hook once the Bone Hook is fitted (D-807)
+const kitOf = (state) => (it) => (it?.id === 'rod' && isFitted(state, 'boneHook') ? SPRITES.rodHooked : spriteOf(it));
+
 export function createFrame(app, ui) {
   const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
@@ -408,7 +412,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still()); // a card on the room (D-389)
     else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
-    else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float)); // the strike meter, the room paused (D-614)
+    else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float, state)); // the strike meter, the room paused (D-614)
     else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
     else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
     else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
@@ -419,7 +423,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(hc, view.w, view.h, state.bag, app.chosen, spriteOf, gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state)); // a card on the room (D-385), its STORE with a chest in reach (D-558)
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state)); // a card on the room (D-385), its STORE with a chest in reach (D-558)
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'make') {
@@ -432,7 +436,7 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {
-      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, spriteOf, t, still(), bagSize(state)); // a card on the room (D-387)
+      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, kitOf(state), t, still(), bagSize(state)); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "Your bag is full."
     }
     else if (app.screen === 'trade') {

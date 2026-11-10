@@ -113,22 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-802 · 2026-11-10 · The Spitproof Draught, the mortar's fifth
-recipe** (the owner's picks, all recommended; builds D-799) Made at the
-mortar from 2 Grub Skin and 1 Herb. Drunk from the bag, for 60 turns a
-spit grub's glob that reaches the hero splashes off and hurts nothing;
-grubs still spit. Its rules are the Ward Draught's (D-795): drunk
-again, back to 60; any time; a night uses its turns and a fall ends it;
-it holds 5; a small mark under the hearts with the turns left. Its
-bottle and mark are dusty rose, from the grub's pink eye. Others
-offered: 3 Grub Skin; 2 Grub Skin and 1 Oilcap; a glob hurting less,
-never the last heart; grubs not seeing the hero; waxy bone-cream; slate
-blue-grey. Claude's calls the owner may change: its lines ("The glob
-splashes off you.", "Your skin feels dry again." as it ends); the glob
-breaks on the hero, flying no farther; the mortar lists it last; the
-Grub Skin's look line names it. D-795 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-803 · 2026-11-10 · The Fur Bedroll** (the owner's picks, all
 recommended; builds D-758, D-759, D-799) Bunny Fur's first use, made on
 the workbench's BUILD tab from 4 Bunny Fur and 1 Spider Silk; one at
@@ -197,3 +181,21 @@ diagonals; its lines ("The dark folds round you.", "The shade lifts
 from you." as it ends); the mortar lists it last; the Lurker Claw's
 look line names it. D-801 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-807 · 2026-11-10 · The Bone Hook** (the owner's picks, all
+recommended; builds D-799, D-614) Rat Bone's first use, made on the
+workbench's BUILD tab from 3 Rat Bone and 1 Spider Silk; one at most.
+FIT in the bag ties it to the rod for good, free, the Copper Wick's way;
+it leaves the bag, and the rod is drawn with a small pale bone hook under
+its float. Fitted, the strike meter's amber zone is half again as wide:
+the minnow's 3/8 of the bar, not 1/4, the cavefish's 3/10, not 1/5;
+waiting for a bite stays the same. Others offered: bites coming sooner,
+1 turn in 4; a second try after a miss; a third wider; double; working
+from the bag; the rod made over at the bench; 2 Rat Bone and 1 Spider
+Silk; 4 Rat Bone. Claude's calls the owner may change: BUILD lists it
+last; FIT only with the rod carried, in the bag or the Tool slot, else
+"You have no rod to fit it to.", free; it stays on for good, there being
+one rod; its look, a rat bone bent into a J; its lines ("You make a bone
+hook.", "You tie the bone hook to your rod.", "A bone hook, for your
+rod."); the Rat Bone's look line names it. D-802 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

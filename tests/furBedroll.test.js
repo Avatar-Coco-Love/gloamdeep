@@ -15,11 +15,11 @@ const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
 const outside = (bag, more = {}) => ({ ...makeState(makeRoom(WOODS, SKY, 'woods'), { x: 2, y: 2 }), turn: 480, health: 2, oil: 0.5, line: null, bag, ...more });
 const ROLL = [{ id: 'furBedroll', n: 1 }];
 
-test('the Fur Bedroll is the BUILD tab\'s last slot: 4 Bunny Fur and 1 Spider Silk; Make takes it, a turn', () => {
+test('the Fur Bedroll is the BUILD tab\'s slot before the Bone Hook (D-807): 4 Bunny Fur and 1 Spider Silk; Make takes it, a turn', () => {
   const roll = get('furBedroll');
   assert.equal(roll.name, 'Fur Bedroll');
   assert.equal(roll.max, 1);
-  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-1);
+  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-2);
   assert.deepEqual(last([{ id: 'bunnyFur', n: 4 }, { id: 'spiderSilk', n: 1 }]), { item: 'furBedroll', cost: [{ id: 'bunnyFur', n: 4, have: 4 }, { id: 'spiderSilk', n: 1, have: 1 }], dim: false });
   assert.equal(last([{ id: 'bunnyFur', n: 3 }, { id: 'spiderSilk', n: 1 }]).dim, true);
   const s = outside([{ id: 'bunnyFur', n: 5 }, { id: 'spiderSilk', n: 1 }], { turn: 10 }), made = makeAt(s, 'furBedroll');

@@ -141,6 +141,17 @@ const ROD = { mirror: false, rows: [
   '.............k..', '............kNk.', '...........kWka.', '..........kWk.a.', '.........kWk..a.', '........kWk...a.', '.......kWk....a.', '......kWk.....a.',
   '.....kWk......a.', '....kWk......krk', '...kNk.......kwk', '..kNk.........k.', '.kNk............', 'kNk.............', '.k..............', ''] };
 
+// § rod with its hook: the rod, a short silk line under the float and a small pale bone hook on
+// it, once the Bone Hook is fitted (D-807)
+const ROD_HOOKED = { mirror: false, rows: [
+  '.............k..', '............kNk.', '...........kWka.', '..........kWk.a.', '.........kWk..a.', '........kWk...a.', '.......kWk....a.', '......kWk.....a.',
+  '.....kWk......a.', '....kWk......krk', '...kNk.......kwk', '..kNk.........k.', '.kNk..........w.', 'kNk.........w.w.', '.k..........www.', ''] };
+
+// § bone hook: a rat bone bent into a J, its knobbed end at the top, the barb up at the left (D-807)
+const BONE_HOOK = { mirror: false, rows: [
+  '', '', '', '.........kk.....', '........kwak....', '........kaAk....', '........kaAk....', '........kaAk....', '........kaAk....',
+  '...kk...kaAk....', '..kwak..kaAk....', '..kaAk.kaAk.....', '...kaAkaAk......', '....kaaAk.......', '.....kkk........', ''] };
+
 // § pond minnow: side on and facing right, as the rat is: a grey back, a pale teal stripe, a cream
 // belly, a forked tail and a dark eye (look A of the fishing step 2 mock-up, D-610)
 const POND_MINNOW = { mirror: false, rows: [
@@ -549,7 +560,7 @@ const SHADE_COLOURS = { l: '#b39ad0', m: '#6e5a8c' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
-  COPPER_ORE, PICK, ROD, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
+  COPPER_ORE, PICK, ROD, ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
   MIMIC_GLASS, GLOAM_WISP, VENOM_SAC, MIMIC_HEART, GLOAM_EYE, WOODS, BRANCHES, STUMPS, BERRY_BUSH,
   BARE_BUSH, GLOAMBERRY, GLOAMBERRY_SEED, WORKBENCH, CHEST, RUBBLE, PEDDLER, PEDDLER_FORWARD, BED, SHELF, MORTAR, LOCKET_SHELF, LOCKET_SHELF_COLOURS, LOCKET_SHELF_GLINT, LOCKET_ON_SHELF,
   GARDEN_BED, SPROUT, over, SPROUTED_BED, FLECKS, FED_BED, SMALL_BUSH, BERRY_BED, POUCH, BIG_BAG,
