@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.250 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.251 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The finds plan (D-799), one a step: next Bat Wing's Echo Charm,
-then the Shade Draught and the Bone Hook. The Hands upgrade when wanted.
+The finds plan (D-799), one a step: next Lurker Claw's Shade Draught,
+then the Bone Hook and the Glow Lamp. The Hands upgrade when wanted.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -45,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.251, The Echo Charm.** The owner's picks (D-805):
+  the GEAR tab's last slot, 3 Bat Wing and 1 Copper Ore; worn, creatures
+  within 4 tiles in the dark, walls or not, show as pale outlines.
+  Playtest: https://claude.ai/artifact/XstDHemBrGQdGVk3UqM1B7
 - **2026-11-10, 0.3.250, The bedroll laid out.** The owner's idea and
   picks (D-804): SLEEP and SET DOWN in the bag; laid out, bumped from
   dusk to sleep on it, by day to roll it up; no bed for a fall.
@@ -53,7 +57,3 @@ list in `RESEARCH.md`.
   the BUILD tab's last slot, 4 Bunny Fur and 1 Spider Silk, kept in the
   bag; sleeping out with it wakes the hero with 2 hearts back, not stiff.
   Playtest: https://claude.ai/artifact/Tt4uV3cJma85sa6KVgVidL
-- **2026-11-10, 0.3.248, The Spitproof Draught.** The owner's picks
-  (D-802): the mortar's fifth recipe, 2 Grub Skin and 1 Herb; for 60
-  turns a spit grub's glob splashes off, hurting nothing; dusty rose.
-  Playtest: https://claude.ai/artifact/4Qm6SbLz1RcuxBDNCChidE

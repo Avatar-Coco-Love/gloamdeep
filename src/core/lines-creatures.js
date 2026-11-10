@@ -76,7 +76,7 @@ export const CREATURE_LINES = {
   spiderSilkLook: { texts: ['Spider silk, good for making things.', 'Fine, pale and very strong.', 'It is still a little sticky.'], warn: false },
   spiderSilkFull: { text: "You can't carry more spider silk.", warn: false },
   batWingTake: { texts: ['You pick up the bat wing.', 'Thin leather, light as paper.', 'The bat wing goes in your bag.'], warn: false }, // (D-537)
-  batWingLook: { texts: ['A bat wing, for crafting later.', 'Thin dark leather on fine bones.', 'It folds up small.'], warn: false },
+  batWingLook: { texts: ['A bat wing, for an echo charm.', 'Thin dark leather on fine bones.', 'It folds up small.'], warn: false },
   batWingFull: { text: "You can't carry more bat wings.", warn: false },
   moleFurTake: { texts: ['You pick up the mole fur.', 'Soft as velvet, and warm.', 'The mole fur goes in your bag.'], warn: false }, // (D-541)
   moleFurLook: { texts: ['Mole fur, good for making things.', 'Dark, short and very soft.', 'It smells of earth.'], warn: false },

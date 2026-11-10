@@ -75,6 +75,8 @@ this page and a decision disagree, the decision wins.
   burns a sixth slower (D-487).
 - **Centipede Charm:** the charm against poison; worn, poisoned lasts
   3 turns, not 6 (D-656).
+- **Echo Charm:** the charm for the dark, from Bat Wing; worn, creatures
+  within 4 tiles show as pale outlines where no light is (D-805).
 
 ## Home
 Moved to `GLOSSARY-2.md` word for word at 0.3.27 (D-565): workbench,

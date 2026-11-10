@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.248 (2026-11-10)
+- New: the Spitproof Draught, a dusty rose bottle, the Grub Skin's first use. Once you have held Grub Skin and Herb, the mortar makes it from 2 Grub Skin and 1 Herb. Drink it from your bag and for 60 turns a spit grub's glob splashes off you and hurts nothing; the grubs still spit. A rose bottle under your hearts shows the turns left; tap it to hear them. Drinking another sets it back to 60. The turns run even while you sleep, and a fall ends it.
+- Grub Skin now says "Two make a Spitproof."
+- Decisions: D-802.
+
 ## 0.3.247 (2026-11-10)
 - New at the workbench: two tabs, BUILD and GEAR, where its title was. BUILD holds the chest, Stone Pick, bed, bag upgrades, garden bed, rod and shelf; GEAR holds the Copper Wick, the vests and the charms. Tap a tab, or press Tab, to turn it.
 - New armour: the Shell Vest, the Crab Shell's first use. Make it on the GEAR tab from 4 Crab Shell and 1 Wood, then Wear it from the bag in the Rat Hide Vest's place. It takes 1 off any hit of 2 or more, so the rim lurker's bite and the scorpion's tail strike hurt 1 instead of 2. It is drawn as stony grey crab plates with rust edges.

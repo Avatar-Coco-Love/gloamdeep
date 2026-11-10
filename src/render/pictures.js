@@ -406,6 +406,12 @@ const CENTIPEDE_CHARM = { mirror: false, rows: [
   '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokkwVkkOk...',
   '...kokVVggkOk...', '...kokkgGkkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
 
+// § echo charm: a folded bat wing, a bone spar over dark leather with a scalloped edge, in the
+// wisp charm's copper setting and loop (D-805)
+const ECHO_CHARM = { mirror: false, rows: [
+  '', '', '', '......kkkk......', '.....ko..ok.....', '......kook......', '.....kkkkkk.....', '....koooooOk....', '...koOkkkkOOk...', '...kokAAAkkOk...',
+  '...kokNnNAkOk...', '...kokNkNnkOk...', '...koOkkkkOOk...', '....kOOOOOOk....', '.....kkkkkk.....', ''] };
+
 // § lure wisp: look A of its mock-up (D-649), a cold flame: a bone-white core, blue edges in
 // the gloamberry's blues, two pink eyes in the core
 const LURE_WISP = { mirror: false, rows: [
@@ -551,6 +557,7 @@ export {
   CENTIPEDE_LEG,
   ANTIDOTE,
   CENTIPEDE_CHARM,
+  ECHO_CHARM,
   SPIT_GRUB,
   GRUB_SKIN,
   GLOW_GLAND,

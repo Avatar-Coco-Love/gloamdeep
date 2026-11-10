@@ -104,7 +104,7 @@ export const settingsMenu = (s, deviceReduced = false, journey = null, mode = nu
 // the lantern's parts, armour and charms; a 4 × 3 grid each. BENCH_MAKES, every one, BUILD's first.
 export const BENCH_TABS = [
   { id: 'build', text: 'BUILD', makes: ['chest', 'pick', 'bed', 'pouch', 'bigBag', 'gardenBed', 'rod', 'shelf', 'furBedroll'] },
-  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm'] },
+  { id: 'gear', text: 'GEAR', makes: ['copperWick', 'ratVest', 'shellVest', 'wispCharm', 'heartCharm', 'centipedeCharm', 'echoCharm'] },
 ];
 export const BENCH_MAKES = BENCH_TABS.flatMap((t) => t.makes); // the stone pick (D-480), the copper wick (D-483), the rat hide vest (D-484), the wisp charm (D-486), the heart charm (D-487), the bed (D-488), the Pouch and Big Bag (D-545), the garden bed (D-562), the rod (D-608), the centipede charm (D-656), the shelf (D-689), the shell vest (D-801), the fur bedroll (D-803)
 export const benchTabOf = (id) => BENCH_TABS.find((t) => t.id === id) ?? BENCH_TABS[0];

@@ -23,6 +23,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `wispCharm` | Wear in the bag: a charm, rare drops about 1 in 5, not 1 in 10 | 1 | never | the workbench: 3 Gloam Wisp, 1 Copper Ore | D-486 |
 | `heartCharm` | Wear in the bag: the second charm, a full tank about 70 turns, not 60 | 1 | never | the workbench: 1 Mimic Heart, 1 Copper Ore | D-487 |
 | `centipedeCharm` | Wear in the bag: the charm against poison, poisoned 3 turns and 1 heart, not 6 and 2 | 1 | never | the workbench: 3 Centipede Leg, 1 Copper Ore | D-656 |
+| `echoCharm` | Wear in the bag: the charm for the dark, each creature within 4 tiles, walls or not, that no light shines on shown as a pale outline | 1 | never | the workbench's GEAR tab: 3 Bat Wing, 1 Copper Ore | D-799, D-805 |
 | `bed` | set down as the bed tile | 1 | never | the workbench: 4 Wood, 2 Rat Tail | D-488 |
 | `gardenBed` | set down as the garden bed tile, one seed planted in it | 1 | never | the workbench: 3 Wood, 2 Stone | D-562, D-565, D-566 |
 | `shelf` | set down as the shelf tile, empty; the locket can be set on it (D-693) | 1 | never | the workbench: 4 Wood, 2 Stone | D-689, D-690 |

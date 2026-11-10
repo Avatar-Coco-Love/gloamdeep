@@ -825,3 +825,11 @@ words "The lantern burns a little slower, for good."; its button "Get
 Steady Wick"; a small flame in the lantern's gold, dim until bought; it
 is kept on a Normal fall, as Tough is. D-789 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-800 · 2026-11-10 · The workbench's two tabs** (the owner's pick,
+recommended, from a fourth row or pages) The workbench's card was full,
+12 slots, so it gets two tabs where its title was, as the bag's: BUILD
+(the chest, Stone Pick, bed, bag upgrades, garden bed, rod, shelf) and
+GEAR (the wick, the vests, the charms), a 4 × 3 grid each. A tap on one
+or Tab turns it. Claude's calls: the tab last open is kept while the
+game runs; the mortar keeps its title, with no tabs.

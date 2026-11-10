@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.248, The Spitproof Draught.** The owner's picks
+  (D-802): the mortar's fifth recipe, 2 Grub Skin and 1 Herb; for 60
+  turns a spit grub's glob splashes off, hurting nothing; dusty rose.
+  Playtest: https://claude.ai/artifact/4Qm6SbLz1RcuxBDNCChidE
 - **2026-11-10, 0.3.247, The Shell Vest.** The owner's picks (D-799 to
   D-801): a first use planned for each find kept for crafts later; the
   workbench split into BUILD and GEAR tabs; the Shell Vest, 4 Crab Shell

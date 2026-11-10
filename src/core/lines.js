@@ -123,6 +123,11 @@ export const LINES = {
   centipedeCharmShort: { text: 'Need 3 Centipede Leg, 1 Copper Ore.', warn: false }, // too few, free
   centipedeCharmLook: { texts: ['A centipede charm, against poison.', 'A drop of venom, set in copper.', 'Wear it, and poison passes sooner.'], warn: false },
   centipedeCharmWear: { text: 'You put on the centipede charm.', warn: false }, // Wear in the bag, free (D-656)
+  echoCharmMake: { text: 'You make an echo charm.', warn: false }, // its line on the bench panel, a turn (D-805)
+  echoCharmFull: { text: 'You already have an echo charm.', warn: false }, // carried or worn, free
+  echoCharmShort: { text: 'Need 3 Bat Wing, 1 Copper Ore.', warn: false }, // too few, free
+  echoCharmLook: { texts: ['An echo charm, for the dark.', 'A bat wing, set in copper.', 'Near creatures show in the dark.'], warn: false },
+  echoCharmWear: { text: 'You put on the echo charm.', warn: false }, // Wear in the bag, free (D-805)
   stoneFull: { text: "You can't carry more stones.", warn: false }, // the third bump, every stack full: the boulder holds (O2)
   gloamberryTake: { texts: ['You pick two gloamberries.', 'Dark berries, cool to the touch.', 'The bush gives up its berries.'], warn: false }, // a full bush bumped (D-531)
   gloamberryFull: { text: "You can't carry more gloamberries.", warn: false }, // every stack full: the bush keeps its berries (D-531)
