@@ -202,12 +202,15 @@ function drawTree(c, card, state, pick, t, still, first) {
 }
 
 // § place: an upgrade's tile, its small picture from the registry's `look` (D-811): Tough's drop
-// of venom (D-657), Steady Wick's small flame in the lantern's gold (D-798), the heart a heart
+// of venom (D-657), Steady Wick's small flame in the lantern's gold (D-798), Quick Hands' pale
+// open hand (D-813), the heart a heart
 // twice the panel's size with how many are bought in its corner; the picture dim until bought,
 // a bought tile's frame faintly gold. Its name and words are on the right when picked. A place
 // still to come is a dashed, empty tile; one not open yet dashed with a small lock
 const LOCK = ['.xxx.', 'x...x', 'xxxxx', 'xx.xx', 'xxxxx'];
 const FLAME = ['....#....', '...##....', '...###...', '..####...', '..#####..', '.###.##..', '.##..###.', '..##.##..', '....#....'];
+// Quick Hands' open hand, pale (D-813): four fingers up, the thumb out to the left
+const HAND = ['..#.#.#..', '..#.#.#.#', '..#.#.#.#', '..#######', '#.#######', '.########', '..#######', '...#####.', '...#####.'];
 const BOUGHT = 'rgba(255,214,107,.45)'; // a bought tile's frame
 const dots = (c, rows, x, y, colour, on = 'x', size = 1) => { c.fillStyle = colour; rows.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === on) c.fillRect(x + i * size, y + j * size, size, size); })); };
 function drawPlace(c, p, state, picked) {
@@ -221,6 +224,7 @@ function drawPlace(c, p, state, picked) {
   if (!open || !u) return;
   if (u.look === 'flame') dots(c, FLAME, ...at(9, 9), n > 0 ? GLOW_MARK.tint : DIM, '#');
   else if (u.look === 'drop') dots(c, POISON_MARK.icon, ...at(9, 9), n > 0 ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
+  else if (u.look === 'hand') dots(c, HAND, ...at(9, 9), n > 0 ? CORE : DIM, '#');
   else if (u.look === 'hearts') {
     const counted = u.most > 1 && n > 0, size = s >= 16 ? 2 : 1, [hx, hy] = counted ? [p.x + 2, p.y + 2] : at(5 * size, 4 * size); // twice the size where the tile has room
     dots(c, HEART, hx, hy, n > 0 ? '#e8786a' : DIM, 'x', size);

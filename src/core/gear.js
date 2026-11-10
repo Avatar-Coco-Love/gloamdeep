@@ -5,6 +5,7 @@ import { get } from './registry.js';
 import { wornOf } from './worn.js';
 import { say } from './lines.js';
 import { bagAdd, bagSize } from './bag.js';
+import { UPGRADES, grown } from './upgrades.js';
 
 // Each slot in the row, left to right: its name and the item drawn faintly in it while empty;
 // `key`, the state's field for the two that Take off empties (D-554)
@@ -36,9 +37,11 @@ export function withTool(s) {
 
 // § tool at work: whether the Tool slot holds what a tile `needs`, itself or one that works `as` it
 // (the Mole Claw Pick as the Stone Pick, D-810); and the bumps a tile takes, the tool's `quick`
-// count for it, if it has one, else the tile's own `hits`
+// count for it, if it has one, else the tile's own `hits`, 1 fewer for a tree, a deposit or a
+// branch with Quick Hands bought (D-813)
 export const toolFits = (state, needs) => !!state.tool && (state.tool === needs || get(state.tool)?.as === needs);
-export const bumpsFor = (state, tileId, hits) => (state.tool && get(state.tool)?.quick?.[tileId]) || hits;
+const handsOff = (state, tileId) => (grown(state, 'quickHands') && UPGRADES.quickHands.tiles.includes(tileId) ? UPGRADES.quickHands.fewer : 0);
+export const bumpsFor = (state, tileId, hits) => (state.tool && get(state.tool)?.quick?.[tileId]) || Math.max(1, hits - handsOff(state, tileId));
 
 // § take off: Take off on gear slot g (the Weapon's or the Tool's) puts its piece back in the
 // bag with its `away` line, free: no turn passes (D-553, D-554). With no room, "Your bag is

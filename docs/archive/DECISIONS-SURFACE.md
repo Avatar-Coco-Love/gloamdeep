@@ -964,3 +964,21 @@ in no Torches feat; its lines ("You make a glow lamp.", "You set down
 the glow lamp.", "Your glow lamp goes dark."); the Glow Gland's look line
 names it. D-803 and D-804 move to `archive/DECISIONS-SURFACE.md`, and
 the lights' table to `CONTENT-2.md`, word for word.
+
+**D-809 · 2026-11-10 · The Fang Charm** (the owner's picks, all
+recommended; builds D-799) Bat Fang's first use, made on the
+workbench's GEAR tab from 1 Bat Fang and 1 Copper Ore, as the other
+charms are. Worn, each creature beaten gives back 1 heart about 1 time
+in 4, never past the most. Healed, its line shows and a small red heart
+rises beside the "+1" over the hero (steady with reduced motion).
+Others offered: 2 Bat Fang and 1 Copper Ore; 1 Bat Fang and 1 Spider
+Silk; 1 time in 3 or 5; a line only; nothing extra. Claude's calls the
+owner may change: GEAR lists it last; a pile of bones scattered counts
+as beaten, struck down into its pile does not; the spear's two beaten
+are a coin each; at full hearts nothing happens, no line; the coin is
+seeded as a drop's is; its line ("The fang drinks. You feel better.")
+is said over the creature's own; its look, a pale bat fang pointing down
+in the charms' copper setting; its other lines ("You make a fang
+charm.", "You put on the fang charm.", "Beaten creatures may mend
+you."); the Bat Fang's look line names it. D-805 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

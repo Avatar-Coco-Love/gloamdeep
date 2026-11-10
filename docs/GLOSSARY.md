@@ -42,6 +42,7 @@ this page and a decision disagree, the decision wins.
 
 ## The hero
 - **Steady Wick:** Growth's first Light upgrade, 1 ember: the lantern burns a little slower, for good (D-798).
+- **Quick Hands:** Growth's first Hands upgrade, 1 ember: trees, stone and branches take 1 bump fewer by hand (D-813).
 - **Hearts:** the hero's health, 5, and up to 5 more bought (D-115, D-293). **LV:** the level (D-246).
 - **Embers:** 1 for each level past the first, spent in Growth (D-293).
 - **Glints:** the look currency, paid by Feats, spent on looks (D-516).

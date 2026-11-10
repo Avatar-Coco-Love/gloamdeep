@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.256, The Mole Claw Pick.** The owner's picks (D-810):
+  the workbench's BUILD tab, 1 Mole Claw, 2 Wood and 2 Stone; held, it
+  works as the Stone Pick, a copper vein in 2 bumps and rubble in 2.
+  Playtest: https://claude.ai/artifact/Jzyd4pD9QK65ELUNwTYtXL
 - **2026-11-10, 0.3.255, The Fang Charm.** The owner's picks (D-809):
   the workbench's GEAR tab, 1 Bat Fang and 1 Copper Ore; worn, a beaten
   creature gives back 1 heart 1 time in 4, a red heart rising by the "+1".
