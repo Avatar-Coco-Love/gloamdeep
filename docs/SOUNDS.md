@@ -13,8 +13,9 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`, not yet played by the game; each
-folder keeps its `License.txt`). All four are Kenney's, CC0 (no credit
-needed), `.ogg` files:
+folder keeps its `License.txt`). All five are CC0 (no credit needed),
+`.ogg` files: four of Kenney's and one of ObsydianX's (itch.io), whose
+222 tones were cut of their silence when saved, nothing else changed:
 
 | Folder | Files | Good for |
 | --- | --- | --- |
@@ -22,6 +23,7 @@ needed), `.ogg` files:
 | `kenney-rpg-audio` | 52 | cloth, coins, books, doors, metal, footsteps |
 | `kenney-interface-sounds` | 100 | menus: open, close, back, error |
 | `kenney-ui-audio` | 52 | menus: clicks and switches |
+| `obsydianx-interface-sfx-1` | 222 | menus: clean electronic tones; confirm, back, error (5 or 6 styles, 7 each, plain and echo) and cursor (5) |
 
 ## Moving
 
