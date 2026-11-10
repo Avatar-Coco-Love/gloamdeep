@@ -123,4 +123,5 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A walk through every surface room, by day and night, with each problem shown now and fixed in mock-ups from the game's own code, let the owner rank the polish and pick looks in one round (0.3.199).
 - New ideas sent with a step were asked as picks beside its look and planned as later steps; one visible change kept (0.3.202).
 - Sorting the waiting list into ready now, better at its own step and parked let the owner settle four items in one round of questions (0.3.216).
+- With the lines already chosen, four small picks on timing, order, colour and bites were all the step needed before building (0.3.217).
 - The owner remembered a goal that was never built; searching the code first and saying so plainly turned it into a small new goal, not a rename of nothing (0.3.198).

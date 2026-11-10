@@ -216,6 +216,16 @@ function packStep(state, e, claims) {
   claims.push(side);
   return chaseStep(state, e, 1, side) || chaseStep(state, e);
 }
+// § pack's warning (D-766): a pack that notices the hero this turn, with no packmate chasing at the
+// turn's start, says its `packSay` line, the lines taking turns, in amber. A rat with no packmate
+// left is alone and stays silent; a bite, a drink or a fall this turn keeps its own line (D-117).
+export function packWarns(before, after) {
+  if (after.fell !== before.fell || after.place !== before.place) return after;
+  if (after.events.some((e) => e.type === 'bite' || e.type === 'drink')) return after;
+  const was = new Set(before.enemies.filter((e) => packed(e) && e.chasing).map((e) => e.pack));
+  const lead = after.enemies.find((e) => packed(e) && e.chasing && !was.has(e.pack) && mates(after.enemies, e).length >= 1);
+  return lead && get(lead.id).packSay ? say(after, get(lead.id).packSay) : after;
+}
 // With 2 or more of its pack left, itself counted, a hurt one stands its ground (D-727)
 const brave = (enemies, foe) => packed(foe) && mates(enemies, foe).length >= 1;
 

@@ -102,19 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
-the recommended order and finds, and the owner's addition; builds
-D-757, opens Q-092) The surface fills in this order: gathering, then
-landmarks, then night creatures. Gathering starts with oilcaps, then
-loose stones, then plants and flowers to harvest (Q-092). Oilcaps first:
-one in each woods room, home too, none in the mountain rooms, on open
-grass beside a tree; picked, it grows back after a day as in the caves.
-In an older save only rooms never seen, with nothing taken, get theirs.
-Claude's calls the owner may change: beside means a tree straight
-beside, not a corner; never on the start, a stick, the mouth's front or
-the waystone's ring; each its own tone, as underground. D-755 and D-756
-move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-761 · 2026-11-09 · Gathering, step 2: loose stones** (the owner's
 picks, all recommended, the look after its mock-up; builds D-760) Loose
 stones lie in the mountain rooms only, the woods rooms keeping their
@@ -185,3 +172,14 @@ varying between "The pack closes in!", "Rats squeak all around you!" and
 "A pack of rats comes for you!" (lone rats stay silent); and the
 scorpion's sting also hits a creature on its marked tiles, 2 hearts, as
 it does the hero (changes D-729's "it strikes only the hero").
+
+**D-767 · 2026-11-10 · The rat pack's warning** (the owner's picks, all
+recommended; builds D-766's first addition) A pack that notices the hero
+says its line on that turn, each time it notices anew, so a pack that
+lost the hero and finds them again warns again. The three lines take
+turns, as the rat's other lines do (D-297), and show in amber, as the
+scorpion's raised tail does. A bite on that turn keeps its own line
+(D-117). Claude's calls the owner may change: the last rat of a pack is
+alone and stays silent; the warning replaces any other line that turn
+but a bite's or a drink's. D-760 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

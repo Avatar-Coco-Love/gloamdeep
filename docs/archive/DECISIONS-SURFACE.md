@@ -415,3 +415,16 @@ them embers for one turn of oil. Claude's calls the owner may change:
 each level and room as likely; 2 tiles in from the edge; a line too
 long for the strip shows a sentence a bump, and cold ashes' first
 sentence on the strip, the rest on the card; "The fire catches."
+
+**D-760 · 2026-11-09 · Gathering, oilcaps first** (the owner's picks,
+the recommended order and finds, and the owner's addition; builds
+D-757, opens Q-092) The surface fills in this order: gathering, then
+landmarks, then night creatures. Gathering starts with oilcaps, then
+loose stones, then plants and flowers to harvest (Q-092). Oilcaps first:
+one in each woods room, home too, none in the mountain rooms, on open
+grass beside a tree; picked, it grows back after a day as in the caves.
+In an older save only rooms never seen, with nothing taken, get theirs.
+Claude's calls the owner may change: beside means a tree straight
+beside, not a corner; never on the start, a stick, the mouth's front or
+the waystone's ring; each its own tone, as underground. D-755 and D-756
+move to `archive/DECISIONS-SURFACE.md`, word for word.

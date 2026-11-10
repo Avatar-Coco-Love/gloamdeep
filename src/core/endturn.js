@@ -5,7 +5,7 @@ import { note } from './events.js';
 import { regrow } from './regrow.js';
 import { grow } from './garden.js';
 import { passTurn } from './state.js';
-import { enemiesAct } from './creatureturn.js';
+import { enemiesAct, packWarns } from './creatureturn.js';
 import { get } from './registry.js';
 import { withTile } from './room.js';
 import { leave, send, arrive, greet } from './homeward.js';
@@ -39,7 +39,7 @@ export const endTurn = (before, cast) => {
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
   const ticked = poisonTick(stiffTick(done)); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
-  const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : enemiesAct(ticked); // a room left leaves its globs behind (D-688)
+  const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : packWarns(before, enemiesAct(ticked)); // a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
   const next = grow(burnOut(regrow(acted, moved), moved));
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)

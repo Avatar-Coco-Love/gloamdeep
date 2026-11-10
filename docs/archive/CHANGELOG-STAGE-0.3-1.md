@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.214 (2026-11-09)
+- The first flower grows outside: the duskstar, five violet petals round a yellow heart. 2 grow in each woods room, home too, on the grass; the mountain rooms have none. Each faces its own way and has its own slight shade of violet.
+- Walk onto a duskstar to put it in your bag, for crafts later. A day after you pick it, it grows again somewhere else in the same room.
+- In a saved game, woods rooms you haven't seen yet get their duskstars too; rooms you have seen stay as they were.
+- Decisions: D-763.
+
 ## 0.3.213 (2026-11-09)
 - Healing herbs now grow outside: one in each woods room, home too, on the grass. The mountain rooms have none. It is the same herb as in the caves: walk onto it hurt and you eat it, at full health it goes in your bag, and it grows back a day after you pick it.
 - In a saved game, woods rooms you haven't seen yet get their herb too; rooms you have seen stay as they were.

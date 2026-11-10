@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-09, 0.3.214, The duskstar.** The owner's picks, all
+  recommended, after the mock-up (D-763): look B, 2 in each woods room,
+  back elsewhere in the room after a day, mirrored and shaded per flower.
+  Playtest: https://claude.ai/artifact/Eyot5FM1BF5zsprMwvL3aU
+  Map preview: https://claude.ai/artifact/C3rnKcYWqUxqzvucasAzem
 - **2026-11-09, 0.3.213, Herbs outside.** The owner's picks, all
   recommended (D-762): the cave herb in each woods room. Flowers next.
   Playtest: https://claude.ai/artifact/Hnyq83ZkUr3fG2hWANcSre

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.217 (2026-11-10)
+- A rat pack now warns you. The turn a pack notices you, one of its three lines shows in amber: "The pack closes in!", "Rats squeak all around you!" or "A pack of rats comes for you!", taking turns. A pack that loses you and finds you again warns again. A rat alone, or the last of a pack, stays silent, and a bite that turn keeps its own line.
+- Decisions: D-767. D-760 moved to the archive, word for word.
+
 ## 0.3.216 (2026-11-10)
 - A name can now hold digits and spaces as well as letters, up to 12 in all, so OLD TOM and COCO 2 both work.
 - The name pad's bottom row is M, Del, then Z, Spc, 123 and OK. Press 123 to swap the letters for the digits 1 to 9 and 0, and ABC to swap back.
@@ -33,9 +37,3 @@ Entry format:
 ## 0.3.215 (2026-11-09)
 - The pale blue lines across doorways are about half as bright, so they no longer glare. They still pulse gently, and hold still with reduced motion. The map's doorway squares are unchanged.
 - Decisions: D-764.
-
-## 0.3.214 (2026-11-09)
-- The first flower grows outside: the duskstar, five violet petals round a yellow heart. 2 grow in each woods room, home too, on the grass; the mountain rooms have none. Each faces its own way and has its own slight shade of violet.
-- Walk onto a duskstar to put it in your bag, for crafts later. A day after you pick it, it grows again somewhere else in the same room.
-- In a saved game, woods rooms you haven't seen yet get their duskstars too; rooms you have seen stay as they were.
-- Decisions: D-763.
