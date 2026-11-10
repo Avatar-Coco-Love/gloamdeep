@@ -111,7 +111,7 @@ function loadInto(slot) {
   else { app.state = newWorld(); app.jumped = false; }
 }
 loadInto(app.profiles.current);
-const sound = createSound(() => app.settings.sound === 'on'); // D-255
+const sound = createSound(() => app.settings.sound === 'on'); // silent until the sound files are in (D-773)
 // Saved after every turn, or any change, once the journey has begun (D-238)
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;

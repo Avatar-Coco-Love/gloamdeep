@@ -9,7 +9,7 @@ light and oil). The look comes from `reference/style-study-1.html`, which
 is online at
 https://avatar-coco-love.github.io/gloamdeep/reference/style-study-1.html
 
-Everything is drawn and synthesized in code: no image, sound or font files.
+Everything is drawn in code: no image or font files. Sounds come from files, from a free pack (D-773).
 
 - Where things stand: [`docs/PROGRESS.md`](docs/PROGRESS.md)
 - What has been decided: [`docs/DECISIONS.md`](docs/DECISIONS.md)

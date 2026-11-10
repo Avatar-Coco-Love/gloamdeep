@@ -51,7 +51,7 @@ export const nextLantern = (id) => (id === 'self' ? 'hand' : 'self');
 export const flasksText = (id) => 'Flasks: ' + (id === 'self' ? 'By itself' : 'By hand');
 export const nextFlasks = nextLantern;
 
-// § sound: On or Off (D-178, D-255). Off until picked, while the sounds get player ready.
+// § sound: On or Off (D-178, D-255). Off until picked; the game is silent until the sound files are in (D-773).
 export const soundText = (id) => 'Sound: ' + (id === 'on' ? 'On' : 'Off');
 export const nextSound = (id) => (id === 'on' ? 'off' : 'on');
 

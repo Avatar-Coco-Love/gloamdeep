@@ -102,13 +102,6 @@ level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
 
-**D-764 · 2026-11-09 · Dimmer doorway lines** (the owner's picks, both
-recommended, after a mock-up; changes D-225's brightness) The owner
-found the pale blue doorway lines too bright. In the game they are now
-about half as bright: they pulse from 30% to 50% strength, steady at
-45% with reduced motion. The fainter inner line stays 40% of the bright
-one. The map's doorway squares stay as they were.
-
 **D-765 · 2026-11-10 · Names with spaces and digits** (the owner's
 picks, all recommended; answers Q-054; changes D-272 and D-683) A name
 may hold letters, digits and spaces, still up to 12. The name pad gets a
@@ -175,3 +168,18 @@ It comes after the alchemy station and its recipes (D-771), the owner's
 order. Its damage, range, how it aims on a phone, arrows, where it is
 made or found and its look are open (Q-094), asked at its step.
 D-770 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-773 · 2026-11-10 · Sounds from files, the old ones wiped** (the
+owner's wish and picks, recommended but for wiping all at once;
+changes D-003's "everything exists in code"; supersedes the sounds of
+D-255, D-257, D-258, D-259 and each sound made in code since; opens
+Q-095) None of the sounds made in code sounded good. The game's sounds
+now come from sound files, a free pack, Kenney's first (no credit
+needed; the credits will name the owner and Claude). Claude's sessions
+can't reach the sound sites, so the owner downloads, and Claude
+measures, trims and plugs them in. All 15 old sounds are wiped now, so
+the game is silent until the new ones are in. The code that knows when
+each plays, the Sound switch and the sound board (D-256) stay.
+`docs/SOUNDS.md` lists every sound the game needs and grows with it.
+The owner's first four Kenney packs are kept in `sounds/packs/`.
+D-764 moves to `archive/DECISIONS-SURFACE.md`, word for word.

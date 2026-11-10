@@ -3,7 +3,7 @@
 Gloamdeep is a grid-based, turn-based survival micro-RPG with action and
 strategy. It is built phone-first and also plays on PC in any browser. You
 carry a lantern down through dark places, and the oil runs low. Plain HTML,
-CSS and JavaScript, with everything drawn and synthesized in code.
+CSS and JavaScript, with everything drawn in code; sounds come from files (D-773).
 
 ## The owner leads. Work in tiny steps.
 
@@ -57,6 +57,7 @@ Read the smallest file that answers the question.
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
+| `docs/SOUNDS.md` | every sound the game needs, and its file (D-773) | sound steps |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
 | `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732); growth, tools, bugs and design habits in `-2` (D-741) | audits, or when the way of working changes |
@@ -94,9 +95,9 @@ push to `main`; one PR per conversation; merging is the owner's call.
 
 ## Hard technical rules (details in `docs/TECH.md`)
 
-- No external assets: no image, audio or font files, no CDNs, no frameworks,
+- No external assets: no image or font files, no CDNs, no frameworks,
   no build step (`tools/` is only for playtests and record-keeping, D-572). One exception: `share.png`,
-  the share card, drawn by `tools/sharecard.js` (D-425). Visuals use Canvas 2D. Sound uses the Web Audio API.
+  the share card, drawn by `tools/sharecard.js` (D-425). Visuals use Canvas 2D. Sounds are files from a free pack, each listed in `docs/SOUNDS.md` (D-773).
 - Phone first. Everything works with touch, mouse and keyboard.
 - Game state is kept separate from drawing. All content (items, enemies,
   NPCs, tiles) lives in one data registry. Randomness goes through a seeded

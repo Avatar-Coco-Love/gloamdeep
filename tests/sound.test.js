@@ -1,5 +1,5 @@
 // § sound: the Sound switch, Off until picked, flips to On and back (D-178, D-255).
-// The footstep itself is Web Audio, in render/, so it is heard in the playtest.
+// The sounds themselves are silent until their files are in (D-773).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { soundText, nextSound, loadSettings } from '../src/core/settings.js';

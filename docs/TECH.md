@@ -6,10 +6,12 @@ at build plan step 7 (D-039).
 ## Hard rules
 - Vanilla HTML, CSS and JavaScript. No frameworks, no build step. Opening
   `index.html` through any static server must work.
-- No external assets: no image, audio or font files, and nothing loaded from
-  a CDN. Visuals use Canvas 2D, sound uses Web Audio. One exception:
+- No external assets: no image or font files, and nothing loaded from
+  a CDN. Visuals use Canvas 2D. One exception:
   `share.png`, the picture a shared link shows, drawn by the game's code
   through `tools/sharecard.js`, never by hand (D-425).
+- Sounds are files from a free pack, played with Web Audio (D-773),
+  each with its source and licence in `docs/SOUNDS.md`.
 - Phone first, held upright or sideways (D-505): the room shows about 11 tiles across the short side; a card on a view taller than wide (`isTall`, `render/bag.js`) stacks its sides; on a squarer screen held sideways a card in play is drawn smaller, at least 340 game pixels across (`cardZoom`, `render/screen.js`, D-671). Tap targets are at least 44 px.
   Words wrap, never run off: a card's words stay inside it at every phone size, with all content, and a list that can grow scrolls (`render/journalrows.js`); `tests/textfit.test.js` checks it (D-743).
   Touch, mouse and keyboard all work (Pointer Events for tap and click).

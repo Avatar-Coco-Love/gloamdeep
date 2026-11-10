@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.222 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.223 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Night creatures (D-760), the surface's last filling: which comes
-first, after a proposal; then day creatures (D-771). A second flower
-(Q-092) can come any time.
+Sounds (D-773, Q-095): match `SOUNDS.md` to the four Kenney packs in
+`sounds/packs/`, a sound board to pick by ear, then the first go in. Then night creatures
+(D-760), after a proposal; then day creatures (D-771).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -26,6 +26,8 @@ first, after a proposal; then day creatures (D-771). A second flower
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
+- Sounds from files (Q-095): which pack and file for each sound,
+  and the "Maybe" sounds.
 - The alchemy station and new recipes (Q-093), after day creatures;
   then the bow (Q-094).
 
@@ -47,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.223, Sounds from files.** The owner's picks
+  (D-773): sound files from Kenney's free packs; all 15 old sounds
+  wiped, so the game is silent; every sound needed listed in
+  `docs/SOUNDS.md`. Four Kenney packs kept in `sounds/packs/`.
 - **2026-11-10, 0.3.222, Alchemy, a station of its own.** Docs only.
   The owner asked if there are enough materials for more recipes and
   stations: yes, 16 wait. Their picks (D-771): alchemy its own station,
@@ -56,8 +62,3 @@ list in `RESEARCH.md`.
   game's own Stone Pick, gone from the camp once taken; bumped, Take
   the pick?, as cold ashes ask. Playtest: https://claude.ai/artifact/3oT7VgjMEys8nd7sF8Du8H
   Map preview: https://claude.ai/artifact/Ujr62pL5ANpeUzbRSsLHnN
-- **2026-11-10, 0.3.220, A dead lamppost.** The owner's picks, all
-  recommended (D-769): the first landmark, an old crook lamppost gone
-  cold (look B), one a seed outside home, never the campfire's room;
-  bumped, it speaks. The miners' camp comes next. Playtest: https://claude.ai/artifact/SX8v3mURFHmL2rHb6XcqcG
-  Map preview: https://claude.ai/artifact/CCaEX7HbiHMYrnHxfL9tSj

@@ -4,6 +4,12 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.223', date: '2026-11-10', title: 'Sounds from files', lines: [
+    "The game is silent for now: every sound made in code is gone, since none sounded good. Sounds will come from sound files instead, from a free pack (Kenney's first, which needs no credit).",
+    "Four free sound packs from Kenney (335 sounds, no credit needed) are saved in the game's files, ready to choose from; the game doesn't play them yet.",
+    "A new list, docs/SOUNDS.md, names every sound the game needs, when each plays and how it should feel. It grows with the game.",
+    "Decisions: D-773. D-764 moved to the archive, word for word. Questions: Q-095 opened.",
+  ] },
   { v: '0.3.222', date: '2026-11-10', title: 'Alchemy, a station of its own', lines: [
     "Nothing in the game changes. Alchemy will get a station of its own at home, apart from the kitchen fire: a mortar and pestle, an alchemy lab, or both, still to choose. 16 finds already wait for recipes. It comes after the night creatures and then the day creatures. After that, the hero gets a bow for ranged attacks.",
     "Decisions: D-771, D-772. D-769 and D-770 moved to the archive, word for word. Questions: Q-093 and Q-094 opened.",
