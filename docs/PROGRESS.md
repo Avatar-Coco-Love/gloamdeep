@@ -4,16 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.232 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.233 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug fixes, 0.3.233 (D-782): B1, clear an earlier night's or
-day's creatures before new ones come out; B2, the night ones leave
-before creatures act on waking; B3, night creatures come out at least 4
-steps away, as the mole. Each with a test. Then day creatures, second
-(D-781): which kind next, and whether a rare one comes too, as the
-gloamling did.
+Day creatures, second (D-781): which kind next, and whether a rare one
+comes too, as the gloamling did.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -49,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-10, 0.3.233, The audit's bug fixes.** The owner's call at the
+  audit (D-783): night and day creatures no longer pile up across nights
+  (B1), none bites on waking (B2), and night ones come out 4 steps away
+  (B3). Each with a test that fails on the old code.
+  Playtest: https://claude.ai/artifact/YAZcNCgUZGctcP459jCqB3
 - **2026-11-10, 0.3.232, The thirteenth audit.** The owner's picks
   (D-782): every split (history, creatures' pictures and lines), every
   archive and the playbook, word for word; nothing visible changed. Bug
@@ -57,8 +58,3 @@ list in `RESEARCH.md`.
   picks (D-781): a mole comes out each day in each woods room round
   home, never home, gone by night, the night rules turned round.
   Playtest: https://claude.ai/artifact/BY3XwQiQDqXP8xEDHF8qVP
-- **2026-11-10, 0.3.230, Night creatures, third: gloamling.**
-  The owner's picks (D-780), all recommended: each night the seed picks
-  one woods room round home, and a gloamling joins its lampmoth and bat,
-  with its usual finds.
-  Playtest: https://claude.ai/artifact/DmsbfsvWAMk3s4YaZVdnCt

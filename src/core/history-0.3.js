@@ -4,6 +4,12 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.233', date: '2026-11-10', title: 'The audit\'s bug fixes', lines: [
+    "The audit's bug fixes. Night and day creatures no longer pile up in a woods room left and come back to on a later night or day: the earlier ones go first.",
+    "Waking from sleeping out, a night creature beside the hero has already gone with the dawn, and no longer bites.",
+    "Night creatures come out at least 4 steps from the hero, as the mole does, so none appears right beside them with the lantern out.",
+    "Decisions: D-783.",
+  ] },
   { v: '0.3.232', date: '2026-11-10', title: 'The thirteenth audit', lines: [
     "The thirteenth audit. Nothing in the game changes. Three big code files are split, word for word: the Version history's newest file again (0.3.151 to 0.3.200 move to history-0.3-3.js), the creatures' pictures (to pictures-creatures.js) and the creatures' lines (to lines-creatures.js).",
     "Docs: finished decisions, ticked plan steps and three of the surface's questions moved to the archive or their own files, word for word, so a conversation starts by reading less. Four creatures' glossary lines, the sound packs in use and the ponds now match the game. A bug hunt found three bugs, fixed next. The playbook gains what this stretch taught, in a new WORKFLOW-3.md. The next audit is at 0.3.272.",

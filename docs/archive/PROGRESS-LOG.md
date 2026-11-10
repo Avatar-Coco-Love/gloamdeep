@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.230, Night creatures, third: gloamling.**
+  The owner's picks (D-780), all recommended: each night the seed picks
+  one woods room round home, and a gloamling joins its lampmoth and bat,
+  with its usual finds.
+  Playtest: https://claude.ai/artifact/DmsbfsvWAMk3s4YaZVdnCt
 - **2026-11-10, 0.3.229, Night creatures, second: the bat.** The
   owner's picks (D-779): the bat now, as the lampmoth; next a rare
   gloamling, one woods room a night.
