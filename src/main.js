@@ -87,6 +87,7 @@ const app = {
   journalScroll: 0, // the Journal's open list's top row shown, scrolled (D-743)
   entry: '', // the digits typed on the seed pad, or the letters on the name pad
   naming: 0, renaming: false, // the slot the name pad names: an empty one (D-272), or a profile renamed (D-273)
+  digits: false, // the name pad shows its digits, after 123 (D-765)
   padFrom: 'settings', // the screen the seed pad was opened from: Settings or the Explorer
   seeds: [], // the seeds the Explorer has shown this visit, the last one on screen
   plan: null, view: null, floors: [], // the map shown, its view, and the floors it turns to

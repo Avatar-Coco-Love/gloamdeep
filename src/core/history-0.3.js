@@ -4,6 +4,13 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.216', date: '2026-11-10', title: 'Names with spaces and digits', lines: [
+    "A name can now hold digits and spaces as well as letters, up to 12 in all, so OLD TOM and COCO 2 both work.",
+    "The name pad's bottom row is M, Del, then Z, Spc, 123 and OK. Press 123 to swap the letters for the digits 1 to 9 and 0, and ABC to swap back.",
+    "A space never starts a name or follows another space, and one left at the end is dropped when you press OK. On a keyboard, Space now types a space and digits type too.",
+    "The rat pack, the scorpion and the bone rat stay as they are; the details Claude filled in are now settled.",
+    "Decisions: D-765, D-766. Questions closed: Q-054. D-757 moved to the archive, word for word.",
+  ] },
   { v: '0.3.215', date: '2026-11-09', title: 'Dimmer doorway lines', lines: [
     "The pale blue lines across doorways are about half as bright, so they no longer glare. They still pulse gently, and hold still with reduced motion. The map's doorway squares are unchanged.",
     "Decisions: D-764.",

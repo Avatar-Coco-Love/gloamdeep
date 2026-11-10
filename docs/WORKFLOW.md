@@ -5,8 +5,8 @@ exists, and what changed along the way. It is written so a future
 project can start from it (D-732). Each audit adds what that stretch
 taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
-`WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us
-and the design habits (D-741).
+`WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
+the design habits (D-741) and starting a new project.
 
 ## The project so far
 
@@ -122,20 +122,5 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Asked for a look between two, a row of steps from one to the other let the owner pick the middle at a glance (0.3.200).
 - A walk through every surface room, by day and night, with each problem shown now and fixed in mock-ups from the game's own code, let the owner rank the polish and pick looks in one round (0.3.199).
 - New ideas sent with a step were asked as picks beside its look and planned as later steps; one visible change kept (0.3.202).
-
-## Starting a new project
-
-- Write `CLAUDE.md` on day one: who decides, the step size, how
-  questions are asked, the hard technical rules, and a table of where
-  things live.
-- Make these files from the start: `PROGRESS.md` (Next up, waiting on
-  the owner, the last 3 logs), `DECISIONS.md`, `OPEN-QUESTIONS.md`,
-  `CHANGELOG.md`, `GLOSSARY.md`, `PR-CHECKLIST.md` and an archive with
-  one index.
-- Add on day one, not later: the start-up sync hook, a size test for
-  docs, a playtest bundler, and a release tool for the bookkeeping.
-- Agree the pace in the first conversation and write it down as a
-  decision, so it can be superseded when it changes.
-- Plan audits from the start. Each one also adds to this playbook.
-- Build the tools in `WORKFLOW-2.md` as soon as each job repeats.
+- Sorting the waiting list into ready now, better at its own step and parked let the owner settle four items in one round of questions (0.3.216).
 - The owner remembered a goal that was never built; searching the code first and saying so plainly turned it into a small new goal, not a rename of nothing (0.3.198).

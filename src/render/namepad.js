@@ -2,12 +2,12 @@
 // the seed card (D-394), on the title's scene, "NAME" at its top (or "RENAME", D-273) and the
 // round cross that goes back. The letters typed so far in an ember box with a cursor across
 // the card, the keys under it split for thumbs (D-420): A to M hugging the card's left side,
-// N to Z its right, the middle left open. Keys grow to fill the card, their letters and the
+// N to Z its right, the middle left open; 123 swaps in the digits (D-765). Keys grow to fill the card, their letters and the
 // typed name twice as big; the chosen key ember and gold as a button that can be pressed,
 // the rest dim. Upright (D-506), the keys are square and closer, the box and keys at the
 // card's foot, in thumb reach. The hero big over the box, the typed name over it, and two dots
 // for a new hero's steps (D-517, D-524); RENAME shows the profile's own hero, with no dots.
-import { NAME_PAD, NAME_ROWS, NAME_MAX } from '../core/namepad.js';
+import { padOf, NAME_ROWS, NAME_MAX } from '../core/namepad.js';
 import { drawText, textWidth } from './font.js';
 import { cardAt, drawCard, drawButton, inCard, onCross } from './bag.js';
 import { drawStage, stageSize, drawDots } from './cloak.js';
@@ -54,12 +54,12 @@ function stageAt(pad) {
 }
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { key: i }, 'close' (the round
-// cross), or null; outside the card, 'out'
-export function nameCardAt(x, y, vw, vh) {
+// cross), or null; outside the card, 'out'; digits: the digits' pad is shown (D-765)
+export function nameCardAt(x, y, vw, vh, digits = false) {
   const pad = padAt(vw, vh);
   if (!inCard(pad.card, x, y)) return 'out';
   if (onCross(pad.card, x, y)) return 'close';
-  const i = NAME_PAD.findIndex((k) => {
+  const i = padOf(digits).findIndex((k) => {
     const b = keyBox(pad, k), half = pad.gap / 2;
     return x >= b.x - half && x < b.x + b.w + half && y >= b.y - half && y < b.y + pad.keyH + half;
   });
@@ -68,8 +68,8 @@ export function nameCardAt(x, y, vw, vh) {
 
 // c: the room's canvas, `vw` × `vh`; entry: the letters typed; chosen: a key's index;
 // still: reduced motion (the cursor stays lit); renaming: RENAME at its top instead of NAME;
-// hero: the hero's sprite in its look (sprites.js), or null for none
-export function drawNameCard(c, vw, vh, entry, chosen, t, still, renaming, hero = null) {
+// hero: the hero's sprite in its look (sprites.js), or null for none; digits: the digits' pad (D-765)
+export function drawNameCard(c, vw, vh, entry, chosen, t, still, renaming, hero = null, digits = false) {
   const title = renaming ? 'RENAME' : 'NAME', card = drawCard(c, vw, vh, title, 0);
   if (!renaming) drawDots(c, card, title, 0, 2); // a new hero's first step of two
   const pad = padAt(vw, vh), { x, y, w: fw } = pad;
@@ -83,5 +83,6 @@ export function drawNameCard(c, vw, vh, entry, chosen, t, still, renaming, hero 
   const ty = y + Math.floor((FIELD_H - 7 * SIZE) / 2);
   drawText(c, entry, tx, ty, GOLD, SIZE);
   if (cursor && (still || Math.floor(t / 500) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(tx + w + (entry ? SIZE : 0), ty + 7 * SIZE + 1, 4 * SIZE, SIZE); }
-  NAME_PAD.forEach((k, i) => { const b = keyBox(pad, k); drawButton(c, b.x, b.y, k.text.toUpperCase(), i !== chosen, b.w, pad.keyH, SIZE); });
+  // A word too wide for its key at twice the size (Spc, 123, ABC, OK on a narrow card, D-765) is drawn at the game's own
+  padOf(digits).forEach((k, i) => { const b = keyBox(pad, k), text = k.text.toUpperCase(), size = textWidth(text) * SIZE + 4 <= b.w ? SIZE : 1; drawButton(c, b.x, b.y, text, i !== chosen, b.w, pad.keyH, size); });
 }

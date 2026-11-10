@@ -212,7 +212,7 @@ test('profiles: with no title yet a tap outside and Esc stay; Esc first cancels 
 });
 
 test('the name pad and the seed pad: an arrow moves the flame, a typed key presses it with the flame on OK, a tap on a key presses it', () => {
-  for (const [id, keys, press, at, good, bad] of [['name', NAME_PAD, 'pressName', nameCardAt, 'a', '7'], ['seed', PAD, 'pressKey', seedCardAt, '7', 'a']]) {
+  for (const [id, keys, press, at, good, bad] of [['name', NAME_PAD, 'pressName', nameCardAt, 'a', '-'], ['seed', PAD, 'pressKey', seedCardAt, '7', 'a']]) {
     const { app, calls, cards } = made(id);
     cards[id].dir('right');
     assert.equal(app.chosen, 1, id);
