@@ -9,8 +9,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 
 ## Next up
 Night creatures (D-760), after a proposal; then day creatures (D-771).
-More sound files (Q-095) whenever the owner wants, a small related
-group at a time (D-776).
+More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -50,8 +49,8 @@ list in `RESEARCH.md`.
 
 ## Log (last 3)
 - **2026-11-10, 0.3.226, Steps below.** The owner's picks (D-776), by
-  ear from a board: concrete steps with a faint echo below, the grass
-  steps muffled into packed earth in the burrows, as loud as the grass.
+  ear: concrete with a faint echo below, muffled grass for earth in the
+  burrows, as loud as the grass.
   Playtest: https://claude.ai/artifact/43puBe1GjpFGv52x2HW7bq
   Sound board: https://claude.ai/artifact/QnKJKsPY3FfeeXrnPUYxq5
 - **2026-11-10, 0.3.225, The lantern's metal click.** The owner's picks
