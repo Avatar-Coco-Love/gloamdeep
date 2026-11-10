@@ -13,6 +13,7 @@ import { fishTurn } from './fishing.js';
 import { stiffTick } from './stiff.js';
 import { meet } from './bestiary.js';
 import { poisonTick } from './poison.js';
+import { nightfall } from './nightfall.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -40,7 +41,7 @@ export const endTurn = (before, cast) => {
   const ticked = poisonTick(stiffTick(done)); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : packWarns(before, enemiesAct(ticked)); // a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
-  const next = grow(burnOut(regrow(acted, moved), moved));
+  const next = grow(burnOut(nightfall(regrow(acted, moved)), moved)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return meet(greet(arrive(sent))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630)
 };

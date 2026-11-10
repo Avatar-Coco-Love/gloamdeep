@@ -4,6 +4,10 @@
 // are in history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.228', date: '2026-11-10', title: 'Night creatures, first: lampmoths', lines: [
+    "Night creatures, first: lampmoths. Once dusk darkens the woods, a lampmoth comes out in each woods room round home, never at home, and flies for your lantern. One beaten stays beaten till the next night, and any still about are gone by morning.",
+    "Decisions: D-778. D-771 moved to the archive, word for word.",
+  ] },
   { v: '0.3.227', date: '2026-11-10', title: 'The fight\'s sounds', lines: [
     "The fight's sounds: a hit with the lantern now lands with a muffled thump, and a hit with the knife or spear with a quick slice. When a creature is beaten, a soft heavy thud follows a moment after the hit. All as loud as a step. With Sound: Off, nothing plays.",
     "Decisions: D-777. D-768 moved to the archive, word for word. Questions: Q-095 narrowed.",
