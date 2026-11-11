@@ -103,24 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-830 · 2026-11-11 · The lantern and the light's sounds** (the owner's
-picks, all recommended, from a board of 4, 4, 4 and 4; answers part of
-Q-095) The first sounds from the elemental pack (D-829). A flask poured,
-by hand or by itself, is seven quick glugs: Water-027 at 0.47 (offered
-too: three glugs, higher; two big gloops; a steady bubbling pour); a
-minnow poured stays silent. The oil running out, as "The lantern gutters
-to an ember." shows, is a crackle that slows and fades: Fire-017's first
-1.3 s, fading over its last second, its pitch sliding to 0.7, at 0.22
-(offered too: a small puff; the crackle, then the puff; a soft falling
-whoosh). A torch lit is a quick whoosh: Fire-030 from 0.1 s, 1.2 s of
-it, fading over 0.5 s, at 0.24 (offered too: a deep whoomp; a fuller
-burst; a softer rising whoosh). Cold ashes lit into a campfire catch and
-burn: Fire-021 from 0.18 s, 2.4 s of it, fading over 0.9 s, at 0.27
-(offered too: a sharper catch; the torch's whoosh, then a crackle; a
-bright flare). Each follows Steps' loudness, with the lantern, and has
-its own line under Steps: Flask poured, Oil runs out, Torch lit,
-Campfire lit.
-
 **D-831 · 2026-11-11 · The fight's rest's sounds** (the owner's picks
 from a board of 4, 4, 4 and 4, then 4 new for poison; answers part of
 Q-095) A stiff swing that misses (D-759) is a short puff of air: the
@@ -187,3 +169,17 @@ way down, and again only after the oil has gone back above it (offered
 too: both at 25%; the sound at 25% and the line at 20%). With a flask in
 the bag poured by itself at 55%, it plays only when none is left. One
 Settings line under Steps, Oil runs low. File and loudness in `SOUNDS.md`.
+
+**D-835 · 2026-11-11 · The heartbeat at the last heart** (the owner's
+picks, both recommended; part of Q-095) From a board of 4, each beside
+poison's double throb (a soft lub-dub twice; one slow heavy beat; a
+racing heart, three quick beats; a wooden knock-knock): a soft lub-dub
+twice, the second fainter. Impact Sounds' impactSoft_medium 001 then 002
+at 0.8 and 0.74 pitch, muffled above 350 Hz, 0.17 s apart, at 0.36 and
+0.25, then again 0.8 s later at 0.25 and 0.17: four quick soft knocks,
+where poison has two slow punches. It plays once, as a turn leaves the
+hero on one heart from more, 0.7 s after the bite's blow or poison's
+throb; again only after a heart has come back and gone again; a fall,
+waking at full hearts, does not (offered too: again every few steps;
+beating on its own in time). One Settings line under Fighting, Last
+heart. D-830 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

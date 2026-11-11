@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.281', date: '2026-11-11', title: 'The heartbeat at the last heart', lines: [
+    "New: as a bite, a glob or poison leaves you on your last heart, your heart beats: a soft lub-dub, twice, the second fainter, a moment after the blow or the poison's throb. It plays once, and again only after a heart has come back and gone again. A fall, which wakes you at full hearts, doesn't play it.",
+    "New: Settings' Fighting list gains Last heart.",
+    "Notes: sounds all around come next, drips in caves first, then music.",
+    "Decisions: D-835.",
+  ] },
   { v: '0.3.280', date: '2026-11-11', title: 'The oil\'s warning', lines: [
     "New: as the oil falls under 20% and \"The flame is getting low.\" is said, the lantern sputters twice, the second softer and lower: a short piece of the crackle it makes when the oil runs out. Like the line, it plays once, and again only after the oil has gone back above 20%, so with a flask in the bag it plays only when none is left.",
     "New: Settings' Steps list gains Oil runs low.",

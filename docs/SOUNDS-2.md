@@ -17,6 +17,7 @@ the creatures and places went on to `SOUNDS-3.md`.
 | `beaten` | a creature is beaten (D-777) | a short fall or crumple, 0.12 s after the hit | `kenney-impact-sounds/impactSoft_heavy_000` to `004`, at a quarter loudness, CC0 |
 | `hurt` | the hero is hurt: a bite or a glob takes a heart, a moment after the hero's swing (D-831) | a small gasp; no pack has a voice, so a blow | `kenney-impact-sounds/impactPunch_heavy_000` to `004`, a tenth lower, muffled above 900 Hz, at 0.32, CC0 |
 | `poison` | poison takes a heart (D-654, D-831) | a sick, low pulse | the same punch at 0.6 pitch, muffled above 400 Hz, at 0.36, then at 0.57 and 0.26, 0.35 s later, CC0 |
+| `heartbeat` | a turn leaves the hero on the last heart, from more (D-835) | a soft lub-dub, twice | `impactSoft_medium` 001 then 002 at 0.8 and 0.74, muffled above 350 Hz, 0.17 s apart, at 0.36 and 0.25; again 0.8 s later at 0.25 and 0.17; 0.7 s after the blow or the throb, CC0 |
 | `rise` | a level reached (D-246, D-831), after the beaten thud | a short rising note | `kenney-impact-sounds/impactGlass_light_000` to `002` at 1, 1.26 and 1.5, 0.11 s apart, at 0.2 to 0.16, 0.55 s late, CC0 |
 
 ## Finds, the bag and home
@@ -62,10 +63,10 @@ None of these is decided (Q-095): steps on more grounds (water,
 wood; a wood step is picked, D-774: the grass files at a quarter
 loudness, muffled, with the bright crack filtered off above 1400 Hz,
 the same as the burrows' earth, D-776); sounds all around, such as wind on the
-surface, birds by day, crickets at night, drips in caves; music; a
-heartbeat at the last heart. All are wanted, one step each (D-834): the
-heartbeat next, then sounds all around (drips in caves first), then
-music. The oil's warning is in `SOUNDS.md` (D-834).
+surface, birds by day, crickets at night, drips in caves; music. All
+are wanted, one step each (D-834): sounds all around next (drips in
+caves first), then music. The oil's warning is in `SOUNDS.md` (D-834),
+the heartbeat at the last heart in the fight's table above (D-835).
 
 ## Later (decided, not yet built)
 

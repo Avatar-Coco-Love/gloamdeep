@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.278, The creatures' bites' sounds.** The owner's
+  picks (D-832), all recommended, from a board of 3 for each of ten: a
+  double nip, a clink and snap, clicks and a stab, a hiss, chirps and a
+  flap, sniffs and a scrape, a squelch and snap, leaves and teeth, a
+  clatter of bones, a slurp and gulp; one Settings line, Bites.
+  Playtest: https://claude.ai/artifact/HfpJox5EonPzuZQCx5BMap
+  Sound board: https://claude.ai/artifact/FMcB5qLz5v9oRHnFRCMwLU
 - **2026-11-11, 0.3.277, The fight's rest's sounds.** The owner's picks
   (D-831) from a board of 4, 4, 4 and 4, then 4 new for poison: a short
   puff of air for a stiff miss, a dull muffled blow for the hero hurt,
