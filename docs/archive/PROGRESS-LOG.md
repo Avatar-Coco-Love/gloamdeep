@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.269, The four kinds' loudness.** The owner's picks
+  (D-823), all recommended, after a fit test (all six lines fit at
+  320 × 568): Steps, Fighting, Finds and Menus as plain lines under
+  Loudness; the lantern follows Steps; a kind is Loudness times its
+  share; changing one plays its own sound.
+  Playtest: https://claude.ai/artifact/P9xQEHR6wXzWiYpwo1XDD8
 - **2026-11-11, 0.3.268, Loudness.** The owner's picks (D-822), all
   recommended, for the Sound tab's three steps: Loudness, 0% to 100% in
   steps of 10%, beside Sound On or Off; then four kinds; then each sound

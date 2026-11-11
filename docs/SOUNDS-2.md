@@ -1,7 +1,9 @@
 # Sounds 2
 
 The creatures' sounds, moved word for word from `SOUNDS.md` at 0.3.266
-to keep it under 8 KB. Each line reads as the lines there do.
+to keep it under 8 KB. Each line reads as the lines there do. Places,
+"Maybe" and "Later" followed at 0.3.272, the fourteenth audit (D-826),
+word for word.
 
 ## Creatures (their bites and their own sounds)
 
@@ -28,3 +30,28 @@ to keep it under 8 KB. Each line reads as the lines there do.
 | | a warden wakes | heavy stone shifting | — |
 | | a creature spits a glob (D-688) | a wet spit | — |
 | | a glob breaks or hits (D-688) | a small splat | — |
+
+## Places
+
+| Name | When | Feel | File |
+| --- | --- | --- | --- |
+| `bells` | a waystone wakes (D-591) | three bells rising | — |
+| | travel by waystone (D-593) | a deep hum | — |
+| `chime` | a boon picked (D-596) | two bells rising | — |
+| `plop` | the fishing line cast (D-613) | a small plop | — |
+| `splash` | a fish caught (D-613) | a splash and drops | — |
+| | sleeping in a bed or out (D-758) | a long breath out | — |
+
+## Maybe (for the owner to pick)
+
+None of these is decided (Q-095): steps on more grounds (water,
+wood; a wood step is picked, D-774: the grass files at a quarter
+loudness, muffled, with the bright crack filtered off above 1400 Hz,
+the same as the burrows' earth, D-776); sounds all around, such as wind on the
+surface, birds by day, crickets at night, drips in caves; music; a
+warning when the oil runs low; a heartbeat at the last heart.
+
+## Later (decided, not yet built)
+
+Each comes with its own step: the night creatures (D-760) and day
+creatures (D-771), the alchemy station (D-771), and the bow (D-772).

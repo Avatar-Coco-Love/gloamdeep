@@ -1,4 +1,4 @@
-# The audits (D-336, D-362, D-392, D-421, D-468, D-493, D-519, D-570 to D-578)
+# The audits (D-336, D-362, D-392, D-421, D-468, D-493, D-519, D-570 to D-578, D-782, D-783)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.2.228, the seventh audit
 (D-519), as it neared 12 KB: the second to sixth audits, each done.
@@ -9,6 +9,8 @@ tenth audit's first fixes (all built), followed at 0.3.127 (D-675).
 D-699, the eleventh audit, done, followed at 0.3.192, the twelfth (D-740).
 D-740, the twelfth audit, done, and D-742, its bug hunt's fixes, built,
 followed at 0.3.232, the thirteenth (D-782).
+D-782, the thirteenth audit, done, and D-783, its bug hunt's fixes, built,
+followed at 0.3.272, the fourteenth (D-826).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -548,3 +550,35 @@ pack roll with salts of their own, so unvisited rooms may change; T2, a
 spit grub's glob flies over a pile of bones; T3, a scorpion's tail
 raised as the hero left is lowered when they come back (a fall that
 wakes in the same room still keeps it).
+
+**D-782 · 2026-11-10 · The thirteenth audit** (the owner's picks: every
+split, every archive and the playbook; ponds as recommended) At
+0.3.232, nothing visible changed. A conversation's start reads 10.4 KB,
+not 11.0. Three code files are split word for word: the in-game
+history's 0.3.151 to 0.3.200 go to `src/core/history-0.3-3.js` (42 KB
+to 16 and 26); the creatures' pictures, rat to mimic leaf, to
+`src/render/pictures-creatures.js` (49 KB to 39 and 10); each
+creature's lines and its finds' to `src/core/lines-creatures.js` (42 KB
+to 31 and 13; `tools/make.js` still starts new ones in the old files).
+D-740 and D-742 move to `archive/DECISIONS-AUDITS.md`, D-743 to
+`archive/DECISIONS-CARDS-2.md`, and D-773 to D-777 to a new
+`archive/DECISIONS-SOUNDS.md`; ticked steps 23, 24, 25 and 27 are
+archived; Q-088, Q-091 and Q-092 move to `OPEN-QUESTIONS-2.md`; the
+playbook's audit lessons go to a new `WORKFLOW-3.md`; all word for
+word. Docs that drifted are fixed: the lampmoth, bat, gloamling and
+mole's surface visits; the packs in use; most woods rooms have a pond,
+not each (about 1 thick-woods room in 20 has none). The bug hunt found
+three bugs, all to be fixed in the next PR (the owner's call): night
+or day creatures piling up across nights (B1), a bite on waking from
+sleeping out (B2), night creatures coming out beside the hero in the
+dark (B3). The next audit is at 0.3.272.
+
+**D-783 · 2026-11-10 · The audit's bug fixes** (the owner's call at
+the audit, D-782; fixes D-778 to D-781) An earlier night's or day's
+creatures still standing go before the new ones come out, so they never
+pile up in a room left and come back to (B1). Night creatures leave by
+day, and day creatures by night, before any creature acts, so none
+bites the hero on waking from sleeping out (B2). Night creatures come
+out at least 4 steps from the hero, as the mole, as well as out of
+sight, so none appears beside them with the lantern out (B3). Each has
+a test.
