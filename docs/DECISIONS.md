@@ -103,20 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-835 · 2026-11-11 · The heartbeat at the last heart** (the owner's
-picks, both recommended; part of Q-095) From a board of 4, each beside
-poison's double throb (a soft lub-dub twice; one slow heavy beat; a
-racing heart, three quick beats; a wooden knock-knock): a soft lub-dub
-twice, the second fainter. Impact Sounds' impactSoft_medium 001 then 002
-at 0.8 and 0.74 pitch, muffled above 350 Hz, 0.17 s apart, at 0.36 and
-0.25, then again 0.8 s later at 0.25 and 0.17: four quick soft knocks,
-where poison has two slow punches. It plays once, as a turn leaves the
-hero on one heart from more, 0.7 s after the bite's blow or poison's
-throb; again only after a heart has come back and gone again; a fall,
-waking at full hearts, does not (offered too: again every few steps;
-beating on its own in time). One Settings line under Fighting, Last
-heart. D-830 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-836 · 2026-11-11 · A cave's drips** (the owner's picks, all
 recommended; part of Q-095) Sounds all around begin with drips in the
 caves. From a board of 4 (a drop and its ripple; a single plip; a clear
@@ -179,3 +165,21 @@ do: the old place's tune fades out over 2 s, the new one starts a second
 later, fading in over a second. A line in Music's list between Surface
 and Rock caves, Crypt. File and loudness in `SOUNDS-3.md`. D-834 moves
 to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-840 · 2026-11-11 · Music in the warrens** (the owner's picks, all
+recommended; part of Q-095) The warrens came before the dungeon. From a
+board of 8 calm, dark tracks from the same bundle, measured again from
+the 84 over 45 s, the three tunes already playing left out (three new to
+a board, five from the crypt's; the rock caves' and the surface's tunes
+beside them to compare; the warrens' muffled earth steps playing along),
+track 1, "Patreon Challenge 11" (1 min 7 s, the darkest, with the most
+low notes), plays in the warrens, floors 5 to 7 (offered too: Patreon
+Challenge 09, Patreon Challenge 01, Ludum Dare 30 03, Patreon Challenge
+04 and three more; floor 5 and every floor below), non-stop with no break
+(offered too: with a 30 s, 60 s or 2 min gap), carrying on from floor to
+floor (offered too: starting again on each floor). It changes as the
+others do: the old place's tune fades out over 2 s, the new one starts a
+second later, fading in over a second. The dungeon stays quiet, its own
+step. A line in Music's list after Rock caves, Warrens. File and loudness
+in `SOUNDS-3.md`. D-835 moves to `archive/DECISIONS-SOUNDS.md`, word for
+word.

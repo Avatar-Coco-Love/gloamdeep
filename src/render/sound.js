@@ -204,7 +204,7 @@ const KINDS = {
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'spit', 'splat'],
   finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
-  music: ['surface', 'crypt', 'caves'], // each place's theme (D-837, D-838, D-839)
+  music: ['surface', 'crypt', 'caves', 'warrens'], // each place's theme (D-837 to D-840)
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
 // What plays as a kind's loudness changes, at its new loudness: a step, a hit, a pat, the tick
@@ -227,12 +227,15 @@ export const dripGap = (r) => (8 + r * 8) * 1000; // r in [0, 1): milliseconds t
 // The rock caves (floors 2 to 4) play "The Vile Grove" the same way, carrying on from floor to floor (D-838).
 // The whole crypt, its two top rooms by the cave mouth and floor 1, plays "Ludum Dare 30 05" the same way,
 // carrying on down its stairs (D-839); main.js gives its top rooms, depth 0 below the sky, the crypt's look.
+// The warrens, the earth burrows on floors 5 to 7, play "Patreon Challenge 11" the same way, carrying on
+// from floor to floor (D-840); the dungeon below stays quiet.
 export const MUSIC = {
   surface: { file: 'abstraction-music-loops/Ludum Dare 30 06.ogg', gain: 0.4 },
   crypt: { file: 'abstraction-music-loops/Ludum Dare 30 05.ogg', gain: 0.79 }, // as loud to the ear as the surface's
   caves: { file: 'abstraction-music-loops/The Vile Grove.ogg', gain: 0.59 }, // as loud to the ear as the surface's
+  warrens: { file: 'abstraction-music-loops/Patreon Challenge 11.ogg', gain: 0.47 }, // as loud to the ear as the surface's
 };
-export const musicOf = (sky, look) => (sky ? 'surface' : look === 'crypt' ? 'crypt' : dripsIn(sky, look) ? 'caves' : null);
+export const musicOf = (sky, look) => (sky ? 'surface' : look === 'crypt' ? 'crypt' : dripsIn(sky, look) ? 'caves' : look === 'earth' ? 'warrens' : null);
 export const FADE_OUT = 2, QUIET = 1, FADE_IN = 1; // seconds
 
 // § cards: which way a page turns as the screen changes (D-819). Play, setting a tile down
