@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.275, The elemental pack.** The owner bought
+  MorphonautAudio's Elemental Forces (CC0) and picked, all recommended:
+  all 134 kept whole as good-quality .ogg in one folder with Earth,
+  Fire, Water and Wind inside (D-829). Nothing in the game changed.
 - **2026-11-11, 0.3.274, Home's sounds.** The owner's picks (D-828),
   all recommended, from a board of 4, 4, 4 and 3: coins for a sale,
   a book set on wood for the shelf, two soft earth steps for a seed,

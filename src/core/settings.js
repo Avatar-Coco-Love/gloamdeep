@@ -88,6 +88,7 @@ export const SOUND_LINES = [
   { voice: 'hurt', kind: 'fight', name: 'Hurt' },
   { voice: 'poison', kind: 'fight', name: 'Poison' },
   { voice: 'rise', kind: 'fight', name: 'Level' },
+  { voice: 'bites', kind: 'fight', name: 'Bites' }, // every creature's bite, and the oil tick's drink, together (D-832)
   { voice: 'pat', kind: 'finds', name: 'Into the bag' },
   { voice: 'draw', kind: 'finds', name: 'Weapon drawn' },
   { voice: 'thunk', kind: 'finds', name: 'Tile set down' },
@@ -103,7 +104,9 @@ export const SOUND_LINES = [
   { voice: 'refuse', kind: 'menus', name: "Can't" },
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
-export const isMuted = (s, voice) => (s.muted ?? []).includes(voice);
+// The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
+export const BITES = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'];
+export const isMuted = (s, voice) => (s.muted ?? []).includes(BITES.includes(voice) ? 'bites' : voice);
 export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;
 export const toggleMuted = (s, voice) => (isMuted(s, voice) ? (s.muted ?? []).filter((v) => v !== voice) : [...(s.muted ?? []), voice]);
 // How loud a kind plays, 0 to 1: Loudness times the kind's share (D-823)
