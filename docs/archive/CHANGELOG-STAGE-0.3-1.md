@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.261 (2026-11-11)
+- The Growth tree's second row opens the first time you go deeper than depth 8. Until then, picking one of its locked tiles says "Reach depth 9 to open." Once open, each branch has a dashed tile to come, and the row above shows locked. A journey already past depth 8 finds it open.
+- Decisions: D-815.
+
 ## 0.3.260 (2026-11-10)
 - Planned: the Growth tree's second row. It will open the first time you go deeper than depth 8, and hold Quick Pour on Light (pouring a flask takes no turn), Guard on Body (about 1 bite in 6 glances off) and Thrift on Hands (making something keeps its cheapest part about 1 time in 4), each 1 ember. Nothing in the game changed yet.
 - Decisions: D-814.

@@ -20,6 +20,9 @@ export const UPGRADES = {
   // Hands' first (D-813): a tree, a stone deposit or a branch, gathered by hand, takes `fewer`
   // bumps less, never under 1; a tool's own count is kept (gear.js)
   quickHands: { id: 'quickHands', branch: 'hands', row: 0, slot: 0, name: 'Quick Hands', words: 'Trees, stone and branches take 1 bump fewer.', cost: 1, most: 1, look: 'hand', fewer: 1, tiles: ['tree', 'deposit', 'branch'] },
+  // Hands' second row (D-814, D-818): about 1 making in 4 keeps 1 of the part its recipe uses
+  // most of (thrift.js)
+  thrift: { id: 'thrift', branch: 'hands', row: 1, slot: 0, name: 'Thrift', words: 'Making something keeps 1 part about 1 time in 4.', cost: 1, most: 1, look: 'log', keeps: 1 / 4 },
   tough: { id: 'tough', branch: 'body', row: 0, slot: 1, name: 'Tough', words: 'A bite that hurts poisons you only 1 time in 2.', cost: 1, most: 1, look: 'drop', poisons: 0.5 },
 };
 // § grown: how many times a journey bought an upgrade, 0 for none (D-811)

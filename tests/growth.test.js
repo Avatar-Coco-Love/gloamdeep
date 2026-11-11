@@ -112,7 +112,7 @@ test('the locked row says the depth that opens it; opened, its places are to com
   const locked = told(deep('depth8'), { col: 0, row: 1 });
   assert.deepEqual([locked.name, locked.words, locked.button], ['Locked', 'Reach depth 9 to open.', null]);
   const open = deep('depth9');
-  assert.equal(told(open, { col: 2, row: 1 }).name, 'To come', 'Hands\' Thrift, still to come');
+  assert.equal(told(open, { col: 2, row: 1 }).name, 'Thrift', 'row 2 full: Quick Pour, Guard, Thrift');
   assert.deepEqual(rowPlaces(1, 2), [0, 1, 2].map((col) => ({ col, row: 1, slot: 0 })));
   assert.deepEqual(movePick({ col: 1, row: 1, slot: 0 }, 'up', 2), { col: 1, row: 2, slot: 0 }, 'row 3, locked, above');
   assert.equal(told(open, { col: 1, row: 2 }).words, 'Opens deeper down.', 'no depth set for row 3 yet');
