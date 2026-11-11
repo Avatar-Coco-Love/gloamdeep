@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.284 (2026-11-11)
+- New: music in the rock caves. On floors 2 to 4 a calm, dark, slow tune plays non-stop under the drips, looping with no break and carrying on from floor to floor. Going down from the surface fades the surface's tune out over 2 seconds, and the caves' starts a second later, fading in; going back up swaps them the same way.
+- New: Music's list in Settings has a second line, Rock caves, to turn that tune On or Off.
+- Notes: the tune is "The Vile Grove" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Other places below are still quiet, one step each.
+- Decisions: D-838.
+
 ## 0.3.283 (2026-11-11)
 - New: music. On the surface, by day and by night and at home too, a calm, slow tune plays non-stop, looping with no break. Going down the stairs fades it out over 2 seconds; coming back up starts it again a second later, fading in. Nothing plays on the title or below ground, for now.
 - New: Settings' Sound tab has a fifth kind, Music, starting at 50%; its list has one line, Surface, to turn the tune On or Off.
@@ -34,9 +40,3 @@ Entry format:
 - New: Settings' Places line, under Finds, turns the drips On or Off with the rest of the places' sounds.
 - Notes: more sounds all around come next (wind, birds, crickets), then music.
 - Decisions: D-836.
-
-## 0.3.281 (2026-11-11)
-- New: as a bite, a glob or poison leaves you on your last heart, your heart beats: a soft lub-dub, twice, the second fainter, a moment after the blow or the poison's throb. It plays once, and again only after a heart has come back and gone again. A fall, which wakes you at full hearts, doesn't play it.
-- New: Settings' Fighting list gains Last heart.
-- Notes: sounds all around come next, drips in caves first, then music.
-- Decisions: D-835.

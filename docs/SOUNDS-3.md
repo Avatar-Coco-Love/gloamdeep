@@ -51,3 +51,4 @@ Music plays from its own pack, Abstraction's Music Loop Bundle (`sounds/packs/ab
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
 | `surface` | on the surface, by day and by night, home too; non-stop; leaving fades it out over 2 s, and back it starts again a second later, fading in over a second (D-837) | calm, slow and dark | `abstraction-music-loops/Ludum Dare 30 06` (2 min 1 s), at 0.4, looped, CC0 |
+| `caves` | in the rock caves, floors 2 to 4, as the drips; non-stop, carrying on from floor to floor; it fades in and out as the surface's does (D-838) | calm, slow and darker, low | `abstraction-music-loops/The Vile Grove` (1 min 59 s), at 0.59, as loud to the ear as the surface's, looped, CC0 |

@@ -103,25 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-833 · 2026-11-11 · The rest of the sounds** (the owner's go-ahead:
-"the creative freedom and the go ahead to do the rest of the audio
-implementation with your recommended choices"; answers the rest of
-Q-095 but its "Maybe" and "Later") Claude picked each of the sounds still
-without a file, by its measured shape, with no board first; the owner
-hears them on the sound board and asks for swaps. Each pick and its
-file is in `SOUNDS.md`, `SOUNDS-2.md` and `SOUNDS-3.md` (new: the
-creatures' and places' tables, D-832's bites with them), marked D-833. The game's rules
-stay as they are: the new sounds read the turn's events and what
-changed (a creature under the earth, a pile of bones, a line said).
-"You can't carry more" plays the Can't tock (D-819). Settings' lists
-still fit the smallest card: the last three bites join Bites; the
-creatures' own sounds share Creatures under Fighting; Steps gains
-Falling (a fall, waking) and New rooms (a new floor, a room); Finds gains
-Eating, Making and Places (the waystone's bells and hum, the boon's
-chime, fishing, sleeping, people leaving and arriving); Menus gains Run
-ends. D-828 and D-829 move to `archive/DECISIONS-SURFACE.md`, word for
-word.
-
 **D-834 · 2026-11-11 · The oil's warning** (the owner's picks; part of
 Q-095) All the "Maybe" sounds are wanted: the heartbeat at the last heart,
 sounds all around and music too, one step each, the oil warning first.
@@ -180,3 +161,18 @@ a quarter; one On or Off switch; a line under Menus), and one line in its
 list, Surface; a change of Music's loudness ticks. Each other place's
 music is its own step. File and loudness in `SOUNDS-3.md`. D-832 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-838 · 2026-11-11 · Music in the rock caves** (the owner's picks, all
+recommended; part of Q-095) From a board of 8 calm, dark tracks for
+floors 2 to 4 from the same bundle, measured again from all 138 (darkest,
+sparsest, slowest, mostly minor; the surface's tune beside them to
+compare), track 1, "The Vile Grove" (2 min), plays in the rock caves,
+floors 2 to 4, the same floors as the drips (offered too: every floor
+below), non-stop with no break, the drips over it (offered too: with a
+30 s, 60 s or 2 min gap; offered too: VGMA Challenge 19, Patreon
+Challenge 05, Ludum Dare 30 05). It changes as the surface's does: the
+old place's tune fades out over 2 s, the new one starts a second later,
+fading in over a second; from floor to floor within the caves it carries
+on (offered too: starting again on each floor; a crossfade). A second
+line in Music's list, Rock caves. File and loudness in `SOUNDS-3.md`.
+D-833 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

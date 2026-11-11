@@ -115,6 +115,7 @@ export const SOUND_LINES = [
   { voice: 'refuse', kind: 'menus', name: "Can't" }, // and "You can't carry more" (D-833)
   { voice: 'ended', kind: 'menus', name: 'Run ends' },
   { voice: 'surface', kind: 'music', name: 'Surface' }, // the surface's theme (D-837)
+  { voice: 'caves', kind: 'music', name: 'Rock caves' }, // the rock caves' theme, floors 2 to 4 (D-838)
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)

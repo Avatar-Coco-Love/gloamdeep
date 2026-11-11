@@ -344,6 +344,24 @@ test('Music (D-837): the surface plays its theme, home too, none below; its own 
   assert.equal(musicOf(undefined), null);
   assert.deepEqual([FADE_OUT, QUIET, FADE_IN], [2, 1, 1]);
   assert.equal(kindOf('surface'), 'music');
-  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Version history']);
-  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Rock caves: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Rock caves: On', 'Version history']);
+});
+
+test('Music in the rock caves (D-838): "The Vile Grove", floors 2 to 4 only, as the drips; its own line, Rock caves', async () => {
+  const { MUSIC, musicOf, dripsIn, kindOf } = await import('../src/render/sound.js');
+  const { existsSync } = await import('node:fs');
+  const { settingsMenu } = await import('../src/core/menu.js');
+  const { areaAt } = await import('../src/core/room.js');
+  assert.equal(MUSIC.caves.file, 'abstraction-music-loops/The Vile Grove.ogg');
+  assert.ok(existsSync(`sounds/packs/${MUSIC.caves.file}`));
+  assert.equal(MUSIC.caves.gain, 0.59); // as loud to the ear as the surface's at 0.4
+  for (let d = 1; d <= 12; d++) {
+    const look = areaAt(d)?.look;
+    assert.equal(musicOf(false, look), d >= 2 && d <= 4 ? 'caves' : null, `floor ${d}`); // the same floors as the drips
+    assert.equal(musicOf(false, look) === 'caves', dripsIn(false, look));
+  }
+  assert.equal(musicOf(true, 'rock'), 'surface'); // under the sky, the surface's
+  assert.equal(kindOf('caves'), 'music');
+  assert.deepEqual(settingsMenu({ muted: ['caves'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Rock caves: Off', 'Version history']);
 });

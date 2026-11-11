@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.283 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.284 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Music for the next place (Q-095, D-837): a board of calm tracks from
-the music loops (or Tom Feldmann's Wild Music Pack, if the owner sends
-it) for below ground, the rock caves first; the owner picks, then build it.
+Music for the next place below (Q-095, D-838): a board of calm tracks
+from the same music loops (still on the temporary release) for another
+place below, which one the owner picks; then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -22,7 +22,7 @@ it) for below ground, the rock caves first; the owner picks, then build it.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): music for
-  each place below (D-837); more sounds all around (wind, birds, crickets;
+  each other place below (D-837, D-838); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
   then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
@@ -42,6 +42,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.284, Music in the rock caves.** The owner's picks
+  (D-838), all recommended, from a board of 8 calm, dark tracks measured
+  again from 138, with the surface's tune and the drips: track 1, "The
+  Vile Grove", in the rock caves (floors 2 to 4), non-stop, carrying on
+  from floor to floor, fading as the surface's does; a second line in
+  Music's list, Rock caves.
+  Playtest: https://claude.ai/artifact/2dRNq2i759AzuUqLSHfyNJ
+  Board of tracks: https://claude.ai/artifact/WC9QcSSvg42tAfAow443yE
 - **2026-11-11, 0.3.283, Music on the surface.** The owner's picks
   (D-837): sounds all around set aside, music first. Abstraction's CC0
   Music Loop Bundle came through a temporary release; from a board of 8
@@ -58,10 +66,3 @@ list in `RESEARCH.md`.
   Playtest: https://claude.ai/artifact/Xx6GezeyFYPXpmr7daAwxE
   Sound board: https://claude.ai/artifact/WiZjTUwoGBAF25RaBVJiS5
   Board of drips: https://claude.ai/artifact/JQPZeA9gjyN6oi16zymWkZ
-- **2026-11-11, 0.3.281, The heartbeat at the last heart.** The owner's
-  picks (D-835), both recommended, from a board of 4 beside poison's
-  throb: a soft lub-dub twice, the second fainter, once as a turn leaves
-  the hero on one heart, a moment after the blow or the throb; one
-  Settings line under Fighting, Last heart.
-  Playtest: https://claude.ai/artifact/Q8TYWHuk8kxh89mVvLUWrq
-  Sound board: https://claude.ai/artifact/NVzF392Cw9TcMjkvvyfhgy

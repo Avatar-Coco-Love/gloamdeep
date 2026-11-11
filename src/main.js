@@ -605,7 +605,7 @@ function loop(t) {
   try {
     turnPage();
     if (!screens.onTitle()) { update(t); keepDrips(t); }
-    sound.music(screens.onTitle() ? null : musicOf(app.state?.room.dark?.sky)); // the surface's theme, home too; none on the title (D-837)
+    sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look)); // the surface's theme, home too, the rock caves' below; none on the title (D-837, D-838)
     keepJourney();
     keepPlayed(t);
     frame.draw(t);

@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.281, The heartbeat at the last heart.** The owner's
+  picks (D-835), both recommended, from a board of 4 beside poison's
+  throb: a soft lub-dub twice, the second fainter, once as a turn leaves
+  the hero on one heart, a moment after the blow or the throb; one
+  Settings line under Fighting, Last heart.
+  Playtest: https://claude.ai/artifact/Q8TYWHuk8kxh89mVvLUWrq
+  Sound board: https://claude.ai/artifact/NVzF392Cw9TcMjkvvyfhgy
 - **2026-11-11, 0.3.280, The oil's warning.** The owner's pick (D-834)
   from a board of 4, the recommended one: two short sputters from the
   empty lantern's crackle, with "The flame is getting low." at 20%; one
