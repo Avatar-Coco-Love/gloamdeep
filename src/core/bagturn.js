@@ -9,7 +9,8 @@ import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
 import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, isFlask, devPour } from './bag.js';
-import { note } from './events.js';
+import { note, fresh } from './events.js';
+import { grown } from './upgrades.js';
 import { pourOf, healOf } from './boon.js';
 import { glowing } from './glow.js';
 import { slowing } from './slowburn.js';
@@ -32,11 +33,16 @@ import { campCorner, campTiles } from './camp.js';
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
 // and the enemies act (D-247). An empty slot changes nothing. A `pour` event, by hand.
-// A Pond Minnow pours its 15% the same way (D-611).
+// A Pond Minnow pours its 15% the same way (D-611). With Quick Pour a flask is free: no turn
+// passes, and "You pour a flask." is said (D-816); a minnow still takes its turn.
 export function pour(state, i) {
   const entry = state.bag[i] && get(state.bag[i].id);
   if (!entry?.oil) return state;
   const bag = bagTake(state.bag, i), dev = devPour(state, state.bag[i].id, bag); // one spawned counts in no Records (D-720)
+  if (grown(state, 'quickPour') && isFlask(state.bag[i].id)) {
+    const poured = note(fresh(state), 'pour', { id: state.bag[i].id, by: 'hand', ...dev.mark });
+    return say({ ...poured, ...dev.rest, bag, oil: Math.min(1, state.oil + pourOf(state, entry)) }, 'flaskPour');
+  }
   const next = note(passTurn(state), 'pour', { id: state.bag[i].id, by: 'hand', ...dev.mark });
   return endTurn(state, { ...next, ...dev.rest, bag, oil: Math.min(1, next.oil + pourOf(state, entry)) });
 }

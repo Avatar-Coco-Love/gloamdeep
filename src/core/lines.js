@@ -259,6 +259,7 @@ export const LINES = {
   glowLampOut: { text: 'Your glow lamp goes dark.', warn: false }, // in sight, 300 turns after (D-808)
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
+  newRow: { text: 'Growth has a new row.', warn: false }, // the first time a row of the Growth tree opens (D-815, D-816)
   levelUp: { text: 'You feel stronger. Level {n}.', warn: false }, // {n}, the new level (D-246)
   unsaved: { text: 'Your journey could not be saved.', warn: true }, // a save failed: storage full or blocked; once, until one is kept again (D-428)
   centipedeHurt: { text: 'The centipede writhes and comes on.', warn: false }, // (D-654)

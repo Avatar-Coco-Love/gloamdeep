@@ -6,6 +6,7 @@ import { levelOf } from './xp.js';
 import { maxHealth, HERO_HEALTH } from './turn.js';
 import { BRANCHES, UPGRADES, grown } from './upgrades.js';
 import { deepestOf } from './travel.js';
+import { say } from './lines.js';
 
 export const HEARTS_MORE = UPGRADES.heart.most; // at most 5 more, 10 in all
 export const heartsBought = (state) => grown(state, 'heart');
@@ -40,6 +41,12 @@ export const ROW_DEPTHS = [0, 9]; // the depth that opens each row; row 0 is ope
 const deepest = (state) => (state?.place ? deepestOf(state) : 0); // a journey with no place yet has been nowhere
 export const rowsOpen = (state) => Math.max(state?.growthRows ?? 1, ROW_DEPTHS.filter((d) => deepest(state) >= d).length);
 export const markRows = (state) => (state.growthRows === rowsOpen(state) ? state : { ...state, growthRows: rowsOpen(state) });
+// markRows, and the first time a row opens, walking or by a dev jump, "Growth has a new row." (D-816);
+// an older save marked as it loads says nothing
+export function openRows(state) {
+  const next = markRows(state);
+  return next.growthRows > (state.growthRows ?? 1) ? say(next, 'newRow') : next;
+}
 export const rowsOf = (open = 1) => Math.min(open + 1, ROW_DEPTHS.length + 1); // the open rows and one more shown, dim and locked (D-481)
 export const START_PICK = { col: 1, row: 0, slot: 0 }; // Body's first, the heart
 export const upgradeAt = ({ col, row, slot = 0 }) => Object.values(UPGRADES).find((u) => u.branch === BRANCHES[col]?.id && u.row === row && u.slot === slot) ?? null;

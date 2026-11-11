@@ -4,14 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.261 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.262 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Growth's row 2, step 2 of 4 (D-814): Quick Pour on Light, pouring a
-flask takes no turn, with the line "Growth has a new row." when row 2
-opens (D-815); then Guard and Thrift, one a PR. Read
-`src/core/growth.js`, `src/core/upgrades.js`, D-814 and D-815.
+Growth's row 2, step 3 of 4 (D-814): Guard on Body, about 1 bite in 6
+glances off and does no harm, by the seeded dice; then Thrift, its own
+PR. Read `src/core/growth.js`, `src/core/upgrades.js`, the bite in
+`src/core/creatureturn.js`, D-814 and D-816.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.262, Quick Pour.** The owner's picks (D-816): a
+  flask poured by hand takes no turn, says "You pour a flask."; a
+  minnow still takes its turn; a tipped flask tile; "Growth has a new
+  row." walking down or by a dev jump.
+  Playtest: https://claude.ai/artifact/JQiGMhPzyFfk2Vcq4RhMKS
 - **2026-11-11, 0.3.261, Row 2 opens.** The owner's picks (D-815): a
   mark in the save, set past depth 8, a dev jump too; the locked tiles
   say "Reach depth 9 to open."; no log line until Quick Pour.
@@ -55,7 +60,3 @@ list in `RESEARCH.md`.
   picks (D-814): row 2 opens past depth 8; Quick Pour, Guard and Thrift,
   1 ember each, built one a step after the opening. Nothing visible, so
   no playtest.
-- **2026-11-10, 0.3.259, Quick Hands.** The owner's picks (D-813):
-  Hands' first upgrade, 1 ember, once, a pale open hand; a tree, a
-  stone deposit or a branch takes 1 bump fewer by hand.
-  Playtest: https://claude.ai/artifact/L2Wz2UspySzKpDiAauizss
