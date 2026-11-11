@@ -96,7 +96,8 @@ export function createCardScreens(app, ui, show, menuOf) {
       return;
     }
     const at = entry?.craft ? makeFor(app.state, entry.id) : -1; // MAKE opens the Make tab on its recipe (D-787)
-    if (at >= 0) show('make', at); // dim, its recipe not shown yet: nothing happens
+    if (at >= 0) show('make', at);
+    else if (entry?.craft) ui.refuse(); // dim, its recipe not shown yet: nothing happens but the tock (D-819)
   }
   // § make tab (D-787): the bag's recipes; the frame on a slot says what it makes and its cost,
   // MAKE makes it, a turn, the tab kept open on it
@@ -108,7 +109,8 @@ export function createCardScreens(app, ui, show, menuOf) {
   }
   function makeChosen() {
     const m = bagMakes(app.state)[app.chosen];
-    if (!m || m.dim) return; // dim: nothing happens
+    if (!m) return;
+    if (m.dim) { ui.refuse(); return; } // dim: nothing happens but the tock (D-819)
     ui.makeBag(m.from);
     if (app.fall) { show('play'); return; } // a bite in that turn felled the hero
     pickMake(Math.max(0, bagMakes(app.state).findIndex((o) => o.from === m.from)));
@@ -145,10 +147,10 @@ export function createCardScreens(app, ui, show, menuOf) {
   function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   function shelveBed() { show('play'); ui.shelve(app.bench.x, app.bench.y); } // the locket set on the shelf (D-693)
-  function kindleBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.kindle(app.bench.x, app.bench.y); } // cold ashes lit; a dim Yes does nothing (D-757)
-  function plantBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
+  function kindleBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.kindle(app.bench.x, app.bench.y); } // cold ashes lit; a dim Yes does nothing (D-757)
+  function plantBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   function pickBed() { show('play'); ui.pick(app.bench.x, app.bench.y); } // the grown bed's berries (D-568)
-  function feedBed() { if (menuOf('bed')[0].dim) return; show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
+  function feedBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
   // Its lines for a screen reader: each thing made at it with its cost (CH1, D-326)
   // § chest panel (CH4, D-331): the frame on a slot says what is in it; picking one moves its stack
   const chestSlotWords = (i) => {

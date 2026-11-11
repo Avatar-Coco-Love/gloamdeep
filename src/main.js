@@ -50,7 +50,7 @@ import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
-import { createSound, stepOf } from './render/sound.js';
+import { createSound, stepOf, cardTurn } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
@@ -394,6 +394,7 @@ const screens = createScreens(app, {
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
+  refuse: () => { refused = true; sound.refuse(); }, // a dim pick: nothing happens but the tock (D-819)
   tell: (id) => { app.state = say(app.state, id); }, // a line, free: why SLEEP can't (D-804)
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
@@ -440,8 +441,27 @@ const onTab = () => {
   return spots.length > 0;
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
+// § menu sounds (D-819): off play, a tap, Enter or Space that changes something on the same
+// screen ticks, unless it was a dim pick that can't be done, which tocks (`refused`); a
+// card opening or closing turns its page instead (in the loop)
+let refused = false, cards = [app.screen], cardShown = app.screen;
+const marks = () => [app.screen, app.state, JSON.stringify(app.settings), spoken.textContent, app.opened.size, app.entry];
+const pressed = (act) => (...args) => {
+  if (app.screen === 'play' || app.screen === 'strike') { act(...args); return; } // play's own sounds; the strike's tap is a pull
+  const was = marks();
+  refused = false;
+  act(...args);
+  const now = marks();
+  if (!refused && now[0] === was[0] && now.some((m, i) => m !== was[i])) sound.tap();
+};
+function turnPage() {
+  if (app.screen === cardShown) return;
+  const turn = cardTurn(cards, app.screen);
+  cards = turn.trail; cardShown = app.screen;
+  sound.card(turn.open);
+}
 const input = createInput(stage, canvas, {
-  onDir, onPoint, onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait, onChoose, onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab, onWheel: screens.onWheel,
+  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab, onWheel: screens.onWheel,
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)
   repeats: () => app.screen === 'play', // off play a held Space picks once (D-669)
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
@@ -529,6 +549,7 @@ function update(t) {
 const logged = new Set();
 function loop(t) {
   try {
+    turnPage();
     if (!screens.onTitle()) update(t);
     keepJourney();
     keepPlayed(t);

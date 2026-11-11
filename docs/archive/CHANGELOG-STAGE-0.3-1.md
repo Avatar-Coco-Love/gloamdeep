@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.262 (2026-11-11)
+- New: Quick Pour, the first upgrade in the Growth tree's second row, on Light, 1 ember, bought once, its tile a tipped flask with a drop falling. With it, pouring a flask from the bag takes no turn: no oil burns, no creature moves, and the game says "You pour a flask." A Pond Minnow's oil still takes a turn.
+- The first time the second row opens, walking down past depth 8 or by a dev jump, the game says "Growth has a new row."
+- Decisions: D-816.
+
 ## 0.3.261 (2026-11-11)
 - The Growth tree's second row opens the first time you go deeper than depth 8. Until then, picking one of its locked tiles says "Reach depth 9 to open." Once open, each branch has a dashed tile to come, and the row above shows locked. A journey already past depth 8 finds it open.
 - Decisions: D-815.

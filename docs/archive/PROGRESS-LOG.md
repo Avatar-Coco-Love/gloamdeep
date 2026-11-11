@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.262, Quick Pour.** The owner's picks (D-816): a
+  flask poured by hand takes no turn, says "You pour a flask."; a
+  minnow still takes its turn; a tipped flask tile; "Growth has a new
+  row." walking down or by a dev jump.
+  Playtest: https://claude.ai/artifact/JQiGMhPzyFfk2Vcq4RhMKS
 - **2026-11-11, 0.3.261, Row 2 opens.** The owner's picks (D-815): a
   mark in the save, set past depth 8, a dev jump too; the locked tiles
   say "Reach depth 9 to open."; no log line until Quick Pour.

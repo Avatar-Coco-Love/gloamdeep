@@ -9,7 +9,7 @@ import { view } from '../../render/screen.js';
 
 export function travelCard(app, ui, show, c) {
   const rows = () => c.menuOf('travel');
-  function pick(i) { const row = rows()[i]; if (!row || row.dim) return; show('play'); ui.goByStone(row.id); }
+  function pick(i) { const row = rows()[i]; if (!row) return; if (row.dim) { ui.refuse(); return; } show('play'); ui.goByStone(row.id); } // a dim one: the tock (D-819)
   function choose(i) { app.chosen = i; app.scroll = waysScrollTo(app.scroll, i, view.w, view.h, rows()); }
   function page(by) { ({ scroll: app.scroll, chosen: app.chosen } = waysPage(app.scroll, by, app.chosen, view.w, view.h, rows())); }
   const dir = (d, how) => {

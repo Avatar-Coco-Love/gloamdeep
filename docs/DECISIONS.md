@@ -113,20 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-815 · 2026-11-11 · Row 2 opens** (the owner's picks; step 1 of
-D-814) The journey keeps a mark of Growth's rows open, set the first
-time the hero is deeper than depth 8 and never taken away; an older
-save already past depth 8 has it when loaded (offered too: worked out
-each time from the rooms kept; per profile, across journeys). A dev
-jump to depth 9 or deeper opens it too (offered too: only walking
-there). The owner's own pick: everything visible, with what it takes
-to open it; the locked tiles stay, and picking one says "Reach depth 9
-to open." (offered too: a depth tag on the row; dim upgrades shown
-locked). Once open, row 2 has a dashed tile a limb, and row 3 shows
-locked above it, "Opens deeper down." No line in the log yet: "Growth
-has a new row." is added with Quick Pour (offered too: a line now;
-never). D-811 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-816 · 2026-11-11 · Quick Pour** (the owner's picks, all
 recommended; step 2 of D-814) Light's row 2 upgrade, 1 ember, once: a
 flask poured by hand takes no turn, so no oil burns and no creature
@@ -166,4 +152,26 @@ the part (offered too: the make line, then a second; nothing said).
 Its words "Making something keeps 1 part about 1 time in 4."; its tile
 a small pale log on its side, an arrow curling back down to it
 (offered too: a tied pouch; a hand on a stone). D-814 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-819 · 2026-11-11 · The menus' sounds** (the owner's picks, all
+recommended, from a board of 6 taps, 4 page turns and 4 tocks; builds
+D-774; answers part of Q-095) Off play, a tap, Enter or Space that
+changes something on the same card ticks: Interface Sounds' tick 2, at
+half a step's peak (offered too: as loud as a step; click 2 or UI
+Audio's click 3; ObsydianX's cursor tone). A card opening turns a page,
+RPG Audio's flip 3, and closing turns one back, its flip 2, each as
+loud as a step (offered too: the same, soft; the book opening and
+shutting; Interface Sounds' open and close). A tap that opens or closes
+a card turns only its page, with no tick (offered too: both). A dim
+pick that can't be done tocks: Impact Sounds' light wood knock, a
+quarter lower, as loud as a step (offered too: bong 1; error 4;
+ObsydianX's error tone). None strays in pitch. Claude's calls the owner
+may change: play, setting a tile down and the title have no card, so
+reaching them closes; going back to a card still open under the rest
+closes, anything else opens; the tock plays on the bag's dim Make, the
+Make tab's dim recipe, the garden bed's and campfire's dim first line,
+a dim waystone row and a Growth upgrade with too few embers; the
+"You can't carry more" lines, the dim quick slot and the HUD buttons in
+play stay silent; the run ending waits for later. D-815 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
