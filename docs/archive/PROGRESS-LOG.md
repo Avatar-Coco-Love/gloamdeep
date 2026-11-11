@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.277, The fight's rest's sounds.** The owner's picks
+  (D-831) from a board of 4, 4, 4 and 4, then 4 new for poison: a short
+  puff of air for a stiff miss, a dull muffled blow for the hero hurt,
+  a deep throb twice for poison's heart, three glass notes rising for a
+  level.
+  Playtest: https://claude.ai/artifact/8oh1BSHoDwPGgrecdBkYbi
+  Sound board: https://claude.ai/artifact/W7X6W7TsCw4YK4KEK34HHy
 - **2026-11-11, 0.3.276, The lantern and the light's sounds.** The
   owner's picks (D-830), all recommended, from a board of 4, 4, 4 and 4,
   the first from the elemental pack: seven glugs for a flask poured, a

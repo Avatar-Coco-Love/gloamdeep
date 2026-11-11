@@ -174,3 +174,16 @@ Eating, Making and Places (the waystone's bells and hum, the boon's
 chime, fishing, sleeping, people leaving and arriving); Menus gains Run
 ends. D-828 and D-829 move to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-834 · 2026-11-11 · The oil's warning** (the owner's picks; part of
+Q-095) All the "Maybe" sounds are wanted: the heartbeat at the last heart,
+sounds all around and music too, one step each, the oil warning first.
+The owner keeps Claude's picks (D-833) for now. From a board of 4 (two
+sputters, two small pops, a draught in the flame, the lantern rattling),
+the recommended one: two short sputters cut from the empty lantern's own
+crackle (`Fire-017`), the second softer and lower. It plays with "The
+flame is getting low." as the oil falls under 20% (D-096), once on the
+way down, and again only after the oil has gone back above it (offered
+too: both at 25%; the sound at 25% and the line at 20%). With a flask in
+the bag poured by itself at 55%, it plays only when none is left. One
+Settings line under Steps, Oil runs low. File and loudness in `SOUNDS.md`.

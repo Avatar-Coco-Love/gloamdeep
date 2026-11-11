@@ -78,6 +78,7 @@ export const SOUND_LINES = [
   { voice: 'earthStep', kind: 'steps', name: 'Earth' },
   { voice: 'lantern', kind: 'steps', name: 'Lantern' },
   { voice: 'pour', kind: 'steps', name: 'Flask poured' },
+  { voice: 'sputter', kind: 'steps', name: 'Oil runs low' }, // D-834
   { voice: 'gutter', kind: 'steps', name: 'Oil runs out' },
   { voice: 'torch', kind: 'steps', name: 'Torch lit' },
   { voice: 'kindle', kind: 'steps', name: 'Campfire lit' },
