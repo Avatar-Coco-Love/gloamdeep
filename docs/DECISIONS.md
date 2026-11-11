@@ -103,21 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-832 · 2026-11-11 · The creatures' bites** (the owner's picks, all
-recommended, from a board of 3 for each of ten; answers part of Q-095)
-Each kind's bite, a quarter second after the hero's swing as the hurt
-blow is: a rat's (a centipede's and an oil tick's too) a quick double
-nip; a flask mimic's a glass clink, then a snap; a scorpion's two dry
-clicks, then a stab; a cave spider's a soft hiss, then a click; a bat's
-two high chirps, then a flap; a mole's three quick sniffs, then a
-scrape; a snapcap's a wet squelch, then a snap; a herb mimic's a rustle
-of leaves, then teeth; a bone rat's a quick clatter of bones; an oil
-tick drinking, a wet slurp, then a gulp. Files and loudness in
-`SOUNDS-2.md`. All ten share one line under Fighting, Bites, so the list
-fits the smallest card (offered too: two columns; a fifth kind,
-Creatures). The gloamling, lampmoth and warden stay silent; their own
-board comes later.
-
 **D-833 · 2026-11-11 · The rest of the sounds** (the owner's go-ahead:
 "the creative freedom and the go ahead to do the rest of the audio
 implementation with your recommended choices"; answers the rest of
@@ -177,4 +162,21 @@ below; every floor below), each placed a little left or right (up to
 over play, stops them. They follow Finds' loudness and share Places'
 line, as Finds' list is full on the smallest card (offered too: their
 own line under Steps; Coins and Shelf joined). D-831 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-837 · 2026-11-11 · Music on the surface** (the owner's picks; part of
+Q-095) The Tallbeard bundle's pre-2023 and Troubadeck zips (Abstraction,
+CC0, checked in their licence) came through a temporary GitHub release;
+Tom Feldmann's Wild Music Pack can follow. From a board of 8 calm tracks,
+picked by measuring all 139 (each non-stop or with a 30 s, 60 s or 2 min
+gap), track 6, "Ludum Dare 30 06" (2 min), plays on the surface by day and
+by night, home too, non-stop with no break (offered too: with a 30 s,
+60 s or 2 min gap). Leaving the surface fades it out over 2 seconds
+(offered too: stopping at once; playing on everywhere); back on the
+surface it starts from its beginning a second later, fading in over a
+second. None plays on the title or below, for now. Music is a fifth kind
+in Settings with its own loudness, 50% until picked (offered too: full;
+a quarter; one On or Off switch; a line under Menus), and one line in its
+list, Surface; a change of Music's loudness ticks. Each other place's
+music is its own step. File and loudness in `SOUNDS-3.md`. D-832 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.

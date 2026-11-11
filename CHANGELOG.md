@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.283 (2026-11-11)
+- New: music. On the surface, by day and by night and at home too, a calm, slow tune plays non-stop, looping with no break. Going down the stairs fades it out over 2 seconds; coming back up starts it again a second later, fading in. Nothing plays on the title or below ground, for now.
+- New: Settings' Sound tab has a fifth kind, Music, starting at 50%; its list has one line, Surface, to turn the tune On or Off.
+- Notes: the tune is "Ludum Dare 30 06" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Music for the places below comes next, one step each.
+- Decisions: D-837.
+
 ## 0.3.282 (2026-11-11)
 - New: the rock caves (floors 2 to 4) drip. While you play there, a drop of water falls somewhere around you every 8 to 16 seconds, a little left or right, echoing off the walls like your steps. Leaving the caves, or opening a card or menu, stops them.
 - New: Settings' Places line, under Finds, turns the drips On or Off with the rest of the places' sounds.
@@ -34,9 +40,3 @@ Entry format:
 - New: Settings' Fighting list gains Last heart.
 - Notes: sounds all around come next, drips in caves first, then music.
 - Decisions: D-835.
-
-## 0.3.280 (2026-11-11)
-- New: as the oil falls under 20% and "The flame is getting low." is said, the lantern sputters twice, the second softer and lower: a short piece of the crackle it makes when the oil runs out. Like the line, it plays once, and again only after the oil has gone back above 20%, so with a flask in the bag it plays only when none is left.
-- New: Settings' Steps list gains Oil runs low.
-- Notes: the other "Maybe" sounds come next, one step each: a heartbeat at the last heart, sounds all around, music. Weather comes after them: rain, fog, what they do to you, and creatures that come with them.
-- Decisions: D-834.

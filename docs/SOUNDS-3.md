@@ -43,3 +43,11 @@ Each bite plays a quarter second after the hero's swing, as the hurt blow does, 
 | `splash` | a fish caught (D-613, D-833) | a splash and drops | `Water-016`, at 0.27, CC0 |
 | `breath` | sleeping in a bed or out (D-758, D-833) | a long breath out | `Wind-007` at 0.8, 2.2 s, fading 1.4 s, muffled above 900 Hz, at 0.26, CC0 |
 | `drip` | every 8 to 16 s, at random, while play shows the rock caves, floors 2 to 4 (D-836) | a drop and its ripple, all around | `Water-009` at 1.2, straying 0.1, at 0.1, with the cave's echo, up to 0.6 left or right; in Places' line, CC0 |
+
+## Music
+
+Music plays from its own pack, Abstraction's Music Loop Bundle (`sounds/packs/abstraction-music-loops/`, CC0, from tallbeard.itch.io/music-loop-bundle), each track saved again as `.ogg` at a smaller size (quality 3, about 96 kbit/s), nothing else changed, the same length to the sample so it loops with no break. It follows Music's loudness, a fifth kind, 50% until picked (D-837).
+
+| Name | When | Feel | File |
+| --- | --- | --- | --- |
+| `surface` | on the surface, by day and by night, home too; non-stop; leaving fades it out over 2 s, and back it starts again a second later, fading in over a second (D-837) | calm, slow and dark | `abstraction-music-loops/Ludum Dare 30 06` (2 min 1 s), at 0.4, looped, CC0 |

@@ -3,7 +3,7 @@
 // (D-576), with the settings changes. Each menu's own file gives its tap and close. `c` holds
 // screens.js's menuOf, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays and openHistory.
 import { SURE_MENU, MODE_FIRST, moveChoice } from '../../core/menu.js';
-import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, loudText, nextLoud, LOUD_KINDS, kindText, toggleMuted, voiceText, statsText, marksText } from '../../core/settings.js';
+import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, loudText, nextLoud, LOUD_KINDS, kindLoud, kindText, toggleMuted, voiceText, statsText, marksText } from '../../core/settings.js';
 
 export const MENUS = ['title', 'paused', 'settings', 'ways', 'mode', 'ended']; // the menus' own files, sharing this one
 
@@ -24,7 +24,7 @@ export function makeMenu(app, ui, show, c) {
   const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
   const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
   const changeLoud = (dir) => { const n = nextLoud(app.settings.loud, dir); change('loud', n, loudText(n)); }; // D-822
-  const changeKind = (id, dir) => { const n = nextLoud(app.settings[id] ?? 100, dir); change(id, n, kindText(id, n)); }; // D-823
+  const changeKind = (id, dir) => { const n = nextLoud(kindLoud(app.settings, id), dir); change(id, n, kindText(id, n)); }; // D-823
   const isKind = (id) => LOUD_KINDS.some((k) => k.id === id);
   // § each sound (D-824): a pick, Left or Right turns it On or Off; a kind's line on the Sound tab opens its list
   const isVoice = (id) => id?.startsWith('mute:');

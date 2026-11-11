@@ -62,13 +62,16 @@ export const nextLoud = (n, dir = 'pick') =>
   dir === 'pick' ? (n >= 100 ? 0 : n + 10) : dir === 'left' ? Math.max(0, n - 10) : Math.min(100, n + 10);
 // § kinds: a loudness for each of four kinds under Loudness, each a share of it (D-823):
 // Steps (the lantern and the light too), Fighting (the creatures too), Finds (the bag and
-// places too) and Menus; each moves as Loudness does, 100% until picked
+// places too) and Menus; each moves as Loudness does, 100% until picked; a fifth, Music, 50% until picked (D-837)
 export const LOUD_KINDS = [
   { id: 'loudSteps', kind: 'steps', name: 'Steps' },
   { id: 'loudFight', kind: 'fight', name: 'Fighting' },
   { id: 'loudFinds', kind: 'finds', name: 'Finds' },
   { id: 'loudMenus', kind: 'menus', name: 'Menus' },
+  { id: 'loudMusic', kind: 'music', name: 'Music', first: 50 },
 ];
+// A kind's share, 0 to 100: its own until picked (100%, Music 50%)
+export const kindLoud = (s, id) => s[id] ?? LOUD_KINDS.find((k) => k.id === id)?.first ?? 100;
 export const kindText = (id, n) => `${LOUD_KINDS.find((k) => k.id === id).name}: ${n}%`;
 // § each sound: On or Off, in a list opened from its kind's line (D-824); only the sounds heard so
 // far, each named by what happens; `voice` is its name in render/sound.js. Off is kept in `muted`.
@@ -111,6 +114,7 @@ export const SOUND_LINES = [
   { voice: 'card', kind: 'menus', name: 'Page turn' },
   { voice: 'refuse', kind: 'menus', name: "Can't" }, // and "You can't carry more" (D-833)
   { voice: 'ended', kind: 'menus', name: 'Run ends' },
+  { voice: 'surface', kind: 'music', name: 'Surface' }, // the surface's theme (D-837)
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
@@ -122,7 +126,7 @@ export const isMuted = (s, voice) => (s.muted ?? []).includes(lineOf(voice));
 export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;
 export const toggleMuted = (s, voice) => (isMuted(s, voice) ? (s.muted ?? []).filter((v) => v !== voice) : [...(s.muted ?? []), voice]);
 // How loud a kind plays, 0 to 1: Loudness times the kind's share (D-823)
-export const loudOf = (s, kind) => ((s.loud ?? 100) / 100) * ((s[LOUD_KINDS.find((k) => k.kind === kind)?.id] ?? 100) / 100);
+export const loudOf = (s, kind) => ((s.loud ?? 100) / 100) * (kindLoud(s, LOUD_KINDS.find((k) => k.kind === kind)?.id) / 100);
 
 // § stats line: On or Off (D-412). On, a short line bottom left in play: fps, turn, time
 // of day, xp, the hero's tile and the seed, what the panel doesn't show. Off until picked.
@@ -153,7 +157,7 @@ export function loadSettings() {
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
   const loud = isLoud(s?.loud) ? s.loud : 100;
-  const kinds = Object.fromEntries(LOUD_KINDS.map(({ id }) => [id, isLoud(s?.[id]) ? s[id] : 100])); // D-823
+  const kinds = Object.fromEntries(LOUD_KINDS.map(({ id, first = 100 }) => [id, isLoud(s?.[id]) ? s[id] : first])); // D-823; Music 50% (D-837)
   const muted = Array.isArray(s?.muted) ? s.muted.filter((v) => SOUND_LINES.some((l) => l.voice === v)) : []; // D-824
   const stats = s?.stats === 'on' ? 'on' : 'off';
   const marks = s?.marks === 'off' ? 'off' : 'on';
