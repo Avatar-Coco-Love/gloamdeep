@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.263, Guard.** The owner's picks (D-817): about 1
+  bite in 6 glances off, rolled after the vest's own dice; "The bite
+  glances off you."; only bites; a small round shield tile.
+  Playtest: https://claude.ai/artifact/S9L395bi3B7mCEf6Nxw1Hh
 - **2026-11-11, 0.3.262, Quick Pour.** The owner's picks (D-816): a
   flask poured by hand takes no turn, says "You pour a flask."; a
   minnow still takes its turn; a tipped flask tile; "Growth has a new

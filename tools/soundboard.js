@@ -63,6 +63,11 @@ const SOUNDS = [
   { label: 'A card opens, then closes', play: 'later(0, () => sound.card(true)); later(900, () => sound.card(false))' },
   { label: "Something that can't be done", play: 'later(0, () => sound.refuse())' },
   { label: "Two taps, then one that can't be done", play: 'later(0, () => sound.tap()); later(250, () => sound.tap()); later(500, () => sound.refuse())' },
+  { label: 'An item goes into the bag', play: 'later(0, () => sound.pat())' },
+  { label: 'A step onto a find, into the bag', play: 'later(0, () => sound.footstep()); later(180, () => sound.pat())' },
+  { label: 'Three finds in a row', play: 'for (let i = 0; i < 3; i++) { later(i * 500, () => sound.footstep()); later(i * 500 + 180, () => sound.pat()); }' },
+  { label: 'A weapon into the hand', play: 'later(0, () => sound.draw())' },
+  { label: 'The workbench set down', play: 'later(0, () => sound.thunk())' },
 ];
 
 // § heard: only buttons whose every sound has its files
