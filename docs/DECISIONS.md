@@ -103,31 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-828 · 2026-11-11 · Home's sounds** (the owner's picks, all
-recommended, from a board of 4, 4, 4 and 3; answers part of Q-095) An
-item sold to the peddler jingles: RPG Audio's handleCoins at a quarter
-loudness, in place of the tick (offered too: the short clink; the two
-taking turns; a pouch, then coins). A relic set on the shelf is a book
-set on wood: RPG Audio's bookPlace 1 to 3 at a quarter (offered too: a
-light wooden knock; a plank; the workbench's thunk, softer). A seed
-planted is two quick burrow steps, 0.13 s apart, the second softer
-(offered too: a soft thud; snow pressed; a leather bag set down). Bat
-Guano fed is the bag's cloth pat, muffled like the burrows' earth
-(offered too: a small soft thud; a carpet step). Each plays as its
-page closes, follows Finds' loudness and has its own line under Finds:
-Coins, Shelf, Planting, Feeding.
-
-**D-829 · 2026-11-11 · The elemental pack** (the owner's purchase and
-picks, all recommended; for Q-095) MorphonautAudio's Elemental Forces
-Sound Pack, bought by the owner on itch.io, is kept whole in
-`sounds/packs/morphonaut-elemental-forces/`: 134 sounds in four folders,
-`Earth`, `Fire`, `Water` and `Wind`, under the pack's own names. Its
-listing says CC0, so it may sit in the public repo; its `License.txt`
-says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
-`.ogg`, good quality, stereo (6 MB), nothing else changed; little
-silence to cut. Nothing in the game plays from it yet: the next sound
-steps pick from it, for fire, oil, water, wind and falls.
-
 **D-830 · 2026-11-11 · The lantern and the light's sounds** (the owner's
 picks, all recommended, from a board of 4, 4, 4 and 4; answers part of
 Q-095) The first sounds from the elemental pack (D-829). A flask poured,
@@ -180,3 +155,22 @@ tick drinking, a wet slurp, then a gulp. Files and loudness in
 fits the smallest card (offered too: two columns; a fifth kind,
 Creatures). The gloamling, lampmoth and warden stay silent; their own
 board comes later.
+
+**D-833 · 2026-11-11 · The rest of the sounds** (the owner's go-ahead:
+"the creative freedom and the go ahead to do the rest of the audio
+implementation with your recommended choices"; answers the rest of
+Q-095 but its "Maybe" and "Later") Claude picked each of the sounds still
+without a file, by its measured shape, with no board first; the owner
+hears them on the sound board and asks for swaps. Each pick and its
+file is in `SOUNDS.md`, `SOUNDS-2.md` and `SOUNDS-3.md` (new: the
+creatures' and places' tables, D-832's bites with them), marked D-833. The game's rules
+stay as they are: the new sounds read the turn's events and what
+changed (a creature under the earth, a pile of bones, a line said).
+"You can't carry more" plays the Can't tock (D-819). Settings' lists
+still fit the smallest card: the last three bites join Bites; the
+creatures' own sounds share Creatures under Fighting; Steps gains
+Falling (a fall, waking) and New rooms (a new floor, a room); Finds gains
+Eating, Making and Places (the waystone's bells and hum, the boon's
+chime, fishing, sleeping, people leaving and arriving); Menus gains Run
+ends. D-828 and D-829 move to `archive/DECISIONS-SURFACE.md`, word for
+word.

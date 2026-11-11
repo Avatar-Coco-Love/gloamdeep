@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -37,10 +37,10 @@ D-829), saved from WAV, nothing else changed:
 | `footstep` | the hero walks a tile on the surface (D-774) | soft, light, never two alike | `kenney-impact-sounds/footstep_grass_000` to `004`, at a quarter loudness, CC0 |
 | `stoneStep` | the hero walks below: the crypt, rock caves, dungeon halls (D-776) | stone, with a faint echo off the walls | `kenney-impact-sounds/footstep_concrete_000` to `004`, at a tenth loudness, a 0.09 s echo, CC0 |
 | `earthStep` | the hero walks in the burrows, floors 5 to 7 (D-776) | soft packed earth | the grass files, muffled above 1400 Hz, at a quarter loudness, CC0 |
-| | the hero falls (D-119) | a slide and a thud | — |
-| | the hero wakes after a fall | a groan or a breath | — |
-| | a new floor reached | a low, far rumble | — |
-| | a room never stood in before (D-245) | a small, quiet note | — |
+| `fall` | the hero falls (D-119, D-833) | a slide and a thud | the elemental pack's `Earth-017`, 0.7 s, fading 0.3 s, at 0.47, then `impactPunch_heavy_000` to `004` at 0.8, muffled above 700 Hz, at 0.3, 0.55 s in, CC0 |
+| `wake` | the hero wakes after a fall, at its deepest dark (D-833) | a groan or a breath; no pack has a voice, so a breath | `Wind-002` at 0.85, 1.2 s, fading 0.6 s, muffled above 1200 Hz, at 0.42, CC0 |
+| `floor` | a new floor reached (D-833) | a low, far rumble | `Earth-024` at 0.8, 2 s, fading 1.2 s, muffled above 600 Hz, at 0.22, CC0 |
+| `room` | a room never stood in before (D-245, D-833), not on a new floor | a small, quiet note | `kenney-interface-sounds/glass_001` at 0.8, at 0.12, CC0 |
 
 ## The lantern and the light
 
@@ -59,32 +59,16 @@ In `SOUNDS-2.md`, moved word for word at 0.3.278.
 
 ## Creatures
 
-Their bites and their own sounds are in `SOUNDS-2.md`.
+Their bites and their own sounds are in `SOUNDS-3.md` (moved there from `SOUNDS-2.md` at 0.3.279).
 
 ## Finds, the bag and home
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `pat` | an item goes into the bag, unless it is a fish with its splash (D-820) | a soft pat of cloth | `kenney-rpg-audio/cloth1` to `cloth4`, at a third loudness, CC0 |
-| | a herb, heartcap or potion eaten (D-308) | a crunch, or a drink | — |
-| `draw` | a weapon goes from the bag into the hand (D-479, D-820) | a light metal scrape | `kenney-rpg-audio/drawKnife3`, at 0.82, CC0 |
-| `thunk` | a tile set down from the bag (WB2, D-820) | a wooden thunk | `kenney-impact-sounds/impactWood_medium_000` to `004`, at a quarter loudness, CC0 |
-| `clink` | a deposit, copper vein or rubble bumped, not its last bump (O2, D-825) | a pick on stone | `kenney-impact-sounds/impactMining_000` to `004`, at a quarter loudness, the cave's echo, CC0 |
-| `crumble` | its last bump breaks it (O2, D-825) | stone cracking apart, small stones tumbling | the mining files a quarter lower at 0.35, then three of `footstep_concrete_000` to `004`, a fifth higher at 0.12, 0.12 s, 0.22 s and 0.34 s after, the cave's echo, CC0 |
-| | a person freed from the rubble (D-491) | stones tumbling away | — (the rubble's `crumble` plays) |
-| | a person leaves for home, or arrives (D-496) | a soft shimmer | — |
-| `coins` | an item sold at home (D-494, D-828), not the tick | coins | `kenney-rpg-audio/handleCoins`, at a quarter loudness, CC0 |
-| `sow` | a seed planted (D-566, D-828) | soft earth | the earth step's files, twice, 0.13 s apart, at a quarter, then 0.2, CC0 |
-| `feed` | Bat Guano fed to a sprout (D-569, D-828) | a soft pat of earth | the bag's `pat` files, muffled above 1400 Hz, at a third, CC0 |
-| `shelf` | a relic set on the shelf (D-693, D-828) | wood on wood | `kenney-rpg-audio/bookPlace1` to `3`, at a quarter loudness, CC0 |
-| | something made at a bench or in the bag | tools at work | — |
-| `chest` | a stash chest opened, its page turning 0.3 s later (D-825) | a creaking lid | `kenney-rpg-audio/creak1`, at half loudness, CC0 |
-| `chest` | a stash chest closed, 0.1 s after its page (D-825) | a wooden knock | `kenney-impact-sounds/impactWood_heavy_000` to `004`, at a quarter loudness, CC0 |
+In `SOUNDS-2.md`, moved word for word at 0.3.279.
 
 ## Places
 
 Their sounds are in `SOUNDS-2.md`, moved word for word at 0.3.272,
-the fourteenth audit (D-826), with "Maybe" and "Later".
+the fourteenth audit (D-826), with "Maybe" and "Later"; then in `SOUNDS-3.md`, moved word for word at 0.3.279.
 
 ## Menus and screens
 

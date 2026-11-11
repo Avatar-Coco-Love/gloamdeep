@@ -18,9 +18,9 @@ export const ENEMIES = {
   rat: { id: 'rat', kind: 'enemy', name: 'Rat', acts: "Comes at you once it sees you in the light. Hurt, it often turns and runs. Deeper down, rats run in packs of three that surround you.", fights: "Wait for it to step beside you, and you strike first. A knife ends it in one blow. A pack stands its ground: keep a wall at your back.", health: 2, bite: 1, drops: 'ratTail', ways: ['chases', 'fleesHurt', 'pack'], hurt: 'ratHurt', stands: 'ratStands', packSay: 'ratPack', die: 'ratDie', bites: 'ratBite', sound: 'teeth' },
   // It chases, and shuns light (D-240). Beaten, it may drop a Gloam Wisp (D-475),
   // and now and then its `rare` Gloam Eye (D-476).
-  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', acts: "Hunts you from the dark, but will not step into the light. When the light finds it, it backs away.", fights: "It can't bite you from the light, so keep your lantern full. Back it into a corner and strike while your flame holds it.", health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' },
+  gloamling: { id: 'gloamling', kind: 'enemy', name: 'Gloamling', acts: "Hunts you from the dark, but will not step into the light. When the light finds it, it backs away.", fights: "It can't bite you from the light, so keep your lantern full. Back it into a corner and strike while your flame holds it.", health: 2, bite: 1, drops: 'gloamWisp', rare: 'gloamEye', ways: ['chases', 'shunsLight'], hurt: 'gloamlingHurt', die: 'gloamlingDie', bites: 'gloamlingBite' , sound: 'gloam' },
   // It seeks light (D-351); one hit of anything kills it (D-356). It may drop Moth Dust (D-475).
-  lampmoth: { id: 'lampmoth', kind: 'enemy', flies: true, name: 'Lampmoth', acts: "Flies straight for your lantern's flame, or the nearest lit torch when your lantern is out.", fights: "One blow of anything kills it. Let it fly to you and strike first.", health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' },
+  lampmoth: { id: 'lampmoth', kind: 'enemy', flies: true, name: 'Lampmoth', acts: "Flies straight for your lantern's flame, or the nearest lit torch when your lantern is out.", fights: "One blow of anything kills it. Let it fly to you and strike first.", health: 1, bite: 1, drops: 'mothDust', ways: ['seeksLight'], die: 'lampmothDie', bites: 'lampmothBite' , sound: 'flutter' },
   // An oil flask with eyes and teeth. It starts asleep, drawn as the flask it
   // `looksLike` and hidden from the creature list; a bump wakes it, with no
   // harm, and it chases for `awakeTurns` turns, then settles back down where
@@ -85,7 +85,7 @@ export const ENEMIES = {
   // It `sleeps` as itself, a statue, drawn with its eyes dull, not in disguise: a bump wakes it,
   // with no harm, and it chases for `awakeTurns` turns, then stands still again, the flask
   // mimic's way (D-368). Tough, as the mole is. It guards the locket (relic.js); no drop yet.
-  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it and it wakes and chases you, then stands still again.", fights: "The bump that wakes it gives you a free turn, so strike at once. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['chases'], sleeps: true, awakeTurns: 6, hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' },
+  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it and it wakes and chases you, then stands still again.", fights: "The bump that wakes it gives you a free turn, so strike at once. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['chases'], sleeps: true, awakeTurns: 6, hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' , sound: 'grind' },
   // A bunny, side on and facing right (D-784), soft brown with a pale tail: the first creature that
   // means no harm. It never bites (its way's `bites: false`); `shy`, it hops away once the hero is
   // within 3 steps. Out by day in the home room and each woods room round home (nightfall.js), never
@@ -127,7 +127,7 @@ export const biters = (enemies, hero) => enemies.filter((e) => Math.abs(e.x - he
 // § bite sound: (events) → the sound of this turn's bite, or undefined (D-259), read
 // from the turn's `bite` events (events.js, D-267): the first creature's to bite,
 // whose bite line shows, or after a fall, the first that has a sound.
-// A creature without a `sound` bites silently, for now the gloamling and the lampmoth.
+// A creature without a `sound` bites silently. The gloamling's is a low breath and a snap, the lampmoth's a papery flutter, the warden's stone grinding (D-833).
 // The flask mimic's bite is of glass (D-367), the scorpion's a sting (D-370), the cave spider's a hiss (D-536), the bat's a squeak (D-538), the mole's a snuffle (D-542), the snapcap's a snap (D-544), the herb mimic's a rustle (D-550), the bone rat's a rattle (D-551). The oil tick's drink is a sip (drinkSound, D-606).
 export function biteSound(events) {
   const kinds = events.filter((e) => e.type === 'bite').map((e) => ENEMIES[e.id]);

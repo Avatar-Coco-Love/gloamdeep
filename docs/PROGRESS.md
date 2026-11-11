@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.278 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.279 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks the next step from "Waiting on the owner"; the nearest
-is the sounds' next lines (Q-095).
+The owner hears the rest of the sounds on the sound board (D-833) and
+asks for any swaps; then picks the next step from "Waiting on the owner".
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -20,9 +20,8 @@ is the sounds' next lines (Q-095).
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): each other line next (the gloamling's,
-  lampmoth's and warden's bites, D-832; the creatures' own sounds), the
-  "Maybe" sounds, and "can't carry more" and the run's end (D-819).
+- Sounds (Q-095): swaps for any of Claude's picks (D-833); the "Maybe"
+  sounds.
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
@@ -40,6 +39,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
+  go-ahead (D-833), Claude's recommended pick for every line still
+  silent, by measured shape: the last three bites, the creatures' own
+  sounds, a fall and waking, new floors and rooms, eating, people,
+  making, the places' bells and water, sleep, "can't carry more" and
+  the run's end; grouped Settings lines.
+  Playtest: https://claude.ai/artifact/GdRFnZEjTLHxpZQ2YS4mH6
+  Sound board: https://claude.ai/artifact/8UCmRZeLrXobw8Jxc7iPqJ
 - **2026-11-11, 0.3.278, The creatures' bites' sounds.** The owner's
   picks (D-832), all recommended, from a board of 3 for each of ten: a
   double nip, a clink and snap, clicks and a stab, a hiss, chirps and a
@@ -54,10 +61,3 @@ list in `RESEARCH.md`.
   level.
   Playtest: https://claude.ai/artifact/8oh1BSHoDwPGgrecdBkYbi
   Sound board: https://claude.ai/artifact/W7X6W7TsCw4YK4KEK34HHy
-- **2026-11-11, 0.3.276, The lantern and the light's sounds.** The
-  owner's picks (D-830), all recommended, from a board of 4, 4, 4 and 4,
-  the first from the elemental pack: seven glugs for a flask poured, a
-  crackle slowing and fading as the oil runs out, a quick whoosh for a
-  torch lit, a fire catching for a campfire lit.
-  Playtest: https://claude.ai/artifact/6sPTQkwjC86QirtUDKaJzL
-  Sound board: https://claude.ai/artifact/SSoJXhtGyoD33L1YLdSv2F

@@ -22,6 +22,8 @@
 // for the hero hurt by a bite, a deep slow throb twice as poison takes a heart, three glass notes rising for a level.
 // The creatures' bites next (D-832), one for each kind: a double nip, a clink and a snap, clicks and a stab, a hiss,
 // chirps and a flap, sniffs and a scrape, a squelch and a snap, leaves and teeth, a clatter of bones, a slurp and a gulp.
+// The rest next (D-833), Claude's recommended picks by the owner's go-ahead: the last three bites, the creatures' own
+// sounds, a fall and waking, new floors and rooms, eating, people, making, the places' bells and water, sleep, the run's end.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -49,6 +51,7 @@ const nip = impact('impactGeneric_light').slice(0, 2); // a small snap of teeth 
 const pluck = ['kenney-interface-sounds/pluck_001.ogg', 'kenney-interface-sounds/pluck_002.ogg']; // a dry click, or high, a chirp
 const puffs = [12, 13, 14].map((n) => elements(`Wind-0${n}`)[0]); // short puffs of air: the stiff miss, or high, a sniff
 const bones = impact('impactWood_light').slice(0, 3);
+const bell = impact('impactBell_heavy')[2]; // a short bell: the waystone's and the boon's
 export const FILES = {
   footstep: { files: steps('grass'), gain: 0.25, pitch: 0.06 },
   stoneStep: { files: steps('concrete'), gain: 0.1, pitch: 0.06, echo: true },
@@ -117,17 +120,75 @@ export const FILES = {
   rattle4: { files: [bones[0]], gain: 0.14, pitch: 0.05, pitchOf: () => 1.6, part: true },
   sip: { files: elements('Water-038'), gain: 0.35, pitch: 0, pitchOf: () => 1.1, len: 0.4, fade: 0.15, after: 0.25, with: [['gulp', 0.25]] }, // an oil tick drinks: a wet slurp, then a gulp
   gulp: { files: elements('Water-025'), gain: 0.3, pitch: 0, pitchOf: () => 1.3, len: 0.3, fade: 0.12, part: true },
+  // § the rest (D-833): the owner's go-ahead to finish with Claude's recommended picks, each by its measured shape
+  gloam: { files: elements('Wind-011'), gain: 0.45, pitch: 0.04, pitchOf: () => 0.8, from: 0.4, len: 0.5, fade: 0.3, muffle: 1500, after: 0.25, with: [['gloamNip', 0.2]] }, // a gloamling: a low breath, then a snap
+  gloamNip: { files: nip, gain: 0.24, pitch: 0.05, pitchOf: () => 1.2, part: true },
+  flutter: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.28, pitch: 0.05, pitchOf: () => 1.6, after: 0.25, with: [['flutter2', 0.06], ['flutter3', 0.12]] }, // a lampmoth: a papery flutter
+  flutter2: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.24, pitch: 0.05, pitchOf: () => 1.7, part: true },
+  flutter3: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.2, pitch: 0.05, pitchOf: () => 1.8, part: true },
+  grind: { files: elements('Earth-019'), gain: 0.5, pitch: 0, pitchOf: () => 0.8, from: 0.3, len: 0.5, fade: 0.2, after: 0.25, with: [['grindKnock', 0.15]] }, // a warden: stone grinding, a knock of stone
+  grindKnock: { files: impact('impactMining'), gain: 0.2, pitch: 0.05, pitchOf: () => 0.7, part: true },
+  creatures: { as: () => 'pack' }, // Settings' one line for the creatures' own sounds, turned On, plays the pack's (D-833)
+  pack: { files: pluck, gain: 0.15, pitch: 0.04, pitchOf: () => 1.8, with: [['pack2', 0.06], ['pack3', 0.13], ['pack4', 0.2]] }, // rats in a pack: squeaks together
+  pack2: { files: pluck, gain: 0.14, pitch: 0.04, pitchOf: () => 1.95, part: true },
+  pack3: { files: pluck, gain: 0.13, pitch: 0.04, pitchOf: () => 1.7, part: true },
+  pack4: { files: pluck, gain: 0.12, pitch: 0.04, pitchOf: () => 2.05, part: true },
+  jolt: { files: impact('impactSoft_medium'), gain: 0.26, pitch: 0.05, pitchOf: () => 1.25 }, // a mimic wakes: a jolt
+  tail: { files: pluck, gain: 0.14, pitch: 0.04, pitchOf: () => 0.7, with: [['tail2', 0.05], ['tail3', 0.1], ['tail4', 0.15]] }, // a scorpion raises its tail: a dry rattle
+  tail2: { files: pluck, gain: 0.13, pitch: 0.04, pitchOf: () => 0.75, part: true },
+  tail3: { files: pluck, gain: 0.12, pitch: 0.04, pitchOf: () => 0.7, part: true },
+  tail4: { files: pluck, gain: 0.11, pitch: 0.04, pitchOf: () => 0.8, part: true },
+  burrow: { files: elements('Earth-017'), gain: 0.4, pitch: 0, pitchOf: (up) => (up ? 1.15 : 0.85), from: 0.2, len: 0.6, fade: 0.3, muffle: 1500 }, // a mole digs down, lower, or comes up, higher: earth shifting
+  bonesFall: { files: [bones[0]], gain: 0.2, pitch: 0.04, pitchOf: () => 1.3, wait: 0.15, with: [['bonesFall2', 0.08], ['bonesFall3', 0.16], ['bonesFall4', 0.26]] }, // a bone rat falls to bones: a slow clatter, falling
+  bonesFall2: { files: [bones[1]], gain: 0.18, pitch: 0.04, pitchOf: () => 1.2, wait: 0.15, part: true },
+  bonesFall3: { files: [bones[2]], gain: 0.16, pitch: 0.04, pitchOf: () => 1.1, wait: 0.15, part: true },
+  bonesFall4: { files: [bones[0]], gain: 0.14, pitch: 0.04, pitchOf: () => 1, wait: 0.15, part: true },
+  bonesStand: { files: [bones[2]], gain: 0.14, pitch: 0.04, pitchOf: () => 1, with: [['bonesStand2', 0.06], ['bonesStand3', 0.12], ['bonesStand4', 0.18]] }, // it stands up again: the clatter rising
+  bonesStand2: { files: [bones[1]], gain: 0.16, pitch: 0.04, pitchOf: () => 1.2, part: true },
+  bonesStand3: { files: [bones[0]], gain: 0.18, pitch: 0.04, pitchOf: () => 1.4, part: true },
+  bonesStand4: { files: [bones[1]], gain: 0.2, pitch: 0.04, pitchOf: () => 1.6, part: true },
+  statue: { files: elements('Earth-028'), gain: 0.32, pitch: 0, pitchOf: () => 0.75, len: 1.2, fade: 0.6, muffle: 1200 }, // a warden wakes: heavy stone shifting
+  spit: { files: elements('Water-010'), gain: 0.4, pitch: 0.04, pitchOf: () => 1.3, len: 0.35, fade: 0.15 }, // a glob spat: a wet spit
+  splat: { files: elements('Water-014'), gain: 0.32, pitch: 0.04, pitchOf: () => 0.8, len: 0.35, fade: 0.15 }, // a glob breaks or hits: a small splat
+  falling: { as: () => 'fall' }, // Settings' one line for a fall and the waking after it (D-833)
+  fall: { files: elements('Earth-017'), gain: 0.47, pitch: 0, len: 0.7, fade: 0.3, with: [['fallThud', 0.55]] }, // the hero falls: a slide, then a thud
+  fallThud: { files: impact('impactPunch_heavy'), gain: 0.3, pitch: 0.04, pitchOf: () => 0.8, muffle: 700, part: true },
+  wake: { files: elements('Wind-002'), gain: 0.42, pitch: 0, pitchOf: () => 0.85, len: 1.2, fade: 0.6, muffle: 1200 }, // waking after a fall: a breath
+  rooms: { as: () => 'room' }, // Settings' one line for a new floor and a room never stood in (D-833)
+  floor: { files: elements('Earth-024'), gain: 0.22, pitch: 0, pitchOf: () => 0.8, len: 2, fade: 1.2, muffle: 600 }, // a new floor: a low, far rumble
+  room: { files: ['kenney-interface-sounds/glass_001.ogg'], gain: 0.12, pitch: 0.03, pitchOf: () => 0.8 }, // a room never stood in: a small, quiet note
+  eat: { as: (drink) => (drink ? 'gulpDown' : 'crunch') }, // a herb or heartcap eaten crunches, a potion drunk gulps
+  crunch: { files: steps('snow'), gain: 0.24, pitch: 0.05, pitchOf: () => 1.3, with: [['crunch2', 0.14]], part: true },
+  crunch2: { files: steps('snow'), gain: 0.2, pitch: 0.05, pitchOf: () => 1.4, part: true },
+  gulpDown: { files: elements('Water-039'), gain: 0.45, pitch: 0, pitchOf: () => 0.9, len: 0.7, fade: 0.3, part: true },
+  shimmer: { files: [impact('impactGlass_light')[0]], gain: 0.1, pitch: 0.03, pitchOf: () => 1.6, with: [['shimmer2', 0.07], ['shimmer3', 0.14]] }, // a person leaves for home or arrives: a soft shimmer
+  shimmer2: { files: [impact('impactGlass_light')[1]], gain: 0.09, pitch: 0.03, pitchOf: () => 1.8, part: true },
+  shimmer3: { files: [impact('impactGlass_light')[2]], gain: 0.08, pitch: 0.03, pitchOf: () => 2, part: true },
+  tools: { files: impact('impactMetal_light'), gain: 0.2, pitch: 0.06, with: [['tools2', 0.16], ['tools3', 0.34]] }, // something made: tools at work, two taps of metal and a knock of wood
+  tools2: { files: impact('impactMetal_light'), gain: 0.2, pitch: 0.06, part: true },
+  tools3: { files: impact('impactWood_medium'), gain: 0.22, pitch: 0.06, part: true },
+  places: { as: () => 'bells' }, // Settings' one line for the places' sounds (D-833)
+  bells: { files: [bell], gain: 0.16, pitch: 0, with: [['bells2', 0.18], ['bells3', 0.36]] }, // a waystone wakes: three bells rising
+  bells2: { files: [bell], gain: 0.14, pitch: 0, pitchOf: () => 1.26, part: true },
+  bells3: { files: [bell], gain: 0.12, pitch: 0, pitchOf: () => 1.5, part: true },
+  hum: { files: [impact('impactBell_heavy')[1]], gain: 0.3, pitch: 0, pitchOf: () => 0.5, len: 3, fade: 1.5, muffle: 800 }, // travel by waystone: a deep hum
+  chime: { files: [bell], gain: 0.12, pitch: 0, pitchOf: () => 1.5, with: [['chime2', 0.12]] }, // a boon picked: two bells rising, higher and quicker
+  chime2: { files: [bell], gain: 0.1, pitch: 0, pitchOf: () => 2, part: true },
+  plop: { files: elements('Water-015'), gain: 0.27, pitch: 0.04, len: 0.6, fade: 0.3 }, // the line cast: a small plop
+  splash: { files: elements('Water-016'), gain: 0.27, pitch: 0.04 }, // a fish caught: a splash and drops
+  breath: { files: elements('Wind-007'), gain: 0.26, pitch: 0, pitchOf: () => 0.8, len: 2.2, fade: 1.4, muffle: 900 }, // sleeping: a long breath out
+  ended: { files: [impact('impactBell_heavy')[1]], gain: 0.3, pitch: 0, pitchOf: () => 0.8, len: 2.6, fade: 1.6, slide: 0.5, muffle: 1500 }, // the run ends: a slow falling tone
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'rise'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind', 'pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat', 'fall', 'wake', 'floor', 'room', 'eat', 'shimmer', 'tools', 'hum', 'breath', 'ended', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'rise'];
 // § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
-// Fighting with the creatures, Finds with the bag and places, and Menus
+// Fighting with the creatures, Finds with the bag and places, and Menus; a fall and new rooms are Steps (D-833)
 const KINDS = {
-  steps: ['footstep', 'stoneStep', 'earthStep', 'lantern', 'pour', 'gutter', 'torch', 'kindle'],
-  fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp'],
-  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash'],
-  menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse'],
+  steps: ['footstep', 'stoneStep', 'earthStep', 'lantern', 'pour', 'gutter', 'torch', 'kindle', 'falling', 'fall', 'fallThud', 'wake', 'rooms', 'floor', 'room'],
+  fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'spit', 'splat'],
+  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath'],
+  menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
 // What plays as a kind's loudness changes, at its new loudness: a step, a hit, a pat, the tick
@@ -215,7 +276,7 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later + (arg === true ? after : 0)); // after the swing too, as the bite's own parts (D-832)
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle, miss, hurt, poison, rise } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle, miss, hurt, poison, rise } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle, miss, hurt, poison, rise, sample };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle, miss, hurt, poison, rise, sample };
 }
