@@ -13,6 +13,9 @@ export const UPGRADES = {
   // Light's second (D-814, D-816): a flask poured by hand takes no turn; a minnow's oil still does
   quickPour: { id: 'quickPour', branch: 'light', row: 1, slot: 0, name: 'Quick Pour', short: 'Quick', words: 'Pouring a flask takes no turn.', cost: 1, most: 1, look: 'flask' },
   heart: { id: 'heart', branch: 'body', row: 0, slot: 0, name: 'Heart', words: 'One more heart for good, arriving full.', cost: 1, most: 5, look: 'hearts', get: 'Add a heart', heals: 1 },
+  // Body's second row (D-814, D-817): each bite the vest did not turn rolls its own dice, and
+  // about 1 in 6 glances off and hurts nothing (guard.js); a drink, a glob and a sting do not
+  guard: { id: 'guard', branch: 'body', row: 1, slot: 0, name: 'Guard', words: 'About 1 bite in 6 glances off.', cost: 1, most: 1, look: 'shield', glance: 1 / 6 },
   // A bite that hurts poisons the hero only this often, by the seeded dice (D-657)
   // Hands' first (D-813): a tree, a stone deposit or a branch, gathered by hand, takes `fewer`
   // bumps less, never under 1; a tool's own count is kept (gear.js)

@@ -1033,3 +1033,16 @@ limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
 a small screen; the tree scrolls by a swipe or the wheel and follows
 the pick, a small arrow where rows are hidden. D-808 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-813 · 2026-11-10 · Quick Hands** (the owner's picks, all
+recommended; the last step of D-811) Hands' first upgrade, in the
+first row: a tree, a stone deposit or a fallen branch, gathered by
+hand, takes 1 bump fewer (a tree 3, a deposit 2, a branch 1; a berry
+bush stays 1). A tool's own count is kept: copper veins and rubble
+are unchanged. 1 ember, bought once; its tile's picture a pale open
+hand. Others offered: Full Hands, 1 more Wood or Stone from each;
+Deep Pockets, 1 more bag slot; 2 embers; a small axe or a sack.
+Claude's calls the owner may change: its name and words ("Trees,
+stone and branches take 1 bump fewer."); rubble around a trapped
+person is not gathering, so keeps its 3 bumps. D-809 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

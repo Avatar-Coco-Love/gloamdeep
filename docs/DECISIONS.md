@@ -113,19 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-813 · 2026-11-10 · Quick Hands** (the owner's picks, all
-recommended; the last step of D-811) Hands' first upgrade, in the
-first row: a tree, a stone deposit or a fallen branch, gathered by
-hand, takes 1 bump fewer (a tree 3, a deposit 2, a branch 1; a berry
-bush stays 1). A tool's own count is kept: copper veins and rubble
-are unchanged. 1 ember, bought once; its tile's picture a pale open
-hand. Others offered: Full Hands, 1 more Wood or Stone from each;
-Deep Pockets, 1 more bag slot; 2 embers; a small axe or a sack.
-Claude's calls the owner may change: its name and words ("Trees,
-stone and branches take 1 bump fewer."); rubble around a trapped
-person is not gathering, so keeps its 3 bumps. D-809 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-814 · 2026-11-10 · Growth's second row** (the owner's picks, all
 recommended, from the map's row 2 drafts, D-639; builds D-462, D-811)
 Biome 2 is not built yet, so row 2 opens the first time the hero goes
@@ -169,3 +156,16 @@ turn, as it is not a flask (D-611; offered too: any oil by hand).
 down or by a dev jump, in place of that turn's line (offered too: kept
 in the log as well); an older save that loads already open says
 nothing. D-812 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-817 · 2026-11-11 · Guard** (the owner's picks, all recommended;
+step 3 of D-814) Body's row 2 upgrade, 1 ember, once: a bite the worn
+vest did not turn rolls Guard's own dice, and about 1 in 6 glances off
+and hurts nothing, so with the Rat Hide Vest about 3 bites in 8 glance
+off (offered too: the chances added; only the bigger one). Guard's line
+"The bite glances off you."; a bite the vest turned keeps "The bite
+glances off your vest." (offered too: the vest's line always; nothing
+said). Only bites: an oil drink, a glob and a sting are not turned
+(offered too: bites and drinks; every blow). Its words "About 1 bite in
+6 glances off."; its tile a small pale round shield, a boss in the
+middle (offered too: a fang turned aside; a heart in a ring). D-813
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
