@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried } from './bag.js';
-import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, statsText, marksText } from './settings.js';
+import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, LOUD_KINDS, kindText, statsText, marksText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -85,7 +85,7 @@ export const SETTINGS_TABS = [
   { id: 'controls', text: 'CONTROLS', ids: ['swipe', 'tap', 'pad', 'stop'] },
   { id: 'game', text: 'GAME', ids: ['seed', 'mode', 'lantern', 'flasks'] },
   { id: 'screen', text: 'SCREEN', ids: ['motion', 'marks', 'stats'] },
-  { id: 'sound', text: 'SOUND', ids: ['sound', 'loud'] },
+  { id: 'sound', text: 'SOUND', ids: ['sound', 'loud', ...LOUD_KINDS.map((k) => k.id)] },
 ];
 export const settingsTabOf = (id) => SETTINGS_TABS.find((t) => t.id === id) ?? SETTINGS_TABS[0];
 export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null, tab = null) => {
@@ -107,6 +107,7 @@ const allSettings = (s, deviceReduced, journey, mode) => [
   named('marks', marksText(s.marks)), // D-730
   named('sound', soundText(s.sound)),
   named('loud', loudText(s.loud ?? 100)), // D-822
+  ...LOUD_KINDS.map(({ id }) => named(id, kindText(id, s[id] ?? 100))), // D-823
   named('stats', statsText(s.stats)),
   { id: 'history', text: 'Version history' },
 ];

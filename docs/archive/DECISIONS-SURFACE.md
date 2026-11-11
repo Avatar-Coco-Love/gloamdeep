@@ -1118,3 +1118,25 @@ Its words "Making something keeps 1 part about 1 time in 4."; its tile
 a small pale log on its side, an arrow curling back down to it
 (offered too: a tied pouch; a hand on a stone). D-814 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-819 · 2026-11-11 · The menus' sounds** (the owner's picks, all
+recommended, from a board of 6 taps, 4 page turns and 4 tocks; builds
+D-774; answers part of Q-095) Off play, a tap, Enter or Space that
+changes something on the same card ticks: Interface Sounds' tick 2, at
+half a step's peak (offered too: as loud as a step; click 2 or UI
+Audio's click 3; ObsydianX's cursor tone). A card opening turns a page,
+RPG Audio's flip 3, and closing turns one back, its flip 2, each as
+loud as a step (offered too: the same, soft; the book opening and
+shutting; Interface Sounds' open and close). A tap that opens or closes
+a card turns only its page, with no tick (offered too: both). A dim
+pick that can't be done tocks: Impact Sounds' light wood knock, a
+quarter lower, as loud as a step (offered too: bong 1; error 4;
+ObsydianX's error tone). None strays in pitch. Claude's calls the owner
+may change: play, setting a tile down and the title have no card, so
+reaching them closes; going back to a card still open under the rest
+closes, anything else opens; the tock plays on the bag's dim Make, the
+Make tab's dim recipe, the garden bed's and campfire's dim first line,
+a dim waystone row and a Growth upgrade with too few embers; the
+"You can't carry more" lines, the dim quick slot and the HUD buttons in
+play stay silent; the run ending waits for later. D-815 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -60,6 +60,18 @@ const isLoud = (n) => Number.isInteger(n) && n >= 0 && n <= 100 && n % 10 === 0;
 export const loudText = (n) => `Loudness: ${n}%`;
 export const nextLoud = (n, dir = 'pick') =>
   dir === 'pick' ? (n >= 100 ? 0 : n + 10) : dir === 'left' ? Math.max(0, n - 10) : Math.min(100, n + 10);
+// § kinds: a loudness for each of four kinds under Loudness, each a share of it (D-823):
+// Steps (the lantern and the light too), Fighting (the creatures too), Finds (the bag and
+// places too) and Menus; each moves as Loudness does, 100% until picked
+export const LOUD_KINDS = [
+  { id: 'loudSteps', kind: 'steps', name: 'Steps' },
+  { id: 'loudFight', kind: 'fight', name: 'Fighting' },
+  { id: 'loudFinds', kind: 'finds', name: 'Finds' },
+  { id: 'loudMenus', kind: 'menus', name: 'Menus' },
+];
+export const kindText = (id, n) => `${LOUD_KINDS.find((k) => k.id === id).name}: ${n}%`;
+// How loud a kind plays, 0 to 1: Loudness times the kind's share (D-823)
+export const loudOf = (s, kind) => ((s.loud ?? 100) / 100) * ((s[LOUD_KINDS.find((k) => k.kind === kind)?.id] ?? 100) / 100);
 
 // § stats line: On or Off (D-412). On, a short line bottom left in play: fps, turn, time
 // of day, xp, the hero's tile and the seed, what the panel doesn't show. Off until picked.
@@ -90,9 +102,10 @@ export function loadSettings() {
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
   const loud = isLoud(s?.loud) ? s.loud : 100;
+  const kinds = Object.fromEntries(LOUD_KINDS.map(({ id }) => [id, isLoud(s?.[id]) ? s[id] : 100])); // D-823
   const stats = s?.stats === 'on' ? 'on' : 'off';
   const marks = s?.marks === 'off' ? 'off' : 'on';
-  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, loud, stats, marks };
+  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, loud, ...kinds, stats, marks };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify({ ...s, taps: 2 })); } catch { /* not kept */ }

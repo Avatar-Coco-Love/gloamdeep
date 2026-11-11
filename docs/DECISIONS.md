@@ -113,28 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-819 · 2026-11-11 · The menus' sounds** (the owner's picks, all
-recommended, from a board of 6 taps, 4 page turns and 4 tocks; builds
-D-774; answers part of Q-095) Off play, a tap, Enter or Space that
-changes something on the same card ticks: Interface Sounds' tick 2, at
-half a step's peak (offered too: as loud as a step; click 2 or UI
-Audio's click 3; ObsydianX's cursor tone). A card opening turns a page,
-RPG Audio's flip 3, and closing turns one back, its flip 2, each as
-loud as a step (offered too: the same, soft; the book opening and
-shutting; Interface Sounds' open and close). A tap that opens or closes
-a card turns only its page, with no tick (offered too: both). A dim
-pick that can't be done tocks: Impact Sounds' light wood knock, a
-quarter lower, as loud as a step (offered too: bong 1; error 4;
-ObsydianX's error tone). None strays in pitch. Claude's calls the owner
-may change: play, setting a tile down and the title have no card, so
-reaching them closes; going back to a card still open under the rest
-closes, anything else opens; the tock plays on the bag's dim Make, the
-Make tab's dim recipe, the garden bed's and campfire's dim first line,
-a dim waystone row and a Growth upgrade with too few embers; the
-"You can't carry more" lines, the dim quick slot and the HUD buttons in
-play stay silent; the run ending waits for later. D-815 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-820 · 2026-11-11 · The bag's sounds** (the owner's picks, all
 recommended, from a board of 4 each; builds D-774; answers part of
 Q-095) An item into the bag pats: RPG Audio's cloth 1 to 4, taking
@@ -182,3 +160,18 @@ tap goes up a step, round from 100% to 0%; Left and Right go down and
 up, stopping at the ends; the menu's tick plays at the new loudness;
 the cave's echo is as loud as its step. D-818 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-823 · 2026-11-11 · The four kinds' loudness** (the owner's picks,
+all recommended; builds D-822; step 2 of 3) After a fit test on an upright
+phone (all six lines fit at 320 × 568 and sideways), Steps, Fighting,
+Finds and Menus go under Loudness on the Sound tab as plain lines, like
+every other setting (offered too: indented; a gap first). The lantern and
+the light follow Steps (offered too: Finds; Fighting). A kind plays at
+Loudness times its share, so 50% and 50% is 25% (offered too: each kind on
+its own). Changing a kind plays its own sound at the new loudness: a step,
+a hit, a pat into the bag, the tick (offered too: always the tick).
+Claude's calls the owner may change: each 100% until picked, moving as
+Loudness does; the step heard is the grass step wherever the hero is;
+the creatures' sounds follow Fighting, waystones and fishing Finds, a
+card's page Menus. Next, each sound On or Off, in a list opened from its
+kind's line. D-819 moves to `archive/DECISIONS-SURFACE.md`, word for word.

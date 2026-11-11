@@ -50,6 +50,18 @@ export const FILES = {
 
 // § voices: every sound the game asks for, each silent until its file is in
 const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk'];
+// § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
+// Fighting with the creatures, Finds with the bag and places, and Menus
+const KINDS = {
+  steps: ['footstep', 'stoneStep', 'earthStep', 'lantern'],
+  fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'],
+  finds: ['pat', 'draw', 'thunk', 'bells', 'chime', 'plop', 'splash'],
+  menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse'],
+};
+export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
+// What plays as a kind's loudness changes, at its new loudness: a step, a hit, a pat, the tick
+export const KIND_SOUND = { steps: 'footstep', fight: 'hit', finds: 'pat', menus: 'tap' };
+export { VOICES };
 const SEED = 255; // the steps' variety, the same on every visit
 
 // § ground: which step the hero's feet make: grass on the surface, packed earth in
@@ -67,7 +79,7 @@ export function cardTurn(trail, to) {
   return at >= 0 ? { trail: trail.slice(0, at + 1), open: false } : { trail: [...trail, to], open: true };
 }
 
-export function createSound(isOn, loudness = () => 1) { // loudness: every sound's together, 0 to 1 (D-822)
+export function createSound(isOn, loudness = () => 1) { // loudness: a kind's, Loudness times its share, 0 to 1 (D-822, D-823)
   let ac = null, echo = null; // the sound maker, and the cave's echo: a short repeat off the walls, fading (D-776)
   const buffers = {}; // each voice's decoded files, filled once they arrive
   const vary = rng(SEED + 1); // which file and what pitch, each time
@@ -113,7 +125,7 @@ export function createSound(isOn, loudness = () => 1) { // loudness: every sound
     const src = ac.createBufferSource(), g = ac.createGain();
     src.buffer = buffers[voice][i];
     src.playbackRate.value = (pitchOf ? pitchOf(arg) : 1) + (vary() * 2 - 1) * pitch;
-    g.gain.value = gain * loudness();
+    g.gain.value = gain * loudness(kindOf(voice));
     if (muffle) {
       const dull = ac.createBiquadFilter();
       dull.type = 'lowpass';
