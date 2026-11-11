@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.270 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.271 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit at 0.3.272 is two versions away (D-518); before it, the next
-sounds from files (Q-095): digging and chests, picked on a sound board.
+The audit at 0.3.272 (D-518, D-782): measure what a conversation reads at
+its start, archive, trim, split one big code file, and add what we learned
+to `docs/WORKFLOW.md`.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -25,8 +26,8 @@ sounds from files (Q-095): digging and chests, picked on a sound board.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): digging and chests next, then each other, the
-  "Maybe" sounds, and "can't carry more" and the run's end (D-819).
+- Sounds from files (Q-095): each other line next, the "Maybe" sounds,
+  and "can't carry more" and the run's end (D-819).
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
@@ -44,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.271, Digging and chests' sounds.** The owner's picks
+  (D-825), all recommended, from a board of 4 each: a mining clink for
+  each bump on stone and a deeper one with stones tumbling as it breaks;
+  a creak as a chest opens and a wooden knock as it closes.
+  Playtest: https://claude.ai/artifact/YJPNYHngHVfUE8GXGArxmV
+  Sound board: https://claude.ai/artifact/9D6rwrurzN21T3omeo4DFb
 - **2026-11-11, 0.3.270, Each sound On or Off.** The owner's picks
   (D-824), all recommended, after a fit test (13 lines fit at 320 × 568
   upright and sideways): only the heard sounds; a kind's line opens its
@@ -56,8 +63,3 @@ list in `RESEARCH.md`.
   Loudness; the lantern follows Steps; a kind is Loudness times its
   share; changing one plays its own sound.
   Playtest: https://claude.ai/artifact/P9xQEHR6wXzWiYpwo1XDD8
-- **2026-11-11, 0.3.268, Loudness.** The owner's picks (D-822), all
-  recommended, for the Sound tab's three steps: Loudness, 0% to 100% in
-  steps of 10%, beside Sound On or Off; then four kinds; then each sound
-  On or Off in a list opened from its kind.
-  Playtest: https://claude.ai/artifact/QzDFFcxDm4YvU93KtT9xJz

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.268, Loudness.** The owner's picks (D-822), all
+  recommended, for the Sound tab's three steps: Loudness, 0% to 100% in
+  steps of 10%, beside Sound On or Off; then four kinds; then each sound
+  On or Off in a list opened from its kind.
+  Playtest: https://claude.ai/artifact/QzDFFcxDm4YvU93KtT9xJz
 - **2026-11-11, 0.3.267, Settings in tabs.** The owner's picks (D-821),
   all recommended: CONTROLS, GAME, SCREEN and SOUND in the title row,
   opening on the last tab, Tab turns them, VERSION HISTORY on each;

@@ -12,6 +12,8 @@
 // card opens or closes, and a low wooden tock when a dim pick can't be done.
 // The bag's sounds next (D-820): a soft pat of cloth as an item goes into the bag, a
 // knife drawn as a weapon goes into the hand, a wooden knock as a tile is set down.
+// Digging and chests next (D-825): a mining clink for each bump on stone, a deeper one
+// and small stones tumbling as it breaks; a wooden creak as a chest opens, a knock as it closes.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -25,7 +27,10 @@ import { rng } from '../core/rng.js';
 // `muffle` cuts the sound's brightness off above that many Hz, and `echo` sends it to
 // the cave's echo too (D-776); `after` waits that many seconds when the game passes
 // true, as the beaten thud does after a hit (D-777); `as` plays another entry's files
-// by what the game passes in, as the hit does: the lantern's knock or the knife's slice
+// by what the game passes in, as the hit does: the lantern's knock or the knife's slice;
+// `part` marks files heard only as part of another sound, with no line of their own; `with`
+// plays other entries too, each that many seconds later, as the break's stones tumble; `wait`
+// starts it that many seconds late every time, as the chest's knock after the page (D-825)
 const impact = (name) => [0, 1, 2, 3, 4].map((n) => `kenney-impact-sounds/${name}_00${n}.ogg`);
 const PACKS = 'sounds/packs/';
 const steps = (ground) => impact(`footstep_${ground}`);
@@ -40,22 +45,28 @@ export const FILES = {
   beaten: { files: impact('impactSoft_heavy'), gain: 0.25, pitch: 0.06, after: 0.12 },
   tap: { files: ['kenney-interface-sounds/tick_002.ogg'], gain: 0.12, pitch: 0 }, // half a step's peak (D-819)
   card: { as: (open) => (open ? 'cardOpen' : 'cardClose') },
-  cardOpen: { files: ['kenney-rpg-audio/bookFlip3.ogg'], gain: 0.38, pitch: 0 }, // each as loud as a step
-  cardClose: { files: ['kenney-rpg-audio/bookFlip2.ogg'], gain: 0.58, pitch: 0 },
+  cardOpen: { files: ['kenney-rpg-audio/bookFlip3.ogg'], gain: 0.38, pitch: 0, part: true }, // each as loud as a step
+  cardClose: { files: ['kenney-rpg-audio/bookFlip2.ogg'], gain: 0.58, pitch: 0, part: true },
   refuse: { files: ['kenney-impact-sounds/impactWood_light_000.ogg'], gain: 0.25, pitch: 0, pitchOf: () => 0.75 }, // a quarter lower
   pat: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.33, pitch: 0.06 }, // each as loud as a step (D-820)
   draw: { files: ['kenney-rpg-audio/drawKnife3.ogg'], gain: 0.82, pitch: 0 },
   thunk: { files: impact('impactWood_medium'), gain: 0.25, pitch: 0.06 },
+  clink: { files: impact('impactMining'), gain: 0.25, pitch: 0.06, echo: true }, // each bump on stone (D-825)
+  crumble: { files: impact('impactMining'), gain: 0.35, pitch: 0.03, pitchOf: () => 0.75, echo: true, with: [['patter', 0.12], ['patter', 0.22], ['patter', 0.34]] }, // it breaks: a quarter lower, then stones tumble
+  patter: { files: steps('concrete'), gain: 0.12, pitch: 0.1, pitchOf: () => 1.2, echo: true, part: true },
+  chest: { as: (open) => (open ? 'chestOpen' : 'chestClose') },
+  chestOpen: { files: ['kenney-rpg-audio/creak1.ogg'], gain: 0.5, pitch: 0, part: true }, // before the page flips (D-825)
+  chestClose: { files: impact('impactWood_heavy'), gain: 0.25, pitch: 0.04, wait: 0.1, part: true }, // after it
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest'];
 // § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
 // Fighting with the creatures, Finds with the bag and places, and Menus
 const KINDS = {
   steps: ['footstep', 'stoneStep', 'earthStep', 'lantern'],
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'],
-  finds: ['pat', 'draw', 'thunk', 'bells', 'chime', 'plop', 'splash'],
+  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'bells', 'chime', 'plop', 'splash'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse'],
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
@@ -114,10 +125,10 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
   const ready = () => ac && ac.state === 'running' && isOn();
 
   // § play: one of the voice's files, not the last one, at its loudness and a pitch near its own
-  function play(voice, arg) {
+  function play(voice, arg, at = 0) {
     if (!ready() || muted(voice)) return;
     if (FILES[voice].as) return play(FILES[voice].as(arg));
-    const { gain, pitch, pitchOf, muffle, after = 0, echo: echoes } = FILES[voice], got = buffers[voice].map((b, i) => (b ? i : -1)).filter((i) => i >= 0);
+    const { gain, pitch, pitchOf, muffle, after = 0, wait = 0, echo: echoes } = FILES[voice], got = buffers[voice].map((b, i) => (b ? i : -1)).filter((i) => i >= 0);
     const choices = got.length > 1 ? got.filter((i) => i !== last[voice]) : got;
     if (!choices.length) return;
     const i = choices[Math.floor(vary() * choices.length)];
@@ -134,10 +145,11 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     } else src.connect(g);
     g.connect(ac.destination);
     if (echoes) g.connect(echo);
-    src.start(ac.currentTime + (arg === true ? after : 0));
+    src.start(ac.currentTime + at + wait + (arg === true ? after : 0));
+    for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later);
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, sample };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, sample };
 }

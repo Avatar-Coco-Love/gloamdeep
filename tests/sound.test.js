@@ -130,6 +130,21 @@ test("The bag's sounds: a cloth pat, a knife drawn, a wooden knock (D-820)", () 
   assert.ok(FILES.thunk.files.every((f) => f.includes('impactWood_medium')));
 });
 
+// § digging and chests (D-825): stone clinks, and crumbles with stones tumbling as it breaks;
+// a chest creaks open and knocks shut; a tree's chops are not stone
+test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async () => {
+  const { get } = await import('../src/core/registry.js');
+  assert.ok(['deposit', 'vein', 'rubble'].every((id) => get(id).clinks));
+  assert.ok(!get('tree').clinks && !get('branch').clinks);
+  assert.ok(FILES.clink.files.every((f) => /impactMining_00[0-4]\.ogg$/.test(f)) && FILES.clink.echo);
+  assert.equal(FILES.crumble.pitchOf(), 0.75);
+  assert.deepEqual(FILES.crumble.with.map(([v]) => v), ['patter', 'patter', 'patter']);
+  assert.equal(FILES.chest.as(true), 'chestOpen');
+  assert.equal(FILES.chest.as(false), 'chestClose');
+  assert.deepEqual(FILES.chestOpen.files, ['kenney-rpg-audio/creak1.ogg']);
+  assert.ok(FILES.chestClose.files.every((f) => /impactWood_heavy/.test(f)));
+});
+
 test('A card opens on top, and closes back to what is under it', () => {
   let t = cardTurn(['play'], 'paused');
   assert.deepEqual(t, { trail: ['play', 'paused'], open: true });
@@ -153,7 +168,7 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
     assert.equal(kindOf(voice), kind, voice); // in its own kind's list
     assert.ok(FILES[voice].files || FILES[voice].as, `${voice} is heard`);
   }
-  const heard = Object.keys(FILES).filter((v) => FILES[v].files && !['cardOpen', 'cardClose'].includes(v)); // the card's two are its Page turn
+  const heard = Object.keys(FILES).filter((v) => FILES[v].files && !FILES[v].part); // a part, such as the card's two, is heard in its own sound's line
   for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v), `${v} has a line`); // every heard sound
   assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),

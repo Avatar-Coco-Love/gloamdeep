@@ -113,20 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-821 · 2026-11-11 · Settings in tabs** (the owner's picks, all
-recommended; builds D-820) The tabs CONTROLS, GAME, SCREEN and SOUND
-sit in the card's title row where SETTINGS was, as the bag's (offered
-too: under the title). Settings opens on the tab last open, Controls at
-first, kept as it closes until the game is closed (offered too: Controls
-every time). The Tab key turns to the next tab, as on the bag and the
-workbench, and a tap on one opens it (offered too: Up from the top line
-onto the tabs). VERSION HISTORY stays in the bottom corner on every tab
-(offered too: only on Game). On a card too narrow for one row (upright
-phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
-3 and 1). Claude's calls the owner may change: each tab opens on its
-first line; Settings' spoken words name the open tab. D-817 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-822 · 2026-11-11 · Loudness** (the owner's picks, all recommended;
 builds D-820; step 1 of 3) A line Loudness under Sound on the Sound tab,
 0% to 100% in steps of 10% (offered too: steps of 25%; a drawn bar of
@@ -178,3 +164,19 @@ turned On, it plays itself, turned Off, the tick; the list opens on its
 first line; the rows stay where the tabs leave them, upright a row
 lower; Tab leaves the list for the next tab. D-820 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-825 · 2026-11-11 · Digging and chests' sounds** (the owner's picks,
+all recommended, from a board of 4 each; answers part of Q-095) Each
+bump on a deposit, a copper vein or rubble clinks: Impact Sounds'
+mining 0 to 4, taking turns, at a quarter loudness, with the cave's
+echo (offered too: the same, 15% lower; light metal taps; stone plate
+taps). The last bump crumbles: the mining clink a quarter lower and
+louder, then small stones tumbling, the concrete steps higher and soft
+(offered too: a heavy stone plate; a deep heavy thud; the deep clink
+alone). A stash chest opens with RPG Audio's creak 1 at half loudness,
+its page turning as the creak ends (offered too: creak 2; a small door
+opening; a latch, then a creak), and closes with Impact Sounds' heavy
+wood knock just after its page (offered too: a small door shutting; a
+book shut; only the page). On their own lines under Finds: Digging,
+Stone breaks, Chest. D-821 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

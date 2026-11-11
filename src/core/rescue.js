@@ -30,7 +30,7 @@ export function dig(state, x, y) {
     return endTurn(state, say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), call || chips[n - 1]));
   }
   const room = { ...withTile(state.room, x, y, get('floor')), chips: rest };
-  const dug = note(passTurn({ ...state, room }), 'chip', { id: tile.id, n });
+  const dug = note(passTurn({ ...state, room }), 'chip', { id: tile.id, n, broke: true });
   if (!person || Math.abs(person.x - x) + Math.abs(person.y - y) !== 1) return endTurn(state, say(dug, breaks)); // a corner opens no way to them (D-498)
   const people = dug.people.map((p) => (p === person ? { ...p, leaves: dug.turn + who.waits[0] } : p));
   return endTurn(state, say(note({ ...dug, people }, 'free', { id: person.id }), who.freed));
