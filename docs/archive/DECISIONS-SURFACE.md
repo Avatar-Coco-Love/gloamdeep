@@ -1173,3 +1173,28 @@ phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
 3 and 1). Claude's calls the owner may change: each tab opens on its
 first line; Settings' spoken words name the open tab. D-817 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-828 · 2026-11-11 · Home's sounds** (the owner's picks, all
+recommended, from a board of 4, 4, 4 and 3; answers part of Q-095) An
+item sold to the peddler jingles: RPG Audio's handleCoins at a quarter
+loudness, in place of the tick (offered too: the short clink; the two
+taking turns; a pouch, then coins). A relic set on the shelf is a book
+set on wood: RPG Audio's bookPlace 1 to 3 at a quarter (offered too: a
+light wooden knock; a plank; the workbench's thunk, softer). A seed
+planted is two quick burrow steps, 0.13 s apart, the second softer
+(offered too: a soft thud; snow pressed; a leather bag set down). Bat
+Guano fed is the bag's cloth pat, muffled like the burrows' earth
+(offered too: a small soft thud; a carpet step). Each plays as its
+page closes, follows Finds' loudness and has its own line under Finds:
+Coins, Shelf, Planting, Feeding.
+
+**D-829 · 2026-11-11 · The elemental pack** (the owner's purchase and
+picks, all recommended; for Q-095) MorphonautAudio's Elemental Forces
+Sound Pack, bought by the owner on itch.io, is kept whole in
+`sounds/packs/morphonaut-elemental-forces/`: 134 sounds in four folders,
+`Earth`, `Fire`, `Water` and `Wind`, under the pack's own names. Its
+listing says CC0, so it may sit in the public repo; its `License.txt`
+says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
+`.ogg`, good quality, stereo (6 MB), nothing else changed; little
+silence to cut. Nothing in the game plays from it yet: the next sound
+steps pick from it, for fire, oil, water, wind and falls.

@@ -57,7 +57,7 @@ Read the smallest file that answers the question.
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
-| `docs/SOUNDS.md` | every sound the game needs, and its file (D-773); the fight's, creatures', places', menus' and maybes in `SOUNDS-2.md` | sound steps |
+| `docs/SOUNDS.md` | every sound the game needs, and its file (D-773); the fight's, finds', menus' and maybes in `SOUNDS-2.md`; creatures' and places' in `SOUNDS-3.md` | sound steps |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
 | `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732); growth, tools, bugs and design habits in `-2` (D-741); each audit's lessons in `-3` and `-4` (D-782) | audits, or when the way of working changes |

@@ -81,6 +81,8 @@ export const SOUND_LINES = [
   { voice: 'gutter', kind: 'steps', name: 'Oil runs out' },
   { voice: 'torch', kind: 'steps', name: 'Torch lit' },
   { voice: 'kindle', kind: 'steps', name: 'Campfire lit' },
+  { voice: 'falling', kind: 'steps', name: 'Falling' }, // a fall and the waking after it (D-833)
+  { voice: 'rooms', kind: 'steps', name: 'New rooms' }, // a new floor and a room never stood in
   { voice: 'lanternHit', kind: 'fight', name: 'Lantern hit' },
   { voice: 'knifeHit', kind: 'fight', name: 'Knife hit' },
   { voice: 'beaten', kind: 'fight', name: 'Beaten' },
@@ -89,6 +91,7 @@ export const SOUND_LINES = [
   { voice: 'poison', kind: 'fight', name: 'Poison' },
   { voice: 'rise', kind: 'fight', name: 'Level' },
   { voice: 'bites', kind: 'fight', name: 'Bites' }, // every creature's bite, and the oil tick's drink, together (D-832)
+  { voice: 'creatures', kind: 'fight', name: 'Creatures' }, // the creatures' own sounds together (D-833)
   { voice: 'pat', kind: 'finds', name: 'Into the bag' },
   { voice: 'draw', kind: 'finds', name: 'Weapon drawn' },
   { voice: 'thunk', kind: 'finds', name: 'Tile set down' },
@@ -99,14 +102,21 @@ export const SOUND_LINES = [
   { voice: 'shelf', kind: 'finds', name: 'Shelf' },
   { voice: 'sow', kind: 'finds', name: 'Planting' },
   { voice: 'feed', kind: 'finds', name: 'Feeding' },
+  { voice: 'eat', kind: 'finds', name: 'Eating' }, // D-833
+  { voice: 'tools', kind: 'finds', name: 'Making' },
+  { voice: 'places', kind: 'finds', name: 'Places' }, // the waystone's bells and hum, the boon's chime, fishing, sleeping, people leaving and arriving
   { voice: 'tap', kind: 'menus', name: 'Tick' },
   { voice: 'card', kind: 'menus', name: 'Page turn' },
-  { voice: 'refuse', kind: 'menus', name: "Can't" },
+  { voice: 'refuse', kind: 'menus', name: "Can't" }, // and "You can't carry more" (D-833)
+  { voice: 'ended', kind: 'menus', name: 'Run ends' },
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
-export const BITES = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'];
-export const isMuted = (s, voice) => (s.muted ?? []).includes(BITES.includes(voice) ? 'bites' : voice);
+export const BITES = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind'];
+// The same for the creatures' own sounds, a fall and waking, new floors and rooms, and places (D-833)
+export const GROUPS = { bites: BITES, creatures: ['pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat'], falling: ['fall', 'wake'], rooms: ['floor', 'room'], places: ['bells', 'hum', 'chime', 'plop', 'splash', 'breath', 'shimmer'] };
+const lineOf = (voice) => Object.keys(GROUPS).find((g) => GROUPS[g].includes(voice)) ?? voice;
+export const isMuted = (s, voice) => (s.muted ?? []).includes(lineOf(voice));
 export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;
 export const toggleMuted = (s, voice) => (isMuted(s, voice) ? (s.muted ?? []).filter((v) => v !== voice) : [...(s.muted ?? []), voice]);
 // How loud a kind plays, 0 to 1: Loudness times the kind's share (D-823)

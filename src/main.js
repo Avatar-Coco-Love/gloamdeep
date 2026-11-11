@@ -52,6 +52,7 @@ import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, stepOf, cardTurn, KIND_SOUND } from './render/sound.js';
+import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
@@ -259,6 +260,8 @@ function tryStep(dir) {
   if (poisoned) app.poisonHurt = { until: performance.now() + POISON_FLASH_MS, heart: state.god ? state.health - 1 : state.health };
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
+  for (const [v, arg] of moments(before, state, events)) sound[v](arg); // the rest's sounds, read from what changed (D-833)
+  if ((dir.make !== undefined || dir.makeBag !== undefined || dir.craft !== undefined) && state.turn !== before.turn) sound.tools(); // something made, at the bench or in the bag
   keepRecords(events, before);
   if (fell) fallDown(fallView(before, state)); // the floor's other rooms too, for the round map (D-557)
   const went = !fell && state.place !== before.place;
@@ -565,7 +568,7 @@ function update(t) {
   if (travel && t >= travel.mid && travel.from) { travel.from = null; snap(app.state.hero); foeShown = new Map(); }
   if (travel && t >= travel.end) app.travel = null;
   // A fall shows where the hero fell until the dark is deepest, then where they wake (D-234)
-  if (fall && t >= fall.mid && fall.from) { fall.from = null; snap(app.state.hero); foeShown = new Map(); if (fall.ends) { screens.endJourney(); return; } }
+  if (fall && t >= fall.mid && fall.from) { fall.from = null; snap(app.state.hero); foeShown = new Map(); if (fall.ends) { sound.ended(); screens.endJourney(); return; } sound.wake(); } // waking after a fall, or the run's end (D-833)
   if (fall && t >= fall.end) app.fall = null;
   const s = app.travel?.from || app.fall?.from || app.state;
   shown.x = approach(shown.x, s.hero.x, dt);

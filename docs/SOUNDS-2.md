@@ -4,7 +4,8 @@ The creatures' sounds, moved word for word from `SOUNDS.md` at 0.3.266
 to keep it under 8 KB. Each line reads as the lines there do. Places,
 "Maybe" and "Later" followed at 0.3.272, the fourteenth audit (D-826),
 word for word. Menus and screens followed at 0.3.277, word for word, and Fighting at
-0.3.278.
+0.3.278. Finds, the bag and home followed at 0.3.279, word for word, and
+the creatures and places went on to `SOUNDS-3.md`.
 
 ## Fighting
 
@@ -18,33 +19,29 @@ word for word. Menus and screens followed at 0.3.277, word for word, and Fightin
 | `poison` | poison takes a heart (D-654, D-831) | a sick, low pulse | the same punch at 0.6 pitch, muffled above 400 Hz, at 0.36, then at 0.57 and 0.26, 0.35 s later, CC0 |
 | `rise` | a level reached (D-246, D-831), after the beaten thud | a short rising note | `kenney-impact-sounds/impactGlass_light_000` to `002` at 1, 1.26 and 1.5, 0.11 s apart, at 0.2 to 0.16, 0.55 s late, CC0 |
 
-## Creatures (their bites and their own sounds)
-
-Each bite plays a quarter second after the hero's swing, as the hurt blow does, and all share one line in Settings, Bites (D-832). The gloamling's, lampmoth's and warden's bites stay silent for now: their own board comes next.
+## Finds, the bag and home
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| `teeth` | a rat bites; a centipede bites; an oil tick bites (D-832) | small sharp teeth | `kenney-impact-sounds/impactGeneric_light_000` and `001` at 1.7, then at 1.95, 0.07 s later, at 0.22 and 0.18, CC0 |
-| | rats in a pack call out (D-767) | squeaks together | — |
-| | a gloamling bites (silent until now) | — | — |
-| | a lampmoth bites (silent until now) | a papery flutter | — |
-| `glass` | a flask mimic bites (D-832) | a clink and a snap | `impactGlass_light_000` and `001` at 1.1, 0.2, then the rat's nip at 1.5, 0.08 s later, CC0 |
-| | a flask mimic or herb mimic wakes (silent until now, D-368) | a jolt | — |
-| `sting` | a scorpion stings (D-832) | two clicks and a stab | `kenney-interface-sounds/pluck_001` and `002` at 0.8 and 0.85, 0.09 s apart, at 0.2, then `kenney-rpg-audio/knifeSlice`'s first 0.3 s at 0.25, 0.2 s in, CC0 |
-| | a scorpion raises its tail | a dry rattle | — |
-| `hiss` | a cave spider bites (D-832) | a soft hiss and a click | the elemental pack's `Wind-015` at 1.2, 0.5 s, fading 0.3 s, at 0.35, then a pluck at 0.9, 0.15, 0.35 s in, CC0 |
-| `squeak` | a bat bites (D-832) | a chirp and a flap | two plucks at 1.6 and 1.7, 0.07 s apart, at 0.15, then `kenney-rpg-audio/cloth1` or `2` at 1.3, 0.3, 0.12 s in, CC0 |
-| `snuffle` | a mole bites (D-832) | sniffs and a scrape | the stiff miss's puffs at 1.5, three, 0.12 s apart, at 0.4 to 0.32, then `footstep_snow_000` or `001` at 0.25, 0.4 s in, CC0 |
-| | a mole digs down or comes up | earth shifting | — |
-| `snap` | a snapcap bites (D-832) | a wet squelch and a snap | `Water-025` at 1.2, 0.35 s, fading 0.15 s, at 0.35, then the rat's nip at 1.4, 0.25, 0.12 s in, CC0 |
-| `rustle` | a herb mimic bites (D-832) | dry leaves and teeth | two grass steps at 1.3 and 1.4, 0.08 s apart, at 0.3 and 0.26, then the rat's nip at 1.7, 0.16 s in, CC0 |
-| `rattle` | a bone rat bites (D-832); its bones are scattered | clattering bones | `impactWood_light_000`, `001`, `002`, `000` at 1.6, at 0, 0.05, 0.1 and 0.16 s, at 0.2 falling to 0.14, CC0 |
-| | a bone rat falls to bones, or stands up again | bones dropping, bones gathering | — |
-| `sip` | an oil tick drinks the lantern's oil (D-606, D-832) | a wet slurp and a gulp | `Water-038` at 1.1, 0.4 s, fading 0.15 s, at 0.35, then `Water-025` at 1.3, 0.3 s, at 0.3, 0.25 s in, CC0 |
-| | a warden bites | stone grinding | — |
-| | a warden wakes | heavy stone shifting | — |
-| | a creature spits a glob (D-688) | a wet spit | — |
-| | a glob breaks or hits (D-688) | a small splat | — |
+| `pat` | an item goes into the bag, unless it is a fish with its splash (D-820) | a soft pat of cloth | `kenney-rpg-audio/cloth1` to `cloth4`, at a third loudness, CC0 |
+| `eat` | a herb, heartcap or potion eaten (D-308, D-833) | a crunch, or a drink | a crunch: `footstep_snow_000` to `004` at 1.3, at 0.24, then at 1.4, at 0.2, 0.14 s later; a potion: `Water-039` at 0.9, 0.7 s, fading 0.3 s, at 0.45, CC0 |
+| `draw` | a weapon goes from the bag into the hand (D-479, D-820) | a light metal scrape | `kenney-rpg-audio/drawKnife3`, at 0.82, CC0 |
+| `thunk` | a tile set down from the bag (WB2, D-820) | a wooden thunk | `kenney-impact-sounds/impactWood_medium_000` to `004`, at a quarter loudness, CC0 |
+| `clink` | a deposit, copper vein or rubble bumped, not its last bump (O2, D-825) | a pick on stone | `kenney-impact-sounds/impactMining_000` to `004`, at a quarter loudness, the cave's echo, CC0 |
+| `crumble` | its last bump breaks it (O2, D-825) | stone cracking apart, small stones tumbling | the mining files a quarter lower at 0.35, then three of `footstep_concrete_000` to `004`, a fifth higher at 0.12, 0.12 s, 0.22 s and 0.34 s after, the cave's echo, CC0 |
+| | a person freed from the rubble (D-491) | stones tumbling away | — (the rubble's `crumble` plays) |
+| `shimmer` | a person leaves for home, or arrives (D-496, D-833) | a soft shimmer | `impactGlass_light_000` to `002` at 1.6, 1.8 and 2, 0.07 s apart, at 0.1 to 0.08, CC0 |
+| `coins` | an item sold at home (D-494, D-828), not the tick | coins | `kenney-rpg-audio/handleCoins`, at a quarter loudness, CC0 |
+| `sow` | a seed planted (D-566, D-828) | soft earth | the earth step's files, twice, 0.13 s apart, at a quarter, then 0.2, CC0 |
+| `feed` | Bat Guano fed to a sprout (D-569, D-828) | a soft pat of earth | the bag's `pat` files, muffled above 1400 Hz, at a third, CC0 |
+| `shelf` | a relic set on the shelf (D-693, D-828) | wood on wood | `kenney-rpg-audio/bookPlace1` to `3`, at a quarter loudness, CC0 |
+| `tools` | something made at a bench or in the bag (D-833) | tools at work | two of `impactMetal_light_000` to `004`, 0.16 s apart, at 0.2, then `impactWood_medium_000` to `004` at 0.22, 0.34 s in, CC0 |
+| `chest` | a stash chest opened, its page turning 0.3 s later (D-825) | a creaking lid | `kenney-rpg-audio/creak1`, at half loudness, CC0 |
+| `chest` | a stash chest closed, 0.1 s after its page (D-825) | a wooden knock | `kenney-impact-sounds/impactWood_heavy_000` to `004`, at a quarter loudness, CC0 |
+
+## Creatures (their bites and their own sounds)
+
+In `SOUNDS-3.md`, moved word for word at 0.3.279.
 
 ## Menus and screens
 
@@ -52,19 +49,12 @@ Each bite plays a quarter second after the hero's swing, as the hurt blow does, 
 | --- | --- | --- | --- |
 | `tap` | a button tapped, off play, changing something on the same card (D-819) | a tiny soft tick | `kenney-interface-sounds/tick_002`, at an eighth loudness, CC0 |
 | `card` | a card opens, or closes (D-819) | a page turning | `kenney-rpg-audio/bookFlip3` to open, `bookFlip2` to close, at 0.38 and 0.58, CC0 |
-| `refuse` | a dim pick that can't be done (D-819) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
-| | the run ends | a slow falling tone | — |
+| `refuse` | a dim pick that can't be done (D-819); a "You can't carry more" line (D-833) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
+| `ended` | the run ends, a Hardcore fall's "Your journey ends." (D-833) | a slow falling tone | `impactBell_heavy_001` at 0.8 sliding to 0.5, 2.6 s, fading 1.6 s, muffled above 1500 Hz, at 0.3, CC0 |
 
 ## Places
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `bells` | a waystone wakes (D-591) | three bells rising | — |
-| | travel by waystone (D-593) | a deep hum | — |
-| `chime` | a boon picked (D-596) | two bells rising | — |
-| `plop` | the fishing line cast (D-613) | a small plop | — |
-| `splash` | a fish caught (D-613) | a splash and drops | — |
-| | sleeping in a bed or out (D-758) | a long breath out | — |
+In `SOUNDS-3.md`, moved word for word at 0.3.279.
 
 ## Maybe (for the owner to pick)
 

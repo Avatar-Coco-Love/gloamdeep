@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.276, The lantern and the light's sounds.** The
+  owner's picks (D-830), all recommended, from a board of 4, 4, 4 and 4,
+  the first from the elemental pack: seven glugs for a flask poured, a
+  crackle slowing and fading as the oil runs out, a quick whoosh for a
+  torch lit, a fire catching for a campfire lit.
+  Playtest: https://claude.ai/artifact/6sPTQkwjC86QirtUDKaJzL
+  Sound board: https://claude.ai/artifact/SSoJXhtGyoD33L1YLdSv2F
 - **2026-11-11, 0.3.275, The elemental pack.** The owner bought
   MorphonautAudio's Elemental Forces (CC0) and picked, all recommended:
   all 134 kept whole as good-quality .ogg in one folder with Earth,
