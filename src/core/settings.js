@@ -106,7 +106,7 @@ export const SOUND_LINES = [
   { voice: 'feed', kind: 'finds', name: 'Feeding' },
   { voice: 'eat', kind: 'finds', name: 'Eating' }, // D-833
   { voice: 'tools', kind: 'finds', name: 'Making' },
-  { voice: 'places', kind: 'finds', name: 'Places' }, // the waystone's bells and hum, the boon's chime, fishing, sleeping, people leaving and arriving
+  { voice: 'places', kind: 'finds', name: 'Places' }, // the waystone's bells and hum, the boon's chime, fishing, sleeping, people leaving and arriving, a cave's drips (D-836)
   { voice: 'tap', kind: 'menus', name: 'Tick' },
   { voice: 'card', kind: 'menus', name: 'Page turn' },
   { voice: 'refuse', kind: 'menus', name: "Can't" }, // and "You can't carry more" (D-833)
@@ -116,7 +116,7 @@ export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
 export const BITES = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind'];
 // The same for the creatures' own sounds, a fall and waking, new floors and rooms, and places (D-833)
-export const GROUPS = { bites: BITES, creatures: ['pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat'], falling: ['fall', 'wake'], rooms: ['floor', 'room'], places: ['bells', 'hum', 'chime', 'plop', 'splash', 'breath', 'shimmer'] };
+export const GROUPS = { bites: BITES, creatures: ['pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat'], falling: ['fall', 'wake'], rooms: ['floor', 'room'], places: ['bells', 'hum', 'chime', 'plop', 'splash', 'breath', 'shimmer', 'drip'] }; // a cave's drips under Places, as Finds' list is full on the smallest card (D-836)
 const lineOf = (voice) => Object.keys(GROUPS).find((g) => GROUPS[g].includes(voice)) ?? voice;
 export const isMuted = (s, voice) => (s.muted ?? []).includes(lineOf(voice));
 export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;

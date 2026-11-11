@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.281 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.282 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sounds all around (Q-095, D-834), drips in caves first: a board of
-sounds for the owner to pick from, then build it.
+Sounds all around (Q-095, D-834), the next place after the caves'
+drips (D-836): wind on the surface, birds by day, crickets at night;
+a board for the owner to pick from, then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -20,8 +21,8 @@ sounds for the owner to pick from, then build it.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): sounds
-  all around, music; swaps for Claude's picks (D-833)
+- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): more
+  sounds all around (D-836), music; swaps for Claude's picks (D-833)
   any time; then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
@@ -40,6 +41,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.282, A cave's drips.** The owner's picks (D-836),
+  all recommended, from a board of 4 drips and 3 paces: a drop and its
+  ripple, every 8 to 16 s at random, in the rock caves (floors 2 to 4),
+  a little left or right, through the cave's echo; in Places' line, as
+  Finds' list is full on the smallest card.
+  Playtest: https://claude.ai/artifact/Xx6GezeyFYPXpmr7daAwxE
+  Sound board: https://claude.ai/artifact/WiZjTUwoGBAF25RaBVJiS5
+  Board of drips: https://claude.ai/artifact/JQPZeA9gjyN6oi16zymWkZ
 - **2026-11-11, 0.3.281, The heartbeat at the last heart.** The owner's
   picks (D-835), both recommended, from a board of 4 beside poison's
   throb: a soft lub-dub twice, the second fainter, once as a turn leaves
@@ -54,11 +63,3 @@ list in `RESEARCH.md`.
   step each; weather after them (Q-035). Claude's picks kept for now.
   Playtest: https://claude.ai/artifact/WaivPk45exKkGx9R9RRTgx
   Sound board: https://claude.ai/artifact/KLZybCbrZX2jATNurEuZtW
-- **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
-  go-ahead (D-833), Claude's recommended pick for every line still
-  silent, by measured shape: the last three bites, the creatures' own
-  sounds, a fall and waking, new floors and rooms, eating, people,
-  making, the places' bells and water, sleep, "can't carry more" and
-  the run's end; grouped Settings lines.
-  Playtest: https://claude.ai/artifact/GdRFnZEjTLHxpZQ2YS4mH6
-  Sound board: https://claude.ai/artifact/8UCmRZeLrXobw8Jxc7iPqJ

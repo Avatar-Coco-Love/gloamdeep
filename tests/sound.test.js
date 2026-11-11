@@ -226,6 +226,21 @@ test('The last heart: a soft lub-dub twice (D-835)', async () => {
   assert.equal(beats(2, 2), false); // no heart taken this turn
 });
 
+// § a cave's drips (D-836): a drop and its ripple, a little higher, through the cave's echo, a little
+// left or right; only in the rock caves, every 8 to 16 seconds; under Finds, in Places' line
+test("A cave's drips: in the rock caves, every 8 to 16 seconds (D-836)", async () => {
+  const { isMuted } = await import('../src/core/settings.js');
+  const { kindOf, dripsIn, dripGap } = await import('../src/render/sound.js');
+  const { areaAt } = await import('../src/core/room.js');
+  assert.deepEqual([FILES.drip.files, FILES.drip.gain, FILES.drip.pitch, FILES.drip.pitchOf(), FILES.drip.echo, FILES.drip.around],
+    [['morphonaut-elemental-forces/Water/Water-009.ogg'], 0.1, 0.1, 1.2, true, 0.6]);
+  assert.equal(kindOf('drip'), 'finds');
+  assert.ok(isMuted({ muted: ['places'] }, 'drip') && !isMuted({}, 'drip'));
+  assert.deepEqual([1, 2, 3, 4, 5, 8].map((d) => dripsIn(false, areaAt(d)?.look)), [false, true, true, true, false, false]); // the rock caves, floors 2 to 4
+  assert.equal(dripsIn(true, 'rock'), false); // never under the sky
+  assert.deepEqual([dripGap(0), dripGap(0.5), dripGap(0.999999)].map((ms) => Math.round(ms / 1000)), [8, 12, 16]);
+});
+
 // § the fight's rest (D-831): a puff of air for a stiff miss, a dull blow for a bite that hurts, a deep
 // throb twice for poison's heart, three glass notes rising for a level, each under Fighting
 test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {

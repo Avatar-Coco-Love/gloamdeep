@@ -51,7 +51,7 @@ import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
-import { createSound, stepOf, cardTurn, KIND_SOUND } from './render/sound.js';
+import { createSound, stepOf, cardTurn, KIND_SOUND, dripsIn, dripGap } from './render/sound.js';
 import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
@@ -588,13 +588,23 @@ function update(t) {
     else if (app.hold && t - lastHeldStep >= HOLD_STEP_MS) { lastHeldStep = t; holdStep(); }
   }
 }
+// § drips (D-836): while play shows the rock caves, a drip every 8 to 16 seconds; leaving, or a
+// card or menu over play, stops them, and they start again from a fresh wait
+const dripVary = rng(836);
+let nextDrip = null;
+function keepDrips(t) {
+  const here = app.screen === 'play' && !app.travel && !app.fall && dripsIn(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look);
+  if (!here) { nextDrip = null; return; }
+  if (nextDrip === null) nextDrip = t + dripGap(dripVary());
+  else if (t >= nextDrip) { sound.drip(); nextDrip = t + dripGap(dripVary()); }
+}
 // § safety net (D-557): an error in one frame is logged, once for each message, and the
 // next frame still comes, so a bug can't freeze the game
 const logged = new Set();
 function loop(t) {
   try {
     turnPage();
-    if (!screens.onTitle()) update(t);
+    if (!screens.onTitle()) { update(t); keepDrips(t); }
     keepJourney();
     keepPlayed(t);
     frame.draw(t);

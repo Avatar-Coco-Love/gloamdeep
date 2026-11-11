@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.282 (2026-11-11)
+- New: the rock caves (floors 2 to 4) drip. While you play there, a drop of water falls somewhere around you every 8 to 16 seconds, a little left or right, echoing off the walls like your steps. Leaving the caves, or opening a card or menu, stops them.
+- New: Settings' Places line, under Finds, turns the drips On or Off with the rest of the places' sounds.
+- Notes: more sounds all around come next (wind, birds, crickets), then music.
+- Decisions: D-836.
+
 ## 0.3.281 (2026-11-11)
 - New: as a bite, a glob or poison leaves you on your last heart, your heart beats: a soft lub-dub, twice, the second fainter, a moment after the blow or the poison's throb. It plays once, and again only after a heart has come back and gone again. A fall, which wakes you at full hearts, doesn't play it.
 - New: Settings' Fighting list gains Last heart.
@@ -34,11 +40,3 @@ Entry format:
 - New: Settings' Steps list gains Oil runs low.
 - Notes: the other "Maybe" sounds come next, one step each: a heartbeat at the last heart, sounds all around, music. Weather comes after them: rain, fog, what they do to you, and creatures that come with them.
 - Decisions: D-834.
-
-## 0.3.279 (2026-11-11)
-- New: every sound the game needs now plays. The gloamling bites with a low breath and a snap, a lampmoth with a papery flutter, a warden with grinding stone.
-- New: the creatures' own sounds: a rat pack's squeaks, a mimic's jolt as it wakes, a warden's stone shifting, a scorpion's tail rattling up, a mole's earth as it digs and comes up, a bone rat's bones falling and standing, a glob spat and its splat.
-- New: a fall slides and thuds, and you wake with a breath; a new floor rumbles far off, a new room rings a small note; a waystone's bells, its hum as you travel, a boon's chime, the line's plop, a fish's splash, a long breath as you sleep.
-- New: a herb or heartcap crunches, a potion gulps; a person leaving or arriving shimmers; making something clinks with tools; "You can't carry more" tocks; the run's end falls slowly.
-- New: Settings' lists gain Falling and New rooms (Steps), Creatures (Fighting), Eating, Making and Places (Finds) and Run ends (Menus).
-- Decisions: D-833. Claude's picks, by the owner's go-ahead; ask for any swap.
