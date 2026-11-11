@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.276 (2026-11-11)
+- New: the lantern and the light have sounds, the first from the elemental pack. A flask poured, by hand or by itself, glugs; as the oil runs out, a crackle slows and fades.
+- New: lighting a torch whooshes, and lighting cold ashes into a campfire sounds of a fire catching and burning.
+- New: on Settings' Sound tab, Steps' list has four more lines, each On or Off: Flask poured, Oil runs out, Torch lit and Campfire lit.
+- Decisions: D-830.
+
 ## 0.3.275 (2026-11-11)
 - Sounds on hand: MorphonautAudio's Elemental Forces, 134 sounds of fire, water, earth and wind, bought by the owner, kept whole for the next sound steps to pick from. Nothing in the game changes yet.
 - Decisions: D-829.
@@ -32,12 +38,3 @@ Entry format:
 - New: planting a seed sounds like two soft steps on earth, and feeding Bat Guano to a sprout like a dulled pat of cloth.
 - New: on Settings' Sound tab, Finds' list has four more lines, each On or Off: Coins, Shelf, Planting and Feeding.
 - Decisions: D-828.
-
-## 0.3.273 (2026-11-11)
-- Fixed: with a Healing herb chosen in the bag, once a mortar draught that uses it is known, the bag no longer stops drawing; the card shows EAT and, beside it, the draught it makes at the mortar.
-- Fixed: MAKE with a full bag now says "Your bag is full.", not that you already carry what it makes (the Mortar and Pestle, a workbench).
-- Fixed: a shy bunny near you at dusk no longer stops you sleeping out; only a creature that bites, or one chasing you, does.
-- Fixed: holding a tool, the rod or a pick, no longer plays the knife being drawn.
-- Fixed: the Tab key on Settings' tabs ticks, as a tap on a tab does.
-- Docs: the Mortar and Pestle's notes now say it lists six draughts, each once all its parts have been held.
-- Decisions: D-827.

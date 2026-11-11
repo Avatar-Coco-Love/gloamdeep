@@ -43,7 +43,7 @@ import { createBagButton } from './input/bagbutton.js';
 import { createQuickSlot } from './input/quickslot.js';
 import { createSleepButton } from './input/sleepbutton.js';
 import { createArrowPad } from './input/arrowpad.js';
-import { firstFlask } from './core/bag.js';
+import { firstFlask, isFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
 import { createScreens } from './input/screens.js';
 import { waitsInLine } from './input/queue.js';
@@ -359,6 +359,10 @@ function hear(events) {
   if (has(events, 'shelve')) sound.shelf(); // a relic on the shelf (D-828)
   if (has(events, 'plant')) sound.sow(); // a seed in the garden bed
   if (has(events, 'feed')) sound.feed(); // guano on the sprout
+  if (events.some((e) => e.type === 'pour' && isFlask(e.id))) sound.pour(); // a flask, by hand or by itself; a minnow is silent (D-830)
+  if (has(events, 'oilOut')) sound.gutter(); // the lantern gutters to an ember
+  if (has(events, 'torch')) sound.torch(); // an unlit torch lit (D-121)
+  if (has(events, 'kindle')) sound.kindle(); // cold ashes lit into a campfire (D-757)
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);

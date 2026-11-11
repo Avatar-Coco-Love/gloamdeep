@@ -16,6 +16,8 @@
 // and small stones tumbling as it breaks; a wooden creak as a chest opens, a knock as it closes.
 // Home next (D-828): coins for a sale, a book set on wood for a relic shelved, two soft earth
 // steps for a seed planted, the bag's pat dulled for guano fed.
+// The lantern and the light next (D-830), from the elemental pack: glugs for a flask poured, a crackle
+// that slows and fades as the oil runs out, a quick whoosh for a torch lit, a fire catching for a campfire.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -32,10 +34,13 @@ import { rng } from '../core/rng.js';
 // by what the game passes in, as the hit does: the lantern's knock or the knife's slice;
 // `part` marks files heard only as part of another sound, with no line of their own; `with`
 // plays other entries too, each that many seconds later, as the break's stones tumble; `wait`
-// starts it that many seconds late every time, as the chest's knock after the page (D-825)
+// starts it that many seconds late every time, as the chest's knock after the page (D-825);
+// `from` starts that many seconds into the file and `len` plays that many seconds of it, its
+// last `fade` seconds fading out, and `slide` is the pitch it slides to over them (D-830)
 const impact = (name) => [0, 1, 2, 3, 4].map((n) => `kenney-impact-sounds/${name}_00${n}.ogg`);
 const PACKS = 'sounds/packs/';
 const steps = (ground) => impact(`footstep_${ground}`);
+const elements = (name) => [`morphonaut-elemental-forces/${name.split('-')[0]}/${name}.ogg`];
 export const FILES = {
   footstep: { files: steps('grass'), gain: 0.25, pitch: 0.06 },
   stoneStep: { files: steps('concrete'), gain: 0.1, pitch: 0.06, echo: true },
@@ -64,14 +69,18 @@ export const FILES = {
   sow: { files: steps('grass'), gain: 0.25, pitch: 0.06, muffle: 1400, with: [['sowAgain', 0.13]] }, // a seed planted: two quick earth steps
   sowAgain: { files: steps('grass'), gain: 0.2, pitch: 0.06, muffle: 1400, part: true },
   feed: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.33, pitch: 0.06, muffle: 1400 }, // guano fed: the bag's pat, dulled
+  pour: { files: elements('Water-027'), gain: 0.47, pitch: 0 }, // a flask poured: seven quick glugs (D-830)
+  gutter: { files: elements('Fire-017'), gain: 0.22, pitch: 0, len: 1.3, fade: 1, slide: 0.7 }, // the oil runs out: a crackle slowing as it fades
+  torch: { files: elements('Fire-030'), gain: 0.24, pitch: 0, from: 0.1, len: 1.2, fade: 0.5 }, // a torch lit: a quick whoosh
+  kindle: { files: elements('Fire-021'), gain: 0.27, pitch: 0, from: 0.18, len: 2.4, fade: 0.9 }, // cold ashes lit: a fire catching, then burning
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'gutter', 'torch', 'kindle'];
 // § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
 // Fighting with the creatures, Finds with the bag and places, and Menus
 const KINDS = {
-  steps: ['footstep', 'stoneStep', 'earthStep', 'lantern'],
+  steps: ['footstep', 'stoneStep', 'earthStep', 'lantern', 'pour', 'gutter', 'torch', 'kindle'],
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'],
   finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse'],
@@ -152,11 +161,17 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     } else src.connect(g);
     g.connect(ac.destination);
     if (echoes) g.connect(echo);
-    src.start(ac.currentTime + at + wait + (arg === true ? after : 0));
+    const when = ac.currentTime + at + wait + (arg === true ? after : 0), rate = src.playbackRate.value, { from = 0, len, fade, slide } = FILES[voice];
+    if (len) { // only part of the file: it fades out over its last `fade` seconds, its pitch sliding to `slide`
+      if (fade) { g.gain.setValueAtTime(g.gain.value, when + len - fade); g.gain.linearRampToValueAtTime(0, when + len); }
+      if (slide) { src.playbackRate.setValueAtTime(rate, when); src.playbackRate.linearRampToValueAtTime(slide, when + len); }
+      src.start(when, from);
+      src.stop(when + len);
+    } else src.start(when, from);
     for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later);
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, sample };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, gutter, torch, kindle, sample };
 }

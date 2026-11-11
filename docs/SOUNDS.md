@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -15,7 +15,7 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`; the game plays from Kenney's Impact
-Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.txt`). All six are CC0 (no credit needed),
+Sounds, RPG Audio and Interface Sounds, and the elemental pack, so far; each folder keeps its `License.txt`). All six are CC0 (no credit needed),
 `.ogg` files: four of Kenney's, one of ObsydianX's (itch.io), whose
 222 tones were cut of their silence when saved, nothing else changed,
 and MorphonautAudio's Elemental Forces (itch.io, bought by the owner,
@@ -48,10 +48,10 @@ D-829), saved from WAV, nothing else changed:
 | --- | --- | --- | --- |
 | `lantern` | the lantern goes on, by hand or by itself (D-775) | a metal click, higher | `kenney-rpg-audio/metalClick`, 12% higher, at half loudness, CC0 |
 | `lantern` | the lantern goes off, by hand or by itself (D-775) | the same click, lower | `kenney-rpg-audio/metalClick`, 11% lower, at half loudness, CC0 |
-| | a flask poured, by hand or by itself (D-249) | oil glugging into glass | — |
-| | the oil runs out | a flame guttering out | — |
-| | a torch lit (D-121) | a whoosh of fire | — |
-| | cold ashes lit into a campfire (D-757) | a whoosh, then crackling | — |
+| `pour` | a flask poured, by hand or by itself (D-249, D-830); a minnow is silent | oil glugging into glass | the elemental pack's `Water-027`, at 0.47, CC0 |
+| `gutter` | the oil runs out (D-830) | a flame guttering out | `Fire-017`, a crackle: 1.3 s, fading 1 s, sliding to 0.7, at 0.22, CC0 |
+| `torch` | a torch lit (D-121, D-830) | a whoosh of fire | `Fire-030`: from 0.1 s, 1.2 s, fading 0.5 s, at 0.24, CC0 |
+| `kindle` | cold ashes lit into a campfire (D-757, D-830) | a whoosh, then crackling | `Fire-021`: from 0.18 s, 2.4 s, fading 0.9 s, at 0.27, CC0 |
 
 ## Fighting
 
