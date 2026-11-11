@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.279 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.280 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner hears the rest of the sounds on the sound board (D-833) and
-asks for any swaps; then picks the next step from "Waiting on the owner".
+The heartbeat at the last heart (Q-095, D-834): a board of sounds for
+the owner to pick from, then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -20,8 +20,9 @@ asks for any swaps; then picks the next step from "Waiting on the owner".
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds (Q-095): swaps for any of Claude's picks (D-833); the "Maybe"
-  sounds.
+- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): the
+  heartbeat, sounds all around, music; swaps for Claude's picks (D-833)
+  any time; then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
@@ -39,6 +40,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.280, The oil's warning.** The owner's pick (D-834)
+  from a board of 4, the recommended one: two short sputters from the
+  empty lantern's crackle, with "The flame is getting low." at 20%; one
+  Settings line, Oil runs low. All the "Maybe" sounds are wanted, one
+  step each; weather after them (Q-035). Claude's picks kept for now.
+  Playtest: https://claude.ai/artifact/WaivPk45exKkGx9R9RRTgx
+  Sound board: https://claude.ai/artifact/KLZybCbrZX2jATNurEuZtW
 - **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
   go-ahead (D-833), Claude's recommended pick for every line still
   silent, by measured shape: the last three bites, the creatures' own
@@ -54,10 +62,3 @@ list in `RESEARCH.md`.
   clatter of bones, a slurp and gulp; one Settings line, Bites.
   Playtest: https://claude.ai/artifact/HfpJox5EonPzuZQCx5BMap
   Sound board: https://claude.ai/artifact/FMcB5qLz5v9oRHnFRCMwLU
-- **2026-11-11, 0.3.277, The fight's rest's sounds.** The owner's picks
-  (D-831) from a board of 4, 4, 4 and 4, then 4 new for poison: a short
-  puff of air for a stiff miss, a dull muffled blow for the hero hurt,
-  a deep throb twice for poison's heart, three glass notes rising for a
-  level.
-  Playtest: https://claude.ai/artifact/8oh1BSHoDwPGgrecdBkYbi
-  Sound board: https://claude.ai/artifact/W7X6W7TsCw4YK4KEK34HHy

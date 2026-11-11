@@ -63,7 +63,9 @@ wood; a wood step is picked, D-774: the grass files at a quarter
 loudness, muffled, with the bright crack filtered off above 1400 Hz,
 the same as the burrows' earth, D-776); sounds all around, such as wind on the
 surface, birds by day, crickets at night, drips in caves; music; a
-warning when the oil runs low; a heartbeat at the last heart.
+heartbeat at the last heart. All are wanted, one step each (D-834): the
+heartbeat next, then sounds all around (drips in caves first), then
+music. The oil's warning is in `SOUNDS.md` (D-834).
 
 ## Later (decided, not yet built)
 

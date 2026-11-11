@@ -185,6 +185,26 @@ test('The lantern and the light: pour, gutter, torch and campfire (D-830)', asyn
   assert.equal(out(0), false); // already out: no second gutter
 });
 
+// § the oil's warning (D-834): two short sputters from the empty lantern's crackle, as the flame
+// is getting low, once on the way down, and again only after the oil has gone back above 20%
+test('The oil runs low: two sputters with its line (D-834)', async () => {
+  const { SOUND_LINES } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const { makeState, wait } = await import('../src/core/turn.js');
+  const { makeRoom, FIRST_ROOM } = await import('../src/core/room.js');
+  const { setOil, OIL } = await import('../src/core/oil.js');
+  const fire = ['morphonaut-elemental-forces/Fire/Fire-017.ogg'];
+  assert.deepEqual([FILES.sputter.files, FILES.sputter.from, FILES.sputter.len, FILES.sputter.fade, FILES.sputter.gain], [fire, 0.78, 0.25, 0.1, 0.24]);
+  assert.deepEqual([FILES.sputter2.files, FILES.sputter2.pitchOf(), FILES.sputter2.gain, FILES.sputter.with], [fire, 0.85, 0.17, [['sputter2', 0.32]]]);
+  for (const v of ['sputter', 'sputter2']) assert.equal(kindOf(v), 'steps');
+  assert.ok(SOUND_LINES.some((l) => l.voice === 'sputter' && l.kind === 'steps' && l.name === 'Oil runs low'));
+  const low = (oil) => wait(setOil(makeState(makeRoom(FIRST_ROOM)), oil)).events.some((e) => e.type === 'oilLow');
+  assert.equal(low(0.2), true); // the step under 20%: it sputters
+  assert.equal(low(0.5), false);
+  assert.equal(low(0.15), false); // already under: no second sputter
+  assert.ok(OIL.burn > 0);
+});
+
 // § the fight's rest (D-831): a puff of air for a stiff miss, a dull blow for a bite that hurts, a deep
 // throb twice for poison's heart, three glass notes rising for a level, each under Fighting
 test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
@@ -252,9 +272,9 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
   const { GROUPS } = await import('../src/core/settings.js');
   for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v) || Object.values(GROUPS).some((g) => g.includes(v)), `${v} has a line`); // every heard sound, the grouped under one (D-832, D-833)
   for (const g of Object.keys(GROUPS)) assert.ok(SOUND_LINES.some((l) => l.voice === g) && FILES[g].as, `${g}'s line plays one of its own`);
-  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs out', 'Torch lit', 'Campfire lit', 'Falling', 'New rooms']);
+  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs low', 'Oil runs out', 'Torch lit', 'Campfire lit', 'Falling', 'New rooms']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
-    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Falling: On', 'New rooms: On', 'Version history']);
+    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs low: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Falling: On', 'New rooms: On', 'Version history']);
   assert.ok(isMuted({ muted: ['creatures'] }, 'statue') && isMuted({ muted: ['places'] }, 'shimmer') && !isMuted({ muted: ['places'] }, 'eat'));
   assert.equal(settingsMenu({}, false, null, null, 'sound').find((l) => l.id === 'loudFight').value, '100% >'); // a kind's line opens its list
   assert.equal(kindListTab('fight').text, 'SOUND · FIGHTING');

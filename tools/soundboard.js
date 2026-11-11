@@ -27,6 +27,8 @@ const SOUNDS = [
   { label: 'Lantern off', play: 'later(0, () => sound.lantern(false))' },
   { label: 'A flask poured', play: 'later(0, () => sound.pour())' },
   { label: 'Two steps, then a flask pours by itself', play: 'later(0, () => sound.footstep()); later(250, () => sound.footstep()); later(550, () => sound.pour())' },
+  { label: 'The oil runs low (two sputters)', play: 'later(0, () => sound.sputter())' },
+  { label: 'Steps, the oil runs low, later it runs out', play: 'for (let i = 0; i < 4; i++) later(i * 250, () => sound.footstep()); later(1000, () => { sound.footstep(); sound.sputter(); }); later(2600, () => sound.footstep()); later(2850, () => { sound.footstep(); sound.gutter(); })' },
   { label: 'The oil runs out', play: 'later(0, () => sound.gutter())' },
   { label: 'A step, then the oil runs out', play: 'later(0, () => sound.footstep()); later(250, () => sound.gutter())' },
   { label: 'A torch lit', play: 'later(0, () => sound.torch())' },

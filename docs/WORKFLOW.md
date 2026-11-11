@@ -103,5 +103,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A bought pack goes in the public repo whole only once its licence allows sharing; check the listing's licence first and say where it came from in its `License.txt` (0.3.275).
 - Picking sounds by their measured shape and spectrogram works when the names say nothing, but check in the code what the moment really does before writing an "In play" button: the oil running out dims the lantern, it doesn't click it off (0.3.276).
 - When the owner hands over a batch of picks, many moments with no event of their own can still be heard by comparing the state before and after a turn (a creature under the earth, a line said), with no change to the rules; grouped Settings lines keep the lists on the smallest card (0.3.279).
+- Before picking when a new sound plays, grep the lines and events for that moment: the oil already had "The flame is getting low." at 20%, so the owner chose to tie the sound to it rather than add a second warning (0.3.280).
 - When none of a moment's 4 fit, offer 4 new ones of other kinds on the same board, keeping the moments already picked marked (0.3.277).
 - Ten moments on one board, 3 each with "Alone" and "In a fight" buttons, were picked in three rounds of questions; check that Settings' lists still fit the smallest card before adding a line per sound (0.3.278).
