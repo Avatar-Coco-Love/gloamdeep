@@ -1140,3 +1140,22 @@ a dim waystone row and a Growth upgrade with too few embers; the
 "You can't carry more" lines, the dim quick slot and the HUD buttons in
 play stay silent; the run ending waits for later. D-815 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-820 · 2026-11-11 · The bag's sounds** (the owner's picks, all
+recommended, from a board of 4 each; builds D-774; answers part of
+Q-095) An item into the bag pats: RPG Audio's cloth 1 to 4, taking
+turns, a little higher or lower each time (offered too: a small leather
+pouch; leather dropped; a cloth belt). A weapon from the bag into the
+hand is drawn: its knife draw 3 (offered too: draws 1 to 3; a belt
+buckle; a metal latch). A tile set down knocks: Impact Sounds' medium
+wood knocks (offered too: heavy; a plank; a book set down). Each as
+loud as a step (offered too: half). A weapon picked up only pats.
+Claude's calls the owner may change: every `take` pats, a fish's catch
+keeps only its splash, the stash chest's moves keep the menus' tick.
+Next, Settings gets tabs: Controls (Swipe, Tap, Arrow pad, Stop
+walking), Game (Seed, Mode, Lantern, Flasks), Screen (Motion, Attack
+marks, Stats line) and Sound (offered too: Play · Screen · Sound; Game ·
+Sound); later the Sound tab holds an overall loudness, a loudness for
+each kind, and On or Off for each sound (offered too: silent in the
+background). D-816 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

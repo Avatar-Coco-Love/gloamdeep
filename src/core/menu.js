@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried } from './bag.js';
-import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, LOUD_KINDS, kindText, statsText, marksText } from './settings.js';
+import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, LOUD_KINDS, kindText, soundsOf, isMuted, voiceText, statsText, marksText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -88,12 +88,22 @@ export const SETTINGS_TABS = [
   { id: 'sound', text: 'SOUND', ids: ['sound', 'loud', ...LOUD_KINDS.map((k) => k.id)] },
 ];
 export const settingsTabOf = (id) => SETTINGS_TABS.find((t) => t.id === id) ?? SETTINGS_TABS[0];
-export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null, tab = null) => {
+// § a kind's list (D-824): opened from its line on the Sound tab, the kind's loudness first, then
+// each of its sounds On or Off; its title in the tabs' row, SOUND · STEPS
+export const kindList = (s, kind) => {
+  const { id } = LOUD_KINDS.find((k) => k.kind === kind);
+  return [named(id, kindText(id, s[id] ?? 100)), ...soundsOf(kind).map(({ voice }) => named(`mute:${voice}`, voiceText(voice, isMuted(s, voice))))];
+};
+export const kindListTab = (kind) => ({ id: 'sound', text: `SOUND · ${LOUD_KINDS.find((k) => k.kind === kind).name.toUpperCase()}` });
+export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null, tab = null, list = null) => {
   const all = allSettings(s, deviceReduced, journey, mode);
+  if (list) return [...kindList(s, list), all[all.length - 1]];
   if (!tab) return all;
   const { ids } = settingsTabOf(tab);
-  return [...ids.flatMap((id) => all.filter((l) => l.id === id)), all[all.length - 1]];
+  return [...ids.flatMap((id) => all.filter((l) => l.id === id)).map(opens), all[all.length - 1]];
 };
+// On the Sound tab, a kind's line shows > after its loudness: a pick opens its list (D-824)
+const opens = (l) => (LOUD_KINDS.some((k) => k.id === l.id) ? { ...l, value: `${l.value} >` } : l);
 const allSettings = (s, deviceReduced, journey, mode) => [
   named('swipe', swipeText(s.swipe)),
   named('tap', tapText(s.tap)),

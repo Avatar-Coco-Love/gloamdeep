@@ -70,6 +70,27 @@ export const LOUD_KINDS = [
   { id: 'loudMenus', kind: 'menus', name: 'Menus' },
 ];
 export const kindText = (id, n) => `${LOUD_KINDS.find((k) => k.id === id).name}: ${n}%`;
+// § each sound: On or Off, in a list opened from its kind's line (D-824); only the sounds heard so
+// far, each named by what happens; `voice` is its name in render/sound.js. Off is kept in `muted`.
+export const SOUND_LINES = [
+  { voice: 'footstep', kind: 'steps', name: 'Grass' },
+  { voice: 'stoneStep', kind: 'steps', name: 'Stone' },
+  { voice: 'earthStep', kind: 'steps', name: 'Earth' },
+  { voice: 'lantern', kind: 'steps', name: 'Lantern' },
+  { voice: 'lanternHit', kind: 'fight', name: 'Lantern hit' },
+  { voice: 'knifeHit', kind: 'fight', name: 'Knife hit' },
+  { voice: 'beaten', kind: 'fight', name: 'Beaten' },
+  { voice: 'pat', kind: 'finds', name: 'Into the bag' },
+  { voice: 'draw', kind: 'finds', name: 'Weapon drawn' },
+  { voice: 'thunk', kind: 'finds', name: 'Tile set down' },
+  { voice: 'tap', kind: 'menus', name: 'Tick' },
+  { voice: 'card', kind: 'menus', name: 'Page turn' },
+  { voice: 'refuse', kind: 'menus', name: "Can't" },
+];
+export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
+export const isMuted = (s, voice) => (s.muted ?? []).includes(voice);
+export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;
+export const toggleMuted = (s, voice) => (isMuted(s, voice) ? (s.muted ?? []).filter((v) => v !== voice) : [...(s.muted ?? []), voice]);
 // How loud a kind plays, 0 to 1: Loudness times the kind's share (D-823)
 export const loudOf = (s, kind) => ((s.loud ?? 100) / 100) * ((s[LOUD_KINDS.find((k) => k.kind === kind)?.id] ?? 100) / 100);
 
@@ -103,9 +124,10 @@ export function loadSettings() {
   const sound = s?.sound === 'on' ? 'on' : 'off';
   const loud = isLoud(s?.loud) ? s.loud : 100;
   const kinds = Object.fromEntries(LOUD_KINDS.map(({ id }) => [id, isLoud(s?.[id]) ? s[id] : 100])); // D-823
+  const muted = Array.isArray(s?.muted) ? s.muted.filter((v) => SOUND_LINES.some((l) => l.voice === v)) : []; // D-824
   const stats = s?.stats === 'on' ? 'on' : 'off';
   const marks = s?.marks === 'off' ? 'off' : 'on';
-  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, loud, ...kinds, stats, marks };
+  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, loud, ...kinds, muted, stats, marks };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify({ ...s, taps: 2 })); } catch { /* not kept */ }

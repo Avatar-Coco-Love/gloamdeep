@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.269 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.270 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Sound tab's third step (D-822, D-823): each sound On or Off, in a
-short list opened from its kind's line.
+The audit at 0.3.272 is two versions away (D-518); before it, the next
+sounds from files (Q-095): digging and chests, picked on a sound board.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -44,6 +44,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.270, Each sound On or Off.** The owner's picks
+  (D-824), all recommended, after a fit test (13 lines fit at 320 × 568
+  upright and sideways): only the heard sounds; a kind's line opens its
+  list, its loudness first; the list in the Sound tab; lines named by
+  what happens. The Sound tab's three steps are done.
+  Playtest: https://claude.ai/artifact/EDQSQi6GsDRnGM51saBwV9
 - **2026-11-11, 0.3.269, The four kinds' loudness.** The owner's picks
   (D-823), all recommended, after a fit test (all six lines fit at
   320 × 568): Steps, Fighting, Finds and Menus as plain lines under
@@ -55,9 +61,3 @@ list in `RESEARCH.md`.
   steps of 10%, beside Sound On or Off; then four kinds; then each sound
   On or Off in a list opened from its kind.
   Playtest: https://claude.ai/artifact/QzDFFcxDm4YvU93KtT9xJz
-- **2026-11-11, 0.3.267, Settings in tabs.** The owner's picks (D-821),
-  all recommended: CONTROLS, GAME, SCREEN and SOUND in the title row,
-  opening on the last tab, Tab turns them, VERSION HISTORY on each;
-  upright, two rows of 2 (found by the fit test after the first picks,
-  the 0.3.246 lesson again). The Sound tab grows next.
-  Playtest: https://claude.ai/artifact/7mK8JxWAumrUKgKH4J3RDo

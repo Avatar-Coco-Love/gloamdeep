@@ -11,8 +11,8 @@ export function settingsCard(app, ui, show, c) {
   const { menuPick, menuDir } = makeMenu(app, ui, show, c);
   function tap(px, py, held) {
     if (held) return;
-    const at = settingsCardAt(px, py, view.w, view.h, menuOf('settings'));
-    if (at === 'out' || at === 'close') closeSettings(); // the round cross goes back (D-389)
+    const at = settingsCardAt(px, py, view.w, view.h, menuOf('settings'), app.soundList);
+    if (at === 'out' || at === 'close' || at === 'back') closeSettings(); // the round cross goes back (D-389); a kind's list's title too (D-824)
     else if (at?.tab) { if (at.tab !== app.settingsTab) turnSettingsTab(at.tab); }
     else if (at === 'history') { app.chosen = menuOf('settings').length - 1; openHistory(); }
     else if (at) { app.chosen = at.line; menuPick(at.line); }

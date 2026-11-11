@@ -79,7 +79,7 @@ export function cardTurn(trail, to) {
   return at >= 0 ? { trail: trail.slice(0, at + 1), open: false } : { trail: [...trail, to], open: true };
 }
 
-export function createSound(isOn, loudness = () => 1) { // loudness: a kind's, Loudness times its share, 0 to 1 (D-822, D-823)
+export function createSound(isOn, loudness = () => 1, muted = () => false) { // muted: a sound turned Off on its own (D-824) // loudness: a kind's, Loudness times its share, 0 to 1 (D-822, D-823)
   let ac = null, echo = null; // the sound maker, and the cave's echo: a short repeat off the walls, fading (D-776)
   const buffers = {}; // each voice's decoded files, filled once they arrive
   const vary = rng(SEED + 1); // which file and what pitch, each time
@@ -115,7 +115,7 @@ export function createSound(isOn, loudness = () => 1) { // loudness: a kind's, L
 
   // § play: one of the voice's files, not the last one, at its loudness and a pitch near its own
   function play(voice, arg) {
-    if (!ready()) return;
+    if (!ready() || muted(voice)) return;
     if (FILES[voice].as) return play(FILES[voice].as(arg));
     const { gain, pitch, pitchOf, muffle, after = 0, echo: echoes } = FILES[voice], got = buffers[voice].map((b, i) => (b ? i : -1)).filter((i) => i >= 0);
     const choices = got.length > 1 ? got.filter((i) => i !== last[voice]) : got;
@@ -138,5 +138,6 @@ export function createSound(isOn, loudness = () => 1) { // loudness: a kind's, L
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
   const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk };
+  const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, sample };
 }

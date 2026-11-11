@@ -113,25 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-820 · 2026-11-11 · The bag's sounds** (the owner's picks, all
-recommended, from a board of 4 each; builds D-774; answers part of
-Q-095) An item into the bag pats: RPG Audio's cloth 1 to 4, taking
-turns, a little higher or lower each time (offered too: a small leather
-pouch; leather dropped; a cloth belt). A weapon from the bag into the
-hand is drawn: its knife draw 3 (offered too: draws 1 to 3; a belt
-buckle; a metal latch). A tile set down knocks: Impact Sounds' medium
-wood knocks (offered too: heavy; a plank; a book set down). Each as
-loud as a step (offered too: half). A weapon picked up only pats.
-Claude's calls the owner may change: every `take` pats, a fish's catch
-keeps only its splash, the stash chest's moves keep the menus' tick.
-Next, Settings gets tabs: Controls (Swipe, Tap, Arrow pad, Stop
-walking), Game (Seed, Mode, Lantern, Flasks), Screen (Motion, Attack
-marks, Stats line) and Sound (offered too: Play · Screen · Sound; Game ·
-Sound); later the Sound tab holds an overall loudness, a loudness for
-each kind, and On or Off for each sound (offered too: silent in the
-background). D-816 moves to `archive/DECISIONS-SURFACE.md`, word for
-word.
-
 **D-821 · 2026-11-11 · Settings in tabs** (the owner's picks, all
 recommended; builds D-820) The tabs CONTROLS, GAME, SCREEN and SOUND
 sit in the card's title row where SETTINGS was, as the bag's (offered
@@ -175,3 +156,25 @@ Loudness does; the step heard is the grass step wherever the hero is;
 the creatures' sounds follow Fighting, waystones and fishing Finds, a
 card's page Menus. Next, each sound On or Off, in a list opened from its
 kind's line. D-819 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-824 · 2026-11-11 · Each sound On or Off** (the owner's picks, all
+recommended; builds D-823; step 3 of 3) After a fit test (13 lines, the
+longest list could hold, fit at 320 × 568 upright and sideways),
+each kind's list holds only the sounds heard so far, a sound joining it
+as its file goes in (offered too: every sound, the silent dimmed; the
+heard, then a count). A kind's line on the Sound tab reads "Steps: 100%
+>": a tap or Enter opens its list, whose first line is the kind's
+loudness, then its sounds; Left and Right on the Sound tab still change
+the loudness (offered too: a > mark of its own; one line "Each sound").
+The list shows in the Sound tab, its title SOUND · STEPS in the tabs'
+row; the cross, Esc or a tap on the title goes back to the Sound tab on
+that kind's line (offered too: a small card on top). The lines say what
+happens: Steps: Grass, Stone, Earth, Lantern; Fighting: Lantern hit,
+Knife hit, Beaten; Finds: Into the bag, Weapon drawn, Tile set down;
+Menus: Tick, Page turn, Can't; each On or Off (offered too: what it
+sounds like; the code's names). Claude's calls the owner may change:
+each On until picked; a tap, Enter, Left or Right turns one On or Off;
+turned On, it plays itself, turned Off, the tick; the list opens on its
+first line; the rows stay where the tabs leave them, upright a row
+lower; Tab leaves the list for the next tab. D-820 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

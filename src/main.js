@@ -15,7 +15,7 @@ import { createScreen } from './render/screen.js';
 import { setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
-import { loadSettings, swipesWalk, stillMotion, loudOf, LOUD_KINDS } from './core/settings.js';
+import { loadSettings, swipesWalk, stillMotion, loudOf, LOUD_KINDS, isMuted } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { featTurn } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
@@ -97,6 +97,7 @@ const app = {
   bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
   benchTab: 'build', // the workbench card's open tab, BUILD or GEAR, kept as it is closed (D-800)
   settingsTab: 'controls', // the Settings card's open tab, kept as it is closed (D-820)
+  soundList: null, // the kind whose sounds' list is open on the Sound tab, or null (D-824)
   framed: null, // the shown spot (foeAt) of the creature whose plaque was tapped (CL2, D-357)
   lookRoll: rng(randomSeed()), // the look card's RANDOM, seeded once a visit (D-522)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
@@ -114,7 +115,7 @@ function loadInto(slot) {
   else { app.state = newWorld(); app.jumped = false; }
 }
 loadInto(app.profiles.current);
-const sound = createSound(() => app.settings.sound === 'on', (kind) => loudOf(app.settings, kind)); // from sound files, each silent until its file is in (D-773)
+const sound = createSound(() => app.settings.sound === 'on', (kind) => loudOf(app.settings, kind), (voice) => isMuted(app.settings, voice)); // each sound On or Off (D-824) // from sound files, each silent until its file is in (D-773)
 // Saved after every turn, or any change, once the journey has begun (D-238)
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
@@ -464,6 +465,8 @@ const pressed = (act) => (...args) => {
 // A loudness changed: Loudness ticks, a kind plays its own sound, each at the new loudness (D-822, D-823)
 function hearLoud(was) {
   if (was.loud !== app.settings.loud) return sound.tap;
+  const on = (app.settings.muted ?? []).length < (was.muted ?? []).length && (was.muted ?? []).find((v) => !app.settings.muted.includes(v));
+  if (on) return () => sound.sample(on); // a sound turned On plays itself; turned Off, the tick (D-824)
   const k = LOUD_KINDS.find(({ id }) => was[id] !== app.settings[id]);
   return k ? () => sound[KIND_SOUND[k.kind]]() : null;
 }

@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.267, Settings in tabs.** The owner's picks (D-821),
+  all recommended: CONTROLS, GAME, SCREEN and SOUND in the title row,
+  opening on the last tab, Tab turns them, VERSION HISTORY on each;
+  upright, two rows of 2 (found by the fit test after the first picks,
+  the 0.3.246 lesson again). The Sound tab grows next.
+  Playtest: https://claude.ai/artifact/7mK8JxWAumrUKgKH4J3RDo
 - **2026-11-11, 0.3.266, The bag's sounds.** The owner's picks (D-820),
   all recommended, by ear: a cloth pat into the bag, a knife drawn into
   the hand, a wood knock for the workbench set down. Settings gets tabs
