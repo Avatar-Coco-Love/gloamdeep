@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.274 (2026-11-11)
+- New: home's sounds. Selling to the peddler jingles with coins, in place of the tick; a relic set on the shelf sounds like a book set down on wood.
+- New: planting a seed sounds like two soft steps on earth, and feeding Bat Guano to a sprout like a dulled pat of cloth.
+- New: on Settings' Sound tab, Finds' list has four more lines, each On or Off: Coins, Shelf, Planting and Feeding.
+- Decisions: D-828.
+
 ## 0.3.273 (2026-11-11)
 - Fixed: with a Healing herb chosen in the bag, once a mortar draught that uses it is known, the bag no longer stops drawing; the card shows EAT and, beside it, the draught it makes at the mortar.
 - Fixed: MAKE with a full bag now says "Your bag is full.", not that you already carry what it makes (the Mortar and Pestle, a workbench).

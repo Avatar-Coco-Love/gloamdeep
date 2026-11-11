@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.274, Home's sounds.** The owner's picks (D-828),
+  all recommended, from a board of 4, 4, 4 and 3: coins for a sale,
+  a book set on wood for the shelf, two soft earth steps for a seed,
+  the bag's pat dulled for guano.
+  Playtest: https://claude.ai/artifact/D3W1xjwoVvafrfhxWFVz3Y
+  Sound board: https://claude.ai/artifact/FWMMZUdurt3zZqSYUgA1d5
 - **2026-11-11, 0.3.273, The audit's bug fixes.** The owner's picks
   (D-827), all five and the Tab tick: the bag's card with a herb chosen,
   MAKE with a full bag, a bunny and sleeping out, a tool's hold sound,

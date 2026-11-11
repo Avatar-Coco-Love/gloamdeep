@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.277', date: '2026-11-11', title: 'The fight\'s rest\'s sounds', lines: [
+    "New: the rest of the fight has sounds. A stiff swing that misses puffs through the air, and a bite or a glob that takes a heart lands as a dull blow.",
+    "New: poison taking a heart throbs twice, deep and slow, and reaching a level rings three glass notes rising, just after the creature falls.",
+    "New: on Settings' Sound tab, Fighting's list has four more lines, each On or Off: Stiff miss, Hurt, Poison and Level.",
+    "Decisions: D-831.",
+  ] },
   { v: '0.3.276', date: '2026-11-11', title: 'The lantern and the light\'s sounds', lines: [
     "New: the lantern and the light have sounds, the first from the elemental pack. A flask poured, by hand or by itself, glugs; as the oil runs out, a crackle slows and fades.",
     "New: lighting a torch whooshes, and lighting cold ashes into a campfire sounds of a fire catching and burning.",

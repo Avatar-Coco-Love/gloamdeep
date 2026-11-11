@@ -337,14 +337,20 @@ function nudgeToward(dir) {
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731);
 // a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777);
 // an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820);
-// a bump on stone clinks, and its last crumbles (D-825); a relic shelved, a seed planted, guano fed (D-828)
+// a bump on stone clinks, and its last crumbles (D-825); a relic shelved, a seed planted, guano fed (D-828);
+// a stiff swing that misses puffs, a bite that takes a heart is a blow, poison's heart throbs, a level rises (D-831)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
+  const swung = !!hit || has(events, 'miss'); // a bite comes a moment after the hero's swing, hit or missed
   if (hit) sound.hit(!!hit.held);
+  if (has(events, 'miss')) sound.miss(); // stiff, the swing went wide (D-759)
   if (has(events, 'beat') && !has(events, 'scatter')) sound.beaten(!!hit);
-  if (drink) sound[drink](!!hit); // the oil tick's sip (D-606)
+  if (drink) sound[drink](swung); // the oil tick's sip (D-606)
   for (const e of events) if (e.type === 'lantern') sound.lantern(e.lit);
-  if (bite) sound[bite](!!hit);
+  if (bite) sound[bite](swung);
+  if (events.some((e) => e.type === 'bite' && e.hurt > 0)) sound.hurt(swung); // a bite or a glob took a heart (god mode too, as the flash)
+  if (events.some((e) => e.type === 'poison' && e.hurt > 0)) sound.poison(); // poison took a heart (D-654)
+  if (has(events, 'level')) sound.rise(); // a level reached (D-246)
   if (has(events, 'step') && !has(events, 'fall')) sound[stepOf(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look)](); // grass, earth or stone (D-776)
   if (has(events, 'stoneWake')) sound.bells(); // the waystone wakes (D-591); a mimic wakes silently (D-368)
   if (has(events, 'boon')) sound.chime(); // a boon picked (D-596)

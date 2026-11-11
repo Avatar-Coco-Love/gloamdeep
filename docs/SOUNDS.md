@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -59,11 +59,11 @@ D-829), saved from WAV, nothing else changed:
 | --- | --- | --- | --- |
 | `hit` | the hero hits with the lantern (D-777) | a dull knock | `kenney-impact-sounds/impactPunch_medium_000` to `004`, at a quarter loudness, CC0 |
 | `hit` | the hero hits with the knife or spear (D-777) | a quick slice | `kenney-rpg-audio/knifeSlice` and `knifeSlice2`, at a quarter loudness, CC0 |
-| | the hero, stiff, swings and misses (D-759) | a swish through air | — |
+| `miss` | the hero, stiff, swings and misses (D-759, D-831) | a swish through air | the elemental pack's `Wind-012` to `014`, at 0.55, CC0 |
 | `beaten` | a creature is beaten (D-777) | a short fall or crumple, 0.12 s after the hit | `kenney-impact-sounds/impactSoft_heavy_000` to `004`, at a quarter loudness, CC0 |
-| | the hero is hurt (any bite) | a small gasp | — |
-| | poison takes a heart (D-654) | a sick, low pulse | — |
-| | a level reached (D-246) | a short rising note | — |
+| `hurt` | the hero is hurt: a bite or a glob takes a heart, a moment after the hero's swing (D-831) | a small gasp; no pack has a voice, so a blow | `kenney-impact-sounds/impactPunch_heavy_000` to `004`, a tenth lower, muffled above 900 Hz, at 0.32, CC0 |
+| `poison` | poison takes a heart (D-654, D-831) | a sick, low pulse | the same punch at 0.6 pitch, muffled above 400 Hz, at 0.36, then at 0.57 and 0.26, 0.35 s later, CC0 |
+| `rise` | a level reached (D-246, D-831), after the beaten thud | a short rising note | `kenney-impact-sounds/impactGlass_light_000` to `002` at 1, 1.26 and 1.5, 0.11 s apart, at 0.2 to 0.16, 0.55 s late, CC0 |
 
 ## Creatures
 
@@ -96,12 +96,7 @@ the fourteenth audit (D-826), with "Maybe" and "Later".
 
 ## Menus and screens
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `tap` | a button tapped, off play, changing something on the same card (D-819) | a tiny soft tick | `kenney-interface-sounds/tick_002`, at an eighth loudness, CC0 |
-| `card` | a card opens, or closes (D-819) | a page turning | `kenney-rpg-audio/bookFlip3` to open, `bookFlip2` to close, at 0.38 and 0.58, CC0 |
-| `refuse` | a dim pick that can't be done (D-819) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
-| | the run ends | a slow falling tone | — |
+In `SOUNDS-2.md`, moved word for word at 0.3.277.
 
 ## Maybe and Later
 

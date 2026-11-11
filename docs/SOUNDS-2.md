@@ -3,7 +3,7 @@
 The creatures' sounds, moved word for word from `SOUNDS.md` at 0.3.266
 to keep it under 8 KB. Each line reads as the lines there do. Places,
 "Maybe" and "Later" followed at 0.3.272, the fourteenth audit (D-826),
-word for word.
+word for word. Menus and screens followed at 0.3.277, word for word.
 
 ## Creatures (their bites and their own sounds)
 
@@ -30,6 +30,15 @@ word for word.
 | | a warden wakes | heavy stone shifting | — |
 | | a creature spits a glob (D-688) | a wet spit | — |
 | | a glob breaks or hits (D-688) | a small splat | — |
+
+## Menus and screens
+
+| Name | When | Feel | File |
+| --- | --- | --- | --- |
+| `tap` | a button tapped, off play, changing something on the same card (D-819) | a tiny soft tick | `kenney-interface-sounds/tick_002`, at an eighth loudness, CC0 |
+| `card` | a card opens, or closes (D-819) | a page turning | `kenney-rpg-audio/bookFlip3` to open, `bookFlip2` to close, at 0.38 and 0.58, CC0 |
+| `refuse` | a dim pick that can't be done (D-819) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
+| | the run ends | a slow falling tone | — |
 
 ## Places
 
