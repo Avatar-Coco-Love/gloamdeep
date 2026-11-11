@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.288 (2026-11-11)
+- New: chopping sounds. Each bump on a tree chops like an axe biting into wood, and the last bump fells it: one more chop, a slow low creak, then a heavy crash as it lands.
+- New: Settings' Digging line covers chopping too, and Stone breaks covers a tree falling.
+- Decisions: D-842.
+
 ## 0.3.287 (2026-11-11)
 - New: music in the dungeon. On every floor from 8 down, the cold blue halls, a very still, dark tune of long held sounds plays non-stop, looping with no break and carrying on from floor to floor. Going down from the warrens fades the warrens' tune out over 2 seconds, and the dungeon's starts a second later, fading in.
 - New: Music's list in Settings has a line for it, Dungeon, after Warrens.
@@ -34,9 +39,3 @@ Entry format:
 - New: Music's list in Settings has a line for it, Warrens, after Rock caves.
 - Notes: the tune is "Patreon Challenge 11" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. The dungeon is still quiet, its own step.
 - Decisions: D-840.
-
-## 0.3.285 (2026-11-11)
-- New: music in the crypt. From the cave mouth on, in the crypt's two top rooms and on floor 1 below them, a quiet, dark, slow tune plays non-stop, looping with no break and carrying on down the crypt's stairs. Walking in from the woods fades the surface's tune out over 2 seconds, and the crypt's starts a second later, fading in; going down to floor 2 swaps it for the caves' tune the same way.
-- New: Music's list in Settings has a line for it, Crypt, between Surface and Rock caves.
-- Notes: the tune is "Ludum Dare 30 05" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. The warrens and the dungeon are still quiet, one step each.
-- Decisions: D-839.

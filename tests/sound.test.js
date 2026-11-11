@@ -138,6 +138,7 @@ test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async
   const { get } = await import('../src/core/registry.js');
   assert.ok(['deposit', 'vein', 'rubble'].every((id) => get(id).clinks));
   assert.ok(!get('tree').clinks && !get('branch').clinks);
+  assert.ok(get('tree').chops && !get('branch').chops); // trees only for now (D-842)
   assert.ok(FILES.clink.files.every((f) => /impactMining_00[0-4]\.ogg$/.test(f)) && FILES.clink.echo);
   assert.equal(FILES.crumble.pitchOf(), 0.75);
   assert.deepEqual(FILES.crumble.with.map(([v]) => v), ['patter', 'patter', 'patter']);
@@ -145,6 +146,19 @@ test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async
   assert.equal(FILES.chest.as(false), 'chestClose');
   assert.deepEqual(FILES.chestOpen.files, ['kenney-rpg-audio/creak1.ogg']);
   assert.ok(FILES.chestClose.files.every((f) => /impactWood_heavy/.test(f)));
+});
+
+// § chopping (D-842): an axe's chop for each bump on a tree; as it falls a last chop, a slow low
+// creak and a heavy crash; under Digging's and Stone breaks' lines in Settings
+test('A tree chops, then falls with a creak and a crash (D-842)', async () => {
+  const { GROUPS, isMuted } = await import('../src/core/settings.js');
+  assert.deepEqual(FILES.chop.files, ['kenney-rpg-audio/chop.ogg']);
+  assert.deepEqual(FILES.treeFall.with.map(([v]) => v), ['treeCreak', 'treeCrash']);
+  assert.equal(FILES.treeCreak.pitchOf(), 0.6);
+  assert.ok(FILES.treeCrash.files.every((f) => /impactWood_heavy/.test(f)) && FILES.treeCreak.part && FILES.treeCrash.part);
+  assert.ok(!FILES.chop.echo && !FILES.treeFall.echo); // out in the woods, no cave's echo
+  assert.ok(GROUPS.clink.includes('chop') && GROUPS.crumble.includes('treeFall'));
+  assert.ok(isMuted({ muted: ['clink'] }, 'chop') && isMuted({ muted: ['crumble'] }, 'treeFall') && !isMuted({ muted: ['clink'] }, 'treeFall'));
 });
 
 // § home (D-828): coins for a sale, a book on wood for the shelf, two soft earth steps for a
@@ -310,7 +324,7 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
   const heard = Object.keys(FILES).filter((v) => FILES[v].files && !FILES[v].part); // a part, such as the card's two, is heard in its own sound's line
   const { GROUPS } = await import('../src/core/settings.js');
   for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v) || Object.values(GROUPS).some((g) => g.includes(v)), `${v} has a line`); // every heard sound, the grouped under one (D-832, D-833)
-  for (const g of Object.keys(GROUPS)) assert.ok(SOUND_LINES.some((l) => l.voice === g) && FILES[g].as, `${g}'s line plays one of its own`);
+  for (const g of Object.keys(GROUPS)) assert.ok(SOUND_LINES.some((l) => l.voice === g) && (FILES[g].as || FILES[g].files), `${g}'s line plays one of its own`); // or its own sound, as Digging's clink with the chop under it (D-842)
   assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs low', 'Oil runs out', 'Torch lit', 'Campfire lit', 'Falling', 'New rooms']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
     ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs low: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Falling: On', 'New rooms: On', 'Version history']);

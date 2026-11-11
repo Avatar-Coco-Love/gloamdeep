@@ -262,3 +262,20 @@ over play, stops them. They follow Finds' loudness and share Places'
 line, as Finds' list is full on the smallest card (offered too: their
 own line under Steps; Coins and Shelf joined). D-831 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-837 · 2026-11-11 · Music on the surface** (the owner's picks; part of
+Q-095) The Tallbeard bundle's pre-2023 and Troubadeck zips (Abstraction,
+CC0, checked in their licence) came through a temporary GitHub release;
+Tom Feldmann's Wild Music Pack can follow. From a board of 8 calm tracks,
+picked by measuring all 139 (each non-stop or with a 30 s, 60 s or 2 min
+gap), track 6, "Ludum Dare 30 06" (2 min), plays on the surface by day and
+by night, home too, non-stop with no break (offered too: with a 30 s,
+60 s or 2 min gap). Leaving the surface fades it out over 2 seconds
+(offered too: stopping at once; playing on everywhere); back on the
+surface it starts from its beginning a second later, fading in over a
+second. None plays on the title or below, for now. Music is a fifth kind
+in Settings with its own loudness, 50% until picked (offered too: full;
+a quarter; one On or Off switch; a line under Menus), and one line in its
+list, Surface; a change of Music's loudness ticks. Each other place's
+music is its own step. File and loudness in `SOUNDS-3.md`. D-832 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.
