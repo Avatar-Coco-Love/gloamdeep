@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.280, The oil's warning.** The owner's pick (D-834)
+  from a board of 4, the recommended one: two short sputters from the
+  empty lantern's crackle, with "The flame is getting low." at 20%; one
+  Settings line, Oil runs low. All the "Maybe" sounds are wanted, one
+  step each; weather after them (Q-035). Claude's picks kept for now.
+  Playtest: https://claude.ai/artifact/WaivPk45exKkGx9R9RRTgx
+  Sound board: https://claude.ai/artifact/KLZybCbrZX2jATNurEuZtW
 - **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
   go-ahead (D-833), Claude's recommended pick for every line still
   silent, by measured shape: the last three bites, the creatures' own

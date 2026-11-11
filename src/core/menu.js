@@ -2,7 +2,7 @@
 // Continue only while a journey is saved, first and already picked (D-238). Plain data, no drawing.
 import { get } from './registry.js';
 import { bagHas, carried } from './bag.js';
-import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, LOUD_KINDS, kindText, soundsOf, isMuted, voiceText, statsText, marksText } from './settings.js';
+import { swipeText, tapText, padText, stopText, motionText, seedText, lanternText, flasksText, soundText, loudText, LOUD_KINDS, kindLoud, kindText, soundsOf, isMuted, voiceText, statsText, marksText } from './settings.js';
 import { depthOf } from './room.js';
 import { levelOf } from './xp.js';
 
@@ -92,7 +92,7 @@ export const settingsTabOf = (id) => SETTINGS_TABS.find((t) => t.id === id) ?? S
 // each of its sounds On or Off; its title in the tabs' row, SOUND · STEPS
 export const kindList = (s, kind) => {
   const { id } = LOUD_KINDS.find((k) => k.kind === kind);
-  return [named(id, kindText(id, s[id] ?? 100)), ...soundsOf(kind).map(({ voice }) => named(`mute:${voice}`, voiceText(voice, isMuted(s, voice))))];
+  return [named(id, kindText(id, kindLoud(s, id))), ...soundsOf(kind).map(({ voice }) => named(`mute:${voice}`, voiceText(voice, isMuted(s, voice))))];
 };
 export const kindListTab = (kind) => ({ id: 'sound', text: `SOUND · ${LOUD_KINDS.find((k) => k.kind === kind).name.toUpperCase()}` });
 export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null, tab = null, list = null) => {
@@ -117,7 +117,7 @@ const allSettings = (s, deviceReduced, journey, mode) => [
   named('marks', marksText(s.marks)), // D-730
   named('sound', soundText(s.sound)),
   named('loud', loudText(s.loud ?? 100)), // D-822
-  ...LOUD_KINDS.map(({ id }) => named(id, kindText(id, s[id] ?? 100))), // D-823
+  ...LOUD_KINDS.map(({ id }) => named(id, kindText(id, kindLoud(s, id)))), // D-823; Music too (D-837)
   named('stats', statsText(s.stats)),
   { id: 'history', text: 'Version history' },
 ];

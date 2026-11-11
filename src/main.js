@@ -51,7 +51,7 @@ import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
-import { createSound, stepOf, cardTurn, KIND_SOUND, dripsIn, dripGap } from './render/sound.js';
+import { createSound, stepOf, cardTurn, KIND_SOUND, dripsIn, dripGap, musicOf } from './render/sound.js';
 import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
@@ -605,6 +605,7 @@ function loop(t) {
   try {
     turnPage();
     if (!screens.onTitle()) { update(t); keepDrips(t); }
+    sound.music(screens.onTitle() ? null : musicOf(app.state?.room.dark?.sky)); // the surface's theme, home too; none on the title (D-837)
     keepJourney();
     keepPlayed(t);
     frame.draw(t);

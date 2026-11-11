@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.282 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.283 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Sounds all around (Q-095, D-834), the next place after the caves'
-drips (D-836): wind on the surface, birds by day, crickets at night;
-a board for the owner to pick from, then build it.
+Music for the next place (Q-095, D-837): a board of calm tracks from
+the music loops (or Tom Feldmann's Wild Music Pack, if the owner sends
+it) for below ground, the rock caves first; the owner picks, then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -21,9 +21,10 @@ a board for the owner to pick from, then build it.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): more
-  sounds all around (D-836), music; swaps for Claude's picks (D-833)
-  any time; then weather (Q-035): rain, fog, their effects, their creatures.
+- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): music for
+  each place below (D-837); more sounds all around (wind, birds, crickets;
+  set aside for now, D-836); swaps for Claude's picks (D-833) any time;
+  then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
@@ -41,6 +42,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.283, Music on the surface.** The owner's picks
+  (D-837): sounds all around set aside, music first. Abstraction's CC0
+  Music Loop Bundle came through a temporary release; from a board of 8
+  calm tracks, measured from 139, track 6 ("Ludum Dare 30 06"), on the
+  surface day and night, non-stop, fading out over 2 s on leaving; a
+  fifth kind in Settings, Music, at 50%, with one line, Surface.
+  Playtest: https://claude.ai/artifact/JXzAaGaqVeYzzNSUiQGxPY
+  Board of tracks: https://claude.ai/artifact/ANrF9Wxfg9M8EWrKHykx3w
 - **2026-11-11, 0.3.282, A cave's drips.** The owner's picks (D-836),
   all recommended, from a board of 4 drips and 3 paces: a drop and its
   ripple, every 8 to 16 s at random, in the rock caves (floors 2 to 4),
@@ -56,10 +65,3 @@ list in `RESEARCH.md`.
   Settings line under Fighting, Last heart.
   Playtest: https://claude.ai/artifact/Q8TYWHuk8kxh89mVvLUWrq
   Sound board: https://claude.ai/artifact/NVzF392Cw9TcMjkvvyfhgy
-- **2026-11-11, 0.3.280, The oil's warning.** The owner's pick (D-834)
-  from a board of 4, the recommended one: two short sputters from the
-  empty lantern's crackle, with "The flame is getting low." at 20%; one
-  Settings line, Oil runs low. All the "Maybe" sounds are wanted, one
-  step each; weather after them (Q-035). Claude's picks kept for now.
-  Playtest: https://claude.ai/artifact/WaivPk45exKkGx9R9RRTgx
-  Sound board: https://claude.ai/artifact/KLZybCbrZX2jATNurEuZtW

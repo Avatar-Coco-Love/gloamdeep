@@ -105,4 +105,4 @@ sounds all around, music; all wanted, one step each, D-834; the
 heartbeat is D-835, a cave's drips D-836); where the credits show; whether a sound is cached for playing
 offline; swaps for any of Claude's picks (D-833), kept for now. Every
 line of `docs/SOUNDS.md` now has its file (D-774 to D-777, D-819, D-820,
-D-825, D-828, D-830 to D-836).
+D-825, D-828, D-830 to D-837).

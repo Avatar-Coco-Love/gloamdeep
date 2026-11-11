@@ -35,10 +35,11 @@ test('Loudness starts at 100%, steps by 10%, and is kept', () => {
 
 // § kinds (D-823): Steps, Fighting, Finds and Menus under Loudness, each 100% until picked and
 // kept; a kind plays at Loudness times its share; every sound the game asks for has a kind
-test('the four kinds: their lines, their loudness together with Loudness, and every sound in one', async () => {
+test('the five kinds: their lines, their loudness together with Loudness, and every sound in one', async () => {
   const { kindOf, KIND_SOUND, VOICES, FILES } = await import('../src/render/sound.js');
-  assert.deepEqual(LOUD_KINDS.map(({ id }) => kindText(id, 100)), ['Steps: 100%', 'Fighting: 100%', 'Finds: 100%', 'Menus: 100%']);
-  for (const { id } of LOUD_KINDS) assert.equal(loadSettings()[id], 100);
+  assert.deepEqual(LOUD_KINDS.map(({ id }) => kindText(id, 100)), ['Steps: 100%', 'Fighting: 100%', 'Finds: 100%', 'Menus: 100%', 'Music: 100%']);
+  for (const { id } of LOUD_KINDS) assert.equal(loadSettings()[id], id === 'loudMusic' ? 50 : 100); // Music starts at half (D-837)
+  assert.equal(loudOf({ loud: 100 }, 'music'), 0.5);
   assert.equal(loudOf({ loud: 50, loudSteps: 50 }, 'steps'), 0.25);
   assert.equal(loudOf({ loud: 100, loudMenus: 0 }, 'menus'), 0);
   assert.equal(loudOf({ loud: 80 }, 'fight'), 0.8);
@@ -47,7 +48,8 @@ test('the four kinds: their lines, their loudness together with Loudness, and ev
   assert.equal(kindOf('sip'), 'fight');
   assert.equal(kindOf('bells'), 'finds');
   assert.equal(kindOf('cardOpen'), 'menus');
-  for (const { kind } of LOUD_KINDS) assert.equal(kindOf(KIND_SOUND[kind]), kind); // each kind is heard by its own sound
+  for (const { kind } of LOUD_KINDS) if (kind !== 'music') assert.equal(kindOf(KIND_SOUND[kind]), kind); // each kind is heard by its own sound
+  assert.equal(KIND_SOUND.music, 'tap'); // Music by the tick, and the theme itself where it plays (D-837)
   const kept = {};
   globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
   try {
@@ -300,9 +302,10 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
   const { SOUND_LINES, soundsOf, voiceText, toggleMuted, isMuted } = await import('../src/core/settings.js');
   const { kindOf } = await import('../src/render/sound.js');
   const { settingsMenu, kindListTab } = await import('../src/core/menu.js');
+  const { MUSIC } = await import('../src/render/sound.js');
   for (const { voice, kind } of SOUND_LINES) {
     assert.equal(kindOf(voice), kind, voice); // in its own kind's list
-    assert.ok(FILES[voice].files || FILES[voice].as, `${voice} is heard`);
+    assert.ok(kind === 'music' ? MUSIC[voice].file : FILES[voice].files || FILES[voice].as, `${voice} is heard`); // a theme is music (D-837)
   }
   const heard = Object.keys(FILES).filter((v) => FILES[v].files && !FILES[v].part); // a part, such as the card's two, is heard in its own sound's line
   const { GROUPS } = await import('../src/core/settings.js');
@@ -328,4 +331,19 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
     kept['gloamdeep-settings'] = JSON.stringify({ muted: 'pat' });
     assert.deepEqual(loadSettings().muted, []);
   } finally { delete globalThis.localStorage; }
+});
+
+test('Music (D-837): the surface plays its theme, home too, none below; its own kind at half, with one line, Surface', async () => {
+  const { MUSIC, musicOf, FADE_OUT, QUIET, FADE_IN, kindOf } = await import('../src/render/sound.js');
+  const { existsSync } = await import('node:fs');
+  const { settingsMenu } = await import('../src/core/menu.js');
+  assert.equal(MUSIC.surface.file, 'abstraction-music-loops/Ludum Dare 30 06.ogg');
+  assert.ok(existsSync(`sounds/packs/${MUSIC.surface.file}`) && existsSync('sounds/packs/abstraction-music-loops/License.txt'));
+  assert.equal(musicOf(true), 'surface'); // under the sky: Hearthwood, home among it
+  assert.equal(musicOf(false), null); // below: none yet
+  assert.equal(musicOf(undefined), null);
+  assert.deepEqual([FADE_OUT, QUIET, FADE_IN], [2, 1, 1]);
+  assert.equal(kindOf('surface'), 'music');
+  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Version history']);
 });

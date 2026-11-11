@@ -204,10 +204,11 @@ const KINDS = {
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'spit', 'splat'],
   finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
+  music: ['surface'], // each place's theme (D-837)
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
 // What plays as a kind's loudness changes, at its new loudness: a step, a hit, a pat, the tick
-export const KIND_SOUND = { steps: 'footstep', fight: 'hit', finds: 'pat', menus: 'tap' };
+export const KIND_SOUND = { steps: 'footstep', fight: 'hit', finds: 'pat', menus: 'tap', music: 'tap' }; // Music: the tick, and the music itself where it plays (D-837)
 export { VOICES };
 const SEED = 255; // the steps' variety, the same on every visit
 
@@ -219,6 +220,13 @@ export const stepOf = (sky, look) => (sky ? 'footstep' : look === 'earth' ? 'ear
 // seconds after the last, picked at random each time so they never fall on a beat
 export const dripsIn = (sky, look) => !sky && look === 'rock';
 export const dripGap = (r) => (8 + r * 8) * 1000; // r in [0, 1): milliseconds to the next drip
+
+// § music (D-837): the surface's theme, Abstraction's "Ludum Dare 30 06" (CC0), looped non-stop with no
+// break, by day and by night, home too. Leaving the surface fades it out over 2 seconds; coming back
+// starts it again from its beginning a second later, fading in over a second. Its own kind, Music.
+export const MUSIC = { surface: { file: 'abstraction-music-loops/Ludum Dare 30 06.ogg', gain: 0.4 } };
+export const musicOf = (sky) => (sky ? 'surface' : null);
+export const FADE_OUT = 2, QUIET = 1, FADE_IN = 1; // seconds
 
 // § cards: which way a page turns as the screen changes (D-819). Play, setting a tile down
 // and the title have no card on them: reaching one closes. Going back to a screen still
@@ -234,6 +242,8 @@ export function cardTurn(trail, to) {
 export function createSound(isOn, loudness = () => 1, muted = () => false) { // muted: a sound turned Off on its own (D-824) // loudness: a kind's, Loudness times its share, 0 to 1 (D-822, D-823)
   let ac = null, echo = null; // the sound maker, and the cave's echo: a short repeat off the walls, fading (D-776)
   const buffers = {}; // each voice's decoded files, filled once they arrive
+  const tunes = {}; // each theme, decoded whole so it loops with no break (D-837)
+  let tune = null; // the theme playing: its name, its source, its loudness and when it is fully in
   const vary = rng(SEED + 1); // which file and what pitch, each time
   const last = {}; // the file each voice played last, never played twice running
   // § start: on the first tap, click or key, the sound maker is made and the files fetched
@@ -258,11 +268,17 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
             .then((d) => { buffers[voice][i] = d; }).catch(() => {}); // a file that fails stays silent
         });
       }
+      for (const [name, { file }] of Object.entries(MUSIC)) {
+        fetch(PACKS + encodeURI(file)).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b))
+          .then((d) => { tunes[name] = d; }).catch(() => {});
+      }
     }
     if (ac.state === 'suspended') ac.resume();
   }
   addEventListener('pointerdown', start, { capture: true });
   addEventListener('keydown', start, { capture: true });
+  // The game in the background (another app, the phone locked) is silent, the music too; back, it carries on
+  globalThis.document?.addEventListener?.('visibilitychange', () => { if (ac) (document.hidden ? ac.suspend() : ac.resume()).catch?.(() => {}); });
   const ready = () => ac && ac.state === 'running' && isOn();
 
   // § play: one of the voice's files, not the last one, at its loudness and a pitch near its own
@@ -302,8 +318,39 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     } else src.start(when, from);
     for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later + (arg === true ? after : 0)); // after the swing too, as the bite's own parts (D-832)
   }
+  // § music: the theme wanted now, or null; called every frame (D-837). A new one, or none, fades
+  // the old out; Sound Off or the theme turned Off is none; a loudness change follows in a moment
+  function music(name) {
+    if (!ac || ac.state !== 'running') return;
+    const want = name && isOn() && !muted(name) && tunes[name] ? name : null, now = ac.currentTime;
+    if (tune && tune.name !== want) {
+      const { src, g } = tune;
+      g.gain.cancelScheduledValues(now);
+      g.gain.setValueAtTime(g.gain.value, now);
+      g.gain.linearRampToValueAtTime(0, now + FADE_OUT);
+      src.stop(now + FADE_OUT);
+      tune = null;
+    }
+    if (!want) return;
+    const level = MUSIC[want].gain * loudness('music');
+    if (!tune) {
+      const src = ac.createBufferSource(), g = ac.createGain();
+      src.buffer = tunes[want];
+      src.loop = true;
+      g.gain.setValueAtTime(0, now);
+      g.gain.setValueAtTime(0, now + QUIET);
+      g.gain.linearRampToValueAtTime(level, now + QUIET + FADE_IN);
+      src.connect(g).connect(ac.destination);
+      src.start(now + QUIET);
+      tune = { name: want, src, g, level, full: now + QUIET + FADE_IN };
+    } else if (level !== tune.level && now >= tune.full) {
+      tune.g.gain.cancelScheduledValues(now);
+      tune.g.gain.setTargetAtTime(level, now, 0.05);
+      tune.level = level;
+    }
+  }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
   const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip, sample };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip, sample, music };
 }

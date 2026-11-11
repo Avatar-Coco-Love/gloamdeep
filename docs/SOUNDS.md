@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832), and the rest the twelfth, Claude's picks by the owner's go-ahead (D-833). Music began on the surface (D-837), its own pack and kind, in `SOUNDS-3.md`. Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823); a fifth, Music, 50% until picked (D-837). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -15,11 +15,11 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`; the game plays from Kenney's Impact
-Sounds, RPG Audio and Interface Sounds, and the elemental pack, so far; each folder keeps its `License.txt`). All six are CC0 (no credit needed),
+Sounds, RPG Audio and Interface Sounds, the elemental pack and the music loops, so far; each folder keeps its `License.txt`). All seven are CC0 (no credit needed),
 `.ogg` files: four of Kenney's, one of ObsydianX's (itch.io), whose
 222 tones were cut of their silence when saved, nothing else changed,
 and MorphonautAudio's Elemental Forces (itch.io, bought by the owner,
-D-829), saved from WAV, nothing else changed:
+D-829), saved from WAV, nothing else changed, and Abstraction's Music Loop Bundle (itch.io, free, D-837), its tracks saved smaller:
 
 | Folder | Files | Good for |
 | --- | --- | --- |
@@ -28,6 +28,7 @@ D-829), saved from WAV, nothing else changed:
 | `kenney-interface-sounds` | 100 | menus: open, close, back, error |
 | `kenney-ui-audio` | 52 | menus: clicks and switches |
 | `obsydianx-interface-sfx-1` | 222 | menus: clean electronic tones; confirm, back, error (5 or 6 styles, 7 each, plain and echo) and cursor (5) |
+| `abstraction-music-loops` | 1 | music: Abstraction's Music Loop Bundle (tallbeard.itch.io), one track so far, saved smaller (D-837) |
 | `morphonaut-elemental-forces` | 134 | fire, water, earth, wind: crackles, whooshes, splashes, rumbles, gusts; in `Earth` (29), `Fire` (35), `Water` (40) and `Wind` (30) |
 
 ## Moving
