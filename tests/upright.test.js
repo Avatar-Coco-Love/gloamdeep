@@ -37,7 +37,16 @@ test('how to play: upright the tabs take two rows, Keyboard under Basics (D-507)
 
 test('settings: a value too long for the card wraps, and the next row moves down', () => {
   const menu = [{ name: 'Seed', value: 'Random (this one 67929)' }, { name: 'Sound', value: 'Off' }, { text: 'Version history' }];
-  assert.deepEqual(settingsCardAt(30, 72, ...UP, menu), { line: 1 });
-  assert.deepEqual(settingsCardAt(30, 56, ...UP, menu), { line: 0 }); // the seed's second line
+  assert.deepEqual(settingsCardAt(30, 84, ...UP, menu), { line: 1 }); // a tab row lower upright (D-820)
+  assert.deepEqual(settingsCardAt(30, 68, ...UP, menu), { line: 0 }); // the seed's second line
   assert.deepEqual(settingsCardAt(30, 56, ...SIDE, menu), { line: 1 });
+});
+
+test('settings: upright its four tabs take two rows, 2 and 2; sideways one (D-820)', () => {
+  const menu = [{ name: 'Sound', value: 'Off' }, { text: 'Version history' }];
+  assert.deepEqual(settingsCardAt(24, 12, ...UP, menu), { tab: 'controls' });
+  assert.deepEqual(settingsCardAt(24, 24, ...UP, menu), { tab: 'screen' });
+  assert.deepEqual(settingsCardAt(76, 24, ...UP, menu), { tab: 'sound' });
+  assert.deepEqual(settingsCardAt(76, 12, ...UP, menu), { tab: 'game' });
+  assert.deepEqual(settingsCardAt(160, 12, ...SIDE, menu), { tab: 'sound' });
 });

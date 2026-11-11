@@ -1090,3 +1090,16 @@ turn, as it is not a flask (D-611; offered too: any oil by hand).
 down or by a dev jump, in place of that turn's line (offered too: kept
 in the log as well); an older save that loads already open says
 nothing. D-812 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-817 · 2026-11-11 · Guard** (the owner's picks, all recommended;
+step 3 of D-814) Body's row 2 upgrade, 1 ember, once: a bite the worn
+vest did not turn rolls Guard's own dice, and about 1 in 6 glances off
+and hurts nothing, so with the Rat Hide Vest about 3 bites in 8 glance
+off (offered too: the chances added; only the bigger one). Guard's line
+"The bite glances off you."; a bite the vest turned keeps "The bite
+glances off your vest." (offered too: the vest's line always; nothing
+said). Only bites: an oil drink, a glob and a sting are not turned
+(offered too: bites and drinks; every blow). Its words "About 1 bite in
+6 glances off."; its tile a small pale round shield, a boss in the
+middle (offered too: a fang turned aside; a heart in a ring). D-813
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

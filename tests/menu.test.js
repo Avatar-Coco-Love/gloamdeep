@@ -72,6 +72,19 @@ test('a tap picks the line under it, near it, or none', () => {
   assert.equal(lineAt(0, 2, top), -1);
 });
 
+test('Settings in tabs: Controls, Game, Screen and Sound, the same lines, Version history on each (D-820)', async () => {
+  const { SETTINGS_TABS } = await import('../src/core/menu.js');
+  const ids = (tab, mode = null) => settingsMenu({ seed: null }, false, 7, mode, tab).map((l) => l.id);
+  assert.deepEqual(SETTINGS_TABS.map((t) => t.text), ['CONTROLS', 'GAME', 'SCREEN', 'SOUND']);
+  assert.deepEqual(ids('controls'), ['swipe', 'tap', 'pad', 'stop', 'history']);
+  assert.deepEqual(ids('game'), ['seed', 'lantern', 'flasks', 'history']);
+  assert.deepEqual(ids('game', 'normal'), ['seed', 'mode', 'lantern', 'flasks', 'history']);
+  assert.deepEqual(ids('screen'), ['motion', 'marks', 'stats', 'history']);
+  assert.deepEqual(ids('sound'), ['sound', 'history']);
+  const every = SETTINGS_TABS.flatMap((t) => ids(t.id, 'normal').slice(0, -1)).sort(); // every line in one tab, none lost
+  assert.deepEqual(every, ids(null, 'normal').slice(0, -1).sort());
+});
+
 test('in play, Settings has the way to play under the seed; only an easier one changes it (MO4, D-346)', async () => {
   const { modeText, easier, easeMenu, easeMode, HARDER_NOTE, EASE_NOTE, easeHeading } = await import('../src/core/menu.js');
   assert.deepEqual(settingsMenu({ seed: null }, false, 7, 'normal').map((l) => l.id).slice(5, 7), ['seed', 'mode']);

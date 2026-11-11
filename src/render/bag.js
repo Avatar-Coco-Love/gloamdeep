@@ -34,7 +34,8 @@ const COLS = 3;
 export const PAD = 12;
 export const HELD_Y = 30; // the held slot's top, and the item's name's on the right
 export const LINE_H = 12;
-const RULE_Y = 20, GRID_Y = 70;
+export const RULE_Y = 20;
+const GRID_Y = 70;
 const GRID_W = COLS * SLOT + (COLS - 1) * SLOT_GAP;
 export const SPLIT_X = PAD + GRID_W + 12; // the line between the slots and the item, from the card's left
 export const DETAIL_X = SPLIT_X + 9;
@@ -225,13 +226,14 @@ export function drawSlot(c, x, y, item, chosen, spriteOf, size = SLOT) {
 // false (the profiles at the game's start, D-397); gives cardAt's card. Upright (isTall), the
 // line goes across instead, `splitY` from the card's top (D-505), none when that is 0
 // The line beside the slots starts `splitFrom` from the card's top (the bag's under its gear row)
-export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, splitY = TALL_SPLIT_Y, splitFrom = RULE_Y + 8) {
+// ruleY: the rule under the title, lower under two rows of tabs (D-820), there across the card's width
+export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, splitY = TALL_SPLIT_Y, splitFrom = RULE_Y + 8, ruleY = RULE_Y) {
   c.fillStyle = K; c.globalAlpha = CARD_VEIL; c.fillRect(0, 0, vw, vh); c.globalAlpha = 1;
   const card = cardAt(vw, vh), { x, y, w, h, close } = card;
   drawGlass(c, x, y, w, h);
   drawText(c, title, x + PAD, y + 7, EMBER);
   if (crossed) { round(c, close.x, close.y, close.r); cross(c, close.x, close.y); }
-  c.fillStyle = LINE; drawRule(c, x, y, w, RULE_Y, crossed);
+  c.fillStyle = LINE; drawRule(c, x, y, w, ruleY, crossed && ruleY === RULE_Y);
   if (split && isTall(vw, vh)) { if (splitY) c.fillRect(x + 8, y + splitY, w - 16, 1); }
   else if (split) c.fillRect(x + split, y + splitFrom, 1, h - splitFrom - 8);
   return card;

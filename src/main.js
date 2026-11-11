@@ -96,6 +96,7 @@ const app = {
   cam: { x: 0, y: 0 }, // the room pixel at the screen's top-left (src/core/camera.js)
   bench: null, // the tile of the workbench or stash chest whose panel is open (WB3, D-323; CH3)
   benchTab: 'build', // the workbench card's open tab, BUILD or GEAR, kept as it is closed (D-800)
+  settingsTab: 'controls', // the Settings card's open tab, kept as it is closed (D-820)
   framed: null, // the shown spot (foeAt) of the creature whose plaque was tapped (CL2, D-357)
   lookRoll: rng(randomSeed()), // the look card's RANDOM, seeded once a visit (D-522)
   opened: new Set(), rows: [], scroll: 0, // Version history: the versions open, its rows, and how far it is scrolled (D-254)
@@ -435,10 +436,11 @@ const onPoint = (px, py, held) => {
   else if (!held) screens.onPoint(...(['map', 'explore', 'bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'mode', 'ways', 'slots', 'name', 'cloak', 'sure', 'drop', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons', 'title'].includes(app.screen) ? toLayer([px, py]) : [px, py])); // the cards and the title are on the screen layer (D-385, D-387 to D-391, D-393 to D-401, D-444)
 };
 const onWait = () => { if (app.screen === 'play') { app.walk = null; tryStep('wait'); } else if (!screens.onMapScreen()) screens.space(); };
-// Tab frames the first plaque, then the next, then none (CL2); on the bag's card, its other tab (D-787); the workbench's too (D-800)
+// Tab frames the first plaque, then the next, then none (CL2); on the bag's card, its other tab (D-787); the workbench's too (D-800); Settings' next (D-820)
 const onTab = () => {
   if (app.screen === 'bag' || app.screen === 'make') { screens.turnBagTab(); return true; } // the bag's other tab (D-787)
   if (app.screen === 'bench' && screens.turnBenchTab()) return true; // the workbench's other tab (D-800)
+  if (app.screen === 'settings') { screens.turnSettingsTab(); return true; } // Settings' next tab (D-820)
   if (app.screen !== 'play') return false;
   const spots = frame.plaqueSpots(), i = spots.indexOf(app.framed);
   app.framed = spots[i + 1] || null;
