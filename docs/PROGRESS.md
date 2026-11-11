@@ -43,6 +43,7 @@ list in `RESEARCH.md`.
   (D-827), all five and the Tab tick: the bag's card with a herb chosen,
   MAKE with a full bag, a bunny and sleeping out, a tool's hold sound,
   the mortar's notes; each with a test that failed on the old code.
+  Playtest: https://claude.ai/artifact/WMvE677QNurrnVLN14bGCM
 - **2026-11-11, 0.3.272, The fourteenth audit.** The owner's picks
   (D-826), all recommended, and the near-full docs split too: the
   history split, the docs near their cap split, built decisions and the
