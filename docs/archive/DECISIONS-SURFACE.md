@@ -1103,3 +1103,18 @@ said). Only bites: an oil drink, a glob and a sting are not turned
 6 glances off."; its tile a small pale round shield, a boss in the
 middle (offered too: a fang turned aside; a heart in a ring). D-813
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-818 · 2026-11-11 · Thrift** (the owner's picks, all recommended;
+step 4 of D-814, the last) Hands' row 2 upgrade, 1 ember, once: about
+1 making in 4, by the seeded dice, keeps 1 of the part its recipe uses
+most of, the first listed on a tie, so the Mortar keeps 1 Stone and
+the Stash Chest 1 Wood (offered too: 1 of the part used least of; the
+whole part). The full cost is still needed; 1 fewer is taken. Every
+making: the bag's Make, the workbench, the mortar, the Pouch and the
+Big Bag (offered too: all but the bag upgrades; only the bench and
+mortar). "You keep 1 Stone." is said in place of the make line, naming
+the part (offered too: the make line, then a second; nothing said).
+Its words "Making something keeps 1 part about 1 time in 4."; its tile
+a small pale log on its side, an arrow curling back down to it
+(offered too: a tied pouch; a hand on a stone). D-814 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

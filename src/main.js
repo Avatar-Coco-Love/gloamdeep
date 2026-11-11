@@ -114,7 +114,7 @@ function loadInto(slot) {
   else { app.state = newWorld(); app.jumped = false; }
 }
 loadInto(app.profiles.current);
-const sound = createSound(() => app.settings.sound === 'on'); // from sound files, each silent until its file is in (D-773)
+const sound = createSound(() => app.settings.sound === 'on', () => app.settings.loud / 100); // from sound files, each silent until its file is in (D-773)
 // Saved after every turn, or any change, once the journey has begun (D-238)
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
@@ -428,7 +428,8 @@ const screens = createScreens(app, {
 // In play the Swipe switch can turn swipes off (D-189, D-408); off the room, the screens take them.
 // A key or swipe in play ends a walk to a tapped tile and steps itself.
 const onDir = (dir, how) => {
-  if (app.screen !== 'play') screens.onDir(dir, how);
+  const loud = app.settings.loud;
+  if (app.screen !== 'play') { screens.onDir(dir, how); if (app.settings.loud !== loud) sound.tap(); } // the tick at the new loudness (D-822)
   else if (how !== 'swipe' || swipesWalk(app.settings)) { app.walk = null; tryStep(dir); }
 };
 const onPoint = (px, py, held) => {

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.267 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.268 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Sound tab (D-820): an overall loudness first, then a loudness for
-each kind, then On or Off for each sound, a step at a time.
+The Sound tab's second step (D-822): a loudness for each of four kinds,
+Steps, Fighting, Finds and Menus, after a fit test on an upright phone.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -44,6 +44,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.268, Loudness.** The owner's picks (D-822), all
+  recommended, for the Sound tab's three steps: Loudness, 0% to 100% in
+  steps of 10%, beside Sound On or Off; then four kinds; then each sound
+  On or Off in a list opened from its kind.
+  Playtest: https://claude.ai/artifact/QzDFFcxDm4YvU93KtT9xJz
 - **2026-11-11, 0.3.267, Settings in tabs.** The owner's picks (D-821),
   all recommended: CONTROLS, GAME, SCREEN and SOUND in the title row,
   opening on the last tab, Tab turns them, VERSION HISTORY on each;
@@ -56,9 +61,3 @@ list in `RESEARCH.md`.
   next: Controls, Game, Screen, Sound.
   Playtest: https://claude.ai/artifact/VZhVLCoWVgGxAKkdocK8Tp
   Sound board: https://claude.ai/artifact/NJpdDNoD9BJRPQTYn6BMoF
-- **2026-11-11, 0.3.265, Menu sounds.** The owner's picks (D-819),
-  all recommended, by ear: a soft tick for a tap, a page flip as a
-  card opens or closes (only the flip when a tap opens one), a low
-  wooden tock for a dim pick.
-  Playtest: https://claude.ai/artifact/PoCRktUB22d9SaXfLnJq1C
-  Sound board: https://claude.ai/artifact/QgBRdoZN4Nt8nTx75fJ1kg

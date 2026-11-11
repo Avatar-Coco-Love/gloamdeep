@@ -3,7 +3,7 @@
 // (D-576), with the settings changes. Each menu's own file gives its tap and close. `c` holds
 // screens.js's menuOf, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays and openHistory.
 import { SURE_MENU, MODE_FIRST, moveChoice } from '../../core/menu.js';
-import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, statsText, marksText } from '../../core/settings.js';
+import { saveSettings, swipeText, tapText, nextTap, padText, nextOnOff, stopText, nextStop, nextMotion, motionText, lanternText, nextLantern, flasksText, nextFlasks, soundText, nextSound, loudText, nextLoud, statsText, marksText } from '../../core/settings.js';
 
 export const MENUS = ['title', 'paused', 'settings', 'ways', 'mode', 'ended']; // the menus' own files, sharing this one
 
@@ -23,6 +23,7 @@ export function makeMenu(app, ui, show, c) {
   const changeLantern = () => { const l = nextLantern(app.settings.lantern); change('lantern', l, lanternText(l)); };
   const changeFlasks = () => { const f = nextFlasks(app.settings.flasks); change('flasks', f, flasksText(f)); };
   const changeSound = () => { const o = nextSound(app.settings.sound); change('sound', o, soundText(o)); };
+  const changeLoud = (dir) => { const n = nextLoud(app.settings.loud, dir); change('loud', n, loudText(n)); }; // D-822
   const changeStats = () => { const o = nextOnOff(app.settings.stats); change('stats', o, statsText(o)); };
   const changeMarks = () => { const o = app.settings.marks === 'off' ? 'on' : 'off'; change('marks', o, marksText(o)); }; // D-730
 
@@ -49,6 +50,7 @@ export function makeMenu(app, ui, show, c) {
     else if (id === 'lantern') changeLantern();
     else if (id === 'flasks') changeFlasks();
     else if (id === 'sound') changeSound();
+    else if (id === 'loud') changeLoud();
     else if (id === 'stats') changeStats();
     else if (id === 'marks') changeMarks();
     else if (id === 'history') openHistory();
@@ -64,6 +66,7 @@ export function makeMenu(app, ui, show, c) {
     else if (id === 'lantern' && (dir === 'left' || dir === 'right')) changeLantern();
     else if (id === 'flasks' && (dir === 'left' || dir === 'right')) changeFlasks();
     else if (id === 'sound' && (dir === 'left' || dir === 'right')) changeSound();
+    else if (id === 'loud' && (dir === 'left' || dir === 'right')) changeLoud(dir);
     else if (id === 'stats' && (dir === 'left' || dir === 'right')) changeStats();
     else if (id === 'marks' && (dir === 'left' || dir === 'right')) changeMarks();
     else app.chosen = moveChoice(app.chosen, dir, menuOf(app.screen).length);

@@ -67,7 +67,7 @@ export function cardTurn(trail, to) {
   return at >= 0 ? { trail: trail.slice(0, at + 1), open: false } : { trail: [...trail, to], open: true };
 }
 
-export function createSound(isOn) {
+export function createSound(isOn, loudness = () => 1) { // loudness: every sound's together, 0 to 1 (D-822)
   let ac = null, echo = null; // the sound maker, and the cave's echo: a short repeat off the walls, fading (D-776)
   const buffers = {}; // each voice's decoded files, filled once they arrive
   const vary = rng(SEED + 1); // which file and what pitch, each time
@@ -113,7 +113,7 @@ export function createSound(isOn) {
     const src = ac.createBufferSource(), g = ac.createGain();
     src.buffer = buffers[voice][i];
     src.playbackRate.value = (pitchOf ? pitchOf(arg) : 1) + (vary() * 2 - 1) * pitch;
-    g.gain.value = gain;
+    g.gain.value = gain * loudness();
     if (muffle) {
       const dull = ac.createBiquadFilter();
       dull.type = 'lowpass';

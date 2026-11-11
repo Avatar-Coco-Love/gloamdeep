@@ -42,7 +42,7 @@ test('the pause menu offers Resume, Journal (D-270), Settings, How to play, then
 });
 
 test('Settings shows Swipe, Tap to walk, Arrow pad, Stop walking, Motion, Seed and the rest, Version history last, each switch with its name and value apart (D-389)', () => {
-  assert.deepEqual(settingsMenu({ swipe: 'off', tap: 'walk', pad: 'off', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap: Walk', 'Arrow pad: Off', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Attack marks: On', 'Sound: Off', 'Stats line: Off', 'Version history']);
+  assert.deepEqual(settingsMenu({ swipe: 'off', tap: 'walk', pad: 'off', stop: 'sight', motion: null, seed: null }).map((l) => l.text), ['Swipe: Off', 'Tap: Walk', 'Arrow pad: Off', 'Stop walking: On sight', 'Motion: Full', 'Seed: Random', 'Lantern: By hand', 'Flasks: By hand', 'Attack marks: On', 'Sound: Off', 'Loudness: 100%', 'Stats line: Off', 'Version history']);
   assert.equal(settingsMenu({ motion: null }, true)[4].text, 'Motion: Reduced');
   assert.deepEqual(['name', 'value'].map((k) => settingsMenu({ seed: null }, false, 99999)[5][k]), ['Seed', 'Random (this one 99999)']);
 });
@@ -80,7 +80,7 @@ test('Settings in tabs: Controls, Game, Screen and Sound, the same lines, Versio
   assert.deepEqual(ids('game'), ['seed', 'lantern', 'flasks', 'history']);
   assert.deepEqual(ids('game', 'normal'), ['seed', 'mode', 'lantern', 'flasks', 'history']);
   assert.deepEqual(ids('screen'), ['motion', 'marks', 'stats', 'history']);
-  assert.deepEqual(ids('sound'), ['sound', 'history']);
+  assert.deepEqual(ids('sound'), ['sound', 'loud', 'history']);
   const every = SETTINGS_TABS.flatMap((t) => ids(t.id, 'normal').slice(0, -1)).sort(); // every line in one tab, none lost
   assert.deepEqual(every, ids(null, 'normal').slice(0, -1).sort());
 });
