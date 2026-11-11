@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.283, Music on the surface.** The owner's picks
+  (D-837): sounds all around set aside, music first. Abstraction's CC0
+  Music Loop Bundle came through a temporary release; from a board of 8
+  calm tracks, measured from 139, track 6 ("Ludum Dare 30 06"), on the
+  surface day and night, non-stop, fading out over 2 s on leaving; a
+  fifth kind in Settings, Music, at 50%, with one line, Surface.
+  Playtest: https://claude.ai/artifact/JXzAaGaqVeYzzNSUiQGxPY
+  Board of tracks: https://claude.ai/artifact/ANrF9Wxfg9M8EWrKHykx3w
 - **2026-11-11, 0.3.282, A cave's drips.** The owner's picks (D-836),
   all recommended, from a board of 4 drips and 3 paces: a drop and its
   ripple, every 8 to 16 s at random, in the rock caves (floors 2 to 4),

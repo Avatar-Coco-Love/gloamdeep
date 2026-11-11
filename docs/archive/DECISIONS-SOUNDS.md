@@ -233,3 +233,17 @@ way down, and again only after the oil has gone back above it (offered
 too: both at 25%; the sound at 25% and the line at 20%). With a flask in
 the bag poured by itself at 55%, it plays only when none is left. One
 Settings line under Steps, Oil runs low. File and loudness in `SOUNDS.md`.
+
+**D-835 · 2026-11-11 · The heartbeat at the last heart** (the owner's
+picks, both recommended; part of Q-095) From a board of 4, each beside
+poison's double throb (a soft lub-dub twice; one slow heavy beat; a
+racing heart, three quick beats; a wooden knock-knock): a soft lub-dub
+twice, the second fainter. Impact Sounds' impactSoft_medium 001 then 002
+at 0.8 and 0.74 pitch, muffled above 350 Hz, 0.17 s apart, at 0.36 and
+0.25, then again 0.8 s later at 0.25 and 0.17: four quick soft knocks,
+where poison has two slow punches. It plays once, as a turn leaves the
+hero on one heart from more, 0.7 s after the bite's blow or poison's
+throb; again only after a heart has come back and gone again; a fall,
+waking at full hearts, does not (offered too: again every few steps;
+beating on its own in time). One Settings line under Fighting, Last
+heart. D-830 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

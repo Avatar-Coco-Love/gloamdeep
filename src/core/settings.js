@@ -117,6 +117,7 @@ export const SOUND_LINES = [
   { voice: 'surface', kind: 'music', name: 'Surface' }, // the surface's theme (D-837)
   { voice: 'crypt', kind: 'music', name: 'Crypt' }, // the crypt's theme, its top rooms and floor 1 (D-839)
   { voice: 'caves', kind: 'music', name: 'Rock caves' }, // the rock caves' theme, floors 2 to 4 (D-838)
+  { voice: 'warrens', kind: 'music', name: 'Warrens' }, // the warrens' theme, floors 5 to 7 (D-840)
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)

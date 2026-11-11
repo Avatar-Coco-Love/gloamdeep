@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.285 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.286 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Music for the next place below (Q-095, D-839): a board of calm tracks
-from the same music loops (still on the temporary release) for the
-warrens (floors 5 to 7) or the dungeon (8 on), which one the owner picks;
-then build it.
+Music for the dungeon (floors 8 on; Q-095, D-840): a board of calm,
+dark tracks from the same music loops (still on the temporary release),
+the warrens' tune beside them to compare; then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -23,7 +22,7 @@ then build it.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): music for
-  each other place below (D-837 to D-839); more sounds all around (wind, birds, crickets;
+  the dungeon, the last place below (D-837 to D-840); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
   then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
@@ -43,6 +42,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.286, Music in the warrens.** The owner's picks
+  (D-840), all recommended, from a board of 8 calm, dark tracks measured
+  again from the 84 over 45 s, with the caves' and the surface's tunes and
+  the earth steps: track 1, "Patreon Challenge 11", in the warrens (floors
+  5 to 7), non-stop, carrying on from floor to floor; the dungeon quiet;
+  a line in Music's list, Warrens.
+  Playtest: https://claude.ai/artifact/8qhTwYobXWebH8QQXy8FcH
+  Board of tracks: https://claude.ai/artifact/VMKnvbHFVrFWbg4ZZQVu8Q
 - **2026-11-11, 0.3.285, Music in the crypt.** The owner's picks (D-839)
   from a board of 8 dark tracks: "Ludum Dare 30 05" in the whole crypt
   (its two top rooms and floor 1), non-stop, carrying on down its
@@ -57,11 +64,3 @@ list in `RESEARCH.md`.
   Music's list, Rock caves.
   Playtest: https://claude.ai/artifact/2dRNq2i759AzuUqLSHfyNJ
   Board of tracks: https://claude.ai/artifact/WC9QcSSvg42tAfAow443yE
-- **2026-11-11, 0.3.283, Music on the surface.** The owner's picks
-  (D-837): sounds all around set aside, music first. Abstraction's CC0
-  Music Loop Bundle came through a temporary release; from a board of 8
-  calm tracks, measured from 139, track 6 ("Ludum Dare 30 06"), on the
-  surface day and night, non-stop, fading out over 2 s on leaving; a
-  fifth kind in Settings, Music, at 50%, with one line, Surface.
-  Playtest: https://claude.ai/artifact/JXzAaGaqVeYzzNSUiQGxPY
-  Board of tracks: https://claude.ai/artifact/ANrF9Wxfg9M8EWrKHykx3w
