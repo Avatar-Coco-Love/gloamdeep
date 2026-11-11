@@ -113,22 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-812 · 2026-11-10 · The Growth tree's twigs** (the owner's picks, all
-recommended, from a page of mock-ups:
-https://claude.ai/artifact/9U2gRwJi4C88wFJKev2RWU; builds D-811) The
-tree's look A: each row a twig across the three limbs, its number dim at
-the left; a branch's upgrades small picture tiles side by side; a bought
-tile's picture lit and its frame faintly gold; the heart a heart with
-how many are bought in its corner; one lock tile a limb on the locked
-row. A dashed "to come" tile only where a limb has nothing yet (offered
-too: a spare on every limb; none). The arrows read a row: Left and Right
-walk its tiles across the limbs, Up and Down change row on the same
-limb; past a row's ends, Records and the Bestiary (offered too: limb by
-limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
-a small screen; the tree scrolls by a swipe or the wheel and follows
-the pick, a small arrow where rows are hidden. D-808 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-813 · 2026-11-10 · Quick Hands** (the owner's picks, all
 recommended; the last step of D-811) Hands' first upgrade, in the
 first row: a tree, a stone deposit or a fallen branch, gathered by
@@ -172,3 +156,16 @@ locked). Once open, row 2 has a dashed tile a limb, and row 3 shows
 locked above it, "Opens deeper down." No line in the log yet: "Growth
 has a new row." is added with Quick Pour (offered too: a line now;
 never). D-811 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-816 · 2026-11-11 · Quick Pour** (the owner's picks, all
+recommended; step 2 of D-814) Light's row 2 upgrade, 1 ember, once: a
+flask poured by hand takes no turn, so no oil burns and no creature
+moves, and "You pour a flask." is said (offered too: nothing said). Its
+words "Pouring a flask takes no turn."; its tile a tipped flask, a drop
+falling (offered too: an upright flask and a drop, "You pour a flask in
+no time."; a lantern and a drop). A Pond Minnow's oil still takes its
+turn, as it is not a flask (D-611; offered too: any oil by hand).
+"Growth has a new row." is said the first time a row opens, walking
+down or by a dev jump, in place of that turn's line (offered too: kept
+in the log as well); an older save that loads already open says
+nothing. D-812 moves to `archive/DECISIONS-SURFACE.md`, word for word.

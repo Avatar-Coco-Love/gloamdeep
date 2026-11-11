@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.259, Quick Hands.** The owner's picks (D-813):
+  Hands' first upgrade, 1 ember, once, a pale open hand; a tree, a
+  stone deposit or a branch takes 1 bump fewer by hand.
+  Playtest: https://claude.ai/artifact/L2Wz2UspySzKpDiAauizss
 - **2026-11-10, 0.3.258, The Growth tree's twigs.** The owner's picks
   (D-812): each row a twig, upgrades small tiles side by side; a dashed
   tile only on an empty limb; the arrows read a row.

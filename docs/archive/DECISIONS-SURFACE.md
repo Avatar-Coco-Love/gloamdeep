@@ -1017,3 +1017,19 @@ save of what was bought, older saves keeping their hearts, Tough and
 Steady Wick (offered too: each upgrade its own entry, as before); then
 the twigs; then the Hands upgrade. D-807 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-812 · 2026-11-10 · The Growth tree's twigs** (the owner's picks, all
+recommended, from a page of mock-ups:
+https://claude.ai/artifact/9U2gRwJi4C88wFJKev2RWU; builds D-811) The
+tree's look A: each row a twig across the three limbs, its number dim at
+the left; a branch's upgrades small picture tiles side by side; a bought
+tile's picture lit and its frame faintly gold; the heart a heart with
+how many are bought in its corner; one lock tile a limb on the locked
+row. A dashed "to come" tile only where a limb has nothing yet (offered
+too: a spare on every limb; none). The arrows read a row: Left and Right
+walk its tiles across the limbs, Up and Down change row on the same
+limb; past a row's ends, Records and the Bestiary (offered too: limb by
+limb). Claude's calls the owner may change: tiles 18 pixels, smaller on
+a small screen; the tree scrolls by a swipe or the wheel and follows
+the pick, a small arrow where rows are hidden. D-808 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

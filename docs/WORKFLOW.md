@@ -116,3 +116,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Count a doc's bytes before adding to it: a page a few bytes under its cap needs a word-for-word split first, done in the same step (0.3.245).
 - A plan page keeps its drafts: the finds plan's Artifact still held the Bone Hook's draft recipe and effect, so reading it first made the offered options its own (0.3.253).
 - Reuse what is on screen already: the "+1" over the hero showed where the Fang Charm's heart could rise, so the feedback needed no new place (0.3.255).
+- Look at a tiny tile picture zoomed in before showing it: Quick Pour's first flask read as a comma, its second as a magnifying glass, and oil inside the body made it a flask (0.3.262).

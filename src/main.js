@@ -25,7 +25,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
-import { markRows } from './core/growth.js';
+import { openRows } from './core/growth.js';
 import { moveStack, storeMatching, storeNearby } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
@@ -118,7 +118,7 @@ const sound = createSound(() => app.settings.sound === 'on'); // from sound file
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
 function keepJourney() {
-  app.state = markRows(app.state); // Growth's rows opened by going deeper, kept for good (D-814)
+  app.state = openRows(app.state); // Growth's rows opened by going deeper, kept for good, with its line (D-814, D-816)
   if (app.state === savedState) return;
   const kept = saveJourney(app.state, app.jumped, app.profiles.current);
   if (!kept && !unsaved) app.state = say(app.state, 'unsaved');
@@ -220,7 +220,7 @@ function tryStep(dir) {
   else if (dir === 'wait' && onWokenPlate(before) && !creatureNear(before)) { screens.openTravel(); return; } // the wait on a woken plate opens the travel card (D-593)
   else if (dir === 'wait' && onWokenPlate(before)) app.state = say(app.state, 'stoneNear'); // barred, free (D-593)
   else if (dir === 'wait') app.state = wait(app.state); // standing still, one turn (D-084)
-  else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn (D-247)
+  else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn, free with Quick Pour (D-247, D-816)
   else if (dir.craft !== undefined) app.state = craft(app.state, dir.craft); // a flask from 3 oilcaps, one turn (D-299)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
   else if (dir.hold !== undefined) app.state = hold(app.state, dir.hold); // a weapon from the bag into the hand, one turn (D-479)

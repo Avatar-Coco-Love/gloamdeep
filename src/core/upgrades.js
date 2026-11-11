@@ -10,6 +10,8 @@ export const UPGRADES = {
   // Light's first: a lit turn burns this much of its oil, for good, a full tank lasting about 66
   // turns, not 60, added to the rest (D-798); `short`, its name in a box too narrow for the whole
   steadyWick: { id: 'steadyWick', branch: 'light', row: 0, slot: 0, name: 'Steady Wick', short: 'Steady', words: 'The lantern burns a little slower, for good.', cost: 1, most: 1, look: 'flame', burn: 0.9 },
+  // Light's second (D-814, D-816): a flask poured by hand takes no turn; a minnow's oil still does
+  quickPour: { id: 'quickPour', branch: 'light', row: 1, slot: 0, name: 'Quick Pour', short: 'Quick', words: 'Pouring a flask takes no turn.', cost: 1, most: 1, look: 'flask' },
   heart: { id: 'heart', branch: 'body', row: 0, slot: 0, name: 'Heart', words: 'One more heart for good, arriving full.', cost: 1, most: 5, look: 'hearts', get: 'Add a heart', heals: 1 },
   // A bite that hurts poisons the hero only this often, by the seeded dice (D-657)
   // Hands' first (D-813): a tree, a stone deposit or a branch, gathered by hand, takes `fewer`

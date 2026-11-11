@@ -211,6 +211,7 @@ function drawTree(c, card, state, pick, t, still, first) {
 const LOCK = ['.xxx.', 'x...x', 'xxxxx', 'xx.xx', 'xxxxx'];
 const FLAME = ['....#....', '...##....', '...###...', '..####...', '..#####..', '.###.##..', '.##..###.', '..##.##..', '....#....'];
 // Quick Hands' open hand, pale (D-813): four fingers up, the thumb out to the left
+const FLASK = ['..###....', '.#...#...', '.#####...', '.######..', '..###.##.', '.......#.', '.........', '.......#.', '.........']; // tipped, a drop falling (D-816)
 const HAND = ['..#.#.#..', '..#.#.#.#', '..#.#.#.#', '..#######', '#.#######', '.########', '..#######', '...#####.', '...#####.'];
 const BOUGHT = 'rgba(255,214,107,.45)'; // a bought tile's frame
 const dots = (c, rows, x, y, colour, on = 'x', size = 1) => { c.fillStyle = colour; rows.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === on) c.fillRect(x + i * size, y + j * size, size, size); })); };
@@ -225,6 +226,7 @@ function drawPlace(c, p, state, rows, picked) {
   if (!open || !u) return;
   if (u.look === 'flame') dots(c, FLAME, ...at(9, 9), n > 0 ? GLOW_MARK.tint : DIM, '#');
   else if (u.look === 'drop') dots(c, POISON_MARK.icon, ...at(9, 9), n > 0 ? POISON_MARK.tint : DIM, '#'); // poisoned's drop (D-654)
+  else if (u.look === 'flask') dots(c, FLASK, ...at(9, 9), n > 0 ? GLOW_MARK.tint : DIM, '#');
   else if (u.look === 'hand') dots(c, HAND, ...at(9, 9), n > 0 ? CORE : DIM, '#');
   else if (u.look === 'hearts') {
     const counted = u.most > 1 && n > 0, size = s >= 16 ? 2 : 1, [hx, hy] = counted ? [p.x + 2, p.y + 2] : at(5 * size, 4 * size); // twice the size where the tile has room
