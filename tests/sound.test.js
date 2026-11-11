@@ -142,3 +142,36 @@ test('A card opens on top, and closes back to what is under it', () => {
   assert.equal(cardTurn(['slots'], 'title').open, false); // the slot card closes onto the title
   assert.equal(cardTurn(['title'], 'journal').open, true);
 });
+
+// § each sound On or Off (D-824): a list opened from each kind's line, only the sounds heard so far,
+// each named by what happens; Off is kept, a strange kept name dropped; an Off sound stays silent
+test("Each kind's list: its loudness first, then its heard sounds On or Off", async () => {
+  const { SOUND_LINES, soundsOf, voiceText, toggleMuted, isMuted } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const { settingsMenu, kindListTab } = await import('../src/core/menu.js');
+  for (const { voice, kind } of SOUND_LINES) {
+    assert.equal(kindOf(voice), kind, voice); // in its own kind's list
+    assert.ok(FILES[voice].files || FILES[voice].as, `${voice} is heard`);
+  }
+  const heard = Object.keys(FILES).filter((v) => FILES[v].files && !['cardOpen', 'cardClose'].includes(v)); // the card's two are its Page turn
+  for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v), `${v} has a line`); // every heard sound
+  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern']);
+  assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
+    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Version history']);
+  assert.equal(settingsMenu({}, false, null, null, 'sound').find((l) => l.id === 'loudFight').value, '100% >'); // a kind's line opens its list
+  assert.equal(kindListTab('fight').text, 'SOUND · FIGHTING');
+  assert.equal(voiceText('refuse', true), "Can't: Off");
+  const s = { muted: toggleMuted({}, 'pat') };
+  assert.ok(isMuted(s, 'pat'));
+  assert.deepEqual(toggleMuted(s, 'pat'), []);
+  const kept = {};
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try {
+    saveSettings({ ...loadSettings(), muted: ['pat', 'tap'] });
+    assert.deepEqual(loadSettings().muted, ['pat', 'tap']);
+    kept['gloamdeep-settings'] = JSON.stringify({ muted: ['pat', 'nothing', 3] });
+    assert.deepEqual(loadSettings().muted, ['pat']);
+    kept['gloamdeep-settings'] = JSON.stringify({ muted: 'pat' });
+    assert.deepEqual(loadSettings().muted, []);
+  } finally { delete globalThis.localStorage; }
+});

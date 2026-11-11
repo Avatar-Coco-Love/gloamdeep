@@ -34,6 +34,7 @@ const { HISTORY } = await import(R + 'core/history.js');
 const { drawHowTo } = await import(R + 'render/howto.js');
 const { HOWTO_PAGES } = await import(R + 'core/howto.js');
 const { drawSettingsCard } = await import(R + 'render/settingscard.js');
+const { LOUD_KINDS } = await import(R + 'core/settings.js');
 const { drawPauseCard } = await import(R + 'render/pausecard.js');
 const { drawWays } = await import(R + 'render/ways.js');
 const { drawAskCard } = await import(R + 'render/askcard.js');
@@ -115,7 +116,7 @@ test('every boon\'s words fit inside its own card', () => {
 
 test('the version history, how to play, settings, pause, ways, ask and opening cards fit', () => {
   const bad = [], all = new Set(HISTORY.map((e) => e.v));
-  const settings = { swipe: 'on', tap: 'walk', pad: 'on', stop: 'noticed', seed: 'random', lantern: 'self', flasks: 'self', sound: 'on', loud: 100, loudSteps: 100, loudFight: 100, loudFinds: 100, loudMenus: 100, stats: 'on', marks: 'on' };
+  const settings = { swipe: 'on', tap: 'walk', pad: 'on', stop: 'noticed', seed: 'random', lantern: 'self', flasks: 'self', sound: 'on', loud: 100, loudSteps: 100, loudFight: 100, loudFinds: 100, loudMenus: 100, muted: ['tap'], stats: 'on', marks: 'on' };
   const asks = [...Object.values(M.TAKE_ASKS), M.SHELVE_ASK, [M.SURE_HEADING, M.SURE_NOTE], ['Delete Wwwwwwwwwwww?', M.DROP_NOTE], [M.easeHeading('easy'), M.EASE_NOTE], [M.ENDED_HEADING, '']];
   for (const [vw, vh] of SIZES) {
     const L = `${vw}×${vh}`, card = B.cardAt(vw, vh), screen = { x: 0, y: 0, w: vw, h: vh };
@@ -123,6 +124,7 @@ test('the version history, how to play, settings, pause, ways, ask and opening c
     for (let s = 0; s < rows.length * H.ROW_H; s += 997) bad.push(...fits(`${L} history`, card, () => H.drawHistory(any, vw, vh, rows, all, s, 0, 0, true)));
     for (const p of HOWTO_PAGES) for (const st of [settings, { ...settings, swipe: 'off', tap: 'step', pad: 'off' }]) bad.push(...fits(`${L} howto ${p}`, card, () => drawHowTo(any, vw, vh, p, st, 0, true)));
     for (const mode of [null, 'hardcore']) for (const { id } of M.SETTINGS_TABS) bad.push(...fits(`${L} settings ${id}`, card, () => drawSettingsCard(any, vw, vh, M.settingsMenu(settings, false, mode ? 4294967295 : null, mode, id), 0, 0, true, id))); // each tab, as the game draws it (D-820)
+    for (const { kind } of LOUD_KINDS) bad.push(...fits(`${L} settings list ${kind}`, card, () => drawSettingsCard(any, vw, vh, M.settingsMenu(settings, false, null, null, 'sound', kind), 0, 0, true, 'sound', kind))); // each kind's list (D-824)
     bad.push(...fits(`${L} pause`, card, () => drawPauseCard(any, vw, vh, M.PAUSE_MENU, 0, M.pauseFacts({ place: 'crypt-12', seed: 4294967295, mode: 'hardcore', xp: 99999 }), 0, true)));
     bad.push(...fits(`${L} ways`, card, () => drawWays(any, vw, vh, M.MODE_MENU, 0, 0, true)));
     for (const [h, n] of asks) bad.push(...fits(`${L} ask ${h}`, screen, () => drawAskCard(any, vw, vh, h, n, M.SURE_MENU, 0), 1));

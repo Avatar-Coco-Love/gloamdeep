@@ -92,6 +92,7 @@ import { offer, boonRow } from '../core/boon.js';
 import { view } from '../render/screen.js';
 import { openingWords, aboutBoonsWords } from '../core/opening.js';
 import { heardAs } from '../core/lines.js';
+import { LOUD_KINDS } from '../core/settings.js';
 import { waysScrollTo } from '../render/ways.js';
 
 const WORDS = {
@@ -117,7 +118,7 @@ export function createScreens(app, ui) {
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
-    : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode, app.settingsTab) : settingsMenu(app.settings, reduceMotion.matches, null, null, app.settingsTab));
+    : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode, app.settingsTab, app.soundList) : settingsMenu(app.settings, reduceMotion.matches, null, null, app.settingsTab, app.soundList));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
   const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
@@ -144,7 +145,8 @@ export function createScreens(app, ui) {
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'sleepOut' ? (warm(app.state) ? SLEEP_OUT_ROLL_ASK : SLEEP_OUT_ASK) : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
-  const settingsWords = () => `Settings, ${settingsTabOf(app.settingsTab).text[0]}${settingsTabOf(app.settingsTab).text.slice(1).toLowerCase()} tab. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Tab or a tap on a tab turns the tab. Version history. Esc or the close button goes back.`;
+  const settingsWords = () => (app.soundList ? `Settings, Sound tab, ${LOUD_KINDS.find((k) => k.kind === app.soundList).name}. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back to the Sound tab.` // D-824
+    : `Settings, ${settingsTabOf(app.settingsTab).text[0]}${settingsTabOf(app.settingsTab).text.slice(1).toLowerCase()} tab. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it.${app.settingsTab === 'sound' ? ' Steps, Fighting, Finds or Menus opens its sounds; Left and Right change its loudness.' : ''} Tab or a tap on a tab turns the tab. Version history. Esc or the close button goes back.`);
   function show(next, at = 0) {
     if ((next === 'settings' && !['settings', 'seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || (next === 'journal' && app.screen !== 'aboutBoons')) app.pageFrom = app.screen; // back from the boons card, the Journal keeps where it came from (D-712)
     const playing = next === 'play';
@@ -166,9 +168,19 @@ export function createScreens(app, ui) {
   function turnSettingsTab(tab) {
     const i = SETTINGS_TABS.findIndex((t) => t.id === app.settingsTab);
     app.settingsTab = tab ?? SETTINGS_TABS[(i + 1) % SETTINGS_TABS.length].id;
+    app.soundList = null;
     show('settings', 0);
   }
-  const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), backFromJournal = backTo('journal');
+  // § a kind's list (D-824): opened from its line on the Sound tab, on its first line; the cross,
+  // Esc or a tap on its title goes back to the Sound tab, on that kind's line
+  function openSoundList(kind) { app.soundList = kind; show('settings', 0); }
+  function closeSoundList() {
+    const { id } = LOUD_KINDS.find((k) => k.kind === app.soundList);
+    app.soundList = null;
+    show('settings', menuOf('settings').findIndex((l) => l.id === id));
+  }
+  const leaveSettings = backTo('settings');
+  const closeSettings = () => (app.soundList ? closeSoundList() : leaveSettings()), closeHowTo = backTo('howto'), backFromJournal = backTo('journal');
   const closeJournal = () => (app.pageFrom === 'play' ? show('play') : backFromJournal()); // opened from the goal line, back to play (D-706)
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
   // Growth opens on Body's heart (D-481).
@@ -267,7 +279,7 @@ export function createScreens(app, ui) {
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, openSoundList, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)

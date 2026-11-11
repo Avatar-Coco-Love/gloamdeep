@@ -209,7 +209,7 @@ export function createFrame(app, ui) {
     else if (screen === 'howto') { titleScene(0, t); drawHowTo(rc, view.w, view.h, app.page, app.settings, t, still()); } // the card on the title's scene (D-390)
     else if (screen === 'history') { titleScene(0, t); drawHistory(rc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); } // the card on the title's scene (D-393)
     else if (screen === 'mode') { titleScene(0, t); drawWays(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still()); } // the card on the title's scene (D-396)
-    else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still(), app.settingsTab); } // the card on the title's scene (D-389)
+    else if (screen === 'settings') { titleScene(0, t); drawSettingsCard(rc, view.w, view.h, screens.menuOf(screen), app.chosen, t, still(), app.settingsTab, app.soundList); } // the card on the title's scene (D-389)
     else if (screen === 'slots') { titleScene(0, t); drawSlots(rc, view.w, view.h, app.profiles, (p) => heroIn(cloakOf(p), eyesOf(p), trimOf(p), clothesOf(p), lampOf(p), headOf(p)), app.chosen, app.picking, screens.slotsBack(), t, still()); } // the card on the title's scene (D-397)
     else if (screen === 'name') { titleScene(0, t); drawNameCard(rc, view.w, view.h, app.entry, app.chosen, t, still(), app.renaming, heroIn(app.cloak, app.eyes, app.trim, app.clothes, app.lamp, app.head), app.digits); } // the card on the title's scene (D-398)
     else if (screen === 'cloak') { titleScene(0, t); drawLook(rc, view.w, view.h, heroIn, { cloak: app.cloak, eyes: app.eyes, trim: app.trim, clothes: app.clothes, lamp: app.lamp, head: app.head }, app.lookTab, app.chosen, slotName({ name: app.cloakNew ? app.entry : app.profiles.slots[app.naming]?.name }, app.naming), app.cloakNew, t, still(), app.lookTry, app.cloakNew ? newShop(app.gift) : shopOf(app.profiles.slots[app.naming]), app.lookScroll); } // the look card on the title's scene (D-399), the big hero named (D-520), a tab a part (D-521)
@@ -409,7 +409,7 @@ export function createFrame(app, ui) {
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
-    else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still(), app.settingsTab); // a card on the room (D-389)
+    else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still(), app.settingsTab, app.soundList); // a card on the room (D-389)
     else if (app.screen === 'ways') drawWays(hc, view.w, view.h, screens.menuOf('ways'), app.chosen, t, still()); // a card on the room (D-396)
     else if (app.screen === 'travel') drawWays(hc, view.w, view.h, screens.menuOf('travel'), app.chosen, t, still(), TRAVEL_TITLE, app.scroll); // the travel card, its rows the ways' (D-593)
     else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float, state)); // the strike meter, the room paused (D-614)

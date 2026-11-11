@@ -8,7 +8,7 @@
 import { drawText, textWidth } from './font.js';
 import { drawMarker } from './menu.js';
 import { drawTabs, tabAt, tabRows, TAB_ROW } from './bagtabs.js';
-import { SETTINGS_TABS } from '../core/menu.js';
+import { SETTINGS_TABS, kindListTab } from '../core/menu.js';
 import { cardAt, drawCard, drawButton, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD, RULE_Y } from './bag.js';
 
 const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc';
@@ -34,25 +34,28 @@ function layout(card, rows) {
   return { nx, vx, values, tops, step };
 }
 
+// A kind's list (D-824) has its title alone in the tabs' row, SOUND · STEPS, the rows where the tabs leave them
+const tabsOf = (list) => (list ? [kindListTab(list)] : SETTINGS_TABS);
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { line: i } for anywhere across
-// the card level with row i, { tab: id } (D-820), 'history' (the button), 'close' (the round cross), or null; outside
+// the card level with row i, { tab: id } (D-820), 'back' (a kind's list's title, D-824), 'history' (the button), 'close' (the round cross), or null; outside
 // the card, 'out'. menu: settingsMenu (core/menu.js), Version history last.
-export function settingsCardAt(x, y, vw, vh, menu) {
+export function settingsCardAt(x, y, vw, vh, menu, list = null) {
   const card = cardAt(vw, vh), h = historyAt(card), { tops, values, step } = layout(card, menu.slice(0, -1));
   if (!inCard(card, x, y)) return 'out';
   if (onCross(card, x, y)) return 'close';
-  const tab = tabAt(card, x, y, SETTINGS_TABS);
-  if (tab) return { tab };
+  const tab = tabAt(card, x, y, tabsOf(list));
+  if (tab) return list ? 'back' : { tab };
   if (y >= h.y - TAP_PAD && y < h.y + BUTTON.h + TAP_PAD && x >= h.x - TAP_PAD && x < h.x + HISTORY_W + TAP_PAD) return 'history';
   const half = (step - 9) / 2, i = tops.findIndex((top, j) => y >= top - half && y < top - half + values[j].length * step);
   return i >= 0 ? { line: i } : null;
 }
 
 // c: the room's canvas, `vw` × `vh`; menu: settingsMenu, each switch's { name, value },
-// Version history last; chosen: its line picked; still: prefers-reduced-motion; tab: the open tab's id
-export function drawSettingsCard(c, vw, vh, menu, chosen, t, still, tab = SETTINGS_TABS[0].id) {
+// Version history last; chosen: its line picked; still: prefers-reduced-motion; tab: the open tab's id;
+// list: the kind whose list is open (D-824), or null
+export function drawSettingsCard(c, vw, vh, menu, chosen, t, still, tab = SETTINGS_TABS[0].id, list = null) {
   const card = drawCard(c, vw, vh, '', 0, true, undefined, undefined, RULE_Y + down(cardAt(vw, vh))), { x, y } = card, h = historyAt(card);
-  drawTabs(c, card, tab, SETTINGS_TABS);
+  drawTabs(c, card, tab, tabsOf(list));
   const rows = menu.slice(0, -1), { nx, vx, values, tops, step } = layout(card, rows);
   rows.forEach((line, i) => {
     const ly = tops[i], on = i === chosen;
