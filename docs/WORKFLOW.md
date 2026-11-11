@@ -7,12 +7,12 @@ taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
 `WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
 the design habits (D-741) and starting a new project; `WORKFLOW-3.md`
-what each audit added (D-782).
+and `WORKFLOW-4.md` what each audit added (D-782, D-826).
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-10: version 0.3.232, about 507 pull
-requests, 782 decisions, 95 questions asked, 13 audits. One owner, who
+Started 2026-10-17. By 2026-11-11: version 0.3.272, about 547 pull
+requests, 826 decisions, 95 questions asked, 14 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -92,27 +92,10 @@ phone first, nothing outside the code (D-003).
 
 ## What each audit added
 
-Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782).
+Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782),
+and the fourteenth's in `WORKFLOW-4.md` (D-826).
 
 ## Since the last audit
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
-- A bug fix's test is checked against the old code first: B3's first test passed without the fix, as one night's pick happened to land far away, and only trying many nights caught it (0.3.233).
-- The owner may answer a list of picks with an idea of their own ("a bunny"): ask its details as multiple choice before building, and only then build (0.3.234).
-- Check that a new thing has room before proposing where it is made: the workbench card was full, found only after the mortar's picks, which opened the Make tab question (0.3.236).
-- A gap with many pieces gets a plan page of picks first, each piece with 2 or 3 uses (0.3.247); and the bench's room was missed again: check a station's free slots before proposing a recipe there.
-- Draw a system full of made-up content before it grows (0.3.257).
-- Check that the game can answer a rule before the owner picks it: "shown once held" (D-418) needed a memory of held finds the save didn't have, asked about only at the build (0.3.237).
-- A rule the owner asked for in an earlier conversation can be lost if no PR wrote it down: the copyable next prompts were asked for before but never reached the handoff rule, so write a request into the docs in the same PR (0.3.238).
-- Check a new name against the narrowest screen before proposing it: "Steady Wick" overflowed its Growth box at 176 pixels, found only by the fit test after the pick (0.3.246).
-- Read the handoff rule before writing a handoff, even in a proposal-only reply: the next prompts went out as an inline list, not one fenced block each, and the owner had to ask again (0.3.240).
-- Options offered and not picked are worth keeping in the decision: D-792 named the Ward and Mending Draughts, so the next recipe's choices were ready without searching (0.3.242).
-- A line can pass every check and still not fit the message strip: "You need 4 Bunny Fur and 1 Spider Silk." was too wide; the recipe lines use a comma, "4 Bunny Fur, 1 Spider Silk." (0.3.249).
-- A sleep or rest rule touches more than one door: the bedroll needed the moon button, the bag and the bump to agree, so list every way in before building (0.3.250).
-- A charm that draws over the dark had a pattern to follow: the lure wisp's glow (D-649) showed where and when to draw, so searching for "seen in the dark" first saved a design question (0.3.251).
-- Say a rule once: the next prompts came both before and after the merge, twice the reading for the owner; they now come once, after it (0.3.243).
-- Look for where the world is empty before asking where something goes: the mountain rooms had no creatures at all, which made the first question easy to answer (0.3.244).
-- Count a doc's bytes before adding to it: a page a few bytes under its cap needs a word-for-word split first, done in the same step (0.3.245).
-- A plan page keeps its drafts: the finds plan's Artifact still held the Bone Hook's draft recipe and effect, so reading it first made the offered options its own (0.3.253).
-- Reuse what is on screen already: the "+1" over the hero showed where the Fang Charm's heart could rise, so the feedback needed no new place (0.3.255).

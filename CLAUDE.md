@@ -49,7 +49,7 @@ Read the smallest file that answers the question.
 | `docs/DECISIONS.md` | the newest decisions | grep for an ID or topic |
 | `docs/LORE.md` | the story: Underhearth, the First Light, Old Maren (D-633) | before any lore, quest or person's words |
 | `docs/GLOSSARY.md` | the game's words (D-264); finds in `GLOSSARY-FINDS.md`; the code's and menus' in `GLOSSARY-CODE.md` | before naming anything |
-| `docs/CONTENT.md` | every creature, find, tile, place (D-363); finds in `CONTENT-FINDS.md`, people in `-2`, tiles and places in `-3`; the plan in `SCOPE*.md` (D-413) | before adding content |
+| `docs/CONTENT.md` | every creature, find, tile, place (D-363); finds in `CONTENT-FINDS*.md`, people in `-2`, tiles and places in `-3`; the plan in `SCOPE*.md` (D-413) | before adding content |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore and special creatures in `-3` | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md` | when proposing a feature |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
@@ -57,10 +57,10 @@ Read the smallest file that answers the question.
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
 | `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
-| `docs/SOUNDS.md` | every sound the game needs, and its file (D-773); the creatures' in `SOUNDS-2.md` | sound steps |
+| `docs/SOUNDS.md` | every sound the game needs, and its file (D-773); the creatures', places' and maybes in `SOUNDS-2.md` | sound steps |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
 | `docs/STORE.md` | the Google Play checklist (D-590) | store, offline or save-moving steps |
-| `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732); growth, tools, bugs and design habits in `-2` (D-741); each audit's lessons in `-3` (D-782) | audits, or when the way of working changes |
+| `docs/WORKFLOW.md` | how we work together, why, what we learned (D-732); growth, tools, bugs and design habits in `-2` (D-741); each audit's lessons in `-3` and `-4` (D-782) | audits, or when the way of working changes |
 | `CHANGELOG.md` | versions, newest first | the top entry only |
 | `docs/archive/` | old decisions (in force), changelog, log | grep only; index in its `README.md` |
 | `reference/style-study-1.html` | the approved look (545 lines, frozen) | art work only, by line range (`reference/README.md`) |

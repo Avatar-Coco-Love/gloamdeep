@@ -13,18 +13,13 @@ its start, archive, trim, split one big code file, and add what we learned
 to `docs/WORKFLOW.md`.
 
 ## Waiting on the owner
-- Play data: kept on the device or sent (Q-052), near 1.0.
-- A region's name and rating (Q-056), with a second region.
-- Creature materials: looks and recipes (Q-061), each at its own step.
-- Rooms seen through the wall (Q-066), after the edge.
-- Half and Automatic for the light (Q-069), waiting for now (D-482).
-- Water and the garden (Q-071), once water can be carried (D-569).
+- Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
+  a region's name (Q-056), creature materials (Q-061), rooms through the
+  wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
+  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Special creatures with histories (Q-083), at their own step.
-- Rooms that fill again (Q-086), after biome 1 grows.
 - Campfires' next steps (Q-088): feeding, building, the buff.
-- Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
 - Sounds from files (Q-095): each other line next, the "Maybe" sounds,
   and "can't carry more" and the run's end (D-819).

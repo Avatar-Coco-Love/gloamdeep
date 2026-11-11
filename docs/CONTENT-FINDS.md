@@ -43,12 +43,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `bunnyFur` | 4 with 1 Spider Silk make the Fur Bedroll (D-803); sold for 1 | 20 | never | a beaten bunny, about 1 in 2 | D-784 |
 | `crabShell` | 4 with 1 Wood make the Shell Vest (D-801); sold for 1 | 20 | never | a beaten skulker crab, about 1 in 2 | D-796 |
 | `lurkerClaw` | 2 with 1 Duskstar make the Shade Draught at the mortar (D-806); sold for 1 | 20 | never | a beaten rim lurker, about 1 in 2 | D-797 |
-| `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
-| `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
-| `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Herb | D-794 |
-| `wardDraught` | Drink, in the bag, any time: ends poisoned, and for 60 turns a bite never poisons | 5 | never | made at the mortar: 2 Centipede Leg, 1 Herb | D-795 |
-| `spitproofDraught` | Drink, in the bag, any time: for 60 turns a spit grub's glob splashes off and hurts nothing | 5 | never | made at the mortar: 2 Grub Skin, 1 Herb | D-802 |
-| `shadeDraught` | Drink, in the bag, any time: for 60 turns a creature notices the hero only within 2 steps; one already after them keeps coming | 5 | never | made at the mortar: 2 Lurker Claw, 1 Duskstar | D-806 |
+| draughts | moved to `CONTENT-FINDS-2.md`, "Draughts made at the mortar", word for word at 0.3.272 (D-826) | | | | |
 
 
 The workbench and the things made after it, from `workbench` to `lostbag`,
@@ -56,15 +51,5 @@ moved to `CONTENT-2.md` word for word at 0.3.15.
 
 ## Rare materials (`src/core/items.js`)
 
-Moved from `CONTENT.md` word for word at 0.3.106, as that page passed 8 KB;
-the Venom Sac's row since names the centipede too (D-654).
-
-| id | What it does | Stack | Grows back | Where, or how made | Decisions |
-| --- | --- | --- | --- | --- | --- |
-| `venomSac` | for crafts later | 20 | never | a beaten scorpion or centipede, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `mimicHeart` | with 1 Copper Ore makes the Heart Charm | 20 | never | a beaten flask mimic, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `gloamEye` | for crafts later | 20 | never | a beaten gloamling, about 1 in 10 (1 in 5 with the charm), its own coin | D-454, D-476, D-486 |
-| `batFang` | 1 with 1 Copper Ore makes the Fang Charm (D-809) | 20 | never | a beaten bat, about 1 in 10 (1 in 5 with the charm), its own coin | D-537 |
-| `moleClaw` | the Mole Claw Pick (D-810) | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
-| `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
-| `glowGland` | with 1 Wood makes a Glow Lamp (D-808) | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |
+Moved to `CONTENT-FINDS-2.md` word for word at 0.3.272, the fourteenth
+audit (D-826), with the draughts made at the mortar, as this page neared 8 KB.

@@ -88,14 +88,8 @@ Their bites and their own sounds are in `SOUNDS-2.md`.
 
 ## Places
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `bells` | a waystone wakes (D-591) | three bells rising | — |
-| | travel by waystone (D-593) | a deep hum | — |
-| `chime` | a boon picked (D-596) | two bells rising | — |
-| `plop` | the fishing line cast (D-613) | a small plop | — |
-| `splash` | a fish caught (D-613) | a splash and drops | — |
-| | sleeping in a bed or out (D-758) | a long breath out | — |
+Their sounds are in `SOUNDS-2.md`, moved word for word at 0.3.272,
+the fourteenth audit (D-826), with "Maybe" and "Later".
 
 ## Menus and screens
 
@@ -106,16 +100,6 @@ Their bites and their own sounds are in `SOUNDS-2.md`.
 | `refuse` | a dim pick that can't be done (D-819) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
 | | the run ends | a slow falling tone | — |
 
-## Maybe (for the owner to pick)
+## Maybe and Later
 
-None of these is decided (Q-095): steps on more grounds (water,
-wood; a wood step is picked, D-774: the grass files at a quarter
-loudness, muffled, with the bright crack filtered off above 1400 Hz,
-the same as the burrows' earth, D-776); sounds all around, such as wind on the
-surface, birds by day, crickets at night, drips in caves; music; a
-warning when the oil runs low; a heartbeat at the last heart.
-
-## Later (decided, not yet built)
-
-Each comes with its own step: the night creatures (D-760) and day
-creatures (D-771), the alchemy station (D-771), and the bow (D-772).
+In `SOUNDS-2.md` (D-826).

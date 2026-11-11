@@ -1,11 +1,14 @@
-# Sounds from files (D-773 to D-777)
+# Sounds from files (D-773 to D-777, D-822 to D-825)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.232, the thirteenth audit
 (D-782): sounds from files and the first groups picked by ear, the grass
 steps, the lantern's click, the steps below, the fight's hit and beaten,
 all built. Sounds go on (Q-095); each new sound decision starts in
-`docs/DECISIONS.md`. These are still in force unless marked superseded.
-Grep for an ID or topic; never read this whole.
+`docs/DECISIONS.md`. D-822 to D-825, Loudness, the four kinds'
+loudness, each sound On or Off, and digging and chests' sounds, all
+built, followed at 0.3.272, the fourteenth audit (D-826). These are
+still in force unless marked superseded. Grep for an ID or topic; never
+read this whole.
 
 ---
 
@@ -77,3 +80,71 @@ owner may change: the spear sounds like the knife; bones scattered
 underfoot make no thud, as their rattle is theirs; a miss stays silent
 (D-759). D-768 moves to `archive/DECISIONS-CREATURES-2.md`, word for
 word.
+
+**D-822 · 2026-11-11 · Loudness** (the owner's picks, all recommended;
+builds D-820; step 1 of 3) A line Loudness under Sound on the Sound tab,
+0% to 100% in steps of 10% (offered too: steps of 25%; a drawn bar of
+10 marks). Sound On or Off stays beside it as the quick switch, and
+the loudness is kept apart (offered too: one line, 0% as Off). Next, a
+loudness for each of four kinds: Steps, Fighting (the creatures too),
+Finds (the bag and places too) and Menus (offered too: the seven of
+`SOUNDS.md`; Play and Menus); then each sound On or Off, in a short
+list opened from its kind's line (offered too: all on the Sound tab; a
+fifth tab). Claude's calls the owner may change: 100% until picked; a
+tap goes up a step, round from 100% to 0%; Left and Right go down and
+up, stopping at the ends; the menu's tick plays at the new loudness;
+the cave's echo is as loud as its step. D-818 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-823 · 2026-11-11 · The four kinds' loudness** (the owner's picks,
+all recommended; builds D-822; step 2 of 3) After a fit test on an upright
+phone (all six lines fit at 320 × 568 and sideways), Steps, Fighting,
+Finds and Menus go under Loudness on the Sound tab as plain lines, like
+every other setting (offered too: indented; a gap first). The lantern and
+the light follow Steps (offered too: Finds; Fighting). A kind plays at
+Loudness times its share, so 50% and 50% is 25% (offered too: each kind on
+its own). Changing a kind plays its own sound at the new loudness: a step,
+a hit, a pat into the bag, the tick (offered too: always the tick).
+Claude's calls the owner may change: each 100% until picked, moving as
+Loudness does; the step heard is the grass step wherever the hero is;
+the creatures' sounds follow Fighting, waystones and fishing Finds, a
+card's page Menus. Next, each sound On or Off, in a list opened from its
+kind's line. D-819 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-824 · 2026-11-11 · Each sound On or Off** (the owner's picks, all
+recommended; builds D-823; step 3 of 3) After a fit test (13 lines, the
+longest list could hold, fit at 320 × 568 upright and sideways),
+each kind's list holds only the sounds heard so far, a sound joining it
+as its file goes in (offered too: every sound, the silent dimmed; the
+heard, then a count). A kind's line on the Sound tab reads "Steps: 100%
+>": a tap or Enter opens its list, whose first line is the kind's
+loudness, then its sounds; Left and Right on the Sound tab still change
+the loudness (offered too: a > mark of its own; one line "Each sound").
+The list shows in the Sound tab, its title SOUND · STEPS in the tabs'
+row; the cross, Esc or a tap on the title goes back to the Sound tab on
+that kind's line (offered too: a small card on top). The lines say what
+happens: Steps: Grass, Stone, Earth, Lantern; Fighting: Lantern hit,
+Knife hit, Beaten; Finds: Into the bag, Weapon drawn, Tile set down;
+Menus: Tick, Page turn, Can't; each On or Off (offered too: what it
+sounds like; the code's names). Claude's calls the owner may change:
+each On until picked; a tap, Enter, Left or Right turns one On or Off;
+turned On, it plays itself, turned Off, the tick; the list opens on its
+first line; the rows stay where the tabs leave them, upright a row
+lower; Tab leaves the list for the next tab. D-820 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-825 · 2026-11-11 · Digging and chests' sounds** (the owner's picks,
+all recommended, from a board of 4 each; answers part of Q-095) Each
+bump on a deposit, a copper vein or rubble clinks: Impact Sounds'
+mining 0 to 4, taking turns, at a quarter loudness, with the cave's
+echo (offered too: the same, 15% lower; light metal taps; stone plate
+taps). The last bump crumbles: the mining clink a quarter lower and
+louder, then small stones tumbling, the concrete steps higher and soft
+(offered too: a heavy stone plate; a deep heavy thud; the deep clink
+alone). A stash chest opens with RPG Audio's creak 1 at half loudness,
+its page turning as the creak ends (offered too: creak 2; a small door
+opening; a latch, then a creak), and closes with Impact Sounds' heavy
+wood knock just after its page (offered too: a small door shutting; a
+book shut; only the page). On their own lines under Finds: Digging,
+Stone breaks, Chest. D-821 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
