@@ -352,7 +352,7 @@ function hear(events) {
   if (has(events, 'catch')) sound.splash(); // a fish caught (D-613)
   if (has(events, 'scatter')) sound.rattle(); // a pile of bones scattered: the bone rat's rattle (D-731)
   if (has(events, 'take') && !has(events, 'catch')) sound.pat(); // into the bag (D-820)
-  if (has(events, 'hold')) sound.draw(); // from the bag into the hand
+  if (events.some((e) => e.type === 'hold' && !e.tool)) sound.draw(); // from the bag into the hand; a tool, a rod or a pick, is silent (D-826)
   if (has(events, 'set')) sound.thunk(); // the workbench set down
   const chip = events.find((e) => e.type === 'chip' && get(e.id)?.clinks);
   if (chip) sound[chip.broke ? 'crumble' : 'clink'](); // a deposit, a copper vein or rubble (D-825)
@@ -459,12 +459,13 @@ const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state
 let refused = false, cards = [app.screen], cardShown = app.screen;
 const marks = () => [app.screen, app.state, JSON.stringify(app.settings), spoken.textContent, app.opened.size, app.entry];
 const pressed = (act) => (...args) => {
-  if (app.screen === 'play' || app.screen === 'strike') { act(...args); return; } // play's own sounds; the strike's tap is a pull
+  if (app.screen === 'play' || app.screen === 'strike') return act(...args); // play's own sounds; the strike's tap is a pull
   const was = marks(), settingsWas = app.settings;
   refused = false;
-  act(...args);
+  const out = act(...args); // Tab's answer, whether it used the key (D-826)
   const now = marks();
   if (!refused && now[0] === was[0] && now.some((m, i) => m !== was[i])) (hearLoud(settingsWas) ?? sound.tap)();
+  return out;
 };
 // A loudness changed: Loudness ticks, a kind plays its own sound, each at the new loudness (D-822, D-823)
 function hearLoud(was) {
@@ -485,7 +486,7 @@ function turnPage() {
 }
 const CREAK_MS = 300; // the page turns as the creak ends
 const input = createInput(stage, canvas, {
-  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab, onWheel: screens.onWheel,
+  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab: pressed(onTab), onWheel: screens.onWheel,
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)
   repeats: () => app.screen === 'play', // off play a held Space picks once (D-669)
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)

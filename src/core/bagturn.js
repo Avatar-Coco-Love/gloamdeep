@@ -61,7 +61,7 @@ export function craft(state, i) {
   const { of, kept } = thrift(state, costOf(s.id));
   const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, of[s.id] ?? 0) : bagPay(state.bag, of);
   const bag = bagAdd(paid, recipe.into, undefined, bagSize(state));
-  if (!bag) return say(state, get(recipe.into).full);
+  if (!bag) return say(state, state.bag.some((s) => s.id === recipe.into) ? get(recipe.into).full : 'bagFull'); // full, or one already carried (D-826);
   return endTurn(state, keptSay({ ...passTurn(state), bag }, kept, recipe.says));
 }
 
@@ -72,7 +72,7 @@ export function makeFrom(state, from) {
   if (!recipe || !bagHas(state.bag, of)) return state;
   const kept = thrift(state, of);
   const bag = bagAdd(bagPay(state.bag, kept.of), recipe.into, undefined, bagSize(state));
-  if (!bag) return say(state, get(recipe.into).full);
+  if (!bag) return say(state, state.bag.some((s) => s.id === recipe.into) ? get(recipe.into).full : 'bagFull'); // full, or one already carried (D-826);
   return endTurn(state, keptSay({ ...passTurn(state), bag }, kept.kept, recipe.says));
 }
 
@@ -153,13 +153,13 @@ function glow(state, i, entry, starts = glowing) {
 
 // § hold: Hold on bag slot i puts its weapon in the hand, or its tool in the Tool slot,
 // and the one there, if any, in that bag slot; it passes a turn, like a pour, with its
-// `holds` line (D-479, D-552). A `hold` event.
+// `holds` line (D-479, D-552). A `hold` event, `tool` for a tool (D-826).
 export function hold(state, i) {
   const s = state.bag[i], entry = s && get(s.id), key = entry?.tool ? 'tool' : entry?.hold ? 'held' : null;
   if (!key) return state;
   const was = state[key] ?? null;
   const bag = was ? state.bag.map((o, j) => (j === i ? { id: was, n: 1 } : o)) : bagTake(state.bag, i);
-  return endTurn(state, say(note(passTurn({ ...state, bag, [key]: s.id }), 'hold', { id: s.id }), entry.holds));
+  return endTurn(state, say(note(passTurn({ ...state, bag, [key]: s.id }), 'hold', { id: s.id, tool: key === 'tool' }), entry.holds));
 }
 
 // § set down: Set down on bag slot i puts its item's `sets` tile (the workbench's

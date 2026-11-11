@@ -24,8 +24,9 @@ import { wardSlept } from './ward.js';
 import { spitproofSlept } from './spitproof.js';
 import { shadeSlept } from './shade.js';
 
-// A creature is after the hero: one chasing, even in the dark, or one seen that has noticed them
-export const chased = (state) => state.enemies.some((e) => e.chasing && !e.asleep && !e.pile) || creatureList(state).length > 0;
+// A creature is after the hero: one chasing, even in the dark, or one seen that has noticed them;
+// one that never bites and isn't chasing, a shy bunny, isn't after them (D-826)
+export const chased = (state) => state.enemies.some((e) => e.chasing && !e.asleep && !e.pile) || creatureList(state).some((a) => a.e.chasing || get(a.e.id)?.bite);
 
 // The Fur Bedroll in the bag, or null (D-803)
 export const rolled = (state) => state.bag.find((s) => get(s.id)?.rest) ?? null;

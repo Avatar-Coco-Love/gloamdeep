@@ -23,6 +23,15 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.273 (2026-11-11)
+- Fixed: with a Healing herb chosen in the bag, once a mortar draught that uses it is known, the bag no longer stops drawing; the card shows EAT and, beside it, the draught it makes at the mortar.
+- Fixed: MAKE with a full bag now says "Your bag is full.", not that you already carry what it makes (the Mortar and Pestle, a workbench).
+- Fixed: a shy bunny near you at dusk no longer stops you sleeping out; only a creature that bites, or one chasing you, does.
+- Fixed: holding a tool, the rod or a pick, no longer plays the knife being drawn.
+- Fixed: the Tab key on Settings' tabs ticks, as a tap on a tab does.
+- Docs: the Mortar and Pestle's notes now say it lists six draughts, each once all its parts have been held.
+- Decisions: D-827.
+
 ## 0.3.272 (2026-11-11)
 - The fourteenth audit. Nothing in the game changes. The Version history's newest file is split again, word for word: 0.3.201 to 0.3.250 move to history-0.3-4.js.
 - Docs: finished decisions and the playbook's newest lines moved to the archive or their own files, word for word; the finds' and sounds' lists, near their cap, split in two; the waiting list's later questions on one line, so a conversation starts by reading less. A bug hunt's findings come next. The next audit is at 0.3.312.
@@ -33,7 +42,3 @@ Entry format:
 - New: a stash chest creaks as it opens, before its page turns, and closes with a wooden knock just after its page.
 - New: on Settings' Sound tab, Finds' list has three more lines, each On or Off: Digging, Stone breaks and Chest.
 - Decisions: D-825. D-821 moved to the archive, word for word.
-
-## 0.3.270 (2026-11-11)
-- New: on Settings' Sound tab, each kind's line (Steps, Fighting, Finds, Menus) shows > after its loudness, and a tap or Enter opens its list: the kind's loudness first, then each of its sounds On or Off. Steps: Grass, Stone, Earth and Lantern; Fighting: Lantern hit, Knife hit and Beaten; Finds: Into the bag, Weapon drawn and Tile set down; Menus: Tick, Page turn and Can't. Only the sounds the game plays so far are listed; each new one joins its list. A sound turned On plays itself so you hear it. The list's title, SOUND · STEPS, sits where the tabs were; the close button, Esc or a tap on the title goes back to the Sound tab. Left and Right on the Sound tab still change a kind's loudness.
-- Decisions: D-824. D-820 moved to the archive, word for word.

@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.270, Each sound On or Off.** The owner's picks
+  (D-824), all recommended, after a fit test (13 lines fit at 320 × 568
+  upright and sideways): only the heard sounds; a kind's line opens its
+  list, its loudness first; the list in the Sound tab; lines named by
+  what happens. The Sound tab's three steps are done.
+  Playtest: https://claude.ai/artifact/EDQSQi6GsDRnGM51saBwV9
 - **2026-11-11, 0.3.269, The four kinds' loudness.** The owner's picks
   (D-823), all recommended, after a fit test (all six lines fit at
   320 × 568): Steps, Fighting, Finds and Menus as plain lines under
