@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.287 (2026-11-11)
+- New: music in the dungeon. On every floor from 8 down, the cold blue halls, a very still, dark tune of long held sounds plays non-stop, looping with no break and carrying on from floor to floor. Going down from the warrens fades the warrens' tune out over 2 seconds, and the dungeon's starts a second later, fading in.
+- New: Music's list in Settings has a line for it, Dungeon, after Warrens.
+- Notes: the tune is "Patreon Challenge 04" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Every place below now has its music.
+- Decisions: D-841.
+
 ## 0.3.286 (2026-11-11)
 - New: music in the warrens. On floors 5 to 7, the earth burrows, a dark, slow, low tune plays non-stop, looping with no break and carrying on from floor to floor. Going down from the rock caves fades the caves' tune out over 2 seconds, and the warrens' starts a second later, fading in; going on down to the dungeon fades it out the same way.
 - New: Music's list in Settings has a line for it, Warrens, after Rock caves.
@@ -34,9 +40,3 @@ Entry format:
 - New: Music's list in Settings has a line for it, Crypt, between Surface and Rock caves.
 - Notes: the tune is "Ludum Dare 30 05" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. The warrens and the dungeon are still quiet, one step each.
 - Decisions: D-839.
-
-## 0.3.284 (2026-11-11)
-- New: music in the rock caves. On floors 2 to 4 a calm, dark, slow tune plays non-stop under the drips, looping with no break and carrying on from floor to floor. Going down from the surface fades the surface's tune out over 2 seconds, and the caves' starts a second later, fading in; going back up swaps them the same way.
-- New: Music's list in Settings has a second line, Rock caves, to turn that tune On or Off.
-- Notes: the tune is "The Vile Grove" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Other places below are still quiet, one step each.
-- Decisions: D-838.

@@ -247,3 +247,18 @@ throb; again only after a heart has come back and gone again; a fall,
 waking at full hearts, does not (offered too: again every few steps;
 beating on its own in time). One Settings line under Fighting, Last
 heart. D-830 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-836 · 2026-11-11 · A cave's drips** (the owner's picks, all
+recommended; part of Q-095) Sounds all around begin with drips in the
+caves. From a board of 4 (a drop and its ripple; a single plip; a clear
+plink; a far-off drip), the first: the elemental pack's Water-009 at 1.2
+pitch, straying a tenth, at 0.1, through the cave's echo as the stone
+steps. One drip every 8 to 16 seconds, the gap picked at random each time
+(offered too: every 3 to 6; every 20 to 40), in real time while play
+shows the rock caves, floors 2 to 4 (offered too: every stone floor
+below; every floor below), each placed a little left or right (up to
+0.6 of the way; offered too: always in the middle). Leaving, or a card
+over play, stops them. They follow Finds' loudness and share Places'
+line, as Finds' list is full on the smallest card (offered too: their
+own line under Steps; Coins and Shelf joined). D-831 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.
