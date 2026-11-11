@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.266 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.267 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Settings in tabs (D-820): Controls, Game, Screen and Sound, the same
-lines as now, nothing new in them yet. Then the Sound tab's loudness and
-On or Off for each sound, a step at a time.
+The Sound tab (D-820): an overall loudness first, then a loudness for
+each kind, then On or Off for each sound, a step at a time.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -45,6 +44,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.267, Settings in tabs.** The owner's picks (D-821),
+  all recommended: CONTROLS, GAME, SCREEN and SOUND in the title row,
+  opening on the last tab, Tab turns them, VERSION HISTORY on each;
+  upright, two rows of 2 (found by the fit test after the first picks,
+  the 0.3.246 lesson again). The Sound tab grows next.
+  Playtest: https://claude.ai/artifact/7mK8JxWAumrUKgKH4J3RDo
 - **2026-11-11, 0.3.266, The bag's sounds.** The owner's picks (D-820),
   all recommended, by ear: a cloth pat into the bag, a knife drawn into
   the hand, a wood knock for the workbench set down. Settings gets tabs
@@ -57,7 +62,3 @@ list in `RESEARCH.md`.
   wooden tock for a dim pick.
   Playtest: https://claude.ai/artifact/PoCRktUB22d9SaXfLnJq1C
   Sound board: https://claude.ai/artifact/QgBRdoZN4Nt8nTx75fJ1kg
-- **2026-11-11, 0.3.264, Thrift.** The owner's picks (D-818): about 1
-  making in 4 keeps 1 of its most-used part; every making; "You keep 1
-  Stone."; a log with an arrow back. Growth's row 2 is full.
-  Playtest: https://claude.ai/artifact/MQY9iuY1GN4wu8rsm1bxu3

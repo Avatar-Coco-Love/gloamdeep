@@ -71,7 +71,7 @@ import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SLEEP_OUT_ASK, SLEEP_OUT_ROLL_ASK } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SETTINGS_TABS, settingsTabOf, SLEEP_OUT_ASK, SLEEP_OUT_ROLL_ASK } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
@@ -117,7 +117,7 @@ export function createScreens(app, ui) {
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
-    : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode) : settingsMenu(app.settings, reduceMotion.matches));
+    : app.pageFrom === 'paused' ? settingsMenu(app.settings, reduceMotion.matches, app.journeySeed, app.state.mode, app.settingsTab) : settingsMenu(app.settings, reduceMotion.matches, null, null, app.settingsTab));
   const exploring = () => app.screen === 'explore' || (app.screen === 'seed' && app.padFrom === 'explore');
   // The boons card (D-712) is on the title's scene only over a Journal opened from the title
   const onTitle = () => ['slots', 'name', 'cloak', 'drop', 'title', 'sure', 'mode', 'ended'].includes(app.screen) || exploring() || (app.screen === 'aboutBoons' ? app.boonsFrom === 'journal' && app.pageFrom === 'title' : !['play', 'paused', 'map', 'bag', 'make', 'place', 'bench', 'chest', 'trade', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening'].includes(app.screen) && app.pageFrom === 'title');
@@ -144,9 +144,9 @@ export function createScreens(app, ui) {
   function openBoons() { app.queued = null; app.offer = offer(app.state); show('boons', 0); app.scroll = 0; }
   const askWords = (sc) => `${askOf(sc).join(' ')} ${menuOf(sc).filter((l) => !l.dim).map((l) => l.text).join(' or ')}.`; // Yes or No., or the garden bed's
   const askOf = (sc) => (sc === 'sure' ? [SURE_HEADING, SURE_NOTE] : sc === 'sleepOut' ? (warm(app.state) ? SLEEP_OUT_ROLL_ASK : SLEEP_OUT_ASK) : sc === 'drop' ? [`Delete ${slotName(app.profiles.slots[app.dropping], app.dropping)}?`, DROP_NOTE] : sc === 'bed' ? (canShelve(app.state, app.bench.x, app.bench.y) ? SHELVE_ASK : TAKE_ASKS[tileAt(app.state.room, app.bench.x, app.bench.y).id]) : [easeHeading(app.easier), EASE_NOTE]);
-  const settingsWords = () => `Settings. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Version history. Esc or the close button goes back.`;
+  const settingsWords = () => `Settings, ${settingsTabOf(app.settingsTab).text[0]}${settingsTabOf(app.settingsTab).text.slice(1).toLowerCase()} tab. ${menuOf('settings').slice(0, -1).map((l) => l.text).join('. ')}. Pick one to change it. Tab or a tap on a tab turns the tab. Version history. Esc or the close button goes back.`;
   function show(next, at = 0) {
-    if ((next === 'settings' && !['seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || (next === 'journal' && app.screen !== 'aboutBoons')) app.pageFrom = app.screen; // back from the boons card, the Journal keeps where it came from (D-712)
+    if ((next === 'settings' && !['settings', 'seed', 'history', 'ways', 'easier'].includes(app.screen)) || next === 'howto' || (next === 'journal' && app.screen !== 'aboutBoons')) app.pageFrom = app.screen; // back from the boons card, the Journal keeps where it came from (D-712)
     const playing = next === 'play';
     if ((playing || next === 'opening') && (onTitle() || app.screen === 'paused')) ui.goFullScreen(); // Play, Continue or Resume: full screen, held either way (D-377, D-505)
     app.screen = next; app.chosen = at;
@@ -162,6 +162,12 @@ export function createScreens(app, ui) {
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : WORDS[next];
   }
   const backTo = (id) => () => show(app.pageFrom, menuOf(app.pageFrom).findIndex((l) => l.id === id));
+  // § settings tabs (D-820): the next tab, or `tab`, opened on its first line, kept as Settings closes
+  function turnSettingsTab(tab) {
+    const i = SETTINGS_TABS.findIndex((t) => t.id === app.settingsTab);
+    app.settingsTab = tab ?? SETTINGS_TABS[(i + 1) % SETTINGS_TABS.length].id;
+    show('settings', 0);
+  }
   const closeSettings = backTo('settings'), closeHowTo = backTo('howto'), backFromJournal = backTo('journal');
   const closeJournal = () => (app.pageFrom === 'play' ? show('play') : backFromJournal()); // opened from the goal line, back to play (D-706)
   // § journal: its tabs (D-270, D-293), on a card (D-391). It opens on Records.
@@ -261,10 +267,10 @@ export function createScreens(app, ui) {
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)
   const endJourney = () => show('ended');
-  return { turnBagTab, turnBenchTab, show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
+  return { turnBagTab, turnBenchTab, turnSettingsTab, show, endJourney, onWheel, openSleepOut, openQuests, openSlots, slotsBack, openPanel, openTrade, openTravel, openBoons, openStrike, pause, toggleMap, toggleBag, turnMap, panMap, zoomMap, onType, choose, onDir, onPoint, space, onMapScreen, onTitle, menuOf, askOf, turns, chip };
 }

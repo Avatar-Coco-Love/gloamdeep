@@ -79,7 +79,22 @@ export const pauseFacts = (state) => {
 // journey: this journey's seed, named from the pause menu (D-191), else null;
 // mode: this journey's way to play, its line under the seed from the pause menu (MO4, D-346)
 const named = (id, text) => { const at = text.indexOf(': '); return { id, text, name: text.slice(0, at), value: text.slice(at + 2) }; };
-export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null) => [
+// § settings tabs (D-820): CONTROLS, GAME, SCREEN and SOUND, each switch's line in one; tab:
+// the open tab's id, its lines only, Version history last on every tab; null, every line
+export const SETTINGS_TABS = [
+  { id: 'controls', text: 'CONTROLS', ids: ['swipe', 'tap', 'pad', 'stop'] },
+  { id: 'game', text: 'GAME', ids: ['seed', 'mode', 'lantern', 'flasks'] },
+  { id: 'screen', text: 'SCREEN', ids: ['motion', 'marks', 'stats'] },
+  { id: 'sound', text: 'SOUND', ids: ['sound'] },
+];
+export const settingsTabOf = (id) => SETTINGS_TABS.find((t) => t.id === id) ?? SETTINGS_TABS[0];
+export const settingsMenu = (s, deviceReduced = false, journey = null, mode = null, tab = null) => {
+  const all = allSettings(s, deviceReduced, journey, mode);
+  if (!tab) return all;
+  const { ids } = settingsTabOf(tab);
+  return [...ids.flatMap((id) => all.filter((l) => l.id === id)), all[all.length - 1]];
+};
+const allSettings = (s, deviceReduced, journey, mode) => [
   named('swipe', swipeText(s.swipe)),
   named('tap', tapText(s.tap)),
   named('pad', padText(s.pad)),

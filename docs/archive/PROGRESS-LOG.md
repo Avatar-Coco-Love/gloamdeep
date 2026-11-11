@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.264, Thrift.** The owner's picks (D-818): about 1
+  making in 4 keeps 1 of its most-used part; every making; "You keep 1
+  Stone."; a log with an arrow back. Growth's row 2 is full.
+  Playtest: https://claude.ai/artifact/MQY9iuY1GN4wu8rsm1bxu3
 - **2026-11-11, 0.3.263, Guard.** The owner's picks (D-817): about 1
   bite in 6 glances off, rolled after the vest's own dice; "The bite
   glances off you."; only bites; a small round shield tile.

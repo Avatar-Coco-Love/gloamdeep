@@ -113,19 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-817 · 2026-11-11 · Guard** (the owner's picks, all recommended;
-step 3 of D-814) Body's row 2 upgrade, 1 ember, once: a bite the worn
-vest did not turn rolls Guard's own dice, and about 1 in 6 glances off
-and hurts nothing, so with the Rat Hide Vest about 3 bites in 8 glance
-off (offered too: the chances added; only the bigger one). Guard's line
-"The bite glances off you."; a bite the vest turned keeps "The bite
-glances off your vest." (offered too: the vest's line always; nothing
-said). Only bites: an oil drink, a glob and a sting are not turned
-(offered too: bites and drinks; every blow). Its words "About 1 bite in
-6 glances off."; its tile a small pale round shield, a boss in the
-middle (offered too: a fang turned aside; a heart in a ring). D-813
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-818 · 2026-11-11 · Thrift** (the owner's picks, all recommended;
 step 4 of D-814, the last) Hands' row 2 upgrade, 1 ember, once: about
 1 making in 4, by the seeded dice, keeps 1 of the part its recipe uses
@@ -181,3 +168,17 @@ Sound); later the Sound tab holds an overall loudness, a loudness for
 each kind, and On or Off for each sound (offered too: silent in the
 background). D-816 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-821 · 2026-11-11 · Settings in tabs** (the owner's picks, all
+recommended; builds D-820) The tabs CONTROLS, GAME, SCREEN and SOUND
+sit in the card's title row where SETTINGS was, as the bag's (offered
+too: under the title). Settings opens on the tab last open, Controls at
+first, kept as it closes until the game is closed (offered too: Controls
+every time). The Tab key turns to the next tab, as on the bag and the
+workbench, and a tap on one opens it (offered too: Up from the top line
+onto the tabs). VERSION HISTORY stays in the bottom corner on every tab
+(offered too: only on Game). On a card too narrow for one row (upright
+phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
+3 and 1). Claude's calls the owner may change: each tab opens on its
+first line; Settings' spoken words name the open tab. D-817 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
