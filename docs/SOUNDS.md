@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828), the lantern and the light the ninth, the first from the elemental pack (D-830), the fight's rest the tenth (D-831), the creatures' bites the eleventh, all under one line, Bites (D-832). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -55,15 +55,7 @@ D-829), saved from WAV, nothing else changed:
 
 ## Fighting
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `hit` | the hero hits with the lantern (D-777) | a dull knock | `kenney-impact-sounds/impactPunch_medium_000` to `004`, at a quarter loudness, CC0 |
-| `hit` | the hero hits with the knife or spear (D-777) | a quick slice | `kenney-rpg-audio/knifeSlice` and `knifeSlice2`, at a quarter loudness, CC0 |
-| `miss` | the hero, stiff, swings and misses (D-759, D-831) | a swish through air | the elemental pack's `Wind-012` to `014`, at 0.55, CC0 |
-| `beaten` | a creature is beaten (D-777) | a short fall or crumple, 0.12 s after the hit | `kenney-impact-sounds/impactSoft_heavy_000` to `004`, at a quarter loudness, CC0 |
-| `hurt` | the hero is hurt: a bite or a glob takes a heart, a moment after the hero's swing (D-831) | a small gasp; no pack has a voice, so a blow | `kenney-impact-sounds/impactPunch_heavy_000` to `004`, a tenth lower, muffled above 900 Hz, at 0.32, CC0 |
-| `poison` | poison takes a heart (D-654, D-831) | a sick, low pulse | the same punch at 0.6 pitch, muffled above 400 Hz, at 0.36, then at 0.57 and 0.26, 0.35 s later, CC0 |
-| `rise` | a level reached (D-246, D-831), after the beaten thud | a short rising note | `kenney-impact-sounds/impactGlass_light_000` to `002` at 1, 1.26 and 1.5, 0.11 s apart, at 0.2 to 0.16, 0.55 s late, CC0 |
+In `SOUNDS-2.md`, moved word for word at 0.3.278.
 
 ## Creatures
 

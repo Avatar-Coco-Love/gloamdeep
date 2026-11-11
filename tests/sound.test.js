@@ -199,7 +199,30 @@ test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
     [['impactGlass_light_000.ogg', 1, 0.55], ['impactGlass_light_001.ogg', 1.26, 0.55], ['impactGlass_light_002.ogg', 1.5, 0.55]]); // rising, after the beaten thud
   for (const v of ['miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3']) assert.equal(kindOf(v), 'fight');
   for (const v of ['miss', 'hurt', 'poison', 'rise']) assert.ok(SOUND_LINES.some((l) => l.voice === v));
-  assert.deepEqual(soundsOf('fight').map((l) => l.name), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Level']);
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(0, 7), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Level']);
+});
+
+// § the creatures' bites (D-832): one for each kind, a quarter second after the hero's swing, its parts too
+test("The creatures' bites: one for each kind, after the swing, one line in Settings (D-832)", async () => {
+  const { soundsOf } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const { ENEMIES } = await import('../src/core/enemies.js');
+  const bites = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip'];
+  for (const k of Object.values(ENEMIES)) for (const v of [k.sound, k.sips].filter(Boolean)) assert.ok(bites.includes(v), `${k.id}'s ${v} is heard`);
+  for (const v of bites) {
+    assert.equal(FILES[v].after, 0.25, v);
+    for (const [part] of FILES[v].with ?? []) assert.ok(FILES[part].part && kindOf(part) === 'fight', part);
+    assert.equal(kindOf(v), 'fight');
+  }
+  assert.deepEqual(FILES.teeth.with, [['teeth2', 0.07]]); // a quick double nip
+  assert.deepEqual(FILES.rattle.with.map(([, at]) => at), [0.05, 0.1, 0.16]); // a clatter of bones
+  assert.equal(FILES.sip.files[0], 'morphonaut-elemental-forces/Water/Water-038.ogg');
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(7), ['Bites']); // one line for them all
+  const { BITES, isMuted } = await import('../src/core/settings.js');
+  assert.deepEqual(BITES, bites);
+  for (const v of bites) assert.ok(isMuted({ muted: ['bites'] }, v) && !isMuted({}, v));
+  assert.ok(!isMuted({ muted: ['bites'] }, 'hurt')); // the blow has its own line
+  assert.equal(FILES.bites.as(), 'teeth'); // turned On, it plays the rat's
 });
 
 test('A card opens on top, and closes back to what is under it', () => {
@@ -226,7 +249,8 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
     assert.ok(FILES[voice].files || FILES[voice].as, `${voice} is heard`);
   }
   const heard = Object.keys(FILES).filter((v) => FILES[v].files && !FILES[v].part); // a part, such as the card's two, is heard in its own sound's line
-  for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v), `${v} has a line`); // every heard sound
+  const { BITES } = await import('../src/core/settings.js');
+  for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v) || BITES.includes(v), `${v} has a line`); // every heard sound, the bites under one (D-832)
   assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs out', 'Torch lit', 'Campfire lit']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
     ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Version history']);

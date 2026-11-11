@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.278', date: '2026-11-11', title: 'The creatures\' bites\' sounds', lines: [
+    "New: the creatures' bites have sounds, one for each kind: a rat's quick double nip, a flask mimic's clink and snap, a scorpion's clicks and stab, a cave spider's hiss, a bat's chirps and flap.",
+    "New: a mole sniffs and scrapes, a snapcap squelches and snaps, a herb mimic rustles, a bone rat's bones clatter, and an oil tick slurps and gulps your oil.",
+    "New: on Settings' Sound tab, Fighting's list has one more line, Bites, On or Off for them all.",
+    "Decisions: D-832.",
+  ] },
   { v: '0.3.277', date: '2026-11-11', title: 'The fight\'s rest\'s sounds', lines: [
     "New: the rest of the fight has sounds. A stiff swing that misses puffs through the air, and a bite or a glob that takes a heart lands as a dull blow.",
     "New: poison taking a heart throbs twice, deep and slow, and reaching a level rings three glass notes rising, just after the creature falls.",

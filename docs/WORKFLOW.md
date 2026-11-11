@@ -103,3 +103,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A bought pack goes in the public repo whole only once its licence allows sharing; check the listing's licence first and say where it came from in its `License.txt` (0.3.275).
 - Picking sounds by their measured shape and spectrogram works when the names say nothing, but check in the code what the moment really does before writing an "In play" button: the oil running out dims the lantern, it doesn't click it off (0.3.276).
 - When none of a moment's 4 fit, offer 4 new ones of other kinds on the same board, keeping the moments already picked marked (0.3.277).
+- Ten moments on one board, 3 each with "Alone" and "In a fight" buttons, were picked in three rounds of questions; check that Settings' lists still fit the smallest card before adding a line per sound (0.3.278).
