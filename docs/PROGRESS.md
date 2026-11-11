@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.287 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.288 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -41,6 +41,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.288, Chopping a tree.** The owner's picks (D-842),
+  all recommended: an axe's chop for each bump on a tree, and as it falls
+  a last chop, a slow low creak and a heavy crash; trees only for now;
+  under Digging's and Stone breaks' lines in Settings.
+  Playtest: https://claude.ai/artifact/Y9XdDjkDf7F5Crhq3FNxDW
+  Sound board: https://claude.ai/artifact/XkdfXdBy953RM9zWcHbkUK
 - **2026-11-11, 0.3.287, Music in the dungeon.** The owner's picks
   (D-841), all recommended, from a board of 8 calm, dark tracks measured
   again from all 138 (the 43 over 45 s), with the warrens' and the crypt's
@@ -57,9 +63,3 @@ list in `RESEARCH.md`.
   a line in Music's list, Warrens.
   Playtest: https://claude.ai/artifact/8qhTwYobXWebH8QQXy8FcH
   Board of tracks: https://claude.ai/artifact/VMKnvbHFVrFWbg4ZZQVu8Q
-- **2026-11-11, 0.3.285, Music in the crypt.** The owner's picks (D-839)
-  from a board of 8 dark tracks: "Ludum Dare 30 05" in the whole crypt
-  (its two top rooms and floor 1), non-stop, carrying on down its
-  stairs; a line in Music's list, Crypt.
-  Playtest: https://claude.ai/artifact/XLFhrdkvamcnNW627kwfhz
-  Board of tracks: https://claude.ai/artifact/Tg1pYKtZXe1T8k8pfe1eJx

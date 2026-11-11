@@ -31,6 +31,8 @@ the creatures and places went on to `SOUNDS-3.md`.
 | `clink` | a deposit, copper vein or rubble bumped, not its last bump (O2, D-825) | a pick on stone | `kenney-impact-sounds/impactMining_000` to `004`, at a quarter loudness, the cave's echo, CC0 |
 | `crumble` | its last bump breaks it (O2, D-825) | stone cracking apart, small stones tumbling | the mining files a quarter lower at 0.35, then three of `footstep_concrete_000` to `004`, a fifth higher at 0.12, 0.12 s, 0.22 s and 0.34 s after, the cave's echo, CC0 |
 | | a person freed from the rubble (D-491) | stones tumbling away | — (the rubble's `crumble` plays) |
+| `chop` | a tree bumped, not its last bump (W3, D-842); under Digging's line | an axe biting into wood | `kenney-rpg-audio/chop`, at 0.2, its pitch straying 0.08, CC0 |
+| `treeFall` | its last bump fells it (W3, D-842); under Stone breaks' line | a last chop, a slow creak, a crash | the chop at 0.22, then `creak2` at 0.6, at 0.45, 0.15 s after, then `impactWood_heavy_000` to `004` at 0.7, at 0.4, muffled above 1500 Hz, 1.25 s after, CC0 |
 | `shimmer` | a person leaves for home, or arrives (D-496, D-833) | a soft shimmer | `impactGlass_light_000` to `002` at 1.6, 1.8 and 2, 0.07 s apart, at 0.1 to 0.08, CC0 |
 | `coins` | an item sold at home (D-494, D-828), not the tick | coins | `kenney-rpg-audio/handleCoins`, at a quarter loudness, CC0 |
 | `sow` | a seed planted (D-566, D-828) | soft earth | the earth step's files, twice, 0.13 s apart, at a quarter, then 0.2, CC0 |

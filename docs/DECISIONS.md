@@ -103,23 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-837 · 2026-11-11 · Music on the surface** (the owner's picks; part of
-Q-095) The Tallbeard bundle's pre-2023 and Troubadeck zips (Abstraction,
-CC0, checked in their licence) came through a temporary GitHub release;
-Tom Feldmann's Wild Music Pack can follow. From a board of 8 calm tracks,
-picked by measuring all 139 (each non-stop or with a 30 s, 60 s or 2 min
-gap), track 6, "Ludum Dare 30 06" (2 min), plays on the surface by day and
-by night, home too, non-stop with no break (offered too: with a 30 s,
-60 s or 2 min gap). Leaving the surface fades it out over 2 seconds
-(offered too: stopping at once; playing on everywhere); back on the
-surface it starts from its beginning a second later, fading in over a
-second. None plays on the title or below, for now. Music is a fifth kind
-in Settings with its own loudness, 50% until picked (offered too: full;
-a quarter; one On or Off switch; a line under Menus), and one line in its
-list, Surface; a change of Music's loudness ticks. Each other place's
-music is its own step. File and loudness in `SOUNDS-3.md`. D-832 moves to
-`archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-838 · 2026-11-11 · Music in the rock caves** (the owner's picks, all
 recommended; part of Q-095) From a board of 8 calm, dark tracks for
 floors 2 to 4 from the same bundle, measured again from all 138 (darkest,
@@ -185,3 +168,15 @@ others do: the old place's tune fades out over 2 s, the new one starts a
 second later, fading in over a second. A line in Music's list after
 Warrens, Dungeon. File and loudness in `SOUNDS-3.md`. D-836 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-842 · 2026-11-11 · Chopping a tree** (the owner's picks, all
+recommended) Each bump on a tree that isn't its last, `chop`, plays the
+RPG pack's axe chop, a little higher or lower each time (offered too: a
+wooden knock; the chop and the knock together). The last bump, as it
+falls, `treeFall`, plays a last chop, then a slow low creak (`creak2` at
+0.6), then a heavy wooden crash as it lands (offered too: the chop and
+the crash with no creak; one more chop). Trees only for now (offered
+too: fallen branches; their own lines in Settings). No line of their
+own: chopping is under Digging, a tree falling under Stone breaks, as
+Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
+moves to `archive/DECISIONS-SOUNDS.md`, word for word.

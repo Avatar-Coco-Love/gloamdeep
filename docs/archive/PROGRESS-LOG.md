@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.285, Music in the crypt.** The owner's picks (D-839)
+  from a board of 8 dark tracks: "Ludum Dare 30 05" in the whole crypt
+  (its two top rooms and floor 1), non-stop, carrying on down its
+  stairs; a line in Music's list, Crypt.
+  Playtest: https://claude.ai/artifact/XLFhrdkvamcnNW627kwfhz
+  Board of tracks: https://claude.ai/artifact/Tg1pYKtZXe1T8k8pfe1eJx
 - **2026-11-11, 0.3.284, Music in the rock caves.** The owner's picks
   (D-838), all recommended, from a board of 8 calm, dark tracks measured
   again from 138, with the surface's tune and the drips: track 1, "The
