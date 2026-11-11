@@ -19,6 +19,7 @@ import { shaded, SHADE_NEAR } from './shade.js';
 import { spitTurn, aim } from './spit.js';
 import { stingTurn, reach } from './sting.js';
 import { rise } from './bones.js';
+import { guards } from './guard.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -29,7 +30,8 @@ import { rise } from './bones.js';
 // Then the others come one tile closer (D-126 to D-129).
 // Each bite is a `bite` event, in the order they bite. Worn armour turns some aside:
 // each bite has its `glance` chance, from the seed, to hurt nothing, and when none
-// hurts, the glance line shows (D-484). The Shell Vest takes 1 off a bite of 2 or more (D-801). One that `drinks` takes oil instead of
+// hurts, the glance line shows (D-484). With Guard, a bite the vest did not turn rolls Guard's own dice
+// too, and its line is Guard's when that bite is the first (guard.js, D-817). The Shell Vest takes 1 off a bite of 2 or more (D-801). One that `drinks` takes oil instead of
 // a heart while the lantern holds any, a `drink` event (D-606).
 // In god mode (`state.god`, a dev switch) a bite is the same but takes no heart,
 // so the hero never falls from one; its event still says what it would take (D-625).
@@ -48,12 +50,13 @@ function act(state) {
   const bites = biting(state);
   if (!bites.length) return enemiesMove(state);
   const drank = drinks(state, bites);
-  const hurts = bites.map((e, i) => (drank[i] > 0 || glances(state, e) ? 0 : blunted(state, get(e.id).bite))), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
+  const turned = bites.map((e, i) => (drank[i] > 0 ? null : glances(state, e) ? 'glance' : guards(state, e) ? 'guardGlance' : null));
+  const hurts = bites.map((e, i) => (drank[i] > 0 || turned[i] ? 0 : blunted(state, get(e.id).bite))), first = hurts.findIndex((n, i) => n > 0 || drank[i] > 0);
   const health = state.god ? state.health : Math.max(0, state.health - hurts.reduce((sum, n) => sum + n, 0));
   const oil = state.endless ? state.oil : Math.max(0, state.oil - drank.reduce((sum, n) => sum + n, 0));
   const enemies = chased(state.enemies, bites);
   const stood = state.line?.turn === state.turn && bites.some((e) => get(e.id).stands === state.line.id);
-  const said = first < 0 ? 'glance' : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;
+  const said = first < 0 ? turned.find(Boolean) : drank[first] > 0 ? get(bites[first].id).drinksSay : get(bites[first].id).bites;
   const poisoned = bites.some((e, i) => hurts[i] > 0 && get(e.id).poisons) && !warded(state) && !shrugs(state);
   const after = poisoned ? poisonedBy({ ...state, health, oil, enemies }) : { ...state, health, oil, enemies };
   let bitten = stood ? after : say(after, said);

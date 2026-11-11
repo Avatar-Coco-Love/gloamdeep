@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.260, Growth's second row, planned.** The owner's
+  picks (D-814): row 2 opens past depth 8; Quick Pour, Guard and Thrift,
+  1 ember each, built one a step after the opening. Nothing visible, so
+  no playtest.
 - **2026-11-10, 0.3.259, Quick Hands.** The owner's picks (D-813):
   Hands' first upgrade, 1 ember, once, a pale open hand; a tree, a
   stone deposit or a branch takes 1 bump fewer by hand.

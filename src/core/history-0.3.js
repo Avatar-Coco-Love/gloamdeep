@@ -4,6 +4,10 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.263', date: '2026-11-11', title: 'Guard', lines: [
+    "New: Guard, the Growth tree's second-row upgrade on Body, 1 ember, bought once, its tile a small pale round shield. With it, about 1 bite in 6 glances off and hurts nothing, by the journey's dice, and the game says \"The bite glances off you.\" With the Rat Hide Vest worn, each rolls its own dice, so about 3 bites in 8 glance off, and a bite the vest turns keeps its own line. An oil drink, a glob and a sting are not turned.",
+    "Decisions: D-817.",
+  ] },
   { v: '0.3.262', date: '2026-11-11', title: 'Quick Pour', lines: [
     "New: Quick Pour, the first upgrade in the Growth tree's second row, on Light, 1 ember, bought once, its tile a tipped flask with a drop falling. With it, pouring a flask from the bag takes no turn: no oil burns, no creature moves, and the game says \"You pour a flask.\" A Pond Minnow's oil still takes a turn.",
     "The first time the second row opens, walking down past depth 8 or by a dev jump, the game says \"Growth has a new row.\"",

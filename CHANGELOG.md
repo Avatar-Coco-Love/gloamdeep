@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.263 (2026-11-11)
+- New: Guard, the Growth tree's second-row upgrade on Body, 1 ember, bought once, its tile a small pale round shield. With it, about 1 bite in 6 glances off and hurts nothing, by the journey's dice, and the game says "The bite glances off you." With the Rat Hide Vest worn, each rolls its own dice, so about 3 bites in 8 glance off, and a bite the vest turns keeps its own line. An oil drink, a glob and a sting are not turned.
+- Decisions: D-817.
+
 ## 0.3.262 (2026-11-11)
 - New: Quick Pour, the first upgrade in the Growth tree's second row, on Light, 1 ember, bought once, its tile a tipped flask with a drop falling. With it, pouring a flask from the bag takes no turn: no oil burns, no creature moves, and the game says "You pour a flask." A Pond Minnow's oil still takes a turn.
 - The first time the second row opens, walking down past depth 8 or by a dev jump, the game says "Growth has a new row."
@@ -31,7 +35,3 @@ Entry format:
 ## 0.3.261 (2026-11-11)
 - The Growth tree's second row opens the first time you go deeper than depth 8. Until then, picking one of its locked tiles says "Reach depth 9 to open." Once open, each branch has a dashed tile to come, and the row above shows locked. A journey already past depth 8 finds it open.
 - Decisions: D-815.
-
-## 0.3.260 (2026-11-10)
-- Planned: the Growth tree's second row. It will open the first time you go deeper than depth 8, and hold Quick Pour on Light (pouring a flask takes no turn), Guard on Body (about 1 bite in 6 glances off) and Thrift on Hands (making something keeps its cheapest part about 1 time in 4), each 1 ember. Nothing in the game changed yet.
-- Decisions: D-814.

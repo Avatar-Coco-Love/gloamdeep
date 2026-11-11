@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.262 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.263 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Growth's row 2, step 3 of 4 (D-814): Guard on Body, about 1 bite in 6
-glances off and does no harm, by the seeded dice; then Thrift, its own
-PR. Read `src/core/growth.js`, `src/core/upgrades.js`, the bite in
-`src/core/creatureturn.js`, D-814 and D-816.
+Growth's row 2, step 4 of 4 (D-814): Thrift on Hands, making something
+keeps its cheapest part about 1 time in 4. Read `src/core/upgrades.js`,
+`src/core/growth.js`, the making in `src/core/bagturn.js` and `bagmake.js`, D-814 and D-817.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -47,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.263, Guard.** The owner's picks (D-817): about 1
+  bite in 6 glances off, rolled after the vest's own dice; "The bite
+  glances off you."; only bites; a small round shield tile.
+  Playtest: https://claude.ai/artifact/S9L395bi3B7mCEf6Nxw1Hh
 - **2026-11-11, 0.3.262, Quick Pour.** The owner's picks (D-816): a
   flask poured by hand takes no turn, says "You pour a flask."; a
   minnow still takes its turn; a tipped flask tile; "Growth has a new
@@ -56,7 +59,3 @@ list in `RESEARCH.md`.
   mark in the save, set past depth 8, a dev jump too; the locked tiles
   say "Reach depth 9 to open."; no log line until Quick Pour.
   Playtest: https://claude.ai/artifact/RYKRwVYUVZzqrbRmwDnqCX
-- **2026-11-10, 0.3.260, Growth's second row, planned.** The owner's
-  picks (D-814): row 2 opens past depth 8; Quick Pour, Guard and Thrift,
-  1 ember each, built one a step after the opening. Nothing visible, so
-  no playtest.
