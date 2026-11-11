@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.284 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.285 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Music for the next place below (Q-095, D-838): a board of calm tracks
-from the same music loops (still on the temporary release) for another
-place below, which one the owner picks; then build it.
+Music for the next place below (Q-095, D-839): a board of calm tracks
+from the same music loops (still on the temporary release) for the
+warrens (floors 5 to 7) or the dungeon (8 on), which one the owner picks;
+then build it.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -22,7 +23,7 @@ place below, which one the owner picks; then build it.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): music for
-  each other place below (D-837, D-838); more sounds all around (wind, birds, crickets;
+  each other place below (D-837 to D-839); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
   then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
@@ -42,6 +43,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.285, Music in the crypt.** The owner's picks (D-839)
+  from a board of 8 dark tracks: "Ludum Dare 30 05" in the whole crypt
+  (its two top rooms and floor 1), non-stop, carrying on down its
+  stairs; a line in Music's list, Crypt.
+  Playtest: https://claude.ai/artifact/XLFhrdkvamcnNW627kwfhz
+  Board of tracks: https://claude.ai/artifact/Tg1pYKtZXe1T8k8pfe1eJx
 - **2026-11-11, 0.3.284, Music in the rock caves.** The owner's picks
   (D-838), all recommended, from a board of 8 calm, dark tracks measured
   again from 138, with the surface's tune and the drips: track 1, "The
@@ -58,11 +65,3 @@ list in `RESEARCH.md`.
   fifth kind in Settings, Music, at 50%, with one line, Surface.
   Playtest: https://claude.ai/artifact/JXzAaGaqVeYzzNSUiQGxPY
   Board of tracks: https://claude.ai/artifact/ANrF9Wxfg9M8EWrKHykx3w
-- **2026-11-11, 0.3.282, A cave's drips.** The owner's picks (D-836),
-  all recommended, from a board of 4 drips and 3 paces: a drop and its
-  ripple, every 8 to 16 s at random, in the rock caves (floors 2 to 4),
-  a little left or right, through the cave's echo; in Places' line, as
-  Finds' list is full on the smallest card.
-  Playtest: https://claude.ai/artifact/Xx6GezeyFYPXpmr7daAwxE
-  Sound board: https://claude.ai/artifact/WiZjTUwoGBAF25RaBVJiS5
-  Board of drips: https://claude.ai/artifact/JQPZeA9gjyN6oi16zymWkZ
