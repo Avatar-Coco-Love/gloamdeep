@@ -125,6 +125,10 @@ const SOUNDS = [
   { label: 'Sleeping until morning', play: 'later(0, () => sound.breath())' },
   { label: '"You can\'t carry more" (the Can\'t tock)', play: 'later(0, () => sound.refuse())' },
   { label: "The run ends", play: 'later(0, () => sound.ended())' },
+  // Sounds all around (D-836): a cave's drips, each a little left or right
+  { label: 'A drip in the rock caves', play: 'later(0, () => sound.drip())' },
+  { label: 'Steps in the rock caves, then a drip', play: 'for (let i = 0; i < 4; i++) later(i * 250, () => sound.stoneStep()); later(1300, () => sound.drip())' },
+  { label: 'Half a minute in the rock caves', play: 'for (let i = 0; i < 40; i++) later(i * 250 + (i >= 8 ? 1500 : 0) + (i >= 20 ? 3000 : 0) + (i >= 30 ? 2500 : 0), () => sound.stoneStep()); for (const s of [1.5, 12, 22.5]) later(s * 1000, () => sound.drip())' },
 ];
 
 // § heard: only buttons whose every sound has its files

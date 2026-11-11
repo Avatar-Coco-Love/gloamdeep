@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
+  go-ahead (D-833), Claude's recommended pick for every line still
+  silent, by measured shape: the last three bites, the creatures' own
+  sounds, a fall and waking, new floors and rooms, eating, people,
+  making, the places' bells and water, sleep, "can't carry more" and
+  the run's end; grouped Settings lines.
+  Playtest: https://claude.ai/artifact/GdRFnZEjTLHxpZQ2YS4mH6
+  Sound board: https://claude.ai/artifact/8UCmRZeLrXobw8Jxc7iPqJ
 - **2026-11-11, 0.3.278, The creatures' bites' sounds.** The owner's
   picks (D-832), all recommended, from a board of 3 for each of ten: a
   double nip, a clink and snap, clicks and a stab, a hiss, chirps and a

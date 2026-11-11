@@ -42,3 +42,4 @@ Each bite plays a quarter second after the hero's swing, as the hurt blow does, 
 | `plop` | the fishing line cast (D-613, D-833) | a small plop | `Water-015`, 0.6 s, fading 0.3 s, at 0.27, CC0 |
 | `splash` | a fish caught (D-613, D-833) | a splash and drops | `Water-016`, at 0.27, CC0 |
 | `breath` | sleeping in a bed or out (D-758, D-833) | a long breath out | `Wind-007` at 0.8, 2.2 s, fading 1.4 s, muffled above 900 Hz, at 0.26, CC0 |
+| `drip` | every 8 to 16 s, at random, while play shows the rock caves, floors 2 to 4 (D-836) | a drop and its ripple, all around | `Water-009` at 1.2, straying 0.1, at 0.1, with the cave's echo, up to 0.6 left or right; in Places' line, CC0 |

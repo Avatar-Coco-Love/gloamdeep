@@ -27,6 +27,8 @@
 // The first "Maybe" next (D-834): the oil's warning, two short sputters cut from the empty lantern's
 // crackle, as "The flame is getting low." is said.
 // The heartbeat next (D-835): a soft lub-dub twice, the second fainter, as the hero drops to the last heart.
+// Sounds all around next (D-836), drips in the rock caves first: a drop and its ripple, through the cave's
+// echo, every 8 to 16 seconds while the hero plays there, each a little left or right.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -45,7 +47,8 @@ import { rng } from '../core/rng.js';
 // plays other entries too, each that many seconds later, as the break's stones tumble; `wait`
 // starts it that many seconds late every time, as the chest's knock after the page (D-825);
 // `from` starts that many seconds into the file and `len` plays that many seconds of it, its
-// last `fade` seconds fading out, and `slide` is the pitch it slides to over them (D-830)
+// last `fade` seconds fading out, and `slide` is the pitch it slides to over them (D-830); `around`
+// places it that far left or right at random, 1 being all the way, as a cave's drips (D-836)
 const impact = (name) => [0, 1, 2, 3, 4].map((n) => `kenney-impact-sounds/${name}_00${n}.ogg`);
 const PACKS = 'sounds/packs/';
 const steps = (ground) => impact(`footstep_${ground}`);
@@ -186,18 +189,20 @@ export const FILES = {
   chime2: { files: [bell], gain: 0.1, pitch: 0, pitchOf: () => 2, part: true },
   plop: { files: elements('Water-015'), gain: 0.27, pitch: 0.04, len: 0.6, fade: 0.3 }, // the line cast: a small plop
   splash: { files: elements('Water-016'), gain: 0.27, pitch: 0.04 }, // a fish caught: a splash and drops
+  drip: { files: elements('Water-009'), gain: 0.1, pitch: 0.1, pitchOf: () => 1.2, echo: true, around: 0.6 }, // a cave's drip: a drop and its ripple, a little higher (D-836)
   breath: { files: elements('Wind-007'), gain: 0.26, pitch: 0, pitchOf: () => 0.8, len: 2.2, fade: 1.4, muffle: 900 }, // sleeping: a long breath out
   ended: { files: [impact('impactBell_heavy')[1]], gain: 0.3, pitch: 0, pitchOf: () => 0.8, len: 2.6, fade: 1.6, slide: 0.5, muffle: 1500 }, // the run ends: a slow falling tone
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind', 'pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat', 'fall', 'wake', 'floor', 'room', 'eat', 'shimmer', 'tools', 'hum', 'breath', 'ended', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'sputter', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'heartbeat', 'rise'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind', 'pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat', 'fall', 'wake', 'floor', 'room', 'eat', 'shimmer', 'tools', 'hum', 'breath', 'ended', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'sputter', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'heartbeat', 'rise', 'drip'];
 // § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
-// Fighting with the creatures, Finds with the bag and places, and Menus; a fall and new rooms are Steps (D-833)
+// Fighting with the creatures, Finds with the bag and places, and Menus; a fall and new rooms are Steps (D-833);
+// a cave's drips are Finds, in Places' line (D-836)
 const KINDS = {
   steps: ['footstep', 'stoneStep', 'earthStep', 'lantern', 'pour', 'sputter', 'sputter2', 'gutter', 'torch', 'kindle', 'falling', 'fall', 'fallThud', 'wake', 'rooms', 'floor', 'room'],
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'spit', 'splat'],
-  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath'],
+  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
@@ -209,6 +214,11 @@ const SEED = 255; // the steps' variety, the same on every visit
 // § ground: which step the hero's feet make: grass on the surface, packed earth in
 // the burrows, stone everywhere else below (the crypt, rock caves, dungeon halls) (D-776)
 export const stepOf = (sky, look) => (sky ? 'footstep' : look === 'earth' ? 'earthStep' : 'stoneStep');
+
+// § drips (D-836): a cave's drips fall in the rock caves (floors 2 to 4), the next one 8 to 16
+// seconds after the last, picked at random each time so they never fall on a beat
+export const dripsIn = (sky, look) => !sky && look === 'rock';
+export const dripGap = (r) => (8 + r * 8) * 1000; // r in [0, 1): milliseconds to the next drip
 
 // § cards: which way a page turns as the screen changes (D-819). Play, setting a tile down
 // and the title have no card on them: reaching one closes. Going back to a screen still
@@ -274,8 +284,15 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
       dull.frequency.value = muffle;
       src.connect(dull).connect(g);
     } else src.connect(g);
-    g.connect(ac.destination);
-    if (echoes) g.connect(echo);
+    const { around } = FILES[voice];
+    let out = g;
+    if (around && ac.createStereoPanner) { // a little left or right (D-836)
+      const side = ac.createStereoPanner();
+      side.pan.value = (vary() * 2 - 1) * around;
+      out = g.connect(side);
+    }
+    out.connect(ac.destination);
+    if (echoes) out.connect(echo);
     const when = ac.currentTime + at + wait + (arg === true ? after : 0), rate = src.playbackRate.value, { from = 0, len, fade, slide } = FILES[voice];
     if (len) { // only part of the file: it fades out over its last `fade` seconds, its pitch sliding to `slide`
       if (fade) { g.gain.setValueAtTime(g.gain.value, when + len - fade); g.gain.linearRampToValueAtTime(0, when + len); }
@@ -286,7 +303,7 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later + (arg === true ? after : 0)); // after the swing too, as the bite's own parts (D-832)
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, sample };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip, sample };
 }
