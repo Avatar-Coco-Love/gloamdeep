@@ -205,6 +205,27 @@ test('The oil runs low: two sputters with its line (D-834)', async () => {
   assert.ok(OIL.burn > 0);
 });
 
+// § the last heart (D-835): a soft lub-dub twice, the second fainter, as a turn leaves the hero on
+// one heart from more; not again while there, nor on a fall, which wakes the hero at full hearts
+test('The last heart: a soft lub-dub twice (D-835)', async () => {
+  const { SOUND_LINES } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const { makeState, wait } = await import('../src/core/turn.js');
+  const { makeRoom, FIRST_ROOM } = await import('../src/core/room.js');
+  const soft = (n) => `kenney-impact-sounds/impactSoft_medium_00${n}.ogg`;
+  assert.deepEqual([FILES.heartbeat.files, FILES.heartbeat.pitchOf(), FILES.heartbeat.muffle, FILES.heartbeat.gain, FILES.heartbeat.wait, FILES.heartbeat.after], [[soft(1)], 0.8, 350, 0.36, 0.7, 0.3]);
+  assert.deepEqual(FILES.heartbeat.with, [['heartbeat2', 0.17], ['heartbeat3', 0.8], ['heartbeat4', 0.97]]);
+  assert.deepEqual(['heartbeat2', 'heartbeat3', 'heartbeat4'].map((v) => [FILES[v].files, FILES[v].gain, FILES[v].wait, FILES[v].part]), [[[soft(2)], 0.25, 0.7, true], [[soft(1)], 0.25, 0.7, true], [[soft(2)], 0.17, 0.7, true]]);
+  for (const v of ['heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4']) assert.equal(kindOf(v), 'fight');
+  assert.ok(SOUND_LINES.some((l) => l.voice === 'heartbeat' && l.kind === 'fight' && l.name === 'Last heart'));
+  const beats = (health, poisoned) => wait({ ...makeState(makeRoom(FIRST_ROOM)), health, poisoned }).events.some((e) => e.type === 'lastHeart');
+  assert.equal(beats(2, 4), true); // poison takes the second-to-last heart: it beats
+  assert.equal(beats(3, 4), false); // two left
+  assert.equal(beats(1, 0), false); // already on one heart: no second beat
+  assert.equal(beats(1, 4), false); // poison takes the last heart: a fall, waking at full hearts
+  assert.equal(beats(2, 2), false); // no heart taken this turn
+});
+
 // § the fight's rest (D-831): a puff of air for a stiff miss, a dull blow for a bite that hurts, a deep
 // throb twice for poison's heart, three glass notes rising for a level, each under Fighting
 test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
@@ -219,7 +240,7 @@ test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
     [['impactGlass_light_000.ogg', 1, 0.55], ['impactGlass_light_001.ogg', 1.26, 0.55], ['impactGlass_light_002.ogg', 1.5, 0.55]]); // rising, after the beaten thud
   for (const v of ['miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3']) assert.equal(kindOf(v), 'fight');
   for (const v of ['miss', 'hurt', 'poison', 'rise']) assert.ok(SOUND_LINES.some((l) => l.voice === v));
-  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(0, 7), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Level']);
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(0, 8), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Last heart', 'Level']);
 });
 
 // § the creatures' bites (D-832): one for each kind, a quarter second after the hero's swing, its parts too
@@ -237,7 +258,7 @@ test("The creatures' bites: one for each kind, after the swing, one line in Sett
   assert.deepEqual(FILES.teeth.with, [['teeth2', 0.07]]); // a quick double nip
   assert.deepEqual(FILES.rattle.with.map(([, at]) => at), [0.05, 0.1, 0.16]); // a clatter of bones
   assert.equal(FILES.sip.files[0], 'morphonaut-elemental-forces/Water/Water-038.ogg');
-  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(7), ['Bites', 'Creatures']); // one line for them all, and one for the creatures' own (D-833)
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(8), ['Bites', 'Creatures']); // one line for them all, and one for the creatures' own (D-833)
   const { BITES, isMuted } = await import('../src/core/settings.js');
   assert.deepEqual(BITES, bites);
   for (const v of bites) assert.ok(isMuted({ muted: ['bites'] }, v) && !isMuted({}, v));

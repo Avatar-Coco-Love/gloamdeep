@@ -90,6 +90,7 @@ export const SOUND_LINES = [
   { voice: 'miss', kind: 'fight', name: 'Stiff miss' },
   { voice: 'hurt', kind: 'fight', name: 'Hurt' },
   { voice: 'poison', kind: 'fight', name: 'Poison' },
+  { voice: 'heartbeat', kind: 'fight', name: 'Last heart' }, // D-835
   { voice: 'rise', kind: 'fight', name: 'Level' },
   { voice: 'bites', kind: 'fight', name: 'Bites' }, // every creature's bite, and the oil tick's drink, together (D-832)
   { voice: 'creatures', kind: 'fight', name: 'Creatures' }, // the creatures' own sounds together (D-833)

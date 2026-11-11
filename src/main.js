@@ -341,7 +341,8 @@ function nudgeToward(dir) {
 // a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777);
 // an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820);
 // a bump on stone clinks, and its last crumbles (D-825); a relic shelved, a seed planted, guano fed (D-828);
-// a stiff swing that misses puffs, a bite that takes a heart is a blow, poison's heart throbs, a level rises (D-831)
+// a stiff swing that misses puffs, a bite that takes a heart is a blow, poison's heart throbs, a level rises (D-831);
+// the last heart beats (D-835)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   const swung = !!hit || has(events, 'miss'); // a bite comes a moment after the hero's swing, hit or missed
@@ -353,6 +354,7 @@ function hear(events) {
   if (bite) sound[bite](swung);
   if (events.some((e) => e.type === 'bite' && e.hurt > 0)) sound.hurt(swung); // a bite or a glob took a heart (god mode too, as the flash)
   if (events.some((e) => e.type === 'poison' && e.hurt > 0)) sound.poison(); // poison took a heart (D-654)
+  if (has(events, 'lastHeart')) sound.heartbeat(swung || has(events, 'poison')); // down to the last heart: a soft lub-dub twice, after the blow or the throb (D-835)
   if (has(events, 'level')) sound.rise(); // a level reached (D-246)
   if (has(events, 'step') && !has(events, 'fall')) sound[stepOf(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look)](); // grass, earth or stone (D-776)
   if (has(events, 'stoneWake')) sound.bells(); // the waystone wakes (D-591); a mimic wakes silently (D-368)
