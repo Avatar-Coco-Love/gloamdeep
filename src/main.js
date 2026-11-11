@@ -337,7 +337,7 @@ function nudgeToward(dir) {
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731);
 // a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777);
 // an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820);
-// a bump on stone clinks, and its last crumbles (D-825)
+// a bump on stone clinks, and its last crumbles (D-825); a relic shelved, a seed planted, guano fed (D-828)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
@@ -356,6 +356,9 @@ function hear(events) {
   if (has(events, 'set')) sound.thunk(); // the workbench set down
   const chip = events.find((e) => e.type === 'chip' && get(e.id)?.clinks);
   if (chip) sound[chip.broke ? 'crumble' : 'clink'](); // a deposit, a copper vein or rubble (D-825)
+  if (has(events, 'shelve')) sound.shelf(); // a relic on the shelf (D-828)
+  if (has(events, 'plant')) sound.sow(); // a seed in the garden bed
+  if (has(events, 'feed')) sound.feed(); // guano on the sprout
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
@@ -404,7 +407,7 @@ const screens = createScreens(app, {
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
-  refuse: () => { refused = true; sound.refuse(); }, // a dim pick: nothing happens but the tock (D-819)
+  refuse: () => { ownSound = true; sound.refuse(); }, // a dim pick: nothing happens but the tock (D-819)
   tell: (id) => { app.state = say(app.state, id); }, // a line, free: why SLEEP can't (D-804)
   roomTile: (px, py) => tileAt(px, py), // the room's tile under a tap on the menus' picture (D-381)
   fit: (slot) => { app.state = fit(app.state, slot); }, // a lantern part into its slot, free (D-483)
@@ -417,7 +420,7 @@ const screens = createScreens(app, {
   sortBag: () => { app.state = sortTheBag(app.state); }, // the bag's SORT: lined up by kind, half stacks joined, free (D-559)
   storeNear: () => { app.state = storeNearby(app.state); }, // the bag's STORE: each bag stack to the chests in reach holding its kind, nearest first, free (D-558)
   store: (x, y) => { app.state = storeMatching(app.state, x, y); }, // every bag stack the chest holds the kind of, onto it, free (D-556)
-  sell: (slot) => { app.state = sell(app.state, slot); }, // one of a stack sold to the peddler, free (D-494)
+  sell: (slot) => { const before = app.state; app.state = sell(app.state, slot); if (app.state !== before) { ownSound = true; sound.coins(); } }, // one of a stack sold to the peddler, free (D-494); coins, not the tick (D-828)
   buy: (ware) => { app.state = buy(app.state, ware); }, // one of the peddler's wares bought, free (D-495)
   takeBoon: (id) => { // the boon card's pick, free (D-596); the first boon picked opens the boons card (D-712)
     const first = !playing(app.profiles).goals?.boon?.done, before = app.state;
@@ -454,17 +457,17 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 // § menu sounds (D-819): off play, a tap, Enter or Space that changes something on the same
-// screen ticks, unless it was a dim pick that can't be done, which tocks (`refused`); a
+// screen ticks, unless it played its own (`ownSound`): a dim pick that can't be done tocks, a sale's coins (D-828); a
 // card opening or closing turns its page instead (in the loop)
-let refused = false, cards = [app.screen], cardShown = app.screen;
+let ownSound = false, cards = [app.screen], cardShown = app.screen;
 const marks = () => [app.screen, app.state, JSON.stringify(app.settings), spoken.textContent, app.opened.size, app.entry];
 const pressed = (act) => (...args) => {
   if (app.screen === 'play' || app.screen === 'strike') return act(...args); // play's own sounds; the strike's tap is a pull
   const was = marks(), settingsWas = app.settings;
-  refused = false;
+  ownSound = false;
   const out = act(...args); // Tab's answer, whether it used the key (D-826)
   const now = marks();
-  if (!refused && now[0] === was[0] && now.some((m, i) => m !== was[i])) (hearLoud(settingsWas) ?? sound.tap)();
+  if (!ownSound && now[0] === was[0] && now.some((m, i) => m !== was[i])) (hearLoud(settingsWas) ?? sound.tap)();
   return out;
 };
 // A loudness changed: Loudness ticks, a kind plays its own sound, each at the new loudness (D-822, D-823)

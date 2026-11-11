@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.273 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.274 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -20,7 +20,8 @@ is the sounds' next lines (Q-095).
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): each other line next, the "Maybe" sounds,
+- Sounds from files (Q-095): each other line next (the lantern's,
+  the fight's rest and the bites may need a new free pack), the "Maybe" sounds,
   and "can't carry more" and the run's end (D-819).
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
@@ -39,6 +40,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.274, Home's sounds.** The owner's picks (D-828),
+  all recommended, from a board of 4, 4, 4 and 3: coins for a sale,
+  a book set on wood for the shelf, two soft earth steps for a seed,
+  the bag's pat dulled for guano.
+  Playtest: https://claude.ai/artifact/D3W1xjwoVvafrfhxWFVz3Y
+  Sound board: https://claude.ai/artifact/FWMMZUdurt3zZqSYUgA1d5
 - **2026-11-11, 0.3.273, The audit's bug fixes.** The owner's picks
   (D-827), all five and the Tab tick: the bag's card with a herb chosen,
   MAKE with a full bag, a bunny and sleeping out, a tool's hold sound,
@@ -49,9 +56,3 @@ list in `RESEARCH.md`.
   history split, the docs near their cap split, built decisions and the
   playbook's lines archived, the later questions on one line. Nothing
   visible changed.
-- **2026-11-11, 0.3.271, Digging and chests' sounds.** The owner's picks
-  (D-825), all recommended, from a board of 4 each: a mining clink for
-  each bump on stone and a deeper one with stones tumbling as it breaks;
-  a creak as a chest opens and a wooden knock as it closes.
-  Playtest: https://claude.ai/artifact/YJPNYHngHVfUE8GXGArxmV
-  Sound board: https://claude.ai/artifact/9D6rwrurzN21T3omeo4DFb

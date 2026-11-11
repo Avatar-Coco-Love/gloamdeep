@@ -145,6 +145,22 @@ test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async
   assert.ok(FILES.chestClose.files.every((f) => /impactWood_heavy/.test(f)));
 });
 
+// § home (D-828): coins for a sale, a book on wood for the shelf, two soft earth steps for a
+// seed, the bag's pat dulled for guano; each Finds, each with its own On and Off line
+test('Home sounds: coins, the shelf, planting and feeding (D-828)', async () => {
+  const { SOUND_LINES } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  assert.deepEqual(FILES.coins.files, ['kenney-rpg-audio/handleCoins.ogg']);
+  assert.ok(FILES.shelf.files.every((f) => /bookPlace[1-3]\.ogg$/.test(f)) && FILES.shelf.files.length === 3);
+  assert.deepEqual(FILES.sow.files, FILES.earthStep.files);
+  assert.equal(FILES.sow.muffle, 1400);
+  assert.deepEqual(FILES.sow.with, [['sowAgain', 0.13]]);
+  assert.deepEqual(FILES.feed.files, FILES.pat.files);
+  assert.equal(FILES.feed.muffle, 1400);
+  for (const v of ['coins', 'shelf', 'sow', 'sowAgain', 'feed']) assert.equal(kindOf(v), 'finds');
+  for (const v of ['coins', 'shelf', 'sow', 'feed']) assert.ok(SOUND_LINES.some((l) => l.voice === v && l.kind === 'finds'));
+});
+
 test('A card opens on top, and closes back to what is under it', () => {
   let t = cardTurn(['play'], 'paused');
   assert.deepEqual(t, { trail: ['play', 'paused'], open: true });

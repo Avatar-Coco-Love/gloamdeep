@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.271, Digging and chests' sounds.** The owner's picks
+  (D-825), all recommended, from a board of 4 each: a mining clink for
+  each bump on stone and a deeper one with stones tumbling as it breaks;
+  a creak as a chest opens and a wooden knock as it closes.
+  Playtest: https://claude.ai/artifact/YJPNYHngHVfUE8GXGArxmV
+  Sound board: https://claude.ai/artifact/9D6rwrurzN21T3omeo4DFb
 - **2026-11-11, 0.3.270, Each sound On or Off.** The owner's picks
   (D-824), all recommended, after a fit test (13 lines fit at 320 × 568
   upright and sideways): only the heard sounds; a kind's line opens its

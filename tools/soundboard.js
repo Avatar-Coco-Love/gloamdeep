@@ -73,6 +73,11 @@ const SOUNDS = [
   { label: 'A copper vein: three bumps, then it breaks', play: 'for (let i = 0; i < 3; i++) later(i * 450, () => sound.clink()); later(1350, () => { sound.crumble(); sound.pat(); })' },
   { label: 'A chest opens', play: 'later(0, () => sound.chest(true)); later(300, () => sound.card(true))' },
   { label: 'A chest closes', play: 'later(0, () => { sound.card(false); sound.chest(false); })' },
+  { label: 'An item sold at home', play: 'later(0, () => sound.coins())' },
+  { label: 'Three sold in a row', play: 'for (let i = 0; i < 3; i++) later(i * 600, () => sound.coins())' },
+  { label: 'A relic set on the shelf', play: 'later(0, () => { sound.card(false); sound.shelf(); })' },
+  { label: 'A seed planted', play: 'later(0, () => { sound.card(false); sound.sow(); })' },
+  { label: 'Bat Guano fed to a sprout', play: 'later(0, () => { sound.card(false); sound.feed(); })' },
 ];
 
 // § heard: only buttons whose every sound has its files
