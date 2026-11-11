@@ -25,6 +25,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
+import { markRows } from './core/growth.js';
 import { moveStack, storeMatching, storeNearby } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
 import { easeMode } from './core/menu.js';
@@ -117,6 +118,7 @@ const sound = createSound(() => app.settings.sound === 'on'); // from sound file
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
 function keepJourney() {
+  app.state = markRows(app.state); // Growth's rows opened by going deeper, kept for good (D-814)
   if (app.state === savedState) return;
   const kept = saveJourney(app.state, app.jumped, app.profiles.current);
   if (!kept && !unsaved) app.state = say(app.state, 'unsaved');

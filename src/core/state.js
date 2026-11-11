@@ -38,7 +38,7 @@ export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, heal
 // `seed` sets every generated depth (D-148).
 export function makeState(room, start = FIRST_START, lights = [], enemies = [], items = [], seed = 1, people = []) {
   const home = { place: 'first', room, hero: { x: start.x, y: start.y }, lights, enemies, items, people };
-  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, grown: {}, found: ['first'], bag: [], known: [], held: null, tool: null, float: null, events: [], told: {}, stashes: {}, coins: 0 };
+  return { room, hero: home.hero, turn: 0, seed, seen: blankMemory(room), oil: OIL.start, lit: true, health: HERO_HEALTH, items, taken: [], lights, enemies, people, line: null, place: 'first', elsewhere: {}, home, xp: 0, grown: {}, growthRows: 1, found: ['first'], bag: [], known: [], held: null, tool: null, float: null, events: [], told: {}, stashes: {}, coins: 0 };
 }
 
 // § world: every place, the hero in the first one. The others wait in

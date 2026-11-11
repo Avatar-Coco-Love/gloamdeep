@@ -7,7 +7,7 @@
 // Quests, Enter or a tap on the done "Take a boon" shows the boons card over the Journal (D-712).
 // A list taller than the card scrolls a row by a swipe, the wheel, or Up and Down (on the
 // Bestiary's table they pick, keeping the row in view), a page by Page Up and Down (D-743).
-import { buyAt, movePick, rowEnd, told } from '../../core/growth.js';
+import { buyAt, movePick, rowEnd, rowsOpen, told } from '../../core/growth.js';
 import { journalAt, scrollJournal, showBeastRow, showGrowthRow } from '../../render/journal.js';
 import { view } from '../../render/screen.js';
 import { bestiaryRows, movePickRow } from '../../core/bestiary.js';
@@ -37,7 +37,7 @@ export function journalCard(app, ui, show, c) {
   function pickGrowth(pick) {
     if (!pick) { turnTab('records'); return; }
     app.growthPick = pick;
-    app.journalScroll = showGrowthRow(app.journalScroll ?? 0, pick.row, view.w, view.h); // its row kept in view (D-811)
+    app.journalScroll = showGrowthRow(app.journalScroll ?? 0, pick.row, view.w, view.h, rowsOpen(app.state)); // its row kept in view (D-811)
     spoken.textContent = journalPageWords();
   }
   // The picked place's button: the heart's and Tough's (D-481, D-657)
@@ -69,7 +69,7 @@ export function journalCard(app, ui, show, c) {
     const upDown = d === 'up' || d === 'down', by = d === 'up' ? -1 : 1;
     if (upDown && how === 'swipe' && scrollBy(-by)) return; // the list follows the finger
     if (upDown && !(app.tab === 'bestiary' && !app.beastPage) && app.tab !== 'growth') { scrollBy(by); return; }
-    if (app.tab === 'growth') { if (d === 'right' && rowEnd(app.growthPick)) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d)); }
+    if (app.tab === 'growth') { if (d === 'right' && rowEnd(app.growthPick, rowsOpen(app.state))) turnTab('bestiary'); else pickGrowth(movePick(app.growthPick, d, rowsOpen(app.state))); }
     else if (app.tab === 'bestiary' && app.beastPage) { if (d === 'left') closePage(); }
     else if (app.tab === 'bestiary') { if (d === 'left') turnTab('growth'); else if (d === 'right') turnTab('feats'); else if (d === 'up' || d === 'down') pickBeast(movePickRow(book(), app.beastPick, d === 'up' ? -1 : 1)); }
     else if (app.tab === 'feats') { if (d === 'left') turnTab('bestiary'); else if (d === 'right') turnTab('quests'); }

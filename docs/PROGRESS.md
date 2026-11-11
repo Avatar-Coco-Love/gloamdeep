@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.260 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.261 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Growth's row 2, step 1 of 4 (D-814): row 2 opens the first time the
-hero goes deeper than depth 8, a dashed tile a limb; then Quick Pour,
-Guard and Thrift, one a PR. Read `src/core/growth.js` and D-814.
+Growth's row 2, step 2 of 4 (D-814): Quick Pour on Light, pouring a
+flask takes no turn, with the line "Growth has a new row." when row 2
+opens (D-815); then Guard and Thrift, one a PR. Read
+`src/core/growth.js`, `src/core/upgrades.js`, D-814 and D-815.
 More sounds (Q-095) when the owner wants, a small group a time (D-776).
 
 ## Waiting on the owner
@@ -46,6 +47,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.261, Row 2 opens.** The owner's picks (D-815): a
+  mark in the save, set past depth 8, a dev jump too; the locked tiles
+  say "Reach depth 9 to open."; no log line until Quick Pour.
+  Playtest: https://claude.ai/artifact/RYKRwVYUVZzqrbRmwDnqCX
 - **2026-11-10, 0.3.260, Growth's second row, planned.** The owner's
   picks (D-814): row 2 opens past depth 8; Quick Pour, Guard and Thrift,
   1 ember each, built one a step after the opening. Nothing visible, so
@@ -54,7 +59,3 @@ list in `RESEARCH.md`.
   Hands' first upgrade, 1 ember, once, a pale open hand; a tree, a
   stone deposit or a branch takes 1 bump fewer by hand.
   Playtest: https://claude.ai/artifact/L2Wz2UspySzKpDiAauizss
-- **2026-11-10, 0.3.258, The Growth tree's twigs.** The owner's picks
-  (D-812): each row a twig, upgrades small tiles side by side; a dashed
-  tile only on an empty limb; the arrows read a row.
-  Playtest: https://claude.ai/artifact/BjX8yyyLXbiexFbX1aJXRJ

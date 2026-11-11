@@ -22,7 +22,7 @@ import { HEART } from './hearts.js';
 import { POISON_MARK, GLOW_MARK } from './marks.js';
 import { cardAt, drawCard, drawButton, frame, inCard, onCross, wrapWords, BUTTON, PAD, TAP_PAD } from './bag.js';
 import { TABS } from '../core/journal.js';
-import { ROWS, ROWS_OPEN, START_PICK, embers, heartsBought, allPlaces, placesIn, told, upgradeAt } from '../core/growth.js';
+import { rowsOf, rowsOpen, START_PICK, embers, heartsBought, allPlaces, placesIn, told, upgradeAt } from '../core/growth.js';
 import { grown } from '../core/upgrades.js';
 import { BRANCHES } from '../core/upgrades.js';
 import { bestiaryRows } from '../core/bestiary.js';
@@ -75,21 +75,22 @@ const TALL_LIFT = 18; // upright, how far above the card's bottom the tree stand
 const footOf = (card) => card.y + card.h - (card.tall ? TALL_LIFT : 0);
 // How many rows fit between the tabs and the root, in a measure
 const fitIn = (card, m) => Math.max(1, Math.floor((footOf(card) - m.row0 - card.y - TABS_RULE_Y - 4 - NAMES_UP) / m.rowH) + 1);
-const measureOf = (card) => (fitIn(card, ROOMY) >= ROWS ? ROOMY : SNUG);
-// The bottom row shown, kept so that rows fill the card; 0 where every row fits
-export const clampRow = (first, card) => Math.max(0, Math.min(first, ROWS - fitIn(card, measureOf(card))));
-function treeOf(card, first = 0) {
+const measureOf = (card, open = 1) => (fitIn(card, ROOMY) >= rowsOf(open) ? ROOMY : SNUG);
+// The bottom row shown, kept so that rows fill the card; 0 where every row fits. open: the rows
+// open, rowsOpen(state) (D-814)
+export const clampRow = (first, card, open = 1) => Math.max(0, Math.min(first, rowsOf(open) - fitIn(card, measureOf(card, open))));
+function treeOf(card, first = 0, open = 1) {
   const left = card.x + PAD + LABEL_W, right = card.tall ? card.x + card.w - PAD + 8 : card.x + splitOf(card);
-  const side = Math.max(...allPlaces().map((p) => p.slot + 1)); // the most places side by side on a twig, up to 3 (D-811)
+  const side = Math.max(...allPlaces(open).map((p) => p.slot + 1)); // the most places side by side on a twig, up to 3 (D-811)
   const colW = (right - 8 - left) / BRANCHES.length, tile = Math.min(TILE, Math.floor((colW - 4 - (side - 1) * TILE_GAP) / side));
   const mids = BRANCHES.map((_, i) => Math.floor(left + colW * (i + 0.5)));
-  const m = measureOf(card), shown = fitIn(card, m), from = clampRow(first, card), to = Math.min(ROWS, from + shown), row0 = footOf(card) - m.row0;
+  const m = measureOf(card, open), shown = fitIn(card, m), from = clampRow(first, card, open), to = Math.min(rowsOf(open), from + shown), row0 = footOf(card) - m.row0;
   const yOf = (row) => row0 - (row - from) * m.rowH;
-  const tiles = allPlaces().filter((p) => p.row >= from && p.row < to).map((p) => {
-    const n = placesIn(p.col, p.row), w = n * tile + (n - 1) * TILE_GAP;
+  const tiles = allPlaces(open).filter((p) => p.row >= from && p.row < to).map((p) => {
+    const n = placesIn(p.col, p.row, open), w = n * tile + (n - 1) * TILE_GAP;
     return { ...p, x: mids[p.col] - Math.floor(w / 2) + p.slot * (tile + TILE_GAP), y: yOf(p.row), w: tile, h: tile };
   });
-  return { mids, tiles, row0, m, tile, from, to, yOf };
+  return { mids, tiles, row0, m, tile, from, to, yOf, open };
 }
 const buttonOf = (card, text) => { const w = textWidth(text) + 8; return { x: card.x + card.w - PAD - w, y: card.button.y, w }; };
 
@@ -109,7 +110,7 @@ export function journalAt(x, y, vw, vh, tab = 'records', state = null, pick = nu
   if (tab === 'growth') {
     const b = state && pick && told(state, pick).button, at = b && buttonOf(card, b.text.toUpperCase());
     if (at && x >= at.x - TAP_PAD && x < at.x + at.w + TAP_PAD && y >= at.y - TAP_PAD && y < at.y + BUTTON.h + TAP_PAD) return 'buy';
-    const box = treeOf(card, first).tiles.find((p) => x >= p.x - TAP_PAD && x < p.x + p.w + TAP_PAD && y >= p.y - TAP_PAD && y < p.y + p.h + TAP_PAD);
+    const box = treeOf(card, first, rowsOpen(state)).tiles.find((p) => x >= p.x - TAP_PAD && x < p.x + p.w + TAP_PAD && y >= p.y - TAP_PAD && y < p.y + p.h + TAP_PAD);
     if (box) return { pick: { col: box.col, row: box.row, slot: box.slot } };
   }
   if (tab === 'bestiary' && !page) {
@@ -153,15 +154,15 @@ export function drawJournal(c, vw, vh, records, played, state, tab, t, still, pi
 // Growth, `first` is the bottom row shown, and scrolling down shows the rows below (D-811)
 export function scrollJournal(first, by, vw, vh, tab, p, state, page) {
   const whole = cardAt(vw, vh), card = pageCard(whole, tabsAt(whole).down);
-  if (tab === 'growth') return clampRow(Infinity, card) === 0 ? null : clampRow(clampRow(first, card) - by, card);
+  if (tab === 'growth') { const open = rowsOpen(state); return clampRow(Infinity, card, open) === 0 ? null : clampRow(clampRow(first, card, open) - by, card, open); }
   const list = listOf(pageCard(whole, tabsAt(whole).down), tab, p, state, page);
   if (!list || clampFirst(Infinity, list.hs, list.h) === 0) return null;
   return clampFirst(clampFirst(first, list.hs, list.h) + by, list.hs, list.h);
 }
 // The bottom row shown that keeps Growth's row `row` in view (D-811)
-export function showGrowthRow(first, row, vw, vh) {
-  const whole = cardAt(vw, vh), card = pageCard(whole, tabsAt(whole).down), m = measureOf(card), from = clampRow(first, card);
-  return clampRow(row < from ? row : Math.max(from, row - fitIn(card, m) + 1), card);
+export function showGrowthRow(first, row, vw, vh, open = 1) {
+  const whole = cardAt(vw, vh), card = pageCard(whole, tabsAt(whole).down), m = measureOf(card, open), from = clampRow(first, card, open);
+  return clampRow(row < from ? row : Math.max(from, row - fitIn(card, m) + 1), card, open);
 }
 // The top row that keeps the Bestiary's row k in view
 export function showBeastRow(first, k, vw, vh, book) {
@@ -172,7 +173,7 @@ export function showBeastRow(first, k, vw, vh, book) {
 // § tree: the root's glow and flame, the limbs, each shown row's number and twig, then each
 // place's tile over them; a small dim arrow where rows are hidden above or below (D-811)
 function drawTree(c, card, state, pick, t, still, first) {
-  const { mids, tiles, m, tile, from, to, yOf } = treeOf(card, first), mid = mids[1], bottom = footOf(card), root = bottom - m.root, fork = bottom - m.fork;
+  const { mids, tiles, m, tile, from, to, yOf, open } = treeOf(card, first, rowsOpen(state)), mid = mids[1], bottom = footOf(card), root = bottom - m.root, fork = bottom - m.fork;
   const glow = c.createRadialGradient(mid, root + 3, 1, mid, root + 3, 16);
   glow.addColorStop(0, `rgba(${GLOW},.45)`); glow.addColorStop(1, `rgba(${GLOW},0)`);
   c.fillStyle = glow; c.fillRect(mid - 16, root - 13, 32, 32);
@@ -183,9 +184,9 @@ function drawTree(c, card, state, pick, t, still, first) {
   mids.forEach((x) => c.fillRect(x - 1, top + twig, LIMB, fork - top - twig));
   for (let row = from; row < to; row++) {
     const y = yOf(row);
-    drawText(c, String(row + 1), card.x + PAD, y + Math.floor(tile / 2) - 4, row < ROWS_OPEN ? GREY : DIM);
+    drawText(c, String(row + 1), card.x + PAD, y + Math.floor(tile / 2) - 4, row < open ? GREY : DIM);
     BRANCHES.forEach((_, col) => {
-      const n = placesIn(col, row), w = n * tile + (n - 1) * TILE_GAP;
+      const n = placesIn(col, row, open), w = n * tile + (n - 1) * TILE_GAP;
       c.fillStyle = WOOD; c.fillRect(mids[col] - Math.floor(w / 2) + 2, y + twig, w - 4, 2);
     });
   }
@@ -195,9 +196,9 @@ function drawTree(c, card, state, pick, t, still, first) {
     const name = b.text.toUpperCase();
     drawText(c, name, mids[i] - Math.floor(textWidth(name) / 2), namesY, i === pick.col ? GOLD : GREY);
   });
-  if (to < ROWS) dots(c, ['..x..', '.xxx.', 'xxxxx'], card.x + PAD, namesY + 2, GREY); // more above
+  if (to < rowsOf(open)) dots(c, ['..x..', '.xxx.', 'xxxxx'], card.x + PAD, namesY + 2, GREY); // more above
   if (from > 0) dots(c, ['xxxxx', '.xxx.', '..x..'], card.x + PAD, yOf(from) + tile + 3, GREY); // more below
-  for (const p of tiles) drawPlace(c, p, state, p.col === pick.col && p.row === pick.row && p.slot === (pick.slot ?? 0));
+  for (const p of tiles) drawPlace(c, p, state, open, p.col === pick.col && p.row === pick.row && p.slot === (pick.slot ?? 0));
   drawTold(c, card, state, pick, namesY - 8);
 }
 
@@ -213,8 +214,8 @@ const FLAME = ['....#....', '...##....', '...###...', '..####...', '..#####..', 
 const HAND = ['..#.#.#..', '..#.#.#.#', '..#.#.#.#', '..#######', '#.#######', '.########', '..#######', '...#####.', '...#####.'];
 const BOUGHT = 'rgba(255,214,107,.45)'; // a bought tile's frame
 const dots = (c, rows, x, y, colour, on = 'x', size = 1) => { c.fillStyle = colour; rows.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === on) c.fillRect(x + i * size, y + j * size, size, size); })); };
-function drawPlace(c, p, state, picked) {
-  const u = upgradeAt(p), open = p.row < ROWS_OPEN, n = u ? grown(state, u.id) : 0, s = p.w;
+function drawPlace(c, p, state, rows, picked) {
+  const u = upgradeAt(p), open = p.row < rows, n = u ? grown(state, u.id) : 0, s = p.w;
   c.fillStyle = K; c.fillRect(p.x, p.y, s, s);
   if (picked) frame(c, p.x, p.y, s, s, GOLD);
   else if (u && open) frame(c, p.x, p.y, s, s, n > 0 ? BOUGHT : LINE);
