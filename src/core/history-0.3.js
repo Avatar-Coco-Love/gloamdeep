@@ -4,6 +4,10 @@
 // are in history-0.3-3.js (D-782), 0.3.76 to 0.3.150 in history-0.3-2.js (D-740) and 0.3.0 to
 // 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.261', date: '2026-11-11', title: 'Row 2 opens', lines: [
+    "The Growth tree's second row opens the first time you go deeper than depth 8. Until then, picking one of its locked tiles says \"Reach depth 9 to open.\" Once open, each branch has a dashed tile to come, and the row above shows locked. A journey already past depth 8 finds it open.",
+    "Decisions: D-815.",
+  ] },
   { v: '0.3.260', date: '2026-11-10', title: 'Growth\'s second row, planned', lines: [
     "Planned: the Growth tree's second row. It will open the first time you go deeper than depth 8, and hold Quick Pour on Light (pouring a flask takes no turn), Guard on Body (about 1 bite in 6 glances off) and Thrift on Hands (making something keeps its cheapest part about 1 time in 4), each 1 ember. Nothing in the game changed yet.",
     "Decisions: D-814.",

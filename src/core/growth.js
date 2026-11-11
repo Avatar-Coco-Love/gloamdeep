@@ -5,6 +5,7 @@
 import { levelOf } from './xp.js';
 import { maxHealth, HERO_HEALTH } from './turn.js';
 import { BRANCHES, UPGRADES, grown } from './upgrades.js';
+import { deepestOf } from './travel.js';
 
 export const HEARTS_MORE = UPGRADES.heart.most; // at most 5 more, 10 in all
 export const heartsBought = (state) => grown(state, 'heart');
@@ -26,24 +27,31 @@ export function buy(state, id) {
 export const buyAt = (state, pick) => buy(state, upgradeAt(pick)?.id);
 
 // § tree (D-462, D-481, D-811): Growth's three branches side by side, each a limb, and across
-// them a twig for each biome reached, row 0 the first at the bottom; embers buy any upgrade in an
+// them a twig for each row open, row 0 the first at the bottom; embers buy any upgrade in an
 // open row, in any order. On a row's twig each branch's upgrades sit side by side, by their slot
 // (Tough beside the heart); the branches and upgrades are in upgrades.js. A place is
 // { col, row, slot }: an open row has one place for each of a branch's upgrades in it, or one
-// to come where it has none; the locked row one a branch.
-export const ROWS_OPEN = 1; // the first biome's row; each next one opens on reaching the next biome (D-462)
-export const ROWS = ROWS_OPEN + 1; // and one more shown, dim and locked (D-481)
+// to come where it has none; the locked row one a branch. `open` is how many rows are open,
+// rowsOpen(state), 1 where not given.
+// § opening (D-814): each row opens the first time the hero is deeper than its depth, row 1
+// past depth 8, biome 1's last floor, until biome 2 is built. The journey keeps a mark,
+// `state.growthRows`, so a row once open stays open (markRows, kept at each save).
+export const ROW_DEPTHS = [0, 9]; // the depth that opens each row; row 0 is open from the start
+const deepest = (state) => (state?.place ? deepestOf(state) : 0); // a journey with no place yet has been nowhere
+export const rowsOpen = (state) => Math.max(state?.growthRows ?? 1, ROW_DEPTHS.filter((d) => deepest(state) >= d).length);
+export const markRows = (state) => (state.growthRows === rowsOpen(state) ? state : { ...state, growthRows: rowsOpen(state) });
+export const rowsOf = (open = 1) => Math.min(open + 1, ROW_DEPTHS.length + 1); // the open rows and one more shown, dim and locked (D-481)
 export const START_PICK = { col: 1, row: 0, slot: 0 }; // Body's first, the heart
 export const upgradeAt = ({ col, row, slot = 0 }) => Object.values(UPGRADES).find((u) => u.branch === BRANCHES[col]?.id && u.row === row && u.slot === slot) ?? null;
 // How many places a branch has in a row
-export function placesIn(col, row) {
+export function placesIn(col, row, open = 1) {
   const here = Object.values(UPGRADES).filter((u) => u.branch === BRANCHES[col]?.id && u.row === row);
-  return row < ROWS_OPEN ? Math.max(1, ...here.map((u) => u.slot + 1)) : 1;
+  return row < open ? Math.max(1, ...here.map((u) => u.slot + 1)) : 1;
 }
 // A row's places as read, left to right across the branches
-export const rowPlaces = (row) => BRANCHES.flatMap((_, col) => Array.from({ length: placesIn(col, row) }, (_, slot) => ({ col, row, slot })));
+export const rowPlaces = (row, open = 1) => BRANCHES.flatMap((_, col) => Array.from({ length: placesIn(col, row, open) }, (_, slot) => ({ col, row, slot })));
 // Every place on the tree, row by row from the bottom
-export const allPlaces = () => Array.from({ length: ROWS }, (_, row) => rowPlaces(row)).flat();
+export const allPlaces = (open = 1) => Array.from({ length: rowsOf(open) }, (_, row) => rowPlaces(row, open)).flat();
 
 // § pick (D-811): an arrow moves the gold outline over the tree's places as a row is read: Left
 // and Right walk the row's places one by one, across the branches; Up and Down go to the row
@@ -52,21 +60,22 @@ export const allPlaces = () => Array.from({ length: ROWS }, (_, row) => rowPlace
 // row's right end (rowEnd, where the input turns to the Bestiary), or null past the row's first,
 // for the Records tab.
 const sameAs = (p) => (q) => q.col === p.col && q.slot === (p.slot ?? 0);
-export const rowEnd = (pick) => sameAs(pick)(rowPlaces(pick.row).at(-1));
-export function movePick(pick, dir) {
-  const ps = rowPlaces(pick.row), i = Math.max(0, ps.findIndex(sameAs(pick)));
+export const rowEnd = (pick, open = 1) => sameAs(pick)(rowPlaces(pick.row, open).at(-1));
+export function movePick(pick, dir, open = 1) {
+  const ps = rowPlaces(pick.row, open), i = Math.max(0, ps.findIndex(sameAs(pick)));
   if (dir === 'left') return i === 0 ? null : ps[i - 1];
   if (dir === 'right') return ps[Math.min(i + 1, ps.length - 1)];
-  const row = Math.max(0, Math.min(ROWS - 1, pick.row + (dir === 'up' ? 1 : -1)));
-  return { col: pick.col, row, slot: Math.min(pick.slot ?? 0, placesIn(pick.col, row) - 1) };
+  const row = Math.max(0, Math.min(rowsOf(open) - 1, pick.row + (dir === 'up' ? 1 : -1)));
+  return { col: pick.col, row, slot: Math.min(pick.slot ?? 0, placesIn(pick.col, row, open) - 1) };
 }
 
 // § told: what the picked place says beside the tree: its name, a value line or null, its words,
 // and its button { text, cost, can } or null. A place with no upgrade yet is to come; a row not
-// open yet is locked.
+// open yet is locked, and says the depth that opens it (D-814), or only deeper down where
+// that depth is not set yet.
 export function told(state, pick) {
   const u = upgradeAt(pick);
-  if (pick.row >= ROWS_OPEN) return { name: 'Locked', value: null, words: 'Opens deeper down.', button: null };
+  if (pick.row >= rowsOpen(state)) return { name: 'Locked', value: null, words: ROW_DEPTHS[pick.row] ? `Reach depth ${ROW_DEPTHS[pick.row]} to open.` : 'Opens deeper down.', button: null };
   if (!u) return { name: 'To come', value: null, words: 'More to grow here later.', button: null };
   const n = grown(state, u.id), done = u.most === 1 && n > 0, cost = `${u.cost} ember${u.cost === 1 ? '' : 's'}`;
   const value = u.id === 'heart' ? `Hearts ${maxHealth(state)} of ${HERO_HEALTH + u.most}` : done ? 'Bought' : null; // the hearts the hero has, boons' too

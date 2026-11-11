@@ -49,7 +49,8 @@ test('a fall wakes the hero with every heart bought, and keeps them', () => {
 });
 
 // § tree (D-462, D-481)
-import { ROWS, START_PICK, upgradeAt, movePick, rowEnd, rowPlaces, told } from '../src/core/growth.js';
+import { rowsOf, rowsOpen, markRows, START_PICK, upgradeAt, movePick, rowEnd, rowPlaces, told } from '../src/core/growth.js';
+import { FORMAT, upgradeState } from '../src/core/save.js';
 import { BRANCHES, UPGRADES } from '../src/core/upgrades.js';
 import { UPGRADES as GATHERED } from '../src/core/registry.js';
 
@@ -59,7 +60,7 @@ test('the tree has three branches, Light, Body and Hands, and the heart is Body\
   assert.equal(GATHERED, UPGRADES);
   assert.equal(upgradeAt({ col: 0, row: 0 }), UPGRADES.steadyWick, 'Light\'s first (D-798)');
   assert.equal(upgradeAt({ col: 2, row: 0 }), UPGRADES.quickHands, 'Hands\' first (D-813)');
-  assert.equal(ROWS, 2, 'the open row and one locked');
+  assert.equal(rowsOf(1), 2, 'the open row and one locked');
 });
 
 test('the arrows read a row: Left and Right walk its places across the branches, Up and Down change row, Left past its first gives null for Records (D-811)', () => {
@@ -85,4 +86,34 @@ test('the heart\'s button is dim without an ember; a locked place has none', () 
   assert.equal(told(at(10), START_PICK).button.can, true);
   assert.equal(told(at(10), { col: 1, row: 1 }).button, null);
   assert.equal(told(at(10), { col: 1, row: 1 }).name, 'Locked');
+});
+
+// § opening (D-814): row 2 opens the first time the hero is deeper than depth 8, and stays open
+const deep = (place, extra = {}) => ({ ...at(10), place, elsewhere: {}, ...extra });
+test('row 2 opens past depth 8, a stand-in for biome 2 (D-814)', () => {
+  assert.equal(rowsOpen(deep('depth8')), 1, 'depth 8, biome 1\'s last floor, opens nothing');
+  assert.equal(rowsOpen(deep('depth9')), 2);
+  assert.equal(rowsOpen(deep('first', { elsewhere: { depth12: {} } })), 2, 'a deeper floor left behind counts');
+  assert.equal(rowsOf(rowsOpen(deep('depth9'))), 3, 'the two open rows and one locked');
+  assert.equal(rowsOpen(deep('first', { growthRows: 2 })), 2, 'the mark keeps it open, the deep rooms forgotten');
+  assert.equal(rowsOpen(at(10)), 1, 'a journey nowhere yet');
+});
+
+test('the mark is kept: set once the hero is deeper, unchanged otherwise, and an old save gets it (D-814)', () => {
+  const s = deep('depth8', { growthRows: 1 });
+  assert.equal(markRows(s), s);
+  assert.equal(markRows(deep('depth9', { growthRows: 1 })).growthRows, 2);
+  assert.equal(FORMAT, 32);
+  assert.equal(upgradeState(31, deep('depth10')).growthRows, 2);
+  assert.equal(upgradeState(31, deep('depth3')).growthRows, 1);
+});
+
+test('the locked row says the depth that opens it; opened, its places are to come, one a branch (D-814)', () => {
+  const locked = told(deep('depth8'), { col: 0, row: 1 });
+  assert.deepEqual([locked.name, locked.words, locked.button], ['Locked', 'Reach depth 9 to open.', null]);
+  const open = deep('depth9');
+  assert.equal(told(open, { col: 1, row: 1 }).name, 'To come');
+  assert.deepEqual(rowPlaces(1, 2), [0, 1, 2].map((col) => ({ col, row: 1, slot: 0 })));
+  assert.deepEqual(movePick({ col: 1, row: 1, slot: 0 }, 'up', 2), { col: 1, row: 2, slot: 0 }, 'row 3, locked, above');
+  assert.equal(told(open, { col: 1, row: 2 }).words, 'Opens deeper down.', 'no depth set for row 3 yet');
 });

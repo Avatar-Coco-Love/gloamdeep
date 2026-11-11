@@ -22,7 +22,7 @@ test('the Growth tab says the embers left, then the picked place: Body\'s heart 
   assert.equal(growthWords({ xp: 0, health: 5 }, START_PICK), `Journal, Growth tab. Embers, 0. Body, row 1, Heart. Hearts 5 of 10. One more heart for good, arriving full. Add a heart, 1 ember, not now. ${tail}`);
   assert.equal(growthWords(s, { col: 0, row: 0 }), `Journal, Growth tab. Embers, 1. Light, row 1, Steady Wick. The lantern burns a little slower, for good. Get Steady Wick, 1 ember. ${tail}`);
   assert.equal(growthWords(s, { col: 2, row: 0 }), `Journal, Growth tab. Embers, 1. Hands, row 1, Quick Hands. Trees, stone and branches take 1 bump fewer. Get Quick Hands, 1 ember. ${tail}`);
-  assert.equal(growthWords(s, { col: 2, row: 1 }), `Journal, Growth tab. Embers, 1. Hands, row 2, Locked. Opens deeper down. ${tail}`);
+  assert.equal(growthWords(s, { col: 2, row: 1 }), `Journal, Growth tab. Embers, 1. Hands, row 2, Locked. Reach depth 9 to open. ${tail}`);
 });
 
 test('the Records tab shows the deepest depth, creatures beaten, falls, rooms found, steps, flasks poured, torches lit and time played (D-283, D-285, D-286, D-291)', () => {

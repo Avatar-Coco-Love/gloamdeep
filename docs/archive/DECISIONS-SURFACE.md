@@ -1001,3 +1001,19 @@ pale claw lashed on as its head; its lines ("You make a mole claw
 pick.", "You hold the mole claw pick.", "Veins and rubble go in 2
 bumps."); the Mole Claw's look line names it. D-806 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-811 · 2026-11-10 · The Growth tree, ready to grow** (the owner's
+picks, all recommended, from a page of three looks:
+https://claude.ai/artifact/4Gif1nMAvjvi5ZztHwdz2y; builds D-462, D-481)
+Before the Hands upgrade, the tree is made ready for many more. Its look
+will be A, twigs: one drawn tree kept, each row a twig across the three
+limbs, its upgrades small picture tiles side by side, up to 3 a branch
+in a row, the name and words on the right when picked, and the tree
+scrolling once there are more rows than fit. Offered too: branch pages,
+one limb's tree a page; lists, like the Bestiary. In three steps: first,
+nothing visible, one list of upgrades in the code, each with its cost,
+the most times it can be bought and its look, and one record in the
+save of what was bought, older saves keeping their hearts, Tough and
+Steady Wick (offered too: each upgrade its own entry, as before); then
+the twigs; then the Hands upgrade. D-807 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

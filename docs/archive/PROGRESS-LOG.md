@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-10, 0.3.258, The Growth tree's twigs.** The owner's picks
+  (D-812): each row a twig, upgrades small tiles side by side; a dashed
+  tile only on an empty limb; the arrows read a row.
+  Playtest: https://claude.ai/artifact/BjX8yyyLXbiexFbX1aJXRJ
 - **2026-11-10, 0.3.257, The Growth tree, ready to grow.** The owner's
   picks (D-811): the tree's next look, twigs; first, nothing visible, one
   list of upgrades and one save record of what was bought.

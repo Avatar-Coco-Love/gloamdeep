@@ -20,11 +20,12 @@ import { restar } from './restar.js';
 import { relamp } from './relamp.js';
 import { recamp } from './recamp.js';
 import { moveStone } from './movestone.js';
+import { markRows } from './growth.js';
 
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 31;
+export const FORMAT = 32;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -56,6 +57,7 @@ export const UPGRADES = {
   28: recamp, // 28 → 29: the miners' camp stood in its mountain room, if unseen (D-770)
   29: withKnown, // 29 → 30: the finds held so far, from what is in the bag and the stash chests now (D-787)
   30: withGrown, // 30 → 31: hearts, Tough and Steady Wick bought, moved into one record of Growth's upgrades (D-811)
+  31: markRows, // 31 → 32: Growth's rows open, marked: row 2 where the journey has been deeper than depth 8 (D-814)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {
