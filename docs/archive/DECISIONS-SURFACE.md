@@ -1077,3 +1077,16 @@ locked). Once open, row 2 has a dashed tile a limb, and row 3 shows
 locked above it, "Opens deeper down." No line in the log yet: "Growth
 has a new row." is added with Quick Pour (offered too: a line now;
 never). D-811 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-816 · 2026-11-11 · Quick Pour** (the owner's picks, all
+recommended; step 2 of D-814) Light's row 2 upgrade, 1 ember, once: a
+flask poured by hand takes no turn, so no oil burns and no creature
+moves, and "You pour a flask." is said (offered too: nothing said). Its
+words "Pouring a flask takes no turn."; its tile a tipped flask, a drop
+falling (offered too: an upright flask and a drop, "You pour a flask in
+no time."; a lantern and a drop). A Pond Minnow's oil still takes its
+turn, as it is not a flask (D-611; offered too: any oil by hand).
+"Growth has a new row." is said the first time a row opens, walking
+down or by a dev jump, in place of that turn's line (offered too: kept
+in the log as well); an older save that loads already open says
+nothing. D-812 moves to `archive/DECISIONS-SURFACE.md`, word for word.

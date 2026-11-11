@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -62,40 +62,18 @@ Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.tx
 | | poison takes a heart (D-654) | a sick, low pulse | — |
 | | a level reached (D-246) | a short rising note | — |
 
-## Creatures (their bites and their own sounds)
+## Creatures
 
-| Name | When | Feel | File |
-| --- | --- | --- | --- |
-| `teeth` | a rat bites; a centipede bites | small sharp teeth | — |
-| | rats in a pack call out (D-767) | squeaks together | — |
-| | a gloamling bites (silent until now) | — | — |
-| | a lampmoth bites (silent until now) | a papery flutter | — |
-| `glass` | a flask mimic bites | a clink and a snap | — |
-| | a flask mimic or herb mimic wakes (silent until now, D-368) | a jolt | — |
-| `sting` | a scorpion stings | two clicks and a stab | — |
-| | a scorpion raises its tail | a dry rattle | — |
-| `hiss` | a cave spider bites | a soft hiss and a click | — |
-| `squeak` | a bat bites | a chirp and a flap | — |
-| `snuffle` | a mole bites | sniffs and a scrape | — |
-| | a mole digs down or comes up | earth shifting | — |
-| `snap` | a snapcap bites | a wet squelch and a snap | — |
-| `rustle` | a herb mimic bites | dry leaves and teeth | — |
-| `rattle` | a bone rat bites; its bones are scattered | clattering bones | — |
-| | a bone rat falls to bones, or stands up again | bones dropping, bones gathering | — |
-| `sip` | an oil tick drinks the lantern's oil (D-606) | a wet slurp and a gulp | — |
-| | a warden bites | stone grinding | — |
-| | a warden wakes | heavy stone shifting | — |
-| | a creature spits a glob (D-688) | a wet spit | — |
-| | a glob breaks or hits (D-688) | a small splat | — |
+Their bites and their own sounds are in `SOUNDS-2.md`.
 
 ## Finds, the bag and home
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| | an item goes into the bag | a soft pat of cloth | — |
+| `pat` | an item goes into the bag, unless it is a fish with its splash (D-820) | a soft pat of cloth | `kenney-rpg-audio/cloth1` to `cloth4`, at a third loudness, CC0 |
 | | a herb, heartcap or potion eaten (D-308) | a crunch, or a drink | — |
-| | a weapon goes into the hand (D-479) | a light metal scrape | — |
-| | a tile set down from the bag (WB2) | a wooden thunk | — |
+| `draw` | a weapon goes from the bag into the hand (D-479, D-820) | a light metal scrape | `kenney-rpg-audio/drawKnife3`, at 0.82, CC0 |
+| `thunk` | a tile set down from the bag (WB2, D-820) | a wooden thunk | `kenney-impact-sounds/impactWood_medium_000` to `004`, at a quarter loudness, CC0 |
 | | a stone or deposit chipped (O2) | a pick on stone | — |
 | | a deposit breaks (O2) | stone cracking apart | — |
 | | a person freed from the rubble (D-491) | stones tumbling away | — |

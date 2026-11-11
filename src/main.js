@@ -332,7 +332,8 @@ function nudgeToward(dir) {
 // lantern's tick (D-257), a bite a moment after the hit, when there was one (D-259),
 // a tile walked, its step by the ground, unless the hero fell (D-255, D-774, D-776), a waystone's bells as it wakes (D-591), and
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731);
-// a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777)
+// a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777);
+// an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
@@ -346,6 +347,9 @@ function hear(events) {
   if (has(events, 'cast')) sound.plop(); // the line cast (D-613)
   if (has(events, 'catch')) sound.splash(); // a fish caught (D-613)
   if (has(events, 'scatter')) sound.rattle(); // a pile of bones scattered: the bone rat's rattle (D-731)
+  if (has(events, 'take') && !has(events, 'catch')) sound.pat(); // into the bag (D-820)
+  if (has(events, 'hold')) sound.draw(); // from the bag into the hand
+  if (has(events, 'set')) sound.thunk(); // the workbench set down
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);

@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.265 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.266 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks the next direction: Growth's row 2 is full (D-818), and
-row 3 waits for biome 2. More sounds (Q-095) when the owner wants, a
-small group a time (D-776); or the lab and its recipes (Q-093).
+Settings in tabs (D-820): Controls, Game, Screen and Sound, the same
+lines as now, nothing new in them yet. Then the Sound tab's loudness and
+On or Off for each sound, a step at a time.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -26,7 +26,7 @@ small group a time (D-776); or the lab and its recipes (Q-093).
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): a file for each other sound, the
+- Sounds from files (Q-095): digging and chests next, then each other, the
   "Maybe" sounds, and "can't carry more" and the run's end (D-819).
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
@@ -45,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.266, The bag's sounds.** The owner's picks (D-820),
+  all recommended, by ear: a cloth pat into the bag, a knife drawn into
+  the hand, a wood knock for the workbench set down. Settings gets tabs
+  next: Controls, Game, Screen, Sound.
+  Playtest: https://claude.ai/artifact/VZhVLCoWVgGxAKkdocK8Tp
+  Sound board: https://claude.ai/artifact/NJpdDNoD9BJRPQTYn6BMoF
 - **2026-11-11, 0.3.265, Menu sounds.** The owner's picks (D-819),
   all recommended, by ear: a soft tick for a tap, a page flip as a
   card opens or closes (only the flip when a tap opens one), a low
@@ -55,7 +61,3 @@ list in `RESEARCH.md`.
   making in 4 keeps 1 of its most-used part; every making; "You keep 1
   Stone."; a log with an arrow back. Growth's row 2 is full.
   Playtest: https://claude.ai/artifact/MQY9iuY1GN4wu8rsm1bxu3
-- **2026-11-11, 0.3.263, Guard.** The owner's picks (D-817): about 1
-  bite in 6 glances off, rolled after the vest's own dice; "The bite
-  glances off you."; only bites; a small round shield tile.
-  Playtest: https://claude.ai/artifact/S9L395bi3B7mCEf6Nxw1Hh

@@ -10,6 +10,8 @@
 // a creature is beaten.
 // The menus' sounds next (D-819): a soft tick for a button tapped, a page flip as a
 // card opens or closes, and a low wooden tock when a dim pick can't be done.
+// The bag's sounds next (D-820): a soft pat of cloth as an item goes into the bag, a
+// knife drawn as a weapon goes into the hand, a wooden knock as a tile is set down.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -41,10 +43,13 @@ export const FILES = {
   cardOpen: { files: ['kenney-rpg-audio/bookFlip3.ogg'], gain: 0.38, pitch: 0 }, // each as loud as a step
   cardClose: { files: ['kenney-rpg-audio/bookFlip2.ogg'], gain: 0.58, pitch: 0 },
   refuse: { files: ['kenney-impact-sounds/impactWood_light_000.ogg'], gain: 0.25, pitch: 0, pitchOf: () => 0.75 }, // a quarter lower
+  pat: { files: [1, 2, 3, 4].map((n) => `kenney-rpg-audio/cloth${n}.ogg`), gain: 0.33, pitch: 0.06 }, // each as loud as a step (D-820)
+  draw: { files: ['kenney-rpg-audio/drawKnife3.ogg'], gain: 0.82, pitch: 0 },
+  thunk: { files: impact('impactWood_medium'), gain: 0.25, pitch: 0.06 },
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk'];
 const SEED = 255; // the steps' variety, the same on every visit
 
 // § ground: which step the hero's feet make: grass on the surface, packed earth in
@@ -120,6 +125,6 @@ export function createSound(isOn) {
     src.start(ac.currentTime + (arg === true ? after : 0));
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse };
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk };
 }

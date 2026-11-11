@@ -77,6 +77,14 @@ test('The menus tick, turn a page and tock', () => {
   assert.ok(FILES.refuse.files[0].includes('impactWood_light') && FILES.refuse.pitchOf() === 0.75);
 });
 
+test("The bag's sounds: a cloth pat, a knife drawn, a wooden knock (D-820)", () => {
+  assert.equal(FILES.pat.files.length, 4);
+  assert.ok(FILES.pat.files.every((f) => /kenney-rpg-audio\/cloth[1-4]\.ogg/.test(f)));
+  assert.deepEqual(FILES.draw.files, ['kenney-rpg-audio/drawKnife3.ogg']);
+  assert.equal(FILES.thunk.files.length, 5);
+  assert.ok(FILES.thunk.files.every((f) => f.includes('impactWood_medium')));
+});
+
 test('A card opens on top, and closes back to what is under it', () => {
   let t = cardTurn(['play'], 'paused');
   assert.deepEqual(t, { trail: ['play', 'paused'], open: true });
