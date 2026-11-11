@@ -29,7 +29,10 @@ maybe trees swaying in the wind. One round tree a tile came first
 The owner's ideas: different kinds of weather, and outside shadows that
 follow the time of day, cast from where the sun (or the moon, see Q-027)
 is in the sky. Which weather, what does it change, and do shadows move
-with the hour?
+with the hour? The owner, 2026-11-11: weather comes after the "Maybe" sounds
+(Q-095), for example rain and fog; it could affect the hero, and some
+creatures could show up only in certain weather, a chance to farm them.
+Which weather, what each does to the hero, and which creatures, still open.
 
 **Q-039 · Swimming** (later)
 How the hero learns to swim, where they may jump into water, what water

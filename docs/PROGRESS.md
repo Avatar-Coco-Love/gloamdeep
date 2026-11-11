@@ -21,7 +21,7 @@ asks for any swaps; then picks the next step from "Waiting on the owner".
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): swaps for any of Claude's picks (D-833); the "Maybe"
-  sounds.
+  sounds; then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
