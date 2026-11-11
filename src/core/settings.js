@@ -54,6 +54,12 @@ export const nextFlasks = nextLantern;
 // § sound: On or Off (D-178, D-255). Off until picked; the game is silent until the sound files are in (D-773).
 export const soundText = (id) => 'Sound: ' + (id === 'on' ? 'On' : 'Off');
 export const nextSound = (id) => (id === 'on' ? 'off' : 'on');
+// § loudness: every sound's loudness together, 0% to 100% in steps of 10%, 100% until picked (D-822).
+// A tap or pick goes up a step, 100% round to 0%; Left and Right go down and up, stopping at the ends.
+const isLoud = (n) => Number.isInteger(n) && n >= 0 && n <= 100 && n % 10 === 0;
+export const loudText = (n) => `Loudness: ${n}%`;
+export const nextLoud = (n, dir = 'pick') =>
+  dir === 'pick' ? (n >= 100 ? 0 : n + 10) : dir === 'left' ? Math.max(0, n - 10) : Math.min(100, n + 10);
 
 // § stats line: On or Off (D-412). On, a short line bottom left in play: fps, turn, time
 // of day, xp, the hero's tile and the seed, what the panel doesn't show. Off until picked.
@@ -83,9 +89,10 @@ export function loadSettings() {
   const lantern = s?.lantern === 'self' ? 'self' : 'hand';
   const flasks = s?.flasks === 'self' ? 'self' : 'hand';
   const sound = s?.sound === 'on' ? 'on' : 'off';
+  const loud = isLoud(s?.loud) ? s.loud : 100;
   const stats = s?.stats === 'on' ? 'on' : 'off';
   const marks = s?.marks === 'off' ? 'off' : 'on';
-  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, stats, marks };
+  return { swipe, tap, pad, stop, motion, seed, lantern, flasks, sound, loud, stats, marks };
 }
 export function saveSettings(s) {
   try { localStorage.setItem(KEY, JSON.stringify({ ...s, taps: 2 })); } catch { /* not kept */ }

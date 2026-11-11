@@ -113,21 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-818 · 2026-11-11 · Thrift** (the owner's picks, all recommended;
-step 4 of D-814, the last) Hands' row 2 upgrade, 1 ember, once: about
-1 making in 4, by the seeded dice, keeps 1 of the part its recipe uses
-most of, the first listed on a tie, so the Mortar keeps 1 Stone and
-the Stash Chest 1 Wood (offered too: 1 of the part used least of; the
-whole part). The full cost is still needed; 1 fewer is taken. Every
-making: the bag's Make, the workbench, the mortar, the Pouch and the
-Big Bag (offered too: all but the bag upgrades; only the bench and
-mortar). "You keep 1 Stone." is said in place of the make line, naming
-the part (offered too: the make line, then a second; nothing said).
-Its words "Making something keeps 1 part about 1 time in 4."; its tile
-a small pale log on its side, an arrow curling back down to it
-(offered too: a tied pouch; a hand on a stone). D-814 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-819 · 2026-11-11 · The menus' sounds** (the owner's picks, all
 recommended, from a board of 6 taps, 4 page turns and 4 tocks; builds
 D-774; answers part of Q-095) Off play, a tap, Enter or Space that
@@ -181,4 +166,19 @@ onto the tabs). VERSION HISTORY stays in the bottom corner on every tab
 phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
 3 and 1). Claude's calls the owner may change: each tab opens on its
 first line; Settings' spoken words name the open tab. D-817 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-822 · 2026-11-11 · Loudness** (the owner's picks, all recommended;
+builds D-820; step 1 of 3) A line Loudness under Sound on the Sound tab,
+0% to 100% in steps of 10% (offered too: steps of 25%; a drawn bar of
+10 marks). Sound On or Off stays beside it as the quick switch, and
+the loudness is kept apart (offered too: one line, 0% as Off). Next, a
+loudness for each of four kinds: Steps, Fighting (the creatures too),
+Finds (the bag and places too) and Menus (offered too: the seven of
+`SOUNDS.md`; Play and Menus); then each sound On or Off, in a short
+list opened from its kind's line (offered too: all on the Sound tab; a
+fifth tab). Claude's calls the owner may change: 100% until picked; a
+tap goes up a step, round from 100% to 0%; Left and Right go down and
+up, stopping at the ends; the menu's tick plays at the new loudness;
+the cave's echo is as loud as its step. D-818 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

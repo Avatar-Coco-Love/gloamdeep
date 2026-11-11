@@ -2,7 +2,7 @@
 // The sounds themselves are silent until their files are in (D-773).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { soundText, nextSound, loadSettings } from '../src/core/settings.js';
+import { soundText, nextSound, loadSettings, saveSettings, loudText, nextLoud } from '../src/core/settings.js';
 import { biteSound } from '../src/core/enemies.js';
 
 test('Sound starts Off and flips to On and back', () => {
@@ -11,6 +11,26 @@ test('Sound starts Off and flips to On and back', () => {
   assert.equal(nextSound('off'), 'on');
   assert.equal(soundText('on'), 'Sound: On');
   assert.equal(nextSound('on'), 'off');
+});
+
+// § loudness (D-822): 0% to 100% in steps of 10%, 100% until picked; a pick goes up, round
+// from 100% to 0%; Left and Right stop at the ends; a kept loudness that isn't a step is dropped
+test('Loudness starts at 100%, steps by 10%, and is kept', () => {
+  assert.equal(loadSettings().loud, 100); // no localStorage here
+  assert.equal(loudText(70), 'Loudness: 70%');
+  assert.equal(nextLoud(60), 70);
+  assert.equal(nextLoud(100), 0);
+  assert.equal(nextLoud(0, 'left'), 0);
+  assert.equal(nextLoud(50, 'left'), 40);
+  assert.equal(nextLoud(100, 'right'), 100);
+  assert.equal(nextLoud(90, 'right'), 100);
+  const kept = {};
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try {
+    saveSettings({ ...loadSettings(), loud: 30 });
+    assert.equal(loadSettings().loud, 30);
+    for (const bad of [35, -10, 110, '50']) { kept['gloamdeep-settings'] = JSON.stringify({ loud: bad }); assert.equal(loadSettings().loud, 100); }
+  } finally { delete globalThis.localStorage; }
 });
 
 // § bite sound: a rat's bite sounds of teeth; the gloamling's is silent for now (D-259)

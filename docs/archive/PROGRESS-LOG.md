@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.265, Menu sounds.** The owner's picks (D-819),
+  all recommended, by ear: a soft tick for a tap, a page flip as a
+  card opens or closes (only the flip when a tap opens one), a low
+  wooden tock for a dim pick.
+  Playtest: https://claude.ai/artifact/PoCRktUB22d9SaXfLnJq1C
+  Sound board: https://claude.ai/artifact/QgBRdoZN4Nt8nTx75fJ1kg
 - **2026-11-11, 0.3.264, Thrift.** The owner's picks (D-818): about 1
   making in 4 keeps 1 of its most-used part; every making; "You keep 1
   Stone."; a log with an arrow back. Growth's row 2 is full.

@@ -115,7 +115,7 @@ test('every boon\'s words fit inside its own card', () => {
 
 test('the version history, how to play, settings, pause, ways, ask and opening cards fit', () => {
   const bad = [], all = new Set(HISTORY.map((e) => e.v));
-  const settings = { swipe: 'on', tap: 'walk', pad: 'on', stop: 'noticed', seed: 'random', lantern: 'self', flasks: 'self', sound: 'on', stats: 'on', marks: 'on' };
+  const settings = { swipe: 'on', tap: 'walk', pad: 'on', stop: 'noticed', seed: 'random', lantern: 'self', flasks: 'self', sound: 'on', loud: 100, stats: 'on', marks: 'on' };
   const asks = [...Object.values(M.TAKE_ASKS), M.SHELVE_ASK, [M.SURE_HEADING, M.SURE_NOTE], ['Delete Wwwwwwwwwwww?', M.DROP_NOTE], [M.easeHeading('easy'), M.EASE_NOTE], [M.ENDED_HEADING, '']];
   for (const [vw, vh] of SIZES) {
     const L = `${vw}×${vh}`, card = B.cardAt(vw, vh), screen = { x: 0, y: 0, w: vw, h: vh };
