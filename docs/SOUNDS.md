@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820). Settings' Loudness turns every sound up or down together (D-822).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, and Places) and Menus (D-823).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:

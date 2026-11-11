@@ -2,7 +2,7 @@
 // The sounds themselves are silent until their files are in (D-773).
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { soundText, nextSound, loadSettings, saveSettings, loudText, nextLoud } from '../src/core/settings.js';
+import { soundText, nextSound, loadSettings, saveSettings, loudText, nextLoud, LOUD_KINDS, kindText, loudOf } from '../src/core/settings.js';
 import { biteSound } from '../src/core/enemies.js';
 
 test('Sound starts Off and flips to On and back', () => {
@@ -30,6 +30,31 @@ test('Loudness starts at 100%, steps by 10%, and is kept', () => {
     saveSettings({ ...loadSettings(), loud: 30 });
     assert.equal(loadSettings().loud, 30);
     for (const bad of [35, -10, 110, '50']) { kept['gloamdeep-settings'] = JSON.stringify({ loud: bad }); assert.equal(loadSettings().loud, 100); }
+  } finally { delete globalThis.localStorage; }
+});
+
+// § kinds (D-823): Steps, Fighting, Finds and Menus under Loudness, each 100% until picked and
+// kept; a kind plays at Loudness times its share; every sound the game asks for has a kind
+test('the four kinds: their lines, their loudness together with Loudness, and every sound in one', async () => {
+  const { kindOf, KIND_SOUND, VOICES, FILES } = await import('../src/render/sound.js');
+  assert.deepEqual(LOUD_KINDS.map(({ id }) => kindText(id, 100)), ['Steps: 100%', 'Fighting: 100%', 'Finds: 100%', 'Menus: 100%']);
+  for (const { id } of LOUD_KINDS) assert.equal(loadSettings()[id], 100);
+  assert.equal(loudOf({ loud: 50, loudSteps: 50 }, 'steps'), 0.25);
+  assert.equal(loudOf({ loud: 100, loudMenus: 0 }, 'menus'), 0);
+  assert.equal(loudOf({ loud: 80 }, 'fight'), 0.8);
+  for (const v of [...VOICES, ...Object.keys(FILES)]) assert.ok(kindOf(v), `${v} has a kind`);
+  assert.equal(kindOf('lantern'), 'steps');
+  assert.equal(kindOf('sip'), 'fight');
+  assert.equal(kindOf('bells'), 'finds');
+  assert.equal(kindOf('cardOpen'), 'menus');
+  for (const { kind } of LOUD_KINDS) assert.equal(kindOf(KIND_SOUND[kind]), kind); // each kind is heard by its own sound
+  const kept = {};
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = v; } };
+  try {
+    saveSettings({ ...loadSettings(), loudFight: 40 });
+    assert.equal(loadSettings().loudFight, 40);
+    kept['gloamdeep-settings'] = JSON.stringify({ loudFinds: 45 });
+    assert.equal(loadSettings().loudFinds, 100);
   } finally { delete globalThis.localStorage; }
 });
 

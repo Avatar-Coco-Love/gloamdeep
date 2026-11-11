@@ -15,7 +15,7 @@ import { createScreen } from './render/screen.js';
 import { setOil } from './core/oil.js';
 import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
-import { loadSettings, swipesWalk, stillMotion } from './core/settings.js';
+import { loadSettings, swipesWalk, stillMotion, loudOf, LOUD_KINDS } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
 import { featTurn } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
@@ -50,7 +50,7 @@ import { createSlots } from './slots.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
 import { createFrame, FADE_MS } from './render/frame.js';
-import { createSound, stepOf, cardTurn } from './render/sound.js';
+import { createSound, stepOf, cardTurn, KIND_SOUND } from './render/sound.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
 import { travel, onWokenPlate, creatureNear } from './core/travel.js';
@@ -114,7 +114,7 @@ function loadInto(slot) {
   else { app.state = newWorld(); app.jumped = false; }
 }
 loadInto(app.profiles.current);
-const sound = createSound(() => app.settings.sound === 'on', () => app.settings.loud / 100); // from sound files, each silent until its file is in (D-773)
+const sound = createSound(() => app.settings.sound === 'on', (kind) => loudOf(app.settings, kind)); // from sound files, each silent until its file is in (D-773)
 // Saved after every turn, or any change, once the journey has begun (D-238)
 // A save that fails says so once, until one is kept again (D-428)
 let savedState = app.state, unsaved = false;
@@ -428,8 +428,8 @@ const screens = createScreens(app, {
 // In play the Swipe switch can turn swipes off (D-189, D-408); off the room, the screens take them.
 // A key or swipe in play ends a walk to a tapped tile and steps itself.
 const onDir = (dir, how) => {
-  const loud = app.settings.loud;
-  if (app.screen !== 'play') { screens.onDir(dir, how); if (app.settings.loud !== loud) sound.tap(); } // the tick at the new loudness (D-822)
+  const was = app.settings;
+  if (app.screen !== 'play') { screens.onDir(dir, how); hearLoud(was)?.(); } // the new loudness heard (D-822, D-823)
   else if (how !== 'swipe' || swipesWalk(app.settings)) { app.walk = null; tryStep(dir); }
 };
 const onPoint = (px, py, held) => {
@@ -455,12 +455,18 @@ let refused = false, cards = [app.screen], cardShown = app.screen;
 const marks = () => [app.screen, app.state, JSON.stringify(app.settings), spoken.textContent, app.opened.size, app.entry];
 const pressed = (act) => (...args) => {
   if (app.screen === 'play' || app.screen === 'strike') { act(...args); return; } // play's own sounds; the strike's tap is a pull
-  const was = marks();
+  const was = marks(), settingsWas = app.settings;
   refused = false;
   act(...args);
   const now = marks();
-  if (!refused && now[0] === was[0] && now.some((m, i) => m !== was[i])) sound.tap();
+  if (!refused && now[0] === was[0] && now.some((m, i) => m !== was[i])) (hearLoud(settingsWas) ?? sound.tap)();
 };
+// A loudness changed: Loudness ticks, a kind plays its own sound, each at the new loudness (D-822, D-823)
+function hearLoud(was) {
+  if (was.loud !== app.settings.loud) return sound.tap;
+  const k = LOUD_KINDS.find(({ id }) => was[id] !== app.settings[id]);
+  return k ? () => sound[KIND_SOUND[k.kind]]() : null;
+}
 function turnPage() {
   if (app.screen === cardShown) return;
   const turn = cardTurn(cards, app.screen);

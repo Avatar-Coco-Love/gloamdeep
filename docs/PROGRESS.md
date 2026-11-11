@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.268 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.269 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Sound tab's second step (D-822): a loudness for each of four kinds,
-Steps, Fighting, Finds and Menus, after a fit test on an upright phone.
+The Sound tab's third step (D-822, D-823): each sound On or Off, in a
+short list opened from its kind's line.
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -44,6 +44,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.269, The four kinds' loudness.** The owner's picks
+  (D-823), all recommended, after a fit test (all six lines fit at
+  320 × 568): Steps, Fighting, Finds and Menus as plain lines under
+  Loudness; the lantern follows Steps; a kind is Loudness times its
+  share; changing one plays its own sound.
+  Playtest: https://claude.ai/artifact/P9xQEHR6wXzWiYpwo1XDD8
 - **2026-11-11, 0.3.268, Loudness.** The owner's picks (D-822), all
   recommended, for the Sound tab's three steps: Loudness, 0% to 100% in
   steps of 10%, beside Sound On or Off; then four kinds; then each sound
@@ -55,9 +61,3 @@ list in `RESEARCH.md`.
   upright, two rows of 2 (found by the fit test after the first picks,
   the 0.3.246 lesson again). The Sound tab grows next.
   Playtest: https://claude.ai/artifact/7mK8JxWAumrUKgKH4J3RDo
-- **2026-11-11, 0.3.266, The bag's sounds.** The owner's picks (D-820),
-  all recommended, by ear: a cloth pat into the bag, a knife drawn into
-  the hand, a wood knock for the workbench set down. Settings gets tabs
-  next: Controls, Game, Screen, Sound.
-  Playtest: https://claude.ai/artifact/VZhVLCoWVgGxAKkdocK8Tp
-  Sound board: https://claude.ai/artifact/NJpdDNoD9BJRPQTYn6BMoF

@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.266, The bag's sounds.** The owner's picks (D-820),
+  all recommended, by ear: a cloth pat into the bag, a knife drawn into
+  the hand, a wood knock for the workbench set down. Settings gets tabs
+  next: Controls, Game, Screen, Sound.
+  Playtest: https://claude.ai/artifact/VZhVLCoWVgGxAKkdocK8Tp
+  Sound board: https://claude.ai/artifact/NJpdDNoD9BJRPQTYn6BMoF
 - **2026-11-11, 0.3.265, Menu sounds.** The owner's picks (D-819),
   all recommended, by ear: a soft tick for a tap, a page flip as a
   card opens or closes (only the flip when a tap opens one), a low
