@@ -1,0 +1,9 @@
+Elemental Forces Sound Pack, by MorphonautAudio
+Bought by the owner from:
+https://morphonaut.itch.io/elemental-forces-sound-pack
+
+License:
+CC0 (the listing says the sounds are CC0, use as you want)
+
+Saved as .ogg (Vorbis, quality 4, stereo, 44.1 kHz) from the pack's
+24-bit WAV files; nothing else changed. File names are the pack's own.

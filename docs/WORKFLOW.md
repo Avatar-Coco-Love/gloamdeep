@@ -100,3 +100,4 @@ and the fourteenth's in `WORKFLOW-4.md` (D-826).
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 - A string has `.at` (a built-in method), so `x?.at` can't tell a station's { into, at } from an id; test a field only objects have (`into`), and run the full suite, not just the new test (0.3.273).
+- A bought pack goes in the public repo whole only once its licence allows sharing; check the listing's licence first and say where it came from in its `License.txt` (0.3.275).

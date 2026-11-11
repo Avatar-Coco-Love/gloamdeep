@@ -116,3 +116,14 @@ Guano fed is the bag's cloth pat, muffled like the burrows' earth
 (offered too: a small soft thud; a carpet step). Each plays as its
 page closes, follows Finds' loudness and has its own line under Finds:
 Coins, Shelf, Planting, Feeding.
+
+**D-829 · 2026-11-11 · The elemental pack** (the owner's purchase and
+picks, all recommended; for Q-095) MorphonautAudio's Elemental Forces
+Sound Pack, bought by the owner on itch.io, is kept whole in
+`sounds/packs/morphonaut-elemental-forces/`: 134 sounds in four folders,
+`Earth`, `Fire`, `Water` and `Wind`, under the pack's own names. Its
+listing says CC0, so it may sit in the public repo; its `License.txt`
+says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
+`.ogg`, good quality, stereo (6 MB), nothing else changed; little
+silence to cut. Nothing in the game plays from it yet: the next sound
+steps pick from it, for fire, oil, water, wind and falls.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.272, The fourteenth audit.** The owner's picks
+  (D-826), all recommended, and the near-full docs split too: the
+  history split, the docs near their cap split, built decisions and the
+  playbook's lines archived, the later questions on one line. Nothing
+  visible changed.
 - **2026-11-11, 0.3.271, Digging and chests' sounds.** The owner's picks
   (D-825), all recommended, from a board of 4 each: a mining clink for
   each bump on stone and a deeper one with stones tumbling as it breaks;
