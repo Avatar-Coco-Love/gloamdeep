@@ -272,7 +272,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   const drop = entry.rest ? card.restDrop : card.drop; // a row up when SLEEP crowds it (D-804)
   drawButton(c, drop.x, drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
-  if (makes?.at && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
+  if (makes?.into && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
   if (!text) return;
   const few = entry.craft && !makes; // MAKE opens the Make tab on its recipe, dim before that shows (D-787)
   if (text === SET) { drawButton(c, card.set.x, card.set.y, text, false, SET_W); if (entry.rest) drawButton(c, card.rest.x, card.rest.y, SLEEP, !sleepy, SLEEP_W); return; } // SLEEP dim when the hero can't sleep out (D-804)
@@ -280,7 +280,8 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   drawButton(c, card.button.x, card.button.y, text, entry.cures ? !poisoned : anyTime ? false : entry.eats && !entry.oil ? full : few);
   const second = secondText(entry);
   if (second) drawButton(c, card.make.x, card.make.y, second, second === 'EAT' ? full : few);
-  if (makes) drawMakes(c, text === 'MAKE' ? card.button : card.make, makes, spriteOf);
+  if (makes?.into) drawMakes(c, card.make, makes.into, spriteOf, makes.at, dw); // made at a station only, beside another button: its line in the second button's place (D-826)
+  else if (makes) drawMakes(c, text === 'MAKE' ? card.button : card.make, makes, spriteOf);
 }
 // § makes line: above a find's MAKE, the picture of what it makes and "Makes an Oil flask",
 // their right end at MAKE's (look A, D-787); one made at a station adds where, "at the mortar",

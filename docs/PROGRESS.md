@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.272 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.273 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug hunt (D-826): its findings, read from the code since
-0.3.233, shown to the owner as a list to pick from, each fix its own step.
+The owner picks the next step from "Waiting on the owner"; the nearest
+is the sounds' next lines (Q-095).
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -39,6 +39,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.273, The audit's bug fixes.** The owner's picks
+  (D-827), all five and the Tab tick: the bag's card with a herb chosen,
+  MAKE with a full bag, a bunny and sleeping out, a tool's hold sound,
+  the mortar's notes; each with a test that failed on the old code.
 - **2026-11-11, 0.3.272, The fourteenth audit.** The owner's picks
   (D-826), all recommended, and the near-full docs split too: the
   history split, the docs near their cap split, built decisions and the
@@ -50,9 +54,3 @@ list in `RESEARCH.md`.
   a creak as a chest opens and a wooden knock as it closes.
   Playtest: https://claude.ai/artifact/YJPNYHngHVfUE8GXGArxmV
   Sound board: https://claude.ai/artifact/9D6rwrurzN21T3omeo4DFb
-- **2026-11-11, 0.3.270, Each sound On or Off.** The owner's picks
-  (D-824), all recommended, after a fit test (13 lines fit at 320 × 568
-  upright and sideways): only the heard sounds; a kind's line opens its
-  list, its loudness first; the list in the Sound tab; lines named by
-  what happens. The Sound tab's three steps are done.
-  Playtest: https://claude.ai/artifact/EDQSQi6GsDRnGM51saBwV9

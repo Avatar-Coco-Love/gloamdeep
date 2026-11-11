@@ -5,6 +5,15 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.273', date: '2026-11-11', title: 'The audit\'s bug fixes', lines: [
+    "Fixed: with a Healing herb chosen in the bag, once a mortar draught that uses it is known, the bag no longer stops drawing; the card shows EAT and, beside it, the draught it makes at the mortar.",
+    "Fixed: MAKE with a full bag now says \"Your bag is full.\", not that you already carry what it makes (the Mortar and Pestle, a workbench).",
+    "Fixed: a shy bunny near you at dusk no longer stops you sleeping out; only a creature that bites, or one chasing you, does.",
+    "Fixed: holding a tool, the rod or a pick, no longer plays the knife being drawn.",
+    "Fixed: the Tab key on Settings' tabs ticks, as a tap on a tab does.",
+    "Docs: the Mortar and Pestle's notes now say it lists six draughts, each once all its parts have been held.",
+    "Decisions: D-827.",
+  ] },
   { v: '0.3.272', date: '2026-11-11', title: 'The fourteenth audit', lines: [
     "The fourteenth audit. Nothing in the game changes. The Version history's newest file is split again, word for word: 0.3.201 to 0.3.250 move to history-0.3-4.js.",
     "Docs: finished decisions and the playbook's newest lines moved to the archive or their own files, word for word; the finds' and sounds' lists, near their cap, split in two; the waiting list's later questions on one line, so a conversation starts by reading less. A bug hunt's findings come next. The next audit is at 0.3.312.",
