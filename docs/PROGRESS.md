@@ -45,8 +45,8 @@ list in `RESEARCH.md`.
   empty lantern's crackle, with "The flame is getting low." at 20%; one
   Settings line, Oil runs low. All the "Maybe" sounds are wanted, one
   step each; weather after them (Q-035). Claude's picks kept for now.
-  Playtest: PLAYTEST
-  Sound board: BOARD
+  Playtest: https://claude.ai/artifact/WaivPk45exKkGx9R9RRTgx
+  Sound board: https://claude.ai/artifact/KLZybCbrZX2jATNurEuZtW
 - **2026-11-11, 0.3.279, The rest of the sounds.** By the owner's
   go-ahead (D-833), Claude's recommended pick for every line still
   silent, by measured shape: the last three bites, the creatures' own
