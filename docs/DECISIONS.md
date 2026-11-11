@@ -145,3 +145,23 @@ burn: Fire-021 from 0.18 s, 2.4 s of it, fading over 0.9 s, at 0.27
 bright flare). Each follows Steps' loudness, with the lantern, and has
 its own line under Steps: Flask poured, Oil runs out, Torch lit,
 Campfire lit.
+
+**D-831 · 2026-11-11 · The fight's rest's sounds** (the owner's picks
+from a board of 4, 4, 4 and 4, then 4 new for poison; answers part of
+Q-095) A stiff swing that misses (D-759) is a short puff of air: the
+elemental pack's Wind-012 to 014 at 0.55 (offered too, and recommended:
+a quick whoosh; an airier swish; a sleeve's cloth). The hero hurt by a
+bite or a glob that takes a heart is a dull blow: Impact Sounds'
+impactPunch_heavy, a tenth lower, muffled above 900 Hz, at 0.32, a
+quarter second after the hero's swing, hit or missed (offered too: a
+leather thump; the blow with a low wince; a low bong). No pack has a
+voice, so it is not a gasp. Poison taking a heart is a deep throb,
+twice: the same punch at 0.6 then 0.57 pitch, muffled above 400 Hz, at
+0.36 then 0.26, 0.35 s apart (the first four, gloops, heartbeats and a
+hum, didn't fit; offered too: a queasy swell, recommended; slow sick
+bubbles; the blow, then a gloop). A level reached is three glass notes
+rising: impactGlass_light 000 to 002 at 1, 1.26 and 1.5, 0.11 s apart,
+at 0.2 falling to 0.16, 0.55 s after the turn's sounds, so after the
+beaten thud (offered too: a smooth rising tone; a shorter one; an ember
+flaring). Each follows Fighting's loudness and has its own line under
+Fighting: Stiff miss, Hurt, Poison, Level.

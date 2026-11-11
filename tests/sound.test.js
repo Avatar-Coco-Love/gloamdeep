@@ -185,6 +185,23 @@ test('The lantern and the light: pour, gutter, torch and campfire (D-830)', asyn
   assert.equal(out(0), false); // already out: no second gutter
 });
 
+// § the fight's rest (D-831): a puff of air for a stiff miss, a dull blow for a bite that hurts, a deep
+// throb twice for poison's heart, three glass notes rising for a level, each under Fighting
+test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
+  const { SOUND_LINES, soundsOf } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const punch = [0, 1, 2, 3, 4].map((n) => `kenney-impact-sounds/impactPunch_heavy_00${n}.ogg`);
+  assert.deepEqual(FILES.miss.files, [12, 13, 14].map((n) => `morphonaut-elemental-forces/Wind/Wind-0${n}.ogg`));
+  assert.deepEqual([FILES.hurt.files, FILES.hurt.gain, FILES.hurt.pitchOf(), FILES.hurt.muffle, FILES.hurt.after], [punch, 0.32, 0.9, 900, 0.25]);
+  assert.deepEqual([FILES.poison.files, FILES.poison.pitchOf(), FILES.poison.muffle, FILES.poison.with], [punch, 0.6, 400, [['poisonAgain', 0.35]]]);
+  assert.ok(FILES.poisonAgain.part && FILES.poisonAgain.pitchOf() === 0.57);
+  assert.deepEqual(['rise', 'rise2', 'rise3'].map((v) => [FILES[v].files[0].split('/')[1], FILES[v].pitchOf?.() ?? 1, FILES[v].wait]),
+    [['impactGlass_light_000.ogg', 1, 0.55], ['impactGlass_light_001.ogg', 1.26, 0.55], ['impactGlass_light_002.ogg', 1.5, 0.55]]); // rising, after the beaten thud
+  for (const v of ['miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3']) assert.equal(kindOf(v), 'fight');
+  for (const v of ['miss', 'hurt', 'poison', 'rise']) assert.ok(SOUND_LINES.some((l) => l.voice === v));
+  assert.deepEqual(soundsOf('fight').map((l) => l.name), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Level']);
+});
+
 test('A card opens on top, and closes back to what is under it', () => {
   let t = cardTurn(['play'], 'paused');
   assert.deepEqual(t, { trail: ['play', 'paused'], open: true });
