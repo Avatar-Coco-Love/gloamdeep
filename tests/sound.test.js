@@ -63,3 +63,29 @@ test('The hit sounds by what is in hand, and the beaten thud comes after it', ()
   for (const v of ['lanternHit', 'knifeHit', 'beaten']) assert.equal(FILES[v].gain, 0.25); // as loud as a step
   assert.equal(FILES.beaten.after, 0.12);
 });
+
+// § menus: a soft tick for a tap, a page flip as a card opens or closes, a low tock when
+// a dim pick can't be done (D-819)
+import { cardTurn } from '../src/render/sound.js';
+
+test('The menus tick, turn a page and tock', () => {
+  assert.deepEqual(FILES.tap.files, ['kenney-interface-sounds/tick_002.ogg']);
+  assert.equal(FILES.tap.gain, 0.12); // half a step's peak
+  assert.equal(FILES.card.as(true), 'cardOpen');
+  assert.equal(FILES.card.as(false), 'cardClose');
+  assert.ok(FILES.cardOpen.files[0].endsWith('bookFlip3.ogg') && FILES.cardClose.files[0].endsWith('bookFlip2.ogg'));
+  assert.ok(FILES.refuse.files[0].includes('impactWood_light') && FILES.refuse.pitchOf() === 0.75);
+});
+
+test('A card opens on top, and closes back to what is under it', () => {
+  let t = cardTurn(['play'], 'paused');
+  assert.deepEqual(t, { trail: ['play', 'paused'], open: true });
+  t = cardTurn(t.trail, 'settings');
+  assert.equal(t.open, true);
+  t = cardTurn(t.trail, 'paused'); // Back
+  assert.deepEqual(t, { trail: ['play', 'paused'], open: false });
+  assert.deepEqual(cardTurn(t.trail, 'play'), { trail: ['play'], open: false }); // Resume
+  assert.equal(cardTurn(['play', 'bag'], 'place').open, false); // the bag closes to set a tile down
+  assert.equal(cardTurn(['slots'], 'title').open, false); // the slot card closes onto the title
+  assert.equal(cardTurn(['title'], 'journal').open, true);
+});

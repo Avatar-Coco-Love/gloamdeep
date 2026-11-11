@@ -44,7 +44,7 @@ export function journalCard(app, ui, show, c) {
   function buyPicked() {
     if (!told(app.state, app.growthPick).button) return;
     const s = buyAt(app.state, app.growthPick);
-    if (s === app.state) return;
+    if (s === app.state) { ui.refuse(); return; } // too few embers: the tock (D-819)
     const before = app.state;
     app.state = s;
     ui.bought(before); // the first buy does "Spend your ember", no turn passing (D-713)

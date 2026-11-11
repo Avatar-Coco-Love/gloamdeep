@@ -8,6 +8,8 @@
 // The fight's sounds next (D-777): the hit, a muffled punch with the lantern or a
 // knife's slice with a weapon in hand, and a soft heavy thud a moment later when
 // a creature is beaten.
+// The menus' sounds next (D-819): a soft tick for a button tapped, a page flip as a
+// card opens or closes, and a low wooden tock when a dim pick can't be done.
 // What stays is each sound's name and the moment it plays (main.js's `hear`, the
 // creatures' `sound` and `sips` in enemies.js), so a file plugs straight in.
 // A browser plays sound only after a tap, click or key, so the sound maker starts
@@ -34,15 +36,31 @@ export const FILES = {
   lanternHit: { files: impact('impactPunch_medium'), gain: 0.25, pitch: 0.06 },
   knifeHit: { files: ['kenney-rpg-audio/knifeSlice.ogg', 'kenney-rpg-audio/knifeSlice2.ogg'], gain: 0.25, pitch: 0.06 },
   beaten: { files: impact('impactSoft_heavy'), gain: 0.25, pitch: 0.06, after: 0.12 },
+  tap: { files: ['kenney-interface-sounds/tick_002.ogg'], gain: 0.12, pitch: 0 }, // half a step's peak (D-819)
+  card: { as: (open) => (open ? 'cardOpen' : 'cardClose') },
+  cardOpen: { files: ['kenney-rpg-audio/bookFlip3.ogg'], gain: 0.38, pitch: 0 }, // each as loud as a step
+  cardClose: { files: ['kenney-rpg-audio/bookFlip2.ogg'], gain: 0.58, pitch: 0 },
+  refuse: { files: ['kenney-impact-sounds/impactWood_light_000.ogg'], gain: 0.25, pitch: 0, pitchOf: () => 0.75 }, // a quarter lower
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse'];
 const SEED = 255; // the steps' variety, the same on every visit
 
 // § ground: which step the hero's feet make: grass on the surface, packed earth in
 // the burrows, stone everywhere else below (the crypt, rock caves, dungeon halls) (D-776)
 export const stepOf = (sky, look) => (sky ? 'footstep' : look === 'earth' ? 'earthStep' : 'stoneStep');
+
+// § cards: which way a page turns as the screen changes (D-819). Play, setting a tile down
+// and the title have no card on them: reaching one closes. Going back to a screen still
+// under the open cards closes down to it; any other screen opens on top. `trail` is the
+// screens open, the first under the rest.
+const BARE = ['play', 'place', 'title'];
+export function cardTurn(trail, to) {
+  if (BARE.includes(to)) return { trail: [to], open: false };
+  const at = trail.indexOf(to);
+  return at >= 0 ? { trail: trail.slice(0, at + 1), open: false } : { trail: [...trail, to], open: true };
+}
 
 export function createSound(isOn) {
   let ac = null, echo = null; // the sound maker, and the cave's echo: a short repeat off the walls, fading (D-776)
@@ -102,6 +120,6 @@ export function createSound(isOn) {
     src.start(ac.currentTime + (arg === true ? after : 0));
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash };
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, bells, chime, plop, splash, tap, card, refuse };
 }

@@ -1063,3 +1063,17 @@ Pockets, a bag slot). Built in four steps, one a PR: row 2 opening at
 depth 9 with a dashed tile a limb; then Quick Pour; Guard; Thrift. Each
 one's words, look and details are settled at its step. D-810 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-815 · 2026-11-11 · Row 2 opens** (the owner's picks; step 1 of
+D-814) The journey keeps a mark of Growth's rows open, set the first
+time the hero is deeper than depth 8 and never taken away; an older
+save already past depth 8 has it when loaded (offered too: worked out
+each time from the rooms kept; per profile, across journeys). A dev
+jump to depth 9 or deeper opens it too (offered too: only walking
+there). The owner's own pick: everything visible, with what it takes
+to open it; the locked tiles stay, and picking one says "Reach depth 9
+to open." (offered too: a depth tag on the row; dim upgrades shown
+locked). Once open, row 2 has a dashed tile a limb, and row 3 shows
+locked above it, "Opens deeper down." No line in the log yet: "Growth
+has a new row." is added with Quick Pour (offered too: a line now;
+never). D-811 moves to `archive/DECISIONS-SURFACE.md`, word for word.

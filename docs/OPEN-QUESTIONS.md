@@ -101,6 +101,7 @@ a switch to show creatures' coming attacks, and one to show the hero's.
 
 **Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: which
 file for each other line of `docs/SOUNDS.md` (in: the steps, the
-lantern's click, the fight's hit and beaten, D-774 to D-777); the "Maybe" sounds (steps
+lantern's click, the fight's hit and beaten, D-774 to D-777; the menus, D-819); the "Maybe" sounds (steps
 on water or wood, where the wood step plays, sounds all around, music, an oil warning, a heartbeat); where
-the credits show; whether a sound is cached for playing offline.
+the credits show; whether a sound is cached for playing offline; a sound for the
+"You can't carry more" lines and the run's end (D-819).

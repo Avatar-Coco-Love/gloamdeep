@@ -56,6 +56,13 @@ const SOUNDS = [
   { label: 'A boon picked (the chime)', play: 'later(0, () => sound.chime())' },
   { label: 'The line cast (the plop)', play: 'later(0, () => sound.plop())' },
   { label: 'A fish caught (the splash)', play: 'later(0, () => sound.splash())' },
+  { label: 'A button tapped', play: 'later(0, () => sound.tap())' },
+  { label: 'Five quick taps through a menu', play: 'for (let i = 0; i < 5; i++) later(i * 180, () => sound.tap())' },
+  { label: 'A card opens', play: 'later(0, () => sound.card(true))' },
+  { label: 'A card closes', play: 'later(0, () => sound.card(false))' },
+  { label: 'A card opens, then closes', play: 'later(0, () => sound.card(true)); later(900, () => sound.card(false))' },
+  { label: "Something that can't be done", play: 'later(0, () => sound.refuse())' },
+  { label: "Two taps, then one that can't be done", play: 'later(0, () => sound.tap()); later(250, () => sound.tap()); later(500, () => sound.refuse())' },
 ];
 
 // § heard: only buttons whose every sound has its files

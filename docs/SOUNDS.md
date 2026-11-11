@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -15,7 +15,7 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`; the game plays from Kenney's Impact
-Sounds and RPG Audio so far; each folder keeps its `License.txt`). All five are CC0 (no credit needed),
+Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.txt`). All five are CC0 (no credit needed),
 `.ogg` files: four of Kenney's and one of ObsydianX's (itch.io), whose
 222 tones were cut of their silence when saved, nothing else changed:
 
@@ -122,9 +122,9 @@ Sounds and RPG Audio so far; each folder keeps its `License.txt`). All five are 
 
 | Name | When | Feel | File |
 | --- | --- | --- | --- |
-| | a button tapped | a tiny soft tick | — |
-| | a card opens, or closes | a page turning | — |
-| | something that can't be done | a low, dull tock | — |
+| `tap` | a button tapped, off play, changing something on the same card (D-819) | a tiny soft tick | `kenney-interface-sounds/tick_002`, at an eighth loudness, CC0 |
+| `card` | a card opens, or closes (D-819) | a page turning | `kenney-rpg-audio/bookFlip3` to open, `bookFlip2` to close, at 0.38 and 0.58, CC0 |
+| `refuse` | a dim pick that can't be done (D-819) | a low, dull tock | `kenney-impact-sounds/impactWood_light_000`, a quarter lower, at a quarter loudness, CC0 |
 | | the run ends | a slow falling tone | — |
 
 ## Maybe (for the owner to pick)

@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.264 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.265 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -26,8 +26,8 @@ small group a time (D-776); or the lab and its recipes (Q-093).
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Falling down holes (Q-089), for later.
 - Sleeping out's later costs (Q-091).
-- Sounds from files (Q-095): a file for each other sound, and the
-  "Maybe" sounds.
+- Sounds from files (Q-095): a file for each other sound, the
+  "Maybe" sounds, and "can't carry more" and the run's end (D-819).
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
 
@@ -45,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.265, Menu sounds.** The owner's picks (D-819),
+  all recommended, by ear: a soft tick for a tap, a page flip as a
+  card opens or closes (only the flip when a tap opens one), a low
+  wooden tock for a dim pick.
+  Playtest: https://claude.ai/artifact/PoCRktUB22d9SaXfLnJq1C
+  Sound board: https://claude.ai/artifact/QgBRdoZN4Nt8nTx75fJ1kg
 - **2026-11-11, 0.3.264, Thrift.** The owner's picks (D-818): about 1
   making in 4 keeps 1 of its most-used part; every making; "You keep 1
   Stone."; a log with an arrow back. Growth's row 2 is full.
@@ -53,8 +59,3 @@ list in `RESEARCH.md`.
   bite in 6 glances off, rolled after the vest's own dice; "The bite
   glances off you."; only bites; a small round shield tile.
   Playtest: https://claude.ai/artifact/S9L395bi3B7mCEf6Nxw1Hh
-- **2026-11-11, 0.3.262, Quick Pour.** The owner's picks (D-816): a
-  flask poured by hand takes no turn, says "You pour a flask."; a
-  minnow still takes its turn; a tipped flask tile; "Growth has a new
-  row." walking down or by a dev jump.
-  Playtest: https://claude.ai/artifact/JQiGMhPzyFfk2Vcq4RhMKS
