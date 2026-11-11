@@ -98,6 +98,7 @@ test('the third bump breaks it to floor and a stone goes into the bag, with its 
   assert.deepEqual(s.bag, [{ id: 'stone', n: 1 }]);
   assert.equal(shown(s), 'The boulder breaks. You take a stone.');
   assert.ok(s.events.some((e) => e.type === 'take' && e.id === 'stone'));
+  assert.deepEqual(s.events.filter((e) => e.type === 'chip'), [{ type: 'chip', id: 'deposit', n: 3, broke: true }]); // it crumbles (D-825)
   assert.deepEqual(s.room.chips, {});
   assert.equal(get('stone').name, 'Stone');
   assert.equal(shown(look(s, 0)), 'A plain stone, good for making things.');

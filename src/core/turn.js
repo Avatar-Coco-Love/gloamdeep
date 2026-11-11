@@ -256,7 +256,7 @@ function mine(state, x, y) {
   const left = spread({ ...state, room }, x, y, count - taken, after.solid) // never on a bare bush (D-531)
     .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
-  const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n }), 'take', { id: drops });
+  const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n, broke: true }), 'take', { id: drops });
   return endTurn(state, say(next, breaks));
 }
 

@@ -23,7 +23,7 @@
 //   eat { id }           a herb was eaten, or a heartcap or potion from the bag (D-308, D-309)
 //   pour { id, by, spawned }  a flask was poured, by 'hand' or by 'self' (D-249); `spawned`, one the dev tools made (D-720)
 //   torch                a torch was lit (D-121)
-//   chip { id, n }       the hero bumped deposit `id`, its n-th bump; the last breaks it (O2); rubble too (D-491)
+//   chip { id, n, broke }  the hero bumped deposit `id`, its n-th bump; the last breaks it, `broke` (O2, D-825); rubble too (D-491)
 //   free { id }          person `id` was freed from the rubble (D-491)
 //   leave { id, x, y }   person `id`, freed, left x, y for home (D-496)
 //   arrive { id, x, y }  person `id`, gone home, beamed in at x, y as the hero came (D-496)

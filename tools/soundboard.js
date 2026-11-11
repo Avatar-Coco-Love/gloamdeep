@@ -68,6 +68,11 @@ const SOUNDS = [
   { label: 'Three finds in a row', play: 'for (let i = 0; i < 3; i++) { later(i * 500, () => sound.footstep()); later(i * 500 + 180, () => sound.pat()); }' },
   { label: 'A weapon into the hand', play: 'later(0, () => sound.draw())' },
   { label: 'The workbench set down', play: 'later(0, () => sound.thunk())' },
+  { label: 'A bump on stone (the clink)', play: 'later(0, () => sound.clink())' },
+  { label: 'A deposit: two bumps, then it breaks', play: 'later(0, () => sound.clink()); later(450, () => sound.clink()); later(900, () => { sound.crumble(); sound.pat(); })' },
+  { label: 'A copper vein: three bumps, then it breaks', play: 'for (let i = 0; i < 3; i++) later(i * 450, () => sound.clink()); later(1350, () => { sound.crumble(); sound.pat(); })' },
+  { label: 'A chest opens', play: 'later(0, () => sound.chest(true)); later(300, () => sound.card(true))' },
+  { label: 'A chest closes', play: 'later(0, () => { sound.card(false); sound.chest(false); })' },
 ];
 
 // § heard: only buttons whose every sound has its files

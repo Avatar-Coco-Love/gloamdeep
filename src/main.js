@@ -6,6 +6,7 @@ import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, 
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
+import { get } from './core/registry.js';
 import { strikeFish, needleAt } from './core/fishing.js';
 import { goToDepth, goToPlace } from './core/stairs.js';
 import { send, arrive } from './core/homeward.js';
@@ -335,7 +336,8 @@ function nudgeToward(dir) {
 // a tile walked, its step by the ground, unless the hero fell (D-255, D-774, D-776), a waystone's bells as it wakes (D-591), and
 // the plop of a cast and the splash of a catch (D-613), and a scattered pile's rattle (D-731);
 // a creature beaten, a moment after the hit, unless its bones scattered under the hero's step (D-777);
-// an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820)
+// an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820);
+// a bump on stone clinks, and its last crumbles (D-825)
 function hear(events) {
   const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
   if (hit) sound.hit(!!hit.held);
@@ -352,6 +354,8 @@ function hear(events) {
   if (has(events, 'take') && !has(events, 'catch')) sound.pat(); // into the bag (D-820)
   if (has(events, 'hold')) sound.draw(); // from the bag into the hand
   if (has(events, 'set')) sound.thunk(); // the workbench set down
+  const chip = events.find((e) => e.type === 'chip' && get(e.id)?.clinks);
+  if (chip) sound[chip.broke ? 'crumble' : 'clink'](); // a deposit, a copper vein or rubble (D-825)
 }
 // The lantern set to By itself follows the daylight as the hero comes and goes (D-210)
 const byItself = (before, after) => (app.settings.lantern === 'self' ? followDaylight(before, after) : after);
@@ -470,12 +474,16 @@ function hearLoud(was) {
   const k = LOUD_KINDS.find(({ id }) => was[id] !== app.settings[id]);
   return k ? () => sound[KIND_SOUND[k.kind]]() : null;
 }
+// A chest creaks open before its page turns, and knocks shut just after (D-825)
 function turnPage() {
   if (app.screen === cardShown) return;
-  const turn = cardTurn(cards, app.screen);
+  const turn = cardTurn(cards, app.screen), was = cardShown;
   cards = turn.trail; cardShown = app.screen;
+  if (turn.open && app.screen === 'chest') { sound.chest(true); setTimeout(() => sound.card(true), CREAK_MS); return; }
   sound.card(turn.open);
+  if (!turn.open && was === 'chest') sound.chest(false);
 }
+const CREAK_MS = 300; // the page turns as the creak ends
 const input = createInput(stage, canvas, {
   onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab, onWheel: screens.onWheel,
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)

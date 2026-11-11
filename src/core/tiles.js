@@ -38,14 +38,15 @@ export const TILES = {
   // Bumped `mine.hits` times, a turn each, with its `chips` lines, it breaks to floor and
   // `drops` goes into the bag with its `breaks` line (turn.js, O2). Broken, it grows
   // back after 3 days, out of sight, as things picked do, within `near` steps of where
-  // it stood (regrow.js, O3, D-313).
+  // it stood (regrow.js, O3, D-313). `clinks`: stone, each bump a clink and the break a
+  // crumble (render/sound.js, D-825), as the copper vein and rubble do.
   deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2,
-    mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' } },
+    mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' }, clinks: true },
   // A copper vein, a boulder flecked with copper, one in each Cave room from depth 3 (D-480):
   // mined as a deposit is, but only with the pick it `needs` in the bag; without, its `hard`
   // line, free. 4 bumps give a Copper Ore; it grows back after 6 days, slower than stone.
   vein: { id: 'vein', kind: 'tile', letter: 'V', name: 'Copper vein', solid: true, blocksLight: false, regrow: 6 * DAY_TURNS, near: 2,
-    mine: { hits: 4, chips: ['veinChip', 'veinChip2', 'veinCrack'], drops: 'copperOre', breaks: 'copperOreTake', needs: 'pick', hard: 'veinHard' } },
+    mine: { hits: 4, chips: ['veinChip', 'veinChip2', 'veinCrack'], drops: 'copperOre', breaks: 'copperOreTake', needs: 'pick', hard: 'veinHard' }, clinks: true },
   // A fallen branch on the woods floor (W2, D-316): mined as a deposit is, but 2 bumps
   // give `n` Wood. It lies in one of `forms` looks, picked by its tile (formOf), and the
   // Wood it gives takes that look. With room for fewer than `n`, the rest lies on its
@@ -120,7 +121,7 @@ export const TILES = {
   // turn each, it clears to floor and gives nothing, freeing the person beside it
   // (rescue.js, D-491); it never comes back.
   rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, blocksLight: false,
-    dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' } },
+    dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' }, clinks: true },
   // The waystone's tiles (D-579, D-587), set by its plan (landmarks.js): a tall standing
   // stone on each 2 × 2 corner, solid and blocking light like rock; flagstones on the cross
   // and the plate in its middle, walked on. Asleep for now: nothing happens on them (D-589).

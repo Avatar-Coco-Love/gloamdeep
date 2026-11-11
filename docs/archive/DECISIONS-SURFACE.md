@@ -1159,3 +1159,17 @@ Sound); later the Sound tab holds an overall loudness, a loudness for
 each kind, and On or Off for each sound (offered too: silent in the
 background). D-816 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-821 · 2026-11-11 · Settings in tabs** (the owner's picks, all
+recommended; builds D-820) The tabs CONTROLS, GAME, SCREEN and SOUND
+sit in the card's title row where SETTINGS was, as the bag's (offered
+too: under the title). Settings opens on the tab last open, Controls at
+first, kept as it closes until the game is closed (offered too: Controls
+every time). The Tab key turns to the next tab, as on the bag and the
+workbench, and a tap on one opens it (offered too: Up from the top line
+onto the tabs). VERSION HISTORY stays in the bottom corner on every tab
+(offered too: only on Game). On a card too narrow for one row (upright
+phones), the tabs take two, 2 and 2, the lines a row lower (offered too:
+3 and 1). Claude's calls the owner may change: each tab opens on its
+first line; Settings' spoken words name the open tab. D-817 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
