@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.276', date: '2026-11-11', title: 'The lantern and the light\'s sounds', lines: [
+    "New: the lantern and the light have sounds, the first from the elemental pack. A flask poured, by hand or by itself, glugs; as the oil runs out, a crackle slows and fades.",
+    "New: lighting a torch whooshes, and lighting cold ashes into a campfire sounds of a fire catching and burning.",
+    "New: on Settings' Sound tab, Steps' list has four more lines, each On or Off: Flask poured, Oil runs out, Torch lit and Campfire lit.",
+    "Decisions: D-830.",
+  ] },
   { v: '0.3.275', date: '2026-11-11', title: 'The elemental pack', lines: [
     "Sounds on hand: MorphonautAudio's Elemental Forces, 134 sounds of fire, water, earth and wind, bought by the owner, kept whole for the next sound steps to pick from. Nothing in the game changes yet.",
     "Decisions: D-829.",

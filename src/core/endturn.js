@@ -40,6 +40,7 @@ export const wait = (state) => endTurn(state, passTurn(state));
 export const endTurn = (before, cast) => {
   const after = fishTurn(before, cast), id = oilLine(before.oil, after.oil), place = after.place;
   let found = discover(before, id ? say(after, id) : after);
+  if (id === 'oilEmpty') found = note(found, 'oilOut'); // the lantern gutters: its sound (D-830)
   if (place !== before.place) found = note(found, 'enter', { place });
   if (found.found.length > after.found.length) found = note(found, 'found', { place });
   found = leave(found); // a freed person whose turns are up goes home (D-496)

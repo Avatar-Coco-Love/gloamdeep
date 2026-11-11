@@ -161,6 +161,30 @@ test('Home sounds: coins, the shelf, planting and feeding (D-828)', async () => 
   for (const v of ['coins', 'shelf', 'sow', 'feed']) assert.ok(SOUND_LINES.some((l) => l.voice === v && l.kind === 'finds'));
 });
 
+// § the lantern and the light (D-830): the elemental pack's glugs, a fading crackle, a whoosh, a fire
+// catching; each only part of its file, fading out; the oil running out is its own event
+test('The lantern and the light: pour, gutter, torch and campfire (D-830)', async () => {
+  const { SOUND_LINES } = await import('../src/core/settings.js');
+  const { kindOf } = await import('../src/render/sound.js');
+  const { makeState, wait } = await import('../src/core/turn.js');
+  const { makeRoom, FIRST_ROOM } = await import('../src/core/room.js');
+  const { setOil, OIL } = await import('../src/core/oil.js');
+  const pack = (f) => [`morphonaut-elemental-forces/${f.split('-')[0]}/${f}.ogg`];
+  assert.deepEqual(FILES.pour.files, pack('Water-027'));
+  assert.deepEqual([FILES.gutter.files, FILES.gutter.len, FILES.gutter.fade, FILES.gutter.slide], [pack('Fire-017'), 1.3, 1, 0.7]);
+  assert.deepEqual([FILES.torch.files, FILES.torch.from, FILES.torch.len, FILES.torch.fade], [pack('Fire-030'), 0.1, 1.2, 0.5]);
+  assert.deepEqual([FILES.kindle.files, FILES.kindle.from, FILES.kindle.len, FILES.kindle.fade], [pack('Fire-021'), 0.18, 2.4, 0.9]);
+  for (const v of ['pour', 'gutter', 'torch', 'kindle']) {
+    assert.equal(kindOf(v), 'steps');
+    assert.ok(SOUND_LINES.some((l) => l.voice === v && l.kind === 'steps'));
+    assert.ok(!FILES[v].fade || FILES[v].fade <= FILES[v].len); // the fade fits in what is heard
+  }
+  const out = (oil) => wait(setOil(makeState(makeRoom(FIRST_ROOM)), oil)).events.some((e) => e.type === 'oilOut');
+  assert.equal(out(OIL.burn), true); // the last drop burns: the lantern gutters
+  assert.equal(out(0.5), false);
+  assert.equal(out(0), false); // already out: no second gutter
+});
+
 test('A card opens on top, and closes back to what is under it', () => {
   let t = cardTurn(['play'], 'paused');
   assert.deepEqual(t, { trail: ['play', 'paused'], open: true });
@@ -186,9 +210,9 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
   }
   const heard = Object.keys(FILES).filter((v) => FILES[v].files && !FILES[v].part); // a part, such as the card's two, is heard in its own sound's line
   for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v), `${v} has a line`); // every heard sound
-  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern']);
+  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs out', 'Torch lit', 'Campfire lit']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
-    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Version history']);
+    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Version history']);
   assert.equal(settingsMenu({}, false, null, null, 'sound').find((l) => l.id === 'loudFight').value, '100% >'); // a kind's line opens its list
   assert.equal(kindListTab('fight').text, 'SOUND · FIGHTING');
   assert.equal(voiceText('refuse', true), "Can't: Off");

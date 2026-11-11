@@ -127,3 +127,21 @@ says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
 `.ogg`, good quality, stereo (6 MB), nothing else changed; little
 silence to cut. Nothing in the game plays from it yet: the next sound
 steps pick from it, for fire, oil, water, wind and falls.
+
+**D-830 · 2026-11-11 · The lantern and the light's sounds** (the owner's
+picks, all recommended, from a board of 4, 4, 4 and 4; answers part of
+Q-095) The first sounds from the elemental pack (D-829). A flask poured,
+by hand or by itself, is seven quick glugs: Water-027 at 0.47 (offered
+too: three glugs, higher; two big gloops; a steady bubbling pour); a
+minnow poured stays silent. The oil running out, as "The lantern gutters
+to an ember." shows, is a crackle that slows and fades: Fire-017's first
+1.3 s, fading over its last second, its pitch sliding to 0.7, at 0.22
+(offered too: a small puff; the crackle, then the puff; a soft falling
+whoosh). A torch lit is a quick whoosh: Fire-030 from 0.1 s, 1.2 s of
+it, fading over 0.5 s, at 0.24 (offered too: a deep whoomp; a fuller
+burst; a softer rising whoosh). Cold ashes lit into a campfire catch and
+burn: Fire-021 from 0.18 s, 2.4 s of it, fading over 0.9 s, at 0.27
+(offered too: a sharper catch; the torch's whoosh, then a crackle; a
+bright flare). Each follows Steps' loudness, with the lantern, and has
+its own line under Steps: Flask poured, Oil runs out, Torch lit,
+Campfire lit.
