@@ -201,3 +201,22 @@ tick drinking, a wet slurp, then a gulp. Files and loudness in
 fits the smallest card (offered too: two columns; a fifth kind,
 Creatures). The gloamling, lampmoth and warden stay silent; their own
 board comes later.
+
+**D-833 · 2026-11-11 · The rest of the sounds** (the owner's go-ahead:
+"the creative freedom and the go ahead to do the rest of the audio
+implementation with your recommended choices"; answers the rest of
+Q-095 but its "Maybe" and "Later") Claude picked each of the sounds still
+without a file, by its measured shape, with no board first; the owner
+hears them on the sound board and asks for swaps. Each pick and its
+file is in `SOUNDS.md`, `SOUNDS-2.md` and `SOUNDS-3.md` (new: the
+creatures' and places' tables, D-832's bites with them), marked D-833. The game's rules
+stay as they are: the new sounds read the turn's events and what
+changed (a creature under the earth, a pile of bones, a line said).
+"You can't carry more" plays the Can't tock (D-819). Settings' lists
+still fit the smallest card: the last three bites join Bites; the
+creatures' own sounds share Creatures under Fighting; Steps gains
+Falling (a fall, waking) and New rooms (a new floor, a room); Finds gains
+Eating, Making and Places (the waystone's bells and hum, the boon's
+chime, fishing, sleeping, people leaving and arriving); Menus gains Run
+ends. D-828 and D-829 move to `archive/DECISIONS-SURFACE.md`, word for
+word.
