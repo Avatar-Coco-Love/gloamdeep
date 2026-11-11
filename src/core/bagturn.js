@@ -25,6 +25,7 @@ import { tired } from './sleep.js';
 import { forgetBed } from './waking.js';
 import { endTurn } from './endturn.js';
 import { costOf } from './bagmake.js';
+import { thrift, keptSay } from './thrift.js';
 import { burnOil } from './oil.js';
 import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
@@ -51,14 +52,17 @@ export function pour(state, i) {
 // `craft.into`, which goes on its stack or in a slot at the end, and passes a
 // turn, like a pour, with its line (D-299). With too few, nothing happens;
 // with no room for what it makes, its `full` line is said, free, and the bag
-// stays as it was. A mixed cost is taken from the whole bag (D-477).
+// stays as it was. A mixed cost is taken from the whole bag (D-477). With Thrift, about 1
+// making in 4 keeps 1 of its most-used part, with its own line (thrift.js, D-818), here and
+// in each making below.
 export function craft(state, i) {
   const s = state.bag[i], recipe = s && get(s.id).craft;
   if (!canCraft(state.bag, i)) return state;
-  const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, recipe.of) : bagPay(state.bag, recipe.of);
+  const { of, kept } = thrift(state, costOf(s.id));
+  const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, of[s.id] ?? 0) : bagPay(state.bag, of);
   const bag = bagAdd(paid, recipe.into, undefined, bagSize(state));
   if (!bag) return say(state, get(recipe.into).full);
-  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+  return endTurn(state, keptSay({ ...passTurn(state), bag }, kept, recipe.says));
 }
 
 // § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s `craft.into`, its
@@ -66,9 +70,10 @@ export function craft(state, i) {
 export function makeFrom(state, from) {
   const recipe = get(from)?.craft, of = recipe && costOf(from);
   if (!recipe || !bagHas(state.bag, of)) return state;
-  const bag = bagAdd(bagPay(state.bag, of), recipe.into, undefined, bagSize(state));
+  const kept = thrift(state, of);
+  const bag = bagAdd(bagPay(state.bag, kept.of), recipe.into, undefined, bagSize(state));
   if (!bag) return say(state, get(recipe.into).full);
-  return endTurn(state, say({ ...passTurn(state), bag }, recipe.says));
+  return endTurn(state, keptSay({ ...passTurn(state), bag }, kept.kept, recipe.says));
 }
 
 // § make at the bench: a line on the workbench's panel takes item `id`'s `bench.of`
@@ -89,11 +94,11 @@ export function makeAt(state, id) {
   const inBag = get(id).max === 1 && state.bag.some((s) => s.id === id);
   if (isFitted(state, id) || isWorn(state, id) || state.tool === id || inBag) return say(state, get(id).full);
   if (!canPay(state, recipe.of)) return say(state, recipe.short);
-  const { bag: paid, stashes } = payNear(state, recipe.of);
-  if (get(id).tool && !state.tool) return endTurn(state, say({ ...passTurn(state), bag: paid, stashes, tool: id }, recipe.says));
+  const { of, kept } = thrift(state, recipe.of), { bag: paid, stashes } = payNear(state, of);
+  if (get(id).tool && !state.tool) return endTurn(state, keptSay({ ...passTurn(state), bag: paid, stashes, tool: id }, kept, recipe.says));
   const bag = bagAdd(paid, id, undefined, bagSize(state));
   if (!bag) return say(state, state.bag.some((s) => s.id === id) ? get(id).full : 'bagFull');
-  return endTurn(state, say({ ...passTurn(state), bag, stashes }, recipe.says));
+  return endTurn(state, keptSay({ ...passTurn(state), bag, stashes }, kept, recipe.says));
 }
 // § grow: the Pouch takes a bag of `grows.from` slots to `grows.to`, the Big Bag 9 to 12,
 // a turn passing, with its line; one already that big says its `full` line, and one too
@@ -103,8 +108,8 @@ function growBag(state, id, recipe, { from, to }) {
   if (size >= to) return say(state, get(id).full);
   if (size !== from) return state;
   if (!canPay(state, recipe.of)) return say(state, recipe.short);
-  const { bag, stashes } = payNear(state, recipe.of);
-  return endTurn(state, say({ ...passTurn(state), bag, stashes, bagSlots: to }, recipe.says));
+  const { of, kept } = thrift(state, recipe.of), { bag, stashes } = payNear(state, of);
+  return endTurn(state, keptSay({ ...passTurn(state), bag, stashes, bagSlots: to }, kept, recipe.says));
 }
 
 // § eat: Eat on bag slot i eats one of its item, healing its `heal` hearts,

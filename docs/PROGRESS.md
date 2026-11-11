@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.263 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.264 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Growth's row 2, step 4 of 4 (D-814): Thrift on Hands, making something
-keeps its cheapest part about 1 time in 4. Read `src/core/upgrades.js`,
-`src/core/growth.js`, the making in `src/core/bagturn.js` and `bagmake.js`, D-814 and D-817.
-More sounds (Q-095) when the owner wants, a small group a time (D-776).
+The owner picks the next direction: Growth's row 2 is full (D-818), and
+row 3 waits for biome 2. More sounds (Q-095) when the owner wants, a
+small group a time (D-776); or the lab and its recipes (Q-093).
 
 ## Waiting on the owner
 - Play data: kept on the device or sent (Q-052), near 1.0.
@@ -46,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.264, Thrift.** The owner's picks (D-818): about 1
+  making in 4 keeps 1 of its most-used part; every making; "You keep 1
+  Stone."; a log with an arrow back. Growth's row 2 is full.
+  Playtest: https://claude.ai/artifact/MQY9iuY1GN4wu8rsm1bxu3
 - **2026-11-11, 0.3.263, Guard.** The owner's picks (D-817): about 1
   bite in 6 glances off, rolled after the vest's own dice; "The bite
   glances off you."; only bites; a small round shield tile.
@@ -55,7 +58,3 @@ list in `RESEARCH.md`.
   minnow still takes its turn; a tipped flask tile; "Growth has a new
   row." walking down or by a dev jump.
   Playtest: https://claude.ai/artifact/JQiGMhPzyFfk2Vcq4RhMKS
-- **2026-11-11, 0.3.261, Row 2 opens.** The owner's picks (D-815): a
-  mark in the save, set past depth 8, a dev jump too; the locked tiles
-  say "Reach depth 9 to open."; no log line until Quick Pour.
-  Playtest: https://claude.ai/artifact/RYKRwVYUVZzqrbRmwDnqCX

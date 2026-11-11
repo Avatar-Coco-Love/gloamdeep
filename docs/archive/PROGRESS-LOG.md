@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.261, Row 2 opens.** The owner's picks (D-815): a
+  mark in the save, set past depth 8, a dev jump too; the locked tiles
+  say "Reach depth 9 to open."; no log line until Quick Pour.
+  Playtest: https://claude.ai/artifact/RYKRwVYUVZzqrbRmwDnqCX
 - **2026-11-10, 0.3.260, Growth's second row, planned.** The owner's
   picks (D-814): row 2 opens past depth 8; Quick Pour, Guard and Thrift,
   1 ember each, built one a step after the opening. Nothing visible, so

@@ -1046,3 +1046,20 @@ Claude's calls the owner may change: its name and words ("Trees,
 stone and branches take 1 bump fewer."); rubble around a trapped
 person is not gathering, so keeps its 3 bumps. D-809 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-814 · 2026-11-10 · Growth's second row** (the owner's picks, all
+recommended, from the map's row 2 drafts, D-639; builds D-462, D-811)
+Biome 2 is not built yet, so row 2 opens the first time the hero goes
+deeper than depth 8, biome 1's last floor (offered too: shown but
+locked until biome 2; more upgrades in row 1 instead). Each 1 ember,
+bought once. Light: Quick Pour, pouring a flask takes no turn (offered
+too: Long Torch, a set torch 200 turns; Last Drops, the last 5% of oil
+lasting twice as long). Body: Guard, about 1 bite in 6 glances off and
+does no harm, by the seeded dice (offered too: Second Wind, eating at 1
+heart heals 2 more; Quick Swap, a weapon swapped with no turn). Hands:
+Thrift, making something keeps its cheapest part about 1 time in 4
+(offered too: Steady Line, a wider light on the strike card; Deep
+Pockets, a bag slot). Built in four steps, one a PR: row 2 opening at
+depth 9 with a dashed tile a limb; then Quick Pour; Guard; Thrift. Each
+one's words, look and details are settled at its step. D-810 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

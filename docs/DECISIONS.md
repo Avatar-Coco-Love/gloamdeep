@@ -113,23 +113,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-814 · 2026-11-10 · Growth's second row** (the owner's picks, all
-recommended, from the map's row 2 drafts, D-639; builds D-462, D-811)
-Biome 2 is not built yet, so row 2 opens the first time the hero goes
-deeper than depth 8, biome 1's last floor (offered too: shown but
-locked until biome 2; more upgrades in row 1 instead). Each 1 ember,
-bought once. Light: Quick Pour, pouring a flask takes no turn (offered
-too: Long Torch, a set torch 200 turns; Last Drops, the last 5% of oil
-lasting twice as long). Body: Guard, about 1 bite in 6 glances off and
-does no harm, by the seeded dice (offered too: Second Wind, eating at 1
-heart heals 2 more; Quick Swap, a weapon swapped with no turn). Hands:
-Thrift, making something keeps its cheapest part about 1 time in 4
-(offered too: Steady Line, a wider light on the strike card; Deep
-Pockets, a bag slot). Built in four steps, one a PR: row 2 opening at
-depth 9 with a dashed tile a limb; then Quick Pour; Guard; Thrift. Each
-one's words, look and details are settled at its step. D-810 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-815 · 2026-11-11 · Row 2 opens** (the owner's picks; step 1 of
 D-814) The journey keeps a mark of Growth's rows open, set the first
 time the hero is deeper than depth 8 and never taken away; an older
@@ -169,3 +152,18 @@ said). Only bites: an oil drink, a glob and a sting are not turned
 6 glances off."; its tile a small pale round shield, a boss in the
 middle (offered too: a fang turned aside; a heart in a ring). D-813
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-818 · 2026-11-11 · Thrift** (the owner's picks, all recommended;
+step 4 of D-814, the last) Hands' row 2 upgrade, 1 ember, once: about
+1 making in 4, by the seeded dice, keeps 1 of the part its recipe uses
+most of, the first listed on a tie, so the Mortar keeps 1 Stone and
+the Stash Chest 1 Wood (offered too: 1 of the part used least of; the
+whole part). The full cost is still needed; 1 fewer is taken. Every
+making: the bag's Make, the workbench, the mortar, the Pouch and the
+Big Bag (offered too: all but the bag upgrades; only the bench and
+mortar). "You keep 1 Stone." is said in place of the make line, naming
+the part (offered too: the make line, then a second; nothing said).
+Its words "Making something keeps 1 part about 1 time in 4."; its tile
+a small pale log on its side, an arrow curling back down to it
+(offered too: a tied pouch; a hand on a stone). D-814 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

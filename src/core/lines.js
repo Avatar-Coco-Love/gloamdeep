@@ -115,6 +115,7 @@ export const LINES = {
   furBedrollLook: { texts: ['A fur bedroll, for sleeping out.', 'Bunny fur, rolled and tied with silk.', 'Soft, warm and light to carry.'], warn: false },
   glance: { text: 'The bite glances off your vest.', warn: false }, // worn, a bite that hurts nothing (D-484)
   guardGlance: { text: 'The bite glances off you.', warn: false }, // Guard, a bite that hurts nothing (D-817)
+  thriftKeep: { text: 'You keep 1 {n}.', warn: false }, // Thrift, a making's part kept, {n} its name, in place of the make line (D-818)
   charmMake: { text: 'You make a wisp charm.', warn: false }, // its line on the bench panel, a turn (D-486)
   wispCharmFull: { text: 'You already have a wisp charm.', warn: false }, // carried or worn, free
   charmShort: { text: 'You need 3 Gloam Wisp, 1 Copper Ore.', warn: false }, // too few, free
