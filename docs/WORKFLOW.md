@@ -110,5 +110,6 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A place's music board gets the tune already playing elsewhere as a row to compare, the place's own sounds playing along (the drips), and a "walk down the stairs" with the real fades; the zips stay on the temporary release, so the next place's board needs no new upload (0.3.284).
 - Check what a place really is in the code before its board: the crypt was two parts (two top rooms counted as the surface, and floor 1), so the board's walk let the owner hear both ways and the question asked where it starts (0.3.285).
 - Match a tune's loudness by the ear's measure (ffmpeg's ebur128): gain = 0.4 × 10^((−15.8 − its loudness) / 20) gives every tune so far (0.3.286).
+- Count note starts (numpy) to find still tracks, not loudness (0.3.287).
 - When none of a moment's 4 fit, offer 4 new ones of other kinds on the same board, keeping the moments already picked marked (0.3.277).
 - Ten moments on one board, 3 each with "Alone" and "In a fight" buttons, were picked in three rounds of questions; check that Settings' lists still fit the smallest card before adding a line per sound (0.3.278).

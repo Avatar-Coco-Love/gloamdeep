@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.287', date: '2026-11-11', title: 'Music in the dungeon', lines: [
+    "New: music in the dungeon. On every floor from 8 down, the cold blue halls, a very still, dark tune of long held sounds plays non-stop, looping with no break and carrying on from floor to floor. Going down from the warrens fades the warrens' tune out over 2 seconds, and the dungeon's starts a second later, fading in.",
+    "New: Music's list in Settings has a line for it, Dungeon, after Warrens.",
+    "Notes: the tune is \"Patreon Challenge 04\" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Every place below now has its music.",
+    "Decisions: D-841.",
+  ] },
   { v: '0.3.286', date: '2026-11-11', title: 'Music in the warrens', lines: [
     "New: music in the warrens. On floors 5 to 7, the earth burrows, a dark, slow, low tune plays non-stop, looping with no break and carrying on from floor to floor. Going down from the rock caves fades the caves' tune out over 2 seconds, and the warrens' starts a second later, fading in; going on down to the dungeon fades it out the same way.",
     "New: Music's list in Settings has a line for it, Warrens, after Rock caves.",

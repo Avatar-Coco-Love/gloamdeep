@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.286 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.287 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Music for the dungeon (floors 8 on; Q-095, D-840): a board of calm,
-dark tracks from the same music loops (still on the temporary release),
-the warrens' tune beside them to compare; then build it.
+The next "Maybe" sound (Q-095, D-834): steps on water or wood and
+where the wood step plays; ask the owner which first.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -21,8 +20,8 @@ the warrens' tune beside them to compare; then build it.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
-- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): music for
-  the dungeon, the last place below (D-837 to D-840); more sounds all around (wind, birds, crickets;
+- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
+  water or wood; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
   then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
@@ -42,6 +41,14 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.287, Music in the dungeon.** The owner's picks
+  (D-841), all recommended, from a board of 8 calm, dark tracks measured
+  again from all 138 (the 43 over 45 s), with the warrens' and the crypt's
+  tunes and the dungeon's stone steps: track 1, "Patreon Challenge 04",
+  in the dungeon, every floor from 8 down, non-stop, carrying on from
+  floor to floor; a line in Music's list, Dungeon.
+  Playtest: https://claude.ai/artifact/69dfye4sXjAGydT4f9oiZz
+  Board of tracks: https://claude.ai/artifact/LKB3sVETjtzqXp4WoRKSMc
 - **2026-11-11, 0.3.286, Music in the warrens.** The owner's picks
   (D-840), all recommended, from a board of 8 calm, dark tracks measured
   again from the 84 over 45 s, with the caves' and the surface's tunes and
@@ -56,11 +63,3 @@ list in `RESEARCH.md`.
   stairs; a line in Music's list, Crypt.
   Playtest: https://claude.ai/artifact/XLFhrdkvamcnNW627kwfhz
   Board of tracks: https://claude.ai/artifact/Tg1pYKtZXe1T8k8pfe1eJx
-- **2026-11-11, 0.3.284, Music in the rock caves.** The owner's picks
-  (D-838), all recommended, from a board of 8 calm, dark tracks measured
-  again from 138, with the surface's tune and the drips: track 1, "The
-  Vile Grove", in the rock caves (floors 2 to 4), non-stop, carrying on
-  from floor to floor, fading as the surface's does; a second line in
-  Music's list, Rock caves.
-  Playtest: https://claude.ai/artifact/2dRNq2i759AzuUqLSHfyNJ
-  Board of tracks: https://claude.ai/artifact/WC9QcSSvg42tAfAow443yE

@@ -344,8 +344,8 @@ test('Music (D-837): the surface plays its theme, home too, none below; its own 
   assert.equal(musicOf(undefined), null);
   assert.deepEqual([FADE_OUT, QUIET, FADE_IN], [2, 1, 1]);
   assert.equal(kindOf('surface'), 'music');
-  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Version history']);
-  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Dungeon: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Dungeon: On', 'Version history']);
 });
 
 test('Music in the rock caves (D-838): "The Vile Grove", floors 2 to 4 only, as the drips; its own line, Rock caves', async () => {
@@ -358,12 +358,12 @@ test('Music in the rock caves (D-838): "The Vile Grove", floors 2 to 4 only, as 
   assert.equal(MUSIC.caves.gain, 0.59); // as loud to the ear as the surface's at 0.4
   for (let d = 1; d <= 12; d++) {
     const look = areaAt(d)?.look;
-    assert.equal(musicOf(false, look), d === 1 ? 'crypt' : d >= 2 && d <= 4 ? 'caves' : d >= 5 && d <= 7 ? 'warrens' : null, `floor ${d}`); // the same floors as the drips; floor 1 the crypt's (D-839), 5 to 7 the warrens' (D-840)
+    assert.equal(musicOf(false, look), d === 1 ? 'crypt' : d >= 2 && d <= 4 ? 'caves' : d >= 5 && d <= 7 ? 'warrens' : 'dungeon', `floor ${d}`); // the same floors as the drips; floor 1 the crypt's (D-839), 5 to 7 the warrens' (D-840), 8 down the dungeon's (D-841)
     assert.equal(musicOf(false, look) === 'caves', dripsIn(false, look));
   }
   assert.equal(musicOf(true, 'rock'), 'surface'); // under the sky, the surface's
   assert.equal(kindOf('caves'), 'music');
-  assert.deepEqual(settingsMenu({ muted: ['caves'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: Off', 'Warrens: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['caves'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: Off', 'Warrens: On', 'Dungeon: On', 'Version history']);
 });
 
 test('Music in the crypt (D-839): "Ludum Dare 30 05" in its two top rooms and on floor 1, carrying on; its own line, Crypt', async () => {
@@ -381,10 +381,10 @@ test('Music in the crypt (D-839): "Ludum Dare 30 05" in its two top rooms and on
   assert.match(readFileSync('src/main.js', 'utf8'), /lookHere = \(\) => areaAt\(depthOf\(app\.state\.place\)\)\?\.look \?\? \(app\.state\.room\.dark\?\.sky \? null : 'crypt'\)/);
   assert.equal(musicOf(true, 'crypt'), 'surface');
   assert.equal(kindOf('crypt'), 'music');
-  assert.deepEqual(settingsMenu({ muted: ['crypt'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: Off', 'Rock caves: On', 'Warrens: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['crypt'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: Off', 'Rock caves: On', 'Warrens: On', 'Dungeon: On', 'Version history']);
 });
 
-test('Music in the warrens (D-840): "Patreon Challenge 11" on floors 5 to 7, carrying on; the dungeon quiet; its own line, Warrens', async () => {
+test('Music in the warrens (D-840): "Patreon Challenge 11" on floors 5 to 7, carrying on; its own line, Warrens', async () => {
   const { MUSIC, musicOf, dripsIn, kindOf } = await import('../src/render/sound.js');
   const { existsSync } = await import('node:fs');
   const { settingsMenu } = await import('../src/core/menu.js');
@@ -393,9 +393,25 @@ test('Music in the warrens (D-840): "Patreon Challenge 11" on floors 5 to 7, car
   assert.ok(existsSync(`sounds/packs/${MUSIC.warrens.file}`));
   assert.equal(MUSIC.warrens.gain, 0.47); // as loud to the ear as the surface's at 0.4
   for (let d = 5; d <= 7; d++) assert.equal(musicOf(false, areaAt(d).look), 'warrens', `floor ${d}`);
-  for (let d = 8; d <= 12; d++) assert.equal(musicOf(false, areaAt(d).look), null, `floor ${d}`); // the dungeon, its own step
+  for (let d = 8; d <= 12; d++) assert.equal(musicOf(false, areaAt(d).look), 'dungeon', `floor ${d}`); // the dungeon's own (D-841)
   assert.equal(dripsIn(false, 'earth'), false); // no drips in the warrens
   assert.equal(musicOf(true, 'earth'), 'surface');
   assert.equal(kindOf('warrens'), 'music');
-  assert.deepEqual(settingsMenu({ muted: ['warrens'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: Off', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['warrens'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: Off', 'Dungeon: On', 'Version history']);
+});
+
+test('Music in the dungeon (D-841): "Patreon Challenge 04" on every floor from 8 down, carrying on; its own line, Dungeon', async () => {
+  const { MUSIC, musicOf, dripsIn, kindOf } = await import('../src/render/sound.js');
+  const { existsSync } = await import('node:fs');
+  const { settingsMenu } = await import('../src/core/menu.js');
+  const { areaAt } = await import('../src/core/room.js');
+  assert.equal(MUSIC.dungeon.file, 'abstraction-music-loops/Patreon Challenge 04.ogg');
+  assert.ok(existsSync(`sounds/packs/${MUSIC.dungeon.file}`));
+  assert.equal(MUSIC.dungeon.gain, 0.46); // as loud to the ear as the surface's at 0.4
+  for (let d = 8; d <= 30; d++) assert.equal(musicOf(false, areaAt(d).look), 'dungeon', `floor ${d}`);
+  assert.equal(musicOf(false, areaAt(7).look), 'warrens');
+  assert.equal(dripsIn(false, 'dungeon'), false); // no drips in the dungeon
+  assert.equal(musicOf(true, 'dungeon'), 'surface');
+  assert.equal(kindOf('dungeon'), 'music');
+  assert.deepEqual(settingsMenu({ muted: ['dungeon'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Dungeon: Off', 'Version history']);
 });

@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.284, Music in the rock caves.** The owner's picks
+  (D-838), all recommended, from a board of 8 calm, dark tracks measured
+  again from 138, with the surface's tune and the drips: track 1, "The
+  Vile Grove", in the rock caves (floors 2 to 4), non-stop, carrying on
+  from floor to floor, fading as the surface's does; a second line in
+  Music's list, Rock caves.
+  Playtest: https://claude.ai/artifact/2dRNq2i759AzuUqLSHfyNJ
+  Board of tracks: https://claude.ai/artifact/WC9QcSSvg42tAfAow443yE
 - **2026-11-11, 0.3.283, Music on the surface.** The owner's picks
   (D-837): sounds all around set aside, music first. Abstraction's CC0
   Music Loop Bundle came through a temporary release; from a board of 8
