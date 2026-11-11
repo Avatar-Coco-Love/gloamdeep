@@ -5,7 +5,7 @@ game: a step that adds a moment worth hearing adds its line here. The
 sounds come from files, a free pack first (Kenney's, which needs no
 credit). Each sound is silent until its file is in; the footstep is
 the first (D-774), the lantern's click the second (D-775), the steps
-below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
+below the third (D-776), the fight's hit and beaten the fourth (D-777), the menus the fifth (D-819), the bag's the sixth (D-820), digging and chests the seventh (D-825), home's the eighth (D-828). Settings' Loudness turns every sound up or down together (D-822), and each of four kinds has its own share of it: Steps (Moving, and the lantern and the light), Fighting (and Creatures), Finds (the bag and home, digging and chests, and Places) and Menus (D-823). Each heard sound can be turned On or Off on its own, in a list opened from its kind's line (D-824).
 
 **How a line reads.** *Name*: the sound's name in the code, where it
 has one (`src/render/sound.js`). *When*: the moment it plays. *Feel*:
@@ -78,10 +78,10 @@ Their bites and their own sounds are in `SOUNDS-2.md`.
 | `crumble` | its last bump breaks it (O2, D-825) | stone cracking apart, small stones tumbling | the mining files a quarter lower at 0.35, then three of `footstep_concrete_000` to `004`, a fifth higher at 0.12, 0.12 s, 0.22 s and 0.34 s after, the cave's echo, CC0 |
 | | a person freed from the rubble (D-491) | stones tumbling away | — (the rubble's `crumble` plays) |
 | | a person leaves for home, or arrives (D-496) | a soft shimmer | — |
-| | an item sold at home (D-494) | coins | — |
-| | a seed planted (D-566) | soft earth | — |
-| | Bat Guano fed to a sprout (D-569) | a soft pat of earth | — |
-| | a relic set on the shelf (D-693) | wood on wood | — |
+| `coins` | an item sold at home (D-494, D-828), not the tick | coins | `kenney-rpg-audio/handleCoins`, at a quarter loudness, CC0 |
+| `sow` | a seed planted (D-566, D-828) | soft earth | the earth step's files, twice, 0.13 s apart, at a quarter, then 0.2, CC0 |
+| `feed` | Bat Guano fed to a sprout (D-569, D-828) | a soft pat of earth | the bag's `pat` files, muffled above 1400 Hz, at a third, CC0 |
+| `shelf` | a relic set on the shelf (D-693, D-828) | wood on wood | `kenney-rpg-audio/bookPlace1` to `3`, at a quarter loudness, CC0 |
 | | something made at a bench or in the bag | tools at work | — |
 | `chest` | a stash chest opened, its page turning 0.3 s later (D-825) | a creaking lid | `kenney-rpg-audio/creak1`, at half loudness, CC0 |
 | `chest` | a stash chest closed, 0.1 s after its page (D-825) | a wooden knock | `kenney-impact-sounds/impactWood_heavy_000` to `004`, at a quarter loudness, CC0 |

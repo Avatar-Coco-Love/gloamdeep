@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.274', date: '2026-11-11', title: 'Home\'s sounds', lines: [
+    "New: home's sounds. Selling to the peddler jingles with coins, in place of the tick; a relic set on the shelf sounds like a book set down on wood.",
+    "New: planting a seed sounds like two soft steps on earth, and feeding Bat Guano to a sprout like a dulled pat of cloth.",
+    "New: on Settings' Sound tab, Finds' list has four more lines, each On or Off: Coins, Shelf, Planting and Feeding.",
+    "Decisions: D-828.",
+  ] },
   { v: '0.3.273', date: '2026-11-11', title: 'The audit\'s bug fixes', lines: [
     "Fixed: with a Healing herb chosen in the bag, once a mortar draught that uses it is known, the bag no longer stops drawing; the card shows EAT and, beside it, the draught it makes at the mortar.",
     "Fixed: MAKE with a full bag now says \"Your bag is full.\", not that you already carry what it makes (the Mortar and Pestle, a workbench).",
