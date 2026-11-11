@@ -15,9 +15,11 @@ A sound goes in only after the owner hears it on the sound board
 (D-256).
 
 **Packs on hand** (`sounds/packs/`; the game plays from Kenney's Impact
-Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.txt`). All five are CC0 (no credit needed),
-`.ogg` files: four of Kenney's and one of ObsydianX's (itch.io), whose
-222 tones were cut of their silence when saved, nothing else changed:
+Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.txt`). All six are CC0 (no credit needed),
+`.ogg` files: four of Kenney's, one of ObsydianX's (itch.io), whose
+222 tones were cut of their silence when saved, nothing else changed,
+and MorphonautAudio's Elemental Forces (itch.io, bought by the owner,
+D-829), saved from WAV, nothing else changed:
 
 | Folder | Files | Good for |
 | --- | --- | --- |
@@ -26,6 +28,7 @@ Sounds, RPG Audio and Interface Sounds so far; each folder keeps its `License.tx
 | `kenney-interface-sounds` | 100 | menus: open, close, back, error |
 | `kenney-ui-audio` | 52 | menus: clicks and switches |
 | `obsydianx-interface-sfx-1` | 222 | menus: clean electronic tones; confirm, back, error (5 or 6 styles, 7 each, plain and echo) and cursor (5) |
+| `morphonaut-elemental-forces` | 134 | fire, water, earth, wind: crackles, whooshes, splashes, rumbles, gusts; in `Earth` (29), `Fire` (35), `Water` (40) and `Wind` (30) |
 
 ## Moving
 

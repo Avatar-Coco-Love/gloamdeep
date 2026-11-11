@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.274 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.275 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -21,7 +21,7 @@ is the sounds' next lines (Q-095).
 - Campfires' next steps (Q-088): feeding, building, the buff.
 - Sleeping out's later costs (Q-091).
 - Sounds from files (Q-095): each other line next (the lantern's,
-  the fight's rest and the bites may need a new free pack), the "Maybe" sounds,
+  the fight's rest and the bites; the elemental pack is on hand, D-829), the "Maybe" sounds,
   and "can't carry more" and the run's end (D-819).
 - The lab and its recipes (Q-093, D-785); then the bow
   (Q-094); then cooking, at home and at campfires.
@@ -40,6 +40,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-11, 0.3.275, The elemental pack.** The owner bought
+  MorphonautAudio's Elemental Forces (CC0) and picked, all recommended:
+  all 134 kept whole as good-quality .ogg in one folder with Earth,
+  Fire, Water and Wind inside (D-829). Nothing in the game changed.
 - **2026-11-11, 0.3.274, Home's sounds.** The owner's picks (D-828),
   all recommended, from a board of 4, 4, 4 and 3: coins for a sale,
   a book set on wood for the shelf, two soft earth steps for a seed,
@@ -51,8 +55,3 @@ list in `RESEARCH.md`.
   MAKE with a full bag, a bunny and sleeping out, a tool's hold sound,
   the mortar's notes; each with a test that failed on the old code.
   Playtest: https://claude.ai/artifact/WMvE677QNurrnVLN14bGCM
-- **2026-11-11, 0.3.272, The fourteenth audit.** The owner's picks
-  (D-826), all recommended, and the near-full docs split too: the
-  history split, the docs near their cap split, built decisions and the
-  playbook's lines archived, the later questions on one line. Nothing
-  visible changed.

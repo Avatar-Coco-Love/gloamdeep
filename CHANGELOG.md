@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.275 (2026-11-11)
+- Sounds on hand: MorphonautAudio's Elemental Forces, 134 sounds of fire, water, earth and wind, bought by the owner, kept whole for the next sound steps to pick from. Nothing in the game changes yet.
+- Decisions: D-829.
+
 ## 0.3.274 (2026-11-11)
 - New: home's sounds. Selling to the peddler jingles with coins, in place of the tick; a relic set on the shelf sounds like a book set down on wood.
 - New: planting a seed sounds like two soft steps on earth, and feeding Bat Guano to a sprout like a dulled pat of cloth.
@@ -37,8 +41,3 @@ Entry format:
 - Fixed: the Tab key on Settings' tabs ticks, as a tap on a tab does.
 - Docs: the Mortar and Pestle's notes now say it lists six draughts, each once all its parts have been held.
 - Decisions: D-827.
-
-## 0.3.272 (2026-11-11)
-- The fourteenth audit. Nothing in the game changes. The Version history's newest file is split again, word for word: 0.3.201 to 0.3.250 move to history-0.3-4.js.
-- Docs: finished decisions and the playbook's newest lines moved to the archive or their own files, word for word; the finds' and sounds' lists, near their cap, split in two; the waiting list's later questions on one line, so a conversation starts by reading less. A bug hunt's findings come next. The next audit is at 0.3.312.
-- Decisions: D-826. D-782, D-783 and D-822 to D-825 moved to the archive, word for word.

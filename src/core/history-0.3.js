@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.275', date: '2026-11-11', title: 'The elemental pack', lines: [
+    "Sounds on hand: MorphonautAudio's Elemental Forces, 134 sounds of fire, water, earth and wind, bought by the owner, kept whole for the next sound steps to pick from. Nothing in the game changes yet.",
+    "Decisions: D-829.",
+  ] },
   { v: '0.3.274', date: '2026-11-11', title: 'Home\'s sounds', lines: [
     "New: home's sounds. Selling to the peddler jingles with coins, in place of the tick; a relic set on the shelf sounds like a book set down on wood.",
     "New: planting a seed sounds like two soft steps on earth, and feeding Bat Guano to a sprout like a dulled pat of cloth.",
