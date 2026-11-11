@@ -103,19 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-834 · 2026-11-11 · The oil's warning** (the owner's picks; part of
-Q-095) All the "Maybe" sounds are wanted: the heartbeat at the last heart,
-sounds all around and music too, one step each, the oil warning first.
-The owner keeps Claude's picks (D-833) for now. From a board of 4 (two
-sputters, two small pops, a draught in the flame, the lantern rattling),
-the recommended one: two short sputters cut from the empty lantern's own
-crackle (`Fire-017`), the second softer and lower. It plays with "The
-flame is getting low." as the oil falls under 20% (D-096), once on the
-way down, and again only after the oil has gone back above it (offered
-too: both at 25%; the sound at 25% and the line at 20%). With a flask in
-the bag poured by itself at 55%, it plays only when none is left. One
-Settings line under Steps, Oil runs low. File and loudness in `SOUNDS.md`.
-
 **D-835 · 2026-11-11 · The heartbeat at the last heart** (the owner's
 picks, both recommended; part of Q-095) From a board of 4, each beside
 poison's double throb (a soft lub-dub twice; one slow heavy beat; a
@@ -176,3 +163,19 @@ fading in over a second; from floor to floor within the caves it carries
 on (offered too: starting again on each floor; a crossfade). A second
 line in Music's list, Rock caves. File and loudness in `SOUNDS-3.md`.
 D-833 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-839 · 2026-11-11 · Music in the crypt** (the owner's picks; part of
+Q-095) From a board of 8 calm, dark tracks for the crypt from the same
+bundle, measured again from all 138 (five from the caves' board, three of
+them its runners-up; the surface's and the caves' tunes beside them to
+compare; the crypt's stone steps playing along), track 5, "Ludum Dare 30
+05" (2 min 35 s, the quietest and longest), plays in the whole crypt: its
+two top rooms by the cave mouth (depth 0, below the sky) and floor 1
+(offered too, recommended: "Patreon Challenge 11"; offered too: floor 1
+only; floor 1 with the surface's tune carrying on in the top rooms). It
+carries on down the crypt's stairs to floor 1, non-stop with no break
+(offered too: with a 30 s, 60 s or 2 min gap), and changes as the others
+do: the old place's tune fades out over 2 s, the new one starts a second
+later, fading in over a second. A line in Music's list between Surface
+and Rock caves, Crypt. File and loudness in `SOUNDS-3.md`. D-834 moves
+to `archive/DECISIONS-SOUNDS.md`, word for word.

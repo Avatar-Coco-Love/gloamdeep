@@ -344,8 +344,8 @@ test('Music (D-837): the surface plays its theme, home too, none below; its own 
   assert.equal(musicOf(undefined), null);
   assert.deepEqual([FADE_OUT, QUIET, FADE_IN], [2, 1, 1]);
   assert.equal(kindOf('surface'), 'music');
-  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Rock caves: On', 'Version history']);
-  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Rock caves: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: [] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['surface'], loudMusic: 30 }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 30%', 'Surface: Off', 'Crypt: On', 'Rock caves: On', 'Version history']);
 });
 
 test('Music in the rock caves (D-838): "The Vile Grove", floors 2 to 4 only, as the drips; its own line, Rock caves', async () => {
@@ -358,10 +358,28 @@ test('Music in the rock caves (D-838): "The Vile Grove", floors 2 to 4 only, as 
   assert.equal(MUSIC.caves.gain, 0.59); // as loud to the ear as the surface's at 0.4
   for (let d = 1; d <= 12; d++) {
     const look = areaAt(d)?.look;
-    assert.equal(musicOf(false, look), d >= 2 && d <= 4 ? 'caves' : null, `floor ${d}`); // the same floors as the drips
+    assert.equal(musicOf(false, look), d === 1 ? 'crypt' : d >= 2 && d <= 4 ? 'caves' : null, `floor ${d}`); // the same floors as the drips; floor 1 the crypt's (D-839)
     assert.equal(musicOf(false, look) === 'caves', dripsIn(false, look));
   }
   assert.equal(musicOf(true, 'rock'), 'surface'); // under the sky, the surface's
   assert.equal(kindOf('caves'), 'music');
-  assert.deepEqual(settingsMenu({ muted: ['caves'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Rock caves: Off', 'Version history']);
+  assert.deepEqual(settingsMenu({ muted: ['caves'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: Off', 'Version history']);
+});
+
+test('Music in the crypt (D-839): "Ludum Dare 30 05" in its two top rooms and on floor 1, carrying on; its own line, Crypt', async () => {
+  const { MUSIC, musicOf, dripsIn, kindOf } = await import('../src/render/sound.js');
+  const { existsSync, readFileSync } = await import('node:fs');
+  const { settingsMenu } = await import('../src/core/menu.js');
+  const { areaAt, PLACES } = await import('../src/core/room.js');
+  assert.equal(MUSIC.crypt.file, 'abstraction-music-loops/Ludum Dare 30 05.ogg');
+  assert.ok(existsSync(`sounds/packs/${MUSIC.crypt.file}`));
+  assert.equal(MUSIC.crypt.gain, 0.79); // as loud to the ear as the surface's at 0.4
+  assert.equal(musicOf(false, areaAt(1).look), 'crypt'); // floor 1
+  assert.equal(musicOf(false, 'crypt'), 'crypt'); // the top rooms, which main.js gives the crypt's look
+  assert.equal(dripsIn(false, 'crypt'), false); // no drips in the crypt
+  assert.ok(!PLACES.first.sky && !PLACES.south.sky && PLACES.first.depth === 0 && PLACES.south.depth === 0); // the top rooms: depth 0, below the sky
+  assert.match(readFileSync('src/main.js', 'utf8'), /lookHere = \(\) => areaAt\(depthOf\(app\.state\.place\)\)\?\.look \?\? \(app\.state\.room\.dark\?\.sky \? null : 'crypt'\)/);
+  assert.equal(musicOf(true, 'crypt'), 'surface');
+  assert.equal(kindOf('crypt'), 'music');
+  assert.deepEqual(settingsMenu({ muted: ['crypt'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: Off', 'Rock caves: On', 'Version history']);
 });

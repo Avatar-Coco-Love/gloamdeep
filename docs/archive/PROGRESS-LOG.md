@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.282, A cave's drips.** The owner's picks (D-836),
+  all recommended, from a board of 4 drips and 3 paces: a drop and its
+  ripple, every 8 to 16 s at random, in the rock caves (floors 2 to 4),
+  a little left or right, through the cave's echo; in Places' line, as
+  Finds' list is full on the smallest card.
+  Playtest: https://claude.ai/artifact/Xx6GezeyFYPXpmr7daAwxE
+  Sound board: https://claude.ai/artifact/WiZjTUwoGBAF25RaBVJiS5
+  Board of drips: https://claude.ai/artifact/JQPZeA9gjyN6oi16zymWkZ
 - **2026-11-11, 0.3.281, The heartbeat at the last heart.** The owner's
   picks (D-835), both recommended, from a board of 4 beside poison's
   throb: a soft lub-dub twice, the second fainter, once as a turn leaves

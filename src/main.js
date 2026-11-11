@@ -591,9 +591,11 @@ function update(t) {
 // § drips (D-836): while play shows the rock caves, a drip every 8 to 16 seconds; leaving, or a
 // card or menu over play, stops them, and they start again from a fresh wait
 const dripVary = rng(836);
+// The look of the floor the hero is on; depth 0 below the sky is the crypt's two top rooms (D-839)
+const lookHere = () => areaAt(depthOf(app.state.place))?.look ?? (app.state.room.dark?.sky ? null : 'crypt');
 let nextDrip = null;
 function keepDrips(t) {
-  const here = app.screen === 'play' && !app.travel && !app.fall && dripsIn(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look);
+  const here = app.screen === 'play' && !app.travel && !app.fall && dripsIn(app.state.room.dark?.sky, lookHere());
   if (!here) { nextDrip = null; return; }
   if (nextDrip === null) nextDrip = t + dripGap(dripVary());
   else if (t >= nextDrip) { sound.drip(); nextDrip = t + dripGap(dripVary()); }
@@ -605,7 +607,7 @@ function loop(t) {
   try {
     turnPage();
     if (!screens.onTitle()) { update(t); keepDrips(t); }
-    sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, areaAt(depthOf(app.state.place))?.look)); // the surface's theme, home too, the rock caves' below; none on the title (D-837, D-838)
+    sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, lookHere())); // the surface's theme, home too, the crypt's and the rock caves' below; none on the title (D-837 to D-839)
     keepJourney();
     keepPlayed(t);
     frame.draw(t);

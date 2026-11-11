@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.285', date: '2026-11-11', title: 'Music in the crypt', lines: [
+    "New: music in the crypt. From the cave mouth on, in the crypt's two top rooms and on floor 1 below them, a quiet, dark, slow tune plays non-stop, looping with no break and carrying on down the crypt's stairs. Walking in from the woods fades the surface's tune out over 2 seconds, and the crypt's starts a second later, fading in; going down to floor 2 swaps it for the caves' tune the same way.",
+    "New: Music's list in Settings has a line for it, Crypt, between Surface and Rock caves.",
+    "Notes: the tune is \"Ludum Dare 30 05\" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. The warrens and the dungeon are still quiet, one step each.",
+    "Decisions: D-839.",
+  ] },
   { v: '0.3.284', date: '2026-11-11', title: 'Music in the rock caves', lines: [
     "New: music in the rock caves. On floors 2 to 4 a calm, dark, slow tune plays non-stop under the drips, looping with no break and carrying on from floor to floor. Going down from the surface fades the surface's tune out over 2 seconds, and the caves' starts a second later, fading in; going back up swaps them the same way.",
     "New: Music's list in Settings has a second line, Rock caves, to turn that tune On or Off.",
