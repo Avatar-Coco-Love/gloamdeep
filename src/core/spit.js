@@ -32,7 +32,7 @@ export function spitTurn(state) {
   for (const g of state.globs ?? []) s = fly(s, g);
   for (const e of state.enemies) {
     const now = s.enemies.find((o) => o.x === e.x && o.y === e.y && o.id === e.id);
-    if (now) s = spit(s, now);
+    if (now && traits(get(now.id)).spits) s = spit(s, now); // only one that spits: another's rest is its own (H-05)
     if (s.health <= 0) break;
   }
   return s.health > 0 || state.god ? s : fall(s);

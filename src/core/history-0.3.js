@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.317', date: '2026-11-12', title: 'Two clear bugs', lines: [
+    "A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.",
+    "When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: \"The flame is getting low.\" or \"The lantern gutters to an ember.\" It shows over the tick's own line.",
+    "Decisions: D-872. D-869 moved to the archive, word for word.",
+  ] },
   { v: '0.3.316', date: '2026-11-12', title: 'The marks', lines: [
     "A tap just beside one of the small squares under the hearts (the boon's, a draught's, poisoned's and the rest) now tells what it is instead of walking you there; a tap between two finds the nearer one. They look the same.",
     "With many of those squares at once on a phone, they no longer slide under the round map: the rest go on a second row, and the goal line and the creature list move down. On a wide screen they stay in one row.",

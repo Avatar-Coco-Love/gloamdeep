@@ -27,7 +27,7 @@ step 6 (D-869).
 7. **The marks:** a pad round each (H-36); a second row (H-55). Done
    at 0.3.316 (D-871).
 8. **Two clear bugs:** the scorpion's rest (H-05); the drink's oil
-   warning (H-11).
+   warning (H-11). Done at 0.3.317 (D-872).
 9. **The Peddler's room refuses torches** (H-09).
 10. **The owner's rulings:** travel and countdowns (H-04); the mole up
     close (H-06); the warden's tip (H-46); with Q-098 and Q-100.

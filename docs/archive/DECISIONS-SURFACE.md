@@ -1432,3 +1432,16 @@ Up from RANDOM or OK goes to the open tab, keeping a rolled look
 (offered too: up to the picked choice). This step is 0.3.312; the audit
 is next, at 0.3.313 (offered too: audit first; after all 19 steps).
 D-859 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-869 · 2026-11-12 · H-24's three risks, and craft() out** (the
+owner's picks, all recommended) A broken deposit or copper vein never
+grows back on a waystone's ring, the tiles its room kept open as it was
+made: 2 round a generated room's stone, 1 round the home one (offered
+too: 1 everywhere; left as it was). A drop with no open tile on or among the
+8 round it looks ring by ring further out, nearest first; only with
+none in the room does it stay on its own tile (offered too: left on the
+bush or bed; left as it was). Dev Spawn puts no item, creature or wall
+on a person, as on the hero; floor still can (offered too: an item
+may). The unused `craft()` and `canCraft()` go; their tests use the Make
+tab's `makeFrom` (offered too: the craft-only tests deleted). D-865
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

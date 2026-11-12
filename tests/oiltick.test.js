@@ -50,7 +50,7 @@ test('it drinks with the lantern off too, the oil being in the tank', () => {
 
 test('with only a little oil left it drinks the rest, and with none it bites for 1, of teeth', () => {
   const low = wait(at([tick(5, 10)], 0.04 + burnt(0.04)));
-  assert.equal(low.oil, 0); assert.equal(low.line.id, 'oilTickDrinks');
+  assert.equal(low.oil, 0); assert.equal(low.line.id, 'oilEmpty'); // the drink empties it: the gutter's line wins (H-11, D-872)
   const s = at([tick(5, 10)], 0), n = wait(s);
   assert.equal(n.health, s.health - 1); assert.equal(n.oil, 0);
   assert.equal(n.line.id, 'oilTickBite');

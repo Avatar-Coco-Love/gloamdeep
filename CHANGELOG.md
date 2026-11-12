@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.317 (2026-11-12)
+- A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.
+- When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: "The flame is getting low." or "The lantern gutters to an ember." It shows over the tick's own line.
+- Decisions: D-872. D-869 moved to the archive, word for word.
+
 ## 0.3.316 (2026-11-12)
 - A tap just beside one of the small squares under the hearts (the boon's, a draught's, poisoned's and the rest) now tells what it is instead of walking you there; a tap between two finds the nearer one. They look the same.
 - With many of those squares at once on a phone, they no longer slide under the round map: the rest go on a second row, and the goal line and the creature list move down. On a wide screen they stay in one row.
@@ -37,10 +42,3 @@ Entry format:
 - The Bestiary: the lure wisp drifts toward another creature only if there is one, and the bone rat is "knocked down" into its bones, since only scattering them beats it.
 - Settings' sound for the end of a journey is called "Journey ends", no longer "Run ends".
 - Decisions: D-870.
-
-## 0.3.314 (2026-11-12)
-- A broken boulder or copper vein never grows back beside a waystone, on the tiles kept open round it.
-- A find that doesn't fit in the bag, with every tile beside it taken, lies on the nearest open tile further out, never on water or a bush.
-- Dev mode's Spawn no longer puts a thing, a creature or a wall on a person.
-- Code: an old way of making things from a bag slot, unused since the Make tab, is taken out; its tests now use the Make tab's.
-- Decisions: D-869. D-865 moved to the archive, word for word. Questions raised: Q-103.

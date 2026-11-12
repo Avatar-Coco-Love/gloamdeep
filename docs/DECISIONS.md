@@ -148,19 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-869 · 2026-11-12 · H-24's three risks, and craft() out** (the
-owner's picks, all recommended) A broken deposit or copper vein never
-grows back on a waystone's ring, the tiles its room kept open as it was
-made: 2 round a generated room's stone, 1 round the home one (offered
-too: 1 everywhere; left as it was). A drop with no open tile on or among the
-8 round it looks ring by ring further out, nearest first; only with
-none in the room does it stay on its own tile (offered too: left on the
-bush or bed; left as it was). Dev Spawn puts no item, creature or wall
-on a person, as on the hero; floor still can (offered too: an item
-may). The unused `craft()` and `canCraft()` go; their tests use the Make
-tab's `makeFrom` (offered too: the craft-only tests deleted). D-865
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-870 · 2026-11-12 · One words page** (the owner's picks, all
 recommended; step 6 of `HEALTH-CHECK-ORDER.md`, fixes H-12, H-15, H-20,
 H-39, H-40, H-41, H-43, H-45, H-47) A find's name capitalises every
@@ -189,4 +176,15 @@ the round map and the buttons by it, as the goal line does (D-743), and
 the rest go on a second row under it, the goal line and creature list
 moving down; on a wide screen it stays one row (offered too: no gaps
 when crowded; a column down the side). D-867 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-872 · 2026-11-12 · Two clear bugs** (the owner's picks, both
+recommended; step 8 of `HEALTH-CHECK-ORDER.md`, fixes H-05, H-11) The
+spit grub's turn counts down only the rests of creatures that spit, so a
+scorpion near one rests its full turn (offered too: every rest counted
+down in one place). A creature's drink that takes the oil under the low
+mark, or to empty, says "The flame is getting low." or "The lantern
+gutters to an ember." over the drink's own line, with the sputter or the
+gutter's sound; the drink's sound still plays (offered too: the drink's
+line stays, the sound only; the warning only when empty). D-869 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

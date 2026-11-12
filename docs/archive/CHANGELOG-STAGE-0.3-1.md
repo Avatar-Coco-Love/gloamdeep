@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.314 (2026-11-12)
+- A broken boulder or copper vein never grows back beside a waystone, on the tiles kept open round it.
+- A find that doesn't fit in the bag, with every tile beside it taken, lies on the nearest open tile further out, never on water or a bush.
+- Dev mode's Spawn no longer puts a thing, a creature or a wall on a person.
+- Code: an old way of making things from a bag slot, unused since the Make tab, is taken out; its tests now use the Make tab's.
+- Decisions: D-869. D-865 moved to the archive, word for word. Questions raised: Q-103.
+
 ## 0.3.313 (2026-11-12)
 - The fifteenth audit. Nothing in the game changes. The game's sounds move out of its biggest code file into their own, word for word, and the Version history now loads only when it first opens, so the game starts with 12 files fewer.
 - Docs: old code notes that no longer matched the game are fixed; done health check findings, finished decisions and the playbook's newest lines moved to the archive or their own files, word for word. Older iPhones and the sound files go on the store checklist, to test on a real one. Three small risks and an unused piece of code come next. The next audit is at 0.3.353.
