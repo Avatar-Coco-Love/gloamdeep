@@ -19,6 +19,7 @@ import { offEdge } from './openings.js';
 import { stiffen } from './stiff.js';
 import { glowSlept } from './glow.js';
 import { slowSlept } from './slowburn.js';
+import { warmSlept } from './warmed.js';
 import { mendSlept } from './mending.js';
 import { wardSlept } from './ward.js';
 import { spitproofSlept } from './spitproof.js';
@@ -50,7 +51,7 @@ export function sleepOut(state) {
   if (!canSleepOut(state)) return state;
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
   const roll = warm(state);
-  const woke = endTurn(state, say(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
+  const woke = endTurn(state, say(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, Warmed's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
   if (woke.fell !== state.fell) return woke; // poison took the last heart in the night
   if (roll) return { ...woke, health: Math.min(maxHealth(woke), woke.health + get('furBedroll').rest.heal) }; // warm: hearts back, not stiff (D-803, D-804)
   return stiffen(woke); // stiff from waking, its count whole (D-759)

@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.291', date: '2026-11-12', title: 'Warmed', lines: [
+    "New: Warmed. Sitting by a burning campfire now also warms you: a blazing fire for 60 turns, embers for 30. While you're warm your lantern burns slower, a full tank lasting 70 turns instead of 60, and with Slowburn longer still. A small orange flame under your hearts shows the turns left; tap it to hear them. The turns run even while your lantern is empty or you sleep, and a fall ends it.",
+    "Change: Yes on \"Sit by the fire?\" now works at full hearts too, whenever the fire would warm you longer than you already are. It is grey only when sitting would change nothing.",
+    "Decisions: D-845. D-840 moved to the archive, word for word.",
+  ] },
   { v: '0.3.290', date: '2026-11-12', title: 'Sitting by a campfire', lines: [
     "New: sit by a campfire. Bumping a burning campfire now asks \"Sit by the fire?\". Yes takes a turn: a blazing fire gives 2 hearts back and embers 1, never above full, and stiffness from sleeping out goes away. The fire burns down a level as you sit, blazing to embers and embers to cold ashes, which your lantern's oil can light again.",
     "Notes: Yes is grey when you are at full hearts and not stiff, so a fire isn't used up for nothing.",

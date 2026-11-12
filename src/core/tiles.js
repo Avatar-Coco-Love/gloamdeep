@@ -143,10 +143,10 @@ export const TILES = {
   // bumped open the bed's ask card, Light the fire?, where Yes `kindles` it into embers for one
   // turn's oil, `oil` (oil.js), Yes grey with an empty lantern (campfire.js). A burning one
   // bumped says its first words and opens Sit by the fire? (D-844), where Yes `sits`: `heal`
-  // hearts back, never above full, stiff ended, the fire one level down, its `into`; Yes grey
-  // with full hearts and not stiff.
-  campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'campfireEmbers', heal: 2, says: 'campfireSat' } },
-  campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'campfireAshes', heal: 1, says: 'campfireSat' } },
+  // hearts back, never above full, stiff ended, Warmed for `warm` turns (D-845), the fire one
+  // level down, its `into`; Yes grey with full hearts, not stiff and Warmed as long already.
+  campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'campfireEmbers', heal: 2, warm: 60, says: 'campfireSat' } },
+  campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'campfireAshes', heal: 1, warm: 30, says: 'campfireSat' } },
   campfireAshes: { id: 'campfireAshes', kind: 'tile', letter: 'a', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'campfireEmbers', says: 'campfireLit' } },
   // § lamppost (D-769, the first landmark): an old Lightkeeper's lamppost, its lamp long cold,
   // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,

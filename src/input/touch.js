@@ -13,6 +13,7 @@ import { poisonLeft } from '../core/poison.js';
 import { stiffLeft } from '../core/stiff.js';
 import { glowLeft } from '../core/glow.js';
 import { slowLeft } from '../core/slowburn.js';
+import { warmLeft } from '../core/warmed.js';
 import { mendLeft } from '../core/mending.js';
 import { wardLeft } from '../core/ward.js';
 import { spitproofLeft } from '../core/spitproof.js';
@@ -20,11 +21,12 @@ import { shadeLeft } from '../core/shade.js';
 
 export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt, ALERT_MS, openQuests }) {
   // § marks (D-604): a tap on a mark under the panel, or the mouse coming onto it, says the boon's
-  // name and its card's line, or poisoned's turns left (D-654), or stiff's (D-759), or the Glow Draught's (D-791), or Slowburn's (D-792), or the Mending Draught's (D-794), or the Ward Draught's (D-795), or the Spitproof Draught's (D-802), or the Shade Draught's (D-806); no turn passes
+  // name and its card's line, or poisoned's turns left (D-654), or stiff's (D-759), or Warmed's (D-845), or the Glow Draught's (D-791), or Slowburn's (D-792), or the Mending Draught's (D-794), or the Ward Draught's (D-795), or the Spitproof Draught's (D-802), or the Shade Draught's (D-806); no turn passes
   const tellMark = (picX, picY) => {
     const id = frame.markSpot(...toLayer([picX, picY])), b = BOONS[id];
     if (id === 'poisoned') app.state = say(app.state, 'poisonHeld', poisonLeft(app.state)); // its turns left (D-654)
     else if (id === 'stiff') app.state = say(app.state, 'stiffHeld', stiffLeft(app.state)); // its turns left (D-759)
+    else if (id === 'warmed') app.state = say(app.state, 'warmHeld', warmLeft(app.state)); // its turns left (D-845)
     else if (id === 'glow') app.state = say(app.state, 'glowHeld', glowLeft(app.state)); // its turns left (D-791)
     else if (id === 'slowburn') app.state = say(app.state, 'slowHeld', slowLeft(app.state)); // its turns left (D-792)
     else if (id === 'mending') app.state = say(app.state, 'mendHeld', mendLeft(app.state)); // its turns left (D-794)

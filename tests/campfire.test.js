@@ -54,7 +54,7 @@ test('a burning one glows, blazing 3 tiles, embers 2, in the torch colour; ashes
   for (const y of [1, 2, 3]) assert.notEqual(markAt(room, null, 2, y), 'stairs');
 });
 
-test('a burning one opens Sit by the fire?, its first words on the line, No picked; Yes grey with full hearts and not stiff', () => {
+test('a burning one opens Sit by the fire?, its first words on the line, No picked; Yes grey with full hearts, not stiff and Warmed as long', () => {
   const s = makeState(makeRoom(['TTTTT', 'T..DT', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 });
   assert.deepEqual(panelBeside(s, 'right'), { x: 3, y: 1 });
   assert.deepEqual(TAKE_ASKS.campfire, ['Sit by the fire?', 'Someone was here not long ago.']);
@@ -62,7 +62,8 @@ test('a burning one opens Sit by the fire?, its first words on the line, No pick
   assert.equal(get('campfire').says, 'campfireHigh'); assert.equal(get('campfireEmbers').says, 'campfireCoals');
   assert.deepEqual(sitMenu(true).map((l) => [l.text, !!l.dim]), [['Yes', false], ['No', false]]);
   assert.equal(sitMenu(false)[0].dim, true);
-  assert.equal(canSit(s, 3, 1), false); // full hearts, not stiff
+  assert.equal(canSit({ ...s, warmed: 60 }, 3, 1), false); // full hearts, not stiff, Warmed as long (D-845)
+  assert.equal(canSit(s, 3, 1), true); // its warmth alone helps
   assert.equal(canSit({ ...s, health: 2 }, 3, 1), true);
   assert.equal(canSit({ ...s, stiff: 5 }, 3, 1), true);
   assert.equal(canSit({ ...s, health: 2 }, 2, 1), false);
@@ -80,7 +81,7 @@ test('Yes: blazing gives 2 hearts and ends stiff, burning down to embers; embers
   assert.equal(again.health, 4); assert.equal(tileAt(again.room, 3, 1).id, 'campfireAshes');
   const nearlyFull = { ...s, health: maxHealth(s) - 1, stiff: 0 };
   assert.equal(sit(nearlyFull, 3, 1).health, maxHealth(s)); // never above full
-  const well = { ...s, health: maxHealth(s), stiff: 0 };
+  const well = { ...s, health: maxHealth(s), stiff: 0, warmed: 60 };
   assert.equal(sit(well, 3, 1), well);
 });
 

@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.290 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.291 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Warmed, a campfire's next gift (Q-088, D-844): sitting by a fire
-also makes the lantern burn slower for a while; propose its turns and
-how much slower, and its mark.
+Campfires' next step (Q-088): feeding a fire, then building one;
+propose what feeding takes and gives, with options.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -19,7 +18,7 @@ how much slower, and its mark.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires' next steps (Q-088): Warmed is Next up; then feeding, building.
+- Campfires' next steps (Q-088): feeding is Next up; then building.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
@@ -42,6 +41,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.291, Warmed.** The owner's picks (D-845), all
+  recommended: sitting by a fire warms, blazing 60 turns, embers 30; a
+  full tank lasts 70, added to Slowburn; Yes whenever it helps; a small
+  orange flame mark.
+  Playtest: https://claude.ai/artifact/KgxNig5AtBQwsdJ6aNLW5q
 - **2026-11-12, 0.3.290, Sitting by a campfire.** The owner's picks
   (D-844), all recommended but the effects: a burning fire asks Sit by
   the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and
@@ -53,9 +57,3 @@ list in `RESEARCH.md`.
   and Stone breaks' lines.
   Playtest: https://claude.ai/artifact/5aHGKxLjvC4cbYx4vALohP
   Sound board: https://claude.ai/artifact/GMai3DGZPZSBrFL6roVyqo
-- **2026-11-11, 0.3.288, Chopping a tree.** The owner's picks (D-842),
-  all recommended: an axe's chop for each bump on a tree, and as it falls
-  a last chop, a slow low creak and a heavy crash; trees only for now;
-  under Digging's and Stone breaks' lines in Settings.
-  Playtest: https://claude.ai/artifact/Y9XdDjkDf7F5Crhq3FNxDW
-  Sound board: https://claude.ai/artifact/XkdfXdBy953RM9zWcHbkUK

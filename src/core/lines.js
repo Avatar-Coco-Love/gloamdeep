@@ -319,6 +319,8 @@ export const LINES = {
   slowburnLook: { texts: ['A dark draught, thick as oil.', 'Drink it: the lantern burns slower.', 'Made at the mortar.'], warn: false },
   slowEnds: { text: 'The flame burns hungry again.', warn: false }, // its turns run out (D-792)
   slowHeld: { text: 'Slowburn: {n} turns left.', warn: false }, // a tap on its mark (D-792)
+  warmEnds: { text: "The fire's warmth fades.", warn: false }, // Warmed's turns run out (D-845), Claude's draft the owner may change
+  warmHeld: { text: 'Warmed: oil lasts longer, {n} turns left.', warn: false }, // a tap on its mark (D-845)
   mendingMake: { text: 'You make a Mending Draught.', warn: false }, // MORTAR's card, a turn (D-794)
   mendingShort: { text: 'You need 2 Mimic Leaf and 1 Herb.', warn: false }, // too few, free
   mendingFull: { text: "You can't carry more Mending Draughts.", warn: false }, // every stack full, no slot free
