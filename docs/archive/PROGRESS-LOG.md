@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.305, The health check's steps.** A full health
+  check of 0.3.304, no game code changed: 31 findings, each with fixes
+  offered. The owner picked all but three to become steps (D-860), in
+  `HEALTH-CHECK.md`, the gold heart first; the rest wait for the audit.
+  D-850 and D-851 join the archive index. Docs only, no playtest.
+  Report: https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
 - **2026-11-12, 0.3.304, Daylight keeps the whole room.** B-004 closed,
   the owner's pick (D-859), recommended: daylight still remembers the
   whole room at once, off the screen too (D-209), so a room only stepped

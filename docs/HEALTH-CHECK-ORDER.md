@@ -11,6 +11,7 @@ The 0.3.312 audit comes in at its version, wherever the list stands,
 and takes H-22 to H-24, H-31 and H-66.
 
 1. **Hearts:** the bed's gold heart (H-01); the Heart tile's count (H-19).
+   Done at 0.3.308 (D-863).
 2. **A full bag:** silent finds (H-02); a second one-of-a-kind piece
    (H-18).
 3. **Boons at the home stone:** none after travelling home (H-32);

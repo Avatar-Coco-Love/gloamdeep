@@ -20,6 +20,7 @@ seen in the code only.
   heart goes, with no line; D-488 says only a bite or a fall takes it.
   `boon.js:73`, `state.js:35`, `fireside.js:30`, `sleepout.js:56` (the
   last read). Ran. Suggests: none of the four may lower hearts held.
+  Done at 0.3.308 (D-863).
 - **H-02 A find stepped on with a full bag says nothing.** Wood with
   every stack full has no line, against D-339 (`items.js:128`,
   `turn.js:112`). Any find with none of its kind carried is silent too,
@@ -82,7 +83,7 @@ seen in the code only.
 - **H-18** A second one-of-a-kind piece from the lost bag or a chest
   says "Your bag is full." (`fall.js:16-27`, `chest.js:71`). Ran.
 - **H-19** The Heart tile counts boon hearts: "Hearts 12 of 10"
-  (`growth.js:88`). Ran.
+  (`growth.js:88`). Ran. Done at 0.3.308 (D-863).
 - **H-20** "Healing herb" on cards, "Herb" in lines (`lines.js:331`).
   The owner picks the name.
 

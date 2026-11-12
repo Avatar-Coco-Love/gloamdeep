@@ -30,9 +30,16 @@ export const boonBurn = (state) => (state.boon && BOONS[state.boon]?.burn) || 1;
 // What the Slowburn draught multiplies a lit turn's oil by while it works, 1 without (slowburn.js, D-792)
 export const draughtBurn = (state) => (state.slowburn > 0 ? get('slowburn').slow.burn : 1);
 export const maxHealth = (state) => HERO_HEALTH + grown(state, 'heart') + boonHearts(state); // hearts bought in Growth (D-811)
+// The bed's gold heart (D-488): health past the most, 0 without. Only a bite or a fall takes it (H-01, D-863)
+export const goldHearts = (state) => Math.max(0, state.health - maxHealth(state));
+// Health as the most changes from `state` to `next` (a boon taken or ended): cut to the new
+// most, the gold heart kept past it (D-863)
+export const keepGold = (state, health, next) => Math.min(health, maxHealth(next) + goldHearts(state));
+// Health healed by `heal`, up to the most, never lowering what is held, so the gold heart stays (D-863)
+export const healed = (state, heal) => Math.max(state.health, Math.min(maxHealth(state), state.health + heal));
 // § without boon: the boon ends as the hero is home again or falls (D-583): its hearts go,
-// any health above the most without it with them (boon.js)
-export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, health: Math.min(state.health, maxHealth({ ...state, boon: null })) } : state);
+// any health above the most without it with them, the gold heart kept (D-863)
+export const withoutBoon = (state) => (state.boon ? { ...state, boon: null, health: keepGold(state, state.health, { ...state, boon: null }) } : state);
 
 // `home` is where the hero wakes after a fall: the room as it started (D-119).
 // One room on its own, as tests use it; makeWorld adds the other places.

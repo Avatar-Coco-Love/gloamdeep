@@ -104,17 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-855 · 2026-11-12 · The Peddler by the home waystone** (the owner's
-picks, all recommended; fixes B-001, partly supersedes D-492's woods)
-Freed, the Peddler goes home to the home waystone's room, as D-753 moved
-the stone, no longer Hearthwood's middle room: on the open tile nearest
-the room's middle, not the middle, as before (offered too: right beside
-the stone; the middle room, with a hint). Claude's call the owner may
-change: never on the stone's own 3 × 3, so the way onto it stays clear.
-An older save's Peddler already at home in the middle room moves there
-once, keeping his greeting, not beaming in (offered too: stays put).
-D-847 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-856 · 2026-11-12 · The bed won't sleep in a fight** (the owner's
 picks, all recommended; fixes B-002) Bumped at night with a creature
 after the hero, the bed sleeps no more than the moon button does
@@ -198,3 +187,14 @@ second check's scratch work, all its findings in the report, is kept
 until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-863 · 2026-11-12 · Hearts kept** (the owner's picks, both
+recommended; step 1 of `HEALTH-CHECK-ORDER.md`, fixes H-01 and H-19)
+The bed's gold heart stays when a boon is taken or ends, by a campfire
+and on waking warm in the fur bedroll: as the most changes (Stout
+Heart, Reckless) it stays one past the new most, and only a bite or a
+fall takes it, as D-488 has it (offered too: it goes, with a line; a
+separate gold heart, changing saves). The Growth tree's Heart tile
+counts only the hearts grown, never a boon's: "Hearts 10 of 10"
+(offered too: grown and the boon's, "+2 boon"; capped at the top).
+D-855 moves to `archive/DECISIONS-SURFACE.md`, word for word.

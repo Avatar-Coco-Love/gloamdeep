@@ -1323,3 +1323,14 @@ burning card's way, Campfire over Light and Take up). With a campfire
 already carried, Take up says "You already carry a campfire.", free
 (offered too: Take up grey). Taken up, it says "You take up the stones."
 (offered too: "You pack up the campfire."; no line).
+
+**D-855 · 2026-11-12 · The Peddler by the home waystone** (the owner's
+picks, all recommended; fixes B-001, partly supersedes D-492's woods)
+Freed, the Peddler goes home to the home waystone's room, as D-753 moved
+the stone, no longer Hearthwood's middle room: on the open tile nearest
+the room's middle, not the middle, as before (offered too: right beside
+the stone; the middle room, with a hint). Claude's call the owner may
+change: never on the stone's own 3 × 3, so the way onto it stays clear.
+An older save's Peddler already at home in the middle room moves there
+once, keeping his greeting, not beaming in (offered too: stays put).
+D-847 moves to `archive/DECISIONS-SURFACE.md`, word for word.

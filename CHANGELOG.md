@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.308 (2026-11-12)
+- The gold heart from sleeping in your bed now stays when you take a boon, when a boon ends, when you sit by a campfire and when you wake warm in your fur bedroll. Only a bite or a fall takes it.
+- The Growth tree's Heart tile counts only the hearts you have grown, never a boon's: no more "Hearts 12 of 10".
+- Decisions: D-863.
+
 ## 0.3.307 (2026-11-12)
 - No change in play. The dev tools' four findings became a step. Both health checks' steps now go in one order, 19 steps grouped by what they share, the things most players notice first, and no new content until they are done. Five things seen with no decision to measure against became open questions, each asked at its step.
 - Decisions: D-862. Questions raised: Q-098 to Q-102.
@@ -30,7 +35,3 @@ Entry format:
 ## 0.3.306 (2026-11-12)
 - No change in play. A second health check, of what the first didn't reach: fishing, the Peddler, waystones and boons, campfires, the mortar, the mountain rooms, the deep floors, falls, the look creator, the dev tools, the art, the game's words and old saves, played on a phone and a PC. It found 35 more things, from no boon after travelling home to a campfire's hidden first words. Those players can see are now steps, after the first list's.
 - Decisions: D-861.
-
-## 0.3.305 (2026-11-12)
-- No change in play. A full health check of the game: it was played in a browser on the surface, in the caves and at home, and all the code was read against the decisions and docs. It found 31 things, from the bed's gold heart vanishing to out-of-date docs. Nearly all are now a list of small fixes to come, one at a time, the gold heart first.
-- Decisions: D-860.
