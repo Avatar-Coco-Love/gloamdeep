@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.289', date: '2026-11-12', title: 'Chopping a fallen branch', lines: [
+    "New: fallen branches chop too. The first bump chops like a tree, and the bump that snaps it plays one more chop, then a light wooden knock as it breaks.",
+    "New: Settings' Stone breaks line covers a branch snapping too.",
+    "Decisions: D-843.",
+  ] },
   { v: '0.3.288', date: '2026-11-11', title: 'Chopping a tree', lines: [
     "New: chopping sounds. Each bump on a tree chops like an axe biting into wood, and the last bump fells it: one more chop, a slow low creak, then a heavy crash as it lands.",
     "New: Settings' Digging line covers chopping too, and Stone breaks covers a tree falling.",

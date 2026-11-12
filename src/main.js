@@ -368,7 +368,7 @@ function hear(events) {
   const chip = events.find((e) => e.type === 'chip' && get(e.id)?.clinks);
   if (chip) sound[chip.broke ? 'crumble' : 'clink'](); // a deposit, a copper vein or rubble (D-825)
   const cut = events.find((e) => e.type === 'chip' && get(e.id)?.chops);
-  if (cut) sound[cut.broke ? 'treeFall' : 'chop'](); // a tree chopped, then falling (D-842)
+  if (cut) sound[cut.broke ? get(cut.id).chops : 'chop'](); // a tree or branch chopped, then falling or snapping (D-842, D-843)
   if (has(events, 'shelve')) sound.shelf(); // a relic on the shelf (D-828)
   if (has(events, 'plant')) sound.sow(); // a seed in the garden bed
   if (has(events, 'feed')) sound.feed(); // guano on the sprout

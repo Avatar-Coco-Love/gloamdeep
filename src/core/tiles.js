@@ -22,10 +22,10 @@ export const TILES = {
   // Chopped as a deposit is mined (W3, D-317): 4 bumps fell it for 3 Wood, but never
   // on the room's edge (`inner`), where a bump says its `edge` line, free (D-321), and it
   // `leaves` a stump, in the stump's look. It grows back on that stump (`on`), its own
-  // tile, after 3 days, out of sight. `chops`: each bump a chop and the fall a chop, a creak
-  // and a crash (render/sound.js, D-842).
+  // tile, after 3 days, out of sight. `chops`: each bump a chop, and the last plays the sound
+  // it names, a chop, a creak and a crash (render/sound.js, D-842).
   tree: { id: 'tree', kind: 'tile', letter: 'T', name: 'Tree', solid: true, blocksLight: true, regrow: 3 * DAY_TURNS, near: 0, on: 'stump',
-    mine: { hits: 4, chips: ['treeHack', 'treeChips', 'treeGroan'], drops: 'wood', n: 3, breaks: 'treeTake', full: 'woodFull', leaves: 'stump', inner: true, edge: 'treeEdge' }, chops: true },
+    mine: { hits: 4, chips: ['treeHack', 'treeChips', 'treeGroan'], drops: 'wood', n: 3, breaks: 'treeTake', full: 'woodFull', leaves: 'stump', inner: true, edge: 'treeEdge' }, chops: 'treeFall' },
   // What a felled tree leaves (W3, D-317): walked over, light passes over it; one of
   // `forms` looks, picked by its tile (a clean cut, splintered, mossy with roots).
   stump: { id: 'stump', kind: 'tile', letter: 'S', name: 'Stump', solid: false, blocksLight: false, forms: 3 },
@@ -52,8 +52,9 @@ export const TILES = {
   // give `n` Wood. It lies in one of `forms` looks, picked by its tile (formOf), and the
   // Wood it gives takes that look. With room for fewer than `n`, the rest lies on its
   // tile as a stick that never grows back (`once`); with none, its `full` line, free.
+  // `chops` as a tree does, and as it snaps a last chop and a light knock (D-843).
   branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
-    mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' } },
+    mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' }, chops: 'branchSnap' },
   // A gloamberry bush in the woods (step 13b, D-531): solid, light passing over it. One
   // bump picks its `n` 2 Gloamberries and `leaves` it bare, on its own tile; the bare bush
   // fills again there (`on`) 300 turns later, out of sight. With no room, its `full` line, free.

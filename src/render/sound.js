@@ -28,6 +28,7 @@
 // crackle, as "The flame is getting low." is said.
 // Chopping next (D-842): an axe's chop for each bump on a tree, and as it falls a last chop, a slow
 // low creak and a heavy wooden crash; under Digging's and Stone breaks' lines in Settings.
+// A fallen branch chops too (D-843), and as it snaps a last chop and a light wooden knock.
 // The heartbeat next (D-835): a soft lub-dub twice, the second fainter, as the hero drops to the last heart.
 // Sounds all around next (D-836), drips in the rock caves first: a drop and its ripple, through the cave's
 // echo, every 8 to 16 seconds while the hero plays there, each a little left or right.
@@ -84,6 +85,8 @@ export const FILES = {
   treeFall: { files: ['kenney-rpg-audio/chop.ogg'], gain: 0.22, pitch: 0.04, with: [['treeCreak', 0.15], ['treeCrash', 1.25]] }, // it falls: a last chop, a slow creak, a crash
   treeCreak: { files: ['kenney-rpg-audio/creak2.ogg'], gain: 0.45, pitch: 0.03, pitchOf: () => 0.6, part: true }, // the creak played lower and slower
   treeCrash: { files: impact('impactWood_heavy'), gain: 0.4, pitch: 0.04, pitchOf: () => 0.7, muffle: 1500, part: true }, // a heavy wooden thud as it lands
+  branchSnap: { files: ['kenney-rpg-audio/chop.ogg'], gain: 0.2, pitch: 0.06, with: [['branchKnock', 0.12]] }, // a branch snaps: a last chop, a light knock (D-843)
+  branchKnock: { files: impact('impactWood_light'), gain: 0.3, pitch: 0.06, part: true }, // a small wooden clack as it breaks
   patter: { files: steps('concrete'), gain: 0.12, pitch: 0.1, pitchOf: () => 1.2, echo: true, part: true },
   chest: { as: (open) => (open ? 'chestOpen' : 'chestClose') },
   chestOpen: { files: ['kenney-rpg-audio/creak1.ogg'], gain: 0.5, pitch: 0, part: true }, // before the page flips (D-825)
@@ -201,14 +204,14 @@ export const FILES = {
 };
 
 // § voices: every sound the game asks for, each silent until its file is in
-const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind', 'pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat', 'fall', 'wake', 'floor', 'room', 'eat', 'shimmer', 'tools', 'hum', 'breath', 'ended', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chop', 'treeFall', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'sputter', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'heartbeat', 'rise', 'drip'];
+const VOICES = ['footstep', 'stoneStep', 'earthStep', 'lantern', 'hit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind', 'pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat', 'fall', 'wake', 'floor', 'room', 'eat', 'shimmer', 'tools', 'hum', 'breath', 'ended', 'bells', 'chime', 'plop', 'splash', 'tap', 'card', 'refuse', 'pat', 'draw', 'thunk', 'clink', 'crumble', 'chop', 'treeFall', 'branchSnap', 'chest', 'coins', 'shelf', 'sow', 'feed', 'pour', 'sputter', 'gutter', 'torch', 'kindle', 'miss', 'hurt', 'poison', 'heartbeat', 'rise', 'drip'];
 // § kinds: which loudness each sound follows (D-823): Steps with the lantern and the light,
 // Fighting with the creatures, Finds with the bag and places, and Menus; a fall and new rooms are Steps (D-833);
 // a cave's drips are Finds, in Places' line (D-836)
 const KINDS = {
   steps: ['footstep', 'stoneStep', 'earthStep', 'lantern', 'pour', 'sputter', 'sputter2', 'gutter', 'torch', 'kindle', 'falling', 'fall', 'fallThud', 'wake', 'rooms', 'floor', 'room'],
   fight: ['hit', 'lanternHit', 'knifeHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'spit', 'splat'],
-  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'chop', 'treeFall', 'treeCreak', 'treeCrash', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
+  finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'chop', 'treeFall', 'treeCreak', 'treeCrash', 'branchSnap', 'branchKnock', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
   music: ['surface', 'crypt', 'caves', 'warrens', 'dungeon'], // each place's theme (D-837 to D-841)
 };
@@ -368,7 +371,7 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     }
   }
   const voice = (v) => (FILES[v] ? (arg) => play(v, arg) : () => {});
-  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chop, treeFall, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
+  const { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chop, treeFall, branchSnap, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip } = Object.fromEntries(VOICES.map((v) => [v, voice(v)]));
   const sample = (v) => FILES[v] && play(v, true); // one sound by its name, as Settings' list turns it On (D-824)
-  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chop, treeFall, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip, sample, music };
+  return { footstep, stoneStep, earthStep, lantern, hit, beaten, teeth, glass, sting, hiss, squeak, snuffle, snap, rustle, rattle, sip, gloam, flutter, grind, pack, jolt, tail, burrow, bonesFall, bonesStand, statue, spit, splat, fall, wake, floor, room, eat, shimmer, tools, hum, breath, ended, bells, chime, plop, splash, tap, card, refuse, pat, draw, thunk, clink, crumble, chop, treeFall, branchSnap, chest, coins, shelf, sow, feed, pour, sputter, gutter, torch, kindle, miss, hurt, poison, heartbeat, rise, drip, sample, music };
 }

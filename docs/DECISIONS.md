@@ -103,21 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-838 · 2026-11-11 · Music in the rock caves** (the owner's picks, all
-recommended; part of Q-095) From a board of 8 calm, dark tracks for
-floors 2 to 4 from the same bundle, measured again from all 138 (darkest,
-sparsest, slowest, mostly minor; the surface's tune beside them to
-compare), track 1, "The Vile Grove" (2 min), plays in the rock caves,
-floors 2 to 4, the same floors as the drips (offered too: every floor
-below), non-stop with no break, the drips over it (offered too: with a
-30 s, 60 s or 2 min gap; offered too: VGMA Challenge 19, Patreon
-Challenge 05, Ludum Dare 30 05). It changes as the surface's does: the
-old place's tune fades out over 2 s, the new one starts a second later,
-fading in over a second; from floor to floor within the caves it carries
-on (offered too: starting again on each floor; a crossfade). A second
-line in Music's list, Rock caves. File and loudness in `SOUNDS-3.md`.
-D-833 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-839 · 2026-11-11 · Music in the crypt** (the owner's picks; part of
 Q-095) From a board of 8 calm, dark tracks for the crypt from the same
 bundle, measured again from all 138 (five from the caves' board, three of
@@ -180,3 +165,12 @@ too: fallen branches; their own lines in Settings). No line of their
 own: chopping is under Digging, a tree falling under Stone breaks, as
 Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-843 · 2026-11-12 · Chopping a fallen branch** (the owner's picks,
+all recommended) A fallen branch chops as a tree does: its first bump
+plays `chop` (offered too: the chop, then a short creak; a lighter chop).
+The bump that snaps it, `branchSnap`, plays a last chop, then a light
+wooden knock as it breaks (offered too: just the chop; a tree's fall,
+creak and crash). Under Digging's and Stone breaks' lines, as a tree's
+are. Each chopped tile names the sound of its last bump. Files in
+`SOUNDS-2.md`. D-838 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

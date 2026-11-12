@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.286, Music in the warrens.** The owner's picks
+  (D-840), all recommended, from a board of 8 calm, dark tracks measured
+  again from the 84 over 45 s, with the caves' and the surface's tunes and
+  the earth steps: track 1, "Patreon Challenge 11", in the warrens (floors
+  5 to 7), non-stop, carrying on from floor to floor; the dungeon quiet;
+  a line in Music's list, Warrens.
+  Playtest: https://claude.ai/artifact/8qhTwYobXWebH8QQXy8FcH
+  Board of tracks: https://claude.ai/artifact/VMKnvbHFVrFWbg4ZZQVu8Q
 - **2026-11-11, 0.3.285, Music in the crypt.** The owner's picks (D-839)
   from a board of 8 dark tracks: "Ludum Dare 30 05" in the whole crypt
   (its two top rooms and floor 1), non-stop, carrying on down its
