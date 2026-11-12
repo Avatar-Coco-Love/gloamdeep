@@ -259,6 +259,10 @@ export const LINES = {
   glowLampFull: { text: "You can't carry more glow lamps.", warn: false },
   glowLampSet: { text: 'You set down the glow lamp.', warn: false }, // a turn (D-808)
   glowLampOut: { text: 'Your glow lamp goes dark.', warn: false }, // in sight, 300 turns after (D-808)
+  bagCampfireMake: { text: 'You make a campfire.', warn: false }, // MAKE on the bag's Make tab, 3 stone, 2 wood, a turn (D-850, D-851)
+  bagCampfireLook: { texts: ['Stones and wood for a campfire.', 'Set it down on the surface.', 'Light it with a little oil.'], warn: false }, // (D-851)
+  bagCampfireFull: { text: 'You already carry a campfire.', warn: false }, // only 1 is carried, free (D-851)
+  bagCampfireSet: { text: 'You lay the stones in a ring.', warn: false }, // a turn, cold ashes (D-850, D-851)
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   newRow: { text: 'Growth has a new row.', warn: false }, // the first time a row of the Growth tree opens (D-815, D-816)

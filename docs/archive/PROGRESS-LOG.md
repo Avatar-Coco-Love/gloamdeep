@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.293, Bad marks.** The owner's idea and picks
+  (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
+  20 turns (recommended); bad marks sit on dark red glass.
+  Playtest: https://claude.ai/artifact/Upq48FuSxuNF4LeLU7JPHw
 - **2026-11-12, 0.3.292, A thud and a timer rim.** The owner's picks
   (D-846, D-847), all recommended: a falling tree plays its last chop
   and a heavy thud, no creak; the buff marks lose their number, and

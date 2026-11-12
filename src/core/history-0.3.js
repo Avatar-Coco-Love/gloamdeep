@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.296', date: '2026-11-12', title: 'Build a campfire', lines: [
+    "New: build a campfire. Once you have held Stone and Wood, the bag's Make tab shows the Campfire: 3 Stone and 2 Wood, a turn. You carry one at a time.",
+    "Set it down beside you on the surface and it starts as cold ashes, a ring of stones; light it with one turn of your lantern's oil, then sit, warm up and add wood as with any campfire.",
+    "In the bag it looks like the cold ashes and says: \"Stones and wood for a campfire.\", \"Set it down on the surface.\", \"Light it with a little oil.\"",
+    "Decisions: D-851.",
+  ] },
   { v: '0.3.295', date: '2026-11-12', title: 'Building a campfire, settled', lines: [
     "Nothing changes in the game yet. Building a campfire is settled, to come next: made on the bag's Make tab from 3 Stone and 2 Wood, then set down beside you on the surface, where it starts as cold ashes to light with one turn of your lantern's oil.",
     "Fires below ground were talked through and kept for later, maybe as their own step: a fire that never burns out could make a safe base deep down.",

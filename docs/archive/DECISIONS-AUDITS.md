@@ -582,3 +582,11 @@ bites the hero on waking from sleeping out (B2). Night creatures come
 out at least 4 steps from the hero, as the mole, as well as out of
 sight, so none appears beside them with the lantern out (B3). Each has
 a test.
+
+**D-827 · 2026-11-11 · The audit's bug fixes** (the owner's picks, all
+five and the Tab tick, in one PR, each with a test checked against the
+old code first) At 0.3.273: a herb's card draws the mortar's line
+beside EAT; MAKE with a full bag says "Your bag is full." unless one is
+carried; a creature that never bites and isn't chasing doesn't stop
+sleeping out; a tool's hold is silent, its event marked `tool`; the
+mortar's notes say it lists six; Tab on Settings ticks as a tap does.
