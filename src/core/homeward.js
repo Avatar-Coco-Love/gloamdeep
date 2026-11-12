@@ -1,7 +1,7 @@
 // § homeward: a freed person heading home (split from rescue.js, D-496). Freed, they wait,
-// `leaves` set; their turns up, they say their `leaving` line and stand at once at home in
-// the woods (D-492), `arrives` set; the hero leaving the room first, they go home too. The
-// hero next in the woods, they beam in, and greet the hero once, who comes within 2 tiles.
+// `leaves` set; their turns up, they say their `leaving` line and stand at once at home,
+// by the home waystone (D-492, D-855), `arrives` set; the hero leaving the room first, they
+// go home too. The hero next there, they beam in, and greet the hero once, within 2 tiles.
 import { tileAt, withTile } from './room.js';
 import { joined } from './regrow.js';
 import { get } from './registry.js';
@@ -9,6 +9,7 @@ import { say } from './lines.js';
 import { note } from './events.js';
 import { personAt } from './people.js';
 import { fresh } from './stairs.js';
+import { stoneHome } from './mouth.js';
 
 // § leave: at the end of a turn, each freed person whose turns are up says their `leaving`
 // line and goes home, a `leave` event where they stood (D-496)
@@ -43,22 +44,24 @@ export function greet(state) {
 }
 const without = (state, going) => (going.length ? { ...state, people: state.people.filter((p) => !going.includes(p)) } : state);
 
-// § home: (state, id) → the state with person `id` standing in the woods, `home` set, on
-// the open tile nearest its middle by steps (up, down, left, right): not the middle
-// itself, where Go outside lands, nothing solid, no item, no one else there, and the
-// room left joined around them (D-492). The woods wait in `elsewhere` (stairs.js).
-export const HOME = 'woods';
-export function goHome(state, id) {
-  const here = state.place === HOME, there = here ? state : state.elsewhere[HOME] || fresh(HOME, state.seed);
+// § home: (state, id) → the state with person `id` standing in the home waystone's room
+// (D-753, D-855; Hearthwood's middle room until 0.3.300, B-001), `home` set, on the open
+// tile nearest its middle by steps (up, down, left, right): not the middle itself, nor
+// the waystone's own 3 × 3, so the way onto it stays clear, nothing solid, no item, no one else there, and the room left joined around them
+// (D-492). A room not here waits in `elsewhere` (stairs.js). `keep` is more of the person:
+// a save's Peddler moved there keeps his greeting and doesn't beam in (resettle.js).
+export const HOME = 'woods'; // Hearthwood's middle room, its pond's fish (fishing.js)
+export function goHome(state, id, keep = { arrives: true }) {
+  const at = stoneHome(state.seed), here = state.place === at, there = here ? state : state.elsewhere[at] || fresh(at, state.seed);
   const spot = homeSpot(there);
   if (!spot) return state;
-  const people = [...(there.people || []), { id, ...spot, home: true, arrives: true }];
-  return here ? { ...state, people } : { ...state, elsewhere: { ...state.elsewhere, [HOME]: { ...there, people } } };
+  const people = [...(there.people || []), { id, ...keep, ...spot, home: true }];
+  return here ? { ...state, people } : { ...state, elsewhere: { ...state.elsewhere, [at]: { ...there, people } } };
 }
 
 function homeSpot(there) {
   const { room } = there, start = { x: room.cols >> 1, y: room.rows >> 1 }, seen = new Set([`${start.x},${start.y}`]), queue = [start];
-  const taken = (x, y) => (there.items || []).some((it) => it.x === x && it.y === y) || personAt(there, x, y);
+  const taken = (x, y) => tileAt(room, x, y).name === 'Waystone' || (there.items || []).some((it) => it.x === x && it.y === y) || personAt(there, x, y);
   for (let i = 0; i < queue.length; i++) {
     for (const [dx, dy] of [[0, -1], [0, 1], [-1, 0], [1, 0]]) {
       const x = queue[i].x + dx, y = queue[i].y + dy;

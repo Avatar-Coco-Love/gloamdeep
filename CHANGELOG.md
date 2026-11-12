@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.300 (2026-11-12)
+- Fixed: the Peddler is home by the waystone. Freed, he now waits in the home waystone's room, just below its middle, never on the stone itself. Before, he went to the middle room of the woods, a room away, so he seemed missing.
+- In a journey saved before this, a Peddler already home moves there once, still knowing you.
+- Decisions: D-855. Bugs fixed: B-001.
+
 ## 0.3.299 (2026-11-12)
 - New: your own campfire. A campfire you set down is yours: its card says "You laid these stones." when cold, "Your fire still glows." as embers and "Your fire burns well." blazing. Fires you find keep their own words.
 - New: your cold ashes' card shows Yes, Take up and No. Take up takes a turn and puts the Campfire back in your bag whole: "You take up the stones." Carrying one already, it says "You already carry a campfire." A burning fire has to burn down first.
@@ -31,7 +36,3 @@ Entry format:
 ## 0.3.298 (2026-11-12)
 - Nothing changes in the game yet. Your own campfire is settled: a fire you built gets its own words ("You laid these stones.", "Your fire still glows.", "Your fire burns well."), and once cold it can be taken back into the bag. Building it is the next step.
 - Decisions: D-853.
-
-## 0.3.297 (2026-11-12)
-- Nothing changes in the game. A new bug list keeps track of what you notice in play, so a new conversation finds it: the Peddler missing at home, sleeping ending a fight, a burrowed mole trapping you, and unseen rooms showing on the map by day.
-- Decisions: D-852.

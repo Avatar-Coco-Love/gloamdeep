@@ -1232,3 +1232,15 @@ after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
 says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
 D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The turns
 beside the mark superseded by D-847 (2026-11-12).
+
+**D-847 · 2026-11-12 · The timer rim** (the owner's idea and picks, all
+recommended; supersedes the turns beside D-845's, D-791's and the other
+draughts' marks) A lasting effect's mark loses its number: its square's
+edge, 52 dots from the top middle going round like a clock, lights in
+the mark's colour for the share of time left (offered too: burning down
+like a candle). Full is that effect's longest time, from the registry,
+so embers' 30 turns start Warmed half lit (offered too: full at
+whatever it started with). A tap on the mark still says the turns left
+(offered too: nowhere). Claude's calls: any time left lights at least
+one dot; poisoned's and stiff's marks keep no rim for now. That last
+call superseded by D-848 (2026-11-12).
