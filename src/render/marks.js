@@ -5,15 +5,18 @@
 // the Glow Draught, a gold bottle (D-791);
 // Slowburn, the same bottle in deep amber (D-792); the Mending Draught's in moss green (D-794); the Ward Draught's in pale green-white (D-795); the Spitproof Draught's in dusty rose (D-802); the Shade Draught's in dusky violet (D-806).
 // Each of those shows its time left on its square's rim, no number (D-847): the edge's 52 dots, from
-// the top middle going round like a clock, lit in its colour for the share left. marks: [{ icon, tint, left? }].
+// the top middle going round like a clock, lit in its colour for the share left; poisoned and stiff too,
+// and those two, the bad ones, on dark red glass (D-848). marks: [{ icon, tint, left?, bad? }].
 import { drawGlass } from './glass.js';
+
+export const BAD_GLASS = 'rgba(120,24,30,.75)'; // a bad mark's dark red glass (D-848)
 
 const PAD = 3; // as on the panel
 export const MARK = 2 * PAD + 9, MARK_GAP = 2;
 // § poisoned's mark: a drop in venom's pale green, as in its mock-up (D-654)
-export const POISON_MARK = { id: 'poisoned', tint: '#b6e07a', icon: ['....#....', '...###...', '...###...', '..#####..', '..##.##..', '.###.###.', '.#######.', '..#####..', '...###...'] };
+export const POISON_MARK = { id: 'poisoned', bad: true, tint: '#b6e07a', icon: ['....#....', '...###...', '...###...', '..#####..', '..##.##..', '.###.###.', '.#######.', '..#####..', '...###...'] };
 // § stiff's mark: Zz in the moon button's pale blue, as in its mock-up (D-759)
-export const STIFF_MARK = { id: 'stiff', tint: '#b0bcf0', icon: ['#####....', '...#.....', '..#......', '.#.......', '#####....', '....####.', '......#..', '.....#...', '....####.'] };
+export const STIFF_MARK = { id: 'stiff', bad: true, tint: '#b0bcf0', icon: ['#####....', '...#.....', '..#......', '.#.......', '#####....', '....####.', '......#..', '.....#...', '....####.'] };
 // § Warmed's mark: a small flame in the campfire's orange, with its turns left (D-845)
 export const WARM_MARK = { id: 'warmed', tint: '#f39a3b', icon: ['....#....', '....##...', '...###...', '..####...', '..#####..', '.###.###.', '.##...##.', '.###.###.', '..#####..'] };
 // § glow's mark: a round bottle in the lantern's gold, the potion's shape (D-791)
@@ -53,7 +56,7 @@ export function drawMarks(c, marks, x, y, alpha = 1) {
   let mx = x;
   marks.forEach((m) => {
     const w = MARK;
-    drawGlass(c, mx, y, w, MARK);
+    drawGlass(c, mx, y, w, MARK, m.bad ? BAD_GLASS : undefined);
     if (m.left !== undefined) { c.fillStyle = m.tint; rimLit(m.left).forEach(([i, j]) => c.fillRect(mx + i, y + j, 1, 1)); }
     c.fillStyle = m.tint;
     m.icon.forEach((row, j) => { for (let i = 0; i < row.length; i++) if (row[i] === '#') c.fillRect(mx + PAD + i, y + PAD + j, 1, 1); });

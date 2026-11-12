@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.290, Sitting by a campfire.** The owner's picks
+  (D-844), all recommended but the effects: a burning fire asks Sit by
+  the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and
+  burns the fire a level down. Warmed, the slower lantern, comes next.
+  Playtest: https://claude.ai/artifact/8tAzj2YY1JeKnMxUr13B4n
 - **2026-11-12, 0.3.289, Chopping a fallen branch.** The owner's picks
   (D-843), all recommended: a branch's first bump plays the tree's chop,
   and as it snaps a last chop and a light wooden knock; under Digging's

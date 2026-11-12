@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { LONGEST, shareLeft } from '../src/core/lasting.js';
-import { RIM, rimLit, MARK, marksSize } from '../src/render/marks.js';
+import { RIM, rimLit, MARK, marksSize, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK } from '../src/render/marks.js';
 
 test('Each lasting effect is full at its longest time, from the registry (D-847)', () => {
   assert.equal(LONGEST.warmed, 60); // a blazing fire's, not embers' 30
@@ -22,4 +22,13 @@ test('The rim runs round the square from the top middle, like a clock (D-847)', 
   assert.equal(rimLit(0.001).length, 1); // any time left shows
   assert.equal(rimLit(0).length, 0);
   assert.deepEqual(marksSize([{ left: 1 }, { left: 0.5 }]), { w: 2 * MARK + 2, h: MARK }); // no number beside it any more
+});
+
+test('Poisoned and stiff get the rim, full at 6 and 20, on dark red glass (D-848)', () => {
+  assert.equal(LONGEST.poisoned, 6);
+  assert.equal(LONGEST.stiff, 20);
+  assert.equal(shareLeft({ poisoned: 3 }, 'poisoned'), 0.5);
+  assert.equal(shareLeft({ stiff: 20 }, 'stiff'), 1);
+  assert.ok(POISON_MARK.bad && STIFF_MARK.bad); // the bad ones
+  assert.ok(!WARM_MARK.bad && !GLOW_MARK.bad); // the good ones keep the night glass
 });
