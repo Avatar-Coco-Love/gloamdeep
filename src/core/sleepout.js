@@ -24,6 +24,7 @@ import { mendSlept } from './mending.js';
 import { wardSlept } from './ward.js';
 import { spitproofSlept } from './spitproof.js';
 import { shadeSlept } from './shade.js';
+import { poisonSlept } from './poison.js';
 
 // A creature is after the hero: one chasing, even in the dark, or one seen that has noticed them;
 // one that never bites and isn't chasing, a shy bunny, isn't after them (D-826)
@@ -51,7 +52,10 @@ export function sleepOut(state) {
   if (!canSleepOut(state)) return state;
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
   const roll = warm(state);
-  const woke = endTurn(state, say(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(state, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep'), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, Warmed's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
+  const night = poisonSlept(state, morning - state.turn); // the night uses poison's turns too, and its hearts (Q-098, D-874)
+  if (night.fell !== state.fell) return night; // poison took the last heart in the night
+  const hurt = state.health - night.health, slept = hurt > 0 ? (s) => note(s, 'poison', { hurt }) : (s) => s; // its heart flashes green on waking (D-654)
+  const woke = endTurn(state, say(slept(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(night, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep')), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, Warmed's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
   if (woke.fell !== state.fell) return woke; // poison took the last heart in the night
   if (roll) return { ...woke, health: healed(woke, get('furBedroll').rest.heal) }; // warm: hearts back, not stiff (D-803, D-804)
   return stiffen(woke); // stiff from waking, its count whole (D-759)

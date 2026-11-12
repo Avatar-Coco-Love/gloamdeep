@@ -148,17 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-871 · 2026-11-12 · The marks** (the owner's picks, both
-recommended; step 7 of `HEALTH-CHECK-ORDER.md`, fixes H-36, H-55) A tap
-or the mouse up to 4 game pixels past a mark's edge still finds it, the
-gaps between marks split to the nearer one; the marks look the same
-(offered too: bigger marks; only the gaps). A row of marks stops left of
-the round map and the buttons by it, as the goal line does (D-743), and
-the rest go on a second row under it, the goal line and creature list
-moving down; on a wide screen it stays one row (offered too: no gaps
-when crowded; a column down the side). D-867 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-872 · 2026-11-12 · Two clear bugs** (the owner's picks, both
 recommended; step 8 of `HEALTH-CHECK-ORDER.md`, fixes H-05, H-11) The
 spit grub's turn counts down only the rests of creatures that spit, so a
@@ -177,4 +166,21 @@ by rubble (not freed, not home), so a Torch or Glow Lamp set down, a
 deposit growing back and a flask mimic go in his room as in any other;
 every other tile must still be reached (offered too: the same, with no
 flask mimic in his room; left as it was). D-870 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-874 · 2026-11-12 · The owner's rulings** (the owner's picks, all
+recommended; step 10 of `HEALTH-CHECK-ORDER.md`, fixes H-04, H-06,
+H-46; answers Q-098, Q-100) Waystone travel passes no turn for poison,
+stiff and the draughts either: they keep their turns, as D-593 says
+(offered too: it counts as a turn; only the good ones pause). A night's
+sleep uses poison's turns as it uses the draughts': in bed it ends and
+the hero wakes healed; sleeping out it takes the hearts due in those
+turns, the last one too, so the hero falls (offered too: sleep cures
+it; one turn, as it was). A mole beside the hero as it notices never
+digs, as D-726 says, even once the hero steps off (offered too: it digs
+later). The warden, one a world, shows how to fight it once 1 is
+beaten, "Beat 1 to learn how to fight it."; every other creature still
+needs 3 (D-632) (offered too: shown once met; 3 as before). The locket
+taken past the sleeping warden is fine: nothing changes (offered too:
+the warden on the way in; taking it wakes the warden). D-871 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

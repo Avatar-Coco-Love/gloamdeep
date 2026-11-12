@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.319 (2026-11-12)
+- Travelling by waystone no longer counts down poison, stiff or any draught: they keep their turns, so poison can't take a heart as you arrive.
+- A night's sleep now uses up poison's turns, as it does a draught's. In bed you still wake healed. Sleeping out, you wake with the hearts it took, and if it takes your last one, you fall.
+- A mole that notices you while it is already beside you never digs down, even if you step away: it chases on foot.
+- The Warden's Bestiary page shows how to fight it once you have beaten one, since there is only one in a world. Other creatures still need 3.
+- Decisions: D-874. Questions closed: Q-098, Q-100. D-871 moved to the archive, word for word.
+
 ## 0.3.318 (2026-11-12)
 - In the Peddler's room, while he is still ringed in by rubble, you can now set down a Torch or a Glow Lamp. Before, "There is no room there." was said until you dug a heap.
 - Deposits dug in his room grow back there now, and when his room is one picked for a flask mimic, it holds one, as any other room would.
@@ -32,8 +39,3 @@ Entry format:
 - A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.
 - When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: "The flame is getting low." or "The lantern gutters to an ember." It shows over the tick's own line.
 - Decisions: D-872. D-869 moved to the archive, word for word.
-
-## 0.3.316 (2026-11-12)
-- A tap just beside one of the small squares under the hearts (the boon's, a draught's, poisoned's and the rest) now tells what it is instead of walking you there; a tap between two finds the nearer one. They look the same.
-- With many of those squares at once on a phone, they no longer slide under the round map: the rest go on a second row, and the goal line and the creature list move down. On a wide screen they stay in one row.
-- Decisions: D-871. D-867 moved to the archive, word for word.

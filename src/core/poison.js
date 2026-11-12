@@ -40,3 +40,17 @@ export function poisonTick(state) {
   if (next.health <= 0) return fall(next);
   return now ? next : say(next, 'poisonEnds');
 }
+
+// § slept: (state, turns) → the state `turns` turns later, as after a night's sleep (Q-098, D-874):
+// the count runs down with no line, one left goes too, so the waking turn's tick says nothing over
+// the waking line; each heart due in those turns is taken (none in god mode), and the last heart
+// too, so the hero falls. The bed heals after, so there it only ends the count.
+export function poisonSlept(state, turns) {
+  const left = poisonLeft(state);
+  if (!left) return state;
+  const end = left - turns > 1 ? left - turns : 0;
+  let hurt = 0;
+  for (let n = end; n < left; n++) if (n % POISON.every === 0) hurt++;
+  const next = { ...state, poisoned: end, health: state.god ? state.health : state.health - hurt };
+  return next.health <= 0 ? fall(next) : next;
+}

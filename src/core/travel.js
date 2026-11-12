@@ -3,7 +3,8 @@
 // lists the waystones, home first, then by depth, down to the next one below the deepest floor
 // the hero has reached (D-594). One not yet woken shows as ???. Picking a
 // woken one goes there at once, onto its plate. It is free: no turn passes and no oil burns,
-// so the creatures there can't act before the hero's first move. It is barred while a
+// so the creatures there can't act before the hero's first move, and poison, stiff and the
+// draughts keep their turns (H-04). It is barred while a
 // creature awake stands beside the hero or chases them, with its line, so it is no free
 // escape. Plain data, no drawing.
 import { tileAt, stoneRoom, areaAt, depthOf, nextStoneDepth, STONE_DEPTH } from './room.js';
@@ -48,7 +49,7 @@ export function travel(state, place) {
   const stone = stonesOf(state).find((s) => s.place === place);
   if (!stone?.woken || stone.here) return state;
   const there = state.elsewhere[place] || freshPlace(place, state.seed), spot = plateIn(there.room);
-  return endTurn(state, say(note(fresh(arrive(state, place, there, spot)), 'travel', { place }), 'stoneTravel'));
+  return endTurn(state, say(note(fresh(arrive(state, place, there, spot)), 'travel', { place }), 'stoneTravel'), true); // free: no countdown loses a turn (H-04, D-874)
 }
 
 // The woken plate in a room, { x, y }

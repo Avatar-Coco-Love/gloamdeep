@@ -1464,3 +1464,14 @@ Touch and Mouse one row, "Bag, map: Their buttons", to fit 8 lines
 creature if there is one"; the bone rat, "Knocked down, it falls into
 a pile of bones". Settings' "Run ends" is "Journey ends". D-866 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-871 · 2026-11-12 · The marks** (the owner's picks, both
+recommended; step 7 of `HEALTH-CHECK-ORDER.md`, fixes H-36, H-55) A tap
+or the mouse up to 4 game pixels past a mark's edge still finds it, the
+gaps between marks split to the nearer one; the marks look the same
+(offered too: bigger marks; only the gaps). A row of marks stops left of
+the round map and the buttons by it, as the goal line does (D-743), and
+the rest go on a second row under it, the goal line and creature list
+moving down; on a wide screen it stays one row (offered too: no gaps
+when crowded; a column down the side). D-867 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

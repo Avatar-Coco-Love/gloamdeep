@@ -38,7 +38,7 @@ export const wait = (state) => endTurn(state, passTurn(state));
 // just come into, as it grew while the hero was away (regrow.js, D-307), and a torch
 // set down whose time is up goes out (D-478), and a planted garden bed whose time is up grows
 // (garden.js, D-567). At the very end, each creature lit and showing is met (bestiary.js, D-630). First of all, a line out waits for a bite, or reels in (fishing.js, D-610).
-export const endTurn = (before, cast) => {
+export const endTurn = (before, cast, free = false) => { // `free`, travel's: no turn passed, so poison, stiff and the draughts keep their turns (H-04, D-874)
   const after = fishTurn(before, cast), id = oilLine(before.oil, after.oil), place = after.place;
   let found = discover(before, id ? say(after, id) : after);
   if (id === 'oilEmpty') found = note(found, 'oilOut'); // the lantern gutters: its sound (D-830)
@@ -48,7 +48,7 @@ export const endTurn = (before, cast) => {
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const done = level > levelOf(before.xp) ? note(say(found, 'levelUp', level), 'level', { n: level }) : found;
-  const ticked = poisonTick(shadeTick(spitproofTick(wardTick(mendTick(warmTick(stiffTick(slowTick(glowTick(done))))))))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792), and Warmed's (warmed.js, D-845); the Mending Draught's heart comes before poison's (mending.js, D-794); the Ward Draught's counts down before the creatures' bites (ward.js, D-795), and the Spitproof Draught's before the globs fly (spitproof.js, D-802), and the Shade Draught's before the creatures notice (shade.js, D-806)
+  const ticked = free ? done : poisonTick(shadeTick(spitproofTick(wardTick(mendTick(warmTick(stiffTick(slowTick(glowTick(done))))))))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792), and Warmed's (warmed.js, D-845); the Mending Draught's heart comes before poison's (mending.js, D-794); the Ward Draught's counts down before the creatures' bites (ward.js, D-795), and the Spitproof Draught's before the globs fly (spitproof.js, D-802), and the Shade Draught's before the creatures notice (shade.js, D-806)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : drunk(ticked, packWarns(before, enemiesAct(leaveByLight(ticked)))); // night or day creatures gone with the light leave first, so none bites on waking (D-783, B2); a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
   const next = grow(burnOut(nightfall(regrow(acted, moved)), moved)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
