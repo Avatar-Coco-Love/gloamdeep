@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.292, A thud and a timer rim.** The owner's picks
+  (D-846, D-847), all recommended: a falling tree plays its last chop
+  and a heavy thud, no creak; the buff marks lose their number, and
+  their square's edge runs down like a clock instead, full at each
+  effect's longest time.
+  Playtest: https://claude.ai/artifact/Hy4mmRw3Hd5VYBXLJYxArA
+  Sound board: https://claude.ai/artifact/EBkJdfbUKm7smvrVXBsrGk
 - **2026-11-12, 0.3.291, Warmed.** The owner's picks (D-845), all
   recommended: sitting by a fire warms, blazing 60 turns, embers 30; a
   full tank lasts 70, added to Slowburn; Yes whenever it helps; a small

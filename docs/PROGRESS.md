@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.294 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.295 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Campfires' next step (Q-088): building a fire; propose what building
-one takes and where it can go, with options.
+Build a campfire (D-850): the find on the bag's Make tab, 3 Stone and
+2 Wood, set down on the surface as cold ashes; propose its name, look
+and words, with options.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -18,7 +19,8 @@ one takes and where it can go, with options.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires' next step (Q-088): building one is Next up.
+- Campfires (Q-088): building one is Next up (D-850); fires below
+  ground maybe later.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
@@ -41,6 +43,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.295, Building a campfire, settled.** The owner's
+  picks (D-850), all recommended but where: made on the bag's Make tab,
+  3 Stone and 2 Wood, set down as cold ashes; only on the surface for
+  now, after the owner asked Claude's true view of anywhere.
 - **2026-11-12, 0.3.294, Add wood.** The owner's picks (D-849), all
   recommended: a burning fire's card shows Sit and Add wood; 1 Wood and
   a turn make embers blazing; blazing takes no more, ashes still need
@@ -50,10 +56,3 @@ list in `RESEARCH.md`.
   (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
   20 turns (recommended); bad marks sit on dark red glass.
   Playtest: https://claude.ai/artifact/Upq48FuSxuNF4LeLU7JPHw
-- **2026-11-12, 0.3.292, A thud and a timer rim.** The owner's picks
-  (D-846, D-847), all recommended: a falling tree plays its last chop
-  and a heavy thud, no creak; the buff marks lose their number, and
-  their square's edge runs down like a clock instead, full at each
-  effect's longest time.
-  Playtest: https://claude.ai/artifact/Hy4mmRw3Hd5VYBXLJYxArA
-  Sound board: https://claude.ai/artifact/EBkJdfbUKm7smvrVXBsrGk
