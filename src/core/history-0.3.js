@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.304', date: '2026-11-12', title: 'Daylight keeps the whole room', lines: [
+    "No change in play. In daylight, the whole room you stand in is still remembered at once, the parts off the screen too, so a room you only stepped into shows in full on the map. That is likely what looked like unseen rooms showing; no room never entered was found on the map.",
+    "Decisions: D-859. Questions raised: Q-097. Bugs closed: B-004.",
+  ] },
   { v: '0.3.303', date: '2026-11-12', title: 'The mole\'s sight', lines: [
     "A mole now notices you only within 5 steps, by day or night. Before, in daylight, a mole saw you from anywhere in the woods room. Once it is after you it keeps coming from farther, and a bite or a hit still makes it notice. Its Bestiary page says \"within 5 steps\".",
     "Decisions: D-858. Questions raised: Q-096.",

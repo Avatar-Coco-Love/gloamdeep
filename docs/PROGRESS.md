@@ -4,19 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.303 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.304 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-B-004 in `BUGS.md` (D-852): daylight shows unseen rooms on the map.
+The owner's pick from "Waiting on the owner"; Claude suggests deep moles (Q-096).
 
 ## Waiting on the owner
-- Bugs the owner noticed (`BUGS.md`): B-004, its own step.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
-  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
+  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), daylight in very big
+  rooms (Q-097).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires (Q-088): fires below ground maybe later.
@@ -42,6 +42,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.304, Daylight keeps the whole room.** B-004 closed,
+  the owner's pick (D-859), recommended: daylight still remembers the
+  whole room at once, off the screen too (D-209), so a room only stepped
+  into shows in full on the map; no unentered room was found showing.
+  Very big rooms later, Q-097. Docs only, no playtest.
 - **2026-11-12, 0.3.303, The mole's sight.** The owner's picks (D-858),
   all recommended: every mole notices the hero only within 5 steps, by
   day or night; `sight: 5` on its entry; its Bestiary page says so. The
@@ -50,7 +55,3 @@ list in `RESEARCH.md`.
   the owner's picks (D-857), all recommended: a mole under the earth
   that can't come closer comes up where it is and chases on foot; it
   still never runs; a 5-step sight limit comes next. Playtest: https://claude.ai/artifact/BSe8GdX2yeKApG61aRuPzQ
-- **2026-11-12, 0.3.301, The bed won't sleep in a fight.** B-002 fixed,
-  the owner's picks (D-856), all recommended: with a creature after the
-  hero, the bed says "Not with a creature after you.", free, as sleeping
-  out does. Playtest: https://claude.ai/artifact/XuDa21oXEuZaKZJ4DUVxXm

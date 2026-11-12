@@ -3,6 +3,12 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Closed in 0.3.304, works as decided (D-859):
+
+**B-004 · 2026-11-12 · Daylight shows unseen rooms on the map** In
+daylight, the other surface rooms show on the map, even ones the hero
+has never been to.
+
 Fixed in 0.3.302 (D-857):
 
 **B-003 · 2026-11-12 · A burrowed mole traps the hero** In the home

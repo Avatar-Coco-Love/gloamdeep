@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.301, The bed won't sleep in a fight.** B-002 fixed,
+  the owner's picks (D-856), all recommended: with a creature after the
+  hero, the bed says "Not with a creature after you.", free, as sleeping
+  out does. Playtest: https://claude.ai/artifact/XuDa21oXEuZaKZJ4DUVxXm
 - **2026-11-12, 0.3.300, The Peddler by the waystone.** B-001 fixed, the
   owner's picks (D-855), all recommended: freed, he goes to the home
   waystone's room, by its middle, off the stone; an older save's moves
