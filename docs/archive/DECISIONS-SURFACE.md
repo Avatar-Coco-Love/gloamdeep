@@ -1355,3 +1355,15 @@ too: flees when hurt, as the rat; gives up under the earth). Next, its
 own step: a mole notices the hero only within 5 steps, by day or night
 (offered too: 3 steps; no limit). D-849 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-858 · 2026-11-12 · The mole's sight** (the owner's picks, all
+recommended; builds D-857) Every mole, on the surface and in the caves,
+notices the hero only within 5 steps, by day or night, as D-857 chose;
+daylight lights every tile, so before this a mole saw them across a
+whole woods room. One already after them keeps coming from farther, and
+a bite or a hit still makes it notice. The number lives on the mole's
+own entry, `sight: 5`, so another creature can have its own later
+(offered too: on the burrows way). Its Bestiary page says "Once it sees
+you in the light, within 5 steps, it digs down..." (offered too: the
+words as they were). The owner's new idea, deep moles for stone floors,
+is Q-096. D-850 moves to `archive/DECISIONS-SURFACE.md`, word for word.

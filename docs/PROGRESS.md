@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.310 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.311 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The health check's 19 steps (D-860 to D-862), one a conversation, in
 `HEALTH-CHECK-ORDER.md`'s order, no new content till done: the first
-not yet done, now step 4, First words over the ask card (H-33).
+not yet done, now step 5, the Look card (H-34, H-37).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -46,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.311, First words over the ask card.** Health check
+  step 4: a campfire's and the miners' camp's first words show on the
+  text line over their ask card, only while they are the line out
+  (H-33). D-866.
+  Playtest: https://claude.ai/artifact/6A1Pnd1dXXRDT1xnkhRtqJ
 - **2026-11-12, 0.3.310, Boons at the home stone.** Health check step 3:
   arriving on the home plate by travel or a fall offers the boon card
   (H-32); the same 3 boons until you leave the room (H-44); "until you
@@ -59,8 +64,3 @@ list in `RESEARCH.md`.
   (H-02). A second one-of-a-kind piece from the lost bag, a chest or a
   dropped stack says its own line (H-18). D-864.
   Playtest: https://claude.ai/artifact/NzqMEp7HKPXzSJS3u9eA8s
-- **2026-11-12, 0.3.308, Hearts kept.** Health check step 1: the bed's
-  gold heart stays through a boon taken or ended, a campfire and a warm
-  bedroll, one past the most; only a bite or a fall takes it (H-01).
-  The Heart tile counts only hearts grown (H-19). D-863.
-  Playtest: https://claude.ai/artifact/YUwfyNTfZv1shchaPgeXCq

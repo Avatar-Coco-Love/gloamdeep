@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.311', date: '2026-11-12', title: 'First words over the ask card', lines: [
+    "Bumping a campfire or the miners' camp now shows its first words (\"A campfire, burning high.\", \"A miners' camp, long left.\") on the text line under its card, where before the card hid them.",
+    "Decisions: D-866. D-858 moved to the archive, word for word.",
+  ] },
   { v: '0.3.310', date: '2026-11-12', title: 'Boons at the home stone', lines: [
     "Arriving on the home waystone by travel, or waking there after a fall, now offers the boon card once you stand still, if you hold no boon.",
     "Skip the boon card and step off and back on, and it shows the same three boons until you leave the room; no more drawing again for free.",

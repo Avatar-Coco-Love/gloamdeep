@@ -18,7 +18,7 @@ and takes H-22 to H-24, H-31 and H-66.
    drawing again (H-44); "until you are home" (H-35); and the chest's
    second one-of-a-kind piece (H-67), the owner's find. Done at 0.3.310
    (D-865).
-4. **First words over the ask card** (H-33).
+4. **First words over the ask card** (H-33). Done at 0.3.311 (D-866).
 5. **The Look card:** the tabs' taps (H-34); the keyboard (H-37).
 6. **One words page,** every wording approved at once: H-12, H-15,
    H-20, H-39, H-40, H-41, H-43, H-45, H-47.

@@ -101,6 +101,9 @@ function makesOf(state, i) {
 }
 // Screens over play that dim the room around them; the cards (the bag's, the workbench's, the stash chest's, the pause menu's) and placing a workbench leave it clear
 const CLEAR_OVER = new Set(['play', 'map', 'bag', 'make', 'bench', 'chest', 'trade', 'place', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']);
+// The bumped tile's own first words, still the line out: drawn over its ask card (H-33), so
+// an older line never shows over a bed's, a garden bed's or a shelf's
+const saysOver = (state, at) => { const says = at && tileAt(state.room, at.x, at.y)?.says; return !!says && state.line?.id === says; };
 const CARDS = new Set(['bag', 'make', 'bench', 'chest', 'trade', 'paused', 'settings', 'howto', 'journal', 'history', 'seed', 'map', 'ways', 'easier', 'bed', 'sleepOut', 'travel', 'boons', 'strike', 'opening', 'aboutBoons']); // drawn on the room, the text line over them (D-385, D-387); none over the pause, settings, how to play, journal, version history, seed, map and way to play cards and the ask (D-388 to D-391, D-393 to D-396, D-400)
 // The moon button's ask, worked out once a state, not each frame (D-758)
 let sleepFor = null, sleepOk = false;
@@ -417,7 +420,10 @@ export function createFrame(app, ui) {
     else if (app.screen === 'strike') drawStrikeCard(hc, view.w, view.h, state.float?.strike ?? 0, needleAt(t - (app.strike?.start ?? t)), zoneWidth(state.float, state)); // the strike meter, the room paused (D-614)
     else if (app.screen === 'opening') drawOpening(hc, view.w, view.h); // a new journey's first words, on the room (D-628)
     else if (app.screen === 'boons') drawBoons(hc, view.w, view.h, app.offer || [], app.chosen); // the boon card, three cards in a row (D-603)
-    else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
+    else if (app.screen === 'easier' || app.screen === 'bed' || app.screen === 'sleepOut') {
+      drawAskCard(hc, view.w, view.h, ...screens.askOf(app.screen), screens.menuOf(app.screen), app.chosen); // the ask card on the room (D-400); the bed's by day (D-488), the garden bed's (D-566)
+      if (app.screen === 'bed' && saysOver(state, app.bench)) textLine.draw(hc, line, t, still()); // a campfire's or the miners' camp's first words, over their card (H-33)
+    }
     else if (app.screen === 'seed') drawSeedCard(hc, view.w, view.h, app.entry, app.chosen, t, still()); // a card on the room (D-394)
     else if (app.screen === 'howto') drawHowTo(hc, view.w, view.h, app.page, app.settings, t, still()); // a card on the room (D-390)
     else if (app.screen === 'history') drawHistory(hc, view.w, view.h, app.rows, app.opened, app.scroll, app.chosen, t, still()); // a card on the room (D-393)

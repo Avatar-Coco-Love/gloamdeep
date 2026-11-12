@@ -24,7 +24,7 @@ in a script; "read" seen in the code only.
 - **H-33 A campfire's and the miners' camp's first words are hidden.**
   The text line isn't drawn over the ask card (`frame.js:409,424`);
   D-757, D-844, D-770 put them on the line. Played. Suggests: draw the
-  line over the card when a bump opened it.
+  line over the card when a bump opened it. Done at 0.3.311 (D-866).
 - **H-34 The Look card's tabs are 26 px tall on a phone** (`cloak.js:27`);
   D-513's 44 px. Played. Suggests: taller taps, same look.
 

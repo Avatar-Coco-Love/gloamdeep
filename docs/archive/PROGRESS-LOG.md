@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.308, Hearts kept.** Health check step 1: the bed's
+  gold heart stays through a boon taken or ended, a campfire and a warm
+  bedroll, one past the most; only a bite or a fall takes it (H-01).
+  The Heart tile counts only hearts grown (H-19). D-863.
+  Playtest: https://claude.ai/artifact/YUwfyNTfZv1shchaPgeXCq
 - **2026-11-12, 0.3.307, The health check's order.** The dev tools'
   four (H-38, H-48 to H-50) became a step. Both lists now go in one
   order of 19 grouped steps, most noticed first (D-862); five loose

@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.311 (2026-11-12)
+- Bumping a campfire or the miners' camp now shows its first words ("A campfire, burning high.", "A miners' camp, long left.") on the text line under its card, where before the card hid them.
+- Decisions: D-866. D-858 moved to the archive, word for word.
+
 ## 0.3.310 (2026-11-12)
 - Arriving on the home waystone by travel, or waking there after a fall, now offers the boon card once you stand still, if you hold no boon.
 - Skip the boon card and step off and back on, and it shows the same three boons until you leave the room; no more drawing again for free.
@@ -34,8 +38,3 @@ Entry format:
 - Stepping on a find with no room in your bag now always says why: "Your bag is full.", or its own line when you carry some of it, like "You can't carry more wood."
 - A second workbench, chest or other one-of-a-kind piece from your lost bag, a stash chest or a stack you set down now says "You already carry a workbench." (or its own line), not "Your bag is full." when it isn't.
 - Decisions: D-864.
-
-## 0.3.308 (2026-11-12)
-- The gold heart from sleeping in your bed now stays when you take a boon, when a boon ends, when you sit by a campfire and when you wake warm in your fur bedroll. Only a bite or a fall takes it.
-- The Growth tree's Heart tile counts only the hearts you have grown, never a boon's: no more "Hearts 12 of 10".
-- Decisions: D-863.
