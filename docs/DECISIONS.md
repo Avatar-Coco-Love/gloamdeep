@@ -95,14 +95,6 @@ A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
 
-**D-827 · 2026-11-11 · The audit's bug fixes** (the owner's picks, all
-five and the Tab tick, in one PR, each with a test checked against the
-old code first) At 0.3.273: a herb's card draws the mortar's line
-beside EAT; MAKE with a full bag says "Your bag is full." unless one is
-carried; a creature that never bites and isn't chasing doesn't stop
-sleeping out; a tool's hold is silent, its event marked `tool`; the
-mortar's notes say it lists six; Tab on Settings ticks as a tap does.
-
 **D-844 · 2026-11-12 · Sitting by a campfire** (the owner's picks, all
 recommended but the effects, where all three were picked; Q-088's buff,
 step 1) A burning campfire bumped says its first words and opens Sit by
@@ -136,14 +128,6 @@ after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
 says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
 D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The turns
 beside the mark superseded by D-847 (2026-11-12).
-
-**D-846 · 2026-11-12 · A tree falls with a thud** (the owner's pick,
-recommended; supersedes D-842's creak and crash) As a tree falls,
-`treeFall` plays the last chop, then the heavy wooden thud at its own
-pitch half a second later, no creak (offered too: the creak at normal
-speed before the thud; a last chop and a light knock, as a branch).
-Claude's calls: the thud muffled above 2500 Hz, as loud as before.
-D-841 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
 
 **D-847 · 2026-11-12 · The timer rim** (the owner's idea and picks, all
 recommended; supersedes the turns beside D-845's, D-791's and the other
@@ -196,3 +180,18 @@ caves may come later as their own step. Set down, it is cold ashes, lit
 with one turn of oil as before (offered too: embers; blazing). The
 find's name, look and words come at its step. D-843 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-851 · 2026-11-12 · The campfire in the bag** (the owner's picks, all
+recommended; D-850's name, look and words) In the bag it is the
+Campfire, "Makes a Campfire" on the Make tab (offered too: Fire Ring;
+Firepit). Its look is the cold ashes' picture, as it is set down
+(offered too: 3 stones piled on 2 logs; the ring round fresh logs).
+Its words: "Stones and wood for a campfire.", "Set it down on the
+surface.", "Light it with a little oil."; "You make a campfire."; set
+down, "You lay the stones in a ring." (offered too: warmer words; the
+mortar's way). One is carried at a time, "You already carry a
+campfire." (offered too: up to 3; up to 5). The code: the campfire
+holds its own recipe, `made`, so its button stays Set down (offered
+too: Stone holding two recipes; a recipe-only entry). D-827 moves to
+`archive/DECISIONS-AUDITS.md`, D-846 to `archive/DECISIONS-SOUNDS.md`,
+word for word.

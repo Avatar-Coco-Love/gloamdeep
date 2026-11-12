@@ -24,7 +24,7 @@ import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
 import { forgetBed } from './waking.js';
 import { endTurn } from './endturn.js';
-import { costOf } from './bagmake.js';
+import { costOf, recipeOf } from './bagmake.js';
 import { thrift, keptSay } from './thrift.js';
 import { burnOil } from './oil.js';
 import { isFitted } from './parts.js';
@@ -65,10 +65,10 @@ export function craft(state, i) {
   return endTurn(state, keptSay({ ...passTurn(state), bag }, kept, recipe.says));
 }
 
-// § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s `craft.into`, its
+// § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s recipe's `into`, its
 // cost taken from the whole bag, as craft above does otherwise
 export function makeFrom(state, from) {
-  const recipe = get(from)?.craft, of = recipe && costOf(from);
+  const recipe = recipeOf(from), of = recipe && costOf(from); // a find's `craft`, or the campfire's own `made` (D-851)
   if (!recipe || !bagHas(state.bag, of)) return state;
   const kept = thrift(state, of);
   const bag = bagAdd(bagPay(state.bag, kept.of), recipe.into, undefined, bagSize(state));

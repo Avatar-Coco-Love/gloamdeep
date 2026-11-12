@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.293 (2026-11-12)
+- Change: the poisoned and stiff marks now show their time left on the square's edge too, as the draughts do. A full edge is 6 turns for poisoned and 20 for stiff.
+- Change: bad marks, poisoned and stiff, now sit on a dark red square, so good and bad are easy to tell apart at a glance.
+- Decisions: D-848.
+
 ## 0.3.292 (2026-11-12)
 - Change: a tree no longer creaks as it falls. The last chop is followed by one heavy wooden thud half a second later, at its natural pitch.
 - Change: the marks for Warmed and the draughts no longer show a number. Instead the square's edge lights up in the mark's colour and runs down like a clock from the top middle as the time goes. A full edge means that effect's longest time, so Warmed from embers starts half lit. Tap the mark to hear the exact turns left.

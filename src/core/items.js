@@ -228,6 +228,11 @@ export const ITEMS = {
   // torch's way on the same stone foot, its steady green light burning 300 turns, not 100.
   glowLamp: { id: 'glowLamp', kind: 'item', name: 'Glow Lamp', bag: true, max: 5, look: 'glowLampLook', full: 'glowLampFull',
     sets: { tile: 'torchStand', says: 'glowLampSet', anywhere: true, light: 'glowLampLight', burns: 300 } },
+  // A campfire to build (D-850, D-851): made on the bag's Make tab from 3 Stone and 2 Wood, its
+  // recipe its own `made`, not a find's `craft`, so its bag button stays SET DOWN (bagmake.js);
+  // never found, 1 carried. Set down on the surface the bed's way as cold ashes, lit with oil as before.
+  bagCampfire: { id: 'bagCampfire', kind: 'item', name: 'Campfire', bag: true, max: 1, look: 'bagCampfireLook', full: 'bagCampfireFull',
+    made: { of: { stone: 3, wood: 2 }, says: 'bagCampfireMake' }, sets: { tile: 'campfireAshes', says: 'bagCampfireSet' } },
   // Normal's fall leaves the bag where the hero fell, `holds` its stacks (MO3, D-334, D-345).
   // Walking onto it puts back what fits, with its `says` line; the rest stays in it,
   // with its `full` line. Each fall leaves its own. It never grows back.

@@ -59,6 +59,9 @@ neared 8 KB.
   floor tile anywhere; it burns 100 turns, then goes out (D-478).
 - **Glow Lamp:** made in the bag from 1 Glow Gland and 1 Wood, set down
   as a torch is; its steady green light lasts 300 turns (D-808).
+- **Campfire (in the bag):** made in the bag from 3 Stone and 2 Wood,
+  one carried, drawn as cold ashes; set down on the surface as cold
+  ashes, lit with oil (D-850, D-851).
 - **Eat, Drink:** the bag's buttons for a heartcap and a potion (D-308, D-309), Drink an antidote's too (D-655); a minnow's Eat sits left of its Pour (D-615).
 - **Creature materials:** what a beaten creature leaves: Rat Tail, Moth
   Dust, Stinger, Mimic Glass, Gloam Wisp; rare ones Venom Sac, Mimic

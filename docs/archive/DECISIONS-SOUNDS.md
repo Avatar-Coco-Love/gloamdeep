@@ -367,3 +367,11 @@ wooden knock as it breaks (offered too: just the chop; a tree's fall,
 creak and crash). Under Digging's and Stone breaks' lines, as a tree's
 are. Each chopped tile names the sound of its last bump. Files in
 `SOUNDS-2.md`. D-838 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-846 · 2026-11-12 · A tree falls with a thud** (the owner's pick,
+recommended; supersedes D-842's creak and crash) As a tree falls,
+`treeFall` plays the last chop, then the heavy wooden thud at its own
+pitch half a second later, no creak (offered too: the creak at normal
+speed before the thud; a last chop and a light knock, as a branch).
+Claude's calls: the thud muffled above 2500 Hz, as loud as before.
+D-841 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

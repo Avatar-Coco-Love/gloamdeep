@@ -26,7 +26,7 @@ this page and a decision disagree, the decision wins.
   use" (D-169, D-171). In the code a room is a "place".
 - **Hearthwood:** the starting region, home in its centre (D-348); 9 rooms joined by paths (D-734), woods but for the north row's mountain rooms (D-738); the woods round home are thick woods, woods as before or open glades, the seed picking (D-756).
 - **Surface:** depth 0, the woods and the way into the crypt (D-233).
-- **Campfire:** a ring of stones round a fire on the surface, blazing, embers or cold ashes; ashes are lit with the lantern's oil (D-757); sitting by a burning one gives hearts back, ends stiff and leaves the hero Warmed, the fire burning down a level (D-844, D-845); Add wood, 1 Wood, makes embers blazing (D-849).
+- **Campfire:** a ring of stones round a fire on the surface, blazing, embers or cold ashes; ashes are lit with the lantern's oil (D-757); sitting by a burning one gives hearts back, ends stiff and leaves the hero Warmed, the fire burning down a level (D-844, D-845); Add wood, 1 Wood, makes embers blazing (D-849). Made in the bag from 3 Stone and 2 Wood, set down as cold ashes (D-850, D-851).
 - **Landmark:** a hand-made place on the surface to find and look at; the first is the **dead lamppost**, an old Lightkeeper's lamppost gone cold, one a seed (D-769); the second the **miners' camp**, a tent and a crate in a mountain room, its old Stone Pick there to take (D-770).
 - **Depth:** how far down a floor is. **Floor:** all the rooms at one
   depth.

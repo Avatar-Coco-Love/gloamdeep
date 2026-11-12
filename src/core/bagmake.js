@@ -6,15 +6,19 @@
 import { ALL, get } from './registry.js';
 import { carried, bagHas } from './bag.js';
 
+// A recipe: find `from`'s `craft`, or a made thing's own `made`, making itself (the campfire,
+// D-851); undefined for neither
+export const recipeOf = (from) => { const e = get(from); return e?.craft ?? (e?.made && { ...e.made, into: from }); };
 // A recipe's cost as { itemId: n }: a count of itself (3 oilcaps) or a mixed one (D-477)
-export const costOf = (from) => { const of = get(from).craft.of; return typeof of === 'number' ? { [from]: of } : of; };
+export const costOf = (from) => { const of = recipeOf(from).of; return typeof of === 'number' ? { [from]: of } : of; };
 
-// Every bag recipe, by the find whose MAKE it is: { from, into }
-const crafting = ALL.filter((e) => e.kind === 'item' && e.craft);
+// Every bag recipe, by the find whose MAKE it is, or the made thing itself: { from, into }
+const crafting = ALL.filter((e) => e.kind === 'item' && (e.craft || e.made));
+const into = (e) => recipeOf(e.id).into;
 export const BAG_MAKES = crafting
-  .filter((e, i) => crafting.findIndex((o) => o.craft.into === e.craft.into) === i)
-  .flatMap((first) => crafting.filter((e) => e.craft.into === first.craft.into))
-  .map((e) => ({ from: e.id, into: e.craft.into }));
+  .filter((e, i) => crafting.findIndex((o) => into(o) === into(e)) === i)
+  .flatMap((first) => crafting.filter((e) => into(e) === into(first)))
+  .map((e) => ({ from: e.id, into: into(e) }));
 export const MAKE_COLS = 4;
 export const MAKE_SLOTS = 12;
 

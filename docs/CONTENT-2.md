@@ -36,6 +36,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `bigBag` | made after the Pouch, the bag holds 12 | – | never | the workbench: 4 Mole Fur, 3 Spider Silk | D-545, D-547, D-548 |
 | `bagTorch` | set down as the torch stand, lit, 100 turns | 5 | never | 1 Moth Dust, 1 Wood; the peddler, 2 coins | D-478, D-495 |
 | `glowLamp` | set down on the torch stand, its steady green light 300 turns | 5 | never | 1 Glow Gland, 1 Wood | D-808 |
+| `bagCampfire` | the Campfire: set down on the surface as cold ashes, lit with oil; its recipe its own `made` | 1 | never | the bag's Make tab: 3 Stone, 2 Wood | D-850, D-851 |
 | `lostbag` | the bag where you fell, in Normal | none | never | where the hero fell | D-345 |
 
 ## People (`src/core/people.js`)

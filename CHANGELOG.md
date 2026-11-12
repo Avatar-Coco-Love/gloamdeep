@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.296 (2026-11-12)
+- New: build a campfire. Once you have held Stone and Wood, the bag's Make tab shows the Campfire: 3 Stone and 2 Wood, a turn. You carry one at a time.
+- Set it down beside you on the surface and it starts as cold ashes, a ring of stones; light it with one turn of your lantern's oil, then sit, warm up and add wood as with any campfire.
+- In the bag it looks like the cold ashes and says: "Stones and wood for a campfire.", "Set it down on the surface.", "Light it with a little oil."
+- Decisions: D-851.
+
 ## 0.3.295 (2026-11-12)
 - Nothing changes in the game yet. Building a campfire is settled, to come next: made on the bag's Make tab from 3 Stone and 2 Wood, then set down beside you on the surface, where it starts as cold ashes to light with one turn of your lantern's oil.
 - Fires below ground were talked through and kept for later, maybe as their own step: a fire that never burns out could make a safe base deep down.
@@ -32,8 +38,3 @@ Entry format:
 - New: feed a campfire. A burning fire's card now shows Sit and Add wood. Add wood takes 1 Wood and a turn and brings embers back up to blazing, so you can sit by it again for the bigger gift.
 - Change: the burning fire's card is now called Campfire, with Sit in place of Yes. Add wood is grey with no Wood, or when the fire is already blazing. Cold ashes are still lit with your lantern's oil.
 - Decisions: D-849.
-
-## 0.3.293 (2026-11-12)
-- Change: the poisoned and stiff marks now show their time left on the square's edge too, as the draughts do. A full edge is 6 turns for poisoned and 20 for stiff.
-- Change: bad marks, poisoned and stiff, now sit on a dark red square, so good and bad are easy to tell apart at a glance.
-- Decisions: D-848.

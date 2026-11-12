@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.295 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.296 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Build a campfire (D-850): the find on the bag's Make tab, 3 Stone and
-2 Wood, set down on the surface as cold ashes; propose its name, look
-and words, with options.
+Your own campfire's words (Q-088): a fire the hero built still shows
+the found fire's notes ("No one has sat here for a long time."); propose
+its own words, and whether it can be taken back down, with options.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -19,7 +19,7 @@ and words, with options.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires (Q-088): building one is Next up (D-850); fires below
+- Campfires (Q-088): a built fire's own words are Next up; fires below
   ground maybe later.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
@@ -43,6 +43,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.296, Build a campfire.** The owner's picks (D-851),
+  all recommended: the Campfire on the bag's Make tab, 3 Stone and 2
+  Wood, one carried, drawn as cold ashes, plain words; it holds its own
+  recipe in the code. Set down on the surface, it is cold ashes.
+  Playtest: https://claude.ai/artifact/WYfBfAjjgD1oMz44H62cHf
 - **2026-11-12, 0.3.295, Building a campfire, settled.** The owner's
   picks (D-850), all recommended but where: made on the bag's Make tab,
   3 Stone and 2 Wood, set down as cold ashes; only on the surface for
@@ -52,7 +57,3 @@ list in `RESEARCH.md`.
   a turn make embers blazing; blazing takes no more, ashes still need
   oil.
   Playtest: https://claude.ai/artifact/WFHpGzDdvZYcn7RUgPF4no
-- **2026-11-12, 0.3.293, Bad marks.** The owner's idea and picks
-  (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
-  20 turns (recommended); bad marks sit on dark red glass.
-  Playtest: https://claude.ai/artifact/Upq48FuSxuNF4LeLU7JPHw
