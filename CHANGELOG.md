@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.299 (2026-11-12)
+- New: your own campfire. A campfire you set down is yours: its card says "You laid these stones." when cold, "Your fire still glows." as embers and "Your fire burns well." blazing. Fires you find keep their own words.
+- New: your cold ashes' card shows Yes, Take up and No. Take up takes a turn and puts the Campfire back in your bag whole: "You take up the stones." Carrying one already, it says "You already carry a campfire." A burning fire has to burn down first.
+- Decisions: D-854.
+
 ## 0.3.298 (2026-11-12)
 - Nothing changes in the game yet. Your own campfire is settled: a fire you built gets its own words ("You laid these stones.", "Your fire still glows.", "Your fire burns well."), and once cold it can be taken back into the bag. Building it is the next step.
 - Decisions: D-853.
@@ -30,9 +35,3 @@ Entry format:
 ## 0.3.297 (2026-11-12)
 - Nothing changes in the game. A new bug list keeps track of what you notice in play, so a new conversation finds it: the Peddler missing at home, sleeping ending a fight, a burrowed mole trapping you, and unseen rooms showing on the map by day.
 - Decisions: D-852.
-
-## 0.3.296 (2026-11-12)
-- New: build a campfire. Once you have held Stone and Wood, the bag's Make tab shows the Campfire: 3 Stone and 2 Wood, a turn. You carry one at a time.
-- Set it down beside you on the surface and it starts as cold ashes, a ring of stones; light it with one turn of your lantern's oil, then sit, warm up and add wood as with any campfire.
-- In the bag it looks like the cold ashes and says: "Stones and wood for a campfire.", "Set it down on the surface.", "Light it with a little oil."
-- Decisions: D-851.

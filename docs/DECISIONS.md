@@ -185,3 +185,12 @@ levels in the registry, the same pictures and rules, their own words
 owner may change, shown at the build step: where Take up sits on the
 card, and "You already carry a campfire." when one is carried. D-845
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-854 · 2026-11-12 · Taking up your campfire** (the owner's picks, all
+recommended, shown as a picture at the build step of D-853) Your own cold
+ashes' card shows three buttons, Yes, Take up and No, No picked as
+before (offered too: Take up in No's place, the cross meaning No; the
+burning card's way, Campfire over Light and Take up). With a campfire
+already carried, Take up says "You already carry a campfire.", free
+(offered too: Take up grey). Taken up, it says "You take up the stones."
+(offered too: "You pack up the campfire."; no line).

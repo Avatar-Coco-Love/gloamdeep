@@ -149,6 +149,12 @@ export const TILES = {
   campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'campfireEmbers', heal: 2, warm: 60, says: 'campfireSat' } },
   campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'campfireAshes', heal: 1, warm: 30, says: 'campfireSat' }, stokes: { item: 'wood', into: 'campfire', says: 'campfireFed' } },
   campfireAshes: { id: 'campfireAshes', kind: 'tile', letter: 'a', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'campfireEmbers', says: 'campfireLit' } },
+  // § your own campfire (D-853): one the hero built and set down (items.js `bagCampfire`), three
+  // twins of the levels above, the same pictures and rules, each `into` its own twin, with their
+  // own words on the card (menu.js). Cold, Take up on its card `takes` it back into the bag whole.
+  ownCampfire: { id: 'ownCampfire', kind: 'tile', letter: 'g', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'ownEmbers', heal: 2, warm: 60, says: 'campfireSat' } },
+  ownEmbers: { id: 'ownEmbers', kind: 'tile', letter: 'h', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'ownAshes', heal: 1, warm: 30, says: 'campfireSat' }, stokes: { item: 'wood', into: 'ownCampfire', says: 'campfireFed' } },
+  ownAshes: { id: 'ownAshes', kind: 'tile', letter: 'i', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'ownEmbers', says: 'campfireLit' }, takes: { item: 'bagCampfire', says: 'ownCampfireTake' } },
   // § lamppost (D-769, the first landmark): an old Lightkeeper's lamppost, its lamp long cold,
   // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,
   // as the campfire; bumped, it says its words, free.

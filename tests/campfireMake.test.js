@@ -41,7 +41,7 @@ test('MAKE takes its cost and puts it in the bag, one carried', () => {
 
 test('it is set down on the surface as cold ashes, and only there', () => {
   const set = setDown(outside(), 0, 'right');
-  assert.equal(tileAt(set.room, 3, 2).id, 'campfireAshes');
+  assert.equal(tileAt(set.room, 3, 2).id, 'ownAshes'); // your own cold ashes (D-853)
   assert.deepEqual(set.bag, []);
   assert.equal(shownLine(set).text, 'You lay the stones in a ring.');
   const below = setDown({ ...makeState(makeRoom(FIRST_ROOM)), bag: [{ id: 'bagCampfire', n: 1 }] }, 0, 'right');

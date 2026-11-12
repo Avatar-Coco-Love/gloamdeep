@@ -263,6 +263,7 @@ export const LINES = {
   bagCampfireLook: { texts: ['Stones and wood for a campfire.', 'Set it down on the surface.', 'Light it with a little oil.'], warn: false }, // (D-851)
   bagCampfireFull: { text: 'You already carry a campfire.', warn: false }, // only 1 is carried, free (D-851)
   bagCampfireSet: { text: 'You lay the stones in a ring.', warn: false }, // a turn, cold ashes (D-850, D-851)
+  ownCampfireTake: { text: 'You take up the stones.', warn: false }, // Take up on your own cold ashes, a turn, back in the bag whole (D-853)
   noRoom: { text: 'There is no room there.', warn: false }, // Set down toward a side it can't go on, free
   woodLook: { texts: ['Three make a workbench.', 'It snaps if you bend it.', 'Good for building.'], warn: false },
   newRow: { text: 'Growth has a new row.', warn: false }, // the first time a row of the Growth tree opens (D-815, D-816)

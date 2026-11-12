@@ -126,7 +126,7 @@ export function createScreens(app, ui) {
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
   // and grown, Pick in Plant's place (D-568)
-  const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : tile.kindles ? kindleMenu(canKindle(app.state, x, y)) : tile.sits ? sitMenu(canSit(app.state, x, y), canStoke(app.state, x, y)) : canShelve(app.state, x, y) ? SHELVE_MENU : SURE_MENU; }; // a sprout's Feed (D-569); the shelf's with the locket in the bag (D-693)
+  const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : tile.kindles ? kindleMenu(canKindle(app.state, x, y), !!tile.takes) : tile.sits ? sitMenu(canSit(app.state, x, y), canStoke(app.state, x, y)) : canShelve(app.state, x, y) ? SHELVE_MENU : SURE_MENU; }; // a sprout's Feed (D-569); the shelf's with the locket in the bag (D-693)
   // § the travel card (D-593): a row for each waystone, dim when not woken or stood on
   const travelMenu = () => stonesOf(app.state).map((s) => ({ id: s.place, text: stoneName(s), note: stoneNote(s), dim: !s.woken || s.here }));
   const travelWords = () => `Waystones. ${travelMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} Pick one to go there. Esc or the close button goes back.`;
