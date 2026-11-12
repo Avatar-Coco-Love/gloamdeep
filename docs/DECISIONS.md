@@ -104,18 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-858 · 2026-11-12 · The mole's sight** (the owner's picks, all
-recommended; builds D-857) Every mole, on the surface and in the caves,
-notices the hero only within 5 steps, by day or night, as D-857 chose;
-daylight lights every tile, so before this a mole saw them across a
-whole woods room. One already after them keeps coming from farther, and
-a bite or a hit still makes it notice. The number lives on the mole's
-own entry, `sight: 5`, so another creature can have its own later
-(offered too: on the burrows way). Its Bestiary page says "Once it sees
-you in the light, within 5 steps, it digs down..." (offered too: the
-words as they were). The owner's new idea, deep moles for stone floors,
-is Q-096. D-850 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-859 · 2026-11-12 · Daylight still remembers the whole room** (the
 owner's pick, recommended; closes B-004) In daylight, the whole room the
 hero stands in is still remembered at once, the parts off the screen
@@ -203,3 +191,12 @@ return"; keep "home"). A second one-of-a-kind piece put into a stash
 chest with room says "The chest already holds a workbench." (offered
 too: wait for the words step; its own step). D-857 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-866 · 2026-11-12 · First words over the ask card** (the owner's
+pick, recommended; step 4 of `HEALTH-CHECK-ORDER.md`, fixes H-33) A
+campfire's, your own campfire's and the miners' camp's first words show
+on the text line over their ask card, as the bag's and the bench's
+lines do, only while the line out is the bumped tile's own words
+(offered too: the line over every ask card; the words on the card
+itself). The bed's, garden bed's and shelf's cards stay as they are.
+D-858 moves to `archive/DECISIONS-SURFACE.md`, word for word.
