@@ -1198,3 +1198,18 @@ says where it came from. Saved from the pack's 24-bit WAVs (113 MB) as
 `.ogg`, good quality, stereo (6 MB), nothing else changed; little
 silence to cut. Nothing in the game plays from it yet: the next sound
 steps pick from it, for fire, oil, water, wind and falls.
+
+**D-844 · 2026-11-12 · Sitting by a campfire** (the owner's picks, all
+recommended but the effects, where all three were picked; Q-088's buff,
+step 1) A burning campfire bumped says its first words and opens Sit by
+the fire?, its second words under it, No picked (offered too: just
+standing beside it; only when sleeping out beside it). Yes, a turn:
+hearts back, blazing 2, embers 1, never above full (offered too: 1
+either way; 2 either way), and stiff ends; the fire burns down a level,
+blazing to embers, embers to cold ashes (offered too: once a day a fire;
+both). Warmed, the lantern burning slower for a while, comes next, its
+own step (offered too: all three at once; one at a time). Claude's
+calls the owner may change: Yes grey with full hearts and not stiff;
+"You sit by the fire and warm up."; no sound of its own yet. D-839
+moves to `archive/DECISIONS-SOUNDS.md`, word for word. Its card's
+heading, Yes and No superseded by D-849 (2026-11-12).

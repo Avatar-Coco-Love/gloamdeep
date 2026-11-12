@@ -4,15 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.296 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.297 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 Your own campfire's words (Q-088): a fire the hero built still shows
 the found fire's notes ("No one has sat here for a long time."); propose
 its own words, and whether it can be taken back down, with options.
+Then the bugs in `BUGS.md` (D-852), one at a time, B-001 first.
 
 ## Waiting on the owner
+- Bugs the owner noticed (`BUGS.md`): B-001 to B-004, each its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
@@ -43,6 +45,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.297, A bug list.** The owner's pick (D-852),
+  recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
+  so "Next up" is all a new conversation needs. The first four: the
+  Peddler at home, sleeping ends a fight, a burrowed mole, the map.
 - **2026-11-12, 0.3.296, Build a campfire.** The owner's picks (D-851),
   all recommended: the Campfire on the bag's Make tab, 3 Stone and 2
   Wood, one carried, drawn as cold ashes, plain words; it holds its own
@@ -52,8 +58,3 @@ list in `RESEARCH.md`.
   picks (D-850), all recommended but where: made on the bag's Make tab,
   3 Stone and 2 Wood, set down as cold ashes; only on the surface for
   now, after the owner asked Claude's true view of anywhere.
-- **2026-11-12, 0.3.294, Add wood.** The owner's picks (D-849), all
-  recommended: a burning fire's card shows Sit and Add wood; 1 Wood and
-  a turn make embers blazing; blazing takes no more, ashes still need
-  oil.
-  Playtest: https://claude.ai/artifact/WFHpGzDdvZYcn7RUgPF4no

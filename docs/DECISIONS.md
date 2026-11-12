@@ -95,21 +95,6 @@ A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
 
-**D-844 · 2026-11-12 · Sitting by a campfire** (the owner's picks, all
-recommended but the effects, where all three were picked; Q-088's buff,
-step 1) A burning campfire bumped says its first words and opens Sit by
-the fire?, its second words under it, No picked (offered too: just
-standing beside it; only when sleeping out beside it). Yes, a turn:
-hearts back, blazing 2, embers 1, never above full (offered too: 1
-either way; 2 either way), and stiff ends; the fire burns down a level,
-blazing to embers, embers to cold ashes (offered too: once a day a fire;
-both). Warmed, the lantern burning slower for a while, comes next, its
-own step (offered too: all three at once; one at a time). Claude's
-calls the owner may change: Yes grey with full hearts and not stiff;
-"You sit by the fire and warm up."; no sound of its own yet. D-839
-moves to `archive/DECISIONS-SOUNDS.md`, word for word. Its card's
-heading, Yes and No superseded by D-849 (2026-11-12).
-
 **D-845 · 2026-11-12 · Warmed** (the owner's picks, all recommended;
 Q-088's buff, step 2) Sitting by a burning campfire also leaves the hero
 Warmed for the fire's turns, blazing 60, embers 30 (offered too: 60
@@ -194,4 +179,13 @@ campfire." (offered too: up to 3; up to 5). The code: the campfire
 holds its own recipe, `made`, so its button stays Set down (offered
 too: Stone holding two recipes; a recipe-only entry). D-827 moves to
 `archive/DECISIONS-AUDITS.md`, D-846 to `archive/DECISIONS-SOUNDS.md`,
+word for word.
+
+**D-852 · 2026-11-12 · A bug list** (the owner's pick, recommended;
+the owner's wish to say just "Next up") Bugs the owner notices go in
+`docs/BUGS.md`, each with its own number, B-001 on, in the owner's
+words, with their ideas (offered too: as questions in
+`OPEN-QUESTIONS.md`; in `PROGRESS.md`). Next up and "Waiting on the
+owner" name them, so a new conversation finds them. Fixed ones move to
+`archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.

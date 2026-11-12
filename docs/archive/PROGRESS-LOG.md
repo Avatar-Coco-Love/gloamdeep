@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.294, Add wood.** The owner's picks (D-849), all
+  recommended: a burning fire's card shows Sit and Add wood; 1 Wood and
+  a turn make embers blazing; blazing takes no more, ashes still need
+  oil.
+  Playtest: https://claude.ai/artifact/WFHpGzDdvZYcn7RUgPF4no
 - **2026-11-12, 0.3.293, Bad marks.** The owner's idea and picks
   (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
   20 turns (recommended); bad marks sit on dark red glass.
