@@ -7,8 +7,8 @@ players notice first. Each finding's details stay in `HEALTH-CHECK.md`
 conversation: Claude checks each finding still holds, offers 2 or 3
 fixes with a recommendation, and builds only the owner's picks. A done
 step gets its version here. No new content until every step is done.
-The 0.3.312 audit comes in at its version, wherever the list stands,
-and takes H-22 to H-24, H-31 and H-66.
+The audit comes in at 0.3.313, after step 5 (D-867), and takes H-22
+to H-24, H-31 and H-66.
 
 1. **Hearts:** the bed's gold heart (H-01); the Heart tile's count (H-19).
    Done at 0.3.308 (D-863).
@@ -19,7 +19,8 @@ and takes H-22 to H-24, H-31 and H-66.
    second one-of-a-kind piece (H-67), the owner's find. Done at 0.3.310
    (D-865).
 4. **First words over the ask card** (H-33). Done at 0.3.311 (D-866).
-5. **The Look card:** the tabs' taps (H-34); the keyboard (H-37).
+5. **The Look card:** the tabs' taps (H-34); the keyboard (H-37). Done
+   at 0.3.312 (D-867).
 6. **One words page,** every wording approved at once: H-12, H-15,
    H-20, H-39, H-40, H-41, H-43, H-45, H-47.
 7. **The marks:** a pad round each (H-36); a second row (H-55).

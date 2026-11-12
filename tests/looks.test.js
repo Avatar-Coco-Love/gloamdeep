@@ -112,8 +112,8 @@ test('the arrows walk the look card: Up from a choice to the open tab, Down from
   assert.equal(moveLook('cloak', keyOf('cloak', 'stars'), 'down'), keyOf('cloak', 'random')); // RANDOM under the first two (D-522)
   assert.equal(moveLook('cloak', keyOf('cloak', 'moth'), 'down'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'down'), keyOf('cloak', 'ok')); // no Back: the cross goes back (D-399)
-  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), keyOf('cloak', 'moth'));
-  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), keyOf('cloak', 'tiger'));
+  assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'up'), tabKey('cloak')); // the open tab, no choice picked on the way (H-37, D-867)
+  assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'up'), tabKey('cloak')); // a rolled look kept
   assert.equal(moveLook('cloak', keyOf('cloak', 'random'), 'right'), keyOf('cloak', 'ok'));
   assert.equal(moveLook('cloak', keyOf('cloak', 'ok'), 'left'), keyOf('cloak', 'random'));
   assert.equal(moveLook('eyes', keyOf('eyes', 'silver'), 'up'), keyOf('eyes', 'ice'));
@@ -127,7 +127,7 @@ test('the arrows walk the look card: Up from a choice to the open tab, Down from
   assert.equal(moveLook('cloak', tabKey('cloak'), 'up'), tabKey('cloak'));
   assert.equal(moveLook('clothes', keyOf('clothes', 'belted'), 'down'), keyOf('clothes', 'tattered'));
   assert.equal(moveLook('clothes', keyOf('clothes', 'tattered'), 'down'), keyOf('clothes', 'random'));
-  assert.equal(moveLook('clothes', keyOf('clothes', 'ok'), 'up'), keyOf('clothes', 'tattered'));
+  assert.equal(moveLook('clothes', keyOf('clothes', 'ok'), 'up'), tabKey('clothes'));
 });
 
 test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; outside it is out', () => {
@@ -142,7 +142,8 @@ test('a tap on the look card picks a tab, a choice, OK, the cross, or nothing; o
   const tabsY = Array.from({ length: vh }, (_, y) => y).find((y) => LOOK_PADS.cloak[lookCardAt(Math.floor(vw / 2), y, vw, vh)?.key]?.tab) + 3, hit = (x, y, tab = 'cloak') => lookCardAt(x, y, vw, vh, tab)?.key;
   const across = (y) => { const ks = []; for (let x = card.x; x < card.x + card.w; x++) { const k = hit(x, y); if (k !== undefined && !ks.includes(k)) ks.push(k); } return ks; };
   assert.deepEqual(across(tabsY), [0, 1, 2]); // too narrow for six: the first three tabs left to right,
-  assert.deepEqual(across(tabsY + 13), [3, 4, 5]); // and CLOTHES, LAMP and HEAD in a row under them (D-702, D-703)
+  assert.deepEqual(across(tabsY + 22), [3, 4, 5]); // and CLOTHES, LAMP and HEAD in a row under them (D-702, D-703)
+  for (const t of boxesAt(vw, vh).tabs) assert.ok((t.h + 2) * 2 >= 44, 'a tab\'s tap 44 px at 2x (D-513, H-34)');
   assert.equal(lookCardAt(card.x + 3, tabsY - 40, vw, vh), null); // the glass beside the big hero
 });
 
@@ -163,8 +164,8 @@ test('the look card fits: the big hero, the tabs, then both rows clear of the bu
 });
 
 test('on a view too short for every row, the boxes drop their names; bigger views keep them (D-700)', () => {
-  assert.equal(boxesAt(176, 221).named, false); // the menus' picture, upright
-  assert.equal(boxesAt(176, 221).bh, 22);
+  assert.equal(boxesAt(176, 200).named, false); // shorter than the menus' picture, upright
+  assert.equal(boxesAt(176, 221).named, true); // the menus' picture: a window of two rows, named (D-867)
   for (const [vw, vh] of [[195, 422], [420, 221]]) assert.equal(boxesAt(vw, vh).named, true, `${vw}x${vh}`);
 });
 

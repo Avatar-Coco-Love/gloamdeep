@@ -1367,3 +1367,12 @@ own entry, `sight: 5`, so another creature can have its own later
 you in the light, within 5 steps, it digs down..." (offered too: the
 words as they were). The owner's new idea, deep moles for stone floors,
 is Q-096. D-850 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-859 · 2026-11-12 · Daylight still remembers the whole room** (the
+owner's pick, recommended; closes B-004) In daylight, the whole room the
+hero stands in is still remembered at once, the parts off the screen
+too, as D-209 has it. So a woods room only stepped into shows in full on
+the map, likely what B-004 saw; no room never entered was found showing.
+Offered too: only the tiles the screen shows; what the hero could see
+from where they stand. The owner: it will matter if rooms get really
+big, Q-097.

@@ -20,11 +20,11 @@ import { onWipe } from './wipe.js';
 const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
 const boxH = (s, named = true) => 16 * s + (named ? 14 : 6); // a box's height with its hero s×: the hero, its name (none on a view too short, D-700) and the space round them
-const ZOOM_MIN = 1, ZOOM_MAX = 12, BIG_BOXES = 6; // the big hero's zoom, as big as fits (D-523, D-526), under 3× only on the smallest views with the third row (D-533); the least zoom that still lets the boxes be 2×
+const ZOOM_MIN = 1, ZOOM_MAX = 12, BIG_BOXES = 5; // the big hero's zoom, as big as fits (D-523, D-526), under 3× only on the smallest views with the third row (D-533); the least zoom that still lets the boxes be 2×, 5 so the tall tabs keep them 2× on a phone (D-867)
 const stageW = (z) => 16 * z + 16, stageH = (z) => 16 * z + 4; // its lit floor at zoom z
 const LINE = FONT_H + 2; // a line of text and the gap under it
 const RULE = 20; // the card's rule under its heading, from its top
-const TAB_H = 11, TAB_GAP = 2, TAB_PAD = 8; // a tab's height, the space between tabs, and its width past its name
+const TAB_H = 20, TAB_GAP = 2, TAB_PAD = 8; // a tab's height, with half the gap each side a 44 px tap at 2× (D-513, D-867), the space between tabs, and its width past its name
 // The tabs' names' widths; how many rows of them fit across w, one or, too narrow, two (D-702); their height with the space under it
 const tabWs = () => LOOK_PADS.cloak.filter((k) => k.tab).map((k) => textWidth(tabOf(k.id).name) + TAB_PAD);
 const tabLines = (w, ws = tabWs()) => (ws.reduce((a, v) => a + v, 0) + (ws.length - 1) * TAB_GAP <= w ? 1 : 2);

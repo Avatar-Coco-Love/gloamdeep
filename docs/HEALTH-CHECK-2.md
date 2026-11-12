@@ -26,7 +26,8 @@ in a script; "read" seen in the code only.
   D-757, D-844, D-770 put them on the line. Played. Suggests: draw the
   line over the card when a bump opened it. Done at 0.3.311 (D-866).
 - **H-34 The Look card's tabs are 26 px tall on a phone** (`cloak.js:27`);
-  D-513's 44 px. Played. Suggests: taller taps, same look.
+  D-513's 44 px. Played. Suggests: taller taps, same look. Done at
+  0.3.312 (D-867).
 
 ## 2. Some players notice
 - **H-35** The boon's words say "until you are home"; it ends at the
@@ -38,6 +39,7 @@ in a script; "read" seen in the code only.
 - **H-37** The Look card by keyboard: Up from RANDOM re-picks every
   cloak passed, losing the rolled one (`looks.js:154-158`,
   `profilescreens.js:73`, D-522). Played. Suggests: Up jumps to the tab.
+  Done at 0.3.312 (D-867).
 - **H-39** How to play never names the bag (I) or map (M) keys or
   buttons (`howto.js`, D-193 came first). Suggests: a row for each.
 - **H-40** Names capitalised two ways ("Oil flask", "Stone Pick";

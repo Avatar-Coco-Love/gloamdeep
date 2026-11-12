@@ -39,18 +39,18 @@ test('each lamp is drawn in place of the lantern: the lantern\'s own pixels kept
   }
 });
 
-test('five tabs in one row on a wide view; two rows and a window of 3 on the smallest (D-702)', () => {
+test('five tabs in one row on a wide view; two rows and a window of 2 on the smallest (D-702, D-867)', () => {
   const wide = boxesAt(844, 390);
   assert.equal(new Set(wide.tabs.map((t) => t.y)).size, 1);
   assert.equal(wide.shown, LOOK_SHOWN);
   const small = boxesAt(176, 221);
   assert.equal(new Set(small.tabs.map((t) => t.y)).size, 2);
-  assert.equal(small.shown, 3);
-  assert.ok(small.y + 3 * small.bh + 4 < small.row.ok.y, 'the boxes clear of the buttons');
+  assert.equal(small.shown, 2); // the tall tabs leave room for two rows there (D-867)
+  assert.ok(small.y + 2 * small.bh + 2 < small.row.ok.y, 'the boxes clear of the buttons');
   assert.ok(barAt(small, 0, 4), 'the cloak\'s four rows scroll there, with the bar');
   const moth = LOOK_PADS.cloak.findIndex((k) => k.id === 'moth');
-  assert.equal(lookScrollTo('cloak', 0, moth, small.shown), 1); // the flame on the fourth row scrolls one
-  const third = (scroll) => LOOK_PADS.cloak[lookCardAt(small.x + 2, small.y + 2 * (small.bh + 2) + 2, 176, 221, 'cloak', scroll)?.key]?.id;
-  assert.equal(third(0), 'zebra'); // the window's foot: the third row
-  assert.equal(third(1), 'tiger'); // scrolled a row: the fourth
+  assert.equal(lookScrollTo('cloak', 0, moth, small.shown), 2); // the flame on the fourth row scrolls two
+  const second = (scroll) => LOOK_PADS.cloak[lookCardAt(small.x + 2, small.y + (small.bh + 2) + 2, 176, 221, 'cloak', scroll)?.key]?.id;
+  assert.equal(second(0), 'rust'); // the window's foot: the second row
+  assert.equal(second(1), 'zebra'); // scrolled a row: the third
 });

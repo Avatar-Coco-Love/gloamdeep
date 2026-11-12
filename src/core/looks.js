@@ -150,10 +150,11 @@ export function lookScrollTo(tab, scroll, i, shown = LOOK_SHOWN) {
 export const isLocked = (tab, id, bought = []) => !!tabOf(tab)?.table[id]?.locked && !bought.includes(id);
 export const LOOK_PADS = Object.fromEntries(LOOK_TABS.map((t) => [t.id, lookPad(t.ids)]));
 export const tabOf = (id) => LOOK_TABS.find((t) => t.id === id);
-// Key i on tab `tab`'s pad moved `dir`; picked: the tab's choice now (look[tab])
+// Key i on tab `tab`'s pad moved `dir`; picked: the tab's choice now (look[tab]). Up from the
+// first row, RANDOM or OK goes to the open tab, so no choice is picked on the way (D-867)
 export function moveLook(tab, i, dir, picked) {
   const pad = LOOK_PADS[tab], k = pad[i];
-  if (dir === 'up' && k.row === 1) return pad.findIndex((p) => p.tab && p.id === tab);
+  if (dir === 'up' && (k.row === 1 || k.id === 'random' || k.id === 'ok')) return pad.findIndex((p) => p.tab && p.id === tab);
   if (dir === 'down' && k.tab) return pad.findIndex((p) => !p.tab && p.id === picked);
   return moveOn(pad, i, dir);
 }
