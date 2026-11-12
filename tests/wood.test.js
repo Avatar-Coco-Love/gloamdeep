@@ -66,12 +66,16 @@ test('the bag shows the look of the last stick picked', () => {
   assert.deepEqual(bagAdd([], 'flask'), [{ id: 'flask', n: 1 }], 'others have no look');
 });
 
-test('with every slot a full stack the stick stays on the floor, with no line', () => {
+test('with every slot a full stack the stick stays on the floor, with its full line (H-02, D-864)', () => {
   const full = Array.from({ length: 6 }, () => ({ id: 'wood', n: 20, form: 0 }));
   const n = step(withWood({ ...makeState(room), bag: full }), 'up');
   assert.deepEqual(n.bag, full);
   assert.equal(itemAt(n, 5, 10).id, 'wood');
-  assert.equal(shownLine(n), null);
+  assert.equal(shownLine(n).text, "You can't carry more wood.");
+  const other = Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 }));
+  const none = step(withWood({ ...makeState(room), bag: other }), 'up');
+  assert.equal(itemAt(none, 5, 10).id, 'wood');
+  assert.equal(shownLine(none).text, 'Your bag is full.', 'with no wood carried');
 });
 
 test('choosing Wood in the bag says its look lines in turn, no turn passing', () => {

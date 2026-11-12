@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.308 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.309 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The health check's 19 steps (D-860 to D-862), one a conversation, in
 `HEALTH-CHECK-ORDER.md`'s order, no new content till done: the first
-not yet done, now step 2, A full bag (H-02, H-18).
+not yet done, now step 3, Boons at the home stone (H-32, H-44, H-35).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -46,6 +46,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.309, A full bag says so.** Health check step 2: a
+  find with no room in the bag says "Your bag is full.", or its own
+  line when some is carried; wood gets "You can't carry more wood."
+  (H-02). A second one-of-a-kind piece from the lost bag, a chest or a
+  dropped stack says its own line (H-18). D-864.
+  Playtest: https://claude.ai/artifact/NzqMEp7HKPXzSJS3u9eA8s
 - **2026-11-12, 0.3.308, Hearts kept.** Health check step 1: the bed's
   gold heart stays through a boon taken or ended, a campfire and a warm
   bedroll, one past the most; only a bite or a fall takes it (H-01).
@@ -56,9 +62,3 @@ list in `RESEARCH.md`.
   order of 19 grouped steps, most noticed first (D-862); five loose
   ends became Q-098 to Q-102; the old branch is kept for H-57. Docs
   only, no playtest.
-- **2026-11-12, 0.3.306, The second health check's steps.** A second
-  health check of 0.3.305, no game code changed: 35 findings, H-32 to
-  H-66. The owner picked every one players see as steps (D-861), in
-  `HEALTH-CHECK-2.md`, after the first list's; the art as one step; the
-  docs into the first's docs step. Docs only, no playtest.
-  Report: https://claude.ai/artifact/6pEthoRVefYZUSCYPbE17e

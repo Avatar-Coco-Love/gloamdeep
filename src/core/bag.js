@@ -30,6 +30,15 @@ export function bagAdd(bag, id, form, slots = BAG_SLOTS) {
 // Whether item `id` has stacks and all of them are at their limit
 export const stackFull = (bag, id) => bag.some((s) => s.id === id) && bag.every((s) => s.id !== id || s.n >= most(id));
 
+// The line when item `id` finds no room in `bag` (`slots` long): its own `full` line
+// when one of its kind is carried ("You can't carry more oilcaps.", "You already carry
+// a workbench."), else "Your bag is full." (H-02, D-864). With `slots`, a bag that is
+// really full always says "Your bag is full." (the lost bag, a chest, H-18).
+export function noRoom(bag, id, slots) {
+  if (slots !== undefined && bag.length >= slots) return 'bagFull';
+  return (bag.some((s) => s.id === id) && get(id)?.full) || 'bagFull';
+}
+
 // How many of item `id` the bag holds, in all its stacks (the workbench's card, D-387)
 export const carried = (bag, id) => bag.reduce((a, s) => a + (s.id === id ? s.n : 0), 0);
 // Whether the bag holds at least `of`'s counts, { itemId: n } (a bench craft's cost, CH1)

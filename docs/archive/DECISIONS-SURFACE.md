@@ -1334,3 +1334,12 @@ change: never on the stone's own 3 × 3, so the way onto it stays clear.
 An older save's Peddler already at home in the middle room moves there
 once, keeping his greeting, not beaming in (offered too: stays put).
 D-847 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-856 · 2026-11-12 · The bed won't sleep in a fight** (the owner's
+picks, all recommended; fixes B-002) Bumped at night with a creature
+after the hero, the bed sleeps no more than the moon button does
+(D-758, D-826): it says "Not with a creature after you.", free, the
+same line (offered too: a bed-only line), so a fight can't be slept
+away (offered too: the hero lies down and is woken by a bite; those
+chasing are still there in the morning). D-848 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

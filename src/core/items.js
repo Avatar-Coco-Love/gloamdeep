@@ -123,9 +123,9 @@ export const ITEMS = {
   // The first wood (W1, D-314): sticks lying in the woods, 3 a room, into the
   // bag the oilcap's way in stacks of 20 (D-333), with lines in turn. Each one lies in
   // one of `forms` looks (a straight stick, a forked twig, a crooked branch);
-  // the bag shows the last one picked. With no room it stays, no line.
+  // the bag shows the last one picked. With no room it stays, with its full line (H-02, D-864).
   // Make turns 3 into a workbench (WB1, D-320).
-  wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, max: 20, says: 'woodTake', look: 'woodLook', forms: 3, regrow: DAY_TURNS,
+  wood: { id: 'wood', kind: 'item', name: 'Wood', bag: true, max: 20, says: 'woodTake', look: 'woodLook', full: 'woodFull', forms: 3, regrow: DAY_TURNS,
     craft: { into: 'workbench', of: 3, says: 'benchMake' } },
   // Made from 3 Wood in the bag, never found (WB1, D-320). Only `max` 1 is carried;
   // choosing it says one of its `look` lines. Set down, it `sets` the bench tile on

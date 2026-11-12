@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.306, The second health check's steps.** A second
+  health check of 0.3.305, no game code changed: 35 findings, H-32 to
+  H-66. The owner picked every one players see as steps (D-861), in
+  `HEALTH-CHECK-2.md`, after the first list's; the art as one step; the
+  docs into the first's docs step. Docs only, no playtest.
+  Report: https://claude.ai/artifact/6pEthoRVefYZUSCYPbE17e
 - **2026-11-12, 0.3.305, The health check's steps.** A full health
   check of 0.3.304, no game code changed: 31 findings, each with fixes
   offered. The owner picked all but three to become steps (D-860), in

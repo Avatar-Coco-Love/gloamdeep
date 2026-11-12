@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.309', date: '2026-11-12', title: 'A full bag says so', lines: [
+    "Stepping on a find with no room in your bag now always says why: \"Your bag is full.\", or its own line when you carry some of it, like \"You can't carry more wood.\"",
+    "A second workbench, chest or other one-of-a-kind piece from your lost bag, a stash chest or a stack you set down now says \"You already carry a workbench.\" (or its own line), not \"Your bag is full.\" when it isn't.",
+    "Decisions: D-864.",
+  ] },
   { v: '0.3.308', date: '2026-11-12', title: 'Hearts kept', lines: [
     "The gold heart from sleeping in your bed now stays when you take a boon, when a boon ends, when you sit by a campfire and when you wake warm in your fur bedroll. Only a bite or a fall takes it.",
     "The Growth tree's Heart tile counts only the hearts you have grown, never a boon's: no more \"Hearts 12 of 10\".",

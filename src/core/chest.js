@@ -2,7 +2,7 @@
 // are a 4 × 3 grid, the bag's beside them (6 a 3 × 2 grid, 9 a 3 × 3, 12 a 4 × 3, D-548);
 // `chosen` is a chest slot, 0 to 11, a bag slot, from 12 (CHEST_BAG + i), or CHEST_TAKE
 // for its Deconstruct button (CH5), CHEST_STORE for its Store (D-556). Plain data, no drawing.
-import { MAX_BAG, bagAdd, bagSize, bagCols, bagPay, carried } from './bag.js';
+import { MAX_BAG, bagAdd, bagSize, bagCols, bagPay, carried, noRoom } from './bag.js';
 import { say } from './lines.js';
 import { tileAt } from './room.js';
 
@@ -56,17 +56,19 @@ function put(to, s, slots) {
 // § move: picking a filled slot on the chest's card moves its stack to the other
 // side, free, with no line; an emptied slot is gone and the ones after it move up,
 // the bag's way. What can't go stays in its slot, with "Your bag is full." or
-// "The chest is full.", free (D-331, D-333)
+// "The chest is full.", free (D-331, D-333); out of the chest with room in the bag, a
+// one-of-a-kind piece's own line, "You already carry a workbench." (H-18, D-864)
 export function moveStack(state, x, y, i) {
   const stash = stashAt(state, x, y), out = i < CHEST_BAG;
   const from = out ? stash : state.bag, at = out ? i : i - CHEST_BAG, s = from[at];
   if (!s) return state;
   const { to, left } = put(out ? state.bag : stash, s, out ? bagSize(state) : CHEST_SLOTS);
-  if (left === s.n) return say(state, out ? 'bagFull' : 'stashFull');
+  const full = out ? noRoom(to, s.id, bagSize(state)) : 'stashFull';
+  if (left === s.n) return say(state, full);
   const rest = left ? from.map((o, k) => (k === at ? { ...o, n: left } : o)) : from.filter((o, k) => k !== at);
   const [bag, kept] = out ? [to, rest] : [rest, to];
   const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: kept } };
-  return left ? say(moved, out ? 'bagFull' : 'stashFull') : moved;
+  return left ? say(moved, full) : moved;
 }
 
 // § store: Store on the chest's card moves every bag stack whose kind the chest already

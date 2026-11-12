@@ -26,6 +26,7 @@ seen in the code only.
   `turn.js:112`). Any find with none of its kind carried is silent too,
   the locket included, as D-339 has it; D-511 fixed only the herb. Ran.
   Suggests: every find says "Your bag is full.", wood its own line.
+  Done at 0.3.309 (D-864).
 
 ## 2. Clear bugs, one step each
 - **H-05 A scorpion's rest is cut short near a spit grub.**
@@ -82,6 +83,7 @@ seen in the code only.
   waking (`bagturn.js:149-151`, D-791). Ran.
 - **H-18** A second one-of-a-kind piece from the lost bag or a chest
   says "Your bag is full." (`fall.js:16-27`, `chest.js:71`). Ran.
+  Done at 0.3.309 (D-864).
 - **H-19** The Heart tile counts boon hearts: "Hearts 12 of 10"
   (`growth.js:88`). Ran. Done at 0.3.308 (D-863).
 - **H-20** "Healing herb" on cards, "Herb" in lines (`lines.js:331`).

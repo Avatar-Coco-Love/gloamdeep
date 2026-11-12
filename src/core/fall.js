@@ -4,7 +4,7 @@ import { arrive, stepAside, fresh as freshPlace } from './stairs.js';
 import { OIL } from './oil.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
-import { bagAdd, bagSize } from './bag.js';
+import { bagAdd, bagSize, noRoom } from './bag.js';
 import { priceOf } from './trade.js';
 import { note } from './events.js';
 import { newJourney, maxHealth, withoutBoon } from './state.js';
@@ -12,7 +12,8 @@ import { wakeSpot } from './waking.js';
 
 // § fetch: walking onto the bag where you fell puts back what fits, a stack at a
 // time, kinds topping up their stacks first; all back, it is gone with "You take
-// back your bag.", else the rest stays in it with "Your bag is full." (MO3, D-345)
+// back your bag.", else the rest stays in it with "Your bag is full." (MO3, D-345), or
+// with room left, the first piece kept back's own line: "You already carry a workbench." (H-18, D-864)
 export function fetchBag(state, found) {
   const entry = get(found.id), left = [];
   let bag = state.bag;
@@ -22,7 +23,7 @@ export function fetchBag(state, found) {
     if (n < s.n) left.push({ ...s, n: s.n - n });
   }
   const items = state.items.filter((it) => it !== found);
-  if (left.length) return say({ ...state, bag, items: [...items, { ...found, holds: left }] }, entry.full);
+  if (left.length) return say({ ...state, bag, items: [...items, { ...found, holds: left }] }, noRoom(bag, left[0].id, bagSize(state)));
   return note(say({ ...state, bag, items }, entry.says), 'take', { id: found.id });
 }
 
