@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.316 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.317 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 8,
-two clear bugs (H-05, H-11).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 9,
+the Peddler's room refuses torches (H-09).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.317, Two clear bugs.** Health check step 8: the
+  spit grub's turn counts down only spitters' rests, so a scorpion near
+  one rests its full turn (H-05); a drink that takes the oil low or dry
+  warns, its line over the drink's, with its sound (H-11). D-872.
+  Playtest: https://claude.ai/artifact/Aw7eXc7wnRGi755FWJoQns
 - **2026-11-12, 0.3.316, The marks.** Health check step 7: a tap up to
   4 game pixels past a mark finds it, the gaps split (H-36); a row of
   marks stops left of the round map and goes on to a second row (H-55).
@@ -58,8 +63,3 @@ list in `RESEARCH.md`.
   rows (H-12, H-39); "1 turn left." (H-43); the lure wisp's and bone
   rat's words (H-45); "Journey ends" (H-47). D-870.
   Playtest: https://claude.ai/artifact/86zoMCT5yD96SEc7y6d8MZ
-- **2026-11-12, 0.3.314, Three small risks.** A boulder never grows
-  back on a waystone's ring; a drop with no open tile beside it lies
-  further out, never on water; dev Spawn never on a person (H-24). The
-  unused `craft()` is out, its tests on `makeFrom`. D-869, Q-103.
-  Playtest: https://claude.ai/artifact/Tkv2JWk9F2sCpFncqYZCwy

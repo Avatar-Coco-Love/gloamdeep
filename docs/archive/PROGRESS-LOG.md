@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.314, Three small risks.** A boulder never grows
+  back on a waystone's ring; a drop with no open tile beside it lies
+  further out, never on water; dev Spawn never on a person (H-24). The
+  unused `craft()` is out, its tests on `makeFrom`. D-869, Q-103.
+  Playtest: https://claude.ai/artifact/Tkv2JWk9F2sCpFncqYZCwy
 - **2026-11-12, 0.3.313, The fifteenth audit.** Nothing visible
   changed. main.js's sounds go to `hearing.js`; the Version history
   loads on opening, 12 files fewer at the start (H-23); stale comments
