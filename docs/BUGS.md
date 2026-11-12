@@ -12,6 +12,4 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-004 · 2026-11-12 · Daylight shows unseen rooms on the map** In
-daylight, the other surface rooms show on the map, even ones the hero
-has never been to.
+None open.

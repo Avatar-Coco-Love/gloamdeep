@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.301 (2026-11-12)
+- Fixed: you can no longer sleep a fight away. Bumping your bed at night with a creature after you now says "Not with a creature after you." and takes no turn, as sleeping out under the sky already did. A shy creature nearby, like a bunny, still doesn't stop you.
+- Decisions: D-856. Bugs fixed: B-002.
+
 ## 0.3.300 (2026-11-12)
 - Fixed: the Peddler is home by the waystone. Freed, he now waits in the home waystone's room, just below its middle, never on the stone itself. Before, he went to the middle room of the woods, a room away, so he seemed missing.
 - In a journey saved before this, a Peddler already home moves there once, still knowing you.

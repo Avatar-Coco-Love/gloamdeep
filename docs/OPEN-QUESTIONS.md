@@ -106,3 +106,9 @@ heartbeat is D-835, a cave's drips D-836, music on the surface D-837, in the roc
 offline; swaps for any of Claude's picks (D-833), kept for now. Every
 line of `docs/SOUNDS.md` now has its file (D-774 to D-777, D-819, D-820,
 D-825, D-828, D-830 to D-841).
+
+**Q-097 · Daylight in very big rooms** (raised 2026-11-12, the owner's
+note with D-859) Daylight remembers a whole room at once, off the screen
+too. Fine for the woods' 17 × 20 rooms, but a problem if rooms get really
+big. Claude's options then: only the tiles the screen shows; what the
+hero could see from where they stand.
