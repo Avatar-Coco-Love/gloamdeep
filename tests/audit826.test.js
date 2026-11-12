@@ -16,7 +16,7 @@ globalThis.matchMedia ??= () => ({ matches: false, addEventListener() {} });
 const { drawBag } = await import('../src/render/bag.js');
 const { makeRoom, SKY } = await import('../src/core/room.js');
 const { makeState, canSleepOut } = await import('../src/core/turn.js');
-const { craft, makeFrom, hold } = await import('../src/core/bagturn.js');
+const { makeFrom, hold } = await import('../src/core/bagturn.js');
 const { shownLine } = await import('../src/core/lines.js');
 
 const WOODS = ['TTTTTT', 'T...TT', 'T....T', 'T....T', 'TTTTTT'];
@@ -31,7 +31,7 @@ test('B1: a Herb chosen with a mortar recipe using it known draws its card, EAT 
 
 test('B2: MAKE with a full bag says the bag is full, not that one is carried', () => {
   const full = outside({ bag: [{ id: 'wood', n: 4 }, ...FILL] });
-  assert.equal(shownLine(craft(full, 0)).text, 'Your bag is full.');
+  assert.equal(shownLine(makeFrom(full, 'wood')).text, 'Your bag is full.');
   const stones = outside({ bag: [{ id: 'stone', n: 5 }, { id: 'wood', n: 2 }, { id: 'herb', n: 1 }, { id: 'oilcap', n: 1 }, { id: 'mothDust', n: 1 }, { id: 'gloamberry', n: 1 }] });
   assert.equal(shownLine(makeFrom(stones, 'stone')).text, 'Your bag is full.');
   const carried = outside({ bag: [{ id: 'stone', n: 5 }, { id: 'wood', n: 2 }, { id: 'mortar', n: 1 }] });

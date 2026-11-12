@@ -8,6 +8,7 @@ import { itemAt } from './turn.js';
 import { lightAt } from './lights.js';
 import { mountAt } from './mount.js';
 import { enemyAt } from './enemies.js';
+import { personAt } from './people.js';
 
 export function spawn(state, id, x, y) {
   const entry = get(id), room = state.room;
@@ -16,15 +17,15 @@ export function spawn(state, id, x, y) {
     if (tileAt(room, x, y) === entry) return state;
     const onHero = state.hero.x === x && state.hero.y === y;
     if (onHero && entry.solid) return state; // a wall can't go on the hero (D-049)
-    if (entry.solid && (itemAt(state, x, y) || enemyAt(state, x, y))) return state; // nor on an item or enemy (D-079, D-108)
+    if (entry.solid && (itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y))) return state; // nor on an item, enemy (D-079, D-108) or person (D-869)
     const next = withTile(room, x, y, entry);
     // every light must still have somewhere to sit; it turns to fit if it can (D-099, D-102)
     if (state.lights.some((l) => !mountAt(next, l.x, l.y))) return state;
     return { ...state, room: next };
   }
-  if (entry.kind === 'item' || entry.kind === 'enemy') { // on floor, off the hero, one thing per tile (D-079, D-108)
+  if (entry.kind === 'item' || entry.kind === 'enemy') { // on floor, off the hero and people, one thing per tile (D-079, D-108, D-869)
     const onHero = state.hero.x === x && state.hero.y === y;
-    if (onHero || tileAt(room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y)) return state;
+    if (onHero || personAt(state, x, y) || tileAt(room, x, y).solid || itemAt(state, x, y) || enemyAt(state, x, y)) return state;
     const list = entry.kind === 'item' ? 'items' : 'enemies';
     // one in disguise starts asleep (D-368); each is marked `spawned`, so beating it or pouring it counts in no Records (D-720)
     return { ...state, [list]: [...state[list], { id, x, y, ...(asleepAtFirst(entry) && { asleep: true }), spawned: true }] };

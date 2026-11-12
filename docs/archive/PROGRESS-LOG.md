@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.311, First words over the ask card.** Health check
+  step 4: a campfire's and the miners' camp's first words show on the
+  text line over their ask card, only while they are the line out
+  (H-33). D-866.
+  Playtest: https://claude.ai/artifact/6A1Pnd1dXXRDT1xnkhRtqJ
 - **2026-11-12, 0.3.310, Boons at the home stone.** Health check step 3:
   arriving on the home plate by travel or a fall offers the boon card
   (H-32); the same 3 boons until you leave the room (H-44); "until you

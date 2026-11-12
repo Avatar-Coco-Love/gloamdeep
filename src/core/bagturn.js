@@ -8,7 +8,7 @@ import { say } from './lines.js';
 import { enemyAt } from './enemies.js';
 import { personAt } from './people.js';
 import { offEdge } from './openings.js';
-import { bagAdd, bagTake, bagHas, bagPay, canCraft, bagSize, sortBag, sameBag, isFlask, devPour } from './bag.js';
+import { bagAdd, bagTake, bagHas, bagPay, bagSize, sortBag, sameBag, isFlask, devPour } from './bag.js';
 import { note, fresh } from './events.js';
 import { grown } from './upgrades.js';
 import { pourOf, healOf } from './boon.js';
@@ -48,25 +48,11 @@ export function pour(state, i) {
   return endTurn(state, { ...next, ...dev.rest, bag, oil: Math.min(1, next.oil + pourOf(state, entry)) });
 }
 
-// § craft: Make on bag slot i turns its item's `craft.of` into one
-// `craft.into`, which goes on its stack or in a slot at the end, and passes a
-// turn, like a pour, with its line (D-299). With too few, nothing happens;
-// with no room for what it makes, its `full` line is said, free, and the bag
-// stays as it was. A mixed cost is taken from the whole bag (D-477). With Thrift, about 1
-// making in 4 keeps 1 of its most-used part, with its own line (thrift.js, D-818), here and
-// in each making below.
-export function craft(state, i) {
-  const s = state.bag[i], recipe = s && get(s.id).craft;
-  if (!canCraft(state.bag, i)) return state;
-  const { of, kept } = thrift(state, costOf(s.id));
-  const paid = typeof recipe.of === 'number' ? bagTake(state.bag, i, of[s.id] ?? 0) : bagPay(state.bag, of);
-  const bag = bagAdd(paid, recipe.into, undefined, bagSize(state));
-  if (!bag) return say(state, state.bag.some((s) => s.id === recipe.into) ? get(recipe.into).full : 'bagFull'); // full, or one already carried (D-826);
-  return endTurn(state, keptSay({ ...passTurn(state), bag }, kept, recipe.says));
-}
-
 // § make in the bag: MAKE on the bag's Make tab (D-787) makes find `from`'s recipe's `into`, its
-// cost taken from the whole bag, as craft above does otherwise
+// cost taken from the whole bag, and passes a turn, with its line (D-299). With too few, nothing
+// happens; with no room for what it makes, its `full` line is said, free, and the bag stays as it
+// was. With Thrift, about 1 making in 4 keeps 1 of its most-used part, with its own line
+// (thrift.js, D-818), here and in each making below. (The old Make on a bag slot went, D-869.)
 export function makeFrom(state, from) {
   const recipe = recipeOf(from), of = recipe && costOf(from); // a find's `craft`, or the campfire's own `made` (D-851)
   if (!recipe || !bagHas(state.bag, of)) return state;

@@ -98,10 +98,3 @@ All done: in `archive/HEALTH-CHECK-DONE.md` (D-868).
   "Earn more from Feats."); **H-64** `GLOSSARY-FINDS.md:34-56,103`,
   `GLOSSARY-2.md:32`, `CONTENT-2.md:18`: marks' numbers (D-847), the
   minnow's pond (D-734); **H-65** `DEV-TOOLS.md`'s switch names.
-
-## For 0.3.314, after the audit (D-868)
-- **H-24** Read only: a boulder may grow back on a waystone's ring
-  (`regrow.js:47-54`); a drop may land on water (`spread.js:16`); dev
-  Spawn onto a person (`spawn.js:27`).
-- From H-31: `craft()`, used by no screen (`bagturn.js:54`), taken
-  out (D-868).

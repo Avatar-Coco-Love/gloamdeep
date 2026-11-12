@@ -1398,3 +1398,17 @@ silent). A second one-of-a-kind piece from the lost bag, a chest or a
 dropped stack says its own line, "You already carry a workbench.";
 "Your bag is full." only when the bag is (offered too: one shared
 line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-865 · 2026-11-12 · Boons at the home stone** (the owner's picks,
+all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
+H-35, and H-67, the owner's find) Arriving on the home
+plate by travel or a fall, holding no boon, opens the boon card once the
+hero is still (offered too: a tap on the plate opens it first; travel
+only), superseding D-737's "no boon offered until the hero steps off and
+back on". The 3 boons stay the same until the hero takes one or leaves
+the room (offered too: drawn anew, as before; one new draw). The words
+say "until you are back at the waystone" (offered too: "until you
+return"; keep "home"). A second one-of-a-kind piece put into a stash
+chest with room says "The chest already holds a workbench." (offered
+too: wait for the words step; its own step). D-857 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

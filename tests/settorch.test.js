@@ -3,10 +3,10 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, tileAt } from '../src/core/room.js';
-import { makeState, craft, setDown, setSides, step, wait } from '../src/core/turn.js';
+import { makeState, makeFrom, setDown, setSides, step, wait } from '../src/core/turn.js';
 import { endTurn } from '../src/core/endturn.js';
 import { setOil } from '../src/core/oil.js';
-import { canCraft, bagAdd } from '../src/core/bag.js';
+import { bagAdd } from '../src/core/bag.js';
 import { lightsNow } from '../src/core/sight.js';
 import { mountAt } from '../src/core/mount.js';
 import { shownLine } from '../src/core/lines.js';
@@ -18,11 +18,12 @@ const inside = (bag) => ({ ...setOil(makeState(makeRoom(ROOM), { x: 2, y: 2 }), 
 const torchDown = () => setDown(inside([{ id: 'bagTorch', n: 1 }]), 0, 'right');
 
 test('1 moth dust and 1 wood make a torch, passing a turn', () => {
-  const n = craft(inside([{ id: 'mothDust', n: 2 }, { id: 'wood', n: 1 }]), 0);
+  const n = makeFrom(inside([{ id: 'mothDust', n: 2 }, { id: 'wood', n: 1 }]), 'mothDust');
   assert.deepEqual(n.bag, [{ id: 'mothDust', n: 1 }, { id: 'bagTorch', n: 1 }]);
   assert.equal(n.turn, 1);
   assert.equal(shownLine(n).text, 'You make a torch.');
-  assert.equal(canCraft([{ id: 'mothDust', n: 3 }], 0), false); // no wood: dim
+  const few = inside([{ id: 'mothDust', n: 3 }]);
+  assert.equal(makeFrom(few, 'mothDust'), few); // no wood: dim
 });
 
 test('torches stack 5 to a slot', () => {

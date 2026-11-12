@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { makeState, craft, look } from '../src/core/turn.js';
+import { makeState, makeFrom, look } from '../src/core/turn.js';
 import { bagAdd, stackFull } from '../src/core/bag.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
@@ -11,7 +11,7 @@ import { get } from '../src/core/registry.js';
 const carrying = (bag) => ({ ...makeState(makeRoom(FIRST_ROOM)), bag });
 
 test('3 Wood make a workbench, passing a turn', () => {
-  const n = craft(carrying([{ id: 'wood', n: 3, form: 1 }]), 0);
+  const n = makeFrom(carrying([{ id: 'wood', n: 3, form: 1 }]), 'wood');
   assert.deepEqual(n.bag, [{ id: 'workbench', n: 1 }]);
   assert.equal(n.turn, 1);
   assert.equal(shownLine(n).text, 'You make a workbench.');
@@ -19,12 +19,12 @@ test('3 Wood make a workbench, passing a turn', () => {
 
 test('fewer than 3 Wood make nothing', () => {
   const s = carrying([{ id: 'wood', n: 2 }]);
-  assert.equal(craft(s, 0), s);
+  assert.equal(makeFrom(s, 'wood'), s);
 });
 
 test('only 1 workbench is carried: a second stays Wood, says so, and no turn passes', () => {
   const bag = [{ id: 'workbench', n: 1 }, { id: 'wood', n: 3 }];
-  const n = craft(carrying(bag), 1);
+  const n = makeFrom(carrying(bag), 'wood');
   assert.equal(n.bag, bag);
   assert.equal(n.turn, 0);
   assert.equal(shownLine(n).text, 'You already carry a workbench.');

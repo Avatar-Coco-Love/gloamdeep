@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, FIRST_START } from '../src/core/turn.js';
-import { craft, makeFrom, makeAt } from '../src/core/bagturn.js';
+import { makeFrom, makeAt } from '../src/core/bagturn.js';
 import { carried } from '../src/core/bag.js';
 import { upgradeAt } from '../src/core/growth.js';
 import { shownLine } from '../src/core/lines.js';
@@ -45,7 +45,7 @@ test('without Thrift the whole cost goes; with it about 1 in 4 keeps 1 Stone of 
 test('a one-part recipe from its slot keeps 1 of it: 3 oilcaps leave 1', () => {
   const seeds = [...Array(200)].map((_, i) => i + 1).filter((seed) => thrifts(at([], { seed, grown: { thrift: 1 } })));
   assert.ok(seeds.length > 0);
-  const n = craft(at([{ id: 'oilcap', n: 3 }], { seed: seeds[0], grown: { thrift: 1 } }), 0);
+  const n = makeFrom(at([{ id: 'oilcap', n: 3 }], { seed: seeds[0], grown: { thrift: 1 } }), 'oilcap');
   assert.deepEqual([carried(n.bag, 'oilcap'), carried(n.bag, 'flask')], [1, 1]);
   assert.equal(shownLine(n).text, 'You keep 1 Oilcap.');
 });

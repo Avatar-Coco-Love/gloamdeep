@@ -43,7 +43,7 @@ export { startOver, fallView } from './fall.js';
 export { sleepOut, canSleepOut, noSleepOut, warm, campAsks } from './sleepout.js';
 import { noSleepOut, chased } from './sleepout.js';
 export { sit, canSit, stoke, canStoke } from './fireside.js';
-export { pour, craft, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
+export { pour, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid
 // changes nothing and passes no turn, so the same state comes back (D-043).
