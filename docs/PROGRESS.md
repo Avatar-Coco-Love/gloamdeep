@@ -4,16 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.322 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.323 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 14,
-the Peddler (H-42, H-58, H-59), with Q-102.
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 15,
+falls (H-16, H-17, H-56).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
-  (`HEALTH-CHECK-ORDER.md`), Q-102 with them.
+  (`HEALTH-CHECK-ORDER.md`).
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
 - The warden's special drop (Q-104), designed right after the health check.
@@ -48,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.323, The Peddler's fixes.** Health check step 14:
+  a SELL that sells nothing leaves the frame (H-42); the last of a stack
+  sold, the next slides in under it (Q-102); his home spot skips the
+  hero and creatures (H-58); a bump never sends him sooner (H-59). D-878.
+  Playtest: https://claude.ai/artifact/GUbV9mp6oxj8mf2B8KwTBH
 - **2026-11-12, 0.3.322, Sounds only when On.** Health check step 13:
   with Sound Off nothing downloads; once On, the sounds do, and each
   place's tune the first time it is reached (H-03). D-877.
@@ -58,8 +63,3 @@ list in `RESEARCH.md`.
   room in 2 (H-08); a pool never wraps three sides of a tile (Q-101). D-876.
   Playtest: https://claude.ai/artifact/TWfZiBN9oaphKSNxzCtLna
   Map preview: https://claude.ai/artifact/6UGxn9Que6X42XwiFJAvKY
-- **2026-11-12, 0.3.320, Goals and endings told.** Health check step 11:
-  the oil tip and the crypt, ticked quietly, pay nothing (H-10); two
-  goals done on one turn are named on one line, the last gold (H-13); two
-  effects ending on one turn are said on one line (Q-099). D-875.
-  Playtest: https://claude.ai/artifact/ET483jxuwdj52ZLD5wVEcH

@@ -39,7 +39,7 @@ step 6 (D-869).
     map preview; with Q-101. Done at 0.3.321 (D-876).
 13. **Sounds only when On** (H-03). Done at 0.3.322 (D-877).
 14. **The Peddler:** the dim SELL (H-42); his home spot (H-58); leaving
-    sooner (H-59); with Q-102.
+    sooner (H-59); with Q-102. Done at 0.3.323 (D-878).
 15. **Falls:** inside the workbench (H-16); a draught (H-17); Warmed
     (H-56).
 16. **Saves kept safe:** the lost Peddler (H-57), tested with the two

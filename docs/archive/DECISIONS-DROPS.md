@@ -259,7 +259,7 @@ Space buy one, free, no turn, dim with too few coins or no room in
 the bag, the card saying why. Seeds wait for the garden; recipes
 wait for a way to sell them.
 
-**D-496 · 2026-10-30 · The rescued peddler lingers, then beams home**
+**D-496 · 2026-10-30 · The rescued peddler lingers, then beams home** *Superseded in part by D-878 (2026-11-12): a bump never sends him sooner than he would go.*
 (the owner's idea and picks, the turns his own, the rest recommended
 after a mock-up of four looks; changes D-491's "is gone" and D-492's
 "at once") Freed, the peddler stays where he stood and thanks the

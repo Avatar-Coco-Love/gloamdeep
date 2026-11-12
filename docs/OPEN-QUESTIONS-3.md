@@ -57,11 +57,6 @@ step, when the owner wants.
 no decision to measure against. Each is asked at the step named in
 `HEALTH-CHECK-ORDER.md`.
 
-**Q-102 · Selling the last of a stack** (raised 2026-11-12, D-862) The
-frame stays on that slot, where the next stack slides in, so a quick
-extra SELL sells the next thing. Leave it, or move the frame? At step
-14, with the dim SELL (H-42).
-
 **Q-103 · A duskstar on the home waystone's ring** (raised 2026-11-12,
 D-869) Laid out, a duskstar keeps off the home waystone's ring, but one
 picked can grow back on it (`regrow.js`'s roam), as a boulder could

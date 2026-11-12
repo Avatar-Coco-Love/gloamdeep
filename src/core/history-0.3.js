@@ -5,6 +5,13 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.323', date: '2026-11-12', title: 'The Peddler\'s fixes', lines: [
+    "At the Peddler, pressing SELL on an empty slot, or on something he doesn't buy, no longer moves the frame, so a second press can't sell something else by mistake.",
+    "When you sell the last of a stack, the frame stays put and the next stack slides in under it, as before.",
+    "When the Peddler goes home, he never stands on your tile or on a creature's.",
+    "Talking to the freed Peddler never makes him leave sooner: he still waits his 5 turns, or 3 more after a late bump.",
+    "Decisions: D-878. Questions closed: Q-102. D-875 moved to the archive, word for word.",
+  ] },
   { v: '0.3.322', date: '2026-11-12', title: 'Sounds only when On', lines: [
     "With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.",
     "Each place's music downloads the first time you reach that place, not all five tunes at once.",

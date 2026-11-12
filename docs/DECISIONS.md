@@ -148,21 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-875 · 2026-11-12 · Goals and endings told** (the owner's picks, all
-recommended; step 11 of `HEALTH-CHECK-ORDER.md`, fixes H-10, H-13;
-answers Q-099) Ticked quietly, done before it could show, "Put out your
-lantern" and "Find the crypt" pay nothing, as D-752 and D-746 say; every
-other goal ticked quietly still pays, as D-705 has for older saves
-(offered too: only the oil's unpaid; no quiet goal pays; all paid, the
-decisions changed to match). Two or more goals done on one turn are
-named on one text line, "Goals done: Find the waystone. +1 Oil Flask.
-Wake the waystone. +2 Healing Herbs.", wrapping when long, the last one
-gold (offered too: one after the other, each with its gold turns; left
-as it was). Two or more effects ending on one turn are said on one line,
-"The stiffness wears off. The poison wears off.", in the order they
-count down (offered too: the second on the next turn; left as it was).
-D-872 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-876 · 2026-11-12 · Growing back at home, and cave pools** (the
 owner's picks, all recommended; step 12 of `HEALTH-CHECK-ORDER.md`,
 fixes H-07, H-08; answers Q-101) A night's sleep, in the bed or out,
@@ -188,3 +173,17 @@ and kept (offered too: all five once Sound is On). A sound turned Off on
 its own is still fetched, so it plays at once when turned back On
 (offered too: skipped). D-874 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-878 · 2026-11-12 · The Peddler's fixes** (the owner's picks, all
+recommended; step 14 of `HEALTH-CHECK-ORDER.md`, fixes H-42, H-58, H-59;
+answers Q-102) On his Sell tab, a SELL that sells nothing, on an empty
+slot or on what he doesn't buy, leaves the frame where it is, with the
+refusing tock (offered too: SELL drawn dim there as well). The last of
+a stack sold, the frame stays and the next stack slides in under it
+(offered too: the frame to the first empty slot; one press only showing
+the new thing). Going home, his spot skips the hero's tile and any
+creature's too (offered too: only the hero's). Freed, a bump keeps him
+3 turns from then but never sends him sooner than he would go, so a
+bump at once still leaves his 5 (offered too: each bump adds 3; as
+D-496 had it). D-875 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

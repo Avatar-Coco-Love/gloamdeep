@@ -178,7 +178,9 @@ export function createCardScreens(app, ui, show, menuOf) {
   function tradeChosen() {
     if (app.chosen < 0) { turnTrade(app.tab === 'buy' ? 'sell' : 'buy'); return; }
     if (app.tab === 'buy') { ui.buy(app.chosen); pickTrade(app.chosen); return; }
-    ui.sell(app.chosen); pickTrade(Math.min(app.chosen, Math.max(0, app.state.bag.length - 1)));
+    const s = app.state.bag[app.chosen];
+    if (!s || !priceOf(s.id)) { ui.refuse(); return; } // a press that sells nothing leaves the frame (H-42, D-878)
+    ui.sell(app.chosen); pickTrade(Math.min(app.chosen, Math.max(0, app.state.bag.length - 1))); // the last of a stack sold, the next slides in under the frame (Q-102)
   }
   function moveTrade(dir) {
     if (app.chosen < 0) { if (dir === 'down') pickTrade(0); else if (dir !== 'up') turnTrade(dir === 'left' ? 'sell' : 'buy'); return; }

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.320, Goals and endings told.** Health check step 11:
+  the oil tip and the crypt, ticked quietly, pay nothing (H-10); two
+  goals done on one turn are named on one line, the last gold (H-13); two
+  effects ending on one turn are said on one line (Q-099). D-875.
+  Playtest: https://claude.ai/artifact/ET483jxuwdj52ZLD5wVEcH
 - **2026-11-12, 0.3.319, The owner's rulings.** Health check step 10:
   travel keeps poison's, stiff's and the draughts' turns (H-04); a night
   uses poison's turns, its hearts too when sleeping out (Q-098); a mole

@@ -14,7 +14,7 @@ export const PEOPLE = {
   // freed in 12b (D-491), at home in 12c (D-492), the first vendor in step 13 (D-471):
   // at home, he `buys` what has a price, `sells` in the registry (D-494), and sells his
   // `wares`, { itemId: price } in coins, never running out (D-495). Named at its own step.
-  // Freed, he waits 5 turns, or 3 after each bump, then heads home (D-496).
+  // Freed, he waits 5 turns, or 3 after each bump, never sooner, then heads home (D-496, D-878).
   peddler: { id: 'peddler', kind: 'npc', name: 'Peddler', calls: 'peddlerCalls', digging: 'peddlerDigging', freed: 'peddlerFreed', waiting: 'peddlerWaiting', leaving: 'peddlerLeaving', waits: [5, 3], home: 'peddlerHome', greeting: 'peddlerGreets', buys: true, wares: { flask: 3, bagTorch: 2 } },
 };
 
