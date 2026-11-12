@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.291 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.292 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -41,6 +41,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.292, A thud and a timer rim.** The owner's picks
+  (D-846, D-847), all recommended: a falling tree plays its last chop
+  and a heavy thud, no creak; the buff marks lose their number, and
+  their square's edge runs down like a clock instead, full at each
+  effect's longest time.
+  Playtest: https://claude.ai/artifact/Hy4mmRw3Hd5VYBXLJYxArA
+  Sound board: https://claude.ai/artifact/EBkJdfbUKm7smvrVXBsrGk
 - **2026-11-12, 0.3.291, Warmed.** The owner's picks (D-845), all
   recommended: sitting by a fire warms, blazing 60 turns, embers 30; a
   full tank lasts 70, added to Slowburn; Yes whenever it helps; a small
@@ -51,9 +58,3 @@ list in `RESEARCH.md`.
   the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and
   burns the fire a level down. Warmed, the slower lantern, comes next.
   Playtest: https://claude.ai/artifact/8tAzj2YY1JeKnMxUr13B4n
-- **2026-11-12, 0.3.289, Chopping a fallen branch.** The owner's picks
-  (D-843), all recommended: a branch's first bump plays the tree's chop,
-  and as it snaps a last chop and a light wooden knock; under Digging's
-  and Stone breaks' lines.
-  Playtest: https://claude.ai/artifact/5aHGKxLjvC4cbYx4vALohP
-  Sound board: https://claude.ai/artifact/GMai3DGZPZSBrFL6roVyqo

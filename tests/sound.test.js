@@ -149,14 +149,14 @@ test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async
   assert.ok(FILES.chestClose.files.every((f) => /impactWood_heavy/.test(f)));
 });
 
-// § chopping (D-842): an axe's chop for each bump on a tree; as it falls a last chop, a slow low
-// creak and a heavy crash; under Digging's and Stone breaks' lines in Settings
-test('A tree chops, then falls with a creak and a crash (D-842)', async () => {
+// § chopping (D-842): an axe's chop for each bump on a tree; as it falls a last chop and a heavy
+// thud, no creak (D-846); under Digging's and Stone breaks' lines in Settings
+test('A tree chops, then falls with a thud (D-842, D-846)', async () => {
   const { GROUPS, isMuted } = await import('../src/core/settings.js');
   assert.deepEqual(FILES.chop.files, ['kenney-rpg-audio/chop.ogg']);
-  assert.deepEqual(FILES.treeFall.with.map(([v]) => v), ['treeCreak', 'treeCrash']);
-  assert.equal(FILES.treeCreak.pitchOf(), 0.6);
-  assert.ok(FILES.treeCrash.files.every((f) => /impactWood_heavy/.test(f)) && FILES.treeCreak.part && FILES.treeCrash.part);
+  assert.deepEqual(FILES.treeFall.with, [['treeCrash', 0.5]]); // a last chop, then the thud half a second later, no creak (D-846)
+  assert.ok(!FILES.treeCreak && !FILES.treeCrash.pitchOf); // the thud at its own pitch
+  assert.ok(FILES.treeCrash.files.every((f) => /impactWood_heavy/.test(f)) && FILES.treeCrash.part);
   assert.ok(!FILES.chop.echo && !FILES.treeFall.echo); // out in the woods, no cave's echo
   assert.ok(GROUPS.clink.includes('chop') && GROUPS.crumble.includes('treeFall'));
   assert.ok(isMuted({ muted: ['clink'] }, 'chop') && isMuted({ muted: ['crumble'] }, 'treeFall') && !isMuted({ muted: ['clink'] }, 'treeFall'));

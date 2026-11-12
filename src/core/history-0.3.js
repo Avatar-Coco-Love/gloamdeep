@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.292', date: '2026-11-12', title: 'A thud and a timer rim', lines: [
+    "Change: a tree no longer creaks as it falls. The last chop is followed by one heavy wooden thud half a second later, at its natural pitch.",
+    "Change: the marks for Warmed and the draughts no longer show a number. Instead the square's edge lights up in the mark's colour and runs down like a clock from the top middle as the time goes. A full edge means that effect's longest time, so Warmed from embers starts half lit. Tap the mark to hear the exact turns left.",
+    "Decisions: D-846, D-847. D-841 moved to the archive, word for word.",
+  ] },
   { v: '0.3.291', date: '2026-11-12', title: 'Warmed', lines: [
     "New: Warmed. Sitting by a burning campfire now also warms you: a blazing fire for 60 turns, embers for 30. While you're warm your lantern burns slower, a full tank lasting 70 turns instead of 60, and with Slowburn longer still. A small orange flame under your hearts shows the turns left; tap it to hear them. The turns run even while your lantern is empty or you sleep, and a fall ends it.",
     "Change: Yes on \"Sit by the fire?\" now works at full hearts too, whenever the fire would warm you longer than you already are. It is grey only when sitting would change nothing.",

@@ -103,23 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-841 · 2026-11-11 · Music in the dungeon** (the owner's picks, all
-recommended; part of Q-095) From a board of 8 calm, dark tracks from the
-same bundle, measured again from all 138 (the darkest, sparsest and
-stillest of the 43 over 45 s, the four tunes already playing left out;
-the warrens' and the crypt's tunes beside them to compare; the dungeon's
-stone steps with their echo playing along; a walk down from floor 7),
-track 1, "Patreon Challenge 04" (1 min 44 s, the stillest, long held
-sounds, minor) plays in the dungeon, every floor from 8 down until the
-next region (offered too: VGMA Challenge 19, Ludum Dare 32 05, Patreon
-Challenge 05 and four more; floors 8 to 10 only), non-stop with no break
-(offered too: with a 30 s, 60 s or 2 min gap), carrying on from floor to
-floor (offered too: starting again on each floor). It changes as the
-others do: the old place's tune fades out over 2 s, the new one starts a
-second later, fading in over a second. A line in Music's list after
-Warrens, Dungeon. File and loudness in `SOUNDS-3.md`. D-836 moves to
-`archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-842 · 2026-11-11 · Chopping a tree** (the owner's picks, all
 recommended) Each bump on a tree that isn't its last, `chop`, plays the
 RPG pack's axe chop, a little higher or lower each time (offered too: a
@@ -130,7 +113,8 @@ the crash with no creak; one more chop). Trees only for now (offered
 too: fallen branches; their own lines in Settings). No line of their
 own: chopping is under Digging, a tree falling under Stone breaks, as
 Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
-moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+moves to `archive/DECISIONS-SOUNDS.md`, word for word. The creak and
+the late crash superseded by D-846 (2026-11-12).
 
 **D-843 · 2026-11-12 · Chopping a fallen branch** (the owner's picks,
 all recommended) A fallen branch chops as a tree does: its first bump
@@ -171,4 +155,24 @@ calls the owner may change: Draught rules for the rest (the turns run
 with the lantern empty, a night uses them, a fall ends it); the mark
 after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
 says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
-D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The turns
+beside the mark superseded by D-847 (2026-11-12).
+
+**D-846 · 2026-11-12 · A tree falls with a thud** (the owner's pick,
+recommended; supersedes D-842's creak and crash) As a tree falls,
+`treeFall` plays the last chop, then the heavy wooden thud at its own
+pitch half a second later, no creak (offered too: the creak at normal
+speed before the thud; a last chop and a light knock, as a branch).
+Claude's calls: the thud muffled above 2500 Hz, as loud as before.
+D-841 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-847 · 2026-11-12 · The timer rim** (the owner's idea and picks, all
+recommended; supersedes the turns beside D-845's, D-791's and the other
+draughts' marks) A lasting effect's mark loses its number: its square's
+edge, 52 dots from the top middle going round like a clock, lights in
+the mark's colour for the share of time left (offered too: burning down
+like a candle). Full is that effect's longest time, from the registry,
+so embers' 30 turns start Warmed half lit (offered too: full at
+whatever it started with). A tap on the mark still says the turns left
+(offered too: nowhere). Claude's calls: any time left lights at least
+one dot; poisoned's and stiff's marks keep no rim for now.
