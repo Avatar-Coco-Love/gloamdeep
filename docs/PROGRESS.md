@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.298 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.299 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Build your own campfire (D-853): a fire the hero built gets its own
-words, and its cold ashes offer Take up the campfire?, back into the
-bag whole. Then the bugs in `BUGS.md` (D-852), one at a time, B-001 first.
+The bugs in `BUGS.md` (D-852), one at a time, B-001 first: the Peddler
+isn't home after his rescue.
 
 ## Waiting on the owner
 - Bugs the owner noticed (`BUGS.md`): B-001 to B-004, each its own step.
@@ -43,6 +42,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.299, Your own campfire.** The owner's picks (D-854),
+  all recommended, from a picture: a campfire you set down has its own
+  words, and its cold ashes' card shows Yes, Take up and No, putting it
+  back in the bag whole. Playtest: https://claude.ai/artifact/V75MhHuMH6yK3FRYi5rzLs
 - **2026-11-12, 0.3.298, Your own campfire, settled.** The owner's
   picks (D-853), all recommended: a built fire has its own words, is
   taken back into the bag when cold, and is three built twins of the
@@ -51,8 +54,3 @@ list in `RESEARCH.md`.
   recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
   so "Next up" is all a new conversation needs. The first four: the
   Peddler at home, sleeping ends a fight, a burrowed mole, the map.
-- **2026-11-12, 0.3.296, Build a campfire.** The owner's picks (D-851),
-  all recommended: the Campfire on the bag's Make tab, 3 Stone and 2
-  Wood, one carried, drawn as cold ashes, plain words; it holds its own
-  recipe in the code. Set down on the surface, it is cold ashes.
-  Playtest: https://claude.ai/artifact/WYfBfAjjgD1oMz44H62cHf

@@ -69,7 +69,7 @@ themselves. Each kind also touches:
 - **A person:** its entry in `src/core/people.js` (its `calls` line); its
   lines in `lines.js`; its picture in `pictures.js`, its sprite in `sprites.js`, drawn facing left; where
   it stands in `cave.js` (like `withTrapped`) or `room.js`; its row in
-  `CONTENT-2.md` (D-490), or `CONTENT-3.md` for tiles and places (D-618); lights are back in `CONTENT-2.md` (0.3.254).
+  `CONTENT-2.md` (D-490), or `CONTENT-3.md` for tiles and places (D-618), places now in `CONTENT-4.md` (0.3.299); lights are back in `CONTENT-2.md` (0.3.254).
 - **A start** (D-735): its entry in `src/core/starts.js` (its `row`, `tile`,
   `lit`, `opening` words and `goals` rules); `state.js`'s `newJourney` reads it.
 - **Every kind:** a test, `tests/<id>.test.js`; and the counts in

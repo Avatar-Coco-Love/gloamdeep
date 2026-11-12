@@ -46,7 +46,7 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **strikes** (comes as one that chases, never bites beside; in line within 2 tiles it is `raised` a turn, then strikes both tiles ahead, then `rests`; `sting.js`)
 (D-269, D-351, D-649, D-688, D-726, D-729). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures walk over finds, which stay where they lie (D-727). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563), and may fly over water, where walking into it strikes it (D-718). One that `glows` is drawn over the dark (D-649).
-Which creatures a generated room holds, and the pool by depth: in `CONTENT-3.md`, "Places" (moved word for word at 0.3.100).
+Which creatures a generated room holds, and the pool by depth: in `CONTENT-4.md`, "Places" (moved word for word at 0.3.100; to `-4` at 0.3.299).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).
 A new creature mixes these by name; a new way is a new
 mechanic and its own step.
@@ -58,7 +58,7 @@ Moved to `CONTENT-FINDS.md` word for word at 0.3.113 (D-660).
 Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535); now in `CONTENT-3.md` (D-618).
 
 ## Lights, places
-Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531); now in `CONTENT-3.md` (D-618).
+Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531); now in `CONTENT-3.md` (D-618); places in `CONTENT-4.md` (0.3.299).
 
 ## People, the hero's looks, Growth upgrades
 In `CONTENT-2.md`.

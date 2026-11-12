@@ -7,8 +7,8 @@ import { view } from '../../render/screen.js';
 
 export const ASKS = new Set(['sure', 'drop', 'easier', 'bed', 'sleepOut']); // and the bed's by day (D-488), or the garden bed's (D-565); Sleep here until morning? (D-758)
 
-// An arrow or swipe: YES and NO side by side (D-400)
-export const askDir = (app) => (dir) => { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, SURE_MENU.length); };
+// An arrow or swipe: YES and NO side by side (D-400), or your own cold ashes' three (D-853)
+export const askDir = (app, c) => (dir) => { app.chosen = moveChoice(app.chosen, { left: 'up', right: 'down' }[dir] ?? dir, (c?.menuOf(app.screen) ?? SURE_MENU).length); };
 
 // A tap: a line picked, or the cross or outside the card closes it
 export function askTap(app, c, pick, close) {

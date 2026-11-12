@@ -35,27 +35,15 @@ neared 8 KB.
 | `standingStone`, `waystonePath`, `waystonePlate` | the home waystone, asleep, 3 × 3 from its plan (`landmarks.js`): an old mossy standing stone in each corner tile, solid and blocking light like rock; flagstones on the cross and the plate in the middle, walked on; stepping on the plate wakes it (`wakes`) into `wokenPlate`, its rune lit violet with the stairs' faint glow; on a woken plate the travel card goes to another (`travel.js`) | | the cave mouth's room, 2 tiles north of the middle (D-753); in an old save, the nearest clear spot there, woken if it was | D-579, D-587, D-589, D-591, D-593, D-620, D-753 |
 | `torchStand` | a torch's stone foot, solid; bare floor once it burns out | | set down anywhere | D-478 |
 | `campfire`, `campfireEmbers`, `campfireAshes` | a ring of stones round a fire, solid, light passing over it: blazing, glowing 3 tiles round in the torch's colour; embers, 2; cold ashes, none. Bumped, a burning one says its first words and opens Sit and Add wood, where Sit (`sits`), a turn, gives 2 hearts blazing, 1 embers, ends stiff, warms (Warmed 60 turns blazing, 30 embers, `warmed.js`) and burns it a level down, Sit grey when nothing would change, and Add wood (`stokes`), 1 Wood, a turn, makes embers blazing (`fireside.js`); cold ashes say "Cold ashes." and open Light the fire?, "No one has sat here for a long time.", No picked, where Yes (`kindles`) makes them embers for one turn's oil, Yes grey with no oil. None burns down by itself (`campfire.js`) | | one a seed, in one of Hearthwood's 8 rooms outside home, the seed picking the room and blazing, embers or ashes, on open grass 2 tiles in from the edge | D-757, D-844, D-845, D-849 |
+| `ownCampfire`, `ownEmbers`, `ownAshes` | your own campfire: the campfire's three levels as twins, the same pictures and rules, each lit, burnt or fed into its own twin. The card's notes are its own: "Your fire burns well.", "Your fire still glows.", "You laid these stones."; cold, its card shows Yes, Take up and No, No picked, where Take up (`takes`), a turn, puts the Campfire back in the bag whole, "You take up the stones.", or says "You already carry a campfire.", free | | where the hero sets down a Campfire from the bag (`bagCampfire`) | D-851, D-853 |
 | `lamppost` | the first landmark: an old Lightkeeper's iron crook post, its cold lamp hanging dark from the arm; solid, light passing it. Bumped, it says "An old lamppost.", then "Its lamp went out long ago.", a sentence a bump, free (`lamppost.js`) | | one a seed, in one of Hearthwood's 8 rooms outside home, never the campfire's, on open grass 2 tiles in from the edge; in an old save, its room if never seen (`relamp.js`) | D-769 |
 | `minersCamp`, `minersCampBare` | the second landmark: a slumped canvas tent and an old crate, 3 × 2 tiles, the Stone Pick leaning on the crate; all solid, light passing them. Bumped, it says "A miners' camp, long left." and opens Take the pick?, "An old pick leans on the crate.", No picked, where Yes (`takes`) puts the Stone Pick in the bag, a turn, the camp turning bare; bare, its words, free (`camp.js`) | | one a seed, in one of Hearthwood's 3 mountain rooms, never the campfire's or the lamppost's, on open grass 2 tiles in from the edge; in an old save, its room if never seen (`recamp.js`) | D-770 |
 
 ## Lights
 Moved to `CONTENT-2.md` word for word at 0.3.254, as this page passed 8 KB.
 
-## Places (`src/core/room.js`)
-
-| Place | What it is | Decisions |
-| --- | --- | --- |
-| `first`, `second`, `south` | the hand-made rooms of the crypt | D-106, D-138, D-192 |
-| `woods` | the surface's generated woods rooms; the north row's are mountain rooms; the 5 round home thick, as before or glades, at least one thick and one glade (`KINDS`, woods.js) | D-209, D-233, D-738, D-756 |
-| generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
-
-Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
-
-Starts (`src/core/starts.js`, D-735): South woods, one of Hearthwood's south
-rooms, never the cave mouth's; the lantern off, by day.
-
-Moved from `CONTENT.md` word for word at 0.3.100, as that page passed 8 KB:
-Each generated room holds 2 creatures at depth 2, 3 at depths 3 and 4, 4 from depth 5: the rat by the flask (gone elsewhere in the dark, picked from the pool, for 1 flask in 4, D-725), the rest picked from the depth's pool (`poolAt` in `room.js`), at least two kinds a room (D-534); the cave spider joins the pool at depth 2 (D-535), the bat at depth 3 (D-537), the mole at depth 5 (D-541), the snapcap at depth 2 (D-543), the herb mimic at depth 3 (D-549), the bone rat at depth 4 (D-551), the oil tick at depth 3 (D-606), the lure wisp at depth 4 (D-649).
+## Places
+Moved to `CONTENT-4.md` word for word at 0.3.299, as this page neared 8 KB.
 
 ## Rare materials
 Moved to `CONTENT-FINDS.md` word for word at 0.3.220, as this page

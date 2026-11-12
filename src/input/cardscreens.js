@@ -144,7 +144,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   // panel whatever happens, so its line shows, taken down or not; the chest's too (CH5). A stash chest's tile
   // opens the chest's panel instead, on its first slot (CH3, D-330).
   // The bed's by day is an ask, No picked (D-488); the garden bed's card, Plant picked (D-566).
-  function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, tile.sits ? Math.max(0, menuOf('bed').findIndex((l) => !l.dim)) : panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); } // a burning fire's card picks the first that works, Sit, else Add wood
+  function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, tile.sits ? Math.max(0, menuOf('bed').findIndex((l) => !l.dim)) : panel === 'bed' && !tile.garden ? menuOf('bed').findIndex((l) => l.id === 'no') : 0); } // a burning fire's card picks the first that works, Sit, else Add wood
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   function shelveBed() { show('play'); ui.shelve(app.bench.x, app.bench.y); } // the locket set on the shelf (D-693)
   function kindleBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.kindle(app.bench.x, app.bench.y); } // cold ashes lit; a dim Yes does nothing (D-757)

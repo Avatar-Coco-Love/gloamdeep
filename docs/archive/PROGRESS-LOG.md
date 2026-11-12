@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.296, Build a campfire.** The owner's picks (D-851),
+  all recommended: the Campfire on the bag's Make tab, 3 Stone and 2
+  Wood, one carried, drawn as cold ashes, plain words; it holds its own
+  recipe in the code. Set down on the surface, it is cold ashes.
+  Playtest: https://claude.ai/artifact/WYfBfAjjgD1oMz44H62cHf
 - **2026-11-12, 0.3.295, Building a campfire, settled.** The owner's
   picks (D-850), all recommended but where: made on the bag's Make tab,
   3 Stone and 2 Wood, set down as cold ashes; only on the surface for

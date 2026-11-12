@@ -18,11 +18,11 @@ const GAP = 8; // between YES and NO
 const buttonW = (menu) => Math.max(BUTTON.w, ...(menu ?? []).map((l) => textWidth(l.text.toUpperCase()) + 8));
 // § layout: the card centred on a view `vw` × `vh`, as wide as its question, note and buttons need
 function askAt(vw, vh, heading, note, menu) {
-  const bw = buttonW(menu);
-  const w = Math.max(MIN_W, PAD + textWidth(heading.toUpperCase()) + CROSS_ROOM, 2 * PAD + textWidth(note), 2 * PAD + 2 * bw + GAP);
+  const bw = buttonW(menu), n = menu?.length ?? 2, row = n * bw + (n - 1) * GAP; // 2 buttons, or your own cold ashes' 3 (D-853)
+  const w = Math.max(MIN_W, PAD + textWidth(heading.toUpperCase()) + CROSS_ROOM, 2 * PAD + textWidth(note), 2 * PAD + row);
   const x = Math.floor((vw - w) / 2), y = Math.floor((vh - H) / 2);
-  const bx = x + Math.floor((w - 2 * bw - GAP) / 2), by = y + H - PAD - BUTTON.h;
-  return { x, y, w, h: H, bw, close: crossAt(x, y, w), buttons: [bx, bx + bw + GAP].map((b) => ({ x: b, y: by })) };
+  const bx = x + Math.floor((w - row) / 2), by = y + H - PAD - BUTTON.h;
+  return { x, y, w, h: H, bw, close: crossAt(x, y, w), buttons: Array.from({ length: n }, (_, i) => ({ x: bx + i * (bw + GAP), y: by })) };
 }
 
 // What a tap at x, y on the room's canvas picks: { line: i } (0 YES, 1 NO, as SURE_MENU,

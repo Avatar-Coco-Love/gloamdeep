@@ -10,5 +10,5 @@ export function bedCard(app, ui, show, c) {
     if (id === 'yes' || id === 'take') takeDownBench(); else if (id === 'shelve') shelveBed(); else if (id === 'kindle') kindleBed(); else if (id === 'sit') sitBed(); else if (id === 'stoke') stokeBed(); else if (id === 'plant') plantBed(); else if (id === 'pick') pickBed(); else if (id === 'feed') feedBed(); else show('play');
   }
   const close = () => show('play'); // Esc or P
-  return { pick, dir: askDir(app), tap: askTap(app, c, pick, close), close };
+  return { pick, dir: askDir(app, c), tap: askTap(app, c, pick, close), close };
 }
