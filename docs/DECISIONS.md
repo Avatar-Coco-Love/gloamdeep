@@ -95,21 +95,6 @@ A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
 
-**D-851 · 2026-11-12 · The campfire in the bag** (the owner's picks, all
-recommended; D-850's name, look and words) In the bag it is the
-Campfire, "Makes a Campfire" on the Make tab (offered too: Fire Ring;
-Firepit). Its look is the cold ashes' picture, as it is set down
-(offered too: 3 stones piled on 2 logs; the ring round fresh logs).
-Its words: "Stones and wood for a campfire.", "Set it down on the
-surface.", "Light it with a little oil."; "You make a campfire."; set
-down, "You lay the stones in a ring." (offered too: warmer words; the
-mortar's way). One is carried at a time, "You already carry a
-campfire." (offered too: up to 3; up to 5). The code: the campfire
-holds its own recipe, `made`, so its button stays Set down (offered
-too: Stone holding two recipes; a recipe-only entry). D-827 moves to
-`archive/DECISIONS-AUDITS.md`, D-846 to `archive/DECISIONS-SOUNDS.md`,
-word for word.
-
 **D-852 · 2026-11-12 · A bug list** (the owner's pick, recommended;
 the owner's wish to say just "Next up") Bugs the owner notices go in
 `docs/BUGS.md`, each with its own number, B-001 on, in the owner's
@@ -194,3 +179,15 @@ the map, likely what B-004 saw; no room never entered was found showing.
 Offered too: only the tiles the screen shows; what the hero could see
 from where they stand. The owner: it will matter if rooms get really
 big, Q-097.
+
+**D-860 · 2026-11-12 · The health check's steps** (the owner's picks,
+all recommended and more) A full health check at 0.3.304, no game code
+changed: play in a browser, all of `src/` read against the decisions
+and docs, 31 findings, H-01 to H-31, each with fixes offered. The owner
+picked all but three to become steps, one at a time, each fix still the
+owner's pick at its step: the gold heart and the full bag first, then
+the clear bugs, the decision gaps, the balance pair, sounds only when
+On, the small fixes, save safety, and one docs-only step (offered too:
+only the top two; the docs folded into the audit). H-22 to H-24 and
+H-31 wait for the 0.3.312 audit. The list: `HEALTH-CHECK.md`. D-851
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

@@ -4,13 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.304 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.305 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner's pick from "Waiting on the owner"; Claude suggests deep moles (Q-096).
+The health check's steps (D-860), in `HEALTH-CHECK.md`'s order, one a
+conversation: the first not yet done, now H-01, the bed's gold heart.
 
 ## Waiting on the owner
+- Each health check step's fix, picked at its step (`HEALTH-CHECK.md`).
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -42,6 +44,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.305, The health check's steps.** A full health
+  check of 0.3.304, no game code changed: 31 findings, each with fixes
+  offered. The owner picked all but three to become steps (D-860), in
+  `HEALTH-CHECK.md`, the gold heart first; the rest wait for the audit.
+  D-850 and D-851 join the archive index. Docs only, no playtest.
+  Report: https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
 - **2026-11-12, 0.3.304, Daylight keeps the whole room.** B-004 closed,
   the owner's pick (D-859), recommended: daylight still remembers the
   whole room at once, off the screen too (D-209), so a room only stepped
@@ -51,7 +59,3 @@ list in `RESEARCH.md`.
   all recommended: every mole notices the hero only within 5 steps, by
   day or night; `sight: 5` on its entry; its Bestiary page says so. The
   owner's deep moles idea is Q-096. Playtest: https://claude.ai/artifact/7mvGA8YkefprHCZnjzrJHe
-- **2026-11-12, 0.3.302, The mole comes up when stuck.** B-003 fixed,
-  the owner's picks (D-857), all recommended: a mole under the earth
-  that can't come closer comes up where it is and chases on foot; it
-  still never runs; a 5-step sight limit comes next. Playtest: https://claude.ai/artifact/BSe8GdX2yeKApG61aRuPzQ

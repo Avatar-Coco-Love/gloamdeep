@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.302, The mole comes up when stuck.** B-003 fixed,
+  the owner's picks (D-857), all recommended: a mole under the earth
+  that can't come closer comes up where it is and chases on foot; it
+  still never runs; a 5-step sight limit comes next. Playtest: https://claude.ai/artifact/BSe8GdX2yeKApG61aRuPzQ
 - **2026-11-12, 0.3.301, The bed won't sleep in a fight.** B-002 fixed,
   the owner's picks (D-856), all recommended: with a creature after the
   hero, the bed says "Not with a creature after you.", free, as sleeping
