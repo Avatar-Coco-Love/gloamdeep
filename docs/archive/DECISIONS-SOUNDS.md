@@ -328,3 +328,20 @@ second later, fading in over a second. The dungeon stays quiet, its own
 step. A line in Music's list after Rock caves, Warrens. File and loudness
 in `SOUNDS-3.md`. D-835 moves to `archive/DECISIONS-SOUNDS.md`, word for
 word.
+
+**D-841 · 2026-11-11 · Music in the dungeon** (the owner's picks, all
+recommended; part of Q-095) From a board of 8 calm, dark tracks from the
+same bundle, measured again from all 138 (the darkest, sparsest and
+stillest of the 43 over 45 s, the four tunes already playing left out;
+the warrens' and the crypt's tunes beside them to compare; the dungeon's
+stone steps with their echo playing along; a walk down from floor 7),
+track 1, "Patreon Challenge 04" (1 min 44 s, the stillest, long held
+sounds, minor) plays in the dungeon, every floor from 8 down until the
+next region (offered too: VGMA Challenge 19, Ludum Dare 32 05, Patreon
+Challenge 05 and four more; floors 8 to 10 only), non-stop with no break
+(offered too: with a 30 s, 60 s or 2 min gap), carrying on from floor to
+floor (offered too: starting again on each floor). It changes as the
+others do: the old place's tune fades out over 2 s, the new one starts a
+second later, fading in over a second. A line in Music's list after
+Warrens, Dungeon. File and loudness in `SOUNDS-3.md`. D-836 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.

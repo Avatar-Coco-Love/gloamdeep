@@ -13,6 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
+import { shareLeft } from '../core/lasting.js';
 import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
@@ -353,13 +354,13 @@ export function createFrame(app, ui) {
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
     if (state.stiff > 0) marks.push(STIFF_MARK); // stiff after it, a pale blue Zz (D-759)
-    if (state.warmed > 0) marks.push({ ...WARM_MARK, n: state.warmed }); // Warmed, a campfire's orange flame and its turns left (D-845)
-    if (state.glow > 0) marks.push({ ...GLOW_MARK, n: state.glow }); // the Glow Draught, a gold bottle and its turns left (D-791)
-    if (state.slowburn > 0) marks.push({ ...SLOW_MARK, n: state.slowburn }); // Slowburn, an amber bottle and its turns left (D-792)
-    if (state.mending > 0) marks.push({ ...MEND_MARK, n: state.mending }); // the Mending Draught, a moss green bottle and its turns left (D-794)
-    if (state.ward > 0) marks.push({ ...WARD_MARK, n: state.ward }); // the Ward Draught, a pale green-white bottle and its turns left (D-795)
-    if (state.spitproof > 0) marks.push({ ...SPIT_MARK, n: state.spitproof }); // the Spitproof Draught, a dusty rose bottle and its turns left (D-802)
-    if (state.shade > 0) marks.push({ ...SHADE_MARK, n: state.shade }); // the Shade Draught last, a dusky violet bottle and its turns left (D-806)
+    if (state.warmed > 0) marks.push({ ...WARM_MARK, left: shareLeft(state, 'warmed') }); // Warmed, a campfire's orange flame and its time on the rim (D-847, D-845)
+    if (state.glow > 0) marks.push({ ...GLOW_MARK, left: shareLeft(state, 'glow') }); // the Glow Draught, a gold bottle and its time on the rim (D-847, D-791)
+    if (state.slowburn > 0) marks.push({ ...SLOW_MARK, left: shareLeft(state, 'slowburn') }); // Slowburn, an amber bottle and its time on the rim (D-847, D-792)
+    if (state.mending > 0) marks.push({ ...MEND_MARK, left: shareLeft(state, 'mending') }); // the Mending Draught, a moss green bottle and its time on the rim (D-847, D-794)
+    if (state.ward > 0) marks.push({ ...WARD_MARK, left: shareLeft(state, 'ward') }); // the Ward Draught, a pale green-white bottle and its time on the rim (D-847, D-795)
+    if (state.spitproof > 0) marks.push({ ...SPIT_MARK, left: shareLeft(state, 'spitproof') }); // the Spitproof Draught, a dusty rose bottle and its time on the rim (D-847, D-802)
+    if (state.shade > 0) marks.push({ ...SHADE_MARK, left: shareLeft(state, 'shade') }); // the Shade Draught last, a dusky violet bottle and its time on the rim (D-847, D-806)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
     const mk = marksSize(marks), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);

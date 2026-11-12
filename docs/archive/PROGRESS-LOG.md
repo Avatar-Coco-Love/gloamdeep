@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.289, Chopping a fallen branch.** The owner's picks
+  (D-843), all recommended: a branch's first bump plays the tree's chop,
+  and as it snaps a last chop and a light wooden knock; under Digging's
+  and Stone breaks' lines.
+  Playtest: https://claude.ai/artifact/5aHGKxLjvC4cbYx4vALohP
+  Sound board: https://claude.ai/artifact/GMai3DGZPZSBrFL6roVyqo
 - **2026-11-11, 0.3.288, Chopping a tree.** The owner's picks (D-842),
   all recommended: an axe's chop for each bump on a tree, and as it falls
   a last chop, a slow low creak and a heavy crash; trees only for now;
