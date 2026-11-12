@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.304, Daylight keeps the whole room.** B-004 closed,
+  the owner's pick (D-859), recommended: daylight still remembers the
+  whole room at once, off the screen too (D-209), so a room only stepped
+  into shows in full on the map; no unentered room was found showing.
+  Very big rooms later, Q-097. Docs only, no playtest.
 - **2026-11-12, 0.3.303, The mole's sight.** The owner's picks (D-858),
   all recommended: every mole notices the hero only within 5 steps, by
   day or night; `sight: 5` on its entry; its Bestiary page says so. The

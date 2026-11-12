@@ -1,4 +1,4 @@
-# Open questions, 3: lore and special creatures
+# Open questions, 3: lore and special creatures; the health check's loose ends
 
 Started at 0.3.84, as `OPEN-QUESTIONS.md` neared 8 KB: the questions
 about lore, bosses and other special creatures. Its rules hold here too:
@@ -50,3 +50,32 @@ own count and page in the Journal. The mole now joins the pool at depth
 and the dungeon's stone halls (8 down). Open: its name, look, numbers,
 drops and from which depth; whether the mole stops at depth 7. Its own
 step, when the owner wants.
+
+---
+
+**The second health check's loose ends** (D-862): seen at 0.3.305 with
+no decision to measure against. Each is asked at the step named in
+`HEALTH-CHECK-ORDER.md`.
+
+**Q-098 · Poison over a night's sleep** (raised 2026-11-12, D-862) A
+night's sleep counts poison down by one turn only, while draughts and
+Warmed lose the whole night. Which is right for poison? At step 10.
+
+**Q-099 · Two effects ending on one turn** (raised 2026-11-12, D-862)
+Only the last one's line shows. Should both be said? At step 11, with
+H-13 (two goals at once).
+
+**Q-100 · The locket past the sleeping warden** (raised 2026-11-12,
+D-862) In 253 of 400 seeds the locket can be taken without passing the
+warden, which D-720 lets sleep. Fine, or should it guard the way? At
+step 10.
+
+**Q-101 · A herb that seems to float** (raised 2026-11-12, D-862) Seed
+4128, depth 2: a floor tile juts into a pool, so the herb on it looks
+as if it floats. It can be picked. Leave it, or smooth such tiles? At
+step 12, with the cave pools (H-08).
+
+**Q-102 · Selling the last of a stack** (raised 2026-11-12, D-862) The
+frame stays on that slot, where the next stack slides in, so a quick
+extra SELL sells the next thing. Leave it, or move the frame? At step
+14, with the dim SELL (H-42).

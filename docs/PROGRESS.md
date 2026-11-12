@@ -4,16 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.306 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.307 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps (D-860), in `HEALTH-CHECK.md`'s order, one a
-conversation: the first not yet done, now H-01, the bed's gold heart.
+The health check's 19 steps (D-860 to D-862), one a conversation, in
+`HEALTH-CHECK-ORDER.md`'s order, no new content till done: the first
+not yet done, now step 1, Hearts (H-01, H-19).
 
 ## Waiting on the owner
-- Each health check step's fix, picked at its step (`HEALTH-CHECK.md`,
-  then `HEALTH-CHECK-2.md`).
+- Each health check step's fixes, picked at its step
+  (`HEALTH-CHECK-ORDER.md`), Q-098 to Q-102 with them.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -45,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.307, The health check's order.** The dev tools'
+  four (H-38, H-48 to H-50) became a step. Both lists now go in one
+  order of 19 grouped steps, most noticed first (D-862); five loose
+  ends became Q-098 to Q-102; the old branch is kept for H-57. Docs
+  only, no playtest.
 - **2026-11-12, 0.3.306, The second health check's steps.** A second
   health check of 0.3.305, no game code changed: 35 findings, H-32 to
   H-66. The owner picked every one players see as steps (D-861), in
@@ -57,8 +63,3 @@ list in `RESEARCH.md`.
   `HEALTH-CHECK.md`, the gold heart first; the rest wait for the audit.
   D-850 and D-851 join the archive index. Docs only, no playtest.
   Report: https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
-- **2026-11-12, 0.3.304, Daylight keeps the whole room.** B-004 closed,
-  the owner's pick (D-859), recommended: daylight still remembers the
-  whole room at once, off the screen too (D-209), so a room only stepped
-  into shows in full on the map; no unentered room was found showing.
-  Very big rooms later, Q-097. Docs only, no playtest.

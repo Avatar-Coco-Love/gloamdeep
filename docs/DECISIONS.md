@@ -104,15 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-854 · 2026-11-12 · Taking up your campfire** (the owner's picks, all
-recommended, shown as a picture at the build step of D-853) Your own cold
-ashes' card shows three buttons, Yes, Take up and No, No picked as
-before (offered too: Take up in No's place, the cross meaning No; the
-burning card's way, Campfire over Light and Take up). With a campfire
-already carried, Take up says "You already carry a campfire.", free
-(offered too: Take up grey). Taken up, it says "You take up the stones."
-(offered too: "You pack up the campfire."; no line).
-
 **D-855 · 2026-11-12 · The Peddler by the home waystone** (the owner's
 picks, all recommended; fixes B-001, partly supersedes D-492's woods)
 Freed, the Peddler goes home to the home waystone's room, as D-753 moved
@@ -193,3 +184,17 @@ four, H-38 and H-48 to H-50, kept in the report. Claude's call the
 owner may change: they come after the first list's steps. The list:
 `HEALTH-CHECK-2.md`. D-853 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-862 · 2026-11-12 · The health check's order** (the owner's picks,
+all recommended) The dev tools' four, H-38 and H-48 to H-50, become one
+step (the owner's ask). Both lists' steps go in one order, grouped where
+they share a cause or a card, the most noticed first: 19 steps in
+`HEALTH-CHECK-ORDER.md` (offered too: the same groups in list order;
+one finding a step). No new content until all are done. The five
+things seen with no decision become Q-098 to Q-102 (offered too: steps;
+left in the report). The audit stays at 0.3.312 (offered too: after
+the steps). The branch `claude/gloamdeep-health-check-2-5uv4gm`, the
+second check's scratch work, all its findings in the report, is kept
+until H-57's step tests with its two old saves (offered too: its save
+tester into `tools/`; deleted now). D-854 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

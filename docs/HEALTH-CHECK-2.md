@@ -4,8 +4,9 @@ The 0.3.305 second health check (D-861) played, as a player would, on a
 phone and a PC, what the first (`HEALTH-CHECK.md`, D-860) did not reach,
 read `src/render/` and the game's words against the docs, and loaded old
 saves of every format. The owner picked these findings to become steps,
-numbered on from the first, never reused. They come after
-`HEALTH-CHECK.md`'s steps, and work the same way: one step at a time,
+numbered on from the first, never reused. They are done in
+`HEALTH-CHECK-ORDER.md`'s order with the first list's (D-862), and work
+the same way: one step at a time,
 Claude checks the finding still holds, offers 2 or 3 fixes with a
 recommendation, and builds only the owner's pick. "Suggests" is
 Claude's recommendation, not a decision. The full report, with every
@@ -85,7 +86,20 @@ The owner picks from a picture.
 - **H-59** Bumping the freed Peddler at once makes him leave sooner
   (`rescue.js:50`; the notes say "stays a little longer"). Played.
 
+## 6. The dev tools, one step
+Added later, the owner's pick (D-862).
+- **H-38** On a PC, Space presses the last clicked dev button again:
+  the wrench (`dev.js:81`) and the panel's buttons keep the focus
+  (`input.js:42`). Played. Suggests: they let go after a click.
+- **H-48** Dev Spawn's Peddler does nothing (`spawn.js:37`);
+  `DEV-TOOLS.md` says any registry entry, NPCs too (D-006). Played.
+  Suggests: Spawn puts a person on a free floor tile.
+- **H-49** Dev Spawn's Glow Lamp goes only on walls (D-478 sets it on
+  floor); six pictures named "Campfire", four "Garden Bed", four
+  "Waystone". Played. Suggests: the floor rule, names with their state.
+- **H-50** Dev panel: Room's GARDEN Grow is cut off under the sheet's
+  edge (`dev.js:62`, D-623). Played. Suggests: Grow on the TIME row.
+
 ## Not picked, kept in the report only
-H-38 (Space presses the last clicked dev button again), H-48 to H-50
-(dev Spawn's Peddler, the glow lamp and repeated names, Grow cut off).
+None now: H-38 and H-48 to H-50 became step 6 (D-862).
 H-62 to H-65 joined `HEALTH-CHECK.md`'s docs step and H-66 its audit list.
