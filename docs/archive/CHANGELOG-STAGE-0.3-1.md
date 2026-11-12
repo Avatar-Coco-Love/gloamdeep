@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.287 (2026-11-11)
+- New: music in the dungeon. On every floor from 8 down, the cold blue halls, a very still, dark tune of long held sounds plays non-stop, looping with no break and carrying on from floor to floor. Going down from the warrens fades the warrens' tune out over 2 seconds, and the dungeon's starts a second later, fading in.
+- New: Music's list in Settings has a line for it, Dungeon, after Warrens.
+- Notes: the tune is "Patreon Challenge 04" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Every place below now has its music.
+- Decisions: D-841.
+
 ## 0.3.286 (2026-11-11)
 - New: music in the warrens. On floors 5 to 7, the earth burrows, a dark, slow, low tune plays non-stop, looping with no break and carrying on from floor to floor. Going down from the rock caves fades the caves' tune out over 2 seconds, and the warrens' starts a second later, fading in; going on down to the dungeon fades it out the same way.
 - New: Music's list in Settings has a line for it, Warrens, after Rock caves.

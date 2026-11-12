@@ -21,7 +21,7 @@ export const SLEEP_OUT_ASK = ['Sleep here until morning?', 'The ground is hard a
 export const SLEEP_OUT_ROLL_ASK = ['Sleep here until morning?', 'Your fur bedroll is warm.']; // with the Fur Bedroll in the bag (D-803) or laid out beside the hero (D-804)
 // The garden bed bumped opens the same card (D-565), its name over Plant and Deconstruct, Plant
 // dim with no seed or a seed already in (D-566); the ask card's lines by the tile bumped
-export const TAKE_ASKS = { campfireAshes: ['Light the fire?', 'No one has sat here for a long time.'], minersCamp: ['Take the pick?', 'An old pick leans on the crate.'], bedstead: [BED_HEADING, BED_NOTE], bedroll: ['Roll up the bedroll?', "You aren't tired."], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693); the miners' camp's, its first words on the text line, No picked (D-770)
+export const TAKE_ASKS = { campfire: ['Sit by the fire?', 'Someone was here not long ago.'], campfireEmbers: ['Sit by the fire?', 'Whoever sat here is gone.'], campfireAshes: ['Light the fire?', 'No one has sat here for a long time.'], minersCamp: ['Take the pick?', 'An old pick leans on the crate.'], bedstead: [BED_HEADING, BED_NOTE], bedroll: ['Roll up the bedroll?', "You aren't tired."], plot: ['Garden bed', 'Nothing grows here yet.'], sprout: ['Garden bed', 'A sprout grows here.'], fedSprout: ['Garden bed', 'A sprout grows here.'], berryBed: ['Garden bed', 'Gloamberries grow here.'], relicShelf: ['Deconstruct shelf?', 'Nothing on it yet.'], locketShelf: ['Deconstruct shelf?', 'The locket rests here.'] }; // the shelf's, the bed's way (D-690), with the locket on it (D-693); the miners' camp's, its first words on the text line, No picked (D-770)
 // The shelf bumped with the locket in the bag asks to set it there instead, No picked; Yes `shelve`s it (D-693)
 export const SHELVE_ASK = ['Set the locket on the shelf?', 'Kept close, whatever the dark took.'];
 export const SHELVE_MENU = [{ id: 'shelve', text: 'Yes' }, { id: 'no', text: 'No' }];
@@ -30,6 +30,10 @@ export const SHELVE_MENU = [{ id: 'shelve', text: 'Yes' }, { id: 'no', text: 'No
 // grey with an empty lantern (D-757)
 export const KINDLE_MENU = [{ id: 'kindle', text: 'Yes' }, { id: 'no', text: 'No' }];
 export const kindleMenu = (can) => dimFirst(KINDLE_MENU, can);
+// A burning fire bumped asks Sit by the fire?, the second half of its words under it, the text
+// line saying the first, No picked; Yes `sit`s, grey with full hearts and not stiff (D-844)
+export const SIT_MENU = [{ id: 'sit', text: 'Yes' }, { id: 'no', text: 'No' }];
+export const sitMenu = (can) => dimFirst(SIT_MENU, can);
 // Grown, Pick takes Plant's place, picked (D-568)
 export const GARDEN_MENU = [{ id: 'plant', text: 'Plant' }, { id: 'take', text: 'Deconstruct' }];
 export const PICK_MENU = [{ id: 'pick', text: 'Pick' }, { id: 'take', text: 'Deconstruct' }];

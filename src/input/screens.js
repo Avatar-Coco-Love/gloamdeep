@@ -71,11 +71,11 @@ import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
 import { createCardScreens } from './cardscreens.js';
 import { makeCards } from './cards/table.js';
-import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SETTINGS_TABS, settingsTabOf, SLEEP_OUT_ASK, SLEEP_OUT_ROLL_ASK } from '../core/menu.js';
+import { titleMenu, PAUSE_MENU, SURE_MENU, SURE_NOTE, SURE_HEADING, TAKE_ASKS, SHELVE_ASK, SHELVE_MENU, kindleMenu, sitMenu, gardenMenu, DROP_NOTE, MODE_MENU, MODE_HEADING, easeMenu, easeHeading, EASE_NOTE, ENDED_MENU, ENDED_HEADING, settingsMenu, SETTINGS_TABS, settingsTabOf, SLEEP_OUT_ASK, SLEEP_OUT_ROLL_ASK } from '../core/menu.js';
 import { floorPlan, wholeSurface, roomsFound, fitView, panView, zoomView, floorsShown, turnFrom, stairsNear, stairsIn, centreView } from '../core/map.js';
 import { setMap, mapLayout, mapCardAt } from '../render/map.js';
 import { shownSeed, explorerWorld } from '../core/explorer.js';
-import { canPlant, canPick, canFeed, canShelve, canKindle } from '../core/turn.js';
+import { canPlant, canPick, canFeed, canShelve, canKindle, canSit } from '../core/turn.js';
 import { warm } from '../core/sleepout.js';
 import { playing as inPlay, slotName, playedText } from '../core/profile.js';
 import { bestiaryWords, pageWords } from '../core/bestiary.js';
@@ -126,7 +126,7 @@ export function createScreens(app, ui) {
   // § asks (D-400): the ask card's question and note for Start over?, Delete …? and Play …?
   // The garden bed's card shows Plant and Deconstruct, Plant dim when it can't be planted (D-566),
   // and grown, Pick in Plant's place (D-568)
-  const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : tile.kindles ? kindleMenu(canKindle(app.state, x, y)) : canShelve(app.state, x, y) ? SHELVE_MENU : SURE_MENU; }; // a sprout's Feed (D-569); the shelf's with the locket in the bag (D-693)
+  const bedMenu = () => { const { x, y } = app.bench, tile = tileAt(app.state.room, x, y); return tile.garden ? gardenMenu(canPlant(app.state, x, y), canPick(app.state, x, y), tile.feeds || tile.fed ? canFeed(app.state, x, y) : undefined) : tile.kindles ? kindleMenu(canKindle(app.state, x, y)) : tile.sits ? sitMenu(canSit(app.state, x, y)) : canShelve(app.state, x, y) ? SHELVE_MENU : SURE_MENU; }; // a sprout's Feed (D-569); the shelf's with the locket in the bag (D-693)
   // § the travel card (D-593): a row for each waystone, dim when not woken or stood on
   const travelMenu = () => stonesOf(app.state).map((s) => ({ id: s.place, text: stoneName(s), note: stoneNote(s), dim: !s.woken || s.here }));
   const travelWords = () => `Waystones. ${travelMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} Pick one to go there. Esc or the close button goes back.`;
@@ -253,7 +253,7 @@ export function createScreens(app, ui) {
     });
   }
 
-  const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
+  const { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, sitBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab } = createCardScreens(app, ui, show, menuOf); // the card screens (D-570)
 
   const titleAt = (id) => show('title', menuOf('title').findIndex((l) => l.id === id));
   const { openExplorer, closeExplorer, showSeeds, pressBar, waysWords, openWays, closeWays, pickWay, closeEasier, openPad, closePad,
@@ -279,7 +279,7 @@ export function createScreens(app, ui) {
 
   // § chip: the profile in play on the title, its name and deepest depth (D-401)
   const chip = () => chipOf(slotName(inPlay(app.profiles), app.profiles.current), inPlay(app.profiles).records.deepest);
-  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, openSoundList, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
+  const cards = makeCards(app, ui, show, { pickMake, makeChosen, turnBagTab, pickBench, turnBenchTab, takeDownBench, pickChest, tradeChosen, moveTrade, turnTrade, pickTrade, useChosen, moveBag, canStore, pickStore, storeNear, pickSort, sortBag, dropChosen, pickGear, pickSlot, setToward, tapSide, menuOf, askOf, shelveBed, kindleBed, sitBed, plantBed, pickBed, feedBed, titleAt, closeDrop, closeEasier, chip, menuTop, closeSettings, turnSettingsTab, openSoundList, closeWays, pickWay, openSlots, openJournal, openHowTo, openExplorer, openPad, openWays, openHistory, closeHowTo, closeHistory, closeJournal, journalPageWords, slotsBack, linesNow, slotsWords, openName, openCloak, pressName, closeName, pressLook, moveLookBy, scrollLookBy, closeCloak, pressKey, closePad, pressBar, closeExplorer, panMap, turnFloor, tapStairs, win, mapCardAt }); // the card table (D-573, D-575, D-576, D-577, D-578)
   const onMapScreen = () => app.screen === 'map' || app.screen === 'explore';
 
   // § journey ends: a Hardcore fall's page, Same world picked (MO2, D-344)

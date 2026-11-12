@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.290', date: '2026-11-12', title: 'Sitting by a campfire', lines: [
+    "New: sit by a campfire. Bumping a burning campfire now asks \"Sit by the fire?\". Yes takes a turn: a blazing fire gives 2 hearts back and embers 1, never above full, and stiffness from sleeping out goes away. The fire burns down a level as you sit, blazing to embers and embers to cold ashes, which your lantern's oil can light again.",
+    "Notes: Yes is grey when you are at full hearts and not stiff, so a fire isn't used up for nothing.",
+    "Decisions: D-844.",
+  ] },
   { v: '0.3.289', date: '2026-11-12', title: 'Chopping a fallen branch', lines: [
     "New: fallen branches chop too. The first bump chops like a tree, and the bump that snaps it plays one more chop, then a light wooden knock as it breaks.",
     "New: Settings' Stone breaks line covers a branch snapping too.",

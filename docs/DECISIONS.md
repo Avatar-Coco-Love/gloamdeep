@@ -103,22 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-839 · 2026-11-11 · Music in the crypt** (the owner's picks; part of
-Q-095) From a board of 8 calm, dark tracks for the crypt from the same
-bundle, measured again from all 138 (five from the caves' board, three of
-them its runners-up; the surface's and the caves' tunes beside them to
-compare; the crypt's stone steps playing along), track 5, "Ludum Dare 30
-05" (2 min 35 s, the quietest and longest), plays in the whole crypt: its
-two top rooms by the cave mouth (depth 0, below the sky) and floor 1
-(offered too, recommended: "Patreon Challenge 11"; offered too: floor 1
-only; floor 1 with the surface's tune carrying on in the top rooms). It
-carries on down the crypt's stairs to floor 1, non-stop with no break
-(offered too: with a 30 s, 60 s or 2 min gap), and changes as the others
-do: the old place's tune fades out over 2 s, the new one starts a second
-later, fading in over a second. A line in Music's list between Surface
-and Rock caves, Crypt. File and loudness in `SOUNDS-3.md`. D-834 moves
-to `archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-840 · 2026-11-11 · Music in the warrens** (the owner's picks, all
 recommended; part of Q-095) The warrens came before the dungeon. From a
 board of 8 calm, dark tracks from the same bundle, measured again from
@@ -174,3 +158,17 @@ wooden knock as it breaks (offered too: just the chop; a tree's fall,
 creak and crash). Under Digging's and Stone breaks' lines, as a tree's
 are. Each chopped tile names the sound of its last bump. Files in
 `SOUNDS-2.md`. D-838 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-844 · 2026-11-12 · Sitting by a campfire** (the owner's picks, all
+recommended but the effects, where all three were picked; Q-088's buff,
+step 1) A burning campfire bumped says its first words and opens Sit by
+the fire?, its second words under it, No picked (offered too: just
+standing beside it; only when sleeping out beside it). Yes, a turn:
+hearts back, blazing 2, embers 1, never above full (offered too: 1
+either way; 2 either way), and stiff ends; the fire burns down a level,
+blazing to embers, embers to cold ashes (offered too: once a day a fire;
+both). Warmed, the lantern burning slower for a while, comes next, its
+own step (offered too: all three at once; one at a time). Claude's
+calls the owner may change: Yes grey with full hearts and not stiff;
+"You sit by the fire and warm up."; no sound of its own yet. D-839
+moves to `archive/DECISIONS-SOUNDS.md`, word for word.

@@ -297,8 +297,9 @@ export const LINES = {
   wardenSettles: { text: 'The warden stands still again.', warn: false },
   wardenDie: { text: 'The warden crumbles and falls still.', warn: false },
   wardenBite: { text: 'The warden strikes you.', warn: false, kind: 'harm' },
-  campfireBlazing: { texts: ['A campfire, burning high.', 'Someone was here not long ago.'], warn: false }, // a campfire bumped, a sentence a bump (D-757)
-  campfireEmbers: { texts: ['The coals still glow.', 'Whoever sat here is gone.'], warn: false },
+  campfireHigh: { text: 'A campfire, burning high.', warn: false }, // said as a blazing fire's card opens, its note the rest (D-757, D-844)
+  campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
+  campfireSat: { text: 'You sit by the fire and warm up.', warn: false }, // Yes on Sit by the fire? (D-844), Claude's draft the owner may change
   campfireAshes: { text: 'Cold ashes.', warn: false }, // said as cold ashes' card opens, its note the rest (D-757)
   campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
   lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)

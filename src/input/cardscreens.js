@@ -148,6 +148,7 @@ export function createCardScreens(app, ui, show, menuOf) {
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   function shelveBed() { show('play'); ui.shelve(app.bench.x, app.bench.y); } // the locket set on the shelf (D-693)
   function kindleBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.kindle(app.bench.x, app.bench.y); } // cold ashes lit; a dim Yes does nothing (D-757)
+  function sitBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.sit(app.bench.x, app.bench.y); } // Sit by the fire?; a dim Yes does nothing (D-844)
   function plantBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   function pickBed() { show('play'); ui.pick(app.bench.x, app.bench.y); } // the grown bed's berries (D-568)
   function feedBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
@@ -205,5 +206,5 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = i === BENCH_TAKE ? `Deconstruct ${stationTitle(station()).toLowerCase()}` : m ? costWords(m) : 'Empty';
   }
 
-  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
+  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, sitBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
 }

@@ -2,6 +2,14 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.287, Music in the dungeon.** The owner's picks
+  (D-841), all recommended, from a board of 8 calm, dark tracks measured
+  again from all 138 (the 43 over 45 s), with the warrens' and the crypt's
+  tunes and the dungeon's stone steps: track 1, "Patreon Challenge 04",
+  in the dungeon, every floor from 8 down, non-stop, carrying on from
+  floor to floor; a line in Music's list, Dungeon.
+  Playtest: https://claude.ai/artifact/69dfye4sXjAGydT4f9oiZz
+  Board of tracks: https://claude.ai/artifact/LKB3sVETjtzqXp4WoRKSMc
 - **2026-11-11, 0.3.286, Music in the warrens.** The owner's picks
   (D-840), all recommended, from a board of 8 calm, dark tracks measured
   again from the 84 over 45 s, with the caves' and the surface's tunes and
