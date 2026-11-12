@@ -1,0 +1,16 @@
+import { serve, open, shot, keys, line, readSave, inject, tap } from '../lib.mjs';
+import { atHome, show, start } from './prep.mjs';
+const s = await serve();
+const kind = 'pc';
+const a = atHome(1, { dx: 1, dy: 0 }, { bag: [{ id: 'ratTail', n: 3 }, { id: 'venomSac', n: 1 }], coins: 0 });
+const { browser, page } = await open(s.url, kind, await inject(a.state));
+const log = async (tag) => { const k = await readSave(page); console.log(kind, tag, '|', await line(page), '| coins', k.state.coins, 'bag', k.state.bag.map((b) => b.id + b.n).join(','), 'turn', k.state.turn); };
+await start(page, kind);
+await keys(page, 'ArrowLeft', 600); await keys(page, 'Space', 300); await log('Space sells');
+await tap(page, 1457, 794); await log('click SELL');
+await tap(page, 296, 158); await log('click BUY tab');
+await tap(page, 276, 372); await log('click torch'); await tap(page, 1457, 794); await log('click BUY torch');
+await tap(page, 1489, 74); await log('click cross');
+await keys(page, 'ArrowLeft', 600); await log('bump again (2nd home line)'); await keys(page, 'Escape', 300); await log('esc');
+await keys(page, 'i', 400); await shot(page, 'out/p8-bag.png'); await log('bag');
+await browser.close(); s.close();

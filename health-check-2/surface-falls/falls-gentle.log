@@ -1,0 +1,115 @@
+f-gentle-surface-bite-start-phone BEFORE place woods:2,1 hero 8,9 turn 300 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned undefined worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"level":3}
+f-gentle-surface-bite-start-phone line at fall+350: 
+f-gentle-surface-bite-start-phone line at +1850: You fall, and wake again.
+f-gentle-surface-bite-start-phone AFTER place woods:2,2 hero 8,10 turn 301 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed undefined line You fall, and wake again. | start "southWoods" lit false
+f-gentle-surface-bite-start-phone lostbag items anywhere: []
+f-gentle-surface-bite-start-phone seen kept (rooms with memory): woods:2,2 woods:2,1 | before: woods:2,1
+f-gentle-surface-bite-start-phone PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"herb"},"stone":{"done":false},"ember":{"done":false}}
+f-gentle-surface-bite-start-phone PLAYED ON 21 turns: place woods:2,2 hero 8,9 turn 322 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1"] held knife tool pick coins 7 line You fall, and wake again. errors ["warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"]
+f-gentle-surface-bite-start-phone final errors ["warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"]
+f-gentle-below-poison-stone-phone BEFORE place depth2 hero 1,11 turn 301 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned 1 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"plate":{"place":"woods:1,0","hero":{"x":8,"y":8}},"stoneLine":{"id":"stoneWakes","turn":1},"level":3}
+f-gentle-below-poison-stone-phone line at fall+350: 
+f-gentle-below-poison-stone-phone line at +1850: You fall, and wake again.
+f-gentle-below-poison-stone-phone AFTER place woods:1,0 hero 8,8 turn 302 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx3","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed undefined line You fall, and wake again. | start "southWoods" lit false
+f-gentle-below-poison-stone-phone lostbag items anywhere: []
+f-gentle-below-poison-stone-phone seen kept (rooms with memory): woods:1,0 | before: 
+f-gentle-below-poison-stone-phone PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 10 bestiary {"rat":{"met":3,"beaten":2}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":true,"paid":"glint"},"wake":{"done":true,"paid":"flask"},"oil":{"done":true,"paid":"flask"},"ember":{"done":false}}
+f-gentle-below-poison-stone-phone PLAYED ON 9 turns: place woods:1,0 hero 8,8 turn 311 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx3","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line Waystones. Home: You are here. ???: Not yet woken. ???: Not yet woken. Pick one to go there. Esc or the close button goes back. errors []
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+page.tap: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#bag-button')[22m
+[2m    - locator resolved to <button type="button" id="bag-button" title="Bag (I)" aria-label="Bag">…</button>[22m
+[2m  - attempting tap action[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying tap action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and stable[22m
+[2m      - element is not visible[22m
+[2m    - retrying tap action[22m
+[2m      - waiting 100ms[22m
+[2m    56 × waiting for element to be visible, enabled and stable[22m
+[2m       - element is not visible[22m
+[2m     - retrying tap action[22m
+[2m       - waiting 500ms[22m
+
+    at /tmp/claude-0/-home-user-gloamdeep/b51b3cef-1381-54c0-a93a-a9758be8f70d/scratchpad/hc/surface-falls/f1.mjs:49:34 {
+  log: [
+    "  - waiting for locator('#bag-button')",
+    '    - locator resolved to <button type="button" id="bag-button" title="Bag (I)" aria-label="Bag">…</button>',
+    '  - attempting tap action',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying tap action',
+    '    - waiting 20ms',
+    '    2 × waiting for element to be visible, enabled and stable',
+    '      - element is not visible',
+    '    - retrying tap action',
+    '      - waiting 100ms',
+    '    56 × waiting for element to be visible, enabled and stable',
+    '       - element is not visible',
+    '     - retrying tap action',
+    '       - waiting 500ms'
+  ],
+  name: 'TimeoutError'
+}
+
+Node.js v22.23.4
+f-gentle-surface-poison-bed-phone BEFORE place woods:2,1 hero 8,9 turn 600 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned 1 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"setLine":{"id":"bedSet","turn":181},"bed":{"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}},"sleepLine":{"id":"sleep","turn":300},"level":3}
+f-gentle-surface-poison-bed-phone line at fall+350: 
+f-gentle-surface-poison-bed-phone line at +1850: You fall, and wake again.
+f-gentle-surface-poison-bed-phone AFTER place woods:2,2 hero 11,12 turn 601 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed {"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}} line You fall, and wake again. | start "southWoods" lit false
+f-gentle-surface-poison-bed-phone lostbag items anywhere: []
+f-gentle-surface-poison-bed-phone seen kept (rooms with memory): woods:2,2 woods:2,1 | before: woods:2,1
+f-gentle-surface-poison-bed-phone PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":false},"ember":{"done":false}}
+f-gentle-surface-poison-bed-phone PLAYED ON 21 turns: place woods:2,2 hero 13,11 turn 622 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line  errors []
+f-gentle-surface-poison-bed-phone final errors []
+f-gentle-below-bite-bed-phone BEFORE place depth2 hero 1,11 turn 600 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned undefined worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"setLine":{"id":"bedSet","turn":181},"bed":{"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}},"sleepLine":{"id":"sleep","turn":300},"level":3}
+f-gentle-below-bite-bed-phone line at fall+350: 
+f-gentle-below-bite-bed-phone line at +1850: You fall, and wake again.
+f-gentle-below-bite-bed-phone AFTER place woods:2,2 hero 11,12 turn 601 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed {"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}} line You fall, and wake again. | start "southWoods" lit false
+f-gentle-below-bite-bed-phone lostbag items anywhere: []
+f-gentle-below-bite-bed-phone seen kept (rooms with memory): woods:2,2 | before: 
+f-gentle-below-bite-bed-phone PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":false},"oil":{"done":true,"paid":"herb"},"ember":{"done":false}}
+f-gentle-below-bite-bed-phone PLAYED ON 21 turns: place woods:2,2 hero 13,11 turn 622 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line  errors []
+f-gentle-below-bite-bed-phone final errors []
+f-gentle-surface-bite-start-pc BEFORE place woods:2,1 hero 8,9 turn 300 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned undefined worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"level":3}
+f-gentle-surface-bite-start-pc line at fall+350: 
+f-gentle-surface-bite-start-pc line at +1850: You fall, and wake again.
+f-gentle-surface-bite-start-pc AFTER place woods:2,2 hero 8,10 turn 301 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed undefined line You fall, and wake again. | start "southWoods" lit false
+f-gentle-surface-bite-start-pc lostbag items anywhere: []
+f-gentle-surface-bite-start-pc seen kept (rooms with memory): woods:2,2 woods:2,1 | before: woods:2,1
+f-gentle-surface-bite-start-pc PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"herb"},"stone":{"done":false},"ember":{"done":false}}
+f-gentle-surface-bite-start-pc PLAYED ON 21 turns: place woods:2,2 hero 8,9 turn 322 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1"] held knife tool pick coins 7 line You fall, and wake again. errors ["warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"]
+f-gentle-surface-bite-start-pc final errors ["warning: Canvas2D: Multiple readback operations using getImageData are faster with the willReadFrequently attribute set to true. See: https://html.spec.whatwg.org/multipage/canvas.html#concept-canvas-will-read-frequently"]
+f-gentle-below-poison-stone-pc BEFORE place depth2 hero 1,11 turn 301 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned 1 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"plate":{"place":"woods:1,0","hero":{"x":8,"y":8}},"stoneLine":{"id":"stoneWakes","turn":1},"level":3}
+f-gentle-below-poison-stone-pc line at fall+350: 
+f-gentle-below-poison-stone-pc line at +1850: You fall, and wake again.
+f-gentle-below-poison-stone-pc AFTER place woods:1,0 hero 8,8 turn 302 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx3","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed undefined line You fall, and wake again. | start "southWoods" lit false
+f-gentle-below-poison-stone-pc lostbag items anywhere: []
+f-gentle-below-poison-stone-pc seen kept (rooms with memory): woods:1,0 | before: 
+f-gentle-below-poison-stone-pc PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 10 bestiary {"rat":{"met":3,"beaten":2}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":true,"paid":"glint"},"wake":{"done":true,"paid":"flask"},"oil":{"done":true,"paid":"flask"},"ember":{"done":false}}
+f-gentle-below-poison-stone-pc PLAYED ON 9 turns: place woods:1,0 hero 8,8 turn 311 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx3","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line Waystones. Home: You are here. ???: Not yet woken. ???: Not yet woken. Pick one to go there. Esc or the close button goes back. errors []
+f-gentle-below-poison-stone-pc final errors []
+f-gentle-surface-poison-bed-pc BEFORE place woods:2,1 hero 8,9 turn 600 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned 1 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"setLine":{"id":"bedSet","turn":181},"bed":{"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}},"sleepLine":{"id":"sleep","turn":300},"level":3}
+f-gentle-surface-poison-bed-pc line at fall+350: 
+f-gentle-surface-poison-bed-pc line at +1850: You fall, and wake again.
+f-gentle-surface-poison-bed-pc AFTER place woods:2,2 hero 11,12 turn 601 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed {"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}} line You fall, and wake again. | start "southWoods" lit false
+f-gentle-surface-poison-bed-pc lostbag items anywhere: []
+f-gentle-surface-poison-bed-pc seen kept (rooms with memory): woods:2,2 woods:2,1 | before: woods:2,1
+f-gentle-surface-poison-bed-pc PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":false},"ember":{"done":false}}
+f-gentle-surface-poison-bed-pc PLAYED ON 21 turns: place woods:2,2 hero 13,11 turn 622 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line  errors []
+f-gentle-surface-poison-bed-pc final errors []
+f-gentle-below-bite-bed-pc BEFORE place depth2 hero 1,11 turn 600 hp 1 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx1","glowDraughtx1"] held knife tool pick coins 7 boon stoutHeart glow 40 poisoned undefined worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 notes {"start":{"place":"woods:2,2","hero":{"x":8,"y":10}},"setLine":{"id":"bedSet","turn":181},"bed":{"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}},"sleepLine":{"id":"sleep","turn":300},"level":3}
+f-gentle-below-bite-bed-pc line at fall+350: 
+f-gentle-below-bite-bed-pc line at +1850: You fall, and wake again.
+f-gentle-below-bite-bed-pc AFTER place woods:2,2 hero 11,12 turn 601 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 boon null glow 0 poisoned 0 worn {"armour":["ratVest"],"charm":["heartCharm"]} xp 30 seed 4127 found 1 grown {} bed {"place":"woods:2,2","x":11,"y":11,"from":{"x":11,"y":12}} line You fall, and wake again. | start "southWoods" lit false
+f-gentle-below-bite-bed-pc lostbag items anywhere: []
+f-gentle-below-bite-bed-pc seen kept (rooms with memory): woods:2,2 | before: 
+f-gentle-below-bite-bed-pc PROFILE before {"deepest":3,"beaten":5,"falls":2,"found":4,"steps":100,"poured":1,"torches":0} glints 9 | after {"deepest":3,"beaten":5,"falls":3,"found":4,"steps":100,"poured":1,"torches":0} glints 9 bestiary {"rat":{"met":3,"beaten":2},"mole":{"met":1,"beaten":0},"bunny":{"met":1,"beaten":0}} goals {"rat":{"done":true,"paid":"oilcap"},"stone":{"done":false},"oil":{"done":true,"paid":"herb"},"ember":{"done":false}}
+f-gentle-below-bite-bed-pc PLAYED ON 21 turns: place woods:2,2 hero 13,11 turn 622 hp 5 oil 100 mode gentle bag ["woodx3","stonex2","flaskx1","herbx3","glowDraughtx1","oilcapx3"] held knife tool pick coins 7 line  errors []
+f-gentle-below-bite-bed-pc final errors []

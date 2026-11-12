@@ -1,0 +1,14 @@
+import { Game, serve, core, room, cells, line } from './pl.mjs';
+const turn = await core('turn'), stairs = await core('stairs');
+const seed = +process.argv[2] || 4127, kind = process.argv[3] || 'pc';
+let st = turn.newJourney(seed, 'normal');
+st = { ...stairs.goToDepth(st, 4), lit: true };
+const s = await serve();
+const g = await Game.boot(s.url, kind, st);
+const lk = room.locketRoom(seed);
+console.log('locket room', lk, 'route', g.route(lk), 'cells', cells(seed, 4).map((c) => `${c.id}(${c.w}x${c.h}${c.down ? ' down' : ''}${c.end ? ' end' : ''})`).join(' '));
+console.log(await g.goRoom(lk), g.s.place, g.s.hero, 'hp', g.s.health, 'oil', g.s.oil.toFixed(2), 'turn', g.s.turn);
+await g.shot('p2-arrive');
+console.log(g.s.room.map.join('\n')); console.log(JSON.stringify(g.s.enemies), JSON.stringify(g.s.items));
+console.log(g.lines.join('\n')); console.log('bad', g.bad, 'log', g.log, 'errors', g.errors);
+await g.close(); s.close();

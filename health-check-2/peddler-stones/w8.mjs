@@ -1,0 +1,15 @@
+import { serve, open, shot, keys, line, readSave, inject, tap } from '../lib.mjs';
+import { wakeAt, mouth, turn, start, allWoken, atHome } from './prep.mjs';
+const s = await serve();
+const kind = 'phoneWide';
+let base = wakeAt(turn.newJourney(1, 'gentle'), mouth.stoneHome(1));
+base = { ...turn.step(base, 'down'), lit: false };
+const go = async (st, name, f) => { const { browser, page, errors } = await open(s.url, kind, await inject(st, { profile: { goals: { boon: { done: true, shown: true } } } })); await keys(page, 'Enter Enter'); await page.waitForTimeout(1200); await f(page); await shot(page, `out/w8-${name}.png`); console.log(name, (await line(page)).slice(0, 80), errors.filter((e) => !e.includes('willRead') && !e.includes('Audio'))); await browser.close(); };
+await go({ ...base, turn: 7 }, 'boons-T8', (p) => keys(p, 'ArrowUp', 600));
+await go({ ...base, turn: 6 }, 'boons-T7', (p) => keys(p, 'ArrowUp', 600));
+await go(allWoken(1), 'travel', (p) => keys(p, 'Space', 500));
+await go(allWoken(1), 'travel-down', (p) => keys(p, 'Space ArrowDown ArrowDown ArrowDown ArrowDown ArrowDown ArrowDown', 200));
+const ids = ['ratTail', 'venomSac', 'wood', 'stone', 'wispGlass', 'mothDust', 'herb', 'oilcap', 'batWing', 'moleFur', 'pondMinnow', 'blindCavefish'];
+await go(atHome(1, { dx: 1, dy: 0 }, { bag: ids.map((id) => ({ id, n: 2 })), coins: 1, bagSlots: 12 }).state, 'trade12', (p) => keys(p, 'ArrowLeft', 600));
+await go(atHome(1, { dx: 1, dy: 0 }, { bag: ids.map((id) => ({ id, n: 2 })), coins: 1, bagSlots: 12 }).state, 'trade12-buy', (p) => keys(p, 'ArrowLeft ArrowUp ArrowRight ArrowDown', 400));
+s.close();

@@ -1,0 +1,17 @@
+import { serve, open, shot, keys, line, readSave, inject, tap } from '../lib.mjs';
+import { atHome, show, start } from './prep.mjs';
+const s = await serve();
+const kind = process.argv[2], slots = +process.argv[3];
+const ids = ['ratTail', 'venomSac', 'wood', 'stone', 'wispGlass', 'mothDust', 'herb', 'oilcap', 'batWing', 'moleFur', 'pondMinnow', 'blindCavefish'].slice(0, slots);
+const a = atHome(1, { dx: 1, dy: 0 }, { bag: ids.map((id) => ({ id, n: 2 })), coins: 10, bagSlots: slots });
+const { browser, page, errors } = await open(s.url, kind, await inject(a.state));
+const S = (n) => shot(page, `out/p4-${kind}${slots}-${n}.png`);
+const log = async (tag) => { const k = await readSave(page); console.log(tag, '|', await line(page), '| coins', k.state.coins, 'bag', k.state.bag.map((b) => b.id + b.n).join(',')); };
+await start(page, kind);
+if (kind === 'pc') await keys(page, 'ArrowLeft', 600); else await tap(page, 174, 505, 600);
+await S('sell'); await log('open');
+await keys(page, 'ArrowUp ArrowUp ArrowUp ArrowRight ArrowDown'); await S('buy'); await log('buy tab, flask');
+await keys(page, 'Enter'); await log('buy flask full bag'); await S('buy2');
+await keys(page, 'ArrowRight Enter'); await log('buy torch full bag');
+console.log(errors.filter((e) => !e.includes('willRead') && !e.includes('Audio')));
+await browser.close(); s.close();

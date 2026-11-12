@@ -1,0 +1,13 @@
+import { Game, serve, core, room, region, line } from './pl.mjs';
+import { inRoom } from './setups.mjs';
+const kind = process.argv[2] || 'pc';
+const s = await serve();
+let st = inRoom(4127, 'depth7:1,0', { grown: { heart: 5 }, health: 10, held: 'knife', bag: [{ id: 'flask', n: 5 }] });
+st = { ...st, enemies: st.enemies.filter((e) => e.id === 'mole') };
+console.log(st.room.map.join('\n'), JSON.stringify(st.hero), JSON.stringify(st.enemies), JSON.stringify(region.cellOf(4127, 'depth7:1,0', 7).doors));
+const g = await Game.boot(s.url, kind, st);
+process.env.V = '1';
+const r = await g.through('depth7:1,1', { max: 60 });
+console.log(r, JSON.stringify(g.s.hero), JSON.stringify(g.s.enemies));
+await g.shot('mole-end');
+await g.close(); s.close();
