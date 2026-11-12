@@ -4,19 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.318 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.319 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 10,
-the owner's rulings: travel and countdowns (H-04), the mole up close
-(H-06), the warden's tip (H-46), with Q-098 and Q-100.
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 11,
+goals: paid when quiet (H-10), two at once (H-13), with Q-099.
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
-  (`HEALTH-CHECK-ORDER.md`), Q-098 to Q-102 with them.
+  (`HEALTH-CHECK-ORDER.md`), Q-099, Q-101 and Q-102 with them.
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
+- The warden's special drop (Q-104), designed right after the health check.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -48,6 +48,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.319, The owner's rulings.** Health check step 10:
+  travel keeps poison's, stiff's and the draughts' turns (H-04); a night
+  uses poison's turns, its hearts too when sleeping out (Q-098); a mole
+  beside the hero as it notices never digs (H-06); one warden beaten
+  shows its tip (H-46); taking the locket wakes its warden (Q-100). D-874.
+  Playtest: https://claude.ai/artifact/716jC1BoKi8w2BWDjWPtsi
 - **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
   sealed tile is left out of the joined check while he is ringed in, so
   torches, glow lamps, deposits growing back and the flask mimic go in
@@ -59,8 +65,3 @@ list in `RESEARCH.md`.
   one rests its full turn (H-05); a drink that takes the oil low or dry
   warns, its line over the drink's, with its sound (H-11). D-872.
   Playtest: https://claude.ai/artifact/Aw7eXc7wnRGi755FWJoQns
-- **2026-11-12, 0.3.316, The marks.** Health check step 7: a tap up to
-  4 game pixels past a mark finds it, the gaps split (H-36); a row of
-  marks stops left of the round map and goes on to a second row (H-55).
-  D-871.
-  Playtest: https://claude.ai/artifact/JvpkMe4i6D56JRsBCnPizK

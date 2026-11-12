@@ -31,7 +31,8 @@ step 6 (D-869).
 9. **The Peddler's room refuses torches** (H-09). Done at 0.3.318
    (D-873).
 10. **The owner's rulings:** travel and countdowns (H-04); the mole up
-    close (H-06); the warden's tip (H-46); with Q-098 and Q-100.
+    close (H-06); the warden's tip (H-46); with Q-098 and Q-100. Done
+    at 0.3.319 (D-874).
 11. **Goals:** paid when quiet (H-10); two at once (H-13); with Q-099.
 12. **Balance:** growing back at home (H-07); cave pools (H-08), with a
     map preview; with Q-101.

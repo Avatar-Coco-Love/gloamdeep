@@ -57,18 +57,9 @@ step, when the owner wants.
 no decision to measure against. Each is asked at the step named in
 `HEALTH-CHECK-ORDER.md`.
 
-**Q-098 · Poison over a night's sleep** (raised 2026-11-12, D-862) A
-night's sleep counts poison down by one turn only, while draughts and
-Warmed lose the whole night. Which is right for poison? At step 10.
-
 **Q-099 · Two effects ending on one turn** (raised 2026-11-12, D-862)
 Only the last one's line shows. Should both be said? At step 11, with
 H-13 (two goals at once).
-
-**Q-100 · The locket past the sleeping warden** (raised 2026-11-12,
-D-862) In 253 of 400 seeds the locket can be taken without passing the
-warden, which D-720 lets sleep. Fine, or should it guard the way? At
-step 10.
 
 **Q-101 · A herb that seems to float** (raised 2026-11-12, D-862) Seed
 4128, depth 2: a floor tile juts into a pool, so the herb on it looks
@@ -85,3 +76,8 @@ D-869) Laid out, a duskstar keeps off the home waystone's ring, but one
 picked can grow back on it (`regrow.js`'s roam), as a boulder could
 before 0.3.314. Flowers don't block the way. Leave it, or keep them off
 the ring too? Any time.
+
+**Q-104 · The warden's special drop** (raised 2026-11-12, D-874) The
+owner's idea: the warden should drop something special of its own. Its
+name, look and use are to be designed, with mock-ups, right after the
+health check (no new content until it ends, D-862).

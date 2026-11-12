@@ -195,7 +195,7 @@ function enemiesMove(state, bit = false) {
     }
     const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : t.pack && !seeks ? packStep(now, e, claims) : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
-    const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }) };
+    const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }), ...(t.burrows && near && chasing && { dug: true }) }; // one that burrows, beside the hero as it notices, never digs (D-726, H-06)
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
     enemies = enemies.map((o) => (o === e ? moved : o));
   }

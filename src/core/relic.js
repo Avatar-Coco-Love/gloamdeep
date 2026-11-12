@@ -6,6 +6,8 @@
 import { rng, int } from './rng.js';
 import { steps } from './cache.js';
 import { get, asleepAtFirst } from './registry.js';
+import { note } from './events.js';
+import { say } from './lines.js';
 
 export const RELIC_GUARD = 'warden'; // the old-city warden (D-692)
 const same = (a, b) => a.x === b.x && a.y === b.y;
@@ -26,4 +28,15 @@ export function withRelic(seed, room, id = 'locket') {
     return { ...room, items: [...room.items, { id, x: at.x, y: at.y, once: true }], enemies: [...room.enemies, { id: RELIC_GUARD, x: guard.x, y: guard.y, ...(asleepAtFirst(get(RELIC_GUARD)) && { asleep: true }) }] };
   }
   return room;
+}
+
+// § the guard wakes (D-874): a relic taken this turn wakes each guard asleep in the room, as a
+// bump does: it stirs, does nothing this turn, then chases for its `awakeTurns`; with its `wake`
+// event, for the stone's sound, and its line over the relic's, so it can't be skipped
+export function guardWakes(state) {
+  const took = state.events.some((e) => e.type === 'take' && get(e.id)?.relic);
+  const guards = took ? state.enemies.filter((e) => e.id === RELIC_GUARD && e.asleep) : [];
+  if (!guards.length) return state;
+  const enemies = state.enemies.map((e) => { if (!guards.includes(e)) return e; const { asleep, ...woken } = e; return { ...woken, stirs: true }; });
+  return say(note({ ...state, enemies }, 'wake', { id: RELIC_GUARD }), get(RELIC_GUARD).wakes);
 }

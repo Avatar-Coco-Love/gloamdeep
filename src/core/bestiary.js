@@ -45,10 +45,12 @@ export const countsText = (row) => `${row.met} met, ${row.beaten} beaten`;
 export const HINT = 'Beat one to learn how it acts.';
 export const FIGHT_HEADING = 'How to fight it';
 export const FIGHT_AT = 3;
-export const fightHint = (beaten) => (beaten ? `Beat ${FIGHT_AT - beaten} more to learn how to fight it.` : `Beat ${FIGHT_AT} to learn how to fight it.`);
+// One of a kind, the warden, needs only its `fightAt`, 1 (H-46, D-874)
+export const fightAt = (id) => get(id)?.fightAt ?? FIGHT_AT;
+export const fightHint = (beaten, at = FIGHT_AT) => (beaten ? `Beat ${at - beaten} more to learn how to fight it.` : `Beat ${at} to learn how to fight it.`);
 export function pageOf(book, id) {
-  const c = get(id), n = { met: 0, beaten: 0, ...book[id] }, known = n.beaten > 0, skilled = n.beaten >= FIGHT_AT;
-  return { id, name: c.name, counts: countsText(n), known, acts: known ? c.acts : HINT, skilled, fights: skilled ? c.fights : fightHint(n.beaten) };
+  const c = get(id), n = { met: 0, beaten: 0, ...book[id] }, known = n.beaten > 0, at = fightAt(id), skilled = n.beaten >= at;
+  return { id, name: c.name, counts: countsText(n), known, acts: known ? c.acts : HINT, skilled, fights: skilled ? c.fights : fightHint(n.beaten, at) };
 }
 // The picked row's index kept inside the rows there are, d steps on (Up -1, Down +1)
 export const movePickRow = (book, pick, d) => Math.max(0, Math.min(bestiaryRows(book).length - 1, pick + d));

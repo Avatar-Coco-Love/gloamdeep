@@ -65,3 +65,4 @@ how to fight it." Claude's, the owner may change it: with none beaten,
 "Beat 3 to learn how to fight it." The maker leaves `fights` a blank,
 and the checker asks every creature for it. D-623 moved to
 `archive/DECISIONS-MAKING.md`, word for word.
+The warden's count changed to 1 by D-874 (2026-11-12).

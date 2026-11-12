@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.316, The marks.** Health check step 7: a tap up to
+  4 game pixels past a mark finds it, the gaps split (H-36); a row of
+  marks stops left of the round map and goes on to a second row (H-55).
+  D-871.
+  Playtest: https://claude.ai/artifact/JvpkMe4i6D56JRsBCnPizK
 - **2026-11-12, 0.3.315, One words page.** Health check step 6: finds'
   names capitalise every word (H-40, H-20); a far mole's own line
   (H-15); Kind Herbs' words (H-41); How to play's Pick, bag and map
