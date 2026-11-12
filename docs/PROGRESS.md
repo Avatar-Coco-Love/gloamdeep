@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.292 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.293 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -41,6 +41,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.293, Bad marks.** The owner's idea and picks
+  (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
+  20 turns (recommended); bad marks sit on dark red glass.
+  Playtest: https://claude.ai/artifact/Upq48FuSxuNF4LeLU7JPHw
 - **2026-11-12, 0.3.292, A thud and a timer rim.** The owner's picks
   (D-846, D-847), all recommended: a falling tree plays its last chop
   and a heavy thud, no creak; the buff marks lose their number, and
@@ -53,8 +57,3 @@ list in `RESEARCH.md`.
   full tank lasts 70, added to Slowburn; Yes whenever it helps; a small
   orange flame mark.
   Playtest: https://claude.ai/artifact/KgxNig5AtBQwsdJ6aNLW5q
-- **2026-11-12, 0.3.290, Sitting by a campfire.** The owner's picks
-  (D-844), all recommended but the effects: a burning fire asks Sit by
-  the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and
-  burns the fire a level down. Warmed, the slower lantern, comes next.
-  Playtest: https://claude.ai/artifact/8tAzj2YY1JeKnMxUr13B4n
