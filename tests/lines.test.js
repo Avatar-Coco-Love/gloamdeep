@@ -83,3 +83,11 @@ test('what people say is bone white, a creature hurting you red', async () => {
   assert.equal(lineColour(LINES.glance), '#9790a4');
   for (const [id, e] of Object.entries(LINES)) if ((e.text ?? e.texts[0]).startsWith('"')) assert.equal(e.kind, 'speech', id);
 });
+
+test('a mark\'s last turn says "1 turn left.", more say "turns" (H-43)', () => {
+  const s = makeState(FIRST_ROOM);
+  assert.equal(shownLine(say(s, 'poisonHeld', 1)).text, 'Poisoned: 1 turn left.');
+  assert.equal(shownLine(say(s, 'stiffHeld', 1)).text, 'Stiff: 1 hit in 3 misses, 1 turn left.');
+  assert.equal(shownLine(say(s, 'glowHeld', 2)).text, 'Glow Draught: 2 turns left.');
+  assert.equal(shownLine(say(s, 'glowHeld', 11)).text, 'Glow Draught: 11 turns left.');
+});

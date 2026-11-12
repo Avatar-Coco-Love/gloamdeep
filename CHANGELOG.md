@@ -23,6 +23,16 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.315 (2026-11-12)
+- Names of things you carry now capitalise every word: Oil Flask, Healing Herb, Healing Potion, Stash Chest, Glow Lamp. The mortar's lines say "Need 2 Mimic Leaf, 1 Healing Herb." and so on.
+- A mole that comes up away from you says "The mole bursts up out of the earth!"; beside you it still bursts up beside you.
+- Kind Herbs' card says what it does: "Herbs, potions and fish heal 1 heart more."
+- How to play: the Pick row says "Hold it to break veins"; the Keyboard page names I for the bag and M for the map, and Touch and Mouse say the bag and map have their buttons.
+- A mark's last turn says "1 turn left." instead of "1 turns left."
+- The Bestiary: the lure wisp drifts toward another creature only if there is one, and the bone rat is "knocked down" into its bones, since only scattering them beats it.
+- Settings' sound for the end of a journey is called "Journey ends", no longer "Run ends".
+- Decisions: D-870.
+
 ## 0.3.314 (2026-11-12)
 - A broken boulder or copper vein never grows back beside a waystone, on the tiles kept open round it.
 - A find that doesn't fit in the bag, with every tile beside it taken, lies on the nearest open tile further out, never on water or a bush.
@@ -34,8 +44,3 @@ Entry format:
 - The fifteenth audit. Nothing in the game changes. The game's sounds move out of its biggest code file into their own, word for word, and the Version history now loads only when it first opens, so the game starts with 12 files fewer.
 - Docs: old code notes that no longer matched the game are fixed; done health check findings, finished decisions and the playbook's newest lines moved to the archive or their own files, word for word. Older iPhones and the sound files go on the store checklist, to test on a real one. Three small risks and an unused piece of code come next. The next audit is at 0.3.353.
 - Decisions: D-868. D-826, D-863 and D-864 moved to the archive, word for word.
-
-## 0.3.312 (2026-11-12)
-- The Look card's tabs are taller, easy to tap on a phone. On phones like a 390 px one the big hero is a little smaller to make room; on the smallest screens the choices show 2 rows and scroll.
-- With the keyboard, Up from RANDOM or OK now goes to the open tab, so a rolled look is kept; before, it picked each choice on the way.
-- Decisions: D-867. D-859 moved to the archive, word for word.

@@ -42,7 +42,7 @@ test('upright, a quest\'s how wraps and a done goal\'s reward goes under it; sid
   const goals = { rat: { done: false }, home: { done: true, paid: 'flask' } }; // newest first: home, then rat
   const up = questsList(cardAt(180, 390), goals, 'crypt-1').rows, wide = questsList(cardAt(400, 190), goals, 'crypt-1').rows;
   assert.equal(up[0].hows.length, 2, 'Leave by the gap in the crypt wall. takes two lines upright');
-  assert.equal(up[0].beside, false, '+1 Oil flask goes under it');
+  assert.equal(up[0].beside, false, '+1 Oil Flask goes under it');
   assert.equal(up[0].h, 4 * 11 + 4);
   assert.equal(wide[0].beside, true);
   assert.equal(wide[0].h, 26);

@@ -19,14 +19,14 @@ test('tiles are found by id and by map letter', () => {
 test('the healing herb is an item worth 2 hearts', () => {
   const herb = get('herb');
   assert.equal(herb.kind, 'item');
-  assert.equal(herb.name, 'Healing herb');
+  assert.equal(herb.name, 'Healing Herb');
   assert.equal(herb.heal, 2);
 });
 
 test('the oil flask is an item worth 45% of a tank', () => {
   const flask = get('flask');
   assert.equal(flask.kind, 'item');
-  assert.equal(flask.name, 'Oil flask');
+  assert.equal(flask.name, 'Oil Flask');
   assert.equal(flask.oil, 0.45);
   assert.deepEqual(byKind('item'), [flask, get('knife'), get('spear'), get('herb'), get('oilcap'), get('heartcap'), get('potion'), get('stone'), get('duskstar'), get('ratTail'), get('mothDust'), get('stinger'), get('mimicGlass'), get('gloamWisp'), get('spiderSilk'), get('batWing'), get('moleFur'), get('snapcapGill'), get('mimicLeaf'), get('ratBone'), get('tickShell'), get('wispGlass'), get('centipedeLeg'), get('grubSkin'), get('batGuano'), get('venomSac'), get('mimicHeart'), get('gloamEye'), get('batFang'), get('moleClaw'), get('oilBladder'), get('glowGland'), get('gloamberry'), get('gloamberrySeed'), get('wood'), get('workbench'), get('chest'), get('pick'), get('rod'), get('pondMinnow'), get('blindCavefish'), get('copperOre'), get('copperWick'), get('ratVest'), get('shellVest'), get('wispCharm'), get('heartCharm'), get('centipedeCharm'), get('echoCharm'), get('fangCharm'), get('bed'), get('gardenBed'), get('shelf'), get('mortar'), get('pouch'), get('bigBag'), get('bagTorch'), get('glowLamp'), get('bagCampfire'), get('lostbag'), get('antidote'), get('locket'), get('bunnyFur'), get('crabShell'), get('lurkerClaw'), get('glowDraught'), get('slowburn'), get('mendingDraught'), get('wardDraught'), get('spitproofDraught'), get('shadeDraught'), get('furBedroll'), get('boneHook'), get('moleClawPick')]);
 });

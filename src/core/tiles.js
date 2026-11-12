@@ -69,7 +69,7 @@ export const TILES = {
   // A stash chest set down on the surface, the bench's way (CH2, D-329): solid like a
   // tree, light passing over it; bumping it opens its panel, 12 slots (CH3, D-330),
   // where Deconstruct chest `takes` it back into the bag, only when empty (CH5).
-  stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash chest', solid: true, blocksLight: false, panel: 'chest', takes: { item: 'chest', says: 'chestTake', empty: 'chestNotEmpty' } },
+  stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash Chest', solid: true, blocksLight: false, panel: 'chest', takes: { item: 'chest', says: 'chestTake', empty: 'chestNotEmpty' } },
   // A bed set down on the surface, the bench's way (D-488): solid, light passing over it.
   // Bumped at night it `sleeps` (sleep.js); by day it opens its ask card, Deconstruct bed?,
   // where Yes `takes` it back into the bag.

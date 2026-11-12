@@ -12,9 +12,9 @@ draughts made at the mortar and the rare materials moved here from
 | --- | --- | --- | --- | --- | --- |
 | `glowDraught` | Drink, in the bag, any time: the lantern's light reaches 1 tile farther for 60 turns, added to Wide Glow's; none while the lantern is empty | 5 | never | made at the mortar: 2 Duskstar, 1 Wisp Glass | D-786, D-791 |
 | `slowburn` | Drink, in the bag, any time: a lit turn burns 6/7 of its oil for 60 turns, a full tank lasting 70, not 60, added to the Heart Charm's | 5 | never | made at the mortar: 2 Tick Shell, 1 Oilcap | D-792 |
-| `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Herb | D-794 |
-| `wardDraught` | Drink, in the bag, any time: ends poisoned, and for 60 turns a bite never poisons | 5 | never | made at the mortar: 2 Centipede Leg, 1 Herb | D-795 |
-| `spitproofDraught` | Drink, in the bag, any time: for 60 turns a spit grub's glob splashes off and hurts nothing | 5 | never | made at the mortar: 2 Grub Skin, 1 Herb | D-802 |
+| `mendingDraught` | Drink, in the bag, any time: a heart every 15 turns for 60 turns, 4 in all, never above full | 5 | never | made at the mortar: 2 Mimic Leaf, 1 Healing Herb | D-794 |
+| `wardDraught` | Drink, in the bag, any time: ends poisoned, and for 60 turns a bite never poisons | 5 | never | made at the mortar: 2 Centipede Leg, 1 Healing Herb | D-795 |
+| `spitproofDraught` | Drink, in the bag, any time: for 60 turns a spit grub's glob splashes off and hurts nothing | 5 | never | made at the mortar: 2 Grub Skin, 1 Healing Herb | D-802 |
 | `shadeDraught` | Drink, in the bag, any time: for 60 turns a creature notices the hero only within 2 steps; one already after them keeps coming | 5 | never | made at the mortar: 2 Lurker Claw, 1 Duskstar | D-806 |
 
 ## Rare materials (`src/core/items.js`)

@@ -112,8 +112,8 @@ test('its card has 12 slots, the bag\'s 6 to 12, and Deconstruct after them (D-5
   assert.equal(CHEST_BAG, 12);
   assert.equal(CHEST_TAKE, 24);
   assert.equal(CHEST_STORE, 25);
-  assert.equal(chestWords([]), 'Stash chest. 12 slots, all empty. Bag on the right. Deconstruct chest, Store matching, or Close.');
-  assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash chest. 1 of 12 slots used. Bag on the right. Deconstruct chest, Store matching, or Close.');
+  assert.equal(chestWords([]), 'Stash Chest. 12 slots, all empty. Bag on the right. Deconstruct chest, Store matching, or Close.');
+  assert.equal(chestWords([{ id: 'wood', n: 2 }]), 'Stash Chest. 1 of 12 slots used. Bag on the right. Deconstruct chest, Store matching, or Close.');
 });
 
 test('Left and Right move along a row, Right from the chest\'s right column to the bag and Left back (D-387)', () => {

@@ -17,7 +17,7 @@ test('a mole has 4 health and a bite of 1, burrows, and drops Mole Fur and Mole 
   assert.equal(m.name, 'Mole'); assert.equal(m.health, 4); assert.equal(m.bite, 1);
   assert.deepEqual(m.ways, ['burrows']);
   assert.equal(m.drops, 'moleFur'); assert.equal(m.rare, 'moleClaw');
-  for (const id of [m.hurt, m.die, m.bites, m.digs, m.surfaces, m.underSay]) assert.ok(LINES[id], id);
+  for (const id of [m.hurt, m.die, m.bites, m.digs, m.surfaces, m.surfacesFar, m.underSay]) assert.ok(LINES[id], id);
   assert.equal(get('moleFur').sells, 1); assert.equal(get('moleClaw').sells, 5);
 });
 
@@ -94,7 +94,7 @@ test('under the earth with no tile toward the hero free, it comes up where it is
   const n = wait(s), m = n.enemies.find((e) => e.id === 'mole');
   assert.deepEqual([m.x, m.y], [4, 10], 'where it was');
   assert.ok(!m.under, 'up'); assert.ok(m.dug, 'it never digs again');
-  assert.equal(n.line.id, 'moleSurfaces');
+  assert.equal(n.line.id, 'moleSurfacesFar');
 });
 
 test('it notices the hero only within 5 steps, even in daylight that lights every tile (D-858)', () => {

@@ -14,7 +14,7 @@ export const CHEST_STORE = CHEST_TAKE + 1; // Store, in the card's bottom right 
 const COLS = 4, ROWS = 3;
 
 // What a screen reader hears as the card opens
-export const chestWords = (stash) => `Stash chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag on the right. Deconstruct chest, Store matching, or Close.`;
+export const chestWords = (stash) => `Stash Chest. ${stash.length ? `${stash.length} of 12 slots used` : '12 slots, all empty'}. Bag on the right. Deconstruct chest, Store matching, or Close.`;
 
 // Where an arrow moves the gold frame: around the chest's grid, Right from its right
 // column to the bag's grid, Left from the bag's left column back; Down from the bottom

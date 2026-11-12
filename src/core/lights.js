@@ -7,7 +7,7 @@ export const LIGHTS = {
   unlitTorch: { id: 'unlitTorch', kind: 'light', name: 'Unlit torch', reach: 0, lightsTo: 'torch' },
   // A Glow Lamp set down (D-808): the gland's soft green, as far as a torch, steady, no flicker;
   // drawn as a `bulb`, not a flame (torches.js), with its own line as it goes `out` (endturn.js).
-  glowLampLight: { id: 'glowLampLight', kind: 'light', name: 'Glow lamp', reach: 3, cr: 0.62, cg: 1.12, cb: 0.5, flicker: 0, bulb: true, outSays: 'glowLampOut' },
+  glowLampLight: { id: 'glowLampLight', kind: 'light', name: 'Glow Lamp', reach: 3, cr: 0.62, cg: 1.12, cb: 0.5, flicker: 0, bulb: true, outSays: 'glowLampOut' },
 };
 
 // Where a mounted torch's light comes from, in pixels from its tile's corner (D-099);

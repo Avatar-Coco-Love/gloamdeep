@@ -330,21 +330,21 @@ export const LINES = {
   warmEnds: { text: "The fire's warmth fades.", warn: false }, // Warmed's turns run out (D-845), Claude's draft the owner may change
   warmHeld: { text: 'Warmed: oil lasts longer, {n} turns left.', warn: false }, // a tap on its mark (D-845)
   mendingMake: { text: 'You make a Mending Draught.', warn: false }, // MORTAR's card, a turn (D-794)
-  mendingShort: { text: 'You need 2 Mimic Leaf and 1 Herb.', warn: false }, // too few, free
+  mendingShort: { text: 'Need 2 Mimic Leaf, 1 Healing Herb.', warn: false }, // too few, free
   mendingFull: { text: "You can't carry more Mending Draughts.", warn: false }, // every stack full, no slot free
   mendingDrink: { texts: ['You drink the Mending Draught.', 'It tastes green and bitter.', 'A slow warmth settles in.'], warn: false }, // drunk from the bag, any time (D-794)
   mendingLook: { texts: ['A green draught, bitter as leaves.', 'Drink it: it mends you slowly.', 'Made at the mortar.'], warn: false },
   mendEnds: { text: 'The warmth fades.', warn: false }, // its turns run out (D-794)
   mendHeld: { text: 'Mending Draught: {n} turns left.', warn: false }, // a tap on its mark (D-794)
   wardMake: { text: 'You make a Ward Draught.', warn: false }, // MORTAR's card, a turn (D-795)
-  wardShort: { text: 'You need 2 Centipede Leg and 1 Herb.', warn: false }, // too few, free
+  wardShort: { text: 'Need 2 Centipede Leg, 1 Healing Herb.', warn: false }, // too few, free
   wardFull: { text: "You can't carry more Ward Draughts.", warn: false }, // every stack full, no slot free
   wardDrink: { texts: ['You drink the Ward Draught.', 'It tastes clean and cold.', 'Your blood runs clear.'], warn: false }, // drunk from the bag, any time (D-795)
   wardLook: { texts: ['A pale draught, clear as frost.', 'Drink it: no poison takes you.', 'Made at the mortar.'], warn: false },
   wardEnds: { text: 'The ward wears off.', warn: false }, // its turns run out (D-795)
   wardHeld: { text: 'Ward Draught: {n} turns left.', warn: false }, // a tap on its mark (D-795)
   spitproofMake: { text: 'You make a Spitproof Draught.', warn: false }, // MORTAR's card, a turn (D-802)
-  spitproofShort: { text: 'You need 2 Grub Skin and 1 Herb.', warn: false }, // too few, free
+  spitproofShort: { text: 'Need 2 Grub Skin, 1 Healing Herb.', warn: false }, // too few, free
   spitproofFull: { text: "You can't carry more Spitproofs.", warn: false }, // every stack full, no slot free
   spitproofDrink: { texts: ['You drink the Spitproof Draught.', 'It tastes of wax and dust.', 'Your skin feels slick.'], warn: false }, // drunk from the bag, any time (D-802)
   spitproofLook: { texts: ['A rose-pink draught, thick as wax.', "Drink it: a grub's spit slides off.", 'Made at the mortar.'], warn: false },
@@ -387,7 +387,7 @@ export function shownLine(state) {
     return filled.get(state.line);
   }
   if (state.line.n === undefined) return entry;
-  if (!filled.has(state.line)) filled.set(state.line, { ...entry, text: entry.text.replace('{n}', state.line.n) });
+  if (!filled.has(state.line)) filled.set(state.line, { ...entry, text: entry.text.replace('{n}', state.line.n).replace(/\b1 turns\b/, '1 turn') }); // "1 turn left" on a mark's last turn (H-43)
   return filled.get(state.line);
 }
 

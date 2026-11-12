@@ -27,6 +27,7 @@ export const CREATURE_LINES = {
   moleBite: { text: 'The mole claws you.', warn: false, kind: 'harm' },
   moleDigs: { text: 'The mole digs down into the earth!', warn: false }, // it burrows (D-726), Claude's drafts the owner may change
   moleSurfaces: { text: 'The mole bursts up beside you!', warn: false },
+  moleSurfacesFar: { text: 'The mole bursts up out of the earth!', warn: false }, // stuck, it comes up where it is, not beside you (H-15)
   moleUnder: { text: 'It is under the earth, out of reach.', warn: false },
   snapcapHurt: { text: 'The snapcap squelches and snaps.', warn: false }, // it never moves (D-543)
   snapcapDie: { text: 'The snapcap splits and falls still.', warn: false },
