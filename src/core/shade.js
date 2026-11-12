@@ -5,7 +5,7 @@
 // one already after them keeps coming, and lampmoths and spit grubs are as they were. Each
 // passed turn counts one down; as it runs out, its line. A night's sleep uses its turns, and a
 // fall ends it. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 export const SHADE_NEAR = 2; // steps, a creature's own way of counting them (D-806)
 // The turns of it left, 0 without
@@ -20,7 +20,7 @@ export function shadeTick(state) {
   const left = shadeLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, shade: now };
-  return now ? next : say(next, 'shadeEnds');
+  return now ? next : sayEnd(next, 'shadeEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

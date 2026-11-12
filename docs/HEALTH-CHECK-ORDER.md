@@ -34,6 +34,7 @@ step 6 (D-869).
     close (H-06); the warden's tip (H-46); with Q-098 and Q-100. Done
     at 0.3.319 (D-874).
 11. **Goals:** paid when quiet (H-10); two at once (H-13); with Q-099.
+    Done at 0.3.320 (D-875).
 12. **Balance:** growing back at home (H-07); cave pools (H-08), with a
     map preview; with Q-101.
 13. **Sounds only when On** (H-03).

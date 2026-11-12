@@ -1,7 +1,7 @@
 // § goals (D-705, D-706): the first teaching goal, "Beat a rat", its reward and the Quests tab
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { GOALS, NEAR, REWARDS, GOLD_TURNS, NONE, rewardText, howOf, rollReward, payInto, goalsAfter, goalLine, doneWords, questRows, questsWords } from '../src/core/goals.js';
+import { GOALS, NEAR, REWARDS, GOLD_TURNS, NONE, rewardText, howOf, rollReward, payInto, goalsAfter, goalLine, doneWords, doneLine, questRows, questsWords } from '../src/core/goals.js';
 import { unpackProfiles, newProfile, FORMAT } from '../src/core/profile.js';
 import { glintsLeft } from '../src/core/feats.js';
 import { LINES } from '../src/core/lines.js';
@@ -277,4 +277,22 @@ test('a lantern already out as daylight comes, as By itself does, ticks the tip 
   const quiet = goalsAfter({}, 0, {}, [], { ...sunny, lit: false }, { ...cave, lit: true });
   assert.equal(quiet.goals.oil.done, true);
   assert.deepEqual(quiet.done, []);
+});
+
+// § health check step 11 (D-875): quiet goals' pay (H-10) and two done on one turn (H-13)
+test('the oil tip and the crypt, ticked quietly, pay nothing; others quietly still pay (H-10)', () => {
+  const oil = goalsAfter({}, 0, {}, [], { ...sunny, lit: false }, { ...cave, lit: true });
+  assert.deepEqual(oil.goals.oil, { done: true });
+  const crypt = goalsAfter({ boon: { done: true, paid: 'herb' } }, 0, {}, [], { ...base, place: 'woods', found: ['first', 'woods'] });
+  assert.deepEqual(crypt.goals.crypt, { done: true });
+  assert.equal(GOALS.filter((g) => g.quietUnpaid).map((g) => g.id).join(), 'crypt,oil');
+  const rat = goalsAfter({}, 0, { rat: { met: 1, beaten: 1 } }, [], base);
+  assert.ok(rat.goals.rat.paid, 'a goal done before goals, as D-705, is still paid');
+});
+
+test('two goals done on one turn are named on one line, the last in gold (H-13)', () => {
+  const goals = { stone: { done: true, paid: 'flask' }, wake: { done: true, paid: 'herb' } };
+  assert.deepEqual(doneLine(goals, ['wake']), ['goalDone', 'Wake the waystone. +2 Healing Herbs']);
+  assert.deepEqual(doneLine(goals, ['stone', 'wake']), ['goalsDone', 'Find the waystone. +1 Oil Flask. Wake the waystone. +2 Healing Herbs']);
+  assert.equal(LINES.goalsDone.text, 'Goals done: {n}.');
 });

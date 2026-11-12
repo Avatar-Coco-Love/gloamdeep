@@ -5,7 +5,7 @@
 // added to Wide Glow's, none while the lantern is empty (boon.js). A night's sleep uses its
 // turns too, and a fall ends it, as it ends poisoned and stiff. Plain data, no drawing.
 import { get } from './registry.js';
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 const DRAUGHT = 'glowDraught';
 // The turns of glow left, 0 without
@@ -20,7 +20,7 @@ export function glowTick(state) {
   const left = glowLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, glow: now };
-  return now ? next : say(next, 'glowEnds');
+  return now ? next : sayEnd(next, 'glowEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

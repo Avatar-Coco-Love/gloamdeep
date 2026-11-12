@@ -4,7 +4,7 @@
 // it works, a bite that hurts never leaves the hero poisoned (creatureturn.js). Each passed
 // turn counts one down; as it runs out, its line. A night's sleep uses its turns, and a fall
 // ends it. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 // The turns of the ward left, 0 without
 export const wardLeft = (state) => state.ward ?? 0;
@@ -18,7 +18,7 @@ export function wardTick(state) {
   const left = wardLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, ward: now };
-  return now ? next : say(next, 'wardEnds');
+  return now ? next : sayEnd(next, 'wardEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

@@ -72,7 +72,7 @@ export const GOALS = [
   // in a journey begun in the crypt (Claude's call)
   { id: 'crypt', goal: 'Find the crypt', how: 'A broken door, beside home.',
     shows: (c) => !!c.goals.boon?.done, does: (c) => inCrypt(c.state.place),
-    before: (c) => (c.state.found || []).some(inCrypt) },
+    before: (c) => (c.state.found || []).some(inCrypt), quietUnpaid: true },
   // When daylight no longer lights the room: halfway through dusk under the sky, or on stepping
   // where the sky doesn't reach (D-735, the owner's picks). Done once lit, by hand or By itself;
   // ticked quietly when it was lit already, by day or from a crypt start, so every journey has it;
@@ -86,7 +86,7 @@ export const GOALS = [
   // goal waiting while the lantern burns in daylight (the owner's pick)
   { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, or press L, to save oil.', ahead: (state) => !!state.lit && lightByDay(state),
     shows: (c) => dark(c.before) && lightByDay(c.state), does: (c) => !c.state.lit,
-    before: (c) => !c.state.lit },
+    before: (c) => !c.state.lit, quietUnpaid: true },
   // At level 2, going ahead of any goal waiting (D-706) while an ember is there to spend (Claude's
   // call); done on the first buy in Growth, which passes no turn, so main.js checks again then
   // (the owner's pick); ticked quietly when an ember is spent already (the owner's pick)
@@ -146,6 +146,7 @@ export function goalsAfter(goals = {}, glints = 0, book = {}, events = [], state
   let next = goals, s = state, g = glints;
   const done = [];
   const finish = (goal, quiet) => {
+    if (quiet && goal.quietUnpaid) { next = { ...next, [goal.id]: { done: true } }; return; } // the oil's and the crypt's, ticked quietly, pay nothing (D-752, D-746, H-10)
     const paid = rollReward(s, goal.id);
     next = { ...next, [goal.id]: { done: true, paid } };
     s = payInto(s, paid);
@@ -179,6 +180,8 @@ export function goalLine(goals = {}, gold = null, turn = 0, place = 'first', sta
 }
 // The text line's words when a goal is done: "Beat a rat. +1 Oil flask"
 export const doneWords = (goals, id) => `${goalOf(id).goal}. ${rewardText(goals[id].paid)}`;
+// § the text line for the goals done this turn: one, or two or more on one line (the owner's pick, H-13)
+export const doneLine = (goals, done) => (done.length > 1 ? ['goalsDone', done.map((id) => doneWords(goals, id)).join('. ')] : ['goalDone', doneWords(goals, done[0])]);
 
 // § the Quests tab's rows, newest first: { id, goal, how, done, reward }; none for a goal the
 // journey's start skips, ticked quietly in an older profile (D-742, B6)

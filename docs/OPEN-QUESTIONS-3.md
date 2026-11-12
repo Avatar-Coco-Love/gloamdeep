@@ -57,10 +57,6 @@ step, when the owner wants.
 no decision to measure against. Each is asked at the step named in
 `HEALTH-CHECK-ORDER.md`.
 
-**Q-099 · Two effects ending on one turn** (raised 2026-11-12, D-862)
-Only the last one's line shows. Should both be said? At step 11, with
-H-13 (two goals at once).
-
 **Q-101 · A herb that seems to float** (raised 2026-11-12, D-862) Seed
 4128, depth 2: a floor tile juts into a pool, so the herb on it looks
 as if it floats. It can be picked. Leave it, or smooth such tiles? At

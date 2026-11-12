@@ -5,7 +5,7 @@
 // turn burns `slow.burn` of its oil, so a full tank lasts 70 turns, not 60, as the Heart
 // Charm does and added to it (state.js). A night's sleep uses its turns too, and a fall ends
 // it. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 // The turns of Slowburn left, 0 without
 export const slowLeft = (state) => state.slowburn ?? 0;
@@ -17,7 +17,7 @@ export function slowTick(state) {
   const left = slowLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, slowburn: now };
-  return now ? next : say(next, 'slowEnds');
+  return now ? next : sayEnd(next, 'slowEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

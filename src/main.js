@@ -21,7 +21,7 @@ import { deeper, counted } from './core/record.js';
 import { featTurn } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
 import { booked } from './core/bestiary.js';
-import { goalsAfter, doneWords, GOLD_TURNS } from './core/goals.js';
+import { goalsAfter, doneLine, GOLD_TURNS } from './core/goals.js';
 import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
@@ -153,8 +153,8 @@ function keepGoals(events, before) {
   if (after.goals === p.goals) return false;
   app.profiles = withGoals(app.profiles, after.goals, after.glints);
   app.state = after.state;
-  const id = after.done[0];
-  if (id) { app.state = say(app.state, 'goalDone', doneWords(after.goals, id)); app.goalGold = { id, until: app.state.turn + GOLD_TURNS }; }
+  const id = after.done[after.done.length - 1]; // with two or more done, one line names them all and the last turns gold (H-13)
+  if (id) { app.state = say(app.state, ...doneLine(after.goals, after.done)); app.goalGold = { id, until: app.state.turn + GOLD_TURNS }; }
   return true;
 }
 // § play time (D-290): the time on the play screen counts, kept in whole seconds every 10 and when
