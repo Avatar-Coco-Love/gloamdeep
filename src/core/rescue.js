@@ -45,8 +45,8 @@ const dugBeside = (state, p) => Object.keys(state.room.chips ?? {}).some((k) => 
 const AROUND = [[-1, -1], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1]];
 
 // § waiting: a freed person bumped says their `waiting` lines, taking turns, free, and
-// stays `waits[1]` turns from now (D-496)
+// stays `waits[1]` turns from now (D-496), never going sooner than they would (H-59, D-878)
 export function talk(state, person) {
-  const who = get(person.id), people = state.people.map((p) => (p === person ? { ...p, leaves: state.turn + who.waits[1] } : p));
+  const who = get(person.id), people = state.people.map((p) => (p === person ? { ...p, leaves: Math.max(p.leaves, state.turn + who.waits[1]) } : p));
   return say({ ...state, people }, who.waiting);
 }

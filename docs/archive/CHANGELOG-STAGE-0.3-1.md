@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.320 (2026-11-12)
+- "Put out your lantern" and "Find the crypt" no longer pay a reward when they are ticked off quietly, because you had done them before they could show. Every other goal ticked quietly still pays.
+- Two goals done on the same turn are now both named on one line, "Goals done: …", each with its reward; the last one turns gold. Before, only the first was said.
+- Two effects running out on the same turn, such as poison and stiff, are now both said on one line. Before, only the last one was.
+- Decisions: D-875. Questions closed: Q-099. D-872 moved to the archive, word for word.
+
 ## 0.3.319 (2026-11-12)
 - Travelling by waystone no longer counts down poison, stiff or any draught: they keep their turns, so poison can't take a heart as you arrive.
 - A night's sleep now uses up poison's turns, as it does a draught's. In bed you still wake healed. Sleeping out, you wake with the hearts it took, and if it takes your last one, you fall.

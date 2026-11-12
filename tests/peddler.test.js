@@ -10,7 +10,7 @@ import { makeState, makeWorld, step, wait } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
 import { endTurn } from '../src/core/endturn.js';
 import { passTurn } from '../src/core/state.js';
-import { send } from '../src/core/homeward.js';
+import { send, goHome } from '../src/core/homeward.js';
 import { stoneHome } from '../src/core/mouth.js';
 import { dig } from '../src/core/rescue.js';
 import { shownLine, LINES } from '../src/core/lines.js';
@@ -133,6 +133,7 @@ test('left alone 5 turns, he says goodbye and is gone, a leave event where he st
 
 test('bumped while he waits, he talks, free, his lines taking turns, and stays 3 turns more', () => {
   let s = step(freed(), 'right'); // into the cleared gap
+  s = wait(wait(wait(s))); // turn 7, he would go at 8
   const one = step(s, 'right'), two = step(one, 'right');
   assert.equal(one.turn, s.turn);
   assert.deepEqual(one.hero, s.hero);
@@ -142,6 +143,11 @@ test('bumped while he waits, he talks, free, his lines taking turns, and stays 3
   s = wait(wait(two));
   assert.equal(s.people.length, 1);
   assert.deepEqual(wait(s).people, []);
+});
+
+test('bumped at once, he never goes sooner than his 5 turns (H-59, D-878)', () => {
+  const s = step(freed(), 'right'), bumped = step(s, 'right'); // turn 4, he goes at 8
+  assert.equal(bumped.people[0].leaves, 8);
 });
 
 test('rubble with no one beside it is dug the same, with its own lines', () => {
@@ -208,6 +214,22 @@ test('the hero leaving the room first, he goes home anyway, saying nothing', () 
   const outside = send(goToPlace(s, stoneHome(seed)), id); // the hero already home: he is there
   assert.equal(outside.people[0].id, 'peddler');
   assert.deepEqual(outside.elsewhere[id].people, []);
+});
+
+// § home spot (H-58, D-878): never on the hero's tile nor a creature's
+test('his home spot skips the hero\'s tile and a creature\'s, taking the next open one', () => {
+  for (const seed of [3, 7, 11]) {
+    const home = goToPlace(makeWorld('first', seed), stoneHome(seed));
+    const at = (s) => s.people.find((p) => p.id === 'peddler');
+    const first = at(goHome(home, 'peddler'));
+    const heroThere = at(goHome({ ...home, hero: { x: first.x, y: first.y } }, 'peddler'));
+    assert.notDeepEqual([heroThere.x, heroThere.y], [first.x, first.y], `seed ${seed}: not on the hero`);
+    const foe = { id: 'mole', x: first.x, y: first.y, hp: 1 };
+    const away = goToPlace(home, 'first'), kept = away.elsewhere[stoneHome(seed)];
+    const withFoe = { ...away, elsewhere: { ...away.elsewhere, [stoneHome(seed)]: { ...kept, enemies: [...(kept.enemies || []), foe] } } };
+    const him = goHome(withFoe, 'peddler').elsewhere[stoneHome(seed)].people.find((p) => p.id === 'peddler');
+    assert.notDeepEqual([him.x, him.y], [first.x, first.y], `seed ${seed}: not on a creature`);
+  }
 });
 
 test('at home a bump says his home lines in turn, free', () => {
