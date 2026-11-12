@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.289 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.290 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The next "Maybe" sound (Q-095, D-834): steps on water or wood and
-where the wood step plays; ask the owner which first.
+Warmed, a campfire's next gift (Q-088, D-844): sitting by a fire
+also makes the lantern burn slower for a while; propose its turns and
+how much slower, and its mark.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -18,10 +19,10 @@ where the wood step plays; ask the owner which first.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires' next steps (Q-088): feeding, building, the buff.
+- Campfires' next steps (Q-088): Warmed is Next up; then feeding, building.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
-  water or wood; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
+  water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
   then weather (Q-035): rain, fog, their effects, their creatures.
 - The lab and its recipes (Q-093, D-785); then the bow
@@ -41,6 +42,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.290, Sitting by a campfire.** The owner's picks
+  (D-844), all recommended but the effects: a burning fire asks Sit by
+  the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and
+  burns the fire a level down. Warmed, the slower lantern, comes next.
+  Playtest: https://claude.ai/artifact/8tAzj2YY1JeKnMxUr13B4n
 - **2026-11-12, 0.3.289, Chopping a fallen branch.** The owner's picks
   (D-843), all recommended: a branch's first bump plays the tree's chop,
   and as it snaps a last chop and a light wooden knock; under Digging's
@@ -53,11 +59,3 @@ list in `RESEARCH.md`.
   under Digging's and Stone breaks' lines in Settings.
   Playtest: https://claude.ai/artifact/Y9XdDjkDf7F5Crhq3FNxDW
   Sound board: https://claude.ai/artifact/XkdfXdBy953RM9zWcHbkUK
-- **2026-11-11, 0.3.287, Music in the dungeon.** The owner's picks
-  (D-841), all recommended, from a board of 8 calm, dark tracks measured
-  again from all 138 (the 43 over 45 s), with the warrens' and the crypt's
-  tunes and the dungeon's stone steps: track 1, "Patreon Challenge 04",
-  in the dungeon, every floor from 8 down, non-stop, carrying on from
-  floor to floor; a line in Music's list, Dungeon.
-  Playtest: https://claude.ai/artifact/69dfye4sXjAGydT4f9oiZz
-  Board of tracks: https://claude.ai/artifact/LKB3sVETjtzqXp4WoRKSMc

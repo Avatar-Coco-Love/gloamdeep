@@ -42,6 +42,7 @@ export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';
 export { sleepOut, canSleepOut, noSleepOut, warm, campAsks } from './sleepout.js';
 import { noSleepOut } from './sleepout.js';
+export { sit, canSit } from './fireside.js';
 export { pour, craft, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
 // § step: (state, direction) → new state. Walking into something solid

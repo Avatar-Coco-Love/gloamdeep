@@ -6,8 +6,8 @@ import assert from 'node:assert/strict';
 import { get } from '../src/core/registry.js';
 import { LINES, shownLine } from '../src/core/lines.js';
 import { makeRoom, SKY, tileAt, PLACES } from '../src/core/room.js';
-import { makeState, step, kindle, canKindle, panelBeside } from '../src/core/turn.js';
-import { TAKE_ASKS, kindleMenu } from '../src/core/menu.js';
+import { makeState, step, kindle, canKindle, sit, canSit, panelBeside, maxHealth } from '../src/core/turn.js';
+import { TAKE_ASKS, kindleMenu, sitMenu } from '../src/core/menu.js';
 import { campfireOf, FIRE_ROOMS, LEVELS, IN } from '../src/core/campfire.js';
 import { HOME_ID, ROOMS } from '../src/core/hearthwood.js';
 import { glowsIn } from '../src/core/stairs.js';
@@ -21,8 +21,8 @@ const fireIn = (map) => { for (let y = 0; y < map.length; y++) for (let x = 0; x
 test('the Campfire is in the registry, its three levels with their lines', () => {
   assert.deepEqual(LEVELS.map((id) => get(id).name), ['Campfire', 'Campfire', 'Campfire']);
   for (const id of LEVELS) { const t = get(id); assert.equal(t.kind, 'tile'); assert.equal(t.solid, true); assert.equal(t.blocksLight, false); assert.equal(t.fire, true); }
-  assert.deepEqual(LINES.campfireBlazing.texts, ['A campfire, burning high.', 'Someone was here not long ago.']);
-  assert.deepEqual(LINES.campfireEmbers.texts, ['The coals still glow.', 'Whoever sat here is gone.']);
+  assert.equal(LINES.campfireHigh.text, 'A campfire, burning high.');
+  assert.equal(LINES.campfireCoals.text, 'The coals still glow.');
   assert.equal(LINES.campfireAshes.text, 'Cold ashes.');
   assert.ok(LINES.campfireLit);
 });
@@ -54,14 +54,34 @@ test('a burning one glows, blazing 3 tiles, embers 2, in the torch colour; ashes
   for (const y of [1, 2, 3]) assert.notEqual(markAt(room, null, 2, y), 'stairs');
 });
 
-test('bumped, a burning one says its words a sentence a bump, free', () => {
+test('a burning one opens Sit by the fire?, its first words on the line, No picked; Yes grey with full hearts and not stiff', () => {
   const s = makeState(makeRoom(['TTTTT', 'T..DT', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 });
-  const one = step(s, 'right'), two = step(one, 'right');
-  assert.equal(one.turn, s.turn);
-  assert.equal(shownLine(one).text, 'A campfire, burning high.');
-  assert.equal(shownLine(two).text, 'Someone was here not long ago.');
-  const e = makeState(makeRoom(['TTTTT', 'T..ET', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 });
-  assert.equal(shownLine(step(e, 'right')).text, 'The coals still glow.');
+  assert.deepEqual(panelBeside(s, 'right'), { x: 3, y: 1 });
+  assert.deepEqual(TAKE_ASKS.campfire, ['Sit by the fire?', 'Someone was here not long ago.']);
+  assert.deepEqual(TAKE_ASKS.campfireEmbers, ['Sit by the fire?', 'Whoever sat here is gone.']);
+  assert.equal(get('campfire').says, 'campfireHigh'); assert.equal(get('campfireEmbers').says, 'campfireCoals');
+  assert.deepEqual(sitMenu(true).map((l) => [l.text, !!l.dim]), [['Yes', false], ['No', false]]);
+  assert.equal(sitMenu(false)[0].dim, true);
+  assert.equal(canSit(s, 3, 1), false); // full hearts, not stiff
+  assert.equal(canSit({ ...s, health: 2 }, 3, 1), true);
+  assert.equal(canSit({ ...s, stiff: 5 }, 3, 1), true);
+  assert.equal(canSit({ ...s, health: 2 }, 2, 1), false);
+});
+
+test('Yes: blazing gives 2 hearts and ends stiff, burning down to embers; embers 1, down to ashes; in a turn, with its line', () => {
+  const s = { ...makeState(makeRoom(['TTTTT', 'T..DT', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 }), health: 1, stiff: 10 };
+  const sat = sit(s, 3, 1);
+  assert.equal(sat.health, 3); assert.equal(sat.stiff, 0);
+  assert.equal(tileAt(sat.room, 3, 1).id, 'campfireEmbers');
+  assert.equal(sat.turn, s.turn + 1);
+  assert.equal(shownLine(sat).text, 'You sit by the fire and warm up.');
+  assert.ok(sat.events.some((e) => e.type === 'sit' && e.id === 'campfireEmbers'));
+  const again = sit(sat, 3, 1);
+  assert.equal(again.health, 4); assert.equal(tileAt(again.room, 3, 1).id, 'campfireAshes');
+  const nearlyFull = { ...s, health: maxHealth(s) - 1, stiff: 0 };
+  assert.equal(sit(nearlyFull, 3, 1).health, maxHealth(s)); // never above full
+  const well = { ...s, health: maxHealth(s), stiff: 0 };
+  assert.equal(sit(well, 3, 1), well);
 });
 
 test('cold ashes open the Light the fire? card, No picked; Yes grey with an empty lantern', () => {

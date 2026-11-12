@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.290 (2026-11-12)
+- New: sit by a campfire. Bumping a burning campfire now asks "Sit by the fire?". Yes takes a turn: a blazing fire gives 2 hearts back and embers 1, never above full, and stiffness from sleeping out goes away. The fire burns down a level as you sit, blazing to embers and embers to cold ashes, which your lantern's oil can light again.
+- Notes: Yes is grey when you are at full hearts and not stiff, so a fire isn't used up for nothing.
+- Decisions: D-844.
+
 ## 0.3.289 (2026-11-12)
 - New: fallen branches chop too. The first bump chops like a tree, and the bump that snaps it plays one more chop, then a light wooden knock as it breaks.
 - New: Settings' Stone breaks line covers a branch snapping too.
@@ -32,9 +37,3 @@ Entry format:
 - New: chopping sounds. Each bump on a tree chops like an axe biting into wood, and the last bump fells it: one more chop, a slow low creak, then a heavy crash as it lands.
 - New: Settings' Digging line covers chopping too, and Stone breaks covers a tree falling.
 - Decisions: D-842.
-
-## 0.3.287 (2026-11-11)
-- New: music in the dungeon. On every floor from 8 down, the cold blue halls, a very still, dark tune of long held sounds plays non-stop, looping with no break and carrying on from floor to floor. Going down from the warrens fades the warrens' tune out over 2 seconds, and the dungeon's starts a second later, fading in.
-- New: Music's list in Settings has a line for it, Dungeon, after Warrens.
-- Notes: the tune is "Patreon Challenge 04" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Every place below now has its music.
-- Decisions: D-841.

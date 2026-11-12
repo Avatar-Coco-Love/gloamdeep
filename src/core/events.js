@@ -33,6 +33,7 @@
 //   plant { id }         seed `id` was planted in a garden bed (D-566)
 //   shelve { id }        relic `id` was set on the shelf from the bag (D-693)
 //   kindle { id }        cold ashes were lit with the lantern's oil, now tile `id` (D-757)
+//   sit { id }           the hero sat by a burning fire, now tile `id` (D-844)
 //   cast                 the fishing line was cast, with a plop (D-613)
 //   catch { id }         fish `id` was pulled from the water, with a splash (D-613)
 //   feed { id }          `id`, Bat Guano, was fed to a sprout in a garden bed (D-569)

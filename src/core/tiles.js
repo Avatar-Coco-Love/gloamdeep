@@ -139,11 +139,14 @@ export const TILES = {
   // § campfire (D-757, Q-088's first step): a ring of stones round a fire, one in one of
   // Hearthwood's 8 rooms outside home, the seed picking the room and how lit it is. Solid,
   // light passing over it; a burning one lights round it with its `glow` (stairs.js), blazing as
-  // far as a torch, embers less, and stays as it is. Bumped, its `bump` line, free. Cold ashes
+  // far as a torch, embers less, and stays as it is. Cold ashes
   // bumped open the bed's ask card, Light the fire?, where Yes `kindles` it into embers for one
-  // turn's oil, `oil` (oil.js), Yes grey with an empty lantern (campfire.js).
-  campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireBlazing', fire: true, glow: FIRE.blazing },
-  campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, bump: 'campfireEmbers', fire: true, glow: FIRE.embers },
+  // turn's oil, `oil` (oil.js), Yes grey with an empty lantern (campfire.js). A burning one
+  // bumped says its first words and opens Sit by the fire? (D-844), where Yes `sits`: `heal`
+  // hearts back, never above full, stiff ended, the fire one level down, its `into`; Yes grey
+  // with full hearts and not stiff.
+  campfire: { id: 'campfire', kind: 'tile', letter: 'D', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'campfireEmbers', heal: 2, says: 'campfireSat' } },
+  campfireEmbers: { id: 'campfireEmbers', kind: 'tile', letter: 'E', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'campfireAshes', heal: 1, says: 'campfireSat' } },
   campfireAshes: { id: 'campfireAshes', kind: 'tile', letter: 'a', name: 'Campfire', solid: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'campfireEmbers', says: 'campfireLit' } },
   // § lamppost (D-769, the first landmark): an old Lightkeeper's lamppost, its lamp long cold,
   // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,
