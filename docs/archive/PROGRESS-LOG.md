@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.312, The Look card's tabs and keys.** Health check
+  step 5: the Look card's tabs are 20 game pixels tall, 44 px taps on a
+  phone (H-34); Up from RANDOM or OK goes to the open tab (H-37). The
+  audit moves to 0.3.313, next. D-867.
+  Playtest: https://claude.ai/artifact/5nH5JgJcj93B4kKRWtiRjv
 - **2026-11-12, 0.3.311, First words over the ask card.** Health check
   step 4: a campfire's and the miners' camp's first words show on the
   text line over their ask card, only while they are the line out

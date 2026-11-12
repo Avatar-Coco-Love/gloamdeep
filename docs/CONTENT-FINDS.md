@@ -28,14 +28,14 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `batWing` | 3 with 1 Copper Ore make the Echo Charm (D-805) | 20 | never | a beaten bat, about 1 in 2 | D-537 |
 | `moleFur` | 4 in the Big Bag | 20 | never | a beaten mole, about 1 in 2 | D-541 |
 | `snapcapGill` | with 1 herb makes an Antidote | 20 | never | a beaten snapcap, about 1 in 2 | D-543 |
-| `mimicLeaf` | 2 with 1 Herb make the Mending Draught at the mortar (D-794) | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
+| `mimicLeaf` | 2 with 1 Healing Herb make the Mending Draught at the mortar (D-794) | 20 | never | a beaten herb mimic, about 1 in 2 | D-549 |
 | `ratBone` | the Bone Hook (D-807) | 20 | never | a bone rat's pile, scattered, about 1 in 2 | D-551, D-731 |
 | `tickShell` | 2 with 1 Oilcap make Slowburn at the mortar (D-792) | 20 | never | a beaten oil tick, about 1 in 2 | D-606 |
 | `batGuano` | Feed on a sprout's card: grows in 150 turns, not 300; crafts later; sells for 1 | 20 | 300 | a pile beside each bat as a room is made | D-539, D-540, D-569 |
 | rare materials | moved to `CONTENT-3.md`, "Rare materials", word for word at 0.3.106; below since 0.3.220 | | | | |
 | `wispGlass` | 1 with 2 Duskstar make the Glow Draught at the mortar (D-786); sold for 2 | 20 | never | a beaten lure wisp, about 1 in 2 | D-649 |
-| `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm; 2 with 1 Herb, the Ward Draught at the mortar (D-795) | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
-| `grubSkin` | 2 with 1 Herb make the Spitproof Draught at the mortar (D-802); sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
+| `centipedeLeg` | 3 with 1 Copper Ore make the Centipede Charm; 2 with 1 Healing Herb, the Ward Draught at the mortar (D-795) | 20 | never | a beaten centipede, about 1 in 2 | D-654 |
+| `grubSkin` | 2 with 1 Healing Herb make the Spitproof Draught at the mortar (D-802); sold for 1 | 20 | never | a beaten spit grub, about 1 in 2 | D-688 |
 | `gloamberry` | Eat: 1 heart; 3 make a Gloamberry Seed; a recipe comes later | 20 | never | a gloamberry bush, 2 a bump; a grown garden bed, 3 a Pick | D-530, D-531, D-564, D-568 |
 | `gloamberrySeed` | planted in a garden bed from its card | 20 | never | made from 3 Gloamberries | D-562, D-564, D-566 |
 | `wood` | for crafts and building | 20 | 300 | 3 sticks in each woods room; branches; trees | D-314, D-315 |

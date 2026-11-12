@@ -5,6 +5,16 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.315', date: '2026-11-12', title: 'One words page', lines: [
+    "Names of things you carry now capitalise every word: Oil Flask, Healing Herb, Healing Potion, Stash Chest, Glow Lamp. The mortar's lines say \"Need 2 Mimic Leaf, 1 Healing Herb.\" and so on.",
+    "A mole that comes up away from you says \"The mole bursts up out of the earth!\"; beside you it still bursts up beside you.",
+    "Kind Herbs' card says what it does: \"Herbs, potions and fish heal 1 heart more.\"",
+    "How to play: the Pick row says \"Hold it to break veins\"; the Keyboard page names I for the bag and M for the map, and Touch and Mouse say the bag and map have their buttons.",
+    "A mark's last turn says \"1 turn left.\" instead of \"1 turns left.\"",
+    "The Bestiary: the lure wisp drifts toward another creature only if there is one, and the bone rat is \"knocked down\" into its bones, since only scattering them beats it.",
+    "Settings' sound for the end of a journey is called \"Journey ends\", no longer \"Run ends\".",
+    "Decisions: D-870.",
+  ] },
   { v: '0.3.314', date: '2026-11-12', title: 'Three small risks', lines: [
     "A broken boulder or copper vein never grows back beside a waystone, on the tiles kept open round it.",
     "A find that doesn't fit in the bag, with every tile beside it taken, lies on the nearest open tile further out, never on water or a bush.",

@@ -45,7 +45,7 @@ export const ENEMIES = {
   // It burrows (D-726): noticing the hero, it digs down with its `digs` line and comes under the
   // earth, `surfaces` beside them; a bump on its mound says its `underSay`, free. It notices them
   // only within its `sight`, 5 steps, by day or night (D-858).
-  mole: { id: 'mole', kind: 'enemy', name: 'Mole', acts: "Tough, and it never runs. Once it sees you in the light, within 5 steps, it digs down and tunnels to you, a mound of earth, then comes up beside you.", fights: "You can't hit it under the earth. Watch the mound: when the mole comes up, strike first. Four lantern swings or two knife blows.", health: 4, bite: 1, sight: 5, drops: 'moleFur', rare: 'moleClaw', ways: ['burrows'], digs: 'moleDigs', surfaces: 'moleSurfaces', underSay: 'moleUnder', hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
+  mole: { id: 'mole', kind: 'enemy', name: 'Mole', acts: "Tough, and it never runs. Once it sees you in the light, within 5 steps, it digs down and tunnels to you, a mound of earth, then comes up beside you.", fights: "You can't hit it under the earth. Watch the mound: when the mole comes up, strike first. Four lantern swings or two knife blows.", health: 4, bite: 1, sight: 5, drops: 'moleFur', rare: 'moleClaw', ways: ['burrows'], digs: 'moleDigs', surfaces: 'moleSurfaces', surfacesFar: 'moleSurfacesFar', underSay: 'moleUnder', hurt: 'moleHurt', die: 'moleDie', bites: 'moleBite', sound: 'snuffle' },
   // A heartcap that bites (D-365, D-543): no ways, so it never moves or notices, and bites
   // whoever stands beside it. Drawn `shutAs` a heartcap, in a heartcap's `tone`, until the
   // hero stands beside it; then its eyes and teeth show. Its bite is a wet snap (D-544).
@@ -60,7 +60,7 @@ export const ENEMIES = {
   // a tougher rat for the middle depths. Its bite rattles, then snaps (D-551). Beaten, it falls into a
   // pile of bones that stands up whole `rises` turns later, unless the hero steps onto it to scatter
   // it; only then may it drop a Rat Bone (bones.js, D-731). Its rare one waits on the owner (Q-061).
-  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', acts: "A rat with nothing left to fear. It chases you and never runs. Beaten, it falls into a pile of bones and stands up again three turns later.", fights: "Wait for it to step beside you; a knife needs two blows. Then step onto its bones to scatter them before it stands.", health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], rises: 3, falls: 'boneRatFalls', stirsSay: 'boneRatStirs', scatters: 'boneRatScatters', hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
+  boneRat: { id: 'boneRat', kind: 'enemy', name: 'Bone rat', acts: "A rat with nothing left to fear. It chases you and never runs. Knocked down, it falls into a pile of bones and stands up again three turns later.", fights: "Wait for it to step beside you; a knife needs two blows. Then step onto its bones to scatter them before it stands.", health: 3, bite: 1, drops: 'ratBone', ways: ['chases'], rises: 3, falls: 'boneRatFalls', stirsSay: 'boneRatStirs', scatters: 'boneRatScatters', hurt: 'boneRatHurt', die: 'boneRatDie', bites: 'boneRatBite', sound: 'rattle' },
   // A tick swollen with the oil it drank (D-606, the first light way, Q-076): it chases, and
   // beside the hero it `drinks` 5% of the lantern's oil instead of biting, with a wet sip; with
   // the lantern empty it bites for 1, of teeth. Beaten, it may drop a Tick Shell, and now and
@@ -71,7 +71,7 @@ export const ENEMIES = {
   // or just away with none. It never bites (its way's `bites: false`). Its own faint glow `glows`:
   // it is drawn even out in the dark, though it lights no tiles. One hit puts it out. It drifts,
   // a flyer held above its shadow (D-563). Beaten, it may drop Wisp Glass; no rare one for now.
-  lureWisp: { id: 'lureWisp', kind: 'enemy', flies: true, glows: true, name: 'Lure wisp', acts: "A cold light that drifts away as you come near, always toward another creature. It never bites.", fights: "Following it leads you into trouble. One blow of anything puts it out, so catch it against a wall.", health: 1, bite: 0, drops: 'wispGlass', ways: ['lures'], die: 'lureWispDie' },
+  lureWisp: { id: 'lureWisp', kind: 'enemy', flies: true, glows: true, name: 'Lure wisp', acts: "A cold light that drifts away as you come near, toward another creature if there is one. It never bites.", fights: "Following it leads you into trouble. One blow of anything puts it out, so catch it against a wall.", health: 1, bite: 0, drops: 'wispGlass', ways: ['lures'], die: 'lureWispDie' },
   // A centipede, side on and facing right (D-654, the first debuff, D-652): rust red with pale
   // legs and green fangs. It chases, and its bite `poisons`: the hero is poisoned (poison.js).
   // Its bite is of teeth. Beaten, it may drop a Centipede Leg, and now and then a Venom Sac.

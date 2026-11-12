@@ -1412,3 +1412,12 @@ return"; keep "home"). A second one-of-a-kind piece put into a stash
 chest with room says "The chest already holds a workbench." (offered
 too: wait for the words step; its own step). D-857 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-866 · 2026-11-12 · First words over the ask card** (the owner's
+pick, recommended; step 4 of `HEALTH-CHECK-ORDER.md`, fixes H-33) A
+campfire's, your own campfire's and the miners' camp's first words show
+on the text line over their ask card, as the bag's and the bench's
+lines do, only while the line out is the bumped tile's own words
+(offered too: the line over every ask card; the words on the card
+itself). The bed's, garden bed's and shelf's cards stay as they are.
+D-858 moves to `archive/DECISIONS-SURFACE.md`, word for word.

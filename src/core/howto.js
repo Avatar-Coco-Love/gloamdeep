@@ -53,7 +53,7 @@ export function howtoRows(page, settings) {
     return [
       { action: 'Bench', ways: ['Bump it to make more'] },
       { action: 'Make', ways: ['Choose a thing, then Make'] },
-      { action: 'Pick', ways: ['In the bag, breaks veins'] },
+      { action: 'Pick', ways: ['Hold it to break veins'] },
       { action: 'Wick', ways: ['Fit it in the bag'] },
       { action: 'Vest', ways: ['Wear it from the bag'] },
       { action: 'Charm', ways: ['Wear two from the bag'] },
@@ -67,6 +67,8 @@ export function howtoRows(page, settings) {
       { action: 'Lantern', ways: ['L'] },
       { action: 'Pause', ways: ['Esc or P'] },
       { action: 'Frame', ways: ['Tab'] },
+      { action: 'Bag', ways: ['I'] }, // the bag and map keys (H-39)
+      { action: 'Map', ways: ['M'] },
     ];
   }
   const touch = page === 'touch';
@@ -76,6 +78,7 @@ export function howtoRows(page, settings) {
     { action: 'Lantern', ways: ['The lantern button'] },
     { action: 'Pause', ways: ['The pause button'] },
     { action: 'Frame', ways: [touch ? "Tap a creature's plaque" : "Click a creature's plaque"] },
+    { action: 'Bag, map', ways: ['Their buttons'] }, // the bag and map buttons, one row to fit (H-39)
   ];
 }
 

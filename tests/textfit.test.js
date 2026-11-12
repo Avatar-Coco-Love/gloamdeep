@@ -137,7 +137,7 @@ test('the version history, how to play, settings, pause, ways, ask and opening c
 test('the goal line under the hearts stays inside the width it is given, every goal, place and start', () => {
   const bad = [];
   for (const maxW of [90, 120, 170]) for (const g of GOALS) for (const place of places) for (const start of starts) for (const done of [false, true]) {
-    const line = { goal: g.goal, how: done ? '+2 Healing herbs' : howOf(g, place, start), done };
+    const line = { goal: g.goal, how: done ? '+2 Healing Herbs' : howOf(g, place, start), done };
     bad.push(...fits(`goal ${g.id} in ${maxW}`, { x: 4, y: 4, w: maxW, h: 100 }, () => drawGoalLine(any, line, 4, 4, 1, maxW), 0));
   }
   none(bad);

@@ -113,7 +113,7 @@ export const SOUND_LINES = [
   { voice: 'tap', kind: 'menus', name: 'Tick' },
   { voice: 'card', kind: 'menus', name: 'Page turn' },
   { voice: 'refuse', kind: 'menus', name: "Can't" }, // and "You can't carry more" (D-833)
-  { voice: 'ended', kind: 'menus', name: 'Run ends' },
+  { voice: 'ended', kind: 'menus', name: 'Journey ends' },
   { voice: 'surface', kind: 'music', name: 'Surface' }, // the surface's theme (D-837)
   { voice: 'crypt', kind: 'music', name: 'Crypt' }, // the crypt's theme, its top rooms and floor 1 (D-839)
   { voice: 'caves', kind: 'music', name: 'Rock caves' }, // the rock caves' theme, floors 2 to 4 (D-838)

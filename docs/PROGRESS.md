@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.314 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.315 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 6,
-one words page (H-12, H-15, H-20, H-39, H-40, H-41, H-43, H-45, H-47).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 7,
+the marks (H-36, H-55).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -47,6 +47,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.315, One words page.** Health check step 6: finds'
+  names capitalise every word (H-40, H-20); a far mole's own line
+  (H-15); Kind Herbs' words (H-41); How to play's Pick, bag and map
+  rows (H-12, H-39); "1 turn left." (H-43); the lure wisp's and bone
+  rat's words (H-45); "Journey ends" (H-47). D-870.
+  Playtest: https://claude.ai/artifact/86zoMCT5yD96SEc7y6d8MZ
 - **2026-11-12, 0.3.314, Three small risks.** A boulder never grows
   back on a waystone's ring; a drop with no open tile beside it lies
   further out, never on water; dev Spawn never on a person (H-24). The
@@ -58,8 +64,3 @@ list in `RESEARCH.md`.
   fixed (H-31, H-66); `.ogg` on older iPhones on the store list (H-22).
   Done health check findings, D-826, D-863, D-864 and the playbook's
   lines archived word for word. H-24 and `craft()` are next. D-868.
-- **2026-11-12, 0.3.312, The Look card's tabs and keys.** Health check
-  step 5: the Look card's tabs are 20 game pixels tall, 44 px taps on a
-  phone (H-34); Up from RANDOM or OK goes to the open tab (H-37). The
-  audit moves to 0.3.313, next. D-867.
-  Playtest: https://claude.ai/artifact/5nH5JgJcj93B4kKRWtiRjv

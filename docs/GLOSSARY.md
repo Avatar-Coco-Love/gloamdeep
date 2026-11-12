@@ -3,7 +3,9 @@
 The game's words, what each means, and the decision behind it (D-264).
 Use these words in the game, the docs and the code, so names stay the
 same as the world grows. A new word goes here when it is decided. Where
-this page and a decision disagree, the decision wins.
+this page and a decision disagree, the decision wins. A find's name
+capitalises every word, in lines too (Oil Flask, 1 Healing Herb); a
+creature's, tile's or place's only its first (Cave spider) (D-870).
 
 ## The journey
 - **Journey:** one game, kept on this device, saved after every turn

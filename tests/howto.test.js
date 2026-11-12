@@ -17,8 +17,11 @@ test('Basics, Touch, Mouse, Keyboard, Bag and Bench each have a page, and Left a
   assert.equal(nextPage('basics', true), 'bench');
 });
 
-test('every controls page lists Walk, Wait, Lantern, Pause and Frame, and nothing else', () => {
-  for (const p of ['touch', 'mouse', 'keyboard']) assert.deepEqual(howtoRows(p, { swipe: 'on', tap: 'walk' }).map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame']);
+test('every controls page lists Walk, Wait, Lantern, Pause, Frame, then the bag and map, and nothing else (H-39)', () => {
+  for (const p of ['touch', 'mouse']) assert.deepEqual(howtoRows(p, { swipe: 'on', tap: 'walk' }).map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame', 'Bag, map']);
+  assert.deepEqual(howtoRows('keyboard', { swipe: 'on', tap: 'walk' }).map((r) => r.action), ['Walk', 'Wait', 'Lantern', 'Pause', 'Frame', 'Bag', 'Map']);
+  assert.deepEqual(howtoRows('keyboard', {}).slice(5).map((r) => r.ways), [['I'], ['M']]);
+  assert.deepEqual(howtoRows('touch', {}).at(-1).ways, ['Their buttons']);
 });
 
 test('Frame says how to frame a creature on each way of playing (D-361)', () => {

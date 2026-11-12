@@ -46,7 +46,7 @@ test("a find's MAKE picks its own recipe, else the first it is in", () => {
   assert.equal(makes[makeFor(s, 'wood')], 'wood');
   assert.equal(makes[makeFor(s, 'herb')], 'snapcapGill');
   assert.equal(makeFor(s, 'stone'), -1);
-  assert.equal(makesWords('flask'), 'Makes an Oil flask');
+  assert.equal(makesWords('flask'), 'Makes an Oil Flask');
   assert.equal(makesWords('workbench'), 'Makes a Workbench');
 });
 

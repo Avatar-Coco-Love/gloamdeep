@@ -11,7 +11,7 @@ export const ITEMS = {
   // Walking onto it puts it in the bag; poured from there into the lantern,
   // never above full (D-078, D-247). With every flask stack full and no slot free
   // it stays, with its `full` line (D-250, D-333).
-  flask: { id: 'flask', kind: 'item', name: 'Oil flask', oil: 0.45, bag: true, max: 5, full: 'flaskFull', regrow: 3 * DAY_TURNS },
+  flask: { id: 'flask', kind: 'item', name: 'Oil Flask', oil: 0.45, bag: true, max: 5, full: 'flaskFull', regrow: 3 * DAY_TURNS },
   // Walking onto it heals 2 hearts, never above full; at full health it is
   // left on the floor for later (D-155, D-156).
   // The first weapon (D-252): walking onto it puts it in the hero's hand, in the
@@ -27,7 +27,7 @@ export const ITEMS = {
   // Walking onto a herb hurt eats it on the spot (`eatHurt`); at full health it goes
   // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156). One grows
   // in each woods room outside too, the same herb (woodsherb.js, D-762).
-  herb: { id: 'herb', kind: 'item', name: 'Healing herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS },
+  herb: { id: 'herb', kind: 'item', name: 'Healing Herb', heal: 2, eats: 'herbEat', eatHurt: true, bag: true, max: 5, regrow: DAY_TURNS },
   // The first resource (D-296): an amber mushroom, one in every generated room.
   // Walking onto it puts it in the bag with one of its `says` lines, in turn;
   // choosing its slot in the bag says one of its `look` lines (D-297). Make,
@@ -44,7 +44,7 @@ export const ITEMS = {
     heal: 1, eats: 'heartcapEat', craft: { into: 'potion', of: 3, says: 'potionMake' } },
   // Made from heartcaps, never found (D-309). Drunk from the bag the heartcap's
   // way, its button saying `verb`, it heals 4 hearts, never above full.
-  potion: { id: 'potion', kind: 'item', name: 'Healing potion', bag: true, max: 5, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
+  potion: { id: 'potion', kind: 'item', name: 'Healing Potion', bag: true, max: 5, full: 'potionFull', heal: 4, eats: 'potionDrink', verb: 'DRINK' },
   // A plain stone from a broken deposit (D-311, O2), for crafts; loose ones lie in the
   // mountain rooms, 2 a room, picked up with one of its `says` lines and growing back after a day
   // (loosestone.js, D-761). Into the bag in stacks of 20 (D-333); choosing it says one of its `look` lines.
@@ -135,7 +135,7 @@ export const ITEMS = {
   // Made at the workbench, its line on the bench panel, never found (CH1, D-324, D-326):
   // `bench.of` is its cost, taken from the bag, with its `says` line; with too few, its
   // `short` line. Only `max` 1 is carried; choosing it says one of its `look` lines.
-  chest: { id: 'chest', kind: 'item', name: 'Stash chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
+  chest: { id: 'chest', kind: 'item', name: 'Stash Chest', bag: true, max: 1, look: 'chestLook', full: 'chestFull',
     bench: { of: { wood: 3, stone: 3 }, says: 'chestMake', short: 'chestShort' },
     sets: { tile: 'stash', says: 'chestSet' } }, // set down the bench's way (CH2, D-329)
   // The first pick, made at the workbench as the chest is (D-480), or taken at the miners' camp (D-770). Only `max` 1

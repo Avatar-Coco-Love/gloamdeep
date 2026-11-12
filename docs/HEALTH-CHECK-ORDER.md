@@ -23,7 +23,7 @@ step 6 (D-869).
 5. **The Look card:** the tabs' taps (H-34); the keyboard (H-37). Done
    at 0.3.312 (D-867).
 6. **One words page,** every wording approved at once: H-12, H-15,
-   H-20, H-39, H-40, H-41, H-43, H-45, H-47.
+   H-20, H-39, H-40, H-41, H-43, H-45, H-47. Done at 0.3.315 (D-870).
 7. **The marks:** a pad round each (H-36); a second row (H-55).
 8. **Two clear bugs:** the scorpion's rest (H-05); the drink's oil
    warning (H-11).

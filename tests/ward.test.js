@@ -36,7 +36,7 @@ test('made at the mortar it takes 2 Centipede Leg and 1 Herb, a turn, with its l
   assert.deepEqual(n.bag, [{ id: 'centipedeLeg', n: 1 }, { id: 'wardDraught', n: 1 }]);
   assert.equal(n.turn, 1); assert.equal(shownLine(n).text, 'You make a Ward Draught.');
   const short = makeAt(carrying([{ id: 'centipedeLeg', n: 1 }, { id: 'herb', n: 1 }]), 'wardDraught');
-  assert.equal(short.turn, 0); assert.equal(shownLine(short).text, 'You need 2 Centipede Leg and 1 Herb.');
+  assert.equal(short.turn, 0); assert.equal(shownLine(short).text, 'Need 2 Centipede Leg, 1 Healing Herb.');
 });
 
 test('drunk, it ends poisoned at once, healing nothing, and runs 60 turns, then the line', () => {

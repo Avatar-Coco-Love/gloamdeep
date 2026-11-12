@@ -22,7 +22,7 @@ neared 8 KB.
 - **Duskstar:** the first flower, five violet petals round a yellow
   heart; 2 in each woods room, into the bag for crafts later; picked, it
   comes back a day later on another grass tile of the room (D-763).
-- **Healing potion:** a red bottle made from 3 heartcaps; Drink, in the
+- **Healing Potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
 - **Mortar and Pestle:** a grey stone bowl on a wooden stump, made in
   the bag from 4 Stone and 1 Wood, set down on the surface; bumped, its
@@ -38,15 +38,15 @@ neared 8 KB.
   turns, a full tank lasting 70, its amber bottle mark under the hearts
   with the turns left (D-792).
 - **Mending Draught:** a moss green bottle made at the mortar from 2
-  Mimic Leaf and 1 Herb; Drink, any time: a heart every 15 turns for 60
+  Mimic Leaf and 1 Healing Herb; Drink, any time: a heart every 15 turns for 60
   turns, 4 in all, its green bottle mark under the hearts with the turns
   left (D-794).
 - **Ward Draught:** a pale green-white bottle made at the mortar from 2
-  Centipede Leg and 1 Herb; Drink, any time: ends poisoned, and for 60
+  Centipede Leg and 1 Healing Herb; Drink, any time: ends poisoned, and for 60
   turns no bite poisons, its pale bottle mark under the hearts with the
   turns left (D-795).
 - **Spitproof Draught:** a dusty rose bottle made at the mortar from 2
-  Grub Skin and 1 Herb; Drink, any time: for 60 turns a spit grub's
+  Grub Skin and 1 Healing Herb; Drink, any time: for 60 turns a spit grub's
   glob splashes off and hurts nothing, its rose bottle mark under the
   hearts with the turns left (D-802).
 - **Shade Draught:** a dusky violet bottle made at the mortar from 2

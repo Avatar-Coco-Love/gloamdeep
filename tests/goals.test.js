@@ -17,7 +17,7 @@ const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 test('the first goal and the rewards are D-706\'s words and chances', () => {
   assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Put out your lantern', 'Tap the lantern, or press L, to save oil.', 'Tap the lantern, or press L, to save oil.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
-  assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil flask', '+2 Healing herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing potion']);
+  assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil Flask', '+2 Healing Herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing Potion']);
   assert.equal(GOLD_TURNS, 3);
   assert.equal(NONE, 'No goals yet.');
   assert.equal(LINES.goalDone.text, 'Goal done: {n}.');
@@ -236,7 +236,7 @@ test('a lantern lit already when it gets dark ticks lighting it quietly (D-735)'
 test('the Quests tab lists each goal, the done one with its reward, or says none yet', () => {
   assert.deepEqual(questRows({}), []);
   assert.match(questsWords({}), /^Journal, Quests tab\. No goals yet\. /);
-  assert.deepEqual(questRows({ rat: { done: true, paid: 'flask' } }), [{ id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.', done: true, reward: '+1 Oil flask' }]);
+  assert.deepEqual(questRows({ rat: { done: true, paid: 'flask' } }), [{ id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.', done: true, reward: '+1 Oil Flask' }]);
   assert.match(questsWords({ rat: { done: false } }), /Beat a rat\. Walk into it to strike\./);
 });
 

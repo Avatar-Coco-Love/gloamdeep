@@ -10,7 +10,7 @@ at 0.3.245 (D-797), as that page neared 8 KB.
   (D-560), where Deconstruct workbench puts it back in the bag (D-314,
   D-319, D-320, D-322, D-323). Its card has two tabs, **BUILD** (home pieces,
   bag upgrades, tools) and **GEAR** (lantern parts, armour, charms) (D-800).
-- **Stash chest:** made at the workbench from 3 Wood and 3 Stone, set down
+- **Stash Chest:** made at the workbench from 3 Wood and 3 Stone, set down
   on the surface, opened by walking into it; each one keeps 12 slots of its
   own, a picked stack moving between it and the bag, and taken down only
   when empty (D-021, D-324, D-325, D-326, D-330, D-331, D-340).
