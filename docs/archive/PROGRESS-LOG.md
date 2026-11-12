@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.319, The owner's rulings.** Health check step 10:
+  travel keeps poison's, stiff's and the draughts' turns (H-04); a night
+  uses poison's turns, its hearts too when sleeping out (Q-098); a mole
+  beside the hero as it notices never digs (H-06); one warden beaten
+  shows its tip (H-46); taking the locket wakes its warden (Q-100). D-874.
+  Playtest: https://claude.ai/artifact/716jC1BoKi8w2BWDjWPtsi
 - **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
   sealed tile is left out of the joined check while he is ringed in, so
   torches, glow lamps, deposits growing back and the flask mimic go in

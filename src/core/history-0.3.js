@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.322', date: '2026-11-12', title: 'Sounds only when On', lines: [
+    "With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.",
+    "Each place's music downloads the first time you reach that place, not all five tunes at once.",
+    "Decisions: D-877. D-874 moved to the archive, word for word.",
+  ] },
   { v: '0.3.321', date: '2026-11-12', title: 'Growing back and pools', lines: [
     "After a night's sleep, in your bed or sleeping out, what was due to grow back by morning is there when you wake. Before, nothing grew back at home while you stayed, since daylight lights every tile.",
     "Still pools in the grey-rock caves are now in about 1 room in 2, as decided. Before, many tries cut the room in two and were given up, so only about 1 room in 4 had one.",

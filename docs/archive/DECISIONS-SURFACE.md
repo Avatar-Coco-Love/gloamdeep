@@ -1495,3 +1495,23 @@ deposit growing back and a flask mimic go in his room as in any other;
 every other tile must still be reached (offered too: the same, with no
 flask mimic in his room; left as it was). D-870 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-874 · 2026-11-12 · The owner's rulings** (the owner's picks, all
+recommended; step 10 of `HEALTH-CHECK-ORDER.md`, fixes H-04, H-06,
+H-46; answers Q-098, Q-100) Waystone travel passes no turn for poison,
+stiff and the draughts either: they keep their turns, as D-593 says
+(offered too: it counts as a turn; only the good ones pause). A night's
+sleep uses poison's turns as it uses the draughts': in bed it ends and
+the hero wakes healed; sleeping out it takes the hearts due in those
+turns, the last one too, so the hero falls (offered too: sleep cures
+it; one turn, as it was). A mole beside the hero as it notices never
+digs, as D-726 says, even once the hero steps off (offered too: it digs
+later). The warden, one a world, shows how to fight it once 1 is
+beaten, "Beat 1 to learn how to fight it."; every other creature still
+needs 3 (D-632) (offered too: shown once met; 3 as before). The locket
+taken wakes the warden, the owner's idea, as a bump does: its line and
+sound, it stirs that turn, then chases for its 6 turns (offered too:
+until beaten; its own step; first answered "fine as it is", changed
+before merging). Its special drop, the owner's idea too, waits for
+after the health check (Q-104). D-871 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
