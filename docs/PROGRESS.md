@@ -4,15 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.299 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.300 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bugs in `BUGS.md` (D-852), one at a time, B-001 first: the Peddler
-isn't home after his rescue.
+The bugs in `BUGS.md` (D-852), one at a time, B-002 next: sleeping
+ends a fight.
 
 ## Waiting on the owner
-- Bugs the owner noticed (`BUGS.md`): B-001 to B-004, each its own step.
+- Bugs the owner noticed (`BUGS.md`): B-002 to B-004, each its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
@@ -42,6 +42,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.300, The Peddler by the waystone.** B-001 fixed, the
+  owner's picks (D-855), all recommended: freed, he goes to the home
+  waystone's room, by its middle, off the stone; an older save's moves
+  there once. Playtest: https://claude.ai/artifact/QXkcs4LdDRuQbA3zHgzCoe
 - **2026-11-12, 0.3.299, Your own campfire.** The owner's picks (D-854),
   all recommended, from a picture: a campfire you set down has its own
   words, and its cold ashes' card shows Yes, Take up and No, putting it
@@ -50,7 +54,3 @@ list in `RESEARCH.md`.
   picks (D-853), all recommended: a built fire has its own words, is
   taken back into the bag when cold, and is three built twins of the
   fire's levels in the code. Building it is Next up.
-- **2026-11-12, 0.3.297, A bug list.** The owner's pick (D-852),
-  recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
-  so "Next up" is all a new conversation needs. The first four: the
-  Peddler at home, sleeping ends a fight, a burrowed mole, the map.

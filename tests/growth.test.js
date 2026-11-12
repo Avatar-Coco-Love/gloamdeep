@@ -103,7 +103,7 @@ test('the mark is kept: set once the hero is deeper, unchanged otherwise, and an
   const s = deep('depth8', { growthRows: 1 });
   assert.equal(markRows(s), s);
   assert.equal(markRows(deep('depth9', { growthRows: 1 })).growthRows, 2);
-  assert.equal(FORMAT, 32);
+  assert.ok(FORMAT >= 32);
   assert.equal(upgradeState(31, deep('depth10')).growthRows, 2);
   assert.equal(upgradeState(31, deep('depth3')).growthRows, 1);
 });

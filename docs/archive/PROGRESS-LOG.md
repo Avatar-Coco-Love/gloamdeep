@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.297, A bug list.** The owner's pick (D-852),
+  recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
+  so "Next up" is all a new conversation needs. The first four: the
+  Peddler at home, sleeping ends a fight, a burrowed mole, the map.
 - **2026-11-12, 0.3.296, Build a campfire.** The owner's picks (D-851),
   all recommended: the Campfire on the bag's Make tab, 3 Stone and 2
   Wood, one carried, drawn as cold ashes, plain words; it holds its own

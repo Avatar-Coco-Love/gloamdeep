@@ -95,18 +95,6 @@ A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
 
-**D-847 · 2026-11-12 · The timer rim** (the owner's idea and picks, all
-recommended; supersedes the turns beside D-845's, D-791's and the other
-draughts' marks) A lasting effect's mark loses its number: its square's
-edge, 52 dots from the top middle going round like a clock, lights in
-the mark's colour for the share of time left (offered too: burning down
-like a candle). Full is that effect's longest time, from the registry,
-so embers' 30 turns start Warmed half lit (offered too: full at
-whatever it started with). A tap on the mark still says the turns left
-(offered too: nowhere). Claude's calls: any time left lights at least
-one dot; poisoned's and stiff's marks keep no rim for now. That last
-call superseded by D-848 (2026-11-12).
-
 **D-848 · 2026-11-12 · Bad marks: a rim and red glass** (the owner's
 idea and picks; supersedes D-847's no rim for poisoned and stiff)
 Poisoned's and stiff's marks get the timer rim too, full at their
@@ -194,3 +182,14 @@ burning card's way, Campfire over Light and Take up). With a campfire
 already carried, Take up says "You already carry a campfire.", free
 (offered too: Take up grey). Taken up, it says "You take up the stones."
 (offered too: "You pack up the campfire."; no line).
+
+**D-855 · 2026-11-12 · The Peddler by the home waystone** (the owner's
+picks, all recommended; fixes B-001, partly supersedes D-492's woods)
+Freed, the Peddler goes home to the home waystone's room, as D-753 moved
+the stone, no longer Hearthwood's middle room: on the open tile nearest
+the room's middle, not the middle, as before (offered too: right beside
+the stone; the middle room, with a hint). Claude's call the owner may
+change: never on the stone's own 3 × 3, so the way onto it stays clear.
+An older save's Peddler already at home in the middle room moves there
+once, keeping his greeting, not beaming in (offered too: stays put).
+D-847 moves to `archive/DECISIONS-SURFACE.md`, word for word.

@@ -11,6 +11,7 @@ import { goToPlace } from '../src/core/stairs.js';
 import { endTurn } from '../src/core/endturn.js';
 import { passTurn } from '../src/core/state.js';
 import { send } from '../src/core/homeward.js';
+import { stoneHome } from '../src/core/mouth.js';
 import { dig } from '../src/core/rescue.js';
 import { shownLine, LINES } from '../src/core/lines.js';
 import { readJourney, journeyText, UPGRADES } from '../src/core/save.js';
@@ -177,20 +178,22 @@ test('a format 8 save gets an empty people list in every room, a room seen stayi
   assert.deepEqual(up.elsewhere.depth3, { room: 1, items: [], people: [] });
 });
 
-// § home: freed, he stands at once in the woods beside their middle, with his own lines (step 12c, D-492)
-test('gone, he stands at once at home in the woods, on an open tile beside the middle', () => {
+// § home: freed, he stands at once by the home waystone, beside its room's middle, with his own lines (step 12c, D-492, D-855)
+test('gone, he stands at once at home in the waystone\'s room, on an open tile beside the middle, off the stone (B-001)', () => {
   for (const seed of SEEDS.slice(0, 10)) {
     let s = { ...makeWorld('first', seed), ...trapped({ x: 2, y: 2 }), seed, elsewhere: makeWorld('first', seed).elsewhere };
     for (let i = 0; i < 3; i++) s = step(s, 'right');
     for (let i = 0; i < 5; i++) s = wait(s);
-    const [him] = s.elsewhere.woods.people, room = s.elsewhere.woods.room, mid = { x: room.cols >> 1, y: room.rows >> 1 };
+    const at = stoneHome(seed), [him] = s.elsewhere[at].people, room = s.elsewhere[at].room, mid = { x: room.cols >> 1, y: room.rows >> 1 };
     assert.equal(him.id, 'peddler');
     assert.equal(him.home, true);
     assert.equal(him.leaves, undefined);
     assert.notDeepEqual({ x: him.x, y: him.y }, mid, `seed ${seed}`);
     assert.equal(tileAt(room, him.x, him.y).solid, false);
+    assert.notEqual(tileAt(room, him.x, him.y).name, 'Waystone', `seed ${seed}: the way onto the stone stays clear`);
     assert.ok(Math.abs(him.x - mid.x) + Math.abs(him.y - mid.y) <= 3, `seed ${seed} is near the middle`);
-    const home = goToPlace(s, 'woods');
+    assert.equal(s.elsewhere.woods.people?.length ?? 0, 0, `seed ${seed}: not in Hearthwood's middle room`);
+    const home = goToPlace(s, at);
     assert.deepEqual(home.people, [him]);
     assert.deepEqual(readJourney(journeyText(home)).state.people, [him]);
   }
@@ -201,8 +204,8 @@ test('the hero leaving the room first, he goes home anyway, saying nothing', () 
   const s = { ...there, people: [{ ...there.people[0], leaves: there.turn + 5 }] };
   const away = endTurn(s, passTurn(goToPlace(s, 'first'))); // as stairs do, a turn passing
   assert.deepEqual(away.elsewhere[id].people, []);
-  assert.equal(away.elsewhere.woods.people[0].home, true);
-  const outside = send(goToPlace(s, 'woods'), id); // Go outside: he is there
+  assert.equal(away.elsewhere[stoneHome(seed)].people[0].home, true);
+  const outside = send(goToPlace(s, stoneHome(seed)), id); // the hero already home: he is there
   assert.equal(outside.people[0].id, 'peddler');
   assert.deepEqual(outside.elsewhere[id].people, []);
 });
@@ -225,12 +228,12 @@ test('at home, selling, he never says he will have wares soon; the third bump sa
 });
 
 // § beam home: gone home, he beams in when the hero next comes, and greets the hero once, near (D-496)
-test('gone home, he beams in as the hero comes into the woods, an arrive event where he stands', () => {
+test('gone home, he beams in as the hero comes into the waystone\'s room, an arrive event where he stands', () => {
   const seed = 7, id = peddlerRoom(seed), there = goToPlace(makeWorld('first', seed), id);
   const s = { ...there, people: [{ ...there.people[0], leaves: there.turn + 5 }] };
   const away = endTurn(s, passTurn(goToPlace(s, 'first')));
-  assert.equal(away.elsewhere.woods.people[0].arrives, true);
-  const home = endTurn(away, passTurn(goToPlace(away, 'woods')));
+  assert.equal(away.elsewhere[stoneHome(seed)].people[0].arrives, true);
+  const home = endTurn(away, passTurn(goToPlace(away, stoneHome(seed))));
   const [him] = home.people;
   assert.equal(him.arrives, undefined);
   assert.deepEqual(home.events.filter((e) => e.type === 'arrive'), [{ type: 'arrive', id: 'peddler', x: him.x, y: him.y }]);

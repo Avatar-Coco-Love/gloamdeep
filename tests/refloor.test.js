@@ -9,6 +9,7 @@ import { goToPlace, goToDepth } from '../src/core/stairs.js';
 import { tileAt, peddlerRoom, isGenerated, placeFor, stoneRoom } from '../src/core/room.js';
 import { stonesOf } from '../src/core/travel.js';
 import { layoutAt } from '../src/core/region.js';
+import { stoneHome } from '../src/core/mouth.js';
 
 const SEED = 7;
 const generated = (s) => Object.keys(s.elsewhere).filter(isGenerated);
@@ -75,7 +76,7 @@ test('a peddler already home is not trapped again: his room is made now, without
 test('a freed peddler still waiting in a generated room goes home, and stays freed', () => {
   const id = peddlerRoom(SEED), old = goToPlace(goToDepth(makeWorld('first', SEED), 3), id);
   const s = refloor({ ...old, people: [{ id: 'peddler', x: 2, y: 2, leaves: 99 }] });
-  assert.ok(s.elsewhere.woods.people.some((p) => p.id === 'peddler' && p.home));
+  assert.ok(s.elsewhere[stoneHome(SEED)].people.some((p) => p.id === 'peddler' && p.home)); // by the waystone (D-855)
   const room = s.place === id ? s : s.elsewhere[id];
   assert.deepEqual(room.people, []);
 });

@@ -12,10 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-001 · 2026-11-12 · The Peddler isn't home after his rescue** Once
-the hero rescues the Peddler, he doesn't show up in the home room. The
-owner: he should be nearby the home waystone.
-
 **B-002 · 2026-11-12 · Sleeping ends a fight** The hero can sleep in a
 bed while a bat and a lampmoth chase the hero; when morning comes the
 creatures vanish at once, so it is an easy way out of a fight.
