@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.301', date: '2026-11-12', title: 'The bed won\'t sleep in a fight', lines: [
+    "Fixed: you can no longer sleep a fight away. Bumping your bed at night with a creature after you now says \"Not with a creature after you.\" and takes no turn, as sleeping out under the sky already did. A shy creature nearby, like a bunny, still doesn't stop you.",
+    "Decisions: D-856. Bugs fixed: B-002.",
+  ] },
   { v: '0.3.300', date: '2026-11-12', title: 'The Peddler by the waystone', lines: [
     "Fixed: the Peddler is home by the waystone. Freed, he now waits in the home waystone's room, just below its middle, never on the stone itself. Before, he went to the middle room of the woods, a room away, so he seemed missing.",
     "In a journey saved before this, a Peddler already home moves there once, still knowing you.",

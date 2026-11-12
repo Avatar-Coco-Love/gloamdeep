@@ -12,10 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-002 · 2026-11-12 · Sleeping ends a fight** The hero can sleep in a
-bed while a bat and a lampmoth chase the hero; when morning comes the
-creatures vanish at once, so it is an easy way out of a fight.
-
 **B-003 · 2026-11-12 · A burrowed mole traps the hero** In the home
 room, a mole sometimes chases and traps the hero and never comes above
 ground: it stays burrowed, and the hero can't walk over it. The owner's
