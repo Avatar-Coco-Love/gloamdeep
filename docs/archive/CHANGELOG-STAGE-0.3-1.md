@@ -4,6 +4,16 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.315 (2026-11-12)
+- Names of things you carry now capitalise every word: Oil Flask, Healing Herb, Healing Potion, Stash Chest, Glow Lamp. The mortar's lines say "Need 2 Mimic Leaf, 1 Healing Herb." and so on.
+- A mole that comes up away from you says "The mole bursts up out of the earth!"; beside you it still bursts up beside you.
+- Kind Herbs' card says what it does: "Herbs, potions and fish heal 1 heart more."
+- How to play: the Pick row says "Hold it to break veins"; the Keyboard page names I for the bag and M for the map, and Touch and Mouse say the bag and map have their buttons.
+- A mark's last turn says "1 turn left." instead of "1 turns left."
+- The Bestiary: the lure wisp drifts toward another creature only if there is one, and the bone rat is "knocked down" into its bones, since only scattering them beats it.
+- Settings' sound for the end of a journey is called "Journey ends", no longer "Run ends".
+- Decisions: D-870.
+
 ## 0.3.314 (2026-11-12)
 - A broken boulder or copper vein never grows back beside a waystone, on the tiles kept open round it.
 - A find that doesn't fit in the bag, with every tile beside it taken, lies on the nearest open tile further out, never on water or a bush.

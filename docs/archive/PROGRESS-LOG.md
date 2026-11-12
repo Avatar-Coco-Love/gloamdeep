@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.315, One words page.** Health check step 6: finds'
+  names capitalise every word (H-40, H-20); a far mole's own line
+  (H-15); Kind Herbs' words (H-41); How to play's Pick, bag and map
+  rows (H-12, H-39); "1 turn left." (H-43); the lure wisp's and bone
+  rat's words (H-45); "Journey ends" (H-47). D-870.
+  Playtest: https://claude.ai/artifact/86zoMCT5yD96SEc7y6d8MZ
 - **2026-11-12, 0.3.314, Three small risks.** A boulder never grows
   back on a waystone's ring; a drop with no open tile beside it lies
   further out, never on water; dev Spawn never on a person (H-24). The

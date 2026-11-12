@@ -52,7 +52,7 @@ function spotNear(state, t, entry, came) {
   for (let y = t.y - near; y <= t.y + near; y++) for (let x = t.x - near; x <= t.x + near; x++) {
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2) continue;
     if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came, !!entry.on) || onRing(state, x, y)) continue;
-    if (joined(withTile(room, x, y, entry))) spots.push({ x, y });
+    if (joined(withTile(room, x, y, entry), ringed(state.people))) spots.push({ x, y });
   }
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
 }
@@ -76,10 +76,11 @@ function roamTo(state, t, came) {
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
 }
 
-// Every open tile of the room reachable from every other (a bench set down, too, bagturn.js)
-export function joined(room) {
+// Every open tile of the room reachable from every other (a bench set down, too, bagturn.js),
+// leaving out the tiles in `skip`: a person still ringed in by rubble stands on one (H-09, D-873)
+export function joined(room, skip = []) {
   const open = [];
-  for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid) open.push(`${x},${y}`);
+  for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) if (!tileAt(room, x, y).solid && !skip.some((t) => t.x === x && t.y === y)) open.push(`${x},${y}`);
   const seen = new Set(open.slice(0, 1)), queue = open.slice(0, 1);
   while (queue.length) {
     const [x, y] = queue.shift().split(',').map(Number);
@@ -89,8 +90,10 @@ export function joined(room) {
       seen.add(k); queue.push(k);
     }
   }
-  return seen.size === open.length;
+  return open.every((k) => seen.has(k));
 }
+// The tiles of those not yet freed from their ring of rubble (rescue.js): not leaving, not home
+export const ringed = (people = []) => people.filter((p) => p.leaves === undefined && !p.home);
 
 // Its tile is open (or the kind's own `on` tile, a bare bush, D-531), nothing stands or lies on it, and it is out of sight
 function free(state, { x, y }, came, onOwn = false) {

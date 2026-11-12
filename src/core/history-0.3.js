@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.318', date: '2026-11-12', title: 'The Peddler\'s room', lines: [
+    "In the Peddler's room, while he is still ringed in by rubble, you can now set down a Torch or a Glow Lamp. Before, \"There is no room there.\" was said until you dug a heap.",
+    "Deposits dug in his room grow back there now, and when his room is one picked for a flask mimic, it holds one, as any other room would.",
+    "Decisions: D-873. D-870 moved to the archive, word for word.",
+  ] },
   { v: '0.3.317', date: '2026-11-12', title: 'Two clear bugs', lines: [
     "A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.",
     "When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: \"The flame is getting low.\" or \"The lantern gutters to an ember.\" It shows over the tick's own line.",
