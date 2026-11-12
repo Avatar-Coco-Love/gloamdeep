@@ -30,7 +30,8 @@ const { bagMakes } = await import(R + 'core/bagmake.js');
 const { drawChestPanel } = await import(R + 'render/chestpanel.js');
 const { drawBoons, boonsLayout } = await import(R + 'render/boons.js');
 const H = await import(R + 'render/history.js');
-const { HISTORY } = await import(R + 'core/history.js');
+const { HISTORY, loadHistory } = await import(R + 'core/history.js');
+await loadHistory(); // loaded only when Version history opens (D-868)
 const { drawHowTo } = await import(R + 'render/howto.js');
 const { HOWTO_PAGES } = await import(R + 'core/howto.js');
 const { drawSettingsCard } = await import(R + 'render/settingscard.js');

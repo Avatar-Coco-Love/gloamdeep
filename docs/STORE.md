@@ -37,7 +37,7 @@ its no-build-step rule.
 | | Item |
 | --- | --- |
 | Done | a secure site; touch, mouse and keys; the home-screen card and drawn icons (D-375); sound starts on a tap; saves wrapped in try/catch; the share card; no ads or tracking |
-| Needed | a safe-area check; the Play account; 12 testers for 14 days; a payments profile; a privacy policy (ties to Q-052); a manifest as a real file; offline play (a service worker); the domain link file, or save export and import; Android's back button opening the game's menu; keeping saves safe (`storage.persist()`); store pictures; paid or unlock; the yearly rebuild |
+| Needed | a safe-area check; the Play account; 12 testers for 14 days; a payments profile; a privacy policy (ties to Q-052); a manifest as a real file; offline play (a service worker); the domain link file, or save export and import; Android's back button opening the game's menu; keeping saves safe (`storage.persist()`); store pictures; paid or unlock; the yearly rebuild; sound tested on an older iPhone, since every sound is `.ogg` (H-22, D-868) |
 | Later | an in-game unlock through Play Billing; gamepads; a Steam build; consoles |
 
 Consoles: the Switch has no way to run a web game, so it would mean a

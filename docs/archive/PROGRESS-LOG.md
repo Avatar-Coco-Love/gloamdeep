@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.310, Boons at the home stone.** Health check step 3:
+  arriving on the home plate by travel or a fall offers the boon card
+  (H-32); the same 3 boons until you leave the room (H-44); "until you
+  are back at the waystone" (H-35). A second one-of-a-kind piece into a
+  chest with room says "The chest already holds a workbench." (H-67,
+  the owner's find). D-865.
+  Playtest: https://claude.ai/artifact/G8UbxZcKVP9HogiKH5CLuu
 - **2026-11-12, 0.3.309, A full bag says so.** Health check step 2: a
   find with no room in the bag says "Your bag is full.", or its own
   line when some is carried; wood gets "You can't carry more wood."

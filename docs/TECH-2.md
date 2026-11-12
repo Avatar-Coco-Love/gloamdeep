@@ -10,6 +10,7 @@ index.html          page shell and canvas
 package.json        only for `npm test` (no dependencies)
 src/main.js         boot, moving the hero, and the main loop
 src/slots.js        picking, making, renaming and deleting a profile (D-519)
+src/hearing.js      the sounds of play and the menu sounds (D-868)
 src/input/screens.js  the title, menus, map and Seed Explorer; in play the travel, strike and boon cards (D-235)
 src/input/profilescreens.js  a new profile's name and look, Rename, Look (D-421)
 src/input/explorerscreens.js the Seed Explorer, the ways to play, the seed pad (D-468)

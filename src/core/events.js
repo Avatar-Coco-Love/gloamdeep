@@ -43,6 +43,13 @@
 //   spit { id }          creature `id` spat a glob (spit.js, D-688); a glob's hit on the hero is a `bite`
 //   splash { x, y }      a glob broke or hit, at x, y (D-688)
 //   scatter { id }       the hero stepped onto creature `id`'s pile of bones and scattered it (D-731)
+//   raise                a creature raised its tail to strike (D-729)
+//   boon { id }          boon `id` was picked at the waystone (D-596)
+//   fang { id }          the Fang Charm mended a heart as creature `id` was beaten (D-809)
+//   sleep                the hero slept in the bed until morning (D-488)
+//   oilLow               the flame is getting low (D-834)
+//   oilOut               the lantern guttered to an ember (D-830)
+//   lastHeart            the hero is down to the last heart (D-835)
 
 // (state, type, details) → the state with that event added to this turn's list
 export const note = (state, type, details) => ({ ...state, events: [...state.events, { type, ...details }] });

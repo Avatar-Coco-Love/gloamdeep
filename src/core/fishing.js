@@ -1,4 +1,4 @@
-// § fishing: cast, wait, pull at the home pond and the cave pools (D-608, D-610, D-618). The float
+// § fishing: cast, wait, pull at the woods' ponds and the cave pools (D-608, D-610, D-618, D-734). The float
 // on the water is `state.float`: { x, y, at, bite, nibble, fish, strike? }, or null with no line out.
 // `at` is the turn it landed; `bite`, a fish on the line this turn; `nibble`, a fish nibbling, the
 // bite next turn (D-613); `fish`, the registry id of the water's fish (D-618); `strike`, once
@@ -13,7 +13,7 @@ import { get } from './registry.js';
 import { zoneByParts } from './parts.js';
 
 export const NIBBLE_CHANCE = 1 / 6; // each turn the line waits, a nibble, then the bite (D-608, D-613)
-export const POND_FISH = 'pondMinnow'; // the home pond's fish (D-608)
+export const POND_FISH = 'pondMinnow'; // every woods pond's fish (D-608, D-734)
 export const CAVE_FISH = 'blindCavefish'; // every cave pool's fish (D-618)
 const BITE_SALT = 0xf154, ZONE_SALT = 0x57c1;
 // § the strike meter (D-614): the zone a quarter of the bar, or the fish's own `zone`, smaller for
@@ -22,8 +22,8 @@ export const STRIKE_ZONE = 1 / 4;
 export const STRIKE_PASSES = 3;
 export const STRIKE_PASS_MS = 1000;
 
-// The fish in the water here: the home pond's, or a cave pool's (D-618); a float cast before it
-// kept its fish is the pond's
+// The fish in the water here: a woods pond's, or a cave pool's (D-618); a float cast before it
+// kept its fish is a pond's
 export const fishHere = (state) => (state.place === HOME || state.room?.look === 'woods' ? POND_FISH : CAVE_FISH); // every woods pond's, since Hearthwood's 9 rooms (D-733)
 const fishOf = (f) => f?.fish ?? POND_FISH;
 // The strike meter's zone width for the fish on the line (D-618), half again with the Bone Hook

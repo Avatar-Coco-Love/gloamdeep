@@ -6,7 +6,8 @@
 // Each module becomes a function that returns its exports, in dependency
 // order. It handles only the forms the code uses: `import { a, b as c } from
 // './x.js'`, `export const`, `export function` and, for a file split into
-// several, `export { a, b } from './x.js'` (D-362). Anything else stops it.
+// several, `export { a, b } from './x.js'` (D-362), and `import('./x.js')`, a file loaded
+// later (history.js, D-868), packed in with the rest and handed over at once. Anything else stops it.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,6 +16,7 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 // § modules: read each file once, deps before the files that use them
 const IMPORT = /^(import|export)\s*\{([^}]*)\}\s*from\s*'([^']+)';?[ \t]*$/gm;
+const LATER = /\bimport\('([^']+)'\)/g; // a module loaded later, by its own call
 const order = [];
 const seen = new Set();
 function visit(file, path = []) {
@@ -25,16 +27,18 @@ function visit(file, path = []) {
   const imports = [...text.matchAll(IMPORT)].map(([line, kind, names, from]) => ({
     line, kind, names, file: normalize(join(dirname(file), from)).split('\\').join('/'),
   }));
-  for (const dep of imports) visit(dep.file, [...path, file]);
-  order.push({ file, text, imports });
+  const later = [...text.matchAll(LATER)].map(([call, from]) => ({ call, file: normalize(join(dirname(file), from)).split('\\').join('/') }));
+  for (const dep of [...imports, ...later]) visit(dep.file, [...path, file]);
+  order.push({ file, text, imports, later });
 }
 
 // § wrap: one module as `__gd['src/x.js'] = (() => { …; return { … }; })();`
 // Every name imported must be one the packer found exported, so a form it
 // misses (`export const a = 1, b = 2`) stops it instead of packing undefined.
 const exportsOf = {};
-function wrap({ file, text, imports }) {
+function wrap({ file, text, imports, later = [] }) {
   let body = text;
+  for (const { call, file: dep } of later) body = body.replace(call, `Promise.resolve(__gd['${dep}'])`);
   const exported = [], bound = new Set();
   for (const { kind, names } of imports) if (kind === 'import') names.split(',').forEach((n) => bound.add(n.trim().split(/\s+/).pop()));
   for (const { line, kind, names, file: dep } of imports) {

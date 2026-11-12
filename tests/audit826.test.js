@@ -48,14 +48,14 @@ test('B4: holding a tool marks its hold event, and the knife sound skips it', ()
   const ev = (s) => s.events.find((e) => e.type === 'hold');
   assert.equal(ev(hold(outside({ bag: [{ id: 'rod', n: 1 }] }), 0)).tool, true);
   assert.equal(ev(hold(outside({ bag: [{ id: 'knife', n: 1 }] }), 0)).tool, false);
-  const main = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
+  const main = readFileSync(new URL('../src/hearing.js', import.meta.url), 'utf8'); // moved from main.js (D-868)
   assert.match(main, /e\.type === 'hold' && !e\.tool\)\) sound\.draw\(\)/);
 });
 
 test('Tab on Settings ticks as a tap does: onTab goes through pressed, which passes its answer on', () => {
   const main = readFileSync(new URL('../src/main.js', import.meta.url), 'utf8');
   assert.match(main, /onTab: pressed\(onTab\)/);
-  assert.match(main, /return out;/);
+  assert.match(readFileSync(new URL('../src/hearing.js', import.meta.url), 'utf8'), /return out;/); // moved from main.js (D-868)
 });
 
 test('B5: the mortar is no longer said to list only the Glow Draught', () => {

@@ -11,6 +11,7 @@ D-740, the twelfth audit, done, and D-742, its bug hunt's fixes, built,
 followed at 0.3.232, the thirteenth (D-782).
 D-782, the thirteenth audit, done, and D-783, its bug hunt's fixes, built,
 followed at 0.3.272, the fourteenth (D-826).
+D-826, the fourteenth audit, done, followed at 0.3.313, the fifteenth (D-868).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -590,3 +591,17 @@ beside EAT; MAKE with a full bag says "Your bag is full." unless one is
 carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
+
+**D-826 · 2026-11-11 · The fourteenth audit** (the owner's picks, all
+recommended, and the near-full docs split too) At 0.3.272, nothing
+visible changed. A conversation's start reads 10.5 KB, not 10.8:
+"Waiting on the owner" lists the later questions on one line. The
+in-game history's 0.3.201 to 0.3.250 go to `src/core/history-0.3-4.js`
+(39 KB to 13 and 27). The draughts and rare materials go to a new
+`CONTENT-FINDS-2.md`, and the places' sounds, "Maybe" and "Later" to
+`SOUNDS-2.md`. D-782 and D-783 move to `archive/DECISIONS-AUDITS.md`,
+D-822 to D-825 to `archive/DECISIONS-SOUNDS.md`; the playbook's lines
+since the last audit go to a new `WORKFLOW-4.md`; all word for word.
+A bug hunt reads the code since 0.3.233; its findings come to the owner
+as a list to pick from, each fix its own step. The next audit is at
+0.3.312.

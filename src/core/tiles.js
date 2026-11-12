@@ -44,7 +44,7 @@ export const TILES = {
   deposit: { id: 'deposit', kind: 'tile', letter: 'O', name: 'Deposit', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2,
     mine: { hits: 3, chips: ['depositChip', 'depositCrack'], drops: 'stone', breaks: 'stoneTake' }, clinks: true },
   // A copper vein, a boulder flecked with copper, one in each Cave room from depth 3 (D-480):
-  // mined as a deposit is, but only with the pick it `needs` in the bag; without, its `hard`
+  // mined as a deposit is, but only with the pick it `needs` in the Tool slot (D-552); without, its `hard`
   // line, free. 4 bumps give a Copper Ore; it grows back after 6 days, slower than stone.
   vein: { id: 'vein', kind: 'tile', letter: 'V', name: 'Copper vein', solid: true, blocksLight: false, regrow: 6 * DAY_TURNS, near: 2,
     mine: { hits: 4, chips: ['veinChip', 'veinChip2', 'veinCrack'], drops: 'copperOre', breaks: 'copperOreTake', needs: 'pick', hard: 'veinHard' }, clinks: true },
@@ -126,7 +126,8 @@ export const TILES = {
     dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' }, clinks: true },
   // The waystone's tiles (D-579, D-587), set by its plan (landmarks.js): a tall standing
   // stone on each 2 × 2 corner, solid and blocking light like rock; flagstones on the cross
-  // and the plate in its middle, walked on. Asleep for now: nothing happens on them (D-589).
+  // and the plate in its middle, walked on. The plate wakes as the hero steps on it (D-591), and a
+  // woken one takes the hero to another (D-593).
   standingStone: { id: 'standingStone', kind: 'tile', letter: 'Y', name: 'Waystone', solid: true, blocksLight: true },
   waystonePath: { id: 'waystonePath', kind: 'tile', letter: 'X', name: 'Waystone', solid: false, blocksLight: false },
   // Asleep, the plate `wakes` when the hero steps on it (D-591): its rune lit violet for good,

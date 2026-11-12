@@ -81,20 +81,6 @@ attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
 
-**D-826 · 2026-11-11 · The fourteenth audit** (the owner's picks, all
-recommended, and the near-full docs split too) At 0.3.272, nothing
-visible changed. A conversation's start reads 10.5 KB, not 10.8:
-"Waiting on the owner" lists the later questions on one line. The
-in-game history's 0.3.201 to 0.3.250 go to `src/core/history-0.3-4.js`
-(39 KB to 13 and 27). The draughts and rare materials go to a new
-`CONTENT-FINDS-2.md`, and the places' sounds, "Maybe" and "Later" to
-`SOUNDS-2.md`. D-782 and D-783 move to `archive/DECISIONS-AUDITS.md`,
-D-822 to D-825 to `archive/DECISIONS-SOUNDS.md`; the playbook's lines
-since the last audit go to a new `WORKFLOW-4.md`; all word for word.
-A bug hunt reads the code since 0.3.233; its findings come to the owner
-as a list to pick from, each fix its own step. The next audit is at
-0.3.312.
-
 **D-852 · 2026-11-12 · A bug list** (the owner's pick, recommended;
 the owner's wish to say just "Next up") Bugs the owner notices go in
 `docs/BUGS.md`, each with its own number, B-001 on, in the owner's
@@ -147,28 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-863 · 2026-11-12 · Hearts kept** (the owner's picks, both
-recommended; step 1 of `HEALTH-CHECK-ORDER.md`, fixes H-01 and H-19)
-The bed's gold heart stays when a boon is taken or ends, by a campfire
-and on waking warm in the fur bedroll: as the most changes (Stout
-Heart, Reckless) it stays one past the new most, and only a bite or a
-fall takes it, as D-488 has it (offered too: it goes, with a line; a
-separate gold heart, changing saves). The Growth tree's Heart tile
-counts only the hearts grown, never a boon's: "Hearts 10 of 10"
-(offered too: grown and the boon's, "+2 boon"; capped at the top).
-D-855 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-864 · 2026-11-12 · A full bag says so** (the owner's picks, both
-recommended; step 2 of `HEALTH-CHECK-ORDER.md`, fixes H-02 and H-18)
-A find stepped on with no room stays with a line: its kind's own when
-one is carried ("You can't carry more oilcaps."), else "Your bag is
-full.", the herb's way (D-511) for every find; wood gets "You can't
-carry more wood." (offered too: "Your bag is full." always; wood left
-silent). A second one-of-a-kind piece from the lost bag, a chest or a
-dropped stack says its own line, "You already carry a workbench.";
-"Your bag is full." only when the bag is (offered too: one shared
-line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-865 · 2026-11-12 · Boons at the home stone** (the owner's picks,
 all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
 H-35, and H-67, the owner's find) Arriving on the home
@@ -202,3 +166,18 @@ Up from RANDOM or OK goes to the open tab, keeping a rolled look
 (offered too: up to the picked choice). This step is 0.3.312; the audit
 is next, at 0.3.313 (offered too: audit first; after all 19 steps).
 D-859 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-868 · 2026-11-12 · The fifteenth audit** (the owner's picks, all
+recommended) At 0.3.313, nothing visible changed. main.js's sounds,
+`hear` and the menu sounds, go to a new `src/hearing.js` (48 KB to 43).
+The Version history loads only when it first opens, from a new
+`history-all.js`: a start fetches 12 files and 328 KB fewer (H-23); the
+playtest's packer learns `import()`. The stale comments are fixed (H-31,
+H-66), the events list gains its 7 missing kinds. Older iPhones and
+`.ogg` go on `STORE.md`'s list, to test on a real one first (H-22).
+H-24's three risks and the unused `craft()` are the next step, 0.3.314
+(offered too: in this audit; just noted). The done health check findings
+go to `archive/HEALTH-CHECK-DONE.md`, D-826 to `archive/DECISIONS-AUDITS.md`,
+D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
+to a new `WORKFLOW-5.md`; all word for word. The next audit is at
+0.3.353.
