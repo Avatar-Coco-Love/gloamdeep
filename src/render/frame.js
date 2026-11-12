@@ -13,7 +13,7 @@ import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
-import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -353,6 +353,7 @@ export function createFrame(app, ui) {
     const held = boonOf(state), marks = held ? [{ ...KIND_LOOKS[held.sort], id: held.id }] : []; // the boon held, its card's picture (D-604)
     if (state.poisoned > 0) marks.push(POISON_MARK); // poisoned beside it, a green drop (D-654)
     if (state.stiff > 0) marks.push(STIFF_MARK); // stiff after it, a pale blue Zz (D-759)
+    if (state.warmed > 0) marks.push({ ...WARM_MARK, n: state.warmed }); // Warmed, a campfire's orange flame and its turns left (D-845)
     if (state.glow > 0) marks.push({ ...GLOW_MARK, n: state.glow }); // the Glow Draught, a gold bottle and its turns left (D-791)
     if (state.slowburn > 0) marks.push({ ...SLOW_MARK, n: state.slowburn }); // Slowburn, an amber bottle and its turns left (D-792)
     if (state.mending > 0) marks.push({ ...MEND_MARK, n: state.mending }); // the Mending Draught, a moss green bottle and its turns left (D-794)

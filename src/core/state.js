@@ -11,6 +11,7 @@ import { idAt, SIZE } from './hearthwood.js';
 import { mouthOf } from './mouth.js';
 import { rng, pick, seedFor } from './rng.js';
 import { grown } from './upgrades.js';
+import { warmBurn } from './warmed.js';
 
 // § directions: four only, no diagonals (D-042)
 export const DIRS = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
@@ -104,8 +105,9 @@ function away(begun, here, seen) {
 }
 
 // A passed turn starts a new list of events (events.js)
+// Warmed by a campfire burns slower too, added to the rest (warmed.js, D-845).
 // With Endless oil on (`state.endless`, a dev switch) a lit turn burns nothing (D-626).
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state) * draughtBurn(state)) : state.oil });
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state) * draughtBurn(state) * warmBurn(state)) : state.oil });
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

@@ -29,6 +29,7 @@ word for word at 0.3.234 (D-784), as this page passed 8 KB.
 - **Glob:** the Spit grub's spit, a glowing green ball flying a tile a turn; it hits the hero or a creature for 1, and breaks on walls and rubble (D-659, D-688).
 - **Poisoned:** the first debuff, from Venom (D-636): 6 turns, a heart every 3, 2 in all, the last heart too since the Antidote (D-655); a new bite starts it again; a green drop mark beside the boon's (D-652, D-654).
 - **Stiff:** waking from sleeping out (D-758): 20 turns, 1 swing in 3 misses; a pale blue Zz mark beside poisoned's; a fall ends it (D-759).
+- **Warmed:** sitting by a burning campfire (D-845): blazing 60 turns, embers 30, the lantern burning slower, a full tank lasting 70, added to Slowburn; a small orange flame mark with its turns left; a fall ends it.
 - **Colour set:** one of the colours a creature's single drawing may wear, picked by the seed: the scorpion's Sand, Rust, Coal, Olive and Bone (D-373).
 - **Chases, Shuns light, Seeks light:** the ways creatures have so far (D-269, D-351); **drinks**, oil instead of a bite, the first light way (D-606); **Lures**, drifting away toward another creature (D-649); **Spits** (D-688); **Shy**, hopping just away, the bunny's (D-784); **Lurks**, waiting till the hero is within 3 steps, the rim lurker's (D-797).
 - **Next move:** what a seen creature does if the hero waits (D-349).

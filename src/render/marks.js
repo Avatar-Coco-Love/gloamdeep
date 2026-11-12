@@ -1,6 +1,7 @@
 // § marks: a row of small glass squares under the hearts panel (D-604), each with a 9 × 9
 // picture in its colour: the boon held, its kind's picture from its card (render/boons.js); the
 // place for what else the hero carries for a while: poisoned, a pale green drop (D-654); stiff, a Zz in the moon's pale blue (D-759);
+// Warmed, a small flame in the campfire's orange with its turns left (D-845);
 // the Glow Draught, a gold bottle with its turns left beside it, the glass wider (D-791);
 // Slowburn, the same bottle in deep amber with its turns (D-792); the Mending Draught's in moss green (D-794); the Ward Draught's in pale green-white (D-795); the Spitproof Draught's in dusty rose (D-802); the Shade Draught's in dusky violet (D-806). marks: [{ icon, tint, n? }].
 import { drawGlass } from './glass.js';
@@ -12,6 +13,8 @@ export const MARK = 2 * PAD + 9, MARK_GAP = 2;
 export const POISON_MARK = { id: 'poisoned', tint: '#b6e07a', icon: ['....#....', '...###...', '...###...', '..#####..', '..##.##..', '.###.###.', '.#######.', '..#####..', '...###...'] };
 // § stiff's mark: Zz in the moon button's pale blue, as in its mock-up (D-759)
 export const STIFF_MARK = { id: 'stiff', tint: '#b0bcf0', icon: ['#####....', '...#.....', '..#......', '.#.......', '#####....', '....####.', '......#..', '.....#...', '....####.'] };
+// § Warmed's mark: a small flame in the campfire's orange, with its turns left (D-845)
+export const WARM_MARK = { id: 'warmed', tint: '#f39a3b', icon: ['....#....', '....##...', '...###...', '..####...', '..#####..', '.###.###.', '.##...##.', '.###.###.', '..#####..'] };
 // § glow's mark: a round bottle in the lantern's gold, the potion's shape (D-791)
 export const GLOW_MARK = { id: 'glow', tint: '#ffd66b', icon: ['...###...', '....#....', '...###...', '..#####..', '.##.####.', '.#.######', '.########', '..#######', '...####..'] };
 // § Slowburn's mark: the same bottle in the oil bar's deep amber (D-792)

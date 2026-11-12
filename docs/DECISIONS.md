@@ -103,24 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-840 · 2026-11-11 · Music in the warrens** (the owner's picks, all
-recommended; part of Q-095) The warrens came before the dungeon. From a
-board of 8 calm, dark tracks from the same bundle, measured again from
-the 84 over 45 s, the three tunes already playing left out (three new to
-a board, five from the crypt's; the rock caves' and the surface's tunes
-beside them to compare; the warrens' muffled earth steps playing along),
-track 1, "Patreon Challenge 11" (1 min 7 s, the darkest, with the most
-low notes), plays in the warrens, floors 5 to 7 (offered too: Patreon
-Challenge 09, Patreon Challenge 01, Ludum Dare 30 03, Patreon Challenge
-04 and three more; floor 5 and every floor below), non-stop with no break
-(offered too: with a 30 s, 60 s or 2 min gap), carrying on from floor to
-floor (offered too: starting again on each floor). It changes as the
-others do: the old place's tune fades out over 2 s, the new one starts a
-second later, fading in over a second. The dungeon stays quiet, its own
-step. A line in Music's list after Rock caves, Warrens. File and loudness
-in `SOUNDS-3.md`. D-835 moves to `archive/DECISIONS-SOUNDS.md`, word for
-word.
-
 **D-841 · 2026-11-11 · Music in the dungeon** (the owner's picks, all
 recommended; part of Q-095) From a board of 8 calm, dark tracks from the
 same bundle, measured again from all 138 (the darkest, sparsest and
@@ -172,3 +154,21 @@ own step (offered too: all three at once; one at a time). Claude's
 calls the owner may change: Yes grey with full hearts and not stiff;
 "You sit by the fire and warm up."; no sound of its own yet. D-839
 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-845 · 2026-11-12 · Warmed** (the owner's picks, all recommended;
+Q-088's buff, step 2) Sitting by a burning campfire also leaves the hero
+Warmed for the fire's turns, blazing 60, embers 30 (offered too: 60
+either way; 30 either way). While Warmed, a lit turn burns 6/7 of its
+oil, so a full tank lasts 70 turns, not 60, as Slowburn does and added
+to it and the Heart Charm (offered too: 12/13, lasting 65; 3/4, lasting
+80; like Slowburn but not added to it). Yes on Sit by the fire? works
+whenever it helps: hurt, stiff, or Warmed would last longer; grey only
+when nothing would change (offered too: always; only hurt or stiff, as
+before). Sitting again sets the longer count, never a shorter one. Its
+mark is a small flame in the campfire's orange with its turns left
+(offered too: a tiny campfire; Slowburn's bottle in orange). Claude's
+calls the owner may change: Draught rules for the rest (the turns run
+with the lantern empty, a night uses them, a fall ends it); the mark
+after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
+says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
+D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word.

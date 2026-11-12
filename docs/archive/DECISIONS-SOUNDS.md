@@ -310,3 +310,21 @@ do: the old place's tune fades out over 2 s, the new one starts a second
 later, fading in over a second. A line in Music's list between Surface
 and Rock caves, Crypt. File and loudness in `SOUNDS-3.md`. D-834 moves
 to `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-840 · 2026-11-11 · Music in the warrens** (the owner's picks, all
+recommended; part of Q-095) The warrens came before the dungeon. From a
+board of 8 calm, dark tracks from the same bundle, measured again from
+the 84 over 45 s, the three tunes already playing left out (three new to
+a board, five from the crypt's; the rock caves' and the surface's tunes
+beside them to compare; the warrens' muffled earth steps playing along),
+track 1, "Patreon Challenge 11" (1 min 7 s, the darkest, with the most
+low notes), plays in the warrens, floors 5 to 7 (offered too: Patreon
+Challenge 09, Patreon Challenge 01, Ludum Dare 30 03, Patreon Challenge
+04 and three more; floor 5 and every floor below), non-stop with no break
+(offered too: with a 30 s, 60 s or 2 min gap), carrying on from floor to
+floor (offered too: starting again on each floor). It changes as the
+others do: the old place's tune fades out over 2 s, the new one starts a
+second later, fading in over a second. The dungeon stays quiet, its own
+step. A line in Music's list after Rock caves, Warrens. File and loudness
+in `SOUNDS-3.md`. D-835 moves to `archive/DECISIONS-SOUNDS.md`, word for
+word.

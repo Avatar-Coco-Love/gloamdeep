@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-11, 0.3.288, Chopping a tree.** The owner's picks (D-842),
+  all recommended: an axe's chop for each bump on a tree, and as it falls
+  a last chop, a slow low creak and a heavy crash; trees only for now;
+  under Digging's and Stone breaks' lines in Settings.
+  Playtest: https://claude.ai/artifact/Y9XdDjkDf7F5Crhq3FNxDW
+  Sound board: https://claude.ai/artifact/XkdfXdBy953RM9zWcHbkUK
 - **2026-11-11, 0.3.287, Music in the dungeon.** The owner's picks
   (D-841), all recommended, from a board of 8 calm, dark tracks measured
   again from all 138 (the 43 over 45 s), with the warrens' and the crypt's

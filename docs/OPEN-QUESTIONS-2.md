@@ -84,7 +84,7 @@ words, what lighting one costs, feeding one, building one and the buff
 are all open. The first step, fires met in the world and lighting cold
 ashes, is D-757; sitting by a burning one, hearts back and stiff
 ended, is D-844, the buff's first step; Warmed, the lantern burning
-slower for a while, is next; feeding one and building one stay open.
+slower for a while, is D-845; feeding one and building one stay open.
 Cooking simple food at a lit campfire is to come, after alchemy (D-785).
 
 **Q-091 · Sleeping out's later costs** (raised 2026-11-09, the owner's

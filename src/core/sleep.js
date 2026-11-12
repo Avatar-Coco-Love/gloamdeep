@@ -12,6 +12,7 @@ import { endTurn } from './endturn.js';
 import { sleptIn } from './waking.js';
 import { glowSlept } from './glow.js';
 import { slowSlept } from './slowburn.js';
+import { warmSlept } from './warmed.js';
 import { mendSlept } from './mending.js';
 import { wardSlept } from './ward.js';
 import { spitproofSlept } from './spitproof.js';
@@ -26,6 +27,6 @@ export const tired = (state) => state.turn % DAY_TURNS >= DUSK;
 export function sleep(state, x, y) {
   if (!tired(state)) return say(state, 'notTired');
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
-  const slept = fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(slowSlept(glowSlept(sleptIn(state, x, y), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning, health: maxHealth(state) + RESTED });
+  const slept = fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(sleptIn(state, x, y), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning, health: maxHealth(state) + RESTED });
   return endTurn(state, say(note(slept, 'sleep'), 'sleep'));
 }
