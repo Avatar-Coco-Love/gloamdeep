@@ -3,8 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { makeState, craft, eat, wait, FIRST_START } from '../src/core/turn.js';
-import { canCraft } from '../src/core/bag.js';
+import { makeState, makeFrom, eat, wait, FIRST_START } from '../src/core/turn.js';
 import { get } from '../src/core/registry.js';
 import { LINES, shownLine } from '../src/core/lines.js';
 import { poisonLeft } from '../src/core/poison.js';
@@ -20,7 +19,7 @@ test('the Antidote is a made find of 5 a stack, drunk, with its lines', () => {
 });
 
 test('1 Snapcap Gill and 1 herb make an Antidote, passing a turn, with its line', () => {
-  const n = craft(carrying([{ id: 'snapcapGill', n: 2 }, { id: 'herb', n: 1 }]), 0);
+  const n = makeFrom(carrying([{ id: 'snapcapGill', n: 2 }, { id: 'herb', n: 1 }]), 'snapcapGill');
   assert.deepEqual(n.bag, [{ id: 'snapcapGill', n: 1 }, { id: 'antidote', n: 1 }]);
   assert.equal(n.turn, 1);
   assert.equal(shownLine(n).text, 'You make an antidote.');
@@ -28,8 +27,7 @@ test('1 Snapcap Gill and 1 herb make an Antidote, passing a turn, with its line'
 
 test('without a herb the gill makes nothing', () => {
   const bag = [{ id: 'snapcapGill', n: 3 }], s = carrying(bag);
-  assert.equal(canCraft(bag, 0), false);
-  assert.equal(craft(s, 0), s);
+  assert.equal(makeFrom(s, 'snapcapGill'), s);
 });
 
 test('drunk while poisoned it ends poisoned, heals nothing, and passes a turn', () => {

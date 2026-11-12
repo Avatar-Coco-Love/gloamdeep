@@ -14,11 +14,11 @@ test('spread skips tiles with a creature or a person on them, sides before corne
   assert.deepEqual(spread(s, 5, 10, 2, true), [{ x: 5, y: 10 }, { x: 5, y: 9 }]);
 });
 
-test('with every tile round taken, the spill lies where it came from', () => {
+test('with every tile round taken, the rest of the spill lies on the next ring out, nearest first (D-869)', () => {
   const around = [[0, 1], [-1, 0], [1, 0], [0, -1], [-1, 1], [1, 1], [-1, -1], [1, -1]].map(([dx, dy]) => ({ x: 5 + dx, y: 10 + dy }));
   const s = { ...base, hero: { x: 5, y: 11 }, enemies: around.slice(1, 5).map((t) => ({ id: 'rat', ...t })),
     people: around.slice(5).map((t) => ({ id: 'peddler', ...t })) };
-  assert.deepEqual(spread(s, 5, 10, 2, true), [{ x: 5, y: 10 }, { x: 5, y: 10 }]);
+  assert.deepEqual(spread(s, 5, 10, 2, true), [{ x: 5, y: 10 }, { x: 5, y: 8 }]); // its own tile, then 2 straight up
 });
 
 test('a beaten creature\'s rare drop never lands under another creature (snapcaps never move), and the common lies where it fell', () => {

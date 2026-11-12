@@ -60,3 +60,11 @@ Never read whole; grep for an H number.
   (`chest.js:66`, `bag.js:26`; H-18's other side, added by the owner
   at 0.3.309). Ran. Suggests: its own line, as H-18's. Done at
   0.3.310 (D-865).
+
+## For 0.3.314, after the audit (D-868)
+- **H-24** Read only: a boulder may grow back on a waystone's ring
+  (`regrow.js:47-54`); a drop may land on water (`spread.js:16`); dev
+  Spawn onto a person (`spawn.js:27`).
+- From H-31: `craft()`, used by no screen (`bagturn.js:54`), taken
+  out (D-868).
+  Done at 0.3.314 (D-869).

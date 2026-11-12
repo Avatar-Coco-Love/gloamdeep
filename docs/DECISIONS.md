@@ -133,20 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-865 · 2026-11-12 · Boons at the home stone** (the owner's picks,
-all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
-H-35, and H-67, the owner's find) Arriving on the home
-plate by travel or a fall, holding no boon, opens the boon card once the
-hero is still (offered too: a tap on the plate opens it first; travel
-only), superseding D-737's "no boon offered until the hero steps off and
-back on". The 3 boons stay the same until the hero takes one or leaves
-the room (offered too: drawn anew, as before; one new draw). The words
-say "until you are back at the waystone" (offered too: "until you
-return"; keep "home"). A second one-of-a-kind piece put into a stash
-chest with room says "The chest already holds a workbench." (offered
-too: wait for the words step; its own step). D-857 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-866 · 2026-11-12 · First words over the ask card** (the owner's
 pick, recommended; step 4 of `HEALTH-CHECK-ORDER.md`, fixes H-33) A
 campfire's, your own campfire's and the miners' camp's first words show
@@ -181,3 +167,16 @@ go to `archive/HEALTH-CHECK-DONE.md`, D-826 to `archive/DECISIONS-AUDITS.md`,
 D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
+
+**D-869 · 2026-11-12 · H-24's three risks, and craft() out** (the
+owner's picks, all recommended) A broken deposit or copper vein never
+grows back on a waystone's ring, the tiles its room kept open as it was
+made: 2 round a generated room's stone, 1 round the home one (offered
+too: 1 everywhere; left as it was). A drop with no open tile on or among the
+8 round it looks ring by ring further out, nearest first; only with
+none in the room does it stay on its own tile (offered too: left on the
+bush or bed; left as it was). Dev Spawn puts no item, creature or wall
+on a person, as on the hero; floor still can (offered too: an item
+may). The unused `craft()` and `canCraft()` go; their tests use the Make
+tab's `makeFrom` (offered too: the craft-only tests deleted). D-865
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

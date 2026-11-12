@@ -101,3 +101,4 @@ the fourteenth's in `WORKFLOW-4.md` (D-826), and the fifteenth's in
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 - Tests can read a code file's text (audit826's read `main.js`), so grep `tests/` for a file's name before moving code out of it; and the playtest's packer knows only the import forms the code uses, so a new form (`import()`) needs it taught too (0.3.313).
+- Before offering to change a fallback, grep `tests/` for a test that pins the old one (dropclear's spill on its own tile) and name it in the options, so the owner knows a test changes with the pick (0.3.314).

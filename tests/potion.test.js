@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
-import { makeState, craft, eat, maxHealth } from '../src/core/turn.js';
+import { makeState, makeFrom, eat, maxHealth } from '../src/core/turn.js';
 import { shownLine } from '../src/core/lines.js';
 import { get } from '../src/core/registry.js';
 
@@ -11,7 +11,7 @@ const room = makeRoom(FIRST_ROOM);
 const carrying = (bag, health) => ({ ...makeState(room), bag, health });
 
 test('3 heartcaps make a healing potion and pass a turn', () => {
-  const n = craft(carrying([{ id: 'flask', n: 1 }, { id: 'heartcap', n: 3 }], 2), 1);
+  const n = makeFrom(carrying([{ id: 'flask', n: 1 }, { id: 'heartcap', n: 3 }], 2), 'heartcap');
   assert.deepEqual(n.bag, [{ id: 'flask', n: 1 }, { id: 'potion', n: 1 }]);
   assert.equal(n.turn, 1);
   assert.equal(shownLine(n).text, 'You make a healing potion.');
@@ -19,12 +19,12 @@ test('3 heartcaps make a healing potion and pass a turn', () => {
 
 test('under 3 heartcaps nothing is made', () => {
   const s = carrying([{ id: 'heartcap', n: 2 }], 2);
-  assert.equal(craft(s, 0), s);
+  assert.equal(makeFrom(s, 'heartcap'), s);
 });
 
 test('with 5 full stacks of potions and no slot free the heartcaps stay and no turn passes', () => {
   const bag = [...Array.from({ length: 5 }, () => ({ id: 'potion', n: 5 })), { id: 'heartcap', n: 4 }];
-  const n = craft(carrying(bag, 2), 5);
+  const n = makeFrom(carrying(bag, 2), 'heartcap');
   assert.equal(n.bag, bag);
   assert.equal(n.turn, 0);
   assert.equal(shownLine(n).text, "You can't carry more potions.");

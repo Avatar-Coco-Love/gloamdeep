@@ -79,3 +79,9 @@ step 12, with the cave pools (H-08).
 frame stays on that slot, where the next stack slides in, so a quick
 extra SELL sells the next thing. Leave it, or move the frame? At step
 14, with the dim SELL (H-42).
+
+**Q-103 · A duskstar on the home waystone's ring** (raised 2026-11-12,
+D-869) Laid out, a duskstar keeps off the home waystone's ring, but one
+picked can grow back on it (`regrow.js`'s roam), as a boulder could
+before 0.3.314. Flowers don't block the way. Leave it, or keep them off
+the ring too? Any time.

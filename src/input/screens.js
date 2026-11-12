@@ -12,7 +12,7 @@
 // In play, the bag button or I opens the bag over the room's foot; Left and Right or a tap
 // pick a slot, Enter, Space or Pour pours the chosen flask, which closes it and takes the
 // turn; the button (a cross while it is open), I, Esc, P or a tap outside it closes it (D-247).
-// On oilcaps, Enter, Space or Make crafts a flask, a turn, and the bag stays open on it (D-299).
+// On oilcaps, the bag's Make tab makes a flask, a turn (D-299, D-787).
 // On heartcaps, Enter, Space or Eat eats one, a turn, and the bag stays open (D-308); C or
 // Make beside it makes a healing potion from 3, and Drink, on one, drinks it (D-309).
 // On any item, Drop or X sets its whole stack down at the hero's feet, free (D-546).
@@ -111,7 +111,7 @@ const EXPLORE_PAD_WORDS = 'Seed. Type up to 5 digits, then OK to see that seed. 
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
 
 // `ui`: the spoken line, the buttons, and the dev tools, input and map moves, asked for
-// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `craft(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
+// when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `shelve(x, y)`, `plant(x, y)`, `pick(x, y)`, `feed(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
   const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion } = ui;

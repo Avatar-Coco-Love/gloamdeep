@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -226,7 +226,6 @@ function tryStep(dir) {
   else if (dir === 'wait' && onWokenPlate(before)) app.state = say(app.state, 'stoneNear'); // barred, free (D-593)
   else if (dir === 'wait') app.state = wait(app.state); // standing still, one turn (D-084)
   else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn, free with Quick Pour (D-247, D-816)
-  else if (dir.craft !== undefined) app.state = craft(app.state, dir.craft); // a flask from 3 oilcaps, one turn (D-299)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
   else if (dir.hold !== undefined) app.state = hold(app.state, dir.hold); // a weapon from the bag into the hand, one turn (D-479)
   else if (dir.makeBag !== undefined) app.state = makeFrom(app.state, dir.makeBag); // a thing made on the bag's Make tab, one turn, the tab kept open (D-787)
@@ -384,7 +383,7 @@ const { useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot } = createSlo
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
-  pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
+  pour: (slot) => tryStep({ pour: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), sit: (x, y) => tryStep({ sit: { x, y } }), stoke: (x, y) => tryStep({ stoke: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   refuse: () => { played(); sound.refuse(); }, // a dim pick: nothing happens but the tock (D-819)

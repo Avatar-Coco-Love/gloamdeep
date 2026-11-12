@@ -4,18 +4,18 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.313 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.314 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-0.3.314: the audit's small fixes (D-868), H-24's three risks and taking
-out `craft()` (`HEALTH-CHECK.md`'s last list); then the health check's
-steps in `HEALTH-CHECK-ORDER.md`'s order, now step 6, one words page.
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 6,
+one words page (H-12, H-15, H-20, H-39, H-40, H-41, H-43, H-45, H-47).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
   (`HEALTH-CHECK-ORDER.md`), Q-098 to Q-102 with them.
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
+- A duskstar on the home waystone's ring (Q-103), any time.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.314, Three small risks.** A boulder never grows
+  back on a waystone's ring; a drop with no open tile beside it lies
+  further out, never on water; dev Spawn never on a person (H-24). The
+  unused `craft()` is out, its tests on `makeFrom`. D-869, Q-103.
+  Playtest: https://claude.ai/artifact/Tkv2JWk9F2sCpFncqYZCwy
 - **2026-11-12, 0.3.313, The fifteenth audit.** Nothing visible
   changed. main.js's sounds go to `hearing.js`; the Version history
   loads on opening, 12 files fewer at the start (H-23); stale comments
@@ -58,8 +63,3 @@ list in `RESEARCH.md`.
   phone (H-34); Up from RANDOM or OK goes to the open tab (H-37). The
   audit moves to 0.3.313, next. D-867.
   Playtest: https://claude.ai/artifact/5nH5JgJcj93B4kKRWtiRjv
-- **2026-11-12, 0.3.311, First words over the ask card.** Health check
-  step 4: a campfire's and the miners' camp's first words show on the
-  text line over their ask card, only while they are the line out
-  (H-33). D-866.
-  Playtest: https://claude.ai/artifact/6A1Pnd1dXXRDT1xnkhRtqJ

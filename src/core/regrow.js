@@ -8,13 +8,16 @@
 // deposit, O3) comes back the same way, as that tile on the room's map, but on a
 // floor tile within `near` steps of where it stood (diagonals count), or its own
 // again, picked by the seed: off the edge, never cutting the room in two (D-313).
-// A tree comes back only on its own stump (`on`, W3, D-317), and waits while
+// It never comes back on a waystone's ring, the tiles kept open round it when its room was
+// made (D-869). A tree comes back only on its own stump (`on`, W3, D-317), and waits while
 // that would cut the room; a gloamberry bush fills again on its bare bush (D-531). A flower, which
 // `roam`s, comes back on another grass tile of the room (D-763).
 // Plain data, no drawing.
-import { get } from './registry.js';
+import { get, LANDMARKS } from './registry.js';
 import { litAt } from './sight.js';
-import { tileAt, withTile } from './room.js';
+import { tileAt, withTile, isGenerated } from './room.js';
+import { ringOf } from './stamper.js';
+import { STONE_RING } from './woods.js';
 import { rng, pick, seedFor } from './rng.js';
 
 // (state, item) → the state with the item on its room's taken list, when its kind grows
@@ -48,10 +51,20 @@ function spotNear(state, t, entry, came) {
   const { room } = state, near = entry.near ?? 0, spots = [];
   for (let y = t.y - near; y <= t.y + near; y++) for (let x = t.x - near; x <= t.x + near; x++) {
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2) continue;
-    if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came, !!entry.on)) continue;
+    if (tileAt(room, x, y).id !== (entry.on ?? 'floor') || !free(state, { x, y }, came, !!entry.on) || onRing(state, x, y)) continue;
     if (joined(withTile(room, x, y, entry))) spots.push({ x, y });
   }
   return spots.length ? pick(rng(seedFor(seedFor(state.seed ?? 1, t.at), t.y * room.cols + t.x)), spots) : null;
+}
+
+// § ring: whether x, y is on the room's waystone or the ring kept open round it as the room was
+// made: 2 tiles round a generated room's (stamper.js), 1 round the home one (woods.js, D-869)
+function onRing(state, x, y) {
+  const { room } = state, mark = LANDMARKS.waystone;
+  const y0 = room.map.findIndex((line) => /[ZA]/.test(line)); // its plate, woken or not (tiles.js)
+  if (y0 < 0) return false;
+  const x0 = room.map[y0].search(/[ZA]/), d = (mark.plan.length >> 1) + (isGenerated(state.place) ? ringOf(mark) : STONE_RING);
+  return Math.abs(x - x0) <= d && Math.abs(y - y0) <= d;
 }
 
 // § roam: a flower comes back on another grass tile of its room, not its own (D-530, D-763): any

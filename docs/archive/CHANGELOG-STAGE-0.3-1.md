@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.311 (2026-11-12)
+- Bumping a campfire or the miners' camp now shows its first words ("A campfire, burning high.", "A miners' camp, long left.") on the text line under its card, where before the card hid them.
+- Decisions: D-866. D-858 moved to the archive, word for word.
+
 ## 0.3.310 (2026-11-12)
 - Arriving on the home waystone by travel, or waking there after a fall, now offers the boon card once you stand still, if you hold no boon.
 - Skip the boon card and step off and back on, and it shows the same three boons until you leave the room; no more drawing again for free.
