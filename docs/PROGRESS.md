@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.293 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.294 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Campfires' next step (Q-088): feeding a fire, then building one;
-propose what feeding takes and gives, with options.
+Campfires' next step (Q-088): building a fire; propose what building
+one takes and where it can go, with options.
 
 ## Waiting on the owner
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
@@ -18,7 +18,7 @@ propose what feeding takes and gives, with options.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires' next steps (Q-088): feeding is Next up; then building.
+- Campfires' next step (Q-088): building one is Next up.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
@@ -41,6 +41,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.294, Add wood.** The owner's picks (D-849), all
+  recommended: a burning fire's card shows Sit and Add wood; 1 Wood and
+  a turn make embers blazing; blazing takes no more, ashes still need
+  oil.
+  Playtest: https://claude.ai/artifact/WFHpGzDdvZYcn7RUgPF4no
 - **2026-11-12, 0.3.293, Bad marks.** The owner's idea and picks
   (D-848): poisoned's and stiff's marks get the timer rim, full at 6 and
   20 turns (recommended); bad marks sit on dark red glass.
@@ -52,8 +57,3 @@ list in `RESEARCH.md`.
   effect's longest time.
   Playtest: https://claude.ai/artifact/Hy4mmRw3Hd5VYBXLJYxArA
   Sound board: https://claude.ai/artifact/EBkJdfbUKm7smvrVXBsrGk
-- **2026-11-12, 0.3.291, Warmed.** The owner's picks (D-845), all
-  recommended: sitting by a fire warms, blazing 60 turns, embers 30; a
-  full tank lasts 70, added to Slowburn; Yes whenever it helps; a small
-  orange flame mark.
-  Playtest: https://claude.ai/artifact/KgxNig5AtBQwsdJ6aNLW5q

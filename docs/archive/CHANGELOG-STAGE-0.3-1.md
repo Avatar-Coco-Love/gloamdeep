@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.291 (2026-11-12)
+- New: Warmed. Sitting by a burning campfire now also warms you: a blazing fire for 60 turns, embers for 30. While you're warm your lantern burns slower, a full tank lasting 70 turns instead of 60, and with Slowburn longer still. A small orange flame under your hearts shows the turns left; tap it to hear them. The turns run even while your lantern is empty or you sleep, and a fall ends it.
+- Change: Yes on "Sit by the fire?" now works at full hearts too, whenever the fire would warm you longer than you already are. It is grey only when sitting would change nothing.
+- Decisions: D-845. D-840 moved to the archive, word for word.
+
 ## 0.3.290 (2026-11-12)
 - New: sit by a campfire. Bumping a burning campfire now asks "Sit by the fire?". Yes takes a turn: a blazing fire gives 2 hearts back and embers 1, never above full, and stiffness from sleeping out goes away. The fire burns down a level as you sit, blazing to embers and embers to cold ashes, which your lantern's oil can light again.
 - Notes: Yes is grey when you are at full hearts and not stiff, so a fire isn't used up for nothing.

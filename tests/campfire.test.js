@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 import { get } from '../src/core/registry.js';
 import { LINES, shownLine } from '../src/core/lines.js';
 import { makeRoom, SKY, tileAt, PLACES } from '../src/core/room.js';
-import { makeState, step, kindle, canKindle, sit, canSit, panelBeside, maxHealth } from '../src/core/turn.js';
+import { makeState, step, kindle, canKindle, sit, canSit, stoke, canStoke, panelBeside, maxHealth } from '../src/core/turn.js';
 import { TAKE_ASKS, kindleMenu, sitMenu } from '../src/core/menu.js';
 import { campfireOf, FIRE_ROOMS, LEVELS, IN } from '../src/core/campfire.js';
 import { HOME_ID, ROOMS } from '../src/core/hearthwood.js';
@@ -54,14 +54,14 @@ test('a burning one glows, blazing 3 tiles, embers 2, in the torch colour; ashes
   for (const y of [1, 2, 3]) assert.notEqual(markAt(room, null, 2, y), 'stairs');
 });
 
-test('a burning one opens Sit by the fire?, its first words on the line, No picked; Yes grey with full hearts, not stiff and Warmed as long', () => {
+test('a burning one opens its card, Campfire, its first words on the line; Sit grey when nothing would change, Add wood grey with no Wood or blazing', () => {
   const s = makeState(makeRoom(['TTTTT', 'T..DT', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 });
   assert.deepEqual(panelBeside(s, 'right'), { x: 3, y: 1 });
-  assert.deepEqual(TAKE_ASKS.campfire, ['Sit by the fire?', 'Someone was here not long ago.']);
-  assert.deepEqual(TAKE_ASKS.campfireEmbers, ['Sit by the fire?', 'Whoever sat here is gone.']);
+  assert.deepEqual(TAKE_ASKS.campfire, ['Campfire', 'Someone was here not long ago.']);
+  assert.deepEqual(TAKE_ASKS.campfireEmbers, ['Campfire', 'Whoever sat here is gone.']);
   assert.equal(get('campfire').says, 'campfireHigh'); assert.equal(get('campfireEmbers').says, 'campfireCoals');
-  assert.deepEqual(sitMenu(true).map((l) => [l.text, !!l.dim]), [['Yes', false], ['No', false]]);
-  assert.equal(sitMenu(false)[0].dim, true);
+  assert.deepEqual(sitMenu(true, true).map((l) => [l.text, !!l.dim]), [['Sit', false], ['Add wood', false]]);
+  assert.equal(sitMenu(false, true)[0].dim, true); assert.equal(sitMenu(true)[1].dim, true);
   assert.equal(canSit({ ...s, warmed: 60 }, 3, 1), false); // full hearts, not stiff, Warmed as long (D-845)
   assert.equal(canSit(s, 3, 1), true); // its warmth alone helps
   assert.equal(canSit({ ...s, health: 2 }, 3, 1), true);
@@ -83,6 +83,21 @@ test('Yes: blazing gives 2 hearts and ends stiff, burning down to embers; embers
   assert.equal(sit(nearlyFull, 3, 1).health, maxHealth(s)); // never above full
   const well = { ...s, health: maxHealth(s), stiff: 0, warmed: 60 };
   assert.equal(sit(well, 3, 1), well);
+});
+
+test('Add wood: 1 Wood makes embers blazing, in a turn, with its line; never a blazing fire or cold ashes, nor with no Wood', () => {
+  const s = { ...makeState(makeRoom(['TTTTT', 'T..ET', 'TTTTT'], SKY, 'woods'), { x: 2, y: 1 }), bag: [{ id: 'wood', n: 2 }] };
+  assert.equal(canStoke(s, 3, 1), true);
+  const fed = stoke(s, 3, 1);
+  assert.equal(tileAt(fed.room, 3, 1).id, 'campfire');
+  assert.deepEqual(fed.bag, [{ id: 'wood', n: 1 }]);
+  assert.equal(fed.turn, s.turn + 1);
+  assert.equal(shownLine(fed).text, 'You add wood. The fire burns high.');
+  assert.ok(fed.events.some((e) => e.type === 'stoke' && e.id === 'campfire'));
+  assert.equal(canStoke(fed, 3, 1), false); assert.equal(stoke(fed, 3, 1), fed); // blazing takes no more
+  const bare = { ...s, bag: [] };
+  assert.equal(canStoke(bare, 3, 1), false); assert.equal(stoke(bare, 3, 1), bare);
+  assert.equal(get('campfireAshes').stokes, undefined); // cold ashes are lit with oil
 });
 
 test('cold ashes open the Light the fire? card, No picked; Yes grey with an empty lantern', () => {
