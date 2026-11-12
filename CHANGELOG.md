@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.289 (2026-11-12)
+- New: fallen branches chop too. The first bump chops like a tree, and the bump that snaps it plays one more chop, then a light wooden knock as it breaks.
+- New: Settings' Stone breaks line covers a branch snapping too.
+- Decisions: D-843.
+
 ## 0.3.288 (2026-11-11)
 - New: chopping sounds. Each bump on a tree chops like an axe biting into wood, and the last bump fells it: one more chop, a slow low creak, then a heavy crash as it lands.
 - New: Settings' Digging line covers chopping too, and Stone breaks covers a tree falling.
@@ -33,9 +38,3 @@ Entry format:
 - New: Music's list in Settings has a line for it, Dungeon, after Warrens.
 - Notes: the tune is "Patreon Challenge 04" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. Every place below now has its music.
 - Decisions: D-841.
-
-## 0.3.286 (2026-11-11)
-- New: music in the warrens. On floors 5 to 7, the earth burrows, a dark, slow, low tune plays non-stop, looping with no break and carrying on from floor to floor. Going down from the rock caves fades the caves' tune out over 2 seconds, and the warrens' starts a second later, fading in; going on down to the dungeon fades it out the same way.
-- New: Music's list in Settings has a line for it, Warrens, after Rock caves.
-- Notes: the tune is "Patreon Challenge 11" from Abstraction's free Music Loop Bundle (CC0), picked by ear from a board of 8. The dungeon is still quiet, its own step.
-- Decisions: D-840.

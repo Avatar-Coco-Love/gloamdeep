@@ -94,6 +94,7 @@ const SOUNDS = [
   { label: 'A copper vein: three bumps, then it breaks', play: 'for (let i = 0; i < 3; i++) later(i * 450, () => sound.clink()); later(1350, () => { sound.crumble(); sound.pat(); })' },
   { label: 'A bump on a tree (the chop)', play: 'later(0, () => sound.chop())' },
   { label: 'A tree: three chops, then it falls', play: 'for (let i = 0; i < 3; i++) later(i * 450, () => sound.chop()); later(1350, () => { sound.treeFall(); sound.pat(); })' },
+  { label: 'A fallen branch: a chop, then it snaps', play: 'later(0, () => sound.chop()); later(450, () => { sound.branchSnap(); sound.pat(); })' },
   { label: 'A chest opens', play: 'later(0, () => sound.chest(true)); later(300, () => sound.card(true))' },
   { label: 'A chest closes', play: 'later(0, () => { sound.card(false); sound.chest(false); })' },
   { label: 'An item sold at home', play: 'later(0, () => sound.coins())' },

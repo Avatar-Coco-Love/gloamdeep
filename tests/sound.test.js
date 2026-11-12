@@ -138,7 +138,8 @@ test('Digging clinks and crumbles, and a chest creaks and knocks (D-825)', async
   const { get } = await import('../src/core/registry.js');
   assert.ok(['deposit', 'vein', 'rubble'].every((id) => get(id).clinks));
   assert.ok(!get('tree').clinks && !get('branch').clinks);
-  assert.ok(get('tree').chops && !get('branch').chops); // trees only for now (D-842)
+  assert.equal(get('tree').chops, 'treeFall'); // each chopped tile names its last bump's sound (D-842, D-843)
+  assert.equal(get('branch').chops, 'branchSnap');
   assert.ok(FILES.clink.files.every((f) => /impactMining_00[0-4]\.ogg$/.test(f)) && FILES.clink.echo);
   assert.equal(FILES.crumble.pitchOf(), 0.75);
   assert.deepEqual(FILES.crumble.with.map(([v]) => v), ['patter', 'patter', 'patter']);
@@ -159,6 +160,16 @@ test('A tree chops, then falls with a creak and a crash (D-842)', async () => {
   assert.ok(!FILES.chop.echo && !FILES.treeFall.echo); // out in the woods, no cave's echo
   assert.ok(GROUPS.clink.includes('chop') && GROUPS.crumble.includes('treeFall'));
   assert.ok(isMuted({ muted: ['clink'] }, 'chop') && isMuted({ muted: ['crumble'] }, 'treeFall') && !isMuted({ muted: ['clink'] }, 'treeFall'));
+});
+
+// § a fallen branch (D-843): chops as a tree does, and snaps with a last chop and a light knock
+test('A fallen branch chops, then snaps with a light knock (D-843)', async () => {
+  const { GROUPS, isMuted } = await import('../src/core/settings.js');
+  assert.deepEqual(FILES.branchSnap.files, ['kenney-rpg-audio/chop.ogg']);
+  assert.deepEqual(FILES.branchSnap.with.map(([v]) => v), ['branchKnock']);
+  assert.ok(FILES.branchKnock.files.every((f) => /impactWood_light_00[0-4]\.ogg$/.test(f)) && FILES.branchKnock.part);
+  assert.ok(!FILES.branchSnap.echo && !FILES.branchKnock.echo);
+  assert.ok(GROUPS.crumble.includes('branchSnap') && isMuted({ muted: ['crumble'] }, 'branchSnap') && !isMuted({ muted: ['clink'] }, 'branchSnap'));
 });
 
 // § home (D-828): coins for a sale, a book on wood for the shelf, two soft earth steps for a

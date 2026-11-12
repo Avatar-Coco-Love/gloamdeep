@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.288 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.289 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -41,6 +41,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.289, Chopping a fallen branch.** The owner's picks
+  (D-843), all recommended: a branch's first bump plays the tree's chop,
+  and as it snaps a last chop and a light wooden knock; under Digging's
+  and Stone breaks' lines.
+  Playtest: https://claude.ai/artifact/5aHGKxLjvC4cbYx4vALohP
+  Sound board: https://claude.ai/artifact/GMai3DGZPZSBrFL6roVyqo
 - **2026-11-11, 0.3.288, Chopping a tree.** The owner's picks (D-842),
   all recommended: an axe's chop for each bump on a tree, and as it falls
   a last chop, a slow low creak and a heavy crash; trees only for now;
@@ -55,11 +61,3 @@ list in `RESEARCH.md`.
   floor to floor; a line in Music's list, Dungeon.
   Playtest: https://claude.ai/artifact/69dfye4sXjAGydT4f9oiZz
   Board of tracks: https://claude.ai/artifact/LKB3sVETjtzqXp4WoRKSMc
-- **2026-11-11, 0.3.286, Music in the warrens.** The owner's picks
-  (D-840), all recommended, from a board of 8 calm, dark tracks measured
-  again from the 84 over 45 s, with the caves' and the surface's tunes and
-  the earth steps: track 1, "Patreon Challenge 11", in the warrens (floors
-  5 to 7), non-stop, carrying on from floor to floor; the dungeon quiet;
-  a line in Music's list, Warrens.
-  Playtest: https://claude.ai/artifact/8qhTwYobXWebH8QQXy8FcH
-  Board of tracks: https://claude.ai/artifact/VMKnvbHFVrFWbg4ZZQVu8Q
