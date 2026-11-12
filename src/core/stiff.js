@@ -3,7 +3,7 @@
 // Each passed turn counts one down; as it wears off, its line. While stiff, a hit on a
 // creature misses 1 time in 3 (STIFF.misses), by the seeded dice: the turn passes, nothing
 // is hurt, and the miss line is said. A fall ends it, as it ends poisoned. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 import { rng, seedFor } from './rng.js';
 
 export const STIFF = { turns: 20, misses: 1 / 3 };
@@ -23,5 +23,5 @@ export function stiffTick(state) {
   const left = stiffLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, stiff: now };
-  return now ? next : say(next, 'stiffEnds');
+  return now ? next : sayEnd(next, 'stiffEnds');
 }

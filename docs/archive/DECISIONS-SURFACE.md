@@ -1475,3 +1475,14 @@ the rest go on a second row under it, the goal line and creature list
 moving down; on a wide screen it stays one row (offered too: no gaps
 when crowded; a column down the side). D-867 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-872 · 2026-11-12 · Two clear bugs** (the owner's picks, both
+recommended; step 8 of `HEALTH-CHECK-ORDER.md`, fixes H-05, H-11) The
+spit grub's turn counts down only the rests of creatures that spit, so a
+scorpion near one rests its full turn (offered too: every rest counted
+down in one place). A creature's drink that takes the oil under the low
+mark, or to empty, says "The flame is getting low." or "The lantern
+gutters to an ember." over the drink's own line, with the sputter or the
+gutter's sound; the drink's sound still plays (offered too: the drink's
+line stays, the sound only; the warning only when empty). D-869 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

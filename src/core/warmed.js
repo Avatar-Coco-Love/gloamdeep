@@ -5,7 +5,7 @@
 // lit turn burns WARMED.burn of its oil, so a full tank lasts 70 turns, not 60, as Slowburn
 // does and added to it and the Heart Charm (state.js). A night's sleep uses its turns too, and
 // a fall ends it. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 export const WARMED = { burn: 6 / 7 };
 
@@ -21,7 +21,7 @@ export function warmTick(state) {
   const left = warmLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, warmed: now };
-  return now ? next : say(next, 'warmEnds');
+  return now ? next : sayEnd(next, 'warmEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

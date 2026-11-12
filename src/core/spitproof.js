@@ -4,7 +4,7 @@
 // spit grub's glob that reaches the hero splashes off and hurts nothing (spit.js). Each passed
 // turn counts one down; as it runs out, its line. A night's sleep uses its turns, and a fall
 // ends it. Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 
 // The turns of it left, 0 without
 export const spitproofLeft = (state) => state.spitproof ?? 0;
@@ -18,7 +18,7 @@ export function spitproofTick(state) {
   const left = spitproofLeft(state);
   if (!left) return state;
   const now = left - 1, next = { ...state, spitproof: now };
-  return now ? next : say(next, 'spitproofEnds');
+  return now ? next : sayEnd(next, 'spitproofEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line, as after a night's sleep;
 // one left goes too, so the waking turn's tick never says its line over the waking one

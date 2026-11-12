@@ -148,17 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-872 · 2026-11-12 · Two clear bugs** (the owner's picks, both
-recommended; step 8 of `HEALTH-CHECK-ORDER.md`, fixes H-05, H-11) The
-spit grub's turn counts down only the rests of creatures that spit, so a
-scorpion near one rests its full turn (offered too: every rest counted
-down in one place). A creature's drink that takes the oil under the low
-mark, or to empty, says "The flame is getting low." or "The lantern
-gutters to an ember." over the drink's own line, with the sputter or the
-gutter's sound; the drink's sound still plays (offered too: the drink's
-line stays, the sound only; the warning only when empty). D-869 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-873 · 2026-11-12 · The Peddler's room** (the owner's pick,
 recommended; step 9 of `HEALTH-CHECK-ORDER.md`, fixes H-09) The check
 that a room stays joined leaves out the tile of a person still ringed in
@@ -187,3 +176,18 @@ until beaten; its own step; first answered "fine as it is", changed
 before merging). Its special drop, the owner's idea too, waits for
 after the health check (Q-104). D-871 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-875 · 2026-11-12 · Goals and endings told** (the owner's picks, all
+recommended; step 11 of `HEALTH-CHECK-ORDER.md`, fixes H-10, H-13;
+answers Q-099) Ticked quietly, done before it could show, "Put out your
+lantern" and "Find the crypt" pay nothing, as D-752 and D-746 say; every
+other goal ticked quietly still pays, as D-705 has for older saves
+(offered too: only the oil's unpaid; no quiet goal pays; all paid, the
+decisions changed to match). Two or more goals done on one turn are
+named on one text line, "Goals done: Find the waystone. +1 Oil Flask.
+Wake the waystone. +2 Healing Herbs.", wrapping when long, the last one
+gold (offered too: one after the other, each with its gold turns; left
+as it was). Two or more effects ending on one turn are said on one line,
+"The stiffness wears off. The poison wears off.", in the order they
+count down (offered too: the second on the next turn; left as it was).
+D-872 moves to `archive/DECISIONS-SURFACE.md`, word for word.

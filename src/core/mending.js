@@ -6,7 +6,7 @@
 // out, its line. A night's sleep uses its turns, giving none, and a fall ends it. Plain data,
 // no drawing.
 import { get } from './registry.js';
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 import { maxHealth } from './state.js';
 
 const DRAUGHT = 'mendingDraught';
@@ -24,7 +24,7 @@ export function mendTick(state) {
   const now = left - 1, due = now % get(DRAUGHT).mend.every === 0;
   const health = due ? Math.max(state.health, Math.min(maxHealth(state), state.health + 1)) : state.health;
   const next = { ...state, mending: now, health };
-  return now ? next : say(next, 'mendEnds');
+  return now ? next : sayEnd(next, 'mendEnds');
 }
 // § slept: (state, turns) → the count `turns` turns later, with no line and no hearts, as after
 // a night's sleep; one left goes too, so the waking turn's tick never says its line over the waking one

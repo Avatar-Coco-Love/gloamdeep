@@ -7,7 +7,7 @@
 // bite (D-625); its event still says what it would take. Worn, the Centipede Charm makes it
 // last 3 turns, 1 heart in all (D-656). With Tough bought, a hurting bite poisons only 1 time
 // in 2, by the seeded dice (D-657). Plain data, no drawing.
-import { say } from './lines.js';
+import { sayEnd } from './lines.js';
 import { note } from './events.js';
 import { fall } from './fall.js';
 import { poisonTurnsOf } from './worn.js';
@@ -38,7 +38,7 @@ export function poisonTick(state) {
   let next = { ...state, poisoned: now, health: state.god ? state.health : state.health - hurt };
   if (due) next = note(next, 'poison', { hurt });
   if (next.health <= 0) return fall(next);
-  return now ? next : say(next, 'poisonEnds');
+  return now ? next : sayEnd(next, 'poisonEnds');
 }
 
 // § slept: (state, turns) → the state `turns` turns later, as after a night's sleep (Q-098, D-874):

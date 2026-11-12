@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.317, Two clear bugs.** Health check step 8: the
+  spit grub's turn counts down only spitters' rests, so a scorpion near
+  one rests its full turn (H-05); a drink that takes the oil low or dry
+  warns, its line over the drink's, with its sound (H-11). D-872.
+  Playtest: https://claude.ai/artifact/Aw7eXc7wnRGi755FWJoQns
 - **2026-11-12, 0.3.316, The marks.** Health check step 7: a tap up to
   4 game pixels past a mark finds it, the gaps split (H-36); a row of
   marks stops left of the round map and goes on to a second row (H-55).

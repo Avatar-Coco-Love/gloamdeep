@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.320 (2026-11-12)
+- "Put out your lantern" and "Find the crypt" no longer pay a reward when they are ticked off quietly, because you had done them before they could show. Every other goal ticked quietly still pays.
+- Two goals done on the same turn are now both named on one line, "Goals done: …", each with its reward; the last one turns gold. Before, only the first was said.
+- Two effects running out on the same turn, such as poison and stiff, are now both said on one line. Before, only the last one was.
+- Decisions: D-875. Questions closed: Q-099. D-872 moved to the archive, word for word.
+
 ## 0.3.319 (2026-11-12)
 - Travelling by waystone no longer counts down poison, stiff or any draught: they keep their turns, so poison can't take a heart as you arrive.
 - A night's sleep now uses up poison's turns, as it does a draught's. In bed you still wake healed. Sleeping out, you wake with the hearts it took, and if it takes your last one, you fall.
@@ -35,8 +41,3 @@ Entry format:
 - In the Peddler's room, while he is still ringed in by rubble, you can now set down a Torch or a Glow Lamp. Before, "There is no room there." was said until you dug a heap.
 - Deposits dug in his room grow back there now, and when his room is one picked for a flask mimic, it holds one, as any other room would.
 - Decisions: D-873. D-870 moved to the archive, word for word.
-
-## 0.3.317 (2026-11-12)
-- A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.
-- When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: "The flame is getting low." or "The lantern gutters to an ember." It shows over the tick's own line.
-- Decisions: D-872. D-869 moved to the archive, word for word.

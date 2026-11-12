@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM } from '../src/core/room.js';
 import { makeState, step, wait, pour, switchLantern } from '../src/core/turn.js';
 import { setOil, OIL } from '../src/core/oil.js';
-import { LINES, LINE_TURNS, shownLine, oilLine, say } from '../src/core/lines.js';
+import { LINES, LINE_TURNS, shownLine, oilLine, say, sayEnd } from '../src/core/lines.js';
 import { ENEMIES } from '../src/core/enemies.js';
 import { hasGlyph, textWidth } from '../src/render/font.js'; // plain data, no DOM
 import { W } from '../src/render/screen.js';
@@ -90,4 +90,12 @@ test('a mark\'s last turn says "1 turn left.", more say "turns" (H-43)', () => {
   assert.equal(shownLine(say(s, 'stiffHeld', 1)).text, 'Stiff: 1 hit in 3 misses, 1 turn left.');
   assert.equal(shownLine(say(s, 'glowHeld', 2)).text, 'Glow Draught: 2 turns left.');
   assert.equal(shownLine(say(s, 'glowHeld', 11)).text, 'Glow Draught: 11 turns left.');
+});
+
+test('two effects ending on one turn are both said, on one line (Q-099)', () => {
+  const s = { turn: 9 };
+  const both = sayEnd(sayEnd(s, 'stiffEnds'), 'poisonEnds');
+  assert.equal(shownLine(both).text, 'The stiffness wears off. The poison wears off.');
+  assert.equal(shownLine(sayEnd(say(s, 'poisonHeld', 2), 'poisonEnds')).text, 'The poison wears off.', 'over another line, as before');
+  assert.equal(shownLine(sayEnd({ ...say(s, 'stiffEnds'), turn: 10 }, 'poisonEnds')).text, 'The poison wears off.', 'an end from an earlier turn is not joined');
 });

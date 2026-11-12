@@ -298,6 +298,7 @@ export const LINES = {
   locketShelfSet: { text: 'You set the locket on the shelf.', warn: false }, // (D-693)
   featReached: { text: 'Feat reached: {n}.', warn: false }, // a Feat's tier reached, its Glints paid (D-695)
   goalDone: { text: 'Goal done: {n}.', warn: false }, // a teaching goal done, its reward paid (D-706)
+  goalsDone: { text: 'Goals done: {n}.', warn: false }, // two or more done on one turn, on one line (the owner's pick, H-13)
   locketKept: { text: 'The locket kept {n}.', warn: false }, // a Normal fall, the locket on the shelf (D-694)
   wardenWakes: { text: "The warden's eye lights up!", warn: false }, // (D-692), Claude's drafts the owner may change
   wardenHurt: { text: 'The warden cracks.', warn: false },
@@ -374,6 +375,15 @@ export function say(state, id, n) {
   return { ...state, line: n === undefined ? { id, turn: state.turn } : { id, turn: state.turn, n } };
 }
 
+// § said together: (state, id) → as say, but when an effect's end was said already this turn,
+// this end follows it on the same line, so both are said (the owner's pick, Q-099)
+const ENDS = new Set(['glowEnds', 'slowEnds', 'stiffEnds', 'warmEnds', 'mendEnds', 'wardEnds', 'spitproofEnds', 'shadeEnds', 'poisonEnds']);
+export function sayEnd(state, id) {
+  const was = state.line;
+  if (!was || was.turn !== state.turn || !ENDS.has(was.id) || !ENDS.has(id)) return say(state, id);
+  return { ...state, line: { ...was, also: [...(was.also || []), id] } };
+}
+
 // § shown: the line on screen now, or null once its turns are used up. A line
 // with {n} is filled once per saying, so the same saying stays the same object
 // and is drawn and spoken once (textline.js, frame.js).
@@ -384,6 +394,10 @@ export function shownLine(state) {
   if (!entry) return null; // a line that isn't there, as an old save may hold, shows nothing (D-369)
   if (entry.texts) {
     if (!filled.has(state.line)) filled.set(state.line, { ...entry, texts: undefined, text: entry.texts[(state.line.i ?? 0) % entry.texts.length] }); // a saved line past a list's end, as after D-684, wraps round
+    return filled.get(state.line);
+  }
+  if (state.line.also) { // effects ending together, said on one line (Q-099)
+    if (!filled.has(state.line)) filled.set(state.line, { ...entry, text: [entry, ...state.line.also.map((id) => LINES[id])].filter(Boolean).map((e) => e.text).join(' ') });
     return filled.get(state.line);
   }
   if (state.line.n === undefined) return entry;

@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.317 (2026-11-12)
+- A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.
+- When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: "The flame is getting low." or "The lantern gutters to an ember." It shows over the tick's own line.
+- Decisions: D-872. D-869 moved to the archive, word for word.
+
 ## 0.3.316 (2026-11-12)
 - A tap just beside one of the small squares under the hearts (the boon's, a draught's, poisoned's and the rest) now tells what it is instead of walking you there; a tap between two finds the nearer one. They look the same.
 - With many of those squares at once on a phone, they no longer slide under the round map: the rest go on a second row, and the goal line and the creature list move down. On a wide screen they stay in one row.
