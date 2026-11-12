@@ -358,3 +358,12 @@ own: chopping is under Digging, a tree falling under Stone breaks, as
 Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The creak and
 the late crash superseded by D-846 (2026-11-12).
+
+**D-843 · 2026-11-12 · Chopping a fallen branch** (the owner's picks,
+all recommended) A fallen branch chops as a tree does: its first bump
+plays `chop` (offered too: the chop, then a short creak; a lighter chop).
+The bump that snaps it, `branchSnap`, plays a last chop, then a light
+wooden knock as it breaks (offered too: just the chop; a tree's fall,
+creak and crash). Under Digging's and Stone breaks' lines, as a tree's
+are. Each chopped tile names the sound of its last bump. Files in
+`SOUNDS-2.md`. D-838 moves to `archive/DECISIONS-SOUNDS.md`, word for word.
