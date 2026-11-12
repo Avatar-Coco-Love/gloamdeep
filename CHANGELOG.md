@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.322 (2026-11-12)
+- With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.
+- Each place's music downloads the first time you reach that place, not all five tunes at once.
+- Decisions: D-877. D-874 moved to the archive, word for word.
+
 ## 0.3.321 (2026-11-12)
 - After a night's sleep, in your bed or sleeping out, what was due to grow back by morning is there when you wake. Before, nothing grew back at home while you stayed, since daylight lights every tile.
 - Still pools in the grey-rock caves are now in about 1 room in 2, as decided. Before, many tries cut the room in two and were given up, so only about 1 room in 4 had one.
@@ -34,11 +39,3 @@ Entry format:
 - Two goals done on the same turn are now both named on one line, "Goals done: …", each with its reward; the last one turns gold. Before, only the first was said.
 - Two effects running out on the same turn, such as poison and stiff, are now both said on one line. Before, only the last one was.
 - Decisions: D-875. Questions closed: Q-099. D-872 moved to the archive, word for word.
-
-## 0.3.319 (2026-11-12)
-- Travelling by waystone no longer counts down poison, stiff or any draught: they keep their turns, so poison can't take a heart as you arrive.
-- A night's sleep now uses up poison's turns, as it does a draught's. In bed you still wake healed. Sleeping out, you wake with the hearts it took, and if it takes your last one, you fall.
-- A mole that notices you while it is already beside you never digs down, even if you step away: it chases on foot.
-- The Warden's Bestiary page shows how to fight it once you have beaten one, since there is only one in a world. Other creatures still need 3.
-- Taking the Lightkeeper's Locket now wakes its Warden, as a bump does, so you can't slip past it: it chases you for 6 turns. Its Bestiary page says so.
-- Decisions: D-874. Questions closed: Q-098, Q-100. Questions opened: Q-104. D-871 moved to the archive, word for word.

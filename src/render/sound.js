@@ -266,7 +266,24 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
   let tune = null; // the theme playing: its name, its source, its loudness and when it is fully in
   const vary = rng(SEED + 1); // which file and what pitch, each time
   const last = {}; // the file each voice played last, never played twice running
-  // § start: on the first tap, click or key, the sound maker is made and the files fetched
+  // § start: on the first tap, click or key, the sound maker is made; the files are fetched only
+  // once Sound is On (H-03): at that tap, or the frame Sound turns On
+  for (const voice of Object.keys(FILES)) buffers[voice] = [];
+  let fetched = false;
+  const decode = (path) => fetch(PACKS + path).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b));
+  function fetchAll() {
+    if (fetched || !ac || !isOn()) return;
+    fetched = true;
+    for (const [voice, { files = [] }] of Object.entries(FILES)) {
+      files.forEach((f, i) => { decode(f).then((d) => { buffers[voice][i] = d; }).catch(() => {}); }); // a file that fails stays silent
+    }
+  }
+  const asked = {}; // the themes fetched, each the first time its place wants it (H-03)
+  function fetchTune(name) {
+    if (asked[name]) return;
+    asked[name] = true;
+    decode(encodeURI(MUSIC[name].file)).then((d) => { tunes[name] = d; }).catch(() => {});
+  }
   function start() {
     if (!ac) {
       const AC = window.AudioContext || window.webkitAudioContext;
@@ -281,18 +298,8 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
       out.gain.value = 0.35;
       echo.connect(dull).connect(back).connect(echo);
       dull.connect(out).connect(ac.destination);
-      for (const [voice, { files = [] }] of Object.entries(FILES)) {
-        buffers[voice] = [];
-        files.forEach((f, i) => {
-          fetch(PACKS + f).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b))
-            .then((d) => { buffers[voice][i] = d; }).catch(() => {}); // a file that fails stays silent
-        });
-      }
-      for (const [name, { file }] of Object.entries(MUSIC)) {
-        fetch(PACKS + encodeURI(file)).then((r) => r.arrayBuffer()).then((b) => ac.decodeAudioData(b))
-          .then((d) => { tunes[name] = d; }).catch(() => {});
-      }
     }
+    fetchAll();
     if (ac.state === 'suspended') ac.resume();
   }
   addEventListener('pointerdown', start, { capture: true });
@@ -342,6 +349,8 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
   // the old out; Sound Off or the theme turned Off is none; a loudness change follows in a moment
   function music(name) {
     if (!ac || ac.state !== 'running') return;
+    fetchAll();
+    if (name && isOn() && !muted(name)) fetchTune(name);
     const want = name && isOn() && !muted(name) && tunes[name] ? name : null, now = ac.currentTime;
     if (tune && tune.name !== want) {
       const { src, g } = tune;

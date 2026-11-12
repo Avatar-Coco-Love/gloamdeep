@@ -148,26 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-874 · 2026-11-12 · The owner's rulings** (the owner's picks, all
-recommended; step 10 of `HEALTH-CHECK-ORDER.md`, fixes H-04, H-06,
-H-46; answers Q-098, Q-100) Waystone travel passes no turn for poison,
-stiff and the draughts either: they keep their turns, as D-593 says
-(offered too: it counts as a turn; only the good ones pause). A night's
-sleep uses poison's turns as it uses the draughts': in bed it ends and
-the hero wakes healed; sleeping out it takes the hearts due in those
-turns, the last one too, so the hero falls (offered too: sleep cures
-it; one turn, as it was). A mole beside the hero as it notices never
-digs, as D-726 says, even once the hero steps off (offered too: it digs
-later). The warden, one a world, shows how to fight it once 1 is
-beaten, "Beat 1 to learn how to fight it."; every other creature still
-needs 3 (D-632) (offered too: shown once met; 3 as before). The locket
-taken wakes the warden, the owner's idea, as a bump does: its line and
-sound, it stirs that turn, then chases for its 6 turns (offered too:
-until beaten; its own step; first answered "fine as it is", changed
-before merging). Its special drop, the owner's idea too, waits for
-after the health check (Q-104). D-871 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-875 · 2026-11-12 · Goals and endings told** (the owner's picks, all
 recommended; step 11 of `HEALTH-CHECK-ORDER.md`, fixes H-10, H-13;
 answers Q-099) Ticked quietly, done before it could show, "Put out your
@@ -198,3 +178,13 @@ an open tile, so nothing seems to float (offered too: only round a tile
 something lies on; left as it was). Rooms a save has already been in
 keep their maps. D-873 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-877 · 2026-11-12 · Sounds only when On** (the owner's picks, all
+recommended; step 13 of `HEALTH-CHECK-ORDER.md`, fixes H-03) With Sound
+Off nothing is fetched; the sound files are fetched once Sound is On, at
+that tap or the moment it turns On (offered too: as before, on the first
+tap). Each place's theme is fetched the first time its place wants it,
+and kept (offered too: all five once Sound is On). A sound turned Off on
+its own is still fetched, so it plays at once when turned back On
+(offered too: skipped). D-874 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.321 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.322 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 13,
-sounds only when On (H-03).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 14,
+the Peddler (H-42, H-58, H-59), with Q-102.
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -48,6 +48,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.322, Sounds only when On.** Health check step 13:
+  with Sound Off nothing downloads; once On, the sounds do, and each
+  place's tune the first time it is reached (H-03). D-877.
+  Playtest: https://claude.ai/artifact/Vme8o4KAmCQBvaDqDqCwRd
 - **2026-11-12, 0.3.321, Growing back and pools.** Health check step 12:
   a night's sleep counts as being away, so what is due grows back by
   morning (H-07); pools skip tiles that cut the room, roll 0.62, about 1
@@ -59,9 +63,3 @@ list in `RESEARCH.md`.
   goals done on one turn are named on one line, the last gold (H-13); two
   effects ending on one turn are said on one line (Q-099). D-875.
   Playtest: https://claude.ai/artifact/ET483jxuwdj52ZLD5wVEcH
-- **2026-11-12, 0.3.319, The owner's rulings.** Health check step 10:
-  travel keeps poison's, stiff's and the draughts' turns (H-04); a night
-  uses poison's turns, its hearts too when sleeping out (Q-098); a mole
-  beside the hero as it notices never digs (H-06); one warden beaten
-  shows its tip (H-46); taking the locket wakes its warden (Q-100). D-874.
-  Playtest: https://claude.ai/artifact/716jC1BoKi8w2BWDjWPtsi

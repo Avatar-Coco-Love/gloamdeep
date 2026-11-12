@@ -440,3 +440,28 @@ test('Music in the dungeon (D-841): "Patreon Challenge 04" on every floor from 8
   assert.equal(kindOf('dungeon'), 'music');
   assert.deepEqual(settingsMenu({ muted: ['dungeon'] }, false, null, null, 'sound', 'music').map((l) => l.text), ['Music: 50%', 'Surface: On', 'Crypt: On', 'Rock caves: On', 'Warrens: On', 'Dungeon: Off', 'Version history']);
 });
+
+test('Nothing is fetched with Sound Off; once On, the sounds, and only the place\'s theme (H-03)', async () => {
+  const { createSound, FILES, MUSIC } = await import('../src/render/sound.js');
+  const got = [], heard = {}, node = () => ({ connect: (n) => n ?? node(), gain: { value: 1 }, delayTime: {}, frequency: {} });
+  const fake = { window: globalThis.window, fetch: globalThis.fetch, addEventListener: globalThis.addEventListener };
+  globalThis.window = { AudioContext: class { constructor() { this.state = 'running'; this.currentTime = 0; this.destination = node(); }
+    createDelay() { return node(); } createBiquadFilter() { return node(); } createGain() { return node(); } decodeAudioData() { return Promise.resolve({}); } resume() {} } };
+  globalThis.fetch = (u) => { got.push(u); return Promise.resolve({ arrayBuffer: () => Promise.resolve() }); };
+  globalThis.addEventListener = (type, fn) => { heard[type] = fn; };
+  try {
+    let on = false;
+    const s = createSound(() => on);
+    heard.pointerdown();
+    s.music('crypt');
+    assert.equal(got.length, 0);
+    on = true;
+    s.music('crypt');
+    const files = Object.values(FILES).reduce((n, { files = [] }) => n + files.length, 0);
+    assert.equal(got.length, files + 1);
+    assert.ok(got.at(-1).endsWith(encodeURI(MUSIC.crypt.file)));
+    heard.pointerdown();
+    s.music('crypt');
+    assert.equal(got.length, files + 1);
+  } finally { Object.assign(globalThis, fake); }
+});
