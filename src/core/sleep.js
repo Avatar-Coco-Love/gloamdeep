@@ -3,7 +3,8 @@
 // they wake healed to full and rested, with one gold heart above their full hearts. The
 // gold heart is health past the most (maxHealth), so it is the first lost to a bite, and
 // gone after a fall, which wakes the hero at full. It is a `sleep` event. By day the
-// bed says it isn't time, free; its ask card opens instead (screens.js).
+// bed says it isn't time, free; its ask card opens instead (screens.js). Sleeping counts as
+// being away, so what is due to grow back is there on waking (regrow.js, H-07, D-876).
 import { say } from './lines.js';
 import { note, fresh } from './events.js';
 import { DAY_TURNS, DUSK } from './daytime.js';
@@ -17,6 +18,7 @@ import { mendSlept } from './mending.js';
 import { wardSlept } from './ward.js';
 import { spitproofSlept } from './spitproof.js';
 import { shadeSlept } from './shade.js';
+import { regrow } from './regrow.js';
 
 export const RESTED = 1; // the gold hearts a night's sleep gives
 
@@ -28,5 +30,5 @@ export function sleep(state, x, y) { // the night uses poison's turns too, and t
   if (!tired(state)) return say(state, 'notTired');
   const morning = (Math.floor(state.turn / DAY_TURNS) + 1) * DAY_TURNS;
   const slept = fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(sleptIn(state, x, y), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning, health: maxHealth(state) + RESTED, poisoned: 0 });
-  return endTurn(state, say(note(slept, 'sleep'), 'sleep'));
+  return regrow(endTurn(state, say(note(slept, 'sleep'), 'sleep')), true); // sleeping counts as being away: what grew in the night is there on waking (H-07, D-876)
 }

@@ -38,3 +38,9 @@ test('by day it does nothing', () => {
   const s = outside(100);
   assert.equal(sleepOut(s), s);
 });
+
+test('sleeping out counts as being away too: what was due by morning is back on waking (H-07, D-876)', () => {
+  const s = outside(480, { taken: [{ id: 'oilcap', x: 3, y: 3, at: 0 }] });
+  const woke = sleepOut(s);
+  assert.ok(woke.items.some((o) => o.id === 'oilcap' && o.x === 3 && o.y === 3));
+});

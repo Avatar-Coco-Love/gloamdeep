@@ -36,7 +36,7 @@ step 6 (D-869).
 11. **Goals:** paid when quiet (H-10); two at once (H-13); with Q-099.
     Done at 0.3.320 (D-875).
 12. **Balance:** growing back at home (H-07); cave pools (H-08), with a
-    map preview; with Q-101.
+    map preview; with Q-101. Done at 0.3.321 (D-876).
 13. **Sounds only when On** (H-03).
 14. **The Peddler:** the dim SELL (H-42); his home spot (H-58); leaving
     sooner (H-59); with Q-102.

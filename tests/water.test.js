@@ -30,10 +30,10 @@ function joined(room, people = []) {
   return seen.size === open.length;
 }
 
-test('about 1 grey-rock room in 4 holds a pool of 5 to 9 tiles, as the 11 × 13 cells fit one less often (D-645)', () => {
+test('about 1 grey-rock room in 2 holds a pool of 5 to 9 tiles, as D-500 decided (H-08, D-876)', () => {
   const all = rooms(), pooled = all.filter(({ p }) => wet(p.map).length);
   const share = pooled.length / all.length;
-  assert.ok(share > 0.15 && share < 0.35, `share ${share}`); // more rooms a floor, so about as many pools a floor as before
+  assert.ok(share > 0.38 && share < 0.62, `share ${share}`);
   for (const { p } of pooled) { const n = wet(p.map).length; assert.ok(n >= POOL_MIN && n <= POOL_MAX, `${n} tiles`); }
 });
 
@@ -97,4 +97,15 @@ test('a cave pool keeps its own edge, the pond shape only outside (D-748)', () =
   let differ = 0;
   for (let y = 0; y < room.rows * 16; y++) for (let x = 0; x < room.cols * 16; x++) differ += inPool(room, x, y) !== inPool(cave, x, y);
   assert.ok(differ > 50, `${differ} pixels differ`);
+});
+
+test('a pool never wraps three sides of an open tile, so nothing seems to float (Q-101, D-876)', () => {
+  for (const { seed, id, p } of rooms()) {
+    const w = (x, y) => p.map[y]?.[x] === '~';
+    p.map.forEach((row, y) => [...row].forEach((ch, x) => {
+      if (['#', '~', 'O', 'V', 'U', 'Y'].includes(ch)) return;
+      const n = [w(x + 1, y), w(x - 1, y), w(x, y + 1), w(x, y - 1)].filter(Boolean).length;
+      assert.ok(n < 3, `seed ${seed}, ${id}, ${x},${y}`);
+    }));
+  }
 });

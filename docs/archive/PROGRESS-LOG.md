@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
+  sealed tile is left out of the joined check while he is ringed in, so
+  torches, glow lamps, deposits growing back and the flask mimic go in
+  his room (H-09). D-873.
+  Playtest: https://claude.ai/artifact/UASzASJELDq7WHqEPz4jzm
+  Map preview: https://claude.ai/artifact/8fgyX4UnsGqYLwJcvE7rSy
 - **2026-11-12, 0.3.317, Two clear bugs.** Health check step 8: the
   spit grub's turn counts down only spitters' rests, so a scorpion near
   one rests its full turn (H-05); a drink that takes the oil low or dry

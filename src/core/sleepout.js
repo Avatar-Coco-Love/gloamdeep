@@ -9,6 +9,7 @@ import { say } from './lines.js';
 import { note, fresh } from './events.js';
 import { DAY_TURNS } from './daytime.js';
 import { endTurn } from './endturn.js';
+import { regrow } from './regrow.js';
 import { tired } from './sleep.js';
 import { creatureList } from './creatureturn.js';
 import { healed } from './state.js';
@@ -55,7 +56,7 @@ export function sleepOut(state) {
   const night = poisonSlept(state, morning - state.turn); // the night uses poison's turns too, and its hearts (Q-098, D-874)
   if (night.fell !== state.fell) return night; // poison took the last heart in the night
   const hurt = state.health - night.health, slept = hurt > 0 ? (s) => note(s, 'poison', { hurt }) : (s) => s; // its heart flashes green on waking (D-654)
-  const woke = endTurn(state, say(slept(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(night, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep')), roll ? 'sleepOutRoll' : 'sleepOut')); // the night uses the Glow Draught's, Slowburn's, Warmed's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
+  const woke = regrow(endTurn(state, say(slept(note(fresh({ ...shadeSlept(spitproofSlept(wardSlept(mendSlept(warmSlept(slowSlept(glowSlept(night, morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), morning - state.turn), turn: morning }), 'sleep')), roll ? 'sleepOutRoll' : 'sleepOut')), true); // the night uses the Glow Draught's, Slowburn's, Warmed's, the Mending Draught's, the Ward Draught's, the Spitproof Draught's and the Shade Draught's turns (D-806, D-802, D-795, D-794, D-792, D-791)
   if (woke.fell !== state.fell) return woke; // poison took the last heart in the night
   if (roll) return { ...woke, health: healed(woke, get('furBedroll').rest.heal) }; // warm: hearts back, not stiff (D-803, D-804)
   return stiffen(woke); // stiff from waking, its count whole (D-759)

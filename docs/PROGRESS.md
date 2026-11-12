@@ -4,17 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.320 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.321 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 12,
-balance: growing back at home (H-07), cave pools (H-08) with a map
-preview, with Q-101.
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 13,
+sounds only when On (H-03).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
-  (`HEALTH-CHECK-ORDER.md`), Q-101 and Q-102 with them.
+  (`HEALTH-CHECK-ORDER.md`), Q-102 with them.
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
 - The warden's special drop (Q-104), designed right after the health check.
@@ -49,6 +48,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.321, Growing back and pools.** Health check step 12:
+  a night's sleep counts as being away, so what is due grows back by
+  morning (H-07); pools skip tiles that cut the room, roll 0.62, about 1
+  room in 2 (H-08); a pool never wraps three sides of a tile (Q-101). D-876.
+  Playtest: https://claude.ai/artifact/TWfZiBN9oaphKSNxzCtLna
+  Map preview: https://claude.ai/artifact/6UGxn9Que6X42XwiFJAvKY
 - **2026-11-12, 0.3.320, Goals and endings told.** Health check step 11:
   the oil tip and the crypt, ticked quietly, pay nothing (H-10); two
   goals done on one turn are named on one line, the last gold (H-13); two
@@ -60,9 +65,3 @@ list in `RESEARCH.md`.
   beside the hero as it notices never digs (H-06); one warden beaten
   shows its tip (H-46); taking the locket wakes its warden (Q-100). D-874.
   Playtest: https://claude.ai/artifact/716jC1BoKi8w2BWDjWPtsi
-- **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
-  sealed tile is left out of the joined check while he is ringed in, so
-  torches, glow lamps, deposits growing back and the flask mimic go in
-  his room (H-09). D-873.
-  Playtest: https://claude.ai/artifact/UASzASJELDq7WHqEPz4jzm
-  Map preview: https://claude.ai/artifact/8fgyX4UnsGqYLwJcvE7rSy

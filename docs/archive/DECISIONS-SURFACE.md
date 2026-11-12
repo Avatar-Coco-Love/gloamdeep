@@ -1486,3 +1486,12 @@ gutters to an ember." over the drink's own line, with the sputter or the
 gutter's sound; the drink's sound still plays (offered too: the drink's
 line stays, the sound only; the warning only when empty). D-869 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-873 · 2026-11-12 · The Peddler's room** (the owner's pick,
+recommended; step 9 of `HEALTH-CHECK-ORDER.md`, fixes H-09) The check
+that a room stays joined leaves out the tile of a person still ringed in
+by rubble (not freed, not home), so a Torch or Glow Lamp set down, a
+deposit growing back and a flask mimic go in his room as in any other;
+every other tile must still be reached (offered too: the same, with no
+flask mimic in his room; left as it was). D-870 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

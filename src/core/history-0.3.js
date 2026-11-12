@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.321', date: '2026-11-12', title: 'Growing back and pools', lines: [
+    "After a night's sleep, in your bed or sleeping out, what was due to grow back by morning is there when you wake. Before, nothing grew back at home while you stayed, since daylight lights every tile.",
+    "Still pools in the grey-rock caves are now in about 1 room in 2, as decided. Before, many tries cut the room in two and were given up, so only about 1 room in 4 had one.",
+    "A pool never wraps round three sides of a floor tile any more, so a herb on one no longer seems to float.",
+    "Decisions: D-876. Questions closed: Q-101. D-873 moved to the archive, word for word.",
+  ] },
   { v: '0.3.320', date: '2026-11-12', title: 'Goals and endings told', lines: [
     "\"Put out your lantern\" and \"Find the crypt\" no longer pay a reward when they are ticked off quietly, because you had done them before they could show. Every other goal ticked quietly still pays.",
     "Two goals done on the same turn are now both named on one line, \"Goals done: …\", each with its reward; the last one turns gold. Before, only the first was said.",

@@ -57,11 +57,6 @@ step, when the owner wants.
 no decision to measure against. Each is asked at the step named in
 `HEALTH-CHECK-ORDER.md`.
 
-**Q-101 · A herb that seems to float** (raised 2026-11-12, D-862) Seed
-4128, depth 2: a floor tile juts into a pool, so the herb on it looks
-as if it floats. It can be picked. Leave it, or smooth such tiles? At
-step 12, with the cave pools (H-08).
-
 **Q-102 · Selling the last of a stack** (raised 2026-11-12, D-862) The
 frame stays on that slot, where the next stack slides in, so a quick
 extra SELL sells the next thing. Leave it, or move the frame? At step

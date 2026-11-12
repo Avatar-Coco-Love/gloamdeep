@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.318 (2026-11-12)
+- In the Peddler's room, while he is still ringed in by rubble, you can now set down a Torch or a Glow Lamp. Before, "There is no room there." was said until you dug a heap.
+- Deposits dug in his room grow back there now, and when his room is one picked for a flask mimic, it holds one, as any other room would.
+- Decisions: D-873. D-870 moved to the archive, word for word.
+
 ## 0.3.317 (2026-11-12)
 - A scorpion near a spit grub now rests its whole turn after a strike, as it does anywhere else.
 - When an oil tick's drink takes your lantern's oil low, or dry, you now hear and read the warning: "The flame is getting low." or "The lantern gutters to an ember." It shows over the tick's own line.
