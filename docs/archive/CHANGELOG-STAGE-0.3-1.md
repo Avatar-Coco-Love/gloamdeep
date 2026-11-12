@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.309 (2026-11-12)
+- Stepping on a find with no room in your bag now always says why: "Your bag is full.", or its own line when you carry some of it, like "You can't carry more wood."
+- A second workbench, chest or other one-of-a-kind piece from your lost bag, a stash chest or a stack you set down now says "You already carry a workbench." (or its own line), not "Your bag is full." when it isn't.
+- Decisions: D-864.
+
 ## 0.3.308 (2026-11-12)
 - The gold heart from sleeping in your bed now stays when you take a boon, when a boon ends, when you sit by a campfire and when you wake warm in your fur bedroll. Only a bite or a fall takes it.
 - The Growth tree's Heart tile counts only the hearts you have grown, never a boon's: no more "Hearts 12 of 10".

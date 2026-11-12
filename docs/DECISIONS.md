@@ -104,15 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-859 · 2026-11-12 · Daylight still remembers the whole room** (the
-owner's pick, recommended; closes B-004) In daylight, the whole room the
-hero stands in is still remembered at once, the parts off the screen
-too, as D-209 has it. So a woods room only stepped into shows in full on
-the map, likely what B-004 saw; no room never entered was found showing.
-Offered too: only the tiles the screen shows; what the hero could see
-from where they stand. The owner: it will matter if rooms get really
-big, Q-097.
-
 **D-860 · 2026-11-12 · The health check's steps** (the owner's picks,
 all recommended and more) A full health check at 0.3.304, no game code
 changed: play in a browser, all of `src/` read against the decisions
@@ -200,3 +191,14 @@ lines do, only while the line out is the bumped tile's own words
 (offered too: the line over every ask card; the words on the card
 itself). The bed's, garden bed's and shelf's cards stay as they are.
 D-858 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-867 · 2026-11-12 · The Look card's tabs and keys** (the owner's
+picks, all recommended; step 5 of `HEALTH-CHECK-ORDER.md`, fixes H-34,
+H-37) The Look card's tabs are 20 game pixels tall: with the gap, a
+44 px tap at 2× (D-513). The boxes stay 2× as the big hero drops to 5×
+on a 390 px phone; the smallest view shows 2 rows of choices, scrolling
+(offered too: 17 tall, about 38 px; drawn as now, taps reaching up).
+Up from RANDOM or OK goes to the open tab, keeping a rolled look
+(offered too: up to the picked choice). This step is 0.3.312; the audit
+is next, at 0.3.313 (offered too: audit first; after all 19 steps).
+D-859 moves to `archive/DECISIONS-SURFACE.md`, word for word.

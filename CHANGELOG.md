@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.312 (2026-11-12)
+- The Look card's tabs are taller, easy to tap on a phone. On phones like a 390 px one the big hero is a little smaller to make room; on the smallest screens the choices show 2 rows and scroll.
+- With the keyboard, Up from RANDOM or OK now goes to the open tab, so a rolled look is kept; before, it picked each choice on the way.
+- Decisions: D-867. D-859 moved to the archive, word for word.
+
 ## 0.3.311 (2026-11-12)
 - Bumping a campfire or the miners' camp now shows its first words ("A campfire, burning high.", "A miners' camp, long left.") on the text line under its card, where before the card hid them.
 - Decisions: D-866. D-858 moved to the archive, word for word.
@@ -33,8 +38,3 @@ Entry format:
 - A boon's words now say it lasts "until you are back at the waystone", where it really ends, not "until you are home".
 - Putting a second workbench or other one-of-a-kind piece into a stash chest that holds one now says "The chest already holds a workbench.", not "The chest is full." when it isn't.
 - Decisions: D-865.
-
-## 0.3.309 (2026-11-12)
-- Stepping on a find with no room in your bag now always says why: "Your bag is full.", or its own line when you carry some of it, like "You can't carry more wood."
-- A second workbench, chest or other one-of-a-kind piece from your lost bag, a stash chest or a stack you set down now says "You already carry a workbench." (or its own line), not "Your bag is full." when it isn't.
-- Decisions: D-864.

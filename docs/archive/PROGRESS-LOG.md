@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.309, A full bag says so.** Health check step 2: a
+  find with no room in the bag says "Your bag is full.", or its own
+  line when some is carried; wood gets "You can't carry more wood."
+  (H-02). A second one-of-a-kind piece from the lost bag, a chest or a
+  dropped stack says its own line (H-18). D-864.
+  Playtest: https://claude.ai/artifact/NzqMEp7HKPXzSJS3u9eA8s
 - **2026-11-12, 0.3.308, Hearts kept.** Health check step 1: the bed's
   gold heart stays through a boon taken or ended, a campfire and a warm
   bedroll, one past the most; only a bite or a fall takes it (H-01).

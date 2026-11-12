@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.312', date: '2026-11-12', title: 'The Look card\'s tabs and keys', lines: [
+    "The Look card's tabs are taller, easy to tap on a phone. On phones like a 390 px one the big hero is a little smaller to make room; on the smallest screens the choices show 2 rows and scroll.",
+    "With the keyboard, Up from RANDOM or OK now goes to the open tab, so a rolled look is kept; before, it picked each choice on the way.",
+    "Decisions: D-867. D-859 moved to the archive, word for word.",
+  ] },
   { v: '0.3.311', date: '2026-11-12', title: 'First words over the ask card', lines: [
     "Bumping a campfire or the miners' camp now shows its first words (\"A campfire, burning high.\", \"A miners' camp, long left.\") on the text line under its card, where before the card hid them.",
     "Decisions: D-866. D-858 moved to the archive, word for word.",
