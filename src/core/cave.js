@@ -267,9 +267,12 @@ function joined(g, skip = []) {
 // § pool: in about 1 room in 2, a still pool of 5 to 9 water tiles ('~', D-500), in a
 // chamber: it starts on floor with open floor all 8 tiles around, and grows over open
 // floor off the edge where nothing lies, stands or starts or a landmark keeps clear, every tile of it at least
-// POOL_CLEAR steps from the stairs and the way in. It never cuts the room in two. From its
-// own seed, so the rest of a seed's room stays as it was; the room as it was when none fits.
-export const POOL_ODDS = 0.5, POOL_MIN = 5, POOL_MAX = 9, POOL_CLEAR = 4;
+// POOL_CLEAR steps from the stairs and the way in. It never cuts the room in two: a tile that
+// would is skipped and it grows on elsewhere, and it never wraps three sides of an open tile, so
+// nothing seems to float (H-08, Q-101, D-876). POOL_ODDS is the roll, 0.62 so that about 1 room
+// in 2 holds one, measured (D-876). From its own seed, so the rest of a seed's room stays as it
+// was; the room as it was when none fits.
+export const POOL_ODDS = 0.62, POOL_MIN = 5, POOL_MAX = 9, POOL_CLEAR = 4;
 export function withPool(seed, room, keep = []) {
   const r = rng(seed ^ 0x6a09e667);
   if (r() >= POOL_ODDS) return room;
@@ -279,6 +282,7 @@ export function withPool(seed, room, keep = []) {
   const free = (t) => g[t.y]?.[t.x] === '.' && !onEdge(g, t) && !things.some((o) => same(o, t))
     && far.get(key(t)) >= POOL_CLEAR && stairs.every((s) => dist(s, t) >= POOL_CLEAR);
   const spots = tilesWhere(g, (x, y) => free({ x, y }) && RING.every(([dx, dy]) => g[y + dy]?.[x + dx] === '.'));
+  const skipped = [];
   while (spots.length) {
     const pool = [spots.splice(int(r, 0, spots.length - 1), 1)[0]];
     g[pool[0].y][pool[0].x] = '~';
@@ -286,13 +290,22 @@ export function withPool(seed, room, keep = []) {
       const next = pool.flatMap((t) => [[1, 0], [-1, 0], [0, 1], [0, -1]].map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy }))).filter(free);
       if (!next.length) break;
       const n = next[int(r, 0, next.length - 1)];
-      g[n.y][n.x] = '~'; pool.push(n);
+      g[n.y][n.x] = '~';
+      if (wraps(g, n) || !joined(g)) { g[n.y][n.x] = 'x'; skipped.push(n); continue; } // marked, so it isn't picked again
+      pool.push(n);
     }
+    for (const t of skipped.splice(0)) g[t.y][t.x] = '.';
     if (pool.length >= POOL_MIN && joined(g)) return { ...room, map: g.map((row) => row.join('')) };
     for (const t of pool) g[t.y][t.x] = '.';
   }
   return room;
 }
+// Whether water at n leaves an open tile beside it with water on three of its four sides (Q-101)
+const SIDES = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+const wraps = (g, n) => SIDES.some(([dx, dy]) => {
+  const m = { x: n.x + dx, y: n.y + dy };
+  return walkable(g, m) && g[m.y][m.x] !== '~' && SIDES.filter(([ex, ey]) => g[m.y + ey]?.[m.x + ex] === '~').length >= 3;
+});
 
 // § flask mimic: (seed, room) → the room with a flask mimic asleep where a flask
 // could lie (D-366, D-368): on open floor off the edge, at least 5 steps from the way in,

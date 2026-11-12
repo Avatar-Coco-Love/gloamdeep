@@ -75,3 +75,10 @@ test('the gold heart is lost first to a bite', () => {
   const bitten = enemiesAct({ ...rested, enemies: [{ id: 'rat', x: 2, y: 3, health: 2 }] });
   assert.equal(bitten.health, max);
 });
+
+test('sleeping counts as being away: what was due to grow back by morning is there on waking (H-07, D-876)', () => {
+  const s = { ...inBed(480), taken: [{ id: 'oilcap', x: 3, y: 3, at: 480 - get('oilcap').regrow + 50 }] };
+  const slept = step(s, 'right');
+  assert.ok(slept.items.some((o) => o.id === 'oilcap' && o.x === 3 && o.y === 3));
+  assert.deepEqual(slept.taken, []);
+});
