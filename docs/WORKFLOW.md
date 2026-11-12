@@ -7,12 +7,12 @@ taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
 `WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
 the design habits (D-741) and starting a new project; `WORKFLOW-3.md`
-and `WORKFLOW-4.md` what each audit added (D-782, D-826).
+to `WORKFLOW-5.md` what each audit added (D-782, D-826, D-868).
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-11: version 0.3.272, about 547 pull
-requests, 826 decisions, 95 questions asked, 14 audits. One owner, who
+Started 2026-10-17. By 2026-11-12: version 0.3.313, about 588 pull
+requests, 868 decisions, 102 questions asked, 15 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -93,23 +93,11 @@ phone first, nothing outside the code (D-003).
 ## What each audit added
 
 Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782),
-and the fourteenth's in `WORKFLOW-4.md` (D-826).
+the fourteenth's in `WORKFLOW-4.md` (D-826), and the fifteenth's in
+`WORKFLOW-5.md` (D-868).
 
 ## Since the last audit
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
-- A string has `.at` (a built-in method), so `x?.at` can't tell a station's { into, at } from an id; test a field only objects have (`into`), and run the full suite, not just the new test (0.3.273).
-- A bought pack goes in the public repo whole only once its licence allows sharing; check the listing's licence first and say where it came from in its `License.txt` (0.3.275).
-- Picking sounds by their measured shape and spectrogram works when the names say nothing, but check in the code what the moment really does before writing an "In play" button: the oil running out dims the lantern, it doesn't click it off (0.3.276).
-- When the owner hands over a batch of picks, many moments with no event of their own can still be heard by comparing the state before and after a turn (a creature under the earth, a line said), with no change to the rules; grouped Settings lines keep the lists on the smallest card (0.3.279).
-- Before picking when a new sound plays, grep the lines and events for that moment: the oil already had "The flame is getting low." at 20%, so the owner chose to tie the sound to it rather than add a second warning (0.3.280).
-- A new sound that must not be mistaken for an old one goes on the board beside it, with "after" buttons for each moment it follows (the bite's blow, poison's throb), so the owner hears the pair as the game plays it (0.3.281).
-- A sound that plays on its own over time gets a "walk" on its board, the steps with it at each pace offered, so the owner hears how often as well as what; and check Settings' list fits before promising a line, since the text-fit test can say no after the pick (0.3.282).
-- Music packs are too big for the chat or a repo folder (25 MB a file by browser); a temporary GitHub release takes them and this session can download it. Track names said nothing, so 139 were measured (busy, dark, loud, long) down to 8 for a board with each way to play them (0.3.283).
-- A place's music board gets the tune already playing elsewhere as a row to compare, the place's own sounds playing along (the drips), and a "walk down the stairs" with the real fades; the zips stay on the temporary release, so the next place's board needs no new upload (0.3.284).
-- Check what a place really is in the code before its board: the crypt was two parts (two top rooms counted as the surface, and floor 1), so the board's walk let the owner hear both ways and the question asked where it starts (0.3.285).
-- Match a tune's loudness by the ear's measure (ffmpeg's ebur128): gain = 0.4 × 10^((−15.8 − its loudness) / 20) gives every tune so far (0.3.286).
-- Count note starts (numpy) to find still tracks, not loudness (0.3.287).
-- When none of a moment's 4 fit, offer 4 new ones of other kinds on the same board, keeping the moments already picked marked (0.3.277).
-- Ten moments on one board, 3 each with "Alone" and "In a fight" buttons, were picked in three rounds of questions; check that Settings' lists still fit the smallest card before adding a line per sound (0.3.278).
+- Tests can read a code file's text (audit826's read `main.js`), so grep `tests/` for a file's name before moving code out of it; and the playtest's packer knows only the import forms the code uses, so a new form (`import()`) needs it taught too (0.3.313).

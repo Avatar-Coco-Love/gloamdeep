@@ -7,8 +7,9 @@ players notice first. Each finding's details stay in `HEALTH-CHECK.md`
 conversation: Claude checks each finding still holds, offers 2 or 3
 fixes with a recommendation, and builds only the owner's picks. A done
 step gets its version here. No new content until every step is done.
-The audit comes in at 0.3.313, after step 5 (D-867), and takes H-22
-to H-24, H-31 and H-66.
+The audit came in at 0.3.313, after step 5 (D-867), and took H-22,
+H-23, H-31 and H-66 (D-868); H-24 and `craft()` are 0.3.314, before
+step 6.
 
 1. **Hearts:** the bed's gold heart (H-01); the Heart tile's count (H-19).
    Done at 0.3.308 (D-863).

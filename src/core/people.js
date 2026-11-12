@@ -5,7 +5,7 @@
 // heap beside them is cleared, their `freed` line (rescue.js, D-491, D-496). Freed, they
 // stay, `leaves` set to the turn they go: `waits[0]` turns on, and a bump, free, says their
 // `waiting` lines and sets it `waits[1]` turns on. Then they say their `leaving` line and
-// are gone, standing at once at home in the woods, `home` set, where a bump says their
+// are gone, standing at once at home by the home waystone (D-855), `home` set, where a bump says their
 // `home` lines (D-492); the hero leaving the room first, they go home too. There they beam in
 // as the hero comes, and say their `greeting` line once, the hero near (D-496). Plain data, no drawing.
 

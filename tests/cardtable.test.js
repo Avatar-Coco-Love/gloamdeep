@@ -12,7 +12,8 @@ import { MENUS } from '../src/input/cards/menu.js';
 import { askCardAt } from '../src/render/askcard.js';
 import { view } from '../src/render/screen.js';
 import { historyRows, historyLayout } from '../src/render/history.js';
-import { HISTORY } from '../src/core/history.js';
+import { HISTORY, loadHistory } from '../src/core/history.js';
+await loadHistory(); // loaded only when Version history opens (D-868)
 import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
 import { makeState, maxHealth, HERO_HEALTH } from '../src/core/turn.js';
 import { START_PICK } from '../src/core/growth.js';

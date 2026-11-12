@@ -2,7 +2,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { HISTORY, scrollToShow, clampScroll, versionWords } from '../src/core/history.js';
+import { HISTORY, scrollToShow, clampScroll, versionWords, loadHistory } from '../src/core/history.js';
+await loadHistory(); // loaded only when Version history opens (D-868)
 import { VERSION } from '../src/core/version.js';
 import { textWidth, hasGlyph } from '../src/render/font.js';
 import { wrap, historyRows, historyAt, historyLayout, headRow, lastRow, ROW_H } from '../src/render/history.js';

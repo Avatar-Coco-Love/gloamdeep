@@ -78,7 +78,7 @@ export function step(state, dir) {
   const foe = enemyAt(state, x, y);
   if (foe && !foe.pile) return attack(state, foe);
   const person = personAt(state, x, y);
-  if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they stay a little longer (D-496)
+  if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they leave `waits[1]` turns after (D-496)
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   if (foe) next = scatter(next, foe, state.hero); // a pile of bones, scattered: its drop lies here, taken at once (D-731)

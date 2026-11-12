@@ -65,7 +65,7 @@ import { pauseTop } from '../render/menu.js';
 import { titleTop } from '../render/title.js';
 import { chipOf } from '../render/titlecard.js';
 import { historyRows, historyLayout } from '../render/history.js';
-import { HISTORY } from '../core/history.js';
+import { HISTORY, historyLoaded, loadHistory } from '../core/history.js';
 import { howtoWords } from '../core/howto.js';
 import { createProfileScreens } from './profilescreens.js';
 import { createWorldScreens } from './explorerscreens.js';
@@ -105,7 +105,7 @@ const WORDS = {
   strike: 'Strike! A needle sweeps across the bar. Press Enter or Space, or tap, when it is in the light.',
   play: '',
 };
-const HISTORY_WORDS = `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Esc or the close button goes back.`;
+const HISTORY_WORDS = () => `Version history, ${HISTORY.length} versions, newest first. Up and Down choose one, Enter opens or closes it. Esc or the close button goes back.`;
 const SEED_WORDS = 'Seed. Type up to 5 digits, then OK. Random gives a new world each journey. Esc leaves it unchanged.';
 const EXPLORE_PAD_WORDS = 'Seed. Type up to 5 digits, then OK to see that seed. Random shows a random one. Esc leaves it unchanged.';
 const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap still picks them
@@ -158,7 +158,7 @@ export function createScreens(app, ui) {
     setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)
     app.spokenLine = heardAs(next, app.state); // a line already showing isn't spoken over the card's words (D-670)
     spoken.textContent = next === 'settings' ? settingsWords() : next === 'seed' ? (app.padFrom === 'explore' ? EXPLORE_PAD_WORDS : SEED_WORDS)
-      : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS
+      : next === 'howto' ? howtoWords(app.page, app.settings) : next === 'bag' ? bagWords() : next === 'make' ? makeWords() : next === 'history' ? HISTORY_WORDS()
       : next === 'journal' ? journalPageWords() : next === 'slots' ? slotsWords() : next === 'name' ? nameWords() : next === 'cloak' ? lookWords()
       : next === 'ways' ? waysWords() : next === 'easier' || next === 'drop' || next === 'bed' || next === 'sleepOut' ? askWords(next)
       : next === 'title' ? WORDS[app.saved ? 'saved' : 'title'] : next === 'place' ? placeWords() : next === 'bench' ? benchWords() : next === 'chest' ? chestWords(stashAt(app.state, app.bench.x, app.bench.y)) : next === 'trade' ? tradeWords(app.state) : next === 'travel' ? travelWords() : next === 'boons' ? boonsWords() : next === 'opening' ? openingWords() : next === 'aboutBoons' ? aboutBoonsWords() : WORDS[next];
@@ -190,7 +190,10 @@ export function createScreens(app, ui) {
   function openHowTo() { app.page = 'basics'; show('howto'); } // it opens on Basics (D-507)
 
   // § version history (D-254): opens with every version closed, on the newest, on a card (D-393)
-  function openHistory() { app.opened = new Set(); app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW); app.scroll = 0; show('history'); }
+  // The first time, its versions load first (D-868), and it opens if Settings is still showing
+  function openHistory() {
+    if (!historyLoaded()) { loadHistory().then(() => { if (app.screen === 'settings') openHistory(); }, () => {}); return; }
+    app.opened = new Set(); app.rows = historyRows(app.opened, historyLayout(view.w, view.h).bodyW); app.scroll = 0; show('history'); }
   const closeHistory = () => show('settings', menuOf('settings').findIndex((l) => l.id === 'history'));
 
   // § slots (D-271, a card D-397): the flame starts on the profile in use; the round cross only once

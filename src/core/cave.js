@@ -172,8 +172,8 @@ function fill(r, g, up = true, down = true, rats = 1, second = 'rat', weapon = n
 function finds(r, g, floors, far, up, down, torch, doors, count = 1, second = 'rat', weapon = null) {
   // § flask and rat: the flask well away from the stairs, the rat beside it,
   // at least 5 steps from the stairs up, and 3 tiles off counting across walls.
-  // It starts in the dark, as the second room's does: out of the torch's
-  // light (3 tiles, D-098) and the stairs' glow (1.5, D-134).
+  // It starts in the dark: at least 5 tiles from a torch (D-098) and 3 from
+  // either stairs (D-134).
   const open = floors.filter((f) => !onEdge(g, f) && !same(f, up) && !(down && same(f, down)) && !doors.some((d) => same(f, d)));
   const flasks = open.filter((f) => far.get(key(f)) >= 5);
   if (!flasks.length) return null;
@@ -365,8 +365,8 @@ function nearestFree(g, from, block, taken) {
   return from;
 }
 
-// § chambers: 5 to 10 roundish chambers, their middles well apart (D-162);
-// 3 to 6 in a 13 × 15 room (D-580)
+// § chambers: roundish chambers, their middles well apart (D-162): 5 to 10 in a
+// 17 × 20 room, fewer by area in a smaller one (byArea), 3 to 6 in a 13 × 15 room (D-580)
 function placeCaves(r, cols, rows) {
   const want = int(r, byArea(CAVES[0], cols, rows), byArea(CAVES[1], cols, rows)), caves = [];
   for (let i = 0; i < 60 && caves.length < want; i++) {

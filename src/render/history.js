@@ -13,14 +13,15 @@ const GOLD = '#ffd66b', GREY = '#9790a4', EMBER = '#f39a3b', CORE = '#fff5d6';
 export const ROW_H = 11; // from one row's top to the next
 const LIST_Y = 28; // the window's top inside the card, under the heading's rule
 const MARK_W = 8; // the flame and its gap, left of the numbers
-const NUM_W = Math.max(...HISTORY.map((e) => textWidth(e.v)));
+let numW = 0; // the widest number, measured once the versions are loaded (D-868)
+const NUM_W = () => (numW ||= Math.max(0, ...HISTORY.map((e) => textWidth(e.v))));
 const DOT_W = 5; // a line's dot and its gap, before its words
 
 // § layout: the card on a view `vw` × `vh` game pixels, the list's window in it (whole rows
 // only), and the columns: the numbers, the titles, the + or -, and an open version's lines
 export function historyLayout(vw, vh) {
   const card = cardAt(vw, vh), top = card.y + LIST_Y, right = card.x + card.w - PAD;
-  const numX = card.x + PAD + MARK_W, titleX = numX + NUM_W + 4, signX = right - 3, bodyX = numX + DOT_W;
+  const numX = card.x + PAD + MARK_W, titleX = numX + NUM_W() + 4, signX = right - 3, bodyX = numX + DOT_W;
   return { card, top, h: Math.max(ROW_H, Math.floor((card.h - LIST_Y - 8) / ROW_H) * ROW_H), right, numX, titleX, signX, titleW: signX - 4 - titleX, bodyX, bodyW: right - 6 - bodyX };
 }
 

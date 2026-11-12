@@ -27,13 +27,13 @@ export const ENEMIES = {
   // it stands (D-366, D-368). Its bite clinks of glass (D-367). Hurt, it cracks (D-369).
   // Beaten, it may drop Mimic Glass (D-475), and now and then a Mimic Heart (D-476).
   flaskMimic: { id: 'flaskMimic', kind: 'enemy', name: 'Flask mimic', acts: "Sleeps looking like a flask of oil. Bump it and it wakes and chases you, then settles down again.", fights: "The bump that wakes it gives you a free turn, so strike at once. Not ready? Walk off and it settles back to sleep.", health: 3, bite: 1, drops: 'mimicGlass', rare: 'mimicHeart', ways: ['chases'], looksLike: 'flask', awakeTurns: 6, hurt: 'flaskMimicHurt', wakes: 'flaskMimicWakes', settles: 'flaskMimicSettles', die: 'flaskMimicDie', bites: 'flaskMimicBite', sound: 'glass' },
-  // It chases (D-370); one hit of anything kills it, and its sting takes 2 hearts.
-  // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
-  // Beaten, it may drop a Stinger, always in Sand (D-475), and now and then a Venom Sac (D-476).
   // It shuns light only, so it never comes for the hero: it waits in the dark, backs out of
   // light, and bites only from the dark (D-535). Its bite hisses and clicks (D-536).
   // Beaten, it may drop Spider Silk (D-535); a creature of depth 2, it has no rare one (D-453).
   caveSpider: { id: 'caveSpider', kind: 'enemy', name: 'Cave spider', acts: "Waits in the dark and never comes to you. It backs out of the light and bites only from the shadows.", fights: "It can't bite while your light is on it. Corner it against a wall and strike, before your oil runs low.", health: 2, bite: 1, drops: 'spiderSilk', ways: ['shunsLight'], hurt: 'caveSpiderHurt', die: 'caveSpiderDie', bites: 'caveSpiderBite', sound: 'hiss' },
+  // One hit of anything kills it, and its sting takes 2 hearts (D-370).
+  // Its sting clicks of claws (D-370). Each wears one of its `colours` sets (D-373).
+  // Beaten, it may drop a Stinger, always in Sand (D-475), and now and then a Venom Sac (D-476).
   // It strikes (D-729): its tail goes up with its `raises` line, then stings the tiles ahead, its
   // `misses` line when the hero has stepped aside; a creature on those tiles is stung too (sting.js, D-768).
   scorpion: { id: 'scorpion', kind: 'enemy', name: 'Scorpion', acts: "Comes at you once it sees you in the light. In line with you, up to two tiles away, it raises its tail for a turn, then strikes both tiles ahead. Its sting takes two hearts, and hurts any creature in its way too. Its shell comes in many colours.", fights: "When its tail goes up, step out of its line, then strike while it rests. One blow of anything kills it.", health: 1, bite: 2, drops: 'stinger', rare: 'venomSac', ways: ['strikes'], colours: 5, die: 'scorpionDie', bites: 'scorpionBite', raises: 'scorpionRaises', misses: 'scorpionMisses', sound: 'sting' },

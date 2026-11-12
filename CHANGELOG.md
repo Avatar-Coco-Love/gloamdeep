@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.313 (2026-11-12)
+- The fifteenth audit. Nothing in the game changes. The game's sounds move out of its biggest code file into their own, word for word, and the Version history now loads only when it first opens, so the game starts with 12 files fewer.
+- Docs: old code notes that no longer matched the game are fixed; done health check findings, finished decisions and the playbook's newest lines moved to the archive or their own files, word for word. Older iPhones and the sound files go on the store checklist, to test on a real one. Three small risks and an unused piece of code come next. The next audit is at 0.3.353.
+- Decisions: D-868. D-826, D-863 and D-864 moved to the archive, word for word.
+
 ## 0.3.312 (2026-11-12)
 - The Look card's tabs are taller, easy to tap on a phone. On phones like a 390 px one the big hero is a little smaller to make room; on the smallest screens the choices show 2 rows and scroll.
 - With the keyboard, Up from RANDOM or OK now goes to the open tab, so a rolled look is kept; before, it picked each choice on the way.
@@ -31,10 +36,3 @@ Entry format:
 ## 0.3.311 (2026-11-12)
 - Bumping a campfire or the miners' camp now shows its first words ("A campfire, burning high.", "A miners' camp, long left.") on the text line under its card, where before the card hid them.
 - Decisions: D-866. D-858 moved to the archive, word for word.
-
-## 0.3.310 (2026-11-12)
-- Arriving on the home waystone by travel, or waking there after a fall, now offers the boon card once you stand still, if you hold no boon.
-- Skip the boon card and step off and back on, and it shows the same three boons until you leave the room; no more drawing again for free.
-- A boon's words now say it lasts "until you are back at the waystone", where it really ends, not "until you are home".
-- Putting a second workbench or other one-of-a-kind piece into a stash chest that holds one now says "The chest already holds a workbench.", not "The chest is full." when it isn't.
-- Decisions: D-865.

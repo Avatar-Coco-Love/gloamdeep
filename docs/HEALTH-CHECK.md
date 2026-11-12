@@ -7,7 +7,7 @@ never reused. One step at a time, in `HEALTH-CHECK-ORDER.md`'s order
 (D-862): Claude checks the finding still holds, offers 2 or 3 fixes with a recommendation, and
 builds only the owner's pick. "Suggests" is Claude's recommendation,
 not a decision. A done step's line gets its version, and moves to
-`archive/` at the next audit. The full report, with every option:
+`archive/HEALTH-CHECK-DONE.md` at the next audit. The full report, with every option:
 https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
 The second pass's steps, H-32 on, are in `HEALTH-CHECK-2.md` (D-861).
 
@@ -15,18 +15,7 @@ The second pass's steps, H-32 on, are in `HEALTH-CHECK-2.md` (D-861).
 seen in the code only.
 
 ## 1. Most players notice
-- **H-01 The bed's gold heart disappears.** Taking a boon, a boon
-  ending, or sitting by a campfire caps hearts at the most, so the gold
-  heart goes, with no line; D-488 says only a bite or a fall takes it.
-  `boon.js:73`, `state.js:35`, `fireside.js:30`, `sleepout.js:56` (the
-  last read). Ran. Suggests: none of the four may lower hearts held.
-  Done at 0.3.308 (D-863).
-- **H-02 A find stepped on with a full bag says nothing.** Wood with
-  every stack full has no line, against D-339 (`items.js:128`,
-  `turn.js:112`). Any find with none of its kind carried is silent too,
-  the locket included, as D-339 has it; D-511 fixed only the herb. Ran.
-  Suggests: every find says "Your bag is full.", wood its own line.
-  Done at 0.3.309 (D-864).
+All done: in `archive/HEALTH-CHECK-DONE.md` (D-868).
 
 ## 2. Clear bugs, one step each
 - **H-05 A scorpion's rest is cut short near a spit grub.**
@@ -81,11 +70,6 @@ seen in the code only.
   journey's first tile (`waking.js:16`, D-737). Ran.
 - **H-17** A draught drunk on the turn of a fall still works after
   waking (`bagturn.js:149-151`, D-791). Ran.
-- **H-18** A second one-of-a-kind piece from the lost bag or a chest
-  says "Your bag is full." (`fall.js:16-27`, `chest.js:71`). Ran.
-  Done at 0.3.309 (D-864).
-- **H-19** The Heart tile counts boon hearts: "Hearts 12 of 10"
-  (`growth.js:88`). Ran. Done at 0.3.308 (D-863).
 - **H-20** "Healing herb" on cards, "Herb" in lines (`lines.js:331`).
   The owner picks the name.
 
@@ -115,15 +99,9 @@ seen in the code only.
   `GLOSSARY-2.md:32`, `CONTENT-2.md:18`: marks' numbers (D-847), the
   minnow's pond (D-734); **H-65** `DEV-TOOLS.md`'s switch names.
 
-## For the 0.3.312 audit
-- **H-22** Every sound is `.ogg`; older iPhones may stay silent.
-- **H-23** 266 code files at boot, 328 KB of them version history.
+## For 0.3.314, after the audit (D-868)
 - **H-24** Read only: a boulder may grow back on a waystone's ring
   (`regrow.js:47-54`); a drop may land on water (`spread.js:16`); dev
   Spawn onto a person (`spawn.js:27`).
-- **H-31** Stale comments (`enemies.js:30-32`, `behaviours.js:40-42`,
-  `tiles.js:47`, `cave.js:176,369`, `events.js:7-45`); `craft()`
-  unused by the game (`bagturn.js:54`); `WORKFLOW.md` 17 bytes under
-  its cap; `main.js` 48 KB.
-- **H-66** More stale comments: `items.js:244-246`, `tiles.js:127-129`,
-  `people.js:7`, `turn.js:81`, `fishing.js:1,16,25` (second pass, D-861).
+- From H-31: `craft()`, used by no screen (`bagturn.js:54`), taken
+  out (D-868).

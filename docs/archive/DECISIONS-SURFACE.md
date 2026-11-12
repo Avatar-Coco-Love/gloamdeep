@@ -1376,3 +1376,25 @@ the map, likely what B-004 saw; no room never entered was found showing.
 Offered too: only the tiles the screen shows; what the hero could see
 from where they stand. The owner: it will matter if rooms get really
 big, Q-097.
+
+**D-863 · 2026-11-12 · Hearts kept** (the owner's picks, both
+recommended; step 1 of `HEALTH-CHECK-ORDER.md`, fixes H-01 and H-19)
+The bed's gold heart stays when a boon is taken or ends, by a campfire
+and on waking warm in the fur bedroll: as the most changes (Stout
+Heart, Reckless) it stays one past the new most, and only a bite or a
+fall takes it, as D-488 has it (offered too: it goes, with a line; a
+separate gold heart, changing saves). The Growth tree's Heart tile
+counts only the hearts grown, never a boon's: "Hearts 10 of 10"
+(offered too: grown and the boon's, "+2 boon"; capped at the top).
+D-855 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-864 · 2026-11-12 · A full bag says so** (the owner's picks, both
+recommended; step 2 of `HEALTH-CHECK-ORDER.md`, fixes H-02 and H-18)
+A find stepped on with no room stays with a line: its kind's own when
+one is carried ("You can't carry more oilcaps."), else "Your bag is
+full.", the herb's way (D-511) for every find; wood gets "You can't
+carry more wood." (offered too: "Your bag is full." always; wood left
+silent). A second one-of-a-kind piece from the lost bag, a chest or a
+dropped stack says its own line, "You already carry a workbench.";
+"Your bag is full." only when the bag is (offered too: one shared
+line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
