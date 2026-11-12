@@ -19,7 +19,7 @@ import { takeStairs } from './stairs.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
 import { xpOf, gain } from './xp.js';
-import { bagAdd, bagSize, isFlask } from './bag.js';
+import { bagAdd, bagSize, isFlask, noRoom } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
 import { spread } from './spread.js';
@@ -89,8 +89,9 @@ export function step(state, dir) {
 // § pick up: a flask goes into the bag, and stays on the floor when the bag
 // has no room (D-247), or with its full line when it holds some (D-250, D-333);
 // an oilcap the same, saying one of its lines as it goes in (D-296, D-297). A herb, hurt, heals, never above full, and is gone with its
-// line (D-155); at full health it goes into the bag, silent, and with no room it
-// stays, "Your bag is full." (D-511). A weapon goes
+// line (D-155); at full health it goes into the bag, silent (D-511). Any find with no
+// room stays, with its kind's full line when one is carried, else "Your bag is full."
+// (noRoom, H-02, D-864). A weapon goes
 // into an empty hand with its line (D-252); with one held, into the bag, 1 a
 // slot, with its `bagged` line, and with no room it stays, "Your bag is full."
 // (D-479). Taken is a `take` event, a herb eaten an `eat`.
@@ -109,21 +110,22 @@ function pickUp(state, found) {
   if (entry.bag) {
     const bag = bagAdd(state.bag, id, found.form, bagSize(state)), dev = found.spawned && isFlask(id) ? { devFlasks: (state.devFlasks || 0) + 1 } : {}; // a spawned flask is kept count of (D-720)
     if (bag) return note(entry.says ? say({ ...state, ...gone, bag, ...dev }, entry.says) : { ...state, ...gone, bag, ...dev }, 'take', { id });
-    if (state.bag.some((s) => s.id === id) && entry.full) return say(state, entry.full);
-    return entry.eatHurt ? say(state, 'bagFull') : state; // a herb says so (D-511)
+    return say(state, noRoom(state.bag, id));
   }
   return state;
 }
 
 // § take back: a stack the hero dropped goes back in whole, silent, never eaten
-// or held, and never grows back; what doesn't fit stays, "Your bag is full." (D-546)
+// or held, and never grows back; what doesn't fit stays, "Your bag is full.", or with
+// room left, a one-of-a-kind piece's own line (D-546, H-18, D-864)
 function takeBack(state, found) {
   let bag = state.bag, n = 0;
   for (let b; n < found.n && (b = bagAdd(bag, found.id, found.form, bagSize(state))); n++) bag = b;
-  if (!n) return say(state, 'bagFull');
+  const line = noRoom(bag, found.id, bagSize(state));
+  if (!n) return say(state, line);
   const items = state.items.filter((it) => it !== found), left = n < found.n ? [{ ...found, n: found.n - n }] : [];
   const next = note({ ...state, bag, items: [...items, ...left] }, 'take', { id: found.id });
-  return left.length ? say(next, 'bagFull') : next;
+  return left.length ? say(next, line) : next;
 }
 
 // § drop: Drop on bag slot i sets its whole stack down on the hero's tile, free,

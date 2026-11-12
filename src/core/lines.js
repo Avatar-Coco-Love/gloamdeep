@@ -157,6 +157,7 @@ export const LINES = {
   gloamberrySeedFull: { text: "You can't carry more seeds.", warn: false }, // no room for the seed made (D-564)
   gloamberrySeedLook: { texts: ['A seed from the gloamberry.', 'It wants soft ground.', 'Something might grow from this.'], warn: false }, // chosen in the bag (D-564)
   bushBare: { text: 'The bush is bare. It will fill again.', warn: false }, // a picked bush bumped (D-531)
+  woodFull: { text: "You can't carry more wood.", warn: false }, // every stack full, no slot free (H-02, D-864)
   woodTake: { texts: ['You pick up a stick.', 'A dry branch. You keep it.', 'You gather some wood.'], warn: false }, // (W1, D-314)
   branchCreak: { text: 'The branch creaks.', warn: false }, // the first bump (W2, D-316)
   branchTake: { texts: ['The branch snaps. You take wood.', 'It breaks apart. Wood for the bag.', 'Crack. You gather the wood.'], warn: false }, // the second

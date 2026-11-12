@@ -104,15 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-856 · 2026-11-12 · The bed won't sleep in a fight** (the owner's
-picks, all recommended; fixes B-002) Bumped at night with a creature
-after the hero, the bed sleeps no more than the moon button does
-(D-758, D-826): it says "Not with a creature after you.", free, the
-same line (offered too: a bed-only line), so a fight can't be slept
-away (offered too: the hero lies down and is woken by a bite; those
-chasing are still there in the morning). D-848 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-857 · 2026-11-12 · The mole comes up when stuck** (the owner's
 picks, all recommended; fixes B-003) A mole under the earth with no
 tile toward the hero free comes up where it is, with its line, as it
@@ -198,3 +189,14 @@ separate gold heart, changing saves). The Growth tree's Heart tile
 counts only the hearts grown, never a boon's: "Hearts 10 of 10"
 (offered too: grown and the boon's, "+2 boon"; capped at the top).
 D-855 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-864 · 2026-11-12 · A full bag says so** (the owner's picks, both
+recommended; step 2 of `HEALTH-CHECK-ORDER.md`, fixes H-02 and H-18)
+A find stepped on with no room stays with a line: its kind's own when
+one is carried ("You can't carry more oilcaps."), else "Your bag is
+full.", the herb's way (D-511) for every find; wood gets "You can't
+carry more wood." (offered too: "Your bag is full." always; wood left
+silent). A second one-of-a-kind piece from the lost bag, a chest or a
+dropped stack says its own line, "You already carry a workbench.";
+"Your bag is full." only when the bag is (offered too: one shared
+line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.

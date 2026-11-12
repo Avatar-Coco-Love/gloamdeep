@@ -197,7 +197,7 @@ test('a stack joins one of its kind when it all fits there, its look going with 
 
 test('when none of it can go it says so, free, and nothing moves', () => {
   const full = atChest([{ id: 'workbench', n: 1 }], [{ id: 'workbench', n: 1 }]);
-  for (const [i, text] of [[0, 'Your bag is full.'], [CHEST_BAG, 'The chest is full.']]) {
+  for (const [i, text] of [[0, 'You already carry a workbench.'], [CHEST_BAG, 'The chest is full.']]) {
     const n = moveStack(full, 3, 2, i);
     assert.equal(n.bag, full.bag);
     assert.equal(n.stashes, full.stashes);
