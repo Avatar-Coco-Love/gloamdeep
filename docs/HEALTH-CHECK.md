@@ -9,6 +9,8 @@ builds only the owner's pick. "Suggests" is Claude's recommendation,
 not a decision. A done step's line gets its version, and moves to
 `archive/` at the next audit. The full report, with every option:
 https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
+The second pass's steps, H-32 on, come after these: `HEALTH-CHECK-2.md`
+(D-861).
 
 "Ran" means reproduced with the game's rules in a script; "read" means
 seen in the code only.
@@ -104,6 +106,12 @@ seen in the code only.
 - **H-30** `GLOSSARY-CODE.md:73` Quests "later"; `GLOSSARY.md:48`
   Glints from goals too; no entry for hall, large room, dead end,
   cache; `SOUNDS.md:27,29` 52 for 51; `screens.js:140`'s boon words.
+- Joined from the second pass (D-861): **H-62** `ART-DIRECTION-2.md`
+  behind (the dungeon bricks built, D-229; cloaks, heads, lights);
+  **H-63** glossary gaps (Settings words, Tough, the herb mimic's room,
+  "Earn more from Feats."); **H-64** `GLOSSARY-FINDS.md:34-56,103`,
+  `GLOSSARY-2.md:32`, `CONTENT-2.md:18`: marks' numbers (D-847), the
+  minnow's pond (D-734); **H-65** `DEV-TOOLS.md`'s switch names.
 
 ## For the 0.3.312 audit
 - **H-22** Every sound is `.ogg`; older iPhones may stay silent.
@@ -115,3 +123,5 @@ seen in the code only.
   `tiles.js:47`, `cave.js:176,369`, `events.js:7-45`); `craft()`
   unused by the game (`bagturn.js:54`); `WORKFLOW.md` 17 bytes under
   its cap; `main.js` 48 KB.
+- **H-66** More stale comments: `items.js:244-246`, `tiles.js:127-129`,
+  `people.js:7`, `turn.js:81`, `fishing.js:1,16,25` (second pass, D-861).

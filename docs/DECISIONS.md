@@ -104,21 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-853 · 2026-11-12 · Your own campfire** (the owner's picks, all
-recommended; Q-088's built fire) A campfire the hero built has its own
-words, found fires keeping theirs: cold ashes, "Light the fire?", "You
-laid these stones."; embers, "Your fire still glows."; blazing, "Your
-fire burns well." (offered too: no note at all; only the cold one
-changes). It can be taken back down only when cold: its cold ashes
-offer Take up the campfire?, which puts the Campfire back in the bag,
-whole, as the shelf does; a burning one burns down first (offered too:
-any time, put out; never). The code: three built twins of the fire's
-levels in the registry, the same pictures and rules, their own words
-(offered too: a mark on the tile, kept by the room). Claude's calls the
-owner may change, shown at the build step: where Take up sits on the
-card, and "You already carry a campfire." when one is carried. D-845
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-854 · 2026-11-12 · Taking up your campfire** (the owner's picks, all
 recommended, shown as a picture at the build step of D-853) Your own cold
 ashes' card shows three buttons, Yes, Take up and No, No picked as
@@ -191,3 +176,20 @@ On, the small fixes, save safety, and one docs-only step (offered too:
 only the top two; the docs folded into the audit). H-22 to H-24 and
 H-31 wait for the 0.3.312 audit. The list: `HEALTH-CHECK.md`. D-851
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-861 · 2026-11-12 · The second health check's steps** (the owner's
+picks, all recommended) A second health check at 0.3.305, no game code
+changed, of what the first (D-860) did not reach: fishing, the Peddler,
+waystones and boons, campfires, the mortar, the mountain rooms, depths
+4 to 12, falls, the look creator, the Seed Explorer, the dev panel,
+`src/render/` against the art rules, the game's words, and old saves of
+every format, played on a phone and a PC. 35 findings, H-32 to H-66.
+The owner picked every one players can see to become steps (offered
+too: only most and some players; only most players), the art ones as
+one step where the owner picks from a picture (offered too: each its
+own; all at the audit), and the docs into the first list's docs step,
+the stale comments into its audit list. Not picked: the dev tools'
+four, H-38 and H-48 to H-50, kept in the report. Claude's call the
+owner may change: they come after the first list's steps. The list:
+`HEALTH-CHECK-2.md`. D-853 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

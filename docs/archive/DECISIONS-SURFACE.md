@@ -1299,3 +1299,18 @@ holds its own recipe, `made`, so its button stays Set down (offered
 too: Stone holding two recipes; a recipe-only entry). D-827 moves to
 `archive/DECISIONS-AUDITS.md`, D-846 to `archive/DECISIONS-SOUNDS.md`,
 word for word.
+
+**D-853 · 2026-11-12 · Your own campfire** (the owner's picks, all
+recommended; Q-088's built fire) A campfire the hero built has its own
+words, found fires keeping theirs: cold ashes, "Light the fire?", "You
+laid these stones."; embers, "Your fire still glows."; blazing, "Your
+fire burns well." (offered too: no note at all; only the cold one
+changes). It can be taken back down only when cold: its cold ashes
+offer Take up the campfire?, which puts the Campfire back in the bag,
+whole, as the shelf does; a burning one burns down first (offered too:
+any time, put out; never). The code: three built twins of the fire's
+levels in the registry, the same pictures and rules, their own words
+(offered too: a mark on the tile, kept by the room). Claude's calls the
+owner may change, shown at the build step: where Take up sits on the
+card, and "You already carry a campfire." when one is carried. D-845
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

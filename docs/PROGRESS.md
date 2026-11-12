@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.305 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.306 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -12,7 +12,8 @@ The health check's steps (D-860), in `HEALTH-CHECK.md`'s order, one a
 conversation: the first not yet done, now H-01, the bed's gold heart.
 
 ## Waiting on the owner
-- Each health check step's fix, picked at its step (`HEALTH-CHECK.md`).
+- Each health check step's fix, picked at its step (`HEALTH-CHECK.md`,
+  then `HEALTH-CHECK-2.md`).
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -44,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.306, The second health check's steps.** A second
+  health check of 0.3.305, no game code changed: 35 findings, H-32 to
+  H-66. The owner picked every one players see as steps (D-861), in
+  `HEALTH-CHECK-2.md`, after the first list's; the art as one step; the
+  docs into the first's docs step. Docs only, no playtest.
+  Report: https://claude.ai/artifact/6pEthoRVefYZUSCYPbE17e
 - **2026-11-12, 0.3.305, The health check's steps.** A full health
   check of 0.3.304, no game code changed: 31 findings, each with fixes
   offered. The owner picked all but three to become steps (D-860), in
@@ -55,7 +62,3 @@ list in `RESEARCH.md`.
   whole room at once, off the screen too (D-209), so a room only stepped
   into shows in full on the map; no unentered room was found showing.
   Very big rooms later, Q-097. Docs only, no playtest.
-- **2026-11-12, 0.3.303, The mole's sight.** The owner's picks (D-858),
-  all recommended: every mole notices the hero only within 5 steps, by
-  day or night; `sight: 5` on its entry; its Bestiary page says so. The
-  owner's deep moles idea is Q-096. Playtest: https://claude.ai/artifact/7mvGA8YkefprHCZnjzrJHe
