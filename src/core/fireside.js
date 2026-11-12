@@ -9,7 +9,7 @@ import { tileAt, withTile } from './room.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { note } from './events.js';
-import { passTurn, maxHealth } from './state.js';
+import { passTurn, maxHealth, healed } from './state.js';
 import { endTurn } from './endturn.js';
 import { stiffLeft } from './stiff.js';
 import { warmLeft, warming } from './warmed.js';
@@ -27,7 +27,7 @@ export function sit(state, x, y) {
   const sits = tileAt(state.room, x, y)?.sits;
   if (!sits || !canSit(state, x, y)) return state;
   const room = withTile(state.room, x, y, get(sits.into));
-  const rested = { ...state, room, health: Math.min(maxHealth(state), state.health + sits.heal), stiff: 0 };
+  const rested = { ...state, room, health: healed(state, sits.heal), stiff: 0 }; // the gold heart kept (D-863)
   const next = note(passTurn(rested), 'sit', { id: sits.into });
   return warming(endTurn(state, say(next, sits.says)), sits.warm); // after the turn, as a draught starts: its full count shown
 }

@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.307 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.308 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The health check's 19 steps (D-860 to D-862), one a conversation, in
 `HEALTH-CHECK-ORDER.md`'s order, no new content till done: the first
-not yet done, now step 1, Hearts (H-01, H-19).
+not yet done, now step 2, A full bag (H-02, H-18).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -46,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.308, Hearts kept.** Health check step 1: the bed's
+  gold heart stays through a boon taken or ended, a campfire and a warm
+  bedroll, one past the most; only a bite or a fall takes it (H-01).
+  The Heart tile counts only hearts grown (H-19). D-863.
+  Playtest: https://claude.ai/artifact/YUwfyNTfZv1shchaPgeXCq
 - **2026-11-12, 0.3.307, The health check's order.** The dev tools'
   four (H-38, H-48 to H-50) became a step. Both lists now go in one
   order of 19 grouped steps, most noticed first (D-862); five loose
@@ -57,9 +62,3 @@ list in `RESEARCH.md`.
   `HEALTH-CHECK-2.md`, after the first list's; the art as one step; the
   docs into the first's docs step. Docs only, no playtest.
   Report: https://claude.ai/artifact/6pEthoRVefYZUSCYPbE17e
-- **2026-11-12, 0.3.305, The health check's steps.** A full health
-  check of 0.3.304, no game code changed: 31 findings, each with fixes
-  offered. The owner picked all but three to become steps (D-860), in
-  `HEALTH-CHECK.md`, the gold heart first; the rest wait for the audit.
-  D-850 and D-851 join the archive index. Docs only, no playtest.
-  Report: https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s

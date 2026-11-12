@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.305 (2026-11-12)
+- No change in play. A full health check of the game: it was played in a browser on the surface, in the caves and at home, and all the code was read against the decisions and docs. It found 31 things, from the bed's gold heart vanishing to out-of-date docs. Nearly all are now a list of small fixes to come, one at a time, the gold heart first.
+- Decisions: D-860.
+
 ## 0.3.304 (2026-11-12)
 - No change in play. In daylight, the whole room you stand in is still remembered at once, the parts off the screen too, so a room you only stepped into shows in full on the map. That is likely what looked like unseen rooms showing; no room never entered was found on the map.
 - Decisions: D-859. Questions raised: Q-097. Bugs closed: B-004.

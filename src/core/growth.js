@@ -3,7 +3,7 @@
 // What was bought is one record, `state.grown` (D-811, upgrades.js): each upgrade's id and how
 // many times; a journey without it has bought nothing.
 import { levelOf } from './xp.js';
-import { maxHealth, HERO_HEALTH } from './turn.js';
+import { HERO_HEALTH } from './turn.js';
 import { BRANCHES, UPGRADES, grown } from './upgrades.js';
 import { deepestOf } from './travel.js';
 import { say } from './lines.js';
@@ -85,6 +85,6 @@ export function told(state, pick) {
   if (pick.row >= rowsOpen(state)) return { name: 'Locked', value: null, words: ROW_DEPTHS[pick.row] ? `Reach depth ${ROW_DEPTHS[pick.row]} to open.` : 'Opens deeper down.', button: null };
   if (!u) return { name: 'To come', value: null, words: 'More to grow here later.', button: null };
   const n = grown(state, u.id), done = u.most === 1 && n > 0, cost = `${u.cost} ember${u.cost === 1 ? '' : 's'}`;
-  const value = u.id === 'heart' ? `Hearts ${maxHealth(state)} of ${HERO_HEALTH + u.most}` : done ? 'Bought' : null; // the hearts the hero has, boons' too
+  const value = u.id === 'heart' ? `Hearts ${HERO_HEALTH + n} of ${HERO_HEALTH + u.most}` : done ? 'Bought' : null; // the hearts grown, not a boon's (H-19, D-863)
   return { name: u.name, value, words: u.words, button: done ? null : { text: u.get ?? `Get ${u.name}`, cost, can: canBuy(state, u.id) } };
 }

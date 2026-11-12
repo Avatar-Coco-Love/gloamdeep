@@ -9,7 +9,7 @@ import { rng, seedFor } from './rng.js';
 import { say } from './lines.js';
 import { note } from './events.js';
 import { reach } from './oil.js';
-import { maxHealth } from './state.js';
+import { keepGold } from './state.js';
 import { rareOf } from './worn.js';
 import { stoneHome } from './mouth.js';
 import { glowReach } from './glow.js';
@@ -65,12 +65,12 @@ export function offer(state) {
 }
 
 // § take: (state, id) → the state holding that boon, with its line and a `boon` event; its
-// hearts are full as the hero sets out, and hearts it takes (Reckless) are cut to the new most. Free: no turn passes. One held, or not on offer: as it was
+// hearts are full as the hero sets out, and hearts it takes (Reckless) are cut to the new most, the gold heart kept (D-863). Free: no turn passes. One held, or not on offer: as it was
 export function takeBoon(state, id) {
   const b = BOONS[id];
   if (!b || b.soon || state.boon) return state;
   const held = { ...state, boon: id }, more = b.hearts ?? 0;
-  const health = more > 0 ? state.health + more : Math.min(state.health, maxHealth(held));
+  const health = more > 0 ? state.health + more : keepGold(state, state.health, held); // the gold heart kept (D-863)
   return note(say({ ...held, health }, 'boonTake', b.name), 'boon', { id });
 }
 

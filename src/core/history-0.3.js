@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.308', date: '2026-11-12', title: 'Hearts kept', lines: [
+    "The gold heart from sleeping in your bed now stays when you take a boon, when a boon ends, when you sit by a campfire and when you wake warm in your fur bedroll. Only a bite or a fall takes it.",
+    "The Growth tree's Heart tile counts only the hearts you have grown, never a boon's: no more \"Hearts 12 of 10\".",
+    "Decisions: D-863.",
+  ] },
   { v: '0.3.307', date: '2026-11-12', title: 'The health check\'s order', lines: [
     "No change in play. The dev tools' four findings became a step. Both health checks' steps now go in one order, 19 steps grouped by what they share, the things most players notice first, and no new content until they are done. Five things seen with no decision to measure against became open questions, each asked at its step.",
     "Decisions: D-862. Questions raised: Q-098 to Q-102.",
