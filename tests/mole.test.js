@@ -96,3 +96,15 @@ test('under the earth with no tile toward the hero free, it comes up where it is
   assert.ok(!m.under, 'up'); assert.ok(m.dug, 'it never digs again');
   assert.equal(n.line.id, 'moleSurfaces');
 });
+
+test('it notices the hero only within 5 steps, even in daylight that lights every tile (D-858)', () => {
+  assert.equal(get('mole').sight, 5);
+  const day = (s) => ({ ...s, room: { ...s.room, dark: { ...s.room.dark, sky: true } }, turn: 0 });
+  assert.ok(wait(day(at(5, 6))).enemies[0].under, '5 steps: it digs down');
+  for (const y of [5, 4]) {
+    const far = wait(day(at(5, y))).enemies[0];
+    assert.ok(!far.under && !far.chasing, `${11 - y} steps: it has not noticed`);
+  }
+  const after = day({ ...at(5, 4), enemies: [{ id: 'mole', x: 5, y: 4, chasing: true }] });
+  assert.ok(wait(after).enemies[0].under, 'once after the hero, it keeps coming from farther');
+});

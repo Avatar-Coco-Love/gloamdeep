@@ -4,15 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.302 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.303 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The mole's sight (D-857): a mole notices the hero only within 5 steps,
-by day or night. Then B-004 in `BUGS.md` (D-852).
+B-004 in `BUGS.md` (D-852): daylight shows unseen rooms on the map.
 
 ## Waiting on the owner
 - Bugs the owner noticed (`BUGS.md`): B-004, its own step.
+- Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
@@ -42,6 +42,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.303, The mole's sight.** The owner's picks (D-858),
+  all recommended: every mole notices the hero only within 5 steps, by
+  day or night; `sight: 5` on its entry; its Bestiary page says so. The
+  owner's deep moles idea is Q-096. Playtest: https://claude.ai/artifact/7mvGA8YkefprHCZnjzrJHe
 - **2026-11-12, 0.3.302, The mole comes up when stuck.** B-003 fixed,
   the owner's picks (D-857), all recommended: a mole under the earth
   that can't come closer comes up where it is and chases on foot; it
@@ -50,7 +54,3 @@ list in `RESEARCH.md`.
   the owner's picks (D-856), all recommended: with a creature after the
   hero, the bed says "Not with a creature after you.", free, as sleeping
   out does. Playtest: https://claude.ai/artifact/XuDa21oXEuZaKZJ4DUVxXm
-- **2026-11-12, 0.3.300, The Peddler by the waystone.** B-001 fixed, the
-  owner's picks (D-855), all recommended: freed, he goes to the home
-  waystone's room, by its middle, off the stone; an older save's moves
-  there once. Playtest: https://claude.ai/artifact/QXkcs4LdDRuQbA3zHgzCoe
