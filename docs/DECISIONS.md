@@ -148,22 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-876 · 2026-11-12 · Growing back at home, and cave pools** (the
-owner's picks, all recommended; step 12 of `HEALTH-CHECK-ORDER.md`,
-fixes H-07, H-08; answers Q-101) A night's sleep, in the bed or out,
-counts as being away: what is due to grow back by morning is there on
-waking, on any free tile, as when the hero comes into a room (offered
-too: by day at home, out of the lantern's reach counts as out of sight;
-left as it was). A still pool skips a tile that would cut the room and
-grows on elsewhere, and the roll is 0.62, so about 1 grey-rock room in 2
-holds one, as D-500 decided, measured 46% to 52% at depths 2 to 4, small
-rooms and big alike (offered too: the roll only, 0.9, big rooms nearly
-always; the growing only, about 39%). A pool never wraps three sides of
-an open tile, so nothing seems to float (offered too: only round a tile
-something lies on; left as it was). Rooms a save has already been in
-keep their maps. D-873 moves to `archive/DECISIONS-SURFACE.md`, word for
-word.
-
 **D-877 · 2026-11-12 · Sounds only when On** (the owner's picks, all
 recommended; step 13 of `HEALTH-CHECK-ORDER.md`, fixes H-03) With Sound
 Off nothing is fetched; the sound files are fetched once Sound is On, at
@@ -187,3 +171,14 @@ creature's too (offered too: only the hero's). Freed, a bump keeps him
 bump at once still leaves his 5 (offered too: each bump adds 3; as
 D-496 had it). D-875 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-879 · 2026-11-12 · Falls** (the owner's picks, all recommended; step
+15 of `HEALTH-CHECK-ORDER.md`, fixes H-16, H-17, H-56) A draught drunk,
+or a fire sat by, on a turn that ends in a fall is lost to it: the
+draught is used up and Warmed never starts, as a fall ends every
+draught and Warmed (offered too: started earlier in the turn, one turn
+longer, for the fall to clear). With something set down or lying on the
+journey's first tile, a fall wakes the hero on the nearest open tile
+beside it, as by a bed (D-737) (offered too: nothing can be set down on
+that tile; both). D-876 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

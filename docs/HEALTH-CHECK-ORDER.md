@@ -41,7 +41,7 @@ step 6 (D-869).
 14. **The Peddler:** the dim SELL (H-42); his home spot (H-58); leaving
     sooner (H-59); with Q-102. Done at 0.3.323 (D-878).
 15. **Falls:** inside the workbench (H-16); a draught (H-17); Warmed
-    (H-56).
+    (H-56). Done at 0.3.324 (D-879).
 16. **Saves kept safe:** the lost Peddler (H-57), tested with the two
     old saves on the branch `claude/gloamdeep-health-check-2-5uv4gm`,
     deleted after this step; an unreadable slot (H-21); the repeating

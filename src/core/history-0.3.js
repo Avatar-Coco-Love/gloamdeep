@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.324', date: '2026-11-12', title: 'Falls', lines: [
+    "Fixed: a draught drunk on the turn you fall no longer keeps working after you wake. A fall ends every draught, and now that one too.",
+    "Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.",
+    "Fixed: with a workbench or anything else set down on the tile where your journey began, a fall no longer wakes you inside it; you wake on the nearest open tile beside it.",
+    "Decisions: D-879. D-876 moved to the archive, word for word.",
+  ] },
   { v: '0.3.323', date: '2026-11-12', title: 'The Peddler\'s fixes', lines: [
     "At the Peddler, pressing SELL on an empty slot, or on something he doesn't buy, no longer moves the frame, so a second press can't sell something else by mistake.",
     "When you sell the last of a stack, the frame stays put and the next stack slides in under it, as before.",

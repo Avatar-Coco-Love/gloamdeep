@@ -1530,3 +1530,19 @@ as it was). Two or more effects ending on one turn are said on one line,
 "The stiffness wears off. The poison wears off.", in the order they
 count down (offered too: the second on the next turn; left as it was).
 D-872 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-876 · 2026-11-12 · Growing back at home, and cave pools** (the
+owner's picks, all recommended; step 12 of `HEALTH-CHECK-ORDER.md`,
+fixes H-07, H-08; answers Q-101) A night's sleep, in the bed or out,
+counts as being away: what is due to grow back by morning is there on
+waking, on any free tile, as when the hero comes into a room (offered
+too: by day at home, out of the lantern's reach counts as out of sight;
+left as it was). A still pool skips a tile that would cut the room and
+grows on elsewhere, and the roll is 0.62, so about 1 grey-rock room in 2
+holds one, as D-500 decided, measured 46% to 52% at depths 2 to 4, small
+rooms and big alike (offered too: the roll only, 0.9, big rooms nearly
+always; the growing only, about 39%). A pool never wraps three sides of
+an open tile, so nothing seems to float (offered too: only round a tile
+something lies on; left as it was). Rooms a save has already been in
+keep their maps. D-873 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.
