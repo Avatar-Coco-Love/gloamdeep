@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.297 (2026-11-12)
+- Nothing changes in the game. A new bug list keeps track of what you notice in play, so a new conversation finds it: the Peddler missing at home, sleeping ending a fight, a burrowed mole trapping you, and unseen rooms showing on the map by day.
+- Decisions: D-852.
+
 ## 0.3.296 (2026-11-12)
 - New: build a campfire. Once you have held Stone and Wood, the bag's Make tab shows the Campfire: 3 Stone and 2 Wood, a turn. You carry one at a time.
 - Set it down beside you on the surface and it starts as cold ashes, a ring of stones; light it with one turn of your lantern's oil, then sit, warm up and add wood as with any campfire.
@@ -33,8 +37,3 @@ Entry format:
 - Nothing changes in the game yet. Building a campfire is settled, to come next: made on the bag's Make tab from 3 Stone and 2 Wood, then set down beside you on the surface, where it starts as cold ashes to light with one turn of your lantern's oil.
 - Fires below ground were talked through and kept for later, maybe as their own step: a fire that never burns out could make a safe base deep down.
 - Decisions: D-850.
-
-## 0.3.294 (2026-11-12)
-- New: feed a campfire. A burning fire's card now shows Sit and Add wood. Add wood takes 1 Wood and a turn and brings embers back up to blazing, so you can sit by it again for the bigger gift.
-- Change: the burning fire's card is now called Campfire, with Sit in place of Yes. Add wood is grey with no Wood, or when the fire is already blazing. Cold ashes are still lit with your lantern's oil.
-- Decisions: D-849.

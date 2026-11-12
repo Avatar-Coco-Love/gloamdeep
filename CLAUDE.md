@@ -50,6 +50,7 @@ Read the smallest file that answers the question.
 | `docs/LORE.md` | the story: Underhearth, the First Light, Old Maren (D-633) | before any lore, quest or person's words |
 | `docs/GLOSSARY.md` | the game's words (D-264); finds in `GLOSSARY-FINDS.md`; the code's and menus' in `GLOSSARY-CODE.md` | before naming anything |
 | `docs/CONTENT.md` | every creature, find, tile, place (D-363); finds in `CONTENT-FINDS*.md`, people in `-2`, tiles and places in `-3`; the plan in `SCOPE*.md` (D-413) | before adding content |
+| `docs/BUGS.md` | bugs the owner noticed (B-001…), their ideas with them (D-852) | when Next up names one |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore and special creatures in `-3` | when a step touches one |
 | `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md` | when proposing a feature |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
