@@ -8,6 +8,7 @@
 import { tileAt, withTile } from './room.js';
 import { formOf } from './tiles.js';
 import { get } from './registry.js';
+import { guardWakes } from './relic.js';
 import { say } from './lines.js';
 import { enemyAt, hitEnemy, DROP_CHANCE, RARE_CHANCE } from './enemies.js';
 import { dropOf, boonHit, healOf, rareChance } from './boon.js';
@@ -83,6 +84,7 @@ export function step(state, dir) {
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   if (foe) next = scatter(next, foe, state.hero); // a pile of bones, scattered: its drop lies here, taken at once (D-731)
   for (const found of next.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
+  next = guardWakes(next); // the locket taken wakes its warden (D-874)
   return endTurn(state, takeStairs(next) || wakeStone(next));
 }
 

@@ -181,6 +181,9 @@ digs, as D-726 says, even once the hero steps off (offered too: it digs
 later). The warden, one a world, shows how to fight it once 1 is
 beaten, "Beat 1 to learn how to fight it."; every other creature still
 needs 3 (D-632) (offered too: shown once met; 3 as before). The locket
-taken past the sleeping warden is fine: nothing changes (offered too:
-the warden on the way in; taking it wakes the warden). D-871 moves to
+taken wakes the warden, the owner's idea, as a bump does: its line and
+sound, it stirs that turn, then chases for its 6 turns (offered too:
+until beaten; its own step; first answered "fine as it is", changed
+before merging). Its special drop, the owner's idea too, waits for
+after the health check (Q-104). D-871 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

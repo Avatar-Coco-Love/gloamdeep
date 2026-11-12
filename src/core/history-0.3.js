@@ -10,7 +10,8 @@ export const HISTORY_03 = [
     "A night's sleep now uses up poison's turns, as it does a draught's. In bed you still wake healed. Sleeping out, you wake with the hearts it took, and if it takes your last one, you fall.",
     "A mole that notices you while it is already beside you never digs down, even if you step away: it chases on foot.",
     "The Warden's Bestiary page shows how to fight it once you have beaten one, since there is only one in a world. Other creatures still need 3.",
-    "Decisions: D-874. Questions closed: Q-098, Q-100. D-871 moved to the archive, word for word.",
+    "Taking the Lightkeeper's Locket now wakes its Warden, as a bump does, so you can't slip past it: it chases you for 6 turns. Its Bestiary page says so.",
+    "Decisions: D-874. Questions closed: Q-098, Q-100. Questions opened: Q-104. D-871 moved to the archive, word for word.",
   ] },
   { v: '0.3.318', date: '2026-11-12', title: 'The Peddler\'s room', lines: [
     "In the Peddler's room, while he is still ringed in by rubble, you can now set down a Torch or a Glow Lamp. Before, \"There is no room there.\" was said until you dug a heap.",

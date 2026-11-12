@@ -16,6 +16,7 @@ goals: paid when quiet (H-10), two at once (H-13), with Q-099.
   (`HEALTH-CHECK-ORDER.md`), Q-099, Q-101 and Q-102 with them.
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
+- The warden's special drop (Q-104), designed right after the health check.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -51,7 +52,7 @@ list in `RESEARCH.md`.
   travel keeps poison's, stiff's and the draughts' turns (H-04); a night
   uses poison's turns, its hearts too when sleeping out (Q-098); a mole
   beside the hero as it notices never digs (H-06); one warden beaten
-  shows its tip (H-46); the locket past the warden is fine (Q-100). D-874.
+  shows its tip (H-46); taking the locket wakes its warden (Q-100). D-874.
   Playtest: https://claude.ai/artifact/716jC1BoKi8w2BWDjWPtsi
 - **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
   sealed tile is left out of the joined check while he is ringed in, so

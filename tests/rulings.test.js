@@ -62,3 +62,20 @@ test('one warden beaten shows how to fight it; others still need 3 (H-46)', () =
   assert.equal(pageOf({ warden: { met: 1, beaten: 1 } }, 'warden').fights, get('warden').fights);
   assert.equal(pageOf({ rat: { met: 1, beaten: 1 } }, 'rat').fights, 'Beat 2 more to learn how to fight it.');
 });
+
+test('taking the locket wakes its warden, as a bump does, with its line and sound (D-874)', async () => {
+  const { RELIC_GUARD } = await import('../src/core/relic.js');
+  const { step } = await import('../src/core/turn.js');
+  const base = { ...makeState(makeRoom(FIRST_ROOM), FIRST_START, [], []), hero: { x: 5, y: 11 } };
+  const s = { ...base, items: [{ id: 'locket', x: 6, y: 11, once: true }], enemies: [{ id: RELIC_GUARD, x: 7, y: 11, asleep: true }] };
+  const n = step(s, 'right');
+  assert.ok(n.bag.some((b) => b.id === 'locket'));
+  assert.ok(!n.enemies[0].asleep);
+  assert.equal(n.line.id, 'wardenWakes');
+  assert.ok(n.events.some((e) => e.type === 'wake' && e.id === RELIC_GUARD));
+  assert.equal(n.health, s.health, 'it stirs, no bite on the turn it wakes');
+  const after = wait(n);
+  assert.ok(after.enemies[0].awake > 0 && after.enemies[0].chasing, 'then it chases');
+  const full = step({ ...s, bag: Array.from({ length: 30 }, (_, i) => ({ id: 'stone', n: 1, k: i })) }, 'right');
+  assert.ok(!full.bag.some((b) => b.id === 'locket') && full.enemies[0].asleep, 'the locket left on the floor, with no room: it sleeps on');
+});
