@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.303, The mole's sight.** The owner's picks (D-858),
+  all recommended: every mole notices the hero only within 5 steps, by
+  day or night; `sight: 5` on its entry; its Bestiary page says so. The
+  owner's deep moles idea is Q-096. Playtest: https://claude.ai/artifact/7mvGA8YkefprHCZnjzrJHe
 - **2026-11-12, 0.3.302, The mole comes up when stuck.** B-003 fixed,
   the owner's picks (D-857), all recommended: a mole under the earth
   that can't come closer comes up where it is and chases on foot; it
