@@ -133,17 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-867 · 2026-11-12 · The Look card's tabs and keys** (the owner's
-picks, all recommended; step 5 of `HEALTH-CHECK-ORDER.md`, fixes H-34,
-H-37) The Look card's tabs are 20 game pixels tall: with the gap, a
-44 px tap at 2× (D-513). The boxes stay 2× as the big hero drops to 5×
-on a 390 px phone; the smallest view shows 2 rows of choices, scrolling
-(offered too: 17 tall, about 38 px; drawn as now, taps reaching up).
-Up from RANDOM or OK goes to the open tab, keeping a rolled look
-(offered too: up to the picked choice). This step is 0.3.312; the audit
-is next, at 0.3.313 (offered too: audit first; after all 19 steps).
-D-859 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-868 · 2026-11-12 · The fifteenth audit** (the owner's picks, all
 recommended) At 0.3.313, nothing visible changed. main.js's sounds,
 `hear` and the menu sounds, go to a new `src/hearing.js` (48 KB to 43).
@@ -190,3 +179,14 @@ Touch and Mouse one row, "Bag, map: Their buttons", to fit 8 lines
 creature if there is one"; the bone rat, "Knocked down, it falls into
 a pile of bones". Settings' "Run ends" is "Journey ends". D-866 moves
 to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-871 · 2026-11-12 · The marks** (the owner's picks, both
+recommended; step 7 of `HEALTH-CHECK-ORDER.md`, fixes H-36, H-55) A tap
+or the mouse up to 4 game pixels past a mark's edge still finds it, the
+gaps between marks split to the nearer one; the marks look the same
+(offered too: bigger marks; only the gaps). A row of marks stops left of
+the round map and the buttons by it, as the goal line does (D-743), and
+the rest go on a second row under it, the goal line and creature list
+moving down; on a wide screen it stays one row (offered too: no gaps
+when crowded; a column down the side). D-867 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

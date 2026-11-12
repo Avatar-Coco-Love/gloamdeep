@@ -14,7 +14,7 @@ import { drawMotes } from './motes.js';
 import { draftTo, stayingMotes } from '../core/draft.js';
 import { drawStatus } from './hud.js';
 import { shareLeft } from '../core/lasting.js';
-import { drawMarks, marksSize, markAt, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
+import { drawMarks, marksSize, markAt, MARK, MARK_GAP, POISON_MARK, STIFF_MARK, WARM_MARK, GLOW_MARK, SLOW_MARK, MEND_MARK, WARD_MARK, SPIT_MARK, SHADE_MARK } from './marks.js';
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
@@ -136,14 +136,15 @@ export function createFrame(app, ui) {
   // § goal's room (D-743): how wide the goal line's glass may be from ex, so it ends left of the
   // round map and the buttons by it while level with them, and inside the screen
   const GOAL_DOWN = 48; // the most the goal line reaches down, four lines of words
-  function goalRoom(ex, goalY) {
+  function goalRoom(ex, goalY, down = GOAL_DOWN) {
     let right = view.w - ex;
     for (const b of [mapButton, pauseButton, dev.wrench]) {
       const a = b.area();
-      if (a.w && a.y < goalY + GOAL_DOWN && a.y + a.h > goalY) right = Math.min(right, Math.floor(a.x) - 2);
+      if (a.w && a.y < goalY + down && a.y + a.h > goalY) right = Math.min(right, Math.floor(a.x) - 2);
     }
     return Math.max(60, right - ex);
   }
+  const MARKS_DOWN = 2 * MARK + MARK_GAP; // the marks' rows kept clear of the round map the same way, two rows (H-55)
   let row = null; // the list as last drawn: its entries in order and where they sit, for taps (CL2)
   let panel = { w: 0, h: 0, alpha: 1, t: 0 }; // the corner panel as last drawn, and its fade (D-380)
   let cover = { x: 0, y: 0 }; // what the dev sheet hides, eased so the room slides clear of it (D-623)
@@ -365,7 +366,7 @@ export function createFrame(app, ui) {
     if (state.spitproof > 0) marks.push({ ...SPIT_MARK, left: shareLeft(state, 'spitproof') }); // the Spitproof Draught, a dusty rose bottle and its time on the rim (D-847, D-802)
     if (state.shade > 0) marks.push({ ...SHADE_MARK, left: shareLeft(state, 'shade') }); // the Shade Draught last, a dusky violet bottle and its time on the rim (D-847, D-806)
     const pr = app.profiles.current === null ? null : playing(app.profiles), goal = fall?.from || !pr ? null : goalLine(pr.goals, app.goalGold, state.turn, state.place, state); // the teaching goal (D-706)
-    const mk = marksSize(marks), goalY = ey + panel.h + 2 + (mk.h ? mk.h + 2 : 0);
+    const markY = ey + panel.h + 2, markRoom = goalRoom(ex, markY, MARKS_DOWN), mk = marksSize(marks, markRoom), goalY = markY + (mk.h ? mk.h + 2 : 0); // a second row rather than under the round map (H-55)
     const goalW = goalRoom(ex, goalY), gl = goalSize(goal, goalW);
     const listY = goalY + (gl.h ? gl.h + 2 : 0); // the marks under the panel, the goal line under them, the list under it
     const shownN = plaquesShown(n, ex, listY, false, end), more = shownN < n ? 1 : 0;
@@ -396,8 +397,8 @@ export function createFrame(app, ui) {
     const greenHeart = app.poisonHurt && t < app.poisonHurt.until && (still() || Math.floor((app.poisonHurt.until - t) / POISON_BLINK_MS) % 2 === 0) ? app.poisonHurt.heart : -1; // the heart poison takes flashes green (D-654)
     const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
     Object.assign(panel, drawStatus(hc, { oil: s.oil, health: s.health, max: maxHealth(state), depth: depthOf(s.place), level: levelOf(s.xp ?? state.xp), sipped, greenHeart }, ex, ey, panel.alpha)); // the fall's picture keeps no xp, and a fall keeps it all (D-245)
-    drawMarks(hc, marks, ex, ey + panel.h + 2, panel.alpha);
-    markRow = { ids: marks.map((m) => m.id), marks, x: ex, y: ey + panel.h + 2 }; // for taps and the mouse (D-604)
+    drawMarks(hc, marks, ex, markY, panel.alpha, markRoom);
+    markRow = { ids: marks.map((m) => m.id), marks, x: ex, y: markY, room: markRoom }; // for taps and the mouse (D-604)
     drawGoalLine(hc, goal, ex, goalY, panel.alpha, goalW);
     goalRow = goal && { line: goal, x: ex, y: goalY, w: goalW }; // for taps (D-706)
     row = null;
@@ -464,7 +465,7 @@ export function createFrame(app, ui) {
     return i < 0 ? null : foeAt(row.list[i].e);
   }
   // § marks for taps (D-604): the id of the boon (or 'poisoned', D-654, or 'stiff', D-759) whose mark is under px, py on the screen layer, or null
-  const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.marks, markRow.x, markRow.y, px, py)] ?? null : null);
+  const markSpot = (px, py) => (markRow && app.screen === 'play' ? markRow.ids[markAt(markRow.marks, markRow.x, markRow.y, px, py, markRow.room)] ?? null : null);
   // § goal line for taps (D-706): whether the goal line is under px, py on the screen layer, in play
   const goalSpot = (px, py) => !!goalRow && app.screen === 'play' && onGoal(goalRow.line, goalRow.x, goalRow.y, px, py, goalRow.w);
   const plaqueSpots = () => (row ? row.list.slice(0, plaquesShown(row.list.length, row.x, row.y, row.across, row.end)).map((a) => foeAt(a.e)) : []);

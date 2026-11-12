@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.316', date: '2026-11-12', title: 'The marks', lines: [
+    "A tap just beside one of the small squares under the hearts (the boon's, a draught's, poisoned's and the rest) now tells what it is instead of walking you there; a tap between two finds the nearer one. They look the same.",
+    "With many of those squares at once on a phone, they no longer slide under the round map: the rest go on a second row, and the goal line and the creature list move down. On a wide screen they stay in one row.",
+    "Decisions: D-871. D-867 moved to the archive, word for word.",
+  ] },
   { v: '0.3.315', date: '2026-11-12', title: 'One words page', lines: [
     "Names of things you carry now capitalise every word: Oil Flask, Healing Herb, Healing Potion, Stash Chest, Glow Lamp. The mortar's lines say \"Need 2 Mimic Leaf, 1 Healing Herb.\" and so on.",
     "A mole that comes up away from you says \"The mole bursts up out of the earth!\"; beside you it still bursts up beside you.",

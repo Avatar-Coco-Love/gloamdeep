@@ -12,7 +12,8 @@ import { drawGlass } from './glass.js';
 export const BAD_GLASS = 'rgba(120,24,30,.75)'; // a bad mark's dark red glass (D-848)
 
 const PAD = 3; // as on the panel
-export const MARK = 2 * PAD + 9, MARK_GAP = 2;
+export const MARK = 2 * PAD + 9;
+export const MARK_GAP = 2;
 // § poisoned's mark: a drop in venom's pale green, as in its mock-up (D-654)
 export const POISON_MARK = { id: 'poisoned', bad: true, tint: '#b6e07a', icon: ['....#....', '...###...', '...###...', '..#####..', '..##.##..', '.###.###.', '.#######.', '..#####..', '...###...'] };
 // § stiff's mark: Zz in the moon button's pale blue, as in its mock-up (D-759)
@@ -40,28 +41,44 @@ export const RIM = [
 ];
 // The rim's dots lit for `left`, a share from 0 to 1: any time left lights at least one
 export const rimLit = (left) => RIM.slice(0, left > 0 ? Math.max(1, Math.ceil(left * RIM.length)) : 0);
-// marks: a list of marks, or a count of plain ones
-const widths = (marks) => Array(typeof marks === 'number' ? marks : marks.length).fill(MARK);
-export const marksSize = (marks) => { const ws = widths(marks); return ws.length ? { w: ws.reduce((a, b) => a + b, 0) + (ws.length - 1) * MARK_GAP, h: MARK } : { w: 0, h: 0 }; };
-// Which mark is at px, py, or -1
-export function markAt(marks, x, y, px, py) {
-  if (py < y || py >= y + MARK || px < x) return -1;
-  let left = x;
-  for (const [i, w] of widths(marks).entries()) { if (px < left + w) return i; left += w + MARK_GAP; if (px < left) return -1; }
-  return -1;
+// § layout (H-55): marks: a list of marks, or a count of plain ones; room: how wide the row may be.
+// A row stops before it would pass room, the rest go on rows under it, at least one to a row.
+export const MARK_PAD = 4; // a tap this far past a mark's edge still finds it, the gaps split (H-36)
+export function marksPlaced(marks, room = Infinity) {
+  const n = typeof marks === 'number' ? marks : marks.length, out = [];
+  let x = 0, y = 0;
+  for (let i = 0; i < n; i++) {
+    if (x > 0 && x + MARK > room) { x = 0; y += MARK + MARK_GAP; }
+    out.push({ x, y });
+    x += MARK + MARK_GAP;
+  }
+  return out;
 }
-export function drawMarks(c, marks, x, y, alpha = 1) {
+export const marksSize = (marks, room) => {
+  const at = marksPlaced(marks, room);
+  return at.length ? { w: Math.max(...at.map((p) => p.x)) + MARK, h: at[at.length - 1].y + MARK } : { w: 0, h: 0 };
+};
+// Which mark is at px, py, or -1: the nearest whose square, MARK_PAD bigger all round, holds it (H-36)
+export function markAt(marks, x, y, px, py, room) {
+  let best = -1, far = Infinity;
+  marksPlaced(marks, room).forEach((p, i) => {
+    const dx = Math.max(x + p.x - px, px - (x + p.x + MARK - 1), 0), dy = Math.max(y + p.y - py, py - (y + p.y + MARK - 1), 0);
+    const d = Math.max(dx, dy);
+    if (d <= MARK_PAD && d < far) { best = i; far = d; }
+  });
+  return best;
+}
+export function drawMarks(c, marks, x, y, alpha = 1, room) {
   c.save();
   c.globalAlpha = alpha;
-  let mx = x;
-  marks.forEach((m) => {
-    const w = MARK;
-    drawGlass(c, mx, y, w, MARK, m.bad ? BAD_GLASS : undefined);
-    if (m.left !== undefined) { c.fillStyle = m.tint; rimLit(m.left).forEach(([i, j]) => c.fillRect(mx + i, y + j, 1, 1)); }
+  const at = marksPlaced(marks, room);
+  marks.forEach((m, k) => {
+    const mx = x + at[k].x, my = y + at[k].y;
+    drawGlass(c, mx, my, MARK, MARK, m.bad ? BAD_GLASS : undefined);
+    if (m.left !== undefined) { c.fillStyle = m.tint; rimLit(m.left).forEach(([i, j]) => c.fillRect(mx + i, my + j, 1, 1)); }
     c.fillStyle = m.tint;
-    m.icon.forEach((row, j) => { for (let i = 0; i < row.length; i++) if (row[i] === '#') c.fillRect(mx + PAD + i, y + PAD + j, 1, 1); });
-    mx += w + MARK_GAP;
+    m.icon.forEach((row, j) => { for (let i = 0; i < row.length; i++) if (row[i] === '#') c.fillRect(mx + PAD + i, my + PAD + j, 1, 1); });
   });
   c.restore();
-  return marksSize(marks);
+  return marksSize(marks, room);
 }
