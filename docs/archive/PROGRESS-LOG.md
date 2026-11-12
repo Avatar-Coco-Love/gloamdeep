@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.313, The fifteenth audit.** Nothing visible
+  changed. main.js's sounds go to `hearing.js`; the Version history
+  loads on opening, 12 files fewer at the start (H-23); stale comments
+  fixed (H-31, H-66); `.ogg` on older iPhones on the store list (H-22).
+  Done health check findings, D-826, D-863, D-864 and the playbook's
+  lines archived word for word. H-24 and `craft()` are next. D-868.
 - **2026-11-12, 0.3.312, The Look card's tabs and keys.** Health check
   step 5: the Look card's tabs are 20 game pixels tall, 44 px taps on a
   phone (H-34); Up from RANDOM or OK goes to the open tab (H-37). The

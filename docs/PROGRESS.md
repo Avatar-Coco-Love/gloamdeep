@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.315 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.316 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 7,
-the marks (H-36, H-55).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 8,
+two clear bugs (H-05, H-11).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.316, The marks.** Health check step 7: a tap up to
+  4 game pixels past a mark finds it, the gaps split (H-36); a row of
+  marks stops left of the round map and goes on to a second row (H-55).
+  D-871.
+  Playtest: https://claude.ai/artifact/JvpkMe4i6D56JRsBCnPizK
 - **2026-11-12, 0.3.315, One words page.** Health check step 6: finds'
   names capitalise every word (H-40, H-20); a far mole's own line
   (H-15); Kind Herbs' words (H-41); How to play's Pick, bag and map
@@ -58,9 +63,3 @@ list in `RESEARCH.md`.
   further out, never on water; dev Spawn never on a person (H-24). The
   unused `craft()` is out, its tests on `makeFrom`. D-869, Q-103.
   Playtest: https://claude.ai/artifact/Tkv2JWk9F2sCpFncqYZCwy
-- **2026-11-12, 0.3.313, The fifteenth audit.** Nothing visible
-  changed. main.js's sounds go to `hearing.js`; the Version history
-  loads on opening, 12 files fewer at the start (H-23); stale comments
-  fixed (H-31, H-66); `.ogg` on older iPhones on the store list (H-22).
-  Done health check findings, D-826, D-863, D-864 and the playbook's
-  lines archived word for word. H-24 and `craft()` are next. D-868.
