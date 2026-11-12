@@ -49,7 +49,7 @@ import { journalCard } from '../src/input/cards/journal.js';
 import { questsWords } from '../src/core/goals.js';
 
 test('the boons card: its three lines (D-706) and Go, the same for the screen reader', () => {
-  assert.deepEqual(ABOUT_BOONS, ['That is a boon: a small help for one trip down.', 'It lasts until you come home, or you fall.', 'Its mark sits under your hearts. Each time you set out, pick a new one.']);
+  assert.deepEqual(ABOUT_BOONS, ['That is a boon: a small help for one trip down.', 'It lasts until you come back to the waystone, or you fall.', 'Its mark sits under your hearts. Each time you set out, pick a new one.']);
   assert.equal(ABOUT_BOONS_BUTTON, 'Go');
   assert.ok(aboutBoonsWords().startsWith(ABOUT_BOONS.join(' ')));
 });

@@ -104,17 +104,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-857 · 2026-11-12 · The mole comes up when stuck** (the owner's
-picks, all recommended; fixes B-003) A mole under the earth with no
-tile toward the hero free comes up where it is, with its line, as it
-does beside them, and chases on foot from then on, so it can be hit
-and never lies stuck in the hero's way (offered too: the hero walks
-over the mound; it finds a way round). It still never runs (offered
-too: flees when hurt, as the rat; gives up under the earth). Next, its
-own step: a mole notices the hero only within 5 steps, by day or night
-(offered too: 3 steps; no limit). D-849 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-858 · 2026-11-12 · The mole's sight** (the owner's picks, all
 recommended; builds D-857) Every mole, on the surface and in the caves,
 notices the hero only within 5 steps, by day or night, as D-857 chose;
@@ -200,3 +189,17 @@ silent). A second one-of-a-kind piece from the lost bag, a chest or a
 dropped stack says its own line, "You already carry a workbench.";
 "Your bag is full." only when the bag is (offered too: one shared
 line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-865 · 2026-11-12 · Boons at the home stone** (the owner's picks,
+all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
+H-35, and H-67, the owner's find) Arriving on the home
+plate by travel or a fall, holding no boon, opens the boon card once the
+hero is still (offered too: a tap on the plate opens it first; travel
+only), superseding D-737's "no boon offered until the hero steps off and
+back on". The 3 boons stay the same until the hero takes one or leaves
+the room (offered too: drawn anew, as before; one new draw). The words
+say "until you are back at the waystone" (offered too: "until you
+return"; keep "home"). A second one-of-a-kind piece put into a stash
+chest with room says "The chest already holds a workbench." (offered
+too: wait for the words step; its own step). D-857 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

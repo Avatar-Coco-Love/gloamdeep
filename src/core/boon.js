@@ -56,9 +56,11 @@ export const stepOffersBoons = (before, state) => state.place === before.place
   && tileAt(before.room, state.hero.x, state.hero.y).id === 'wokenPlate';
 
 // § offer: (state) → up to OFFERED boon ids, each of a different kind, seeded by the seed and
-// the turn, so a replay draws the same
+// the turn the hero came into the waystone's room (`came`, stairs.js), so a replay draws the
+// same, and skipping the card and stepping off and back on shows the same 3 until the hero
+// leaves the room (H-44, D-865)
 export function offer(state) {
-  const r = rng(seedFor(state.seed ^ state.turn, 0xb007));
+  const r = rng(seedFor(state.seed ^ (state.came ?? 0), 0xb007));
   const shuffle = (list) => { const a = [...list]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const pool = offerable(), sorts = shuffle(Object.keys(BOON_SORTS).filter((k) => pool.some((b) => b.sort === k)));
   return sorts.slice(0, OFFERED).map((k) => shuffle(pool.filter((b) => b.sort === k))[0].id);

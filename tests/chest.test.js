@@ -197,7 +197,7 @@ test('a stack joins one of its kind when it all fits there, its look going with 
 
 test('when none of it can go it says so, free, and nothing moves', () => {
   const full = atChest([{ id: 'workbench', n: 1 }], [{ id: 'workbench', n: 1 }]);
-  for (const [i, text] of [[0, 'You already carry a workbench.'], [CHEST_BAG, 'The chest is full.']]) {
+  for (const [i, text] of [[0, 'You already carry a workbench.'], [CHEST_BAG, 'The chest already holds a workbench.']]) { // H-67
     const n = moveStack(full, 3, 2, i);
     assert.equal(n.bag, full.bag);
     assert.equal(n.stashes, full.stashes);
@@ -209,6 +209,18 @@ test('when none of it can go it says so, free, and nothing moves', () => {
   assert.equal(shownLine(moveStack(bagFull, 3, 2, 0)).text, 'Your bag is full.');
   const chestFull = atChest([{ id: 'stone', n: 1 }], Array.from({ length: 12 }, (_, i) => ({ id: `x${i}`, n: 1 })));
   assert.equal(shownLine(moveStack(chestFull, 3, 2, CHEST_BAG)).text, 'The chest is full.');
+  const benchFull = atChest([{ id: 'workbench', n: 1 }], [{ id: 'workbench', n: 1 }, ...Array.from({ length: 11 }, (_, i) => ({ id: `x${i}`, n: 1 }))]);
+  assert.equal(shownLine(moveStack(benchFull, 3, 2, CHEST_BAG)).text, 'The chest is full.'); // really full: the full line (H-67)
+});
+
+test('Store leaves a second one-of-a-kind piece in the bag, not calling the chest full (H-67)', () => {
+  const one = atChest([{ id: 'workbench', n: 1 }], [{ id: 'workbench', n: 1 }]);
+  assert.equal(shownLine(storeMatching(one, 3, 2)).text, 'The chest already holds a workbench.');
+  const more = atChest([{ id: 'workbench', n: 1 }, { id: 'wood', n: 2 }], [{ id: 'workbench', n: 1 }, { id: 'wood', n: 1 }]), n = storeMatching(more, 3, 2);
+  assert.equal(shownLine(n).text, 'You store 1 stack.');
+  assert.deepEqual(n.bag.map((s) => s.id), ['workbench']);
+  const vest = atChest([{ id: 'ratVest', n: 1 }], [{ id: 'ratVest', n: 1 }]);
+  assert.equal(shownLine(moveStack(vest, 3, 2, CHEST_BAG)).text, 'The chest already holds a rat hide vest.');
 });
 
 test('an empty slot does nothing, and each chest keeps its own things', () => {

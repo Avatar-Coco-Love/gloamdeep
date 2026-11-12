@@ -9,7 +9,7 @@ export const openingWords = () => `${OPENING.join(' ')} ${OPENING_BUTTON}: press
 // same glass card; picking the done "Take a boon" in the Quests tab shows it again, over the Journal
 export const ABOUT_BOONS = [
   'That is a boon: a small help for one trip down.',
-  'It lasts until you come home, or you fall.',
+  'It lasts until you come back to the waystone, or you fall.', // H-35, D-865
   'Its mark sits under your hearts. Each time you set out, pick a new one.',
 ];
 export const ABOUT_BOONS_BUTTON = 'Go';
