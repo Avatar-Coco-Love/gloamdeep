@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.299, Your own campfire.** The owner's picks (D-854),
+  all recommended, from a picture: a campfire you set down has its own
+  words, and its cold ashes' card shows Yes, Take up and No, putting it
+  back in the bag whole. Playtest: https://claude.ai/artifact/V75MhHuMH6yK3FRYi5rzLs
 - **2026-11-12, 0.3.298, Your own campfire, settled.** The owner's
   picks (D-853), all recommended: a built fire has its own words, is
   taken back into the bag when cold, and is three built twins of the

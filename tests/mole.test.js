@@ -86,3 +86,13 @@ test('once up, it never digs again: it chases on foot', () => {
   assert.deepEqual(where(n), [[5, 9]]);
   assert.ok(!n.enemies[0].under);
 });
+
+// § stuck under the earth (B-003, D-857)
+test('under the earth with no tile toward the hero free, it comes up where it is, then can be hit', () => {
+  // the hero at 5,11, the mole under at 4,10, diagonal; a rat on 5,10 and on 4,11 blocks both tiles toward them
+  const s = { ...at(4, 10), enemies: [{ id: 'mole', x: 4, y: 10, under: true, chasing: true }, { id: 'rat', x: 5, y: 10, asleep: true }, { id: 'rat', x: 4, y: 11, asleep: true }] };
+  const n = wait(s), m = n.enemies.find((e) => e.id === 'mole');
+  assert.deepEqual([m.x, m.y], [4, 10], 'where it was');
+  assert.ok(!m.under, 'up'); assert.ok(m.dug, 'it never digs again');
+  assert.equal(n.line.id, 'moleSurfaces');
+});

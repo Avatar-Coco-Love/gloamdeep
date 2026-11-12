@@ -1254,3 +1254,17 @@ started with). The bad marks, poisoned and stiff, sit on dark red glass
 instead of the night glass; the good ones are unchanged (offered too:
 a small red minus or green plus in a corner;
 the bad ones first with a red line under them; no sign for now).
+
+**D-849 · 2026-11-12 · Feeding a campfire** (the owner's picks, all
+recommended; Q-088's feeding) A burning fire's card shows Sit and Add
+wood (offered too: Put on the fire from the bag beside one; Add wood?
+asked after sitting). Add wood takes 1 Wood and a turn and raises
+embers a level, to blazing (offered too: 2 Wood a level; 1 Wood to
+blazing from anything; free). Only embers take wood: blazing takes no
+more and cold ashes are still lit with oil (offered too: wood lighting
+ashes too; feeding blazing to bank more sits). Add wood is grey with no
+Wood or on a blazing fire. Claude's calls the owner may change: the
+card's heading is Campfire, over its words as before; no No, the cross
+closes it; Sit picked, else Add wood; "You add wood. The fire burns
+high."; no sound of its own yet. D-842 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.

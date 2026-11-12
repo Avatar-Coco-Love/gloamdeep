@@ -95,20 +95,6 @@ A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
 
-**D-849 · 2026-11-12 · Feeding a campfire** (the owner's picks, all
-recommended; Q-088's feeding) A burning fire's card shows Sit and Add
-wood (offered too: Put on the fire from the bag beside one; Add wood?
-asked after sitting). Add wood takes 1 Wood and a turn and raises
-embers a level, to blazing (offered too: 2 Wood a level; 1 Wood to
-blazing from anything; free). Only embers take wood: blazing takes no
-more and cold ashes are still lit with oil (offered too: wood lighting
-ashes too; feeding blazing to bank more sits). Add wood is grey with no
-Wood or on a blazing fire. Claude's calls the owner may change: the
-card's heading is Campfire, over its words as before; no No, the cross
-closes it; Sit picked, else Add wood; "You add wood. The fire burns
-high."; no sound of its own yet. D-842 moves to
-`archive/DECISIONS-SOUNDS.md`, word for word.
-
 **D-850 · 2026-11-12 · Building a campfire** (the owner's picks, all
 recommended but where; Q-088's building) A campfire is made on the bag's
 Make tab, then set down beside the hero with Set down, as the mortar and
@@ -191,4 +177,15 @@ after the hero, the bed sleeps no more than the moon button does
 same line (offered too: a bed-only line), so a fight can't be slept
 away (offered too: the hero lies down and is woken by a bite; those
 chasing are still there in the morning). D-848 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-857 · 2026-11-12 · The mole comes up when stuck** (the owner's
+picks, all recommended; fixes B-003) A mole under the earth with no
+tile toward the hero free comes up where it is, with its line, as it
+does beside them, and chases on foot from then on, so it can be hit
+and never lies stuck in the hero's way (offered too: the hero walks
+over the mound; it finds a way round). It still never runs (offered
+too: flees when hurt, as the rat; gives up under the earth). Next, its
+own step: a mole notices the hero only within 5 steps, by day or night
+(offered too: 3 steps; no limit). D-849 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

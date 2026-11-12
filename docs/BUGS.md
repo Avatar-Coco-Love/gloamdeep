@@ -12,13 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-003 · 2026-11-12 · A burrowed mole traps the hero** In the home
-room, a mole sometimes chases and traps the hero and never comes above
-ground: it stays burrowed, and the hero can't walk over it. The owner's
-ideas: maybe the hero could walk over a burrowed mole, and maybe the
-mole could sometimes run away. The owner also feels the mole comes at
-the hero from too far away, and asks: does it have a sight limit?
-
 **B-004 · 2026-11-12 · Daylight shows unseen rooms on the map** In
 daylight, the other surface rooms show on the map, even ones the hero
 has never been to.
