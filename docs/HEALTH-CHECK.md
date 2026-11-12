@@ -3,14 +3,13 @@
 The 0.3.304 health check (D-860) played the game, read `src/` and
 compared both with the decisions and docs. The owner picked these
 findings to become steps. Each has its number in the report, H-01 on,
-never reused. One step at a time, in the order below: Claude checks the
-finding still holds, offers 2 or 3 fixes with a recommendation, and
+never reused. One step at a time, in `HEALTH-CHECK-ORDER.md`'s order
+(D-862): Claude checks the finding still holds, offers 2 or 3 fixes with a recommendation, and
 builds only the owner's pick. "Suggests" is Claude's recommendation,
 not a decision. A done step's line gets its version, and moves to
 `archive/` at the next audit. The full report, with every option:
 https://claude.ai/artifact/Lv8sNA91e7X949uKDe4E4s
-The second pass's steps, H-32 on, come after these: `HEALTH-CHECK-2.md`
-(D-861).
+The second pass's steps, H-32 on, are in `HEALTH-CHECK-2.md` (D-861).
 
 "Ran" means reproduced with the game's rules in a script; "read" means
 seen in the code only.

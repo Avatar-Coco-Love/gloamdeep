@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.307', date: '2026-11-12', title: 'The health check\'s order', lines: [
+    "No change in play. The dev tools' four findings became a step. Both health checks' steps now go in one order, 19 steps grouped by what they share, the things most players notice first, and no new content until they are done. Five things seen with no decision to measure against became open questions, each asked at its step.",
+    "Decisions: D-862. Questions raised: Q-098 to Q-102.",
+  ] },
   { v: '0.3.306', date: '2026-11-12', title: 'The second health check\'s steps', lines: [
     "No change in play. A second health check, of what the first didn't reach: fishing, the Peddler, waystones and boons, campfires, the mortar, the mountain rooms, the deep floors, falls, the look creator, the dev tools, the art, the game's words and old saves, played on a phone and a PC. It found 35 more things, from no boon after travelling home to a campfire's hidden first words. Those players can see are now steps, after the first list's.",
     "Decisions: D-861.",
