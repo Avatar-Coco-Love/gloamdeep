@@ -51,6 +51,16 @@ test('bumped at night, the hero sleeps until morning, healed and rested, no oil 
   assert.ok(slept.events.some((e) => e.type === 'sleep'));
 });
 
+test('with a creature after the hero, the bed won\'t sleep, free, as outside; a shy one doesn\'t stop it (B-002, D-856)', () => {
+  const chasedBy = (e) => ({ ...inBed(480), enemies: [e] });
+  const bumped = step(chasedBy({ id: 'bat', x: 1, y: 3, health: 1, chasing: true }), 'right');
+  assert.equal(bumped.turn, 480, 'no turn passes');
+  assert.equal(bumped.health, 2);
+  assert.equal(bumped.enemies.length, 1, 'the bat is still there');
+  assert.equal(shownLine(bumped).text, 'Not with a creature after you.');
+  assert.equal(step(chasedBy({ id: 'bunny', x: 1, y: 3, health: 1 }), 'right').turn, 600, 'a shy bunny near the bed');
+});
+
 test('by day the bump opens its card; stepped into it says so, free', () => {
   const s = inBed(100);
   assert.deepEqual(panelBeside(s, 'right'), { x: 3, y: 2 });

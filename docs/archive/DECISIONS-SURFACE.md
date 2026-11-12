@@ -1244,3 +1244,13 @@ whatever it started with). A tap on the mark still says the turns left
 (offered too: nowhere). Claude's calls: any time left lights at least
 one dot; poisoned's and stiff's marks keep no rim for now. That last
 call superseded by D-848 (2026-11-12).
+
+**D-848 · 2026-11-12 · Bad marks: a rim and red glass** (the owner's
+idea and picks; supersedes D-847's no rim for poisoned and stiff)
+Poisoned's and stiff's marks get the timer rim too, full at their
+longest time, poisoned 6 turns and stiff 20, so a poison a worn find
+shortens starts part lit (recommended; offered too: full at whatever it
+started with). The bad marks, poisoned and stiff, sit on dark red glass
+instead of the night glass; the good ones are unchanged (offered too:
+a small red minus or green plus in a corner;
+the bad ones first with a red line under them; no sign for now).

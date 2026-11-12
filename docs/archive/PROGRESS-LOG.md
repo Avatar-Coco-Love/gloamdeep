@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.298, Your own campfire, settled.** The owner's
+  picks (D-853), all recommended: a built fire has its own words, is
+  taken back into the bag when cold, and is three built twins of the
+  fire's levels in the code. Building it is Next up.
 - **2026-11-12, 0.3.297, A bug list.** The owner's pick (D-852),
   recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
   so "Next up" is all a new conversation needs. The first four: the

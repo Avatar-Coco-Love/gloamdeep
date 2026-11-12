@@ -27,7 +27,7 @@ import { DIRS, passTurn, maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
 import { fleeOrStand } from './creatureturn.js';
 import { fetchBag } from './fall.js';
-import { sleep } from './sleep.js';
+import { sleep, tired } from './sleep.js';
 import { fangMend } from './fang.js';
 import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
@@ -41,7 +41,7 @@ export { wait } from './endturn.js';
 export { nextMoves, creatureList } from './creatureturn.js';
 export { startOver, fallView } from './fall.js';
 export { sleepOut, canSleepOut, noSleepOut, warm, campAsks } from './sleepout.js';
-import { noSleepOut } from './sleepout.js';
+import { noSleepOut, chased } from './sleepout.js';
 export { sit, canSit, stoke, canStoke } from './fireside.js';
 export { pour, craft, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve, kindle, canKindle, plant, canPlant, pick, canPick, feed, canFeed, panelBeside, setSides, look, pourByItself, sortTheBag } from './bagturn.js';
 
@@ -67,7 +67,7 @@ export function step(state, dir) {
   const flyer = tile.id === 'water' && enemyAt(state, x, y); // one that flies, over water: struck as on the floor, rod held or not (D-718)
   if (flyer) return attack(state, flyer);
   if (tile.solid) {
-    if (tile.sleeps) return sleep(state, x, y); // the bed (D-488)
+    if (tile.sleeps) return tired(state) && chased(state) ? say(state, 'sleepChased') : sleep(state, x, y); // the bed (D-488), not with a creature after the hero, free, as outside (D-856)
     if (tile.camps) return say(state, noSleepOut(state) ?? 'notTired'); // the bedroll from dusk: its ask opens instead (main.js), or why not, free (D-804)
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
