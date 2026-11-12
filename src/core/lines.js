@@ -239,6 +239,7 @@ export const LINES = {
   setDown: { text: 'You set it down.', warn: false }, // Drop in the bag, free (D-546)
   bagBack: { text: 'You take back your bag.', warn: false }, // all of the bag where you fell, back in (MO3, D-345)
   stashFull: { text: 'The chest is full.', warn: false }, // a stack that can't all go into the stash chest, free (D-331)
+  stashHolds: { text: 'The chest already holds {n}.', warn: false }, // a second one-of-a-kind piece, the chest with room, {n} the piece, "a workbench" (H-67, D-865)
   storeOne: { text: 'You store 1 stack.', warn: false }, // Store on the chest's card, free (D-556)
   storeSome: { text: 'You store {n} stacks.', warn: false }, // the same, {n} bag stacks moved (D-555)
   storeOneFull: { text: 'You store 1 stack. The chest is full.', warn: false }, // the same, some left in the bag (D-556)

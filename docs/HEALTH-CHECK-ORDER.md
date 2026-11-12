@@ -15,7 +15,9 @@ and takes H-22 to H-24, H-31 and H-66.
 2. **A full bag:** silent finds (H-02); a second one-of-a-kind piece
    (H-18). Done at 0.3.309 (D-864).
 3. **Boons at the home stone:** none after travelling home (H-32);
-   drawing again (H-44); "until you are home" (H-35).
+   drawing again (H-44); "until you are home" (H-35); and the chest's
+   second one-of-a-kind piece (H-67), the owner's find. Done at 0.3.310
+   (D-865).
 4. **First words over the ask card** (H-33).
 5. **The Look card:** the tabs' taps (H-34); the keyboard (H-37).
 6. **One words page,** every wording approved at once: H-12, H-15,

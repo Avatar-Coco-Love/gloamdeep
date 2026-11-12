@@ -20,6 +20,7 @@ in a script; "read" seen in the code only.
   travel or a fall, the tap opens the travel card, never the boon card;
   D-583 offers one each time the hero sets out (`boon.js:54-56`,
   `main.js:283`). Played. Suggests: arriving opens the boon card.
+  Done at 0.3.310 (D-865).
 - **H-33 A campfire's and the miners' camp's first words are hidden.**
   The text line isn't drawn over the ask card (`frame.js:409,424`);
   D-757, D-844, D-770 put them on the line. Played. Suggests: draw the
@@ -30,7 +31,8 @@ in a script; "read" seen in the code only.
 ## 2. Some players notice
 - **H-35** The boon's words say "until you are home"; it ends at the
   cave mouth's room (D-753; `render/boons.js:12`, `boons.js:23`,
-  `opening.js:12`). Ran. The owner approves the words.
+  `opening.js:12`). Ran. The owner approves the words. Done at
+  0.3.310 (D-865).
 - **H-36** The boon's mark is a 30 px tap on a phone, a miss walks the
   hero (`marks.js:15,47-52`, D-604). Suggests: a pad around each mark.
 - **H-37** The Look card by keyboard: Up from RANDOM re-picks every
@@ -52,12 +54,18 @@ in a script; "read" seen in the code only.
   and on). Played.
 - **H-44** Skipping the boon card and stepping off and on draws three
   new boons (`boon.js:61`). Played. The owner rules if that's allowed.
+  Done at 0.3.310 (D-865).
 - **H-45** The Bestiary's lure wisp "always" drifts to a creature
   (D-649); the bone rat "Beaten" as a pile (D-731). Read.
 - **H-46** The warden's page: "Beat 2 more…", one warden a journey
   (D-632, D-691). Played. Suggests: one-of-a-kind guards at 1.
 - **H-47** Settings' "Run ends" (`settings.js:116`); the game says
   journey (`GLOSSARY.md:9-10`). Suggests: "Journey ends".
+- **H-67** A second one-of-a-kind piece put into a stash chest that
+  holds one says "The chest is full." when the chest has room
+  (`chest.js:66`, `bag.js:26`; H-18's other side, added by the owner
+  at 0.3.309). Ran. Suggests: its own line, as H-18's. Done at
+  0.3.310 (D-865).
 
 ## 4. One art step
 The owner picks from a picture.

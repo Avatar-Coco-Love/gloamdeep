@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.307, The health check's order.** The dev tools'
+  four (H-38, H-48 to H-50) became a step. Both lists now go in one
+  order of 19 grouped steps, most noticed first (D-862); five loose
+  ends became Q-098 to Q-102; the old branch is kept for H-57. Docs
+  only, no playtest.
 - **2026-11-12, 0.3.306, The second health check's steps.** A second
   health check of 0.3.305, no game code changed: 35 findings, H-32 to
   H-66. The owner picked every one players see as steps (D-861), in

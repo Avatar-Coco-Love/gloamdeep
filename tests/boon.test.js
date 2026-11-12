@@ -29,9 +29,9 @@ test('boons: every entry has a known kind, a name and one short line', () => {
   assert.deepEqual(offerable().map((b) => b.id).sort(), ['deepPour', 'farSight', 'greedyHands', 'hardBlow', 'hungryFlame', 'keenEye', 'kindHerbs', 'luckyFind', 'reckless', 'slowWick', 'softStep', 'stoutHeart', 'waymark', 'wideGlow']); // built so far
 });
 
-test('boons: the offer is 3, each of a different kind, the same for the same seed and turn', () => {
+test('boons: the offer is 3, each of a different kind, the same for the same seed and arrival', () => {
   for (let turn = 0; turn < 40; turn++) {
-    const s = { ...onHome(), turn }, ids = offer(s);
+    const s = { ...onHome(), turn, came: turn }, ids = offer(s);
     assert.equal(ids.length, OFFERED);
     assert.equal(new Set(ids.map((id) => BOONS[id].sort)).size, OFFERED);
     assert.deepEqual(offer(s), ids);
@@ -172,4 +172,13 @@ test('boons: Lucky Find makes rare drops 1 in 4, 35 in 100 with the Wisp Charm',
   assert.ok(Math.abs(rareChance(lucky, RARE_CHANCE) - 0.25) < 1e-9);
   assert.ok(Math.abs(rareChance({ ...s, ...charm }, RARE_CHANCE) - 0.2) < 1e-9);
   assert.ok(Math.abs(rareChance({ ...lucky, ...charm }, RARE_CHANCE) - 0.35) < 1e-9);
+});
+
+test('boons: off and back on shows the same 3 until the hero leaves the room (H-44, D-865)', () => {
+  const s = onHome(), back = step(step(s, 'down'), 'up');
+  assert.notEqual(back.turn, s.turn);
+  assert.deepEqual(offer(back), offer(s));
+  const away = goToPlace(s, 'first'), again = goToPlace({ ...away, turn: away.turn + 7 }, stoneHome(SEED));
+  assert.equal(again.came, away.turn + 7); // the turn it came back, for the draw
+  assert.equal(s.came, makeWorld('first', SEED).turn);
 });

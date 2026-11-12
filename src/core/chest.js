@@ -2,8 +2,9 @@
 // are a 4 × 3 grid, the bag's beside them (6 a 3 × 2 grid, 9 a 3 × 3, 12 a 4 × 3, D-548);
 // `chosen` is a chest slot, 0 to 11, a bag slot, from 12 (CHEST_BAG + i), or CHEST_TAKE
 // for its Deconstruct button (CH5), CHEST_STORE for its Store (D-556). Plain data, no drawing.
-import { MAX_BAG, bagAdd, bagSize, bagCols, bagPay, carried, noRoom } from './bag.js';
-import { say } from './lines.js';
+import { MAX_BAG, bagAdd, bagSize, bagCols, bagPay, carried, noRoom, most } from './bag.js';
+import { say, LINES } from './lines.js';
+import { get } from './registry.js';
 import { tileAt } from './room.js';
 
 export const CHEST_SLOTS = 12;
@@ -53,38 +54,52 @@ function put(to, s, slots) {
   return { to, left: s.n - n };
 }
 
+// § holds: a one-of-a-kind piece the chest already holds one of, with room left in it, can't go
+// in: the line "The chest already holds a workbench.", its piece taken from the piece's own line
+// ("You already carry a workbench."), as H-18's (H-67, D-865); else null
+export function chestHolds(stash, id) {
+  if (most(id) !== 1 || stash.length >= CHEST_SLOTS || !stash.some((s) => s.id === id)) return null;
+  const piece = LINES[get(id)?.full]?.text.match(/^You already (?:carry|have) (.+)\.$/)?.[1];
+  return piece ? ['stashHolds', piece] : null;
+}
+
 // § move: picking a filled slot on the chest's card moves its stack to the other
 // side, free, with no line; an emptied slot is gone and the ones after it move up,
 // the bag's way. What can't go stays in its slot, with "Your bag is full." or
 // "The chest is full.", free (D-331, D-333); out of the chest with room in the bag, a
-// one-of-a-kind piece's own line, "You already carry a workbench." (H-18, D-864)
+// one-of-a-kind piece's own line, "You already carry a workbench." (H-18, D-864); into
+// the chest with room in it, "The chest already holds a workbench." (H-67, D-865)
 export function moveStack(state, x, y, i) {
   const stash = stashAt(state, x, y), out = i < CHEST_BAG;
   const from = out ? stash : state.bag, at = out ? i : i - CHEST_BAG, s = from[at];
   if (!s) return state;
   const { to, left } = put(out ? state.bag : stash, s, out ? bagSize(state) : CHEST_SLOTS);
-  const full = out ? noRoom(to, s.id, bagSize(state)) : 'stashFull';
-  if (left === s.n) return say(state, full);
+  const full = out ? [noRoom(to, s.id, bagSize(state))] : chestHolds(stash, s.id) || ['stashFull'];
+  if (left === s.n) return say(state, ...full);
   const rest = left ? from.map((o, k) => (k === at ? { ...o, n: left } : o)) : from.filter((o, k) => k !== at);
   const [bag, kept] = out ? [to, rest] : [rest, to];
   const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: kept } };
-  return left ? say(moved, full) : moved;
+  return left ? say(moved, ...full) : moved;
 }
 
 // § store: Store on the chest's card moves every bag stack whose kind the chest already
 // holds onto it, as much as fits, free: "You store 3 stacks.", "Nothing to store.", and
-// "The chest is full." after the count when some had to stay in the bag (D-555, D-556)
+// "The chest is full." after the count when some had to stay in the bag (D-555, D-556). A
+// one-of-a-kind piece the chest holds one of stays, not making it full; with nothing else
+// to store, its own line, "The chest already holds a workbench." (H-67, D-865)
 export function storeMatching(state, x, y) {
-  let stash = stashAt(state, x, y), stored = 0, full = false;
+  let stash = stashAt(state, x, y), stored = 0, full = false, holds = null;
   const kinds = new Set(stash.map((s) => s.id)), bag = [];
   for (const s of state.bag) {
     if (!kinds.has(s.id)) { bag.push(s); continue; }
+    const one = chestHolds(stash, s.id);
+    if (one) { holds ||= one; bag.push(s); continue; }
     const { to, left } = put(stash, s, CHEST_SLOTS);
     if (left < s.n) stored++;
     if (left) { full = true; bag.push(left === s.n ? s : { ...s, n: left }); }
     stash = to;
   }
-  if (!stored) return say(state, full ? 'stashFull' : 'storeNone');
+  if (!stored) return say(state, ...(full ? ['stashFull'] : holds || ['storeNone']));
   const moved = { ...state, bag, stashes: { ...state.stashes, [keyOf(state, x, y)]: stash } };
   return say(moved, `store${stored === 1 ? 'One' : 'Some'}${full ? 'Full' : ''}`, stored);
 }
@@ -110,7 +125,7 @@ export function storeNearby(state) {
   const near = chestsNear(state);
   if (!near.length) return state;
   const stashes = near.map(({ x, y }) => stashAt(state, x, y)), kinds = stashes.map((st) => new Set(st.map((s) => s.id)));
-  let stored = 0, full = false;
+  let stored = 0, full = false, holds = null;
   const bag = [];
   for (const s of state.bag) {
     let left = s.n;
@@ -119,13 +134,14 @@ export function storeNearby(state) {
       const r = put(st, { ...s, n: left }, CHEST_SLOTS);
       stashes[k] = r.to; left = r.left;
     });
-    const held = kinds.some((k) => k.has(s.id));
+    const held = kinds.some((k) => k.has(s.id)), one = stashes.some((st) => chestHolds(st, s.id)); // a piece a chest holds one of isn't "full" (H-67)
     if (held && left < s.n) stored++;
-    if (held && left) full = true;
+    if (held && left && !one) full = true;
+    if (held && left && one) holds ||= chestHolds(stashes.find((st) => chestHolds(st, s.id)), s.id);
     bag.push(left === s.n ? s : left ? { ...s, n: left } : null);
   }
   const many = near.length > 1, fullLine = many ? 'chestsFull' : 'stashFull';
-  if (!stored) return say(state, full ? fullLine : 'storeNone');
+  if (!stored) return say(state, ...(full ? [fullLine] : (!many && holds) || ['storeNone'])); // many chests: "Nothing to store." (H-67)
   const kept = { ...state.stashes };
   near.forEach(({ x, y }, k) => { if (stashes[k].length) kept[keyOf(state, x, y)] = stashes[k]; });
   const moved = { ...state, bag: bag.filter(Boolean), stashes: kept };

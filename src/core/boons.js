@@ -20,7 +20,7 @@ export const BOONS = {
   wideGlow: { id: 'wideGlow', kind: 'boon', sort: 'light', name: 'Wide Glow', words: 'The light reaches 1 tile farther.', reach: 1 },
   deepPour: { id: 'deepPour', kind: 'boon', sort: 'light', name: 'Deep Pour', words: 'Each flask pours more oil.', pour: 0.6 },
   hungryFlame: { id: 'hungryFlame', kind: 'boon', sort: 'light', name: 'Hungry Flame', words: 'The light reaches 2 tiles farther, but burns faster.', reach: 2, burn: 1.5 },
-  stoutHeart: { id: 'stoutHeart', kind: 'boon', sort: 'hearts', name: 'Stout Heart', words: '2 more hearts, until you are home.', hearts: 2 },
+  stoutHeart: { id: 'stoutHeart', kind: 'boon', sort: 'hearts', name: 'Stout Heart', words: '2 more hearts, until you are back at the waystone.', hearts: 2 },
   hardBlow: { id: 'hardBlow', kind: 'boon', sort: 'hearts', name: 'Hard Blow', words: 'Every hit you land does 1 more.', hit: 1 },
   kindHerbs: { id: 'kindHerbs', kind: 'boon', sort: 'hearts', name: 'Kind Herbs', words: 'Whatever heals you heals 1 heart more.', heal: 1 },
   reckless: { id: 'reckless', kind: 'boon', sort: 'hearts', name: 'Reckless', words: 'Every hit does 1 more, but 2 fewer hearts.', hit: 1, hearts: -2 },

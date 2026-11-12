@@ -219,7 +219,8 @@ recommended; builds D-733's step 3, supersedes D-119's crypt and D-735's
 slept in, on the tile they lay down from; with something there now, on
 the nearest open tile beside the bed. With no bed, on the home
 waystone's plate once it is woken, no boon offered until the hero steps
-off and back on. Otherwise in the room where the journey began, on its
+off and back on (that part superseded by D-865, 2026-11-12: waking
+there opens the boon card). Otherwise in the room where the journey began, on its
 tile. Taking the bed down forgets it until it is slept in again. The
 fall line stays "You fall, and wake again." Hardcore still begins the
 world again. Claude's call the owner may change: the code is
@@ -1342,4 +1343,15 @@ after the hero, the bed sleeps no more than the moon button does
 same line (offered too: a bed-only line), so a fight can't be slept
 away (offered too: the hero lies down and is woken by a bite; those
 chasing are still there in the morning). D-848 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-857 · 2026-11-12 · The mole comes up when stuck** (the owner's
+picks, all recommended; fixes B-003) A mole under the earth with no
+tile toward the hero free comes up where it is, with its line, as it
+does beside them, and chases on foot from then on, so it can be hit
+and never lies stuck in the hero's way (offered too: the hero walks
+over the mound; it finds a way round). It still never runs (offered
+too: flees when hurt, as the rat; gives up under the earth). Next, its
+own step: a mole notices the hero only within 5 steps, by day or night
+(offered too: 3 steps; no limit). D-849 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.

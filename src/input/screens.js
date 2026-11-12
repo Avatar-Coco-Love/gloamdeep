@@ -137,7 +137,7 @@ export function createScreens(app, ui) {
   }
   // § the boon card (D-596): the home plate's 3 boons, one row each, drawn as the card opens
   const boonsMenu = () => (app.offer || []).map(boonRow);
-  const boonsWords = () => `Pick a boon. ${boonsMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} It lasts until you are home again. Esc or the close button goes on without one.`;
+  const boonsWords = () => `Pick a boon. ${boonsMenu().map((l) => `${l.text}: ${l.note}`).join(' ')} It lasts until you are back at the waystone. Esc or the close button goes on without one.`;
   // § the strike card (D-614): opened on the pull, its clock started
   // § sleeping out (D-758): the moon button's ask, No picked
   function openSleepOut() { app.queued = null; show('sleepOut', SURE_MENU.findIndex((l) => l.id === 'no')); }

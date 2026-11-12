@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.309 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.310 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
 The health check's 19 steps (D-860 to D-862), one a conversation, in
 `HEALTH-CHECK-ORDER.md`'s order, no new content till done: the first
-not yet done, now step 3, Boons at the home stone (H-32, H-44, H-35).
+not yet done, now step 4, First words over the ask card (H-33).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -46,6 +46,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.310, Boons at the home stone.** Health check step 3:
+  arriving on the home plate by travel or a fall offers the boon card
+  (H-32); the same 3 boons until you leave the room (H-44); "until you
+  are back at the waystone" (H-35). A second one-of-a-kind piece into a
+  chest with room says "The chest already holds a workbench." (H-67,
+  the owner's find). D-865.
+  Playtest: https://claude.ai/artifact/G8UbxZcKVP9HogiKH5CLuu
 - **2026-11-12, 0.3.309, A full bag says so.** Health check step 2: a
   find with no room in the bag says "Your bag is full.", or its own
   line when some is carried; wood gets "You can't carry more wood."
@@ -57,8 +64,3 @@ list in `RESEARCH.md`.
   bedroll, one past the most; only a bite or a fall takes it (H-01).
   The Heart tile counts only hearts grown (H-19). D-863.
   Playtest: https://claude.ai/artifact/YUwfyNTfZv1shchaPgeXCq
-- **2026-11-12, 0.3.307, The health check's order.** The dev tools'
-  four (H-38, H-48 to H-50) became a step. Both lists now go in one
-  order of 19 grouped steps, most noticed first (D-862); five loose
-  ends became Q-098 to Q-102; the old branch is kept for H-57. Docs
-  only, no playtest.

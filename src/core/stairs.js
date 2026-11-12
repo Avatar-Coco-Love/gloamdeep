@@ -40,7 +40,8 @@ export function goToPlace(state, to) {
 // No weapon like one the hero has, held or in the bag, lies there (D-252, D-479). An enemy still fleeing
 // calms as the hero leaves: it has to notice them again, as after its turns (D-302),
 // and one awake from its disguise settles back down asleep (D-368).
-// Each room's taken list goes with it (regrow.js). Back in the home waystone's room, a boon ends (D-583, D-753).
+// Each room's taken list goes with it (regrow.js). Back in the home waystone's room, a boon ends (D-583, D-753)
+// and `came` keeps the turn, so the boon card's 3 stay the same while the hero is there (H-44, D-865).
 // With Far Sight, a room never seen shows its third nearest the hero (D-602). A scorpion's
 // tail raised when the hero left is lowered as they come back, so it strikes no old line (D-742).
 export function arrive(state, to, there, spot) {
@@ -53,7 +54,7 @@ export function arrive(state, to, there, spot) {
   const items = there.items.filter((it) => !has.includes(it.id));
   const lowered = (there.enemies || []).map(({ raised, ...e }) => e); // a scorpion's tail raised as the hero left is lowered (D-742)
   const out = stepAside({ ...state, ...there, enemies: lowered, items, people: there.people || [], taken: there.taken || [], place: to, elsewhere, hero: spot });
-  return to === stoneHome(state.seed) ? withoutBoon(out) : farSight(out); // home to the waystone's room (D-753)
+  return to === stoneHome(state.seed) ? withoutBoon({ ...out, came: state.turn }) : farSight(out); // home to the waystone's room (D-753); the turn it came, for the boons' draw (H-44, D-865)
 }
 
 // § step aside: a creature standing where the hero arrives or wakes, as one that chased
