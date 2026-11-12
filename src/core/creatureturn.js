@@ -242,11 +242,13 @@ const brave = (enemies, foe) => packed(foe) && mates(enemies, foe).length >= 1;
 // § burrows (D-726): one that burrows and has noticed the hero digs down where it stands, `under`,
 // with its `digs` line; under, it comes a tile a turn toward them as one that chases does; beside
 // them it comes up with its `surfaces` line, `dug`, to bite on the turn after and chase on foot
-// from then on. Already beside them as it notices, it never digs.
+// from then on. Already beside them as it notices, it never digs. With no tile toward them free, it
+// comes up where it is the same way, so it never lies stuck under the earth in the hero's way (D-857).
 function burrowStep(state, e, near) {
   if (!e.under) return { change: { ...e, under: true, chasing: true }, line: 'digs' };
-  if (near) { const { under, ...up } = e; return { change: { ...up, dug: true }, line: 'surfaces' }; }
-  const to = chaseStep(state, e) || e, facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
+  const to = !near && chaseStep(state, e);
+  if (!to) { const { under, ...up } = e; return { change: { ...up, dug: true }, line: 'surfaces' }; }
+  const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
   return { change: { ...e, x: to.x, y: to.y, ...(facing && { facing }) }, line: null };
 }
 

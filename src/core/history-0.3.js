@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.302', date: '2026-11-12', title: 'The mole comes up when stuck', lines: [
+    "Fixed: a burrowed mole can no longer trap you. A mole under the earth that can't come any closer, blocked by a tree, a rock or another creature, now comes up where it is, with its usual line, and chases on foot from then on, so you can hit it. Before, it could lie stuck under the earth in your way for good.",
+    "Decisions: D-857. Bugs fixed: B-003.",
+  ] },
   { v: '0.3.301', date: '2026-11-12', title: 'The bed won\'t sleep in a fight', lines: [
     "Fixed: you can no longer sleep a fight away. Bumping your bed at night with a creature after you now says \"Not with a creature after you.\" and takes no turn, as sleeping out under the sky already did. A shy creature nearby, like a bunny, still doesn't stop you.",
     "Decisions: D-856. Bugs fixed: B-002.",

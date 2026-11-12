@@ -4,15 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.301 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.302 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The bugs in `BUGS.md` (D-852), one at a time, B-003 next: a burrowed
-mole traps the hero.
+The mole's sight (D-857): a mole notices the hero only within 5 steps,
+by day or night. Then B-004 in `BUGS.md` (D-852).
 
 ## Waiting on the owner
-- Bugs the owner noticed (`BUGS.md`): B-003 and B-004, each its own step.
+- Bugs the owner noticed (`BUGS.md`): B-004, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
@@ -42,6 +42,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.302, The mole comes up when stuck.** B-003 fixed,
+  the owner's picks (D-857), all recommended: a mole under the earth
+  that can't come closer comes up where it is and chases on foot; it
+  still never runs; a 5-step sight limit comes next. Playtest: https://claude.ai/artifact/BSe8GdX2yeKApG61aRuPzQ
 - **2026-11-12, 0.3.301, The bed won't sleep in a fight.** B-002 fixed,
   the owner's picks (D-856), all recommended: with a creature after the
   hero, the bed says "Not with a creature after you.", free, as sleeping
@@ -50,7 +54,3 @@ list in `RESEARCH.md`.
   owner's picks (D-855), all recommended: freed, he goes to the home
   waystone's room, by its middle, off the stone; an older save's moves
   there once. Playtest: https://claude.ai/artifact/QXkcs4LdDRuQbA3zHgzCoe
-- **2026-11-12, 0.3.299, Your own campfire.** The owner's picks (D-854),
-  all recommended, from a picture: a campfire you set down has its own
-  words, and its cold ashes' card shows Yes, Take up and No, putting it
-  back in the bag whole. Playtest: https://claude.ai/artifact/V75MhHuMH6yK3FRYi5rzLs

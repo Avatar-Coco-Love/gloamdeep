@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.302 (2026-11-12)
+- Fixed: a burrowed mole can no longer trap you. A mole under the earth that can't come any closer, blocked by a tree, a rock or another creature, now comes up where it is, with its usual line, and chases on foot from then on, so you can hit it. Before, it could lie stuck under the earth in your way for good.
+- Decisions: D-857. Bugs fixed: B-003.
+
 ## 0.3.301 (2026-11-12)
 - Fixed: you can no longer sleep a fight away. Bumping your bed at night with a creature after you now says "Not with a creature after you." and takes no turn, as sleeping out under the sky already did. A shy creature nearby, like a bunny, still doesn't stop you.
 - Decisions: D-856. Bugs fixed: B-002.
@@ -31,8 +35,3 @@ Entry format:
 - Fixed: the Peddler is home by the waystone. Freed, he now waits in the home waystone's room, just below its middle, never on the stone itself. Before, he went to the middle room of the woods, a room away, so he seemed missing.
 - In a journey saved before this, a Peddler already home moves there once, still knowing you.
 - Decisions: D-855. Bugs fixed: B-001.
-
-## 0.3.299 (2026-11-12)
-- New: your own campfire. A campfire you set down is yours: its card says "You laid these stones." when cold, "Your fire still glows." as embers and "Your fire burns well." blazing. Fires you find keep their own words.
-- New: your cold ashes' card shows Yes, Take up and No. Take up takes a turn and puts the Campfire back in your bag whole: "You take up the stones." Carrying one already, it says "You already carry a campfire." A burning fire has to burn down first.
-- Decisions: D-854.
