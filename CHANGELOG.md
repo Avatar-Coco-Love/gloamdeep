@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.324 (2026-11-12)
+- Fixed: a draught drunk on the turn you fall no longer keeps working after you wake. A fall ends every draught, and now that one too.
+- Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.
+- Fixed: with a workbench or anything else set down on the tile where your journey began, a fall no longer wakes you inside it; you wake on the nearest open tile beside it.
+- Decisions: D-879. D-876 moved to the archive, word for word.
+
 ## 0.3.323 (2026-11-12)
 - At the Peddler, pressing SELL on an empty slot, or on something he doesn't buy, no longer moves the frame, so a second press can't sell something else by mistake.
 - When you sell the last of a stack, the frame stays put and the next stack slides in under it, as before.
@@ -34,9 +40,3 @@ Entry format:
 - With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.
 - Each place's music downloads the first time you reach that place, not all five tunes at once.
 - Decisions: D-877. D-874 moved to the archive, word for word.
-
-## 0.3.321 (2026-11-12)
-- After a night's sleep, in your bed or sleeping out, what was due to grow back by morning is there when you wake. Before, nothing grew back at home while you stayed, since daylight lights every tile.
-- Still pools in the grey-rock caves are now in about 1 room in 2, as decided. Before, many tries cut the room in two and were given up, so only about 1 room in 4 had one.
-- A pool never wraps round three sides of a floor tile any more, so a herb on one no longer seems to float.
-- Decisions: D-876. Questions closed: Q-101. D-873 moved to the archive, word for word.

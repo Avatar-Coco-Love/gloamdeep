@@ -29,7 +29,8 @@ export function sit(state, x, y) {
   const room = withTile(state.room, x, y, get(sits.into));
   const rested = { ...state, room, health: healed(state, sits.heal), stiff: 0 }; // the gold heart kept (D-863)
   const next = note(passTurn(rested), 'sit', { id: sits.into });
-  return warming(endTurn(state, say(next, sits.says)), sits.warm); // after the turn, as a draught starts: its full count shown
+  const after = endTurn(state, say(next, sits.says));
+  return after.fell === state.fell ? warming(after, sits.warm) : after; // after the turn, as a draught starts: its full count shown; a fall that turn loses it (H-56, D-879)
 }
 
 // § stoke: Add wood on a burning fire's card (Q-088, feeding): 1 of its `stokes` item, Wood, from

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.323 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.324 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 15,
-falls (H-16, H-17, H-56).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 16,
+saves kept safe (H-57, H-21, H-14).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -48,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.324, Falls.** Health check step 15: a draught drunk
+  or a fire sat by on the turn of a fall is lost to it (H-17, H-56); a
+  fall with something on the journey's first tile wakes beside it
+  (H-16). D-879.
+  Playtest: https://claude.ai/artifact/UUpfNPLcn8Pq4ASsDBnEX3
 - **2026-11-12, 0.3.323, The Peddler's fixes.** Health check step 14:
   a SELL that sells nothing leaves the frame (H-42); the last of a stack
   sold, the next slides in under it (Q-102); his home spot skips the
@@ -57,9 +62,3 @@ list in `RESEARCH.md`.
   with Sound Off nothing downloads; once On, the sounds do, and each
   place's tune the first time it is reached (H-03). D-877.
   Playtest: https://claude.ai/artifact/Vme8o4KAmCQBvaDqDqCwRd
-- **2026-11-12, 0.3.321, Growing back and pools.** Health check step 12:
-  a night's sleep counts as being away, so what is due grows back by
-  morning (H-07); pools skip tiles that cut the room, roll 0.62, about 1
-  room in 2 (H-08); a pool never wraps three sides of a tile (Q-101). D-876.
-  Playtest: https://claude.ai/artifact/TWfZiBN9oaphKSNxzCtLna
-  Map preview: https://claude.ai/artifact/6UGxn9Que6X42XwiFJAvKY

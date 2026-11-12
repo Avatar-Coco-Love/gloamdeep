@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.321, Growing back and pools.** Health check step 12:
+  a night's sleep counts as being away, so what is due grows back by
+  morning (H-07); pools skip tiles that cut the room, roll 0.62, about 1
+  room in 2 (H-08); a pool never wraps three sides of a tile (Q-101). D-876.
+  Playtest: https://claude.ai/artifact/TWfZiBN9oaphKSNxzCtLna
+  Map preview: https://claude.ai/artifact/6UGxn9Que6X42XwiFJAvKY
 - **2026-11-12, 0.3.320, Goals and endings told.** Health check step 11:
   the oil tip and the crypt, ticked quietly, pay nothing (H-10); two
   goals done on one turn are named on one line, the last gold (H-13); two

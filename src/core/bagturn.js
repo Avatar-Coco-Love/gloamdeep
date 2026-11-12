@@ -134,7 +134,8 @@ function cure(state, i, entry) {
 // its own count (slowburn.js, D-792), and the Mending Draught too, at full health as well (mending.js, D-794)
 function glow(state, i, entry, starts = glowing) {
   const next = note(say(passTurn(state), entry.eats), 'eat', { id: entry.id });
-  return starts(endTurn(state, { ...next, bag: bagTake(state.bag, i) }), entry);
+  const after = endTurn(state, { ...next, bag: bagTake(state.bag, i) });
+  return after.fell === state.fell ? starts(after, entry) : after; // a turn that ends in a fall loses it, as a fall ends every draught (H-17, D-879)
 }
 
 // § hold: Hold on bag slot i puts its weapon in the hand, or its tool in the Tool slot,
