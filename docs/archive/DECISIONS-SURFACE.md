@@ -1213,3 +1213,22 @@ calls the owner may change: Yes grey with full hearts and not stiff;
 "You sit by the fire and warm up."; no sound of its own yet. D-839
 moves to `archive/DECISIONS-SOUNDS.md`, word for word. Its card's
 heading, Yes and No superseded by D-849 (2026-11-12).
+
+**D-845 · 2026-11-12 · Warmed** (the owner's picks, all recommended;
+Q-088's buff, step 2) Sitting by a burning campfire also leaves the hero
+Warmed for the fire's turns, blazing 60, embers 30 (offered too: 60
+either way; 30 either way). While Warmed, a lit turn burns 6/7 of its
+oil, so a full tank lasts 70 turns, not 60, as Slowburn does and added
+to it and the Heart Charm (offered too: 12/13, lasting 65; 3/4, lasting
+80; like Slowburn but not added to it). Yes on Sit by the fire? works
+whenever it helps: hurt, stiff, or Warmed would last longer; grey only
+when nothing would change (offered too: always; only hurt or stiff, as
+before). Sitting again sets the longer count, never a shorter one. Its
+mark is a small flame in the campfire's orange with its turns left
+(offered too: a tiny campfire; Slowburn's bottle in orange). Claude's
+calls the owner may change: Draught rules for the rest (the turns run
+with the lantern empty, a night uses them, a fall ends it); the mark
+after stiff's; "The fire's warmth fades." as it ends; a tap on the mark
+says "Warmed: oil lasts longer, {n} turns left."; no sound of its own.
+D-840 moves to `archive/DECISIONS-SOUNDS.md`, word for word. The turns
+beside the mark superseded by D-847 (2026-11-12).

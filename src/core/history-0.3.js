@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.298', date: '2026-11-12', title: 'Your own campfire, settled', lines: [
+    "Nothing changes in the game yet. Your own campfire is settled: a fire you built gets its own words (\"You laid these stones.\", \"Your fire still glows.\", \"Your fire burns well.\"), and once cold it can be taken back into the bag. Building it is the next step.",
+    "Decisions: D-853.",
+  ] },
   { v: '0.3.297', date: '2026-11-12', title: 'A bug list', lines: [
     "Nothing changes in the game. A new bug list keeps track of what you notice in play, so a new conversation finds it: the Peddler missing at home, sleeping ending a fight, a burrowed mole trapping you, and unseen rooms showing on the map by day.",
     "Decisions: D-852.",

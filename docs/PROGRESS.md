@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.297 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.298 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Your own campfire's words (Q-088): a fire the hero built still shows
-the found fire's notes ("No one has sat here for a long time."); propose
-its own words, and whether it can be taken back down, with options.
-Then the bugs in `BUGS.md` (D-852), one at a time, B-001 first.
+Build your own campfire (D-853): a fire the hero built gets its own
+words, and its cold ashes offer Take up the campfire?, back into the
+bag whole. Then the bugs in `BUGS.md` (D-852), one at a time, B-001 first.
 
 ## Waiting on the owner
 - Bugs the owner noticed (`BUGS.md`): B-001 to B-004, each its own step.
@@ -21,8 +20,7 @@ Then the bugs in `BUGS.md` (D-852), one at a time, B-001 first.
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089).
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
-- Campfires (Q-088): a built fire's own words are Next up; fires below
-  ground maybe later.
+- Campfires (Q-088): fires below ground maybe later.
 - Sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
@@ -45,6 +43,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.298, Your own campfire, settled.** The owner's
+  picks (D-853), all recommended: a built fire has its own words, is
+  taken back into the bag when cold, and is three built twins of the
+  fire's levels in the code. Building it is Next up.
 - **2026-11-12, 0.3.297, A bug list.** The owner's pick (D-852),
   recommended: bugs the owner notices go in `docs/BUGS.md`, B-001 on,
   so "Next up" is all a new conversation needs. The first four: the
@@ -54,7 +56,3 @@ list in `RESEARCH.md`.
   Wood, one carried, drawn as cold ashes, plain words; it holds its own
   recipe in the code. Set down on the surface, it is cold ashes.
   Playtest: https://claude.ai/artifact/WYfBfAjjgD1oMz44H62cHf
-- **2026-11-12, 0.3.295, Building a campfire, settled.** The owner's
-  picks (D-850), all recommended but where: made on the bag's Make tab,
-  3 Stone and 2 Wood, set down as cold ashes; only on the surface for
-  now, after the owner asked Claude's true view of anywhere.
