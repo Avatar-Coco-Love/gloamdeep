@@ -251,8 +251,9 @@ function withDeposits(r, room, count, veins = 0, keep = []) {
 }
 // Whether every tile of g that can be walked joins up with the rest, a deposit ('O'), vein ('V'), rubble ('U'), water ('~') or standing stone ('Y') counting as solid
 const walkable = (g, t) => g[t.y]?.[t.x] !== undefined && !['#', 'O', 'V', 'U', '~', 'Y'].includes(g[t.y][t.x]);
-function joined(g) {
-  const open = tilesWhere(g, (x, y) => walkable(g, { x, y })), seen = new Set([key(open[0])]), queue = [open[0]];
+// leaving out the tiles in `skip`, where a person ringed in by rubble stands (H-09, D-873)
+function joined(g, skip = []) {
+  const open = tilesWhere(g, (x, y) => walkable(g, { x, y })).filter((t) => !skip.some((o) => same(o, t))), seen = new Set([key(open[0])]), queue = [open[0]];
   while (queue.length) {
     const t = queue.shift();
     for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
@@ -260,7 +261,7 @@ function joined(g) {
       if (walkable(g, n) && !seen.has(key(n))) { seen.add(key(n)); queue.push(n); }
     }
   }
-  return seen.size === open.length;
+  return open.every((t) => seen.has(key(t)));
 }
 
 // § pool: in about 1 room in 2, a still pool of 5 to 9 water tiles ('~', D-500), in a
@@ -310,7 +311,7 @@ export function withMimic(seed, room) {
   while (spots.length) {
     const at = spots.splice(int(r, 0, spots.length - 1), 1)[0];
     g[at.y][at.x] = 'O';
-    const ok = joined(g);
+    const ok = joined(g, room.people || []);
     g[at.y][at.x] = '.';
     if (ok) return { ...room, enemies: [...room.enemies, { id: 'flaskMimic', x: at.x, y: at.y, asleep: true }] };
   }

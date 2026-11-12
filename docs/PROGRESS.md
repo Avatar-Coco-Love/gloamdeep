@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.317 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.318 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 9,
-the Peddler's room refuses torches (H-09).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 10,
+the owner's rulings: travel and countdowns (H-04), the mole up close
+(H-06), the warden's tip (H-46), with Q-098 and Q-100.
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -47,6 +48,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-12, 0.3.318, The Peddler's room.** Health check step 9: his
+  sealed tile is left out of the joined check while he is ringed in, so
+  torches, glow lamps, deposits growing back and the flask mimic go in
+  his room (H-09). D-873.
+  Playtest: https://claude.ai/artifact/UASzASJELDq7WHqEPz4jzm
+  Map preview: https://claude.ai/artifact/8fgyX4UnsGqYLwJcvE7rSy
 - **2026-11-12, 0.3.317, Two clear bugs.** Health check step 8: the
   spit grub's turn counts down only spitters' rests, so a scorpion near
   one rests its full turn (H-05); a drink that takes the oil low or dry
@@ -57,9 +64,3 @@ list in `RESEARCH.md`.
   marks stops left of the round map and goes on to a second row (H-55).
   D-871.
   Playtest: https://claude.ai/artifact/JvpkMe4i6D56JRsBCnPizK
-- **2026-11-12, 0.3.315, One words page.** Health check step 6: finds'
-  names capitalise every word (H-40, H-20); a far mole's own line
-  (H-15); Kind Herbs' words (H-41); How to play's Pick, bag and map
-  rows (H-12, H-39); "1 turn left." (H-43); the lure wisp's and bone
-  rat's words (H-45); "Journey ends" (H-47). D-870.
-  Playtest: https://claude.ai/artifact/86zoMCT5yD96SEc7y6d8MZ

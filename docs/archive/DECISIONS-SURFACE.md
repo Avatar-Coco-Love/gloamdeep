@@ -1445,3 +1445,22 @@ on a person, as on the hero; floor still can (offered too: an item
 may). The unused `craft()` and `canCraft()` go; their tests use the Make
 tab's `makeFrom` (offered too: the craft-only tests deleted). D-865
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-870 · 2026-11-12 · One words page** (the owner's picks, all
+recommended; step 6 of `HEALTH-CHECK-ORDER.md`, fixes H-12, H-15, H-20,
+H-39, H-40, H-41, H-43, H-45, H-47) A find's name capitalises every
+word, in lines too: Oil Flask, Healing Herb, Healing Potion, Stash
+Chest, Glow Lamp; a creature's, tile's or place's only its first (Cave
+spider) (offered too: every name; one capital for all). The mortar's
+too-few lines say "Need 2 Mimic Leaf, 1 Healing Herb.", short to fit, as
+the charms' do. A stuck mole far off says "The mole bursts up out of
+the earth!" (offered too: one line for both). Kind Herbs: "Herbs,
+potions and fish heal 1 heart more." (offered too: the bed, fire,
+bedroll and Mending Draught heal more; "Anything you eat"). How to
+play: Pick, "Hold it to break veins"; Keyboard rows Bag: I and Map: M;
+Touch and Mouse one row, "Bag, map: Their buttons", to fit 8 lines
+(offered too: Keyboard only; a shorter Walk). A mark's last turn says
+"1 turn left." The Bestiary: the lure wisp drifts "toward another
+creature if there is one"; the bone rat, "Knocked down, it falls into
+a pile of bones". Settings' "Run ends" is "Journey ends". D-866 moves
+to `archive/DECISIONS-SURFACE.md`, word for word.
