@@ -144,11 +144,12 @@ export function createCardScreens(app, ui, show, menuOf) {
   // panel whatever happens, so its line shows, taken down or not; the chest's too (CH5). A stash chest's tile
   // opens the chest's panel instead, on its first slot (CH3, D-330).
   // The bed's by day is an ask, No picked (D-488); the garden bed's card, Plant picked (D-566).
-  function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); }
+  function openPanel(at) { const tile = tileAt(app.state.room, at.x, at.y), panel = tile.panel; app.queued = null; app.bench = at; show(panel, tile.sits ? Math.max(0, menuOf('bed').findIndex((l) => !l.dim)) : panel === 'bed' && !tile.garden ? SURE_MENU.findIndex((l) => l.id === 'no') : 0); } // a burning fire's card picks the first that works, Sit, else Add wood
   function takeDownBench() { show('play'); ui.takeDown(app.bench.x, app.bench.y); }
   function shelveBed() { show('play'); ui.shelve(app.bench.x, app.bench.y); } // the locket set on the shelf (D-693)
   function kindleBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.kindle(app.bench.x, app.bench.y); } // cold ashes lit; a dim Yes does nothing (D-757)
-  function sitBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.sit(app.bench.x, app.bench.y); } // Sit by the fire?; a dim Yes does nothing (D-844)
+  function sitBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.sit(app.bench.x, app.bench.y); } // Sit on a burning fire's card; a dim Sit does nothing (D-844)
+  function stokeBed() { if (menuOf('bed')[1].dim) { ui.refuse(); return; } show('play'); ui.stoke(app.bench.x, app.bench.y); } // Add wood; a dim one does nothing (Q-088, feeding)
   function plantBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.plant(app.bench.x, app.bench.y); } // a dim Plant does nothing
   function pickBed() { show('play'); ui.pick(app.bench.x, app.bench.y); } // the grown bed's berries (D-568)
   function feedBed() { if (menuOf('bed')[0].dim) { ui.refuse(); return; } show('play'); ui.feed(app.bench.x, app.bench.y); } // a dim Feed does nothing (D-569)
@@ -206,5 +207,5 @@ export function createCardScreens(app, ui, show, menuOf) {
     spoken.textContent = i === BENCH_TAKE ? `Deconstruct ${stationTitle(station()).toLowerCase()}` : m ? costWords(m) : 'Empty';
   }
 
-  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, sitBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
+  return { bagWords, toggleBag, pickSlot, pickGear, canStore, pickStore, storeNear, pickSort, sortBag, moveBag, dropChosen, useChosen, placeWords, setToward, tapSide, openPanel, takeDownBench, shelveBed, kindleBed, sitBed, stokeBed, plantBed, pickBed, feedBed, pickChest, openTrade, pickTrade, turnTrade, tradeChosen, moveTrade, benchWords, pickBench, turnBenchTab, slotWords, makeWords, pickMake, makeChosen, turnBagTab };
 }

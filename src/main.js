@@ -2,7 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
-import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
+import { newJourney as beginJourney, step, wait, pour, craft, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt, biteSound, drinkSound } from './core/enemies.js';
 import { eventsSince, has } from './core/events.js';
@@ -234,6 +234,7 @@ function tryStep(dir) {
   else if (dir.shelve !== undefined) app.state = shelve(app.state, dir.shelve.x, dir.shelve.y); // the locket on the shelf, one turn (D-693)
   else if (dir.kindle !== undefined) app.state = kindle(app.state, dir.kindle.x, dir.kindle.y); // cold ashes lit with the lantern's oil, one turn (D-757)
   else if (dir.sit !== undefined) app.state = sit(app.state, dir.sit.x, dir.sit.y); // sitting by a burning fire, a turn (D-844)
+  else if (dir.stoke !== undefined) app.state = stoke(app.state, dir.stoke.x, dir.stoke.y); // wood on the embers, a turn (Q-088, feeding)
   else if (dir.plant !== undefined) app.state = plant(app.state, dir.plant.x, dir.plant.y); // a seed in the garden bed, one turn (D-566)
   else if (dir.pick !== undefined) app.state = pick(app.state, dir.pick.x, dir.pick.y); // the grown bed's berries, one turn (D-568)
   else if (dir.feed !== undefined) app.state = feed(app.state, dir.feed.x, dir.feed.y); // guano on the sprout, one turn (D-569)
@@ -424,7 +425,7 @@ const stage = document.getElementById('stage');
 const screens = createScreens(app, {
   spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), craft: (slot) => tryStep({ craft: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
-  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), sit: (x, y) => tryStep({ sit: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
+  setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), sit: (x, y) => tryStep({ sit: { x, y } }), stoke: (x, y) => tryStep({ stoke: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
   refuse: () => { ownSound = true; sound.refuse(); }, // a dim pick: nothing happens but the tock (D-819)
   tell: (id) => { app.state = say(app.state, id); }, // a line, free: why SLEEP can't (D-804)

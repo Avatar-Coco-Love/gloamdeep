@@ -345,3 +345,16 @@ others do: the old place's tune fades out over 2 s, the new one starts a
 second later, fading in over a second. A line in Music's list after
 Warrens, Dungeon. File and loudness in `SOUNDS-3.md`. D-836 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-842 · 2026-11-11 · Chopping a tree** (the owner's picks, all
+recommended) Each bump on a tree that isn't its last, `chop`, plays the
+RPG pack's axe chop, a little higher or lower each time (offered too: a
+wooden knock; the chop and the knock together). The last bump, as it
+falls, `treeFall`, plays a last chop, then a slow low creak (`creak2` at
+0.6), then a heavy wooden crash as it lands (offered too: the chop and
+the crash with no creak; one more chop). Trees only for now (offered
+too: fallen branches; their own lines in Settings). No line of their
+own: chopping is under Digging, a tree falling under Stone breaks, as
+Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
+moves to `archive/DECISIONS-SOUNDS.md`, word for word. The creak and
+the late crash superseded by D-846 (2026-11-12).

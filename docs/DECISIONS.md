@@ -103,19 +103,6 @@ carried; a creature that never bites and isn't chasing doesn't stop
 sleeping out; a tool's hold is silent, its event marked `tool`; the
 mortar's notes say it lists six; Tab on Settings ticks as a tap does.
 
-**D-842 · 2026-11-11 · Chopping a tree** (the owner's picks, all
-recommended) Each bump on a tree that isn't its last, `chop`, plays the
-RPG pack's axe chop, a little higher or lower each time (offered too: a
-wooden knock; the chop and the knock together). The last bump, as it
-falls, `treeFall`, plays a last chop, then a slow low creak (`creak2` at
-0.6), then a heavy wooden crash as it lands (offered too: the chop and
-the crash with no creak; one more chop). Trees only for now (offered
-too: fallen branches; their own lines in Settings). No line of their
-own: chopping is under Digging, a tree falling under Stone breaks, as
-Finds' list is full on the smallest card. Files in `SOUNDS-2.md`. D-837
-moves to `archive/DECISIONS-SOUNDS.md`, word for word. The creak and
-the late crash superseded by D-846 (2026-11-12).
-
 **D-843 · 2026-11-12 · Chopping a fallen branch** (the owner's picks,
 all recommended) A fallen branch chops as a tree does: its first bump
 plays `chop` (offered too: the chop, then a short creak; a lighter chop).
@@ -137,7 +124,8 @@ both). Warmed, the lantern burning slower for a while, comes next, its
 own step (offered too: all three at once; one at a time). Claude's
 calls the owner may change: Yes grey with full hearts and not stiff;
 "You sit by the fire and warm up."; no sound of its own yet. D-839
-moves to `archive/DECISIONS-SOUNDS.md`, word for word.
+moves to `archive/DECISIONS-SOUNDS.md`, word for word. Its card's
+heading, Yes and No superseded by D-849 (2026-11-12).
 
 **D-845 · 2026-11-12 · Warmed** (the owner's picks, all recommended;
 Q-088's buff, step 2) Sitting by a burning campfire also leaves the hero
@@ -187,3 +175,17 @@ started with). The bad marks, poisoned and stiff, sit on dark red glass
 instead of the night glass; the good ones are unchanged (offered too:
 a small red minus or green plus in a corner;
 the bad ones first with a red line under them; no sign for now).
+
+**D-849 · 2026-11-12 · Feeding a campfire** (the owner's picks, all
+recommended; Q-088's feeding) A burning fire's card shows Sit and Add
+wood (offered too: Put on the fire from the bag beside one; Add wood?
+asked after sitting). Add wood takes 1 Wood and a turn and raises
+embers a level, to blazing (offered too: 2 Wood a level; 1 Wood to
+blazing from anything; free). Only embers take wood: blazing takes no
+more and cold ashes are still lit with oil (offered too: wood lighting
+ashes too; feeding blazing to bank more sits). Add wood is grey with no
+Wood or on a blazing fire. Claude's calls the owner may change: the
+card's heading is Campfire, over its words as before; no No, the cross
+closes it; Sit picked, else Add wood; "You add wood. The fire burns
+high."; no sound of its own yet. D-842 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.

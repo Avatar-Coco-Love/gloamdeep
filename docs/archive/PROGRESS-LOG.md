@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.291, Warmed.** The owner's picks (D-845), all
+  recommended: sitting by a fire warms, blazing 60 turns, embers 30; a
+  full tank lasts 70, added to Slowburn; Yes whenever it helps; a small
+  orange flame mark.
+  Playtest: https://claude.ai/artifact/KgxNig5AtBQwsdJ6aNLW5q
 - **2026-11-12, 0.3.290, Sitting by a campfire.** The owner's picks
   (D-844), all recommended but the effects: a burning fire asks Sit by
   the fire?; Yes gives hearts back, blazing 2, embers 1, ends stiff, and

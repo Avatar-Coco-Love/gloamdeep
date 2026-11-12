@@ -301,6 +301,7 @@ export const LINES = {
   campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
   campfireSat: { text: 'You sit by the fire and warm up.', warn: false }, // Yes on Sit by the fire? (D-844), Claude's draft the owner may change
   campfireAshes: { text: 'Cold ashes.', warn: false }, // said as cold ashes' card opens, its note the rest (D-757)
+  campfireFed: { text: 'You add wood. The fire burns high.', warn: false }, // Add wood on embers (Q-088, feeding), Claude's draft the owner may change
   campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
   lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)
   minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)
