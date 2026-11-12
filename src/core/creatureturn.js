@@ -152,6 +152,7 @@ function ahead(state) {
 // One that lurks (D-797) notices them within its `near` steps along a clear line, lit or not.
 // While the Shade Draught works (D-806) none notices them farther than `SHADE_NEAR` steps,
 // however it would; one already after them keeps coming, and the light seekers are as they were.
+// One with its own `sight` (the mole, D-858) notices them no farther than that many steps, lit or not.
 function enemiesMove(state, bit = false) {
   const start = rally(state.enemies), claims = [];
   let enemies = start, said = null, raised = false;
@@ -167,7 +168,8 @@ function enemiesMove(state, bit = false) {
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
     const sees = t.notices === 'anyLine' || (t.notices === 'near' && steps(e, state.hero) <= t.near) // one that lurks: near, lit or not (D-797)
       || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
-    const hidden = shaded(state) && steps(e, state.hero) > SHADE_NEAR; // the Shade Draught: noticed only near (D-806)
+    const hidden = (shaded(state) && steps(e, state.hero) > SHADE_NEAR) // the Shade Draught: noticed only near (D-806)
+      || steps(e, state.hero) > (get(e.id).sight ?? Infinity); // its own `sight`: the mole's 5 steps, by day or night (D-858)
     const chasing = !seeks && (e.chasing || (sees && !hidden && clearLine(state.room, e, state.hero)));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;

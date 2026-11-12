@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.303 (2026-11-12)
+- A mole now notices you only within 5 steps, by day or night. Before, in daylight, a mole saw you from anywhere in the woods room. Once it is after you it keeps coming from farther, and a bite or a hit still makes it notice. Its Bestiary page says "within 5 steps".
+- Decisions: D-858. Questions raised: Q-096.
+
 ## 0.3.302 (2026-11-12)
 - Fixed: a burrowed mole can no longer trap you. A mole under the earth that can't come any closer, blocked by a tree, a rock or another creature, now comes up where it is, with its usual line, and chases on foot from then on, so you can hit it. Before, it could lie stuck under the earth in your way for good.
 - Decisions: D-857. Bugs fixed: B-003.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.301 (2026-11-12)
 - Fixed: you can no longer sleep a fight away. Bumping your bed at night with a creature after you now says "Not with a creature after you." and takes no turn, as sleeping out under the sky already did. A shy creature nearby, like a bunny, still doesn't stop you.
 - Decisions: D-856. Bugs fixed: B-002.
-
-## 0.3.300 (2026-11-12)
-- Fixed: the Peddler is home by the waystone. Freed, he now waits in the home waystone's room, just below its middle, never on the stone itself. Before, he went to the middle room of the woods, a room away, so he seemed missing.
-- In a journey saved before this, a Peddler already home moves there once, still knowing you.
-- Decisions: D-855. Bugs fixed: B-001.

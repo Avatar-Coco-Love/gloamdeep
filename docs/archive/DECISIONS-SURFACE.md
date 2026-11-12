@@ -1268,3 +1268,19 @@ card's heading is Campfire, over its words as before; no No, the cross
 closes it; Sit picked, else Add wood; "You add wood. The fire burns
 high."; no sound of its own yet. D-842 moves to
 `archive/DECISIONS-SOUNDS.md`, word for word.
+
+**D-850 · 2026-11-12 · Building a campfire** (the owner's picks, all
+recommended but where; Q-088's building) A campfire is made on the bag's
+Make tab, then set down beside the hero with Set down, as the mortar and
+torch are (offered too: built straight on the ground from the bag; at
+the workbench). It costs 3 Stone and 2 Wood (offered too: 4 Stone, 3
+Wood; 2 Stone, 2 Wood). It goes only on the surface, for now, by the
+workbench's rules (offered too: below ground too, the torch's way, at
+first with no limit, then once it burns to cold ashes there, gone; home
+only). The owner asked what Claude truly thought of anywhere: a fire in
+the dark fits the game best, but one that never burns out by itself
+would make a safe base deep down, against the oil running low; the
+caves may come later as their own step. Set down, it is cold ashes, lit
+with one turn of oil as before (offered too: embers; blazing). The
+find's name, look and words come at its step. D-843 moves to
+`archive/DECISIONS-SOUNDS.md`, word for word.

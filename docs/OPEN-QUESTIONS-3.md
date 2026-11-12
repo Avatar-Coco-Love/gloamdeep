@@ -40,3 +40,13 @@ stays as it is.
 keeper leaves the oil flasks, herbs and other finds, never caught and
 always a room ahead (`LORE.md`). Who the keeper is, and when the hero
 learns it, wait; the owner chose to decide later.
+
+**Q-096 · Deep moles** (raised 2026-11-12, the owner's idea with D-858)
+A mole digging through stone makes no sense. On the stone floors, a
+different mole that can dig through harder rock to burrow; stronger,
+as it lives deeper; each mole kind leaving its own resources, with its
+own count and page in the Journal. The mole now joins the pool at depth
+5 and keeps turning up below it (D-541), so on the earth floors (5 to 7)
+and the dungeon's stone halls (8 down). Open: its name, look, numbers,
+drops and from which depth; whether the mole stops at depth 7. Its own
+step, when the owner wants.

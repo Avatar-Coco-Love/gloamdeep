@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.300, The Peddler by the waystone.** B-001 fixed, the
+  owner's picks (D-855), all recommended: freed, he goes to the home
+  waystone's room, by its middle, off the stone; an older save's moves
+  there once. Playtest: https://claude.ai/artifact/QXkcs4LdDRuQbA3zHgzCoe
 - **2026-11-12, 0.3.299, Your own campfire.** The owner's picks (D-854),
   all recommended, from a picture: a campfire you set down has its own
   words, and its cold ashes' card shows Yes, Take up and No, putting it
