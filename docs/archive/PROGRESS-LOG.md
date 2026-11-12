@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.295, Building a campfire, settled.** The owner's
+  picks (D-850), all recommended but where: made on the bag's Make tab,
+  3 Stone and 2 Wood, set down as cold ashes; only on the surface for
+  now, after the owner asked Claude's true view of anywhere.
 - **2026-11-12, 0.3.294, Add wood.** The owner's picks (D-849), all
   recommended: a burning fire's card shows Sit and Add wood; 1 Wood and
   a turn make embers blazing; blazing takes no more, ashes still need

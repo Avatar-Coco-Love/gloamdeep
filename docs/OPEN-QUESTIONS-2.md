@@ -87,9 +87,8 @@ ended, is D-844, the buff's first step; Warmed, the lantern burning
 slower for a while, is D-845; feeding one, Add wood on embers, is
 D-849; building one, on the surface for now, is D-850, its name, look
 and words D-851; one below ground may come later as its own step.
-A fire the hero built still has the found fire's notes ("No one has
-sat here for a long time.", "Someone was here not long ago."); its
-own words, and whether it can be taken back down, are open.
+A fire the hero built has its own words, and is taken back down when
+cold (D-853).
 Cooking simple food at a lit campfire is to come, after alchemy (D-785).
 
 **Q-091 · Sleeping out's later costs** (raised 2026-11-09, the owner's
