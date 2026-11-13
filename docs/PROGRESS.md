@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.338 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.339 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -50,6 +50,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
+  done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
+  word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.
 - **2026-11-13, 0.3.338, The lit brazier.** L1 step 2: a cold brazier
   bumped with the lantern lit asks to light it, 5 turns' oil; lit, the
   torch's flame in its bowl, 2 tiles' warm glow, a violet door notch
@@ -61,7 +64,3 @@ list in `RESEARCH.md`.
   a sealed door. D-892. Playtest:
   https://claude.ai/artifact/QT8NYGciwCp4YaneJvuNnb Map preview:
   https://claude.ai/artifact/53ib4udnvXpEHR2NHfnXub
-- **2026-11-13, 0.3.336, The brazier vault.** L1 settled: 2 stone
-  braziers, 5 turns' oil each, open a sealed door; one vault a floor
-  from depth 2; a rare material or an ember inside. D-891. No game
-  change. Mock-up: https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ

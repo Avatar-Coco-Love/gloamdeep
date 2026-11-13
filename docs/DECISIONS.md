@@ -90,49 +90,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-860 · 2026-11-12 · The health check's steps** (the owner's picks,
-all recommended and more) A full health check at 0.3.304, no game code
-changed: play in a browser, all of `src/` read against the decisions
-and docs, 31 findings, H-01 to H-31, each with fixes offered. The owner
-picked all but three to become steps, one at a time, each fix still the
-owner's pick at its step: the gold heart and the full bag first, then
-the clear bugs, the decision gaps, the balance pair, sounds only when
-On, the small fixes, save safety, and one docs-only step (offered too:
-only the top two; the docs folded into the audit). H-22 to H-24 and
-H-31 wait for the 0.3.312 audit. The list: `HEALTH-CHECK.md`. D-851
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-861 · 2026-11-12 · The second health check's steps** (the owner's
-picks, all recommended) A second health check at 0.3.305, no game code
-changed, of what the first (D-860) did not reach: fishing, the Peddler,
-waystones and boons, campfires, the mortar, the mountain rooms, depths
-4 to 12, falls, the look creator, the Seed Explorer, the dev panel,
-`src/render/` against the art rules, the game's words, and old saves of
-every format, played on a phone and a PC. 35 findings, H-32 to H-66.
-The owner picked every one players can see to become steps (offered
-too: only most and some players; only most players), the art ones as
-one step where the owner picks from a picture (offered too: each its
-own; all at the audit), and the docs into the first list's docs step,
-the stale comments into its audit list. Not picked: the dev tools'
-four, H-38 and H-48 to H-50, kept in the report. Claude's call the
-owner may change: they come after the first list's steps. The list:
-`HEALTH-CHECK-2.md`. D-853 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
-**D-862 · 2026-11-12 · The health check's order** (the owner's picks,
-all recommended) The dev tools' four, H-38 and H-48 to H-50, become one
-step (the owner's ask). Both lists' steps go in one order, grouped where
-they share a cause or a card, the most noticed first: 19 steps in
-`HEALTH-CHECK-ORDER.md` (offered too: the same groups in list order;
-one finding a step). No new content until all are done. The five
-things seen with no decision become Q-098 to Q-102 (offered too: steps;
-left in the report). The audit stays at 0.3.312 (offered too: after
-the steps). The branch `claude/gloamdeep-health-check-2-5uv4gm`, the
-second check's scratch work, all its findings in the report, is kept
-until H-57's step tests with its two old saves (offered too: its save
-tester into `tools/`; deleted now). D-854 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
 owner's picks, all recommended; builds D-889, D-890; answers part of
 Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
@@ -194,3 +151,13 @@ the lantern out, a cold brazier says its old words, no card (offered
 too: the card, Yes grey). Claude's calls: the door's left notch glows
 first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-894 · 2026-11-13 · The health checks' decisions archived** (the
+owner's picks, all recommended) Before L1 step 3, with `DECISIONS.md`
+at 12,004 of its 12,288 bytes, D-860 to D-862, the two health checks
+and their order, all 19 steps done (0.3.308 to 0.3.328), move to
+`archive/DECISIONS-AUDITS.md` beside D-868, the audit they fed, word
+for word (offered too: D-799, the finds plan, as well, to
+`archive/DECISIONS-SURFACE.md`; to `archive/DECISIONS-SURFACE.md`
+instead). Its own docs-only version, 0.3.339 (offered too: folded into
+L1 step 3's PR). No game change.
