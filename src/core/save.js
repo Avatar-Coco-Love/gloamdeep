@@ -22,11 +22,13 @@ import { recamp } from './recamp.js';
 import { moveStone } from './movestone.js';
 import { markRows } from './growth.js';
 import { resettle } from './resettle.js';
+import { refetch } from './refetch.js';
+import { setAside } from './aside.js';
 
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 33;
+export const FORMAT = 34;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -60,6 +62,7 @@ export const UPGRADES = {
   30: withGrown, // 30 → 31: hearts, Tough and Steady Wick bought, moved into one record of Growth's upgrades (D-811)
   31: markRows, // 31 → 32: Growth's rows open, marked: row 2 where the journey has been deeper than depth 8 (D-814)
   32: resettle, // 32 → 33: the Peddler at home in the middle room moved to the waystone's room, once (B-001, D-855)
+  33: refetch, // 33 → 34: a freed Peddler in no room, lost by an older upgrade, sent home (H-57, D-880)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {
@@ -103,7 +106,8 @@ export function upgradeState(format, state) {
 
 // What is kept: the state, and whether a dev jump stopped the record counting (D-232)
 export const packJourney = (state, jumped) => ({ format: FORMAT, jumped: !!jumped, state });
-// A kept journey back, upgraded, or null when there is none or it can't be read (dropped quietly, D-266)
+// A kept journey back, upgraded, or null when there is none or it can't be read (dropped quietly, D-266;
+// its text set aside by loadJourney, H-21)
 export function unpackJourney(kept) {
   const s0 = kept?.state;
   if (!s0?.hero || !s0.room || !s0.place || !s0.home) return null;
@@ -121,8 +125,9 @@ export const readJourney = (text) => unpackJourney(JSON.parse(text, fromText));
 // Each profile's journey has its own place (D-268); the first slot's is where the one journey was kept before.
 export const journeyKey = (slot = 0) => (slot === 0 ? 'gloamdeep-journey' : `gloamdeep-journey-${slot + 1}`);
 export function loadJourney(slot = 0) {
-  let kept = null;
-  try { kept = readJourney(localStorage.getItem(journeyKey(slot))); } catch { /* not kept */ }
+  let kept = null, text = null;
+  try { text = localStorage.getItem(journeyKey(slot)); kept = readJourney(text); } catch { /* not kept */ }
+  if (!kept && text) setAside(journeyKey(slot), text); // broken or newer: kept apart, not saved over (H-21, D-880)
   return kept;
 }
 // Whether it was kept: false when storage is full or blocked, for the warning line (D-428)

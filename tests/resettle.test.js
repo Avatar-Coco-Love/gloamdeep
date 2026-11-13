@@ -16,7 +16,6 @@ test('an old save\'s Peddler in the middle room moves to the waystone\'s room, g
   const old = makeWorld('first', SEED);
   old.elsewhere.woods = { ...old.elsewhere.woods, people: [OLD] };
   const s = upgradeState(32, old), [him] = homeOf(s).people.filter((p) => p.id === 'peddler');
-  assert.equal(FORMAT, 33);
   assert.deepEqual(s.elsewhere.woods.people, []);
   assert.equal(him.home, true);
   assert.equal(him.greeted, true);

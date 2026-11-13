@@ -3,6 +3,8 @@
 // apart, in its own place (save.js), so a turn rewrites only the one in play.
 // The slot screen picks the one in use (D-271); with every slot empty, none is. Plain data, no drawing.
 
+import { setAside } from './aside.js';
+
 export const SLOTS = 3;
 // A new profile: no name or look chosen yet, no Records. Records: the deepest depth,
 // creatures beaten, falls, rooms found, steps walked, flasks poured and torches lit,
@@ -51,14 +53,25 @@ const isProfile = (p) => typeof p?.name === 'string' && typeof p.look === 'objec
   && (p.gift === null || (typeof p.gift === 'string' && p.bought.includes(p.gift)));
 const isGoals = (g) => typeof g === 'object' && g !== null && !Array.isArray(g) && Object.values(g).every((x) => typeof x?.done === 'boolean');
 const isBook = (b) => typeof b === 'object' && b !== null && !Array.isArray(b) && Object.values(b).every((c) => isCount(c?.met) && isCount(c?.beaten));
+// A slot that can't be read is made empty, the others kept (H-21, D-880); with the slot in
+// use emptied, the first slot still in use takes over, or none
 export function unpackProfiles(kept) {
   if (!Number.isInteger(kept?.format) || kept.format < 1 || kept.format > FORMAT) return null;
-  let ps = kept.profiles;
-  for (let f = kept.format; f < FORMAT; f++) ps = UPGRADES[f](ps);
-  const { current, slots } = ps ?? {};
-  if (!Array.isArray(slots) || slots.length !== SLOTS || !slots.every((p) => p === null || isProfile(p))) return null;
-  return (Number.isInteger(current) && slots[current]) || (current === null && slots.every((p) => p === null)) ? ps : null;
+  if (!Array.isArray(kept.profiles?.slots) || kept.profiles.slots.length !== SLOTS) return null;
+  const slots = kept.profiles.slots.map((p) => (p === null ? null : upgradeSlot(kept.format, p)));
+  const { current } = kept.profiles, first = slots.findIndex((p) => p);
+  return { current: Number.isInteger(current) && slots[current] ? current : first >= 0 ? first : null, slots };
 }
+// One slot's profile brought up to today's shape, or null when it can't be read
+function upgradeSlot(format, p) {
+  try {
+    let ps = { current: 0, slots: [p] };
+    for (let f = format; f < FORMAT; f++) ps = UPGRADES[f](ps);
+    return isProfile(ps.slots[0]) ? ps.slots[0] : null;
+  } catch { return null; }
+}
+// Whether every slot kept was read: a slot made empty means its text is set aside (loadProfiles)
+const allRead = (kept, ps) => kept.profiles.slots.every((p, i) => (p === null) === (ps.slots[i] === null));
 export const packProfiles = (profiles) => ({ format: FORMAT, profiles });
 
 // The profile in play, and the profiles with it changed
@@ -109,9 +122,12 @@ function oldDeepest() {
   try { n = JSON.parse(localStorage.getItem(OLD_DEEPEST)); } catch { /* not kept */ }
   return Number.isInteger(n) && n > 0 ? n : 0;
 }
+// A list kept that can't be read, broken or newer, or read only in part, is set aside before
+// it can be saved over (H-21, D-880)
 export function loadProfiles() {
-  let ps = null;
-  try { ps = unpackProfiles(JSON.parse(localStorage.getItem(KEY))); } catch { /* not kept */ }
+  let ps = null, text = null, kept = null;
+  try { text = localStorage.getItem(KEY); kept = JSON.parse(text); ps = unpackProfiles(kept); } catch { /* not kept */ }
+  if (text && (!ps || !allRead(kept, ps))) setAside(KEY, text);
   return ps ?? newProfiles(oldDeepest());
 }
 export function saveProfiles(ps) {

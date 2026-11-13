@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.324 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.325 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 16,
-saves kept safe (H-57, H-21, H-14).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 17,
+the art, the owner picks from a picture (H-51 to H-54, H-60, H-61).
 
 ## Waiting on the owner
 - Each health check step's fixes, picked at its step
@@ -48,6 +48,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.325, Saves kept safe.** Health check step 16: an
+  old save's lost Peddler is sent home (H-57); one unreadable profile
+  slot no longer wipes all three, and a save that can't be read is set
+  aside, never saved over (H-21); each part of a frame has its own
+  safety net (H-14). D-880.
+  Playtest: https://claude.ai/artifact/VnS4WW2ay1wtCsG23Ftj5N
 - **2026-11-12, 0.3.324, Falls.** Health check step 15: a draught drunk
   or a fire sat by on the turn of a fall is lost to it (H-17, H-56); a
   fall with something on the journey's first tile wakes beside it
@@ -58,7 +64,3 @@ list in `RESEARCH.md`.
   sold, the next slides in under it (Q-102); his home spot skips the
   hero and creatures (H-58); a bump never sends him sooner (H-59). D-878.
   Playtest: https://claude.ai/artifact/GUbV9mp6oxj8mf2B8KwTBH
-- **2026-11-12, 0.3.322, Sounds only when On.** Health check step 13:
-  with Sound Off nothing downloads; once On, the sounds do, and each
-  place's tune the first time it is reached (H-03). D-877.
-  Playtest: https://claude.ai/artifact/Vme8o4KAmCQBvaDqDqCwRd

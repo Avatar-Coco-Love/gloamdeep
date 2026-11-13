@@ -45,7 +45,7 @@ step 6 (D-869).
 16. **Saves kept safe:** the lost Peddler (H-57), tested with the two
     old saves on the branch `claude/gloamdeep-health-check-2-5uv4gm`,
     deleted after this step; an unreadable slot (H-21); the repeating
-    error (H-14).
+    error (H-14). Done at 0.3.325 (D-880); the two saves kept as tests.
 17. **The art,** the owner picks from a picture: H-51 to H-54, H-60,
     H-61.
 18. **The dev tools:** H-38, H-48 to H-50.
