@@ -37,7 +37,9 @@ Which weather, what each does to the hero, and which creatures, still open.
 **Q-039 · Swimming** (later)
 How the hero learns to swim, where they may jump into water, what water
 does to the lantern and oil, and how rivers and underground streams
-carry them into rooms reached no other way (D-171).
+carry them into rooms reached no other way (D-171). Once the hero can
+swim, a warden's slam toward water slides them in; until then it stops
+at the bank (D-887).
 
 **Q-040 · Light through openings** (when outside places exist)
 The cave mouth is settled (D-218). Still open: daylight down stairs from

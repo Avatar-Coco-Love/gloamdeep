@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.332 (2026-11-13)
+- The warden's slam hurts more now. Knocked back into a wall, a tree, a rock or a thing set down with tiles still to go, you lose a heart more: "You slam into the tree!"
+- Knocked into a creature, you and it lose a heart each; one beaten so leaves no drop and no experience. Knocked into the peddler, only you are hurt.
+- Water, a dug-in creature or a pile of bones just stops the slide. Knocked toward an open doorway, you slide right out into the next room.
+- Decisions: D-887. D-884 moved to the archive, word for word.
+
 ## 0.3.331 (2026-11-13)
 - The warden fights harder. Beside you, it raises its fists for a turn instead of biting: its own new picture, trembling, with the pink mark on your tile. Then it slams: it takes a heart and knocks you 3 tiles straight back in a fast slide. Step out of its way while its fists are up and it hits the floor; then it rests a turn, your chance to strike.
 - For now a wall, a tree or a creature behind you just stops the slide short. The hurt they do is the next step.
@@ -32,7 +38,3 @@ Entry format:
 ## 0.3.330 (2026-11-13)
 - Design: the warden gets a wind-up slam that knocks you 3 tiles back, a wall or a creature in the way hurts, and beaten it drops the Warden's Fist, a stone fist that knocks creatures back. Mock-ups only; built in three steps next. Nothing in the game changed yet.
 - Decisions: D-885. Questions closed: Q-104. D-868 moved to the archive, word for word.
-
-## 0.3.329 (2026-11-13)
-- Docs: the creatures' glossary words have their own page, GLOSSARY-CREATURES.md, and the finds' second half (stone to the Locket) moved to GLOSSARY-FINDS-2.md, word for word, so both pages have room again. Nothing in the game changed.
-- Decisions: D-884. D-881 and D-882 moved to the archive, word for word.

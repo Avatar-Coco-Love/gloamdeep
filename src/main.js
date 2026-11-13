@@ -274,7 +274,8 @@ function tryStep(dir) {
   const went = !fell && state.place !== before.place;
   if (went && !still()) { // the hero walks onto the stairs as the old room fades (D-135)
     const now = performance.now();
-    app.travel = { from: { ...before, hero: to }, mid: now + FADE_MS, end: now + 2 * FADE_MS };
+    const knock = events.find((e) => e.type === 'knock'); // slammed out through a doorway: the old room shows the slide to its edge (D-887)
+    app.travel = { from: { ...before, hero: knock?.to ?? to }, mid: now + FADE_MS, end: now + 2 * FADE_MS };
   } else if (went || (still() && !fell)) { snap(state.hero); if (went) foeShown = new Map(); }
   else if (!fell) followFoes(before.enemies, state.enemies);
   // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)

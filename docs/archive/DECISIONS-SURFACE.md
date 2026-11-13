@@ -1639,3 +1639,13 @@ stale code comment (offered too: only the listed ones). The README's
 status is short: stage 0.3, the world, its places above and below
 (offered too: every room and depth). D-879 and D-880 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-884 · 2026-11-13 · Two glossary pages split** (the owner's picks,
+both recommended) Before the warden's drop, the two glossary pages
+near 8 KB split, word for word. `GLOSSARY-2.md`'s Creatures section
+moves whole to a new `GLOSSARY-CREATURES.md` (offered too: only the
+states and terms out; only Poisoned, Stiff and Warmed out).
+`GLOSSARY-FINDS.md` from Deposit to the Locket (stone, ore, picks,
+fishing, wood, the first relic) moves to a new `GLOSSARY-FINDS-2.md`
+(offered too: fishing to its own page). D-881 and D-882 move to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -13,7 +13,8 @@
 // Claude's drafts the owner may change: a reach of 2, a rest of 1, and armour can't turn a strike aside;
 // the Shell Vest blunts it, a strike of 2 hurting 1 (D-801).
 // One that slams (the warden, D-885) strikes so with a reach of 1, and its way's `knocks` sends the
-// hero hit that many tiles straight back, along the strike's way (knock).
+// hero hit that many tiles straight back, along the strike's way; a wall, a creature or a person
+// in the way hurts, and a doorway lets the hero slide out into the room beyond (knock, D-887).
 import { get } from './registry.js';
 import { enemyAt, hitEnemy } from './enemies.js';
 import { traits } from './behaviours.js';
@@ -24,7 +25,7 @@ import { note } from './events.js';
 import { fall } from './fall.js';
 import { blunted } from './worn.js';
 import { personAt } from './people.js';
-import { offEdge } from './openings.js';
+import { offEdge, walkOff } from './openings.js';
 
 export function stingTurn(state) {
   if (!state.enemies.some((e) => e.raised)) return state;
@@ -34,6 +35,7 @@ export function stingTurn(state) {
     if (!e) continue; // stung by another first
     s = strike(s, e);
     if (s.health <= 0 && !state.god) return fall(s);
+    if (s.place !== state.place) return s; // slammed out through a doorway: the turn ends in the room beyond (D-887)
   }
   return s;
 }
@@ -78,18 +80,40 @@ function strike(state, e) {
   return way.knocks ? knock(bitten, raised, way.knocks) : bitten;
 }
 
-// § knock (D-885): (state, way, n) → the hero slid up to n tiles along `way`, stopping before the
-// room's edge, a solid tile (rock, a tree, a boulder, a thing set down), a creature or a person.
-// For now a stop only ends the slide; the hurt it does is the next step's. Finds on the tiles are
-// passed over, and stairs landed on are not taken, as no step was walked. A `knock` event, { from, to }.
+// § knock (D-885, D-887): (state, way, n) → the hero slid up to n tiles along `way`. Finds on the
+// tiles are passed over, and stairs landed on are not taken, as no step was walked. A `knock` event,
+// { from, to }, `to` the last tile slid to in this room. Stopped with tiles still to go:
+// - at the room's edge through a doorway, the slide goes on out into the room beyond, as a step
+//   off the edge would (walkOff), and ends there; an edge with no room beyond is a wall;
+// - by a wall (any solid tile: rock, a tree, a boulder, a thing set down), the hero loses 1 heart more;
+// - by a creature, it and the hero lose 1 each, beaten with no drop and no experience, as a sting's;
+// - by a person, the hero loses 1 and the person nothing (people have no hearts);
+// - by water, or one under the earth or a pile of bones, the slide only stops: no hurt.
+// The hurt is a `slam` event { hurt, x, y } with the `slamInto` line naming what was hit (D-887).
 function knock(state, way, n) {
-  let { x, y } = state.hero;
-  for (let i = 0; i < n; i++) {
+  let { x, y } = state.hero, stop = null;
+  for (let i = 0; i < n && !stop; i++) {
     const nx = x + way.dx, ny = y + way.dy;
-    if (offEdge(state.room, nx, ny) || tileAt(state.room, nx, ny).solid) break;
-    if (enemyAt(state, nx, ny) || personAt(state, nx, ny)) break;
-    x = nx; y = ny;
+    if (offEdge(state.room, nx, ny)) stop = { edge: true };
+    else if (tileAt(state.room, nx, ny).solid) stop = { tile: tileAt(state.room, nx, ny) };
+    else if (enemyAt(state, nx, ny)) stop = { foe: enemyAt(state, nx, ny) };
+    else if (personAt(state, nx, ny)) stop = { person: personAt(state, nx, ny) };
+    else { x = nx; y = ny; }
+    if (stop) stop = { ...stop, x: nx, y: ny };
   }
   const from = state.hero;
-  return note({ ...state, hero: { ...from, x, y } }, 'knock', { from: { x: from.x, y: from.y }, to: { x, y } });
+  const slid = note({ ...state, hero: { ...from, x, y } }, 'knock', { from: { x: from.x, y: from.y }, to: { x, y } });
+  if (!stop) return slid;
+  if (stop.edge) return walkOff(slid, DIR_OF[`${way.dx},${way.dy}`]) || hurt(slid, stop, 'wall');
+  if (stop.tile) return stop.tile.cast ? slid : hurt(slid, stop, stop.tile.name);
+  if (stop.person) return hurt(slid, stop, get(stop.person.id).name);
+  if (stop.foe.under || stop.foe.pile) return slid;
+  return hurt({ ...slid, enemies: hitEnemy(slid.enemies, stop.foe, get(stop.foe.id), 1) }, stop, get(stop.foe.id).name);
+}
+const DIR_OF = { '0,-1': 'up', '0,1': 'down', '-1,0': 'left', '1,0': 'right' };
+
+// The hero loses 1 heart more (none in god mode), naming what was hit: `slamInto` and a `slam` event
+function hurt(state, at, name) {
+  const health = state.god ? state.health : Math.max(0, state.health - 1);
+  return note(say({ ...state, health }, 'slamInto', name.toLowerCase()), 'slam', { hurt: 1, x: at.x, y: at.y });
 }

@@ -39,12 +39,12 @@ import { guards } from './guard.js';
 // One that `poisons` leaves the hero poisoned when its bite hurts, not when it glances (poison.js, D-654);
 // with Tough, only 1 time in 2 (D-657); never while the Ward Draught works (ward.js, D-795).
 // First of all the globs fly and the ones that spit spit (spit.js, D-688); then a raised tail
-// strikes (sting.js, D-729); a fall there ends the turn.
+// strikes (sting.js, D-729); a fall there ends the turn, as a slam out into the room beyond does (D-887).
 export function enemiesAct(state) {
   const spat = spitTurn(state);
   if (spat.fell !== state.fell) return spat;
   const stung = stingTurn(spat);
-  return stung.fell !== state.fell ? stung : rise(settle(act(stung))); // last, a pile of bones counts down (bones.js, D-731)
+  return stung.fell !== state.fell || stung.place !== state.place ? stung : rise(settle(act(stung))); // last, a pile of bones counts down (bones.js, D-731)
 }
 function act(state) {
   const bites = biting(state);
