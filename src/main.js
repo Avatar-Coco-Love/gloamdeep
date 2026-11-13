@@ -2,6 +2,7 @@
 // input/screens.js and the drawing in render/frame.js (D-235); `app` holds
 // what the three share.
 import { VERSION } from './core/version.js';
+import { drawText, textWidth, FONT_H } from './render/font.js';
 import { newJourney as beginJourney, step, wait, pour, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt } from './core/enemies.js';
@@ -68,7 +69,11 @@ const onCanvas = (to) => ([px, py]) => {
   return [(a.left + px / canvas.width * a.width - b.left) * k, (a.top + py / canvas.height * a.height - b.top) * k];
 };
 const toRoom = onCanvas(roomCanvas), toLayer = onCanvas(hudCanvas);
-document.getElementById('version').textContent = VERSION;
+{ // the version number in the game's pixel font at 2x, grey (D-881), without the 2 rows below the line (digits have none); its words for screen readers in the label
+  const box = document.getElementById('version'), c = document.createElement('canvas');
+  c.width = textWidth(VERSION); c.height = FONT_H - 2; c.style.width = c.width * 2 + 'px'; c.style.height = c.height * 2 + 'px';
+  drawText(c.getContext('2d'), VERSION, 0, 0, '#9790a4'); box.setAttribute('aria-label', 'Version ' + VERSION); box.append(c);
+}
 addAppCard(); // so a phone can put the game on its home screen (D-375)
 
 // The only Math.random: a new seed for each journey (D-148, D-187), unless a

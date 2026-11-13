@@ -39,7 +39,7 @@ export function drawMotes(c, to, lx, ly, r, still, stay = 0) {
     const x = Math.round(m.x), y = Math.round(m.y), a = Math.sin(m.life * Math.PI) * Math.min(1, litAt(x, y) * 2); // only where there is light
     if (a <= 0.03) continue;
     c.globalAlpha = a;
-    c.fillStyle = '#fff5dc'; c.fillRect(x, y, 1, 1);
+    c.fillStyle = '#fff5d6'; c.fillRect(x, y, 1, 1);
   }
   c.globalAlpha = 1;
 }

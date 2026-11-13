@@ -4,14 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.325 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.326 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 17,
-the art, the owner picks from a picture (H-51 to H-54, H-60, H-61).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 18,
+the dev tools (H-38, H-48 to H-50).
 
 ## Waiting on the owner
+- Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
+  (a conversation can't delete branches; its saves are tests now).
 - Each health check step's fixes, picked at its step
   (`HEALTH-CHECK-ORDER.md`).
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
@@ -48,6 +50,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.326, The art's loose ends.** Health check step 17,
+  picked from a picture: the quick slot and round map at exactly 2×
+  (H-51); the version number in the pixel font (H-52); one dim grey and
+  one bright for text (H-53); soft glows allowed in the rules (H-54);
+  near-miss colours matched (H-60); every code-only colour listed in
+  `ART-DIRECTION-3.md` (H-61). D-881.
+  Playtest: https://claude.ai/artifact/5BHDMGHkscqqW8uNdqMMbp
 - **2026-11-13, 0.3.325, Saves kept safe.** Health check step 16: an
   old save's lost Peddler is sent home (H-57); one unreadable profile
   slot no longer wipes all three, and a save that can't be read is set
@@ -59,8 +68,3 @@ list in `RESEARCH.md`.
   fall with something on the journey's first tile wakes beside it
   (H-16). D-879.
   Playtest: https://claude.ai/artifact/UUpfNPLcn8Pq4ASsDBnEX3
-- **2026-11-12, 0.3.323, The Peddler's fixes.** Health check step 14:
-  a SELL that sells nothing leaves the frame (H-42); the last of a stack
-  sold, the next slides in under it (Q-102); his home spot skips the
-  hero and creatures (H-58); a bump never sends him sooner (H-59). D-878.
-  Playtest: https://claude.ai/artifact/GUbV9mp6oxj8mf2B8KwTBH

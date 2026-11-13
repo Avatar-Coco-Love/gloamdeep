@@ -9,7 +9,7 @@ import { drawMarker } from './menu.js';
 import { cardAt, drawCard, inCard, onCross, PAD } from './bag.js';
 import { HISTORY } from '../core/history.js';
 
-const GOLD = '#ffd66b', GREY = '#9790a4', EMBER = '#f39a3b', CORE = '#fff5d6';
+const GOLD = '#ffd66b', GREY = '#9790a4', EMBER = '#f39a3b', CORE = '#efe6cc';
 export const ROW_H = 11; // from one row's top to the next
 const LIST_Y = 28; // the window's top inside the card, under the heading's rule
 const MARK_W = 8; // the flame and its gap, left of the numbers

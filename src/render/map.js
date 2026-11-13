@@ -21,7 +21,7 @@ import { markAt, aroundHero, rimDot } from '../core/map.js';
 import { areaAt, tileAt } from '../core/room.js';
 import { onWipe } from './wipe.js';
 
-const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#46405a';
+const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#5c566a';
 const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3f5175' }; // ART-DIRECTION.md; water the pool's shimmer (D-502)
 // Walls in each room's own tone, and the heading's area name in its floor's (D-233):
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green

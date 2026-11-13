@@ -5,6 +5,14 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.326', date: '2026-11-13', title: 'The art\'s loose ends', lines: [
+    "The quick slot's picture and the round map are now enlarged by exactly 2, so every pixel in them is the same size. The quick slot's picture is a little bigger.",
+    "The version number on the title screen is now in the game's own pixel font.",
+    "Lines that can't be picked, empty profile slots and unlit marks now share one dim grey, a little easier to read. Bright words in the menus, profiles and history now use the same bone white as everywhere else.",
+    "A few colours one shade apart now match, and torch handles use the same wood browns as the trees. You won't see a difference.",
+    "The art rules now say glows and light may be soft, and list every colour the code uses.",
+    "Decisions: D-881.",
+  ] },
   { v: '0.3.325', date: '2026-11-13', title: 'Saves kept safe', lines: [
     "Fixed: in a very old save made while the freed Peddler was still waiting in his room, he no longer vanishes when the game updates. He is back at home by the waystone and greets you when you come near.",
     "Fixed: if one profile can't be read, the other profiles are kept instead of all three being wiped. The one that can't be read shows as Empty, and its old data is kept aside, never written over.",

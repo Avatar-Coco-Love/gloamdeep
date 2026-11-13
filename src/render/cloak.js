@@ -17,7 +17,7 @@ import { drawSlab } from './slab.js';
 import { flicker } from './light.js';
 import { onWipe } from './wipe.js';
 
-const GOLD = '#ffd66b', DIM = '#4a4458', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
+const GOLD = '#ffd66b', DIM = '#5c566a', CORE = '#efe6cc', GREY = '#9790a4', EMBER = '#f39a3b', K = '#0e0c16';
 const BOX_W = 46, GAP = 4, ROW_GAP = 2; // a box's least width (D-520); boxes' spacing
 const boxH = (s, named = true) => 16 * s + (named ? 14 : 6); // a box's height with its hero s×: the hero, its name (none on a view too short, D-700) and the space round them
 const ZOOM_MIN = 1, ZOOM_MAX = 12, BIG_BOXES = 5; // the big hero's zoom, as big as fits (D-523, D-526), under 3× only on the smallest views with the third row (D-533); the least zoom that still lets the boxes be 2×, 5 so the tall tabs keep them 2× on a phone (D-867)

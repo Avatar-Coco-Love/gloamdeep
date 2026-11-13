@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.323, The Peddler's fixes.** Health check step 14:
+  a SELL that sells nothing leaves the frame (H-42); the last of a stack
+  sold, the next slides in under it (Q-102); his home spot skips the
+  hero and creatures (H-58); a bump never sends him sooner (H-59). D-878.
+  Playtest: https://claude.ai/artifact/GUbV9mp6oxj8mf2B8KwTBH
 - **2026-11-12, 0.3.322, Sounds only when On.** Health check step 13:
   with Sound Off nothing downloads; once On, the sounds do, and each
   place's tune the first time it is reached (H-03). D-877.

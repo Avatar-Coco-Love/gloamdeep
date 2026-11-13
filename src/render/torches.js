@@ -12,7 +12,7 @@ import { flicker } from './light.js';
 import { TILE as T } from './screen.js';
 import { GLOW_LAMP, PAL } from './pictures.js';
 
-const K = '#0e0c16', N = '#6b4a33', NL = '#9c6f45'; // outline, wood, wood highlight
+const K = '#0e0c16', N = '#6a4c36', NL = '#9a7350'; // outline, wood, wood highlight
 const FLAME_Y = '#f39a3b', FLAME_y = '#ffd66b', CORE = '#fff5d6';
 const CHAR = '#2b2228', ASH = '#5a5260'; // an unlit torch's burnt head (D-125)
 

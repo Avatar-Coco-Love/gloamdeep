@@ -57,7 +57,7 @@ Read the smallest file that answers the question.
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms (D-170); the map and the starting region in `-2` | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |
-| `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2` | before any drawing code |
+| `docs/ART-DIRECTION.md` | the visual rules from the style study; generated places' colours in `-2`; colours only the code had in `-3` | before any drawing code |
 | `docs/TECH.md` | architecture, code rules; the layout and adding content in `TECH-2.md` | before writing code |
 | `docs/SOUNDS.md` | every sound the game needs, and its file (D-773); the fight's, finds', menus' and maybes in `SOUNDS-2.md`; creatures' and places' in `SOUNDS-3.md` | sound steps |
 | `docs/DEV-TOOLS.md` | the dev mode plan and tools | dev mode steps |
