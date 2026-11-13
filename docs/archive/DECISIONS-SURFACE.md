@@ -1703,3 +1703,23 @@ passes over); once the hero can swim, a slam slides them into water
 (the owner's own answer, Q-039). The line, Claude's draft: "You slam
 into the {n}!", naming what was hit (offered too: crash; two lines).
 D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-888 · 2026-11-13 · The Warden's Fist** (the owner's picks, all
+recommended; D-885's step 3 of 3) Beaten, the warden always leaves the
+Warden's Fist where it fell, even when a sting, a glob or a slam beats
+it. Held, it hits for 2 and knocks the creature, still standing, 1 tile
+straight back: a wall (any solid tile, the room's edge, a doorway too,
+as creatures never leave their room) costs it 1 more; another creature
+there, both 1 (offered too: only walls hurt; a doorway just stops it);
+a person, water, one under the earth or a pile of bones only stop it.
+Its hit is the warden's own knock of stone, a Fist hit line in
+Settings (offered too: the lantern's knock; the knife's slice). A save
+that beat the warden already gets the Fist laid once where the warden
+first stood (offered too: into the bag; none). Lines: "You take the
+Warden's Fist.", "The Warden's Fist goes in your bag.", "You hold the
+Warden's Fist.", "You put the Warden's Fist away.", "The {n} slams into
+the {m}!" (offered too: its look when taken; a line for every knock).
+Claude's drafts the owner may change: its picture, the mock-up's; one
+beaten by a wall or a creature as the hero's blow, its drop and
+experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

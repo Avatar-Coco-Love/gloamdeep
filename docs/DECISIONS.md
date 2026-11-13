@@ -133,26 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-888 · 2026-11-13 · The Warden's Fist** (the owner's picks, all
-recommended; D-885's step 3 of 3) Beaten, the warden always leaves the
-Warden's Fist where it fell, even when a sting, a glob or a slam beats
-it. Held, it hits for 2 and knocks the creature, still standing, 1 tile
-straight back: a wall (any solid tile, the room's edge, a doorway too,
-as creatures never leave their room) costs it 1 more; another creature
-there, both 1 (offered too: only walls hurt; a doorway just stops it);
-a person, water, one under the earth or a pile of bones only stop it.
-Its hit is the warden's own knock of stone, a Fist hit line in
-Settings (offered too: the lantern's knock; the knife's slice). A save
-that beat the warden already gets the Fist laid once where the warden
-first stood (offered too: into the bag; none). Lines: "You take the
-Warden's Fist.", "The Warden's Fist goes in your bag.", "You hold the
-Warden's Fist.", "You put the Warden's Fist away.", "The {n} slams into
-the {m}!" (offered too: its look when taken; a line for every knock).
-Claude's drafts the owner may change: its picture, the mock-up's; one
-beaten by a wall or a creature as the hero's blow, its drop and
-experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
-word.
-
 **D-889 · 2026-11-13 · The puzzle plan** (the owner's picks; the
 long-term talk) Puzzles are planned first (offered too: biome 1's boss
 and ability; crafting tiers; the enemy toolkit). All four families, with
@@ -181,3 +161,26 @@ first; pick after each). Biome 1's boss and found ability (G3, W4) are
 planned after the first two are built (offered too: now; after all
 four). Each one's tiles, names, numbers and rewards are its own step.
 D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
+owner's picks, all recommended; builds D-889, D-890; answers part of
+Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
+sealed door, a pair (sealed, open), whose flame rune glows one violet
+notch for each brazier lit; once both burn the slab sinks to a sill and
+stays open, the braziers lit, for good; left unsolved, they go cold
+again (rule 5) (offered too: 3 braziers; 2 to 4 by depth). The brazier
+is a crypt-stone fire bowl on a foot with a violet band, solid, light
+passing over it, like the campfire (offered too: an iron tripod; a wall
+niche). Bumped with the lantern lit, lighting one costs 5 turns' oil,
+grey with less (offered too: 1 turn's, as a campfire's ashes; 10).
+One vault a floor from depth 2: the seed turns one dead-end room into a
+vault, a fixed 11 x 13 layout checked by hand, drawn in the crypt's
+bricks wherever it stands (offered too: about 1 floor in 2; only from
+depth 8). The owner's addition: vaults will hold different puzzles
+(L3, P1, T1 and more, as each is built) and different rewards. The
+reward is one prize the seed draws per vault: a rare material or an
+ember, "and maybe other things" (the owner's addition; offered too: the
+cache behind the door; lore pages later). How the draw is weighted, the
+lines and the room's layout are the build step's. Mock-up:
+https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
+D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.

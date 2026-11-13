@@ -79,7 +79,7 @@ it, which costs a little oil. When they all burn, the door opens.
 Variants: lit in the order carved on the door; a brazier goes out if a
 light-seeking creature reaches it first. *Uses* the lantern, oil,
 torches, seeks-light creatures. *Needs* a brazier tile, a sealed door.
-*Fits* biome 1, the crypt above all.
+*Fits* biome 1, the crypt above all. Settled by D-891.
 
 **L2 · Lenses and the crystal** The owner's mirrors idea, fitted to the
 grid. The lit lantern sends a straight beam down a row or column (like
