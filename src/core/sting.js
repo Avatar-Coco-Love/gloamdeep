@@ -16,7 +16,7 @@
 // hero hit that many tiles straight back, along the strike's way; a wall, a creature or a person
 // in the way hurts, and a doorway lets the hero slide out into the room beyond (knock, D-887).
 import { get } from './registry.js';
-import { enemyAt, hitEnemy } from './enemies.js';
+import { enemyAt, hitFoe } from './enemies.js';
 import { traits } from './behaviours.js';
 import { tileAt } from './room.js';
 import { clearLine } from './sight.js';
@@ -72,7 +72,7 @@ function strike(state, e) {
     const o = enemyAt(s, t.x, t.y);
     if (!o || o.under || o.pile) continue; // under the earth (D-726), or a pile of bones (D-731), passed over as a glob passes them
     foe = foe || o;
-    s = { ...s, enemies: hitEnemy(s.enemies, o, get(o.id), entry.bite) };
+    s = hitFoe(s, o, entry.bite); // a warden beaten so leaves its Fist all the same (D-888)
   }
   if (!hit) return foe ? say(s, 'stingsFoe', get(foe.id).name.toLowerCase()) : say(s, entry.misses);
   const hurt = blunted(state, entry.bite), health = state.god ? state.health : Math.max(0, state.health - hurt);
@@ -108,7 +108,7 @@ function knock(state, way, n) {
   if (stop.tile) return stop.tile.cast ? slid : hurt(slid, stop, stop.tile.name);
   if (stop.person) return hurt(slid, stop, get(stop.person.id).name);
   if (stop.foe.under || stop.foe.pile) return slid;
-  return hurt({ ...slid, enemies: hitEnemy(slid.enemies, stop.foe, get(stop.foe.id), 1) }, stop, get(stop.foe.id).name);
+  return hurt(hitFoe(slid, stop.foe, 1), stop, get(stop.foe.id).name);
 }
 const DIR_OF = { '0,-1': 'up', '0,1': 'down', '-1,0': 'left', '1,0': 'right' };
 

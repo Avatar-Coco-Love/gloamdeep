@@ -36,6 +36,7 @@ import { toolFits, bumpsFor } from './gear.js';
 import { bumpWater } from './fishing.js';
 import { fallen } from './bones.js';
 import { misses } from './stiff.js';
+import { knocks, knockOf } from './fist.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, newJourney, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -150,6 +151,7 @@ export function drop(state, i) {
 // It is a `hit` event, and a foe beaten a `beat` too, `unmet` when the Bestiary hadn't met it (D-630), `spawned` when the dev tools made it (D-720). A foe beaten may leave a drop (dropFrom).
 // A weapon that hits `through` (the spear) hits the creature awake behind the foe too,
 // in the line from the hero, for that much; the foe's line is the one said (D-479).
+// A weapon that `knocks` (the Warden's Fist) knocks the foe still standing a tile back (knockBack, D-888).
 // While stiff, 1 swing in 3 misses: a `miss` event, the turn passed, its line (stiff.js, D-759).
 export const LANTERN_HIT = 1; // two hits kill the rat (D-110)
 export const heroHit = (state) => ((state.held && get(state.held)?.hit) || LANTERN_HIT) + boonHit(state);
@@ -165,12 +167,25 @@ function attack(state, foe) {
   if (misses(state)) return endTurn(state, say(note(passTurn(state), 'miss', { id: foe.id, held: state.held }), 'stiffMiss')); // stiff: the swing goes wide, nothing hurt (D-759)
   const back = behind(state, foe), first = strike(state, foe, heroHit(state));
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
-  let next = note(passTurn((both || first).state), 'hit', { id: foe.id, held: state.held });
+  const shove = knocks(state) && !first.beaten ? knockBack((both || first).state, foe) : null; // the Warden's Fist (fist.js, D-888)
+  let next = note(passTurn((shove || both || first).state), 'hit', { id: foe.id, held: state.held });
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
-  for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720)
-  let said = say(next, first.line);
-  for (const [id, e] of [[first.beaten, foe], [both?.beaten, back]]) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
+  if (shove?.into) next = note(next, 'hit', { id: shove.into.id, held: state.held });
+  const beaten = [[first.beaten, foe], [both?.beaten, back], ...(shove?.beaten || [])];
+  for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720)
+  let said = shove?.name ? say(next, 'foeSlamInto', get(foe.id).name.toLowerCase(), shove.name) : say(next, first.line);
+  for (const [id, e] of beaten) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
   return endTurn(state, said);
+}
+// § knock back (D-888): the Fist's foe, hit and standing, knocked a tile on (knockOf): onto a free
+// tile it slides there; into a wall it loses 1, into a creature both lose 1, each as a hit of the
+// hero's. → { state, name, into, beaten } with what it hit named, the creature hit, those beaten.
+function knockBack(state, foe) {
+  const e = enemyAt(state, foe.x, foe.y), way = e && !e.pile && knockOf(state, e);
+  if (!way) return null;
+  if (way.to) return { state: { ...state, enemies: state.enemies.map((o) => (o === e ? { ...o, ...way.to } : o)) } };
+  const hurt = strike(state, e, 1), into = way.foe && strike(hurt.state, way.foe, 1);
+  return { state: (into || hurt).state, name: way.wall || get(way.foe.id).name.toLowerCase(), into: way.foe, beaten: [[hurt.beaten, e], [into?.beaten, way.foe]] };
 }
 // One creature hit for `damage`: the state with it hurt, fled or gone and its drop
 // lying, the line it says, and its id when beaten
@@ -183,14 +198,14 @@ function strike(state, foe, damage) {
   return { state: { ...state, enemies, items }, line: dead ? entry.die : stands ? entry.stands : entry.hurt, beaten: dead && foe.id };
 }
 
-// § drop: the items with what a beaten foe `drops`, about 1 time in 2 (D-453), on the
+// § drop: the items with a beaten foe's `sure` find, always (the warden's Fist, D-888), and what it `drops`, about 1 time in 2 (D-453), on the
 // tile where it fell, beside whatever already lies there (D-727). The coin is seeded, as a
 // flee's is, from the seed, the turn and its tile (D-474), so a replay drops the same.
 // Its `rare` one has a coin of its own from the same seed, about 1 in 10; with both,
 // the rare lies on the nearest open tile (D-476); Keen Eye makes the part 3 in 4 (D-596); a worn charm makes it about 1 in 5 (D-486), Lucky Find adds 15 in 100 (D-599). It never grows back, so it lies there until taken (D-474).
 function dropFrom(state, foe, entry) {
   const r = rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y + 4096));
-  const ids = [entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
+  const ids = [entry.sure, entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
   const at = spread(state, foe.x, foe.y, ids.length, 'stack');
   return [...state.items, ...ids.map((id, i) => ({ id, ...at[i] }))];
 }

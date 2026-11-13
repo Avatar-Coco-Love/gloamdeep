@@ -32,6 +32,10 @@ export const LINES = {
   spearBag: { text: 'The spear goes in your bag.', warn: false }, // found with a weapon held (D-479)
   spearHold: { text: 'You hold the spear.', warn: false }, // Hold in the bag (D-479)
   spearAway: { text: 'You put the spear away.', warn: false }, // Take off, into the bag, free (D-554)
+  fistTake: { text: "You take the Warden's Fist.", warn: false }, // a beaten warden's (D-888), Claude's drafts the owner picked
+  fistBag: { text: "The Warden's Fist goes in your bag.", warn: false },
+  fistHold: { text: "You hold the Warden's Fist.", warn: false },
+  fistAway: { text: "You put the Warden's Fist away.", warn: false },
   flaskMake: { text: 'You make an oil flask.', warn: false }, // 3 oilcaps crafted (D-299)
   glassFlaskMake: { text: 'You make a flask from the glass.', warn: false }, // 1 mimic glass, 2 oilcaps (D-477)
   oilcapFull: { text: "You can't carry more oilcaps.", warn: false }, // every stack full, no slot free (D-250, D-296, D-333)
@@ -368,13 +372,14 @@ const OIL_LOW = 0.2; // "under 20%", as in the study
 // § say: (state, id, n) → new state, the line said on this turn; n fills a
 // line's {n}, as the level does. A line with `texts` says the one after the
 // last it said, kept in `state.told` (D-297).
-export function say(state, id, n) {
+// A second blank, {m}, takes `m` (the Fist's knock names two things, D-888)
+export function say(state, id, n, m) {
   if (!LINES[id]) return state; // a creature with no line for this says nothing new (D-369)
   if (LINES[id]?.texts) {
     const i = (state.told?.[id] ?? 0) % LINES[id].texts.length;
     return { ...state, line: { id, turn: state.turn, i }, told: { ...state.told, [id]: i + 1 } };
   }
-  return { ...state, line: n === undefined ? { id, turn: state.turn } : { id, turn: state.turn, n } };
+  return { ...state, line: n === undefined ? { id, turn: state.turn } : { id, turn: state.turn, n, ...(m !== undefined && { m }) } };
 }
 
 // § said together: (state, id) → as say, but when an effect's end was said already this turn,
@@ -403,7 +408,7 @@ export function shownLine(state) {
     return filled.get(state.line);
   }
   if (state.line.n === undefined) return entry;
-  if (!filled.has(state.line)) filled.set(state.line, { ...entry, text: entry.text.replace('{n}', state.line.n).replace(/\b1 turns\b/, '1 turn') }); // "1 turn left" on a mark's last turn (H-43)
+  if (!filled.has(state.line)) filled.set(state.line, { ...entry, text: entry.text.replace('{n}', state.line.n).replace('{m}', state.line.m ?? '').replace(/\b1 turns\b/, '1 turn') }); // "1 turn left" on a mark's last turn (H-43)
   return filled.get(state.line);
 }
 

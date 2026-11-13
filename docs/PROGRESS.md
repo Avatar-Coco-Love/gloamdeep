@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.332 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.333 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The warden's slam (D-885), step 3 of 3: beaten, the warden always
-drops the Warden's Fist; held, it hits for 2 and knocks the creature
-back a tile, a wall hurting it. Read D-885, D-887 and `knock` in
-`sting.js`.
+The warden's slam is done (D-885 to D-888). The owner picks what comes
+next from "Waiting on the owner" or the build plan; propose 2 or 3 with
+a recommendation.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.333, The Warden's Fist.** D-885's step 3: a beaten
+  warden always leaves the Fist; held, it hits for 2 and knocks the
+  creature a tile back, a wall or a creature there hurting it 1. D-888.
+  Playtest: https://claude.ai/artifact/3qA8TCMBkevCiTzuzR4nVJ
+  Sounds: https://claude.ai/artifact/BZ9vxVZJDXqqVZ5bWnv6a6
 - **2026-11-13, 0.3.332, The slam's hurt.** D-885's step 2: slammed
   into a wall with tiles to go, a heart more; into a creature, a heart
   each; the peddler, the hero only; out through a doorway into the next
@@ -59,7 +63,3 @@ list in `RESEARCH.md`.
   it slams, a heart and 3 tiles back in a fast slide; it rests a turn.
   D-886.
   Playtest: https://claude.ai/artifact/UAyaK9Z6br3ah2mry9kE1Q
-- **2026-11-13, 0.3.330, The warden's slam and its Fist.** Q-104
-  designed with mock-ups: a wind-up slam knocking the hero 3 back, a
-  wall or a creature in the way hurting, and the Warden's Fist as its
-  drop. Nothing visible yet. D-885.

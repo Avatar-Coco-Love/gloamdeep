@@ -1649,3 +1649,22 @@ states and terms out; only Poisoned, Stiff and Warmed out).
 fishing, wood, the first relic) moves to a new `GLOSSARY-FINDS-2.md`
 (offered too: fishing to its own page). D-881 and D-882 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-886 · 2026-11-13 · The warden's slam built** (the owner's picks, all
+recommended; D-885's step 1 of 3) Beside the hero, the warden raises
+its fists for a turn instead of biting: a picture of its own, the
+fists over its head, trembling as a raised tail does, with the pink
+strike mark on the hero's tile (offered too: its own picture
+trembling; the new picture with no mark). Then it slams that tile,
+its bite of 1, and the hero slides 3 tiles straight back, 3 times as
+fast as a step (offered too: there at once, with a shake); the room's
+edge, a solid tile, a creature or a person stops the slide short, with
+no hurt more until step 2. Stepped out of its way, it hits the floor.
+Then it rests a turn, as the scorpion does (offered too: no rest).
+Fists up, it never settles back to sleep before it slams. Its lines,
+Claude's drafts: "The warden raises its fists!", "The warden slams you
+back!", "The warden's fists hit the floor." (offered too: "The
+warden's fists rise.", "The warden's blow throws you back.", "The
+warden slams the empty floor."). Its fists going up play its waking
+stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

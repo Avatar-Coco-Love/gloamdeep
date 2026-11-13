@@ -282,7 +282,7 @@ test("The fight's rest: miss, hurt, poison and a level (D-831)", async () => {
     [['impactGlass_light_000.ogg', 1, 0.55], ['impactGlass_light_001.ogg', 1.26, 0.55], ['impactGlass_light_002.ogg', 1.5, 0.55]]); // rising, after the beaten thud
   for (const v of ['miss', 'hurt', 'poison', 'poisonAgain', 'rise', 'rise2', 'rise3']) assert.equal(kindOf(v), 'fight');
   for (const v of ['miss', 'hurt', 'poison', 'rise']) assert.ok(SOUND_LINES.some((l) => l.voice === v));
-  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(0, 8), ['Lantern hit', 'Knife hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Last heart', 'Level']);
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(0, 9), ['Lantern hit', 'Knife hit', 'Fist hit', 'Beaten', 'Stiff miss', 'Hurt', 'Poison', 'Last heart', 'Level']);
 });
 
 // § the creatures' bites (D-832): one for each kind, a quarter second after the hero's swing, its parts too
@@ -300,7 +300,7 @@ test("The creatures' bites: one for each kind, after the swing, one line in Sett
   assert.deepEqual(FILES.teeth.with, [['teeth2', 0.07]]); // a quick double nip
   assert.deepEqual(FILES.rattle.with.map(([, at]) => at), [0.05, 0.1, 0.16]); // a clatter of bones
   assert.equal(FILES.sip.files[0], 'morphonaut-elemental-forces/Water/Water-038.ogg');
-  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(8), ['Bites', 'Creatures']); // one line for them all, and one for the creatures' own (D-833)
+  assert.deepEqual(soundsOf('fight').map((l) => l.name).slice(9), ['Bites', 'Creatures']); // one line for them all, and one for the creatures' own (D-833)
   const { BITES, isMuted } = await import('../src/core/settings.js');
   assert.deepEqual(BITES, bites);
   for (const v of bites) assert.ok(isMuted({ muted: ['bites'] }, v) && !isMuted({}, v));

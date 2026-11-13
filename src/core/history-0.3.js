@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.333', date: '2026-11-13', title: 'The Warden\'s Fist', lines: [
+    "New: the Warden's Fist, a fist of old stone with a gold band and a violet stone. A beaten warden always leaves it where it fell.",
+    "Held, it hits for 2 and knocks the creature a tile straight back. Knocked into a wall, a tree or a rock, it loses 1 more: \"The rat slams into the rock!\" Into another creature, both lose 1.",
+    "Its hit sounds of stone, the warden's own knock, with its own line, Fist hit, in Settings. A journey that beat the warden already finds the Fist where the warden first stood.",
+    "Decisions: D-888. D-886 moved to the archive, word for word.",
+  ] },
   { v: '0.3.332', date: '2026-11-13', title: 'The slam\'s hurt', lines: [
     "The warden's slam hurts more now. Knocked back into a wall, a tree, a rock or a thing set down with tiles still to go, you lose a heart more: \"You slam into the tree!\"",
     "Knocked into a creature, you and it lose a heart each; one beaten so leaves no drop and no experience. Knocked into the peddler, only you are hurt.",

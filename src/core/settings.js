@@ -89,6 +89,7 @@ export const SOUND_LINES = [
   { voice: 'rooms', kind: 'steps', name: 'New rooms' }, // a new floor and a room never stood in
   { voice: 'lanternHit', kind: 'fight', name: 'Lantern hit' },
   { voice: 'knifeHit', kind: 'fight', name: 'Knife hit' },
+  { voice: 'stoneHit', kind: 'fight', name: 'Fist hit' }, // the Warden's Fist, of stone (D-888)
   { voice: 'beaten', kind: 'fight', name: 'Beaten' },
   { voice: 'miss', kind: 'fight', name: 'Stiff miss' },
   { voice: 'hurt', kind: 'fight', name: 'Hurt' },

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.330, The warden's slam and its Fist.** Q-104
+  designed with mock-ups: a wind-up slam knocking the hero 3 back, a
+  wall or a creature in the way hurting, and the Warden's Fist as its
+  drop. Nothing visible yet. D-885.
 - **2026-11-13, 0.3.329, Two glossary pages split.** Before the warden's
   drop: the creatures to `GLOSSARY-CREATURES.md`, the finds from Deposit
   on to `GLOSSARY-FINDS-2.md`, word for word. Nothing visible. D-884.

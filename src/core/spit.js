@@ -18,7 +18,7 @@
 import { get } from './registry.js';
 import { traits } from './behaviours.js';
 import { tileAt } from './room.js';
-import { enemyAt, hitEnemy } from './enemies.js';
+import { enemyAt, hitFoe } from './enemies.js';
 import { personAt } from './people.js';
 import { clearLine } from './sight.js';
 import { say } from './lines.js';
@@ -80,5 +80,5 @@ function strikes(state, g) {
   }
   const foe = enemyAt(state, g.x, g.y);
   if (!foe || foe.under || foe.pile) return null; // one under the earth, flown over (D-726); a bone rat's pile too, which can't be hit (D-731, D-742)
-  return note({ ...state, enemies: hitEnemy(state.enemies, foe, get(foe.id), hurt) }, 'splash', { x: g.x, y: g.y });
+  return note(hitFoe(state, foe, hurt), 'splash', { x: g.x, y: g.y });
 }

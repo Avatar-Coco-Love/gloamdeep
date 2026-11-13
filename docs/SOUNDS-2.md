@@ -13,6 +13,7 @@ the creatures and places went on to `SOUNDS-3.md`.
 | --- | --- | --- | --- |
 | `hit` | the hero hits with the lantern (D-777) | a dull knock | `kenney-impact-sounds/impactPunch_medium_000` to `004`, at a quarter loudness, CC0 |
 | `hit` | the hero hits with the knife or spear (D-777) | a quick slice | `kenney-rpg-audio/knifeSlice` and `knifeSlice2`, at a quarter loudness, CC0 |
+| `hit` | the hero hits with the Warden's Fist (D-888) | a knock of stone, the warden's own | `kenney-impact-sounds/impactMining_000` to `004`, at 0.7, at a quarter loudness, CC0 |
 | `miss` | the hero, stiff, swings and misses (D-759, D-831) | a swish through air | the elemental pack's `Wind-012` to `014`, at 0.55, CC0 |
 | `beaten` | a creature is beaten (D-777) | a short fall or crumple, 0.12 s after the hit | `kenney-impact-sounds/impactSoft_heavy_000` to `004`, at a quarter loudness, CC0 |
 | `hurt` | the hero is hurt: a bite or a glob takes a heart, a moment after the hero's swing (D-831) | a small gasp; no pack has a voice, so a blow | `kenney-impact-sounds/impactPunch_heavy_000` to `004`, a tenth lower, muffled above 900 Hz, at 0.32, CC0 |

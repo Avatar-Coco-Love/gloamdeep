@@ -12,6 +12,7 @@ moved here from `CONTENT.md` word for word at 0.3.113, the tenth audit
 | `flask` | 45% oil, poured from the bag or the quick slot | 5 | 900 | the first rooms; 1 in each generated room, a rat beside it; 3 oilcaps, or 1 Mimic Glass and 2 oilcaps; the peddler, 3 coins | D-078, D-149, D-247, D-299, D-384, D-477, D-495 |
 | `knife` | held, hits for 2; in the bag, Hold | held, or 1 a slot | never | the first room of depth 2 | D-252, D-347, D-479 |
 | `spear` | held, hits for 2 and the one behind for 1; in the bag, Hold | held, or 1 a slot | never | the first room of depth 3 | D-479 |
+| `wardenFist` | the Warden's Fist: held, hits for 2 and knocks the creature 1 tile back; a wall there hurts it 1, a creature there both 1; in the bag, Hold | held, or 1 a slot | never | a beaten warden, always | D-885, D-888 |
 | `herb` | heals 2 where it lies when hurt; at full health into the bag, Eat: 2 hearts; 1 with 1 Snapcap Gill makes an Antidote; 1 with 2 Mimic Leaf, 2 Centipede Leg or 2 Grub Skin, the Mending, Ward or Spitproof Draught at the mortar | 5 | 300 | each generated room; 1 in each woods room outside | D-155, D-511, D-655, D-762, D-794, D-795, D-802 |
 | `oilcap` | 3 make a flask; 1 with 2 Tick Shell, Slowburn at the mortar (D-792) | 20 | 300 | each generated room; each woods room on the surface, home too, on grass beside a tree (`woodscap.js`), none in the mountain rooms | D-296, D-299, D-760 |
 | `heartcap` | Eat: 1 heart; 3 make a potion | 20 | 300 | about half the generated rooms | D-303, D-308, D-309 |

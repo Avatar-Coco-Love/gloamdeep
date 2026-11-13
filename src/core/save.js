@@ -10,6 +10,7 @@ import { refloor, restand, restone, restones } from './refloor.js';
 import { withHomeStone } from './homestone.js';
 import { withSmallStones } from './smallstone.js';
 import { withOldLocket } from './oldlocket.js';
+import { withOldFist } from './oldfist.js';
 import { rehome } from './rehome.js';
 import { renew } from './renew.js';
 import { regrove } from './regrove.js';
@@ -28,7 +29,7 @@ import { setAside } from './aside.js';
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 34;
+export const FORMAT = 35;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -63,6 +64,7 @@ export const UPGRADES = {
   31: markRows, // 31 → 32: Growth's rows open, marked: row 2 where the journey has been deeper than depth 8 (D-814)
   32: resettle, // 32 → 33: the Peddler at home in the middle room moved to the waystone's room, once (B-001, D-855)
   33: refetch, // 33 → 34: a freed Peddler in no room, lost by an older upgrade, sent home (H-57, D-880)
+  34: withOldFist, // 34 → 35: the warden beaten already, its Fist laid where it first stood, once (D-888)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {
