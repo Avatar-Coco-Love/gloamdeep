@@ -2,13 +2,15 @@
 // owner can hear a new sound straight from the chat (D-256). It packs the game's
 // own src/render/sound.js, so what plays is what the game plays. Not part of the
 // game. No dependencies. Only the sounds that have their files are listed (D-773);
-// the page fetches them from sounds/packs/, so publish those files beside it.
+// the page fetches them from sounds/packs/, so publish those files beside it: the list is
+// written next to the page as <page>.files.json (soundfiles.js).
 //
 //   node tools/soundboard.js out.html
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FILES } from '../src/render/sound.js';
+import { writeSoundFiles } from './soundfiles.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -181,3 +183,4 @@ for (const [label, play] of SOUNDS) {
 </html>
 `);
 console.log(`soundboard: ${LISTED.length} sounds → ${out}`);
+writeSoundFiles(out); // the files to publish beside it (soundfiles.js)

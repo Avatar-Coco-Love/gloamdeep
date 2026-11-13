@@ -58,7 +58,10 @@ or updating a PR.
   (the owner can't play a PR before it is merged). Build it with
   `node tools/playtest.js <scratchpad>/playtest.html` (D-073), and
   put the link in the PR body and the `docs/PROGRESS.md` log entry.
-  Republish to the same link after each push.
+  Republish to the same link after each push. Its sounds are files, so
+  publish them beside it: the tool writes the Artifact's `files` list
+  next to the page, `<page>.files.json` (`tools/soundfiles.js`); the
+  sound board the same. Without them both pages play nothing.
 - A PR that changes how something is generated (floors, rooms, caves,
   woods, the scatter of creatures or finds) also gets a private map
   preview Artifact (D-646): the whole floor or region drawn from the real
