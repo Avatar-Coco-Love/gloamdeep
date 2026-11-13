@@ -23,6 +23,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.327 (2026-11-13)
+- Fixed (dev tools): on a PC, after clicking the wrench or a dev button, Space waits a turn again instead of pressing that button a second time.
+- Dev Spawn's Peddler now works: tap a free floor tile and he moves there from wherever he was, ready to trade as he is at home.
+- Dev Spawn's Torch and Glow Lamp lights can now go on a free floor tile, standing on a torch's stone foot as one set down. They never burn out.
+- Dev Spawn's pictures that share a name now show their code word after it, such as "Campfire · ownEmbers", and the search finds them by it.
+- Dev Room: TIME now comes second, with +10, +50 and Grow side by side, so Grow is never hidden under the sheet's edge.
+- Decisions: D-882. D-878 moved to the archive, word for word.
+
 ## 0.3.326 (2026-11-13)
 - The quick slot's picture and the round map are now enlarged by exactly 2, so every pixel in them is the same size. The quick slot's picture is a little bigger.
 - The version number on the title screen is now in the game's own pixel font.
@@ -37,9 +45,3 @@ Entry format:
 - A save that can't be read, or one made by a newer version of the game, is now kept aside before anything is saved over it.
 - Fixed: an error that repeats every moment no longer stops the game from drawing and saving.
 - Decisions: D-880. D-877 moved to the archive, word for word.
-
-## 0.3.324 (2026-11-12)
-- Fixed: a draught drunk on the turn you fall no longer keeps working after you wake. A fall ends every draught, and now that one too.
-- Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.
-- Fixed: with a workbench or anything else set down on the tile where your journey began, a fall no longer wakes you inside it; you wake on the nearest open tile beside it.
-- Decisions: D-879. D-876 moved to the archive, word for word.

@@ -1,7 +1,7 @@
 // § lights: torches, where they sit, and the spawn rules for them
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { makeRoom, FIRST_ROOM, FIRST_LIGHTS } from '../src/core/room.js';
+import { makeRoom, FIRST_ROOM, FIRST_LIGHTS, tileAt } from '../src/core/room.js';
 import { makeState, FIRST_START } from '../src/core/turn.js';
 import { spawn, resetRoom } from '../src/core/spawn.js';
 import { mountAt } from '../src/core/mount.js';
@@ -37,9 +37,9 @@ test('a torch spawns on a wall it can sit on, and no turn passes', () => {
   assert.equal(n.turn, 0);
 });
 
-test('no torch on floor, inside solid wall, or on another light', () => {
+test('a torch on floor stands on a stone foot (H-49); none inside solid wall, or on another light', () => {
   const s = start();
-  assert.equal(spawn(s, 'torch', 2, 2), s);
+  assert.equal(tileAt(spawn(s, 'torch', 2, 2).room, 2, 2).id, 'torchStand');
   assert.equal(spawn(s, 'torch', 0, 0), s);
   assert.equal(spawn(s, 'torch', 2, 0), s);
 });

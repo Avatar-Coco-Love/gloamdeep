@@ -148,20 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-878 · 2026-11-12 · The Peddler's fixes** (the owner's picks, all
-recommended; step 14 of `HEALTH-CHECK-ORDER.md`, fixes H-42, H-58, H-59;
-answers Q-102) On his Sell tab, a SELL that sells nothing, on an empty
-slot or on what he doesn't buy, leaves the frame where it is, with the
-refusing tock (offered too: SELL drawn dim there as well). The last of
-a stack sold, the frame stays and the next stack slides in under it
-(offered too: the frame to the first empty slot; one press only showing
-the new thing). Going home, his spot skips the hero's tile and any
-creature's too (offered too: only the hero's). Freed, a bump keeps him
-3 turns from then but never sends him sooner than he would go, so a
-bump at once still leaves his 5 (offered too: each bump adds 3; as
-D-496 had it). D-875 moves to `archive/DECISIONS-SURFACE.md`, word for
-word.
-
 **D-879 · 2026-11-12 · Falls** (the owner's picks, all recommended; step
 15 of `HEALTH-CHECK-ORDER.md`, fixes H-16, H-17, H-56) A draught drunk,
 or a fire sat by, on a turn that ends in a fall is lost to it: the
@@ -201,3 +187,18 @@ hard-edged pixels (a line in `ART-DIRECTION.md`). The colours one shade
 off match the one they meant (the plaque edge `#3a3448` as the art rules
 name it), and the torch handles take the woods' browns (D-314). Every
 colour only the code had is listed in `ART-DIRECTION-3.md`.
+
+**D-882 · 2026-11-13 · The dev tools** (the owner's picks, all
+recommended; step 18 of `HEALTH-CHECK-ORDER.md`, H-38, H-48 to H-50)
+The wrench and the sheet's buttons let go of the keys after a click or
+tap, so Space waits a turn again; one reached with Tab keeps them
+(offered too: Space never presses one). Spawn's Peddler is
+moved to the tapped free floor tile from wherever he is, as at home, a bump opening his trade (offered too: moved,
+trapped; no Peddler in Spawn). A Torch or Glow Lamp light spawned on a
+free floor tile stands on a torch's stone foot, as one set down, never
+burning out. A name shared by more than one picture has the code's
+word after it ("Campfire · ownEmbers"; offered too: written states).
+Room's TIME row comes second, +10, +50 and Grow three across, so Grow
+shows on every screen (Grow last on the TIME row, picked first, still
+hid on phones). D-878 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

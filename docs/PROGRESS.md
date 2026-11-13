@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.326 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.327 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 18,
-the dev tools (H-38, H-48 to H-50).
+The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 19,
+the docs (H-25 to H-30, H-62 to H-65).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.327, The dev tools.** Health check step 18: Space
+  never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
+  lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.
+  Playtest: https://claude.ai/artifact/Afj6ae9qdNVHumajCgc6qk
 - **2026-11-13, 0.3.326, The art's loose ends.** Health check step 17,
   picked from a picture: the quick slot and round map at exactly 2×
   (H-51); the version number in the pixel font (H-52); one dim grey and
@@ -63,8 +67,3 @@ list in `RESEARCH.md`.
   aside, never saved over (H-21); each part of a frame has its own
   safety net (H-14). D-880.
   Playtest: https://claude.ai/artifact/VnS4WW2ay1wtCsG23Ftj5N
-- **2026-11-12, 0.3.324, Falls.** Health check step 15: a draught drunk
-  or a fire sat by on the turn of a fall is lost to it (H-17, H-56); a
-  fall with something on the journey's first tile wakes beside it
-  (H-16). D-879.
-  Playtest: https://claude.ai/artifact/UUpfNPLcn8Pq4ASsDBnEX3

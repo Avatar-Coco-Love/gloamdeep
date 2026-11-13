@@ -10,6 +10,11 @@ import { thumbOf } from '../render/thumbs.js';
 
 const MAX_DEPTH = 99; // the deepest Go to depth goes
 
+// § names: an entry's name in the dev tools; one shared by more than one entry (the
+// Campfire's states, the Waystone's parts) has its registry id after it (H-49)
+const NAMED = ALL.reduce((n, e) => n.set(e.name, (n.get(e.name) || 0) + 1), new Map());
+export const nameOf = (entry) => (NAMED.get(entry.name) > 1 ? `${entry.name} · ${entry.id}` : entry.name);
+
 export function el(tag, props) {
   return Object.assign(document.createElement(tag), props);
 }
@@ -45,7 +50,7 @@ export function buildPanel(panel, opts, saved, game) {
     const open = sections.find((s) => s.id === id);
     head.hidden = !open;
     panel.classList.toggle('has-body', !!open); // its full height, else only its tabs
-    if (open) setPixelText(head, open.id === 'spawn' && picked ? 'SPAWN · ' + picked.name.toUpperCase() : open.title.toUpperCase());
+    if (open) setPixelText(head, open.id === 'spawn' && picked ? 'SPAWN · ' + nameOf(picked).toUpperCase() : open.title.toUpperCase());
     opts.open = id ? [id] : [];
     saved();
   };
@@ -80,7 +85,8 @@ export function buildPanel(panel, opts, saved, game) {
   // (D-089, D-624). Tap one to pick it, then each tap on the room puts it there
   // (D-049); tap it again to drop the pick. The pick's name shows in the section's
   // name line. The search box above narrows the grid by name as each letter is
-  // typed; a heading with nothing left under it hides. The pick is not saved.
+  // typed; a heading with nothing left under it hides. The pick is not saved. A name
+  // shared by more than one picture has the code's word for it after it (nameOf, H-49).
   const spawn = section('spawn', 'Spawn');
   const cells = [], groups = [];
   const find = el('input', { type: 'search', className: 'dev-find', placeholder: 'search', spellcheck: false, autocomplete: 'off' });
@@ -93,20 +99,20 @@ export function buildPanel(panel, opts, saved, game) {
   spawn.append(finder);
   const filter = () => {
     const q = find.value.trim().toLowerCase();
-    for (const c of cells) c.b.hidden = !!q && !c.entry.name.toLowerCase().includes(q);
+    for (const c of cells) c.b.hidden = !!q && !nameOf(c.entry).toLowerCase().includes(q);
     for (const g of groups) g.head.hidden = g.grid.hidden = g.cells.every((c) => c.b.hidden);
   };
   find.addEventListener('input', filter);
   const pick = (entry) => {
     picked = picked === entry ? null : entry;
     for (const c of cells) c.b.setAttribute('aria-pressed', String(c.entry === picked));
-    setPixelText(head, picked ? 'SPAWN · ' + picked.name.toUpperCase() : 'SPAWN');
+    setPixelText(head, picked ? 'SPAWN · ' + nameOf(picked).toUpperCase() : 'SPAWN');
   };
   for (const kind of new Set(ALL.map((e) => e.kind))) {
     const g = { head: pixel('div', 'dev-kind', (kind === 'enemy' ? 'enemies' : kind + 's').toUpperCase()), grid: el('div', { className: 'dev-grid' }), cells: [] };
     for (const entry of ALL.filter((e) => e.kind === kind)) {
-      const b = el('button', { type: 'button', className: 'dev-cell', title: entry.name });
-      b.setAttribute('aria-label', entry.name);
+      const b = el('button', { type: 'button', className: 'dev-cell', title: nameOf(entry) });
+      b.setAttribute('aria-label', nameOf(entry));
       b.setAttribute('aria-pressed', 'false');
       b.append(thumbOf(entry));
       b.addEventListener('click', () => pick(entry));
@@ -120,24 +126,25 @@ export function buildPanel(panel, opts, saved, game) {
   // § room: Reset room (D-050, D-062) and Forget (D-061), and Go to depth:
   // pick a depth with − and +, then Go; no turn passes (D-166). Depth 0 is
   // the crypt (D-212, D-213); Go outside goes to the woods (D-209). Time: +10
-  // and +50 move the clock only, for dusk and night (D-217). Garden: Grow makes every planted
-  // garden bed's time up, so one in this room grows at once (D-567).
+  // and +50 move the clock only, for dusk and night (D-217). Grow, beside them, makes every
+  // planted garden bed's time up, so one in this room grows at once (D-567). Time comes
+  // second, three across, so the sheet's edge never hides Grow (H-50).
   let want = 1, shownPlace = null;
   const depthLabel = el('span', { className: 'dev-depth' });
   const pickDepth = (d) => { want = Math.max(0, Math.min(MAX_DEPTH, d)); setPixelText(depthLabel, String(want)); };
   section('room', 'Room').append(row(
     button('Reset room', () => game.set(game.reset()), 'dev-undo'),
     button('Forget', () => game.set(game.forget()), 'dev-undo'),
-  ), pixel('div', 'dev-kind', 'GO TO DEPTH'), Object.assign(row(
+  ), pixel('div', 'dev-kind', 'TIME'), Object.assign(row(
+    button('+10', () => game.set(game.passTime(10))),
+    button('+50', () => game.set(game.passTime(50))),
+    button('Grow', () => game.set(game.grow())),
+  ), { className: 'dev-row dev-three' }), pixel('div', 'dev-kind', 'GO TO DEPTH'), Object.assign(row(
     button('-', () => pickDepth(want - 1)),
     depthLabel,
     button('+', () => pickDepth(want + 1)),
     button('Go', () => game.set(game.goTo(want))),
-  ), { className: 'dev-row dev-steps' }), row(button('Go outside', () => game.set(game.goOutside()))),
-  pixel('div', 'dev-kind', 'TIME'), row(
-    button('+10', () => game.set(game.passTime(10))),
-    button('+50', () => game.set(game.passTime(50))),
-  ), pixel('div', 'dev-kind', 'GARDEN'), row(button('Grow', () => game.set(game.grow()))));
+  ), { className: 'dev-row dev-steps' }), row(button('Go outside', () => game.set(game.goOutside()))));
 
   // § oil: a slider for any amount (D-091), Refill and Empty (D-066); no turn passes. Endless
   // oil, a switch kept on the state, so in the save: the oil stays where it is (D-626)

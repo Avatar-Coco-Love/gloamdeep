@@ -5,6 +5,14 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.327', date: '2026-11-13', title: 'The dev tools', lines: [
+    "Fixed (dev tools): on a PC, after clicking the wrench or a dev button, Space waits a turn again instead of pressing that button a second time.",
+    "Dev Spawn's Peddler now works: tap a free floor tile and he moves there from wherever he was, ready to trade as he is at home.",
+    "Dev Spawn's Torch and Glow Lamp lights can now go on a free floor tile, standing on a torch's stone foot as one set down. They never burn out.",
+    "Dev Spawn's pictures that share a name now show their code word after it, such as \"Campfire · ownEmbers\", and the search finds them by it.",
+    "Dev Room: TIME now comes second, with +10, +50 and Grow side by side, so Grow is never hidden under the sheet's edge.",
+    "Decisions: D-882. D-878 moved to the archive, word for word.",
+  ] },
   { v: '0.3.326', date: '2026-11-13', title: 'The art\'s loose ends', lines: [
     "The quick slot's picture and the round map are now enlarged by exactly 2, so every pixel in them is the same size. The quick slot's picture is a little bigger.",
     "The version number on the title screen is now in the game's own pixel font.",
