@@ -14,9 +14,13 @@ import { get } from '../core/registry.js';
 import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waystone.js';
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
-// How many braziers burn in the room, and the sealed door's picture for each count (D-893)
+// How many braziers burn in the room (D-893), and the vault door's 2 notches on the lintel above
+// it, in a dark socket in the wall's cap, glowing violet one a lit brazier, the left first (D-895)
 const litIn = (room) => room.map.reduce((n, row) => n + row.split(get('brazierLit').letter).length - 1, 0);
-const NOTCHED = { 1: 'sealedDoorOne', 2: 'sealedDoorTwo' };
+function drawNotches(c, room, x, y, n) {
+  c.fillStyle = ink(room, '#2b303c'); c.fillRect(x * T + 3, y * T + 1, 10, 4);
+  for (const [i, nx] of [[0, 4], [1, 10]]) { c.fillStyle = n > i ? '#a58ce0' : '#0e0c16'; c.fillRect(x * T + nx, y * T + 2, 2, 2); }
+}
 // The dungeon (D-228) is the crypt drawn deeper and bluer: each colour's red,
 // green and blue times these, as in the step 59b mock-up (D-229)
 const COLD = [0.72, 0.78, 0.95], cold = new Map();
@@ -149,7 +153,8 @@ const DRAW = {
   minersCampBare: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCampBare), // and once the pick is taken
   brazier: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazier); }, // a vault's cold brazier, as the campfire stands (D-892)
   brazierLit: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazierLit); }, // lit, its flame after the light (campfire.js, D-893)
-  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES[NOTCHED[litIn(room)] || 'sealedDoor'], x * T, y * T); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893)
+  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); drawNotches(c, room, x, y, litIn(room)); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893), on the lintel (D-895)
+  openDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.openDoor, x * T, y * T); drawNotches(c, room, x, y, 2); }, // sunk open, both notches glowing for good (D-895)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

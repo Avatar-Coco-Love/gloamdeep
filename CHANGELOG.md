@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.340 (2026-11-13)
+- The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
+- Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).
+- Decisions: D-895. D-891 moved to the archive, word for word.
+
 ## 0.3.339 (2026-11-13)
 - Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the two health checks and their order, all done.
 - Decisions: D-894. D-860 to D-862 moved to the archive, word for word.
@@ -31,8 +36,3 @@ Entry format:
 - The braziers light: bump a cold brazier with your lantern lit and it asks "Light the brazier?". Yes spends 5 turns' oil and a turn, and a flame sways in its bowl, lighting the dark 2 tiles round it. With less oil, Yes is grey.
 - Each lit brazier makes one notch glow violet under the sealed door's flame rune. The door opens in the next step.
 - Decisions: D-893. D-890 moved to the archive, word for word.
-
-## 0.3.337 (2026-11-13)
-- The first vault: from depth 2, one dead-end room on each floor is a vault, built in the crypt's bricks. Two cold stone braziers stand before a sealed stone door with a flame rune, and a small vault waits behind it, empty for now.
-- Bump a brazier or the door to hear its words. Lighting the braziers and opening the door come in the next steps.
-- Decisions: D-892. D-889 moved to the archive, word for word.

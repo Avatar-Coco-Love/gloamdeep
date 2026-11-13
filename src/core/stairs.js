@@ -10,6 +10,7 @@ import { get } from './registry.js';
 import { withoutBoon } from './state.js';
 import { stoneHome } from './mouth.js';
 import { farSight } from './farsight.js';
+import { coolVault } from './vault.js';
 
 // § take: (state) → the state in the room the stairs under the hero lead to,
 // standing on its matching stair, with the stairs' line said. Null when the
@@ -44,10 +45,11 @@ export function goToPlace(state, to) {
 // and `came` keeps the turn, so the boon card's 3 stay the same while the hero is there (H-44, D-865).
 // With Far Sight, a room never seen shows its third nearest the hero (D-602). A scorpion's
 // tail raised when the hero left is lowered as they come back, so it strikes no old line (D-742).
+// A vault left unsolved goes cold behind them (D-895).
 export function arrive(state, to, there, spot) {
   const enemies = state.enemies.map((e) => (e.flees > 0 ? { ...e, flees: 0, chasing: false } : e))
     .map(({ awake, ...e }) => (awake ? { ...e, chasing: false, asleep: true } : e)); // one awake settles back down (D-368)
-  const here = { room: state.room, lights: state.lights, enemies, items: state.items, people: state.people || [], taken: state.taken || [], seen: state.seen };
+  const here = { room: coolVault(state.room), lights: state.lights, enemies, items: state.items, people: state.people || [], taken: state.taken || [], seen: state.seen };
   const elsewhere = { ...state.elsewhere, [state.place]: here };
   delete elsewhere[to];
   const has = [state.held, ...(state.bag || []).map((s) => s.id)].filter((id) => id && get(id)?.hold);

@@ -1752,3 +1752,26 @@ first; pick after each). Biome 1's boss and found ability (G3, W4) are
 planned after the first two are built (offered too: now; after all
 four). Each one's tiles, names, numbers and rewards are its own step.
 D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
+owner's picks, all recommended; builds D-889, D-890; answers part of
+Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
+sealed door, a pair (sealed, open), whose flame rune glows one violet
+notch for each brazier lit; once both burn the slab sinks to a sill and
+stays open, the braziers lit, for good; left unsolved, they go cold
+again (rule 5) (offered too: 3 braziers; 2 to 4 by depth). The brazier
+is a crypt-stone fire bowl on a foot with a violet band, solid, light
+passing over it, like the campfire (offered too: an iron tripod; a wall
+niche). Bumped with the lantern lit, lighting one costs 5 turns' oil,
+grey with less (offered too: 1 turn's, as a campfire's ashes; 10).
+One vault a floor from depth 2: the seed turns one dead-end room into a
+vault, a fixed 11 x 13 layout checked by hand, drawn in the crypt's
+bricks wherever it stands (offered too: about 1 floor in 2; only from
+depth 8). The owner's addition: vaults will hold different puzzles
+(L3, P1, T1 and more, as each is built) and different rewards. The
+reward is one prize the seed draws per vault: a rare material or an
+ember, "and maybe other things" (the owner's addition; offered too: the
+cache behind the door; lore pages later). How the draw is weighted, the
+lines and the room's layout are the build step's. Mock-up:
+https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
+D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.

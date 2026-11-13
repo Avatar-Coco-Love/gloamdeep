@@ -57,3 +57,19 @@ export function vaultRoom(cell) {
   const { map, start } = vaultLayout(cell.cols, cell.rows, cell.doors[0]);
   return { map, start, lights: [], items: [], enemies: [], people: [] };
 }
+
+// § open and cold (D-895): (room) → the room with its sealed door sunk open once no brazier in it
+// is cold, the braziers burning on for good; else the same room
+export function openVault(room) {
+  const cold = get('brazier').letter, sealed = get('sealedDoor').letter;
+  if (!room.map.some((row) => row.includes(sealed)) || room.map.some((row) => row.includes(cold))) return room;
+  return { ...room, map: room.map.map((row) => row.split(sealed).join(get('openDoor').letter)) };
+}
+// (room) → the room as the hero leaves it: a vault still sealed has its lit braziers go cold
+// again, so it can never lock anyone out (rule 5, D-891); an open one, and any other, the same.
+// The oil spent stays spent.
+export function coolVault(room) {
+  const lit = get('brazierLit').letter, sealed = get('sealedDoor').letter;
+  if (!room.map.some((row) => row.includes(sealed)) || !room.map.some((row) => row.includes(lit))) return room;
+  return { ...room, map: room.map.map((row) => row.split(lit).join(get('brazier').letter)) };
+}

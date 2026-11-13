@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.340', date: '2026-11-13', title: 'The door opening', lines: [
+    "The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.",
+    "Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).",
+    "Decisions: D-895. D-891 moved to the archive, word for word.",
+  ] },
   { v: '0.3.339', date: '2026-11-13', title: 'The decisions trimmed', lines: [
     "Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the two health checks and their order, all done.",
     "Decisions: D-894. D-860 to D-862 moved to the archive, word for word.",

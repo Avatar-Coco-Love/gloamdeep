@@ -90,29 +90,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
-owner's picks, all recommended; builds D-889, D-890; answers part of
-Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
-sealed door, a pair (sealed, open), whose flame rune glows one violet
-notch for each brazier lit; once both burn the slab sinks to a sill and
-stays open, the braziers lit, for good; left unsolved, they go cold
-again (rule 5) (offered too: 3 braziers; 2 to 4 by depth). The brazier
-is a crypt-stone fire bowl on a foot with a violet band, solid, light
-passing over it, like the campfire (offered too: an iron tripod; a wall
-niche). Bumped with the lantern lit, lighting one costs 5 turns' oil,
-grey with less (offered too: 1 turn's, as a campfire's ashes; 10).
-One vault a floor from depth 2: the seed turns one dead-end room into a
-vault, a fixed 11 x 13 layout checked by hand, drawn in the crypt's
-bricks wherever it stands (offered too: about 1 floor in 2; only from
-depth 8). The owner's addition: vaults will hold different puzzles
-(L3, P1, T1 and more, as each is built) and different rewards. The
-reward is one prize the seed draws per vault: a rare material or an
-ember, "and maybe other things" (the owner's addition; offered too: the
-cache behind the door; lore pages later). How the draw is weighted, the
-lines and the room's layout are the build step's. Mock-up:
-https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
-D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-892 · 2026-11-13 · L1's build steps and the vault room** (the
 owner's picks, all recommended; builds D-891) L1 is built in 4 steps:
 the vault room, its braziers and its sealed door, standing still; then
@@ -150,7 +127,8 @@ burns steady.", free (offered too: "The old fire wakes."; nothing). With
 the lantern out, a cold brazier says its old words, no card (offered
 too: the card, Yes grey). Claude's calls: the door's left notch glows
 first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
+moves to `archive/DECISIONS-SURFACE.md`, word for word. Its notches moved
+to the lintel above the door by D-895 (2026-11-13).
 
 **D-894 · 2026-11-13 · The health checks' decisions archived** (the
 owner's picks, all recommended) Before L1 step 3, with `DECISIONS.md`
@@ -161,3 +139,21 @@ for word (offered too: D-799, the finds plan, as well, to
 `archive/DECISIONS-SURFACE.md`; to `archive/DECISIONS-SURFACE.md`
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
+
+**D-895 · 2026-11-13 · The door opening** (the owner's picks, one the
+owner's own; builds D-891 to D-893) The door's 2 notches move off the
+slab to the lintel above it, in a dark socket in the wall's cap,
+glowing violet one a lit brazier, the left first, sealed or open (the
+owner's idea: lit parts outside the door, so it opens fully; offered
+too: on the jambs; on the slab, its top left as a sill). Once both
+braziers burn the slab is gone: the doorway fully open and dark, a worn
+line at its foot, walked through, light passing; the Open door (offered
+too: Vault door). Lit last, the brazier says "The stone door sinks
+open." (offered too: "With a groan, the slab sinks into the floor.";
+nothing more). Left with a brazier still cold, the vault room's lit
+braziers go cold again as the hero steps out, the oil spent (offered
+too: on leaving the floor). Mock-up:
+https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb Claude's calls: the
+line said in "The brazier catches."'s place, as the strip holds one
+line; no new sound for now. D-891 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

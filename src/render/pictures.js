@@ -599,14 +599,15 @@ const BRAZIER_COLOURS = { H: '#69748b', L: '#535d72', D: '#2b303c', a: '#5a5560'
 // after the light, the campfire's (campfire.js in render)
 const BRAZIER_LIT = { mirror: false, rows: BRAZIER.rows.map((r, i) => (i === 6 ? '..kHYyYyyYyYHk..' : r.replace(/j/g, 'P'))) };
 
-// § sealed door (L1, D-891): a stone slab set in the wall's face, a flame rune cut in it, and under
-// the rune a dark notch for each of the 2 braziers; the wall's cap is drawn above it (tiles.js)
+// § sealed door (L1, D-891): a stone slab set in the wall's face, a flame rune cut in it; the wall's
+// cap is drawn above it, with a notch on the lintel for each of the 2 braziers (tiles.js, D-895)
 const SEALED_DOOR = { mirror: false, rows: ['', '', '', '', '', '.kkkkkkkkkkkkkk.', '.kHHHHHHHHHHHHk.', '.kLLLLLLjLLLLLk.',
-  '.kLLLLLjLjLLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLLjjjLLLLk.', '.kLLLLLLLLLLLLk.', '.kLLLDDLLDDLLLk.',
+  '.kLLLLLjLjLLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLLjjjLLLLk.', '.kLLLLLLLLLLLLk.', '.kLLLLLLLLLLLLk.',
   '.kLLLLLLLLLLLLk.', '.kkkkkkkkkkkkkk.'] };
-// its notches glowing violet, one a lit brazier, the left first (D-893)
-const NOTCHES = (n) => ({ mirror: false, rows: SEALED_DOOR.rows.map((r, i) => (i === 13 ? `.kLLL${n > 0 ? 'PP' : 'DD'}LL${n > 1 ? 'PP' : 'DD'}LLLk.` : r)) });
-const SEALED_DOOR_ONE = NOTCHES(1), SEALED_DOOR_TWO = NOTCHES(2);
+// open (D-895): the slab sunk away, the doorway fully open and dark, a worn line where it sank
+const OPEN_DOOR = { mirror: false, rows: ['', '', '', '', '', '.kkkkkkkkkkkkkk.', '.kxxxxxxxxxxxxk.',
+  ...Array(8).fill('.kxXXXXXXXXXXxk.'), '.kDDDDDDDDDDDDk.'] };
+const OPEN_DOOR_COLOURS = { x: '#07060a', X: '#0c0b12' };
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -653,6 +654,6 @@ export {
   BRAZIER_LIT,
   BRAZIER_COLOURS,
   SEALED_DOOR,
-  SEALED_DOOR_ONE,
-  SEALED_DOOR_TWO,
+  OPEN_DOOR,
+  OPEN_DOOR_COLOURS,
 };
