@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.327, The dev tools.** Health check step 18: Space
+  never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
+  lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.
+  Playtest: https://claude.ai/artifact/Afj6ae9qdNVHumajCgc6qk
 - **2026-11-13, 0.3.326, The art's loose ends.** Health check step 17,
   picked from a picture: the quick slot and round map at exactly 2×
   (H-51); the version number in the pixel font (H-52); one dim grey and

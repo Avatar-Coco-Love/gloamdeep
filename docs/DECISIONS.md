@@ -133,21 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-868 · 2026-11-12 · The fifteenth audit** (the owner's picks, all
-recommended) At 0.3.313, nothing visible changed. main.js's sounds,
-`hear` and the menu sounds, go to a new `src/hearing.js` (48 KB to 43).
-The Version history loads only when it first opens, from a new
-`history-all.js`: a start fetches 12 files and 328 KB fewer (H-23); the
-playtest's packer learns `import()`. The stale comments are fixed (H-31,
-H-66), the events list gains its 7 missing kinds. Older iPhones and
-`.ogg` go on `STORE.md`'s list, to test on a real one first (H-22).
-H-24's three risks and the unused `craft()` are the next step, 0.3.314
-(offered too: in this audit; just noted). The done health check findings
-go to `archive/HEALTH-CHECK-DONE.md`, D-826 to `archive/DECISIONS-AUDITS.md`,
-D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
-to a new `WORKFLOW-5.md`; all word for word. The next audit is at
-0.3.353.
-
 **D-883 · 2026-11-13 · The docs** (the owner's picks, all recommended;
 step 19 of `HEALTH-CHECK-ORDER.md`, H-25 to H-30, H-62 to H-65) The
 docs catch up with the decisions and the code. Pages too full for new
@@ -171,3 +156,23 @@ states and terms out; only Poisoned, Stiff and Warmed out).
 fishing, wood, the first relic) moves to a new `GLOSSARY-FINDS-2.md`
 (offered too: fishing to its own page). D-881 and D-882 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-885 · 2026-11-13 · The warden's slam and its Fist** (the owner's
+ask and picks, all recommended; answers Q-104) The warden gets harder:
+in line beside the hero it raises its fists for a turn, as the
+scorpion's tail goes up, then slams: its bite, and the hero knocked 3
+tiles straight back (offered too: every bite knocks back 2; from half
+its hearts, every bite knocks back 2). Stopped by a wall (rock, a
+tree, a boulder, a thing set down) with tiles still to go, the hero
+loses 1 heart more (offered too: 1 a tile left). A creature in the
+way stops the slide, and it and the hero lose 1 each (offered too: it
+just stops, no hurt). Beaten, the warden always drops its special
+find, the Warden's Fist, a fist of old stone with a gold band at the
+wrist and a violet stone: held, it hits for 2 and knocks the creature
+back a tile, a wall hurting it as it hurts the hero; the first of
+D-636's hammer kind (offered too: the Warden's Eye, a charm that
+shows disguised creatures; the Warden's Band, a relic for a heart
+more). Three steps: the slam, then the wall's and the way's hurt,
+then the Fist. Claude's drafts the owner may change: the lines, the
+names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
+D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.

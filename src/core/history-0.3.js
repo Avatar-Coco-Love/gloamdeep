@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.330', date: '2026-11-13', title: 'The warden\'s slam and its Fist', lines: [
+    "Design: the warden gets a wind-up slam that knocks you 3 tiles back, a wall or a creature in the way hurts, and beaten it drops the Warden's Fist, a stone fist that knocks creatures back. Mock-ups only; built in three steps next. Nothing in the game changed yet.",
+    "Decisions: D-885. Questions closed: Q-104. D-868 moved to the archive, word for word.",
+  ] },
   { v: '0.3.329', date: '2026-11-13', title: 'Two glossary pages split', lines: [
     "Docs: the creatures' glossary words have their own page, GLOSSARY-CREATURES.md, and the finds' second half (stone to the Locket) moved to GLOSSARY-FINDS-2.md, word for word, so both pages have room again. Nothing in the game changed.",
     "Decisions: D-884. D-881 and D-882 moved to the archive, word for word.",
