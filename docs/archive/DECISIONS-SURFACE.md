@@ -1739,3 +1739,16 @@ systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
 decision, names and numbers placeholders until then. Opens Q-105.
 Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
 D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-890 · 2026-11-13 · The puzzle rules and the first four** (the
+owner's picks, all recommended; answers most of Q-105) The six puzzle
+rules in `PUZZLES.md` hold for every puzzle. Rule 4's solver is built
+only when the seed first lays a puzzle out; until then each puzzle is a
+fixed layout, checked by hand (offered too: the solver first; settle it
+at the first generated puzzle). The first four, in order: L1, the
+braziers and a sealed side vault; L3, the dark door; P1, the Fist and
+a plate; then T1, the gloam tide (offered too: L1 with P1 second; L3
+first; pick after each). Biome 1's boss and found ability (G3, W4) are
+planned after the first two are built (offered too: now; after all
+four). Each one's tiles, names, numbers and rewards are its own step.
+D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.

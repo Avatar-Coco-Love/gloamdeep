@@ -14,6 +14,9 @@ import { get } from '../core/registry.js';
 import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waystone.js';
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
+// How many braziers burn in the room, and the sealed door's picture for each count (D-893)
+const litIn = (room) => room.map.reduce((n, row) => n + row.split(get('brazierLit').letter).length - 1, 0);
+const NOTCHED = { 1: 'sealedDoorOne', 2: 'sealedDoorTwo' };
 // The dungeon (D-228) is the crypt drawn deeper and bluer: each colour's red,
 // green and blue times these, as in the step 59b mock-up (D-229)
 const COLD = [0.72, 0.78, 0.95], cold = new Map();
@@ -145,7 +148,8 @@ const DRAW = {
   minersCamp: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCamp), // the miners' camp, the pick on its crate (D-770)
   minersCampBare: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCampBare), // and once the pick is taken
   brazier: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazier); }, // a vault's cold brazier, as the campfire stands (D-892)
-  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); }, // a vault's sealed door: the wall, its slab in the face (D-892)
+  brazierLit: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazierLit); }, // lit, its flame after the light (campfire.js, D-893)
+  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES[NOTCHED[litIn(room)] || 'sealedDoor'], x * T, y * T); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

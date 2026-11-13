@@ -53,7 +53,7 @@ D-829), saved from WAV, nothing else changed, and Abstraction's Music Loop Bundl
 | `sputter` | the oil falls under 20%, with "The flame is getting low." (D-096, D-834) | the flame sputtering | `Fire-017`: from 0.78 s, 0.25 s, fading 0.1 s, at 0.92 pitch, at 0.24; again 0.32 s later, 0.22 s at 0.85 and 0.17, CC0 |
 | `gutter` | the oil runs out (D-830) | a flame guttering out | `Fire-017`, a crackle: 1.3 s, fading 1 s, sliding to 0.7, at 0.22, CC0 |
 | `torch` | a torch lit (D-121, D-830) | a whoosh of fire | `Fire-030`: from 0.1 s, 1.2 s, fading 0.5 s, at 0.24, CC0 |
-| `kindle` | cold ashes lit into a campfire (D-757, D-830) | a whoosh, then crackling | `Fire-021`: from 0.18 s, 2.4 s, fading 0.9 s, at 0.27, CC0 |
+| `kindle` | cold ashes lit into a campfire (D-757, D-830), or a vault's brazier (D-893) | a whoosh, then crackling | `Fire-021`: from 0.18 s, 2.4 s, fading 0.9 s, at 0.27, CC0 |
 
 ## Fighting
 

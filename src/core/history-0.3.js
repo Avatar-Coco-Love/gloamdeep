@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.338', date: '2026-11-13', title: 'The lit brazier', lines: [
+    "The braziers light: bump a cold brazier with your lantern lit and it asks \"Light the brazier?\". Yes spends 5 turns' oil and a turn, and a flame sways in its bowl, lighting the dark 2 tiles round it. With less oil, Yes is grey.",
+    "Each lit brazier makes one notch glow violet under the sealed door's flame rune. The door opens in the next step.",
+    "Decisions: D-893. D-890 moved to the archive, word for word.",
+  ] },
   { v: '0.3.337', date: '2026-11-13', title: 'The first vault', lines: [
     "The first vault: from depth 2, one dead-end room on each floor is a vault, built in the crypt's bricks. Two cold stone braziers stand before a sealed stone door with a flame rune, and a small vault waits behind it, empty for now.",
     "Bump a brazier or the door to hear its words. Lighting the braziers and opening the door come in the next steps.",

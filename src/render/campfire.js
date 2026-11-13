@@ -1,7 +1,7 @@
 // § campfire: a burning campfire's flames and coals (D-757), drawn after the light so they show
 // bright in the dark, as a torch's flame does (torches.js). Blazing: a flame of three frames
 // over the logs, swaying, 110 ms each; embers: the coals between the logs pulsing slowly.
-// Still with reduced motion. The stones and logs are its tile's picture (pictures.js).
+// A lit brazier's flame is the blazing one, in its bowl (D-893). Still with reduced motion. The stones and logs are its tile's picture (pictures.js).
 import { get } from '../core/registry.js';
 import { TILE as T } from './screen.js';
 
@@ -16,12 +16,13 @@ const COALS = [[5, 10, 1, 1], [10, 10, 1, 1], [7, 10, 2, 1], [7, 11, 2, 1]]; // 
 
 export function drawFires(c, room, t, still) {
   const blazing = [get('campfire').letter, get('ownCampfire').letter], embers = [get('campfireEmbers').letter, get('ownEmbers').letter]; // your own too (D-853)
+  const bowl = get('brazierLit').letter; // a lit brazier: the blazing flame, a pixel higher, in its bowl (D-893)
   room.map.forEach((row, ty) => {
     for (let tx = 0; tx < row.length; tx++) {
       const ch = row[tx];
-      if (!blazing.includes(ch) && !embers.includes(ch)) continue;
-      const x = tx * T, y = ty * T - 2;
-      if (blazing.includes(ch)) {
+      if (!blazing.includes(ch) && !embers.includes(ch) && ch !== bowl) continue;
+      const x = tx * T, y = ty * T - (ch === bowl ? 3 : 2);
+      if (blazing.includes(ch) || ch === bowl) {
         for (const [dx, dy, w, h, col] of BLAZE[still ? 0 : Math.floor(t / 110 + tx + ty) % 3]) { c.fillStyle = col; c.fillRect(x + dx, y + dy, w, h); }
       } else {
         const bright = still || Math.sin(t / 700 + tx * 1.3 + ty) > -0.2;

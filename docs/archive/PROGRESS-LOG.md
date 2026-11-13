@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.335, The puzzle rules.** The six puzzle rules hold,
+  the solver later; the first four: L1, L3, P1, then T1; the boss after
+  the first two. D-890. No game change.
 - **2026-11-13, 0.3.334, The puzzle plan.** A long-term talk: puzzles
   planned first, biome 1 finished first; every idea kept in
   `PUZZLES*.md` and `RESEARCH-SYSTEMS.md`. D-889, Q-105. No game change.
