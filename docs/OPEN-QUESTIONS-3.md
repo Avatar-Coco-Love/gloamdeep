@@ -1,4 +1,4 @@
-# Open questions, 3: lore and special creatures; the health check's loose ends
+# Open questions, 3: lore and special creatures; puzzles; the health check's loose ends
 
 Started at 0.3.84, as `OPEN-QUESTIONS.md` neared 8 KB: the questions
 about lore, bosses and other special creatures. Its rules hold here too:
@@ -50,6 +50,16 @@ own count and page in the Journal. The mole now joins the pool at depth
 and the dungeon's stone halls (8 down). Open: its name, look, numbers,
 drops and from which depth; whether the mole stops at depth 7. Its own
 step, when the owner wants.
+
+
+**Q-105 · Which puzzles first, and biome 1's capstone** (raised
+2026-11-13, D-889) Every idea in `PUZZLES*.md` is kept; open: which to
+build first and in what order, each one's tiles, names, numbers and
+rewards, at its own step; the six puzzle rules (proposed in
+`PUZZLES.md`); biome 1's boss and found ability (G3, W4), planned beside
+the first puzzles; the lantern part slots after. Claude's picks: L1 (the
+braziers and a sealed side vault), L3 (the dark door), P1 (the Fist and
+a plate), then T1 (the gloam tide). New ideas join the plan any time.
 
 ---
 

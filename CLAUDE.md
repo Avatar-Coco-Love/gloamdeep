@@ -53,7 +53,8 @@ Read the smallest file that answers the question.
 | `docs/BUGS.md` | bugs the owner noticed (B-001…), their ideas with them (D-852) | when Next up names one |
 | `docs/HEALTH-CHECK.md` | the 0.3.304 health check's findings picked as steps (H-01…, D-860); the second pass's in `-2` (H-32…, D-861); the order to do them in `-ORDER` (D-862) | when Next up names one |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore, special creatures and the health check's loose ends in `-3` | when a step touches one |
-| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md` | when proposing a feature |
+| `docs/RESEARCH.md` | the owner's wish list; ideas kept in `RESEARCH-2.md`; games and talks in `RESEARCH-GAMES.md`; travel and boons in `RESEARCH-TRAVEL.md`; research pages and their suggestions in `RESEARCH-PAGES.md`; the systems looking ahead in `RESEARCH-SYSTEMS.md` | when proposing a feature |
+| `docs/PUZZLES.md` | every puzzle and pressure idea kept, by family (L, P, C, G, K, T, W; D-889); more in `-2` and `-3` | before proposing a puzzle |
 | `docs/DESIGN.md`, `VISION.md` | the design brief; the pitch, inspirations, pillars | before proposing a feature |
 | `docs/WORLD.md` | regions, ways between rooms (D-170); the map and the starting region in `-2` | world, region or map steps |
 | `docs/regions/` | one rule sheet per region | only the region a step touches |

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.331, The warden's slam.** D-885's step 1: beside
+  the hero its fists go up a turn (a new picture, the pink mark), then
+  it slams, a heart and 3 tiles back in a fast slide; it rests a turn.
+  D-886.
+  Playtest: https://claude.ai/artifact/UAyaK9Z6br3ah2mry9kE1Q
 - **2026-11-13, 0.3.330, The warden's slam and its Fist.** Q-104
   designed with mock-ups: a wind-up slam knocking the hero 3 back, a
   wall or a creature in the way hurting, and the Warden's Fist as its

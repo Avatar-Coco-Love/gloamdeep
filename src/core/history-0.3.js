@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.334', date: '2026-11-13', title: 'The puzzle plan', lines: [
+    "A long look ahead, nothing in the game changed. Puzzles are planned first, and biome 1 gets finished first: its boss, its found ability, its first puzzles and the lantern's parts.",
+    "Every puzzle and pressure idea from the talk is kept, in seven families: light and dark, push and knockback, creatures as pieces, gates you come back to, lore clues, time and pressure, and bigger shapes. Each biome's own puzzle ideas too.",
+    "Decisions: D-889. Questions opened: Q-105. D-885 moved to the archive, word for word.",
+  ] },
   { v: '0.3.333', date: '2026-11-13', title: 'The Warden\'s Fist', lines: [
     "New: the Warden's Fist, a fist of old stone with a gold band and a violet stone. A beaten warden always leaves it where it fell.",
     "Held, it hits for 2 and knocks the creature a tile straight back. Knocked into a wall, a tree or a rock, it loses 1 more: \"The rat slams into the rock!\" Into another creature, both lose 1.",

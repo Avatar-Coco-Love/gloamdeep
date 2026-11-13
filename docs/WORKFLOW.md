@@ -100,6 +100,7 @@ the fourteenth's in `WORKFLOW-4.md` (D-826), and the fifteenth's in
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+- For a long look ahead, one Artifact page of ideas with short IDs (L1, T3) let the owner react to about 40 at once; the owner kept them all, so the page went into the docs word for word (0.3.334).
 - Tests can read a code file's text (audit826's read `main.js`), so grep `tests/` for a file's name before moving code out of it; and the playtest's packer knows only the import forms the code uses, so a new form (`import()`) needs it taught too (0.3.313).
 - Before offering to change a fallback, grep `tests/` for a test that pins the old one (dropclear's spill on its own tile) and name it in the options, so the owner knows a test changes with the pick (0.3.314).
 - A page published without its sound files plays nothing, and no test catches it: the owner found the sound board silent at 0.3.333. Now the playtest and sound board tools write the files to publish beside them (0.3.333).
