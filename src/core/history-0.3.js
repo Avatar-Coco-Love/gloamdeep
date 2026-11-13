@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.329', date: '2026-11-13', title: 'Two glossary pages split', lines: [
+    "Docs: the creatures' glossary words have their own page, GLOSSARY-CREATURES.md, and the finds' second half (stone to the Locket) moved to GLOSSARY-FINDS-2.md, word for word, so both pages have room again. Nothing in the game changed.",
+    "Decisions: D-884. D-881 and D-882 moved to the archive, word for word.",
+  ] },
   { v: '0.3.328', date: '2026-11-13', title: 'The docs', lines: [
     "The boon card now says a boon lasts until you are back at the waystone, or you fall, as the opening card does.",
     "The docs catch up with the game: the creatures' ways (the mole's burrowing, the scorpion's tail strike, the rat pack), Growth's second row, what each find makes, the deeper waystones, the ponds in every woods room, the Settings card, the marks' rims, the art's lights and the dev tool switches' names.",

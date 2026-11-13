@@ -1597,3 +1597,31 @@ saving, play time, drawing) has its own safety net (offered too: and a
 note on screen while an error repeats). The two old saves that showed
 H-57 are kept as tests (`tests/saves/`). D-877 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-881 · 2026-11-13 · The art's loose ends** (the owner's picks, all
+recommended, from a picture; step 17 of `HEALTH-CHECK-ORDER.md`, H-51
+to H-54, H-60, H-61) The quick slot's picture and the round map are
+enlarged exactly 2×, the map's outer pixel row under its ring as the
+arrow pad's. The version number is drawn in the game's pixel font at
+2×, grey. One dim grey, `#5c566a`, for a line that can't be picked, an
+empty slot or an unlit mark; bone `#efe6cc` for bright text, `#fff5d6`
+only in flames. Light and glows may stay soft; objects stay
+hard-edged pixels (a line in `ART-DIRECTION.md`). The colours one shade
+off match the one they meant (the plaque edge `#3a3448` as the art rules
+name it), and the torch handles take the woods' browns (D-314). Every
+colour only the code had is listed in `ART-DIRECTION-3.md`.
+
+**D-882 · 2026-11-13 · The dev tools** (the owner's picks, all
+recommended; step 18 of `HEALTH-CHECK-ORDER.md`, H-38, H-48 to H-50)
+The wrench and the sheet's buttons let go of the keys after a click or
+tap, so Space waits a turn again; one reached with Tab keeps them
+(offered too: Space never presses one). Spawn's Peddler is
+moved to the tapped free floor tile from wherever he is, as at home, a bump opening his trade (offered too: moved,
+trapped; no Peddler in Spawn). A Torch or Glow Lamp light spawned on a
+free floor tile stands on a torch's stone foot, as one set down, never
+burning out. A name shared by more than one picture has the code's
+word after it ("Campfire · ownEmbers"; offered too: written states).
+Room's TIME row comes second, +10, +50 and Grow three across, so Grow
+shows on every screen (Grow last on the TIME row, picked first, still
+hid on phones). D-878 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

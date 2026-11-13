@@ -2,6 +2,13 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.326, The art's loose ends.** Health check step 17,
+  picked from a picture: the quick slot and round map at exactly 2×
+  (H-51); the version number in the pixel font (H-52); one dim grey and
+  one bright for text (H-53); soft glows allowed in the rules (H-54);
+  near-miss colours matched (H-60); every code-only colour listed in
+  `ART-DIRECTION-3.md` (H-61). D-881.
+  Playtest: https://claude.ai/artifact/5BHDMGHkscqqW8uNdqMMbp
 - **2026-11-13, 0.3.325, Saves kept safe.** Health check step 16: an
   old save's lost Peddler is sent home (H-57); one unreadable profile
   slot no longer wipes all three, and a save that can't be read is set
