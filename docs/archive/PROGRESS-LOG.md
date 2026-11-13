@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.336, The brazier vault.** L1 settled: 2 stone
+  braziers, 5 turns' oil each, open a sealed door; one vault a floor
+  from depth 2; a rare material or an ember inside. D-891. No game
+  change. Mock-up: https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
 - **2026-11-13, 0.3.335, The puzzle rules.** The six puzzle rules hold,
   the solver later; the first four: L1, L3, P1, then T1; the boss after
   the first two. D-890. No game change.
