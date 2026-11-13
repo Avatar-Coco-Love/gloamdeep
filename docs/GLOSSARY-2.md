@@ -13,7 +13,7 @@ this page neared 8 KB.
 ## Rooms below
 - **Hall, large room:** a generated room of 2 cells side by side or one above the other, or of 2 × 2 cells; side rooms, off the way to the stairs, with twice or four times a one-cell room's finds and creatures (D-645, D-648, D-651). A cell here is a block of a room's tiles, not a region's grid slot.
 - **Dead end, cache:** the last room of a side branch, with one opening; it holds a cache, 2 or 3 extra finds (flask, herb, oilcap, heartcap) in its far corner, left once (D-650).
-- **Vault, brazier, sealed door:** from depth 2, one dead-end room a floor is a vault: 2 braziers, stone fire bowls, before a sealed door, a stone slab with a flame rune; lit, the braziers open the door on the vault behind it (L1, D-891, D-892).
+- **Vault, brazier, sealed door:** from depth 2, one dead-end room a floor is a vault: 2 braziers, stone fire bowls, before a sealed door, a stone slab with a flame rune; lit, the braziers open the door on the vault behind it for good, the Open door (L1, D-891, D-892, D-895).
 
 ## Growth
 Moved from `GLOSSARY.md` word for word at 0.3.328 (D-883), as that page neared 8 KB:

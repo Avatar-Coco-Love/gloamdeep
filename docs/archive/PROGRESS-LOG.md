@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.337, The first vault.** L1's 4 build steps settled,
+  and step 1 built: a vault room a floor from depth 2, 2 cold braziers,
+  a sealed door. D-892. Playtest:
+  https://claude.ai/artifact/QT8NYGciwCp4YaneJvuNnb Map preview:
+  https://claude.ai/artifact/53ib4udnvXpEHR2NHfnXub
 - **2026-11-13, 0.3.336, The brazier vault.** L1 settled: 2 stone
   braziers, 5 turns' oil each, open a sealed door; one vault a floor
   from depth 2; a rare material or an ember inside. D-891. No game

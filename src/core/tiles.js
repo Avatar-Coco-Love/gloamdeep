@@ -174,10 +174,13 @@ export const TILES = {
   // brazier?, its `says` on the text line, where Yes `kindles` it for `oil` turns' oil, grey with
   // less (D-893); with the lantern out (`lit`) it says its words instead, a sentence a bump, free.
   // Lit, the torch's flame burns in its bowl, its glow a campfire's embers', and a bump says its
-  // words; the door's notches glow one a lit brazier (render). The door opens in a later step.
+  // words; the door's notches, on the lintel above it, glow one a lit brazier (render). Once both
+  // burn, the slab sinks away: the open door, walked through, light passing, its notches still
+  // glowing, for good (D-895).
   brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazier', panel: 'bed', lit: true, says: 'brazierCold', kindles: { into: 'brazierLit', says: 'brazierCatches', oil: 5 } },
   brazierLit: { id: 'brazierLit', kind: 'tile', letter: 'l', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazierLit', fire: true, glow: FIRE.embers },
   sealedDoor: { id: 'sealedDoor', kind: 'tile', letter: 'k', name: 'Sealed door', solid: true, blocksLight: true, bump: 'sealedDoor' },
+  openDoor: { id: 'openDoor', kind: 'tile', letter: 'm', name: 'Open door', solid: false, blocksLight: false },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

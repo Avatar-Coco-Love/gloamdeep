@@ -4,18 +4,18 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.339 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.340 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L1, step 3 (D-892): the door opening. Once both braziers burn, the slab
-sinks to a sill and stays open, the braziers lit, for good; left
-unsolved, they go cold again (D-891). Propose the open door's look, its
-words, and when an unsolved vault resets first.
+L1, step 4 (D-892): the prize. One prize the seed draws per vault, a
+rare material or an ember (D-891). Propose how the draw is weighted, how
+the prize looks in the vault and its words first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
+- A sound for the vault door opening (D-895), any time.
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
@@ -50,6 +50,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.340, The door opening.** L1 step 3: the second
+  brazier lit, the door sinks open for good, its notches moved to the
+  lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
+  Playtest: https://claude.ai/artifact/Lg8S2ZkYqo3UypnaWzUHdJ Mock-up:
+  https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb
 - **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
   done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
   word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.
@@ -59,8 +64,3 @@ list in `RESEARCH.md`.
   each. D-893. Playtest:
   https://claude.ai/artifact/NbAFRz8AZT4Qa9NiVvbJW7 Mock-up:
   https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73
-- **2026-11-13, 0.3.337, The first vault.** L1's 4 build steps settled,
-  and step 1 built: a vault room a floor from depth 2, 2 cold braziers,
-  a sealed door. D-892. Playtest:
-  https://claude.ai/artifact/QT8NYGciwCp4YaneJvuNnb Map preview:
-  https://claude.ai/artifact/53ib4udnvXpEHR2NHfnXub

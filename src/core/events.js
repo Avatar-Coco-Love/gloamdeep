@@ -33,6 +33,7 @@
 //   plant { id }         seed `id` was planted in a garden bed (D-566)
 //   shelve { id }        relic `id` was set on the shelf from the bag (D-693)
 //   kindle { id }        cold ashes were lit with the lantern's oil, now tile `id` (D-757)
+//   open { id }          a vault's last brazier lit, its sealed door sank open into tile `id` (D-895)
 //   sit { id }           the hero sat by a burning fire, now tile `id` (D-844)
 //   stoke { id }         the hero added wood to embers, now tile `id`, blazing (Q-088, feeding)
 //   cast                 the fishing line was cast, with a plop (D-613)

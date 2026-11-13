@@ -321,6 +321,7 @@ export const LINES = {
   brazier: { texts: ['A cold stone brazier.', 'Old ash lies in its bowl.'], warn: false }, // a vault's cold brazier bumped, a sentence a bump (D-892)
   brazierCold: { text: 'A cold stone brazier.', warn: false }, // said as a cold brazier's card opens, the lantern lit, its note the rest (D-893)
   brazierCatches: { text: 'The brazier catches.', warn: false }, // Yes on Light the brazier? (D-893)
+  vaultOpens: { text: 'The stone door sinks open.', warn: false }, // the last brazier lit, the door opening, in its catching's place: the strip holds one (D-895)
   brazierLit: { texts: ['A brazier, burning.', 'Its flame burns steady.'], warn: false }, // a lit brazier bumped, a sentence a bump (D-893)
   sealedDoor: { texts: ['A sealed stone door.', 'A flame rune is cut into it.'], warn: false }, // a vault's sealed door bumped (D-892)
   minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)

@@ -100,6 +100,7 @@ the fourteenth's in `WORKFLOW-4.md` (D-826), and the fifteenth's in
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+- An owner's half-sure idea, drawn into the same mock-up, settled in one more question (0.3.340).
 - Counting over 500 seeds how often a floor has a one-room dead end, and which way it opens, turned "how should the vault fit?" into options with real odds (half the shallow floors would lose their vault with one layout), before asking (0.3.337).
 - When a test fingerprints every generated room, rerunning the fingerprint on the old code with the new rooms left out proved every other room unchanged, so the new number was earned, not just copied (0.3.337).
 - For a long look ahead, one Artifact page of ideas with short IDs (L1, T3) let the owner react to about 40 at once; the owner kept them all, so the page went into the docs word for word (0.3.334).
