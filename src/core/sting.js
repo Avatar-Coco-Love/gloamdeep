@@ -12,6 +12,8 @@
 // struck in (`rests`). A blow still beats it while raised; one stung while raised strikes no more.
 // Claude's drafts the owner may change: a reach of 2, a rest of 1, and armour can't turn a strike aside;
 // the Shell Vest blunts it, a strike of 2 hurting 1 (D-801).
+// One that slams (the warden, D-885) strikes so with a reach of 1, and its way's `knocks` sends the
+// hero hit that many tiles straight back, along the strike's way (knock).
 import { get } from './registry.js';
 import { enemyAt, hitEnemy } from './enemies.js';
 import { traits } from './behaviours.js';
@@ -21,6 +23,8 @@ import { say } from './lines.js';
 import { note } from './events.js';
 import { fall } from './fall.js';
 import { blunted } from './worn.js';
+import { personAt } from './people.js';
+import { offEdge } from './openings.js';
 
 export function stingTurn(state) {
   if (!state.enemies.some((e) => e.raised)) return state;
@@ -70,5 +74,22 @@ function strike(state, e) {
   }
   if (!hit) return foe ? say(s, 'stingsFoe', get(foe.id).name.toLowerCase()) : say(s, entry.misses);
   const hurt = blunted(state, entry.bite), health = state.god ? state.health : Math.max(0, state.health - hurt);
-  return note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt });
+  const bitten = note(say({ ...s, health }, entry.bites), 'bite', { id: e.id, hurt });
+  return way.knocks ? knock(bitten, raised, way.knocks) : bitten;
+}
+
+// § knock (D-885): (state, way, n) → the hero slid up to n tiles along `way`, stopping before the
+// room's edge, a solid tile (rock, a tree, a boulder, a thing set down), a creature or a person.
+// For now a stop only ends the slide; the hurt it does is the next step's. Finds on the tiles are
+// passed over, and stairs landed on are not taken, as no step was walked. A `knock` event, { from, to }.
+function knock(state, way, n) {
+  let { x, y } = state.hero;
+  for (let i = 0; i < n; i++) {
+    const nx = x + way.dx, ny = y + way.dy;
+    if (offEdge(state.room, nx, ny) || tileAt(state.room, nx, ny).solid) break;
+    if (enemyAt(state, nx, ny) || personAt(state, nx, ny)) break;
+    x = nx; y = ny;
+  }
+  const from = state.hero;
+  return note({ ...state, hero: { ...from, x, y } }, 'knock', { from: { x: from.x, y: from.y }, to: { x, y } });
 }

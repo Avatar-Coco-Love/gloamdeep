@@ -44,6 +44,10 @@ export const BEHAVIOURS = {
   // row or column within `reach` tiles it raises its tail for a turn, then strikes those tiles, and
   // rests `rest` turns (sting.js, D-729).
   strikes: { id: 'strikes', name: 'Tail strike', notices: 'inLight', moves: 'toward', bites: false, strikes: { reach: 2, rest: 1 } },
+  // It notices and comes as one that chases does, but never bites as others do: beside the hero it
+  // raises its fists for a turn, then slams that tile, the tail strike's way with a `reach` of 1, and
+  // knocks the hero `knocks` tiles straight back; then it rests `rest` turns (sting.js, D-885).
+  slams: { id: 'slams', name: 'Slam', notices: 'inLight', moves: 'toward', bites: false, strikes: { reach: 1, rest: 1, knocks: 3 } },
 };
 
 // § traits: (entry) → how the creature acts, its ways merged. With no way it

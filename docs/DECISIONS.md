@@ -133,20 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-883 · 2026-11-13 · The docs** (the owner's picks, all recommended;
-step 19 of `HEALTH-CHECK-ORDER.md`, H-25 to H-30, H-62 to H-65) The
-docs catch up with the decisions and the code. Pages too full for new
-lines move a section word for word to a roomy one: the hero's Growth
-entries to `GLOSSARY-2.md`, the Growth upgrades to `CONTENT-4.md`
-(offered too: split the full pages). The boon card's foot and words
-say "back at the waystone, or you fall", as the opening card does
-(offered too: as they were). The loose ends found beside the steps are
-fixed too: the marks' rims, the stinger's sale, a repeated "Rules:", a
-stale code comment (offered too: only the listed ones). The README's
-status is short: stage 0.3, the world, its places above and below
-(offered too: every room and depth). D-879 and D-880 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-884 · 2026-11-13 · Two glossary pages split** (the owner's picks,
 both recommended) Before the warden's drop, the two glossary pages
 near 8 KB split, word for word. `GLOSSARY-2.md`'s Creatures section
@@ -176,3 +162,22 @@ more). Three steps: the slam, then the wall's and the way's hurt,
 then the Fist. Claude's drafts the owner may change: the lines, the
 names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
 D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-886 · 2026-11-13 · The warden's slam built** (the owner's picks, all
+recommended; D-885's step 1 of 3) Beside the hero, the warden raises
+its fists for a turn instead of biting: a picture of its own, the
+fists over its head, trembling as a raised tail does, with the pink
+strike mark on the hero's tile (offered too: its own picture
+trembling; the new picture with no mark). Then it slams that tile,
+its bite of 1, and the hero slides 3 tiles straight back, 3 times as
+fast as a step (offered too: there at once, with a shake); the room's
+edge, a solid tile, a creature or a person stops the slide short, with
+no hurt more until step 2. Stepped out of its way, it hits the floor.
+Then it rests a turn, as the scorpion does (offered too: no rest).
+Fists up, it never settles back to sleep before it slams. Its lines,
+Claude's drafts: "The warden raises its fists!", "The warden slams you
+back!", "The warden's fists hit the floor." (offered too: "The
+warden's fists rise.", "The warden's blow throws you back.", "The
+warden slams the empty floor."). Its fists going up play its waking
+stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.328, The docs.** Health check step 19, the last:
+  the docs match the decisions and code (H-25 to H-30, H-62 to H-65);
+  full pages moved a section word for word; the boon card adds "or you
+  fall". D-883.
+  Playtest: https://claude.ai/artifact/1x4goeetJUpSCLM8GGmD3U
 - **2026-11-13, 0.3.327, The dev tools.** Health check step 18: Space
   never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
   lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.

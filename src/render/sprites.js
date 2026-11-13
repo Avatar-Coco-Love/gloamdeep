@@ -26,6 +26,7 @@ import {
   LOCKET_COLOURS,
   LOCKET_GLINT,
   WARDEN,
+  WARDEN_RAISED,
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,
@@ -120,6 +121,9 @@ const FLASHES = { rat: spriteCanvas(RAT, '#ffffff'), gloamling: spriteCanvas(GLO
 // § sleeping (D-692): a creature that `sleeps` as itself, not in disguise, drawn asleep with its
 // eyes dull: the warden's violet eye slit in its rock's darkest grey
 const SLEEPING = { warden: spriteCanvas(WARDEN, null, { ...PAL, P: PAL.D }) };
+// § raised (D-885): a creature with its own look while raised to strike, the warden's fists up;
+// a scorpion's raised tail is its own sprite, trembling. Facing left, mirrored (RAISED_LEFT, below)
+const RAISED = { warden: spriteCanvas(WARDEN_RAISED) };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');
@@ -131,6 +135,7 @@ function mirrored(cv) {
 }
 const LEFT = {}, LEFT_FLASHES = {};
 for (const id of Object.keys(FLASHES)) { LEFT[id] = mirrored(SPRITES[id]); LEFT_FLASHES[id] = mirrored(FLASHES[id]); }
+const RAISED_LEFT = Object.fromEntries(Object.entries(RAISED).map(([id, cv]) => [id, mirrored(cv)]));
 // § colours: a creature in its colour set, facing right and left (D-373); the first is its SPRITES one
 const COLOURS = { scorpion: SCORPION_COLOURS.map((set) => spriteCanvas(SCORPION, null, { ...PAL, ...set })) };
 const COLOURS_LEFT = Object.fromEntries(Object.entries(COLOURS).map(([id, all]) => [id, all.map(mirrored)]));
@@ -291,8 +296,8 @@ export function drawEnemy(c, e, p, t, still, flash, hero) {
   drawShadow(c, x, y, 8);
   if (get(e.id)?.glows && !glowing) return; // one that glows is drawn over the light, drawGlows (D-649)
   const left = e.facing === 'left';
-  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692)
-  const shake = e.raised && !still ? (Math.floor(t / 90) % 2 ? 1 : -1) : 0; // a raised tail trembles (D-729)
+  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.raised && RAISED[e.id] ? (left ? RAISED_LEFT : RAISED)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692), fists up (D-885)
+  const shake = e.raised && !still ? (Math.floor(t / 90) % 2 ? 1 : -1) : 0; // a raised tail trembles (D-729), a warden's fists too (D-885)
   c.drawImage(sprite, x + shake, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
 }
 const FLY_LIFT = 2; // pixels a flyer is held above its shadow (D-563)

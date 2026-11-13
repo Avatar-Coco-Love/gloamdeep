@@ -5,7 +5,7 @@
 // a room never stood in before rings a small note, travel by waystone hums. A herb or heartcap eaten
 // crunches, a potion drunk gulps; a person leaving for home or arriving shimmers; sleeping breathes out.
 // The creatures' own sounds: a pack's squeaks as its warning line is said, a mimic's jolt or a warden's
-// stone as it wakes, a scorpion's tail raised, a mole digging down or coming up, a bone rat's bones
+// stone as it wakes, a scorpion's tail raised or a warden's fists (its stone too), a mole digging down or coming up, a bone rat's bones
 // falling or standing up again, a glob spat and its splat. "You can't carry more" plays the Can't tock (D-819).
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
@@ -29,7 +29,8 @@ export function moments(before, after, events) {
   if (line === 'ratPack') out.push(['pack']);
   const woke = events.find((e) => e.type === 'wake');
   if (woke) out.push([woke.id === 'warden' ? 'statue' : 'jolt']);
-  if (has(events, 'raise')) out.push(['tail']);
+  const up = events.find((e) => e.type === 'raise');
+  if (up) out.push([up.id === 'warden' ? 'statue' : 'tail']); // a warden's fists up: heavy stone shifting (D-885)
   if (after.place === before.place && !fell) { // the same room's creatures, before and after
     const was = before.enemies, now = after.enemies;
     if (count(now, 'under') > count(was, 'under')) out.push(['burrow', false]); // digs down

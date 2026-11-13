@@ -28,7 +28,7 @@ Each bite plays a quarter second after the hero's swing, as the hurt blow does, 
 | `bonesFall`, `bonesStand` | a bone rat falls to bones, or stands up again (D-833) | bones dropping, bones gathering | the bite's bones, four: falling from 1.3 to 1, 0.08 s apart, 0.15 s after the beaten thud, at 0.2 to 0.14; rising from 1 to 1.6, 0.06 s apart, at 0.14 to 0.2, CC0 |
 | `sip` | an oil tick drinks the lantern's oil (D-606, D-832) | a wet slurp and a gulp | `Water-038` at 1.1, 0.4 s, fading 0.15 s, at 0.35, then `Water-025` at 1.3, 0.3 s, at 0.3, 0.25 s in, CC0 |
 | `grind` | a warden bites (D-833) | stone grinding | `Earth-019` at 0.8, from 0.3 s, 0.5 s, fading 0.2 s, at 0.5, then `impactMining_000` to `004` at 0.7, 0.2, 0.15 s in, CC0 |
-| `statue` | a warden wakes (D-833) | heavy stone shifting | `Earth-028` at 0.75, 1.2 s, fading 0.6 s, muffled above 1200 Hz, at 0.32, CC0 |
+| `statue` | a warden wakes (D-833), or raises its fists (D-886) | heavy stone shifting | `Earth-028` at 0.75, 1.2 s, fading 0.6 s, muffled above 1200 Hz, at 0.32, CC0 |
 | `spit` | a creature spits a glob (D-688, D-833) | a wet spit | `Water-010` at 1.3, 0.35 s, fading 0.15 s, at 0.4, CC0 |
 | `splat` | a glob breaks or hits (D-688, D-833) | a small splat | `Water-014` at 0.8, 0.35 s, fading 0.15 s, at 0.32, CC0 |
 

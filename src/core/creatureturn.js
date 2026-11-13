@@ -85,7 +85,7 @@ function settle(state) {
   let settled = null;
   const enemies = state.enemies.map((e) => {
     if (e.stirs) { const { stirs, ...rest } = e; return { ...rest, awake: get(e.id).awakeTurns, chasing: true }; }
-    if (!e.awake) return e;
+    if (!e.awake || e.raised) return e; // fists up, a warden slams before it settles (D-885)
     if (e.awake > 1) return { ...e, awake: e.awake - 1 };
     const { awake, chasing, ...rest } = e;
     settled = settled || e;
@@ -184,7 +184,7 @@ function enemiesMove(state, bit = false) {
       const facing = way.dx < 0 ? 'left' : way.dx > 0 ? 'right' : e.facing;
       enemies = enemies.map((o) => (o === e ? { ...e, raised: way, chasing: true, ...(facing && { facing }) } : o));
       said = said || get(e.id).raises;
-      raised = true;
+      raised = raised || e.id; // the first to raise names the event: a tail or a warden's fists (D-885)
       continue;
     }
     if (t.burrows && (e.under || (!e.dug && chasing && !near && !flees && !runs))) {
@@ -200,7 +200,7 @@ function enemiesMove(state, bit = false) {
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
   enemies = rally(enemies); // one that noticed this turn brings its pack (D-727)
-  const moved = enemies === state.enemies ? state : { ...state, enemies }, next = raised ? note(moved, 'raise') : moved;
+  const moved = enemies === state.enemies ? state : { ...state, enemies }, next = raised ? note(moved, 'raise', { id: raised }) : moved;
   return said && !bit ? say(next, said) : next; // a bite's line said this turn stays (D-117)
 }
 
