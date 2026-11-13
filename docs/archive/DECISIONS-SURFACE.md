@@ -1688,3 +1688,18 @@ more). Three steps: the slam, then the wall's and the way's hurt,
 then the Fist. Claude's drafts the owner may change: the lines, the
 names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
 D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
+step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
+rock, a tree, a boulder, a thing set down, an edge with no room beyond)
+costs the hero 1 heart more; a creature, it and the hero 1 each, one
+beaten so with no drop and no experience, as a sting's (offered too: a
+drop and experience); a person, the hero 1 and the person nothing
+(offered too: no hurt). At a doorway the slide goes on out into the
+room beyond, and the turn ends there (the owner's own answer; offered
+too: stops, no hurt; hurts as a wall). Water, one under the earth or a
+pile of bones only stops it, no hurt (offered too: hurts as a creature;
+passes over); once the hero can swim, a slam slides them into water
+(the owner's own answer, Q-039). The line, Claude's draft: "You slam
+into the {n}!", naming what was hit (offered too: crash; two lines).
+D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.

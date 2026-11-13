@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.332, The slam's hurt.** D-885's step 2: slammed
+  into a wall with tiles to go, a heart more; into a creature, a heart
+  each; the peddler, the hero only; out through a doorway into the next
+  room. D-887.
+  Playtest: https://claude.ai/artifact/NS3hzRHncGJHnP8B7w1YtT
 - **2026-11-13, 0.3.331, The warden's slam.** D-885's step 1: beside
   the hero its fists go up a turn (a new picture, the pink mark), then
   it slams, a heart and 3 tiles back in a fast slide; it rests a turn.

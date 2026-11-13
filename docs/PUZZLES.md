@@ -36,7 +36,7 @@ with every verb the hero already has.
 - **The clock:** oil, turns, day and night. Pressure comes from these,
   not from fast fingers.
 
-## Rules every puzzle follows (proposed, not yet decided)
+## Rules every puzzle follows (D-890)
 1. **Never blocks the way down.** Puzzles guard side rewards. Only a
    landmark room or a boss may stand in the way (pillar 2).
 2. **Shown by light.** A puzzle's state is readable at a glance: a lit
@@ -54,7 +54,7 @@ with every verb the hero already has.
    embers, shortcuts, a recipe. Never coins, and never looks (D-418,
    D-472).
 
-## Claude's first picks (recommended, not yet chosen)
+## The first four, in order (D-890)
 1. **L1, the braziers and a sealed side vault.** One new tile pair, used
    with the lantern the hero already has; it sets up the vault as the
    home for later puzzles.
@@ -65,8 +65,10 @@ with every verb the hero already has.
 4. Then **T1, the gloam tide**, as the first high-pressure vault, once two
    or three puzzles exist to pressure.
 
-Each is one small visible step. Biome 1's boss and found ability (G3,
-W4) are planned alongside, so they can test these.
+Each is one small visible step. Rule 4's solver waits for the first
+puzzle the seed lays out; until then each is a fixed layout checked by
+hand. Biome 1's boss and found ability (G3, W4) are planned once L1 and
+L3 are built, so they can test these (D-890).
 
 ## L · Light and dark
 The lantern is the key to everything; these use pillar 1 most directly.

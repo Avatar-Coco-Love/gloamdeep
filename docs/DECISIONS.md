@@ -133,21 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
-step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
-rock, a tree, a boulder, a thing set down, an edge with no room beyond)
-costs the hero 1 heart more; a creature, it and the hero 1 each, one
-beaten so with no drop and no experience, as a sting's (offered too: a
-drop and experience); a person, the hero 1 and the person nothing
-(offered too: no hurt). At a doorway the slide goes on out into the
-room beyond, and the turn ends there (the owner's own answer; offered
-too: stops, no hurt; hurts as a wall). Water, one under the earth or a
-pile of bones only stops it, no hurt (offered too: hurts as a creature;
-passes over); once the hero can swim, a slam slides them into water
-(the owner's own answer, Q-039). The line, Claude's draft: "You slam
-into the {n}!", naming what was hit (offered too: crash; two lines).
-D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-888 · 2026-11-13 · The Warden's Fist** (the owner's picks, all
 recommended; D-885's step 3 of 3) Beaten, the warden always leaves the
 Warden's Fist where it fell, even when a sting, a glob or a slam beats
@@ -183,3 +168,16 @@ systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
 decision, names and numbers placeholders until then. Opens Q-105.
 Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
 D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-890 · 2026-11-13 · The puzzle rules and the first four** (the
+owner's picks, all recommended; answers most of Q-105) The six puzzle
+rules in `PUZZLES.md` hold for every puzzle. Rule 4's solver is built
+only when the seed first lays a puzzle out; until then each puzzle is a
+fixed layout, checked by hand (offered too: the solver first; settle it
+at the first generated puzzle). The first four, in order: L1, the
+braziers and a sealed side vault; L3, the dark door; P1, the Fist and
+a plate; then T1, the gloam tide (offered too: L1 with P1 second; L3
+first; pick after each). Biome 1's boss and found ability (G3, W4) are
+planned after the first two are built (offered too: now; after all
+four). Each one's tiles, names, numbers and rewards are its own step.
+D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.

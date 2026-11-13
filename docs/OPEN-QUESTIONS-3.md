@@ -52,14 +52,11 @@ drops and from which depth; whether the mole stops at depth 7. Its own
 step, when the owner wants.
 
 
-**Q-105 · Which puzzles first, and biome 1's capstone** (raised
-2026-11-13, D-889) Every idea in `PUZZLES*.md` is kept; open: which to
-build first and in what order, each one's tiles, names, numbers and
-rewards, at its own step; the six puzzle rules (proposed in
-`PUZZLES.md`); biome 1's boss and found ability (G3, W4), planned beside
-the first puzzles; the lantern part slots after. Claude's picks: L1 (the
-braziers and a sealed side vault), L3 (the dark door), P1 (the Fist and
-a plate), then T1 (the gloam tide). New ideas join the plan any time.
+**Q-105 · Each first puzzle's details, and biome 1's capstone** (raised
+2026-11-13, D-889; the order settled by D-890) Open: each of L1, L3, P1
+and T1's tiles, names, numbers and rewards, at its own step; biome 1's
+boss and found ability (G3, W4), planned once L1 and L3 are built; the
+lantern part slots after. New ideas join the plan any time.
 
 ---
 
