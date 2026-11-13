@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.331 (2026-11-13)
+- The warden fights harder. Beside you, it raises its fists for a turn instead of biting: its own new picture, trembling, with the pink mark on your tile. Then it slams: it takes a heart and knocks you 3 tiles straight back in a fast slide. Step out of its way while its fists are up and it hits the floor; then it rests a turn, your chance to strike.
+- For now a wall, a tree or a creature behind you just stops the slide short. The hurt they do is the next step.
+- Its fists going up play its heavy stone sound. Its lines: "The warden raises its fists!", "The warden slams you back!", "The warden's fists hit the floor."
+- Decisions: D-886. D-883 moved to the archive, word for word.
+
 ## 0.3.330 (2026-11-13)
 - Design: the warden gets a wind-up slam that knocks you 3 tiles back, a wall or a creature in the way hurts, and beaten it drops the Warden's Fist, a stone fist that knocks creatures back. Mock-ups only; built in three steps next. Nothing in the game changed yet.
 - Decisions: D-885. Questions closed: Q-104. D-868 moved to the archive, word for word.
@@ -30,8 +36,3 @@ Entry format:
 ## 0.3.329 (2026-11-13)
 - Docs: the creatures' glossary words have their own page, GLOSSARY-CREATURES.md, and the finds' second half (stone to the Locket) moved to GLOSSARY-FINDS-2.md, word for word, so both pages have room again. Nothing in the game changed.
 - Decisions: D-884. D-881 and D-882 moved to the archive, word for word.
-
-## 0.3.328 (2026-11-13)
-- The boon card now says a boon lasts until you are back at the waystone, or you fall, as the opening card does.
-- The docs catch up with the game: the creatures' ways (the mole's burrowing, the scorpion's tail strike, the rat pack), Growth's second row, what each find makes, the deeper waystones, the ponds in every woods room, the Settings card, the marks' rims, the art's lights and the dev tool switches' names.
-- Decisions: D-883.

@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.331', date: '2026-11-13', title: 'The warden\'s slam', lines: [
+    "The warden fights harder. Beside you, it raises its fists for a turn instead of biting: its own new picture, trembling, with the pink mark on your tile. Then it slams: it takes a heart and knocks you 3 tiles straight back in a fast slide. Step out of its way while its fists are up and it hits the floor; then it rests a turn, your chance to strike.",
+    "For now a wall, a tree or a creature behind you just stops the slide short. The hurt they do is the next step.",
+    "Its fists going up play its heavy stone sound. Its lines: \"The warden raises its fists!\", \"The warden slams you back!\", \"The warden's fists hit the floor.\"",
+    "Decisions: D-886. D-883 moved to the archive, word for word.",
+  ] },
   { v: '0.3.330', date: '2026-11-13', title: 'The warden\'s slam and its Fist', lines: [
     "Design: the warden gets a wind-up slam that knocks you 3 tiles back, a wall or a creature in the way hurts, and beaten it drops the Warden's Fist, a stone fist that knocks creatures back. Mock-ups only; built in three steps next. Nothing in the game changed yet.",
     "Decisions: D-885. Questions closed: Q-104. D-868 moved to the archive, word for word.",

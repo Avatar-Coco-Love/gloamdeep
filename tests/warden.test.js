@@ -13,13 +13,13 @@ const map = ['TTTTTTTT', 'T......T', 'T......T', 'T......T', 'TTTTTTTT'];
 const room = makeRoom(map, SKY, 'woods');
 const at = (enemy) => ({ ...makeState(room, { x: 1, y: 2 }, [], []), enemies: [enemy] });
 
-test('the Warden is in the registry: 4 health, a bite of 1, chases, sleeps as itself, with its lines', () => {
+test('the Warden is in the registry: 4 health, a bite of 1, slams, sleeps as itself, with its lines', () => {
   const e = get('warden');
   assert.equal(e.name, 'Warden'); assert.equal(e.kind, 'enemy');
-  assert.equal(e.health, 4); assert.equal(e.bite, 1); assert.deepEqual(e.ways, ['chases']);
+  assert.equal(e.health, 4); assert.equal(e.bite, 1); assert.deepEqual(e.ways, ['slams']);
   assert.equal(e.sleeps, true); assert.equal(e.looksLike, undefined); assert.equal(e.awakeTurns, 6);
   assert.ok(asleepAtFirst(e)); assert.ok(e.acts && e.fights);
-  for (const line of ['wardenWakes', 'wardenHurt', 'wardenSettles', 'wardenDie', 'wardenBite']) assert.ok(LINES[line], line);
+  for (const line of ['wardenWakes', 'wardenHurt', 'wardenSettles', 'wardenDie', 'wardenBite', 'wardenRaises', 'wardenMisses']) assert.ok(LINES[line], line);
 });
 
 test('it guards the locket, asleep, and never comes in the pool', () => {

@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.330 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.331 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The warden's slam (D-885), step 1 of 3: in line beside the hero its
-fists go up for a turn, then it slams, biting and knocking the hero 3
-tiles back. Read D-885 and the scorpion's `sting.js`.
+The warden's slam (D-885), step 2 of 3: stopped by a wall (rock, a
+tree, a boulder, a thing set down) with tiles still to go, the hero
+loses 1 heart more; a creature in the way, it and the hero lose 1
+each. Read D-885, D-886 and `knock` in `sting.js`.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -48,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.331, The warden's slam.** D-885's step 1: beside
+  the hero its fists go up a turn (a new picture, the pink mark), then
+  it slams, a heart and 3 tiles back in a fast slide; it rests a turn.
+  D-886.
+  Playtest: https://claude.ai/artifact/UAyaK9Z6br3ah2mry9kE1Q
 - **2026-11-13, 0.3.330, The warden's slam and its Fist.** Q-104
   designed with mock-ups: a wind-up slam knocking the hero 3 back, a
   wall or a creature in the way hurting, and the Warden's Fist as its
@@ -55,8 +61,3 @@ list in `RESEARCH.md`.
 - **2026-11-13, 0.3.329, Two glossary pages split.** Before the warden's
   drop: the creatures to `GLOSSARY-CREATURES.md`, the finds from Deposit
   on to `GLOSSARY-FINDS-2.md`, word for word. Nothing visible. D-884.
-- **2026-11-13, 0.3.328, The docs.** Health check step 19, the last:
-  the docs match the decisions and code (H-25 to H-30, H-62 to H-65);
-  full pages moved a section word for word; the boon card adds "or you
-  fall". D-883.
-  Playtest: https://claude.ai/artifact/1x4goeetJUpSCLM8GGmD3U

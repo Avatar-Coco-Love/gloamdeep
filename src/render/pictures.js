@@ -505,6 +505,12 @@ const WARDEN = { mirror: false, rows: [
   '', '', '.....kkkkkk.....', '....kHHkHHLk....', '....kHPPPPLk....', '....kgHHHLLk....', '..kkkkkkkkkkkk..',
   '.kggHHHHkHHLLMk.', '.kHkoookooookMk.', '.kHkHHHkHHLLkMk.', '.kLkHHHHkLLLkDk.', '.kkkHHHHLLLMkkk.', '...kHHHLLLMMk...',
   '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
+// its fists up before a slam (D-885), Claude's draft: the arms lifted beside its head, the fists
+// over it; the head, the band and the legs as they are
+const WARDEN_RAISED = { mirror: false, rows: [
+  'kkkk........kkkk', 'kHHk........kLMk', 'kHLk.kkkkkk.kMDk', 'kkkkkHHkHHLkkkkk', '.kHkkHPPPPLkkMk.', '.kHkkgHHHLLkkDk.',
+  '.kHkkkkkkkkkkDk.', '.kggHHHHkHHLLMk.', '...koookooook...', '...kHHHkHHLLk...', '...kHHHHkLLLk...', '...kHHHHLLLMk...',
+  '...kHHHLLLMMk...', '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
 
 // § campfire (D-757): a ring of grey stones round crossed logs, seen a little from above; its
 // flames are drawn after the light (campfire.js in render). Embers: the logs charred, coals
@@ -598,6 +604,7 @@ export {
   LOCKET_COLOURS,
   LOCKET_GLINT,
   WARDEN,
+  WARDEN_RAISED,
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,

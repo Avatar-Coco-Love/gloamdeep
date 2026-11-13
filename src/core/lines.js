@@ -304,7 +304,9 @@ export const LINES = {
   wardenHurt: { text: 'The warden cracks.', warn: false },
   wardenSettles: { text: 'The warden stands still again.', warn: false },
   wardenDie: { text: 'The warden crumbles and falls still.', warn: false },
-  wardenBite: { text: 'The warden strikes you.', warn: false, kind: 'harm' },
+  wardenBite: { text: 'The warden slams you back!', warn: false, kind: 'harm' }, // its slam (D-885), Claude's drafts the owner may change
+  wardenRaises: { text: 'The warden raises its fists!', warn: true },
+  wardenMisses: { text: "The warden's fists hit the floor.", warn: false },
   campfireHigh: { text: 'A campfire, burning high.', warn: false }, // said as a blazing fire's card opens, its note the rest (D-757, D-844)
   campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
   campfireSat: { text: 'You sit by the fire and warm up.', warn: false }, // Yes on Sit by the fire? (D-844), Claude's draft the owner may change

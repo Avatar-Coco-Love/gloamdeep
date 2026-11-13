@@ -43,7 +43,8 @@
 //   spit { id }          creature `id` spat a glob (spit.js, D-688); a glob's hit on the hero is a `bite`
 //   splash { x, y }      a glob broke or hit, at x, y (D-688)
 //   scatter { id }       the hero stepped onto creature `id`'s pile of bones and scattered it (D-731)
-//   raise                a creature raised its tail to strike (D-729)
+//   raise { id }         creature `id` raised its tail to strike (D-729), or a warden its fists (D-885)
+//   knock { from, to }   a warden's slam knocked the hero from tile `from` back to `to` (D-885)
 //   boon { id }          boon `id` was picked at the waystone (D-596)
 //   fang { id }          the Fang Charm mended a heart as creature `id` was beaten (D-809)
 //   sleep                the hero slept in the bed until morning (D-488)

@@ -497,7 +497,9 @@ function rememberHere() {
 }
 
 // § loop: move the shown hero and enemies toward the real ones, take a waiting step, then draw
-function approach(from, to, dt) { return from + Math.sign(to - from) * Math.min(Math.abs(to - from), SLIDE * dt); }
+// More than a tile to go, a warden's slam shoving the hero back (D-885), the slide goes 3 times as fast
+function approach(from, to, dt) { const far = Math.abs(to - from); return from + Math.sign(to - from) * Math.min(far, SLIDE * dt * (far > 1 ? SHOVE : 1)); }
+const SHOVE = 3;
 let lastUpdate = null;
 function update(t) {
   const { travel, fall, shown } = app;

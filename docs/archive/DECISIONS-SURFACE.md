@@ -1625,3 +1625,17 @@ Room's TIME row comes second, +10, +50 and Grow three across, so Grow
 shows on every screen (Grow last on the TIME row, picked first, still
 hid on phones). D-878 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-883 · 2026-11-13 · The docs** (the owner's picks, all recommended;
+step 19 of `HEALTH-CHECK-ORDER.md`, H-25 to H-30, H-62 to H-65) The
+docs catch up with the decisions and the code. Pages too full for new
+lines move a section word for word to a roomy one: the hero's Growth
+entries to `GLOSSARY-2.md`, the Growth upgrades to `CONTENT-4.md`
+(offered too: split the full pages). The boon card's foot and words
+say "back at the waystone, or you fall", as the opening card does
+(offered too: as they were). The loose ends found beside the steps are
+fixed too: the marks' rims, the stinger's sale, a repeated "Rules:", a
+stale code comment (offered too: only the listed ones). The README's
+status is short: stage 0.3, the world, its places above and below
+(offered too: every room and depth). D-879 and D-880 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
