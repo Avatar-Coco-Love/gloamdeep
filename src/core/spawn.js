@@ -30,11 +30,24 @@ export function spawn(state, id, x, y) {
     // one in disguise starts asleep (D-368); each is marked `spawned`, so beating it or pouring it counts in no Records (D-720)
     return { ...state, [list]: [...state[list], { id, x, y, ...(asleepAtFirst(entry) && { asleep: true }), spawned: true }] };
   }
+  const free = !tileAt(room, x, y).solid && !(state.hero.x === x && state.hero.y === y) && !itemAt(state, x, y) && !enemyAt(state, x, y) && !personAt(state, x, y);
   if (entry.kind === 'light') { // where it can sit, one per tile (D-100)
-    if (!mountAt(room, x, y) || lightAt(state, x, y)) return state;
-    return { ...state, lights: [...state.lights, { id, x, y }] };
+    if (lightAt(state, x, y)) return state;
+    if (mountAt(room, x, y)) return { ...state, lights: [...state.lights, { id, x, y }] };
+    // on a free floor tile, on a torch's stone foot, as one set down (D-478, H-49); a dev light never burns out
+    if (!free) return state;
+    return { ...state, room: withTile(room, x, y, get('torchStand')), lights: [...state.lights, { id, x, y }] };
   }
+  if (entry.kind === 'npc') return free ? bring(state, id, x, y) : state; // on a free floor tile (H-48)
   return state; // other kinds arrive with their own steps
+}
+
+// § bring: there is one of each person, so Spawn moves them here from any room they stand
+// in, standing as at home, already greeted: a bump of one who buys opens their trade (H-48)
+function bring(state, id, x, y) {
+  const away = (p) => (p.people || []).some((q) => q.id === id) ? { ...p, people: p.people.filter((q) => q.id !== id) } : p;
+  const elsewhere = Object.fromEntries(Object.entries(state.elsewhere || {}).map(([k, p]) => [k, away(p)]));
+  return { ...state, elsewhere, people: [...away(state).people || [], { id, x, y, home: true, greeted: true }] };
 }
 
 // § reset: the starting room comes back (D-050). If the hero now stands in a

@@ -9,7 +9,7 @@ import { spawn } from '../core/spawn.js';
 import { TILE, BUTTON, BUTTON_GAP, PAD_DISC } from '../render/screen.js';
 import { lineUp } from '../render/textline.js';
 import { drawGrid, drawPointed, drawWrench } from '../render/overlay.js';
-import { buildPanel, el } from './panel.js';
+import { buildPanel, el, nameOf } from './panel.js';
 import { setPixelText } from './pixeltext.js';
 import { keepFading } from '../input/lantern.js';
 import { DAY_TURNS } from '../core/daytime.js';
@@ -80,6 +80,11 @@ export function createDev(stage, canvas, game, picture) {
     button.setAttribute('aria-expanded', String(show));
   };
   button.addEventListener('click', () => showPanel(!open));
+  // § let go: a button clicked or tapped lets go of the keys' focus, so Space waits a turn
+  // again; one reached with Tab keeps it, and Space presses it (H-38)
+  const letGo = (ev) => { if (ev.detail) ev.target.closest('button')?.blur(); };
+  button.addEventListener('click', letGo);
+  panel.addEventListener('click', letGo);
 
   // § hide: the title screen keeps the wrench, panel and stats away, and their keys off
   let hidden = false;
@@ -166,7 +171,7 @@ export function createDev(stage, canvas, game, picture) {
         ? `fps ${fps} · turn ${state.turn} · ${day} · xp ${state.xp} · hero ${h.x},${h.y} · seed ${state.seed}`
         : `fps ${fps} · turn ${state.turn} · ${day} · oil ${Math.round(state.oil * 100)}% · ${state.lit ? 'lit' : 'dark'} · health ${state.health} · xp ${state.xp} · hero ${h.x},${h.y} · depth ${depthOf(state.place)} · seed ${state.seed}`;
       const more = [];
-      if (picked) more.push(`placing ${picked.name}`);
+      if (picked) more.push(`placing ${nameOf(picked)}`);
       if (opts.coords && pointed) {
         let tile = `tile ${pointed.x},${pointed.y} ${tileAt(state.room, pointed.x, pointed.y).id}`;
         const it = itemAt(state, pointed.x, pointed.y);

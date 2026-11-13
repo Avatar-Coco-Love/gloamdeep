@@ -34,13 +34,16 @@ tools to be chosen together later.
   spawn pick and pointed tile (D-088). New state joins it as it arrives:
   health, depth, and the seed (D-150). Settings' Stats line switch shows a
   short one at full size, without oil, lit, health and depth (D-412).
-- PC keys: ` the panel; G, C, R the View switches (D-090).
+- PC keys: ` the panel; G, C, R the View switches (D-090). A clicked or
+  tapped button lets go of the keys, so Space still waits a turn (D-882).
 - Grid and coordinates overlay (D-046); both move with the camera (D-195). Drawing: `src/render/overlay.js`.
 - Spawn: a grid of pictures under each kind's heading, 32 px, the
   pick's name in the section's name line, and a search box that narrows
   them by name (D-624, were chips, D-089); tap one, then tap tiles; tap it
   again to drop it (D-048 to D-050, D-079). Pictures: `src/render/thumbs.js`. Torches, lit or unlit (D-123), go only where
-  they can sit (D-100, D-102). Stairs can be spawned; they lead only where
+  they can sit (D-100, D-102), or on a free floor tile on a stone foot,
+  never burning out; a name shared by more than one picture has its code
+  word after it; the Peddler is moved to a free floor tile, as at home (D-882). Stairs can be spawned; they lead only where
   the room's place has a room that way (D-130). A spawned creature or
   flask counts in no Records, Feat or Bestiary beaten count (D-720).
   Rules: `src/core/spawn.js`.
@@ -65,8 +68,9 @@ tools to be chosen together later.
   Go outside goes to the woods, depth 0, the same way (D-209); the cave
   mouth there leads back into the crypt (D-211). TIME: +10 and +50
   move the clock only; the status line shows the turn of the day (D-217).
-  GARDEN: Grow makes every planted garden bed's time up, one in this
+  Grow, beside them, makes every planted garden bed's time up, one in this
   room growing at once; no turn passes (D-567). Code: `src/core/garden.js`.
+  TIME comes second, under Reset room, so Grow shows on every screen (D-882).
 - Copy room: the room and the hero's tile to the clipboard as one line,
   to hand to Claude (D-051, D-052). Code: `src/core/roomcode.js`.
 - Seed Explorer, the title menu's last line: any seed's map, every floor

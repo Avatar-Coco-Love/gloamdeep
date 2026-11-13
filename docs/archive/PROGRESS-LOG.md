@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.324, Falls.** Health check step 15: a draught drunk
+  or a fire sat by on the turn of a fall is lost to it (H-17, H-56); a
+  fall with something on the journey's first tile wakes beside it
+  (H-16). D-879.
+  Playtest: https://claude.ai/artifact/UUpfNPLcn8Pq4ASsDBnEX3
 - **2026-11-12, 0.3.323, The Peddler's fixes.** Health check step 14:
   a SELL that sells nothing leaves the frame (H-42); the last of a stack
   sold, the next slides in under it (Q-102); his home spot skips the

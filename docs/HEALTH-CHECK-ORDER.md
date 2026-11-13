@@ -48,5 +48,5 @@ step 6 (D-869).
     error (H-14). Done at 0.3.325 (D-880); the two saves kept as tests.
 17. **The art,** the owner picks from a picture: H-51 to H-54, H-60,
     H-61. Done at 0.3.326 (D-881).
-18. **The dev tools:** H-38, H-48 to H-50.
+18. **The dev tools:** H-38, H-48 to H-50. Done at 0.3.327 (D-882).
 19. **The docs:** H-25 to H-30, H-62 to H-65.
