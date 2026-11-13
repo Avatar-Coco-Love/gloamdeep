@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.333, The Warden's Fist.** D-885's step 3: a beaten
+  warden always leaves the Fist; held, it hits for 2 and knocks the
+  creature a tile back, a wall or a creature there hurting it 1. D-888.
+  Playtest: https://claude.ai/artifact/3qA8TCMBkevCiTzuzR4nVJ
+  Sounds: https://claude.ai/artifact/BZ9vxVZJDXqqVZ5bWnv6a6
 - **2026-11-13, 0.3.332, The slam's hurt.** D-885's step 2: slammed
   into a wall with tiles to go, a heart more; into a creature, a heart
   each; the peddler, the hero only; out through a doorway into the next

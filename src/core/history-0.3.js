@@ -5,6 +5,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.336', date: '2026-11-13', title: 'The brazier vault', lines: [
+    "Nothing in the game changed. The first puzzle is settled: a vault room on each floor from depth 2, with 2 stone braziers and a sealed door. Bump a brazier with the lantern lit to light it, for 5 turns' oil; once both burn, the door opens for good.",
+    "Inside, one prize: a rare material or an ember, with more kinds later. Later vaults will hold other puzzles too.",
+    "Decisions: D-891. D-888 moved to the archive, word for word.",
+  ] },
   { v: '0.3.335', date: '2026-11-13', title: 'The puzzle rules', lines: [
     "Nothing in the game changed. The six puzzle rules are settled: puzzles never block the way down, show their state by light, are solved by thinking, reset when you leave, and pay in the game's own coin. The checker that proves a puzzle can be done comes when puzzles are first laid out by the seed.",
     "The first four puzzles, in order: the braziers and a sealed side vault, the dark door, the Fist and a plate, then the gloam tide. Biome 1's boss and found ability are planned after the first two.",
