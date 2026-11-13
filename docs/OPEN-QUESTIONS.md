@@ -5,7 +5,7 @@ a decision in `DECISIONS.md` that cites it, then delete the entry here.
 IDs are never reused. Questions are ordered by when the build plan needs them.
 Those for outside places and swimming are in `OPEN-QUESTIONS-2.md` (D-570),
 with how regions join and the kinds of room (D-699), and campfires, sleeping out's costs and
-flowers (D-782); lore and special creatures in `OPEN-QUESTIONS-3.md`.
+flowers (D-782); lore, special creatures and the puzzles in `OPEN-QUESTIONS-3.md`.
 
 Ask as multiple choice (D-018): options with a recommendation, more than
 one pick where options combine, and the owner may always answer something

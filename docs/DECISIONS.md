@@ -133,26 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-885 · 2026-11-13 · The warden's slam and its Fist** (the owner's
-ask and picks, all recommended; answers Q-104) The warden gets harder:
-in line beside the hero it raises its fists for a turn, as the
-scorpion's tail goes up, then slams: its bite, and the hero knocked 3
-tiles straight back (offered too: every bite knocks back 2; from half
-its hearts, every bite knocks back 2). Stopped by a wall (rock, a
-tree, a boulder, a thing set down) with tiles still to go, the hero
-loses 1 heart more (offered too: 1 a tile left). A creature in the
-way stops the slide, and it and the hero lose 1 each (offered too: it
-just stops, no hurt). Beaten, the warden always drops its special
-find, the Warden's Fist, a fist of old stone with a gold band at the
-wrist and a violet stone: held, it hits for 2 and knocks the creature
-back a tile, a wall hurting it as it hurts the hero; the first of
-D-636's hammer kind (offered too: the Warden's Eye, a charm that
-shows disguised creatures; the Warden's Band, a relic for a heart
-more). Three steps: the slam, then the wall's and the way's hurt,
-then the Fist. Claude's drafts the owner may change: the lines, the
-names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
-D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
 step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
 rock, a tree, a boulder, a thing set down, an edge with no room beyond)
@@ -187,3 +167,19 @@ Claude's drafts the owner may change: its picture, the mock-up's; one
 beaten by a wall or a creature as the hero's blow, its drop and
 experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-889 · 2026-11-13 · The puzzle plan** (the owner's picks; the
+long-term talk) Puzzles are planned first (offered too: biome 1's boss
+and ability; crafting tiers; the enemy toolkit). All four families, with
+time and pressure as a fifth (the owner's own addition): light and
+dark, push and knockback, tool and ability gates, creatures as pieces,
+and lore clues. Puzzles live in sealed side vaults (recommended), small
+everywhere, landmark set pieces and terminal mini-games, all four, with
+"many more to come". Biome 1 is finished first: its boss, found
+ability, first puzzles and lantern parts before the mines (recommended;
+offered too: biome 2 soon; a vertical slice). Every idea Claude drew up
+is kept, word for word, in `PUZZLES.md`, `-2` and `-3`, and the
+systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
+decision, names and numbers placeholders until then. Opens Q-105.
+Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
+D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.
