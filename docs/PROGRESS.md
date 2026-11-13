@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.329 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.330 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The warden's special drop (Q-104, `OPEN-QUESTIONS-3.md`): its name, look
-and use, designed with mock-ups, now the health check is done.
+The warden's slam (D-885), step 1 of 3: in line beside the hero its
+fists go up for a turn, then it slams, biting and knocking the hero 3
+tiles back. Read D-885 and the scorpion's `sting.js`.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -47,6 +48,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.330, The warden's slam and its Fist.** Q-104
+  designed with mock-ups: a wind-up slam knocking the hero 3 back, a
+  wall or a creature in the way hurting, and the Warden's Fist as its
+  drop. Nothing visible yet. D-885.
 - **2026-11-13, 0.3.329, Two glossary pages split.** Before the warden's
   drop: the creatures to `GLOSSARY-CREATURES.md`, the finds from Deposit
   on to `GLOSSARY-FINDS-2.md`, word for word. Nothing visible. D-884.
@@ -55,7 +60,3 @@ list in `RESEARCH.md`.
   full pages moved a section word for word; the boon card adds "or you
   fall". D-883.
   Playtest: https://claude.ai/artifact/1x4goeetJUpSCLM8GGmD3U
-- **2026-11-13, 0.3.327, The dev tools.** Health check step 18: Space
-  never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
-  lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.
-  Playtest: https://claude.ai/artifact/Afj6ae9qdNVHumajCgc6qk

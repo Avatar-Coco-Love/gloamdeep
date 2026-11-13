@@ -62,8 +62,3 @@ D-869) Laid out, a duskstar keeps off the home waystone's ring, but one
 picked can grow back on it (`regrow.js`'s roam), as a boulder could
 before 0.3.314. Flowers don't block the way. Leave it, or keep them off
 the ring too? Any time.
-
-**Q-104 · The warden's special drop** (raised 2026-11-12, D-874) The
-owner's idea: the warden should drop something special of its own. Its
-name, look and use are to be designed, with mock-ups, right after the
-health check (no new content until it ends, D-862).

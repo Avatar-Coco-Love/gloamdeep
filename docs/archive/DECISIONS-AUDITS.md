@@ -605,3 +605,18 @@ since the last audit go to a new `WORKFLOW-4.md`; all word for word.
 A bug hunt reads the code since 0.3.233; its findings come to the owner
 as a list to pick from, each fix its own step. The next audit is at
 0.3.312.
+
+**D-868 · 2026-11-12 · The fifteenth audit** (the owner's picks, all
+recommended) At 0.3.313, nothing visible changed. main.js's sounds,
+`hear` and the menu sounds, go to a new `src/hearing.js` (48 KB to 43).
+The Version history loads only when it first opens, from a new
+`history-all.js`: a start fetches 12 files and 328 KB fewer (H-23); the
+playtest's packer learns `import()`. The stale comments are fixed (H-31,
+H-66), the events list gains its 7 missing kinds. Older iPhones and
+`.ogg` go on `STORE.md`'s list, to test on a real one first (H-22).
+H-24's three risks and the unused `craft()` are the next step, 0.3.314
+(offered too: in this audit; just noted). The done health check findings
+go to `archive/HEALTH-CHECK-DONE.md`, D-826 to `archive/DECISIONS-AUDITS.md`,
+D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
+to a new `WORKFLOW-5.md`; all word for word. The next audit is at
+0.3.353.
