@@ -167,6 +167,13 @@ export const TILES = {
   minersCamp: { id: 'minersCamp', kind: 'tile', letter: 'c', name: "Miners' camp", solid: true, blocksLight: false, panel: 'bed', says: 'minersCamp',
     takes: { item: 'pick', into: 'minersCampBare', says: 'campPickTaken' } },
   minersCampBare: { id: 'minersCampBare', kind: 'tile', letter: 'd', name: "Miners' camp", solid: true, blocksLight: false, bump: 'minersCamp' },
+  // § brazier and sealed door (L1, D-891, D-892): a vault's two cold braziers, crypt-stone fire
+  // bowls on a foot with a violet band, solid, light passing over them as over the campfire; and
+  // its sealed door, a stone slab in the wall with a flame rune and a notch for each brazier, solid,
+  // blocking light. Bumped, each says its words, a sentence a bump, free (vault.js). Lighting them
+  // and the door opening are later steps (D-892).
+  brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazier' },
+  sealedDoor: { id: 'sealedDoor', kind: 'tile', letter: 'k', name: 'Sealed door', solid: true, blocksLight: true, bump: 'sealedDoor' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

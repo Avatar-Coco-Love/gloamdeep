@@ -5,6 +5,7 @@ import { byLetter, get, LANDMARKS, asleepAtFirst } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
+import { vaultRoomOf, vaultRoom } from './vault.js';
 import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
@@ -253,6 +254,17 @@ export function stoneAt(seed, depth = STONE_DEPTH) {
   return fits.length ? fits[Math.floor(r() * fits.length)] : null;
 }
 export const stoneRoom = (seed, depth = STONE_DEPTH) => stoneAt(seed, depth)?.id ?? null;
+// § the vault: from depth 2, one one-cell dead end a floor the seed picks (vault.js, D-891, D-892),
+// never the peddler's, the locket's or a waystone's room
+const vaults = new Map();
+export function vaultAt(seed, depth) {
+  const k = `${seed}:${depth}`;
+  if (!vaults.has(k)) {
+    const plan = layoutAt(seed, depth), taken = [depth === PEDDLER_DEPTH && peddlerRoom(seed), depth === LOCKET_DEPTH && locketRoom(seed), stoneRoom(seed, depth)].filter(Boolean);
+    vaults.set(k, plan ? vaultRoomOf(plan.cells, seedAt(seed, depth), depth, taken) : null);
+  }
+  return vaults.get(k);
+}
 // § weapons: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;
@@ -269,6 +281,7 @@ export function placeFor(id, seed = 1) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
+  if (cell && id === vaultAt(seed, depth)) return { ...vaultRoom(cell), depth, look: 'crypt' }; // the floor's vault, in the crypt's bricks (D-891, D-892)
   const trapped = depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? 'peddler' : null; // the room made so his ring fits (D-580)
   const stone = stoneAt(seed, depth), landmark = stone?.id === id ? { mark: LANDMARKS.waystone, at: stone.at } : null; // (D-587)
   const made = cell && generateRoom(cell.seed, shape, { ...cell, rats: creaturesAt(depth), weapon: weaponIn(id), deposits, veins: deposits && depth >= VEIN_DEPTH ? 1 : 0, pool: look === 'rock', trapped, landmark });

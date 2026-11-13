@@ -8,6 +8,7 @@ import { unguardedOf } from '../src/core/unguarded.js';
 import { placeFor, placeBeside, tileAt, depthOf, poolAt, sideAt } from '../src/core/room.js';
 import { makeWorld, step } from '../src/core/turn.js';
 import { goToDepth, goToPlace } from '../src/core/stairs.js';
+import { caves } from './caves.js';
 
 const SEEDS = Array.from({ length: 60 }, (_, i) => i + 1);
 // The edge tile of an opening `at` along side `dir`, in a room `c.cols` × `c.rows` (D-580)
@@ -53,7 +54,7 @@ test('each floor has the band\'s rooms on its grid, every room reached, the stai
 });
 
 test('every room is made, not the fallback, with its stairs and contents', () => {
-  for (const seed of SEEDS.slice(0, 20)) for (const depth of [2, 5, 6, 8]) for (const c of layoutAt(seed, depth).cells) {
+  for (const seed of SEEDS.slice(0, 20)) for (const depth of [2, 5, 6, 8]) for (const c of caves(seed, depth)) {
     const p = placeFor(c.id, seed), all = p.map.join(''), { cols, rows } = c;
     assert.deepEqual([p.map[0].length, p.map.length], [cols, rows], `seed ${seed} ${c.id}`);
     assert.equal(all.includes('<'), !!c.up);
@@ -143,7 +144,7 @@ test('every opening is open on both sides, meeting on the map; across a seam, ea
 });
 
 test('stairs up and their torch, and stairs down, each in one room; each room has a flask, a rat by it and a herb; the creatures mixed (D-534)', () => {
-  for (const seed of SEEDS) for (const c of layoutAt(seed, 2).cells) {
+  for (const seed of SEEDS) for (const c of caves(seed, 2)) {
     const p = placeFor(c.id, seed), all = p.map.join('');
     assert.equal(all.includes('<'), !!c.up);
     assert.equal(all.includes('>'), !!c.down);

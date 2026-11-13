@@ -6,6 +6,7 @@ import { placeFor, poolAt, creaturesAt, peddlerRoom, placeAt, SPEAR_DEPTH } from
 import { generateRoom } from '../src/core/cave.js';
 import { layoutAt } from '../src/core/region.js';
 import { unguardedOf } from '../src/core/unguarded.js';
+import { caves } from './caves.js';
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const DEPTHS = [2, 3, 4, 5, 6, 8, 12];
 const kinds = (id, seed) => placeFor(id, seed).enemies.filter((e) => e.id !== 'flaskMimic');
@@ -19,7 +20,7 @@ test('the pool: rat, lampmoth, cave spider and snapcap at depth 2, the scorpion,
 });
 
 test('every room: its count, all from the pool, at least two kinds, a rat first', () => {
-  for (const seed of SEEDS) for (const depth of DEPTHS) for (const c of layoutAt(seed, depth).cells) {
+  for (const seed of SEEDS) for (const depth of DEPTHS) for (const c of caves(seed, depth)) {
     if (placeFor(c.id, seed).map.length !== 20) continue; // the rare fallback room keeps its one rat
     const es = kinds(c.id, seed), ids = es.map((e) => e.id), at = `seed ${seed} ${c.id}`;
     assert.equal(es.length, creaturesAt(depth), at);
@@ -31,7 +32,7 @@ test('every room: its count, all from the pool, at least two kinds, a rat first'
 });
 
 test('the mix leaves the room and the creatures\' tiles where the seed put them', () => {
-  for (const seed of SEEDS.slice(0, 10)) for (const c of layoutAt(seed, 3).cells) {
+  for (const seed of SEEDS.slice(0, 10)) for (const c of caves(seed, 3)) {
     const p = placeFor(c.id, seed), plain = generateRoom(c.seed, 'chambers', { ...c, rats: 3, deposits: 3, veins: 1, pool: true, weapon: c.id === placeAt(SPEAR_DEPTH) ? 'spear' : null, trapped: c.id === peddlerRoom(seed) ? 'peddler' : null }); // his room with him in it, things moved aside (D-586)
     const from = unguardedOf(c.seed, 1)[0] ? 1 : 0; // an unguarded flask's rat moved (D-725)
     assert.deepEqual(p.enemies.filter((e) => e.id !== 'flaskMimic').slice(from, plain.enemies.length).map(({ x, y }) => [x, y]), plain.enemies.slice(from).map(({ x, y }) => [x, y])); // a hall's or large room's other sets after (D-651)
@@ -40,7 +41,7 @@ test('the mix leaves the room and the creatures\' tiles where the seed put them'
 
 test('the same seed gives the same mix, and every kind turns up deep down', () => {
   const seen = new Set();
-  for (const seed of SEEDS) for (const c of layoutAt(seed, 6).cells) {
+  for (const seed of SEEDS) for (const c of caves(seed, 6)) {
     assert.deepEqual(kinds(c.id, seed), kinds(c.id, seed));
     kinds(c.id, seed).forEach((e) => seen.add(e.id));
   }

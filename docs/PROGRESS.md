@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.336 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.337 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Build L1 (D-891): propose its build steps, one small visible change
-each, first the vault room with its 2 braziers and sealed door, then
-its prize (a rare material or an ember).
+L1, step 2 (D-892): lighting a brazier. Bumped with the lantern lit,
+5 turns' oil, grey with less (D-891); a rune notch on the door glows.
+Propose the lit brazier's look, its glow and the ask's words first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.337, The first vault.** L1's 4 build steps settled,
+  and step 1 built: a vault room a floor from depth 2, 2 cold braziers,
+  a sealed door. D-892. Playtest:
+  https://claude.ai/artifact/QT8NYGciwCp4YaneJvuNnb Map preview:
+  https://claude.ai/artifact/53ib4udnvXpEHR2NHfnXub
 - **2026-11-13, 0.3.336, The brazier vault.** L1 settled: 2 stone
   braziers, 5 turns' oil each, open a sealed door; one vault a floor
   from depth 2; a rare material or an ember inside. D-891. No game
@@ -56,6 +61,3 @@ list in `RESEARCH.md`.
 - **2026-11-13, 0.3.335, The puzzle rules.** The six puzzle rules hold,
   the solver later; the first four: L1, L3, P1, then T1; the boss after
   the first two. D-890. No game change.
-- **2026-11-13, 0.3.334, The puzzle plan.** A long-term talk: puzzles
-  planned first, biome 1 finished first; every idea kept in
-  `PUZZLES*.md` and `RESEARCH-SYSTEMS.md`. D-889, Q-105. No game change.

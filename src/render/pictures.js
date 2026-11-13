@@ -589,6 +589,19 @@ const SPITPROOF_COLOURS = { l: '#e0a0aa', m: '#a8606e' };
 const SHADE_DRAUGHT = WARD_DRAUGHT;
 const SHADE_COLOURS = { l: '#b39ad0', m: '#6e5a8c' };
 
+// § brazier (L1, D-891 look A): a crypt-stone fire bowl on a foot, its violet band dark and old
+// ash in the bowl while cold; drawn in the crypt's brick colours (BRAZIER_COLOURS, sprites.js)
+const BRAZIER = { mirror: false, rows: ['', '', '', '', '', '...kkkkkkkkkk...', '..kHaaaaaaaaHk..', '..kHHHHHHHHHLk..',
+  '..kLLLLLLLLLDk..', '..kjjjjjjjjjjk..', '...kDLLLLLLDk...', '....kkHLLDkk....', '......kHLk......', '.....kHLLDk.....',
+  '....kHHLLLDk....', '....kkkkkkkk....'] };
+const BRAZIER_COLOURS = { H: '#69748b', L: '#535d72', D: '#2b303c', a: '#5a5560' };
+
+// § sealed door (L1, D-891): a stone slab set in the wall's face, a flame rune cut in it, and under
+// the rune a dark notch for each of the 2 braziers; the wall's cap is drawn above it (tiles.js)
+const SEALED_DOOR = { mirror: false, rows: ['', '', '', '', '', '.kkkkkkkkkkkkkk.', '.kHHHHHHHHHHHHk.', '.kLLLLLLjLLLLLk.',
+  '.kLLLLLjLjLLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLLjjjLLLLk.', '.kLLLLLLLLLLLLk.', '.kLLLDDLLDDLLLk.',
+  '.kLLLLLLLLLLLLk.', '.kkkkkkkkkkkkkk.'] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, MOLE_CLAW_PICK, ROD, ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -630,4 +643,7 @@ export {
   SHADE_DRAUGHT,
   SHADE_COLOURS,
   GLOW_LAMP,
+  BRAZIER,
+  BRAZIER_COLOURS,
+  SEALED_DOOR,
 };

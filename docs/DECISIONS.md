@@ -133,22 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-889 · 2026-11-13 · The puzzle plan** (the owner's picks; the
-long-term talk) Puzzles are planned first (offered too: biome 1's boss
-and ability; crafting tiers; the enemy toolkit). All four families, with
-time and pressure as a fifth (the owner's own addition): light and
-dark, push and knockback, tool and ability gates, creatures as pieces,
-and lore clues. Puzzles live in sealed side vaults (recommended), small
-everywhere, landmark set pieces and terminal mini-games, all four, with
-"many more to come". Biome 1 is finished first: its boss, found
-ability, first puzzles and lantern parts before the mines (recommended;
-offered too: biome 2 soon; a vertical slice). Every idea Claude drew up
-is kept, word for word, in `PUZZLES.md`, `-2` and `-3`, and the
-systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
-decision, names and numbers placeholders until then. Opens Q-105.
-Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
-D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-890 · 2026-11-13 · The puzzle rules and the first four** (the
 owner's picks, all recommended; answers most of Q-105) The six puzzle
 rules in `PUZZLES.md` hold for every puzzle. Rule 4's solver is built
@@ -184,3 +168,25 @@ cache behind the door; lore pages later). How the draw is weighted, the
 lines and the room's layout are the build step's. Mock-up:
 https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
 D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-892 · 2026-11-13 · L1's build steps and the vault room** (the
+owner's picks, all recommended; builds D-891) L1 is built in 4 steps:
+the vault room, its braziers and its sealed door, standing still; then
+lighting a brazier, a rune notch glowing; then the door opening, staying
+open, an unsolved vault resetting; then the prize (offered too: 3 steps;
+5, the reset its own). The vault is turned to face its one opening: the
+vault above or below for an opening at the top or bottom, beside for one
+at the left or right, the gap wherever the opening is (offered too: top
+or bottom only). A floor with no one-cell dead end has no vault
+(offered too: one set inside a dead-end hall). Nothing else is in it: no
+creatures, finds or cache (offered too: creatures; everything as
+usual). From depth 8 the same two layouts, the outer room bigger with
+the cell (offered too: 11 x 13 in a ring of wall). Bumped, each says a
+line, Claude's drafts the owner may change: "A cold stone brazier.",
+"Old ash lies in its bowl."; "A sealed stone door.", "A flame rune is
+cut into it." (offered too: nothing). Their names: Brazier, Sealed door
+(offered too: Lightkeeper's brazier and door; Fire bowl, Rune door).
+Claude's calls: never the peddler's, the locket's or a waystone's room;
+the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
+built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { placeFor } from '../src/core/room.js';
 import { layoutAt } from '../src/core/region.js';
 import { CACHE_COUNT, CACHE_FINDS } from '../src/core/cache.js';
+import { caves } from './caves.js';
 
 const near = (a, b) => Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y));
 
@@ -20,7 +21,7 @@ test('a dead end is a side room with one opening, never the stairs rooms', () =>
 });
 
 test('every dead end holds a cache of 2 or 3 finds, close together, left once; other rooms none', () => {
-  for (let seed = 1; seed <= 25; seed++) for (const depth of [2, 3, 4, 6, 8, 9]) for (const c of layoutAt(seed, depth).cells) {
+  for (let seed = 1; seed <= 25; seed++) for (const depth of [2, 3, 4, 6, 8, 9]) for (const c of caves(seed, depth)) {
     const p = placeFor(c.id, seed), at = `seed ${seed} ${c.id}`, cache = p.items.filter((i) => i.once && i.id !== 'locket'); // the locket is left once too (D-691)
     if (!c.end) { assert.equal(cache.length, 0, at); continue; }
     assert.ok(cache.length >= CACHE_COUNT[0] && cache.length <= CACHE_COUNT[1], `${at} ${cache.length}`);
@@ -35,6 +36,6 @@ test('every dead end holds a cache of 2 or 3 finds, close together, left once; o
 });
 
 test('a room is the same each time it is made', () => {
-  const c = layoutAt(7, 3).cells.find((x) => x.end);
+  const c = caves(7, 3).find((x) => x.end);
   assert.deepEqual(placeFor(c.id, 7).items, placeFor(c.id, 7).items);
 });

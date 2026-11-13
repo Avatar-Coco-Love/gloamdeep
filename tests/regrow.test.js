@@ -118,6 +118,7 @@ import { withTile } from '../src/core/room.js';
 import { litAt } from '../src/core/sight.js';
 import { get } from '../src/core/registry.js';
 import { readJourney, journeyText } from '../src/core/save.js';
+import { caves } from './caves.js';
 const breakAndStepBack = () => {
   const s = makeState(withTile(room, 5, 10, get('deposit')));
   return step(step(step(step(s, 'up'), 'up'), 'up'), 'up'); // three bumps break it, then onto the floor it left
@@ -209,7 +210,7 @@ test('in real cave rooms, a deposit grown back never cuts the room in two', asyn
     }
     return seen.size === open.length;
   };
-  for (const seed of [1, 2, 3, 4, 5]) for (const { id } of layoutAt(seed, 2).cells) {
+  for (const seed of [1, 2, 3, 4, 5]) for (const { id } of caves(seed, 2)) {
     const p = placeFor(id, seed), cave = roomOf(p.map), d = depositsIn(cave)[0];
     const s = { ...makeState(withTile(cave, d.x, d.y, get('floor')), p.start), seed, place: id, lit: false, turn: 900, taken: [{ id: 'deposit', x: d.x, y: d.y, at: 0 }] };
     const n = regrow(s);

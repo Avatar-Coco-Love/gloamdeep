@@ -1723,3 +1723,19 @@ Claude's drafts the owner may change: its picture, the mock-up's; one
 beaten by a wall or a creature as the hero's blow, its drop and
 experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-889 · 2026-11-13 · The puzzle plan** (the owner's picks; the
+long-term talk) Puzzles are planned first (offered too: biome 1's boss
+and ability; crafting tiers; the enemy toolkit). All four families, with
+time and pressure as a fifth (the owner's own addition): light and
+dark, push and knockback, tool and ability gates, creatures as pieces,
+and lore clues. Puzzles live in sealed side vaults (recommended), small
+everywhere, landmark set pieces and terminal mini-games, all four, with
+"many more to come". Biome 1 is finished first: its boss, found
+ability, first puzzles and lantern parts before the mines (recommended;
+offered too: biome 2 soon; a vertical slice). Every idea Claude drew up
+is kept, word for word, in `PUZZLES.md`, `-2` and `-3`, and the
+systems talk in `RESEARCH-SYSTEMS.md`; each is built only by its own
+decision, names and numbers placeholders until then. Opens Q-105.
+Ideas page: https://claude.ai/artifact/Mgq3BAacAAmqBje9NpwpBC
+D-885 moves to `archive/DECISIONS-SURFACE.md`, word for word.

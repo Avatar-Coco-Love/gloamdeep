@@ -100,6 +100,8 @@ the fourteenth's in `WORKFLOW-4.md` (D-826), and the fifteenth's in
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+- Counting over 500 seeds how often a floor has a one-room dead end, and which way it opens, turned "how should the vault fit?" into options with real odds (half the shallow floors would lose their vault with one layout), before asking (0.3.337).
+- When a test fingerprints every generated room, rerunning the fingerprint on the old code with the new rooms left out proved every other room unchanged, so the new number was earned, not just copied (0.3.337).
 - For a long look ahead, one Artifact page of ideas with short IDs (L1, T3) let the owner react to about 40 at once; the owner kept them all, so the page went into the docs word for word (0.3.334).
 - Tests can read a code file's text (audit826's read `main.js`), so grep `tests/` for a file's name before moving code out of it; and the playtest's packer knows only the import forms the code uses, so a new form (`import()`) needs it taught too (0.3.313).
 - Before offering to change a fallback, grep `tests/` for a test that pins the old one (dropclear's spill on its own tile) and name it in the options, so the owner knows a test changes with the pick (0.3.314).

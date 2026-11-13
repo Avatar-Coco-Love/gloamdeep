@@ -10,6 +10,7 @@
 | `first`, `second`, `south` | the hand-made rooms of the crypt | D-106, D-138, D-192 |
 | `woods` | the surface's generated woods rooms; the north row's are mountain rooms; the 5 round home thick, as before or glades, at least one thick and one glade (`KINDS`, woods.js) | D-209, D-233, D-738, D-756 |
 | generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
+| the vault | from depth 2, one one-cell dead end a floor the seed picks, never the peddler's, the locket's or a waystone's; none on a floor without one. An outer room with 2 braziers, and a wall with the sealed door in its middle, the vault 3 tiles deep behind it, away from the opening: above or below for an opening at the top or bottom, beside for one at the left or right; bigger with the cell from depth 8. Drawn in the crypt's bricks; nothing else in it (`vault.js`) | D-891, D-892 |
 
 Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
 
@@ -32,3 +33,11 @@ Quick Hands, a tree, a stone deposit or a branch gathered by hand takes
 1 bump fewer, never under 1; tools keep their own count (D-813).
 
 Row 2 opens the first time the hero goes deeper than depth 8, 1 ember each, bought once (D-814). Light: Quick Pour, a flask poured by hand takes no turn; a Pond Minnow's oil still does (D-816). Body: Guard, a bite the vest did not turn glances off about 1 time in 6, about 3 in 8 with the Rat Hide Vest; bites only, not a drink, a glob or a sting (D-817). Hands: Thrift, about 1 making in 4 keeps 1 of the part its recipe uses most of, the first listed on a tie: at the bag's Make, the workbench, the mortar, the Pouch and the Big Bag (D-818). Code: `quickPour`, `guard`, `thrift`.
+
+## Tiles, continued (`src/core/tiles.js`)
+Tiles added once `CONTENT-3.md` neared 8 KB (0.3.337).
+
+| id | What it does | Grows back | Where | Decisions |
+| --- | --- | --- | --- | --- |
+| `brazier` | a vault's cold brazier: a crypt-stone fire bowl on a foot, its violet band dark, old ash in the bowl; solid, light passing over it. Bumped, it says "A cold stone brazier.", then "Old ash lies in its bowl.", a sentence a bump, free. Lit in a later step | | 2 in each vault (`vault.js`) | D-891, D-892 |
+| `sealedDoor` | a vault's sealed door: a stone slab in the wall's face, a flame rune cut in it, a dark notch under it for each brazier; solid, blocking light. Bumped, it says "A sealed stone door.", then "A flame rune is cut into it.", free. Opens in a later step | | in the middle of each vault's inner wall (`vault.js`) | D-891, D-892 |
