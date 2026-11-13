@@ -148,16 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-877 · 2026-11-12 · Sounds only when On** (the owner's picks, all
-recommended; step 13 of `HEALTH-CHECK-ORDER.md`, fixes H-03) With Sound
-Off nothing is fetched; the sound files are fetched once Sound is On, at
-that tap or the moment it turns On (offered too: as before, on the first
-tap). Each place's theme is fetched the first time its place wants it,
-and kept (offered too: all five once Sound is On). A sound turned Off on
-its own is still fetched, so it plays at once when turned back On
-(offered too: skipped). D-874 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-878 · 2026-11-12 · The Peddler's fixes** (the owner's picks, all
 recommended; step 14 of `HEALTH-CHECK-ORDER.md`, fixes H-42, H-58, H-59;
 answers Q-102) On his Sell tab, a SELL that sells nothing, on an empty
@@ -182,3 +172,19 @@ journey's first tile, a fall wakes the hero on the nearest open tile
 beside it, as by a bed (D-737) (offered too: nothing can be set down on
 that tile; both). D-876 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-880 · 2026-11-13 · Saves kept safe** (the owner's picks, all
+recommended; step 16 of `HEALTH-CHECK-ORDER.md`, fixes H-57, H-21,
+H-14) A new upgrade step (journey format 33 → 34) sends home a freed
+Peddler an older upgrade lost: one in no room once his room is begun
+stands in the waystone's room, not yet having greeted the hero (offered
+too: greeted already; back in his room, waiting). A profile slot that
+can't be read is made empty and the others kept, and a save that can't
+be read, broken or made by a newer version (the profile list or a
+journey), is copied word for word under a key of its own before it can
+be saved over; nothing is shown (offered too: a line on the slot screen;
+a newer save's slot left alone). Each part of a frame (moving, sound,
+saving, play time, drawing) has its own safety net (offered too: and a
+note on screen while an error repeats). The two old saves that showed
+H-57 are kept as tests (`tests/saves/`). D-877 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

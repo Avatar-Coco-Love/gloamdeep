@@ -41,7 +41,7 @@ test('profiles made before get one free pick each, kept through saving', () => {
   const taken = giftedSlot(ps, 0, 'moth');
   assert.equal(unpackProfiles(packProfiles(taken)).slots[0].gift, 'moth');
   assert.equal(FORMAT, 11);
-  assert.equal(unpackProfiles({ format: 11, profiles: { current: 0, slots: [{ ...newProfile(), gift: 'moth' }, null, null] } }), null, 'a gift not in bought is not read');
+  assert.equal(unpackProfiles({ format: 11, profiles: { current: 0, slots: [{ ...newProfile(), gift: 'moth' }, null, null] } }).slots[0], null, 'a gift not in bought is not read');
 });
 
 test('the note says the price, or the one free pick; the card says 1 FREE PICK (D-715)', () => {

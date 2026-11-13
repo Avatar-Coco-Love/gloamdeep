@@ -533,19 +533,21 @@ function keepDrips(t) {
   else if (t >= nextDrip) { sound.drip(); nextDrip = t + dripGap(dripVary()); }
 }
 // § safety net (D-557): an error in one frame is logged, once for each message, and the
-// next frame still comes, so a bug can't freeze the game
+// next frame still comes, so a bug can't freeze the game; each part has a net of its own, so
+// one that fails every frame doesn't stop the drawing or the saving (H-14, D-880)
 const logged = new Set();
-function loop(t) {
-  try {
-    turnPage();
-    if (!screens.onTitle()) { update(t); keepDrips(t); }
-    sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, lookHere())); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841)
-    keepJourney();
-    keepPlayed(t);
-    frame.draw(t);
-  } catch (err) {
+function net(part) {
+  try { part(); } catch (err) {
     if (!logged.has(err?.message)) { logged.add(err?.message); console.error(err); }
   }
+}
+function loop(t) {
+  net(turnPage);
+  if (!screens.onTitle()) { net(() => update(t)); net(() => keepDrips(t)); }
+  net(() => sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, lookHere()))); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841)
+  net(keepJourney);
+  net(() => keepPlayed(t));
+  net(() => frame.draw(t));
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);

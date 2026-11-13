@@ -1546,3 +1546,13 @@ an open tile, so nothing seems to float (offered too: only round a tile
 something lies on; left as it was). Rooms a save has already been in
 keep their maps. D-873 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-877 · 2026-11-12 · Sounds only when On** (the owner's picks, all
+recommended; step 13 of `HEALTH-CHECK-ORDER.md`, fixes H-03) With Sound
+Off nothing is fetched; the sound files are fetched once Sound is On, at
+that tap or the moment it turns On (offered too: as before, on the first
+tap). Each place's theme is fetched the first time its place wants it,
+and kept (offered too: all five once Sound is On). A sound turned Off on
+its own is still fetched, so it plays at once when turned back On
+(offered too: skipped). D-874 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

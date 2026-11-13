@@ -28,18 +28,31 @@ test('a new deepest depth changes only the profile in play', () => {
   assert.equal(ps.slots[1].records.deepest, 0); // the old list is left as it was
 });
 
-test('profiles come back as they were kept; broken or newer ones give null', () => {
+test('profiles come back as they were kept; broken or newer ones give null; one slot that can\'t be read is made empty (H-21)', () => {
   const ps = withDeepest(newProfiles(), 5);
   assert.deepEqual(unpackProfiles(JSON.parse(JSON.stringify(packProfiles(ps)))), ps);
   for (const format of [FORMAT + 1, 0, undefined]) assert.equal(unpackProfiles({ format, profiles: ps }), null);
-  const broken = [
-    { ...ps, current: 1 }, // an empty slot in use
-    { ...ps, slots: ps.slots.slice(0, 2) },
-    { ...ps, slots: [{ name: 3, look: {}, records: { deepest: 0, beaten: 0, falls: 0, found: 0, steps: 0 } }, null, null] },
-    { ...ps, slots: [{ name: '', look: {}, records: { deepest: -1, beaten: 0, falls: 0, found: 0, steps: 0 } }, { name: '', look: {}, records: { deepest: 0, beaten: 1.5, falls: 0, found: 0, steps: 0 } }, null, null] },
-  ];
-  for (const b of broken) assert.equal(unpackProfiles(packProfiles(b)), null);
+  assert.equal(unpackProfiles(packProfiles({ ...ps, slots: ps.slots.slice(0, 2) })), null);
   assert.equal(unpackProfiles(null), null);
+  const good = ps.slots[0], bad = { name: 3, look: {}, records: { deepest: 0, beaten: 0, falls: 0, found: 0, steps: 0 } };
+  assert.deepEqual(unpackProfiles(packProfiles({ current: 0, slots: [good, bad, null] })), { current: 0, slots: [good, null, null] }, 'the rest kept');
+  assert.deepEqual(unpackProfiles(packProfiles({ current: 0, slots: [bad, null, good] })), { current: 2, slots: [null, null, good] }, 'the next in use takes over');
+  assert.deepEqual(unpackProfiles(packProfiles({ current: 1, slots: [good, null, null] })), { current: 0, slots: [good, null, null] }, 'an empty slot in use: the first in use');
+  const twoBad = [{ name: '', look: {}, records: { deepest: -1, beaten: 0, falls: 0, found: 0, steps: 0 } }, { name: '', look: {}, records: { deepest: 0, beaten: 1.5, falls: 0, found: 0, steps: 0 } }, null];
+  assert.deepEqual(unpackProfiles(packProfiles({ current: 0, slots: twoBad })), { current: null, slots: [null, null, null] });
+});
+
+test('a kept list read only in part, broken or newer is set aside word for word before it is saved over (H-21)', () => {
+  const ps = withDeepest(newProfiles(), 5), bad = { name: 3 };
+  for (const text of [JSON.stringify(packProfiles({ current: 0, slots: [ps.slots[0], bad, null] })), JSON.stringify({ format: FORMAT + 1, profiles: ps }), '{"format":']) {
+    const kept = { 'gloamdeep-profiles': text };
+    withStorage(kept, () => {
+      saveProfiles(loadProfiles());
+      assert.deepEqual(Object.entries(kept).filter(([k]) => k.startsWith('gloamdeep-profiles-aside-')).map(([, v]) => v), [text]);
+    });
+  }
+  const kept = { 'gloamdeep-profiles': JSON.stringify(packProfiles(ps)) };
+  withStorage(kept, () => { loadProfiles(); assert.deepEqual(Object.keys(kept), ['gloamdeep-profiles'], 'one read in full: nothing set aside'); });
 });
 
 test('every older profile format has a step up to the next (D-266)', () => {
@@ -188,7 +201,7 @@ test('deleting a slot empties it; the next profile in use takes over, or none is
   const none = withoutSlot(after, 2);
   assert.deepEqual(none, { current: null, slots: [null, null, null] });
   assert.deepEqual(unpackProfiles(packProfiles(none)), none); // kept and read back, no old record brought back
-  assert.equal(unpackProfiles(packProfiles({ current: null, slots: ps.slots })), null); // none in use only when all are empty
+  assert.equal(unpackProfiles(packProfiles({ current: null, slots: ps.slots })).current, 0); // none in use only when all are empty: the first in use
 });
 
 test('a deleted profile\'s journey goes with it, and the others stay', () => {
@@ -222,5 +235,5 @@ test('a bought pattern is the profile\'s for good, once; a seventh-format list h
   const old = { format: 7, profiles: { current: 0, slots: [{ ...newProfile(), bought: undefined }, null, null] } };
   delete old.profiles.slots[0].bought;
   assert.deepEqual(unpackProfiles(old).slots[0].bought, []);
-  assert.equal(unpackProfiles({ format: FORMAT, profiles: { current: 0, slots: [{ ...newProfile(), bought: [3] }, null, null] } }), null);
+  assert.equal(unpackProfiles({ format: FORMAT, profiles: { current: 0, slots: [{ ...newProfile(), bought: [3] }, null, null] } }).slots[0], null);
 });

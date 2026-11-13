@@ -23,6 +23,13 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.325 (2026-11-13)
+- Fixed: in a very old save made while the freed Peddler was still waiting in his room, he no longer vanishes when the game updates. He is back at home by the waystone and greets you when you come near.
+- Fixed: if one profile can't be read, the other profiles are kept instead of all three being wiped. The one that can't be read shows as Empty, and its old data is kept aside, never written over.
+- A save that can't be read, or one made by a newer version of the game, is now kept aside before anything is saved over it.
+- Fixed: an error that repeats every moment no longer stops the game from drawing and saving.
+- Decisions: D-880. D-877 moved to the archive, word for word.
+
 ## 0.3.324 (2026-11-12)
 - Fixed: a draught drunk on the turn you fall no longer keeps working after you wake. A fall ends every draught, and now that one too.
 - Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.
@@ -35,8 +42,3 @@ Entry format:
 - When the Peddler goes home, he never stands on your tile or on a creature's.
 - Talking to the freed Peddler never makes him leave sooner: he still waits his 5 turns, or 3 more after a late bump.
 - Decisions: D-878. Questions closed: Q-102. D-875 moved to the archive, word for word.
-
-## 0.3.322 (2026-11-12)
-- With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.
-- Each place's music downloads the first time you reach that place, not all five tunes at once.
-- Decisions: D-877. D-874 moved to the archive, word for word.

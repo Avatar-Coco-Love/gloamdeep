@@ -105,3 +105,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A tiny script over 40 seeds proved a finding still held (40 of 40 rooms cut) and its fix worked (none cut, 9 of 9 mimics placed) before and after the change, in seconds (0.3.318).
 - Stashing only `src/` and running the new tests on the old code showed every one failing first, so each test proves its fix, in one command (0.3.319).
 - Marking each failed try in a copy of the code and counting the marks over 2,000 rooms showed why pools were rare (most tries cut the room), so the fix aimed at the cause before tuning the roll (0.3.321).
+- Saves the old game itself made, kept from the health check's branch, reproduced a loss in today's game in one short script before the fix, and became the fix's tests (0.3.325).

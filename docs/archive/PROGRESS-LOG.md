@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-12, 0.3.322, Sounds only when On.** Health check step 13:
+  with Sound Off nothing downloads; once On, the sounds do, and each
+  place's tune the first time it is reached (H-03). D-877.
+  Playtest: https://claude.ai/artifact/Vme8o4KAmCQBvaDqDqCwRd
 - **2026-11-12, 0.3.321, Growing back and pools.** Health check step 12:
   a night's sleep counts as being away, so what is due grows back by
   morning (H-07); pools skip tiles that cut the room, roll 0.62, about 1

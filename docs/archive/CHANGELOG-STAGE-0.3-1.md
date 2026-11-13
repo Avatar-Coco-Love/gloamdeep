@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.322 (2026-11-12)
+- With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.
+- Each place's music downloads the first time you reach that place, not all five tunes at once.
+- Decisions: D-877. D-874 moved to the archive, word for word.
+
 ## 0.3.321 (2026-11-12)
 - After a night's sleep, in your bed or sleeping out, what was due to grow back by morning is there when you wake. Before, nothing grew back at home while you stayed, since daylight lights every tile.
 - Still pools in the grey-rock caves are now in about 1 room in 2, as decided. Before, many tries cut the room in two and were given up, so only about 1 room in 4 had one.

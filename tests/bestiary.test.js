@@ -61,7 +61,7 @@ test('the profile keeps the book; a sixth-format one comes up with none met', ()
   const old = { format: 6, profiles: { current: 0, slots: [{ name: '', look: {}, records, played: 0 }, null, null] } };
   assert.deepEqual(unpackProfiles(old).slots[0].bestiary, {});
   const bad = { format: 7, profiles: { current: 0, slots: [{ name: '', look: {}, records, played: 0, bestiary: { rat: { met: -1, beaten: 0 } } }, null, null] } };
-  assert.equal(unpackProfiles(bad), null);
+  assert.deepEqual(unpackProfiles(bad), { current: null, slots: [null, null, null] }); // the slot that can't be read made empty (H-21)
 });
 
 test('the Bestiary tab is tapped as the others; all twelve fit upright in one table, sideways in two', () => {
