@@ -595,12 +595,18 @@ const BRAZIER = { mirror: false, rows: ['', '', '', '', '', '...kkkkkkkkkk...', 
   '..kLLLLLLLLLDk..', '..kjjjjjjjjjjk..', '...kDLLLLLLDk...', '....kkHLLDkk....', '......kHLk......', '.....kHLLDk.....',
   '....kHHLLLDk....', '....kkkkkkkk....'] };
 const BRAZIER_COLOURS = { H: '#69748b', L: '#535d72', D: '#2b303c', a: '#5a5560' };
+// lit (D-893): the band the unusual things' violet, the ash glowing coals; its flame is drawn
+// after the light, the campfire's (campfire.js in render)
+const BRAZIER_LIT = { mirror: false, rows: BRAZIER.rows.map((r, i) => (i === 6 ? '..kHYyYyyYyYHk..' : r.replace(/j/g, 'P'))) };
 
 // § sealed door (L1, D-891): a stone slab set in the wall's face, a flame rune cut in it, and under
 // the rune a dark notch for each of the 2 braziers; the wall's cap is drawn above it (tiles.js)
 const SEALED_DOOR = { mirror: false, rows: ['', '', '', '', '', '.kkkkkkkkkkkkkk.', '.kHHHHHHHHHHHHk.', '.kLLLLLLjLLLLLk.',
   '.kLLLLLjLjLLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLjLLLjLLLk.', '.kLLLLLjjjLLLLk.', '.kLLLLLLLLLLLLk.', '.kLLLDDLLDDLLLk.',
   '.kLLLLLLLLLLLLk.', '.kkkkkkkkkkkkkk.'] };
+// its notches glowing violet, one a lit brazier, the left first (D-893)
+const NOTCHES = (n) => ({ mirror: false, rows: SEALED_DOOR.rows.map((r, i) => (i === 13 ? `.kLLL${n > 0 ? 'PP' : 'DD'}LL${n > 1 ? 'PP' : 'DD'}LLLk.` : r)) });
+const SEALED_DOOR_ONE = NOTCHES(1), SEALED_DOOR_TWO = NOTCHES(2);
 
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
@@ -644,6 +650,9 @@ export {
   SHADE_COLOURS,
   GLOW_LAMP,
   BRAZIER,
+  BRAZIER_LIT,
   BRAZIER_COLOURS,
   SEALED_DOOR,
+  SEALED_DOOR_ONE,
+  SEALED_DOOR_TWO,
 };

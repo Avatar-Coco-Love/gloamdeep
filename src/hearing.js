@@ -52,7 +52,7 @@ export function createHearing(app, sound, spoken) {
     if (has(events, 'oilLow')) sound.sputter(); // the flame is getting low: two sputters (D-834)
     if (has(events, 'oilOut')) sound.gutter(); // the lantern gutters to an ember
     if (has(events, 'torch')) sound.torch(); // an unlit torch lit (D-121)
-    if (has(events, 'kindle')) sound.kindle(); // cold ashes lit into a campfire (D-757)
+    if (has(events, 'kindle')) sound.kindle(); // cold ashes lit into a campfire (D-757), or a vault's brazier (D-893)
   }
   // § menu sounds (D-819): off play, a tap, Enter or Space that changes something on the same
   // screen ticks, unless it played its own (`ownSound`): a dim pick that can't be done tocks, a sale's coins (D-828); a

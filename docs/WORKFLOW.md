@@ -113,3 +113,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Checking a near-miss colour against the art docs before matching it showed the documented one was the rarer in the code (`#3a3448`), so the fix matched the code to the rules, not the rules to the code (0.3.326).
 - Measuring a layout fix at five screen sizes (the section's height against what the sheet shows) caught that the picked fix still hid Grow on phones, so a follow-up pick went to the owner before the PR, not after a playtest (0.3.327).
 - Three helpers each checking a third of the doc findings against the decisions and the registry, with each target page's bytes left, found the full pages first, so the owner picked where text goes before any edit (0.3.328).
+- Drawing the mock-up from the game's own picture rows, not a redraw, let the owner pick on the real brazier, and the build used the same rows (0.3.338).

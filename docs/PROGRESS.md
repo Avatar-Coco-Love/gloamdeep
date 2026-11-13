@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.337 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.338 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L1, step 2 (D-892): lighting a brazier. Bumped with the lantern lit,
-5 turns' oil, grey with less (D-891); a rune notch on the door glows.
-Propose the lit brazier's look, its glow and the ask's words first.
+L1, step 3 (D-892): the door opening. Once both braziers burn, the slab
+sinks to a sill and stays open, the braziers lit, for good; left
+unsolved, they go cold again (D-891). Propose the open door's look, its
+words, and when an unsolved vault resets first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,6 +50,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.338, The lit brazier.** L1 step 2: a cold brazier
+  bumped with the lantern lit asks to light it, 5 turns' oil; lit, the
+  torch's flame in its bowl, 2 tiles' warm glow, a violet door notch
+  each. D-893. Playtest:
+  https://claude.ai/artifact/NbAFRz8AZT4Qa9NiVvbJW7 Mock-up:
+  https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73
 - **2026-11-13, 0.3.337, The first vault.** L1's 4 build steps settled,
   and step 1 built: a vault room a floor from depth 2, 2 cold braziers,
   a sealed door. D-892. Playtest:
@@ -58,6 +65,3 @@ list in `RESEARCH.md`.
   braziers, 5 turns' oil each, open a sealed door; one vault a floor
   from depth 2; a rare material or an ember inside. D-891. No game
   change. Mock-up: https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
-- **2026-11-13, 0.3.335, The puzzle rules.** The six puzzle rules hold,
-  the solver later; the first four: L1, L3, P1, then T1; the boss after
-  the first two. D-890. No game change.

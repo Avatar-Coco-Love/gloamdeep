@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.338 (2026-11-13)
+- The braziers light: bump a cold brazier with your lantern lit and it asks "Light the brazier?". Yes spends 5 turns' oil and a turn, and a flame sways in its bowl, lighting the dark 2 tiles round it. With less oil, Yes is grey.
+- Each lit brazier makes one notch glow violet under the sealed door's flame rune. The door opens in the next step.
+- Decisions: D-893. D-890 moved to the archive, word for word.
+
 ## 0.3.337 (2026-11-13)
 - The first vault: from depth 2, one dead-end room on each floor is a vault, built in the crypt's bricks. Two cold stone braziers stand before a sealed stone door with a flame rune, and a small vault waits behind it, empty for now.
 - Bump a brazier or the door to hear its words. Lighting the braziers and opening the door come in the next steps.
@@ -32,8 +37,3 @@ Entry format:
 - Nothing in the game changed. The first puzzle is settled: a vault room on each floor from depth 2, with 2 stone braziers and a sealed door. Bump a brazier with the lantern lit to light it, for 5 turns' oil; once both burn, the door opens for good.
 - Inside, one prize: a rare material or an ember, with more kinds later. Later vaults will hold other puzzles too.
 - Decisions: D-891. D-888 moved to the archive, word for word.
-
-## 0.3.335 (2026-11-13)
-- Nothing in the game changed. The six puzzle rules are settled: puzzles never block the way down, show their state by light, are solved by thinking, reset when you leave, and pay in the game's own coin. The checker that proves a puzzle can be done comes when puzzles are first laid out by the seed.
-- The first four puzzles, in order: the braziers and a sealed side vault, the dark door, the Fist and a plate, then the gloam tide. Biome 1's boss and found ability are planned after the first two.
-- Decisions: D-890. D-887 moved to the archive, word for word.

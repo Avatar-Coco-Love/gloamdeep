@@ -170,9 +170,13 @@ export const TILES = {
   // § brazier and sealed door (L1, D-891, D-892): a vault's two cold braziers, crypt-stone fire
   // bowls on a foot with a violet band, solid, light passing over them as over the campfire; and
   // its sealed door, a stone slab in the wall with a flame rune and a notch for each brazier, solid,
-  // blocking light. Bumped, each says its words, a sentence a bump, free (vault.js). Lighting them
-  // and the door opening are later steps (D-892).
-  brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazier' },
+  // blocking light. A cold brazier bumped with the lantern lit opens the bed's ask card, Light the
+  // brazier?, its `says` on the text line, where Yes `kindles` it for `oil` turns' oil, grey with
+  // less (D-893); with the lantern out (`lit`) it says its words instead, a sentence a bump, free.
+  // Lit, the torch's flame burns in its bowl, its glow a campfire's embers', and a bump says its
+  // words; the door's notches glow one a lit brazier (render). The door opens in a later step.
+  brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazier', panel: 'bed', lit: true, says: 'brazierCold', kindles: { into: 'brazierLit', says: 'brazierCatches', oil: 5 } },
+  brazierLit: { id: 'brazierLit', kind: 'tile', letter: 'l', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazierLit', fire: true, glow: FIRE.embers },
   sealedDoor: { id: 'sealedDoor', kind: 'tile', letter: 'k', name: 'Sealed door', solid: true, blocksLight: true, bump: 'sealedDoor' },
 };
 

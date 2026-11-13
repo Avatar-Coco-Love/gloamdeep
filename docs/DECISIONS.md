@@ -133,19 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-890 · 2026-11-13 · The puzzle rules and the first four** (the
-owner's picks, all recommended; answers most of Q-105) The six puzzle
-rules in `PUZZLES.md` hold for every puzzle. Rule 4's solver is built
-only when the seed first lays a puzzle out; until then each puzzle is a
-fixed layout, checked by hand (offered too: the solver first; settle it
-at the first generated puzzle). The first four, in order: L1, the
-braziers and a sealed side vault; L3, the dark door; P1, the Fist and
-a plate; then T1, the gloam tide (offered too: L1 with P1 second; L3
-first; pick after each). Biome 1's boss and found ability (G3, W4) are
-planned after the first two are built (offered too: now; after all
-four). Each one's tiles, names, numbers and rewards are its own step.
-D-887 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-891 · 2026-11-13 · L1, the braziers and the sealed vault** (the
 owner's picks, all recommended; builds D-889, D-890; answers part of
 Q-105) A vault room holds 2 braziers, a tile pair (cold, lit), and a
@@ -190,3 +177,20 @@ Claude's calls: never the peddler's, the locket's or a waystone's room;
 the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
 built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-893 · 2026-11-13 · The lit brazier** (the owner's picks, all
+recommended; builds D-891, D-892) Lit, a brazier's violet band brightens,
+its ash turns to coals and the torch's orange flame sways in its bowl in
+3 frames, like a blazing campfire's (offered too: a violet flame; an
+orange flame with a violet heart). It lights 2 tiles round it in the
+torch's warm colour, as a campfire's embers do (offered too: 3 tiles;
+violet, 2 tiles). Bumped cold with the lantern lit, it opens the ask
+card: the text line says "A cold stone brazier.", the card "Light the
+brazier?" over "Old ash lies in its bowl.", No picked, Yes grey with
+less than 5 turns' oil; Yes says "The brazier catches." and passes a
+turn. Lit and bumped, it says "A brazier, burning.", then "Its flame
+burns steady.", free (offered too: "The old fire wakes."; nothing). With
+the lantern out, a cold brazier says its old words, no card (offered
+too: the card, Yes grey). Claude's calls: the door's left notch glows
+first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
