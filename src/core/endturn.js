@@ -51,10 +51,20 @@ export const endTurn = (before, cast, free = false) => { // `free`, travel's: no
   const ticked = free ? done : poisonTick(shadeTick(spitproofTick(wardTick(mendTick(warmTick(stiffTick(slowTick(glowTick(done))))))))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792), and Warmed's (warmed.js, D-845); the Mending Draught's heart comes before poison's (mending.js, D-794); the Ward Draught's counts down before the creatures' bites (ward.js, D-795), and the Spitproof Draught's before the globs fly (spitproof.js, D-802), and the Shade Draught's before the creatures notice (shade.js, D-806)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)
   const acted = moved ? { ...ticked, globs: [] } : fell ? ticked : drunk(ticked, packWarns(before, enemiesAct(leaveByLight(ticked)))); // night or day creatures gone with the light leave first, so none bites on waking (D-783, B2); a pack that notices warns (D-766); a room left leaves its globs behind (D-688)
-  const next = grow(burnOut(nightfall(regrow(acted, moved)), moved)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
+  const knocked = !moved && acted.place !== place; // a warden's slam slid the hero out through a doorway (D-887)
+  const next = grow(burnOut(nightfall(regrow(knocked ? { ...entered(ticked, acted), globs: [] } : acted, moved || knocked)), moved || knocked)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
   return lastHeart(before, learn(meet(greet(arrive(sent))))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630); the bag's finds are known (D-787)
 };
+
+// § entered: a room come into in the creatures' turn, by a slam (D-887), as a step in: its
+// `enter` event, its experience and `found` if new, and the level line if one is reached
+function entered(before, after) {
+  let s = note(discover(before, after), 'enter', { place: after.place });
+  if (s.found.length > after.found.length) s = note(s, 'found', { place: after.place });
+  const level = levelOf(s.xp);
+  return level > levelOf(before.xp) ? note(say(s, 'levelUp', level), 'level', { n: level }) : s;
+}
 
 // § drunk: a creature's drink that takes the oil under the low mark, or to empty, warns as the
 // lantern's own burning does, its line over the drink's, with its sound (H-11, D-872)

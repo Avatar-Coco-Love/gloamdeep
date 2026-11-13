@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.329, Two glossary pages split.** Before the warden's
+  drop: the creatures to `GLOSSARY-CREATURES.md`, the finds from Deposit
+  on to `GLOSSARY-FINDS-2.md`, word for word. Nothing visible. D-884.
 - **2026-11-13, 0.3.328, The docs.** Health check step 19, the last:
   the docs match the decisions and code (H-25 to H-30, H-62 to H-65);
   full pages moved a section word for word; the boon card adds "or you

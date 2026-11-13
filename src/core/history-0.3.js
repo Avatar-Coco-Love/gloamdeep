@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.332', date: '2026-11-13', title: 'The slam\'s hurt', lines: [
+    "The warden's slam hurts more now. Knocked back into a wall, a tree, a rock or a thing set down with tiles still to go, you lose a heart more: \"You slam into the tree!\"",
+    "Knocked into a creature, you and it lose a heart each; one beaten so leaves no drop and no experience. Knocked into the peddler, only you are hurt.",
+    "Water, a dug-in creature or a pile of bones just stops the slide. Knocked toward an open doorway, you slide right out into the next room.",
+    "Decisions: D-887. D-884 moved to the archive, word for word.",
+  ] },
   { v: '0.3.331', date: '2026-11-13', title: 'The warden\'s slam', lines: [
     "The warden fights harder. Beside you, it raises its fists for a turn instead of biting: its own new picture, trembling, with the pink mark on your tile. Then it slams: it takes a heart and knocks you 3 tiles straight back in a fast slide. Step out of its way while its fists are up and it hits the floor; then it rests a turn, your chance to strike.",
     "For now a wall, a tree or a creature behind you just stops the slide short. The hurt they do is the next step.",

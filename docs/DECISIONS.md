@@ -133,16 +133,6 @@ until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-884 · 2026-11-13 · Two glossary pages split** (the owner's picks,
-both recommended) Before the warden's drop, the two glossary pages
-near 8 KB split, word for word. `GLOSSARY-2.md`'s Creatures section
-moves whole to a new `GLOSSARY-CREATURES.md` (offered too: only the
-states and terms out; only Poisoned, Stiff and Warmed out).
-`GLOSSARY-FINDS.md` from Deposit to the Locket (stone, ore, picks,
-fishing, wood, the first relic) moves to a new `GLOSSARY-FINDS-2.md`
-(offered too: fishing to its own page). D-881 and D-882 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-885 · 2026-11-13 · The warden's slam and its Fist** (the owner's
 ask and picks, all recommended; answers Q-104) The warden gets harder:
 in line beside the hero it raises its fists for a turn, as the
@@ -181,3 +171,18 @@ warden's fists rise.", "The warden's blow throws you back.", "The
 warden slams the empty floor."). Its fists going up play its waking
 stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
+step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
+rock, a tree, a boulder, a thing set down, an edge with no room beyond)
+costs the hero 1 heart more; a creature, it and the hero 1 each, one
+beaten so with no drop and no experience, as a sting's (offered too: a
+drop and experience); a person, the hero 1 and the person nothing
+(offered too: no hurt). At a doorway the slide goes on out into the
+room beyond, and the turn ends there (the owner's own answer; offered
+too: stops, no hurt; hurts as a wall). Water, one under the earth or a
+pile of bones only stops it, no hurt (offered too: hurts as a creature;
+passes over); once the hero can swim, a slam slides them into water
+(the owner's own answer, Q-039). The line, Claude's draft: "You slam
+into the {n}!", naming what was hit (offered too: crash; two lines).
+D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.

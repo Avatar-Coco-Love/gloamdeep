@@ -18,6 +18,7 @@ export const CREATURE_LINES = {
   scorpionBite: { text: 'The scorpion stings you.', warn: false, kind: 'harm' }, // (D-370)
   scorpionRaises: { text: 'The scorpion raises its tail!', warn: true }, // it strikes (D-729), Claude's drafts the owner may change
   scorpionMisses: { text: 'The sting strikes the bare floor.', warn: false },
+  slamInto: { text: 'You slam into the {n}!', warn: false, kind: 'harm' }, // a warden's slam stopped hard, {n} what was hit (D-887)
   stingsFoe: { text: 'The sting strikes the {n}.', warn: false }, // a sting hits a creature, not the hero, {n} its name (D-768)
   caveSpiderHurt: { text: 'The cave spider hisses.', warn: false }, // (D-535)
   caveSpiderDie: { text: 'The cave spider falls still.', warn: false }, // (D-535)
