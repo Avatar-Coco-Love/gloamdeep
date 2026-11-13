@@ -16,8 +16,11 @@ without asking the owner. The only planned changes are the two fixes under
 - Draw at native size on a small canvas, then enlarge it with CSS
   `image-rendering: pixelated`. Use whole-number zoom (2×, 3×) when it
   fits, and fractional zoom only on very narrow screens. Turn image
-  smoothing off.
-- Every coordinate is a whole pixel. No anti-aliased shapes.
+  smoothing off. The buttons' pictures are whole zooms too: the quick
+  slot and the round map at 2× (D-881).
+- Every coordinate is a whole pixel. No anti-aliased shapes. Light and
+  glows may be soft (the kindle ring, glows behind cards, the arrow pad's
+  ring); objects stay hard-edged pixels (D-881).
 
 ## View: top-down with a slight tilt
 - A wall tile whose southern neighbour is not a wall shows a **front face**:
@@ -114,4 +117,8 @@ drift.
   (D-003). Game text uses a pixel font drawn in code (D-031): letters 7
   pixels tall, 2 more below for descenders, 1 pixel apart, in
   `src/render/font.js`. Grey `#9790a4` for lines, amber `#ffc65c` for
-  warnings (D-094, D-097).
+  warnings (D-094, D-097). Dim `#5c566a` for a line that can't be
+  picked, an empty slot or an unlit mark; bone `#efe6cc` for bright
+  text, and `#fff5d6` only in flames. The version number is in this font
+  too, at 2× (D-881).
+- Colours only the code had are listed in `ART-DIRECTION-3.md` (D-881).

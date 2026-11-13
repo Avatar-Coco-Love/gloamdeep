@@ -23,6 +23,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.326 (2026-11-13)
+- The quick slot's picture and the round map are now enlarged by exactly 2, so every pixel in them is the same size. The quick slot's picture is a little bigger.
+- The version number on the title screen is now in the game's own pixel font.
+- Lines that can't be picked, empty profile slots and unlit marks now share one dim grey, a little easier to read. Bright words in the menus, profiles and history now use the same bone white as everywhere else.
+- A few colours one shade apart now match, and torch handles use the same wood browns as the trees. You won't see a difference.
+- The art rules now say glows and light may be soft, and list every colour the code uses.
+- Decisions: D-881.
+
 ## 0.3.325 (2026-11-13)
 - Fixed: in a very old save made while the freed Peddler was still waiting in his room, he no longer vanishes when the game updates. He is back at home by the waystone and greets you when you come near.
 - Fixed: if one profile can't be read, the other profiles are kept instead of all three being wiped. The one that can't be read shows as Empty, and its old data is kept aside, never written over.
@@ -35,10 +43,3 @@ Entry format:
 - Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.
 - Fixed: with a workbench or anything else set down on the tile where your journey began, a fall no longer wakes you inside it; you wake on the nearest open tile beside it.
 - Decisions: D-879. D-876 moved to the archive, word for word.
-
-## 0.3.323 (2026-11-12)
-- At the Peddler, pressing SELL on an empty slot, or on something he doesn't buy, no longer moves the frame, so a second press can't sell something else by mistake.
-- When you sell the last of a stack, the frame stays put and the next stack slides in under it, as before.
-- When the Peddler goes home, he never stands on your tile or on a creature's.
-- Talking to the freed Peddler never makes him leave sooner: he still waits his 5 turns, or 3 more after a late bump.
-- Decisions: D-878. Questions closed: Q-102. D-875 moved to the archive, word for word.

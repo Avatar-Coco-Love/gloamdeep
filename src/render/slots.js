@@ -13,7 +13,7 @@ import { cardAt, drawCard, drawButton, frame, inCard, onCross, BUTTON, PAD, TAP_
 import { SLOTS, slotName, playedText } from '../core/profile.js';
 import { onWipe } from './wipe.js';
 
-const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#fff5d6', DIM = '#4a4458';
+const GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc', DIM = '#5c566a';
 export const BOX_H = 30; const BOX_Y = 30, BOX_GAP = 34; // each slot's box; the first box's top inside the card, and from one box's top to the next
 const PATCH = 22, PATCH_X = 4, PATCH_TOP = 4; // the hero's lit patch, at the box's left
 export const TEXT_X = PATCH_X + PATCH + 6; // a profile's name and depth, from its box's left; the title's chip too (D-401)

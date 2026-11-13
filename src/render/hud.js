@@ -54,7 +54,7 @@ const heartsH = (max) => Math.ceil(max / ROW_HEARTS) * (HEART.length + GAP) - GA
 // Lit, it is the home-screen icon too (render/appicon.js, D-375).
 export const LANTERN_ICON = ['..k..', '.kak.', 'kywyk', 'kYyYk', '.kOk.'];
 export const LANTERN_ON = { k: '#9790a4', a: '#e8d5a0', y: '#ffd66b', w: '#efe6cc', Y: '#f39a3b', O: '#a8642c' };
-const OFF = { ...LANTERN_ON, a: '#3a3446', y: '#2a2636', w: '#2a2636', Y: '#2a2636', O: '#3a3446' };
+const OFF = { ...LANTERN_ON, a: '#3a3448', y: '#2a2636', w: '#2a2636', Y: '#2a2636', O: '#3a3448' };
 export function drawLanternIcon(c, lit) {
   const pal = lit ? LANTERN_ON : OFF;
   c.clearRect(0, 0, 5, 5);

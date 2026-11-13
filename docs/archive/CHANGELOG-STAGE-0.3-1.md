@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.323 (2026-11-12)
+- At the Peddler, pressing SELL on an empty slot, or on something he doesn't buy, no longer moves the frame, so a second press can't sell something else by mistake.
+- When you sell the last of a stack, the frame stays put and the next stack slides in under it, as before.
+- When the Peddler goes home, he never stands on your tile or on a creature's.
+- Talking to the freed Peddler never makes him leave sooner: he still waits his 5 turns, or 3 more after a late bump.
+- Decisions: D-878. Questions closed: Q-102. D-875 moved to the archive, word for word.
+
 ## 0.3.322 (2026-11-12)
 - With Sound Off, the game no longer downloads its sounds. They download once you turn Sound On, which saves phone data.
 - Each place's music downloads the first time you reach that place, not all five tunes at once.

@@ -13,7 +13,7 @@ import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
 import { featRows, glintsText } from '../core/feats.js';
 import { questRows, NONE as NO_GOALS } from '../core/goals.js';
 
-const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', DIM = '#4a4658', AMBER = '#ffc65c';
+const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', DIM = '#5c566a', AMBER = '#ffc65c';
 const MARK_W = 8; // the flame or diamond and its gap, left of the names
 export const ROWS_Y = 52, ROW_H = 11; // Records' and Quests' first row's top, and one line to the next
 const QUEST_GAP = 4; // under a quest's last line (a two-line quest is 26 tall, D-707)

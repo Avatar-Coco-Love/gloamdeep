@@ -106,3 +106,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Stashing only `src/` and running the new tests on the old code showed every one failing first, so each test proves its fix, in one command (0.3.319).
 - Marking each failed try in a copy of the code and counting the marks over 2,000 rooms showed why pools were rare (most tries cut the room), so the fix aimed at the cause before tuning the roll (0.3.321).
 - Saves the old game itself made, kept from the health check's branch, reproduced a loss in today's game in one short script before the fix, and became the fix's tests (0.3.325).
+- Checking a near-miss colour against the art docs before matching it showed the documented one was the rarer in the code (`#3a3448`), so the fix matched the code to the rules, not the rules to the code (0.3.326).

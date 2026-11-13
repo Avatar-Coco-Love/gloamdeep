@@ -13,7 +13,7 @@ import { drawMarker } from './menu.js';
 import { frame, round, EDGE_GAP } from './bag.js';
 import { drawPatchHero, TEXT_X, BOX_H } from './slots.js';
 
-const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', GREY = '#9790a4', CORE = '#fff5d6', LINE = 'rgba(239,230,204,.16)';
+const K = '#0e0c16', GOLD = '#ffd66b', EMBER = '#f39a3b', GREY = '#9790a4', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
 export const NAME = 'Gloamdeep'; // drawn by title.js, lit from below
 export const NAME_TOP = 16; // its top, from the picture's
 export const NAME_SCALE = 3; // at triple size

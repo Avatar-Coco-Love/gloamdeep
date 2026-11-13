@@ -30,7 +30,7 @@ import { bestiaryTables, beastAt, showBeast, questAt, listOf, drawList, clampFir
 export { bestiaryTables };
 
 const K = '#0e0c16', GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', LINE = 'rgba(239,230,204,.16)';
-const DIM = '#4a4658', WOOD = '#5b4a3e', GLOW = '255,154,60';
+const DIM = '#5c566a', WOOD = '#5a4a3e', GLOW = '255,154,60';
 const TABS_Y = 28, TABS_RULE_Y = 44; // inside the card: the tabs' top and the rule under them
 const MARK_W = 8; // the flame and its gap, left of the open tab and of the names
 const TAB_GAP = 24; // between two tabs
