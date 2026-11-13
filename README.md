@@ -3,9 +3,9 @@
 A lantern-lit, turn-based dungeon survival game for phones and browsers.
 You carry a lantern down through dark places, and every step burns oil.
 
-**Status:** foundation, the first code. Play the latest build at
-https://avatar-coco-love.github.io/gloamdeep/ (one room so far: walk,
-light and oil). The look comes from `reference/style-study-1.html`, which
+**Status:** stage 0.3, the world. Play the latest build at
+https://avatar-coco-love.github.io/gloamdeep/ (Hearthwood's woods and
+mountains above; caves, warrens and the dungeon below). The look comes from `reference/style-study-1.html`, which
 is online at
 https://avatar-coco-love.github.io/gloamdeep/reference/style-study-1.html
 

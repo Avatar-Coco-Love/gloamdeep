@@ -36,7 +36,8 @@ code; where this page and a decision disagree, the decision wins.
   screen is still called `cloak` in the code). **Patterns:** cloaks in
   their own colours (Zebra, Cow, Camo, Tiger, Stars, Moth, D-700), `locked` until bought with Glints, Zebra free (D-715);
   shown dim with LOCK and tried on, never kept (D-515, D-533); `price` 3
-  each, bought with BUY and kept in the profile's `bought` (D-696).
+  each, bought with BUY and kept in the profile's `bought` (D-696). The note says its price and the
+  Glints you have, "Earn more from Feats." when too few, BUY dim (D-696).
 - **Lamp:** the lantern's shape, the LAMP tab, fifth on the Look card
   (`lamp` in a look; `LAMPS` in `looks.js`, pixels in `pictures.js`): the
   Lantern and Carriage, free (D-715), then Dish and Pierced, locked at 3 Glints (D-702).
@@ -70,8 +71,15 @@ code; where this page and a decision disagree, the decision wins.
 ## Menus and tools
 - **Glass panel:** the see-through panel over the room's top left with the
   hearts, level, oil and depth; it fades while the hero is under it (D-378, D-380).
-- **Journal:** one book with tabs: Records, Growth, Bestiary and Feats, later
-  quests and Lore (D-262, D-293, D-464, D-467, D-630, D-695); a glass card (D-391);
+- **Settings:** a glass card from the pause card or the title (D-389), its tabs
+  CONTROLS, GAME, SCREEN and SOUND (D-820), VERSION HISTORY bottom left (D-387).
+  CONTROLS: Swipe, Tap, Arrow pad, Stop walking (D-407, D-408, D-449). GAME: Seed,
+  Way to play, Lantern, Flasks (D-191, D-210, D-248). SCREEN: Motion, Attack marks,
+  Stats line (D-190, D-412, D-730). SOUND: Sound, Loudness, and Steps, Fighting,
+  Finds, Menus, Music, each opening its sounds On or Off (D-255, D-822 to D-824,
+  D-837). Code: `src/core/settings.js`, `src/render/settingscard.js`.
+- **Journal:** one book with tabs: Records, Growth, Bestiary, Feats and Quests,
+  later Lore (D-262, D-293, D-464, D-467, D-630, D-695, D-707); a glass card (D-391);
   upright, its tabs in two rows (D-695).
 - **Bestiary:** the Journal's third tab, a table of the creatures met, how many met and
   beaten (D-630); more of a page shows the more you meet and fight that creature (D-350): how it acts after one is beaten, how to fight it after 3 (D-631, D-632).

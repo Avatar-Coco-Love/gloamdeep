@@ -4,21 +4,18 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.327 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.328 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The health check's steps in `HEALTH-CHECK-ORDER.md`'s order: step 19,
-the docs (H-25 to H-30, H-62 to H-65).
+The warden's special drop (Q-104, `OPEN-QUESTIONS-3.md`): its name, look
+and use, designed with mock-ups, now the health check is done.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
-- Each health check step's fixes, picked at its step
-  (`HEALTH-CHECK-ORDER.md`).
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
 - A duskstar on the home waystone's ring (Q-103), any time.
-- The warden's special drop (Q-104), designed right after the health check.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -50,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.328, The docs.** Health check step 19, the last:
+  the docs match the decisions and code (H-25 to H-30, H-62 to H-65);
+  full pages moved a section word for word; the boon card adds "or you
+  fall". D-883.
+  Playtest: https://claude.ai/artifact/1x4goeetJUpSCLM8GGmD3U
 - **2026-11-13, 0.3.327, The dev tools.** Health check step 18: Space
   never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
   lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.
@@ -61,9 +63,3 @@ list in `RESEARCH.md`.
   near-miss colours matched (H-60); every code-only colour listed in
   `ART-DIRECTION-3.md` (H-61). D-881.
   Playtest: https://claude.ai/artifact/5BHDMGHkscqqW8uNdqMMbp
-- **2026-11-13, 0.3.325, Saves kept safe.** Health check step 16: an
-  old save's lost Peddler is sent home (H-57); one unreadable profile
-  slot no longer wipes all three, and a save that can't be read is set
-  aside, never saved over (H-21); each part of a frame has its own
-  safety net (H-14). D-880.
-  Playtest: https://claude.ai/artifact/VnS4WW2ay1wtCsG23Ftj5N

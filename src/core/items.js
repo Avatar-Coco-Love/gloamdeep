@@ -51,7 +51,7 @@ export const ITEMS = {
   stone: { id: 'stone', kind: 'item', name: 'Stone', bag: true, max: 20, says: 'looseStoneTake', look: 'stoneLook', full: 'stoneFull', regrow: DAY_TURNS,
     craft: { into: 'mortar', of: { stone: 4, wood: 1 }, says: 'mortarMake' } }, // 4 Stone and 1 Wood make the Mortar and Pestle, on the bag's Make tab (D-786)
   // The first flower (D-763, Q-092): a violet duskstar, 2 in each woods room (duskstar.js), each in
-  // its own tone and facing its own way. Walking onto it puts it in the bag, for crafts later. Picked,
+  // its own tone and facing its own way. Walking onto it puts it in the bag, for the Glow and Shade Draughts. Picked,
   // it `roam`s: a day later it grows again on another free grass tile of the room (regrow.js, D-530).
   duskstar: { id: 'duskstar', kind: 'item', name: 'Duskstar', bag: true, max: 20, says: 'duskstarTake', look: 'duskstarLook', full: 'duskstarFull', tone: FLOWER_TONE, regrow: DAY_TURNS, roam: true },
   // The first creature material (D-453, D-454): a beaten rat leaves one where it fell,

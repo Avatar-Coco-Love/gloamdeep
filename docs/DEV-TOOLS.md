@@ -36,7 +36,7 @@ tools to be chosen together later.
   short one at full size, without oil, lit, health and depth (D-412).
 - PC keys: ` the panel; G, C, R the View switches (D-090). A clicked or
   tapped button lets go of the keys, so Space still waits a turn (D-882).
-- Grid and coordinates overlay (D-046); both move with the camera (D-195). Drawing: `src/render/overlay.js`.
+- Grid and Coords, View switches, the overlay (D-046); both move with the camera (D-195). Drawing: `src/render/overlay.js`.
 - Spawn: a grid of pictures under each kind's heading, 32 px, the
   pick's name in the section's name line, and a search box that narrows
   them by name (D-624, were chips, D-089); tap one, then tap tiles; tap it
@@ -47,8 +47,8 @@ tools to be chosen together later.
   the room's place has a room that way (D-130). A spawned creature or
   flask counts in no Records, Feat or Bestiary beaten count (D-720).
   Rules: `src/core/spawn.js`.
-- Lighting off: a panel switch that shows the room unlit (D-057).
-- Reveal room (a switch) and Forget (a button) for fog of war; Reset room
+- No light (View): a switch that shows the room unlit (was Lighting off, D-057).
+- Reveal (a View switch, D-061's Reveal room) and Forget (a Room button) for fog of war; Reset room
   forgets too (D-061, D-062), and resets only the room the hero is in
   (D-136). Rules: `src/core/fog.js`.
 - Reveal map (a switch): the map screen shows every room of the floor
@@ -57,8 +57,8 @@ tools to be chosen together later.
 - Refill, Empty and a slider for any amount, no turn passed (D-066,
   D-091). Endless oil, a switch kept in the save: lit turns burn
   nothing and an oil tick's drink takes nothing; the oil stays where it
-  is (D-626). Rules: `passTurn` in `src/core/state.js`, `enemiesAct`.
-  Rules: `src/core/oil.js`.
+  is (D-626). Rules: `passTurn` in `src/core/state.js`, `enemiesAct`,
+  `src/core/oil.js`.
 - Hero: Refill hearts, back to full health, no turn passed (D-154).
   God mode, a switch kept in the save: bites take no hearts (D-625).
   Rules: `enemiesAct` in `src/core/creatureturn.js`.

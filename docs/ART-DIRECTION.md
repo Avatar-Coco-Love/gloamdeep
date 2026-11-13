@@ -39,7 +39,7 @@ Named colours are in the study's `PAL` (lines 121–128). Key roles:
 | Role | Colour |
 | --- | --- |
 | Outline / deepest dark | `#0e0c16` |
-| Hero cloak (light, mid, dark, deepest) | `#a6e0e4` `#58a8b4` `#2f6a7c` `#1c3e4e`; a profile may wear one of five more (`src/core/looks.js`, D-275), in one of four shapes of clothes (D-278) and four heads (D-703) |
+| Hero cloak (light, mid, dark, deepest) | `#a6e0e4` `#58a8b4` `#2f6a7c` `#1c3e4e`; a profile may wear one of five more (`src/core/looks.js`, D-275), or one of six patterns (D-515, D-700), in one of four shapes of clothes (D-278) and nine heads (D-703, D-704) |
 | Lantern, flame, oil | `#ffd66b` `#f39a3b` `#e9a94a` |
 | Lantern trim (cap, base) | `#e8d5a0` `#a8642c`; a profile may pick one of five more (`src/core/looks.js`, D-277), on one of four lamp shapes (D-702) |
 | Bone, pale highlights | `#efe6cc` `#b9ab88` |
@@ -62,8 +62,11 @@ The study's lighting code is at lines 309–338, plus the light setup inside
 
 - Draw the scene at full brightness, then multiply every pixel by the light
   reaching it. Darkness is the default.
-- **Light sources:** the hero's lantern (warm, the largest), wall torches
-  (orange, flicker more), stairs (faint violet), slimes (faint green).
+- **Light sources:** the hero's lantern (warm, the largest), torches
+  (orange, flicker more; D-121, D-478), a set-down Glow Lamp (soft green,
+  steady, D-808), burning campfires (a torch's colour, D-757), stairs and
+  the woken waystone (faint violet, D-134, D-194), daylight through the
+  cave mouth (D-218).
 - **Line of sight:** each light checks visibility in 4 × 4 pixel cells by
   marching rays through the tile grid. Walls block light. A wall is lit
   when the ray reaches it; the ray aims at the wall tile's point nearest

@@ -14,8 +14,8 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
 | `pick` | the Stone Pick: in the Tool slot, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone; one at the miners' camp | D-480, D-552, D-770 |
 | `moleClawPick` | the Mole Claw Pick: in the Tool slot, works as the Stone Pick; copper veins and rubble in 2 bumps | 1 | never | the workbench's BUILD tab: 1 Mole Claw, 2 Wood, 2 Stone | D-799, D-810 |
-| `rod` | the Wooden Rod: in the Tool slot; bumping water casts, the home pond or a cave pool | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610, D-618 |
-| `pondMinnow` | the first fish: poured, 15% oil, by hand only; Eat: 1 heart; sold to the peddler for 1 coin | 20 | never | caught at the home pond with the rod | D-608, D-610, D-611, D-615, D-616 |
+| `rod` | the Wooden Rod: in the Tool slot; bumping water casts, a woods pond or a cave pool | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610, D-618 |
+| `pondMinnow` | the first fish: poured, 15% oil, by hand only; Eat: 1 heart; sold to the peddler for 1 coin | 20 | never | caught at any woods pond with the rod | D-608, D-610, D-611, D-615, D-616, D-734 |
 | `blindCavefish` | the cave pools' fish: poured, 20% oil, by hand only; Eat: 1 heart; sells for 2 coins; strike zone a fifth | 20 | never | caught at any cave pool with the rod | D-618 |
 | `copperOre` | the first ore: the wick, the charms | 20 | never | a copper vein | D-480 |
 | `boneHook` | Fit in the bag, only with the rod carried: tied to the rod for good, the strike meter's zone half again as wide | 1 | never | the workbench's BUILD tab: 3 Rat Bone, 1 Spider Silk | D-799, D-807 |
@@ -57,15 +57,9 @@ Pointed, Bobble, Circlet and Scarf, locked at 3 Glints each (D-703,
 D-704). Every profile may take one locked look free, its `gift`, shown
 as "1 FREE PICK" in gold on the Look card while it waits (D-714, D-715).
 
-## Growth upgrades (`src/core/upgrades.js`)
+## Growth upgrades
 
-Bought with embers on the Journal's Growth tree (D-462, D-481): Light,
-Body and Hands. Body: Heart, one more heart, up to 5 (D-293); Tough, a hurting bite
-poisons only 1 time in 2, above Heart in the first row (D-657). Light:
-Steady Wick, a lit turn burning 9/10 of its oil, for good, a full tank
-about 66 turns, not 60; "Steady" in a box too narrow (D-798). Hands:
-Quick Hands, a tree, a stone deposit or a branch gathered by hand takes
-1 bump fewer, never under 1; tools keep their own count (D-813).
+In `CONTENT-4.md`, moved word for word at 0.3.328 (D-883).
 
 ## Tiles, lights, places
 Moved to `CONTENT-3.md` word for word at 0.3.73 (D-618).
