@@ -11,9 +11,10 @@ import { say } from './lines.js';
 export const HEARTS_MORE = UPGRADES.heart.most; // at most 5 more, 10 in all
 export const heartsBought = (state) => grown(state, 'heart');
 
-// The embers left: one for each level reached past the first, less those spent
+// The embers left: one for each level reached past the first, and each taken from a vault
+// (`foundEmbers`, D-896), less those spent
 const spent = (state) => Object.values(UPGRADES).reduce((n, u) => n + grown(state, u.id) * u.cost, 0);
-export const embers = (state) => levelOf(state.xp) - 1 - spent(state);
+export const embers = (state) => levelOf(state.xp) - 1 + (state.foundEmbers || 0) - spent(state);
 
 // § buy: an upgrade bought once more, for good, while an ember pays for it and it is not bought
 // its most times; one that heals fills that many hearts (Heart arrives full, D-293). It can't be

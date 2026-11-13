@@ -181,6 +181,14 @@ export const TILES = {
   brazierLit: { id: 'brazierLit', kind: 'tile', letter: 'l', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazierLit', fire: true, glow: FIRE.embers },
   sealedDoor: { id: 'sealedDoor', kind: 'tile', letter: 'k', name: 'Sealed door', solid: true, blocksLight: true, bump: 'sealedDoor' },
   openDoor: { id: 'openDoor', kind: 'tile', letter: 'm', name: 'Open door', solid: false, blocksLight: false },
+  // § plinth (L1 step 4, D-896): the vault's prize, on a small crypt-stone plinth with the
+  // brazier's violet band at the vault's heart, solid, light passing over it. The prize is the
+  // room's `prize` (vault.js): a rare material, drawn on its top, or an ember, its own tile, that
+  // glows faintly 1 tile round in the torch's warm colour. Bumped, it is taken, a turn (prize.js);
+  // bare, it says its words, a sentence a bump, free.
+  plinth: { id: 'plinth', kind: 'tile', letter: 'n', name: 'Plinth', solid: true, blocksLight: false, prize: true },
+  plinthEmber: { id: 'plinthEmber', kind: 'tile', letter: 'o', name: 'Plinth', solid: true, blocksLight: false, prize: true, fire: true, glow: { reach: 1, ...FIRE_COLOUR } },
+  plinthBare: { id: 'plinthBare', kind: 'tile', letter: 'p', name: 'Plinth', solid: true, blocksLight: false, bump: 'plinthBare' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

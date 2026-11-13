@@ -155,12 +155,22 @@ const DRAW = {
   brazierLit: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazierLit); }, // lit, its flame after the light (campfire.js, D-893)
   sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); drawNotches(c, room, x, y, litIn(room)); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893), on the lintel (D-895)
   openDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.openDoor, x * T, y * T); drawNotches(c, room, x, y, 2); }, // sunk open, both notches glowing for good (D-895)
+  plinth: (c, room, x, y) => drawPlinth(c, room, x, y, room.prize && SPRITES[room.prize.id]), // the vault's plinth, its rare material on its top (D-896)
+  plinthEmber: (c, room, x, y) => drawPlinth(c, room, x, y, SPRITES.ember), // the ember on it, glowing faintly (tiles.js in core, D-896)
+  plinthBare: (c, room, x, y) => drawPlinth(c, room, x, y, null), // its prize taken (D-896)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
 const OWN_GROUND = ['rock', 'earth', 'woods']; // looks drawn whole under their tiles (D-164, D-165, D-209)
 // § camp: the miners' camp drawn whole from its top-left tile, 2 pixels up on a wide shadow as a
 // deposit is; its other tiles draw only the floor under it, off the woods (D-770)
+// § plinth (D-896): the vault's floor, the plinth, and its prize, if any, sitting on its top
+const PRIZE_UP = 6; // the prize drawn this many pixels up, onto the plinth's top
+function drawPlinth(c, room, x, y, prize) {
+  if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y);
+  drawDeposit(c, x, y, SPRITES.plinth);
+  if (prize) c.drawImage(prize, x * T, y * T - PRIZE_UP);
+}
 function drawCamp(c, room, x, y, sprite) {
   if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y);
   const at = campCorner(room, x, y);

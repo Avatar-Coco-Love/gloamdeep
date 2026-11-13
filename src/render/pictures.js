@@ -609,6 +609,17 @@ const OPEN_DOOR = { mirror: false, rows: ['', '', '', '', '', '.kkkkkkkkkkkkkk.'
   ...Array(8).fill('.kxXXXXXXXXXXxk.'), '.kDDDDDDDDDDDDk.'] };
 const OPEN_DOOR_COLOURS = { x: '#07060a', X: '#0c0b12' };
 
+// § plinth (L1 step 4, D-896, look B of its mock-up): a small crypt-stone plinth with the
+// brazier's dark violet band, low enough that its prize sits on its top (tiles.js); drawn in the
+// crypt's brick colours (BRAZIER_COLOURS, sprites.js). The same picture bare or holding its prize.
+const PLINTH = { mirror: false, rows: ['', '', '', '', '', '', '', '', '', '....kkkkkkkk....', '...kHHHHHHHHk...',
+  '...kLLLLLLLDk...', '...kjjjjjjjjk...', '....kLLLLLDk....', '...kHLLLLLLDk...', '...kkkkkkkkkk...'] };
+
+// § ember (D-896): a lump of coal, cracks of the torch's orange with a gold heart, small enough to
+// sit on the plinth's top
+const EMBER = { mirror: false, rows: ['', '', '', '', '', '', '', '', '.....kkkkkk.....', '....kfnYYnfk....',
+  '...kfYyyYnnfk...', '...knnYywYnnk...', '...kfYnnyYynk...', '....kfnYnnfk....', '.....kkkkkk.....', ''] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed, FLASK, HERB, DUSKSTAR, OILCAP, HEARTCAP, DEPOSIT, STONE, VEIN,
   COPPER_ORE, PICK, MOLE_CLAW_PICK, ROD, ROD_HOOKED, BONE_HOOK, POND_MINNOW, BLIND_CAVEFISH, COPPER_WICK, RAT_VEST, SHELL_VEST, RAT_TAIL, MOTH_DUST, STINGER,
@@ -656,4 +667,6 @@ export {
   SEALED_DOOR,
   OPEN_DOOR,
   OPEN_DOOR_COLOURS,
+  PLINTH,
+  EMBER,
 };

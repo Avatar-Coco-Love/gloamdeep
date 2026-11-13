@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.340 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.341 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L1, step 4 (D-892): the prize. One prize the seed draws per vault, a
-rare material or an ember (D-891). Propose how the draw is weighted, how
-the prize looks in the vault and its words first.
+L3, the dark door (D-890, `PUZZLES.md`): faint runes seen only with the
+lantern off, a wall that opens. Propose its build steps, tiles, names
+and reward first, as L1's were (D-891, D-892).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +50,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.341, The vault's prize.** L1 step 4, L1 done: a
+  plinth at the vault's heart holds the seed's prize, 1 vault in 4 a
+  glowing ember for Growth, else 2 of a rare material; bumped, taken.
+  D-896. Playtest: https://claude.ai/artifact/MMvK9WJRojPEZ6drpSsshy
+  Map: https://claude.ai/artifact/NNf3ypz5n4N3yxy5gKMuxY Mock-up:
+  https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c
 - **2026-11-13, 0.3.340, The door opening.** L1 step 3: the second
   brazier lit, the door sinks open for good, its notches moved to the
   lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
@@ -58,9 +64,3 @@ list in `RESEARCH.md`.
 - **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
   done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
   word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.
-- **2026-11-13, 0.3.338, The lit brazier.** L1 step 2: a cold brazier
-  bumped with the lantern lit asks to light it, 5 turns' oil; lit, the
-  torch's flame in its bowl, 2 tiles' warm glow, a violet door notch
-  each. D-893. Playtest:
-  https://claude.ai/artifact/NbAFRz8AZT4Qa9NiVvbJW7 Mock-up:
-  https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73

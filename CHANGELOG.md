@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.341 (2026-11-13)
+- Each vault now holds a prize on a small stone plinth behind its door: 1 vault in 4 an ember, which glows faintly, the rest 2 of a rare material.
+- Bump the plinth to take it. An ember is 1 more to spend in Growth: "An ember! Spend it in Growth." The plinth is left bare.
+- Decisions: D-896. D-892 moved to the archive, word for word.
+
 ## 0.3.340 (2026-11-13)
 - The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
 - Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).
@@ -31,8 +36,3 @@ Entry format:
 ## 0.3.339 (2026-11-13)
 - Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the two health checks and their order, all done.
 - Decisions: D-894. D-860 to D-862 moved to the archive, word for word.
-
-## 0.3.338 (2026-11-13)
-- The braziers light: bump a cold brazier with your lantern lit and it asks "Light the brazier?". Yes spends 5 turns' oil and a turn, and a flame sways in its bowl, lighting the dark 2 tiles round it. With less oil, Yes is grey.
-- Each lit brazier makes one notch glow violet under the sealed door's flame rune. The door opens in the next step.
-- Decisions: D-893. D-890 moved to the archive, word for word.

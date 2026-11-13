@@ -337,7 +337,8 @@ export function placeBeside(id, way, seed = 1) {
 // § begin: any place as it begins, from its plan and the game's seed
 export function beginPlace(id, seed) {
   const p = placeFor(id, seed);
-  return { room: makeRoom(p.map, p.sky ? SKY : CAVE, p.look), start: p.start, lights: p.lights, enemies: p.enemies, items: p.items || [], people: p.people || [] };
+  const made = makeRoom(p.map, p.sky ? SKY : CAVE, p.look), room = p.prize ? { ...made, prize: p.prize } : made; // a vault's prize kept with its room (D-896)
+  return { room, start: p.start, lights: p.lights, enemies: p.enemies, items: p.items || [], people: p.people || [] };
 }
 
 // § darkness: each place sets how dark never-seen tiles are and how

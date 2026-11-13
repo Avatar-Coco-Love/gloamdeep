@@ -34,6 +34,7 @@ import { personAt } from './people.js';
 import { dig, talk } from './rescue.js';
 import { toolFits, bumpsFor } from './gear.js';
 import { bumpWater } from './fishing.js';
+import { takePrize } from './prize.js';
 import { fallen } from './bones.js';
 import { misses } from './stiff.js';
 import { knocks, knockOf } from './fist.js';
@@ -74,6 +75,7 @@ export function step(state, dir) {
     if (tile.dig) return dig(state, x, y); // rubble, freeing the one trapped behind it (D-491)
     if (minable(state.room, x, y)) return mine(state, x, y);
     if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)
+    if (tile.prize) return takePrize(state, x, y); // a vault's prize on its plinth, a turn (D-896)
     if (tile.bump) return say(state, tile.bump); // a bare bush: its line, free (D-531)
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
@@ -104,6 +106,7 @@ function pickUp(state, found) {
   if (entry.fetch) return fetchBag(state, found);
   if (found.dropped) return takeBack(state, found);
   const gone = { items: state.items.filter((it) => it !== found), taken: noteTaken(state, found).taken };
+  if (entry.ember) return note(say({ ...state, ...gone, foundEmbers: (state.foundEmbers || 0) + 1 }, entry.says), 'take', { id }); // 1 more ember for Growth (D-896)
   if (entry.hold && !state.held) return note(say({ ...state, ...gone, held: id }, entry.says), 'take', { id });
   if (entry.eatHurt && state.health < maxHealth(state)) return note(say({ ...state, ...gone, health: Math.min(maxHealth(state), state.health + healOf(state, entry)) }, entry.eats), 'eat', { id });
   if (entry.hold) {

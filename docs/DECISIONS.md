@@ -90,28 +90,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-892 · 2026-11-13 · L1's build steps and the vault room** (the
-owner's picks, all recommended; builds D-891) L1 is built in 4 steps:
-the vault room, its braziers and its sealed door, standing still; then
-lighting a brazier, a rune notch glowing; then the door opening, staying
-open, an unsolved vault resetting; then the prize (offered too: 3 steps;
-5, the reset its own). The vault is turned to face its one opening: the
-vault above or below for an opening at the top or bottom, beside for one
-at the left or right, the gap wherever the opening is (offered too: top
-or bottom only). A floor with no one-cell dead end has no vault
-(offered too: one set inside a dead-end hall). Nothing else is in it: no
-creatures, finds or cache (offered too: creatures; everything as
-usual). From depth 8 the same two layouts, the outer room bigger with
-the cell (offered too: 11 x 13 in a ring of wall). Bumped, each says a
-line, Claude's drafts the owner may change: "A cold stone brazier.",
-"Old ash lies in its bowl."; "A sealed stone door.", "A flame rune is
-cut into it." (offered too: nothing). Their names: Brazier, Sealed door
-(offered too: Lightkeeper's brazier and door; Fire bowl, Rune door).
-Claude's calls: never the peddler's, the locket's or a waystone's room;
-the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
-built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
-
 **D-893 · 2026-11-13 · The lit brazier** (the owner's picks, all
 recommended; builds D-891, D-892) Lit, a brazier's violet band brightens,
 its ash turns to coals and the torch's orange flame sways in its bowl in
@@ -156,4 +134,27 @@ too: on leaving the floor). Mock-up:
 https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb Claude's calls: the
 line said in "The brazier catches."'s place, as the strip holds one
 line; no new sound for now. D-891 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-896 · 2026-11-13 · The vault's prize** (the owner's picks, one not
+the recommended; builds D-891 to D-895; answers part of Q-105) The seed
+draws each vault's prize: 1 vault in 4 an ember, the rest 2 of one of
+the 7 rare materials, all alike (offered too: 1 in 2 an ember; a
+material above depth 8, an ember below; 1 of it; 1 to 3). It stands on
+a small crypt-stone plinth at the vault's heart with the brazier's dark
+violet band, the prize on its top (the owner's pick; recommended: on the
+floor as any find; offered too: in a crypt urn). Bumped, it is taken at
+once, a turn, the plinth left bare (offered too: an ask card first;
+free). An ember glows faintly 1 tile round in the torch's warm colour, a
+material lies dark till the lantern reaches it (offered too: no glow; a
+violet glint on any prize). Taken, an ember is 1 more to spend in
+Growth: "An ember! Spend it in Growth."; looked at, "An ember, still
+warm.", "It glows in your palm." (offered too: "An ember of the First
+Light!"; a hint line on stepping in). A material keeps its own lines.
+Bare, bumped: "A bare stone plinth.", "Something rested here once."
+(offered too: "An empty plinth."; nothing). Its name: Plinth (offered
+too: Altar, Pedestal). Mock-up:
+https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c Claude's calls: with
+no room in the bag for both, nothing is taken, free, the bag's full
+line; the take sound of any find. D-892 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
