@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.329 (2026-11-13)
+- Docs: the creatures' glossary words have their own page, GLOSSARY-CREATURES.md, and the finds' second half (stone to the Locket) moved to GLOSSARY-FINDS-2.md, word for word, so both pages have room again. Nothing in the game changed.
+- Decisions: D-884. D-881 and D-882 moved to the archive, word for word.
+
 ## 0.3.328 (2026-11-13)
 - The boon card now says a boon lasts until you are back at the waystone, or you fall, as the opening card does.
 - The docs catch up with the game: the creatures' ways (the mole's burrowing, the scorpion's tail strike, the rat pack), Growth's second row, what each find makes, the deeper waystones, the ponds in every woods room, the Settings card, the marks' rims, the art's lights and the dev tool switches' names.
@@ -35,11 +39,3 @@ Entry format:
 - Dev Spawn's pictures that share a name now show their code word after it, such as "Campfire · ownEmbers", and the search finds them by it.
 - Dev Room: TIME now comes second, with +10, +50 and Grow side by side, so Grow is never hidden under the sheet's edge.
 - Decisions: D-882. D-878 moved to the archive, word for word.
-
-## 0.3.326 (2026-11-13)
-- The quick slot's picture and the round map are now enlarged by exactly 2, so every pixel in them is the same size. The quick slot's picture is a little bigger.
-- The version number on the title screen is now in the game's own pixel font.
-- Lines that can't be picked, empty profile slots and unlit marks now share one dim grey, a little easier to read. Bright words in the menus, profiles and history now use the same bone white as everywhere else.
-- A few colours one shade apart now match, and torch handles use the same wood browns as the trees. You won't see a difference.
-- The art rules now say glows and light may be soft, and list every colour the code uses.
-- Decisions: D-881.

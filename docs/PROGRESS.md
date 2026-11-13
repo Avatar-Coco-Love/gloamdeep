@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.328 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.329 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -47,6 +47,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.329, Two glossary pages split.** Before the warden's
+  drop: the creatures to `GLOSSARY-CREATURES.md`, the finds from Deposit
+  on to `GLOSSARY-FINDS-2.md`, word for word. Nothing visible. D-884.
 - **2026-11-13, 0.3.328, The docs.** Health check step 19, the last:
   the docs match the decisions and code (H-25 to H-30, H-62 to H-65);
   full pages moved a section word for word; the boon card adds "or you
@@ -56,10 +59,3 @@ list in `RESEARCH.md`.
   never presses a clicked dev button (H-38); Spawn's Peddler (H-48);
   lights on floor, shared names told apart (H-49); Grow shown (H-50). D-882.
   Playtest: https://claude.ai/artifact/Afj6ae9qdNVHumajCgc6qk
-- **2026-11-13, 0.3.326, The art's loose ends.** Health check step 17,
-  picked from a picture: the quick slot and round map at exactly 2×
-  (H-51); the version number in the pixel font (H-52); one dim grey and
-  one bright for text (H-53); soft glows allowed in the rules (H-54);
-  near-miss colours matched (H-60); every code-only colour listed in
-  `ART-DIRECTION-3.md` (H-61). D-881.
-  Playtest: https://claude.ai/artifact/5BHDMGHkscqqW8uNdqMMbp

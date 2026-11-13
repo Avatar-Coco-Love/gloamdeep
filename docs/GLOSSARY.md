@@ -55,7 +55,8 @@ creature's, tile's or place's only its first (Cave spider) (D-870).
 - **Bag:** what the hero carries, in stacks of up to 20, or 5 of flasks and potions; a kind can fill several slots (D-247, D-333, D-339). A Pouch makes it 9 slots, then a Big Bag 12, made at the workbench (D-545, D-547). **Store** sends its stacks to chests nearby (D-558); **Sort** lines it up by kind and joins half stacks, free (D-559).
 - **Drop:** the bag's button that sets the chosen stack down at the hero's feet, free, to take back by stepping on it; on a find, a swap (D-546).
 - **Finds:** oilcap to grow back, with fishing and wood, moved to
-  `GLOSSARY-FINDS.md` word for word at 0.3.72 (D-617).
+  `GLOSSARY-FINDS.md` word for word at 0.3.72 (D-617), and
+  on from Deposit to `GLOSSARY-FINDS-2.md` (D-884).
 - **Craft, Make:** turning things in the bag into another; Make is its
   button in the bag (D-299). The bag's **Make tab**, beside its BAG
   tab, lists what is made in the bag, each once its finds have been
@@ -89,7 +90,8 @@ They moved on to `GLOSSARY-HOME.md` word for word at 0.3.245 (D-797).
 
 ## Creatures
 Moved to `GLOSSARY-2.md` word for word at 0.3.3 (D-531): creatures,
-colour sets, the creature list. The peddler, trade coins and rubble
+colour sets, the creature list, now in `GLOSSARY-CREATURES.md` (D-884).
+The peddler, trade coins and rubble
 went with them, and came back word for word at 0.3.234 (D-784):
 
 ### People
