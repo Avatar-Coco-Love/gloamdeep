@@ -318,6 +318,8 @@ export const LINES = {
   campfireFed: { text: 'You add wood. The fire burns high.', warn: false }, // Add wood on embers (Q-088, feeding), Claude's draft the owner may change
   campfireLit: { text: 'The fire catches.', warn: false }, // Claude's draft the owner may change
   lamppost: { texts: ['An old lamppost.', 'Its lamp went out long ago.'], warn: false }, // the dead lamppost bumped, a sentence a bump (D-769)
+  brazier: { texts: ['A cold stone brazier.', 'Old ash lies in its bowl.'], warn: false }, // a vault's cold brazier bumped, a sentence a bump (D-892)
+  sealedDoor: { texts: ['A sealed stone door.', 'A flame rune is cut into it.'], warn: false }, // a vault's sealed door bumped (D-892)
   minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)
   campPickTaken: { text: 'You take the old pick.', warn: false }, // Claude's draft the owner may change (D-770)
   glowDraughtMake: { text: 'You make a Glow Draught.', warn: false }, // MORTAR's card, a turn (D-786)

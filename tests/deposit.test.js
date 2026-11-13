@@ -11,6 +11,7 @@ import { markAt } from '../src/core/map.js';
 import { look } from '../src/core/turn.js';
 import { LINES } from '../src/core/lines.js';
 import { readJourney, journeyText } from '../src/core/save.js';
+import { caves } from './caves.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 // A copper vein ('V') is one of the 3 from depth 3 (D-480)
@@ -33,7 +34,7 @@ function joined(room, people = []) {
 }
 
 test('every Cave room holds 3 deposits, off the edge and clear of what lies, stands or starts there', () => {
-  for (const seed of SEEDS) for (const depth of [2, 3, 4]) for (const { id } of layoutAt(seed, depth).cells) {
+  for (const seed of SEEDS) for (const depth of [2, 3, 4]) for (const { id } of caves(seed, depth)) {
     const p = placeFor(id, seed), found = deposits(p.map), room = makeRoom(p.map);
     assert.equal(found.length, 3, `seed ${seed}, ${id}`);
     for (const d of found) {

@@ -144,6 +144,8 @@ const DRAW = {
   lamppost: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.lamppost); }, // the dead lamppost (D-769)
   minersCamp: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCamp), // the miners' camp, the pick on its crate (D-770)
   minersCampBare: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCampBare), // and once the pick is taken
+  brazier: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazier); }, // a vault's cold brazier, as the campfire stands (D-892)
+  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); }, // a vault's sealed door: the wall, its slab in the face (D-892)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

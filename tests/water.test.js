@@ -12,7 +12,7 @@ import { markAt } from '../src/core/map.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const wet = (map) => map.flatMap((row, y) => [...row].flatMap((ch, x) => (ch === '~' ? [{ x, y }] : [])));
-const rooms = () => SEEDS.flatMap((seed) => [2, 3, 4].flatMap((depth) => layoutAt(seed, depth).cells.map(({ id }) => ({ seed, id, p: placeFor(id, seed) }))));
+const rooms = () => SEEDS.flatMap((seed) => [2, 3, 4].flatMap((depth) => caves(seed, depth).map(({ id }) => ({ seed, id, p: placeFor(id, seed) }))));
 
 // Every tile the hero could stand on joins up; a person trapped in rubble stands apart (D-490)
 function joined(room, people = []) {
@@ -51,7 +51,7 @@ test('a pool keeps off the edge, the stairs and what lies, stands or starts ther
 });
 
 test('pools are only in the grey rock, and a seed always makes the same one', () => {
-  for (const seed of SEEDS.slice(0, 10)) for (const depth of [5, 6, 8]) for (const { id } of layoutAt(seed, depth).cells) assert.equal(wet(placeFor(id, seed).map).length, 0);
+  for (const seed of SEEDS.slice(0, 10)) for (const depth of [5, 6, 8]) for (const { id } of caves(seed, depth)) assert.equal(wet(placeFor(id, seed).map).length, 0);
   assert.deepEqual(placeFor('depth3', 4127).map, placeFor('depth3', 4127).map);
 });
 
@@ -79,6 +79,7 @@ test('the map shows a pool as water, not wall, once it is seen (D-502)', () => {
 // a dry tile's middle stays dry, a wet tile's middle is water; a cave pool's is as it was
 import { inPool } from '../src/render/water.js';
 import { beginPlace } from '../src/core/room.js';
+import { caves } from './caves.js';
 test('an outside pond has a clean edge: no lone pixel, dry middles dry, wet middles wet (D-748)', () => {
   for (const seed of [1, 2, 5, 6]) {
     const { room } = beginPlace('woods', seed);

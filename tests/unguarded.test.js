@@ -8,9 +8,10 @@ import { layoutAt } from '../src/core/region.js';
 import { unguardedOf, UNGUARDED_ODDS } from '../src/core/unguarded.js';
 import { rng } from '../src/core/rng.js';
 import { POOL_ODDS } from '../src/core/cave.js';
+import { caves } from './caves.js';
 const dist = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 const rooms = function* (depths, seeds = 30) {
-  for (let seed = 1; seed <= seeds; seed++) for (const depth of depths) for (const c of layoutAt(seed, depth).cells) yield { seed, depth, c, p: placeFor(c.id, seed) };
+  for (let seed = 1; seed <= seeds; seed++) for (const depth of depths) for (const c of caves(seed, depth)) yield { seed, depth, c, p: placeFor(c.id, seed) };
 };
 
 test('about 1 flask in 4 rolls unguarded, the same each time for a seed', () => {

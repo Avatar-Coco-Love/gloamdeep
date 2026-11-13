@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.337 (2026-11-13)
+- The first vault: from depth 2, one dead-end room on each floor is a vault, built in the crypt's bricks. Two cold stone braziers stand before a sealed stone door with a flame rune, and a small vault waits behind it, empty for now.
+- Bump a brazier or the door to hear its words. Lighting the braziers and opening the door come in the next steps.
+- Decisions: D-892. D-889 moved to the archive, word for word.
+
 ## 0.3.336 (2026-11-13)
 - Nothing in the game changed. The first puzzle is settled: a vault room on each floor from depth 2, with 2 stone braziers and a sealed door. Bump a brazier with the lantern lit to light it, for 5 turns' oil; once both burn, the door opens for good.
 - Inside, one prize: a rare material or an ember, with more kinds later. Later vaults will hold other puzzles too.
@@ -32,8 +37,3 @@ Entry format:
 - Nothing in the game changed. The six puzzle rules are settled: puzzles never block the way down, show their state by light, are solved by thinking, reset when you leave, and pay in the game's own coin. The checker that proves a puzzle can be done comes when puzzles are first laid out by the seed.
 - The first four puzzles, in order: the braziers and a sealed side vault, the dark door, the Fist and a plate, then the gloam tide. Biome 1's boss and found ability are planned after the first two.
 - Decisions: D-890. D-887 moved to the archive, word for word.
-
-## 0.3.334 (2026-11-13)
-- A long look ahead, nothing in the game changed. Puzzles are planned first, and biome 1 gets finished first: its boss, its found ability, its first puzzles and the lantern's parts.
-- Every puzzle and pressure idea from the talk is kept, in seven families: light and dark, push and knockback, creatures as pieces, gates you come back to, lore clues, time and pressure, and bigger shapes. Each biome's own puzzle ideas too.
-- Decisions: D-889. Questions opened: Q-105. D-885 moved to the archive, word for word.

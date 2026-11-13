@@ -8,6 +8,7 @@ import { get } from '../src/core/registry.js';
 import { makeState, makeAt, step } from '../src/core/turn.js';
 import { benchMakes } from '../src/core/menu.js';
 import { shownLine } from '../src/core/lines.js';
+import { caves } from './caves.js';
 
 const SEEDS = Array.from({ length: 40 }, (_, i) => i + 1);
 const count = (map, ch) => map.join('').split(ch).length - 1;
@@ -35,7 +36,7 @@ test('Make takes its cost for a pick, a turn; too few or one carried is free', (
 
 test('every Cave room from depth 3 has one vein among its 3 boulders; depth 2 has none', () => {
   assert.equal(VEIN_DEPTH, 3);
-  for (const seed of SEEDS) for (const depth of [2, 3, 4]) for (const { id } of layoutAt(seed, depth).cells) {
+  for (const seed of SEEDS) for (const depth of [2, 3, 4]) for (const { id } of caves(seed, depth)) {
     const { map } = placeFor(id, seed);
     assert.equal(count(map, 'V'), depth >= 3 ? 1 : 0, `seed ${seed}, ${id}`);
     assert.equal(count(map, 'O') + count(map, 'V'), 3);

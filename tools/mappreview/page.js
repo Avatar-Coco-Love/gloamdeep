@@ -7,7 +7,7 @@ import { explorerWorld } from '../../src/core/explorer.js';
 import { drawPlan } from '../../src/render/map.js';
 import { layoutAt } from '../../src/core/region.js';
 import { fresh } from '../../src/core/stairs.js';
-import { areaAt, tileAt } from '../../src/core/room.js';
+import { areaAt, tileAt, vaultAt } from '../../src/core/room.js';
 import { get } from '../../src/core/registry.js';
 import { SEED_MAX } from '../../src/core/rng.js';
 import { ROOMS as HEARTH, HOME_ID, isMountain, kindOf } from '../../src/core/hearthwood.js';
@@ -24,6 +24,7 @@ const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked,
 // § finds and their dot colours; creatures are all one colour
 const FIND = { flask: '#f39a3b', herb: '#6fc06a', duskstar: '#c8b4f4', oilcap: '#e0c060', stone: '#9aa6b4', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691); a loose stone, grey (D-761)
 const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the locket is left once too
+const VAULT = { brazier: '#f39a3b', sealedDoor: '#a58ce0' }; // a vault's braziers and sealed door (D-892)
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
 // § shapes: a tint over each hall and large room (D-645), so they stand out
 const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
@@ -49,7 +50,7 @@ function contents({ id, room }, s) {
   const p = fresh(id, s), tiles = {};
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
     const t = tileAt(room, x, y).id;
-    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
+    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown', 'brazier', 'sealedDoor'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
   }
   return { enemies: p.enemies, items: p.items, people: p.people || [], tiles };
 }
@@ -77,7 +78,7 @@ function numbers({ rooms, info }) {
   parts.push(`${rooms.length} rooms`);
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`, ...(count((id) => id === 'duskstar') ? [`${count((id) => id === 'duskstar')} duskstars`] : []),
-    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`);
+    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`, ...(info && vaultAt(seed(), depth) ? ['a vault'] : []));
   return parts;
 }
 function biomeRooms(s) {
@@ -96,6 +97,7 @@ function draw() {
     if (show.shapes && cell && SHAPE_TINT[cell.w * cell.h]) { c.fillStyle = SHAPE_TINT[cell.w * cell.h]; c.fillRect(px, py, w, h); }
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
     if (show.finds) for (const it of r.items) { if (it.once || it.id === 'locket') ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
+    if (r.tiles.sealedDoor) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) { const t = tileAt(r.room, x, y).id; if (VAULT[t]) dot(c, r.x + x, r.y + y, VAULT[t], 0.8); } // the vault (D-892)
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);
     for (const p of r.people) dot(c, r.x + p.x, r.y + p.y, PERSON, 0.8);
     if (show.labels) {
@@ -128,7 +130,7 @@ function room() {
   const f = floorOf(seed(), depth), r = f.rooms.find((m) => m.id === chosen), panel = $('room');
   if (!r) { panel.innerHTML = '<p class="hint">Tap a room to see what it holds.</p>'; return; }
   const cell = f.layout?.cells.find((c) => c.id === r.id), step = f.info?.steps.get(r.id);
-  const role = !f.info ? '' : r.id === f.info.up ? 'the stairs up' : r.id === f.info.down ? 'the stairs down' : f.info.way.has(r.id) ? 'on the way' : cell?.doors.length === 1 ? 'a side room, a dead end' : 'a side room';
+  const role = !f.info ? '' : r.id === f.info.up ? 'the stairs up' : r.id === f.info.down ? 'the stairs down' : f.info.way.has(r.id) ? 'on the way' : f.layout && r.id === vaultAt(seed(), depth) ? 'a side room, a dead end, the vault' : cell?.doors.length === 1 ? 'a side room, a dead end' : 'a side room';
   const list = (things) => {
     const n = {};
     for (const t of things) n[name(t.id)] = (n[name(t.id)] || 0) + 1;

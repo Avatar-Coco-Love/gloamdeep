@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.334, The puzzle plan.** A long-term talk: puzzles
+  planned first, biome 1 finished first; every idea kept in
+  `PUZZLES*.md` and `RESEARCH-SYSTEMS.md`. D-889, Q-105. No game change.
 - **2026-11-13, 0.3.333, The Warden's Fist.** D-885's step 3: a beaten
   warden always leaves the Fist; held, it hits for 2 and knocks the
   creature a tile back, a wall or a creature there hurting it 1. D-888.
