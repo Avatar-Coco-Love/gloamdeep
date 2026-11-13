@@ -44,7 +44,7 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), herbs (0.3.213), the duskstar (0.3.214), more flowers (Q-092); then landmarks: the dead lamppost (0.3.220), the miners' camp (0.3.221); then night creatures: lampmoths (0.3.228), bats (0.3.229), the rare gloamling (0.3.230); then day creatures: the mole (0.3.231), the bunny (0.3.234), the rare herb mimic (0.3.241); the mountain rooms: the skulker crab (0.3.244), the rim lurker (0.3.245)
 
-**Next audit: 0.3.353** (D-518, D-868).
+**Next audit: 0.3.353** (D-518, D-868). It adds the 2 WORKFLOW lessons in 0.3.341's PR.
 
 Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
