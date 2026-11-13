@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.335 (2026-11-13)
+- Nothing in the game changed. The six puzzle rules are settled: puzzles never block the way down, show their state by light, are solved by thinking, reset when you leave, and pay in the game's own coin. The checker that proves a puzzle can be done comes when puzzles are first laid out by the seed.
+- The first four puzzles, in order: the braziers and a sealed side vault, the dark door, the Fist and a plate, then the gloam tide. Biome 1's boss and found ability are planned after the first two.
+- Decisions: D-890. D-887 moved to the archive, word for word.
+
 ## 0.3.334 (2026-11-13)
 - A long look ahead, nothing in the game changed. Puzzles are planned first, and biome 1 gets finished first: its boss, its found ability, its first puzzles and the lantern's parts.
 - Every puzzle and pressure idea from the talk is kept, in seven families: light and dark, push and knockback, creatures as pieces, gates you come back to, lore clues, time and pressure, and bigger shapes. Each biome's own puzzle ideas too.
@@ -33,9 +38,3 @@ Entry format:
 - Held, it hits for 2 and knocks the creature a tile straight back. Knocked into a wall, a tree or a rock, it loses 1 more: "The rat slams into the rock!" Into another creature, both lose 1.
 - Its hit sounds of stone, the warden's own knock, with its own line, Fist hit, in Settings. A journey that beat the warden already finds the Fist where the warden first stood.
 - Decisions: D-888. D-886 moved to the archive, word for word.
-
-## 0.3.332 (2026-11-13)
-- The warden's slam hurts more now. Knocked back into a wall, a tree, a rock or a thing set down with tiles still to go, you lose a heart more: "You slam into the tree!"
-- Knocked into a creature, you and it lose a heart each; one beaten so leaves no drop and no experience. Knocked into the peddler, only you are hurt.
-- Water, a dug-in creature or a pile of bones just stops the slide. Knocked toward an open doorway, you slide right out into the next room.
-- Decisions: D-887. D-884 moved to the archive, word for word.

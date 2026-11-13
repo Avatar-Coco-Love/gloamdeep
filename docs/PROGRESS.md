@@ -4,14 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.334 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.335 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Biome 1 is finished first (D-889): the owner picks the first puzzle to
-build from `PUZZLES.md` (Q-105; Claude's picks L1, L3, P1, then T1),
-or biome 1's boss and found ability; propose 2 or 3 with a
-recommendation.
+L1, the braziers and a sealed side vault (D-890), the first puzzle:
+propose its tiles, look, oil cost, where vaults go and the reward, 2 or
+3 options each with a recommendation (`PUZZLES.md`, Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -24,8 +23,7 @@ recommendation.
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), daylight in very big
   rooms (Q-097).
-- The first puzzles, the six puzzle rules, biome 1's boss and found
-  ability (Q-105).
+- Biome 1's boss and found ability (Q-105), once L1 and L3 are built.
 - Who the keeper is (Q-084), when the owner wants.
 - The herb mimic's and the bone rat's rare drops (Q-061), any time.
 - Campfires (Q-088): fires below ground maybe later.
@@ -51,6 +49,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-13, 0.3.335, The puzzle rules.** The six puzzle rules hold,
+  the solver later; the first four: L1, L3, P1, then T1; the boss after
+  the first two. D-890. No game change.
 - **2026-11-13, 0.3.334, The puzzle plan.** A long-term talk: puzzles
   planned first, biome 1 finished first; every idea kept in
   `PUZZLES*.md` and `RESEARCH-SYSTEMS.md`. D-889, Q-105. No game change.
@@ -59,8 +60,3 @@ list in `RESEARCH.md`.
   creature a tile back, a wall or a creature there hurting it 1. D-888.
   Playtest: https://claude.ai/artifact/3qA8TCMBkevCiTzuzR4nVJ
   Sounds: https://claude.ai/artifact/BZ9vxVZJDXqqVZ5bWnv6a6
-- **2026-11-13, 0.3.332, The slam's hurt.** D-885's step 2: slammed
-  into a wall with tiles to go, a heart more; into a creature, a heart
-  each; the peddler, the hero only; out through a doorway into the next
-  room. D-887.
-  Playtest: https://claude.ai/artifact/NS3hzRHncGJHnP8B7w1YtT
