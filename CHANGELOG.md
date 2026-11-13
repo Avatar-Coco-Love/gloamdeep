@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.328 (2026-11-13)
+- The boon card now says a boon lasts until you are back at the waystone, or you fall, as the opening card does.
+- The docs catch up with the game: the creatures' ways (the mole's burrowing, the scorpion's tail strike, the rat pack), Growth's second row, what each find makes, the deeper waystones, the ponds in every woods room, the Settings card, the marks' rims, the art's lights and the dev tool switches' names.
+- Decisions: D-883.
+
 ## 0.3.327 (2026-11-13)
 - Fixed (dev tools): on a PC, after clicking the wrench or a dev button, Space waits a turn again instead of pressing that button a second time.
 - Dev Spawn's Peddler now works: tap a free floor tile and he moves there from wherever he was, ready to trade as he is at home.
@@ -38,10 +43,3 @@ Entry format:
 - A few colours one shade apart now match, and torch handles use the same wood browns as the trees. You won't see a difference.
 - The art rules now say glows and light may be soft, and list every colour the code uses.
 - Decisions: D-881.
-
-## 0.3.325 (2026-11-13)
-- Fixed: in a very old save made while the freed Peddler was still waiting in his room, he no longer vanishes when the game updates. He is back at home by the waystone and greets you when you come near.
-- Fixed: if one profile can't be read, the other profiles are kept instead of all three being wiped. The one that can't be read shows as Empty, and its old data is kept aside, never written over.
-- A save that can't be read, or one made by a newer version of the game, is now kept aside before anything is saved over it.
-- Fixed: an error that repeats every moment no longer stops the game from drawing and saving.
-- Decisions: D-880. D-877 moved to the archive, word for word.

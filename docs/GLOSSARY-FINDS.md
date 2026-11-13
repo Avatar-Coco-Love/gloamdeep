@@ -20,7 +20,8 @@ neared 8 KB.
 - **Gloamberry bush:** a low round bush, one in each woods room; picked,
   it stands **bare** and fills again 300 turns later (D-530, D-531).
 - **Duskstar:** the first flower, five violet petals round a yellow
-  heart; 2 in each woods room, into the bag for crafts later; picked, it
+  heart; 2 in each woods room; at the mortar, 2 with 1 Wisp Glass make the
+  Glow Draught, 1 with 2 Lurker Claw the Shade Draught; picked, it
   comes back a day later on another grass tile of the room (D-763).
 - **Healing Potion:** a red bottle made from 3 heartcaps; Drink, in the
   bag, heals 4 hearts (D-309).
@@ -31,28 +32,28 @@ neared 8 KB.
   Draught (D-786, D-789, D-792, D-794, D-795, D-802, D-806).
 - **Glow Draught:** a gold bottle made at the mortar from 2 Duskstar and
   1 Wisp Glass; Drink, any time: the lantern reaches 1 tile farther for
-  60 turns, its gold bottle mark under the hearts with the turns left
-  (D-786, D-791).
+  60 turns, its gold bottle mark under the hearts, its time left on its
+  rim (D-786, D-791, D-847).
 - **Slowburn:** a bottle dark as lamp oil made at the mortar from 2 Tick
   Shell and 1 Oilcap; Drink, any time: the lantern burns slower for 60
-  turns, a full tank lasting 70, its amber bottle mark under the hearts
-  with the turns left (D-792).
+  turns, a full tank lasting 70, its amber bottle mark under the hearts,
+  its time on its rim (D-792).
 - **Mending Draught:** a moss green bottle made at the mortar from 2
   Mimic Leaf and 1 Healing Herb; Drink, any time: a heart every 15 turns for 60
-  turns, 4 in all, its green bottle mark under the hearts with the turns
-  left (D-794).
+  turns, 4 in all, its green bottle mark under the hearts, its time on
+  its rim (D-794).
 - **Ward Draught:** a pale green-white bottle made at the mortar from 2
   Centipede Leg and 1 Healing Herb; Drink, any time: ends poisoned, and for 60
-  turns no bite poisons, its pale bottle mark under the hearts with the
-  turns left (D-795).
+  turns no bite poisons, its pale bottle mark under the hearts, its
+  time on its rim (D-795).
 - **Spitproof Draught:** a dusty rose bottle made at the mortar from 2
   Grub Skin and 1 Healing Herb; Drink, any time: for 60 turns a spit grub's
   glob splashes off and hurts nothing, its rose bottle mark under the
-  hearts with the turns left (D-802).
+  hearts, its time on its rim (D-802).
 - **Shade Draught:** a dusky violet bottle made at the mortar from 2
   Lurker Claw and 1 Duskstar; Drink, any time: for 60 turns creatures
   notice the hero only within 2 steps, its violet bottle mark under the
-  hearts with the turns left (D-806).
+  hearts, its time on its rim (D-806).
 - **Antidote:** a tall thin green vial, made in the bag from 1 Snapcap Gill and 1 herb;
   Drink, in the bag, ends poisoned and heals nothing (D-655).
 - **Torch (set down):** made from 1 Moth Dust and 1 Wood, set down on a
@@ -100,7 +101,7 @@ neared 8 KB.
   Tool slot; fishing casts with it (D-608, D-609).
 - **Bone Hook:** made at the workbench from 3 Rat Bone and 1 Spider Silk,
   fitted to the rod for good; the strike meter's zone half again as wide (D-807).
-- **Pond Minnow:** the first fish, from the pond at home; poured for 15% oil, or eaten for 1 heart (D-608, D-610, D-611, D-615).
+- **Pond Minnow:** the first fish, from any woods room's pond (D-734); poured for 15% oil, eaten for 1 heart, sold for 1 coin (D-608, D-610, D-611, D-615, D-616).
 - **Blind Cavefish:** the cave pools' fish, pale and eyeless; poured for 20% oil, eaten for 1 heart, sold for 2 coins (D-618).
 - **Float:** the line's red-and-white bob on the water while it waits; a bite puts a "!" over it (D-610).
 - **Nibble:** the turn before a bite, the float shaking, "A nibble..." (D-613).

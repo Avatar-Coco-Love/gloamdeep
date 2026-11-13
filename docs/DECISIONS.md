@@ -148,33 +148,6 @@ D-863 and D-864 to `archive/DECISIONS-SURFACE.md`, the playbook's lines
 to a new `WORKFLOW-5.md`; all word for word. The next audit is at
 0.3.353.
 
-**D-879 · 2026-11-12 · Falls** (the owner's picks, all recommended; step
-15 of `HEALTH-CHECK-ORDER.md`, fixes H-16, H-17, H-56) A draught drunk,
-or a fire sat by, on a turn that ends in a fall is lost to it: the
-draught is used up and Warmed never starts, as a fall ends every
-draught and Warmed (offered too: started earlier in the turn, one turn
-longer, for the fall to clear). With something set down or lying on the
-journey's first tile, a fall wakes the hero on the nearest open tile
-beside it, as by a bed (D-737) (offered too: nothing can be set down on
-that tile; both). D-876 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
-
-**D-880 · 2026-11-13 · Saves kept safe** (the owner's picks, all
-recommended; step 16 of `HEALTH-CHECK-ORDER.md`, fixes H-57, H-21,
-H-14) A new upgrade step (journey format 33 → 34) sends home a freed
-Peddler an older upgrade lost: one in no room once his room is begun
-stands in the waystone's room, not yet having greeted the hero (offered
-too: greeted already; back in his room, waiting). A profile slot that
-can't be read is made empty and the others kept, and a save that can't
-be read, broken or made by a newer version (the profile list or a
-journey), is copied word for word under a key of its own before it can
-be saved over; nothing is shown (offered too: a line on the slot screen;
-a newer save's slot left alone). Each part of a frame (moving, sound,
-saving, play time, drawing) has its own safety net (offered too: and a
-note on screen while an error repeats). The two old saves that showed
-H-57 are kept as tests (`tests/saves/`). D-877 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-881 · 2026-11-13 · The art's loose ends** (the owner's picks, all
 recommended, from a picture; step 17 of `HEALTH-CHECK-ORDER.md`, H-51
 to H-54, H-60, H-61) The quick slot's picture and the round map are
@@ -202,3 +175,17 @@ Room's TIME row comes second, +10, +50 and Grow three across, so Grow
 shows on every screen (Grow last on the TIME row, picked first, still
 hid on phones). D-878 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-883 · 2026-11-13 · The docs** (the owner's picks, all recommended;
+step 19 of `HEALTH-CHECK-ORDER.md`, H-25 to H-30, H-62 to H-65) The
+docs catch up with the decisions and the code. Pages too full for new
+lines move a section word for word to a roomy one: the hero's Growth
+entries to `GLOSSARY-2.md`, the Growth upgrades to `CONTENT-4.md`
+(offered too: split the full pages). The boon card's foot and words
+say "back at the waystone, or you fall", as the opening card does
+(offered too: as they were). The loose ends found beside the steps are
+fixed too: the marks' rims, the stinger's sale, a repeated "Rules:", a
+stale code comment (offered too: only the listed ones). The README's
+status is short: stage 0.3, the world, its places above and below
+(offered too: every room and depth). D-879 and D-880 move to
+`archive/DECISIONS-SURFACE.md`, word for word.

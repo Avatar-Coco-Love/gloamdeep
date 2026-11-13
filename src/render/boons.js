@@ -3,13 +3,13 @@
 // that goes on without one. Each card has its kind's picture and colour (amber light and oil,
 // red hearts and fighting, bone finding things, violet getting around) in a tinted band at its
 // top, then its name and, under a rule, its line. The chosen card lifts and turns gold.
-// "Lasts until you are back at the waystone." under them (H-35, D-865). Mock-ups: https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA
+// "Lasts until you are back at the waystone, or you fall." under them (H-35, D-865, D-883). Mock-ups: https://claude.ai/artifact/9Ab8N8New9hya5ynghrjjA
 import { drawText, textWidth } from './font.js';
 import { cardAt, round, cross, wrapWords, CARD_VEIL } from './bag.js';
 import { BOONS } from '../core/registry.js';
 
 export const BOONS_TITLE = 'PICK A BOON';
-export const BOONS_FOOT = 'Lasts until you are back at the waystone.';
+export const BOONS_FOOT = 'Lasts until you are back at the waystone, or you fall.';
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc', DIM = '#5c566a';
 const RULE = 'rgba(239,230,204,.16)', FILL = 'rgba(14,12,22,.7)', LIT = 'rgba(40,32,22,.9)';
 // Each kind's colour and its 9 × 9 picture, drawn twice as big: a flame, a heart, a gem, footsteps

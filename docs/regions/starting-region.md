@@ -78,7 +78,8 @@ Decided when the second region is designed (Q-037).
 - Lit rooms: none promised yet.
 
 ## Creatures and finds
-A pond at home in the woods, 5 to 9 tiles (D-503). A gloamberry bush
+A pond of 5 to 9 tiles in most woods rooms, home too, about 1 thick-woods
+room in 20 having none, each holding the Pond Minnow (D-503, D-734, D-782). A gloamberry bush
 in each woods room (D-531). 3 grey boulders in each mountain room, and
 no pond or bush (D-738). One campfire a seed in one of the 8 rooms
 round home, blazing, embers or cold ashes (D-757). An oilcap beside a tree in each woods room, home too, none in the mountain rooms (D-760). 2 loose stones on the grass in each mountain room (D-761). A herb on the grass in each woods room, home too (D-762). 2 duskstars, the first flower, on the grass in each woods room, home too (D-763). One dead lamppost a seed, the first landmark, in one of the 8 rooms round home, never the campfire's (D-769). The miners' camp, the second, in one of the 3 mountain rooms, never the campfire's or the lamppost's, its old Stone Pick there to take (D-770). A lampmoth comes out each night in each woods room round home, never home, gone by day, the first night creature (D-778). A bat comes out the same way, the second (D-779). A rare gloamling, the third, in one woods room round home a night, picked by the seed (D-780). A mole comes out each day in each woods room round home, never home, gone by night, the first day creature (D-781). A bunny each day in each woods room round home and at home, the second (D-784). A rare herb mimic, the third, asleep as a herb in one woods room round home a day, picked by the seed (D-793). A skulker crab each day in each mountain room, looking like a loose stone, the first creature there (D-796). A rim lurker each night in each mountain room, waiting by the rock, the first night creature there (D-797). The rest is not decided yet. More landmarks and special items are ideas for later (see

@@ -43,8 +43,10 @@ along any clear line), **fleesHurt** (1 in 2, flees 4 turns once hurt),
 **shy** (hops just away from a near hero, never bites; D-784),
 **spits** (a glob down a clear row or column at the lit lantern, hitting what it meets; `spit.js`),
 **burrows** (notices as one that chases, then digs down and comes `under` the floor, up beside the hero, `dug`, then on foot),
+**pack** (once one of its pack notices the hero, all do, each heading for its own free side; with 2 or more of its pack left, a hurt one stands its ground; `pack.js`),
+**lurks** (waits where it stands until the hero is within 3 steps, lit or not, then comes as one that chases),
 **strikes** (comes as one that chases, never bites beside; in line within 2 tiles it is `raised` a turn, then strikes both tiles ahead, then `rests`; `sting.js`)
-(D-269, D-351, D-649, D-688, D-726, D-729). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
+(D-269, D-351, D-649, D-688, D-726, D-727, D-728, D-729, D-797). One that `drinks` takes that much oil instead of biting, lit or not (D-606). One that `poisons` leaves the hero poisoned: 6 turns, a heart every 3 (D-654), the last one too, now the Antidote is in (D-655). A creature that `looksLike` a find sleeps in its disguise
 until bumped, then wakes for its `awakeTurns` (D-368). A creature with `colours` wears one of that many colour sets, picked by the seed (D-373). Creatures walk over finds, which stay where they lie (D-727). Creatures stand still on their shadow; one that `flies` is held 2 pixels above it (D-563), and may fly over water, where walking into it strikes it (D-718). One that `glows` is drawn over the dark (D-649).
 Which creatures a generated room holds, and the pool by depth: in `CONTENT-4.md`, "Places" (moved word for word at 0.3.100; to `-4` at 0.3.299).
 Each says how it acts in words, its `acts`, on its Bestiary page once one is beaten (D-631), and how to fight it, its `fights`, once 3 are (D-632).

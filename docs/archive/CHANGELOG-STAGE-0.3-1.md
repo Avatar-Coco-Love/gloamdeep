@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.325 (2026-11-13)
+- Fixed: in a very old save made while the freed Peddler was still waiting in his room, he no longer vanishes when the game updates. He is back at home by the waystone and greets you when you come near.
+- Fixed: if one profile can't be read, the other profiles are kept instead of all three being wiped. The one that can't be read shows as Empty, and its old data is kept aside, never written over.
+- A save that can't be read, or one made by a newer version of the game, is now kept aside before anything is saved over it.
+- Fixed: an error that repeats every moment no longer stops the game from drawing and saving.
+- Decisions: D-880. D-877 moved to the archive, word for word.
+
 ## 0.3.324 (2026-11-12)
 - Fixed: a draught drunk on the turn you fall no longer keeps working after you wake. A fall ends every draught, and now that one too.
 - Fixed: sitting by a fire on the turn you fall no longer leaves you Warmed after you wake.

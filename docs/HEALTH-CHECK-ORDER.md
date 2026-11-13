@@ -49,4 +49,5 @@ step 6 (D-869).
 17. **The art,** the owner picks from a picture: H-51 to H-54, H-60,
     H-61. Done at 0.3.326 (D-881).
 18. **The dev tools:** H-38, H-48 to H-50. Done at 0.3.327 (D-882).
-19. **The docs:** H-25 to H-30, H-62 to H-65.
+19. **The docs:** H-25 to H-30, H-62 to H-65. Done at 0.3.328 (D-883).
+Every step is done.

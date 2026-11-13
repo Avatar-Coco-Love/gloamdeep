@@ -29,9 +29,10 @@ a small stone.
 | Floor, light, dark, pebble | `#3d3229` `#47392e` `#2e251e` `#544435` |
 | Stone, its lit top | `#544435` `#6a5848` |
 
-## Dungeon (depth 8 and down, D-228)
-The crypt's bricks and slabs as they are, drawn by `src/render/tiles.js`.
-Darker, colder bricks are the next step (59c).
+## Dungeon (depth 8 and down, D-228, D-229)
+Code: `src/render/tiles.js` (`COLD`). The crypt's bricks and slabs, every
+colour's red, green and blue times 0.72, 0.78 and 0.95: deeper and bluer.
+The stairs keep the crypt's colours; the crypt's top rooms don't change.
 
 ## Stairs in grey rock and earth (D-167)
 Code: `src/render/tiles.js` (drawSteps). The crypt's five steps and

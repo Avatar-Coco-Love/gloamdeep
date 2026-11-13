@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.325, Saves kept safe.** Health check step 16: an
+  old save's lost Peddler is sent home (H-57); one unreadable profile
+  slot no longer wipes all three, and a save that can't be read is set
+  aside, never saved over (H-21); each part of a frame has its own
+  safety net (H-14). D-880.
+  Playtest: https://claude.ai/artifact/VnS4WW2ay1wtCsG23Ftj5N
 - **2026-11-12, 0.3.324, Falls.** Health check step 15: a draught drunk
   or a fire sat by on the turn of a fall is lost to it (H-17, H-56); a
   fall with something on the journey's first tile wakes beside it
