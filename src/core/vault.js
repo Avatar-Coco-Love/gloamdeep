@@ -23,9 +23,21 @@ export function vaultRoomOf(cells, seed, depth, taken = []) {
   return ends[Math.floor(r() * ends.length)].id;
 }
 
+// § prize (L1 step 4, D-896): the one prize the seed draws for a vault (D-891), 1 vault in 4 an
+// ember, the rest 2 of a rare material, the seed picking one of the 7 alike: { id, n }
+export const EMBER_IN = 4;
+export const RARE = ['venomSac', 'mimicHeart', 'gloamEye', 'batFang', 'moleClaw', 'oilBladder', 'glowGland'];
+export const RARE_N = 2;
+export function prizeOf(seed) {
+  const r = rng((seed ^ 0x51c3a9e7) >>> 0);
+  return r() < 1 / EMBER_IN ? { id: 'ember', n: 1 } : { id: RARE[Math.floor(r() * RARE.length)], n: RARE_N };
+}
+// The plinth's tile for a prize: an ember's own, which glows, or the one a material lies on
+export const plinthFor = (prize) => get(prize.id === 'ember' ? 'plinthEmber' : 'plinth');
+
 // (cols, rows, door) → the vault's tiles, for its one opening `door` ({ dir, at }), as
 // { map, start, braziers, seal, prize }: `start` the tile just inside the opening, `seal` the
-// sealed door, `prize` the tile at the heart of the vault (empty until the prize's step)
+// sealed door, `prize` the tile at the heart of the vault, where its plinth stands (vaultRoom)
 export function vaultLayout(cols, rows, door) {
   const g = Array.from({ length: rows }, (_, y) => Array.from({ length: cols }, (_, x) => (x === 0 || y === 0 || x === cols - 1 || y === rows - 1 ? '#' : '.')));
   const along = door.dir === 'up' || door.dir === 'down';
@@ -52,10 +64,12 @@ export function vaultLayout(cols, rows, door) {
   return { map: turned.map((row) => row.join('')), start, braziers, seal, prize };
 }
 
-// (cell) → the vault room as a generated room is: its map, where the hero starts, and nothing in it
+// (cell) → the vault room as a generated room is: its map, where the hero starts, nothing in it
+// but the plinth at its heart, and the `prize` on it, drawn from the cell's seed (D-896)
 export function vaultRoom(cell) {
-  const { map, start } = vaultLayout(cell.cols, cell.rows, cell.doors[0]);
-  return { map, start, lights: [], items: [], enemies: [], people: [] };
+  const { map, start, prize: at } = vaultLayout(cell.cols, cell.rows, cell.doors[0]), prize = prizeOf(cell.seed);
+  const row = map[at.y], placed = map.map((r, y) => (y === at.y ? row.slice(0, at.x) + plinthFor(prize).letter + row.slice(at.x + 1) : r));
+  return { map: placed, start, lights: [], items: [], enemies: [], people: [], prize };
 }
 
 // § open and cold (D-895): (room) → the room with its sealed door sunk open once no brazier in it

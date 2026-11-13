@@ -55,7 +55,7 @@ step, when the owner wants.
 **Q-105 · Each first puzzle's details, and biome 1's capstone** (raised
 2026-11-13, D-889; the order settled by D-890) Open: each of L1, L3, P1
 and T1's tiles, names, numbers and rewards, at its own step (L1's by
-D-891, its build steps by D-892; a vault's other prizes, "maybe other things", and which puzzle
+D-891, its build steps by D-892, its prize by D-896; a vault's other prizes, "maybe other things", and which puzzle
 each vault holds once there are more); biome 1's
 boss and found ability (G3, W4), planned once L1 and L3 are built; the
 lantern part slots after. New ideas join the plan any time.

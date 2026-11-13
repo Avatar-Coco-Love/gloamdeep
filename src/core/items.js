@@ -310,4 +310,7 @@ export const ITEMS = {
   moleClawPick: { id: 'moleClawPick', kind: 'item', name: 'Mole Claw Pick', bag: true, max: 1, tool: true, as: 'pick', quick: { vein: 2, rubble: 2 },
     holds: 'moleClawPickHold', away: 'moleClawPickAway', look: 'moleClawPickLook', full: 'moleClawPickFull',
     bench: { of: { moleClaw: 1, wood: 2, stone: 2 }, says: 'moleClawPickMake', short: 'moleClawPickShort' } },
+  // § ember (D-896): 1 vault prize in 4, on the vault's plinth (vault.js); taken, it is 1 more ember
+  // to spend in Growth (growth.js), never in the bag. Lying on a floor (the dev spawn), a step takes it.
+  ember: { id: 'ember', kind: 'item', name: 'Ember', ember: true, says: 'emberTake', look: 'emberLook' },
 };

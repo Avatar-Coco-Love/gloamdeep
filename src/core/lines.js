@@ -371,6 +371,9 @@ export const LINES = {
   shadeLook: { texts: ['A dusky violet draught, still as night.', 'Drink it: creatures see you only near.', 'Made at the mortar.'], warn: false },
   shadeEnds: { text: 'The shade lifts from you.', warn: false }, // its turns run out (D-806)
   shadeHeld: { text: 'Shade Draught: {n} turns left.', warn: false }, // a tap on its mark (D-806)
+  emberTake: { text: 'An ember! Spend it in Growth.', warn: false }, // a vault's ember taken (D-896)
+  emberLook: { texts: ['An ember, still warm.', 'It glows in your palm.'], warn: false }, // (D-896)
+  plinthBare: { texts: ['A bare stone plinth.', 'Something rested here once.'], warn: false }, // the vault's plinth, its prize taken, a sentence a bump (D-896)
 };
 export const LINE_TURNS = 5; // turns a line stays before it fades (D-095)
 const OIL_LOW = 0.2; // "under 20%", as in the study

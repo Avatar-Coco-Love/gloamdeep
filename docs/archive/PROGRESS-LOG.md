@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.338, The lit brazier.** L1 step 2: a cold brazier
+  bumped with the lantern lit asks to light it, 5 turns' oil; lit, the
+  torch's flame in its bowl, 2 tiles' warm glow, a violet door notch
+  each. D-893. Playtest:
+  https://claude.ai/artifact/NbAFRz8AZT4Qa9NiVvbJW7 Mock-up:
+  https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73
 - **2026-11-13, 0.3.337, The first vault.** L1's 4 build steps settled,
   and step 1 built: a vault room a floor from depth 2, 2 cold braziers,
   a sealed door. D-892. Playtest:

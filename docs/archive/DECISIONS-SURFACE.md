@@ -1775,3 +1775,25 @@ cache behind the door; lore pages later). How the draw is weighted, the
 lines and the room's layout are the build step's. Mock-up:
 https://claude.ai/artifact/7Cy1QZoyguCTarQkPWkJQZ
 D-888 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-892 · 2026-11-13 · L1's build steps and the vault room** (the
+owner's picks, all recommended; builds D-891) L1 is built in 4 steps:
+the vault room, its braziers and its sealed door, standing still; then
+lighting a brazier, a rune notch glowing; then the door opening, staying
+open, an unsolved vault resetting; then the prize (offered too: 3 steps;
+5, the reset its own). The vault is turned to face its one opening: the
+vault above or below for an opening at the top or bottom, beside for one
+at the left or right, the gap wherever the opening is (offered too: top
+or bottom only). A floor with no one-cell dead end has no vault
+(offered too: one set inside a dead-end hall). Nothing else is in it: no
+creatures, finds or cache (offered too: creatures; everything as
+usual). From depth 8 the same two layouts, the outer room bigger with
+the cell (offered too: 11 x 13 in a ring of wall). Bumped, each says a
+line, Claude's drafts the owner may change: "A cold stone brazier.",
+"Old ash lies in its bowl."; "A sealed stone door.", "A flame rune is
+cut into it." (offered too: nothing). Their names: Brazier, Sealed door
+(offered too: Lightkeeper's brazier and door; Fire bowl, Rune door).
+Claude's calls: never the peddler's, the locket's or a waystone's room;
+the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
+built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

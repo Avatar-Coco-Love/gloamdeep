@@ -31,3 +31,4 @@ the Venom Sac's row since names the centipede too (D-654).
 | `moleClaw` | the Mole Claw Pick (D-810) | 20 | never | a beaten mole, about 1 in 10 (1 in 5 with the charm), its own coin | D-541 |
 | `oilBladder` | for crafts later | 20 | never | a beaten oil tick, about 1 in 10 (1 in 5 with the charm), its own coin | D-606 |
 | `glowGland` | with 1 Wood makes a Glow Lamp (D-808) | 20 | never | a beaten spit grub, about 1 in 10 (1 in 5 with the charm), its own coin | D-688 |
+| `ember` | 1 more ember to spend in Growth, never in the bag; "An ember! Spend it in Growth." | 1 | never | on a vault's plinth, 1 vault in 4 (`vault.js`); a step takes one lying on a floor (the dev spawn) | D-896 |
