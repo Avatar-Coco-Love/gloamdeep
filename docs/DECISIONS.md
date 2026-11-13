@@ -153,25 +153,6 @@ then the Fist. Claude's drafts the owner may change: the lines, the
 names, the look. Mock-ups: https://claude.ai/artifact/WZZyNqepzAbqzPYhvg2fxD
 D-868 moves to `archive/DECISIONS-AUDITS.md`, word for word.
 
-**D-886 · 2026-11-13 · The warden's slam built** (the owner's picks, all
-recommended; D-885's step 1 of 3) Beside the hero, the warden raises
-its fists for a turn instead of biting: a picture of its own, the
-fists over its head, trembling as a raised tail does, with the pink
-strike mark on the hero's tile (offered too: its own picture
-trembling; the new picture with no mark). Then it slams that tile,
-its bite of 1, and the hero slides 3 tiles straight back, 3 times as
-fast as a step (offered too: there at once, with a shake); the room's
-edge, a solid tile, a creature or a person stops the slide short, with
-no hurt more until step 2. Stepped out of its way, it hits the floor.
-Then it rests a turn, as the scorpion does (offered too: no rest).
-Fists up, it never settles back to sleep before it slams. Its lines,
-Claude's drafts: "The warden raises its fists!", "The warden slams you
-back!", "The warden's fists hit the floor." (offered too: "The
-warden's fists rise.", "The warden's blow throws you back.", "The
-warden slams the empty floor."). Its fists going up play its waking
-stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
 **D-887 · 2026-11-13 · The slam's hurt** (the owner's picks; D-885's
 step 2 of 3) Slid back with tiles still to go: a wall (any solid tile:
 rock, a tree, a boulder, a thing set down, an edge with no room beyond)
@@ -186,3 +167,23 @@ passes over); once the hero can swim, a slam slides them into water
 (the owner's own answer, Q-039). The line, Claude's draft: "You slam
 into the {n}!", naming what was hit (offered too: crash; two lines).
 D-884 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-888 · 2026-11-13 · The Warden's Fist** (the owner's picks, all
+recommended; D-885's step 3 of 3) Beaten, the warden always leaves the
+Warden's Fist where it fell, even when a sting, a glob or a slam beats
+it. Held, it hits for 2 and knocks the creature, still standing, 1 tile
+straight back: a wall (any solid tile, the room's edge, a doorway too,
+as creatures never leave their room) costs it 1 more; another creature
+there, both 1 (offered too: only walls hurt; a doorway just stops it);
+a person, water, one under the earth or a pile of bones only stop it.
+Its hit is the warden's own knock of stone, a Fist hit line in
+Settings (offered too: the lantern's knock; the knife's slice). A save
+that beat the warden already gets the Fist laid once where the warden
+first stood (offered too: into the bag; none). Lines: "You take the
+Warden's Fist.", "The Warden's Fist goes in your bag.", "You hold the
+Warden's Fist.", "You put the Warden's Fist away.", "The {n} slams into
+the {m}!" (offered too: its look when taken; a line for every knock).
+Claude's drafts the owner may change: its picture, the mock-up's; one
+beaten by a wall or a creature as the hero's blow, its drop and
+experience. D-886 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

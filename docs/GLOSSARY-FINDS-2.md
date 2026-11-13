@@ -43,3 +43,8 @@ as that page neared 8 KB.
   at depth 4 with a warden guarding it; set on the shelf for good, where
   a Normal fall brings home the bag's stack worth most to the peddler
   (D-689, D-691, D-692, D-693, D-694).
+- **Warden's Fist:** the warden's special find, a fist of old stone with
+  a gold band at the wrist and a violet stone; a beaten warden always
+  leaves it. Held, it hits for 2 and knocks the creature back a tile, a
+  wall or another creature hurting it; the first of the hammer kind
+  (D-636, D-885, D-888).

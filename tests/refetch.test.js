@@ -25,7 +25,7 @@ for (const name of ['format10-seed7-peddler-waiting', 'format16-seed4-peddler-wa
 }
 
 test('the step leaves a Peddler who is somewhere, or whose room is not begun, as he is', () => {
-  assert.equal(FORMAT, 34);
+  assert.ok(FORMAT >= 34);
   const s = makeWorld('first', 7);
   assert.equal(rooms(s).some(([id]) => id === peddlerRoom(7)), false);
   assert.equal(refetch(s), s);

@@ -8,6 +8,7 @@
 //
 // The packing itself is tools/pack.js, shared with the map preview (D-646).
 import { readFileSync, writeFileSync } from 'node:fs';
+import { writeSoundFiles } from './soundfiles.js';
 import { join } from 'node:path';
 import { ROOT, packScript } from './pack.js';
 
@@ -25,3 +26,4 @@ if (!page.includes(TAG)) throw new Error(`index.html has no ${TAG}`);
 const { code, modules } = packScript(ENTRY);
 writeFileSync(out, page.replace(TAG, () => code));
 console.log(`playtest: ${modules} modules → ${out}`);
+writeSoundFiles(out); // its sounds and music, to publish beside it (soundfiles.js)

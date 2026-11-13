@@ -2,13 +2,15 @@
 // owner can hear a new sound straight from the chat (D-256). It packs the game's
 // own src/render/sound.js, so what plays is what the game plays. Not part of the
 // game. No dependencies. Only the sounds that have their files are listed (D-773);
-// the page fetches them from sounds/packs/, so publish those files beside it.
+// the page fetches them from sounds/packs/, so publish those files beside it: the list is
+// written next to the page as <page>.files.json (soundfiles.js).
 //
 //   node tools/soundboard.js out.html
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { FILES } from '../src/render/sound.js';
+import { writeSoundFiles } from './soundfiles.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (f) => readFileSync(join(ROOT, f), 'utf8');
@@ -37,6 +39,7 @@ const SOUNDS = [
   { label: 'Two steps, then the campfire lit', play: 'later(0, () => sound.footstep()); later(250, () => sound.footstep()); later(500, () => sound.kindle())' },
   { label: 'Lantern hit', play: 'later(0, () => sound.hit(false))' },
   { label: 'Knife hit', play: 'later(0, () => sound.hit(true))' },
+  { label: "Warden's Fist hit (D-888)", play: "later(0, () => sound.hit('stone'))" },
   { label: 'A fight, 3 knife hits', play: 'for (let i = 0; i < 3; i++) later(i * 350, () => sound.hit(true))' },
   { label: 'A creature beaten', play: 'later(0, () => sound.beaten(false))' },
   { label: 'Lantern hit, the creature beaten', play: 'later(0, () => { sound.hit(false); sound.beaten(true); })' },
@@ -107,6 +110,7 @@ const SOUNDS = [
   { label: 'A lampmoth bites', play: 'later(0, () => sound.flutter(false))' },
   { label: 'A warden bites', play: 'later(0, () => sound.grind(false))' },
   { label: 'Knife hit, then the warden bites', play: 'later(0, () => { sound.hit(true); sound.grind(true); })' },
+  { label: "Warden's Fist hit, the creature beaten (D-888)", play: "later(0, () => { sound.hit('stone'); sound.beaten(true); })" },
   { label: 'Rats in a pack call out', play: 'later(0, () => sound.pack())' },
   { label: 'A mimic wakes', play: 'later(0, () => sound.jolt())' },
   { label: 'A scorpion raises its tail', play: 'later(0, () => sound.tail())' },
@@ -179,3 +183,4 @@ for (const [label, play] of SOUNDS) {
 </html>
 `);
 console.log(`soundboard: ${LISTED.length} sounds → ${out}`);
+writeSoundFiles(out); // the files to publish beside it (soundfiles.js)

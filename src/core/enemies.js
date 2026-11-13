@@ -86,7 +86,7 @@ export const ENEMIES = {
   // It `sleeps` as itself, a statue, drawn with its eyes dull, not in disguise: a bump wakes it,
   // with no harm, and it chases for `awakeTurns` turns, then stands still again, the flask
   // mimic's way (D-368). Tough, as the mole is. It guards the locket (relic.js); no drop yet.
-  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it, or take what it guards, and it wakes and chases you, then stands still again. Beside you, it raises its fists for a turn, then slams you three tiles back.", fights: "The bump that wakes it gives you a free turn, so strike at once. When its fists go up, step out of its way, then strike while it rests. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['slams'], raises: 'wardenRaises', misses: 'wardenMisses', sleeps: true, awakeTurns: 6, fightAt: 1, hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' , sound: 'grind' },
+  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it, or take what it guards, and it wakes and chases you, then stands still again. Beside you, it raises its fists for a turn, then slams you three tiles back.", fights: "The bump that wakes it gives you a free turn, so strike at once. When its fists go up, step out of its way, then strike while it rests. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['slams'], raises: 'wardenRaises', misses: 'wardenMisses', sleeps: true, awakeTurns: 6, fightAt: 1, sure: 'wardenFist', hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' , sound: 'grind' },
   // A bunny, side on and facing right (D-784), soft brown with a pale tail: the first creature that
   // means no harm. It never bites (its way's `bites: false`); `shy`, it hops away once the hero is
   // within 3 steps. Out by day in the home room and each woods room round home (nightfall.js), never
@@ -108,6 +108,15 @@ export const ENEMIES = {
 // each on a coin of its own (D-453, D-476)
 export const DROP_CHANCE = 0.5;
 export const RARE_CHANCE = 0.1;
+
+// § sure: a creature with a `sure` find always leaves it where it falls, however it is beaten, even
+// with no drop and no experience by a sting, a glob or a slam (the warden's Fist, D-885, D-888).
+// (state, foe, damage) → the state with foe hit, as hitEnemy, and its sure find lying when beaten.
+export function hitFoe(state, foe, damage) {
+  const entry = ENEMIES[foe.id], enemies = hitEnemy(state.enemies, foe, entry, damage);
+  const beaten = enemies.length < state.enemies.length && entry?.sure;
+  return { ...state, enemies, ...(beaten && { items: [...state.items, { id: entry.sure, x: foe.x, y: foe.y }] }) };
+}
 
 // § lookups: the enemy on tile x, y, or undefined
 export const enemyAt = (state, x, y) => state.enemies.find((e) => e.x === x && e.y === y);

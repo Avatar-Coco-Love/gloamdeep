@@ -22,7 +22,7 @@ export function createHearing(app, sound, spoken) {
   function hear(events) {
     const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
     const swung = !!hit || has(events, 'miss'); // a bite comes a moment after the hero's swing, hit or missed
-    if (hit) sound.hit(!!hit.held);
+    if (hit) sound.hit(hit.held ? get(hit.held)?.hits || true : false); // a weapon's own hit sound, the Fist's stone (D-888), else the knife's
     if (has(events, 'miss')) sound.miss(); // stiff, the swing went wide (D-759)
     if (has(events, 'beat') && !has(events, 'scatter')) sound.beaten(!!hit);
     if (drink) sound[drink](swung); // the oil tick's sip (D-606)

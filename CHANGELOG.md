@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.333 (2026-11-13)
+- New: the Warden's Fist, a fist of old stone with a gold band and a violet stone. A beaten warden always leaves it where it fell.
+- Held, it hits for 2 and knocks the creature a tile straight back. Knocked into a wall, a tree or a rock, it loses 1 more: "The rat slams into the rock!" Into another creature, both lose 1.
+- Its hit sounds of stone, the warden's own knock, with its own line, Fist hit, in Settings. A journey that beat the warden already finds the Fist where the warden first stood.
+- Decisions: D-888. D-886 moved to the archive, word for word.
+
 ## 0.3.332 (2026-11-13)
 - The warden's slam hurts more now. Knocked back into a wall, a tree, a rock or a thing set down with tiles still to go, you lose a heart more: "You slam into the tree!"
 - Knocked into a creature, you and it lose a heart each; one beaten so leaves no drop and no experience. Knocked into the peddler, only you are hurt.
@@ -34,7 +40,3 @@ Entry format:
 - For now a wall, a tree or a creature behind you just stops the slide short. The hurt they do is the next step.
 - Its fists going up play its heavy stone sound. Its lines: "The warden raises its fists!", "The warden slams you back!", "The warden's fists hit the floor."
 - Decisions: D-886. D-883 moved to the archive, word for word.
-
-## 0.3.330 (2026-11-13)
-- Design: the warden gets a wind-up slam that knocks you 3 tiles back, a wall or a creature in the way hurts, and beaten it drops the Warden's Fist, a stone fist that knocks creatures back. Mock-ups only; built in three steps next. Nothing in the game changed yet.
-- Decisions: D-885. Questions closed: Q-104. D-868 moved to the archive, word for word.

@@ -511,6 +511,13 @@ const WARDEN_RAISED = { mirror: false, rows: [
   'kkkk........kkkk', 'kHHk........kLMk', 'kHLk.kkkkkk.kMDk', 'kkkkkHHkHHLkkkkk', '.kHkkHPPPPLkkMk.', '.kHkkgHHHLLkkDk.',
   '.kHkkkkkkkkkkDk.', '.kggHHHHkHHLLMk.', '...koookooook...', '...kHHHkHHLLk...', '...kHHHHkLLLk...', '...kHHHHLLLMk...',
   '...kHHHLLLMMk...', '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
+// § warden's fist (D-885, D-888): its find, as the mock-up drew it: a fist of old stone, the
+// warden's own greys, a gold band at the wrist and a violet stone set in it; the band in the
+// locket's golds, its own colours
+const WARDEN_FIST = { mirror: false, rows: [
+  '', '', '', '.....kkkkkk.....', '....kHHkHHkk....', '...kHHHkHHLLk...', '...kHHHkHLLLk...', '..kkkkkkkkLMk...',
+  '..kHHHHHHLLMk...', '..kHHHHLLLMDk...', '...kLLLLMMDk....', '...kTTPPAOOk....', '...kTAAAAOOk....', '...kkkkkkkkk....', '', ''] };
+const WARDEN_FIST_COLOURS = { T: '#ffe08a', A: '#e9a94a', O: '#9a5424' };
 
 // § campfire (D-757): a ring of grey stones round crossed logs, seen a little from above; its
 // flames are drawn after the light (campfire.js in render). Embers: the logs charred, coals
@@ -605,6 +612,8 @@ export {
   LOCKET_GLINT,
   WARDEN,
   WARDEN_RAISED,
+  WARDEN_FIST,
+  WARDEN_FIST_COLOURS,
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,

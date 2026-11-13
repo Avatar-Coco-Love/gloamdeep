@@ -24,6 +24,10 @@ export const ITEMS = {
   // The second weapon (D-479): it hits a creature for `hit` and the one awake
   // behind it, in a line, for `through`. It lies only in depth 3's first room.
   spear: { id: 'spear', kind: 'item', name: 'Spear', hit: 2, through: 1, hold: true, says: 'spearTake', bagged: 'spearBag', holds: 'spearHold', away: 'spearAway' },
+  // The warden's special find (D-885, D-888): a beaten warden always leaves it (`sure`, enemies.js).
+  // Held, it hits for `hit` and `knocks` the creature hit 1 tile straight back (fist.js), the first
+  // of D-636's hammer kind; its hit `hits` of stone, the warden's own knock (D-888).
+  wardenFist: { id: 'wardenFist', kind: 'item', name: "Warden's Fist", hit: 2, knocks: 1, hits: 'stone', hold: true, says: 'fistTake', bagged: 'fistBag', holds: 'fistHold', away: 'fistAway' },
   // Walking onto a herb hurt eats it on the spot (`eatHurt`); at full health it goes
   // into the bag, 5 a stack, and Eat there heals the same (D-511, supersedes D-156). One grows
   // in each woods room outside too, the same herb (woodsherb.js, D-762).
