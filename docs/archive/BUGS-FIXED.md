@@ -3,6 +3,13 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.356 (D-913):
+
+- **F-3 · Kind Herbs' words.** "Herbs, potions and fish heal 1 heart
+  more" (`boons.js:25`), but heartcaps and gloamberries do too
+  (`boon.js:38`). Fixes: the words cover all food; or the rule keeps to
+  herbs, potions and fish.
+
 Fixed in 0.3.355 (D-912):
 
 - **F-2 · The oil's "After" shows too much.** A pour that passes a turn

@@ -21,10 +21,6 @@ The owner picked all five as steps, in this order, each fix still the
 owner's pick at its step. The fixes offered are the hunt's, the first
 one recommended.
 
-- **F-3 · Kind Herbs' words.** "Herbs, potions and fish heal 1 heart
-  more" (`boons.js:25`), but heartcaps and gloamberries do too
-  (`boon.js:38`). Fixes: the words cover all food; or the rule keeps to
-  herbs, potions and fish.
 - **F-4 · Copies of an unreadable save pile up.** Each load of a broken
   or newer save copies it aside again (`aside.js:7`, `save.js:132`),
   which could fill storage. Fixes: skip the copy when the newest one is

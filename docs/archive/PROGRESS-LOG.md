@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.353, The sixteenth audit.** Nothing visible
+  changed. The finds' pictures to `pictures-finds.js`, 0.3.251 to 0.3.300
+  of the history to `history-0.3-5.js`, D-897 and D-903 archived, the
+  playbook's lessons to `WORKFLOW-6.md`, all word for word. The owner's
+  picks. D-910.
 - **2026-11-14, 0.3.352, A draught's turns, now and after.** D-902's third
   picture: in the bag, a draught's HUD mark twice as big, "Now" over
   "After", its rim the time left (look A). The owner's picks. D-909.

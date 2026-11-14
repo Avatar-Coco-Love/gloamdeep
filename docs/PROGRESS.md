@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.355 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.356 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-3, Kind Herbs' words, next; then F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-4 with F-5 next (`DECISIONS.md` is full: archive one first). Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -46,6 +46,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.356, Kind Herbs' words.** F-3 fixed: the card reads
+  "All you eat, and potions, heal 1 heart more.", as D-599 is. D-913.
+  Playtest: https://claude.ai/artifact/Uht6NxAXtu6EHb4XedWdHH
 - **2026-11-14, 0.3.355, The oil's After.** F-2 fixed: the bag card's
   "After" oil takes off the pour's turn of burn first, Quick Pour's flask
   aside; a test checks it against the real pour. D-912.
@@ -54,8 +57,3 @@ list in `RESEARCH.md`.
   a station or bedroll is struck by walking into it, no card. The
   ranged idea kept with the bow (Q-094). D-898 archived. D-911.
   Playtest: https://claude.ai/artifact/8fmVhKoxciN8deNNVjxVH2
-- **2026-11-14, 0.3.353, The sixteenth audit.** Nothing visible
-  changed. The finds' pictures to `pictures-finds.js`, 0.3.251 to 0.3.300
-  of the history to `history-0.3-5.js`, D-897 and D-903 archived, the
-  playbook's lessons to `WORKFLOW-6.md`, all word for word. The owner's
-  picks. D-910.

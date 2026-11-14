@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.356', date: '2026-11-14', title: 'Kind Herbs\' words', lines: [
+    "Fixed: Kind Herbs' card now says \"All you eat, and potions, heal 1 heart more.\" Heartcaps and gloamberries always had the extra heart; the old words left them out.",
+    "Decisions: D-913.",
+  ] },
   { v: '0.3.355', date: '2026-11-14', title: 'The oil\'s After', lines: [
     "Fixed: on the bag card, a flask's or minnow's \"After\" oil now counts the turn the pour takes, so it shows what the pour really gives.",
     "Decisions: D-912.",
