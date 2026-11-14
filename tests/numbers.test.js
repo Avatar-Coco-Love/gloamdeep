@@ -49,3 +49,16 @@ test("the peddler's card shows the rows, but for Sells for, his own line saying 
   assert.deepEqual(of('pondMinnow'), ['Heals 1 heart', 'Fills the lantern 15%']);
   assert.ok(Object.values(ITEMS).every((e) => tradeNumbers(e.id).every((r) => r.icon !== 'coin')));
 });
+
+test('the stash chest card draws the rows under the name, ending left of STORE beside it (D-906)', async () => {
+  const { chestNumbers } = await import('../src/render/chestpanel.js');
+  const rule = (y, st, foot) => {
+    const rects = [], c = { fillStyle: '', fillRect: (x, ry, w) => rects.push({ ry, w, s: c.fillStyle }), drawImage: () => {} };
+    const next = chestNumbers(c, 'spear', 0, y, 200, st, foot);
+    return { next, w: rects.filter((r) => r.s === 'rgba(239,230,204,.16)').map((r) => r.w) };
+  };
+  assert.deepEqual(rule(0, { x: 160, y: 300 }, 400).w, [200]);
+  assert.deepEqual(rule(0, { x: 160, y: 20 }, 400).w, [154]);
+  assert.deepEqual(rule(0, { x: 160, y: 20 }, 10), { next: 0, w: [] });
+  assert.equal(chestNumbers({}, 'wood', 0, 7, 200, { x: 160, y: 300 }, 400), 7);
+});

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.346, The vault's decisions archived.** Before the
+  numbers' next step, D-895 and D-896, the vault, built, moved word for
+  word to `archive/DECISIONS-SURFACE.md`; `DECISIONS.md` 11.7 KB to 9.7 KB.
+  The owner's picks. D-903. No game change, so no playtest.
 - **2026-11-14, 0.3.345, Numbers in the bag.** The owner's find: the bag
   never said what a thing does. Mock-ups of three looks; the owner chose
   rows and pictures. First step: the rows. D-902. Playtest: https://claude.ai/artifact/W9x2981GemeZehVjXX38NX

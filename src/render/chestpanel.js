@@ -1,7 +1,8 @@
 // § chest card (CH3, D-330; a card, D-387): bumping a set-down stash chest opens a glass
 // card on the room as the bag's (D-385), "STASH CHEST" at its top. On the left, its 12
 // slots in a 4 × 3 grid; on the right, "BAG" and the bag's 6 in its 3 × 2 grid, the chosen
-// stack's name and count under them, and that a tap moves it (CH4, D-331). The chosen slot,
+// stack's name and count under them, the rows of what it does (D-902, D-906: as the bag
+// card's, ending left of STORE when level with it), and that a tap moves it (CH4, D-331). The chosen slot,
 // the chest's or the bag's, is framed in gold. DECONSTRUCT is in the bottom left corner,
 // the menus' flame beside it when chosen (CH5); STORE in the bottom right (D-556); the
 // round cross closes the card.
@@ -13,6 +14,8 @@ import { BAG_SLOTS } from '../core/bag.js';
 import { bagShape } from './bag.js';
 import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, CHEST_STORE } from '../core/chest.js';
 import { get } from '../core/registry.js';
+import { itemNumbers } from '../core/numbers.js';
+import { drawNumbers, numbersH } from './numbers.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
 export const STORE = 'STORE', STORE_W = textWidth(STORE) + 8;
@@ -65,6 +68,7 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
   // where it would pass the card's foot (D-743)
   const foot = y + card.h - 6, widthAt = (ty) => (ty + LINE_H > st.y ? st.x - 6 - dx : dw);
   for (const [text, colour] of lines) {
+    if (colour === GREY) ly = chestNumbers(c, s.id, dx, ly, dw, st, foot);
     if (colour === GREY && ly + 7 > foot) break;
     let line = '';
     for (const word of text.split(' ')) {
@@ -74,4 +78,15 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
     }
     if (line) { drawText(c, line, dx, ly, colour); ly += LINE_H; }
   }
+}
+
+// The chosen thing's rows under its name (D-906): the bag card's, `w` wide, or ending left of
+// STORE (`st`) when they would reach its top; left out if they would pass the card's foot.
+// Gives the next line's y
+export function chestNumbers(c, id, x, y, w, st, foot) {
+  const rows = itemNumbers(get(id));
+  if (!rows.length) return y;
+  const rw = y + 2 + numbersH(rows, w) > st.y - 3 ? st.x - 6 - x : w;
+  if (y + 2 + numbersH(rows, rw) > foot) return y;
+  return y + 2 + drawNumbers(c, rows, x, y + 2, rw) + 5;
 }

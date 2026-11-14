@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.349 (2026-11-14)
+- At a stash chest, the chosen thing, in the chest or the bag, now shows what it does in rows under its name, as in the bag: a draught what it does and for how long, a weapon how hard it hits. "Tap to move" sits below them, left out when there's no room.
+- Held sideways, the rows end left of STORE when they reach it, so they never run under the button.
+- Written down for later: the round map fading in the dark, and its rim showing danger.
+- Decisions: D-906.
+
 ## 0.3.348 (2026-11-14)
 - At the peddler's, the chosen thing now shows what it does, in rows under how many you carry, on both Sell and Buy: an Oil flask how much of the lantern it fills, a torch how long it burns. What it sells for isn't a row there, as the peddler says it himself.
 - Decisions: D-905.
@@ -31,7 +37,3 @@ Entry format:
 - On the bag's Make tab, the workbench and the mortar, the chosen recipe now shows what the made thing does, in rows under its costs: an Oil flask how much of the lantern it fills, a draught what it does and for how many turns, a vest or charm what it changes, a pouch how big the bag grows.
 - On a short phone held sideways, the description is left out when it would run into MAKE, so the numbers always show.
 - Decisions: D-904.
-
-## 0.3.346 (2026-11-14)
-- Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the vault door opening and the vault's prize, both built.
-- Decisions: D-903. D-895 and D-896 moved to the archive, word for word.

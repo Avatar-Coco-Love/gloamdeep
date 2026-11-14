@@ -186,3 +186,12 @@ price line (offered too: under the price line; on Buy only). The
 "Sells for" row is left out on his card, as his own line says it
 (offered too: kept; his "He pays" line dropped instead). Claude's call:
 no Look line on his card, as before.
+
+**D-906 · 2026-11-14 · Numbers on the stash chest** (the owner's picks,
+both recommended, from a mock-up of the card upright and sideways)
+D-902's fourth step: the stash chest card shows the chosen thing's rows,
+in the chest or the bag, under its name, then "Tap to move", left out
+where it would pass the card's foot (look A; offered too: B, under the
+hint; C, the rows in the hint's place). Held sideways, rows that would
+reach STORE end left of it, as the hint does (offered too: left out
+there). Claude's call: every row, "Sells for" too, as on the bag card.
