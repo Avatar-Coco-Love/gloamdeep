@@ -168,34 +168,6 @@ vault door opening and its prize, both built, move to
 `archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
 (offered too: folded into the numbers' step). No game change.
 
-**D-904 · 2026-11-14 · Numbers on the Make tab and workbench** (the
-owner's picks, both recommended, from a mock-up of the cards held
-sideways) D-902's second step: the Make tab's and the workbench's card
-show the rows of what the chosen recipe makes, under its costs, above
-its Look line (look A; offered too: B, right under the name, the costs
-below; C, the rows in the Look line's place). The mortar's card too, the
-same card, in this step (offered too: its own step later). Claude's
-calls: on a short screen held sideways the Look line is left out when it
-would reach MAKE, as on the bag card; one drawing for all three cards
-(`drawMakeWords` in `render/benchpanel.js`).
-
-**D-905 · 2026-11-14 · Numbers on the peddler's trade** (the owner's
-picks, both recommended) D-902's third step: the peddler's card shows
-the chosen thing's rows under "carried", the rule under them, then his
-price line (offered too: under the price line; on Buy only). The
-"Sells for" row is left out on his card, as his own line says it
-(offered too: kept; his "He pays" line dropped instead). Claude's call:
-no Look line on his card, as before.
-
-**D-906 · 2026-11-14 · Numbers on the stash chest** (the owner's picks,
-both recommended, from a mock-up of the card upright and sideways)
-D-902's fourth step: the stash chest card shows the chosen thing's rows,
-in the chest or the bag, under its name, then "Tap to move", left out
-where it would pass the card's foot (look A; offered too: B, under the
-hint; C, the rows in the hint's place). Held sideways, rows that would
-reach STORE end left of it, as the hint does (offered too: left out
-there). Claude's call: every row, "Sells for" too, as on the bag card.
-
 **D-907 · 2026-11-14 · A weapon's hits on the grid** (the owner's picks,
 all recommended) D-902's pictures start: on the bag card and the gear
 row, under a weapon's rows, "This one" and "Held now", the hero and a rat
@@ -203,3 +175,15 @@ on each tile hit, its hit in red (look C). The weapon in hand: only "Held
 now" (offered too: both; none). No weapon: the lantern's 1 (offered too:
 left out). The weapon's own hits, no boon's (offered too: with it). The
 other cards later. Claude's: one just like the held one counts as it.
+
+**D-908 · 2026-11-14 · Hearts or oil, now and after** (the owner's
+picks, all recommended, from a mock-up) D-902's second picture: on the
+bag card, under the rows of a find that heals or fills the lantern,
+"Now" over "After", the HUD's own hearts and oil bar, twice as big; what
+it adds is pale (look A; offered too: B, now → after on one row; C,
+"After" only; the HUD's size). What would pass the top is drawn faint
+past the end (offered too: not shown; a word under). A boon counts, as
+it really heals or pours (offered too: the item's own). Claude's calls:
+a minnow's hearts and oil side by side, one under the other where they
+don't fit, and left out where they'd reach the buttons, as the hits are;
+at full health all of it shows faint; the bag card only for now.

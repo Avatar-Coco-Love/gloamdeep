@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.348, Numbers on the peddler's trade.** D-902's third
+  step: the peddler's card shows the rows under "carried", his price
+  line below; no "Sells for" row there. The owner's picks. D-905. Playtest: https://claude.ai/artifact/5Tw5ndQC88s55NPKrtYUGa
 - **2026-11-14, 0.3.347, Numbers on the Make tab.** D-902's second
   step: the Make tab, the workbench and the mortar show what a recipe
   makes, what it does, in rows under its costs. A mock-up of three places; the

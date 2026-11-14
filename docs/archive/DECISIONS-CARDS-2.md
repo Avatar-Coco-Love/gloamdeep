@@ -4,7 +4,9 @@ Moved unchanged from `docs/DECISIONS.md` at 0.2.152 (D-401), when it
 neared 12 KB: Version history, the seed pad, the map, the way to play, the
 profiles, the name pad, the looks and the asks as cards, all built. These
 are still in force unless marked superseded. D-743, words that fit on
-every card, built, followed at 0.3.232, the thirteenth audit (D-782). Grep for an ID or topic;
+every card, built, followed at 0.3.232, the thirteenth audit (D-782). D-904 to D-906, the
+numbers on the Make tab, the peddler's and the stash chest's cards, built,
+followed at 0.3.351 (D-908). Grep for an ID or topic;
 never read this whole.
 
 ---
@@ -107,3 +109,31 @@ Claude's calls the owner may change: in the stash chest, a long name
 level with STORE wraps short of it, and the grey hint is left out where
 it would pass the card's foot; Up and Down on the Bestiary's table
 still pick a row, kept in view.
+
+**D-904 · 2026-11-14 · Numbers on the Make tab and workbench** (the
+owner's picks, both recommended, from a mock-up of the cards held
+sideways) D-902's second step: the Make tab's and the workbench's card
+show the rows of what the chosen recipe makes, under its costs, above
+its Look line (look A; offered too: B, right under the name, the costs
+below; C, the rows in the Look line's place). The mortar's card too, the
+same card, in this step (offered too: its own step later). Claude's
+calls: on a short screen held sideways the Look line is left out when it
+would reach MAKE, as on the bag card; one drawing for all three cards
+(`drawMakeWords` in `render/benchpanel.js`).
+
+**D-905 · 2026-11-14 · Numbers on the peddler's trade** (the owner's
+picks, both recommended) D-902's third step: the peddler's card shows
+the chosen thing's rows under "carried", the rule under them, then his
+price line (offered too: under the price line; on Buy only). The
+"Sells for" row is left out on his card, as his own line says it
+(offered too: kept; his "He pays" line dropped instead). Claude's call:
+no Look line on his card, as before.
+
+**D-906 · 2026-11-14 · Numbers on the stash chest** (the owner's picks,
+both recommended, from a mock-up of the card upright and sideways)
+D-902's fourth step: the stash chest card shows the chosen thing's rows,
+in the chest or the bag, under its name, then "Tap to move", left out
+where it would pass the card's foot (look A; offered too: B, under the
+hint; C, the rows in the hint's place). Held sideways, rows that would
+reach STORE end left of it, as the hint does (offered too: left out
+there). Claude's call: every row, "Sells for" too, as on the bag card.

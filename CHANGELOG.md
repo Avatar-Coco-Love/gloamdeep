@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.351 (2026-11-14)
+- In the bag, a find that heals or fills the lantern now shows your hearts or oil "Now" and "After" under its rows, twice the size of the ones at the top of the screen. What it adds is pale.
+- What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.
+- A boon counts: with Kind Herbs, "After" shows the extra heart. A minnow or cavefish shows hearts and oil side by side, one under the other where the card is narrow, and is left out where it would reach the buttons.
+- Decisions: D-908.
+
 ## 0.3.350 (2026-11-14)
 - In the bag, a weapon now shows its hits on the grid under its rows: the hero, a rat on each tile it hits and what it takes in red, "This one" above and "Held now", the weapon in your hand, below. The spear hits two rats in a line; the Warden's Fist knocks its rat a tile back.
 - With no weapon in hand, "Held now" shows the lantern's hit of 1. Tapping the weapon in the gear row shows only its "Held now" row.
@@ -34,7 +40,3 @@ Entry format:
 - Held sideways, the rows end left of STORE when they reach it, so they never run under the button.
 - Written down for later: the round map fading in the dark, and its rim showing danger.
 - Decisions: D-906.
-
-## 0.3.348 (2026-11-14)
-- At the peddler's, the chosen thing now shows what it does, in rows under how many you carry, on both Sell and Buy: an Oil flask how much of the lantern it fills, a torch how long it burns. What it sells for isn't a row there, as the peddler says it himself.
-- Decisions: D-905.

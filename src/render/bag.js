@@ -26,6 +26,7 @@ import { makesWords } from '../core/bagmake.js';
 import { itemNumbers, weaponHits } from '../core/numbers.js';
 import { drawNumbers, numbersH } from './numbers.js';
 import { drawHits, hitsH, hitsW } from './hits.js';
+import { drawRefill, refillH, refillW } from './refill.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -248,8 +249,9 @@ export function drawCard(c, vw, vh, title, split = SPLIT_X, crossed = true, spli
 // `poisoned`, an antidote's Drink is dim when the hero isn't poisoned (D-655); told: the state's told
 // lines (D-297); size: the bag's slots (D-548); store: whether its STORE shows, with t and
 // still for its marker when chosen (D-558); SORT always shows (D-559); makes: what the chosen
-// find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787)
-export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false) {
+// find's MAKE makes, for the line above it, "Makes an Oil flask", or null (D-787); refill: the
+// chosen find's hearts or oil now and after, refills' (core/numbers.js, D-908)
+export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = false, told = {}, size = BAG_SLOTS, store = false, t = 0, still = true, poisoned = false, makes = null, sleepy = false, refill = []) {
   const shape = bagShape(size);
   const card = { ...drawCard(c, vw, vh, '', shape.split, true, shape.tallSplit, GRID_Y - 4), drop: cardAt(vw, vh, shape.detail).drop }, { x, y, w } = card;
   drawBagTabs(c, card, 'bag'); // BAG and MAKE in the title row (D-787)
@@ -271,7 +273,7 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const drop = entry.rest ? card.restDrop : card.drop; // a row up when SLEEP crowds it (D-804)
-  drawWords(c, entry, dx, dy, dw, told, Math.min(drop.y, card.button.y) - (makes ? LINE_H + 2 : 0) - 2, gear[0] ?? null, spriteOf); // above the buttons and the makes line
+  drawWords(c, entry, dx, dy, dw, told, Math.min(drop.y, card.button.y) - (makes ? LINE_H + 2 : 0) - 2, gear[0] ?? null, spriteOf, refill); // above the buttons and the makes line
   drawButton(c, drop.x, drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (makes?.into && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
@@ -301,10 +303,11 @@ function drawMakes(c, at, into, spriteOf, where = null, dw = Infinity) {
 // `below`, on a short screen held sideways, as the numbers matter more there. A weapon's hits on
 // the grid under its rows, beside the one held (`held`, its id, or null), left out where they'd
 // reach `below` (D-907)
-function drawWords(c, entry, dx, dy, dw, told, below, held = null, spriteOf = null) {
+function drawWords(c, entry, dx, dy, dw, told, below, held = null, spriteOf = null, refill = []) {
   const top = dy + 2.5 * LINE_H, rows = itemNumbers(entry), hits = spriteOf ? weaponHits(entry, held && get(held)) : [];
   const fits = hits.length && hitsW(hits) <= dw && top + numbersH(rows, dw, hitsH(hits)) <= below;
-  const pic = fits ? { h: hitsH(hits), draw: (py) => drawHits(c, hits, dx, py, spriteOf) } : null;
+  const fills = !fits && refill.length && refillW(refill, dw) <= dw && top + numbersH(rows, dw, refillH(refill, dw)) <= below; // hearts or oil now and after (D-908)
+  const pic = fits ? { h: hitsH(hits), draw: (py) => drawHits(c, hits, dx, py, spriteOf) } : fills ? { h: refillH(refill, dw), draw: (py) => drawRefill(c, refill, dx, py, dw) } : null;
   const h = drawNumbers(c, rows, dx, top, dw, pic), look = lookLine(entry, told);
   const lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 0);
   if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));
