@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.343, Built things on the map.** The owner's find:
+  built things looked like trees on the maps; now wood brown. The
+  owner's next ideas set down in order. D-898
+  to D-900. Playtest: https://claude.ai/artifact/9DVP7g3J2SGGAe8N79uqNw
 - **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
   phone: the lantern goals said "press L" there too. They now follow the
   way last played: tap, click or key. D-897. Playtest: https://claude.ai/artifact/Cf2vCKa4Fcfdyo8zNV7MnN
