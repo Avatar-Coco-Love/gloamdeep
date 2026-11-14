@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.341 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.342 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -44,12 +44,15 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), herbs (0.3.213), the duskstar (0.3.214), more flowers (Q-092); then landmarks: the dead lamppost (0.3.220), the miners' camp (0.3.221); then night creatures: lampmoths (0.3.228), bats (0.3.229), the rare gloamling (0.3.230); then day creatures: the mole (0.3.231), the bunny (0.3.234), the rare herb mimic (0.3.241); the mountain rooms: the skulker crab (0.3.244), the rim lurker (0.3.245)
 
-**Next audit: 0.3.353** (D-518, D-868). It adds the 2 WORKFLOW lessons in 0.3.341's PR.
+**Next audit: 0.3.353** (D-518, D-868). It adds the WORKFLOW lessons in 0.3.341's and 0.3.342's PRs.
 
 Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
+  phone: the lantern goals said "press L" there too. They now follow the
+  way last played: tap, click or key. D-897. Playtest: https://claude.ai/artifact/Cf2vCKa4Fcfdyo8zNV7MnN
 - **2026-11-13, 0.3.341, The vault's prize.** L1 step 4, L1 done: a
   plinth at the vault's heart holds the seed's prize, 1 vault in 4 a
   glowing ember for Growth, else 2 of a rare material; bumped, taken.
@@ -61,6 +64,3 @@ list in `RESEARCH.md`.
   lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
   Playtest: https://claude.ai/artifact/Lg8S2ZkYqo3UypnaWzUHdJ Mock-up:
   https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb
-- **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
-  done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
-  word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.

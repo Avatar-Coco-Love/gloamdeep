@@ -3,6 +3,7 @@
 // another. New content whose words don't fit fails here, not on a phone.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { setWay } from '../src/core/way.js';
 
 // § a canvas that takes anything: the cards draw through it, and only their words are watched
 const any = new Proxy(function () {}, {
@@ -134,11 +135,13 @@ test('the version history, how to play, settings, pause, ways, ask and opening c
   none(bad);
 });
 
-test('the goal line under the hearts stays inside the width it is given, every goal, place and start', () => {
+test('the goal line under the hearts stays inside the width it is given, every goal, place, start and way of playing (D-897)', () => {
   const bad = [];
-  for (const maxW of [90, 120, 170]) for (const g of GOALS) for (const place of places) for (const start of starts) for (const done of [false, true]) {
+  for (const way of ['touch', 'mouse', 'keyboard']) for (const maxW of [90, 120, 170]) for (const g of GOALS) for (const place of places) for (const start of starts) for (const done of [false, true]) {
+    setWay(way);
     const line = { goal: g.goal, how: done ? '+2 Healing Herbs' : howOf(g, place, start), done };
-    bad.push(...fits(`goal ${g.id} in ${maxW}`, { x: 4, y: 4, w: maxW, h: 100 }, () => drawGoalLine(any, line, 4, 4, 1, maxW), 0));
+    bad.push(...fits(`goal ${g.id} ${way} in ${maxW}`, { x: 4, y: 4, w: maxW, h: 100 }, () => drawGoalLine(any, line, 4, 4, 1, maxW), 0));
   }
+  setWay('touch');
   none(bad);
 });

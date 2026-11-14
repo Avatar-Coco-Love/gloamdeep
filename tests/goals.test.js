@@ -9,13 +9,14 @@ import { goalSize, onGoal } from '../src/render/goalline.js';
 import { xpFor } from '../src/core/xp.js';
 import { buy } from '../src/core/growth.js';
 import { stoneHome } from '../src/core/mouth.js';
+import { setWay } from '../src/core/way.js';
 
 const base = { seed: 7, turn: 10, bag: [], items: [], hero: { x: 3, y: 4 }, place: 'first', found: ['first'] };
 const STONE = stoneHome(7); // the home waystone's room, the cave mouth's (D-753)
 const meet = { type: 'meet', id: 'rat' }, beat = { type: 'beat', id: 'rat' };
 
 test('the first goal and the rewards are D-706\'s words and chances', () => {
-  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern, or press L.', 'Tap the lantern, or press L.'], ['Put out your lantern', 'Tap the lantern, or press L, to save oil.', 'Tap the lantern, or press L, to save oil.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
+  assert.deepEqual(GOALS.map((g) => [g.goal, howOf(g, 'first'), howOf(g, 'depth3')]), [['Beat a rat', 'Walk into it to strike.', 'Walk into it to strike.'], ['Go home to the woods', 'Leave by the gap in the crypt wall.', 'Take the stairs up to the crypt.'], ['Find the waystone', 'Old standing stones, near home.', 'Old standing stones, near home.'], ['Wake the waystone', 'Step on the plate in its middle.', 'Step on the plate in its middle.'], ['Take a boon', 'Step back on the plate. Pick 1 of 3.', 'Step back on the plate. Pick 1 of 3.'], ['Find the crypt', 'A broken door, beside home.', 'A broken door, beside home.'], ['Light your lantern', 'Tap the lantern.', 'Tap the lantern.'], ['Put out your lantern', 'Tap the lantern, to save oil.', 'Tap the lantern, to save oil.'], ['Spend your ember', 'Tap here, then Growth.', 'Tap here, then Growth.']]);
   assert.equal(REWARDS.reduce((a, r) => a + r.chance, 0), 100);
   assert.deepEqual(REWARDS.map((r) => rewardText(r.id)), ['+1 Oil Flask', '+2 Healing Herbs', '+3 Oilcaps', '+1 Glint', '+1 Healing Potion']);
   assert.equal(GOLD_TURNS, 3);
@@ -212,7 +213,7 @@ test('lighting the lantern shows when it gets dark, at dusk or below ground, and
   assert.equal(goalsAfter({}, 0, {}, [], { ...dusky, turn: 185 }).goals.lantern, undefined, 'still daylight');
   const dusk = goalsAfter({}, 0, {}, [], { ...dusky, turn: 186 }, { ...dusky, turn: 185 });
   assert.deepEqual(dusk.goals.lantern, { done: false });
-  assert.deepEqual(goalLine(dusk.goals, null, 186), { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern, or press L.', done: false });
+  assert.deepEqual(goalLine(dusk.goals, null, 186), { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern.', done: false });
   assert.deepEqual(goalsAfter({}, 0, {}, [], cave).goals.lantern, { done: false }, 'stepping into the dark with it off');
   const both = goalsAfter({ stone: { done: false } }, 0, {}, [], { ...dusky, turn: 186 }).goals;
   assert.equal(goalLine(both, null, 186, 'first', { ...dusky, turn: 186 }).goal, 'Light your lantern', 'ahead of the waystone in the dark');
@@ -265,7 +266,7 @@ test('putting out the lantern shows when daylight comes with it lit, and is done
   assert.equal(goalsAfter({}, 0, {}, [], sunny, sunny).goals.oil, undefined, 'daylight already: nothing');
   assert.equal(goalsAfter({}, 0, {}, [], cave, { ...sunny, lit: false }).goals.oil, undefined, 'into the dark: nothing');
   const both = { stone: { done: false }, ...out.goals };
-  assert.deepEqual(goalLine(both, null, 100, 'first', sunny), { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, or press L, to save oil.', done: false }, 'ahead while it burns by day');
+  assert.deepEqual(goalLine(both, null, 100, 'first', sunny), { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, to save oil.', done: false }, 'ahead while it burns by day');
   assert.equal(goalLine(both, null, 100, 'first', { ...sunny, lit: false }).goal, 'Find the waystone', 'not ahead once out');
   const done = goalsAfter(out.goals, 0, {}, [], { ...sunny, lit: false }, sunny);
   assert.deepEqual(done.done, ['oil'], 'put out: gold, paid');
@@ -295,4 +296,11 @@ test('two goals done on one turn are named on one line, the last in gold (H-13)'
   assert.deepEqual(doneLine(goals, ['wake']), ['goalDone', 'Wake the waystone. +2 Healing Herbs']);
   assert.deepEqual(doneLine(goals, ['stone', 'wake']), ['goalsDone', 'Find the waystone. +1 Oil Flask. Wake the waystone. +2 Healing Herbs']);
   assert.equal(LINES.goalsDone.text, 'Goals done: {n}.');
+});
+
+test('the lantern goals name what this player presses, the way they last played (D-897)', () => {
+  const words = (k) => { setWay(k); const r = ['lantern', 'oil'].map((id) => howOf(GOALS.find((g) => g.id === id), 'first')); setWay('touch'); return r; };
+  assert.deepEqual(words('touch'), ['Tap the lantern.', 'Tap the lantern, to save oil.']);
+  assert.deepEqual(words('mouse'), ['Click the lantern, or press L.', 'Click the lantern, or press L, to save oil.']);
+  assert.deepEqual(words('keyboard'), ['Press L.', 'Press L, to save oil.']);
 });

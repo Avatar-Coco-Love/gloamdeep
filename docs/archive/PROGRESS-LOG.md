@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
+  done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
+  word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.
 - **2026-11-13, 0.3.338, The lit brazier.** L1 step 2: a cold brazier
   bumped with the lantern lit asks to light it, 5 turns' oil; lit, the
   torch's flame in its bowl, 2 tiles' warm glow, a violet door notch

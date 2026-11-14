@@ -10,6 +10,7 @@ import { HOME } from './boon.js';
 import { stoneHome } from './mouth.js';
 import { depthOf, tileAt } from './room.js';
 import { levelOf } from './xp.js';
+import { wayOf } from './way.js';
 import { embers } from './growth.js';
 import { STARTS } from './starts.js';
 import { inDaylight } from './daytime.js';
@@ -41,6 +42,8 @@ const lightByDay = (state) => !!state.room?.dark && inDaylight(state);
 // surface don't count, as more ways down will come (the owner's pick, D-746)
 const inCrypt = (place) => place === 'first' || place === 'south';
 const beats = (c, id) => c.events.filter((e) => e.type === 'beat' && e.id === id).length;
+// How the lantern is lit or put out, by the way of playing last used (D-897)
+const LANTERN = { touch: 'Tap the lantern', mouse: 'Click the lantern, or press L', keyboard: 'Press L' };
 export const GOALS = [
   { id: 'rat', goal: 'Beat a rat', how: 'Walk into it to strike.',
     shows: (c) => (c.book.rat?.met ?? 0) > 0, does: (c) => beats(c, 'rat') > 0,
@@ -73,18 +76,19 @@ export const GOALS = [
   { id: 'crypt', goal: 'Find the crypt', how: 'A broken door, beside home.',
     shows: (c) => !!c.goals.boon?.done, does: (c) => inCrypt(c.state.place),
     before: (c) => (c.state.found || []).some(inCrypt), quietUnpaid: true },
+  // The two lantern goals' words name what this player presses, the way they last played (D-897)
   // When daylight no longer lights the room: halfway through dusk under the sky, or on stepping
   // where the sky doesn't reach (D-735, the owner's picks). Done once lit, by hand or By itself;
   // ticked quietly when it was lit already, by day or from a crypt start, so every journey has it;
   // it goes ahead of any goal waiting while the dark is here and the lantern is off (the owner's pick)
-  { id: 'lantern', goal: 'Light your lantern', how: 'Tap the lantern, or press L.', ahead: (state) => !state.lit && dark(state),
+  { id: 'lantern', goal: 'Light your lantern', how: () => `${LANTERN[wayOf()]}.`, ahead: (state) => !state.lit && dark(state),
     shows: (c) => dark(c.state), does: (c) => !!c.state.lit,
     before: (c) => !!c.before.lit && !!c.state.lit },
   // The oil tip (D-751): when daylight comes while the lantern is lit, by stepping out of the dark
   // or by dawn (the owner's pick). Done once the lantern is out; ticked quietly, unseen, when it is
   // already out as the daylight comes, as By itself does (the owner's pick); it goes ahead of any
   // goal waiting while the lantern burns in daylight (the owner's pick)
-  { id: 'oil', goal: 'Put out your lantern', how: 'Tap the lantern, or press L, to save oil.', ahead: (state) => !!state.lit && lightByDay(state),
+  { id: 'oil', goal: 'Put out your lantern', how: () => `${LANTERN[wayOf()]}, to save oil.`, ahead: (state) => !!state.lit && lightByDay(state),
     shows: (c) => dark(c.before) && lightByDay(c.state), does: (c) => !c.state.lit,
     before: (c) => !c.state.lit, quietUnpaid: true },
   // At level 2, going ahead of any goal waiting (D-706) while an ember is there to spend (Claude's

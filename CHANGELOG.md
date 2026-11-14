@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.342 (2026-11-14)
+- The lantern goals now say what you press, the way you last played: on a phone, "Tap the lantern." and "Tap the lantern, to save oil."; with a mouse, "Click the lantern, or press L."; with keys, "Press L." The words change when you switch.
+- Decisions: D-897.
+
 ## 0.3.341 (2026-11-13)
 - Each vault now holds a prize on a small stone plinth behind its door: 1 vault in 4 an ember, which glows faintly, the rest 2 of a rare material.
 - Bump the plinth to take it. An ember is 1 more to spend in Growth: "An ember! Spend it in Growth." The plinth is left bare.
@@ -32,7 +36,3 @@ Entry format:
 - The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
 - Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).
 - Decisions: D-895. D-891 moved to the archive, word for word.
-
-## 0.3.339 (2026-11-13)
-- Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the two health checks and their order, all done.
-- Decisions: D-894. D-860 to D-862 moved to the archive, word for word.
