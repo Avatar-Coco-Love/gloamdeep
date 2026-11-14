@@ -195,3 +195,11 @@ where it would pass the card's foot (look A; offered too: B, under the
 hint; C, the rows in the hint's place). Held sideways, rows that would
 reach STORE end left of it, as the hint does (offered too: left out
 there). Claude's call: every row, "Sells for" too, as on the bag card.
+
+**D-907 · 2026-11-14 · A weapon's hits on the grid** (the owner's picks,
+all recommended) D-902's pictures start: on the bag card and the gear
+row, under a weapon's rows, "This one" and "Held now", the hero and a rat
+on each tile hit, its hit in red (look C). The weapon in hand: only "Held
+now" (offered too: both; none). No weapon: the lantern's 1 (offered too:
+left out). The weapon's own hits, no boon's (offered too: with it). The
+other cards later. Claude's: one just like the held one counts as it.

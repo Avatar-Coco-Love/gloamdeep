@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.347 (2026-11-14)
+- On the bag's Make tab, the workbench and the mortar, the chosen recipe now shows what the made thing does, in rows under its costs: an Oil flask how much of the lantern it fills, a draught what it does and for how many turns, a vest or charm what it changes, a pouch how big the bag grows.
+- On a short phone held sideways, the description is left out when it would run into MAKE, so the numbers always show.
+- Decisions: D-904.
+
 ## 0.3.346 (2026-11-14)
 - Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the vault door opening and the vault's prize, both built.
 - Decisions: D-903. D-895 and D-896 moved to the archive, word for word.

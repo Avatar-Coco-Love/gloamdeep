@@ -62,3 +62,22 @@ test('the stash chest card draws the rows under the name, ending left of STORE b
   assert.deepEqual(rule(0, { x: 160, y: 20 }, 10), { next: 0, w: [] });
   assert.equal(chestNumbers({}, 'wood', 0, 7, 200, { x: 160, y: 300 }, 400), 7);
 });
+
+test("a weapon's hits on the grid: this one and the one held, the lantern's 1 with none (D-907)", async () => {
+  const { weaponHits } = await import('../src/core/numbers.js');
+  const tiles = (r) => r.tiles.map((t) => (t.knock ? '>' : `-${t.hit}`)).join(' ');
+  const of = (id, held) => weaponHits(ITEMS[id], held && ITEMS[held]).map((r) => `${r.label}: ${tiles(r)}`);
+  assert.deepEqual(of('spear', 'knife'), ['This one: -2 -1', 'Held now: -2']);
+  assert.deepEqual(of('wardenFist', null), ['This one: > -2', 'Held now: -1']);
+  assert.deepEqual(of('spear', 'spear'), ['Held now: -2 -1']);
+  assert.deepEqual(of('potion', 'knife'), []);
+});
+
+test('the picture goes between the rows and their rule, and is left out where it would reach below', async () => {
+  const { drawNumbers, numbersH } = await import('../src/render/numbers.js');
+  const rows = itemNumbers(ITEMS.spear), c = { fillStyle: '', fillRect: () => {}, drawImage: () => {} };
+  let drawnAt = null;
+  const h = drawNumbers(c, rows, 0, 0, 200, { h: 50, draw: (y) => { drawnAt = y; } });
+  assert.equal(h, numbersH(rows, 200, 50));
+  assert.ok(drawnAt >= numbersH(rows, 200) - 4, `under the rows: ${drawnAt}`);
+});

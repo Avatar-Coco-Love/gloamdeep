@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.349 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.350 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The numbers' pictures (D-902), one kind a step, the owner picks the first. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The numbers' pictures (D-902), one kind a step, the owner picks the next (D-907). Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -49,6 +49,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.350, A weapon's hits on the grid.** D-902's first
+  picture: in the bag, a weapon's hits under its rows, "This one" over
+  "Held now" (look C). The owner's picks. D-907. Playtest: https://claude.ai/artifact/D3AYMMF6p5G1hZAAExwsN4
 - **2026-11-14, 0.3.349, Numbers on the stash chest.** D-902's fourth
   step: the chest card shows the rows under the name, the tap hint below;
   sideways they end left of STORE. The owner's picks from a mock-up. D-906.
@@ -56,7 +59,3 @@ list in `RESEARCH.md`.
 - **2026-11-14, 0.3.348, Numbers on the peddler's trade.** D-902's third
   step: the peddler's card shows the rows under "carried", his price
   line below; no "Sells for" row there. The owner's picks. D-905. Playtest: https://claude.ai/artifact/5Tw5ndQC88s55NPKrtYUGa
-- **2026-11-14, 0.3.347, Numbers on the Make tab.** D-902's second
-  step: the Make tab, the workbench and the mortar show what a recipe
-  makes, what it does, in rows under its costs. A mock-up of three places; the
-  owner chose under the costs, and the mortar too. D-904. Playtest: https://claude.ai/artifact/17CWL3BJpgT4JLFPHusG1o

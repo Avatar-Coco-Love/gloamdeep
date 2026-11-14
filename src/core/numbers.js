@@ -3,6 +3,7 @@
 // item with these fields shows its rows by itself. An item with none of them has no rows.
 import { OIL } from './oil.js';
 import { SHADE_NEAR } from './shade.js';
+import { LANTERN_HIT } from './turn.js';
 
 const TANK = Math.round(1 / OIL.burn); // a full lantern's turns, with nothing to slow it
 const many = (n, one, more = `${one}s`) => `${n} ${n === 1 ? one : more}`;
@@ -43,4 +44,24 @@ export function itemNumbers(entry) {
   if (entry.grows) add('bag', 'Bag grows to', many(entry.grows.to, 'slot'));
   if (entry.sells) add('coin', 'Sells for', many(entry.sells, 'coin'));
   return rows;
+}
+
+// § hits (D-902, D-907): a weapon's hits on the grid, for the bag card's picture: a row for the
+// weapon looked at, "This one", then one for what the hand holds now, "Held now", the lantern's
+// LANTERN_HIT when nothing is (turn.js). Each row's tiles, after the hero's: a creature's, with
+// what it takes, or an arrow where a knocked one stood. The weapon's own numbers, without a
+// boon's (D-907). One row, "Held now", for the weapon in the hand, or one just like it; none
+// for a thing that doesn't hit.
+// entry: the weapon's registry entry; held: the held one's, or null for the lantern
+export function weaponHits(entry, held) {
+  if (!entry?.hit) return [];
+  const row = (label, e) => {
+    const tiles = [];
+    for (let k = 0; k < (e?.knocks ?? 0); k++) tiles.push({ knock: true });
+    tiles.push({ hit: e?.hit ?? LANTERN_HIT });
+    if (e?.through) tiles.push({ hit: e.through });
+    return { label, tiles };
+  };
+  if (held?.id === entry.id) return [row('Held now', entry)];
+  return [row('This one', entry), row('Held now', held)];
 }
