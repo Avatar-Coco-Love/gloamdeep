@@ -186,16 +186,6 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-916 · 2026-11-14 · The pictures on the Make card** (the owner's
-picks, all recommended) D-907 to D-909's pictures go on the Make card,
-the workbench's, the mortar's and the bag's Make tab, first (offered
-too: the peddler's card; the stash chest), one card a step. All three,
-each where it fits, left out where it would reach the buttons, as on
-the bag card (offered too: the hits only). As if made and used now:
-hearts or oil now and after, the hits beside the weapon held (offered
-too: "After" only). D-913 and D-914 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-917 · 2026-11-14 · The pictures on the peddler's card** (the
 owner's picks, all recommended) D-916's pictures go on the peddler's
 card next, on both tabs, Sell and Buy (offered too: Buy only; Sell
@@ -204,3 +194,9 @@ the picture is left out where it and that line would reach the button
 (offered too: the price line moved up under the name). The stash chest's
 card is next. D-915 moves to `archive/DECISIONS-SURFACE.md`, word for
 word.
+
+**D-918 · 2026-11-14 · The next prompts, in CLAUDE.md** (the owner's
+request) `CLAUDE.md`'s PR section now says it too: after a merge, the
+next prompts each go in their own fenced code block (D-792), as the
+owner wants them every time. D-916 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

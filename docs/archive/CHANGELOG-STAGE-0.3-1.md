@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.358 (2026-11-14)
+- Fixed: with a screen reader, the Quests tab reads a goal done with no reward as "done." instead of "done, .".
+- Decisions: D-915.
+
 ## 0.3.357 (2026-11-14)
 - Fixed: a save the game can't read is now set aside once, not again on every load, so the copies can't fill the phone's storage. Nothing on screen changes.
 - Decisions: D-914.
