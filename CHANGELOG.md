@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.361 (2026-11-14)
+- Docs: CLAUDE.md now says that after a merge, the next prompts each go in their own code block, so each has its own copy button. Nothing in the game changes.
+- Docs: one finished decision moves to the archive, word for word.
+- Decisions: D-918. D-916 moved to the archive, word for word.
+
 ## 0.3.360 (2026-11-14)
 - On the peddler's card, on both Sell and Buy, the thing you pick now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
 - His price line always shows; the picture is left out where it and that line would reach the button. A test checks the card fits with every thing picked.
@@ -34,7 +39,3 @@ Entry format:
 - Like on the bag card, the picture is left out where it would reach the buttons. A weapon made there would show its hits beside the one you hold; none is made there yet.
 - Docs: two finished decisions move to the archive, word for word.
 - Decisions: D-916. D-913 and D-914 moved to the archive, word for word.
-
-## 0.3.358 (2026-11-14)
-- Fixed: with a screen reader, the Quests tab reads a goal done with no reward as "done." instead of "done, .".
-- Decisions: D-915.

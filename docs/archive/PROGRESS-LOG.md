@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.358, A goal with no reward, read aloud.** F-5
+  fixed: the Quests tab's words leave the empty reward out, "Put out
+  your lantern, done.". D-915.
 - **2026-11-14, 0.3.357, A broken save set aside once.** F-4 fixed: a
   save that can't be read is copied aside only when no copy with the
   same words is kept for it; a test loads one five times. D-911 and

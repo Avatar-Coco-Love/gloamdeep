@@ -1923,3 +1923,13 @@ D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.
 owner's pick, recommended; fixes F-5) In the Quests tab, a screen reader
 reads a goal done with no reward as "Put out your lantern, done.", as
 the screen shows it (offered too: "done, no reward").
+
+**D-916 · 2026-11-14 · The pictures on the Make card** (the owner's
+picks, all recommended) D-907 to D-909's pictures go on the Make card,
+the workbench's, the mortar's and the bag's Make tab, first (offered
+too: the peddler's card; the stash chest), one card a step. All three,
+each where it fits, left out where it would reach the buttons, as on
+the bag card (offered too: the hits only). As if made and used now:
+hearts or oil now and after, the hits beside the weapon held (offered
+too: "After" only). D-913 and D-914 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
