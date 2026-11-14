@@ -112,8 +112,10 @@ function shifted(hex, hue, light) {
 }
 const TONED = {};
 const FORMS = { wood: WOODS.map((def) => spriteCanvas(def)), branch: BRANCHES.map((def) => spriteCanvas(def)), stump: STUMPS.map((def) => spriteCanvas(def)) };
-// An item's or a bag slot's sprite: in its form (D-314) or tone (D-305), when it has one
+// An item's or a bag slot's sprite: in its form (D-314) or tone (D-305), when it has one; the
+// hero's, 'hero', as worn, for the bag card's weapon picture (D-907)
 export function spriteOf(it) {
+  if (it.id === 'hero') return worn;
   if (FORMS[it.id]) return FORMS[it.id][it.form] || FORMS[it.id][0];
   const def = DEFS[it.id];
   if (!it.tone || !def?.toned) return SPRITES[it.id];

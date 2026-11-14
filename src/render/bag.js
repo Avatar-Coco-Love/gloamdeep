@@ -23,8 +23,9 @@ import { view } from './screen.js';
 import { drawMarker } from './menu.js';
 import { drawBagTabs } from './bagtabs.js';
 import { makesWords } from '../core/bagmake.js';
-import { itemNumbers } from '../core/numbers.js';
-import { drawNumbers } from './numbers.js';
+import { itemNumbers, weaponHits } from '../core/numbers.js';
+import { drawNumbers, numbersH } from './numbers.js';
+import { drawHits, hitsH, hitsW } from './hits.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -264,13 +265,13 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   for (let i = 0; i < size; i++) { const s = slotAt(card, i, GRID_Y, shape.cols, PAD, shape.slot); drawSlot(c, s.x, s.y, bag[i], i === chosen, spriteOf, shape.slot); }
   const { dx, dy } = detailAt(card, vw, vh, shape.detail, GRID_Y, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots, the card's width (D-505)
   const g = gearChosen(chosen);
-  if (g >= 0) { drawGearWords(c, card, g, gear[g], dx, dy, dw, told); return; }
+  if (g >= 0) { drawGearWords(c, card, g, gear[g], dx, dy, dw, told, gear[0] ?? null, spriteOf); return; }
   const entry = bag[chosen] && get(bag[chosen].id);
   if (!entry) return;
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
   const drop = entry.rest ? card.restDrop : card.drop; // a row up when SLEEP crowds it (D-804)
-  drawWords(c, entry, dx, dy, dw, told, Math.min(drop.y, card.button.y) - (makes ? LINE_H + 2 : 0) - 2); // above the buttons and the makes line
+  drawWords(c, entry, dx, dy, dw, told, Math.min(drop.y, card.button.y) - (makes ? LINE_H + 2 : 0) - 2, gear[0] ?? null, spriteOf); // above the buttons and the makes line
   drawButton(c, drop.x, drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (makes?.into && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
@@ -297,21 +298,26 @@ function drawMakes(c, at, into, spriteOf, where = null, dw = Infinity) {
 
 // § item's words: under its name and second line, the rows of what it does (D-902), then its
 // Look line, as a bag slot's and a gear slot's; the Look line left out when it would reach
-// `below`, on a short screen held sideways, as the numbers matter more there
-function drawWords(c, entry, dx, dy, dw, told, below) {
-  const top = dy + 2.5 * LINE_H, h = drawNumbers(c, itemNumbers(entry), dx, top, dw), look = lookLine(entry, told);
+// `below`, on a short screen held sideways, as the numbers matter more there. A weapon's hits on
+// the grid under its rows, beside the one held (`held`, its id, or null), left out where they'd
+// reach `below` (D-907)
+function drawWords(c, entry, dx, dy, dw, told, below, held = null, spriteOf = null) {
+  const top = dy + 2.5 * LINE_H, rows = itemNumbers(entry), hits = spriteOf ? weaponHits(entry, held && get(held)) : [];
+  const fits = hits.length && hitsW(hits) <= dw && top + numbersH(rows, dw, hitsH(hits)) <= below;
+  const pic = fits ? { h: hitsH(hits), draw: (py) => drawHits(c, hits, dx, py, spriteOf) } : null;
+  const h = drawNumbers(c, rows, dx, top, dw, pic), look = lookLine(entry, told);
   const lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 0);
   if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));
 }
 
 // § gear's words: a gear slot chosen, its piece's name, its slot's name and its Look line, as
 // a bag slot's; TAKE OFF in the corner for the Weapon's and the Tool's, none for worn ones (D-554)
-function drawGearWords(c, card, g, id, dx, dy, dw, told) {
+function drawGearWords(c, card, g, id, dx, dy, dw, told, held = null, spriteOf = null) {
   if (!id) return;
   const entry = get(id);
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, GEAR[g].name, dx, dy + LINE_H, GREY);
-  drawWords(c, entry, dx, dy, dw, told, card.button.y - 2);
+  drawWords(c, entry, dx, dy, dw, told, card.button.y - 2, held, spriteOf);
   if (GEAR[g].key) drawButton(c, card.button.x + BUTTON.w - OFF_W, card.button.y, OFF, false, OFF_W);
 }
 

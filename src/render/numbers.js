@@ -1,7 +1,8 @@
 // § numbers' rows (D-902): under an item's name on the bag card, one row for each thing it does
 // (core/numbers.js): its 7 × 7 icon, what it does in grey and its number in gold at the row's
 // right end; a row whose words and number don't fit side by side puts the number on a row of its
-// own, still at the right. A faint rule under them, above the item's Look line.
+// own, still at the right. A faint rule under them, above the item's Look line; a picture given
+// (`pic`, its height `h` and how to `draw` it at a top, D-907) goes between the rows and the rule.
 import { drawText, textWidth } from './font.js';
 
 const GREY = '#9790a4', GOLD = '#ffd66b', LINE = 'rgba(239,230,204,.16)';
@@ -25,7 +26,7 @@ const ICONS = {
   bag: ['#c9b48a', ['..###..', '.#...#.', '#######', '#.....#', '#.....#', '#.....#', '#######']],
 };
 export const ICON_NAMES = Object.keys(ICONS);
-function drawIcon(c, name, x, y) {
+export function drawIcon(c, name, x, y) {
   const [colour, rows] = ICONS[name];
   c.fillStyle = colour;
   rows.forEach((row, j) => [...row].forEach((ch, i) => { if (ch === '#') c.fillRect(x + i, y + j, 1, 1); }));
@@ -33,9 +34,10 @@ function drawIcon(c, name, x, y) {
 // Whether a row's words and number fit side by side in `w`
 const oneLine = (r, w) => !r.value || ICON_W + ICON_GAP + textWidth(r.label) + VALUE_GAP + textWidth(r.value) <= w;
 // The rows' height in `w`, the rule under them with its gap included; 0 for none
-export const numbersH = (rows, w) => (rows.length ? rows.reduce((h, r) => h + (oneLine(r, w) ? 1 : 2) * ROW_H, 0) + 4 : 0);
+const PIC_GAP = 4; // above and below a picture
+export const numbersH = (rows, w, picH = 0) => (rows.length ? rows.reduce((h, r) => h + (oneLine(r, w) ? 1 : 2) * ROW_H, 0) + (picH ? picH + 2 * PIC_GAP : 0) + 4 : 0);
 // rows: itemNumbers' (core/numbers.js), drawn from x, y, `w` wide; gives the height used
-export function drawNumbers(c, rows, x, y, w) {
+export function drawNumbers(c, rows, x, y, w, pic = null) {
   let ry = y;
   for (const r of rows) {
     drawIcon(c, r.icon, x, ry);
@@ -44,6 +46,7 @@ export function drawNumbers(c, rows, x, y, w) {
     if (r.value) drawText(c, r.value, x + w - textWidth(r.value), ry, GOLD);
     ry += ROW_H;
   }
+  if (rows.length && pic) { pic.draw(ry + PIC_GAP); ry += pic.h + 2 * PIC_GAP; }
   if (rows.length) { c.fillStyle = LINE; c.fillRect(x, ry, w, 1); }
-  return numbersH(rows, w);
+  return numbersH(rows, w, rows.length && pic ? pic.h : 0);
 }

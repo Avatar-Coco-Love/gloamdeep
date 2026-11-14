@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.347, Numbers on the Make tab.** D-902's second
+  step: the Make tab, the workbench and the mortar show what a recipe
+  makes, what it does, in rows under its costs. A mock-up of three places; the
+  owner chose under the costs, and the mortar too. D-904. Playtest: https://claude.ai/artifact/17CWL3BJpgT4JLFPHusG1o
 - **2026-11-14, 0.3.346, The vault's decisions archived.** Before the
   numbers' next step, D-895 and D-896, the vault, built, moved word for
   word to `archive/DECISIONS-SURFACE.md`; `DECISIONS.md` 11.7 KB to 9.7 KB.
