@@ -274,6 +274,7 @@ export function panelBeside(state, dir, any = false) {
   const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1];
   const tile = !offEdge(state.room, x, y) && tileAt(state.room, x, y);
   if (tile?.lit && !state.lit) return null; // a cold brazier with the lantern out says its words instead (D-893)
+  if (enemyAt(state, x, y)) return null; // a flyer over it: walking into it strikes it instead (D-901, D-911)
   return tile?.panel && (any || !((tile.sleeps || tile.camps) && tired(state))) ? { x, y } : null; // the bedroll from dusk asks to sleep instead (D-804)
 }
 

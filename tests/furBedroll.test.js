@@ -104,3 +104,10 @@ test('SLEEP sits left of SET DOWN; it says why not: by day, below ground, a crea
   assert.equal(noSleepOut({ ...makeState(makeRoom(WOODS, CAVE), { x: 2, y: 2 }), turn: 250 }), 'sleepUnder');
   assert.equal(noSleepOut(outside(ROLL, { enemies: [{ id: 'rat', x: 1, y: 3, health: 1, chasing: true }] })), 'sleepChased');
 });
+
+test('from dusk, a flyer over the bedroll: no ask, a bump strikes it (F-1, D-911)', () => {
+  const s = laid(250), over = { ...s, enemies: [{ id: 'lampmoth', x: 3, y: 2 }] };
+  assert.equal(campAsks(s, 'right'), true);
+  assert.equal(campAsks(over, 'right'), false);
+  assert.deepEqual(step(over, 'right').enemies, []);
+});

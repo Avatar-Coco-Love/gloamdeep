@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.351, Hearts or oil, now and after.** D-902's second
+  picture: in the bag, hearts or oil "Now" over "After", twice as big,
+  what's lost faint, a boon counted. The owner's picks. D-904 to D-906
+  archived. D-908. Playtest: https://claude.ai/artifact/BkTCPz2FqcNiXprmVV8Az9
 - **2026-11-14, 0.3.350, A weapon's hits on the grid.** D-902's first
   picture: in the bag, a weapon's hits under its rows, "This one" over
   "Held now" (look C). The owner's picks. D-907. Playtest: https://claude.ai/artifact/D3AYMMF6p5G1hZAAExwsN4
