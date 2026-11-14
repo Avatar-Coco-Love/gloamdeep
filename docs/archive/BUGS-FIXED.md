@@ -3,6 +3,12 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.358 (D-915):
+
+- **F-5 · An empty reward read aloud.** The two goals ticked without a
+  reward (H-10) read "done, ." to screen readers (`goals.js:197`).
+  Fixes: leave the reward part out; or say "done, no reward".
+
 Fixed in 0.3.357 (D-914):
 
 - **F-4 · Copies of an unreadable save pile up.** Each load of a broken

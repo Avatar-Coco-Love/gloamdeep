@@ -241,6 +241,13 @@ test('the Quests tab lists each goal, the done one with its reward, or says none
   assert.match(questsWords({ rat: { done: false } }), /Beat a rat\. Walk into it to strike\./);
 });
 
+test('a goal done with no reward is read aloud without one (F-5, D-915)', () => {
+  const said = questsWords({ oil: { done: true }, rat: { done: true, paid: 'flask' } });
+  assert.match(said, /Put out your lantern, done\. /);
+  assert.match(said, /Beat a rat, done, \+1 Oil Flask/);
+  assert.doesNotMatch(said, /, \./);
+});
+
 test('profiles gain goals and goal Glints, and goal Glints count toward looks', () => {
   assert.ok(FORMAT >= 9);
   const old = { format: 8, profiles: { current: 0, slots: [{ ...newProfile(), goals: undefined, glints: undefined }, null, null] } };

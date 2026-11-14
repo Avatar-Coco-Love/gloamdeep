@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.355 (2026-11-14)
+- Fixed: on the bag card, a flask's or minnow's "After" oil now counts the turn the pour takes, so it shows what the pour really gives.
+- Decisions: D-912.
+
 ## 0.3.354 (2026-11-14)
 - Fixed: a bat, lampmoth or lure wisp over the bench, a chest, a garden bed, the bed, a brazier or a bedroll can now be struck by walking into it, instead of opening its card.
 - Decisions: D-911.

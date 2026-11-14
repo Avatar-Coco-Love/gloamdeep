@@ -192,9 +192,10 @@ export const doneLine = (goals, done) => (done.length > 1 ? ['goalsDone', done.m
 export const questRows = (goals = {}, place = 'first', start = null) => Object.keys(goals).filter((id) => goalOf(id) && !STARTS[start]?.goals.skip.includes(id)).reverse()
   .map((id) => ({ id, goal: goalOf(id).goal, how: howOf(goalOf(id), place, start), done: !!goals[id].done, reward: goals[id].done ? rewardText(goals[id].paid) : '' }));
 const TURN = 'Left or Right for another tab. Esc or the close button goes back.';
+// A goal done with no reward (the oil's and the crypt's, H-10) reads "…, done" (F-5, D-915)
 export function questsWords(goals, place, start = null) {
   const rows = questRows(goals, place, start);
-  const said = rows.length ? rows.map((r) => (r.done ? `${r.goal}, done, ${r.reward}` : `${r.goal}. ${r.how}`)).join('. ') : NONE.replace(/\.$/, '');
+  const said = rows.length ? rows.map((r) => (r.done ? `${r.goal}, done${r.reward ? `, ${r.reward}` : ''}` : `${r.goal}. ${r.how}`)).join('. ') : NONE.replace(/\.$/, '');
   const again = goals?.boon?.done ? ' Enter shows what boons are.' : ''; // the boons card again (D-712)
   return `Journal, Quests tab. ${said}.${again} ${TURN}`;
 }

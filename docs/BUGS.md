@@ -21,6 +21,5 @@ The owner picked all five as steps, in this order, each fix still the
 owner's pick at its step. The fixes offered are the hunt's, the first
 one recommended.
 
-- **F-5 · An empty reward read aloud.** The two goals ticked without a
-  reward (H-10) read "done, ." to screen readers (`goals.js:197`).
-  Fixes: leave the reward part out; or say "done, no reward".
+All five are fixed, 0.3.354 to 0.3.358, and kept in
+`archive/BUGS-FIXED.md`.

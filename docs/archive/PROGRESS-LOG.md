@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.355, The oil's After.** F-2 fixed: the bag card's
+  "After" oil takes off the pour's turn of burn first, Quick Pour's flask
+  aside; a test checks it against the real pour. D-912.
+  Playtest: https://claude.ai/artifact/5KcBvdBwqUvETUwBJnusyn
 - **2026-11-14, 0.3.354, Flyers over things.** F-1 fixed: a flyer over
   a station or bedroll is struck by walking into it, no card. The
   ranged idea kept with the bow (Q-094). D-898 archived. D-911.
