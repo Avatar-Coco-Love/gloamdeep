@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.360, The pictures on the peddler's card.** The bag
+  card's pictures show on Sell and Buy, as if used now; left out where
+  they and the price line would reach the button. D-915 archived. D-917.
+  Playtest: https://claude.ai/artifact/Pi8HdKdbMdQxK7FF5bWR5B
 - **2026-11-14, 0.3.359, The pictures on the Make card.** The bag
   card's pictures (hearts or oil, a draught's turns, a weapon's hits)
   show on the Make tab, the workbench and the mortar, as if used now.

@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.362 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.363 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The round map in the dark (Q-108, D-919).
+The round map's rim shows danger (Q-109, D-920): a mock-up first.
 Then flyers into trees (D-900), cutting a room (D-899), doorways
 (Q-107), the shovel (Q-106); then L3 (D-890).
 
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.363, The round map in the dark.** The round map
+  fades with the light on the hero's tile, 15% at none; at an ember or
+  with the lantern off, no light near, its middle hides. Eased over half
+  a second. The owner's picks from a mock-up. D-918, D-919 archived. D-920.
+  Playtest: https://claude.ai/artifact/TfguWeHYG7nepmhuJaozTW
 - **2026-11-14, 0.3.362, The pictures on the chest's card.** The
   bag card's pictures show on the stash chest's card, for the chest's
   stacks and the bag's, as if used now; left out where they would reach
@@ -55,7 +60,3 @@ list in `RESEARCH.md`.
 - **2026-11-14, 0.3.361, The next prompts, in CLAUDE.md.** CLAUDE.md's
   PR section says the next prompts each go in their own code block
   after a merge (D-792). Nothing visible. D-916 archived. D-918.
-- **2026-11-14, 0.3.360, The pictures on the peddler's card.** The bag
-  card's pictures show on Sell and Buy, as if used now; left out where
-  they and the price line would reach the button. D-915 archived. D-917.
-  Playtest: https://claude.ai/artifact/Pi8HdKdbMdQxK7FF5bWR5B
