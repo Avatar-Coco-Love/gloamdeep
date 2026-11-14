@@ -82,9 +82,3 @@ where a sapling grows and how long. Its own steps, after D-900.
 idea) Creatures could cross a doorway and chase the hero into the next
 room. It would supersede D-132's "never follow between rooms". Which
 creatures, how near they must be, and whether stairs stay an escape.
-
-**Q-109 · The round map's rim shows danger** (raised 2026-11-14, the
-owner's idea, with Q-108, now D-920) The rim could change colour: red when a
-creature is after you, orange when one is close to noticing you. Stealth
-and timing could work together in later places. Open: whether, when, the
-colours, and how it reads for colour-blind players.

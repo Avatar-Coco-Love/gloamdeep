@@ -1958,3 +1958,16 @@ line would reach STORE or DECONSTRUCT (offered too: that line gives way
 first). Every card has its pictures now; the round map in the dark
 (Q-108) is next (offered too: flyers into trees, D-900). D-917 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-920 · 2026-11-14 · The round map in the dark** (the owner's picks
+from a mock-up, all recommended; answers Q-108) The round map fades with
+the light on the hero's own tile, the brightest of daylight, the lantern
+(its reach against a full tank's) and any other light reaching it: all of
+it at full light, down to 15% at none (offered too: never under 40%;
+three steps). At an ember, or with the lantern off, and no other light
+on the tile, a soft dark spot about 2 tiles round the hero hides its
+middle too (offered too: half the disc; all but the hero). The hero's
+dot always shows. Changes ease over half a second (offered too: at
+once). The full map opens clearly. The rim showing danger (Q-109) is
+next (offered too: flyers into trees, D-900). D-918 and D-919 move to
+`archive/DECISIONS-SURFACE.md`, word for word.

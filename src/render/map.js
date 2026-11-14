@@ -108,8 +108,14 @@ function drawMarks(c, plan, mx, my, k, t, still) {
 // round map's own canvas, cleared so its glass shows where nothing is found. With
 // Waymark, stairs down too far for it show as a violet dot on its rim, pulsing as the
 // marks do, toward the nearest (D-754). In the dark (D-920) `shown`, 0 to 1, fades it all
-// but the hero, and `spot`, 0 to 1, hides its middle, about 2 tiles round the hero, soft edged
-export function drawRoundMap(c, plan, drawn, k, t, still, shown = 1, spot = 0) {
+// but the hero, and `spot`, 0 to 1, hides its middle, about 2 tiles round the hero, soft edged.
+// `danger` (core/danger.js, D-921) lights the rim's inside ring over it all, never faded: 'near' a
+// broken ember ring, 'chase' a solid red one, pulsing unless `still` (the CSS rim turns red with it)
+export function drawRoundMap(c, plan, drawn, k, t, still, shown = 1, spot = 0, danger = null) {
+  roundMap(c, plan, drawn, k, t, still, shown, spot);
+  if (danger) drawRim(c, danger, rimPulse(t, still));
+}
+function roundMap(c, plan, drawn, k, t, still, shown, spot) {
   const n = c.canvas.width, { x: mx, y: my } = aroundHero(plan, n, k);
   c.clearRect(0, 0, n, n);
   c.drawImage(drawn, mx, my);
@@ -121,6 +127,23 @@ export function drawRoundMap(c, plan, drawn, k, t, still, shown = 1, spot = 0) {
   c.fillRect(rim.x, rim.y, k, k);
   c.globalAlpha = 1;
   inTheDark(c, plan, n, k, t, still, shown, spot);
+}
+
+// § rim (D-921): the ring of pixels just inside the round map's CSS rim, 1 canvas pixel (2 on
+// screen): 'near' in 16 pieces, every other one ember; 'chase' all red at `alpha`
+export const RIM = { near: '#f39a3b', chase: '#e8786a' }; // the ember; the creatures' red (creatures.js)
+export const rimPulse = (t, still) => (still ? 1 : 0.65 + 0.35 * Math.sin(t / 260));
+function drawRim(c, danger, alpha) {
+  const n = c.canvas.width, r = n / 2;
+  c.fillStyle = RIM[danger];
+  c.globalAlpha = danger === 'chase' ? alpha : 1;
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    const d = Math.hypot(x + 0.5 - r, y + 0.5 - r);
+    if (d <= r - 2 || d > r - 1) continue;
+    if (danger === 'near' && Math.floor((Math.atan2(y + 0.5 - r, x + 0.5 - r) + Math.PI) / (Math.PI / 8)) % 2 === 0) continue;
+    c.fillRect(x, y, 1, 1);
+  }
+  c.globalAlpha = 1;
 }
 
 // § in the dark (D-920): the round map faded to `shown`, its middle wiped away by `spot`,
