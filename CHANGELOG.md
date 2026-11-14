@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.362 (2026-11-14)
+- On the stash chest's card, the thing you pick, in the chest or in the bag, now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
+- Where the card is short, as on a phone held sideways, the picture is left out, so it and the "Tap to move" line never reach the buttons. A test checks the card fits with every thing picked, in the chest and in the bag.
+- Docs: one finished decision moves to the archive, word for word.
+- Decisions: D-919. D-917 moved to the archive, word for word.
+
 ## 0.3.361 (2026-11-14)
 - Docs: CLAUDE.md now says that after a merge, the next prompts each go in their own code block, so each has its own copy button. Nothing in the game changes.
 - Docs: one finished decision moves to the archive, word for word.
@@ -33,9 +39,3 @@ Entry format:
 - His price line always shows; the picture is left out where it and that line would reach the button. A test checks the card fits with every thing picked.
 - Docs: one finished decision moves to the archive, word for word.
 - Decisions: D-917. D-915 moved to the archive, word for word.
-
-## 0.3.359 (2026-11-14)
-- On the Make card (the bag's Make tab, the workbench and the mortar), a thing you can make now shows the bag card's picture under its rows: hearts or oil "Now" and "After", or a draught's turns, as if you made it and used it right away.
-- Like on the bag card, the picture is left out where it would reach the buttons. A weapon made there would show its hits beside the one you hold; none is made there yet.
-- Docs: two finished decisions move to the archive, word for word.
-- Decisions: D-916. D-913 and D-914 moved to the archive, word for word.

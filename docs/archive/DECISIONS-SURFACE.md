@@ -1933,3 +1933,12 @@ the bag card (offered too: the hits only). As if made and used now:
 hearts or oil now and after, the hits beside the weapon held (offered
 too: "After" only). D-913 and D-914 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-917 · 2026-11-14 · The pictures on the peddler's card** (the
+owner's picks, all recommended) D-916's pictures go on the peddler's
+card next, on both tabs, Sell and Buy (offered too: Buy only; Sell
+only), as if used now, as on the bag card. His price line always shows;
+the picture is left out where it and that line would reach the button
+(offered too: the price line moved up under the name). The stash chest's
+card is next. D-915 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

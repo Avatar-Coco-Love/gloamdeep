@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.361 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.362 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The numbers' pictures on the stash chest's card (D-917); or the round
-map in the dark (Q-108), the owner's pick.
+The round map in the dark (Q-108, D-919).
 Then flyers into trees (D-900), cutting a room (D-899), doorways
 (Q-107), the shovel (Q-106); then L3 (D-890).
 
@@ -48,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.362, The pictures on the chest's card.** The
+  bag card's pictures show on the stash chest's card, for the chest's
+  stacks and the bag's, as if used now; left out where they would reach
+  the buttons. D-917 archived. D-919.
+  Playtest: https://claude.ai/artifact/LrWuCMG21NX2YBKNcHZLTd
 - **2026-11-14, 0.3.361, The next prompts, in CLAUDE.md.** CLAUDE.md's
   PR section says the next prompts each go in their own code block
   after a merge (D-792). Nothing visible. D-916 archived. D-918.
@@ -55,8 +59,3 @@ list in `RESEARCH.md`.
   card's pictures show on Sell and Buy, as if used now; left out where
   they and the price line would reach the button. D-915 archived. D-917.
   Playtest: https://claude.ai/artifact/Pi8HdKdbMdQxK7FF5bWR5B
-- **2026-11-14, 0.3.359, The pictures on the Make card.** The bag
-  card's pictures (hearts or oil, a draught's turns, a weapon's hits)
-  show on the Make tab, the workbench and the mortar, as if used now.
-  D-913 and D-914 archived. D-916.
-  Playtest: https://claude.ai/artifact/52dWbD81tHKCYFSE9253Wz
