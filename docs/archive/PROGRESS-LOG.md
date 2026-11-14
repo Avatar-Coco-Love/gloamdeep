@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.356, Kind Herbs' words.** F-3 fixed: the card reads
+  "All you eat, and potions, heal 1 heart more.", as D-599 is. D-913.
+  Playtest: https://claude.ai/artifact/Uht6NxAXtu6EHb4XedWdHH
 - **2026-11-14, 0.3.355, The oil's After.** F-2 fixed: the bag card's
   "After" oil takes off the pour's turn of burn first, Quick Pour's flask
   aside; a test checks it against the real pour. D-912.

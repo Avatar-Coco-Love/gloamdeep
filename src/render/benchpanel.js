@@ -15,6 +15,7 @@ import { drawTabs, tabAt } from './bagtabs.js';
 import { get } from '../core/registry.js';
 import { itemNumbers } from '../core/numbers.js';
 import { drawNumbers } from './numbers.js';
+import { pictureOf } from './pics.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
 export const TAKE = 'DECONSTRUCT'; // the stash chest's card too (D-387)
@@ -47,8 +48,9 @@ export function benchAt(x, y, vw, vh, tabbed = false) {
 // c: the room's canvas, `vw` × `vh`; makes: benchMakes(bag) (core/menu.js); chosen: a slot
 // or BENCH_TAKE; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297);
 // title: the station's, WORKBENCH or MORTAR; none: the grey line while nothing is listed (D-786);
-// tab: the workbench's open tab, 'build' or 'gear', drawn in place of its title, or null (D-800)
-export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still, title = 'WORKBENCH', none = '', tab = null) {
+// tab: the workbench's open tab, 'build' or 'gear', drawn in place of its title, or null (D-800);
+// picsOf: an entry's pictures' facts, { held, refill, sips } (D-916)
+export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, still, title = 'WORKBENCH', none = '', tab = null, picsOf = () => ({})) {
   const card = drawCard(c, vw, vh, tab ? '' : title, SPLIT, true, TALL_SPLIT), { x, y, w } = card, at = take(card);
   if (tab) drawTabs(c, card, tab, BENCH_TABS);
   for (let i = 0; i < BENCH_SLOTS; i++) { const s = slotAt(card, i, TOP, BENCH_COLS); drawSlot(c, s.x, s.y, makes[i] && { id: makes[i].item, n: 1 }, i === chosen, spriteOf); }
@@ -57,22 +59,25 @@ export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, stil
   const make = makes[chosen], entry = make && get(make.item);
   const { dx, dy } = detailAt(card, vw, vh, DETAIL_X, HELD_Y, TALL_SPLIT), dw = x + w - PAD - dx; // upright, under the grid (D-505)
   if (!entry) { if (!makes.length && none) wrapWords(none, dw).forEach((l, i) => drawText(c, l, dx, dy + i * LINE_H, GREY)); return; } // the mortar's, empty (D-786)
-  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2);
+  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2, picsOf(entry));
   drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
 }
 
 // § make's words: a recipe chosen, the workbench's, the mortar's or the bag's Make tab's (D-787):
 // its name, a row per cost with its sprite and "3 / 5 Wood", then the rows of what it does
 // (D-902, look A: under the costs), then its Look line, left out when it would reach `below`, on
-// a short screen held sideways, as the numbers matter more there (as the bag card's)
-export function drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, below) {
+// a short screen held sideways, as the numbers matter more there (as the bag card's). Under the
+// rows, the bag card's picture, as if the made thing were used now (pics.js, D-916); pics: { held,
+// refill, sips }, as drawBag's
+export function drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, below, pics = {}) {
   drawText(c, entry.name, dx, dy, CORE);
   make.cost.forEach(({ id, n, have }, i) => {
     const cy = dy + LINE_H + i * COST_H;
     c.drawImage(spriteOf({ id, n }), dx, cy);
     drawText(c, `${n} / ${have} ${get(id).name}`, dx + 19, cy + 5, GREY);
   });
-  const top = dy + LINE_H + make.cost.length * COST_H + 4, h = drawNumbers(c, itemNumbers(entry), dx, top, dw);
+  const top = dy + LINE_H + make.cost.length * COST_H + 4, rows = itemNumbers(entry);
+  const h = drawNumbers(c, rows, dx, top, dw, pictureOf(c, entry, rows, dx, top, dw, below, { ...pics, spriteOf }));
   const look = lookLine(entry, told), lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 2);
   if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));
 }

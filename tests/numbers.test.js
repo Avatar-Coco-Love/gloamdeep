@@ -133,3 +133,14 @@ test("a draught's turns now and after: its mark's rim, dark with none working, f
   assert.equal(drawSips(c, sips, 0, 0), sipsH(sips));
   assert.ok(sipsW(sips) > 0 && sipsH(null) === 0);
 });
+
+test("the Make card's picture: the bag card's, the hits first, left out where it would reach below (D-916)", async () => {
+  const { refills, draughtTurns } = await import('../src/core/numbers.js');
+  const { pictureOf } = await import('../src/render/pics.js');
+  const c = { fillStyle: '', globalAlpha: 1, fillRect: () => {}, drawImage: () => {}, save: () => {}, restore: () => {}, translate: () => {}, scale: () => {} };
+  const hero = { health: 2, oil: 0.3, boon: null, grown: {} }, pics = (id) => ({ held: null, spriteOf: () => ({}), refill: refills(hero, ITEMS[id]), sips: draughtTurns(hero, ITEMS[id]) });
+  const pic = (id, below = 999) => pictureOf(c, ITEMS[id], itemNumbers(ITEMS[id]), 0, 0, 200, below, pics(id));
+  for (const id of ['spear', 'flask', 'mendingDraught']) assert.ok(pic(id)?.h > 0, id);
+  assert.equal(pic('workbench'), null);
+  assert.equal(pic('spear', 20), null); // no room above the buttons
+});

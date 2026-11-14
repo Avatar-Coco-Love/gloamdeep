@@ -23,11 +23,9 @@ import { view } from './screen.js';
 import { drawMarker } from './menu.js';
 import { drawBagTabs } from './bagtabs.js';
 import { makesWords } from '../core/bagmake.js';
-import { itemNumbers, weaponHits } from '../core/numbers.js';
-import { drawNumbers, numbersH } from './numbers.js';
-import { drawHits, hitsH, hitsW } from './hits.js';
-import { drawRefill, refillH, refillW } from './refill.js';
-import { drawSips, sipsH, sipsW } from './sips.js';
+import { itemNumbers } from '../core/numbers.js';
+import { drawNumbers } from './numbers.js';
+import { pictureOf } from './pics.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -306,12 +304,7 @@ function drawMakes(c, at, into, spriteOf, where = null, dw = Infinity) {
 // the grid under its rows, beside the one held (`held`, its id, or null), left out where they'd
 // reach `below` (D-907)
 function drawWords(c, entry, dx, dy, dw, told, below, held = null, spriteOf = null, refill = [], sips = null) {
-  const top = dy + 2.5 * LINE_H, rows = itemNumbers(entry), hits = spriteOf ? weaponHits(entry, held && get(held)) : [];
-  const fits = hits.length && hitsW(hits) <= dw && top + numbersH(rows, dw, hitsH(hits)) <= below;
-  const fills = !fits && refill.length && refillW(refill, dw) <= dw && top + numbersH(rows, dw, refillH(refill, dw)) <= below; // hearts or oil now and after (D-908)
-  const sipped = !fits && !fills && sipsH(sips) && sipsW(sips) <= dw && top + numbersH(rows, dw, sipsH(sips)) <= below; // a draught's turns now and after (D-909)
-  const pic = fits ? { h: hitsH(hits), draw: (py) => drawHits(c, hits, dx, py, spriteOf) } : fills ? { h: refillH(refill, dw), draw: (py) => drawRefill(c, refill, dx, py, dw) }
-    : sipped ? { h: sipsH(sips), draw: (py) => drawSips(c, sips, dx, py) } : null;
+  const top = dy + 2.5 * LINE_H, rows = itemNumbers(entry), pic = pictureOf(c, entry, rows, dx, top, dw, below, { held, spriteOf, refill, sips }); // the hits, hearts or oil, or turns (pics.js)
   const h = drawNumbers(c, rows, dx, top, dw, pic), look = lookLine(entry, told);
   const lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 0);
   if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));

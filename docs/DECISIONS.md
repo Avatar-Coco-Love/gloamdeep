@@ -186,20 +186,17 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-913 · 2026-11-14 · Kind Herbs' words** (the owner's pick,
-recommended; fixes F-3) The card reads "All you eat, and potions, heal
-1 heart more.", as D-599 is. Offered too: list every one; narrow the
-rule.
-
-**D-914 · 2026-11-14 · A broken save set aside once** (the owner's
-picks, all recommended; fixes F-4) A save the game can't read is not
-copied aside again when a copy with the same words is already kept for
-it, whichever copy that is (offered too: only the newest; one copy per
-save). A different broken save still gets its own copy. Nothing visible
-changes. F-4 and F-5 go in one PR as two versions, 0.3.357 and 0.3.358.
-D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-915 · 2026-11-14 · A goal with no reward, read aloud** (the
 owner's pick, recommended; fixes F-5) In the Quests tab, a screen reader
 reads a goal done with no reward as "Put out your lantern, done.", as
 the screen shows it (offered too: "done, no reward").
+
+**D-916 · 2026-11-14 · The pictures on the Make card** (the owner's
+picks, all recommended) D-907 to D-909's pictures go on the Make card,
+the workbench's, the mortar's and the bag's Make tab, first (offered
+too: the peddler's card; the stash chest), one card a step. All three,
+each where it fits, left out where it would reach the buttons, as on
+the bag card (offered too: the hits only). As if made and used now:
+hearts or oil now and after, the hits beside the weapon held (offered
+too: "After" only). D-913 and D-914 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
