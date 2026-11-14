@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.341 (2026-11-13)
+- Each vault now holds a prize on a small stone plinth behind its door: 1 vault in 4 an ember, which glows faintly, the rest 2 of a rare material.
+- Bump the plinth to take it. An ember is 1 more to spend in Growth: "An ember! Spend it in Growth." The plinth is left bare.
+- Decisions: D-896. D-892 moved to the archive, word for word.
+
 ## 0.3.340 (2026-11-13)
 - The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
 - Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).

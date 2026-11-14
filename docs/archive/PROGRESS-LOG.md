@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.341, The vault's prize.** L1 step 4, L1 done: a
+  plinth at the vault's heart holds the seed's prize, 1 vault in 4 a
+  glowing ember for Growth, else 2 of a rare material; bumped, taken.
+  D-896. Playtest: https://claude.ai/artifact/MMvK9WJRojPEZ6drpSsshy
+  Map: https://claude.ai/artifact/NNf3ypz5n4N3yxy5gKMuxY Mock-up:
+  https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c
 - **2026-11-13, 0.3.340, The door opening.** L1 step 3: the second
   brazier lit, the door sinks open for good, its notches moved to the
   lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
