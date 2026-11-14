@@ -76,7 +76,9 @@ changelog and log entries, then run `node tools/release.js` for the rest,
 D-572), naming PRs
 by version, playtest and sound board Artifacts, and the handoff. Never
 push to `main`; one PR per conversation; merging is the owner's call.
-After a merge, give the next prompts each in its own fenced code block (D-792, D-918).
+Before the merge, the handoff ends "Tell me when it's merged" and gives no
+prompts. Once the owner says so, check the PR is merged on GitHub, then give
+the next prompts once, each in its own fenced code block (D-792, D-918, D-923).
 
 ## Keeping context small
 

@@ -51,6 +51,10 @@ export const CREATURE_LINES = {
   oilTickBite: { text: 'The oil tick bites you.', warn: false, kind: 'harm' }, // with the lantern empty
   lureWispDie: { text: 'The lure wisp gutters out.', warn: false }, // (D-649); it never bites, so it has no bite line
   batHurt: { text: 'The bat shrieks and flees.', warn: false }, // hurt, it flees (D-537)
+  batRoosts: { text: 'The bat flutters into a tree.', warn: false }, // hurt, into a tree beside it (D-922)
+  batUnroosts: { text: 'A bat bursts from the tree!', warn: true }, // a chop drives it out (D-922)
+  lampmothRoosts: { text: 'The lampmoth flutters into a tree.', warn: false }, // (D-922)
+  lampmothUnroosts: { text: 'A lampmoth bursts from the tree!', warn: true }, // (D-922)
   batStands: { texts: ['The bat squeaks and circles.', 'The bat flutters back at you.'], warn: false },
   batDie: { text: 'The bat flutters and falls still.', warn: false },
   batBite: { text: 'The bat bites you.', warn: false, kind: 'harm' },

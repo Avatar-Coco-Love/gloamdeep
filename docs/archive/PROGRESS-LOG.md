@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.362, The pictures on the chest's card.** The
+  bag card's pictures show on the stash chest's card, for the chest's
+  stacks and the bag's, as if used now; left out where they would reach
+  the buttons. D-917 archived. D-919.
+  Playtest: https://claude.ai/artifact/LrWuCMG21NX2YBKNcHZLTd
 - **2026-11-14, 0.3.361, The next prompts, in CLAUDE.md.** CLAUDE.md's
   PR section says the next prompts each go in their own code block
   after a merge (D-792). Nothing visible. D-916 archived. D-918.

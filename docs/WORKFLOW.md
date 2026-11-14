@@ -100,3 +100,5 @@ the fourteenth's in `WORKFLOW-4.md` (D-826), the fifteenth's in
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+
+- A rule broken twice needs a check, not only words: the next prompts came before a merge again, and the owner, back later, took them as the merge done; now the handoff waits for "merged" and checks GitHub first (0.3.365).

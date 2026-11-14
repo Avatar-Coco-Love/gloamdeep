@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.364 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.365 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Flyers into trees (D-900). Then cutting a room (D-899), doorways
+Cutting a room (D-899): proposed first, as D-899 says. Then doorways
 (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -46,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.365, Flyers into trees.** D-900's second step: a
+  hurt bat or lampmoth fleeing, or one at dawn, goes into a tree beside
+  it; the tree shakes; the first chop drives it out. The next prompts
+  come once, after "merged" and a check (the owner's find). D-922, D-923.
+  Playtest: https://claude.ai/artifact/EEqxjV3ZP93TrKdqYEAKea
 - **2026-11-14, 0.3.364, The round map's rim shows danger.** The
   rim turns red, thicker and pulsing, while a creature in the room
   chases; a broken orange ring while one is close to noticing (where it
@@ -56,8 +61,3 @@ list in `RESEARCH.md`.
   with the lantern off, no light near, its middle hides. Eased over half
   a second. The owner's picks from a mock-up. D-918, D-919 archived. D-920.
   Playtest: https://claude.ai/artifact/TfguWeHYG7nepmhuJaozTW
-- **2026-11-14, 0.3.362, The pictures on the chest's card.** The
-  bag card's pictures show on the stash chest's card, for the chest's
-  stacks and the bag's, as if used now; left out where they would reach
-  the buttons. D-917 archived. D-919.
-  Playtest: https://claude.ai/artifact/LrWuCMG21NX2YBKNcHZLTd

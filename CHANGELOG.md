@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.365 (2026-11-14)
+- New: bats and lampmoths hide in trees. A hurt one that flees, next to a tree in the woods, flutters into it and vanishes instead of flying off. At dawn, a night one next to a tree goes into it instead of leaving.
+- A tree with a flyer in it gives a small shake now and then (with reduced motion, it leans a pixel). The first chop on it drives the flyer out beside the tree, and after you. Only the trees you can chop: never the ring of trees round the woods' edge. One flyer a tree.
+- Docs: the next prompts to copy now come only once, after you say a PR is merged and Claude has checked it on GitHub; before that, the handoff asks you to say when it's merged. Three finished decisions move to the archive, word for word.
+- Decisions: D-922, D-923. D-900, D-901 and D-921 moved to the archive, word for word.
+
 ## 0.3.364 (2026-11-14)
 - The round map's rim now warns you. While a creature in the room is chasing you, near or far, the rim turns red, thicker, and pulses slowly (steady with reduced motion).
 - While a creature is close to noticing you, the rim shows a broken orange ring: one that would see you where it stands, or from one step nearer, by its own rules (light, lurking near, Soft Step, the Shade Draught). The two differ in shape as well as colour, so they read for colour-blind players too.
@@ -34,9 +40,3 @@ Entry format:
 - At an ember, or with the lantern off and no other light on you, the round map's middle hides too, a soft dark spot about 2 tiles round you. Your gold dot always shows, and every change eases in over half a second. The full map still opens clearly.
 - Docs: two finished decisions move to the archive, word for word.
 - Decisions: D-920. Questions closed: Q-108. D-918 and D-919 moved to the archive, word for word.
-
-## 0.3.362 (2026-11-14)
-- On the stash chest's card, the thing you pick, in the chest or in the bag, now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
-- Where the card is short, as on a phone held sideways, the picture is left out, so it and the "Tap to move" line never reach the buttons. A test checks the card fits with every thing picked, in the chest and in the bag.
-- Docs: one finished decision moves to the archive, word for word.
-- Decisions: D-919. D-917 moved to the archive, word for word.

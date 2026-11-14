@@ -35,7 +35,8 @@ function grass(put, x, y) {
 // Each tree varies (look A3, groves, D-750): its crown 0.78 to 1.1 times the
 // old size, moved up to 2 pixels, in one of three greens that neighbouring
 // trees share, so the woods shift colour in patches. A crown may reach a
-// little past its tile, so trees are painted top row first.
+// little past its tile, so trees are painted top row first. `crown`: the crown alone,
+// no shadow or trunk, for a tree shaking with a flyer in it (render/roosts.js, D-922).
 const CROWN = { y: 6, r: 6.6, lump: 1.2, size: [0.78, 1.1], move: 2 };
 const GREENS = [ // highlight, light, mid, dark, deepest, rim
   ['#6fb04e', '#4f8a3f', '#36633a', '#2c5230', '#1d3620', '#13241a'], // the old green
@@ -43,7 +44,7 @@ const GREENS = [ // highlight, light, mid, dark, deepest, rim
   ['#93b552', '#719440', '#527034', '#415c2c', '#2a3c1e', '#192612'], // a warm olive
 ];
 const groveOf = (tx, ty) => { const n = smooth(tx / 3.2, ty / 3.2, 31); return n < 0.4 ? 1 : n > 0.62 ? 2 : 0; };
-export function paintTree(put, shade, tx, ty) {
+export function paintTree(put, shade, tx, ty, crown = false) {
   const s = tx * 7 + ty * 13, P = GREENS[groveOf(tx, ty)];
   const size = CROWN.size[0] + hash(tx, ty, 23) * (CROWN.size[1] - CROWN.size[0]);
   const dx = Math.round((hash(tx, ty, 24) - 0.5) * 2 * CROWN.move), dy = Math.round((hash(tx, ty, 25) - 0.5) * 2 * CROWN.move);
@@ -52,8 +53,8 @@ export function paintTree(put, shade, tx, ty) {
   for (let ly = -4; ly < T + 2; ly++) for (let lx = -3; lx < T + 3; lx++) {
     const x = tx * T + lx, y = ty * T + ly;
     const sx = (lx - 8 - dx) / (6.5 * size), sy = (ly - 14 - Math.max(0, dy)) / 1.6;
-    if (ly < T && sx * sx + sy * sy < 1) shade(x, y, 0.5);
-    if ((lx === 7 + dx || lx === 8 + dx) && ly >= 10 + dy && ly <= foot) put(x, y, lx === 7 + dx ? '#6a4c36' : '#3e2c20');
+    if (!crown && ly < T && sx * sx + sy * sy < 1) shade(x, y, 0.5);
+    if (!crown && (lx === 7 + dx || lx === 8 + dx) && ly >= 10 + dy && ly <= foot) put(x, y, lx === 7 + dx ? '#6a4c36' : '#3e2c20');
     const r = R + noise(Math.atan2(ly - cy, lx - cx) * 1.6 + 9, s, 4) * lump, d = Math.hypot(lx - cx, ly - cy);
     if (d > r) continue;
     if (d > r - 1) { put(x, y, P[5]); continue; }

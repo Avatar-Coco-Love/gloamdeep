@@ -4,6 +4,7 @@
 import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edgeIn } from './screen.js';
 import { drawRoom, drawBeyond } from './tiles.js';
 import { drawRipples } from './water.js';
+import { drawRoosts } from './roosts.js';
 import { drawHero, drawItems, drawEnemies, drawGlows, drawRelics, drawShelfRelics, drawGlobs, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
 import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
@@ -289,6 +290,7 @@ export function createFrame(app, ui) {
         const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
         drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
         drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
+        drawRoosts(rc, s.room, t, still()); // a tree with a flyer in it shakes now and then (D-922)
         drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
         drawItems(rc, s.items, t, still());
         const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in

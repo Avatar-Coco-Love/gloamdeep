@@ -107,24 +107,6 @@ may grow back on its stump though it cuts the room; chopping (or
 digging, Q-106) is the way through. Its own step; that step marks what
 it changes in D-317 and D-322.
 
-**D-900 · 2026-11-14 · Flyers over low things** (the owner's picks, all
-four; the recommended was the first) Lampmoths, bats and the lure wisp
-fly over what stands low: what the hero built, bushes and fallen
-branches, rubble, plinths and braziers, not trees, rock or walls; and
-they may go into a tree and vanish there, chopping it driving them out.
-Two steps, flying over first; the trees' details proposed at theirs.
-
-**D-901 · 2026-11-14 · Flyers over low things: the build** (the owner's
-picks, all recommended; builds D-900) Only the tiles D-900 names are
-low; deposits, copper veins, a wild campfire, the lamppost and the
-miners' camp still stop a flyer (offered too: each of those). Walking
-into a flyer over a low thing strikes it, as over water (offered too:
-it can't be reached there). Each low tile, water too, is marked `low`
-in the registry (offered too: a list in the creature code). Only the
-in-game history tells of it (offered too: the Bestiary's words too).
-Claude's call: a flyer knocked by the Warden's Fist into a low thing is
-stopped as by a wall, as before.
-
 **D-902 · 2026-11-14 · Numbers in the bag** (the owner's find and
 picks, all recommended; they asked for mock-ups first, and for more than
 a line of words) The bag card shows what an item does: rows under its
@@ -186,17 +168,24 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-921 · 2026-11-14 · The round map's rim shows danger** (the owner's
-picks from a mock-up, all recommended; answers Q-109) While any creature
-in the room is chasing the hero, near or far, the round map's rim turns
-the creatures' red, solid and thicker, and pulses slowly (steady with
-reduced motion). Else, while one is close to noticing them, the rim shows
-a broken ember ring, so the two differ in shape too, for colour-blind
-players (offered too: colour only; an arc toward the creature). Close to
-noticing: one that comes for the hero, awake, that would notice them
-where it stands or from a free tile one step nearer, by its own rules
-(light, near, Soft Step, the Shade Draught, its sight); ones that seek
-light, lure or only spit never count (offered too: within 4 tiles; red
-only for now). Always on (offered too: a setting). Flyers into trees
-(D-900) is next. D-920 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
+**D-922 · 2026-11-14 · Flyers into trees** (the owner's picks; builds
+D-900) A hurt lampmoth or bat that flees, an inner tree beside it, goes
+into the tree instead of flying off; at dawn, a night one beside such a
+tree goes in instead of going (offered too: now and then, unnoticed; the
+lure wisp too). Only trees the hero can chop, never the woods' ring
+(offered too: any tree). The tree gives a small leaf shake now and then;
+the first chop drives the flyer out beside it, after the hero (offered
+too: no sign; out only when the tree falls). Claude's calls: one flyer a
+tree; out on the free tile nearest the hero, stirring a turn as one
+woken does; with none free it stays in until the tree falls; driven out
+by day it stays; an earlier night's go at nightfall; with reduced motion
+the crown leans a pixel, still. D-900, D-901 and D-921 move to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-923 · 2026-11-14 · The next prompts, once** (the owner's find and
+pick, recommended; sharpens D-790 and D-795) Twice the next prompts came
+before a merge and again after, and the owner, back later, took the
+early ones as a sign they had merged. Before the merge, the handoff ends
+"Tell me when it's merged" and gives no prompts; once the owner says so,
+Claude checks the PR is merged on GitHub, then gives them once (offered
+too: the words only; no prompts at all). CLAUDE.md says it too.
