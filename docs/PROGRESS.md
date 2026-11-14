@@ -52,6 +52,7 @@ list in `RESEARCH.md`.
   card's pictures (hearts or oil, a draught's turns, a weapon's hits)
   show on the Make tab, the workbench and the mortar, as if used now.
   D-913 and D-914 archived. D-916.
+  Playtest: https://claude.ai/artifact/52dWbD81tHKCYFSE9253Wz
 - **2026-11-14, 0.3.358, A goal with no reward, read aloud.** F-5
   fixed: the Quests tab's words leave the empty reward out, "Put out
   your lantern, done.". D-915.
