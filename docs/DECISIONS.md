@@ -186,11 +186,6 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-915 · 2026-11-14 · A goal with no reward, read aloud** (the
-owner's pick, recommended; fixes F-5) In the Quests tab, a screen reader
-reads a goal done with no reward as "Put out your lantern, done.", as
-the screen shows it (offered too: "done, no reward").
-
 **D-916 · 2026-11-14 · The pictures on the Make card** (the owner's
 picks, all recommended) D-907 to D-909's pictures go on the Make card,
 the workbench's, the mortar's and the bag's Make tab, first (offered
@@ -200,3 +195,12 @@ the bag card (offered too: the hits only). As if made and used now:
 hearts or oil now and after, the hits beside the weapon held (offered
 too: "After" only). D-913 and D-914 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-917 · 2026-11-14 · The pictures on the peddler's card** (the
+owner's picks, all recommended) D-916's pictures go on the peddler's
+card next, on both tabs, Sell and Buy (offered too: Buy only; Sell
+only), as if used now, as on the bag card. His price line always shows;
+the picture is left out where it and that line would reach the button
+(offered too: the price line moved up under the name). The stash chest's
+card is next. D-915 moves to `archive/DECISIONS-SURFACE.md`, word for
+word.

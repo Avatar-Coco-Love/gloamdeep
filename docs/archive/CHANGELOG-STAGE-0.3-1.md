@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.357 (2026-11-14)
+- Fixed: a save the game can't read is now set aside once, not again on every load, so the copies can't fill the phone's storage. Nothing on screen changes.
+- Decisions: D-914.
+
 ## 0.3.356 (2026-11-14)
 - Fixed: Kind Herbs' card now says "All you eat, and potions, heal 1 heart more." Heartcaps and gloamberries always had the extra heart; the old words left them out.
 - Decisions: D-913.

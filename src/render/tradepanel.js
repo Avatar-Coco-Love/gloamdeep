@@ -4,7 +4,8 @@
 // "COINS" and the coins carried, and a 3 × 2 grid, the chosen slot framed in gold: on Sell
 // the bag's 6 slots, on Buy his wares. On the right, the chosen thing's name and how many
 // are carried, the rows of what it does (D-902, D-905: as the bag card's, its "Sells for" row
-// left out, as his own line says it), and what he pays for one, or that he doesn't buy it, or what one costs and,
+// left out, as his own line says it), under them the bag card's picture, as if used now (pics.js,
+// D-916: on both tabs, left out where it and the price line would reach the button), and what he pays for one, or that he doesn't buy it, or what one costs and,
 // when it can't be bought, why; SELL or BUY in the bottom right corner, dim when it can't.
 // A tap picks a slot or turns a tab, so a stray one never sells or buys; the button, Enter
 // or Space sell or buy one; the cross closes it.
@@ -14,8 +15,9 @@ import { bagShape, cardAt, drawCard, drawSlot, drawButton, frame, slotAt, gridAt
 import { bagSize, carried } from '../core/bag.js';
 import { coins, priceOf, priceWords, wares, cantBuy, costWords } from '../core/trade.js';
 import { get } from '../core/registry.js';
-import { itemNumbers } from '../core/numbers.js';
+import { itemNumbers, refills, draughtTurns } from '../core/numbers.js';
 import { drawNumbers } from './numbers.js';
+import { pictureOf } from './pics.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc', GOLD = '#ffd66b';
 export const TABS = [{ id: 'sell', text: 'SELL' }, { id: 'buy', text: 'BUY' }];
@@ -65,8 +67,11 @@ export function drawTradePanel(c, vw, vh, state, chosen, spriteOf, tab = 'sell',
   const { dx, dy } = detailAt(card, vw, vh, shape.detail, undefined, shape.tallSplit), dw = x + w - PAD - dx; // upright, under the slots (D-505)
   drawText(c, get(picked.id).name, dx, dy, CORE);
   drawText(c, `${buying ? carried(bag, picked.id) : picked.n} carried`, dx, dy + LINE_H, GREY);
-  const top = dy + 2.5 * LINE_H, h = drawNumbers(c, tradeNumbers(picked.id), dx, top, dw), py = top + (h ? h + 5 : 0);
-  wrapWords(buying ? costWords(state, chosen) : priceWords(picked.id), dw).forEach((l, i) => drawText(c, l, dx, py + i * LINE_H, GREY));
+  const entry = get(picked.id), rows = tradeNumbers(picked.id), lines = wrapWords(buying ? costWords(state, chosen) : priceWords(picked.id), dw);
+  const top = dy + 2.5 * LINE_H, below = card.button.y - 4 - lines.length * LINE_H; // room kept for the price line (D-916)
+  const pic = pictureOf(c, entry, rows, dx, top, dw, below, { held: state.held ?? null, spriteOf, refill: refills(state, entry), sips: draughtTurns(state, entry) });
+  const h = drawNumbers(c, rows, dx, top, dw, pic), py = top + (h ? h + 5 : 0);
+  lines.forEach((l, i) => drawText(c, l, dx, py + i * LINE_H, GREY));
 }
 // The rows on the trade card: the bag card's, but for "Sells for", his line saying it (D-905)
 export const tradeNumbers = (id) => itemNumbers(get(id)).filter((r) => r.icon !== 'coin');
