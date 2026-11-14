@@ -114,7 +114,9 @@ function away(begun, here, seen) {
 // A passed turn starts a new list of events (events.js)
 // Warmed by a campfire burns slower too, added to the rest (warmed.js, D-845).
 // With Endless oil on (`state.endless`, a dev switch) a lit turn burns nothing (D-626).
-export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state) * draughtBurn(state) * warmBurn(state)) : state.oil });
+export const passTurn = (state) => fresh({ ...state, turn: state.turn + 1, oil: turnOil(state) });
+// The oil left once a turn has burned, as passTurn leaves it (the bag card's "After" too, D-912)
+export const turnOil = (state) => (state.lit && !state.endless ? burnOil(state.oil, burnOf(state) * boonBurn(state) * draughtBurn(state) * warmBurn(state)) : state.oil);
 
 // § items: the item lying on tile x, y, or undefined
 export const itemAt = (state, x, y) => state.items.find((it) => it.x === x && it.y === y);

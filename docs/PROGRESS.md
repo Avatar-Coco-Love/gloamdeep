@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.354 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.355 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-2, the oil's "After", next; then F-3, and F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-3, Kind Herbs' words, next; then F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -46,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.355, The oil's After.** F-2 fixed: the bag card's
+  "After" oil takes off the pour's turn of burn first, Quick Pour's flask
+  aside; a test checks it against the real pour. D-912.
+  Playtest: https://claude.ai/artifact/5KcBvdBwqUvETUwBJnusyn
 - **2026-11-14, 0.3.354, Flyers over things.** F-1 fixed: a flyer over
   a station or bedroll is struck by walking into it, no card. The
   ranged idea kept with the bow (Q-094). D-898 archived. D-911.
@@ -55,7 +59,3 @@ list in `RESEARCH.md`.
   of the history to `history-0.3-5.js`, D-897 and D-903 archived, the
   playbook's lessons to `WORKFLOW-6.md`, all word for word. The owner's
   picks. D-910.
-- **2026-11-14, 0.3.352, A draught's turns, now and after.** D-902's third
-  picture: in the bag, a draught's HUD mark twice as big, "Now" over
-  "After", its rim the time left (look A). The owner's picks. D-909.
-  Playtest: https://claude.ai/artifact/FBxWMgjMh8meYHBe67Mq9m

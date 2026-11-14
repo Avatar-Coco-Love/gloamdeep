@@ -5,7 +5,8 @@ import { OIL } from './oil.js';
 import { SHADE_NEAR } from './shade.js';
 import { LANTERN_HIT } from './turn.js';
 import { healOf, pourOf } from './boon.js';
-import { maxHealth } from './state.js';
+import { maxHealth, turnOil } from './state.js';
+import { grown } from './upgrades.js';
 import { drinkKey, givesOf, shareLeft, LONGEST } from './lasting.js';
 
 const TANK = Math.round(1 / OIL.burn); // a full lantern's turns, with nothing to slow it
@@ -73,6 +74,7 @@ export function weaponHits(entry, held) {
 // hearts an eaten item heals, one for the oil a poured one fills (a minnow has both, each as its
 // own use would leave it). The real amounts, a boon's included (healOf, pourOf in boon.js); what
 // would pass the top is `lost`. Eating at full health heals nothing, so all of it is lost there.
+// A pour that passes a turn burns that turn's oil first, as pour does (bagturn.js, D-912).
 // state: the hero's; entry: the item's registry entry → [{ kind: 'hearts'|'oil', now, after, lost, max }]
 export function refills(state, entry) {
   const out = [];
@@ -82,8 +84,9 @@ export function refills(state, entry) {
     out.push({ kind: 'hearts', now, after, lost: now + add - after, max });
   }
   if (entry.oil) {
-    const add = pourOf(state, entry), now = state.oil, after = Math.min(1, now + add);
-    out.push({ kind: 'oil', now, after, lost: now + add - after, max: 1 });
+    const add = pourOf(state, entry), now = state.oil, free = !entry.byHand && grown(state, 'quickPour'); // Quick Pour: a flask passes no turn (D-816)
+    const burnt = free ? now : turnOil(state), after = Math.min(1, burnt + add); // a pour's turn burns first (D-247, D-912)
+    out.push({ kind: 'oil', now, after, lost: burnt + add - after, max: 1 });
   }
   return out;
 }

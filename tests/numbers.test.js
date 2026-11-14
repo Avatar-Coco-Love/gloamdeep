@@ -95,6 +95,19 @@ test('hearts or oil now and after: the real amounts, a boon counted, what passes
   assert.deepEqual(of(hero(2, 0.3), 'knife'), []);
 });
 
+test("oil after: a pour's turn burns first, as the real pour does; Quick Pour's flask burns nothing (F-2, D-912)", async () => {
+  const { refills } = await import('../src/core/numbers.js');
+  const { makeWorld, pour } = await import('../src/core/turn.js');
+  const s = { ...makeWorld('first', 5), oil: 0.467, bag: [{ id: 'flask', n: 1 }, { id: 'pondMinnow', n: 1 }] };
+  const after = (st, id) => refills(st, ITEMS[id]).find((r) => r.kind === 'oil').after;
+  assert.ok(s.lit, 'the lantern burns');
+  assert.ok(Math.abs(after(s, 'flask') - pour(s, 0).oil) < 1e-9, 'a flask');
+  assert.ok(Math.abs(after(s, 'pondMinnow') - pour(s, 1).oil) < 1e-9, 'a minnow');
+  const quick = { ...s, grown: { ...s.grown, quickPour: 1 } };
+  assert.ok(Math.abs(after(quick, 'flask') - pour(quick, 0).oil) < 1e-9, 'Quick Pour: no turn');
+  assert.ok(Math.abs(after(quick, 'pondMinnow') - pour(quick, 1).oil) < 1e-9, 'Quick Pour: a minnow still takes its turn');
+});
+
 test("the hearts-and-oil picture: side by side where they fit, one under the other where they don't", async () => {
   const { refills } = await import('../src/core/numbers.js');
   const { drawRefill, refillH, refillW } = await import('../src/render/refill.js');

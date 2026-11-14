@@ -21,11 +21,6 @@ The owner picked all five as steps, in this order, each fix still the
 owner's pick at its step. The fixes offered are the hunt's, the first
 one recommended.
 
-- **F-2 · The oil's "After" shows too much.** A pour that passes a turn
-  burns that turn's oil first (`bagturn.js:48`), which the preview
-  (`numbers.js:85`) leaves out: at 0.467 it shows 10 segments, the pour
-  gives 9 (against D-908). Fixes: take off one turn's burn when the pour
-  passes a turn; or mark "After" as near.
 - **F-3 · Kind Herbs' words.** "Herbs, potions and fish heal 1 heart
   more" (`boons.js:25`), but heartcaps and gloamberries do too
   (`boon.js:38`). Fixes: the words cover all food; or the rule keeps to

@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.352, A draught's turns, now and after.** D-902's third
+  picture: in the bag, a draught's HUD mark twice as big, "Now" over
+  "After", its rim the time left (look A). The owner's picks. D-909.
+  Playtest: https://claude.ai/artifact/FBxWMgjMh8meYHBe67Mq9m
 - **2026-11-14, 0.3.351, Hearts or oil, now and after.** D-902's second
   picture: in the bag, hearts or oil "Now" over "After", twice as big,
   what's lost faint, a boon counted. The owner's picks. D-904 to D-906

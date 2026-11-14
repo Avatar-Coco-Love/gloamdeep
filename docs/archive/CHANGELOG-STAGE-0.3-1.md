@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.352 (2026-11-14)
+- In the bag, a draught now shows its turns under its rows: its own mark from under the hearts, twice as big, "Now" over "After". The rim shows the time left, as it does at the top of the screen.
+- "After" is always full, as drinking one again starts its 60 turns over. With none working, "Now" shows the mark with its rim dark.
+- Like the other pictures, it's left out where it would reach the buttons.
+- Decisions: D-909.
+
 ## 0.3.351 (2026-11-14)
 - In the bag, a find that heals or fills the lantern now shows your hearts or oil "Now" and "After" under its rows, twice the size of the ones at the top of the screen. What it adds is pale.
 - What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.
