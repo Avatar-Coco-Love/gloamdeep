@@ -192,8 +192,10 @@ name, each an icon, what it does in grey and its number in gold, then a
 small picture where one helps, a weapon's hits on the grid over the held
 one's, hearts or oil now and after, a draught's turns (look C; offered
 too: chips; rows only). Every item with a number has rows. Steps: the
-rows, in the bag and its gear row; then the Make tab and workbench;
-then the peddler's trade; then the pictures, one kind a step. Claude's
+rows, in the bag and its gear row; then, one a step, the Make tab and
+workbench, the peddler's trade and the stash chest (changed after the
+owner's answer: places Claude's call, not the pick-up line); then the
+pictures, one kind a step. Claude's
 calls: the words as on the mock-up page, from the registry
 (`core/numbers.js`); on a short screen held sideways the description is
 left out when it would reach the buttons.

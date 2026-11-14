@@ -9,7 +9,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 
 ## Next up
 Numbers on the Make tab and workbench (D-902); then the peddler's
-trade; then the pictures. Then flyers into trees (D-900), cutting a room
+trade, the stash chest; then the pictures. Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
