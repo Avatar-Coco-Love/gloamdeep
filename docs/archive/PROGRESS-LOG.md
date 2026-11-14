@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.345, Numbers in the bag.** The owner's find: the bag
+  never said what a thing does. Mock-ups of three looks; the owner chose
+  rows and pictures. First step: the rows. D-902. Playtest: https://claude.ai/artifact/W9x2981GemeZehVjXX38NX
 - **2026-11-14, 0.3.344, Flyers over low things.** D-900's first step:
   bats, lampmoths and lure wisps fly over what you built, bushes,
   branches, rubble, plinths and braziers, and are struck there. D-901.

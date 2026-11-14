@@ -41,3 +41,11 @@ test('the Make tab, workbench and mortar cards draw the rows under the costs (lo
   assert.ok(y > 12 + 2 * 18, `the rule under the rows is below both costs: ${y}`);
   assert.deepEqual(rules('workbench', [{ id: 'wood', n: 5, have: 5 }]), []);
 });
+
+test("the peddler's card shows the rows, but for Sells for, his own line saying it", async () => {
+  const { tradeNumbers } = await import('../src/render/tradepanel.js');
+  const of = (id) => tradeNumbers(id).map((r) => `${r.label} ${r.value}`.trim());
+  assert.deepEqual(of('flask'), ['Fills the lantern 45%']);
+  assert.deepEqual(of('pondMinnow'), ['Heals 1 heart', 'Fills the lantern 15%']);
+  assert.ok(Object.values(ITEMS).every((e) => tradeNumbers(e.id).every((r) => r.icon !== 'coin')));
+});
