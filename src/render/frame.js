@@ -448,7 +448,7 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {
-      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, kitOf(state), t, still(), bagSize(state)); // a card on the room (D-387)
+      drawChestPanel(hc, view.w, view.h, stashAt(state, app.bench.x, app.bench.y), state.bag, app.chosen, kitOf(state), t, still(), bagSize(state), picsOf(state)); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "Your bag is full."
     }
     else if (app.screen === 'trade') {

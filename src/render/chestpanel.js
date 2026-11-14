@@ -2,7 +2,9 @@
 // card on the room as the bag's (D-385), "STASH CHEST" at its top. On the left, its 12
 // slots in a 4 × 3 grid; on the right, "BAG" and the bag's 6 in its 3 × 2 grid, the chosen
 // stack's name and count under them, the rows of what it does (D-902, D-906: as the bag
-// card's, ending left of STORE when level with it), and that a tap moves it (CH4, D-331). The chosen slot,
+// card's, ending left of STORE when level with it), under them the bag card's picture, as if used
+// now (pics.js, D-917: for the chest's stacks and the bag's, left out where it would reach STORE),
+// and that a tap moves it (CH4, D-331). The chosen slot,
 // the chest's or the bag's, is framed in gold. DECONSTRUCT is in the bottom left corner,
 // the menus' flame beside it when chosen (CH5); STORE in the bottom right (D-556); the
 // round cross closes the card.
@@ -16,6 +18,7 @@ import { CHEST_SLOTS, CHEST_BAG, CHEST_TAKE, CHEST_STORE } from '../core/chest.j
 import { get } from '../core/registry.js';
 import { itemNumbers } from '../core/numbers.js';
 import { drawNumbers, numbersH } from './numbers.js';
+import { pictureOf } from './pics.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
 export const STORE = 'STORE', STORE_W = textWidth(STORE) + 8;
@@ -47,8 +50,9 @@ export function chestAt(x, y, vw, vh, size = BAG_SLOTS) {
 }
 
 // c: the room's canvas, `vw` × `vh`; stash, bag: [{ id, n, form? }]; chosen: a chest slot,
-// CHEST_BAG + a bag slot, CHEST_TAKE or CHEST_STORE; spriteOf: a slot's sprite (sprites.js)
-export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still, size = BAG_SLOTS) {
+// CHEST_BAG + a bag slot, CHEST_TAKE or CHEST_STORE; spriteOf: a slot's sprite (sprites.js);
+// picsOf: an entry's pictures' facts, { held, refill, sips } (D-917)
+export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still, size = BAG_SLOTS, picsOf = () => ({})) {
   const card = drawCard(c, vw, vh, 'STASH CHEST', SPLIT, true, TALL_SPLIT), { x, y, w } = card, at = take(card), b = sides(vw, vh, size);
   for (let i = 0; i < CHEST_SLOTS; i++) { const s = slotAt(card, i, TOP, COLS); drawSlot(c, s.x, s.y, stash[i], i === chosen, spriteOf); }
   drawText(c, 'BAG', x + b.x, y + b.label, GREY);
@@ -68,7 +72,7 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
   // where it would pass the card's foot (D-743)
   const foot = y + card.h - 6, widthAt = (ty) => (ty + LINE_H > st.y ? st.x - 6 - dx : dw);
   for (const [text, colour] of lines) {
-    if (colour === GREY) ly = chestNumbers(c, s.id, dx, ly, dw, st, foot);
+    if (colour === GREY) ly = chestNumbers(c, s.id, dx, ly, dw, st, foot, { ...picsOf(get(s.id)), spriteOf }, (textWidth(text) <= dw ? 1 : 2) * LINE_H);
     if (colour === GREY && ly + 7 > foot) break;
     let line = '';
     for (const word of text.split(' ')) {
@@ -82,11 +86,14 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
 
 // The chosen thing's rows under its name (D-906): the bag card's, `w` wide, or ending left of
 // STORE (`st`) when they would reach its top; left out if they would pass the card's foot.
+// The picture (pics.js) only with the rows full width, left out where it or the hint (`hintH`)
+// would reach STORE (D-917).
 // Gives the next line's y
-export function chestNumbers(c, id, x, y, w, st, foot) {
+export function chestNumbers(c, id, x, y, w, st, foot, pics = {}, hintH = 0) {
   const rows = itemNumbers(get(id));
   if (!rows.length) return y;
   const rw = y + 2 + numbersH(rows, w) > st.y - 3 ? st.x - 6 - x : w;
   if (y + 2 + numbersH(rows, rw) > foot) return y;
-  return y + 2 + drawNumbers(c, rows, x, y + 2, rw) + 5;
+  const pic = rw === w ? pictureOf(c, get(id), rows, x, y + 2, w, st.y - 5 - hintH, pics) : null; // room kept for the hint
+  return y + 2 + drawNumbers(c, rows, x, y + 2, rw, pic) + 5;
 }

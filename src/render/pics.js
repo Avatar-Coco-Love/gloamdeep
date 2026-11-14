@@ -1,5 +1,6 @@
 // § pictures (D-902, D-907 to D-909, D-916): the one picture under an item's rows, on the bag
-// card and the Make card (the workbench's, the mortar's and the bag's Make tab, D-916): a
+// card, the Make card (the workbench's, the mortar's and the bag's Make tab, D-916), the
+// peddler's and the stash chest's (D-917): a
 // weapon's hits on the grid beside the one held, else hearts or oil now and after, else a
 // draught's turns; each left out where it is too wide for `dw` or its rows and it would reach
 // `below`. Gives { h, draw(py) } for drawNumbers (numbers.js), or null.

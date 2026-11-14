@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.362', date: '2026-11-14', title: 'The pictures on the chest\'s card', lines: [
+    "On the stash chest's card, the thing you pick, in the chest or in the bag, now shows the bag card's picture under its rows: hearts or oil \"Now\" and \"After\", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.",
+    "Where the card is short, as on a phone held sideways, the picture is left out, so it and the \"Tap to move\" line never reach the buttons. A test checks the card fits with every thing picked, in the chest and in the bag.",
+    "Docs: one finished decision moves to the archive, word for word.",
+    "Decisions: D-919. D-917 moved to the archive, word for word.",
+  ] },
   { v: '0.3.361', date: '2026-11-14', title: 'The next prompts, in CLAUDE.md', lines: [
     "Docs: CLAUDE.md now says that after a merge, the next prompts each go in their own code block, so each has its own copy button. Nothing in the game changes.",
     "Docs: one finished decision moves to the archive, word for word.",

@@ -31,6 +31,7 @@ const { bagMakes } = await import(R + 'core/bagmake.js');
 const { refills, draughtTurns } = await import(R + 'core/numbers.js');
 const G = await import(R + 'core/gear.js');
 const { drawChestPanel } = await import(R + 'render/chestpanel.js');
+const { CHEST_BAG } = await import(R + 'core/chest.js');
 const { drawTradePanel } = await import(R + 'render/tradepanel.js');
 const { wares } = await import(R + 'core/trade.js');
 const { drawBoons, boonsLayout } = await import(R + 'render/boons.js');
@@ -91,14 +92,14 @@ test('every Journal tab and creature page fits its card, at its top and scrolled
 
 test('the bag, its Make tab, workbench and stash chest fit their cards with every item chosen (D-787)', () => {
   const bad = [], spriteOf = () => any;
+  const hero = { health: 2, oil: 0.3, boon: null, grown: {}, held: 'knife' }, picsOf = (e) => ({ held: hero.held, refill: refills(hero, e), sips: draughtTurns(hero, e) }); // the pictures too (D-916)
   for (const [vw, vh] of SIZES) {
     const L = `${vw}×${vh}`, card = B.cardAt(vw, vh);
     for (const size of [6, 9, 12]) for (const id of Object.keys(ITEMS)) {
       bad.push(...fits(`${L} bag ${size} ${id}`, B.cardAt(vw, vh, B.bagShape(size).detail), () => B.drawBag(any, vw, vh, [{ id, n: 99 }], 0, spriteOf, [], false, {}, size, true, 0, true, true, ITEMS[id].craft?.into ?? null)));
-      bad.push(...fits(`${L} chest ${size} ${id}`, card, () => drawChestPanel(any, vw, vh, [{ id, n: 99 }], [{ id, n: 99 }], 0, spriteOf, 0, true, size)));
+      for (const at of [0, CHEST_BAG]) bad.push(...fits(`${L} chest ${size} ${at} ${id}`, card, () => drawChestPanel(any, vw, vh, [{ id, n: 99 }], [{ id, n: 99 }], at, spriteOf, 0, true, size, picsOf))); // the pictures too, chest and bag (D-917)
     }
     const makes = M.benchMakes([], 6, []);
-    const hero = { health: 2, oil: 0.3, boon: null, grown: {}, held: 'knife' }, picsOf = (e) => ({ held: hero.held, refill: refills(hero, e), sips: draughtTurns(hero, e) }); // the pictures too (D-916)
     makes.forEach((m, i) => bad.push(...fits(`${L} bench ${i}`, card, () => drawBenchPanel(any, vw, vh, makes, i, spriteOf, {}, 0, true, 'WORKBENCH', '', null, picsOf))));
     const known = bagMakes({ bag: [], known: Object.keys(ITEMS) });
     known.forEach((m, i) => bad.push(...fits(`${L} make ${i}`, card, () => drawMakeCard(any, vw, vh, known, i, spriteOf, {}, picsOf))));
