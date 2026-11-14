@@ -192,5 +192,6 @@ the playbook's lines since the last audit, and the four that waited in
 word for word. "Waiting on the owner" lists the any-time and later
 questions on fewer lines. Step 19, Lore, stays open: its quests (D-629)
 are still to come (offered: ticked, before that was found). A bug hunt
-reads the code since 0.3.313; its findings come to the owner as a list
-to pick from, each fix its own step. The next audit is at 0.3.393.
+reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
+all picked as steps, in order, each fix its own step. The next audit
+is at 0.3.393.

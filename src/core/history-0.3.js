@@ -8,7 +8,7 @@
 export const HISTORY_03 = [
   { v: '0.3.353', date: '2026-11-14', title: 'The sixteenth audit', lines: [
     "The sixteenth audit. Nothing in the game changes. The pictures of the finds you carry move out of the biggest picture file into their own, and 0.3.251 to 0.3.300 of the Version history into theirs, word for word.",
-    "Docs: two finished decisions and the playbook's newest lessons move to the archive or their own page, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit comes next, as a list to pick from. The next audit is at 0.3.393.",
+    "Docs: two finished decisions and the playbook's newest lessons move to the archive or their own page, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit found five bugs, listed in the docs; their fixes come next, one step each. The next audit is at 0.3.393.",
     "Decisions: D-910. D-897 and D-903 moved to the archive, word for word.",
   ] },
   { v: '0.3.352', date: '2026-11-14', title: 'A draught\'s turns, now and after', lines: [

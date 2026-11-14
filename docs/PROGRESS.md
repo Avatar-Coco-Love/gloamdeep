@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-1, flyers over things, first; then F-2, F-3, and F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
