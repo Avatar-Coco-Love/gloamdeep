@@ -186,15 +186,17 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-920 · 2026-11-14 · The round map in the dark** (the owner's picks
-from a mock-up, all recommended; answers Q-108) The round map fades with
-the light on the hero's own tile, the brightest of daylight, the lantern
-(its reach against a full tank's) and any other light reaching it: all of
-it at full light, down to 15% at none (offered too: never under 40%;
-three steps). At an ember, or with the lantern off, and no other light
-on the tile, a soft dark spot about 2 tiles round the hero hides its
-middle too (offered too: half the disc; all but the hero). The hero's
-dot always shows. Changes ease over half a second (offered too: at
-once). The full map opens clearly. The rim showing danger (Q-109) is
-next (offered too: flyers into trees, D-900). D-918 and D-919 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
+**D-921 · 2026-11-14 · The round map's rim shows danger** (the owner's
+picks from a mock-up, all recommended; answers Q-109) While any creature
+in the room is chasing the hero, near or far, the round map's rim turns
+the creatures' red, solid and thicker, and pulses slowly (steady with
+reduced motion). Else, while one is close to noticing them, the rim shows
+a broken ember ring, so the two differ in shape too, for colour-blind
+players (offered too: colour only; an arc toward the creature). Close to
+noticing: one that comes for the hero, awake, that would notice them
+where it stands or from a free tile one step nearer, by its own rules
+(light, near, Soft Step, the Shade Draught, its sight); ones that seek
+light, lure or only spit never count (offered too: within 4 tiles; red
+only for now). Always on (offered too: a setting). Flyers into trees
+(D-900) is next. D-920 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

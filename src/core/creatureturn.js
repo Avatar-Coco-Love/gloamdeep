@@ -94,7 +94,7 @@ function settle(state) {
   return settled ? say({ ...state, enemies }, get(settled.id).settles) : { ...state, enemies };
 }
 // One asleep, or stirring as it wakes, does nothing (D-368); nor does a pile of bones (D-731)
-const still = (e) => e.asleep || e.stirs || e.pile;
+export const still = (e) => e.asleep || e.stirs || e.pile;
 // One under the earth (D-726) can't bite until it has come up
 const under = (e) => !!e.under;
 // The enemies that bite this turn, and the enemies with those marked as having noticed the hero
@@ -152,6 +152,17 @@ function ahead(state) {
 // One that lurks (D-797) notices them within its `near` steps along a clear line, lit or not.
 // While the Shade Draught works (D-806) none notices them farther than `SHADE_NEAR` steps,
 // however it would; one already after them keeps coming, and the light seekers are as they were.
+// § notices: (state, e) → whether creature `e`, where it stands, notices the hero this turn by its
+// ways: seen along a clear line, lit, near or any (as below), unless hidden by the Shade Draught or
+// past its own `sight`. Split from enemiesMove for the round map's rim (D-921), word for word.
+export function noticesHero(state, e, t = traits(get(e.id)), soft = boonNotice(state), lit = litAt(state, e.x, e.y)) {
+  const sees = t.notices === 'anyLine' || (t.notices === 'near' && steps(e, state.hero) <= t.near) // one that lurks: near, lit or not (D-797)
+    || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
+  const hidden = (shaded(state) && steps(e, state.hero) > SHADE_NEAR) // the Shade Draught: noticed only near (D-806)
+    || steps(e, state.hero) > (get(e.id).sight ?? Infinity); // its own `sight`: the mole's 5 steps, by day or night (D-858)
+  return sees && !hidden && clearLine(state.room, e, state.hero);
+}
+
 // One with its own `sight` (the mole, D-858) notices them no farther than that many steps, lit or not.
 function enemiesMove(state, bit = false) {
   const start = rally(state.enemies), claims = [];
@@ -166,11 +177,7 @@ function enemiesMove(state, bit = false) {
       continue;
     }
     const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
-    const sees = t.notices === 'anyLine' || (t.notices === 'near' && steps(e, state.hero) <= t.near) // one that lurks: near, lit or not (D-797)
-      || (t.notices === 'inLight' && lit && (!soft || litAt(state, e.x, e.y, soft)));
-    const hidden = (shaded(state) && steps(e, state.hero) > SHADE_NEAR) // the Shade Draught: noticed only near (D-806)
-      || steps(e, state.hero) > (get(e.id).sight ?? Infinity); // its own `sight`: the mole's 5 steps, by day or night (D-858)
-    const chasing = !seeks && (e.chasing || (sees && !hidden && clearLine(state.room, e, state.hero)));
+    const chasing = !seeks && (e.chasing || noticesHero(state, e, t, soft, lit));
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
     if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
     const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
@@ -283,7 +290,7 @@ function lightGoal(state, e) {
 // Whether enemy e may step onto tile x, y: nothing solid (a `low` one is open to one that `flies`,
 // D-718, D-900), no other enemy (it walks over an item, D-727), no person (D-496), not the hero, and no light for one that
 // shuns it unless `lit` (D-240)
-function free(state, e, x, y, lit = false) {
+export function free(state, e, x, y, lit = false) {
   const tile = tileAt(state.room, x, y);
   if ((tile.solid && !(tile.low && get(e.id).flies)) || enemyAt(state, x, y) || personAt(state, x, y) || (x === state.hero.x && y === state.hero.y)) return false;
   return lit || traits(get(e.id)).intoLight || !litAt(state, x, y);

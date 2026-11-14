@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.361 (2026-11-14)
+- Docs: CLAUDE.md now says that after a merge, the next prompts each go in their own code block, so each has its own copy button. Nothing in the game changes.
+- Docs: one finished decision moves to the archive, word for word.
+- Decisions: D-918. D-916 moved to the archive, word for word.
+
 ## 0.3.360 (2026-11-14)
 - On the peddler's card, on both Sell and Buy, the thing you pick now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
 - His price line always shows; the picture is left out where it and that line would reach the button. A test checks the card fits with every thing picked.
