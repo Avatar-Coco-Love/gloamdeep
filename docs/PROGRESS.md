@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.350 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.351 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The numbers' pictures (D-902), one kind a step, the owner picks the next (D-907). Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The numbers' pictures (D-902), one kind a step, the owner picks the next (D-907, D-908): a draught's turns, or the other cards. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -49,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.351, Hearts or oil, now and after.** D-902's second
+  picture: in the bag, hearts or oil "Now" over "After", twice as big,
+  what's lost faint, a boon counted. The owner's picks. D-904 to D-906
+  archived. D-908. Playtest: https://claude.ai/artifact/BkTCPz2FqcNiXprmVV8Az9
 - **2026-11-14, 0.3.350, A weapon's hits on the grid.** D-902's first
   picture: in the bag, a weapon's hits under its rows, "This one" over
   "Held now" (look C). The owner's picks. D-907. Playtest: https://claude.ai/artifact/D3AYMMF6p5G1hZAAExwsN4
@@ -56,6 +60,3 @@ list in `RESEARCH.md`.
   step: the chest card shows the rows under the name, the tap hint below;
   sideways they end left of STORE. The owner's picks from a mock-up. D-906.
   Q-108 and Q-109 written down. Playtest: https://claude.ai/artifact/SNcJZ2RxNBLPuNJraFcLWJ
-- **2026-11-14, 0.3.348, Numbers on the peddler's trade.** D-902's third
-  step: the peddler's card shows the rows under "carried", his price
-  line below; no "Sells for" row there. The owner's picks. D-905. Playtest: https://claude.ai/artifact/5Tw5ndQC88s55NPKrtYUGa

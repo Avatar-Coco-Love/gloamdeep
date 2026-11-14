@@ -81,3 +81,27 @@ test('the picture goes between the rows and their rule, and is left out where it
   assert.equal(h, numbersH(rows, 200, 50));
   assert.ok(drawnAt >= numbersH(rows, 200) - 4, `under the rows: ${drawnAt}`);
 });
+
+test('hearts or oil now and after: the real amounts, a boon counted, what passes the top lost (D-908)', async () => {
+  const { refills } = await import('../src/core/numbers.js');
+  const hero = (health, oil, boon = null) => ({ health, oil, boon, grown: {} });
+  const of = (st, id) => refills(st, ITEMS[id]).map((r) => `${r.kind} ${+r.now.toFixed(2)}>${+r.after.toFixed(2)} lost ${+r.lost.toFixed(2)}`);
+  assert.deepEqual(of(hero(2, 0.3), 'herb'), ['hearts 2>4 lost 0']);
+  assert.deepEqual(of(hero(3, 0.3), 'potion'), ['hearts 3>5 lost 2']);
+  assert.deepEqual(of(hero(5, 0.3), 'herb'), ['hearts 5>5 lost 2']); // full: eating heals nothing
+  assert.deepEqual(of(hero(2, 0.3, 'kindHerbs'), 'herb'), ['hearts 2>5 lost 0']);
+  assert.deepEqual(of(hero(3, 0.75), 'flask'), ['oil 0.75>1 lost 0.2']);
+  assert.deepEqual(of(hero(2, 0.3), 'pondMinnow'), ['hearts 2>3 lost 0', 'oil 0.3>0.45 lost 0']);
+  assert.deepEqual(of(hero(2, 0.3), 'knife'), []);
+});
+
+test("the hearts-and-oil picture: side by side where they fit, one under the other where they don't", async () => {
+  const { refills } = await import('../src/core/numbers.js');
+  const { drawRefill, refillH, refillW } = await import('../src/render/refill.js');
+  const c = { fillStyle: '', fillRect: () => {}, save: () => {}, restore: () => {}, translate: () => {}, scale: () => {} };
+  const rows = refills({ health: 2, oil: 0.3, grown: {} }, ITEMS.pondMinnow);
+  assert.ok(refillW(rows, 400) > refillW(rows, 120), 'narrower when stacked');
+  assert.ok(refillH(rows, 120) > refillH(rows, 400), 'taller when stacked');
+  assert.equal(drawRefill(c, rows, 0, 0, 400), refillH(rows, 400));
+  assert.equal(refillH([], 400), 0);
+});

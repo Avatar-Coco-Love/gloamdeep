@@ -4,6 +4,8 @@
 import { OIL } from './oil.js';
 import { SHADE_NEAR } from './shade.js';
 import { LANTERN_HIT } from './turn.js';
+import { healOf, pourOf } from './boon.js';
+import { maxHealth } from './state.js';
 
 const TANK = Math.round(1 / OIL.burn); // a full lantern's turns, with nothing to slow it
 const many = (n, one, more = `${one}s`) => `${n} ${n === 1 ? one : more}`;
@@ -64,4 +66,23 @@ export function weaponHits(entry, held) {
   };
   if (held?.id === entry.id) return [row('Held now', entry)];
   return [row('This one', entry), row('Held now', held)];
+}
+
+// § refills (D-902, D-908): hearts or oil now and after, for the bag card's picture: one for the
+// hearts an eaten item heals, one for the oil a poured one fills (a minnow has both, each as its
+// own use would leave it). The real amounts, a boon's included (healOf, pourOf in boon.js); what
+// would pass the top is `lost`. Eating at full health heals nothing, so all of it is lost there.
+// state: the hero's; entry: the item's registry entry → [{ kind: 'hearts'|'oil', now, after, lost, max }]
+export function refills(state, entry) {
+  const out = [];
+  if (!state || !entry) return out;
+  if (entry.heal) {
+    const max = maxHealth(state), add = healOf(state, entry), now = state.health, after = now >= max ? now : Math.min(max, now + add);
+    out.push({ kind: 'hearts', now, after, lost: now + add - after, max });
+  }
+  if (entry.oil) {
+    const add = pourOf(state, entry), now = state.oil, after = Math.min(1, now + add);
+    out.push({ kind: 'oil', now, after, lost: now + add - after, max: 1 });
+  }
+  return out;
 }

@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.351', date: '2026-11-14', title: 'Hearts or oil, now and after', lines: [
+    "In the bag, a find that heals or fills the lantern now shows your hearts or oil \"Now\" and \"After\" under its rows, twice the size of the ones at the top of the screen. What it adds is pale.",
+    "What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.",
+    "A boon counts: with Kind Herbs, \"After\" shows the extra heart. A minnow or cavefish shows hearts and oil side by side, one under the other where the card is narrow, and is left out where it would reach the buttons.",
+    "Decisions: D-908.",
+  ] },
   { v: '0.3.350', date: '2026-11-14', title: 'A weapon\'s hits on the grid', lines: [
     "In the bag, a weapon now shows its hits on the grid under its rows: the hero, a rat on each tile it hits and what it takes in red, \"This one\" above and \"Held now\", the weapon in your hand, below. The spear hits two rats in a line; the Warden's Fist knocks its rat a tile back.",
     "With no weapon in hand, \"Held now\" shows the lantern's hit of 1. Tapping the weapon in the gear row shows only its \"Held now\" row.",
