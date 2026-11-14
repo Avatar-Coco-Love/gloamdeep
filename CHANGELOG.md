@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.356 (2026-11-14)
+- Fixed: Kind Herbs' card now says "All you eat, and potions, heal 1 heart more." Heartcaps and gloamberries always had the extra heart; the old words left them out.
+- Decisions: D-913.
+
 ## 0.3.355 (2026-11-14)
 - Fixed: on the bag card, a flask's or minnow's "After" oil now counts the turn the pour takes, so it shows what the pour really gives.
 - Decisions: D-912.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.354 (2026-11-14)
 - Fixed: a bat, lampmoth or lure wisp over the bench, a chest, a garden bed, the bed, a brazier or a bedroll can now be struck by walking into it, instead of opening its card.
 - Decisions: D-911.
-
-## 0.3.353 (2026-11-14)
-- The sixteenth audit. Nothing in the game changes. The pictures of the finds you carry move out of the biggest picture file into their own, and 0.3.251 to 0.3.300 of the Version history into theirs, word for word.
-- Docs: two finished decisions and the playbook's newest lessons move to the archive or their own page, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit found five bugs, listed in the docs; their fixes come next, one step each. The next audit is at 0.3.393.
-- Decisions: D-910. D-897 and D-903 moved to the archive, word for word.

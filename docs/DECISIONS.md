@@ -201,3 +201,8 @@ all recommended; fixes F-2) The bag card's "After" takes off the turn's
 burn first, as the pour does, so it shows the oil the pour really gives
 (offered too: marked as near). No burn with Quick Pour on a flask, or
 with the lantern out. A test checks it against the real pour.
+
+**D-913 · 2026-11-14 · Kind Herbs' words** (the owner's pick,
+recommended; fixes F-3) The card reads "All you eat, and potions, heal
+1 heart more.", as D-599 is. Offered too: list every one; narrow the
+rule.
