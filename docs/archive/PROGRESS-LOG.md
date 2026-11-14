@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.344, Flyers over low things.** D-900's first step:
+  bats, lampmoths and lure wisps fly over what you built, bushes,
+  branches, rubble, plinths and braziers, and are struck there. D-901.
+  Playtest: https://claude.ai/artifact/UVvZBXHE8cHceYZQ8nFBKS
 - **2026-11-14, 0.3.343, Built things on the map.** The owner's find:
   built things looked like trees on the maps; now wood brown. The
   owner's next ideas set down in order. D-898

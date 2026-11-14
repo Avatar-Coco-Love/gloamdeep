@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.344 (2026-11-14)
+- Bats, lampmoths and lure wisps now fly over low things: what you built, bushes, fallen branches, rubble, plinths and braziers, as over water. Trees, rock and walls still stop them. Walk into one hovering over a low thing to strike it.
+- Decisions: D-901.
+
 ## 0.3.343 (2026-11-14)
 - On the map and the round map, what you built (chests, workbenches, beds, bedrolls, garden beds, the shelf, the mortar, torches and your own campfires) now shows in a warm wood brown, so it no longer looks like a tree.
 - Your next ideas are written down, in order: flyers over low things and into trees, then cutting a room as you like, creatures through doorways and a shovel.

@@ -167,3 +167,14 @@ vault door opening and its prize, both built, move to
 (offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
 `archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
 (offered too: folded into the numbers' step). No game change.
+
+**D-904 · 2026-11-14 · Numbers on the Make tab and workbench** (the
+owner's picks, both recommended, from a mock-up of the cards held
+sideways) D-902's second step: the Make tab's and the workbench's card
+show the rows of what the chosen recipe makes, under its costs, above
+its Look line (look A; offered too: B, right under the name, the costs
+below; C, the rows in the Look line's place). The mortar's card too, the
+same card, in this step (offered too: its own step later). Claude's
+calls: on a short screen held sideways the Look line is left out when it
+would reach MAKE, as on the bag card; one drawing for all three cards
+(`drawMakeWords` in `render/benchpanel.js`).
