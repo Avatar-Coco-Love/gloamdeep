@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.363 (2026-11-14)
+- The round map in the top right now fades in the dark, with the light on the hero's own tile: in daylight or by a full lantern it shows in full, and as the oil runs low it dims, down to faint at none. A torch, a brazier or a glow near you lifts it again, more the closer you stand.
+- At an ember, or with the lantern off and no other light on you, the round map's middle hides too, a soft dark spot about 2 tiles round you. Your gold dot always shows, and every change eases in over half a second. The full map still opens clearly.
+- Docs: two finished decisions move to the archive, word for word.
+- Decisions: D-920. Questions closed: Q-108. D-918 and D-919 moved to the archive, word for word.
+
 ## 0.3.362 (2026-11-14)
 - On the stash chest's card, the thing you pick, in the chest or in the bag, now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
 - Where the card is short, as on a phone held sideways, the picture is left out, so it and the "Tap to move" line never reach the buttons. A test checks the card fits with every thing picked, in the chest and in the bag.
@@ -33,9 +39,3 @@ Entry format:
 - Docs: CLAUDE.md now says that after a merge, the next prompts each go in their own code block, so each has its own copy button. Nothing in the game changes.
 - Docs: one finished decision moves to the archive, word for word.
 - Decisions: D-918. D-916 moved to the archive, word for word.
-
-## 0.3.360 (2026-11-14)
-- On the peddler's card, on both Sell and Buy, the thing you pick now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
-- His price line always shows; the picture is left out where it and that line would reach the button. A test checks the card fits with every thing picked.
-- Docs: one finished decision moves to the archive, word for word.
-- Decisions: D-917. D-915 moved to the archive, word for word.

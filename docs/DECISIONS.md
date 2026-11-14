@@ -186,18 +186,15 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-918 · 2026-11-14 · The next prompts, in CLAUDE.md** (the owner's
-request) `CLAUDE.md`'s PR section now says it too: after a merge, the
-next prompts each go in their own fenced code block (D-792), as the
-owner wants them every time. D-916 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-919 · 2026-11-14 · The pictures on the stash chest's card** (the
-owner's picks, all recommended) D-916's pictures go on the stash chest's
-card, as if used now, as on the bag card, for the chest's stacks and the
-bag's alike (offered too: the chest's only). Where it is short (a phone
-held sideways), the picture is left out where it or the "Tap to move"
-line would reach STORE or DECONSTRUCT (offered too: that line gives way
-first). Every card has its pictures now; the round map in the dark
-(Q-108) is next (offered too: flyers into trees, D-900). D-917 moves to
+**D-920 · 2026-11-14 · The round map in the dark** (the owner's picks
+from a mock-up, all recommended; answers Q-108) The round map fades with
+the light on the hero's own tile, the brightest of daylight, the lantern
+(its reach against a full tank's) and any other light reaching it: all of
+it at full light, down to 15% at none (offered too: never under 40%;
+three steps). At an ember, or with the lantern off, and no other light
+on the tile, a soft dark spot about 2 tiles round the hero hides its
+middle too (offered too: half the disc; all but the hero). The hero's
+dot always shows. Changes ease over half a second (offered too: at
+once). The full map opens clearly. The rim showing danger (Q-109) is
+next (offered too: flyers into trees, D-900). D-918 and D-919 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
