@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.346 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.347 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Numbers on the Make tab and workbench (D-902); then the peddler's
-trade, the stash chest; then the pictures. Then flyers into trees (D-900), cutting a room
+Numbers on the peddler's trade (D-902); then the stash chest; then the pictures. Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -50,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.347, Numbers on the Make tab.** D-902's second
+  step: the Make tab, the workbench and the mortar show what a recipe
+  makes, what it does, in rows under its costs. A mock-up of three places; the
+  owner chose under the costs, and the mortar too. D-904. Playtest: https://claude.ai/artifact/17CWL3BJpgT4JLFPHusG1o
 - **2026-11-14, 0.3.346, The vault's decisions archived.** Before the
   numbers' next step, D-895 and D-896, the vault, built, moved word for
   word to `archive/DECISIONS-SURFACE.md`; `DECISIONS.md` 11.7 KB to 9.7 KB.
@@ -57,7 +60,3 @@ list in `RESEARCH.md`.
 - **2026-11-14, 0.3.345, Numbers in the bag.** The owner's find: the bag
   never said what a thing does. Mock-ups of three looks; the owner chose
   rows and pictures. First step: the rows. D-902. Playtest: https://claude.ai/artifact/W9x2981GemeZehVjXX38NX
-- **2026-11-14, 0.3.344, Flyers over low things.** D-900's first step:
-  bats, lampmoths and lure wisps fly over what you built, bushes,
-  branches, rubble, plinths and braziers, and are struck there. D-901.
-  Playtest: https://claude.ai/artifact/UVvZBXHE8cHceYZQ8nFBKS

@@ -1,17 +1,17 @@
 // § make card (D-787): the bag card's Make tab. BAG and MAKE in its title row, MAKE open. On
 // the left, each recipe made in the bag that has shown, a slot in a 4 × 3 grid as the
 // workbench card's (D-387), the chosen one framed in gold. On the right, its name, a row per
-// cost with its sprite and "3 / 5 Oilcap" (needed / in the bag), its Look line, and MAKE in
-// the bottom right corner, dim with too few. With none shown yet, a grey line says why.
+// cost with its sprite and "3 / 5 Oilcap" (needed / in the bag), the rows of what it does
+// (D-902), its Look line, and MAKE in the bottom right corner, dim with too few (all drawn by
+// benchpanel.js's drawMakeWords). With none shown yet, a grey line says why.
 import { drawText } from './font.js';
-import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, lookLine, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, TAP_PAD } from './bag.js';
-import { TOP, SPLIT, DETAIL_X, TALL_SPLIT } from './benchpanel.js';
+import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross, wrapWords, detailAt, BUTTON, PAD, HELD_Y, LINE_H, TAP_PAD } from './bag.js';
+import { TOP, SPLIT, DETAIL_X, TALL_SPLIT, drawMakeWords } from './benchpanel.js';
 import { drawBagTabs, bagTabAt } from './bagtabs.js';
 import { MAKE_COLS, MAKE_SLOTS } from '../core/bagmake.js';
 import { get } from '../core/registry.js';
 
-const GREY = '#9790a4', CORE = '#efe6cc';
-const COST_H = 18; // the cost rows under the name, a sprite each
+const GREY = '#9790a4';
 export const NONE_YET = 'Nothing to make yet. Recipes show once you have held their finds.';
 
 // What a tap at x, y on the room's canvas, `vw` × `vh`, picks: { slot: i }, { tab } (BAG or
@@ -40,13 +40,6 @@ export function drawMakeCard(c, vw, vh, makes, chosen, spriteOf, told) {
     if (!makes.length) wrapWords(NONE_YET, dw).forEach((l, i) => drawText(c, l, dx, dy + i * LINE_H, GREY));
     return;
   }
-  drawText(c, entry.name, dx, dy, CORE);
-  make.cost.forEach(({ id, n, have }, i) => {
-    const cy = dy + LINE_H + i * COST_H;
-    c.drawImage(spriteOf({ id, n }), dx, cy);
-    drawText(c, `${n} / ${have} ${get(id).name}`, dx + 19, cy + 5, GREY);
-  });
-  const look = lookLine(entry, told), top = dy + LINE_H + make.cost.length * COST_H + 6;
-  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, top + i * LINE_H, GREY));
+  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2);
   drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
 }

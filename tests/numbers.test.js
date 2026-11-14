@@ -29,3 +29,15 @@ test('things with no numbers have no rows, and every row has a drawn icon', () =
   assert.deepEqual(words('workbench'), []);
   for (const e of Object.values(ITEMS)) for (const r of itemNumbers(e)) assert.ok(ICON_NAMES.includes(r.icon), `${e.id}: ${r.icon}`);
 });
+
+test('the Make tab, workbench and mortar cards draw the rows under the costs (look A)', async () => {
+  const { drawMakeWords } = await import('../src/render/benchpanel.js');
+  const rules = (id, cost) => {
+    const rects = [], c = { fillStyle: '', fillRect: (x, y, w) => rects.push({ y, w, s: c.fillStyle }), drawImage: () => {} };
+    drawMakeWords(c, { cost }, ITEMS[id], 0, 0, 200, () => ({}), {}, 200);
+    return rects.filter((r) => r.s === 'rgba(239,230,204,.16)' && r.w === 200).map((r) => r.y);
+  };
+  const [y] = rules('flask', [{ id: 'oilcap', n: 3, have: 5 }, { id: 'herb', n: 1, have: 0 }]);
+  assert.ok(y > 12 + 2 * 18, `the rule under the rows is below both costs: ${y}`);
+  assert.deepEqual(rules('workbench', [{ id: 'wood', n: 5, have: 5 }]), []);
+});

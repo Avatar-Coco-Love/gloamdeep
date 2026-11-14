@@ -3,7 +3,8 @@
 // made at it is a slot in a 4 × 3 grid, the stash chest's (D-484), the chosen one framed in gold. On the
 // right, its name, a row per cost with its sprite and "3 / 5 Wood" (needed / in the bag and
 // the chests in reach, D-560),
-// its Look line, and MAKE in the bottom right corner, dim with too few (CH1, D-326).
+// the rows of what it does (D-902), its Look line, and MAKE in the bottom right corner, dim
+// with too few (CH1, D-326).
 // DECONSTRUCT is in the bottom left corner, the menus' flame beside it when chosen.
 // The workbench's card has two tabs where its title was, BUILD and GEAR (D-800); the mortar's keeps its title.
 import { drawText, textWidth } from './font.js';
@@ -12,6 +13,8 @@ import { cardAt, drawCard, drawSlot, drawButton, slotAt, gridAt, inCard, onCross
 import { BENCH_TAKE, BENCH_COLS, BENCH_SLOTS, BENCH_TABS } from '../core/menu.js';
 import { drawTabs, tabAt } from './bagtabs.js';
 import { get } from '../core/registry.js';
+import { itemNumbers } from '../core/numbers.js';
+import { drawNumbers } from './numbers.js';
 
 const GREY = '#9790a4', CORE = '#efe6cc';
 export const TAKE = 'DECONSTRUCT'; // the stash chest's card too (D-387)
@@ -54,13 +57,22 @@ export function drawBenchPanel(c, vw, vh, makes, chosen, spriteOf, told, t, stil
   const make = makes[chosen], entry = make && get(make.item);
   const { dx, dy } = detailAt(card, vw, vh, DETAIL_X, HELD_Y, TALL_SPLIT), dw = x + w - PAD - dx; // upright, under the grid (D-505)
   if (!entry) { if (!makes.length && none) wrapWords(none, dw).forEach((l, i) => drawText(c, l, dx, dy + i * LINE_H, GREY)); return; } // the mortar's, empty (D-786)
+  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2);
+  drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
+}
+
+// § make's words: a recipe chosen, the workbench's, the mortar's or the bag's Make tab's (D-787):
+// its name, a row per cost with its sprite and "3 / 5 Wood", then the rows of what it does
+// (D-902, look A: under the costs), then its Look line, left out when it would reach `below`, on
+// a short screen held sideways, as the numbers matter more there (as the bag card's)
+export function drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, below) {
   drawText(c, entry.name, dx, dy, CORE);
   make.cost.forEach(({ id, n, have }, i) => {
     const cy = dy + LINE_H + i * COST_H;
     c.drawImage(spriteOf({ id, n }), dx, cy);
     drawText(c, `${n} / ${have} ${get(id).name}`, dx + 19, cy + 5, GREY);
   });
-  const look = lookLine(entry, told), top = dy + LINE_H + make.cost.length * COST_H + 6;
-  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, top + i * LINE_H, GREY));
-  drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
+  const top = dy + LINE_H + make.cost.length * COST_H + 4, h = drawNumbers(c, itemNumbers(entry), dx, top, dw);
+  const look = lookLine(entry, told), lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 2);
+  if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));
 }
