@@ -1,6 +1,6 @@
 // § bench: Set down puts the workbench beside the hero on the side picked, only
 // under the sky, on plain floor off the edge with nothing on it, never cutting
-// the room in two; a turn, with its line (WB2, D-322)
+// the room in two (until D-924: it may now); a turn, with its line (WB2, D-322)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, SKY, tileAt } from '../src/core/room.js';
@@ -51,11 +51,11 @@ test('only free floor off the edge, with nothing on it: else "There is no room t
   assert.ok(!setSides({ ...outside(), hero: { x: 3, y: 1 } }, 0).includes('right'));
 });
 
-test('never on the room edge, and never cutting the room in two', () => {
-  // A corridor: setting it down in the middle would cut the right end off
+test('never on the room edge, but it may cut the room in two (D-899, D-924)', () => {
+  // A corridor: setting it down in the middle cuts the right end off, and is allowed
   const map = ['TTTTTTT', 'T.....T', 'TTTTTTT'];
   const s = { ...outside(map), hero: { x: 2, y: 1 } };
-  assert.deepEqual(setSides(s, 0), ['left']); // 1,1 is a dead end; 3,1 would cut 4,1 and 5,1 off
+  assert.deepEqual(setSides(s, 0), ['left', 'right']); // 3,1 cuts 4,1 and 5,1 off
   const edge = ['TTTTT', '.....', 'TTTTT']; // an opening on each side: 0,1 is on the edge
   const e = { ...outside(edge), hero: { x: 1, y: 1 } };
   assert.ok(!setSides(e, 0).includes('left'));

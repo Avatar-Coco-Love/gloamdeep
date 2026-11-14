@@ -2004,3 +2004,10 @@ light, lure or only spit never count (offered too: within 4 tiles; red
 only for now). Always on (offered too: a setting). Flyers into trees
 (D-900) is next. D-920 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-899 · 2026-11-14 · The hero may cut a room** (the owner's pick; not
+the recommended: only while the stairs and doorways stay in reach;
+offered too: as now) A thing set down may cut a room in two, and a tree
+may grow back on its stump though it cuts the room; chopping (or
+digging, Q-106) is the way through. Its own step; that step marks what
+it changes in D-317 and D-322.

@@ -68,11 +68,18 @@ test('with room for 1, it still falls, and 2 sticks lie on the stump and the nea
   assert.equal(new Set(left.map((it) => `${it.x},${it.y}`)).size, 2);
 });
 
-test('with 6 full stacks of Wood carried, the fourth bump holds, free, with its line', () => {
-  const s = bumps(beside(Array.from({ length: 6 }, () => ({ id: 'wood', n: 20 }))), 4);
-  assert.equal(s.turn, 3);
-  assert.equal(tileAt(s.room, 5, 10).id, 'tree');
+test('with 6 full stacks of Wood carried, the fourth bump fells it all the same, the wood on the floor (D-924)', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'wood', n: 20 }));
+  const s = bumps(beside(full), 4);
+  assert.equal(s.turn, 4);
+  assert.equal(tileAt(s.room, 5, 10).id, 'stump');
+  assert.deepEqual(s.bag, full);
+  const left = s.items.filter((it) => it.id === 'wood');
+  assert.equal(left.length, 3);
+  assert.ok(left.every((it) => it.once && !tileAt(s.room, it.x, it.y).solid));
+  assert.ok(!left.some((it) => it.x === 5 && it.y === 11)); // never under the hero
   assert.equal(shown(s), "You can't carry more wood.");
+  assert.equal(s.taken.length, 1); // the stump still grows back
 });
 
 test('a tree on the room\'s edge is never chopped', () => {
@@ -99,7 +106,7 @@ test('a stump grows back into a tree on its own tile after 900 turns, out of sig
   assert.equal(back.taken.length, 0);
 });
 
-test('it waits while something lies on the stump, or growing would cut the room', () => {
+test('it waits while something lies on the stump, but grows though it cuts the room (D-899, D-924)', () => {
   const s = bumps(beside(), 4), was = s.taken[0], away = { ...s, hero: { x: 2, y: 2 }, turn: was.at + 900 };
   const lying = regrow({ ...away, items: [{ id: 'wood', x: 5, y: 10 }] }, true);
   assert.equal(tileAt(lying.room, 5, 10).id, 'stump');
@@ -107,6 +114,6 @@ test('it waits while something lies on the stump, or growing would cut the room'
   let room = s.room;
   for (let y = 1; y < room.rows - 1; y++) if (y !== 10) room = withTile(room, 5, y, get('wall'));
   const cut = regrow({ ...away, room }, true);
-  assert.equal(tileAt(cut.room, 5, 10).id, 'stump');
-  assert.equal(cut.taken.length, 1);
+  assert.equal(tileAt(cut.room, 5, 10).id, 'tree');
+  assert.equal(cut.taken.length, 0);
 });

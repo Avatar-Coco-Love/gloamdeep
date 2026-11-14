@@ -18,7 +18,6 @@ import { mendingBy } from './mending.js';
 import { wardingBy } from './ward.js';
 import { spitproofBy } from './spitproof.js';
 import { shadeBy } from './shade.js';
-import { joined, ringed } from './regrow.js';
 import { stashAt, withoutStash, nearStacks, payNear } from './chest.js';
 import { DIRS, passTurn, itemAt, maxHealth } from './state.js';
 import { tired } from './sleep.js';
@@ -154,7 +153,7 @@ export function hold(state, i) {
 // bench) beside the hero on side `dir`, takes it from the bag and passes a turn,
 // with its line (WB2, D-322). Only under the sky, unless it goes `anywhere` (a torch,
 // D-478); elsewhere "Only on the surface." is said, free. It goes only on plain floor
-// off the room's edge, with nothing on it, and only when the room stays joined; toward
+// off the room's edge, with nothing on it, even where it cuts the room (D-899, D-924); toward
 // any other side (or none), "There is no room there.", free. A `set` event. One that
 // brings a `light` puts it on that tile, going out `burns` turns later (endturn.js).
 export function setDown(state, i, dir) {
@@ -286,8 +285,7 @@ export function setSides(state, i) {
   return Object.keys(DIRS).filter((dir) => {
     const x = hero.x + DIRS[dir][0], y = hero.y + DIRS[dir][1];
     if (x < 1 || y < 1 || x > room.cols - 2 || y > room.rows - 2 || tileAt(room, x, y).id !== 'floor') return false;
-    if (itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y)) return false; // not on a person (D-492)
-    return joined(withTile(room, x, y, get(sets.tile)), ringed(state.people));
+    return !(itemAt(state, x, y) || enemyAt(state, x, y) || personAt(state, x, y)); // not on a person (D-492); it may cut the room (D-899, D-924)
   });
 }
 

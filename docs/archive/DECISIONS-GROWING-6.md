@@ -7,7 +7,7 @@ unless marked superseded. Grep for an ID or topic; never read this whole.
 
 ---
 
-**D-317 · 2026-10-24 · Trees to chop** (step W3 of D-314, the owner's
+**D-317 · 2026-10-24 · Trees to chop** *Superseded in part by D-924 (2026-11-14): with no room for the wood the fourth bump fells it all the same, the wood on the floor; the stump grows back though the tree cuts the room.* (step W3 of D-314, the owner's
 picks, all recommended but the look) Every tree but the room's edge ring,
 which stays its wall, can be chopped. Four bumps, a turn each, saying "You
 hack at the tree.", "Chips fly from the trunk.", "The tree groans."; the
@@ -53,7 +53,7 @@ Bumping a tree of a woods room's edge ring, which is never chopped (D-317),
 says in turn "The forest will not yield." and "These trees are too old to
 fell.", free.
 
-**D-322 · 2026-10-25 · Setting the workbench down** (step WB2 of D-319, the
+**D-322 · 2026-10-25 · Setting the workbench down** *Superseded in part by D-924 (2026-11-14): it may cut the room in two.* (step WB2 of D-319, the
 owner's picks, all recommended) Choosing the Workbench in the bag shows Set
 down (Enter or Space too); the bag closes and the free sides beside the hero
 are marked. An arrow, a swipe, or a click or tap on a marked tile sets it

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.363, The round map in the dark.** The round map
+  fades with the light on the hero's tile, 15% at none; at an ember or
+  with the lantern off, no light near, its middle hides. Eased over half
+  a second. The owner's picks from a mock-up. D-918, D-919 archived. D-920.
+  Playtest: https://claude.ai/artifact/TfguWeHYG7nepmhuJaozTW
 - **2026-11-14, 0.3.362, The pictures on the chest's card.** The
   bag card's pictures show on the stash chest's card, for the chest's
   stacks and the bag's, as if used now; left out where they would reach
