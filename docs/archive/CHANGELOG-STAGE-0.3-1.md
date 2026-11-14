@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.350 (2026-11-14)
+- In the bag, a weapon now shows its hits on the grid under its rows: the hero, a rat on each tile it hits and what it takes in red, "This one" above and "Held now", the weapon in your hand, below. The spear hits two rats in a line; the Warden's Fist knocks its rat a tile back.
+- With no weapon in hand, "Held now" shows the lantern's hit of 1. Tapping the weapon in the gear row shows only its "Held now" row.
+- On a short screen held sideways the picture is left out when it would reach the buttons; the rows always show.
+- Decisions: D-907.
+
 ## 0.3.349 (2026-11-14)
 - At a stash chest, the chosen thing, in the chest or the bag, now shows what it does in rows under its name, as in the bag: a draught what it does and for how long, a weapon how hard it hits. "Tap to move" sits below them, left out when there's no room.
 - Held sideways, the rows end left of STORE when they reach it, so they never run under the button.

@@ -29,7 +29,7 @@ repeated. A new colour in the code gets its line here too.
 | Crowns, the old green, highlight to rim | `#6fb04e` `#4f8a3f` `#36633a` `#2c5230` `#1d3620` `#13241a` | `woods.js:41` |
 | Crowns, a deep blue-green | `#62a067` `#457f52` `#2e5a42` `#244a38` `#162e25` `#0e1e18` | `woods.js:42` |
 | Crowns, a warm olive | `#93b552` `#719440` `#527034` `#415c2c` `#2a3c1e` `#192612` | `woods.js:43` |
-| Trunks: wood, light to dark (D-314) | `#9a7350` `#6a4c36` `#3e2c20` | `pictures.js:14`, `woods.js:56`, `torches.js:15`, `map.js:33` |
+| Trunks: wood, light to dark (D-314) | `#9a7350` `#6a4c36` `#3e2c20` | `pictures.js:15`, `woods.js:56`, `torches.js:15`, `map.js:33` |
 | The waystone's moss, and its grass | `#3d5a32` `#4f6b3a` `#5f7d44`; `#3f6b34` `#4a7a3a` | `waystone.js:11` |
 | The cave mouth's path | `#3e3126` `#4a3a2c` | `mouth.js:15` |
 
@@ -44,12 +44,12 @@ repeated. A new colour in the code gets its line here too.
 ## Creatures, finds and marks
 | What | Colours | Code |
 | --- | --- | --- |
-| The cave spider (D-535) | `#5d5672` `#3a344b` | `pictures.js:15` |
-| The bush's shades; the gloamberry (D-531) | `#2c5230` `#1d3620`; `#3a4590` `#8a98e0` | `pictures.js:16` |
-| The centipede's rust; venom's green (D-654) | `#c4553a` `#7e3020` `#4e1c16`; `#b6e07a` | `pictures.js:20`, `hearts.js:17`, `marks.js:18` |
-| The spit grub's glow (D-688) | `#eaffb8` | `pictures.js:21` |
-| The locket's gold and violet (D-692) | `#ffe08a` `#9a5424` `#b49cf0` `#2b1f44` | `pictures.js:347, 497` |
-| Ward, spitproof, shade draughts and marks | `#dcf0d4` `#8fb898`; `#e0a0aa` `#a8606e`; `#b39ad0` `#6e5a8c` | `pictures.js:571-577`, `marks.js:30-34` |
+| The cave spider (D-535) | `#5d5672` `#3a344b` | `pictures.js:16` |
+| The bush's shades; the gloamberry (D-531) | `#2c5230` `#1d3620`; `#3a4590` `#8a98e0` | `pictures.js:17` |
+| The centipede's rust; venom's green (D-654) | `#c4553a` `#7e3020` `#4e1c16`; `#b6e07a` | `pictures.js:21`, `hearts.js:17`, `marks.js:18` |
+| The spit grub's glow (D-688) | `#eaffb8` | `pictures.js:22` |
+| The locket's gold and violet (D-692) | `#ffe08a` `#9a5424` `#b49cf0` `#2b1f44` | `pictures.js:183`, `pictures-finds.js:256` |
+| Ward, spitproof, shade draughts and marks | `#dcf0d4` `#8fb898`; `#e0a0aa` `#a8606e`; `#b39ad0` `#6e5a8c` | `pictures-finds.js:276-282`, `marks.js:30-34` |
 | The scorpions' five looks | `#d9c48e` `#9a8458`; `#d0603a` `#7e3020`; `#5e5870` `#302c3c`; `#a9a65a` `#64612e`; `#e6dcc4` `#a89c80` | `pictures-creatures.js:130-132` |
 | The map's dungeon and woods tones | `#4c5a84` `#4f8a3f` | `map.js:28` |
 | The map's built things, the lantern base's wood brown (D-898) | `#a8642c` | `map.js:26` |

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.350, A weapon's hits on the grid.** D-902's first
+  picture: in the bag, a weapon's hits under its rows, "This one" over
+  "Held now" (look C). The owner's picks. D-907. Playtest: https://claude.ai/artifact/D3AYMMF6p5G1hZAAExwsN4
 - **2026-11-14, 0.3.349, Numbers on the stash chest.** D-902's fourth
   step: the chest card shows the rows under the name, the tap hint below;
   sideways they end left of STORE. The owner's picks from a mock-up. D-906.
