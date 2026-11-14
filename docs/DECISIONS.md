@@ -100,47 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-895 · 2026-11-13 · The door opening** (the owner's picks, one the
-owner's own; builds D-891 to D-893) The door's 2 notches move off the
-slab to the lintel above it, in a dark socket in the wall's cap,
-glowing violet one a lit brazier, the left first, sealed or open (the
-owner's idea: lit parts outside the door, so it opens fully; offered
-too: on the jambs; on the slab, its top left as a sill). Once both
-braziers burn the slab is gone: the doorway fully open and dark, a worn
-line at its foot, walked through, light passing; the Open door (offered
-too: Vault door). Lit last, the brazier says "The stone door sinks
-open." (offered too: "With a groan, the slab sinks into the floor.";
-nothing more). Left with a brazier still cold, the vault room's lit
-braziers go cold again as the hero steps out, the oil spent (offered
-too: on leaving the floor). Mock-up:
-https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb Claude's calls: the
-line said in "The brazier catches."'s place, as the strip holds one
-line; no new sound for now. D-891 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-896 · 2026-11-13 · The vault's prize** (the owner's picks, one not
-the recommended; builds D-891 to D-895; answers part of Q-105) The seed
-draws each vault's prize: 1 vault in 4 an ember, the rest 2 of one of
-the 7 rare materials, all alike (offered too: 1 in 2 an ember; a
-material above depth 8, an ember below; 1 of it; 1 to 3). It stands on
-a small crypt-stone plinth at the vault's heart with the brazier's dark
-violet band, the prize on its top (the owner's pick; recommended: on the
-floor as any find; offered too: in a crypt urn). Bumped, it is taken at
-once, a turn, the plinth left bare (offered too: an ask card first;
-free). An ember glows faintly 1 tile round in the torch's warm colour, a
-material lies dark till the lantern reaches it (offered too: no glow; a
-violet glint on any prize). Taken, an ember is 1 more to spend in
-Growth: "An ember! Spend it in Growth."; looked at, "An ember, still
-warm.", "It glows in your palm." (offered too: "An ember of the First
-Light!"; a hint line on stepping in). A material keeps its own lines.
-Bare, bumped: "A bare stone plinth.", "Something rested here once."
-(offered too: "An empty plinth."; nothing). Its name: Plinth (offered
-too: Altar, Pedestal). Mock-up:
-https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c Claude's calls: with
-no room in the bag for both, nothing is taken, free, the bag's full
-line; the take sound of any find. D-892 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-897 · 2026-11-14 · The lantern's words** (the owner's picks, both
 recommended; the owner's find) The two lantern goals' how lines follow
 the way of playing last used, touch until something is pressed: touch
@@ -199,3 +158,12 @@ pictures, one kind a step. Claude's
 calls: the words as on the mock-up page, from the registry
 (`core/numbers.js`); on a short screen held sideways the description is
 left out when it would reach the buttons.
+
+**D-903 · 2026-11-14 · The vault's decisions archived** (the owner's
+picks, all recommended) Before the numbers' next step, with
+`DECISIONS.md` at 11,961 of its 12,288 bytes, D-895 and D-896, the
+vault door opening and its prize, both built, move to
+`archive/DECISIONS-SURFACE.md` beside D-889 to D-893, word for word
+(offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
+`archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
+(offered too: folded into the numbers' step). No game change.

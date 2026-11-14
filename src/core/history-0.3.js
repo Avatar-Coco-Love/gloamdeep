@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.346', date: '2026-11-14', title: 'The vault\'s decisions archived', lines: [
+    "Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the vault door opening and the vault's prize, both built.",
+    "Decisions: D-903. D-895 and D-896 moved to the archive, word for word.",
+  ] },
   { v: '0.3.345', date: '2026-11-14', title: 'Numbers in the bag', lines: [
     "In the bag, a chosen item now shows what it does, in rows under its name: an icon, what it does and its number in gold. A weapon shows how hard it hits, food and potions how many hearts they heal, oil how much of the lantern it fills, a draught what it does and for how many turns, armour and charms what they change, and a material what it sells for. A piece in the gear row shows its rows too.",
     "On a short phone held sideways, an item's description is left out when it would run into the buttons, so its numbers always show.",
