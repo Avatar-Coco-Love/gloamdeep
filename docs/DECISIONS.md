@@ -100,13 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-899 · 2026-11-14 · The hero may cut a room** (the owner's pick; not
-the recommended: only while the stairs and doorways stay in reach;
-offered too: as now) A thing set down may cut a room in two, and a tree
-may grow back on its stump though it cuts the room; chopping (or
-digging, Q-106) is the way through. Its own step; that step marks what
-it changes in D-317 and D-322.
-
 **D-902 · 2026-11-14 · Numbers in the bag** (the owner's find and
 picks, all recommended; they asked for mock-ups first, and for more than
 a line of words) The bag card shows what an item does: rows under its
@@ -189,3 +182,14 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 "Tell me when it's merged" and gives no prompts; once the owner says so,
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
+
+**D-924 · 2026-11-14 · Cutting a room** (D-899's step, the owner's
+picks, all recommended; supersedes in part D-317 and D-322) Anything set
+down (bench, chest, bed, garden bed, shelf, mortar, torch, glow lamp,
+campfire, bedroll) may cut the room in two; Deconstruct takes it back,
+and a torch or lamp burns out. A tree grows back on its stump though it cuts the room. With no room in
+the bag, the fourth bump fells a tree all the same, its 3 Wood on the
+stump and the nearest open tiles, saying "You can't carry more wood."
+(offered too: only when it walls the hero in; as now). A deposit still
+never grows back across a room (D-313; offered too: it may). One step.
+D-899 moves to `archive/DECISIONS-SURFACE.md`, word for word.

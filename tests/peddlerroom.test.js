@@ -20,14 +20,14 @@ test('his sealed tile does not cut the room in two while he is ringed in', () =>
 });
 
 test('a torch and a glow lamp go down in his room', () => {
-  assert.deepEqual(setSides(there([]), 0), []); // with no one to leave out, the room is cut
+  assert.deepEqual(setSides(there([]), 0), ['down', 'left', 'right']); // cutting the room no longer matters (D-924)
   assert.deepEqual(setSides(there([him]), 0), ['down', 'left', 'right']);
   assert.deepEqual(setSides(there([him], 'glowLamp'), 0), ['down', 'left', 'right']);
 });
 
-test('a set-down that would seal another tile is still refused', () => {
+test('a set-down that seals another tile is allowed (D-899, D-924)', () => {
   const nook = ['#####', '#.###', '#...#', '#####'], s = { ...makeState(makeRoom(nook), { x: 2, y: 2 }), people: [], bag: [{ id: 'bagTorch', n: 1 }] };
-  assert.deepEqual(setSides(s, 0), ['right']); // left would seal 1,1 in its nook; up is wall
+  assert.deepEqual(setSides(s, 0), ['left', 'right']); // left seals 1,1 in its nook; up is wall
 });
 
 test('his room never counts as cut in two, and holds a flask mimic when the seed picks it', () => {

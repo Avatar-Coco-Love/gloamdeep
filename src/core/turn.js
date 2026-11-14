@@ -275,13 +275,14 @@ function mine(state, x, y) {
   const form = looks ? formOf(looks, x, y) : undefined;
   let bag = state.bag, taken = 0;
   for (let more; taken < count && (more = bagAdd(bag, drops, form, bagSize(state))); taken++) bag = more;
-  if (!taken) return say(state, full || get(drops).full);
+  if (!taken && !tile.mine.fallsFull) return say(state, full || get(drops).full); // a tree falls all the same, its wood on the floor (D-924)
   const room = { ...withTile(state.room, x, y, after), chips: rest };
   const left = spread({ ...state, room }, x, y, count - taken, after.solid) // never on a bare bush (D-531)
     .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
-  const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n, broke: true }), 'take', { id: drops });
-  return endTurn(state, driveOut(say(next, breaks), x, y, true)); // one still in, out onto the stump (D-922)
+  const broke = note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n, broke: true });
+  const next = taken ? note(broke, 'take', { id: drops }) : broke;
+  return endTurn(state, driveOut(say(next, taken ? breaks : full || get(drops).full), x, y, true)); // one still in, out onto the stump (D-922)
 }
 
 // Whether the solid tile at x, y can be mined: it has `mine`, and one only `inner`

@@ -25,10 +25,11 @@ export const TILES = {
   // Chopped as a deposit is mined (W3, D-317): 4 bumps fell it for 3 Wood, but never
   // on the room's edge (`inner`), where a bump says its `edge` line, free (D-321), and it
   // `leaves` a stump, in the stump's look. It grows back on that stump (`on`), its own
-  // tile, after 3 days, out of sight. `chops`: each bump a chop, and the last plays the sound
+  // tile, after 3 days, out of sight, even where it cuts the room (D-924). `fallsFull`: with no
+  // room in the bag the fourth bump fells it all the same, the wood on the floor (D-924). `chops`: each bump a chop, and the last plays the sound
   // it names, a chop, a creak and a crash (render/sound.js, D-842).
   tree: { id: 'tree', kind: 'tile', letter: 'T', name: 'Tree', solid: true, blocksLight: true, regrow: 3 * DAY_TURNS, near: 0, on: 'stump',
-    mine: { hits: 4, chips: ['treeHack', 'treeChips', 'treeGroan'], drops: 'wood', n: 3, breaks: 'treeTake', full: 'woodFull', leaves: 'stump', inner: true, edge: 'treeEdge' }, chops: 'treeFall' },
+    mine: { hits: 4, chips: ['treeHack', 'treeChips', 'treeGroan'], drops: 'wood', n: 3, breaks: 'treeTake', full: 'woodFull', fallsFull: true, leaves: 'stump', inner: true, edge: 'treeEdge' }, chops: 'treeFall' },
   // What a felled tree leaves (W3, D-317): walked over, light passes over it; one of
   // `forms` looks, picked by its tile (a clean cut, splintered, mossy with roots).
   stump: { id: 'stump', kind: 'tile', letter: 'S', name: 'Stump', solid: false, blocksLight: false, forms: 3 },
