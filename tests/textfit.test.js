@@ -28,6 +28,7 @@ const M = await import(R + 'core/menu.js');
 const { drawBenchPanel } = await import(R + 'render/benchpanel.js');
 const { drawMakeCard } = await import(R + 'render/makecard.js');
 const { bagMakes } = await import(R + 'core/bagmake.js');
+const G = await import(R + 'core/gear.js');
 const { drawChestPanel } = await import(R + 'render/chestpanel.js');
 const { drawBoons, boonsLayout } = await import(R + 'render/boons.js');
 const H = await import(R + 'render/history.js');
@@ -143,5 +144,15 @@ test('the goal line under the hearts stays inside the width it is given, every g
     bad.push(...fits(`goal ${g.id} ${way} in ${maxW}`, { x: 4, y: 4, w: maxW, h: 100 }, () => drawGoalLine(any, line, 4, 4, 1, maxW), 0));
   }
   setWay('touch');
+  none(bad);
+});
+
+test('a gear slot chosen, its piece\'s numbers and Look line fit the bag card (D-902)', () => {
+  const bad = [], spriteOf = () => any, { GEAR } = G;
+  const pieces = Object.values(ITEMS).filter((e) => e.hold || e.tool || e.wear);
+  for (const [vw, vh] of SIZES) for (const size of [6, 9, 12]) for (const e of pieces) GEAR.forEach((slot, g) => {
+    const gear = GEAR.map((_, i) => (i === g ? e.id : null));
+    bad.push(...fits(`${vw}×${vh} gear ${size} ${slot.name} ${e.id}`, B.cardAt(vw, vh, B.bagShape(size).detail), () => B.drawBag(any, vw, vh, [], -1 - g, spriteOf, gear, false, {}, size)));
+  });
   none(bad);
 });

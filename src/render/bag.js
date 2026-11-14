@@ -23,6 +23,8 @@ import { view } from './screen.js';
 import { drawMarker } from './menu.js';
 import { drawBagTabs } from './bagtabs.js';
 import { makesWords } from '../core/bagmake.js';
+import { itemNumbers } from '../core/numbers.js';
+import { drawNumbers } from './numbers.js';
 
 const K = '#0e0c16', EMBER = '#f39a3b', GOLD = '#ffd66b', GREY = '#9790a4', CORE = '#efe6cc';
 const LINE = 'rgba(239,230,204,.16)', SLOT_FILL = 'rgba(14,12,22,.55)';
@@ -267,9 +269,8 @@ export function drawBag(c, vw, vh, bag, chosen, spriteOf, gear = [], full = fals
   if (!entry) return;
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, `${bag[chosen].n} carried`, dx, dy + LINE_H, GREY);
-  const look = lookLine(entry, told);
-  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
   const drop = entry.rest ? card.restDrop : card.drop; // a row up when SLEEP crowds it (D-804)
+  drawWords(c, entry, dx, dy, dw, told, Math.min(drop.y, card.button.y) - (makes ? LINE_H + 2 : 0) - 2); // above the buttons and the makes line
   drawButton(c, drop.x, drop.y, DROP, false, DROP_W);
   const text = buttonText(entry);
   if (makes?.into && !text) drawMakes(c, card.button, makes.into, spriteOf, makes.at, dw); // made at a station only: its line, no MAKE (D-791)
@@ -294,14 +295,23 @@ function drawMakes(c, at, into, spriteOf, where = null, dw = Infinity) {
   c.drawImage(spriteOf({ id: into, n: 1 }), right - textWidth(lines[0]) - 19, ty - 5);
 }
 
+// § item's words: under its name and second line, the rows of what it does (D-902), then its
+// Look line, as a bag slot's and a gear slot's; the Look line left out when it would reach
+// `below`, on a short screen held sideways, as the numbers matter more there
+function drawWords(c, entry, dx, dy, dw, told, below) {
+  const top = dy + 2.5 * LINE_H, h = drawNumbers(c, itemNumbers(entry), dx, top, dw), look = lookLine(entry, told);
+  const lines = look ? wrapWords(look, dw) : [], ly = top + (h ? h + 5 : 0);
+  if (!h || ly + lines.length * LINE_H - 3 <= below) lines.forEach((l, i) => drawText(c, l, dx, ly + i * LINE_H, GREY));
+}
+
 // § gear's words: a gear slot chosen, its piece's name, its slot's name and its Look line, as
 // a bag slot's; TAKE OFF in the corner for the Weapon's and the Tool's, none for worn ones (D-554)
 function drawGearWords(c, card, g, id, dx, dy, dw, told) {
   if (!id) return;
-  const entry = get(id), look = lookLine(entry, told);
+  const entry = get(id);
   drawText(c, entry.name, dx, dy, CORE);
   drawText(c, GEAR[g].name, dx, dy + LINE_H, GREY);
-  if (look) wrapWords(look, dw).forEach((l, i) => drawText(c, l, dx, dy + 2.5 * LINE_H + i * LINE_H, GREY));
+  drawWords(c, entry, dx, dy, dw, told, card.button.y - 2);
   if (GEAR[g].key) drawButton(c, card.button.x + BUTTON.w - OFF_W, card.button.y, OFF, false, OFF_W);
 }
 

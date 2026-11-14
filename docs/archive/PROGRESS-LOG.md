@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
+  phone: the lantern goals said "press L" there too. They now follow the
+  way last played: tap, click or key. D-897. Playtest: https://claude.ai/artifact/Cf2vCKa4Fcfdyo8zNV7MnN
 - **2026-11-13, 0.3.341, The vault's prize.** L1 step 4, L1 done: a
   plinth at the vault's heart holds the seed's prize, 1 vault in 4 a
   glowing ember for Growth, else 2 of a rare material; bumped, taken.

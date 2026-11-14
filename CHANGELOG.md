@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.345 (2026-11-14)
+- In the bag, a chosen item now shows what it does, in rows under its name: an icon, what it does and its number in gold. A weapon shows how hard it hits, food and potions how many hearts they heal, oil how much of the lantern it fills, a draught what it does and for how many turns, armour and charms what they change, and a material what it sells for. A piece in the gear row shows its rows too.
+- On a short phone held sideways, an item's description is left out when it would run into the buttons, so its numbers always show.
+- Decisions: D-902.
+
 ## 0.3.344 (2026-11-14)
 - Bats, lampmoths and lure wisps now fly over low things: what you built, bushes, fallen branches, rubble, plinths and braziers, as over water. Trees, rock and walls still stop them. Walk into one hovering over a low thing to strike it.
 - Decisions: D-901.
@@ -31,7 +36,3 @@ Entry format:
 - On the map and the round map, what you built (chests, workbenches, beds, bedrolls, garden beds, the shelf, the mortar, torches and your own campfires) now shows in a warm wood brown, so it no longer looks like a tree.
 - Your next ideas are written down, in order: flyers over low things and into trees, then cutting a room as you like, creatures through doorways and a shovel.
 - Decisions: D-898, D-899, D-900. Questions raised: Q-106, Q-107. D-893 moved to the archive, word for word.
-
-## 0.3.342 (2026-11-14)
-- The lantern goals now say what you press, the way you last played: on a phone, "Tap the lantern." and "Tap the lantern, to save oil."; with a mouse, "Click the lantern, or press L."; with keys, "Press L." The words change when you switch.
-- Decisions: D-897.
