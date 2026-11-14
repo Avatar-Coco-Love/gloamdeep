@@ -77,6 +77,13 @@ export const LINES = {
   moleClawPickLook: { texts: ['A mole claw pick. It digs fast.', 'Veins and rubble go in 2 bumps.', "A mole's claw, lashed to a stick."], warn: false },
   moleClawPickHold: { text: 'You hold the mole claw pick.', warn: false }, // Hold in the bag, into the Tool slot, a turn
   moleClawPickAway: { text: 'You put the mole claw pick away.', warn: false }, // Take off, into the bag, free
+  shovelMake: { text: 'You make a shovel.', warn: false }, // its line on the bench's BUILD tab, a turn (D-926)
+  shovelFull: { text: 'You already carry a shovel.', warn: false }, // only 1 is carried, free
+  shovelShort: { text: 'Need 3 Wood, 2 Stone.', warn: false }, // too few, free
+  shovelLook: { texts: ['A shovel. It digs out stumps.', 'Hold it to use it.', 'A flat stone, lashed to a stick.'], warn: false },
+  shovelHold: { text: 'You hold the shovel.', warn: false }, // Hold in the bag, into the Tool slot, a turn
+  shovelAway: { text: 'You put the shovel away.', warn: false }, // Take off, into the bag, free
+  stumpDug: { texts: ['You dig out the stump.', 'The stump comes up, roots and all.', 'Only grass is left.'], warn: false }, // a stump dug out, a turn (D-926)
   rodMake: { text: 'You make a wooden rod.', warn: false }, // its line on the bench panel, a turn (D-609)
   rodFull: { text: 'You already carry a wooden rod.', warn: false }, // only 1 is carried, free
   rodShort: { text: 'You need 2 Wood and 2 Spider Silk.', warn: false }, // too few, free

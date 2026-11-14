@@ -14,6 +14,7 @@ Moved from `CONTENT.md` word for word at 0.3.15; the rest of the finds are there
 | `chest` | set down as the stash tile | 1 | never | the workbench: 3 Wood, 3 Stone | D-324, D-326 |
 | `pick` | the Stone Pick: in the Tool slot, breaks copper veins | 1 | never | the workbench: 2 Wood, 3 Stone; one at the miners' camp | D-480, D-552, D-770 |
 | `moleClawPick` | the Mole Claw Pick: in the Tool slot, works as the Stone Pick; copper veins and rubble in 2 bumps | 1 | never | the workbench's BUILD tab: 1 Mole Claw, 2 Wood, 2 Stone | D-799, D-810 |
+| `shovel` | the Shovel: in the Tool slot; walking onto a stump digs it out for good, grass left | 1 | never | the workbench's BUILD tab: 3 Wood, 2 Stone | D-926 |
 | `rod` | the Wooden Rod: in the Tool slot; bumping water casts, a woods pond or a cave pool | 1 | never | the workbench: 2 Wood, 2 Spider Silk | D-608, D-609, D-610, D-618 |
 | `pondMinnow` | the first fish: poured, 15% oil, by hand only; Eat: 1 heart; sold to the peddler for 1 coin | 20 | never | caught at any woods pond with the rod | D-608, D-610, D-611, D-615, D-616, D-734 |
 | `blindCavefish` | the cave pools' fish: poured, 20% oil, by hand only; Eat: 1 heart; sells for 2 coins; strike zone a fifth | 20 | never | caught at any cave pool with the rod | D-618 |

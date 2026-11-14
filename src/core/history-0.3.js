@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.368', date: '2026-11-14', title: 'The shovel', lines: [
+    "New at the workbench: the Shovel, the BUILD tab's last slot. It costs 3 Wood and 2 Stone, and you carry one. Hold it in the Tool slot, as you hold the picks and the rod.",
+    "With the shovel held, walk onto a stump to dig it out: a turn, and you stay where you are. Plain grass is left, and the tree never grows back there, so you can clear room for a base.",
+    "Without the shovel held, you walk onto a stump as before. A standing tree is still chopped, not dug.",
+    "Decisions: D-926.",
+  ] },
   { v: '0.3.367', date: '2026-11-14', title: 'Creatures through doorways', lines: [
     "A creature chasing you now follows you out of a room, through a doorway, the cave mouth or down and up stairs, if it is within 3 steps of where you leave. Stairs are no longer a sure escape.",
     "It comes in as many turns after you as it was steps away, on the tile you came in by, still chasing. One right behind you comes in the turn after.",

@@ -13,7 +13,7 @@ neared 8 KB.
 | `caveMouth`, `outcrop` | the way into the crypt; surface rock | | the surface; the mountain rooms' rock; the way in drawn as the broken seal, the cave looks kept for later caves | D-209, D-738, D-739, D-744, D-745 |
 | `stairsDown`, `stairsUp` | lead between depths | | each floor | D-132, D-174 |
 | `tree` | 4 bumps: 3 Wood, leaves a stump | 900 | the woods; the edge is always trees, thicker or thinner inside by the room's kind; a few lone ones in the mountain rooms | D-209, D-317, D-321, D-738, D-756 |
-| `stump` | grows back into a tree | | where a tree was felled | D-317 |
+| `stump` | grows back into a tree; the Shovel digs it out to grass for good | | where a tree was felled | D-317, D-926 |
 | `branch` | 2 bumps: 2 Wood | 900 | 1 in each woods and mountain room | D-316, D-738 |
 | `berryBush` | 1 bump: 2 Gloamberries, leaves it bare | 300 | 1 in each woods room | D-531 |
 | `bareBush` | a picked bush, solid; fills again on its tile | | where a bush was picked | D-531 |

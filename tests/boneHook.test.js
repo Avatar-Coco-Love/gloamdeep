@@ -17,7 +17,7 @@ test('the Bone Hook is the BUILD tab\'s last slot: 3 Rat Bone and 1 Spider Silk,
   const hook = get('boneHook');
   assert.equal(hook.name, 'Bone Hook');
   assert.equal(hook.max, 1);
-  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-1);
+  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-2);
   assert.deepEqual(last([{ id: 'ratBone', n: 3 }, { id: 'spiderSilk', n: 1 }]), { item: 'boneHook', cost: [{ id: 'ratBone', n: 3, have: 3 }, { id: 'spiderSilk', n: 1, have: 1 }], dim: false });
   assert.equal(last([{ id: 'ratBone', n: 2 }, { id: 'spiderSilk', n: 1 }]).dim, true);
 });

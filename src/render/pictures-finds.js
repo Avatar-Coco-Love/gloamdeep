@@ -64,6 +64,12 @@ const MOLE_CLAW_PICK = { mirror: false, rows: [
   '', '', '....kkkk........', '...kwwaakk......', '....kkkaaAk.....', '.......knAAk....', '.......kWkaAk...', '......kWk.kAk...',
   '.....kWk..kAk...', '....kNk....kk...', '...kNk..........', '..kNk...........', '.kNk............', '.kk.............', '', ''] };
 
+// § shovel: a flat grey stone spade at the bottom left, on a straight wooden handle up and right
+// with a T-grip at its top, the Stone Pick's family (look A, D-926)
+const SHOVEL = { mirror: false, rows: [
+  '', '...........k....', '..........kNk...', '...........kNk..', '..........kNkNk.', '.........kNk.k..', '........kWk.....', '....k..kWk......',
+  '...kDkkWk.......', '..kMMDWk........', '.kLLMMDk........', 'kHHLLMk.........', '.kHHLk..........', '..kHk...........', '...k............', ''] };
+
 // § rod: a straight wooden pole up and right, darker at the grip, a silk line from its tip to a
 // red-and-white float (look A of the fishing step 1 mock-up, D-609)
 const ROD = { mirror: false, rows: [
@@ -299,6 +305,7 @@ export {
   COPPER_ORE,
   PICK,
   MOLE_CLAW_PICK,
+  SHOVEL,
   ROD,
   ROD_HOOKED,
   BONE_HOOK,

@@ -38,6 +38,7 @@ import { bumpWater } from './fishing.js';
 import { takePrize } from './prize.js';
 import { driveOut } from './roost.js';
 import { fallen } from './bones.js';
+import { digsStump, digStump } from './shovel.js';
 import { misses } from './stiff.js';
 import { knocks, knockOf } from './fist.js';
 
@@ -86,6 +87,7 @@ export function step(state, dir) {
   const person = personAt(state, x, y);
   if (person?.leaves !== undefined) return talk(state, person); // freed and waiting: their waiting lines, free, and they leave `waits[1]` turns after (D-496)
   if (person) return say(state, get(person.id)[person.home ? 'home' : 'calls']); // a person speaks, free (D-490); at home, their home lines (D-492)
+  if (digsStump(state, x, y)) return digStump(state, x, y); // the shovel held: a stump dug out, the hero staying put (D-926)
   let next = note(passTurn({ ...state, hero: { x, y } }), 'step');
   if (foe) next = scatter(next, foe, state.hero); // a pile of bones, scattered: its drop lies here, taken at once (D-731)
   for (const found of next.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile

@@ -75,5 +75,10 @@ the ring too? Any time.
 **Q-106 · A shovel that digs up trees** (raised 2026-11-14, the owner's
 idea) With a shovel held, a tree could be dug up for good, no stump
 left, to clear room for a base, and give a seed or sapling to plant a
-tree elsewhere. No shovel or sapling exists yet: its make, its parts,
-where a sapling grows and how long. Its own steps, after D-900.
+tree elsewhere. The shovel and digging out stumps are built (D-926).
+Still open: the sapling, its make, where it grows and how long.
+
+**Q-108 · Digging up buried things** (raised 2026-11-14, the owner's
+idea, with D-926) Perhaps at some point the shovel could dig spots up to
+find something buried. What is buried, where, and how a spot is told
+apart? Its own step, any time.

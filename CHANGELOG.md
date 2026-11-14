@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.368 (2026-11-14)
+- New at the workbench: the Shovel, the BUILD tab's last slot. It costs 3 Wood and 2 Stone, and you carry one. Hold it in the Tool slot, as you hold the picks and the rod.
+- With the shovel held, walk onto a stump to dig it out: a turn, and you stay where you are. Plain grass is left, and the tree never grows back there, so you can clear room for a base.
+- Without the shovel held, you walk onto a stump as before. A standing tree is still chopped, not dug.
+- Decisions: D-926.
+
 ## 0.3.367 (2026-11-14)
 - A creature chasing you now follows you out of a room, through a doorway, the cave mouth or down and up stairs, if it is within 3 steps of where you leave. Stairs are no longer a sure escape.
 - It comes in as many turns after you as it was steps away, on the tile you came in by, still chasing. One right behind you comes in the turn after.
@@ -37,9 +43,3 @@ Entry format:
 - With no room in the bag for the wood, the fourth chop fells the tree all the same: "You can't carry more wood.", and its 3 Wood lie on the stump and the open tiles next to it. Before, the tree stayed standing, which could have walled you in.
 - Ore deposits that grow back still never cut a room in two.
 - Decisions: D-924. D-899 moved to the archive, word for word.
-
-## 0.3.365 (2026-11-14)
-- New: bats and lampmoths hide in trees. A hurt one that flees, next to a tree in the woods, flutters into it and vanishes instead of flying off. At dawn, a night one next to a tree goes into it instead of leaving.
-- A tree with a flyer in it gives a small shake now and then (with reduced motion, it leans a pixel). The first chop on it drives the flyer out beside the tree, and after you. Only the trees you can chop: never the ring of trees round the woods' edge. One flyer a tree.
-- Docs: the next prompts to copy now come only once, after you say a PR is merged and Claude has checked it on GitHub; before that, the handoff asks you to say when it's merged. Three finished decisions move to the archive, word for word.
-- Decisions: D-922, D-923. D-900, D-901 and D-921 moved to the archive, word for word.

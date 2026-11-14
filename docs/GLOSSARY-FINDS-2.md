@@ -22,6 +22,8 @@ as that page neared 8 KB.
   miners' camp (D-770).
 - **Mole Claw Pick:** made at the workbench from 1 Mole Claw, 2 Wood and
   2 Stone; held, it works as the Stone Pick, copper veins and rubble in 2 bumps (D-810).
+- **Shovel:** made at the workbench from 3 Wood and 2 Stone, held in the
+  Tool slot; walking onto a stump with it digs the stump out for good (D-926).
 - **Wooden Rod:** the first rod, made at the workbench, held in the
   Tool slot; fishing casts with it (D-608, D-609).
 - **Bone Hook:** made at the workbench from 3 Rat Bone and 1 Spider Silk,
@@ -36,7 +38,7 @@ as that page neared 8 KB.
 - **Fallen branch:** one in each woods room, blocking a tile; two bumps
   break it for 2 Wood (D-316).
 - **Stump:** what a chopped tree leaves; four bumps fell a tree for 3 Wood,
-  and the stump grows back into it (D-317).
+  and the stump grows back into it (D-317), unless the Shovel digs it out (D-926).
 - **Grow back:** a picked thing returning after its time (D-306).
 - **Lightkeeper's Locket:** biome 1's first relic, an open gold locket on
   a chain, a violet hollow with a flame inside, in a violet glow; one lies

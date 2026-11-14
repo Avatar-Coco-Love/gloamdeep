@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.367 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.368 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The shovel (Q-106): proposed first. Then L3 (D-890).
+L3 (D-890): proposed first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -17,6 +17,7 @@ The shovel (Q-106): proposed first. Then L3 (D-890).
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
+- The shovel's sapling (Q-106) and digging up buried things (Q-108), each its own step.
 - Deep moles for the stone floors (Q-096), the owner's idea, its own step.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
@@ -45,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.368, The shovel.** Q-106's first step: the Shovel,
+  made at the bench for 3 Wood and 2 Stone and held in the Tool slot,
+  digs out a stump for good, grass left. The sapling stays open; buried
+  things are Q-108. The owner's picks. D-924 archived. D-926.
+  Playtest: https://claude.ai/artifact/PfDffRqUmtMpaxu9FDEK2o
 - **2026-11-14, 0.3.367, Creatures through doorways.** Q-107's step: a
   chasing creature within 3 steps of where the hero leaves, by a doorway
   or stairs, follows, as many turns later as it was steps away; leave
@@ -56,8 +62,3 @@ list in `RESEARCH.md`.
   does, and a full bag no longer stops the fourth chop (the wood falls
   on the floor). Deposits keep their check. The owner's picks. D-924.
   Playtest: https://claude.ai/artifact/SmmgykNKuzkjZ8oiTeU9wU
-- **2026-11-14, 0.3.365, Flyers into trees.** D-900's second step: a
-  hurt bat or lampmoth fleeing, or one at dawn, goes into a tree beside
-  it; the tree shakes; the first chop drives it out. The next prompts
-  come once, after "merged" and a check (the owner's find). D-922, D-923.
-  Playtest: https://claude.ai/artifact/EEqxjV3ZP93TrKdqYEAKea
