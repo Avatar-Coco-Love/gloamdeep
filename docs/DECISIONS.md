@@ -195,3 +195,9 @@ first). The owner's idea, kept with the bow (Q-094): a ranged attack
 hits a flyer over a station, its drop landing on open floor, as over
 water. One short line in the in-game history. D-898 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-912 · 2026-11-14 · The oil's "After": the fix** (the owner's picks,
+all recommended; fixes F-2) The bag card's "After" takes off the turn's
+burn first, as the pour does, so it shows the oil the pour really gives
+(offered too: marked as near). No burn with Quick Pour on a flask, or
+with the lantern out. A test checks it against the real pour.

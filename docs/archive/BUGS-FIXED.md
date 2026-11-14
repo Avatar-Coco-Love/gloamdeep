@@ -3,6 +3,14 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.355 (D-912):
+
+- **F-2 · The oil's "After" shows too much.** A pour that passes a turn
+  burns that turn's oil first (`bagturn.js:48`), which the preview
+  (`numbers.js:85`) leaves out: at 0.467 it shows 10 segments, the pour
+  gives 9 (against D-908). Fixes: take off one turn's burn when the pour
+  passes a turn; or mark "After" as near.
+
 Fixed in 0.3.354 (D-911):
 
 - **F-1 · Flyers over things can't be hit.** A bat, lampmoth or lure
