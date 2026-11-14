@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.342', date: '2026-11-14', title: 'The lantern\'s words', lines: [
+    "The lantern goals now say what you press, the way you last played: on a phone, \"Tap the lantern.\" and \"Tap the lantern, to save oil.\"; with a mouse, \"Click the lantern, or press L.\"; with keys, \"Press L.\" The words change when you switch.",
+    "Decisions: D-897.",
+  ] },
   { v: '0.3.341', date: '2026-11-13', title: 'The vault\'s prize', lines: [
     "Each vault now holds a prize on a small stone plinth behind its door: 1 vault in 4 an ember, which glows faintly, the rest 2 of a rare material.",
     "Bump the plinth to take it. An ember is 1 more to spend in Growth: \"An ember! Spend it in Growth.\" The plinth is left bare.",

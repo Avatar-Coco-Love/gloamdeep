@@ -158,3 +158,12 @@ https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c Claude's calls: with
 no room in the bag for both, nothing is taken, free, the bag's full
 line; the take sound of any find. D-892 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-897 · 2026-11-14 · The lantern's words** (the owner's picks, both
+recommended; the owner's find) The two lantern goals' how lines follow
+the way of playing last used, touch until something is pressed: touch
+"Tap the lantern." and "Tap the lantern, to save oil."; mouse "Click the
+lantern, or press L." (", to save oil."); keyboard "Press L." (", to
+save oil."), changing as the player switches (offered too: the device's
+kind, asked once, or both; touch against PC, two kinds only). Claude's
+call: the way is kept in `core/way.js`, set by `input.js`, never saved.

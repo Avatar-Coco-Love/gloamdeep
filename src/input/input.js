@@ -3,6 +3,8 @@
 // Enter, which picks the chosen menu line (D-177), Esc or P, which open and close the pause menu (D-187), M, which opens and closes the map (D-205), I, which opens and closes the bag (D-247),
 // < and > or Page Up and Page Down, which turn it a floor (D-206), and Tab, which frames the next creature's plaque (CL2).
 // Thin layer: it only reports a direction, a tap point in game pixels, the switch or a wait.
+import { setWay } from '../core/way.js';
+
 const KEYS = {
   arrowup: 'up', w: 'up', arrowdown: 'down', s: 'down',
   arrowleft: 'left', a: 'left', arrowright: 'right', d: 'right',
@@ -25,7 +27,7 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
   let kind = 'touch'; // phone first, until something is pressed
   addEventListener('keydown', (ev) => {
     if (ev.ctrlKey || ev.metaKey || ev.altKey) return;
-    kind = 'keyboard';
+    kind = 'keyboard'; setWay(kind);
     const key = ev.key.toLowerCase(), dir = KEYS[key];
     if ((/^[0-9a-z]$/.test(key) || key === 'backspace') && !ev.target.closest('input')) {
       if (onType(key)) { ev.preventDefault(); return; }
@@ -53,7 +55,7 @@ export function createInput(area, canvas, { onDir, onPoint, onHover = () => {}, 
   const end = () => { if (press) { clearTimeout(press.timer); if (press.held) onHold(null); } press = null; };
 
   area.addEventListener('pointerdown', (ev) => {
-    kind = ev.pointerType === 'mouse' ? 'mouse' : 'touch';
+    kind = ev.pointerType === 'mouse' ? 'mouse' : 'touch'; setWay(kind);
     if (press || (ev.pointerType === 'mouse' && ev.button !== 0)) return;
     area.setPointerCapture(ev.pointerId);
     press = { id: ev.pointerId, x0: ev.clientX, y0: ev.clientY, x: ev.clientX, y: ev.clientY, swiped: false, held: false, guard: guarded(ev.clientX, ev.clientY) };
