@@ -4,13 +4,14 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.342 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.343 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L3, the dark door (D-890, `PUZZLES.md`): faint runes seen only with the
-lantern off, a wall that opens. Propose its build steps, tiles, names
-and reward first, as L1's were (D-891, D-892).
+Flyers over low things (D-900): lampmoths, bats and the lure wisp fly
+over what stands low. Propose the build first. Then, in the owner's
+order: flyers into trees (D-900), cutting a room (D-899), creatures
+through doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +51,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.343, Built things on the map.** The owner's find:
+  chests and benches looked like trees on the maps. What you build now
+  shows in wood brown. The owner's next ideas set down in order. D-898
+  to D-900. Playtest: https://claude.ai/artifact/9DVP7g3J2SGGAe8N79uqNw
 - **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
   phone: the lantern goals said "press L" there too. They now follow the
   way last played: tap, click or key. D-897. Playtest: https://claude.ai/artifact/Cf2vCKa4Fcfdyo8zNV7MnN
@@ -59,8 +64,3 @@ list in `RESEARCH.md`.
   D-896. Playtest: https://claude.ai/artifact/MMvK9WJRojPEZ6drpSsshy
   Map: https://claude.ai/artifact/NNf3ypz5n4N3yxy5gKMuxY Mock-up:
   https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c
-- **2026-11-13, 0.3.340, The door opening.** L1 step 3: the second
-  brazier lit, the door sinks open for good, its notches moved to the
-  lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
-  Playtest: https://claude.ai/artifact/Lg8S2ZkYqo3UypnaWzUHdJ Mock-up:
-  https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb

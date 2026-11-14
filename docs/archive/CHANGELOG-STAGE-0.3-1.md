@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.340 (2026-11-13)
+- The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
+- Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).
+- Decisions: D-895. D-891 moved to the archive, word for word.
+
 ## 0.3.339 (2026-11-13)
 - Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the two health checks and their order, all done.
 - Decisions: D-894. D-860 to D-862 moved to the archive, word for word.

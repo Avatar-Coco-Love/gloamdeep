@@ -199,3 +199,13 @@ test('the round map puts the hero\'s tile in its middle, or the plan\'s middle o
   const far = aroundHero({ ...plan, hero: null }, 52, 3);
   assert.deepEqual(far, { x: -4, y: 8 }); // the middle of 20 × 12 tiles, 30 and 18 pixels in, near 26
 });
+
+test('what the hero built shows as made on the map, not as a wall; a tree stays a wall (D-898)', async () => {
+  const { withTile } = await import('../src/core/room.js');
+  const { get } = await import('../src/core/registry.js');
+  const s = makeWorld('first', SEED), { room } = s;
+  for (const id of ['bench', 'stash', 'bedstead', 'bedroll', 'plot', 'sprout', 'fedSprout', 'berryBed', 'relicShelf', 'locketShelf', 'mortarStand', 'torchStand', 'ownCampfire', 'ownEmbers', 'ownAshes']) {
+    assert.equal(markAt(withTile(room, 5, 11, get(id)), null, 5, 11), 'made', id);
+  }
+  for (const id of ['tree', 'campfire', 'rubble']) assert.notEqual(markAt(withTile(room, 5, 11, get(id)), null, 5, 11), 'made', id);
+});
