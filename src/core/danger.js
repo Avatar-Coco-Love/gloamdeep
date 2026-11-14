@@ -8,6 +8,7 @@ import { get } from './registry.js';
 import { traits } from './behaviours.js';
 import { DIRS } from './state.js';
 import { noticesHero, still, free } from './creatureturn.js';
+import { onTheWay } from './follow.js';
 
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
@@ -25,6 +26,6 @@ export function closeToNoticing(state, e) {
 
 // § danger now: (state) → 'chase', 'near' or null
 export function dangerNow(state) {
-  if (state.enemies.some((e) => e.chasing)) return 'chase';
+  if (state.enemies.some((e) => e.chasing) || onTheWay(state)) return 'chase'; // one following on its way too (D-925)
   return state.enemies.some((e) => closeToNoticing(state, e)) ? 'near' : null;
 }

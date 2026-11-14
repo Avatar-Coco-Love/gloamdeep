@@ -161,20 +161,6 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-922 · 2026-11-14 · Flyers into trees** (the owner's picks; builds
-D-900) A hurt lampmoth or bat that flees, an inner tree beside it, goes
-into the tree instead of flying off; at dawn, a night one beside such a
-tree goes in instead of going (offered too: now and then, unnoticed; the
-lure wisp too). Only trees the hero can chop, never the woods' ring
-(offered too: any tree). The tree gives a small leaf shake now and then;
-the first chop drives the flyer out beside it, after the hero (offered
-too: no sign; out only when the tree falls). Claude's calls: one flyer a
-tree; out on the free tile nearest the hero, stirring a turn as one
-woken does; with none free it stays in until the tree falls; driven out
-by day it stays; an earlier night's go at nightfall; with reduced motion
-the crown leans a pixel, still. D-900, D-901 and D-921 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-923 · 2026-11-14 · The next prompts, once** (the owner's find and
 pick, recommended; sharpens D-790 and D-795) Twice the next prompts came
 before a merge and again after, and the owner, back later, took the
@@ -193,3 +179,21 @@ stump and the nearest open tiles, saying "You can't carry more wood."
 (offered too: only when it walls the hero in; as now). A deposit still
 never grows back across a room (D-313; offered too: it may). One step.
 D-899 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-925 · 2026-11-14 · Creatures through doorways** (the owner's picks;
+answers Q-107; supersedes in part D-132) A creature that chases (the
+rat, gloamling, both mimics, bone rat, oil tick, centipede, rim lurker;
+not the warden, which keeps to its vault) and is chasing, within 3
+steps of where the hero leaves by a doorway, edge, the cave mouth or
+stairs, follows: stairs are no longer a sure escape (offered too: chasers
+and light-seekers; rats only; right behind only; any chaser later;
+stairs stay an escape). It comes in as many turns after the hero as it
+was steps away (the owner's own answer), on the tile the hero came in
+by, or the nearest free tile to it, chasing. Should the hero leave first,
+it gives up: a coin toss puts it in the room it left or the one it was
+coming into, on a random free tile, not chasing (the owner's own answer).
+No warning; the round map's rim stays red while one is on its way.
+Claude's calls: it comes after the creatures' turn, so acts the turn
+after; steps count by walking, round walls; the scorpion and the mole
+don't follow, as they weren't named; a fall gives them all up. D-922
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

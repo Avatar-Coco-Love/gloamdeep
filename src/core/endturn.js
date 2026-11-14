@@ -23,6 +23,7 @@ import { learn } from './bagmake.js';
 import { poisonTick } from './poison.js';
 import { nightfall, leaveByLight } from './nightfall.js';
 import { fleeIntoTrees } from './roost.js';
+import { comeIn } from './follow.js';
 
 // § wait: stand still for one turn (D-084). It passes a turn like a step,
 // so oil burns while the lantern is lit (D-037).
@@ -55,7 +56,7 @@ export const endTurn = (before, cast, free = false) => { // `free`, travel's: no
   const knocked = !moved && acted.place !== place; // a warden's slam slid the hero out through a doorway (D-887)
   const next = grow(burnOut(nightfall(regrow(knocked ? { ...entered(ticked, acted), globs: [] } : acted, moved || knocked)), moved || knocked)); // night creatures come out in the woods, or go by day (nightfall.js, D-778)
   const sent = next.place === before.place ? next : send(next, before.place); // the room left, as by a fall too: one freed there goes home (D-496)
-  return lastHeart(before, learn(meet(greet(arrive(sent))))); // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630); the bag's finds are known (D-787)
+  return lastHeart(before, learn(meet(greet(arrive(comeIn(sent)))))); // a follower comes in, after the creatures' turn, or gives up (follow.js, D-925) // one gone home beams in as the hero comes, and greets the hero once, near (D-496); then each creature lit is met (D-630); the bag's finds are known (D-787)
 };
 
 // § entered: a room come into in the creatures' turn, by a slam (D-887), as a step in: its

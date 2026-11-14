@@ -47,11 +47,19 @@ test('an edge with no opening stays wall: nothing changes, no turn', () => {
   assert.equal(step(south, 'left'), south);
 });
 
-test('a rat left behind does not follow through the doorway', () => {
-  const s = at(5, 12), rat = { id: 'rat', x: 5, y: 11, chasing: true, health: 2 };
+test('a rat left behind, not chasing, does not follow through the doorway', () => {
+  const s = at(5, 12), rat = { id: 'rat', x: 5, y: 11, health: 2 };
   const n = step({ ...s, enemies: [rat] }, 'down');
   assert.equal(n.place, 'south');
   assert.deepEqual(n.elsewhere.first.enemies, [rat]);
+  assert.equal(n.health, s.health);
+});
+
+test('a chasing rat beside the doorway follows, but bites no one as the hero goes (D-925)', () => {
+  const s = at(5, 12), rat = { id: 'rat', x: 5, y: 11, chasing: true, health: 2 };
+  const n = step({ ...s, enemies: [rat] }, 'down');
+  assert.deepEqual(n.elsewhere.first.enemies, []);
+  assert.equal(n.coming.length, 1);
   assert.equal(n.health, s.health);
 });
 

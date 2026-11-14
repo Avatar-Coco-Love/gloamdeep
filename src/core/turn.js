@@ -17,6 +17,7 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
+import { follow } from './follow.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
 import { xpOf, gain } from './xp.js';
@@ -56,7 +57,7 @@ export { pour, makeFrom, makeAt, eat, hold, setDown, takeDown, shelve, canShelve
 // both (D-096). Walking into an enemy attacks it (D-017), and into an unlit
 // torch's wall lights it (D-121). Stepping onto a sleeping waystone's plate
 // wakes it (D-591). Stepping onto stairs takes them, before the
-// enemies left behind can act (D-132). Walking off an edge through an
+// enemies left behind can act (D-132); one chasing near follows (D-925). Walking off an edge through an
 // opening does the same, into the room beyond (D-197); elsewhere the edge is
 // wall. Every passed turn ends with the enemies' turn (D-114), in the room
 // the hero ends it in, but for the first step into a room (D-446). A tile walked onto is a `step` event (events.js).
@@ -65,7 +66,7 @@ export function step(state, dir) {
   const x = state.hero.x + dx, y = state.hero.y + dy;
   if (offEdge(state.room, x, y)) {
     const out = walkOff(note(passTurn(state), 'step'), dir);
-    return out ? endTurn(state, out) : state;
+    return out ? endTurn(state, follow(state, out, state.hero)) : state; // a creature chasing near comes after (follow.js, D-925)
   }
   const tile = tileAt(state.room, x, y);
   const flyer = tile.solid && tile.low && enemyAt(state, x, y); // one that flies, over water or a low thing: struck as on the floor, rod held or not (D-718, D-900)
@@ -89,7 +90,8 @@ export function step(state, dir) {
   if (foe) next = scatter(next, foe, state.hero); // a pile of bones, scattered: its drop lies here, taken at once (D-731)
   for (const found of next.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
   next = guardWakes(next); // the locket taken wakes its warden (D-874)
-  return endTurn(state, takeStairs(next) || wakeStone(next));
+  const down = takeStairs(next);
+  return endTurn(state, down ? follow(next, down, next.hero) : wakeStone(next)); // a creature chasing near comes after, down or up too (D-925)
 }
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag

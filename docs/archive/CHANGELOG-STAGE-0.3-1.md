@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.364 (2026-11-14)
+- The round map's rim now warns you. While a creature in the room is chasing you, near or far, the rim turns red, thicker, and pulses slowly (steady with reduced motion).
+- While a creature is close to noticing you, the rim shows a broken orange ring: one that would see you where it stands, or from one step nearer, by its own rules (light, lurking near, Soft Step, the Shade Draught). The two differ in shape as well as colour, so they read for colour-blind players too.
+- Docs: one finished decision moves to the archive, word for word.
+- Decisions: D-921. Questions closed: Q-109. D-920 moved to the archive, word for word.
+
 ## 0.3.363 (2026-11-14)
 - The round map in the top right now fades in the dark, with the light on the hero's own tile: in daylight or by a full lantern it shows in full, and as the oil runs low it dims, down to faint at none. A torch, a brazier or a glow near you lifts it again, more the closer you stand.
 - At an ember, or with the lantern off and no other light on you, the round map's middle hides too, a soft dark spot about 2 tiles round you. Your gold dot always shows, and every change eases in over half a second. The full map still opens clearly.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.364, The round map's rim shows danger.** The
+  rim turns red, thicker and pulsing, while a creature in the room
+  chases; a broken orange ring while one is close to noticing (where it
+  stands or one step nearer). The owner's picks from a mock-up. D-920
+  archived. D-921. Playtest: https://claude.ai/artifact/DvCZ7UPVGdN11Djfxw3Rkq
 - **2026-11-14, 0.3.363, The round map in the dark.** The round map
   fades with the light on the hero's tile, 15% at none; at an ember or
   with the lantern off, no light near, its middle hides. Eased over half
