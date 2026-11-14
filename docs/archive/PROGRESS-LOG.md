@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.349, Numbers on the stash chest.** D-902's fourth
+  step: the chest card shows the rows under the name, the tap hint below;
+  sideways they end left of STORE. The owner's picks from a mock-up. D-906.
+  Q-108 and Q-109 written down. Playtest: https://claude.ai/artifact/SNcJZ2RxNBLPuNJraFcLWJ
 - **2026-11-14, 0.3.348, Numbers on the peddler's trade.** D-902's third
   step: the peddler's card shows the rows under "carried", his price
   line below; no "Sells for" row there. The owner's picks. D-905. Playtest: https://claude.ai/artifact/5Tw5ndQC88s55NPKrtYUGa

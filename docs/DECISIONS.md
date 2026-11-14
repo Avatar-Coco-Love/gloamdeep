@@ -187,3 +187,14 @@ it really heals or pours (offered too: the item's own). Claude's calls:
 a minnow's hearts and oil side by side, one under the other where they
 don't fit, and left out where they'd reach the buttons, as the hits are;
 at full health all of it shows faint; the bag card only for now.
+
+**D-909 · 2026-11-14 · A draught's turns, now and after** (the owner's
+picks, all recommended, from a mock-up) D-902's third picture: on the
+bag card, under a draught's rows, "Now" over "After", its own HUD mark
+twice as big, the rim lit for its time left as on the HUD (D-847); after
+is full, as drinking again starts the count over (look A; offered too:
+B, a bar of turns like the oil bar; C, its bar beside a full lantern's).
+With none working, "Now" shows the mark with its rim dark (offered too:
+"After" only). Turns only, no Mending hearts on it (offered too: small
+hearts where they come). Claude's: left out where it would reach the
+buttons, as the others are; the bag card only for now.

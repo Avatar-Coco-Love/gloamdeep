@@ -105,3 +105,18 @@ test("the hearts-and-oil picture: side by side where they fit, one under the oth
   assert.equal(drawRefill(c, rows, 0, 0, 400), refillH(rows, 400));
   assert.equal(refillH([], 400), 0);
 });
+
+test("a draught's turns now and after: its mark's rim, dark with none working, full after (D-909)", async () => {
+  const { draughtTurns } = await import('../src/core/numbers.js');
+  const { drawSips, sipsH, sipsW } = await import('../src/render/sips.js');
+  assert.deepEqual(draughtTurns({ mending: 0 }, ITEMS.mendingDraught), { key: 'mending', now: 0, after: 1 });
+  assert.deepEqual(draughtTurns({ glow: 30 }, ITEMS.glowDraught), { key: 'glow', now: 0.5, after: 1 });
+  assert.equal(draughtTurns({ slowburn: 15 }, ITEMS.slowburn).now, 0.25);
+  for (const id of ['wardDraught', 'spitproofDraught', 'shadeDraught']) assert.ok(sipsH(draughtTurns({}, ITEMS[id])) > 0, id);
+  assert.equal(draughtTurns({}, ITEMS.potion), null);
+  assert.equal(draughtTurns({}, ITEMS.knife), null);
+  const c = { fillStyle: '', globalAlpha: 1, fillRect: () => {}, save: () => {}, restore: () => {}, translate: () => {}, scale: () => {} };
+  const sips = draughtTurns({ shade: 20 }, ITEMS.shadeDraught);
+  assert.equal(drawSips(c, sips, 0, 0), sipsH(sips));
+  assert.ok(sipsW(sips) > 0 && sipsH(null) === 0);
+});

@@ -6,6 +6,7 @@ import { SHADE_NEAR } from './shade.js';
 import { LANTERN_HIT } from './turn.js';
 import { healOf, pourOf } from './boon.js';
 import { maxHealth } from './state.js';
+import { drinkKey, givesOf, shareLeft, LONGEST } from './lasting.js';
 
 const TANK = Math.round(1 / OIL.burn); // a full lantern's turns, with nothing to slow it
 const many = (n, one, more = `${one}s`) => `${n} ${n === 1 ? one : more}`;
@@ -85,4 +86,14 @@ export function refills(state, entry) {
     out.push({ kind: 'oil', now, after, lost: now + add - after, max: 1 });
   }
   return out;
+}
+
+// § sips (D-902, D-909): a draught's turns, for the bag card's picture: its HUD mark's rim
+// "Now", the share of its time left, 0 when none is working, and "After", as drinking one
+// again starts the count from the full again. Null for a thing that isn't drunk for a while.
+// state: the hero's; entry: the item's registry entry → { key, now, after } or null
+export function draughtTurns(state, entry) {
+  const key = drinkKey(entry);
+  if (!key || !state) return null;
+  return { key, now: shareLeft(state, key), after: Math.min(1, givesOf(entry, key) / LONGEST[key]) };
 }

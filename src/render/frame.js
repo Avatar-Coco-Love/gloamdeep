@@ -46,7 +46,7 @@ import { drawBenchPanel } from './benchpanel.js';
 import { drawMakeCard } from './makecard.js';
 import { bagMakes, makeFor, knownOf, stationFor } from '../core/bagmake.js';
 import { get } from '../core/registry.js';
-import { refills } from '../core/numbers.js';
+import { refills, draughtTurns } from '../core/numbers.js';
 import { drawChestPanel } from './chestpanel.js';
 import { drawTradePanel } from './tradepanel.js';
 import { drawPauseCard } from './pausecard.js';
@@ -433,7 +433,7 @@ export function createFrame(app, ui) {
     else if (app.screen === 'aboutBoons') { if (app.boonsFrom === 'journal') journalOn(hc, t); aboutBoonsOn(hc); } // the boons card on the room, or over the Journal (D-712)
     else if (app.screen === 'map') drawMap(hc, view.w, view.h, app.view, t, still(), screens.turns()); // a card on the room (D-395)
     else if (app.screen === 'bag') {
-      drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refills(state, get(state.bag[app.chosen]?.id))); // hearts or oil now and after (D-908) // a card on the room (D-385), its STORE with a chest in reach (D-558)
+      drawBag(hc, view.w, view.h, state.bag, app.chosen, kitOf(state), gearRow(state), state.health >= maxHealth(state), state.told, bagSize(state), chestsNear(state).length > 0, t, still(), state.poisoned > 0, makesOf(state, app.chosen), canSleepOut(state), refills(state, get(state.bag[app.chosen]?.id)), draughtTurns(state, get(state.bag[app.chosen]?.id))); // hearts or oil, or a draught's turns, now and after (D-908, D-909) // a card on the room (D-385), its STORE with a chest in reach (D-558)
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'make') {
