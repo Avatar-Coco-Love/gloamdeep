@@ -1971,3 +1971,36 @@ dot always shows. Changes ease over half a second (offered too: at
 once). The full map opens clearly. The rim showing danger (Q-109) is
 next (offered too: flyers into trees, D-900). D-918 and D-919 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-900 · 2026-11-14 · Flyers over low things** (the owner's picks, all
+four; the recommended was the first) Lampmoths, bats and the lure wisp
+fly over what stands low: what the hero built, bushes and fallen
+branches, rubble, plinths and braziers, not trees, rock or walls; and
+they may go into a tree and vanish there, chopping it driving them out.
+Two steps, flying over first; the trees' details proposed at theirs.
+
+**D-901 · 2026-11-14 · Flyers over low things: the build** (the owner's
+picks, all recommended; builds D-900) Only the tiles D-900 names are
+low; deposits, copper veins, a wild campfire, the lamppost and the
+miners' camp still stop a flyer (offered too: each of those). Walking
+into a flyer over a low thing strikes it, as over water (offered too:
+it can't be reached there). Each low tile, water too, is marked `low`
+in the registry (offered too: a list in the creature code). Only the
+in-game history tells of it (offered too: the Bestiary's words too).
+Claude's call: a flyer knocked by the Warden's Fist into a low thing is
+stopped as by a wall, as before.
+
+**D-921 · 2026-11-14 · The round map's rim shows danger** (the owner's
+picks from a mock-up, all recommended; answers Q-109) While any creature
+in the room is chasing the hero, near or far, the round map's rim turns
+the creatures' red, solid and thicker, and pulses slowly (steady with
+reduced motion). Else, while one is close to noticing them, the rim shows
+a broken ember ring, so the two differ in shape too, for colour-blind
+players (offered too: colour only; an arc toward the creature). Close to
+noticing: one that comes for the hero, awake, that would notice them
+where it stands or from a free tile one step nearer, by its own rules
+(light, near, Soft Step, the Shade Draught, its sight); ones that seek
+light, lure or only spit never count (offered too: within 4 tiles; red
+only for now). Always on (offered too: a setting). Flyers into trees
+(D-900) is next. D-920 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

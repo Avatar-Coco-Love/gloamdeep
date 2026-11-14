@@ -25,6 +25,7 @@ import { tileAt } from './room.js';
 import { get, asleepAtFirst } from './registry.js';
 import { litAt } from './sight.js';
 import { rng, pick, seedFor } from './rng.js';
+import { dawnIntoTrees, clearNightRoosts } from './roost.js';
 
 // § kinds: what comes out each night, one of each, in each room
 export const NIGHT_KINDS = ['lampmoth', 'bat']; // a night bat leaves no guano: that lies only by a bat a room is made with (D-779)
@@ -67,7 +68,7 @@ export function nightfall(state) {
 // (state) → the state with the other half's creatures gone: day ones by night, night ones by day.
 // The turn's end runs it before the creatures act, so one gone with the light never bites (B2)
 export const leaveByLight = (state) => !OUT.includes(state.place) ? state
-  : goneBy(state, darkOut(state.turn) ? 'day' : 'night');
+  : darkOut(state.turn) ? goneBy(state, 'day') : goneBy(dawnIntoTrees(state), 'night'); // at dawn a flyer beside a tree goes into it instead (roost.js, D-922)
 
 // (state, when) → the state with the creatures of the other half gone ('night' by day, 'day' by night)
 const goneBy = (state, when) => state.enemies.some((e) => e[when])
@@ -89,7 +90,8 @@ function comeOut(state, when) {
     if (left.length) out.push({ id, ...pick(r, left), ...(asleepAtFirst(get(id)) && { asleep: true }), [when]: true }); // a mimic comes out asleep, looking like its find
   }
   const stay = state.enemies.filter((e) => !e[when]); // an earlier night's or day's still standing go first (B1)
-  return { ...state, room: { ...state.room, [when]: n }, enemies: [...stay, ...out] };
+  const room = night ? clearNightRoosts(state.room) : state.room; // an earlier night's flyers in trees gone too (D-922)
+  return { ...state, room: { ...room, [when]: n }, enemies: [...stay, ...out] };
 }
 
 // Every grass tile off the edge with nothing on it, `FAR` steps or more from the hero; by night

@@ -35,6 +35,7 @@ import { dig, talk } from './rescue.js';
 import { toolFits, bumpsFor } from './gear.js';
 import { bumpWater } from './fishing.js';
 import { takePrize } from './prize.js';
+import { driveOut } from './roost.js';
 import { fallen } from './bones.js';
 import { misses } from './stiff.js';
 import { knocks, knockOf } from './fist.js';
@@ -268,7 +269,7 @@ function mine(state, x, y) {
   const { [key]: was, ...rest } = state.room.chips ?? {};
   if (n < hits) {
     const room = { ...state.room, chips: { ...rest, [key]: n } };
-    return endTurn(state, say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), chips[n - 1]));
+    return endTurn(state, driveOut(say(note(passTurn({ ...state, room }), 'chip', { id: tile.id, n }), chips[n - 1]), x, y)); // a flyer in the tree driven out (D-922)
   }
   const after = get(leaves), looks = tile.forms ? tile : after.forms ? after : null;
   const form = looks ? formOf(looks, x, y) : undefined;
@@ -280,7 +281,7 @@ function mine(state, x, y) {
     .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
   const next = note(note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n, broke: true }), 'take', { id: drops });
-  return endTurn(state, say(next, breaks));
+  return endTurn(state, driveOut(say(next, breaks), x, y, true)); // one still in, out onto the stump (D-922)
 }
 
 // Whether the solid tile at x, y can be mined: it has `mine`, and one only `inner`
