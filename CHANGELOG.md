@@ -23,6 +23,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.367 (2026-11-14)
+- A creature chasing you now follows you out of a room, through a doorway, the cave mouth or down and up stairs, if it is within 3 steps of where you leave. Stairs are no longer a sure escape.
+- It comes in as many turns after you as it was steps away, on the tile you came in by, still chasing. One right behind you comes in the turn after.
+- Leave that room again before it comes, and it gives up: you may find it later in either room, somewhere new, no longer chasing.
+- The rat, the gloamling, both mimics, the bone rat, the oil tick, the centipede and the rim lurker follow. The warden keeps to its vault, and bats and lampmoths stay behind.
+- The round map's rim stays red while one is on its way.
+- Decisions: D-925. Questions closed: Q-107.
+
 ## 0.3.366 (2026-11-14)
 - You can now cut a room in two with what you set down: a workbench, chest, bed, torch or anything else that sets down can block a narrow gap, even walling off part of the room. Deconstruct takes it back, and a torch burns out.
 - A chopped tree now grows back on its stump even where it cuts the room in two (still out of sight, after 3 days). Chopping is the way through.
@@ -35,9 +43,3 @@ Entry format:
 - A tree with a flyer in it gives a small shake now and then (with reduced motion, it leans a pixel). The first chop on it drives the flyer out beside the tree, and after you. Only the trees you can chop: never the ring of trees round the woods' edge. One flyer a tree.
 - Docs: the next prompts to copy now come only once, after you say a PR is merged and Claude has checked it on GitHub; before that, the handoff asks you to say when it's merged. Three finished decisions move to the archive, word for word.
 - Decisions: D-922, D-923. D-900, D-901 and D-921 moved to the archive, word for word.
-
-## 0.3.364 (2026-11-14)
-- The round map's rim now warns you. While a creature in the room is chasing you, near or far, the rim turns red, thicker, and pulses slowly (steady with reduced motion).
-- While a creature is close to noticing you, the rim shows a broken orange ring: one that would see you where it stands, or from one step nearer, by its own rules (light, lurking near, Soft Step, the Shade Draught). The two differ in shape as well as colour, so they read for colour-blind players too.
-- Docs: one finished decision moves to the archive, word for word.
-- Decisions: D-921. Questions closed: Q-109. D-920 moved to the archive, word for word.

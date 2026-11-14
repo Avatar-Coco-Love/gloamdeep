@@ -65,7 +65,8 @@ test('a rat next to the hero does not bite as they take the stairs', () => {
   const s = at(2, 1, { ...makeWorld(), enemies: [{ id: 'rat', x: 2, y: 2, chasing: true }] });
   const n = step(s, 'left');
   assert.equal(n.health, HERO_HEALTH);
-  assert.deepEqual(n.elsewhere.first.enemies, [{ id: 'rat', x: 2, y: 2, chasing: true }]); // it stays, still chasing
+  assert.deepEqual(n.elsewhere.first.enemies, []); // it follows down the stairs (D-925)
+  assert.equal(n.coming[0].at, n.turn + 2); // 2 steps from the stairs
 });
 
 test('the first step in a room just come into is the hero\'s own; then the rats act (D-446)', () => {

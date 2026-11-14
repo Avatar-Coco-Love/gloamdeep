@@ -77,8 +77,3 @@ idea) With a shovel held, a tree could be dug up for good, no stump
 left, to clear room for a base, and give a seed or sapling to plant a
 tree elsewhere. No shovel or sapling exists yet: its make, its parts,
 where a sapling grows and how long. Its own steps, after D-900.
-
-**Q-107 · Creatures through doorways** (raised 2026-11-14, the owner's
-idea) Creatures could cross a doorway and chase the hero into the next
-room. It would supersede D-132's "never follow between rooms". Which
-creatures, how near they must be, and whether stairs stay an escape.

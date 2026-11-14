@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.366 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.367 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Creatures through doorways (Q-107): proposed first. Then the shovel
-(Q-106); then L3 (D-890).
+The shovel (Q-106): proposed first. Then L3 (D-890).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,6 +45,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.367, Creatures through doorways.** Q-107's step: a
+  chasing creature within 3 steps of where the hero leaves, by a doorway
+  or stairs, follows, as many turns later as it was steps away; leave
+  first and it gives up, in either room. Not the warden. The owner's
+  picks. D-922 archived. D-925.
+  Playtest: https://claude.ai/artifact/FZr9gmLPZXpQAZK34qteJA
 - **2026-11-14, 0.3.366, Cutting a room.** D-899's step: things set
   down may cut a room in two, a tree grows back on its stump though it
   does, and a full bag no longer stops the fourth chop (the wood falls
@@ -56,8 +61,3 @@ list in `RESEARCH.md`.
   it; the tree shakes; the first chop drives it out. The next prompts
   come once, after "merged" and a check (the owner's find). D-922, D-923.
   Playtest: https://claude.ai/artifact/EEqxjV3ZP93TrKdqYEAKea
-- **2026-11-14, 0.3.364, The round map's rim shows danger.** The
-  rim turns red, thicker and pulsing, while a creature in the room
-  chases; a broken orange ring while one is close to noticing (where it
-  stands or one step nearer). The owner's picks from a mock-up. D-920
-  archived. D-921. Playtest: https://claude.ai/artifact/DvCZ7UPVGdN11Djfxw3Rkq

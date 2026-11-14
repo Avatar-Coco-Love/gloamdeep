@@ -27,6 +27,8 @@ never follow between rooms, and a chasing rat is still chasing where
 the hero left it. Rats in the room they arrive in take their turn.
 *"Rats in the room they arrive in take their turn" superseded by D-446
 (2026-10-29): the first step in a room is the hero's own.*
+*"Stairs are an escape; rats never follow between rooms" superseded by
+D-925 (2026-11-14): a chasing creature within 3 steps follows.*
 
 **D-133 · 2026-10-18 · How stairs look** (step 25, owner's pick; which way they point superseded by D-143, 2026-10-18) Stairs
 down are the study's: five violet-lipped steps narrowing into a dark pit

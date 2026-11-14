@@ -2011,3 +2011,17 @@ offered too: as now) A thing set down may cut a room in two, and a tree
 may grow back on its stump though it cuts the room; chopping (or
 digging, Q-106) is the way through. Its own step; that step marks what
 it changes in D-317 and D-322.
+
+**D-922 · 2026-11-14 · Flyers into trees** (the owner's picks; builds
+D-900) A hurt lampmoth or bat that flees, an inner tree beside it, goes
+into the tree instead of flying off; at dawn, a night one beside such a
+tree goes in instead of going (offered too: now and then, unnoticed; the
+lure wisp too). Only trees the hero can chop, never the woods' ring
+(offered too: any tree). The tree gives a small leaf shake now and then;
+the first chop drives the flyer out beside it, after the hero (offered
+too: no sign; out only when the tree falls). Claude's calls: one flyer a
+tree; out on the free tile nearest the hero, stirring a turn as one
+woken does; with none free it stays in until the tree falls; driven out
+by day it stays; an earlier night's go at nightfall; with reduced motion
+the crown leans a pixel, still. D-900, D-901 and D-921 move to
+`archive/DECISIONS-SURFACE.md`, word for word.

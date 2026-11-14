@@ -103,3 +103,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 
 - A rule broken twice needs a check, not only words: the next prompts came before a merge again, and the owner, back later, took them as the merge done; now the handoff waits for "merged" and checks GitHub first (0.3.365).
 - Lifting a safety rule can open a trap: dropping the "room stays joined" check showed that a full bag kept a regrown tree standing, so the fix asked about it before building (0.3.366).
+- An owner's free answer can beat every offered option: asked when a follower comes in, the owner reasoned it out (3 tiles away, a few tiles' lead), and that became the rule; the questions after built on it (0.3.367).

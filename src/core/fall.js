@@ -6,6 +6,7 @@ import { get } from './registry.js';
 import { say } from './lines.js';
 import { bagAdd, bagSize, noRoom } from './bag.js';
 import { priceOf } from './trade.js';
+import { comeIn } from './follow.js';
 import { note } from './events.js';
 import { newJourney, maxHealth, withoutBoon } from './state.js';
 import { wakeSpot } from './waking.js';
@@ -43,6 +44,7 @@ export function fall(state) {
   const fell = { room: r, place: at, hero: h, lights: l, enemies: e, items: i, seen: m, oil, lit, turn, seed: state.seed, health: 0 };
   if (state.mode === 'hardcore') return note({ ...startOver(state.seed), fell }, 'fall');
   const { place, hero } = wakeSpot(state);
+  state = comeIn(state, true); // followers on the way give up (D-925)
   const woke = withoutBoon(place === state.place ? stepAside({ ...state, hero }) : arrive(state, place, state.elsewhere[place] || freshPlace(place, state.seed), hero)); // a fall ends the boon (D-583)
   const awake = { ...woke, fell, health: maxHealth(woke), oil: OIL.start, poisoned: 0, stiff: 0, glow: 0, slowburn: 0, warmed: 0, mending: 0, ward: 0, spitproof: 0, shade: 0, float: null, globs: [], ...(kept && { bag: [kept] }) };
   return note(kept ? say(awake, 'locketKept', stackWords(kept)) : say(awake, 'fall'), 'fall'); // a fall ends poisoned too (D-654), and stiff (D-759), and the Glow Draught (D-791) and Slowburn (D-792) and Warmed (D-845) and the Mending Draught (D-794) and the Ward Draught (D-795) and the Spitproof Draught (D-802) and the Shade Draught (D-806), and the line (D-667)
