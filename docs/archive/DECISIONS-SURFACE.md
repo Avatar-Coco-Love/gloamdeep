@@ -1918,3 +1918,8 @@ it, whichever copy that is (offered too: only the newest; one copy per
 save). A different broken save still gets its own copy. Nothing visible
 changes. F-4 and F-5 go in one PR as two versions, 0.3.357 and 0.3.358.
 D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-915 · 2026-11-14 · A goal with no reward, read aloud** (the
+owner's pick, recommended; fixes F-5) In the Quests tab, a screen reader
+reads a goal done with no reward as "Put out your lantern, done.", as
+the screen shows it (offered too: "done, no reward").

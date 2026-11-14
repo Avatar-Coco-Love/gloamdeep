@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.360 (2026-11-14)
+- On the peddler's card, on both Sell and Buy, the thing you pick now shows the bag card's picture under its rows: hearts or oil "Now" and "After", a draught's turns, or a weapon's hits beside the one you hold, as if you used it right away.
+- His price line always shows; the picture is left out where it and that line would reach the button. A test checks the card fits with every thing picked.
+- Docs: one finished decision moves to the archive, word for word.
+- Decisions: D-917. D-915 moved to the archive, word for word.
+
 ## 0.3.359 (2026-11-14)
 - On the Make card (the bag's Make tab, the workbench and the mortar), a thing you can make now shows the bag card's picture under its rows: hearts or oil "Now" and "After", or a draught's turns, as if you made it and used it right away.
 - Like on the bag card, the picture is left out where it would reach the buttons. A weapon made there would show its hits beside the one you hold; none is made there yet.
@@ -32,7 +38,3 @@ Entry format:
 ## 0.3.358 (2026-11-14)
 - Fixed: with a screen reader, the Quests tab reads a goal done with no reward as "done." instead of "done, .".
 - Decisions: D-915.
-
-## 0.3.357 (2026-11-14)
-- Fixed: a save the game can't read is now set aside once, not again on every load, so the copies can't fill the phone's storage. Nothing on screen changes.
-- Decisions: D-914.

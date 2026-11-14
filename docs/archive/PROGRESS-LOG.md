@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.357, A broken save set aside once.** F-4 fixed: a
+  save that can't be read is copied aside only when no copy with the
+  same words is kept for it; a test loads one five times. D-911 and
+  D-912 archived. D-914.
 - **2026-11-14, 0.3.356, Kind Herbs' words.** F-3 fixed: the card reads
   "All you eat, and potions, heal 1 heart more.", as D-599 is. D-913.
   Playtest: https://claude.ai/artifact/Uht6NxAXtu6EHb4XedWdHH

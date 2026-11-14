@@ -31,6 +31,8 @@ const { bagMakes } = await import(R + 'core/bagmake.js');
 const { refills, draughtTurns } = await import(R + 'core/numbers.js');
 const G = await import(R + 'core/gear.js');
 const { drawChestPanel } = await import(R + 'render/chestpanel.js');
+const { drawTradePanel } = await import(R + 'render/tradepanel.js');
+const { wares } = await import(R + 'core/trade.js');
 const { drawBoons, boonsLayout } = await import(R + 'render/boons.js');
 const H = await import(R + 'render/history.js');
 const { HISTORY, loadHistory } = await import(R + 'core/history.js');
@@ -101,6 +103,19 @@ test('the bag, its Make tab, workbench and stash chest fit their cards with ever
     const known = bagMakes({ bag: [], known: Object.keys(ITEMS) });
     known.forEach((m, i) => bad.push(...fits(`${L} make ${i}`, card, () => drawMakeCard(any, vw, vh, known, i, spriteOf, {}, picsOf))));
     bad.push(...fits(`${L} make none`, card, () => drawMakeCard(any, vw, vh, [], 0, spriteOf, {})));
+  }
+  none(bad);
+});
+
+test("the peddler's card fits with every thing chosen, its pictures too, on Sell and Buy (D-916)", () => {
+  const bad = [], spriteOf = () => any;
+  for (const [vw, vh] of SIZES) for (const size of [6, 9, 12]) {
+    const card = B.cardAt(vw, vh, B.bagShape(size).detail), L = `${vw}×${vh} trade ${size}`;
+    for (const id of Object.keys(ITEMS)) {
+      const state = { bag: [{ id, n: 99 }], coins: 1, health: 2, oil: 0.3, boon: null, grown: {}, held: 'knife', bagSlots: size };
+      bad.push(...fits(`${L} sell ${id}`, card, () => drawTradePanel(any, vw, vh, state, 0, spriteOf, 'sell', 0, true)));
+    }
+    wares().forEach((w, i) => bad.push(...fits(`${L} buy ${w.id}`, card, () => drawTradePanel(any, vw, vh, { bag: [], coins: 0, health: 2, oil: 0.3, boon: null, grown: {}, held: null }, i, spriteOf, 'buy', 0, true))));
   }
   none(bad);
 });
