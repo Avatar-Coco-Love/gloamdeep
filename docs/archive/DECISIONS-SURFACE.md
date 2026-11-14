@@ -40,6 +40,9 @@ D-795, the Ward Draught, built, followed at 0.3.248 (D-802), word for
 word, for the same reason.
 D-895 and D-896, the vault door opening and its prize, both built,
 followed at 0.3.346 (D-903), word for word, for the same reason.
+D-913 and D-914, Kind Herbs' words and a broken save set aside once,
+both built, followed at 0.3.359 (D-916), word for word, for the same
+reason.
 
 ---
 
@@ -1902,3 +1905,16 @@ all recommended; fixes F-2) The bag card's "After" takes off the turn's
 burn first, as the pour does, so it shows the oil the pour really gives
 (offered too: marked as near). No burn with Quick Pour on a flask, or
 with the lantern out. A test checks it against the real pour.
+
+**D-913 · 2026-11-14 · Kind Herbs' words** (the owner's pick,
+recommended; fixes F-3) The card reads "All you eat, and potions, heal
+1 heart more.", as D-599 is. Offered too: list every one; narrow the
+rule.
+
+**D-914 · 2026-11-14 · A broken save set aside once** (the owner's
+picks, all recommended; fixes F-4) A save the game can't read is not
+copied aside again when a copy with the same words is already kept for
+it, whichever copy that is (offered too: only the newest; one copy per
+save). A different broken save still gets its own copy. Nothing visible
+changes. F-4 and F-5 go in one PR as two versions, 0.3.357 and 0.3.358.
+D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.

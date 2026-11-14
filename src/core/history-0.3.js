@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.359', date: '2026-11-14', title: 'The pictures on the Make card', lines: [
+    "On the Make card (the bag's Make tab, the workbench and the mortar), a thing you can make now shows the bag card's picture under its rows: hearts or oil \"Now\" and \"After\", or a draught's turns, as if you made it and used it right away.",
+    "Like on the bag card, the picture is left out where it would reach the buttons. A weapon made there would show its hits beside the one you hold; none is made there yet.",
+    "Docs: two finished decisions move to the archive, word for word.",
+    "Decisions: D-916. D-913 and D-914 moved to the archive, word for word.",
+  ] },
   { v: '0.3.358', date: '2026-11-14', title: 'A goal with no reward, read aloud', lines: [
     "Fixed: with a screen reader, the Quests tab reads a goal done with no reward as \"done.\" instead of \"done, .\".",
     "Decisions: D-915.",

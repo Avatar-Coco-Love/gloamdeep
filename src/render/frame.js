@@ -113,6 +113,8 @@ const sleepsOut = (s) => { if (s !== sleepFor) { sleepFor = s; sleepOk = canSlee
 // `ui`: the canvases (the menus' picture, the creature list's row, the room filling the screen behind them,
 // D-381, and the screen layer over the room, D-444), the text line, the spoken line, the lantern, pause and bag buttons, the round map (D-383), the dev tools, the screens, and still() and foeAt(e) from main.js.
 // A bag or gear slot's sprite: the rod drawn with its hook once the Bone Hook is fitted (D-807)
+// The Make card's pictures' facts for an entry, as if made and used now (D-916)
+const picsOf = (state) => (entry) => ({ held: state.held ?? null, refill: refills(state, entry), sips: draughtTurns(state, entry) });
 const kitOf = (state) => (it) => (it?.id === 'rod' && isFitted(state, 'boneHook') ? SPRITES.rodHooked : spriteOf(it));
 
 export function createFrame(app, ui) {
@@ -437,12 +439,12 @@ export function createFrame(app, ui) {
       textLine.draw(hc, line, t, still()); // over the card, so a line said in the bag shows ("Only on the surface.")
     }
     else if (app.screen === 'make') {
-      drawMakeCard(hc, view.w, view.h, bagMakes(state), app.chosen, spriteOf, state.told); // the bag's Make tab, a card on the room (D-787)
+      drawMakeCard(hc, view.w, view.h, bagMakes(state), app.chosen, spriteOf, state.told, picsOf(state)); // the bag's Make tab, a card on the room (D-787)
       textLine.draw(hc, line, t, still()); // "You make an oil flask."
     }
     else if (app.screen === 'bench') {
       const station = tileAt(state.room, app.bench.x, app.bench.y); // the workbench or the mortar (D-786)
-      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state), app.benchTab), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE, station.makes ? null : app.benchTab); // a card on the room (D-387)
+      drawBenchPanel(hc, view.w, view.h, stationMakes(station, state.bag, bagSize(state), nearStacks(state), knownOf(state), app.benchTab), app.chosen, spriteOf, state.told, t, still(), stationTitle(station), STATION_NONE, station.makes ? null : app.benchTab, picsOf(state)); // a card on the room (D-387)
       textLine.draw(hc, line, t, still()); // "You make a stash chest."
     }
     else if (app.screen === 'chest') {

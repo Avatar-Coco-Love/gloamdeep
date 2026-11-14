@@ -29,8 +29,9 @@ export function makeCardAt(x, y, vw, vh) {
 }
 
 // c: the room's canvas, `vw` × `vh`; makes: bagMakes(state) (core/bagmake.js); chosen: a
-// slot; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297)
-export function drawMakeCard(c, vw, vh, makes, chosen, spriteOf, told) {
+// slot; spriteOf: a slot's sprite (sprites.js); told: the state's told lines (D-297); picsOf:
+// an entry's pictures' facts, { held, refill, sips }, as the bag card's (D-916)
+export function drawMakeCard(c, vw, vh, makes, chosen, spriteOf, told, picsOf = () => ({})) {
   const card = drawCard(c, vw, vh, '', SPLIT, true, TALL_SPLIT), { x, w } = card;
   drawBagTabs(c, card, 'make');
   for (let i = 0; i < MAKE_SLOTS; i++) { const s = slotAt(card, i, TOP, MAKE_COLS); drawSlot(c, s.x, s.y, makes[i] && { id: makes[i].item, n: 1 }, i === chosen, spriteOf); }
@@ -40,6 +41,6 @@ export function drawMakeCard(c, vw, vh, makes, chosen, spriteOf, told) {
     if (!makes.length) wrapWords(NONE_YET, dw).forEach((l, i) => drawText(c, l, dx, dy + i * LINE_H, GREY));
     return;
   }
-  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2);
+  drawMakeWords(c, make, entry, dx, dy, dw, spriteOf, told, card.button.y - 2, picsOf(entry));
   drawButton(c, card.button.x, card.button.y, 'MAKE', make.dim);
 }
