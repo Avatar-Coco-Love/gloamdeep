@@ -19,7 +19,7 @@ test('the Fur Bedroll is the BUILD tab\'s slot before the Bone Hook (D-807): 4 B
   const roll = get('furBedroll');
   assert.equal(roll.name, 'Fur Bedroll');
   assert.equal(roll.max, 1);
-  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-2);
+  const last = (bag) => benchMakes(bag, 6, [], benchTabOf('build').makes).at(-3);
   assert.deepEqual(last([{ id: 'bunnyFur', n: 4 }, { id: 'spiderSilk', n: 1 }]), { item: 'furBedroll', cost: [{ id: 'bunnyFur', n: 4, have: 4 }, { id: 'spiderSilk', n: 1, have: 1 }], dim: false });
   assert.equal(last([{ id: 'bunnyFur', n: 3 }, { id: 'spiderSilk', n: 1 }]).dim, true);
   const s = outside([{ id: 'bunnyFur', n: 5 }, { id: 'spiderSilk', n: 1 }], { turn: 10 }), made = makeAt(s, 'furBedroll');

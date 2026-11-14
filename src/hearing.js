@@ -46,7 +46,7 @@ export function createHearing(app, sound, spoken) {
     const cut = events.find((e) => e.type === 'chip' && get(e.id)?.chops);
     if (cut) sound[cut.broke ? get(cut.id).chops : 'chop'](); // a tree or branch chopped, then falling or snapping (D-842, D-843)
     if (has(events, 'shelve')) sound.shelf(); // a relic on the shelf (D-828)
-    if (has(events, 'plant')) sound.sow(); // a seed in the garden bed
+    if (has(events, 'plant') || has(events, 'dig')) sound.sow(); // a seed in the garden bed, or a stump dug out (D-926)
     if (has(events, 'feed')) sound.feed(); // guano on the sprout
     if (events.some((e) => e.type === 'pour' && isFlask(e.id))) sound.pour(); // a flask, by hand or by itself; a minnow is silent (D-830)
     if (has(events, 'oilLow')) sound.sputter(); // the flame is getting low: two sputters (D-834)

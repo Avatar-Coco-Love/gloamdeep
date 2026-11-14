@@ -148,6 +148,11 @@ export const ITEMS = {
   // empty, it goes straight into it.
   pick: { id: 'pick', kind: 'item', name: 'Stone Pick', bag: true, max: 1, tool: true, holds: 'pickHold', away: 'pickAway', look: 'pickLook', full: 'pickFull',
     bench: { of: { wood: 2, stone: 3 }, says: 'pickMake', short: 'pickShort' } },
+  // The Shovel (D-926, Q-106's first step): made on the workbench's BUILD tab, never found, the
+  // Stone Pick's way. A `tool`, held in the Tool slot, swapped there with the picks and the rod.
+  // Held, walking onto a stump digs it out for good (shovel.js).
+  shovel: { id: 'shovel', kind: 'item', name: 'Shovel', bag: true, max: 1, tool: true, holds: 'shovelHold', away: 'shovelAway', look: 'shovelLook', full: 'shovelFull',
+    bench: { of: { wood: 3, stone: 2 }, says: 'shovelMake', short: 'shovelShort' } },
   // The first rod, fishing's first step (D-609): made at the workbench as the pick is, never
   // found. A `tool` like the pick, held in the Tool slot, swapped with the pick there. Held,
   // bumping water fishes it: the home pond and the cave pools (fishing.js, D-610, D-618).

@@ -169,17 +169,6 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
 
-**D-924 · 2026-11-14 · Cutting a room** (D-899's step, the owner's
-picks, all recommended; supersedes in part D-317 and D-322) Anything set
-down (bench, chest, bed, garden bed, shelf, mortar, torch, glow lamp,
-campfire, bedroll) may cut the room in two; Deconstruct takes it back,
-and a torch or lamp burns out. A tree grows back on its stump though it cuts the room. With no room in
-the bag, the fourth bump fells a tree all the same, its 3 Wood on the
-stump and the nearest open tiles, saying "You can't carry more wood."
-(offered too: only when it walls the hero in; as now). A deposit still
-never grows back across a room (D-313; offered too: it may). One step.
-D-899 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-925 · 2026-11-14 · Creatures through doorways** (the owner's picks;
 answers Q-107; supersedes in part D-132) A creature that chases (the
 rat, gloamling, both mimics, bone rat, oil tick, centipede, rim lurker;
@@ -197,3 +186,17 @@ Claude's calls: it comes after the creatures' turn, so acts the turn
 after; steps count by walking, round walls; the scorpion and the mole
 don't follow, as they weren't named; a fall gives them all up. D-922
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-926 · 2026-11-14 · The shovel** (Q-106's first step, the owner's
+picks, all recommended) The Shovel is made on the workbench's BUILD tab,
+its last slot, from 3 Wood and 2 Stone, a turn; only 1 carried; held in
+the Tool slot, the Stone Pick's way. Look A: a wooden handle with a
+T-grip and a flat grey stone spade. Held, walking onto a stump digs it
+out instead, a turn, the hero staying put: plain grass for good ("for
+now", the owner's words; offered too: dug earth), and the tree waiting
+to grow back there never does. A standing tree is not dug (offered too:
+4 bumps, no stump). Offered too: the shovel alone. Claude's calls: the
+last slot, so the others keep their places; its lines; the `sow` sound
+for a dig. The sapling stays in Q-106; the owner's idea of digging up
+buried things is Q-108. D-924 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

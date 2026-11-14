@@ -39,6 +39,7 @@ the creatures and places went on to `SOUNDS-3.md`.
 | `shimmer` | a person leaves for home, or arrives (D-496, D-833) | a soft shimmer | `impactGlass_light_000` to `002` at 1.6, 1.8 and 2, 0.07 s apart, at 0.1 to 0.08, CC0 |
 | `coins` | an item sold at home (D-494, D-828), not the tick | coins | `kenney-rpg-audio/handleCoins`, at a quarter loudness, CC0 |
 | `sow` | a seed planted (D-566, D-828) | soft earth | the earth step's files, twice, 0.13 s apart, at a quarter, then 0.2, CC0 |
+| | a stump dug out with the shovel (D-926) | soft earth | — (the seed's `sow` plays) |
 | `feed` | Bat Guano fed to a sprout (D-569, D-828) | a soft pat of earth | the bag's `pat` files, muffled above 1400 Hz, at a third, CC0 |
 | `shelf` | a relic set on the shelf (D-693, D-828) | wood on wood | `kenney-rpg-audio/bookPlace1` to `3`, at a quarter loudness, CC0 |
 | `tools` | something made at a bench or in the bag (D-833) | tools at work | two of `impactMetal_light_000` to `004`, 0.16 s apart, at 0.2, then `impactWood_medium_000` to `004` at 0.22, 0.34 s in, CC0 |

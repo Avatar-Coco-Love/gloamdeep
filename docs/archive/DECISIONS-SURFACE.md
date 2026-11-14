@@ -2025,3 +2025,14 @@ woken does; with none free it stays in until the tree falls; driven out
 by day it stays; an earlier night's go at nightfall; with reduced motion
 the crown leans a pixel, still. D-900, D-901 and D-921 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-924 · 2026-11-14 · Cutting a room** (D-899's step, the owner's
+picks, all recommended; supersedes in part D-317 and D-322) Anything set
+down (bench, chest, bed, garden bed, shelf, mortar, torch, glow lamp,
+campfire, bedroll) may cut the room in two; Deconstruct takes it back,
+and a torch or lamp burns out. A tree grows back on its stump though it cuts the room. With no room in
+the bag, the fourth bump fells a tree all the same, its 3 Wood on the
+stump and the nearest open tiles, saying "You can't carry more wood."
+(offered too: only when it walls the hero in; as now). A deposit still
+never grows back across a room (D-313; offered too: it may). One step.
+D-899 moves to `archive/DECISIONS-SURFACE.md`, word for word.

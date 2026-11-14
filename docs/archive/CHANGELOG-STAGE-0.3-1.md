@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.365 (2026-11-14)
+- New: bats and lampmoths hide in trees. A hurt one that flees, next to a tree in the woods, flutters into it and vanishes instead of flying off. At dawn, a night one next to a tree goes into it instead of leaving.
+- A tree with a flyer in it gives a small shake now and then (with reduced motion, it leans a pixel). The first chop on it drives the flyer out beside the tree, and after you. Only the trees you can chop: never the ring of trees round the woods' edge. One flyer a tree.
+- Docs: the next prompts to copy now come only once, after you say a PR is merged and Claude has checked it on GitHub; before that, the handoff asks you to say when it's merged. Three finished decisions move to the archive, word for word.
+- Decisions: D-922, D-923. D-900, D-901 and D-921 moved to the archive, word for word.
+
 ## 0.3.364 (2026-11-14)
 - The round map's rim now warns you. While a creature in the room is chasing you, near or far, the rim turns red, thicker, and pulses slowly (steady with reduced motion).
 - While a creature is close to noticing you, the rim shows a broken orange ring: one that would see you where it stands, or from one step nearer, by its own rules (light, lurking near, Soft Step, the Shade Draught). The two differ in shape as well as colour, so they read for colour-blind players too.

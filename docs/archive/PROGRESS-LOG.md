@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.365, Flyers into trees.** D-900's second step: a
+  hurt bat or lampmoth fleeing, or one at dawn, goes into a tree beside
+  it; the tree shakes; the first chop drives it out. The next prompts
+  come once, after "merged" and a check (the owner's find). D-922, D-923.
+  Playtest: https://claude.ai/artifact/EEqxjV3ZP93TrKdqYEAKea
 - **2026-11-14, 0.3.364, The round map's rim shows danger.** The
   rim turns red, thicker and pulsing, while a creature in the room
   chases; a broken orange ring while one is close to noticing (where it
