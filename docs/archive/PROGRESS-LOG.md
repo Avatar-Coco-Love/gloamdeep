@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.366, Cutting a room.** D-899's step: things set
+  down may cut a room in two, a tree grows back on its stump though it
+  does, and a full bag no longer stops the fourth chop (the wood falls
+  on the floor). Deposits keep their check. The owner's picks. D-924.
+  Playtest: https://claude.ai/artifact/SmmgykNKuzkjZ8oiTeU9wU
 - **2026-11-14, 0.3.365, Flyers into trees.** D-900's second step: a
   hurt bat or lampmoth fleeing, or one at dawn, goes into a tree beside
   it; the tree shakes; the first chop drives it out. The next prompts
