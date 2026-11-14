@@ -1797,3 +1797,21 @@ Claude's calls: never the peddler's, the locket's or a waystone's room;
 the vault 3 tiles deep; the crypt's own bricks at every depth. Step 1
 built at 0.3.337. D-889 moves to `archive/DECISIONS-SURFACE.md`, word
 for word.
+
+**D-893 · 2026-11-13 · The lit brazier** (the owner's picks, all
+recommended; builds D-891, D-892) Lit, a brazier's violet band brightens,
+its ash turns to coals and the torch's orange flame sways in its bowl in
+3 frames, like a blazing campfire's (offered too: a violet flame; an
+orange flame with a violet heart). It lights 2 tiles round it in the
+torch's warm colour, as a campfire's embers do (offered too: 3 tiles;
+violet, 2 tiles). Bumped cold with the lantern lit, it opens the ask
+card: the text line says "A cold stone brazier.", the card "Light the
+brazier?" over "Old ash lies in its bowl.", No picked, Yes grey with
+less than 5 turns' oil; Yes says "The brazier catches." and passes a
+turn. Lit and bumped, it says "A brazier, burning.", then "Its flame
+burns steady.", free (offered too: "The old fire wakes."; nothing). With
+the lantern out, a cold brazier says its old words, no card (offered
+too: the card, Yes grey). Claude's calls: the door's left notch glows
+first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
+moves to `archive/DECISIONS-SURFACE.md`, word for word. Its notches moved
+to the lintel above the door by D-895 (2026-11-13).

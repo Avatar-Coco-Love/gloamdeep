@@ -207,7 +207,8 @@ export function stairsIn(plan, roomId, id) {
 }
 
 // § marks: (room, seen, x, y) → what the map shows at that tile: 'stairs' for a
-// glowing tile, 'floor', 'water' for a pool's water (D-502), 'wall' for a wall beside a floor
+// glowing tile, 'floor', 'water' for a pool's water (D-502), 'made' for what the hero built
+// (D-898), 'wall' for a wall beside a floor
 // (the rock behind it stays dark, so rooms show as outlines), or null. Only remembered tiles
 // show, unless seen is null.
 export function markAt(room, seen, x, y) {
@@ -216,6 +217,7 @@ export function markAt(room, seen, x, y) {
   if (t.glow && !t.fire) return 'stairs'; // a campfire's glow is no stairs (D-757)
   if (t.id === 'water') return 'water';
   if (!t.solid) return 'floor';
+  if (t.made) return 'made'; // what the hero built, not a tree's green (D-898)
   for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
     const nx = x + dx, ny = y + dy;
     if (nx >= 0 && ny >= 0 && nx < room.cols && ny < room.rows && !tileAt(room, nx, ny).solid) return 'wall';

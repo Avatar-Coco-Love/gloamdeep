@@ -90,24 +90,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-893 · 2026-11-13 · The lit brazier** (the owner's picks, all
-recommended; builds D-891, D-892) Lit, a brazier's violet band brightens,
-its ash turns to coals and the torch's orange flame sways in its bowl in
-3 frames, like a blazing campfire's (offered too: a violet flame; an
-orange flame with a violet heart). It lights 2 tiles round it in the
-torch's warm colour, as a campfire's embers do (offered too: 3 tiles;
-violet, 2 tiles). Bumped cold with the lantern lit, it opens the ask
-card: the text line says "A cold stone brazier.", the card "Light the
-brazier?" over "Old ash lies in its bowl.", No picked, Yes grey with
-less than 5 turns' oil; Yes says "The brazier catches." and passes a
-turn. Lit and bumped, it says "A brazier, burning.", then "Its flame
-burns steady.", free (offered too: "The old fire wakes."; nothing). With
-the lantern out, a cold brazier says its old words, no card (offered
-too: the card, Yes grey). Claude's calls: the door's left notch glows
-first; the campfire's lighting sound. Mock-up: https://claude.ai/artifact/WU3SNjtFvV5VPVqq7qTc73 Step 2 built at 0.3.338. D-890
-moves to `archive/DECISIONS-SURFACE.md`, word for word. Its notches moved
-to the lintel above the door by D-895 (2026-11-13).
-
 **D-894 · 2026-11-13 · The health checks' decisions archived** (the
 owner's picks, all recommended) Before L1 step 3, with `DECISIONS.md`
 at 12,004 of its 12,288 bytes, D-860 to D-862, the two health checks
@@ -167,3 +149,27 @@ lantern, or press L." (", to save oil."); keyboard "Press L." (", to
 save oil."), changing as the player switches (offered too: the device's
 kind, asked once, or both; touch against PC, two kinds only). Claude's
 call: the way is kept in `core/way.js`, set by `input.js`, never saved.
+
+**D-898 · 2026-11-14 · Built things on the map** (the owner's picks,
+both recommended; the owner's find, B-005) What the hero built and set
+down shows on the map and the round map in one warm wood brown, not the
+room's wall colour, so a chest or a workbench never looks like a tree
+(offered too: each its own colour; the room's colour, dimmer). Claude's
+calls: the brown is the lantern base's `#a8642c`; the workbench, chest,
+bed, bedroll, garden beds, shelf, mortar, torch stand and your own
+campfire are marked `made` in the registry; a wild campfire stays a
+wall. D-893 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-899 · 2026-11-14 · The hero may cut a room** (the owner's pick; not
+the recommended: only while the stairs and doorways stay in reach;
+offered too: as now) A thing set down may cut a room in two, and a tree
+may grow back on its stump though it cuts the room; chopping (or
+digging, Q-106) is the way through. Its own step; that step marks what
+it changes in D-317 and D-322.
+
+**D-900 · 2026-11-14 · Flyers over low things** (the owner's picks, all
+four; the recommended was the first) Lampmoths, bats and the lure wisp
+fly over what stands low: what the hero built, bushes and fallen
+branches, rubble, plinths and braziers, not trees, rock or walls; and
+they may go into a tree and vanish there, chopping it driving them out.
+Two steps, flying over first; the trees' details proposed at theirs.

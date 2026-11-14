@@ -15,7 +15,7 @@ const set = (bag = [{ id: 'bagCampfire', n: 1 }]) => setDown({ ...makeState(make
 
 test('the three twins keep the found levels\' rules, each leading to its own twin', () => {
   OWN.forEach((id, i) => {
-    const own = get(id), found = get(FOUND[i]), strip = ({ id: _, letter: __, sits, stokes, kindles, takes, ...rest }) => rest;
+    const own = get(id), found = get(FOUND[i]), strip = ({ id: _, letter: __, sits, stokes, kindles, takes, made, ...rest }) => rest; // made: only your own shows brown on the map (D-898)
     assert.deepEqual(strip(own), strip(found));
     assert.equal(own.sits?.heal, found.sits?.heal); assert.equal(own.sits?.warm, found.sits?.warm);
   });

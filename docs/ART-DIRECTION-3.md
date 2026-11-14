@@ -52,3 +52,4 @@ repeated. A new colour in the code gets its line here too.
 | Ward, spitproof, shade draughts and marks | `#dcf0d4` `#8fb898`; `#e0a0aa` `#a8606e`; `#b39ad0` `#6e5a8c` | `pictures.js:571-577`, `marks.js:30-34` |
 | The scorpions' five looks | `#d9c48e` `#9a8458`; `#d0603a` `#7e3020`; `#5e5870` `#302c3c`; `#a9a65a` `#64612e`; `#e6dcc4` `#a89c80` | `pictures-creatures.js:130-132` |
 | The map's dungeon and woods tones | `#4c5a84` `#4f8a3f` | `map.js:28` |
+| The map's built things, the lantern base's wood brown (D-898) | `#a8642c` | `map.js:26` |

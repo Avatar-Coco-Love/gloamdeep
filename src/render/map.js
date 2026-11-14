@@ -4,7 +4,8 @@
 // and a down arrow that turn the map a floor, ember while there is a floor that way,
 // else greyed (D-206). Each room is
 // drawn small from the tiles remembered: floors in the floor's grey, a pool's water in
-// its blue-grey (D-502), walls
+// its blue-grey (D-502), what the hero built (chests, benches, beds, garden beds, their own
+// torches and campfires) in a warm wood brown (D-898), walls
 // beside them in the brick's top edge, found stairs in their violet, the
 // hero a blinking gold dot on their own floor (still with reduced motion), each
 // bag where you fell a leather brown dot (MO3, D-345); with Waymark, stairs down not yet
@@ -22,7 +23,7 @@ import { areaAt, tileAt } from '../core/room.js';
 import { onWipe } from './wipe.js';
 
 const EMBER = '#f39a3b', GOLD = '#ffd66b', DIM = '#5c566a';
-const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3f5175' }; // ART-DIRECTION.md; water the pool's shimmer (D-502)
+const SHOWN = { floor: '#363b48', wall: '#69748b', stairs: '#a58ce0', water: '#3f5175', made: '#a8642c' }; // ART-DIRECTION.md; water the pool's shimmer (D-502); what you built in the lantern base's wood brown (D-898)
 // Walls in each room's own tone, and the heading's area name in its floor's (D-233):
 // crypt brick, cave rock, warren earth, the dungeon's cold blue (D-229), woods green
 const TONE = { crypt: '#69748b', rock: '#7a8396', earth: '#8e7a62', dungeon: '#4c5a84', woods: '#4f8a3f' };

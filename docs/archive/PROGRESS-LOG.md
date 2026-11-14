@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-13, 0.3.340, The door opening.** L1 step 3: the second
+  brazier lit, the door sinks open for good, its notches moved to the
+  lintel (the owner's idea); left unsolved, a vault goes cold. D-895.
+  Playtest: https://claude.ai/artifact/Lg8S2ZkYqo3UypnaWzUHdJ Mock-up:
+  https://claude.ai/artifact/CdnkJkW2gd98jGn8Wi5hpb
 - **2026-11-13, 0.3.339, The decisions trimmed.** D-860 to D-862, the
   done health checks, moved to `archive/DECISIONS-AUDITS.md` word for
   word; `DECISIONS.md` 12.0 KB to 9.9 KB. D-894. No game change.

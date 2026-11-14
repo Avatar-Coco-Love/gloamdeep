@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.343 (2026-11-14)
+- On the map and the round map, what you built (chests, workbenches, beds, bedrolls, garden beds, the shelf, the mortar, torches and your own campfires) now shows in a warm wood brown, so it no longer looks like a tree.
+- Your next ideas are written down, in order: flyers over low things and into trees, then cutting a room as you like, creatures through doorways and a shovel.
+- Decisions: D-898, D-899, D-900. Questions raised: Q-106, Q-107. D-893 moved to the archive, word for word.
+
 ## 0.3.342 (2026-11-14)
 - The lantern goals now say what you press, the way you last played: on a phone, "Tap the lantern." and "Tap the lantern, to save oil."; with a mouse, "Click the lantern, or press L."; with keys, "Press L." The words change when you switch.
 - Decisions: D-897.
@@ -31,8 +36,3 @@ Entry format:
 - Each vault now holds a prize on a small stone plinth behind its door: 1 vault in 4 an ember, which glows faintly, the rest 2 of a rare material.
 - Bump the plinth to take it. An ember is 1 more to spend in Growth: "An ember! Spend it in Growth." The plinth is left bare.
 - Decisions: D-896. D-892 moved to the archive, word for word.
-
-## 0.3.340 (2026-11-13)
-- The vault door opens: light the second brazier and the stone door sinks open for good, its two notches glowing on the stone above it, and the braziers burn on.
-- Leave a vault with only one brazier lit and it goes cold again, so you can always try again (the oil spent stays spent).
-- Decisions: D-895. D-891 moved to the archive, word for word.

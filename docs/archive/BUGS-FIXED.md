@@ -3,6 +3,12 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.343 (D-898):
+
+**B-005 · 2026-11-14 · Built things look like trees on the map** The
+chest and the workbench are the same colour on the maps as the trees.
+The owner: that should change.
+
 Closed in 0.3.304, works as decided (D-859):
 
 **B-004 · 2026-11-12 · Daylight shows unseen rooms on the map** In
