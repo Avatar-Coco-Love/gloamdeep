@@ -43,7 +43,7 @@ export const warm = (state) => !!(rolled(state) || rollBeside(state));
 export const canSleepOut = (state) => !!state.room.dark.sky && tired(state) && !chased(state);
 
 // Whether bumping side `dir` asks to sleep: a set-down bedroll there, and the hero can sleep out (D-804)
-export const campAsks = (state, dir) => { const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1]; return !offEdge(state.room, x, y) && !!tileAt(state.room, x, y).camps && canSleepOut(state); };
+export const campAsks = (state, dir) => { const x = state.hero.x + DIRS[dir][0], y = state.hero.y + DIRS[dir][1]; return !offEdge(state.room, x, y) && !!tileAt(state.room, x, y).camps && !state.enemies.some((e) => e.x === x && e.y === y) && canSleepOut(state); }; // not with a flyer over it, which is struck instead (D-911)
 
 // Why the hero can't sleep out now, a line's id, or null when they can: below ground, by day,
 // or a creature after them; SLEEP in the bag and a bumped bedroll say it, free (D-804)

@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.353 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.354 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-1, flyers over things, first; then F-2, F-3, and F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
+The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-2, the oil's "After", next; then F-3, and F-4 with F-5. Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -46,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.354, Flyers over things.** F-1 fixed: a flyer over
+  a station or bedroll is struck by walking into it, no card. The
+  ranged idea kept with the bow (Q-094). D-898 archived. D-911.
+  Playtest: https://claude.ai/artifact/8fmVhKoxciN8deNNVjxVH2
 - **2026-11-14, 0.3.353, The sixteenth audit.** Nothing visible
   changed. The finds' pictures to `pictures-finds.js`, 0.3.251 to 0.3.300
   of the history to `history-0.3-5.js`, D-897 and D-903 archived, the
@@ -55,7 +59,3 @@ list in `RESEARCH.md`.
   picture: in the bag, a draught's HUD mark twice as big, "Now" over
   "After", its rim the time left (look A). The owner's picks. D-909.
   Playtest: https://claude.ai/artifact/FBxWMgjMh8meYHBe67Mq9m
-- **2026-11-14, 0.3.351, Hearts or oil, now and after.** D-902's second
-  picture: in the bag, hearts or oil "Now" over "After", twice as big,
-  what's lost faint, a boon counted. The owner's picks. D-904 to D-906
-  archived. D-908. Playtest: https://claude.ai/artifact/BkTCPz2FqcNiXprmVV8Az9

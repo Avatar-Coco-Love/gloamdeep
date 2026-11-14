@@ -1876,3 +1876,13 @@ vault door opening and its prize, both built, move to
 (offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
 `archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
 (offered too: folded into the numbers' step). No game change.
+
+**D-898 · 2026-11-14 · Built things on the map** (the owner's picks,
+both recommended; the owner's find, B-005) What the hero built and set
+down shows on the map and the round map in one warm wood brown, not the
+room's wall colour, so a chest or a workbench never looks like a tree
+(offered too: each its own colour; the room's colour, dimmer). Claude's
+calls: the brown is the lantern base's `#a8642c`; the workbench, chest,
+bed, bedroll, garden beds, shelf, mortar, torch stand and your own
+campfire are marked `made` in the registry; a wild campfire stays a
+wall. D-893 moves to `archive/DECISIONS-SURFACE.md`, word for word.

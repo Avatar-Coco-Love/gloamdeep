@@ -3,6 +3,16 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.354 (D-911):
+
+- **F-1 · Flyers over things can't be hit.** A bat, lampmoth or lure
+  wisp over a workbench, stash chest, garden bed, the bed by day, a
+  campfire, a bedroll from dusk or a cold brazier: walking into it opens
+  the thing's card, not a strike (against D-901). `panelBeside` and
+  `campAsks` (`bagturn.js:273`) come before `step()` in `main.js:250`.
+  Fixes: no card while a creature is on the tile; or check for a flyer
+  first in `tryStep`.
+
 Fixed in 0.3.343 (D-898):
 
 **B-005 · 2026-11-14 · Built things look like trees on the map** The

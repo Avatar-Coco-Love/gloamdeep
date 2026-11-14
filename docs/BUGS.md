@@ -21,13 +21,6 @@ The owner picked all five as steps, in this order, each fix still the
 owner's pick at its step. The fixes offered are the hunt's, the first
 one recommended.
 
-- **F-1 · Flyers over things can't be hit.** A bat, lampmoth or lure
-  wisp over a workbench, stash chest, garden bed, the bed by day, a
-  campfire, a bedroll from dusk or a cold brazier: walking into it opens
-  the thing's card, not a strike (against D-901). `panelBeside` and
-  `campAsks` (`bagturn.js:273`) come before `step()` in `main.js:250`.
-  Fixes: no card while a creature is on the tile; or check for a flyer
-  first in `tryStep`.
 - **F-2 · The oil's "After" shows too much.** A pour that passes a turn
   burns that turn's oil first (`bagturn.js:48`), which the preview
   (`numbers.js:85`) leaves out: at 0.467 it shows 10 segments, the pour

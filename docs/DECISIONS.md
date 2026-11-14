@@ -100,16 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-898 · 2026-11-14 · Built things on the map** (the owner's picks,
-both recommended; the owner's find, B-005) What the hero built and set
-down shows on the map and the round map in one warm wood brown, not the
-room's wall colour, so a chest or a workbench never looks like a tree
-(offered too: each its own colour; the room's colour, dimmer). Claude's
-calls: the brown is the lantern base's `#a8642c`; the workbench, chest,
-bed, bedroll, garden beds, shelf, mortar, torch stand and your own
-campfire are marked `made` in the registry; a wild campfire stays a
-wall. D-893 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-899 · 2026-11-14 · The hero may cut a room** (the owner's pick; not
 the recommended: only while the stairs and doorways stay in reach;
 offered too: as now) A thing set down may cut a room in two, and a tree
@@ -195,3 +185,13 @@ are still to come (offered: ticked, before that was found). A bug hunt
 reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
+
+**D-911 · 2026-11-14 · Flyers over things: the fix** (the owner's picks,
+all recommended; fixes F-1) A bat, lampmoth or lure wisp over the
+workbench, a stash chest, a garden bed, the bed, a brazier or a bedroll:
+no card or ask opens while a creature is on the tile, so walking into it
+strikes it, as D-901 meant (offered too: main.js checks for a flyer
+first). The owner's idea, kept with the bow (Q-094): a ranged attack
+hits a flyer over a station, its drop landing on open floor, as over
+water. One short line in the in-game history. D-898 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

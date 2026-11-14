@@ -4,7 +4,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { makeRoom, FIRST_ROOM, withTile } from '../src/core/room.js';
-import { makeState, step, wait, FIRST_START } from '../src/core/turn.js';
+import { makeState, step, wait, FIRST_START, panelBeside } from '../src/core/turn.js';
 import { get } from '../src/core/registry.js';
 import { TILES } from '../src/core/tiles.js';
 
@@ -52,5 +52,15 @@ test('a flyer over rubble or a workbench is struck by walking into it; the tile 
     assert.deepEqual(s.enemies, [], id);
     assert.deepEqual(s.hero, { x: 5, y: 11 }, id);
     assert.equal(s.room.map[10][5], get(id).letter, id);
+  }
+});
+
+test('a flyer over a bench, chest, garden bed, bed or brazier: no card, a bump strikes it (F-1, D-911)', () => {
+  for (const id of ['bench', 'stash', 'plot', 'bedstead', 'brazier']) {
+    const bare = at(room(id), [], { lit: true }), over = { ...bare, enemies: [{ id: 'lampmoth', x: 5, y: 10 }] };
+    assert.deepEqual(panelBeside(bare, 'up'), { x: 5, y: 10 }, id);
+    assert.equal(panelBeside(over, 'up'), null, id);
+    assert.equal(panelBeside(over, 'up', true), null, id);
+    assert.deepEqual(step(over, 'up').enemies, [], id);
   }
 });

@@ -98,6 +98,8 @@ reach, how a shot is aimed by touch, mouse and keys, whether it needs
 arrows and where they come from, where it is made or found, its look
 and sound. After the alchemy station (Q-093). The owner's wish (D-799):
 a switch to show creatures' coming attacks, and one to show the hero's.
+The owner's idea (D-911): a shot hits a flyer over a station, its
+drop landing on open floor, as over water.
 
 **Q-095 · Sounds from files** (raised 2026-11-10, D-773) Open: the
 "Maybe" sounds (steps on water or wood, where the wood step plays,
