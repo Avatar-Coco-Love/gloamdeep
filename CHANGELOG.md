@@ -23,14 +23,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.358 (2026-11-14)
+- Fixed: with a screen reader, the Quests tab reads a goal done with no reward as "done." instead of "done, .".
+- Decisions: D-915.
+
+## 0.3.357 (2026-11-14)
+- Fixed: a save the game can't read is now set aside once, not again on every load, so the copies can't fill the phone's storage. Nothing on screen changes.
+- Decisions: D-914.
+
 ## 0.3.356 (2026-11-14)
 - Fixed: Kind Herbs' card now says "All you eat, and potions, heal 1 heart more." Heartcaps and gloamberries always had the extra heart; the old words left them out.
 - Decisions: D-913.
-
-## 0.3.355 (2026-11-14)
-- Fixed: on the bag card, a flask's or minnow's "After" oil now counts the turn the pour takes, so it shows what the pour really gives.
-- Decisions: D-912.
-
-## 0.3.354 (2026-11-14)
-- Fixed: a bat, lampmoth or lure wisp over the bench, a chest, a garden bed, the bed, a brazier or a bedroll can now be struck by walking into it, instead of opening its card.
-- Decisions: D-911.

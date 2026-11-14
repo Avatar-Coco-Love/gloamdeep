@@ -47,3 +47,19 @@ test('a journey that can\'t be read, broken or newer, is set aside word for word
   globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = String(v); } };
   try { assert.ok(loadJourney(0)); assert.deepEqual(Object.keys(kept), [journeyKey(0)]); } finally { delete globalThis.localStorage; }
 });
+
+test('a save that can\'t be read is set aside once, however often it is loaded; a different one is kept too (F-4, D-914)', () => {
+  const kept = {};
+  globalThis.localStorage = { getItem: (k) => kept[k] ?? null, setItem: (k, v) => { kept[k] = String(v); }, key: (i) => Object.keys(kept)[i] ?? null, get length() { return Object.keys(kept).length; } };
+  const copies = () => Object.entries(kept).filter(([k]) => k.startsWith(`${journeyKey(0)}-aside-`)).map(([, v]) => v).sort();
+  const realNow = Date.now;
+  let t = 1000;
+  Date.now = () => t++;
+  try {
+    for (const text of ['{"format":', '{"format":', '{"f', '{"format":', '{"f']) { kept[journeyKey(0)] = text; assert.equal(loadJourney(0), null); }
+    assert.deepEqual(copies(), ['{"f', '{"format":']);
+    kept[journeyKey(1)] = '{"format":';
+    loadJourney(1);
+    assert.equal(Object.keys(kept).filter((k) => k.startsWith(`${journeyKey(1)}-aside-`)).length, 1, 'another profile\'s save keeps its own copy');
+  } finally { Date.now = realNow; delete globalThis.localStorage; }
+});

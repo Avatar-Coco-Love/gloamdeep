@@ -3,6 +3,19 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.358 (D-915):
+
+- **F-5 · An empty reward read aloud.** The two goals ticked without a
+  reward (H-10) read "done, ." to screen readers (`goals.js:197`).
+  Fixes: leave the reward part out; or say "done, no reward".
+
+Fixed in 0.3.357 (D-914):
+
+- **F-4 · Copies of an unreadable save pile up.** Each load of a broken
+  or newer save copies it aside again (`aside.js:7`, `save.js:132`),
+  which could fill storage. Fixes: skip the copy when the newest one is
+  the same; or keep one copy per save.
+
 Fixed in 0.3.356 (D-913):
 
 - **F-3 · Kind Herbs' words.** "Herbs, potions and fish heal 1 heart

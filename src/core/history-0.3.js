@@ -6,6 +6,14 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.358', date: '2026-11-14', title: 'A goal with no reward, read aloud', lines: [
+    "Fixed: with a screen reader, the Quests tab reads a goal done with no reward as \"done.\" instead of \"done, .\".",
+    "Decisions: D-915.",
+  ] },
+  { v: '0.3.357', date: '2026-11-14', title: 'A broken save set aside once', lines: [
+    "Fixed: a save the game can't read is now set aside once, not again on every load, so the copies can't fill the phone's storage. Nothing on screen changes.",
+    "Decisions: D-914.",
+  ] },
   { v: '0.3.356', date: '2026-11-14', title: 'Kind Herbs\' words', lines: [
     "Fixed: Kind Herbs' card now says \"All you eat, and potions, heal 1 heart more.\" Heartcaps and gloamberries always had the extra heart; the old words left them out.",
     "Decisions: D-913.",

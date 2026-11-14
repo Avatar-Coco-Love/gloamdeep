@@ -4,12 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.356 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.358 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The audit's bug fixes (D-910, `BUGS.md`), each its own step: F-4 with F-5 next (`DECISIONS.md` is full: archive one first). Then the numbers' pictures on the other cards (D-902, D-907 to D-909), or on to the round map in the dark (Q-108), the owner's pick. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
-(D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
+The owner's pick: the numbers' pictures on the other cards (D-902, D-907
+to D-909), or the round map in the dark (Q-108), first; then the other.
+Then flyers into trees (D-900), cutting a room (D-899), doorways
+(Q-107), the shovel (Q-106); then L3 (D-890). `DECISIONS.md` is full:
+archive one first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,14 +49,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.358, A goal with no reward, read aloud.** F-5
+  fixed: the Quests tab's words leave the empty reward out, "Put out
+  your lantern, done.". D-915.
+- **2026-11-14, 0.3.357, A broken save set aside once.** F-4 fixed: a
+  save that can't be read is copied aside only when no copy with the
+  same words is kept for it; a test loads one five times. D-911 and
+  D-912 archived. D-914.
 - **2026-11-14, 0.3.356, Kind Herbs' words.** F-3 fixed: the card reads
   "All you eat, and potions, heal 1 heart more.", as D-599 is. D-913.
   Playtest: https://claude.ai/artifact/Uht6NxAXtu6EHb4XedWdHH
-- **2026-11-14, 0.3.355, The oil's After.** F-2 fixed: the bag card's
-  "After" oil takes off the pour's turn of burn first, Quick Pour's flask
-  aside; a test checks it against the real pour. D-912.
-  Playtest: https://claude.ai/artifact/5KcBvdBwqUvETUwBJnusyn
-- **2026-11-14, 0.3.354, Flyers over things.** F-1 fixed: a flyer over
-  a station or bedroll is struck by walking into it, no card. The
-  ranged idea kept with the bow (Q-094). D-898 archived. D-911.
-  Playtest: https://claude.ai/artifact/8fmVhKoxciN8deNNVjxVH2
