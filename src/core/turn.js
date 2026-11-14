@@ -67,7 +67,7 @@ export function step(state, dir) {
     return out ? endTurn(state, out) : state;
   }
   const tile = tileAt(state.room, x, y);
-  const flyer = tile.id === 'water' && enemyAt(state, x, y); // one that flies, over water: struck as on the floor, rod held or not (D-718)
+  const flyer = tile.solid && tile.low && enemyAt(state, x, y); // one that flies, over water or a low thing: struck as on the floor, rod held or not (D-718, D-900)
   if (flyer) return attack(state, flyer);
   if (tile.solid) {
     if (tile.sleeps) return tired(state) && chased(state) ? say(state, 'sleepChased') : sleep(state, x, y); // the bed (D-488), not with a creature after the hero, free, as outside (D-856)

@@ -1,6 +1,8 @@
 // § tiles: every tile kind, keyed by id (D-040, D-048). `letter` is how a
 // room map writes it. registry.js gathers this table with the other kinds. A tile
-// the hero built and set down is `made`: the map shows it in wood brown, not as a wall (D-898).
+// the hero built and set down is `made`: the map shows it in wood brown, not as a wall (D-898). A solid
+// tile that is `low` (water, what the hero built, bushes, fallen branches, rubble, plinths and
+// braziers) is flown over by a creature that `flies` (D-718, D-900).
 import { DAY_TURNS } from './daytime.js';
 import { hash } from './noise.js';
 
@@ -17,7 +19,7 @@ export const TILES = {
   wall: { id: 'wall', kind: 'tile', letter: '#', name: 'Wall', solid: true, blocksLight: true },
   // A still pool's water (D-500): solid until the hero can swim (Q-039), light passing over it
   // Bumped with the rod in the Tool slot (`cast`), it is fished: the home pond and every cave pool (D-610, D-618)
-  water: { id: 'water', kind: 'tile', letter: '~', name: 'Water', solid: true, blocksLight: false, cast: true },
+  water: { id: 'water', kind: 'tile', letter: '~', name: 'Water', solid: true, low: true, blocksLight: false, cast: true },
   floor: { id: 'floor', kind: 'tile', letter: '.', name: 'Floor', solid: false, blocksLight: false },
   // One round tree a tile, in the woods (D-209): solid, and the view stops at it.
   // Chopped as a deposit is mined (W3, D-317): 4 bumps fell it for 3 Wood, but never
@@ -54,76 +56,76 @@ export const TILES = {
   // Wood it gives takes that look. With room for fewer than `n`, the rest lies on its
   // tile as a stick that never grows back (`once`); with none, its `full` line, free.
   // `chops` as a tree does, and as it snaps a last chop and a light knock (D-843).
-  branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
+  branch: { id: 'branch', kind: 'tile', letter: 'F', name: 'Fallen branch', solid: true, low: true, blocksLight: false, regrow: 3 * DAY_TURNS, near: 2, forms: 3,
     mine: { hits: 2, chips: ['branchCreak'], drops: 'wood', n: 2, breaks: 'branchTake', full: 'woodFull' }, chops: 'branchSnap' },
   // A gloamberry bush in the woods (step 13b, D-531): solid, light passing over it. One
   // bump picks its `n` 2 Gloamberries and `leaves` it bare, on its own tile; the bare bush
   // fills again there (`on`) 300 turns later, out of sight. With no room, its `full` line, free.
-  berryBush: { id: 'berryBush', kind: 'tile', letter: 'G', name: 'Gloamberry bush', solid: true, blocksLight: false, regrow: DAY_TURNS, near: 0, on: 'bareBush',
+  berryBush: { id: 'berryBush', kind: 'tile', letter: 'G', name: 'Gloamberry bush', solid: true, low: true, blocksLight: false, regrow: DAY_TURNS, near: 0, on: 'bareBush',
     mine: { hits: 1, chips: [], drops: 'gloamberry', n: 2, breaks: 'gloamberryTake', full: 'gloamberryFull', leaves: 'bareBush' } },
   // A picked gloamberry bush (D-531): solid, light passing over it; a bump says its `bump` line, free.
-  bareBush: { id: 'bareBush', kind: 'tile', letter: 'H', name: 'Bare bush', solid: true, blocksLight: false, bump: 'bushBare' },
+  bareBush: { id: 'bareBush', kind: 'tile', letter: 'H', name: 'Bare bush', solid: true, low: true, blocksLight: false, bump: 'bushBare' },
   // A workbench set down on the surface (WB2, D-322): solid like a tree, but light
   // passes over it, as over a deposit. Bumping it opens its `panel` (WB3, D-323), where
   // Deconstruct `takes` it back into the bag as the item `workbench`.
-  bench: { id: 'bench', kind: 'tile', letter: 'W', name: 'Workbench', solid: true, made: true, blocksLight: false, panel: 'bench', takes: { item: 'workbench', says: 'benchTake' } },
+  bench: { id: 'bench', kind: 'tile', letter: 'W', name: 'Workbench', solid: true, low: true, made: true, blocksLight: false, panel: 'bench', takes: { item: 'workbench', says: 'benchTake' } },
   // A stash chest set down on the surface, the bench's way (CH2, D-329): solid like a
   // tree, light passing over it; bumping it opens its panel, 12 slots (CH3, D-330),
   // where Deconstruct chest `takes` it back into the bag, only when empty (CH5).
-  stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash Chest', solid: true, made: true, blocksLight: false, panel: 'chest', takes: { item: 'chest', says: 'chestTake', empty: 'chestNotEmpty' } },
+  stash: { id: 'stash', kind: 'tile', letter: 'C', name: 'Stash Chest', solid: true, low: true, made: true, blocksLight: false, panel: 'chest', takes: { item: 'chest', says: 'chestTake', empty: 'chestNotEmpty' } },
   // A bed set down on the surface, the bench's way (D-488): solid, light passing over it.
   // Bumped at night it `sleeps` (sleep.js); by day it opens its ask card, Deconstruct bed?,
   // where Yes `takes` it back into the bag.
-  bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, made: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
+  bedstead: { id: 'bedstead', kind: 'tile', letter: 'B', name: 'Bed', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', sleeps: true, takes: { item: 'bed', says: 'bedTake' } },
   // The Fur Bedroll set down on the surface, the bed's way (D-804): solid, light passing over it.
   // Bumped from dusk it `camps`: Sleep here until morning? as the moon button asks, with no creature
   // after the hero (sleepout.js); by day its ask card, Roll up the bedroll?, `takes` it back.
-  bedroll: { id: 'bedroll', kind: 'tile', letter: 'f', name: 'Fur Bedroll', solid: true, made: true, blocksLight: false, panel: 'bed', camps: true, takes: { item: 'furBedroll', says: 'bedrollTake' } },
+  bedroll: { id: 'bedroll', kind: 'tile', letter: 'f', name: 'Fur Bedroll', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', camps: true, takes: { item: 'furBedroll', says: 'bedrollTake' } },
   // A garden bed set down on the surface, the bed's way (garden step 2, D-565): solid, light
   // passing over it. Bumped, it opens the bed's card (D-566): Plant `plants` a Gloamberry
   // Seed from the bag, turning it into the sprout's tile; Deconstruct `takes` it back. A
   // `garden` tile's card shows Plant and Deconstruct, not Yes and No.
-  plot: { id: 'plot', kind: 'tile', letter: 'P', name: 'Garden Bed', solid: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake' },
+  plot: { id: 'plot', kind: 'tile', letter: 'P', name: 'Garden Bed', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake' },
     plants: { seed: 'gloamberrySeed', into: 'sprout', says: 'gardenBedPlant' } },
   // A garden bed with a seed planted, a sprout showing (garden step 3, D-566). Its card's
   // Deconstruct gives back the bed and `also` the seed, when the bag has room for it.
   // It `grows` into the grown bed a day of turns after planting, every turn counting (garden.js, D-567).
-  sprout: { id: 'sprout', kind: 'tile', letter: 'Q', name: 'Garden Bed', solid: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
+  sprout: { id: 'sprout', kind: 'tile', letter: 'Q', name: 'Garden Bed', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
     grows: { into: 'berryBed', turns: DAY_TURNS }, feeds: { item: 'batGuano', into: 'fedSprout', says: 'gardenBedFeed' } },
   // A sprout fed 1 Bat Guano from its card's Feed (garden step 6, D-569), a few dark flecks on its
   // soil: it grows in half the time, counted from planting, the same clock. Once is enough, so
   // Feed is dim on it; picked, it goes back to a plain sprout that needs feeding again.
-  fedSprout: { id: 'fedSprout', kind: 'tile', letter: 'J', name: 'Garden Bed', solid: true, made: true, blocksLight: false, panel: 'bed', garden: true, fed: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
+  fedSprout: { id: 'fedSprout', kind: 'tile', letter: 'J', name: 'Garden Bed', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', garden: true, fed: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
     grows: { into: 'berryBed', turns: DAY_TURNS / 2 } },
   // The sprout grown, a small gloamberry bush in the bed, its berries ripe (garden step 4,
   // D-567). The same card; taken down, it gives back the bed and the seed, as the sprout does.
   // Its card's Pick `picks` its `n` 3 Gloamberries, the bed going back `into` a sprout that
   // grows again (garden step 5, D-568); with no room, the wild bush's `full` line.
-  berryBed: { id: 'berryBed', kind: 'tile', letter: 'K', name: 'Garden Bed', solid: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
+  berryBed: { id: 'berryBed', kind: 'tile', letter: 'K', name: 'Garden Bed', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', garden: true, takes: { item: 'gardenBed', says: 'gardenBedTake', also: 'gloamberrySeed' },
     picks: { drops: 'gloamberry', n: 3, into: 'sprout', says: 'gardenBedPick', full: 'gloamberryFull' } },
   // The relic shelf set down on the surface, the bed's way (D-690): solid, light passing over
   // it. Bumped, day or night, it opens the bed's ask card, Deconstruct shelf?, its note
   // "Nothing on it yet.", where Yes `takes` it back into the bag. Bumped with the locket in
   // the bag, it asks Set the locket on the shelf? instead, where Yes `shelves` it (D-693).
-  relicShelf: { id: 'relicShelf', kind: 'tile', letter: 'L', name: 'Shelf', solid: true, made: true, blocksLight: false, panel: 'bed', takes: { item: 'shelf', says: 'shelfTake' },
+  relicShelf: { id: 'relicShelf', kind: 'tile', letter: 'L', name: 'Shelf', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', takes: { item: 'shelf', says: 'shelfTake' },
     shelves: { relic: 'locket', into: 'locketShelf', says: 'locketShelfSet' } },
   // The shelf with the locket on it (D-693): it stays there for good. Bumped, it asks
   // Deconstruct shelf?, "The locket rests here."; Yes gives back the shelf and `also` the
   // locket, `both` or neither: with no room for both, "Your bag is full." and they stay.
   // It shows the locket small on its top shelf, with the relics' glow (drawRelics).
-  locketShelf: { id: 'locketShelf', kind: 'tile', letter: 'N', name: 'Shelf', solid: true, made: true, blocksLight: false, panel: 'bed', relic: 'locket', takes: { item: 'shelf', says: 'shelfTake', also: 'locket', both: true } },
+  locketShelf: { id: 'locketShelf', kind: 'tile', letter: 'N', name: 'Shelf', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', relic: 'locket', takes: { item: 'shelf', says: 'shelfTake', also: 'locket', both: true } },
   // The Mortar and Pestle set down on the surface, the bed's way (D-786): solid, light passing
   // over it. Bumped, day or night, it opens the workbench's card under its `title`, listing its
   // `makes`, each once all its parts have been held (D-826); Deconstruct `takes` it back.
-  mortarStand: { id: 'mortarStand', kind: 'tile', letter: 'e', name: 'Mortar and Pestle', solid: true, made: true, blocksLight: false, panel: 'bench', title: 'MORTAR', makes: ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught', 'spitproofDraught', 'shadeDraught'], at: 'at the mortar', takes: { item: 'mortar', says: 'mortarTake' } },
+  mortarStand: { id: 'mortarStand', kind: 'tile', letter: 'e', name: 'Mortar and Pestle', solid: true, low: true, made: true, blocksLight: false, panel: 'bench', title: 'MORTAR', makes: ['glowDraught', 'slowburn', 'mendingDraught', 'wardDraught', 'spitproofDraught', 'shadeDraught'], at: 'at the mortar', takes: { item: 'mortar', says: 'mortarTake' } },
   // A torch's stone foot, set down from the bag anywhere (D-478): solid like the bench,
   // light passing over it, with a lit torch on it (mount.js) until it burns out.
-  torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, made: true, blocksLight: false },
+  torchStand: { id: 'torchStand', kind: 'tile', letter: 'I', name: 'Torch', solid: true, low: true, made: true, blocksLight: false },
   // A heap of fallen rock (D-490): solid, light passing over it, so a person trapped
   // behind it is seen. It rings the peddler on depth 3. Dug by hand, `dig.hits` bumps a
   // turn each, it clears to floor and gives nothing, freeing the person beside it
   // (rescue.js, D-491); it never comes back.
-  rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, blocksLight: false,
+  rubble: { id: 'rubble', kind: 'tile', letter: 'U', name: 'Rubble', solid: true, low: true, blocksLight: false,
     dig: { hits: 3, chips: ['rubbleDig', 'rubbleShift'], breaks: 'rubbleClear' }, clinks: true },
   // The waystone's tiles (D-579, D-587), set by its plan (landmarks.js): a tall standing
   // stone on each 2 × 2 corner, solid and blocking light like rock; flagstones on the cross
@@ -154,9 +156,9 @@ export const TILES = {
   // § your own campfire (D-853): one the hero built and set down (items.js `bagCampfire`), three
   // twins of the levels above, the same pictures and rules, each `into` its own twin, with their
   // own words on the card (menu.js). Cold, Take up on its card `takes` it back into the bag whole.
-  ownCampfire: { id: 'ownCampfire', kind: 'tile', letter: 'g', name: 'Campfire', solid: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'ownEmbers', heal: 2, warm: 60, says: 'campfireSat' } },
-  ownEmbers: { id: 'ownEmbers', kind: 'tile', letter: 'h', name: 'Campfire', solid: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'ownAshes', heal: 1, warm: 30, says: 'campfireSat' }, stokes: { item: 'wood', into: 'ownCampfire', says: 'campfireFed' } },
-  ownAshes: { id: 'ownAshes', kind: 'tile', letter: 'i', name: 'Campfire', solid: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'ownEmbers', says: 'campfireLit' }, takes: { item: 'bagCampfire', says: 'ownCampfireTake' } },
+  ownCampfire: { id: 'ownCampfire', kind: 'tile', letter: 'g', name: 'Campfire', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireHigh', fire: true, glow: FIRE.blazing, sits: { into: 'ownEmbers', heal: 2, warm: 60, says: 'campfireSat' } },
+  ownEmbers: { id: 'ownEmbers', kind: 'tile', letter: 'h', name: 'Campfire', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireCoals', fire: true, glow: FIRE.embers, sits: { into: 'ownAshes', heal: 1, warm: 30, says: 'campfireSat' }, stokes: { item: 'wood', into: 'ownCampfire', says: 'campfireFed' } },
+  ownAshes: { id: 'ownAshes', kind: 'tile', letter: 'i', name: 'Campfire', solid: true, low: true, made: true, blocksLight: false, panel: 'bed', says: 'campfireAshes', fire: true, kindles: { into: 'ownEmbers', says: 'campfireLit' }, takes: { item: 'bagCampfire', says: 'ownCampfireTake' } },
   // § lamppost (D-769, the first landmark): an old Lightkeeper's lamppost, its lamp long cold,
   // one a seed in one of Hearthwood's 8 rooms outside home (lamppost.js). Solid, light passing it,
   // as the campfire; bumped, it says its words, free.
@@ -178,8 +180,8 @@ export const TILES = {
   // words; the door's notches, on the lintel above it, glow one a lit brazier (render). Once both
   // burn, the slab sinks away: the open door, walked through, light passing, its notches still
   // glowing, for good (D-895).
-  brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazier', panel: 'bed', lit: true, says: 'brazierCold', kindles: { into: 'brazierLit', says: 'brazierCatches', oil: 5 } },
-  brazierLit: { id: 'brazierLit', kind: 'tile', letter: 'l', name: 'Brazier', solid: true, blocksLight: false, bump: 'brazierLit', fire: true, glow: FIRE.embers },
+  brazier: { id: 'brazier', kind: 'tile', letter: 'j', name: 'Brazier', solid: true, low: true, blocksLight: false, bump: 'brazier', panel: 'bed', lit: true, says: 'brazierCold', kindles: { into: 'brazierLit', says: 'brazierCatches', oil: 5 } },
+  brazierLit: { id: 'brazierLit', kind: 'tile', letter: 'l', name: 'Brazier', solid: true, low: true, blocksLight: false, bump: 'brazierLit', fire: true, glow: FIRE.embers },
   sealedDoor: { id: 'sealedDoor', kind: 'tile', letter: 'k', name: 'Sealed door', solid: true, blocksLight: true, bump: 'sealedDoor' },
   openDoor: { id: 'openDoor', kind: 'tile', letter: 'm', name: 'Open door', solid: false, blocksLight: false },
   // § plinth (L1 step 4, D-896): the vault's prize, on a small crypt-stone plinth with the
@@ -187,9 +189,9 @@ export const TILES = {
   // room's `prize` (vault.js): a rare material, drawn on its top, or an ember, its own tile, that
   // glows faintly 1 tile round in the torch's warm colour. Bumped, it is taken, a turn (prize.js);
   // bare, it says its words, a sentence a bump, free.
-  plinth: { id: 'plinth', kind: 'tile', letter: 'n', name: 'Plinth', solid: true, blocksLight: false, prize: true },
-  plinthEmber: { id: 'plinthEmber', kind: 'tile', letter: 'o', name: 'Plinth', solid: true, blocksLight: false, prize: true, fire: true, glow: { reach: 1, ...FIRE_COLOUR } },
-  plinthBare: { id: 'plinthBare', kind: 'tile', letter: 'p', name: 'Plinth', solid: true, blocksLight: false, bump: 'plinthBare' },
+  plinth: { id: 'plinth', kind: 'tile', letter: 'n', name: 'Plinth', solid: true, low: true, blocksLight: false, prize: true },
+  plinthEmber: { id: 'plinthEmber', kind: 'tile', letter: 'o', name: 'Plinth', solid: true, low: true, blocksLight: false, prize: true, fire: true, glow: { reach: 1, ...FIRE_COLOUR } },
+  plinthBare: { id: 'plinthBare', kind: 'tile', letter: 'p', name: 'Plinth', solid: true, low: true, blocksLight: false, bump: 'plinthBare' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

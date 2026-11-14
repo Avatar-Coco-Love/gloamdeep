@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.343 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.344 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Flyers over low things (D-900); propose the build first. Then, in
-order: flyers into trees (D-900), cutting a room (D-899), doorways
-(Q-107), the shovel (Q-106); then L3 (D-890).
+Flyers into trees (D-900); propose the build first, the trees' details
+with it. Then, in order: cutting a room (D-899), doorways (Q-107), the
+shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.344, Flyers over low things.** D-900's first step:
+  bats, lampmoths and lure wisps fly over what you built, bushes,
+  branches, rubble, plinths and braziers, and are struck there. D-901.
+  Playtest: https://claude.ai/artifact/UVvZBXHE8cHceYZQ8nFBKS
 - **2026-11-14, 0.3.343, Built things on the map.** The owner's find:
   built things looked like trees on the maps; now wood brown. The
   owner's next ideas set down in order. D-898
@@ -57,9 +61,3 @@ list in `RESEARCH.md`.
 - **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
   phone: the lantern goals said "press L" there too. They now follow the
   way last played: tap, click or key. D-897. Playtest: https://claude.ai/artifact/Cf2vCKa4Fcfdyo8zNV7MnN
-- **2026-11-13, 0.3.341, The vault's prize.** L1 step 4, L1 done: a
-  plinth at the vault's heart holds the seed's prize, 1 vault in 4 a
-  glowing ember for Growth, else 2 of a rare material; bumped, taken.
-  D-896. Playtest: https://claude.ai/artifact/MMvK9WJRojPEZ6drpSsshy
-  Map: https://claude.ai/artifact/NNf3ypz5n4N3yxy5gKMuxY Mock-up:
-  https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c

@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.344', date: '2026-11-14', title: 'Flyers over low things', lines: [
+    "Bats, lampmoths and lure wisps now fly over low things: what you built, bushes, fallen branches, rubble, plinths and braziers, as over water. Trees, rock and walls still stop them. Walk into one hovering over a low thing to strike it.",
+    "Decisions: D-901.",
+  ] },
   { v: '0.3.343', date: '2026-11-14', title: 'Built things on the map', lines: [
     "On the map and the round map, what you built (chests, workbenches, beds, bedrolls, garden beds, the shelf, the mortar, torches and your own campfires) now shows in a warm wood brown, so it no longer looks like a tree.",
     "Your next ideas are written down, in order: flyers over low things and into trees, then cutting a room as you like, creatures through doorways and a shovel.",

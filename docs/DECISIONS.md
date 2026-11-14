@@ -173,3 +173,14 @@ fly over what stands low: what the hero built, bushes and fallen
 branches, rubble, plinths and braziers, not trees, rock or walls; and
 they may go into a tree and vanish there, chopping it driving them out.
 Two steps, flying over first; the trees' details proposed at theirs.
+
+**D-901 · 2026-11-14 · Flyers over low things: the build** (the owner's
+picks, all recommended; builds D-900) Only the tiles D-900 names are
+low; deposits, copper veins, a wild campfire, the lamppost and the
+miners' camp still stop a flyer (offered too: each of those). Walking
+into a flyer over a low thing strikes it, as over water (offered too:
+it can't be reached there). Each low tile, water too, is marked `low`
+in the registry (offered too: a list in the creature code). Only the
+in-game history tells of it (offered too: the Bestiary's words too).
+Claude's call: a flyer knocked by the Warden's Fist into a low thing is
+stopped as by a wall, as before.
