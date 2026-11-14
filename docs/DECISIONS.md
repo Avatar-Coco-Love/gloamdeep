@@ -186,23 +186,15 @@ reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
 
-**D-911 · 2026-11-14 · Flyers over things: the fix** (the owner's picks,
-all recommended; fixes F-1) A bat, lampmoth or lure wisp over the
-workbench, a stash chest, a garden bed, the bed, a brazier or a bedroll:
-no card or ask opens while a creature is on the tile, so walking into it
-strikes it, as D-901 meant (offered too: main.js checks for a flyer
-first). The owner's idea, kept with the bow (Q-094): a ranged attack
-hits a flyer over a station, its drop landing on open floor, as over
-water. One short line in the in-game history. D-898 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-912 · 2026-11-14 · The oil's "After": the fix** (the owner's picks,
-all recommended; fixes F-2) The bag card's "After" takes off the turn's
-burn first, as the pour does, so it shows the oil the pour really gives
-(offered too: marked as near). No burn with Quick Pour on a flask, or
-with the lantern out. A test checks it against the real pour.
-
 **D-913 · 2026-11-14 · Kind Herbs' words** (the owner's pick,
 recommended; fixes F-3) The card reads "All you eat, and potions, heal
 1 heart more.", as D-599 is. Offered too: list every one; narrow the
 rule.
+
+**D-914 · 2026-11-14 · A broken save set aside once** (the owner's
+picks, all recommended; fixes F-4) A save the game can't read is not
+copied aside again when a copy with the same words is already kept for
+it, whichever copy that is (offered too: only the newest; one copy per
+save). A different broken save still gets its own copy. Nothing visible
+changes. F-4 and F-5 go in one PR as two versions, 0.3.357 and 0.3.358.
+D-911 and D-912 move to `archive/DECISIONS-SURFACE.md`, word for word.

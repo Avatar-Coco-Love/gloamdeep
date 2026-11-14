@@ -21,10 +21,6 @@ The owner picked all five as steps, in this order, each fix still the
 owner's pick at its step. The fixes offered are the hunt's, the first
 one recommended.
 
-- **F-4 · Copies of an unreadable save pile up.** Each load of a broken
-  or newer save copies it aside again (`aside.js:7`, `save.js:132`),
-  which could fill storage. Fixes: skip the copy when the newest one is
-  the same; or keep one copy per save.
 - **F-5 · An empty reward read aloud.** The two goals ticked without a
   reward (H-10) read "done, ." to screen readers (`goals.js:197`).
   Fixes: leave the reward part out; or say "done, no reward".

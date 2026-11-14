@@ -1886,3 +1886,19 @@ calls: the brown is the lantern base's `#a8642c`; the workbench, chest,
 bed, bedroll, garden beds, shelf, mortar, torch stand and your own
 campfire are marked `made` in the registry; a wild campfire stays a
 wall. D-893 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-911 · 2026-11-14 · Flyers over things: the fix** (the owner's picks,
+all recommended; fixes F-1) A bat, lampmoth or lure wisp over the
+workbench, a stash chest, a garden bed, the bed, a brazier or a bedroll:
+no card or ask opens while a creature is on the tile, so walking into it
+strikes it, as D-901 meant (offered too: main.js checks for a flyer
+first). The owner's idea, kept with the bow (Q-094): a ranged attack
+hits a flyer over a station, its drop landing on open floor, as over
+water. One short line in the in-game history. D-898 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-912 · 2026-11-14 · The oil's "After": the fix** (the owner's picks,
+all recommended; fixes F-2) The bag card's "After" takes off the turn's
+burn first, as the pour does, so it shows the oil the pour really gives
+(offered too: marked as near). No burn with Quick Pour on a flask, or
+with the lantern out. A test checks it against the real pour.
