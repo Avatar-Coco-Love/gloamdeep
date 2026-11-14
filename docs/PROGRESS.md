@@ -8,7 +8,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Numbers on the stash chest (D-902); then the pictures. Then flyers into trees (D-900), cutting a room
+Numbers on the stash chest (D-902); then the pictures. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
