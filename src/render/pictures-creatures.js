@@ -1,7 +1,7 @@
 // § pictures, creatures: the creatures and the finds they leave, from the rat to the mimic leaf,
 // moved word for word from `pictures.js` at the thirteenth audit (D-782). Pixel maps and palette
 // letters as there (PAL); `sprites.js` makes and draws them.
-import { HERB } from './pictures.js';
+import { HERB } from './pictures-finds.js';
 
 // § rat: redrawn from the study's (D-009), side on and facing right: a pink
 // hostile eye (ART-DIRECTION.md palette), ear, nose, feet and tail (D-104)

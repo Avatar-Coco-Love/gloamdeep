@@ -1858,3 +1858,21 @@ https://claude.ai/artifact/DqdFbgK9XW3mWi1H3JHR8c Claude's calls: with
 no room in the bag for both, nothing is taken, free, the bag's full
 line; the take sound of any find. D-892 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-897 · 2026-11-14 · The lantern's words** (the owner's picks, both
+recommended; the owner's find) The two lantern goals' how lines follow
+the way of playing last used, touch until something is pressed: touch
+"Tap the lantern." and "Tap the lantern, to save oil."; mouse "Click the
+lantern, or press L." (", to save oil."); keyboard "Press L." (", to
+save oil."), changing as the player switches (offered too: the device's
+kind, asked once, or both; touch against PC, two kinds only). Claude's
+call: the way is kept in `core/way.js`, set by `input.js`, never saved.
+
+**D-903 · 2026-11-14 · The vault's decisions archived** (the owner's
+picks, all recommended) Before the numbers' next step, with
+`DECISIONS.md` at 11,961 of its 12,288 bytes, D-895 and D-896, the
+vault door opening and its prize, both built, move to
+`archive/DECISIONS-SURFACE.md` beside D-889 to D-893, word for word
+(offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
+`archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
+(offered too: folded into the numbers' step). No game change.

@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.353 (2026-11-14)
+- The sixteenth audit. Nothing in the game changes. The pictures of the finds you carry move out of the biggest picture file into their own, and 0.3.251 to 0.3.300 of the Version history into theirs, word for word.
+- Docs: two finished decisions and the playbook's newest lessons move to the archive or their own page, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit found five bugs, listed in the docs; their fixes come next, one step each. The next audit is at 0.3.393.
+- Decisions: D-910. D-897 and D-903 moved to the archive, word for word.
+
 ## 0.3.352 (2026-11-14)
 - In the bag, a draught now shows its turns under its rows: its own mark from under the hearts, twice as big, "Now" over "After". The rim shows the time left, as it does at the top of the screen.
 - "After" is always full, as drinking one again starts its 60 turns over. With none working, "Now" shows the mark with its rim dark.
@@ -34,9 +39,3 @@ Entry format:
 - What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.
 - A boon counts: with Kind Herbs, "After" shows the extra heart. A minnow or cavefish shows hearts and oil side by side, one under the other where the card is narrow, and is left out where it would reach the buttons.
 - Decisions: D-908.
-
-## 0.3.350 (2026-11-14)
-- In the bag, a weapon now shows its hits on the grid under its rows: the hero, a rat on each tile it hits and what it takes in red, "This one" above and "Held now", the weapon in your hand, below. The spear hits two rats in a line; the Warden's Fist knocks its rat a tile back.
-- With no weapon in hand, "Held now" shows the lantern's hit of 1. Tapping the weapon in the gear row shows only its "Held now" row.
-- On a short screen held sideways the picture is left out when it would reach the buttons; the rows always show.
-- Decisions: D-907.

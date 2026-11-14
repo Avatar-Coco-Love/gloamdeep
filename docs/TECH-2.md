@@ -63,7 +63,7 @@ themselves. Each kind also touches:
   the sound board, and its line in `docs/SOUNDS.md`, D-773). Only a new way touches `src/core/behaviours.js` and
   `src/core/creatureturn.js`, and a new way is its own step.
 - **A find:** its entry in `src/core/items.js` (stack `max`, `regrow`,
-  what it does); its lines in `lines.js` (a creature's find: `lines-creatures.js`); its picture in `pictures.js`
+  what it does); its lines in `lines.js` (a creature's find: `lines-creatures.js`); its picture in `pictures-finds.js`
   (a creature's find: `pictures-creatures.js`), its sprite in `sprites.js`;
   where it lies in `cave.js` (`finds`), `woods.js` or `room.js`; a new kind of
   number it has, its row in `numbers.js` (D-902).

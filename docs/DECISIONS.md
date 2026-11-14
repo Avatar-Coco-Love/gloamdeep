@@ -100,15 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-897 · 2026-11-14 · The lantern's words** (the owner's picks, both
-recommended; the owner's find) The two lantern goals' how lines follow
-the way of playing last used, touch until something is pressed: touch
-"Tap the lantern." and "Tap the lantern, to save oil."; mouse "Click the
-lantern, or press L." (", to save oil."); keyboard "Press L." (", to
-save oil."), changing as the player switches (offered too: the device's
-kind, asked once, or both; touch against PC, two kinds only). Claude's
-call: the way is kept in `core/way.js`, set by `input.js`, never saved.
-
 **D-898 · 2026-11-14 · Built things on the map** (the owner's picks,
 both recommended; the owner's find, B-005) What the hero built and set
 down shows on the map and the round map in one warm wood brown, not the
@@ -159,15 +150,6 @@ calls: the words as on the mock-up page, from the registry
 (`core/numbers.js`); on a short screen held sideways the description is
 left out when it would reach the buttons.
 
-**D-903 · 2026-11-14 · The vault's decisions archived** (the owner's
-picks, all recommended) Before the numbers' next step, with
-`DECISIONS.md` at 11,961 of its 12,288 bytes, D-895 and D-896, the
-vault door opening and its prize, both built, move to
-`archive/DECISIONS-SURFACE.md` beside D-889 to D-893, word for word
-(offered too: D-897 and D-898; D-894; D-799, the finds plan; a new
-`archive/DECISIONS-VAULT.md`). Its own docs-only version, 0.3.346
-(offered too: folded into the numbers' step). No game change.
-
 **D-907 · 2026-11-14 · A weapon's hits on the grid** (the owner's picks,
 all recommended) D-902's pictures start: on the bag card and the gear
 row, under a weapon's rows, "This one" and "Held now", the hero and a rat
@@ -198,3 +180,18 @@ With none working, "Now" shows the mark with its rim dark (offered too:
 "After" only). Turns only, no Mending hearts on it (offered too: small
 hearts where they come). Claude's: left out where it would reach the
 buttons, as the others are; the bag card only for now.
+
+**D-910 · 2026-11-14 · The sixteenth audit** (the owner's picks, all
+recommended) At 0.3.353, nothing visible changed. The finds' pictures,
+from the flask to the ember, go from `pictures.js` to a new
+`src/render/pictures-finds.js` (48 KB to 27 and 22). The in-game
+history's 0.3.251 to 0.3.300 go to `src/core/history-0.3-5.js` (59 KB
+to 30 and 30). D-897 and D-903 move to `archive/DECISIONS-SURFACE.md`;
+the playbook's lines since the last audit, and the four that waited in
+0.3.341's, 0.3.342's and 0.3.345's PRs, go to a new `WORKFLOW-6.md`; all
+word for word. "Waiting on the owner" lists the any-time and later
+questions on fewer lines. Step 19, Lore, stays open: its quests (D-629)
+are still to come (offered: ticked, before that was found). A bug hunt
+reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
+all picked as steps, in order, each fix its own step. The next audit
+is at 0.3.393.
