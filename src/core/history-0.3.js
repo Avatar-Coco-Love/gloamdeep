@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.352', date: '2026-11-14', title: 'A draught\'s turns, now and after', lines: [
+    "In the bag, a draught now shows its turns under its rows: its own mark from under the hearts, twice as big, \"Now\" over \"After\". The rim shows the time left, as it does at the top of the screen.",
+    "\"After\" is always full, as drinking one again starts its 60 turns over. With none working, \"Now\" shows the mark with its rim dark.",
+    "Like the other pictures, it's left out where it would reach the buttons.",
+    "Decisions: D-909.",
+  ] },
   { v: '0.3.351', date: '2026-11-14', title: 'Hearts or oil, now and after', lines: [
     "In the bag, a find that heals or fills the lantern now shows your hearts or oil \"Now\" and \"After\" under its rows, twice the size of the ones at the top of the screen. What it adds is pale.",
     "What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.",

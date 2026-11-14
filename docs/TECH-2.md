@@ -21,7 +21,7 @@ src/input/queue.js    which turns wait in line for the slide: only those taken i
 src/render/frame.js   draws each frame from the shared `app` (D-235)
 src/core/bagmake.js   the bag's Make tab: its recipes and the finds known (D-787)
 src/core/numbers.js   what an item does, its rows of words and numbers (D-902); drawn by render/numbers.js;
-                      its pictures by render/hits.js (D-907) and render/refill.js (D-908)
+                      its pictures by render/hits.js (D-907), render/refill.js (D-908) and render/sips.js (D-909)
 src/render/panelsize.js  the hearts and oil panel's width, for the wrench and tests (D-682)
 src/core/           rules, state, rng, registry, noise (no DOM);
                     one file per content kind, gathered by registry.js (D-048)

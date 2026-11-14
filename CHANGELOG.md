@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.352 (2026-11-14)
+- In the bag, a draught now shows its turns under its rows: its own mark from under the hearts, twice as big, "Now" over "After". The rim shows the time left, as it does at the top of the screen.
+- "After" is always full, as drinking one again starts its 60 turns over. With none working, "Now" shows the mark with its rim dark.
+- Like the other pictures, it's left out where it would reach the buttons.
+- Decisions: D-909.
+
 ## 0.3.351 (2026-11-14)
 - In the bag, a find that heals or fills the lantern now shows your hearts or oil "Now" and "After" under its rows, twice the size of the ones at the top of the screen. What it adds is pale.
 - What would pass the top shows faint past the end, so a potion at nearly full hearts, or a flask in a nearly full lantern, shows what it would waste. At full hearts, all of an herb's hearts show faint.
@@ -34,9 +40,3 @@ Entry format:
 - With no weapon in hand, "Held now" shows the lantern's hit of 1. Tapping the weapon in the gear row shows only its "Held now" row.
 - On a short screen held sideways the picture is left out when it would reach the buttons; the rows always show.
 - Decisions: D-907.
-
-## 0.3.349 (2026-11-14)
-- At a stash chest, the chosen thing, in the chest or the bag, now shows what it does in rows under its name, as in the bag: a draught what it does and for how long, a weapon how hard it hits. "Tap to move" sits below them, left out when there's no room.
-- Held sideways, the rows end left of STORE when they reach it, so they never run under the button.
-- Written down for later: the round map fading in the dark, and its rim showing danger.
-- Decisions: D-906.
