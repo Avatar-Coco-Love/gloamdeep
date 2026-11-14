@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.348 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.349 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Numbers on the stash chest (D-902); then the pictures. Then flyers into trees (D-900), cutting a room
+The numbers' pictures (D-902), one kind a step, the owner picks the first. Then the round map in the dark (Q-108). Then flyers into trees (D-900), cutting a room
 (D-899), doorways (Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
@@ -49,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.349, Numbers on the stash chest.** D-902's fourth
+  step: the chest card shows the rows under the name, the tap hint below;
+  sideways they end left of STORE. The owner's picks from a mock-up. D-906.
+  Q-108 and Q-109 written down. Playtest: https://claude.ai/artifact/SNcJZ2RxNBLPuNJraFcLWJ
 - **2026-11-14, 0.3.348, Numbers on the peddler's trade.** D-902's third
   step: the peddler's card shows the rows under "carried", his price
   line below; no "Sells for" row there. The owner's picks. D-905. Playtest: https://claude.ai/artifact/5Tw5ndQC88s55NPKrtYUGa
@@ -56,7 +60,3 @@ list in `RESEARCH.md`.
   step: the Make tab, the workbench and the mortar show what a recipe
   makes, what it does, in rows under its costs. A mock-up of three places; the
   owner chose under the costs, and the mortar too. D-904. Playtest: https://claude.ai/artifact/17CWL3BJpgT4JLFPHusG1o
-- **2026-11-14, 0.3.346, The vault's decisions archived.** Before the
-  numbers' next step, D-895 and D-896, the vault, built, moved word for
-  word to `archive/DECISIONS-SURFACE.md`; `DECISIONS.md` 11.7 KB to 9.7 KB.
-  The owner's picks. D-903. No game change, so no playtest.

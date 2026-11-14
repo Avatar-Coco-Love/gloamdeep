@@ -82,3 +82,19 @@ where a sapling grows and how long. Its own steps, after D-900.
 idea) Creatures could cross a doorway and chase the hero into the next
 room. It would supersede D-132's "never follow between rooms". Which
 creatures, how near they must be, and whether stairs stay an escape.
+
+**Q-108 · The round map in the dark** (raised 2026-11-14, the owner's
+idea: you can't read a map in a dark cave) The owner's picks so far: the
+round map fades with the light on the hero's own tile, from any light
+(the lantern, a torch or brazier, glowing things, daylight), so by day
+with the lantern off it shows in full, and near a torch the closer you
+stand the more of it shows. At an ember, or with the lantern off, and no
+light near, its middle hides too. The full map always opens clearly, for
+now. Open: how much it fades at each light, and how much of the middle
+hides; a mock-up at its own step, after the numbers on the stash chest.
+
+**Q-109 · The round map's rim shows danger** (raised 2026-11-14, the
+owner's idea, with Q-108) The rim could change colour: red when a
+creature is after you, orange when one is close to noticing you. Stealth
+and timing could work together in later places. Open: whether, when, the
+colours, and how it reads for colour-blind players.

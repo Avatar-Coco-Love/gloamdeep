@@ -5,6 +5,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.349', date: '2026-11-14', title: 'Numbers on the stash chest', lines: [
+    "At a stash chest, the chosen thing, in the chest or the bag, now shows what it does in rows under its name, as in the bag: a draught what it does and for how long, a weapon how hard it hits. \"Tap to move\" sits below them, left out when there's no room.",
+    "Held sideways, the rows end left of STORE when they reach it, so they never run under the button.",
+    "Written down for later: the round map fading in the dark, and its rim showing danger.",
+    "Decisions: D-906.",
+  ] },
   { v: '0.3.348', date: '2026-11-14', title: 'Numbers on the peddler\'s trade', lines: [
     "At the peddler's, the chosen thing now shows what it does, in rows under how many you carry, on both Sell and Buy: an Oil flask how much of the lantern it fills, a torch how long it burns. What it sells for isn't a row there, as the peddler says it himself.",
     "Decisions: D-905.",
