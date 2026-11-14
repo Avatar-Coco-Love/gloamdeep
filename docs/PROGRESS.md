@@ -8,10 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-Flyers over low things (D-900): lampmoths, bats and the lure wisp fly
-over what stands low. Propose the build first. Then, in the owner's
-order: flyers into trees (D-900), cutting a room (D-899), creatures
-through doorways (Q-107), the shovel (Q-106); then L3 (D-890).
+Flyers over low things (D-900); propose the build first. Then, in
+order: flyers into trees (D-900), cutting a room (D-899), doorways
+(Q-107), the shovel (Q-106); then L3 (D-890).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -52,8 +51,8 @@ list in `RESEARCH.md`.
 
 ## Log (last 3)
 - **2026-11-14, 0.3.343, Built things on the map.** The owner's find:
-  chests and benches looked like trees on the maps. What you build now
-  shows in wood brown. The owner's next ideas set down in order. D-898
+  built things looked like trees on the maps; now wood brown. The
+  owner's next ideas set down in order. D-898
   to D-900. Playtest: https://claude.ai/artifact/9DVP7g3J2SGGAe8N79uqNw
 - **2026-11-14, 0.3.342, The lantern's words.** The owner's find on a
   phone: the lantern goals said "press L" there too. They now follow the
