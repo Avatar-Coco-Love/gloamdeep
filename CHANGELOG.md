@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.348 (2026-11-14)
+- At the peddler's, the chosen thing now shows what it does, in rows under how many you carry, on both Sell and Buy: an Oil flask how much of the lantern it fills, a torch how long it burns. What it sells for isn't a row there, as the peddler says it himself.
+- Decisions: D-905.
+
 ## 0.3.347 (2026-11-14)
 - On the bag's Make tab, the workbench and the mortar, the chosen recipe now shows what the made thing does, in rows under its costs: an Oil flask how much of the lantern it fills, a draught what it does and for how many turns, a vest or charm what it changes, a pouch how big the bag grows.
 - On a short phone held sideways, the description is left out when it would run into MAKE, so the numbers always show.
@@ -31,8 +35,3 @@ Entry format:
 ## 0.3.346 (2026-11-14)
 - Nothing in the game changed. Older decisions moved to the archive to keep the decisions page small: the vault door opening and the vault's prize, both built.
 - Decisions: D-903. D-895 and D-896 moved to the archive, word for word.
-
-## 0.3.345 (2026-11-14)
-- In the bag, a chosen item now shows what it does, in rows under its name: an icon, what it does and its number in gold. A weapon shows how hard it hits, food and potions how many hearts they heal, oil how much of the lantern it fills, a draught what it does and for how many turns, armour and charms what they change, and a material what it sells for. A piece in the gear row shows its rows too.
-- On a short phone held sideways, an item's description is left out when it would run into the buttons, so its numbers always show.
-- Decisions: D-902.

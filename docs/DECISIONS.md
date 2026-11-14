@@ -178,3 +178,11 @@ same card, in this step (offered too: its own step later). Claude's
 calls: on a short screen held sideways the Look line is left out when it
 would reach MAKE, as on the bag card; one drawing for all three cards
 (`drawMakeWords` in `render/benchpanel.js`).
+
+**D-905 · 2026-11-14 · Numbers on the peddler's trade** (the owner's
+picks, both recommended) D-902's third step: the peddler's card shows
+the chosen thing's rows under "carried", the rule under them, then his
+price line (offered too: under the price line; on Buy only). The
+"Sells for" row is left out on his card, as his own line says it
+(offered too: kept; his "He pays" line dropped instead). Claude's call:
+no Look line on his card, as before.

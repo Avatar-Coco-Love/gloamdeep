@@ -5,6 +5,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.348', date: '2026-11-14', title: 'Numbers on the peddler\'s trade', lines: [
+    "At the peddler's, the chosen thing now shows what it does, in rows under how many you carry, on both Sell and Buy: an Oil flask how much of the lantern it fills, a torch how long it burns. What it sells for isn't a row there, as the peddler says it himself.",
+    "Decisions: D-905.",
+  ] },
   { v: '0.3.347', date: '2026-11-14', title: 'Numbers on the Make tab', lines: [
     "On the bag's Make tab, the workbench and the mortar, the chosen recipe now shows what the made thing does, in rows under its costs: an Oil flask how much of the lantern it fills, a draught what it does and for how many turns, a vest or charm what it changes, a pouch how big the bag grows.",
     "On a short phone held sideways, the description is left out when it would run into MAKE, so the numbers always show.",
