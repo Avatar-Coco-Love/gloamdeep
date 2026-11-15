@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.378, Several kinds on one tile.** Q-110, the rest of
+  B-011: Drop lays a stack beside what lies there, no swap; onto its own
+  kind it grows. The tile shows each kind in turn with its count; still,
+  the newest with "+2". A step takes all that fits. The owner's picks. D-934 archived. D-936.
+  Playtest: https://claude.ai/artifact/UQL3Y4htizHotoyCSad1ug
 - **2026-11-15, 0.3.377, The chest's hint whole.** B-012: on a PC screen
   the stash chest's "Tap to move" line, squeezed beside STORE onto two
   lines, is left out rather than run below the card. The text-fit test

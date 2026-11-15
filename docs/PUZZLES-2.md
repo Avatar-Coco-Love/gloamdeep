@@ -65,7 +65,7 @@ verb, not only a way over gaps. Three examples, all placeholders: a
 **leap** over a 1-tile gap; a **flare**, thrown light that lands 3 tiles
 away (lights a far brazier, scares a shade); or **hold breath**, walking
 through gloam for 3 turns. *Uses* D-463, one found ability per biome.
-*Needs* its own decision, with the boss. *Fits* biome 1's bottom.
+*Needs* its own decision, with the boss. *Fits* biome 1's bottom. Picked: Leap, given by the boss (D-939).
 
 ## K · Knowledge and lore
 Puzzles where the answer is found elsewhere in the world (pillar 3).

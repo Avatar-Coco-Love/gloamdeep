@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.380 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.381 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Biome 1's boss and found ability (Q-105).
+The Lampeater, step 1: its arena on depth 8, standing empty (D-939).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.381, Biome 1's boss planned.** Q-105's boss part:
+  how other games do bosses, three concepts with mock-ups; the owner
+  picked the Lampeater, light deciding the fight, in a sealed arena on
+  depth 8, giving Leap and an escape. No game change. D-939.
+  Ideas page: https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR
 - **2026-11-15, 0.3.380, The Warden's look and sounds.** D-937's step 2:
   stooped while open, a jolt and chips as its fists sink, a thud A6; a
   grey spark and a clink for a blow that rings. The clink was Making's,
@@ -55,8 +60,3 @@ list in `RESEARCH.md`.
   each blow 1 less, four openings to beat it; cracked, it never settles.
   The owner's picks. D-935 archived. D-937.
   Playtest: https://claude.ai/artifact/L5reWtevNSF5k4tMSxtYS7
-- **2026-11-15, 0.3.378, Several kinds on one tile.** Q-110, the rest of
-  B-011: Drop lays a stack beside what lies there, no swap; onto its own
-  kind it grows. The tile shows each kind in turn with its count; still,
-  the newest with "+2". A step takes all that fits. The owner's picks. D-934 archived. D-936.
-  Playtest: https://claude.ai/artifact/UQL3Y4htizHotoyCSad1ug

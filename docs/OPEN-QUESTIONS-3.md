@@ -57,8 +57,8 @@ step, when the owner wants.
 and T1's tiles, names, numbers and rewards, at its own step (L1's by
 D-891, its build steps by D-892, its prize by D-896, L3's by D-927; a vault's other prizes, "maybe other things", and which puzzle
 each vault holds once there are more); biome 1's
-boss and found ability (G3, W4), planned once L1 and L3 are built; the
-lantern part slots after. New ideas join the plan any time.
+boss and found ability (G3, W4) settled by D-939, the Lampeater and
+Leap, each step's details at its own step; the lantern part slots after. New ideas join the plan any time.
 
 ---
 

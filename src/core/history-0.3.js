@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.381', date: '2026-11-15', title: 'Biome 1\'s boss planned', lines: [
+    "Biome 1's boss is planned, nothing in the game yet: the Lampeater, a piece of the gloam that moves only through the dark and can be hurt only when caught in light, fought in its own sealed arena on depth 8 with braziers and gloamlings. Beaten, it gives Leap, and the floor gives way to a leap across to the way down.",
+    "Decisions: D-939. Questions: part of Q-105 answered. D-927 moved to the archive, word for word.",
+  ] },
   { v: '0.3.380', date: '2026-11-15', title: 'The Warden\'s look and sounds', lines: [
     "The Warden looks and sounds its new fight: a blow that rings off its stone shows a small grey spark instead of the white flash, and clinks, the light metal of Making played once and a quarter lower. As its fists sink into the floor it stoops, jolts and stone chips spring up, with a heavy thud of stone; it stays stooped while it is open.",
     "Decisions: D-938. D-936 moved to the archive, word for word.",
