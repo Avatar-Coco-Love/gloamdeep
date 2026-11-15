@@ -3,6 +3,13 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.374 (D-932): B-009.
+
+**B-009 · 2026-11-15 · Lines at the bottom stay too long** "Any message
+that appears on the bottom stays for too long." The owner's idea: rather
+than always wait for a number of turns (or another trigger), it goes
+after a few seconds of real time, whichever comes first.
+
 Fixed in 0.3.373 (D-931): B-008.
 
 **B-008 · 2026-11-15 · The round map's dark circle** With the lantern off

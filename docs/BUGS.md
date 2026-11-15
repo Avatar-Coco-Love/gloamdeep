@@ -12,11 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-009 · 2026-11-15 · Lines at the bottom stay too long** "Any message
-that appears on the bottom stays for too long." The owner's idea: rather
-than always wait for a number of turns (or another trigger), it goes
-after a few seconds of real time, whichever comes first.
-
 **B-010 · 2026-11-15 · Things overlap on a big PC screen** On a PC, in
 Microsoft Edge full screen at 1920 × 1080, some of the screen overlaps.
 One example: in the bag, with Healing Herb picked, the green flask's

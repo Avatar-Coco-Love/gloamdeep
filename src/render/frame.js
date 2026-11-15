@@ -19,7 +19,7 @@ import { drawMarks, marksSize, markAt, MARK, MARK_GAP, POISON_MARK, STIFF_MARK, 
 import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
-import { lineTop } from './textline.js';
+import { lineTop, createLineClock } from './textline.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawMoves, drawStrikes, drawPiles } from './moves.js';
@@ -129,6 +129,7 @@ export function createFrame(app, ui) {
   // past the sides and my past the top and bottom, enough to reach the screen's edges
   const around = document.createElement('canvas');
   watch(base); watch(around);
+  const lineClock = createLineClock(); // the line's seconds (B-009)
   let heldKey = null; // what the room under a card was last drawn from (S3, D-686)
   onWipe(() => { drawnRoom = null; heldKey = null; }); // both drawn again on the next frame (D-588)
   onCheck(() => drawnRoom !== null && blankAt(base, 0, 0));
@@ -416,7 +417,7 @@ export function createFrame(app, ui) {
       drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
       hc.restore();
     }
-    const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
+    const line = fall?.from ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes; gone after its turns or its seconds (B-009)
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)

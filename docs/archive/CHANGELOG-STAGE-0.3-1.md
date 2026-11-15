@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.371 (2026-11-15)
+- Bump the rune wall with your lantern off and the runes flare: the stone sinks away for good, into a small nook. On a plinth inside lies a vault's prize, an ember or 2 of a rare material, taken with a bump.
+- Bumped with the lantern lit, the rune wall now says so: "Faint marks.", then "Too pale to see by lantern light."
+- Decisions: D-929. D-907 moved to the archive, word for word.
+
 ## 0.3.370 (2026-11-15)
 - From depth 1, one room on each floor now has a rune wall. Switch your lantern off and three faint violet runes glow on that wall's face, seen from across the room. With the lantern lit it looks like any other wall.
 - Nothing opens it yet: bumping it in the dark comes next.
