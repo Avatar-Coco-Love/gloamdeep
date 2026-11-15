@@ -3,6 +3,18 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.372 (D-930): B-007, and B-006 closed, not a bug.
+
+**B-006 · 2026-11-15 · Flyers stopped by things to pick up** "Flying
+enemies should be able to move over objects that can be picked up."
+
+**B-007 · 2026-11-15 · The boon menu comes too suddenly** "Upon using a
+different waystone and going home, the boon menu immediately appears and
+it feels kind of abrupt." The owner's idea: a select boon button that
+appears while the hero is on the plate just after coming home; walking
+off and back on the plate opens the boon choice, so the button isn't
+needed again. It could also be a setting, button or automatic.
+
 Fixed in 0.3.358 (D-915):
 
 - **F-5 · An empty reward read aloud.** The two goals ticked without a

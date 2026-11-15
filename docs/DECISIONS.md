@@ -100,29 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-908 · 2026-11-14 · Hearts or oil, now and after** (the owner's
-picks, all recommended, from a mock-up) D-902's second picture: on the
-bag card, under the rows of a find that heals or fills the lantern,
-"Now" over "After", the HUD's own hearts and oil bar, twice as big; what
-it adds is pale (look A; offered too: B, now → after on one row; C,
-"After" only; the HUD's size). What would pass the top is drawn faint
-past the end (offered too: not shown; a word under). A boon counts, as
-it really heals or pours (offered too: the item's own). Claude's calls:
-a minnow's hearts and oil side by side, one under the other where they
-don't fit, and left out where they'd reach the buttons, as the hits are;
-at full health all of it shows faint; the bag card only for now.
-
-**D-909 · 2026-11-14 · A draught's turns, now and after** (the owner's
-picks, all recommended, from a mock-up) D-902's third picture: on the
-bag card, under a draught's rows, "Now" over "After", its own HUD mark
-twice as big, the rim lit for its time left as on the HUD (D-847); after
-is full, as drinking again starts the count over (look A; offered too:
-B, a bar of turns like the oil bar; C, its bar beside a full lantern's).
-With none working, "Now" shows the mark with its rim dark (offered too:
-"After" only). Turns only, no Mending hearts on it (offered too: small
-hearts where they come). Claude's: left out where it would reach the
-buttons, as the others are; the bag card only for now.
-
 **D-910 · 2026-11-14 · The sixteenth audit** (the owner's picks, all
 recommended) At 0.3.353, nothing visible changed. The finds' pictures,
 from the flask to the ember, go from `pictures.js` to a new
@@ -197,3 +174,20 @@ light."). Claude's calls: from the side it is a wall as any other; a
 turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-930 · 2026-11-15 · Flyers over finds; the boon button** (the owner's
+picks, all recommended; B-006, B-007) B-006 is closed, not a bug: flyers
+already pass over a find lying loose, as every creature does (D-727),
+and a test now checks it (offered too: no test; kept open; deposits and
+veins made low, changing D-901). B-007: arriving on the home plate by
+travel or a fall, holding no boon, shows a boon button instead of
+opening the card, superseding D-865's "opens the boon card once the
+hero is still"; a tap opens the card; stepping off takes it away, and
+stepping back on opens the card as before (offered too: the card after
+a second, fading in; a Settings row, button or automatic). Its look: the
+home plate's rune in its woken violet, in a round button like the moon's
+(offered too: an ember; mock-ups first). Claude's calls: up and left of
+the lantern on the moon's ring, clear of the bag, the flask and the
+moon; it stays while the hero is on the plate holding no boon, so a
+skipped card can be opened again; "Choose a boon" to screen readers.
+D-908 and D-909 move to `archive/DECISIONS-CARDS-2.md`, word for word.

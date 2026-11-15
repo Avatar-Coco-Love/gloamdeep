@@ -1408,7 +1408,8 @@ line). D-856 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 all recommended; step 3 of `HEALTH-CHECK-ORDER.md`, fixes H-32, H-44,
 H-35, and H-67, the owner's find) Arriving on the home
 plate by travel or a fall, holding no boon, opens the boon card once the
-hero is still (offered too: a tap on the plate opens it first; travel
+hero is still (that part superseded by D-930, 2026-11-15: a boon button
+shows instead) (offered too: a tap on the plate opens it first; travel
 only), superseding D-737's "no boon offered until the hero steps off and
 back on". The 3 boons stay the same until the hero takes one or leaves
 the room (offered too: drawn anew, as before; one new draw). The words

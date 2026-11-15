@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
+  rune-wall nook a floor from depth 1, in an ordinary cave room; its
+  runes seen across the room only with the lantern off; a dark bump
+  opens it for good, a hint line when bumped lit; 1 tile behind holds a
+  vault's prize draw, more later. 2 steps. The owner's picks. D-925
+  and D-926 archived. D-927.
 - **2026-11-14, 0.3.368, The shovel.** Q-106's first step: the Shovel,
   made at the bench for 3 Wood and 2 Stone and held in the Tool slot,
   digs out a stump for good, grass left. The sapling stays open; buried

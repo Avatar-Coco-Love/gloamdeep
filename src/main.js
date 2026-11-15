@@ -44,6 +44,7 @@ import { createMapButton } from './input/mapbutton.js';
 import { createBagButton } from './input/bagbutton.js';
 import { createQuickSlot } from './input/quickslot.js';
 import { createSleepButton } from './input/sleepbutton.js';
+import { createBoonButton } from './input/boonbutton.js';
 import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
@@ -289,7 +290,8 @@ function tryStep(dir) {
   if (state.xp > before.xp || has(events, 'fang')) app.gain = { n: state.xp - before.xp, at: app.travel?.mid ?? performance.now(), heart: has(events, 'fang') }; // and a heart back from the Fang Charm (D-809)
   // Stepping onto the woken home plate with no boon held offers the boon card (D-596); the step that wakes it only wakes it (D-603)
   if (!went && !fell && stepOffersBoons(before, state)) { app.walk = null; screens.openBoons(); }
-  else if ((went || fell) && offersBoons(state)) app.boonDue = true; // arriving on it by travel or a fall: once the hero is still (H-32, D-865)
+  else if ((went || fell) && offersBoons(state)) app.boonHere = true; // arriving on it by travel or a fall: the boon button, not the card (B-007)
+  else if (!offersBoons(state)) app.boonHere = false; // stepped off, or a boon taken: the button goes
 }
 // § strike (D-614): the strike card's tap, or its needle run out (null), free; the catch's
 // splash and its records as any turn's, then back to play
@@ -366,12 +368,13 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => {
 } });
 
 // § sleep button: outside at night, nothing after the hero, it asks Sleep here until morning? (D-758)
+const boonButton = createBoonButton(hudCanvas, { onBoons: () => { if (app.screen === 'play' && !app.fall && offersBoons(app.state)) { app.walk = null; screens.openBoons(); } } }); // arrived on the home plate (B-007)
 const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.screen === 'play' && !app.fall && canSleepOut(app.state)) screens.openSleepOut(); } });
 
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonDue = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
@@ -390,7 +393,7 @@ function newJourney(mode) {
 const { useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, boonButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), sit: (x, y) => tryStep({ sit: { x, y } }), stoke: (x, y) => tryStep({ stoke: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
@@ -476,7 +479,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   settings: () => app.settings,
   camera: () => app.cam,
 }, hudCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, dev, screens, still, foeAt });
 const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS, openQuests: () => screens.openQuests() });
 screens.openSlots(false); // the game opens on the slot screen (D-271)
 
@@ -521,7 +524,6 @@ function update(t) {
   if (app.screen !== 'play') app.walk = app.padDir = app.hold = null; // a card or menu ends a walk, the pad's and a hold's
   if (app.screen === 'strike' && needleAt(t - app.strike.start) === null) strikeAt(null); // too slow: gone (D-614)
   if (settled() && app.screen === 'play' && app.state.float?.strike !== undefined) screens.openStrike(); // pulled on a bite, once the hero is still; after loading too (D-614)
-  if (app.boonDue && settled() && app.screen === 'play') { app.boonDue = false; app.walk = null; if (offersBoons(app.state)) screens.openBoons(); } // arrived on the home plate (H-32, D-865)
   if (settled() && app.screen === 'play') { // paused, no turn is taken
     rememberHere();
     if (app.queued) { const d = app.queued; app.queued = null; tryStep(d); }

@@ -12,16 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-006 · 2026-11-15 · Flyers stopped by things to pick up** "Flying
-enemies should be able to move over objects that can be picked up."
-
-**B-007 · 2026-11-15 · The boon menu comes too suddenly** "Upon using a
-different waystone and going home, the boon menu immediately appears and
-it feels kind of abrupt." The owner's idea: a select boon button that
-appears while the hero is on the plate just after coming home; walking
-off and back on the plate opens the boon choice, so the button isn't
-needed again. It could also be a setting, button or automatic.
-
 **B-008 · 2026-11-15 · The round map's dark circle** With the lantern off
 and all dark, the round map is barely visible, which the owner likes, but
 "there is this circle around the character filled in and darker than the
