@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.386', date: '2026-11-15', title: 'The Lampeater caught', lines: [
+    "The Lampeater can be hurt now, but only in light. Light falling on it catches it: it can't move for a turn, burning in a ring of flame, then slips back into the dark. Switch your lantern on beside it for two blows.",
+    "In the dark your blows still sink into it, and it bites for 2 hearts. It has 8 hearts, shown on its plate; beaten, for now it is simply gone.",
+    "Decisions: D-944.",
+  ] },
   { v: '0.3.385', date: '2026-11-15', title: 'The Lampeater moves', lines: [
     "The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.",
     "Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.",

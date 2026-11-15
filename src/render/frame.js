@@ -321,7 +321,7 @@ export function createFrame(app, ui) {
       inRoom(() => {
         drawFlames(rc, s.room, s.lights, t, still());
         drawFires(rc, s.room, t, still()); // a burning campfire's flames and coals (D-757)
-        drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt); // the lure wisp's own glow, seen in the dark (D-649)
+        drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, (e) => !!get(e.id)?.burns && litAt(s, e.x, e.y)); // the lure wisp's own glow, seen in the dark (D-649); the Lampeater burning in light (D-944)
         if (lightOn) drawEchoes(rc, echoed(s), t, still(), foeAt); // the Echo Charm's pale outlines, near creatures in the dark (D-805)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)

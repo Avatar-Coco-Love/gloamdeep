@@ -80,6 +80,10 @@ const GLANCE_SALT = 12288; // keeps the glance's dice apart from the flee's (fle
 // § open (D-937): one whose fists sank into the floor stands open to blows through its rest, and
 // pulls them free as its next turn starts, done resting
 const unsunk = (e) => { if (!e.open || e.rests > 0) return e; const { open, ...shut } = e; return shut; };
+// § caught (D-944): one whose ways say `caught`, light falling on it, is held where it stands for its
+// turn, marked `caught`, with its `caughtSays`; still lit next turn, it backs away as one that shuns
+// light does. Back in the dark at its turn's start, its mark goes, so the next light catches it again.
+const uncaught = (state) => (e) => { if (!e.caught || litAt(state, e.x, e.y)) return e; const { caught, ...free } = e; return free; };
 // One `wakeful` (the warden) never settles once it has lost a heart (D-937).
 // § settle: after the creatures' turn, one that stirred is awake and chasing for its
 // `awakeTurns`; one awake counts a turn down, and at the last settles back
@@ -170,7 +174,7 @@ export function noticesHero(state, e, t = traits(get(e.id)), soft = boonNotice(s
 
 // One with its own `sight` (the mole, D-858) notices them no farther than that many steps, lit or not.
 function enemiesMove(state, bit = false) {
-  const start = rally(state.enemies.map(unsunk)), claims = [];
+  const start = rally(state.enemies.map(unsunk).map(uncaught(state))), claims = [];
   let enemies = start, said = null, raised = false;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of start) {
@@ -179,6 +183,11 @@ function enemiesMove(state, bit = false) {
     if (t.moves === 'lure') {
       const to = luring(state, e) && lureStep({ ...state, enemies }, e);
       if (to) enemies = enemies.map((o) => (o === e ? { ...e, x: to.x, y: to.y, facing: to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing } : o));
+      continue;
+    }
+    if (t.caught && lit && !e.caught) { // caught in light: held a turn (D-944)
+      enemies = enemies.map((o) => (o === e ? { ...e, caught: true, ...(t.home && { home: homeOf(e) }) } : o));
+      said = said || get(e.id).caughtSays;
       continue;
     }
     const seeks = t.moves === 'toLight';

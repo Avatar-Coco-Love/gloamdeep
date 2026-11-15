@@ -105,14 +105,16 @@ export const ENEMIES = {
   // by the room's rock, till the hero comes within 3 steps, then chases and never runs. Out by night,
   // one in each mountain room (nightfall.js), never underground.
   rimLurker: { id: 'rimLurker', kind: 'enemy', follows: true, name: 'Rim lurker', acts: "Waits in the dark by the mountain rocks. Come within three steps of it, lit or not, and it chases you and never runs.", fights: "Its claws take two hearts, so strike first: wait for it to step beside you. Three lantern swings, or two knife blows.", health: 3, bite: 2, drops: 'lurkerClaw', ways: ['lurks'], hurt: 'rimLurkerHurt', die: 'rimLurkerDie', bites: 'rimLurkerBite' },
-  // The Lampeater (D-939, D-941), biome 1's boss, standing for now: look A of its mock-up, the pool,
-  // its eyes glowing over the dark (`eyesGlow`, sprites.js). One of a kind, in the arena only
-  // (arena.js), a tile below the tile before its sealed door. It moves only through the dark (`darkOnly`, D-943):
-  // it comes for the hero over dark tiles, backs out of light, and goes home when it loses them; no bite yet. A blow
-  // `sinks` into it, hurting nothing, with its line; it has no hearts until it can be hurt (step 4).
-  // How it acts and how to fight it are written once it can be beaten (step 9); until then its
-  // page shows the grey hints, as the Warden's, and how to fight it opens after 1 beaten.
-  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: 'Moves only through the dark, never onto a lit tile.', fights: 'Your blows sink into the gloam.', bite: 0, ways: ['darkOnly'], eyesGlow: true, sinks: 'lampeaterSinks', fightAt: 1 },
+  // The Lampeater (D-939, D-941), biome 1's boss: look A of its mock-up, the pool, its eyes glowing
+  // over the dark (`eyesGlow`, sprites.js). One of a kind, in the arena only (arena.js), a tile below
+  // the tile before its sealed door. It moves only through the dark (`darkOnly`, D-943): it comes for
+  // the hero over dark tiles, backs out of light, and goes home when it loses them. Caught in light it
+  // can't move for a turn, burning (`burns`, its ring drawn in sprites.js), and blows hurt it; in the
+  // dark a blow `sinks` into it, hurting nothing, with its line. It bites for 2 in the dark only, the
+  // gloamling's bite sound borrowed till its own (step 4, D-944). How it acts and how to fight it are
+  // written once it can be beaten (step 9); until then its page shows the grey hints, as the Warden's,
+  // and how to fight it opens after 1 beaten.
+  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 8, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1 },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,
@@ -134,8 +136,9 @@ export function hitFoe(state, foe, damage) {
 // unless it stands `open`, its fists sunk in the floor after a missed slam; and the hurt a blow
 // of `damage` does through its `skin`, never below 1
 export const rings = (foe) => !!ENEMIES[foe.id]?.stone && !foe.open;
-// § sinks (D-941): whether every blow on `foe` sinks into it, hurting nothing, the Lampeater's for now
-export const sinks = (foe) => !!ENEMIES[foe.id]?.sinks;
+// § sinks (D-941, D-944): whether a blow on `foe` sinks into it, hurting nothing: one that `sinks`, unless
+// it stands `lit`, caught in light. A sting, a glob or a slam (hitFoe) always sinks.
+export const sinks = (foe, lit = false) => !!ENEMIES[foe.id]?.sinks && !lit;
 export const skinned = (foe, damage) => Math.max(Math.min(1, damage), damage - (ENEMIES[foe.id]?.skin || 0));
 
 // § lookups: the enemy on tile x, y, or undefined

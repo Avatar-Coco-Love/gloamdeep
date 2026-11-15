@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.386 (2026-11-15)
+- The Lampeater can be hurt now, but only in light. Light falling on it catches it: it can't move for a turn, burning in a ring of flame, then slips back into the dark. Switch your lantern on beside it for two blows.
+- In the dark your blows still sink into it, and it bites for 2 hearts. It has 8 hearts, shown on its plate; beaten, for now it is simply gone.
+- Decisions: D-944.
+
 ## 0.3.385 (2026-11-15)
 - The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.
 - Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.
@@ -31,10 +36,3 @@ Entry format:
 ## 0.3.384 (2026-11-15)
 - Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.
 - Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.
-
-## 0.3.383 (2026-11-15)
-- The Lampeater stands in its arena on depth 8: a low pool of deep violet gloam with a dripping edge, a dark mouth and pink eyes, waiting a tile below the tile before the sealed door. With the lantern off you still see its eyes glowing in the dark.
-- For now it only waits there. It never moves or bites, and a blow sinks into it, hurting nothing: "Your blow sinks into the gloam." The 4 braziers still sink the door until it can be beaten.
-- It has a Bestiary page, met when your light reaches it. Like the Warden's, how to fight it opens after 1 is beaten.
-- Saves from before: an arena already made gets the Lampeater.
-- Decisions: D-941. D-938 moved to the archive, word for word.

@@ -348,7 +348,23 @@ const HALOS = { spitGrub: { reach: 8, inner: 'rgb(109,134,73)', outer: 'rgb(67,1
 // § glowing eyes (D-941): one that `eyesGlow` is drawn under the light as any creature is, and only its
 // eyes over the dark, after it: its pink eye pixels alone, where its sprite stands
 const GLOW_EYES = { lampeater: spriteCanvas({ ...LAMPEATER, rows: LAMPEATER.rows.map((row) => row.replace(/[^p]/g, '.')) }) };
-export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e) {
+// § burning (D-944, look A): one that `burns`, caught in light, drawn over the light: its gloam paled to
+// the unusual things' violets, its eyes white-hot, and a ring of flame round it, its dashes creeping
+// round (steady with reduced motion)
+const BURNING = { lampeater: spriteCanvas(LAMPEATER, null, { ...PAL, ...LAMPEATER_COLOURS, 1: '#3a344b', 2: '#6e58a8', 3: '#a58ce0', p: '#efe6cc' }) };
+const RING = { rx: 9, ry: 5, dy: 10, dots: 28, on: 4, off: 3, ms: 140, colours: ['#ffd66b', '#f39a3b'] };
+function drawBurning(c, e, p, t, still) {
+  const sprite = BURNING[e.id], x = Math.round(p.x * 16), y = Math.round(p.y * 16) - 2 + 15 - lowest(sprite);
+  c.drawImage(sprite, x, y);
+  const turn = still ? 0 : Math.floor(t / RING.ms);
+  for (let i = 0; i < RING.dots; i++) {
+    if ((i + turn) % (RING.on + RING.off) >= RING.on) continue;
+    const a = (i / RING.dots) * Math.PI * 2;
+    c.fillStyle = RING.colours[(i + turn) % 2];
+    c.fillRect(Math.round(x + 8 + Math.cos(a) * RING.rx - 0.5), Math.round(y + RING.dy + Math.sin(a) * RING.ry - 0.5), 1, 1);
+  }
+}
+export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burning = () => false) {
   const glows = (e) => get(e.id)?.glows || get(e.id)?.eyesGlow;
   const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
   const all = [...enemies.filter(glows).map((e) => [e, at(e), struck(e)]),
@@ -366,7 +382,8 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e) {
       c.fillStyle = f > 0.5 ? halo.inner : halo.outer; c.fillRect(gx + x, gy + y, 1, 1);
     }
     c.restore();
-    if (GLOW_EYES[e.id]) { if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16), Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id])); } // only its eyes (D-941)
+    if (BURNING[e.id] && burning(e)) { if (!flash) drawBurning(c, e, p, t, still); } // caught in light (D-944)
+    else if (GLOW_EYES[e.id]) { if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16), Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id])); } // only its eyes (D-941)
     else drawEnemy(c, e, p, t, still, flash, null);
   }
   glowing = false;
