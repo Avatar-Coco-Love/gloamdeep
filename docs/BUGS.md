@@ -12,12 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-012 · 2026-11-15 · The stash chest's words run off its foot on a PC**
-Found by the text-fit test once it tried PC screens (B-010, D-933): full
-screen at 3840 × 2160 and at 1366 × 768, the stash chest card's last line
-under a chosen find ("Tap to move to the chest.", "…to the bag.") runs
-below the card's bottom edge, for many finds.
-
 ## Found by the sixteenth audit's bug hunt (D-910)
 
 Read in the code from 0.3.314 to 0.3.352 and checked with small scripts.

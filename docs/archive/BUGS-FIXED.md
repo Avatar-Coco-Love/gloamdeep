@@ -3,6 +3,14 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.377 (D-935): B-012.
+
+**B-012 · 2026-11-15 · The stash chest's words run off its foot on a PC**
+Found by the text-fit test once it tried PC screens (B-010, D-933): full
+screen at 3840 × 2160 and at 1366 × 768, the stash chest card's last line
+under a chosen find ("Tap to move to the chest.", "…to the bag.") runs
+below the card's bottom edge, for many finds.
+
 Fixed in 0.3.376 (D-934): B-011, its first part; several kinds on one tile is Q-110.
 
 **B-011 · 2026-11-15 · A felled tree's wood falls in three spots** The
