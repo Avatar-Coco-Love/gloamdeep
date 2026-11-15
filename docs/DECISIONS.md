@@ -144,21 +144,6 @@ dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
 lines, look and which tile of the edge are the build step's. D-925
 and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-928 · 2026-11-15 · The rune wall's look** (L3 step 1, the owner's
-picks from a mock-up, all recommended; builds D-927) It is the rune wall.
-Look A: three small runes, 3 by 5 pixels, across the wall's face in the
-stairs' violet `#a58ce0`, each with its shade `#6e58a8` a pixel below, as
-if cut (offered too: B, the waystone's rune; C, a dotted doorway). They
-brighten and dim over 4 seconds as a relic does, steady with reduced
-motion (offered too: steady; a glint). Only a front face carries it, plain
-floor in front (offered too: any edge wall). Claude's calls: of the rooms
-in the seed's order, the first with a tile that fits, the tile behind it
-walled on its other 3 sides for step 2's nook; on depth 1, the crypt's
-second room, its only room; seen from any tile below the wall's row with a
-clear line to the tile in front of it; the tile stays a wall, the room
-keeping its place (`runes`). D-902 moves to `archive/DECISIONS-CARDS-2.md`,
-word for word.
-
 **D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
 picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
 front of its face, the rune wall becomes the room's plain floor, a 1-tile
@@ -191,3 +176,11 @@ the lantern on the moon's ring, clear of the bag, the flask and the
 moon; it stays while the hero is on the plate holding no boon, so a
 skipped card can be opened again; "Choose a boon" to screen readers.
 D-908 and D-909 move to `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-931 · 2026-11-15 · The round map's dark circle** (the owner's pick,
+recommended; B-008) The soft dark spot round the hero on the round map in
+the dark is gone: the map fades evenly to its 15% at no light, the hero's
+dot over it, superseding D-920's spot (offered too: a soft, shallow dip,
+the middle at half over about 5 tiles; the spot as it was but lighter).
+Seen from a mock-up. D-928 moves to `archive/DECISIONS-CARDS-2.md`, word
+for word.

@@ -108,25 +108,25 @@ function drawMarks(c, plan, mx, my, k, t, still) {
 // round map's own canvas, cleared so its glass shows where nothing is found. With
 // Waymark, stairs down too far for it show as a violet dot on its rim, pulsing as the
 // marks do, toward the nearest (D-754). In the dark (D-920) `shown`, 0 to 1, fades it all
-// but the hero, and `spot`, 0 to 1, hides its middle, about 2 tiles round the hero, soft edged.
+// but the hero, evenly, no dark spot round the hero (D-931).
 // `danger` (core/danger.js, D-921) lights the rim's inside ring over it all, never faded: 'near' a
 // broken ember ring, 'chase' a solid red one, pulsing unless `still` (the CSS rim turns red with it)
-export function drawRoundMap(c, plan, drawn, k, t, still, shown = 1, spot = 0, danger = null) {
-  roundMap(c, plan, drawn, k, t, still, shown, spot);
+export function drawRoundMap(c, plan, drawn, k, t, still, shown = 1, danger = null) {
+  roundMap(c, plan, drawn, k, t, still, shown);
   if (danger) drawRim(c, danger, rimPulse(t, still));
 }
-function roundMap(c, plan, drawn, k, t, still, shown, spot) {
+function roundMap(c, plan, drawn, k, t, still, shown) {
   const n = c.canvas.width, { x: mx, y: my } = aroundHero(plan, n, k);
   c.clearRect(0, 0, n, n);
   c.drawImage(drawn, mx, my);
   drawMarks(c, plan, mx, my, k, t, still);
   const rim = rimDot(plan, n, k);
-  if (!rim) return inTheDark(c, plan, n, k, t, still, shown, spot);
+  if (!rim) return inTheDark(c, plan, n, k, t, still, shown);
   c.fillStyle = SHOWN.stairs;
   c.globalAlpha = pulse(t, still);
   c.fillRect(rim.x, rim.y, k, k);
   c.globalAlpha = 1;
-  inTheDark(c, plan, n, k, t, still, shown, spot);
+  inTheDark(c, plan, n, k, t, still, shown);
 }
 
 // § rim (D-921): the ring of pixels just inside the round map's CSS rim, 1 canvas pixel (2 on
@@ -146,23 +146,14 @@ function drawRim(c, danger, alpha) {
   c.globalAlpha = 1;
 }
 
-// § in the dark (D-920): the round map faded to `shown`, its middle wiped away by `spot`,
-// cleared to the glass, then the hero's dot over it at full
-function inTheDark(c, plan, n, k, t, still, shown, spot) {
-  if (shown >= 1 && spot <= 0) return;
+// § in the dark (D-920, D-931): the round map faded to `shown`, evenly, then the hero's dot over it at full
+function inTheDark(c, plan, n, k, t, still, shown) {
+  if (shown >= 1) return;
   const { x: mx, y: my } = aroundHero(plan, n, k), h = plan.hero;
-  const hx = h ? mx + h.x * k + k / 2 : n / 2, hy = h ? my + h.y * k + k / 2 : n / 2;
   c.save();
   c.globalCompositeOperation = 'destination-in';
   c.fillStyle = `rgba(0,0,0,${shown})`;
   c.fillRect(0, 0, n, n);
-  if (spot > 0) {
-    const g = c.createRadialGradient(hx, hy, 0, hx, hy, 3.4 * k);
-    g.addColorStop(0, `rgba(0,0,0,${spot})`); g.addColorStop(0.7, `rgba(0,0,0,${spot})`); g.addColorStop(1, 'rgba(0,0,0,0)');
-    c.globalCompositeOperation = 'destination-out';
-    c.fillStyle = g;
-    c.fillRect(0, 0, n, n);
-  }
   c.restore();
   if (h && (still || Math.floor(t / 400) % 2 === 0)) { c.fillStyle = GOLD; c.fillRect(mx + h.x * k, my + h.y * k, k, k); }
 }

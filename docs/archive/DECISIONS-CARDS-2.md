@@ -183,3 +183,18 @@ With none working, "Now" shows the mark with its rim dark (offered too:
 "After" only). Turns only, no Mending hearts on it (offered too: small
 hearts where they come). Claude's: left out where it would reach the
 buttons, as the others are; the bag card only for now.
+
+**D-928 · 2026-11-15 · The rune wall's look** (L3 step 1, the owner's
+picks from a mock-up, all recommended; builds D-927) It is the rune wall.
+Look A: three small runes, 3 by 5 pixels, across the wall's face in the
+stairs' violet `#a58ce0`, each with its shade `#6e58a8` a pixel below, as
+if cut (offered too: B, the waystone's rune; C, a dotted doorway). They
+brighten and dim over 4 seconds as a relic does, steady with reduced
+motion (offered too: steady; a glint). Only a front face carries it, plain
+floor in front (offered too: any edge wall). Claude's calls: of the rooms
+in the seed's order, the first with a tile that fits, the tile behind it
+walled on its other 3 sides for step 2's nook; on depth 1, the crypt's
+second room, its only room; seen from any tile below the wall's row with a
+clear line to the tile in front of it; the tile stays a wall, the room
+keeping its place (`runes`). D-902 moves to `archive/DECISIONS-CARDS-2.md`,
+word for word.
