@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.378 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.379 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Biome 1's boss and found ability (Q-105).
+The Warden's look and sounds (D-937, step 2 of 2): stuck take C, the grey spark, the clink and the thud. Then biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.379, A harder Warden.** The owner's ask: blows ring
+  off its stone until its slam misses; then it is open till it next acts,
+  each blow 1 less, four openings to beat it; cracked, it never settles.
+  The owner's picks. D-935 archived. D-937.
+  Playtest: https://claude.ai/artifact/L5reWtevNSF5k4tMSxtYS7
 - **2026-11-15, 0.3.378, Several kinds on one tile.** Q-110, the rest of
   B-011: Drop lays a stack beside what lies there, no swap; onto its own
   kind it grows. The tile shows each kind in turn with its count; still,
@@ -55,8 +60,3 @@ list in `RESEARCH.md`.
   lines, is left out rather than run below the card. The text-fit test
   checks the chest at every PC size again. The owner's pick. D-933 archived. D-935.
   Playtest: https://claude.ai/artifact/VPANJ9N6VLEqT5Fw2KycWQ
-- **2026-11-15, 0.3.376, One stack on the ground.** B-011: what doesn't
-  fit in the bag lies as one stack of its kind, a felled tree's 3 Wood
-  on its stump, its count in the tile's corner. Several kinds on one
-  tile is Q-110. The owner's picks. D-932 archived. D-934.
-  Playtest: https://claude.ai/artifact/8kEbd95FrfPF231EqsJm3V

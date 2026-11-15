@@ -317,7 +317,8 @@ export const LINES = {
   wardenDie: { text: 'The warden crumbles and falls still.', warn: false },
   wardenBite: { text: 'The warden slams you back!', warn: false, kind: 'harm' }, // its slam (D-885), Claude's drafts the owner may change
   wardenRaises: { text: 'The warden raises its fists!', warn: true },
-  wardenMisses: { text: "The warden's fists hit the floor.", warn: false },
+  wardenMisses: { text: "The warden's fists sink into the floor!", warn: false }, // open to blows till it next acts (D-937)
+  wardenRings: { text: 'Your blow rings off the stone.', warn: false }, // a blow its stone turns (D-937)
   campfireHigh: { text: 'A campfire, burning high.', warn: false }, // said as a blazing fire's card opens, its note the rest (D-757, D-844)
   campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
   campfireSat: { text: 'You sit by the fire and warm up.', warn: false }, // Yes on Sit by the fire? (D-844), Claude's draft the owner may change

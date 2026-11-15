@@ -77,6 +77,10 @@ function drinks(state, bites) {
 // Whether creature e's bite this turn glances off the hero's armour (D-484)
 const glances = (state, e) => { const g = glanceOf(state); return g > 0 && rng(seedFor(state.seed ^ state.turn, GLANCE_SALT + e.x * 64 + e.y))() < g; };
 const GLANCE_SALT = 12288; // keeps the glance's dice apart from the flee's (fleesHurt), the drop's (4096, turn.js) and Tough's (8192) (D-663)
+// § open (D-937): one whose fists sank into the floor stands open to blows through its rest, and
+// pulls them free as its next turn starts, done resting
+const unsunk = (e) => { if (!e.open || e.rests > 0) return e; const { open, ...shut } = e; return shut; };
+// One `wakeful` (the warden) never settles once it has lost a heart (D-937).
 // § settle: after the creatures' turn, one that stirred is awake and chasing for its
 // `awakeTurns`; one awake counts a turn down, and at the last settles back
 // down asleep where it stands, with its line (D-368)
@@ -87,6 +91,7 @@ function settle(state) {
     if (e.stirs) { const { stirs, ...rest } = e; return { ...rest, awake: get(e.id).awakeTurns, chasing: true }; }
     if (!e.awake || e.raised) return e; // fists up, a warden slams before it settles (D-885)
     if (e.awake > 1) return { ...e, awake: e.awake - 1 };
+    if (get(e.id).wakeful && (e.health ?? get(e.id).health) < get(e.id).health) return e; // cracked, it fights on (D-937)
     const { awake, chasing, ...rest } = e;
     settled = settled || e;
     return { ...rest, asleep: true };
@@ -165,7 +170,7 @@ export function noticesHero(state, e, t = traits(get(e.id)), soft = boonNotice(s
 
 // One with its own `sight` (the mole, D-858) notices them no farther than that many steps, lit or not.
 function enemiesMove(state, bit = false) {
-  const start = rally(state.enemies), claims = [];
+  const start = rally(state.enemies.map(unsunk)), claims = [];
   let enemies = start, said = null, raised = false;
   const soft = boonNotice(state); // Soft Step: the lantern's last tile of light wakes no one (D-600)
   for (const e of start) {

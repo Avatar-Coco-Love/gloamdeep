@@ -250,3 +250,13 @@ screens the bag card is about 384 × 216 game pixels, narrower than a
 phone's held sideways, so small phones and the bigger bags had the
 overlap too, fixed with it. D-931 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-935 · 2026-11-15 · The chest's hint whole or not at all** (the
+owner's pick, recommended; B-012) On the stash chest card, "Tap to move to
+the chest." (or "…to the bag.") is drawn only when every one of its lines
+fits above the card's foot; where it would break onto a second line that
+passes the foot, as level with STORE at 3840 × 2160 and 1366 × 768, it is
+left out, as it already was when its first line wouldn't fit (D-743)
+(offered too: just "Tap to move." there; the picture left out to make
+room). The text-fit test checks the chest card at every PC size again.
+D-933 moves to `archive/DECISIONS-CARDS-2.md`, word for word.

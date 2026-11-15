@@ -86,7 +86,10 @@ export const ENEMIES = {
   // It `sleeps` as itself, a statue, drawn with its eyes dull, not in disguise: a bump wakes it,
   // with no harm, and it chases for `awakeTurns` turns, then stands still again, the flask
   // mimic's way (D-368). Tough, as the mole is. It guards the locket (relic.js); no drop yet.
-  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it, or take what it guards, and it wakes and chases you, then stands still again. Beside you, it raises its fists for a turn, then slams you three tiles back.", fights: "The bump that wakes it gives you a free turn, so strike at once. When its fists go up, step out of its way, then strike while it rests. Four lantern swings or two knife blows: start with your hearts full.", health: 4, bite: 1, ways: ['slams'], raises: 'wardenRaises', misses: 'wardenMisses', sleeps: true, awakeTurns: 6, fightAt: 1, sure: 'wardenFist', hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' , sound: 'grind' },
+  // Harder (D-937): `stone`, every blow and hurt rings off it (its `rings` line) until its slam misses
+  // and it stands `open`, till it next acts (sting.js, creatureturn.js); `skin`, each blow does that
+  // much less, never below 1; `wakeful`, once cracked it never stands still again (settle).
+  warden: { id: 'warden', kind: 'enemy', name: 'Warden', acts: "Stands still as a statue beside a treasure of the old city. Bump it, or take what it guards, and it wakes and chases you, then stands still again, unless it is cracked. Beside you, it raises its fists for a turn, then slams you three tiles back. Blows ring off its stone until its fists miss.", fights: "Your blows ring off its stone. When its fists go up, step out of the way. When they sink into the floor, step back beside it and strike before it pulls them free. Four openings beat it.", health: 4, bite: 1, ways: ['slams'], stone: true, skin: 1, wakeful: true, rings: 'wardenRings', raises: 'wardenRaises', misses: 'wardenMisses', sleeps: true, awakeTurns: 6, fightAt: 1, sure: 'wardenFist', hurt: 'wardenHurt', wakes: 'wardenWakes', settles: 'wardenSettles', die: 'wardenDie', bites: 'wardenBite' , sound: 'grind' },
   // A bunny, side on and facing right (D-784), soft brown with a pale tail: the first creature that
   // means no harm. It never bites (its way's `bites: false`); `shy`, it hops away once the hero is
   // within 3 steps. Out by day in the home room and each woods room round home (nightfall.js), never
@@ -113,10 +116,17 @@ export const RARE_CHANCE = 0.1;
 // with no drop and no experience by a sting, a glob or a slam (the warden's Fist, D-885, D-888).
 // (state, foe, damage) → the state with foe hit, as hitEnemy, and its sure find lying when beaten.
 export function hitFoe(state, foe, damage) {
-  const entry = ENEMIES[foe.id], enemies = hitEnemy(state.enemies, foe, entry, damage);
+  if (rings(foe)) return state; // the warden's stone turns a sting, a glob or a slam too (D-937)
+  const entry = ENEMIES[foe.id], enemies = hitEnemy(state.enemies, foe, entry, skinned(foe, damage));
   const beaten = enemies.length < state.enemies.length && entry?.sure;
   return { ...state, enemies, ...(beaten && { items: [...state.items, { id: entry.sure, x: foe.x, y: foe.y }] }) };
 }
+
+// § stone (D-937): whether a blow on `foe` rings off its stone, hurting nothing: one of `stone`
+// unless it stands `open`, its fists sunk in the floor after a missed slam; and the hurt a blow
+// of `damage` does through its `skin`, never below 1
+export const rings = (foe) => !!ENEMIES[foe.id]?.stone && !foe.open;
+export const skinned = (foe, damage) => Math.max(Math.min(1, damage), damage - (ENEMIES[foe.id]?.skin || 0));
 
 // § lookups: the enemy on tile x, y, or undefined
 export const enemyAt = (state, x, y) => state.enemies.find((e) => e.x === x && e.y === y);

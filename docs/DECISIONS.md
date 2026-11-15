@@ -160,16 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-935 · 2026-11-15 · The chest's hint whole or not at all** (the
-owner's pick, recommended; B-012) On the stash chest card, "Tap to move to
-the chest." (or "…to the bag.") is drawn only when every one of its lines
-fits above the card's foot; where it would break onto a second line that
-passes the foot, as level with STORE at 3840 × 2160 and 1366 × 768, it is
-left out, as it already was when its first line wouldn't fit (D-743)
-(offered too: just "Tap to move." there; the picture left out to make
-room). The text-fit test checks the chest card at every PC size again.
-D-933 moves to `archive/DECISIONS-CARDS-2.md`, word for word.
-
 **D-936 · 2026-11-15 · Several kinds on one tile** (the owner's picks,
 both recommended, [mock-up](https://claude.ai/artifact/HCXfq5M38dTgHyXvdj9G5i);
 answers Q-110; the rest of B-011; supersedes in part D-546) One tile holds
@@ -181,3 +171,21 @@ the newest with a "+2" mark; a little heap); with reduced motion it stands
 still, the newest with an ember "+2" top left. A step onto it takes all
 that fits, as a single stack does (offered too: only the top kind; a pick
 card). D-934 moves to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-937 · 2026-11-15 · A harder Warden** (the owner's ask and picks,
+[mock-ups](https://claude.ai/artifact/3P1t5ADXs6NW8BewfKZVtX); supersedes
+in part D-692, D-886 and its Bestiary tip) Every blow and hurt rings off
+the warden's stone, "Your blow rings off the stone.", with no flash, until
+its slam misses: "The warden's fists sink into the floor!" Then it is open
+till it next acts, so the hero steps back beside it and strikes once
+(offered too: open 2 turns; open after every slam). Stone skin: each blow
+does 1 less, never below 1, so four openings beat it. A bump only wakes
+it. Once cracked it never stands still again (offered too: the count
+restarts each slam; awake till beaten). Its tip: "Your blows ring off its
+stone. When its fists go up, step out of the way. When they sink into the
+floor, step back beside it and strike before it pulls them free. Four
+openings beat it." Two steps: these rules, then its look and sounds:
+stuck take C (stooped, a jolt and chips), a grey spark, the clink
+`impactMetal_light_000`, the thud A6 (the heavy punch slowed with an
+earth rumble and its stone knock a touch lower). D-935 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.

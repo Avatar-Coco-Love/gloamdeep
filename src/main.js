@@ -256,7 +256,8 @@ function tryStep(dir) {
     to = { x: before.hero.x + dx, y: before.hero.y + dy };
     const missed = eventsSince(app.state, next).some((e) => e.type === 'miss'); // stiff, the swing went wide: nothing flashes (D-759)
     const into = knocks(app.state) && eventsSince(app.state, next).filter((e) => e.type === 'hit').length > 1 ? knockOf(app.state, foe)?.foe : null; // the Fist knocked it into another (D-888)
-    if (foe && !foe.asleep && !foe.under && !foe.pile && !missed) app.hit = { enemies: [foe, behind(app.state, foe), into].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479), and the one the Fist knocks it into (D-888)
+    const rang = eventsSince(app.state, next).some((e) => e.type === 'hit' && e.rang); // rang off the warden's stone: it doesn't flash (D-937)
+    if (foe && !foe.asleep && !foe.under && !foe.pile && !missed) app.hit = { enemies: [rang ? null : foe, behind(app.state, foe), into].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479), and the one the Fist knocks it into (D-888)
     if (foe && !foe.asleep && !foe.under && !foe.pile && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
     app.state = next;

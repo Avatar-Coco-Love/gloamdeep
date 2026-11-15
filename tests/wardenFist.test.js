@@ -16,8 +16,8 @@ import { withOldFist } from '../src/core/oldfist.js';
 const map = ['TTTTTTTTTT', 'T........T', 'T........T', 'T........T', 'TTTTTTTTTT'];
 const room = makeRoom(map, SKY, 'woods');
 const at = (hx, enemies, held = 'wardenFist') => ({ ...makeState(room, { x: hx, y: 2 }, [], []), lit: true, oil: 99, held, enemies });
-// A warden resting after a slam stands still, so where the Fist knocks it can be seen
-const resting = (x, extra = {}) => ({ id: 'warden', x, y: 2, chasing: true, rests: 3, ...extra });
+// A warden resting after a missed slam stands still and open to blows (D-937), so where the Fist knocks it can be seen
+const resting = (x, extra = {}) => ({ id: 'warden', x, y: 2, chasing: true, rests: 3, open: true, ...extra });
 const fists = (s) => s.items.filter((i) => i.id === 'wardenFist');
 
 test('the Fist is a held weapon that hits for 2 and knocks back 1, of stone', () => {
@@ -34,34 +34,34 @@ test('beaten by the hero, the warden always leaves the Fist where it fell', () =
 });
 
 test('beaten by a sting, with no drop and no experience, it still leaves the Fist', () => {
-  const s = stingTurn(at(5, [{ id: 'warden', x: 6, y: 2, chasing: true, raised: { dx: -1, dy: 0 } }, { id: 'warden', x: 4, y: 2, health: 1 }], null));
+  const s = stingTurn(at(5, [{ id: 'warden', x: 6, y: 2, chasing: true, raised: { dx: -1, dy: 0 } }, { id: 'warden', x: 4, y: 2, health: 1, open: true }], null));
   assert.deepEqual(fists(s), [{ id: 'wardenFist', x: 4, y: 2 }]);
 });
 
 test('held, it hits for 2 and knocks the creature a tile straight back', () => {
   const s = step(at(3, [resting(4)]), 'right');
   assert.deepEqual([s.enemies[0].x, s.enemies[0].y], [5, 2]);
-  assert.equal(s.enemies[0].health, 2);
+  assert.equal(s.enemies[0].health, 3, "the Fist's 2, less 1 for the warden's stone skin (D-937)");
   assert.equal(s.line.id, 'wardenHurt');
 });
 
 test('into a wall: it loses 1 more, the line naming both', () => {
   const s = step(at(7, [resting(8)]), 'right');
-  assert.deepEqual([s.enemies[0].x, s.enemies[0].health], [8, 1]);
+  assert.deepEqual([s.enemies[0].x, s.enemies[0].health], [8, 2]); // 1 through its skin, 1 for the wall (D-937)
   assert.equal(s.line.id, 'foeSlamInto');
   assert.equal(shownLine(s).text, 'The warden slams into the tree!');
 });
 
 test('into another creature: both lose 1, and both flash', () => {
   const s = step(at(3, [resting(4), { id: 'snapcap', x: 5, y: 2 }]), 'right');
-  assert.equal(s.enemies.find((e) => e.id === 'warden').health, 1);
+  assert.equal(s.enemies.find((e) => e.id === 'warden').health, 2); // 1 through its skin, 1 for the snapcap (D-937)
   assert.equal(s.enemies.find((e) => e.id === 'snapcap').health, 1);
   assert.equal(shownLine(s).text, 'The warden slams into the snapcap!');
   assert.equal(s.events.filter((e) => e.type === 'hit').length, 2);
 });
 
 test('beaten by the wall, it is the hero\'s blow: its drop and its experience', () => {
-  const s = step(at(7, [resting(8, { health: 3 })]), 'right');
+  const s = step(at(7, [resting(8, { health: 2 })]), 'right'); // 1 through its skin, 1 for the wall (D-937)
   assert.ok(!s.enemies.length);
   assert.deepEqual(fists(s), [{ id: 'wardenFist', x: 8, y: 2 }]);
   assert.ok(s.events.some((e) => e.type === 'beat' && e.id === 'warden'));

@@ -1675,6 +1675,8 @@ warden slams the empty floor."). Its fists going up play its waking
 stone, `statue`, a draft. D-883 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
+Its miss line changed by D-937 (2026-11-15): "The warden's fists sink into the floor!"
+
 **D-885 · 2026-11-13 · The warden's slam and its Fist** (the owner's
 ask and picks, all recommended; answers Q-104) The warden gets harder:
 in line beside the hero it raises its fists for a turn, as the

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.376, One stack on the ground.** B-011: what doesn't
+  fit in the bag lies as one stack of its kind, a felled tree's 3 Wood
+  on its stump, its count in the tile's corner. Several kinds on one
+  tile is Q-110. The owner's picks. D-932 archived. D-934.
+  Playtest: https://claude.ai/artifact/8kEbd95FrfPF231EqsJm3V
 - **2026-11-15, 0.3.375, Words clear of DROP.** B-010: on a PC screen the
   bag's "Makes a Mending Draught at the mortar" breaks onto two lines
   instead of running over DROP. The text-fit test tries PC screens now;
