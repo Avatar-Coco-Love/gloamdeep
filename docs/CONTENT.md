@@ -59,6 +59,8 @@ Moved to `CONTENT-FINDS.md` word for word at 0.3.113 (D-660).
 ## Tiles
 Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535); now in `CONTENT-3.md` (D-618).
 
+The bosses are in `CONTENT-BOSSES.md` (D-941).
+
 ## Lights, places
 Moved to `CONTENT-2.md` word for word at 0.3.3 (D-531); now in `CONTENT-3.md` (D-618); places in `CONTENT-4.md` (0.3.299).
 

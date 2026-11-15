@@ -11,6 +11,7 @@ import { withHomeStone } from './homestone.js';
 import { withSmallStones } from './smallstone.js';
 import { withOldLocket } from './oldlocket.js';
 import { withOldFist } from './oldfist.js';
+import { withLampeater } from './oldarena.js';
 import { rehome } from './rehome.js';
 import { renew } from './renew.js';
 import { regrove } from './regrove.js';
@@ -29,7 +30,7 @@ import { setAside } from './aside.js';
 // § upgrades: an older save is brought up to today's shape, one numbered step at a
 // time (D-266), instead of dropped. When the state's shape changes, raise FORMAT and
 // add the step from the old number to the new one; never edit a step once merged.
-export const FORMAT = 36;
+export const FORMAT = 37;
 export const UPGRADES = {
   1: (s) => withBag(withXp(s)), // 1 → 2: experience (D-245), the bag and the held item (D-247, D-252)
   2: (s) => ({ ...s, events: [] }), // 2 → 3: the turn's events, none yet (D-267)
@@ -66,6 +67,7 @@ export const UPGRADES = {
   33: refetch, // 33 → 34: a freed Peddler in no room, lost by an older upgrade, sent home (H-57, D-880)
   34: withOldFist, // 34 → 35: the warden beaten already, its Fist laid where it first stood, once (D-888)
   35: rearena, // 35 → 36: every generated room from depth 8 down made again, depth 8 with its arena (D-940)
+  36: withLampeater, // 36 → 37: an arena made before the Lampeater came gets it, once (D-941)
 };
 // The finds known for the bag's Make tab: each kind in the bag and in every stash chest, once
 function withKnown(s) {

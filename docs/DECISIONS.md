@@ -125,16 +125,6 @@ too: the words only; no prompts at all). CLAUDE.md says it too.
 
 
 
-**D-938 · 2026-11-15 · The Warden's look and sounds** (D-937's step 2,
-the owner's picks; [sound board](https://claude.ai/artifact/ThY4FkXmmTFKHnK6V3cC1a))
-The light metal clink was already Making's, two taps at their own pitch,
-so a blow that rings off the warden plays it once, a quarter lower (75%;
-offered too: 85%, 65%, the medium metal, the light stone plate). Claude's
-calls: the clink plays in the hit's place, with no punch; it and the thud
-A6 go under Creatures in Settings; the thud plays as the fists sink,
-with the line. The grey spark shows with reduced motion too; the jolt and
-the chips don't. D-936 moves to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-939 · 2026-11-15 · Biome 1's boss: the Lampeater** (the owner's
 picks, all recommended; answers part of Q-105; builds D-463, D-636,
 D-643, W4, G3; [ideas page](https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR))
@@ -182,3 +172,25 @@ Nothing else in either. The Pillar and the Seal stone, names Claude's
 draft. Old saves make every room from depth 8 down again. D-929 moves to
 `archive/DECISIONS-SURFACE.md` and D-937 to `archive/DECISIONS-RELICS.md`,
 word for word.
+
+**D-941 · 2026-11-15 · The Lampeater standing in its arena** (D-939's
+step 2; the owner's picks, all recommended but where it stands;
+[mock-ups](https://claude.ai/artifact/8HL2d5eZpf97Ki31Ukg4zn))
+Look A, the pool: a low mound of gloam on one tile, a ragged dripping
+edge, a dark mouth, pink eyes, in three new deep violets (offered too: B,
+the swallowed light, a hunched shape with a stolen flame inside; C, the
+reaching shade, two arms of gloam). Its eyes alone glow over the dark,
+in the lure wisp's halo turned violet. It waits pooled near the sealed
+door: on the tile below the door's own tile, as the door can only be
+reached from there (offered too: beside the door's tile; on it, slipping
+aside as the door sinks; in the middle), and blocks its tile. For now it
+never moves or bites, and every blow, sting, glob or slam sinks into it,
+hurting nothing, "Your blow sinks into the gloam." (offered too: no bump
+at all). Claude's calls: no hit flash, the swing's puff for a sound, no
+hearts shown yet, the Fist knocks it nowhere. Until it can be beaten the
+4 braziers still sink the door (offered too: sealed till then). Its
+Bestiary page is the Warden's kind: met when lit, the grey hints till
+beaten, how to fight it after 1 (offered too: a line of who it is from
+the start; not listed till beaten); its words are written at step 9, so
+for now they say only what it does. An arena made before gets it once.
+D-938 moves to `archive/DECISIONS-RELICS.md`, word for word.

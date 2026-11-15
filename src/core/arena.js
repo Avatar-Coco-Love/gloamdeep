@@ -1,8 +1,9 @@
-// § arena: the Lampeater, step 1 (D-939, D-940). On depth 8 the way ends in a hallway and,
-// straight above it, the arena (region.js), both standing empty: no creatures, finds or cache.
+// § arena: the Lampeater, steps 1 and 2 (D-939, D-940, D-941). On depth 8 the way ends in a hallway
+// and, straight above it, the arena (region.js): no finds or cache, and no creature but the
+// Lampeater, standing one tile below the tile before its sealed door (step 2, D-941).
 // The arena is the seal hall: a cold brazier in each corner, 4 pillars round its middle, and at
 // its top a wall with a sealed door in its middle and the stairs down 3 tiles deep behind it,
-// ringed by the old seal's stones. Until the Lampeater comes, the 4 braziers lit sink the door, as
+// ringed by the old seal's stones. Until the Lampeater can be beaten, the 4 braziers lit sink the door, as
 // a vault's do (vault.js, openVault), and they go cold again when the hero leaves a still-sealed
 // arena (coolVault). The hallway is the processional: a road 3 tiles wide from its way in to the
 // arena's, bending once where the two don't face, a line of seal stones down its middle, round
@@ -13,6 +14,8 @@ import { get } from './registry.js';
 export const ARENA_DEPTH = 8;
 // The stairs down, in the stair room behind the sealed door (13 × 15, the dungeon's cell)
 export const ARENA_DOWN = { x: 6, y: 2 };
+// The Lampeater's tile, one below the tile before the sealed door, so the way to it stays open (D-941)
+export const LAMPEATER_AT = { x: 6, y: 6 };
 
 // The seal hall, its way in at the bottom; `,` the old seal's stones, `j` a cold brazier, `q` a
 // pillar, `k` the sealed door, `>` the stairs down. The gap in the bottom edge is cut at the opening.
@@ -39,11 +42,11 @@ const set = (map, x, y, id) => { map[y] = map[y].slice(0, x) + get(id).letter + 
 const empty = (map, start) => ({ map, start, lights: [], items: [], enemies: [], people: [] });
 
 // (cell) → the arena as a generated room is: its map, the hero's start just inside its one
-// opening, at the bottom, and nothing in it
+// opening, at the bottom, and only the Lampeater in it, standing (D-941)
 export function arenaRoom(cell) {
   const { at } = cell.doors[0], map = lettered(SEAL_HALL);
   set(map, at, cell.rows - 1, 'floor');
-  return empty(map, { x: at, y: cell.rows - 2 });
+  return { ...empty(map, { x: at, y: cell.rows - 2 }), enemies: [{ id: 'lampeater', ...LAMPEATER_AT }] };
 }
 
 // § hallway: (cell) → the hallway as a generated room is. Its road follows a path from the tile

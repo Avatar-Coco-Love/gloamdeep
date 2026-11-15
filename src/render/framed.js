@@ -31,7 +31,7 @@ function drawHeart(c, x0, y0, full) {
 }
 // The name then a heart for each point of health, in a box like the strip's
 function drawTag(c, name, health, max, cx, y, left, right) {
-  const tw = textWidth(name), w = 3 + tw + 3 + max * (HEART_W + 1) - 1 + 3;
+  const tw = textWidth(name), w = 3 + tw + 3 + (max ? max * (HEART_W + 1) - 1 + 3 : 0); // none for one with no hearts yet, the Lampeater (D-941)
   const x = Math.max(left, Math.min(right - w, Math.round(cx - w / 2)));
   c.fillStyle = EDGE; c.fillRect(x, y, w, TAG_H);
   c.fillStyle = DARK; c.fillRect(x + 1, y + 1, w - 2, TAG_H - 2);
@@ -44,6 +44,6 @@ export function drawFramed(c, { e, move }, p, cam, t, still) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16) - 2; // sprites sit 2 up
   drawCorners(c, x - 1, y - 1);
   if (move) drawMoves(c, [move], () => p, t, still);
-  const def = get(e.id), max = def.health, top = y - 3 - TAG_H;
+  const def = get(e.id), max = def.health ?? 0, top = y - 3 - TAG_H;
   drawTag(c, def.name, e.health ?? max, max, x + 8, top >= cam.y ? top : y + BOX + 1, cam.x + 1, cam.x + view.w - 1);
 }

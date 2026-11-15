@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.382 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.383 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 2: the boss standing in its arena, its look and
-Bestiary page (D-939).
+The Lampeater, step 3: it moves only through the dark (D-939's list).
+Propose with mock-ups before building.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -47,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.383, The Lampeater stands.** D-939's step 2: the
+  pool, eyes glowing in the dark, a tile below the door's tile; it never
+  moves or bites, blows sink in, braziers still open the door; a Bestiary
+  page as the Warden's. Owner's picks. D-938 archived. D-941.
+  Playtest: https://claude.ai/artifact/QYJiWPn7nEVLiHExN9xciw
 - **2026-11-15, 0.3.382, The Lampeater's arena.** D-939's step 1: on
   depth 8 a hallway of seal stones and pillars leads up to the empty
   arena, its sealed door before the stairs down sunk by 4 braziers for
@@ -58,8 +63,3 @@ list in `RESEARCH.md`.
   picked the Lampeater, light deciding the fight, in a sealed arena on
   depth 8, giving Leap and an escape. No game change. D-939.
   Ideas page: https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR
-- **2026-11-15, 0.3.380, The Warden's look and sounds.** D-937's step 2:
-  stooped while open, a jolt and chips as its fists sink, a thud A6; a
-  grey spark and a clink for a blow that rings. The clink was Making's,
-  so the owner picked it a quarter lower by ear. D-936 archived. D-938.
-  Playtest: https://claude.ai/artifact/VYLnzHvfrPpysbWQKq3AmQ
