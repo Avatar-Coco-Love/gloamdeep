@@ -4,14 +4,15 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.369 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.370 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L3 step 1 (D-927): the rune-wall nook and its runes, seen only in the
-dark; a mock-up of the look first.
+L3 step 2 (D-927): a dark bump opens the rune wall for good, a vault's
+prize in the nook; a lit bump says its line.
 
 ## Waiting on the owner
+- Which of B-006 to B-011 (`BUGS.md`) first, after L3.
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - Any time: a sound for the vault door opening (D-895); a duskstar on
@@ -47,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.370, The rune wall.** L3 step 1 (D-927): from depth
+  1, one wall a floor shows three faint violet runes, only with the
+  lantern off. Look A from a mock-up on game screenshots; the owner's
+  picks. The owner's notes are B-006 to B-011. D-902 archived. D-928.
+  Playtest: https://claude.ai/artifact/UGyugvpFX6gCeu5LxQmtZu
 - **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
   rune-wall nook a floor from depth 1, in an ordinary cave room; its
   runes seen across the room only with the lantern off; a dark bump
@@ -58,9 +64,3 @@ list in `RESEARCH.md`.
   digs out a stump for good, grass left. The sapling stays open; buried
   things are Q-108. The owner's picks. D-924 archived. D-926.
   Playtest: https://claude.ai/artifact/PfDffRqUmtMpaxu9FDEK2o
-- **2026-11-14, 0.3.367, Creatures through doorways.** Q-107's step: a
-  chasing creature within 3 steps of where the hero leaves, by a doorway
-  or stairs, follows, as many turns later as it was steps away; leave
-  first and it gives up, in either room. Not the warden. The owner's
-  picks. D-922 archived. D-925.
-  Playtest: https://claude.ai/artifact/FZr9gmLPZXpQAZK34qteJA

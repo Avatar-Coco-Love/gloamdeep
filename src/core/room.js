@@ -6,6 +6,7 @@ import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
 import { vaultRoomOf, vaultRoom } from './vault.js';
+import { RUNES_FROM, runeSpotIn } from './runewall.js';
 import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
 import { withUnguarded } from './unguarded.js';
@@ -265,6 +266,28 @@ export function vaultAt(seed, depth) {
   }
   return vaults.get(k);
 }
+// § the rune wall: from depth 1, one room a floor the seed picks, never the vault, the peddler's
+// or a waystone's room, whose map has a tile that fits (runewall.js, D-927, D-928): the rooms
+// tried in the seed's order, the first that fits taken; null when none does. Depth 1 is the one
+// hand-made room there, so it is that room's.
+const runeWalls = new Map();
+export function runeWallAt(seed, depth) {
+  const k = `${seed}:${depth}`;
+  if (!runeWalls.has(k)) {
+    const plan = isGenerated(placeAt(depth)) ? layoutAt(seed, depth) : null;
+    const taken = [vaultAt(seed, depth), depth === PEDDLER_DEPTH && peddlerRoom(seed), stoneRoom(seed, depth)].filter(Boolean);
+    const ids = (plan ? plan.cells.map((c) => c.id) : [placeAt(depth)]).filter((id) => !taken.includes(id));
+    const r = rng(seedAt(seed, depth) ^ 0x3c6ef372);
+    for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
+    let found = null;
+    for (const id of ids) {
+      const at = runeSpotIn(madeFor(id, seed).map, seedAt(seed, depth));
+      if (at) { found = { id, at }; break; }
+    }
+    runeWalls.set(k, found);
+  }
+  return runeWalls.get(k);
+}
 // § weapons: the first weapon lies in the first room of depth 2, the first cave,
 // the one with the stairs up (D-252); the spear in depth 3's (D-479)
 export const KNIFE_DEPTH = 2;
@@ -276,8 +299,13 @@ const weaponIn = (id) => (id === placeAt(KNIFE_DEPTH) ? 'knife' : id === placeAt
 export const depthOf = (id) => PLACES[id]?.depth ?? parseInt(id.slice('depth'.length), 10);
 export const isGenerated = (id) => !PLACES[id];
 // The hand-made rooms keep their shape; the seed places what is in them (D-192),
-// and cuts the gap from the cave mouth into one of them (D-211).
+// and cuts the gap from the cave mouth into one of them (D-211). The floor's rune wall, where
+// it is, kept as `runes` (D-927, D-928).
 export function placeFor(id, seed = 1) {
+  const p = madeFor(id, seed), depth = depthOf(id), rune = depth >= RUNES_FROM ? runeWallAt(seed, depth) : null;
+  return rune?.id === id ? { ...p, runes: rune.at } : p;
+}
+function madeFor(id, seed) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
@@ -337,7 +365,7 @@ export function placeBeside(id, way, seed = 1) {
 // § begin: any place as it begins, from its plan and the game's seed
 export function beginPlace(id, seed) {
   const p = placeFor(id, seed);
-  const made = makeRoom(p.map, p.sky ? SKY : CAVE, p.look), room = p.prize ? { ...made, prize: p.prize } : made; // a vault's prize kept with its room (D-896)
+  const made = makeRoom(p.map, p.sky ? SKY : CAVE, p.look), withPrize = p.prize ? { ...made, prize: p.prize } : made, room = p.runes ? { ...withPrize, runes: p.runes } : withPrize; // a vault's prize kept with its room (D-896), and a rune wall's place (D-928)
   return { room, start: p.start, lights: p.lights, enemies: p.enemies, items: p.items || [], people: p.people || [] };
 }
 

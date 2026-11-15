@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.370 (2026-11-15)
+- From depth 1, one room on each floor now has a rune wall. Switch your lantern off and three faint violet runes glow on that wall's face, seen from across the room. With the lantern lit it looks like any other wall.
+- Nothing opens it yet: bumping it in the dark comes next.
+- Your six notes are on the bug list: flyers over things to pick up, the boon menu on coming home, the round map's dark circle, lines at the bottom staying too long, overlaps on a big PC screen, and a felled tree's wood landing in three spots.
+- Decisions: D-928. D-902 moved to the archive, word for word.
+
 ## 0.3.369 (2026-11-14)
 - Nothing in the game changed. The second puzzle is settled: from depth 1, one cave room on each floor hides a nook in its wall, marked by faint violet runes you can see only with the lantern off.
 - Bump that wall in the dark and it opens for good, with a vault's prize behind it. Bumped with the lantern lit, it only says the marks are too pale to see.
@@ -33,11 +39,3 @@ Entry format:
 - With the shovel held, walk onto a stump to dig it out: a turn, and you stay where you are. Plain grass is left, and the tree never grows back there, so you can clear room for a base.
 - Without the shovel held, you walk onto a stump as before. A standing tree is still chopped, not dug.
 - Decisions: D-926.
-
-## 0.3.367 (2026-11-14)
-- A creature chasing you now follows you out of a room, through a doorway, the cave mouth or down and up stairs, if it is within 3 steps of where you leave. Stairs are no longer a sure escape.
-- It comes in as many turns after you as it was steps away, on the tile you came in by, still chasing. One right behind you comes in the turn after.
-- Leave that room again before it comes, and it gives up: you may find it later in either room, somewhere new, no longer chasing.
-- The rat, the gloamling, both mimics, the bone rat, the oil tick, the centipede and the rim lurker follow. The warden keeps to its vault, and bats and lampmoths stay behind.
-- The round map's rim stays red while one is on its way.
-- Decisions: D-925. Questions closed: Q-107.

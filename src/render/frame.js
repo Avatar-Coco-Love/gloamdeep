@@ -24,7 +24,8 @@ import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './
 import { drawFramed } from './framed.js';
 import { drawMoves, drawStrikes, drawPiles } from './moves.js';
 import { struck } from '../core/sting.js';
-import { litAt } from '../core/sight.js';
+import { litAt, runesSeen } from '../core/sight.js';
+import { drawRunes } from './runes.js';
 import { echoed } from '../core/echo.js';
 import { drawEchoes } from './echo.js';
 import { canSleepOut } from '../core/sleepout.js';
@@ -321,6 +322,7 @@ export function createFrame(app, ui) {
         if (lightOn) drawEchoes(rc, echoed(s), t, still(), foeAt); // the Echo Charm's pale outlines, near creatures in the dark (D-805)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)
+        if (runesSeen(s)) drawRunes(rc, s.room.runes, t, still()); // the rune wall's runes, seen in the dark (D-928)
         drawGlobs(rc, s.globs, t, still()); // the Spit grub's globs in flight, seen in the dark (D-688)
         if (marksShown(app.settings)) { // Attack marks (D-730)
           drawMoves(rc, (s.globs ?? []).map((g) => ({ e: g, kind: 'step', dx: g.dx, dy: g.dy })), (g) => g, t, still()); // each glob's next tile (D-688)

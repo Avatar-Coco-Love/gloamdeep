@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.367, Creatures through doorways.** Q-107's step: a
+  chasing creature within 3 steps of where the hero leaves, by a doorway
+  or stairs, follows, as many turns later as it was steps away; leave
+  first and it gives up, in either room. Not the warden. The owner's
+  picks. D-922 archived. D-925.
+  Playtest: https://claude.ai/artifact/FZr9gmLPZXpQAZK34qteJA
 - **2026-11-14, 0.3.366, Cutting a room.** D-899's step: things set
   down may cut a room in two, a tree grows back on its stump though it
   does, and a full bag no longer stops the fourth chop (the wood falls

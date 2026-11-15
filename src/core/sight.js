@@ -60,3 +60,13 @@ export function clearLine(room, a, b) {
   }
   return true;
 }
+
+// § runes seen (D-927, D-928): (state) → true when the hero sees the runes now: the room has a rune wall, the
+// lantern is off, no daylight, and the hero stands in front of its face (a row below it) with a
+// clear line to the tile just in front of it
+export function runesSeen(state) {
+  const r = state.room.runes, h = state.hero;
+  if (!r || state.lit || inDaylight(state) || h.y <= r.y) return false;
+  const front = { x: r.x, y: r.y + 1 };
+  return (h.x === front.x && h.y === front.y) || clearLine(state.room, h, front);
+}
