@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.386, The Lampeater caught.** D-939's step 4: light
+  falling on it holds it a turn, then it slips away, so a catch is 2
+  blows; blows hurt only while it is lit; 8 hearts, a bite of 2 in the
+  dark; caught, it burns in a ring of flame. Owner's picks. D-944.
+  Playtest: https://claude.ai/artifact/L3gs7FvKT8bmp7wasarz11
 - **2026-11-15, 0.3.385, The Lampeater moves.** D-939's step 3: only
   over dark tiles, the gloamling's way; it sees the hero along a clear
   line, waits at the light's edge, backs out of light, drifts home when

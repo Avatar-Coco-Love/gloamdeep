@@ -52,7 +52,7 @@ export function createHearing(app, sound, spoken) {
     if (has(events, 'feed')) sound.feed(); // guano on the sprout
     if (events.some((e) => e.type === 'pour' && isFlask(e.id))) sound.pour(); // a flask, by hand or by itself; a minnow is silent (D-830)
     if (has(events, 'oilLow')) sound.sputter(); // the flame is getting low: two sputters (D-834)
-    if (has(events, 'oilOut')) sound.gutter(); // the lantern gutters to an ember
+    if (has(events, 'oilOut') || has(events, 'snuff')) sound.gutter(); // the lantern gutters to an ember; a brazier breathed out, the same (D-947)
     if (has(events, 'torch')) sound.torch(); // an unlit torch lit (D-121)
     if (has(events, 'kindle')) sound.kindle(); // cold ashes lit into a campfire (D-757), or a vault's brazier (D-893)
   }

@@ -368,14 +368,17 @@ function drawBurning(c, e, p, t, still) {
 // tile it drinks from into its mouth, drawn over the dark: 1 pixel wide, sagging a little, flame and
 // white-hot pixels creeping toward its mouth (steady with reduced motion)
 const THREAD = { mouth: { x: 8, y: 10 }, sag: 2, on: 3, off: 2, ms: 120, colours: ['#ffd66b', '#fff5d6'] };
-function drawThread(c, e, p, t, still) {
-  const ax = Math.round((p.x + e.drinking.x - e.x) * 16) + 8, ay = Math.round((p.y + e.drinking.y - e.y) * 16) + 8;
+// Its breath (D-947): the same thread the other way, from its mouth to the brazier it breathes on, in
+// its gloam's violets, the pixels creeping away from its mouth
+const BREATH = ['#a58ce0', '#6e58a8'];
+function drawThread(c, e, p, t, still, to = e.drinking, colours = THREAD.colours, out = false) {
+  const ax = Math.round((p.x + to.x - e.x) * 16) + 8, ay = Math.round((p.y + to.y - e.y) * 16) + 8;
   const bx = Math.round(p.x * 16) + THREAD.mouth.x, by = Math.round(p.y * 16) + THREAD.mouth.y;
-  const n = Math.max(Math.abs(bx - ax), Math.abs(by - ay)), turn = still ? 0 : Math.floor(t / THREAD.ms);
+  const n = Math.max(Math.abs(bx - ax), Math.abs(by - ay)), turn = still ? 0 : (out ? -1 : 1) * Math.floor(t / THREAD.ms);
   for (let i = 0; i <= n; i++) {
     const k = (i - turn) % (THREAD.on + THREAD.off); if ((k + THREAD.on + THREAD.off) % (THREAD.on + THREAD.off) >= THREAD.on) continue;
     const f = i / n, sag = Math.sin(f * Math.PI) * THREAD.sag;
-    c.fillStyle = THREAD.colours[f > 0.6 ? 1 : 0];
+    c.fillStyle = colours[f > 0.6 ? 1 : 0];
     c.fillRect(Math.round(ax + (bx - ax) * f), Math.round(ay + (by - ay) * f + sag), 1, 1);
   }
 }
@@ -398,6 +401,7 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burnin
     }
     c.restore();
     if (e.drinking && !flash && !burning(e)) drawThread(c, e, p, t, still); // at the light's edge (D-946)
+    if (e.breath && !flash && !burning(e)) drawThread(c, e, p, t, still, e.breath, BREATH, true); // breathing on a brazier (D-947)
     if (BURNING[e.id] && burning(e)) { if (!flash) drawBurning(c, e, p, t, still); } // caught in light (D-944)
     else if (GLOW_EYES[e.id]) { if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16), Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id])); } // only its eyes (D-941)
     else drawEnemy(c, e, p, t, still, flash, null);
