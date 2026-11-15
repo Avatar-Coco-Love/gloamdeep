@@ -1,4 +1,4 @@
-// § lampeater: biome 1's boss, steps 2 to 4 (D-939, D-941, D-943, D-944): in its arena, one tile below the
+// § lampeater: biome 1's boss, steps 2 to 5 (D-939, D-941, D-943, D-944, D-945): in its arena, one tile below the
 // tile before its sealed door; it moves only through the dark, backs out of light and goes home when it
 // loses the hero; it bites for 2 in the dark; light falling on it holds it a turn, and only then do blows
 // hurt it; its page shows the grey hints until it is beaten; an arena made before it came gets it once
@@ -176,4 +176,53 @@ test('a blow that sinks into it puffs, the swing with no blow; its eyes alone gl
   const pic = dots.findIndex((d) => d.length === 2);
   assert.deepEqual(dots.filter((d) => d.length === 2), [[96, 94]]); // burning: its paled picture, not its eyes alone
   assert.ok(dots.slice(pic).filter((d) => d.length === 4).length >= 12); // then its ring of flame, dot by dot
+});
+
+// § pinned (step 5, D-945): the arena with its 4 braziers lit, every glow counted
+const litArena = (seed = 3) => {
+  const s0 = goToPlace(makeWorld('first', seed), arenaOf(seed).id), J = get('brazier').letter, L = get('brazierLit').letter;
+  return { ...s0, room: { ...s0.room, map: s0.room.map.map((r) => r.split(J).join(L)) }, seen: null, oil: 99, god: true };
+};
+// Under the top left brazier: its light on both sides, the brazier above, the hero below
+const boxed = (lit = true) => ({ ...litArena(), lit, hero: { x: 2, y: 7 }, enemies: [{ id: 'lampeater', x: 2, y: 6 }] });
+
+test('caught with no dark beside it, it is pinned 2 more turns, its line said once, and blows hurt it', () => {
+  assert.equal(get('lampeater').pins, 2);
+  assert.equal(LINES.lampeaterPinned.text, "Pinned in the light, it can't slip away!");
+  let s = wait(boxed());
+  assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].caught], [2, 6, true]);
+  s = wait(s);
+  assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].pinned], [2, 6, 1]);
+  assert.equal(s.line.id, 'lampeaterPinned');
+  s = step(s, 'up'); // a blow while pinned
+  assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].pinned, s.enemies[0].health], [2, 6, 2, 7]);
+  assert.ok(!s.events.some((v) => v.type === 'say' && v.id === 'lampeaterPinned'));
+});
+
+test('then it bursts free across the light, and goes on to the dark, where it can be pinned again', () => {
+  for (const lit of [true, false]) {
+    let s = turns(boxed(lit), 3);
+    assert.equal(s.enemies[0].pinned, 2);
+    s = wait(s);
+    const e = s.enemies[0];
+    assert.equal(Math.abs(e.x - 2) + Math.abs(e.y - 6), 1); // a tile
+    assert.ok(e.burst && !e.pinned);
+    for (let i = 0; i < 8 && litAt(s, s.enemies[0].x, s.enemies[0].y); i++) s = wait(s);
+    assert.ok(!litAt(s, s.enemies[0].x, s.enemies[0].y), `lantern ${lit}: reached the dark`);
+    s = wait(s);
+    const f = s.enemies[0];
+    assert.ok(!f.burst && !f.pinned); // in the dark its marks go
+  }
+});
+
+test('lantern off under a brazier, the pin still ends: 3 blows land, then it is gone', () => {
+  let s = wait(boxed()); s = switchLantern(s);
+  for (let i = 0; i < 6; i++) s = step(s, 'up');
+  assert.equal(s.enemies[0].health, 8 - 3); // the 2 pinned turns, and the turn it bursts
+});
+
+test('on open floor it still backs through the lantern\'s light, never pinned', () => {
+  let s = { ...litArena(), lit: true, hero: { x: 6, y: 9 }, enemies: [{ id: 'lampeater', x: 6, y: 8 }] };
+  for (let i = 0; i < 4; i++) { s = wait(s); assert.ok(!s.enemies[0].pinned); }
+  assert.notDeepEqual([s.enemies[0].x, s.enemies[0].y], [6, 8]);
 });

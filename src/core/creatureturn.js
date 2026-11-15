@@ -83,7 +83,38 @@ const unsunk = (e) => { if (!e.open || e.rests > 0) return e; const { open, ...s
 // § caught (D-944): one whose ways say `caught`, light falling on it, is held where it stands for its
 // turn, marked `caught`, with its `caughtSays`; still lit next turn, it backs away as one that shuns
 // light does. Back in the dark at its turn's start, its mark goes, so the next light catches it again.
-const uncaught = (state) => (e) => { if (!e.caught || litAt(state, e.x, e.y)) return e; const { caught, ...free } = e; return free; };
+// Its marks of a pin (`pinned`, `burst`, D-945) go with it.
+const uncaught = (state) => (e) => { if (!e.caught || litAt(state, e.x, e.y)) return e; const { caught, pinned, burst, ...free } = e; return free; };
+// § pinned (D-945): one caught, still lit at its turn with no dark tile beside it to back into (only
+// the lantern's light, never another, can it back through), is pinned: held its `pins` more turns,
+// its `pinnedSays` said as the first starts; then it bursts free across the light, a tile a turn by
+// the shortest way to the nearest dark tile, the side farthest from the hero first, till it is in the
+// dark again, where it can be pinned anew. (state, e) → its new self, or null when it isn't boxed in.
+function pinStep(state, e, pins) {
+  const out = backAway(state, e);
+  if (out) { const { pinned, ...rest } = e; return { e: { ...rest, x: out.x, y: out.y, ...facingTo(e, out) } }; }
+  if (!e.burst && (e.pinned ?? 0) < pins) return { e: { ...e, pinned: (e.pinned ?? 0) + 1 }, first: !e.pinned };
+  const to = toDark(state, e);
+  const { pinned, ...rest } = e;
+  return { e: { ...rest, burst: true, ...(to && { x: to.x, y: to.y, ...facingTo(e, to) }) } };
+}
+const facingTo = (e, t) => (t.x < e.x ? { facing: 'left' } : t.x > e.x ? { facing: 'right' } : {});
+
+// The first tile on the shortest way, over any free tile, lit or not, from e to the nearest dark one;
+// of the sides that start such a way, the one farthest from the hero. Null when none (D-945).
+function toDark(state, e) {
+  const away = (t) => Math.abs(t.x - state.hero.x) + Math.abs(t.y - state.hero.y), key = (t) => `${t.x},${t.y}`;
+  const firsts = Object.values(DIRS).map(([dx, dy]) => ({ x: e.x + dx, y: e.y + dy })).filter((t) => free(state, e, t.x, t.y, true));
+  let ring = firsts.map((t) => ({ ...t, first: t }));
+  const seen = new Set([key(e), ...ring.map(key)]);
+  while (ring.length) {
+    const dark = ring.filter((t) => !litAt(state, t.x, t.y));
+    if (dark.length) return dark.map((t) => t.first).reduce((b, t) => (!b || away(t) > away(b) ? t : b), null);
+    ring = ring.flatMap((t) => Object.values(DIRS).map(([dx, dy]) => ({ x: t.x + dx, y: t.y + dy, first: t.first })))
+      .filter((t) => !seen.has(key(t)) && seen.add(key(t)) && free(state, e, t.x, t.y, true));
+  }
+  return null;
+}
 // One `wakeful` (the warden) never settles once it has lost a heart (D-937).
 // § settle: after the creatures' turn, one that stirred is awake and chasing for its
 // `awakeTurns`; one awake counts a turn down, and at the last settles back
@@ -188,6 +219,12 @@ function enemiesMove(state, bit = false) {
     if (t.caught && lit && !e.caught) { // caught in light: held a turn (D-944)
       enemies = enemies.map((o) => (o === e ? { ...e, caught: true, ...(t.home && { home: homeOf(e) }) } : o));
       said = said || get(e.id).caughtSays;
+      continue;
+    }
+    if (t.caught && lit && e.caught && get(e.id).pins) { // boxed in, pinned; then it bursts free (D-945)
+      const pin = pinStep({ ...state, enemies }, e, get(e.id).pins);
+      enemies = enemies.map((o) => (o === e ? pin.e : o));
+      if (pin.first) said = said || get(e.id).pinnedSays;
       continue;
     }
     const seeks = t.moves === 'toLight';

@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.384 (2026-11-15)
+- Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.
+- Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.
+
 ## 0.3.383 (2026-11-15)
 - The Lampeater stands in its arena on depth 8: a low pool of deep violet gloam with a dripping edge, a dark mouth and pink eyes, waiting a tile below the tile before the sealed door. With the lantern off you still see its eyes glowing in the dark.
 - For now it only waits there. It never moves or bites, and a blow sinks into it, hurting nothing: "Your blow sinks into the gloam." The 4 braziers still sink the door until it can be beaten.
