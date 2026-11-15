@@ -4,11 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.368 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.369 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L3 (D-890): proposed first.
+L3 step 1 (D-927): the rune-wall nook and its runes, seen only in the
+dark; a mock-up of the look first.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,6 +47,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
+  rune-wall nook a floor from depth 1, in an ordinary cave room; its
+  runes seen across the room only with the lantern off; a dark bump
+  opens it for good, a hint line when bumped lit; 1 tile behind holds a
+  vault's prize draw, more later. 2 steps. The owner's picks. D-925
+  and D-926 archived. D-927.
 - **2026-11-14, 0.3.368, The shovel.** Q-106's first step: the Shovel,
   made at the bench for 3 Wood and 2 Stone and held in the Tool slot,
   digs out a stump for good, grass left. The sapling stays open; buried
@@ -57,8 +64,3 @@ list in `RESEARCH.md`.
   first and it gives up, in either room. Not the warden. The owner's
   picks. D-922 archived. D-925.
   Playtest: https://claude.ai/artifact/FZr9gmLPZXpQAZK34qteJA
-- **2026-11-14, 0.3.366, Cutting a room.** D-899's step: things set
-  down may cut a room in two, a tree grows back on its stump though it
-  does, and a full bag no longer stops the fourth chop (the wood falls
-  on the floor). Deposits keep their check. The owner's picks. D-924.
-  Playtest: https://claude.ai/artifact/SmmgykNKuzkjZ8oiTeU9wU

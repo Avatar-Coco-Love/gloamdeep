@@ -169,34 +169,23 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
 
-**D-925 · 2026-11-14 · Creatures through doorways** (the owner's picks;
-answers Q-107; supersedes in part D-132) A creature that chases (the
-rat, gloamling, both mimics, bone rat, oil tick, centipede, rim lurker;
-not the warden, which keeps to its vault) and is chasing, within 3
-steps of where the hero leaves by a doorway, edge, the cave mouth or
-stairs, follows: stairs are no longer a sure escape (offered too: chasers
-and light-seekers; rats only; right behind only; any chaser later;
-stairs stay an escape). It comes in as many turns after the hero as it
-was steps away (the owner's own answer), on the tile the hero came in
-by, or the nearest free tile to it, chasing. Should the hero leave first,
-it gives up: a coin toss puts it in the room it left or the one it was
-coming into, on a random free tile, not chasing (the owner's own answer).
-No warning; the round map's rim stays red while one is on its way.
-Claude's calls: it comes after the creatures' turn, so acts the turn
-after; steps count by walking, round walls; the scorpion and the mole
-don't follow, as they weren't named; a fall gives them all up. D-922
-moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-926 · 2026-11-14 · The shovel** (Q-106's first step, the owner's
-picks, all recommended) The Shovel is made on the workbench's BUILD tab,
-its last slot, from 3 Wood and 2 Stone, a turn; only 1 carried; held in
-the Tool slot, the Stone Pick's way. Look A: a wooden handle with a
-T-grip and a flat grey stone spade. Held, walking onto a stump digs it
-out instead, a turn, the hero staying put: plain grass for good ("for
-now", the owner's words; offered too: dug earth), and the tree waiting
-to grow back there never does. A standing tree is not dug (offered too:
-4 bumps, no stump). Offered too: the shovel alone. Claude's calls: the
-last slot, so the others keep their places; its lines; the `sow` sound
-for a dig. The sapling stays in Q-106; the owner's idea of digging up
-buried things is Q-108. D-924 moves to `archive/DECISIONS-SURFACE.md`,
-word for word.
+**D-927 · 2026-11-14 · L3, the dark door** (the owner's picks; builds
+D-890; answers part of Q-105) A rune-wall nook: one a floor from depth 1,
+in one ordinary cave room below ground the seed picks, never the
+surface, the vault, the peddler's, home or a waystone's room (offered
+too: a second vault kind; both; about 1 floor in 2; from depth 2; below
+ground and the surface at night). A wall tile in the room's edge carries
+faint violet runes, seen across the room along a clear line while the
+lantern is off and not in daylight, lighting nothing, hidden while it
+burns (offered too: within 3 tiles; only next to it). Bumped lit, it
+says a line, Claude's draft the owner may change: "Faint marks, too pale
+to see by lantern light." Bumped dark, it sinks open for good, costing
+no oil; one bump solves it, so nothing resets (offered too: a carved
+frame shown when lit). Behind it, 1 tile set into the wall holds a
+vault's prize draw on a plinth, "there will be more options to choose
+from later" (the owner's words; offered too: a 3-tile pocket; a small
+room; 1 rare material; oil; lore pages). Built in 2 steps: the nook and
+its runes, seen only in the dark, with a mock-up of the look; then the
+dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
+lines, look and which tile of the edge are the build step's. D-925
+and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
