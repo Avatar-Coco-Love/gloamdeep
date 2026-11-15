@@ -12,14 +12,6 @@ their words where possible, and any ideas they gave.
 
 ---
 
-**B-011 · 2026-11-15 · A felled tree's wood falls in three spots** The
-owner doesn't like that a felled tree drops its wood on three different
-tiles, when wood can stack. The owner's idea: items stack on the ground,
-and one tile can hold several kinds at once ("I drop 5 wood, 3 rat
-tails, and 4 healing herbs in the same spot, they will all be there").
-How to show that a tile holds more than one kind is open. Today one tile
-holds one stack, and a drop onto a find swaps them (D-546).
-
 **B-012 · 2026-11-15 · The stash chest's words run off its foot on a PC**
 Found by the text-fit test once it tried PC screens (B-010, D-933): full
 screen at 3840 × 2160 and at 1366 × 768, the stash chest card's last line

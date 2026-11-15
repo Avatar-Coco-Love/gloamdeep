@@ -25,7 +25,7 @@ import { xpOf, gain } from './xp.js';
 import { bagAdd, bagSize, isFlask, noRoom } from './bag.js';
 import { note, fresh } from './events.js';
 import { noteTaken } from './regrow.js';
-import { spread } from './spread.js';
+import { spread, heap } from './spread.js';
 import { DIRS, passTurn, maxHealth } from './state.js';
 import { endTurn } from './endturn.js';
 import { fleeOrStand } from './creatureturn.js';
@@ -107,7 +107,8 @@ export function step(state, dir) {
 // (noRoom, H-02, D-864). A weapon goes
 // into an empty hand with its line (D-252); with one held, into the bag, 1 a
 // slot, with its `bagged` line, and with no room it stays, "Your bag is full."
-// (D-479). Taken is a `take` event, a herb eaten an `eat`.
+// (D-479). A stack of one kind left over (D-934) goes in whole, what doesn't fit staying
+// with its full line. Taken is a `take` event, a herb eaten an `eat`.
 // Either way it goes on the room's taken list, to grow back (regrow.js, D-306).
 function pickUp(state, found) {
   const entry = get(found.id), id = found.id;
@@ -122,9 +123,12 @@ function pickUp(state, found) {
     return bag ? note(say({ ...state, ...gone, bag }, entry.bagged), 'take', { id }) : say(state, 'bagFull');
   }
   if (entry.bag) {
-    const bag = bagAdd(state.bag, id, found.form, bagSize(state)), dev = found.spawned && isFlask(id) ? { devFlasks: (state.devFlasks || 0) + 1 } : {}; // a spawned flask is kept count of (D-720)
-    if (bag) return note(entry.says ? say({ ...state, ...gone, bag, ...dev }, entry.says) : { ...state, ...gone, bag, ...dev }, 'take', { id });
-    return say(state, noRoom(state.bag, id));
+    const want = found.n ?? 1, dev = found.spawned && isFlask(id) ? { devFlasks: (state.devFlasks || 0) + 1 } : {}; // a spawned flask is kept count of (D-720)
+    let bag = state.bag, n = 0;
+    for (let b; n < want && (b = bagAdd(bag, id, found.form, bagSize(state))); n++) bag = b; // a stack goes in whole, as much as fits (D-934)
+    if (!n) return say(state, noRoom(state.bag, id));
+    const items = n < want ? [...gone.items, { ...found, n: want - n }] : gone.items, next = { ...state, ...gone, items, bag, ...dev };
+    return note(n < want ? say(next, noRoom(bag, id)) : entry.says ? say(next, entry.says) : next, 'take', { id });
   }
   return state;
 }
@@ -260,8 +264,8 @@ function lightTorch(state, x, y) {
 // stump, W3), and its `n` (one unless said) drops go into the bag with its
 // `breaks` line, in the tile's look when it has `forms` (else what it leaves);
 // with no room for one, its `full` line is said, free, and it holds. With room
-// for fewer than `n`, the rest lies on its tile and the nearest open ones, never
-// to grow back (W2, D-316; W3, D-317).
+// for fewer than `n`, the rest lies as one stack on its tile, or the nearest open
+// one, never to grow back (W2, D-316; W3, D-317; one stack, D-934).
 // Broken, it goes on the room's taken list, to grow back (regrow.js, O3); its
 // cracks, before that, stay until it breaks.
 // Each bump is a `chip` event, and the drops a `take`. One that `needs` a tool (a
@@ -284,8 +288,7 @@ function mine(state, x, y) {
   for (let more; taken < count && (more = bagAdd(bag, drops, form, bagSize(state))); taken++) bag = more;
   if (!taken && !tile.mine.fallsFull) return say(state, full || get(drops).full); // a tree falls all the same, its wood on the floor (D-924)
   const room = { ...withTile(state.room, x, y, after), chips: rest };
-  const left = spread({ ...state, room }, x, y, count - taken, after.solid) // never on a bare bush (D-531)
-    .map((at) => ({ id: drops, ...at, ...(form === undefined ? {} : { form }), once: true }));
+  const left = heap({ ...state, room }, x, y, drops, count - taken, after.solid, form); // never on a bare bush (D-531); one stack (D-934)
   const passed = passTurn({ ...state, room, bag, items: [...state.items, ...left] });
   const broke = note(noteTaken(passed, { id: tile.id, x, y }), 'chip', { id: tile.id, n, broke: true });
   const next = taken ? note(broke, 'take', { id: drops }) : broke;

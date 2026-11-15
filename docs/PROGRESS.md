@@ -4,16 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.375 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.376 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-B-011, a felled tree's wood in three spots (`BUGS.md`), or B-012, the
-stash chest's words on a PC; or Biome 1's boss and found ability (Q-105).
+B-012, the stash chest's words on a PC (`BUGS.md`); or several kinds
+on one tile (Q-110); or Biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
+- Several kinds on one tile (Q-110), its look from a mock-up, its own step.
 - Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
@@ -46,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.376, One stack on the ground.** B-011: what doesn't
+  fit in the bag lies as one stack of its kind, a felled tree's 3 Wood
+  on its stump, its count in the tile's corner. Several kinds on one
+  tile is Q-110. The owner's picks. D-932 archived. D-934.
+  Playtest: https://claude.ai/artifact/8kEbd95FrfPF231EqsJm3V
 - **2026-11-15, 0.3.375, Words clear of DROP.** B-010: on a PC screen the
   bag's "Makes a Mending Draught at the mortar" breaks onto two lines
   instead of running over DROP. The text-fit test tries PC screens now;
@@ -55,7 +61,3 @@ list in `RESEARCH.md`.
   bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
   for each extra row. The owner's picks. D-930 archived. D-932.
   Playtest: https://claude.ai/artifact/S1aXaTwXFnRV9eXsK56sa9
-- **2026-11-15, 0.3.373, The round map's dark circle.** B-008: in the
-  dark the round map fades evenly to 15%, no dark spot round the hero
-  (option A from a mock-up). The owner's pick. D-928 archived. D-931.
-  Playtest: https://claude.ai/artifact/PFZaKUxggMFoZtqVqY87NK

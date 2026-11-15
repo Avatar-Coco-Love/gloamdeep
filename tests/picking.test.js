@@ -32,13 +32,13 @@ test('the card: Pick in Plant\'s place once grown, only then', () => {
   assert.deepEqual(gardenMenu(false, true).map((l) => [l.text, !!l.dim]), [['Pick', false], ['Deconstruct', false]]);
 });
 
-test('no room: the wild bush\'s line, free, the berries kept; room for fewer, the rest nearby', () => {
+test('no room: the wild bush\'s line, free, the berries kept; room for fewer, the rest as one stack nearby (D-934)', () => {
   const full = Array.from({ length: 6 }, () => ({ id: 'gloamberry', n: 20 })), s = home(full), p = pick(s, 3, 2);
   assert.equal(p.turn, s.turn);
   assert.equal(p.line.id, 'gloamberryFull');
   assert.equal(tileAt(p.room, 3, 2).id, 'berryBed');
   const most = [...full.slice(1), { id: 'gloamberry', n: 19 }], q = pick(home(most), 3, 2);
   assert.equal(q.bag[5].n, 20);
-  assert.deepEqual(q.items.filter((o) => o.id === 'gloamberry').map((o) => [o.x, o.y]), [[3, 3], [4, 2]]);
+  assert.deepEqual(q.items.filter((o) => o.id === 'gloamberry').map((o) => [o.x, o.y, o.n]), [[3, 3, 2]]);
   assert.equal(tileAt(q.room, 3, 2).id, 'sprout');
 });

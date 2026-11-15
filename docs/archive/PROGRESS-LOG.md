@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.373, The round map's dark circle.** B-008: in the
+  dark the round map fades evenly to 15%, no dark spot round the hero
+  (option A from a mock-up). The owner's pick. D-928 archived. D-931.
+  Playtest: https://claude.ai/artifact/PFZaKUxggMFoZtqVqY87NK
 - **2026-11-15, 0.3.372, The boon button.** B-007: coming home by a
   waystone or a fall shows a violet rune button by the lantern, not the
   boon card; a tap opens it. B-006 closed, not a bug: flyers already

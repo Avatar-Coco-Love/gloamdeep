@@ -160,17 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-932 · 2026-11-15 · A line's seconds** (the owner's picks, both
-recommended; B-009, the owner's idea) A line along the bottom goes after
-its 5 turns (D-095) or after 4 seconds of real time, whichever comes
-first, then fades as before (offered too: 3 seconds; 6 seconds). A line
-on more than one row stays 2 seconds more for each row past the first
-(offered too: the same time for all; people's words longer too). Claude's
-calls: the seconds are kept by the drawing code, not the game's state, so
-saves don't change; a line said again starts its seconds again; they run
-on every screen, cards too. D-930 moves to `archive/DECISIONS-CARDS-2.md`,
-word for word.
-
 **D-933 · 2026-11-15 · Words clear of DROP on a PC** (the owner's picks,
 both recommended; B-010) In the bag, a find made at a station ("Makes a
 Mending Draught at the mortar", beside EAT) puts "at the mortar" on a
@@ -185,4 +174,18 @@ just the bag; the owner names the others). Claude's call: on those
 screens the bag card is about 384 × 216 game pixels, narrower than a
 phone's held sideways, so small phones and the bigger bags had the
 overlap too, fixed with it. D-931 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-934 · 2026-11-15 · One stack on the ground** (the owner's picks, all
+recommended; B-011; supersedes in part D-924 and D-568) What doesn't fit
+in the bag lies as one stack of its kind on one tile, not spread out: a
+felled tree's 3 Wood on its stump, a branch's Wood, a garden bed's
+Gloamberries on the nearest open tile (offered too: the tree and branch
+only; mixed piles now). A stack on the ground shows its count in its
+tile's bottom right corner, as a bag slot does, when it holds 2 or more
+(offered too: no number; a little heap). Stepping on takes it all; what
+doesn't fit stays, with the kind's full line. Claude's call: a beaten
+creature's drops are kinds of their own and stay as they were (D-727).
+Several kinds on one tile, the owner's idea, is its own step, its look
+picked from a mock-up then (Q-110). D-932 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
