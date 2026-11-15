@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.379 (2026-11-15)
+- The Warden is harder: your blows ring off its stone ("Your blow rings off the stone."), with no flash, until its slam misses and its fists sink into the floor. Then it is open until it next acts: step back beside it and strike. Each blow does 1 less, never below 1, so four openings beat it. Once cracked it never stands still again. Its Bestiary tip says how.
+- Decisions: D-937. D-935 moved to the archive, word for word.
+
 ## 0.3.378 (2026-11-15)
 - One tile can hold several kinds of find: Drop sets a stack down beside what lies there instead of swapping, and onto its own kind the stack grows. The tile shows each kind in turn, with its count, about a second each; with reduced motion, the newest with an ember "+2" for the others. A step onto it takes all that fits (B-011).
 - Decisions: D-936. Questions closed: Q-110. D-934 moved to the archive, word for word.

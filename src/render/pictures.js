@@ -343,6 +343,17 @@ const OPEN_DOOR_COLOURS = { x: '#07060a', X: '#0c0b12' };
 const PLINTH = { mirror: false, rows: ['', '', '', '', '', '', '', '', '', '....kkkkkkkk....', '...kHHHHHHHHk...',
   '...kLLLLLLLDk...', '...kjjjjjjjjk...', '....kLLLLLDk....', '...kHLLLLLLDk...', '...kkkkkkkkkk...'] };
 
+// § pillar (the Lampeater, step 1, D-940): a round column in the crypt's stone, its cap and foot
+// wider than its shaft, lit from the left as the brazier is (BRAZIER_COLOURS, sprites.js)
+const PILLAR = { mirror: false, rows: ['....kkkkkkkk....', '...kHHHHHHHHk...', '..kHHHHHHHHHHk..', '..kLLLLLLLLLDk..',
+  '...kkkkkkkkkk...', ...Array(7).fill('....kHLLLLDk....'), '...kkkkkkkkkk...', '..kHHHHHHHHHHk..', '..kLLLLLLLLLDk..',
+  '..kkkkkkkkkkkk..'] };
+// § seal stone (D-940): a floor slab's dark seam, the sealed door's flame rune cut in its middle in
+// the brazier's dark violet band; the floor shows through the rest
+const SEAL_STONE = { mirror: false, rows: ['', '.DDDDDDDDDDDDDD.', '.D............D.', '.D............D.',
+  '.D......j.....D.', '.D.....j.j....D.', '.D....j...j...D.', '.D....j...j...D.', '.D.....jjj....D.',
+  ...Array(5).fill('.D............D.'), '.DDDDDDDDDDDDDD.', ''] };
+
 export {
   PAL, HERO, CLOTHES_ROWS, dressed,
   WOODS, BRANCHES, STUMPS, BERRY_BUSH,
@@ -369,4 +380,6 @@ export {
   OPEN_DOOR,
   OPEN_DOOR_COLOURS,
   PLINTH,
+  PILLAR,
+  SEAL_STONE,
 };

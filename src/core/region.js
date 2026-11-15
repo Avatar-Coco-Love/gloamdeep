@@ -24,7 +24,12 @@
 // up on the map. Floors only grow going down, so the stairs down always fit the floor below.
 // § seeds: the depths moved up one (D-212), but every place below the
 // surface keeps the numbers of its old depth, so a seed keeps its rooms (D-213).
+// § the arena (the Lampeater, step 1, D-940): on depth 8 the way is one room longer, its last
+// two rooms the hallway, straight above the room before it, and, straight above that, the arena, with the stairs down in its sealed
+// stair room (arena.js). No side room grows off either and no loop reaches them, so the hallway
+// has two openings and the arena one. Their cells are marked `hall` and `arena`.
 import { rng, int, pick, seedFor } from './rng.js';
+import { ARENA_DEPTH, ARENA_DOWN } from './arena.js';
 
 // The floors' bands (D-645): from which depth, the grid's size, the room
 // counts the seed picks between, how many loops, and how many halls and
@@ -65,7 +70,7 @@ export function layoutAt(seed, depth) {
 function lay(seed, depth) {
   const base = seedAt(seed, depth), r = rng(base ^ 0x2c1b3c6d), above = layoutAt(seed, depth - 1);
   const upAt = above ? above.down : CRYPT_DOWN, cell = sizeAt(depth), band = bandAt(depth);
-  const { cells, ups, downs, joins } = grow(r, band, above?.down.cell);
+  const arena = depth === ARENA_DEPTH, { cells, ups, downs, hall, joins } = grow(r, band, above?.down.cell, arena);
   ups.up = tile(upAt);
   cells.forEach((c, i) => {
     c.id = c === ups ? `depth${depth}` : `depth${depth}:${c.x},${c.y}`;
@@ -91,7 +96,8 @@ function lay(seed, depth) {
   // edge, so the stairs up below have room under them in the dungeon's halls
   const { cols, rows } = downs;
   const inside = downs.doors.map(({ dir, at }) => (dir === 'left' ? { x: 1, y: at } : dir === 'right' ? { x: cols - 2, y: at } : dir === 'up' ? { x: at, y: 1 } : { x: at, y: rows - 2 }));
-  downs.down = spot(r, cols, rows, (t) => t.y > rows - 4 || inside.some((d) => Math.abs(d.x - t.x) <= 1 && Math.abs(d.y - t.y) <= 1));
+  downs.down = arena ? { ...ARENA_DOWN } : spot(r, cols, rows, (t) => t.y > rows - 4 || inside.some((d) => Math.abs(d.x - t.x) <= 1 && Math.abs(d.y - t.y) <= 1));
+  if (arena) { downs.arena = true; hall.hall = true; } // the arena and its hallway (D-940)
   // § dead ends (D-650): a side room with one opening, the last of its branch
   for (const c of cells) c.end = c !== ups && c !== downs && c.doors.length === 1;
   return { cells, up: { ...tile(upAt), cell: tile(ups) }, down: { ...downs.down, cell: tile(downs) } };
@@ -122,10 +128,13 @@ const touches = (a, b) => meets(a, b) || meets(b, a);
 // seed picks how many side rooms are halls and how many large, and which; each grows
 // where it fits beside any room. A try whose way walks into a corner, whose rooms
 // don't all fit, or with too few places for its loops, is grown again.
-function grow(r, { size, rooms, loops, halls, large }, under) {
-  for (;;) {
+// On depth 8, after every LONGER tries that fail, the way may be a room longer, up to 2 more: from
+// stairs up near the grid's top it must first go down for the hallway to be entered from below (D-940)
+const LONGER = 20;
+function grow(r, { size, rooms, loops, halls, large }, under, arena = false) {
+  for (let tries = 0; ; tries++) {
     const start = under ? roomAt(under.x, under.y) : roomAt(int(r, 0, size - 1), int(r, 0, size - 1));
-    const cells = [start], joins = [], count = int(r, rooms[0], rooms[1]), long = int(r, WAY[0], WAY[1]);
+    const cells = [start], joins = [], count = int(r, rooms[0], rooms[1]), long = int(r, WAY[0], WAY[1]) + (arena ? 1 + Math.min(2, Math.floor(tries / LONGER)) : 0);
     // The cells taken so far, as "x,y", kept with `cells` so a check is one look-up
     const taken = new Set([`${start.x},${start.y}`]);
     const free = (x, y) => x >= 0 && y >= 0 && x < size && y < size && !taken.has(`${x},${y}`);
@@ -143,9 +152,12 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
       for (const t of cellsOf(to)) taken.add(`${t.x},${t.y}`);
       return to;
     };
-    let end = start;
-    while (cells.length < long && ways([end], [[1, 1]]).length) end = add(pick(r, ways([end], [[1, 1]])));
+    let end = start, hall = null;
+    // The way's next rooms; its last two, the hallway and the arena, each straight above the one before (D-940)
+    const next = () => ways([end], [[1, 1]]).filter(([, x, y]) => !arena || cells.length < long - 2 || (x === end.x && y === end.y - 1));
+    while (cells.length < long && next().length) { hall = end; end = add(pick(r, next())); }
     if (cells.length < long) continue;
+    const shut = arena ? [hall, end] : []; // the hallway and the arena take no side room or loop
     // The side rooms' shapes, in the order they grow: the seed's halls and large rooms among the small ones
     const sides = Array(count - long).fill('small'), nl = int(r, large[0], large[1]), nh = int(r, halls[0], halls[1]);
     for (const kind of [...Array(nl).fill('large'), ...Array(nh).fill('hall')]) {
@@ -154,7 +166,7 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
     }
     const SHAPE = { small: [[1, 1]], hall: [[2, 1], [1, 2]], large: [[2, 2]] };
     for (const kind of sides) {
-      const spots = ways(cells, SHAPE[kind]);
+      const spots = ways(cells.filter((c) => !shut.includes(c)), SHAPE[kind]);
       if (!spots.length) break;
       add(pick(r, spots));
     }
@@ -164,13 +176,13 @@ function grow(r, { size, rooms, loops, halls, large }, under) {
       const far = away(cells, joins, start).get(end);
       const open = [];
       for (const a of cells) for (const b of cells) {
-        if (a !== b && meets(a, b) && !joins.some(([u, v]) => (u === a && v === b) || (u === b && v === a))
+        if (a !== b && !shut.includes(a) && !shut.includes(b) && meets(a, b) && !joins.some(([u, v]) => (u === a && v === b) || (u === b && v === a))
           && away(cells, [...joins, [a, b]], start).get(end) === far) open.push([a, b]);
       }
       if (!open.length) break;
       joins.push(pick(r, open));
     }
-    if (made === loops) return { cells, ups: start, downs: end, joins };
+    if (made === loops) return { cells, ups: start, downs: end, hall, joins };
   }
 }
 

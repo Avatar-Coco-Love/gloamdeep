@@ -41,14 +41,16 @@ test('each floor has the band\'s rooms on its grid, every room reached, the stai
       assert.equal(cells.reduce((n, c) => n + c.doors.length, 0), 2 * (cells.length - 1 + loops)); // a tree, plus the loops
       const steps = away(cells, up);
       assert.equal(steps.size, cells.length, `seed ${seed} depth ${depth}: every room reached`);
-      assert.ok([2, 3].includes(steps.get(down.id)), `seed ${seed} depth ${depth}`); // 3 or 4 rooms, both ends counted
+      // 3 or 4 rooms, both ends counted; depth 8's a room longer, its hallway and arena at the end, and
+      // up to 2 more where its stairs up sit near the grid's top (D-940)
+      assert.ok((depth === 8 ? [3, 4, 5, 6] : [2, 3]).includes(steps.get(down.id)), `seed ${seed} depth ${depth}`);
       ways.add(steps.get(down.id));
       assert.equal(cells.filter((c) => c.up).length, 1);
       assert.equal(cells.filter((c) => c.down).length, 1);
       assert.equal(up.id, `depth${depth}`);
     }
     assert.equal(counts.size, most - least + 1, 'every count turns up');
-    assert.equal(ways.size, 2, 'ways of 3 and of 4 both turn up');
+    assert.ok(depths.includes(8) ? ways.size >= 3 : ways.size === 2, 'ways of 3 and of 4 both turn up, and depth 8\'s longer');
   }
   assert.equal(layoutAt(1, 1), null);
 });
@@ -131,8 +133,9 @@ test('every opening is open on both sides, meeting on the map; across a seam, ea
       assert.equal(depthOf(c.id), depth);
       for (const d of c.doors) {
         const o = cells.find((x) => x.id === d.to), p = EDGE[d.dir](d.at, c), q = EDGE[BACK[d.dir]](d.back, o);
-        assert.equal(room.map[p.y][p.x], '.', `seed ${seed} ${c.id} ${d.dir}`);
-        assert.equal(placeFor(o.id, seed).map[q.y][q.x], '.');
+        const open = (m, t) => m[t.y][t.x] === (t.y === 0 && cells.find((x) => x.id === m.id)?.hall ? 'm' : '.'); // the hallway's open door into the arena (D-940)
+        assert.ok(open(Object.assign(room.map, { id: c.id }), p), `seed ${seed} ${c.id} ${d.dir}`);
+        assert.ok(open(Object.assign(placeFor(o.id, seed).map, { id: o.id }), q));
         // on the floor's tiles, the two edge tiles are a seam apart, straight across
         const fx = (r, t) => r.x * (cols + 1) + t.x, fy = (r, t) => r.y * (rows + 1) + t.y;
         assert.equal(Math.abs(fx(c, p) - fx(o, q)) + Math.abs(fy(c, p) - fy(o, q)), 2, `seed ${seed} ${c.id} ${d.dir}`);

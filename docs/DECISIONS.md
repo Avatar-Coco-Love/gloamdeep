@@ -123,39 +123,7 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
 
-**D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
-picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
-front of its face, the rune wall becomes the room's plain floor, a 1-tile
-gap, and the tile behind it a plinth with a vault's prize draw (offered
-too: a framed rune doorway; the vault's open door). Its line: "The runes
-flare, the stone sinks away." (offered too: "The wall sinks open."; "The
-stone slides back into the dark."; first drafted with "and", too wide for
-the strip). No sound yet, as the vault door's (offered too: the dig's).
-The runes are gone once open (offered too: stay faintly). D-927's lit line
-said a sentence a bump, "Faint marks." then "Too pale to see by lantern
-light.", too wide whole (offered too: "Faint marks, too pale for lantern
-light."). Claude's calls: from the side it is a wall as any other; a
-turn, no oil; the plinth set as it opens, so a room seen before opens the
-same; each floor's prize its own draw. D-907 moves to
-`archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-937 · 2026-11-15 · A harder Warden** (the owner's ask and picks,
-[mock-ups](https://claude.ai/artifact/3P1t5ADXs6NW8BewfKZVtX); supersedes
-in part D-692, D-886 and its Bestiary tip) Every blow and hurt rings off
-the warden's stone, "Your blow rings off the stone.", with no flash, until
-its slam misses: "The warden's fists sink into the floor!" Then it is open
-till it next acts, so the hero steps back beside it and strikes once
-(offered too: open 2 turns; open after every slam). Stone skin: each blow
-does 1 less, never below 1, so four openings beat it. A bump only wakes
-it. Once cracked it never stands still again (offered too: the count
-restarts each slam; awake till beaten). Its tip: "Your blows ring off its
-stone. When its fists go up, step out of the way. When they sink into the
-floor, step back beside it and strike before it pulls them free. Four
-openings beat it." Two steps: these rules, then its look and sounds:
-stuck take C (stooped, a jolt and chips), a grey spark, the clink
-`impactMetal_light_000`, the thud A6 (the heavy punch slowed with an
-earth rumble and its stone knock a touch lower). D-935 moves to
-`archive/DECISIONS-CARDS-2.md`, word for word.
 
 **D-938 · 2026-11-15 · The Warden's look and sounds** (D-937's step 2,
 the owner's picks; [sound board](https://claude.ai/artifact/ThY4FkXmmTFKHnK6V3cC1a))
@@ -189,4 +157,28 @@ way and the hero leaps across to the way down at once (offered too: a
 shrine before the fight; no escape). Built one visible step at a time,
 in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-940 · 2026-11-15 · The Lampeater's arena, standing empty** (D-939's
+step 1; the owner's picks and idea; [mock-ups](https://claude.ai/artifact/LAE4r9ZW5deNvqUc32rBui))
+On depth 8 the way ends in a hallway and, straight above it, the arena;
+nothing else joins either (offered too: the stairs room as the arena,
+one way in, its stairs seeping gloam or between watch flames; the
+stairs room as it is; a room past the end). The way is a room longer,
+up to 2 more where depth 8's stairs up sit near the grid's top, as the
+hallway is entered from below (Claude's call). The arena, one cell (offered
+too: a hall; a large room), is the seal hall: a cold brazier in each
+corner, 4 pillars round the middle (offered too: an open floor; the
+crossing). The owner's idea: at its top a sealed door, the stairs down 3
+tiles behind it in a ring of seal stones, the Lightkeepers' old seal;
+beating the Lampeater will open it, so it stands between the hero and
+depth 9 and Growth's second row. Until then the 4 braziers lit sink the
+door, as a vault's do (offered too: open; sealed now), cold again if left
+first (offered too: burning on). The hallway is the processional
+(offered too: the eaten road): a road 3 wide, seal stones down its
+middle, pillars along its sides, 2 cold braziers where it starts, bending
+once, an open stone door into the arena (offered too: a plain gap).
+Nothing else in either. The Pillar and the Seal stone, names Claude's
+draft. Old saves make every room from depth 8 down again. D-929 moves to
+`archive/DECISIONS-SURFACE.md` and D-937 to `archive/DECISIONS-RELICS.md`,
 word for word.

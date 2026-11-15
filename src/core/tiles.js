@@ -193,6 +193,12 @@ export const TILES = {
   plinth: { id: 'plinth', kind: 'tile', letter: 'n', name: 'Plinth', solid: true, low: true, blocksLight: false, prize: true },
   plinthEmber: { id: 'plinthEmber', kind: 'tile', letter: 'o', name: 'Plinth', solid: true, low: true, blocksLight: false, prize: true, fire: true, glow: { reach: 1, ...FIRE_COLOUR } },
   plinthBare: { id: 'plinthBare', kind: 'tile', letter: 'p', name: 'Plinth', solid: true, low: true, blocksLight: false, bump: 'plinthBare' },
+  // § pillar and seal stone (the Lampeater, step 1, D-940): the arena's and its hallway's round
+  // pillars in the crypt's stone, solid, casting a shadow as a wall does; and the old seal's slabs, a
+  // flame rune cut in each, plain floor to walk on, ringing the stairs down and running up the
+  // hallway's middle (arena.js)
+  pillar: { id: 'pillar', kind: 'tile', letter: 'q', name: 'Pillar', solid: true, blocksLight: true },
+  sealStone: { id: 'sealStone', kind: 'tile', letter: 'r', name: 'Seal stone', solid: false, blocksLight: false },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

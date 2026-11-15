@@ -4,15 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.381 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.382 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 1: its arena on depth 8, standing empty (D-939).
+The Lampeater, step 2: the boss standing in its arena, its look and
+Bestiary page (D-939).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
+- The names Pillar and Seal stone, Claude's draft (D-940).
 - Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
@@ -45,6 +47,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.382, The Lampeater's arena.** D-939's step 1: on
+  depth 8 a hallway of seal stones and pillars leads up to the empty
+  arena, its sealed door before the stairs down sunk by 4 braziers for
+  now. The owner's picks and idea. D-929, D-937 archived. D-940.
+  Playtest: https://claude.ai/artifact/6HbJ4rd3HJJY2iYSFd5tjp
+  Map: https://claude.ai/artifact/2524FkxWetKEEFnSBMgXbt
 - **2026-11-15, 0.3.381, Biome 1's boss planned.** Q-105's boss part:
   how other games do bosses, three concepts with mock-ups; the owner
   picked the Lampeater, light deciding the fight, in a sealed arena on
@@ -55,8 +63,3 @@ list in `RESEARCH.md`.
   grey spark and a clink for a blow that rings. The clink was Making's,
   so the owner picked it a quarter lower by ear. D-936 archived. D-938.
   Playtest: https://claude.ai/artifact/VYLnzHvfrPpysbWQKq3AmQ
-- **2026-11-15, 0.3.379, A harder Warden.** The owner's ask: blows ring
-  off its stone until its slam misses; then it is open till it next acts,
-  each blow 1 less, four openings to beat it; cracked, it never settles.
-  The owner's picks. D-935 archived. D-937.
-  Playtest: https://claude.ai/artifact/L5reWtevNSF5k4tMSxtYS7

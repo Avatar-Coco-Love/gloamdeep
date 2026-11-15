@@ -16,6 +16,7 @@ import { fresh } from './stairs.js';
 import { goHome } from './homeward.js';
 import { get } from './registry.js';
 import { cellOf } from './region.js';
+import { ARENA_DEPTH } from './arena.js';
 
 // § stand-ins: a save from before 0.3.43 may hold a crypt room that stood in for a dungeon
 // room no try could make (Q-078); once, each is made again from its seed, at its floor's
@@ -31,6 +32,10 @@ export const restone = (s) => refloor(s, (id, p) => id === stoneRoom(s.seed) && 
 // § the deeper waystones: the same, once, for the room the seed picks on each other depth that holds
 // one, 5, 8, then every 4th (D-594); a room that already has its stone stays as it was
 export const restones = (s) => refloor(s, (id, p) => isGenerated(id) && isStoneDepth(depthOf(id)) && id === stoneRoom(s.seed, depthOf(id)) && !!p.room && !p.room.map.some((l) => STONED.test(l)));
+
+// § the arena (D-940): depth 8 laid out again with its hallway and arena, and so every floor below
+// it, whose stairs line up with it; once, every generated room from depth 8 down is made again
+export const rearena = (s) => refloor(s, (id) => isGenerated(id) && depthOf(id) >= ARENA_DEPTH);
 
 export function refloor(s, remake = isGenerated) {
   const away = Object.entries(s.elsewhere || {}), here = remake(s.place, s);
