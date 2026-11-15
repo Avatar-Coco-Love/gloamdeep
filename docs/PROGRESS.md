@@ -4,18 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.370 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.371 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-L3 step 2 (D-927): a dark bump opens the rune wall for good, a vault's
-prize in the nook; a lit bump says its line.
+The owner picks what comes next: one of B-006 to B-011 (`BUGS.md`), or
+Biome 1's boss and found ability (Q-105), L1 and L3 now built.
 
 ## Waiting on the owner
-- Which of B-006 to B-011 (`BUGS.md`) first, after L3.
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
-- Any time: a sound for the vault door opening (D-895); a duskstar on
+- Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
 - Sound on an older iPhone, tried when one is to hand (H-22, D-868).
@@ -26,7 +25,6 @@ prize in the nook; a lit bump says its line.
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), daylight in very big
   rooms (Q-097), fires below ground (Q-088), sleeping out's later costs (Q-091).
-- Biome 1's boss and found ability (Q-105), once L1 and L3 are built.
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
   set aside for now, D-836); swaps for Claude's picks (D-833) any time;
@@ -48,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.371, The rune wall opens.** L3 step 2 (D-927): bumped
+  dark from in front, the rune wall sinks open for good, a plinth with a
+  vault's prize draw in the nook; bumped lit, its line, a sentence a bump.
+  Both lines shortened to fit the strip. The owner's picks. D-907
+  archived. D-929. Playtest: https://claude.ai/artifact/BYQq5W7gTFhizgb4LKLavf
 - **2026-11-15, 0.3.370, The rune wall.** L3 step 1 (D-927): from depth
   1, one wall a floor shows three faint violet runes, only with the
   lantern off. Look A from a mock-up on game screenshots; the owner's
@@ -59,8 +62,3 @@ list in `RESEARCH.md`.
   opens it for good, a hint line when bumped lit; 1 tile behind holds a
   vault's prize draw, more later. 2 steps. The owner's picks. D-925
   and D-926 archived. D-927.
-- **2026-11-14, 0.3.368, The shovel.** Q-106's first step: the Shovel,
-  made at the bench for 3 Wood and 2 Stone and held in the Tool slot,
-  digs out a stump for good, grass left. The sapling stays open; buried
-  things are Q-108. The owner's picks. D-924 archived. D-926.
-  Playtest: https://claude.ai/artifact/PfDffRqUmtMpaxu9FDEK2o

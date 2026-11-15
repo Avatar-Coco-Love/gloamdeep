@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-14, 0.3.368, The shovel.** Q-106's first step: the Shovel,
+  made at the bench for 3 Wood and 2 Stone and held in the Tool slot,
+  digs out a stump for good, grass left. The sapling stays open; buried
+  things are Q-108. The owner's picks. D-924 archived. D-926.
+  Playtest: https://claude.ai/artifact/PfDffRqUmtMpaxu9FDEK2o
 - **2026-11-14, 0.3.367, Creatures through doorways.** Q-107's step: a
   chasing creature within 3 steps of where the hero leaves, by a doorway
   or stairs, follows, as many turns later as it was steps away; leave

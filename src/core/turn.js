@@ -5,6 +5,7 @@
 // state.js (the state and world), endturn.js (wait and a turn's end),
 // creatureturn.js (the creatures' turn), fall.js (a fall and the lost bag)
 // and bagturn.js (the bag's buttons and panels).
+import { bumpRunes } from './runedoor.js';
 import { tileAt, withTile } from './room.js';
 import { formOf } from './tiles.js';
 import { get } from './registry.js';
@@ -80,6 +81,8 @@ export function step(state, dir) {
     if (tile.cast && state.tool === 'rod') return endTurn(state, bumpWater(state, x, y)); // the home pond or a cave pool: cast or pull, a turn (D-610, D-618)
     if (tile.prize) return takePrize(state, x, y); // a vault's prize on its plinth, a turn (D-896)
     if (tile.bump) return say(state, tile.bump); // a bare bush: its line, free (D-531)
+    const runed = bumpRunes(state, x, y); // the rune wall from in front: lit, its line; dark, it sinks open (D-927, D-929)
+    if (runed) return runed;
     return tile.mine?.edge ? say(state, tile.mine.edge) : lightTorch(state, x, y); // an edge tree: its line, free (D-321)
   }
   const foe = enemyAt(state, x, y);

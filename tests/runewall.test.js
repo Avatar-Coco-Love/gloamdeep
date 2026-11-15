@@ -6,6 +6,8 @@ import { runeSpotIn } from '../src/core/runewall.js';
 import { runesSeen } from '../src/core/sight.js';
 import { makeWorld } from '../src/core/state.js';
 import { goToPlace } from '../src/core/stairs.js';
+import { step } from '../src/core/turn.js';
+import { runePrize } from '../src/core/runedoor.js';
 
 test('every floor from depth 1 has one rune wall, never in the vault, the peddler\'s or a waystone\'s room', () => {
   for (let seed = 1; seed <= 30; seed++) for (let d = 1; d <= 12; d++) {
@@ -45,4 +47,53 @@ test('the runes are seen only with the lantern off, from in front of the wall al
   assert.equal(tileAt(s.room, far.x, far.y).id, 'floor');
   assert.equal(runesSeen({ ...dark, hero: far }), true, 'across the room');
   assert.equal(runesSeen({ ...s, lit: false, room: { ...s.room, runes: undefined }, hero: front }), false, 'a room without one');
+});
+
+// Step 2 (D-927, D-929): a dark bump opens it for good, a vault's prize in the nook
+
+const inFront = (seed, depth) => {
+  const { id, at } = runeWallAt(seed, depth), s = goToPlace(makeWorld('first', seed), id);
+  return { s: { ...s, hero: { x: at.x, y: at.y + 1 }, enemies: [] }, at };
+};
+
+test('bumped lit, it says its line, free, and stays a wall', () => {
+  const { s, at } = inFront(7, 2), next = step({ ...s, lit: true }, 'up');
+  assert.equal(next.turn, s.turn, 'free');
+  assert.equal(tileAt(next.room, at.x, at.y).id, 'wall');
+  assert.deepEqual(next.room.runes, at);
+  assert.equal(next.line.id, 'runesLit');
+});
+
+test('bumped dark, it sinks open for good: a gap, the prize on a plinth behind, the runes gone, no oil', () => {
+  for (let seed = 1; seed <= 12; seed++) for (const d of [1, 3, 8]) {
+    const { s, at } = inFront(seed, d), dark = { ...s, lit: false }, next = step(dark, 'up');
+    assert.equal(tileAt(next.room, at.x, at.y).id, 'floor');
+    const prize = runePrize(seed, d);
+    assert.deepEqual(next.room.prize, prize);
+    assert.equal(tileAt(next.room, at.x, at.y - 1).id, prize.id === 'ember' ? 'plinthEmber' : 'plinth');
+    assert.equal(next.room.runes, null);
+    assert.equal(runesSeen({ ...next, hero: dark.hero }), false, 'the runes show no more');
+    assert.equal(next.oil, dark.oil, 'no oil');
+    assert.equal(next.turn, dark.turn + 1, 'a turn');
+    assert.equal(next.line.id, 'runesOpen');
+    const inside = step(next, 'up');
+    assert.deepEqual(inside.hero, at, 'walked into the gap');
+    const taken = step(inside, 'up');
+    assert.equal(tileAt(taken.room, at.x, at.y - 1).id, 'plinthBare', 'the prize taken as a vault\'s');
+  }
+});
+
+test('bumped from the side, it is a wall as any other', () => {
+  const { s, at } = inFront(5, 2);
+  for (const [dx, dir] of [[-1, 'right'], [1, 'left']]) {
+    const by = { ...s, lit: false, hero: { x: at.x + dx, y: at.y } };
+    if (tileAt(s.room, by.hero.x, by.hero.y).id !== 'floor') continue;
+    assert.equal(tileAt(step(by, dir).room, at.x, at.y).id, 'wall');
+  }
+});
+
+test('each floor\'s nook draws its own prize, ember 1 in 4 or so', () => {
+  let embers = 0, n = 0;
+  for (let seed = 1; seed <= 100; seed++) for (const d of [1, 2, 3]) { n++; if (runePrize(seed, d).id === 'ember') embers++; }
+  assert.ok(embers > n * 0.15 && embers < n * 0.35, `${embers} of ${n}`);
 });
