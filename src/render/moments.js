@@ -6,7 +6,7 @@
 // crunches, a potion drunk gulps; a person leaving for home or arriving shimmers; sleeping breathes out.
 // The creatures' own sounds: a pack's squeaks as its warning line is said, a mimic's jolt or a warden's
 // stone as it wakes, a scorpion's tail raised or a warden's fists (its stone too), a mole digging down or coming up, a bone rat's bones
-// falling or standing up again, a glob spat and its splat. "You can't carry more" plays the Can't tock (D-819).
+// falling or standing up again, a warden's fists sinking into the floor (D-937), a glob spat and its splat. "You can't carry more" plays the Can't tock (D-819).
 import { get } from '../core/registry.js';
 import { LINES } from '../core/lines.js';
 import { depthOf } from '../core/room.js';
@@ -37,6 +37,7 @@ export function moments(before, after, events) {
     else if (count(now, 'dug') > count(was, 'dug')) out.push(['burrow', true]); // comes up
     if (count(now, 'pile') > count(was, 'pile')) out.push(['bonesFall']);
     else if (count(now, 'pile') < count(was, 'pile') && !has(events, 'scatter')) out.push(['bonesStand']);
+    if (now.some((e) => e.open && !was.some((b) => b.open && b.x === e.x && b.y === e.y))) out.push(['sink']); // a warden's fists sink into the floor (D-937)
   }
   if (has(events, 'spit')) out.push(['spit']);
   if (has(events, 'splash')) out.push(['splat']);

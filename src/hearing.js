@@ -18,11 +18,12 @@ export function createHearing(app, sound, spoken) {
   // an item into the bag pats, unless it is a fish with its splash; a weapon into the hand is drawn; a tile set down knocks (D-820);
   // a bump on stone clinks, and its last crumbles (D-825); a relic shelved, a seed planted, guano fed (D-828);
   // a stiff swing that misses puffs, a bite that takes a heart is a blow, poison's heart throbs, a level rises (D-831);
-  // the last heart beats (D-835)
+  // the last heart beats (D-835); a blow that rings off the warden's stone clinks instead of its hit (D-937)
   function hear(events) {
     const hit = events.find((e) => e.type === 'hit'), bite = biteSound(events), drink = drinkSound(events);
     const swung = !!hit || has(events, 'miss'); // a bite comes a moment after the hero's swing, hit or missed
-    if (hit) sound.hit(hit.held ? get(hit.held)?.hits || true : false); // a weapon's own hit sound, the Fist's stone (D-888), else the knife's
+    if (hit?.rang) sound.ring(); // rang off the warden's stone: a clink, no blow (D-937)
+    else if (hit) sound.hit(hit.held ? get(hit.held)?.hits || true : false); // a weapon's own hit sound, the Fist's stone (D-888), else the knife's
     if (has(events, 'miss')) sound.miss(); // stiff, the swing went wide (D-759)
     if (has(events, 'beat') && !has(events, 'scatter')) sound.beaten(!!hit);
     if (drink) sound[drink](swung); // the oil tick's sip (D-606)

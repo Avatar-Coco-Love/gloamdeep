@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.380', date: '2026-11-15', title: 'The Warden\'s look and sounds', lines: [
+    "The Warden looks and sounds its new fight: a blow that rings off its stone shows a small grey spark instead of the white flash, and clinks, the light metal of Making played once and a quarter lower. As its fists sink into the floor it stoops, jolts and stone chips spring up, with a heavy thud of stone; it stays stooped while it is open.",
+    "Decisions: D-938. D-936 moved to the archive, word for word.",
+  ] },
   { v: '0.3.379', date: '2026-11-15', title: 'A harder Warden', lines: [
     "The Warden is harder: your blows ring off its stone (\"Your blow rings off the stone.\"), with no flash, until its slam misses and its fists sink into the floor. Then it is open until it next acts: step back beside it and strike. Each blow does 1 less, never below 1, so four openings beat it. Once cracked it never stands still again. Its Bestiary tip says how.",
     "Decisions: D-937. D-935 moved to the archive, word for word.",

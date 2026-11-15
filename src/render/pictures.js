@@ -257,6 +257,12 @@ const WARDEN_RAISED = { mirror: false, rows: [
   'kkkk........kkkk', 'kHHk........kLMk', 'kHLk.kkkkkk.kMDk', 'kkkkkHHkHHLkkkkk', '.kHkkHPPPPLkkMk.', '.kHkkgHHHLLkkDk.',
   '.kHkkkkkkkkkkDk.', '.kggHHHHkHHLLMk.', '...koookooook...', '...kHHHkHHLLk...', '...kHHHHkLLLk...', '...kHHHHLLLMk...',
   '...kHHHLLLMMk...', '...kHHLkkLMDk...', '...kGgLk.kMDk...', '...kkkkk.kkkk...'] };
+// its fists sunk in the floor (D-937, stuck take C): stooped, the head bowed into its shoulders,
+// the arms long, the fists in the floor among dark cracks; it jolts and chips spring (sprites.js)
+const WARDEN_STUCK = { mirror: false, rows: [
+  '', '', '', '', '.....kkkkkk.....', '....kHHkHHLk....', '..kkkHPPPPLkkk..', '.kggkgHHHLLkLMk.', '.kHkkkkkkkkkkMk.',
+  '.kHkoookooookMk.', '.kHkHHHkHHLLkMk.', '.kLkHHHHkLLLkDk.', '.kHkHHHLLLMMkDk.', 'kHLkkHLkkLDkkMDk', 'kLDkkGgk.kDkkDDk',
+  'xkkx.kkk.kkkxkkx'] };
 // § campfire (D-757): a ring of grey stones round crossed logs, seen a little from above; its
 // flames are drawn after the light (campfire.js in render). Embers: the logs charred, coals
 // glowing between them. Cold ashes: a grey heap with a burnt stick in it.
@@ -348,6 +354,7 @@ export {
   SPIT_GRUB,
   WARDEN,
   WARDEN_RAISED,
+  WARDEN_STUCK,
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,

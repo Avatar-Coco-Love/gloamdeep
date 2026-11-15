@@ -160,3 +160,15 @@ creature's drops are kinds of their own and stay as they were (D-727).
 Several kinds on one tile, the owner's idea, is its own step, its look
 picked from a mock-up then (Q-110). D-932 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-936 · 2026-11-15 · Several kinds on one tile** (the owner's picks,
+both recommended, [mock-up](https://claude.ai/artifact/HCXfq5M38dTgHyXvdj9G5i);
+answers Q-110; the rest of B-011; supersedes in part D-546) One tile holds
+several kinds at once. Drop sets the stack down beside what lies there,
+never swapped; on its own kind, dropped or left over, the stack grows (5
+Wood onto 3 makes 8; Claude's call). A tile with several kinds shows one
+at a time, each with its count, the next about every second (offered too:
+the newest with a "+2" mark; a little heap); with reduced motion it stands
+still, the newest with an ember "+2" top left. A step onto it takes all
+that fits, as a single stack does (offered too: only the top kind; a pick
+card). D-934 moves to `archive/DECISIONS-BAGS.md`, word for word.

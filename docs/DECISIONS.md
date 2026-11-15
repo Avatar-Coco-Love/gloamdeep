@@ -160,18 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-936 · 2026-11-15 · Several kinds on one tile** (the owner's picks,
-both recommended, [mock-up](https://claude.ai/artifact/HCXfq5M38dTgHyXvdj9G5i);
-answers Q-110; the rest of B-011; supersedes in part D-546) One tile holds
-several kinds at once. Drop sets the stack down beside what lies there,
-never swapped; on its own kind, dropped or left over, the stack grows (5
-Wood onto 3 makes 8; Claude's call). A tile with several kinds shows one
-at a time, each with its count, the next about every second (offered too:
-the newest with a "+2" mark; a little heap); with reduced motion it stands
-still, the newest with an ember "+2" top left. A step onto it takes all
-that fits, as a single stack does (offered too: only the top kind; a pick
-card). D-934 moves to `archive/DECISIONS-BAGS.md`, word for word.
-
 **D-937 · 2026-11-15 · A harder Warden** (the owner's ask and picks,
 [mock-ups](https://claude.ai/artifact/3P1t5ADXs6NW8BewfKZVtX); supersedes
 in part D-692, D-886 and its Bestiary tip) Every blow and hurt rings off
@@ -189,3 +177,13 @@ stuck take C (stooped, a jolt and chips), a grey spark, the clink
 `impactMetal_light_000`, the thud A6 (the heavy punch slowed with an
 earth rumble and its stone knock a touch lower). D-935 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-938 · 2026-11-15 · The Warden's look and sounds** (D-937's step 2,
+the owner's picks; [sound board](https://claude.ai/artifact/ThY4FkXmmTFKHnK6V3cC1a))
+The light metal clink was already Making's, two taps at their own pitch,
+so a blow that rings off the warden plays it once, a quarter lower (75%;
+offered too: 85%, 65%, the medium metal, the light stone plate). Claude's
+calls: the clink plays in the hit's place, with no punch; it and the thud
+A6 go under Creatures in Settings; the thud plays as the fists sink,
+with the line. The grey spark shows with reduced motion too; the jolt and
+the chips don't. D-936 moves to `archive/DECISIONS-BAGS.md`, word for word.

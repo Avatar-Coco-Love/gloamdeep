@@ -38,3 +38,19 @@ test('"You can\'t carry more" plays the Can\'t tock; every moment is a sound wit
   assert.deepEqual(at({ line: { id: 'potionFull', turn: 1 } }, []), ['refuse']);
   for (const v of ['fall', 'wake', 'floor', 'room', 'hum', 'eat', 'shimmer', 'breath', 'pack', 'statue', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'spit', 'splat', 'tools', 'ended', 'bells', 'chime', 'plop', 'splash', 'gloam', 'flutter', 'grind']) assert.ok(FILES[v]?.files || FILES[v]?.as, v);
 });
+
+test("the warden's fists sink into the floor: a thud as it opens, once (D-937, A6)", () => {
+  const w = { id: 'warden', x: 3, y: 2 };
+  assert.deepEqual(at({ enemies: [{ ...w, open: true, rests: 2 }] }, [], { ...base, enemies: [w] }), ['sink']);
+  assert.deepEqual(at({ enemies: [{ ...w, open: true, rests: 1 }] }, [], { ...base, enemies: [{ ...w, open: true, rests: 2 }] }), []); // still open: no second thud
+  assert.deepEqual([FILES.sink.files[0].split('/')[1], FILES.sink.pitchOf()], ['impactPunch_heavy_000.ogg', 0.7]);
+  assert.deepEqual(FILES.sink.with.map(([v]) => v), ['sinkRumble', 'sinkKnock']);
+  assert.deepEqual([FILES.sinkRumble.files[0].split('/').pop(), FILES.sinkRumble.pitchOf()], ['Earth-021.ogg', 0.8]);
+  assert.deepEqual([FILES.sinkKnock.files[0].split('/')[1], FILES.sinkKnock.pitchOf()], ['impactMining_000.ogg', 0.72]);
+});
+
+test("a blow that rings off the warden's stone clinks: light metal, once, a quarter lower than Making (D-937)", () => {
+  assert.ok(FILES.ring.files.every((f) => /impactMetal_light_00[0-4]\.ogg$/.test(f)) && !FILES.ring.with);
+  assert.equal(FILES.ring.pitchOf(), 0.75);
+  assert.equal(FILES.tools.pitchOf, undefined); // Making's taps stay at their own pitch, two of them
+});
