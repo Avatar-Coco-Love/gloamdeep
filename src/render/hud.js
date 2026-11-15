@@ -4,6 +4,7 @@
 import { drawText, textWidth } from './font.js';
 import { SPRITES } from './sprites.js';
 import { drawGlass } from './glass.js';
+import { AWAKE } from './waystone.js';
 import { drawHearts, HEART, ROW_HEARTS } from './hearts.js';
 import { PAD, SEG_W, SEG_GAP as GAP, SEGS, panelW } from './panelsize.js';
 
@@ -84,6 +85,15 @@ export function drawMoonIcon(c) {
   c.clearRect(0, 0, 5, 5);
   c.fillStyle = '#b0bcf0';
   MOON_ICON.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(x, y, 1, 1); }));
+}
+
+// § rune icon: the boon button (B-007), the home waystone's plate rune (waystone.js RUNE) in its
+// woken violet, AWAKE, 5 × 6
+export const RUNE_ICON = ['..xx.', '..x..', '.xx.x', '..x..', '...x.', '..xx.'];
+export function drawRuneIcon(c) {
+  c.clearRect(0, 0, 5, 6);
+  c.fillStyle = AWAKE;
+  RUNE_ICON.forEach((row, y) => [...row].forEach((ch, x) => { if (ch === 'x') c.fillRect(x, y, 1, 1); }));
 }
 
 // § flask slot icon: the quick slot (D-384), the bag's flask sprite with how

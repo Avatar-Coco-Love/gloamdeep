@@ -114,7 +114,7 @@ const STAIRS_REACH = 8; // game pixels from found stairs' centre that a tap stil
 // when used (they are made after the screens); `newJourney`, `randomSeed`, `pour(slot)`, `eat(slot)`, `hold(slot)`, `fit(slot)`, `wear(slot)`, `drop(slot)`, `setDown(slot, dir)`,
 // `takeDown(x, y)`, `shelve(x, y)`, `plant(x, y)`, `pick(x, y)`, `feed(x, y)`, `make(item)`, `lookAt(slot)`, `roomTile(px, py)` and `goFullScreen()` from main.js.
 export function createScreens(app, ui) {
-  const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, reduceMotion } = ui;
+  const { spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, boonButton, reduceMotion } = ui;
   const version = document.getElementById('version');
   const menuOf = (sc) => (sc === 'title' ? titleMenu(app.saved) : sc === 'paused' ? PAUSE_MENU : sc === 'sure' || sc === 'drop' ? SURE_MENU : sc === 'mode' ? MODE_MENU : sc === 'ended' ? ENDED_MENU
     : sc === 'ways' ? easeMenu(app.state.mode) : sc === 'easier' || sc === 'sleepOut' ? SURE_MENU : sc === 'bed' ? bedMenu() : sc === 'travel' ? travelMenu() : sc === 'boons' ? boonsMenu()
@@ -152,7 +152,7 @@ export function createScreens(app, ui) {
     const playing = next === 'play';
     if ((playing || next === 'opening') && (onTitle() || app.screen === 'paused')) ui.goFullScreen(); // Play, Continue or Resume: full screen, held either way (D-377, D-505)
     app.screen = next; app.chosen = at;
-    lanternButton.hide(!playing); quickSlot.hide(!playing); sleepButton.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
+    lanternButton.hide(!playing); quickSlot.hide(!playing); sleepButton.hide(!playing); boonButton.hide(!playing); pauseButton.hide(!playing); ui.dev().hide(!playing);
     mapButton.hide(!playing); bagButton.hide(!playing); // the cards' own crosses close the map and the bag (D-385, D-395)
     version.hidden = !(onTitle() || next === 'paused'); // the version number on the title and the pause menu, not in play (D-407)
     setVersionGap(!version.hidden); // the cards' foot clear of it (D-512)

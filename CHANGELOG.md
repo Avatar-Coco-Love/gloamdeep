@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.372 (2026-11-15)
+- Coming home by a waystone or a fall, the boon card no longer opens by itself. A round button with the waystone's violet rune shows up and left of the lantern instead. Tap it to choose a boon. Step off the plate and it goes; step back on and the card opens, as before.
+- Checked: bats and lampmoths already fly over finds lying on the floor, so that note is closed. A test now makes sure it stays that way.
+- Decisions: D-930. D-908 and D-909 moved to the archive, word for word.
+
 ## 0.3.371 (2026-11-15)
 - Bump the rune wall with your lantern off and the runes flare: the stone sinks away for good, into a small nook. On a plinth inside lies a vault's prize, an ember or 2 of a rare material, taken with a bump.
 - Bumped with the lantern lit, the rune wall now says so: "Faint marks.", then "Too pale to see by lantern light."
@@ -33,8 +38,3 @@ Entry format:
 - Nothing opens it yet: bumping it in the dark comes next.
 - Your six notes are on the bug list: flyers over things to pick up, the boon menu on coming home, the round map's dark circle, lines at the bottom staying too long, overlaps on a big PC screen, and a felled tree's wood landing in three spots.
 - Decisions: D-928. D-902 moved to the archive, word for word.
-
-## 0.3.369 (2026-11-14)
-- Nothing in the game changed. The second puzzle is settled: from depth 1, one cave room on each floor hides a nook in its wall, marked by faint violet runes you can see only with the lantern off.
-- Bump that wall in the dark and it opens for good, with a vault's prize behind it. Bumped with the lantern lit, it only says the marks are too pale to see.
-- Decisions: D-927. D-925 and D-926 moved to the archive, word for word.

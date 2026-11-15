@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.371 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.372 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks what comes next: one of B-006 to B-011 (`BUGS.md`), or
+The owner picks what comes next: one of B-008 to B-011 (`BUGS.md`), or
 Biome 1's boss and found ability (Q-105), L1 and L3 now built.
 
 ## Waiting on the owner
@@ -46,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.372, The boon button.** B-007: coming home by a
+  waystone or a fall shows a violet rune button by the lantern, not the
+  boon card; a tap opens it. B-006 closed, not a bug: flyers already
+  pass over finds; a test checks it. The owner's picks. D-908 and D-909
+  archived. D-930. Playtest: https://claude.ai/artifact/5rkSYmfVfmqFTe7tnvhF7f
 - **2026-11-15, 0.3.371, The rune wall opens.** L3 step 2 (D-927): bumped
   dark from in front, the rune wall sinks open for good, a plinth with a
   vault's prize draw in the nook; bumped lit, its line, a sentence a bump.
@@ -56,9 +61,3 @@ list in `RESEARCH.md`.
   lantern off. Look A from a mock-up on game screenshots; the owner's
   picks. The owner's notes are B-006 to B-011. D-902 archived. D-928.
   Playtest: https://claude.ai/artifact/UGyugvpFX6gCeu5LxQmtZu
-- **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
-  rune-wall nook a floor from depth 1, in an ordinary cave room; its
-  runes seen across the room only with the lantern off; a dark bump
-  opens it for good, a hint line when bumped lit; 1 tile behind holds a
-  vault's prize draw, more later. 2 steps. The owner's picks. D-925
-  and D-926 archived. D-927.

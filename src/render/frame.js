@@ -55,7 +55,7 @@ import { drawPauseCard } from './pausecard.js';
 import { drawSettingsCard } from './settingscard.js';
 import { drawWays, TRAVEL_TITLE } from './ways.js';
 import { drawBoons } from './boons.js';
-import { boonOf, lanternReach } from '../core/boon.js';
+import { boonOf, lanternReach, offersBoons } from '../core/boon.js';
 import { stashAt, chestsNear, nearStacks } from '../core/chest.js';
 import { gearRow } from '../core/gear.js';
 import { padShown, marksShown } from '../core/settings.js';
@@ -120,7 +120,7 @@ const picsOf = (state) => (entry) => ({ held: state.held ?? null, refill: refill
 const kitOf = (state) => (it) => (it?.id === 'rod' && isFitted(state, 'boneHook') ? SPRITES.rodHooked : spriteOf(it));
 
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -394,7 +394,7 @@ export function createFrame(app, ui) {
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
     pauseButton.fade(roundAlpha); dev.wrench.fade(roundAlpha);
     // § round lantern: bottom right, with the bag and the quick slot on its arc, one piece fading the same way (D-442)
-    const low = [lanternButton, bagButton, quickSlot, sleepButton];
+    const low = [lanternButton, bagButton, quickSlot, sleepButton, boonButton];
     lanternAlpha = app.screen === 'play' ? fade(lanternAlpha, low.some((b) => covers(b.area())) ? UNDER_ALPHA : 1) : 1;
     for (const b of low) b.fade(lanternAlpha);
     // § arrow pad: bottom left, in play with its switch on, fading the same way (D-406)
@@ -419,7 +419,7 @@ export function createFrame(app, ui) {
     const line = fall?.from ? null : shownLine(state); // the fall's line once the hero wakes
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
-    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
+    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still(), app.settingsTab, app.soundList); // a card on the room (D-389)

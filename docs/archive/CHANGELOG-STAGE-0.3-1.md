@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.369 (2026-11-14)
+- Nothing in the game changed. The second puzzle is settled: from depth 1, one cave room on each floor hides a nook in its wall, marked by faint violet runes you can see only with the lantern off.
+- Bump that wall in the dark and it opens for good, with a vault's prize behind it. Bumped with the lantern lit, it only says the marks are too pale to see.
+- Decisions: D-927. D-925 and D-926 moved to the archive, word for word.
+
 ## 0.3.368 (2026-11-14)
 - New at the workbench: the Shovel, the BUILD tab's last slot. It costs 3 Wood and 2 Stone, and you carry one. Hold it in the Tool slot, as you hold the picks and the rod.
 - With the shovel held, walk onto a stump to dig it out: a turn, and you stay where you are. Plain grass is left, and the tree never grows back there, so you can clear room for a base.
