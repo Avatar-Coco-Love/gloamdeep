@@ -4,6 +4,7 @@
 import { CLOAKS, EYES, TRIMS, get } from '../core/registry.js';
 import { DEFAULT_CLOTHES, DEFAULT_LAMP, DEFAULT_HEAD } from '../core/looks.js';
 import { keep } from './wipe.js';
+import { drawText, textWidth } from './font.js';
 import {
   PAL, HERO, CLOTHES_ROWS, dressed,
   WOODS, BRANCHES, STUMPS, BERRY_BUSH,
@@ -264,7 +265,14 @@ export function drawItems(c, items, t, still) {
     if (it.flip) { c.save(); c.translate(x * 2 + 16, 0); c.scale(-1, 1); } // facing the other way (D-763)
     c.drawImage(spriteOf(it), x, y - 2 - bob);
     if (it.flip) c.restore();
+    if (it.n > 1) heapCount(c, it.n, x, y);
   }
+}
+// A stack's count in its tile's bottom right corner, on dark, as a bag slot shows it (D-934)
+function heapCount(c, n, x, y) {
+  const s = String(n), w = textWidth(s);
+  c.fillStyle = '#0e0c16'; c.fillRect(x + 15 - w - 2, y + 7, w + 2, 9);
+  drawText(c, s, x + 15 - w - 1, y + 8, '#efe6cc');
 }
 
 // § enemies: on a shadow, standing still with no bob, each sprite moved down so its lowest pixel

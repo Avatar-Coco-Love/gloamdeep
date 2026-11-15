@@ -45,7 +45,7 @@ a sprout does. Dev mode's Room section gets Grow, every planted bed's time
 up, one in this room growing at once. D-564 moved to
 `archive/DECISIONS-GLOAMBERRY.md`, word for word.
 
-**D-568 · 2026-11-02 · Picking** (the owner's picks, all recommended;
+**D-568 · 2026-11-02 · Picking** *Superseded in part by D-934 (2026-11-15): the rest lies as one stack on the nearest open tile.* (the owner's picks, all recommended;
 garden step 5, builds D-562, D-567) The grown bed's card shows PICK and
 DECONSTRUCT, Pick picked, in place of Plant. Pick gives 3 Gloamberries,
 one more than a wild bush, a turn, saying "You pick three

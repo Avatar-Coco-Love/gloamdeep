@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.376 (2026-11-15)
+- A tree felled with a full bag leaves its 3 Wood as one stack on its stump, not on three tiles; the same for a branch's wood and a garden bed's berries. A stack on the ground shows its count in the corner, and stepping on it takes all that fits (B-011).
+- Decisions: D-934. D-932 moved to the archive, word for word.
+
 ## 0.3.375 (2026-11-15)
 - On a PC screen, a find made at a station, such as the Healing Herb's "Makes a Mending Draught at the mortar", no longer runs over DROP in the bag: "at the mortar" goes on a second line when there isn't room (B-010).
 - Decisions: D-933.
@@ -30,7 +34,3 @@ Entry format:
 ## 0.3.374 (2026-11-15)
 - A line along the bottom no longer stays while you stand still: it goes after 5 turns or 4 seconds, whichever comes first, 2 seconds more for each extra row on a long line (B-009).
 - Decisions: D-932.
-
-## 0.3.373 (2026-11-15)
-- With your lantern off in the dark, the round map no longer has a dark circle round you. The whole map fades evenly, faint as before, with your gold dot in the middle.
-- Decisions: D-931. D-928 moved to the archive, word for word.

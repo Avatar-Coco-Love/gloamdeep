@@ -82,3 +82,11 @@ Still open: the sapling, its make, where it grows and how long.
 idea, with D-926) Perhaps at some point the shovel could dig spots up to
 find something buried. What is buried, where, and how a spot is told
 apart? Its own step, any time.
+
+**Q-110 · Several kinds on one tile** (raised 2026-11-15, the owner's
+idea with B-011, D-934) Finds stack on the ground now, one kind a tile.
+The owner's wish: one tile holds several kinds at once ("I drop 5 wood,
+3 rat tails, and 4 healing herbs in the same spot, they will all be
+there"), a drop onto a find adding to the pile, not swapping (D-546).
+Still open: how a mixed pile looks (a mock-up at that step), and what a
+step onto it takes. Its own step.

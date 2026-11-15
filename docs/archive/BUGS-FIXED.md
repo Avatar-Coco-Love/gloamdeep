@@ -3,6 +3,16 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.376 (D-934): B-011, its first part; several kinds on one tile is Q-110.
+
+**B-011 · 2026-11-15 · A felled tree's wood falls in three spots** The
+owner doesn't like that a felled tree drops its wood on three different
+tiles, when wood can stack. The owner's idea: items stack on the ground,
+and one tile can hold several kinds at once ("I drop 5 wood, 3 rat
+tails, and 4 healing herbs in the same spot, they will all be there").
+How to show that a tile holds more than one kind is open. Today one tile
+holds one stack, and a drop onto a find swaps them (D-546).
+
 Fixed in 0.3.375 (D-933): B-010.
 
 **B-010 · 2026-11-15 · Things overlap on a big PC screen** On a PC, in

@@ -223,3 +223,14 @@ dot over it, superseding D-920's spot (offered too: a soft, shallow dip,
 the middle at half over about 5 tiles; the spot as it was but lighter).
 Seen from a mock-up. D-928 moves to `archive/DECISIONS-CARDS-2.md`, word
 for word.
+
+**D-932 · 2026-11-15 · A line's seconds** (the owner's picks, both
+recommended; B-009, the owner's idea) A line along the bottom goes after
+its 5 turns (D-095) or after 4 seconds of real time, whichever comes
+first, then fades as before (offered too: 3 seconds; 6 seconds). A line
+on more than one row stays 2 seconds more for each row past the first
+(offered too: the same time for all; people's words longer too). Claude's
+calls: the seconds are kept by the drawing code, not the game's state, so
+saves don't change; a line said again starts its seconds again; they run
+on every screen, cards too. D-930 moves to `archive/DECISIONS-CARDS-2.md`,
+word for word.

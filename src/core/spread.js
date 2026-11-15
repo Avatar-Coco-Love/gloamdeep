@@ -28,3 +28,11 @@ function ringAt(r) {
   for (let dy = -r; dy <= r; dy++) for (let dx = -r; dx <= r; dx++) if (Math.max(Math.abs(dx), Math.abs(dy)) === r) out.push([dx, dy]);
   return out.sort((a, b) => Math.abs(a[0]) + Math.abs(a[1]) - Math.abs(b[0]) - Math.abs(b[1]));
 }
+
+// § heap: what didn't fit, k of one kind, as one stack on spread's first tile, never to
+// grow back (D-934); [] when none is left. `form`: the look it takes, as the bag's does.
+export function heap(state, x, y, id, k, free = false, form) {
+  if (k < 1) return [];
+  const [at] = spread(state, x, y, 1, free);
+  return [{ id, ...at, ...(form === undefined ? {} : { form }), once: true, ...(k > 1 && { n: k }) }];
+}

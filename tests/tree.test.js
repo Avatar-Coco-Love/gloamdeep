@@ -55,17 +55,27 @@ test('the stump is walked over, the view passes it, the map shows it open', () =
   assert.notEqual(markAt(s.room, null, 5, 10), 'wall');
 });
 
-test('with room for 1, it still falls, and 2 sticks lie on the stump and the nearest open tile', () => {
+test('with room for 1, it still falls, and 2 sticks lie as one stack on the stump (D-934)', () => {
   const five = Array.from({ length: 5 }, () => ({ id: 'wood', n: 20 }));
   const s = bumps(beside([...five, { id: 'wood', n: 19, form: 0 }]), 4);
   assert.equal(tileAt(s.room, 5, 10).id, 'stump');
   assert.deepEqual(s.bag, [...five, { id: 'wood', n: 20, form }]);
   const left = s.items.filter((it) => it.id === 'wood');
-  assert.equal(left.length, 2);
-  assert.ok(left.every((it) => it.once && it.form === form && !tileAt(s.room, it.x, it.y).solid));
-  assert.ok(left.some((it) => it.x === 5 && it.y === 10));
-  assert.ok(!left.some((it) => it.x === 5 && it.y === 11)); // never under the hero
-  assert.equal(new Set(left.map((it) => `${it.x},${it.y}`)).size, 2);
+  assert.deepEqual(left.map((it) => [it.x, it.y, it.n, it.form, it.once]), [[5, 10, 2, form, true]]);
+});
+
+test('a stack on the ground goes into the bag whole; what doesn\'t fit stays, with the full line (D-934)', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'wood', n: 20 }));
+  const s = bumps(beside(full), 4), [pile] = s.items.filter((it) => it.id === 'wood');
+  const room = { ...s, bag: [...full.slice(1), { id: 'wood', n: 19 }] };
+  const one = step(room, 'up');
+  assert.equal(one.bag[5].n, 20);
+  assert.deepEqual(one.items.filter((it) => it.id === 'wood').map((it) => it.n), [2]);
+  assert.equal(shown(one), "You can't carry more wood.");
+  const all = step({ ...s, bag: full.slice(1) }, 'up');
+  assert.deepEqual(all.items.filter((it) => it.id === 'wood'), []);
+  assert.equal(all.bag.reduce((k, o) => k + (o.id === 'wood' ? o.n : 0), 0), 103);
+  assert.ok(pile.once);
 });
 
 test('with 6 full stacks of Wood carried, the fourth bump fells it all the same, the wood on the floor (D-924)', () => {
@@ -75,9 +85,7 @@ test('with 6 full stacks of Wood carried, the fourth bump fells it all the same,
   assert.equal(tileAt(s.room, 5, 10).id, 'stump');
   assert.deepEqual(s.bag, full);
   const left = s.items.filter((it) => it.id === 'wood');
-  assert.equal(left.length, 3);
-  assert.ok(left.every((it) => it.once && !tileAt(s.room, it.x, it.y).solid));
-  assert.ok(!left.some((it) => it.x === 5 && it.y === 11)); // never under the hero
+  assert.deepEqual(left.map((it) => [it.x, it.y, it.n, it.once]), [[5, 10, 3, true]]); // one stack on the stump (D-934)
   assert.equal(shown(s), "You can't carry more wood.");
   assert.equal(s.taken.length, 1); // the stump still grows back
 });
