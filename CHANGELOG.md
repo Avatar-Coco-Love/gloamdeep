@@ -23,6 +23,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.375 (2026-11-15)
+- On a PC screen, a find made at a station, such as the Healing Herb's "Makes a Mending Draught at the mortar", no longer runs over DROP in the bag: "at the mortar" goes on a second line when there isn't room (B-010).
+- Decisions: D-933.
+
 ## 0.3.374 (2026-11-15)
 - A line along the bottom no longer stays while you stand still: it goes after 5 turns or 4 seconds, whichever comes first, 2 seconds more for each extra row on a long line (B-009).
 - Decisions: D-932.
@@ -30,8 +34,3 @@ Entry format:
 ## 0.3.373 (2026-11-15)
 - With your lantern off in the dark, the round map no longer has a dark circle round you. The whole map fades evenly, faint as before, with your gold dot in the middle.
 - Decisions: D-931. D-928 moved to the archive, word for word.
-
-## 0.3.372 (2026-11-15)
-- Coming home by a waystone or a fall, the boon card no longer opens by itself. A round button with the waystone's violet rune shows up and left of the lantern instead. Tap it to choose a boon. Step off the plate and it goes; step back on and the card opens, as before.
-- Checked: bats and lampmoths already fly over finds lying on the floor, so that note is closed. A test now makes sure it stays that way.
-- Decisions: D-930. D-908 and D-909 moved to the archive, word for word.

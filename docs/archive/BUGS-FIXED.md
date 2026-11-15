@@ -3,6 +3,13 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.375 (D-933): B-010.
+
+**B-010 · 2026-11-15 · Things overlap on a big PC screen** On a PC, in
+Microsoft Edge full screen at 1920 × 1080, some of the screen overlaps.
+One example: in the bag, with Healing Herb picked, the green flask's
+picture sits right over the word DROP.
+
 Fixed in 0.3.374 (D-932): B-009.
 
 **B-009 · 2026-11-15 · Lines at the bottom stay too long** "Any message

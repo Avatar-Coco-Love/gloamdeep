@@ -160,14 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-931 · 2026-11-15 · The round map's dark circle** (the owner's pick,
-recommended; B-008) The soft dark spot round the hero on the round map in
-the dark is gone: the map fades evenly to its 15% at no light, the hero's
-dot over it, superseding D-920's spot (offered too: a soft, shallow dip,
-the middle at half over about 5 tiles; the spot as it was but lighter).
-Seen from a mock-up. D-928 moves to `archive/DECISIONS-CARDS-2.md`, word
-for word.
-
 **D-932 · 2026-11-15 · A line's seconds** (the owner's picks, both
 recommended; B-009, the owner's idea) A line along the bottom goes after
 its 5 turns (D-095) or after 4 seconds of real time, whichever comes
@@ -178,3 +170,19 @@ calls: the seconds are kept by the drawing code, not the game's state, so
 saves don't change; a line said again starts its seconds again; they run
 on every screen, cards too. D-930 moves to `archive/DECISIONS-CARDS-2.md`,
 word for word.
+
+**D-933 · 2026-11-15 · Words clear of DROP on a PC** (the owner's picks,
+both recommended; B-010) In the bag, a find made at a station ("Makes a
+Mending Draught at the mortar", beside EAT) puts "at the mortar" on a
+second line when the whole line wouldn't fit between DROP and the button,
+not only within the item side's width, so it never runs over DROP
+(offered too: DROP moved up a row). Seen from mock-ups at 1920 × 1080.
+Claude checks the other cards at PC sizes: the text-fit test now draws
+every card at the sizes common PC screens give, full screen, the station
+line too; it found the stash chest's words running off its foot at
+3840 × 2160 and 1366 × 768, kept as B-012 for its own step (offered too:
+just the bag; the owner names the others). Claude's call: on those
+screens the bag card is about 384 × 216 game pixels, narrower than a
+phone's held sideways, so small phones and the bigger bags had the
+overlap too, fixed with it. D-931 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.

@@ -107,3 +107,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Measure a drafted line before offering it: D-927's lit line, settled a step early, and this step's first open line were both too wide for the strip, found only by the tests, so the owner was asked twice (0.3.371).
 - An owner's free answer can beat every offered option: asked when a follower comes in, the owner reasoned it out (3 tiles away, a few tiles' lead), and that became the rule; the questions after built on it (0.3.367).
 - Check a bug note in the code before offering fixes: B-006 was already how the game worked, so the first question offered the cases it might mean, and the owner could close it as not a bug (0.3.372).
+- Turn the owner's screen into game pixels before guessing: a 1920 × 1080 PC gives a bag card narrower than a phone's, so the existing text-fit test, given those sizes, showed the bug and a second one (0.3.375).

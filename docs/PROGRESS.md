@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.374 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.375 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-B-010, things overlap on a big PC screen (`BUGS.md`), the owner's pick;
-then B-011, or Biome 1's boss and found ability (Q-105).
+B-011, a felled tree's wood in three spots (`BUGS.md`), or B-012, the
+stash chest's words on a PC; or Biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.375, Words clear of DROP.** B-010: on a PC screen the
+  bag's "Makes a Mending Draught at the mortar" breaks onto two lines
+  instead of running over DROP. The text-fit test tries PC screens now;
+  it found B-012. The owner's picks. D-933.
+  Playtest: https://claude.ai/artifact/SLbvP7ucsrjwT7G3wEvxB4
 - **2026-11-15, 0.3.374, A line's seconds.** B-009: a line along the
   bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
   for each extra row. The owner's picks. D-930 archived. D-932.
@@ -54,8 +59,3 @@ list in `RESEARCH.md`.
   dark the round map fades evenly to 15%, no dark spot round the hero
   (option A from a mock-up). The owner's pick. D-928 archived. D-931.
   Playtest: https://claude.ai/artifact/PFZaKUxggMFoZtqVqY87NK
-- **2026-11-15, 0.3.372, The boon button.** B-007: coming home by a
-  waystone or a fall shows a violet rune button by the lantern, not the
-  boon card; a tap opens it. B-006 closed, not a bug: flyers already
-  pass over finds; a test checks it. The owner's picks. D-908 and D-909
-  archived. D-930. Playtest: https://claude.ai/artifact/5rkSYmfVfmqFTe7tnvhF7f

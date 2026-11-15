@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.375', date: '2026-11-15', title: 'Words clear of DROP', lines: [
+    "On a PC screen, a find made at a station, such as the Healing Herb's \"Makes a Mending Draught at the mortar\", no longer runs over DROP in the bag: \"at the mortar\" goes on a second line when there isn't room (B-010).",
+    "Decisions: D-933.",
+  ] },
   { v: '0.3.374', date: '2026-11-15', title: 'A line\'s seconds', lines: [
     "A line along the bottom no longer stays while you stand still: it goes after 5 turns or 4 seconds, whichever comes first, 2 seconds more for each extra row on a long line (B-009).",
     "Decisions: D-932.",

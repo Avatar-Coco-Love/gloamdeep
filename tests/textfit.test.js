@@ -27,7 +27,7 @@ const { ITEMS } = await import(R + 'core/items.js');
 const M = await import(R + 'core/menu.js');
 const { drawBenchPanel } = await import(R + 'render/benchpanel.js');
 const { drawMakeCard } = await import(R + 'render/makecard.js');
-const { bagMakes } = await import(R + 'core/bagmake.js');
+const { bagMakes, stationFor } = await import(R + 'core/bagmake.js');
 const { refills, draughtTurns } = await import(R + 'core/numbers.js');
 const G = await import(R + 'core/gear.js');
 const { drawChestPanel } = await import(R + 'render/chestpanel.js');
@@ -50,7 +50,12 @@ const { drawGoalLine } = await import(R + 'render/goalline.js');
 
 const UPRIGHT = [[176, 380], [180, 390], [195, 422], [206, 457]];
 const SIDEWAYS = [[380, 176], [390, 180], [400, 190], [422, 195], [340, 255], [360, 270]];
-const SIZES = [...UPRIGHT, ...SIDEWAYS];
+// A PC's screen, full screen in a browser, as its card is drawn there (cardZoom): 1920 × 1080,
+// 2560 × 1440, 3840 × 2160, 1600 × 900, 1280 × 720, 1440 × 900, 1920 × 1200, 1366 × 768 and
+// 1280 × 1024 (B-010)
+const PC = [[384, 216], [365, 205], [349, 196], [400, 225], [426, 240], [360, 225], [384, 240], [341, 192], [426, 341]];
+const SIZES = [...UPRIGHT, ...SIDEWAYS, ...PC];
+const CHEST_LATER = new Set(['349×196', '341×192']); // the stash chest's words run off its foot there: B-012, its own step
 const END = 1e6; // a list scrolled as far down as it goes
 
 // § check: draw, then each line of words must sit inside `box` (in by `inset` at the sides), and
@@ -91,13 +96,14 @@ test('every Journal tab and creature page fits its card, at its top and scrolled
 });
 
 test('the bag, its Make tab, workbench and stash chest fit their cards with every item chosen (D-787)', () => {
+  const everything = { bag: [], known: Object.keys(ITEMS) }; // a find made at a station: its line beside EAT, "at the mortar" (D-826, B-010)
   const bad = [], spriteOf = () => any;
   const hero = { health: 2, oil: 0.3, boon: null, grown: {}, held: 'knife' }, picsOf = (e) => ({ held: hero.held, refill: refills(hero, e), sips: draughtTurns(hero, e) }); // the pictures too (D-916)
   for (const [vw, vh] of SIZES) {
     const L = `${vw}×${vh}`, card = B.cardAt(vw, vh);
     for (const size of [6, 9, 12]) for (const id of Object.keys(ITEMS)) {
-      bad.push(...fits(`${L} bag ${size} ${id}`, B.cardAt(vw, vh, B.bagShape(size).detail), () => B.drawBag(any, vw, vh, [{ id, n: 99 }], 0, spriteOf, [], false, {}, size, true, 0, true, true, ITEMS[id].craft?.into ?? null)));
-      for (const at of [0, CHEST_BAG]) bad.push(...fits(`${L} chest ${size} ${at} ${id}`, card, () => drawChestPanel(any, vw, vh, [{ id, n: 99 }], [{ id, n: 99 }], at, spriteOf, 0, true, size, picsOf))); // the pictures too, chest and bag (D-917)
+      bad.push(...fits(`${L} bag ${size} ${id}`, B.cardAt(vw, vh, B.bagShape(size).detail), () => B.drawBag(any, vw, vh, [{ id, n: 99 }], 0, spriteOf, [], false, {}, size, true, 0, true, true, ITEMS[id].craft?.into ?? stationFor(everything, id))));
+      if (!CHEST_LATER.has(L)) for (const at of [0, CHEST_BAG]) bad.push(...fits(`${L} chest ${size} ${at} ${id}`, card, () => drawChestPanel(any, vw, vh, [{ id, n: 99 }], [{ id, n: 99 }], at, spriteOf, 0, true, size, picsOf))); // the pictures too, chest and bag (D-917)
     }
     const makes = M.benchMakes([], 6, []);
     makes.forEach((m, i) => bad.push(...fits(`${L} bench ${i}`, card, () => drawBenchPanel(any, vw, vh, makes, i, spriteOf, {}, 0, true, 'WORKBENCH', '', null, picsOf))));
