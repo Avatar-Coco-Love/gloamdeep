@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.378', date: '2026-11-15', title: 'Several kinds on one tile', lines: [
+    "One tile can hold several kinds of find: Drop sets a stack down beside what lies there instead of swapping, and onto its own kind the stack grows. The tile shows each kind in turn, with its count, about a second each; with reduced motion, the newest with an ember \"+2\" for the others. A step onto it takes all that fits (B-011).",
+    "Decisions: D-936. Questions closed: Q-110. D-934 moved to the archive, word for word.",
+  ] },
   { v: '0.3.377', date: '2026-11-15', title: 'The chest\'s hint whole', lines: [
     "On a PC screen, the stash chest's \"Tap to move to the chest.\" no longer runs below the card's bottom edge: where it would break onto a line past the edge, it is left out, as it already was where there was no room (B-012).",
     "Decisions: D-935. D-933 moved to the archive, word for word.",

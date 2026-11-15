@@ -147,15 +147,16 @@ function takeBack(state, found) {
 }
 
 // § drop: Drop on bag slot i sets its whole stack down on the hero's tile, free,
-// "You set it down." (D-546). What already lay there comes into the bag in its
-// place, as a step onto it would take it: a swap.
+// "You set it down." (D-546). It joins what already lies there, never swapped (D-936): a
+// stack of its own kind left there, dropped or left over (D-934), grows by it; else it lies
+// beside the rest, a tile holding several kinds (Q-110).
 export function drop(state, i) {
   const s = state.bag[i];
   if (!s) return state;
-  const pile = { ...s, x: state.hero.x, y: state.hero.y, dropped: true }, here = state.items.filter((it) => it.x === pile.x && it.y === pile.y);
-  let next = say(fresh({ ...state, bag: state.bag.filter((o, j) => j !== i), items: [...state.items, pile] }), 'setDown');
-  for (const found of here) next = pickUp(next, found);
-  return next;
+  const { x, y } = state.hero, same = (it) => it.x === x && it.y === y && it.id === s.id && it.form === s.form && (it.dropped || it.once);
+  const was = state.items.find(same), pile = { ...s, x, y, dropped: true, ...(was && { n: (was.n ?? 1) + s.n }) };
+  const items = [...state.items.filter((it) => it !== was), pile];
+  return say(fresh({ ...state, bag: state.bag.filter((o, j) => j !== i), items }), 'setDown');
 }
 
 // § attack: the hero swings the lantern at the foe and stays put (D-109),

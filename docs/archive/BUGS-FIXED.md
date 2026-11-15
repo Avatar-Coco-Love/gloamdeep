@@ -3,6 +3,8 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.378 (D-936): B-011, its second part: several kinds on one tile.
+
 Fixed in 0.3.377 (D-935): B-012.
 
 **B-012 · 2026-11-15 · The stash chest's words run off its foot on a PC**

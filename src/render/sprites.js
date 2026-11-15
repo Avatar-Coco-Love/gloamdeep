@@ -256,23 +256,42 @@ export function drawHero(c, x, y, bitten = false, lying = false) {
 // § items: each item 2 pixels up from its tile, on its shadow. An item bobs
 // 1 pixel every 0.7 s, each row in its own beat; still with reduced motion (study line 379, D-077).
 // A mushroom is drawn in its own tone (D-305); a flower in its own, and mirrored when it `flip`s (D-763).
+// A tile holding several kinds shows one at a time, each with its count, the next every
+// PILE_MS; still, the newest with an ember "+2" top left for the others (D-936).
+export const PILE_MS = 1000;
 export function drawItems(c, items, t, still) {
+  const tiles = new Map();
   for (const it of items) {
-    const x = it.x * 16, y = it.y * 16;
-    const bob = still ? 0 : Math.floor(t / 700 + it.y) % 2;
-    drawShadow(c, x, y, 8);
-    if (get(it.id)?.relic) continue; // a relic is drawn over the light, drawRelics (D-692)
-    if (it.flip) { c.save(); c.translate(x * 2 + 16, 0); c.scale(-1, 1); } // facing the other way (D-763)
-    c.drawImage(spriteOf(it), x, y - 2 - bob);
-    if (it.flip) c.restore();
-    if (it.n > 1) heapCount(c, it.n, x, y);
+    if (get(it.id)?.relic) { drawShadow(c, it.x * 16, it.y * 16, 8); continue; } // a relic is drawn over the light, drawRelics (D-692)
+    const k = it.x + ',' + it.y;
+    tiles.set(k, [...(tiles.get(k) || []), it]);
   }
+  for (const pile of tiles.values()) {
+    const it = still ? pile[pile.length - 1] : pile[Math.floor(t / PILE_MS) % pile.length];
+    drawItem(c, it, t, still);
+    if (still && pile.length > 1) moreCount(c, pile.length - 1, it.x * 16, it.y * 16);
+  }
+}
+function drawItem(c, it, t, still) {
+  const x = it.x * 16, y = it.y * 16;
+  const bob = still ? 0 : Math.floor(t / 700 + it.y) % 2;
+  drawShadow(c, x, y, 8);
+  if (it.flip) { c.save(); c.translate(x * 2 + 16, 0); c.scale(-1, 1); } // facing the other way (D-763)
+  c.drawImage(spriteOf(it), x, y - 2 - bob);
+  if (it.flip) c.restore();
+  if (it.n > 1) heapCount(c, it.n, x, y);
 }
 // A stack's count in its tile's bottom right corner, on dark, as a bag slot shows it (D-934)
 function heapCount(c, n, x, y) {
   const s = String(n), w = textWidth(s);
   c.fillStyle = '#0e0c16'; c.fillRect(x + 15 - w - 2, y + 7, w + 2, 9);
   drawText(c, s, x + 15 - w - 1, y + 8, '#efe6cc');
+}
+// How many other kinds lie under the one shown, top left, in ember on dark (D-936)
+function moreCount(c, k, x, y) {
+  const s = '+' + k, w = textWidth(s);
+  c.fillStyle = '#0e0c16'; c.fillRect(x, y, w + 2, 9);
+  drawText(c, s, x + 1, y + 1, '#f39a3b'); // the cards' ember
 }
 
 // § enemies: on a shadow, standing still with no bob, each sprite moved down so its lowest pixel
