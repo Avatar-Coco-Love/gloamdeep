@@ -38,6 +38,14 @@ Microsoft Edge full screen at 1920 × 1080, some of the screen overlaps.
 One example: in the bag, with Healing Herb picked, the green flask's
 picture sits right over the word DROP.
 
+**B-011 · 2026-11-15 · A felled tree's wood falls in three spots** The
+owner doesn't like that a felled tree drops its wood on three different
+tiles, when wood can stack. The owner's idea: items stack on the ground,
+and one tile can hold several kinds at once ("I drop 5 wood, 3 rat
+tails, and 4 healing herbs in the same spot, they will all be there").
+How to show that a tile holds more than one kind is open. Today one tile
+holds one stack, and a drop onto a find swaps them (D-546).
+
 ## Found by the sixteenth audit's bug hunt (D-910)
 
 Read in the code from 0.3.314 to 0.3.352 and checked with small scripts.

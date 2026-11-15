@@ -26,7 +26,7 @@ Entry format:
 ## 0.3.370 (2026-11-15)
 - From depth 1, one room on each floor now has a rune wall. Switch your lantern off and three faint violet runes glow on that wall's face, seen from across the room. With the lantern lit it looks like any other wall.
 - Nothing opens it yet: bumping it in the dark comes next.
-- Your five notes are on the bug list: flyers over things to pick up, the boon menu on coming home, the round map's dark circle, lines at the bottom staying too long, and overlaps on a big PC screen.
+- Your six notes are on the bug list: flyers over things to pick up, the boon menu on coming home, the round map's dark circle, lines at the bottom staying too long, overlaps on a big PC screen, and a felled tree's wood landing in three spots.
 - Decisions: D-928. D-902 moved to the archive, word for word.
 
 ## 0.3.369 (2026-11-14)

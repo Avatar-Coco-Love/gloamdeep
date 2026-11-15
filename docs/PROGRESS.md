@@ -12,7 +12,7 @@ L3 step 2 (D-927): a dark bump opens the rune wall for good, a vault's
 prize in the nook; a lit bump says its line.
 
 ## Waiting on the owner
-- Which of B-006 to B-010 (`BUGS.md`) first, after L3.
+- Which of B-006 to B-011 (`BUGS.md`) first, after L3.
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - Any time: a sound for the vault door opening (D-895); a duskstar on
@@ -51,7 +51,7 @@ list in `RESEARCH.md`.
 - **2026-11-15, 0.3.370, The rune wall.** L3 step 1 (D-927): from depth
   1, one wall a floor shows three faint violet runes, only with the
   lantern off. Look A from a mock-up on game screenshots; the owner's
-  picks. The owner's notes are B-006 to B-010. D-902 archived. D-928.
+  picks. The owner's notes are B-006 to B-011. D-902 archived. D-928.
   Playtest: https://claude.ai/artifact/UGyugvpFX6gCeu5LxQmtZu
 - **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
   rune-wall nook a floor from depth 1, in an ordinary cave room; its
