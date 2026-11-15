@@ -41,7 +41,7 @@ header says when it moved and why.
 | `DECISIONS-SCREEN.md` | D-375 to D-377 | the home screen, a tools menu later, landscape only (partly superseded by D-505) | D-386 |
 | `DECISIONS-CORNER-HUD.md` | D-381 to D-384 | the room filling the screen, the stats switch, the round map and lantern | D-388 |
 | `DECISIONS-CARDS.md` | D-378 to D-380, D-385 to D-391 | the Genshin feel, the corner HUD's steps, the menus as cards | D-392 |
-| `DECISIONS-CARDS-2.md` | D-393 to D-400, D-743, D-904 to D-906, D-902, D-907 to D-909, D-928, D-930, D-931, D-932 | more menus as cards, the asks; words that fit; numbers on the Make tab, the peddler's and the chest's cards; numbers in the bag; a weapon's hits on the grid; hearts or oil, and a draught's turns, now and after; the round map's dark circle; a line's seconds | D-401, D-782, D-908, D-928, D-929, D-930, D-931, D-932, D-933, D-934 |
+| `DECISIONS-CARDS-2.md` | D-393 to D-400, D-743, D-904 to D-906, D-902, D-907 to D-909, D-928, D-930, D-931, D-932, D-933 | more menus as cards, the asks; words that fit; numbers on the Make tab, the peddler's and the chest's cards; numbers in the bag; a weapon's hits on the grid; hearts or oil, and a draught's turns, now and after; the round map's dark circle; a line's seconds; words clear of DROP | D-401, D-782, D-908, D-928, D-929, D-930, D-931, D-932, D-933, D-934, D-935 |
 | `DECISIONS-TITLE-EDGE.md` | D-401 to D-403, D-405 | the title like a phone game's, its icons, the room's edge | D-409 |
 | `DECISIONS-STEERING.md` | D-404, D-406 to D-412, D-449 | easier steering, tap to walk, the arrow pad, the stats line, Tap: Off, Step or Walk | D-413, D-468 |
 | `DECISIONS-PAD-EDGE.md` | D-420, D-422, D-424, D-765 | a bigger name pad, the pad's guard, no walking past the edge; names with spaces and digits | D-426, D-774 |
@@ -86,7 +86,7 @@ header says when it moved and why.
 | `CHANGELOG-FOUNDATION-2.md` | 0.1.13 to 0.1.25 |
 | `CHANGELOG-FOUNDATION-3.md` | 0.1.26 and 0.1.27 |
 | `CHANGELOG-STAGE-0.2-1.md` | 0.2.0 to 0.2.235 (moved at 0.2.109, D-336, at 0.2.115, at 0.2.117, at 0.2.119, at 0.2.120, at 0.2.121, at 0.2.123, D-362, at 0.2.132, at 0.2.134, at 0.2.135, at 0.2.136, at 0.2.137, at 0.2.138, at 0.2.139, at 0.2.140, at 0.2.141, at 0.2.142, at 0.2.143, D-392, at 0.2.144, at 0.2.156, at 0.2.157, at 0.2.159, at 0.2.161, at 0.2.162, at 0.2.163, at 0.2.167, at 0.2.168, at 0.2.169, at 0.2.171, at 0.2.181, at 0.2.182, at 0.2.183, at 0.2.184, at 0.2.185, at 0.2.186, D-468, at 0.2.187, at 0.2.198, at 0.2.199, at 0.2.200, at 0.2.201, at 0.2.202, at 0.2.203, at 0.2.204, at 0.2.205, at 0.2.207, D-493, at 0.2.221, at 0.2.222, at 0.2.223, at 0.2.224, at 0.2.225, at 0.3.11, at 0.3.12, at 0.3.13, at 0.3.14, at 0.3.15, at 0.3.16, and at 0.3.17) |
-| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.373 (moved at 0.3.18 to 0.3.31, and at 0.3.32, D-570, then each by `tools/release.js`) |
+| `CHANGELOG-STAGE-0.3-1.md` | 0.3.0 to 0.3.374 (moved at 0.3.18 to 0.3.31, and at 0.3.32, D-570, then each by `tools/release.js`) |
 
 ## Bugs
 

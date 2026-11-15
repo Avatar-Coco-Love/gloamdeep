@@ -4,17 +4,16 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.376 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.377 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-B-012, the stash chest's words on a PC (`BUGS.md`); or several kinds
-on one tile (Q-110); or Biome 1's boss and found ability (Q-105).
+Several kinds on one tile (Q-110), its look from a mock-up; or Biome 1's
+boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
-- Several kinds on one tile (Q-110), its look from a mock-up, its own step.
 - Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
@@ -47,6 +46,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.377, The chest's hint whole.** B-012: on a PC screen
+  the stash chest's "Tap to move" line, squeezed beside STORE onto two
+  lines, is left out rather than run below the card. The text-fit test
+  checks the chest at every PC size again. The owner's pick. D-933 archived. D-935.
+  Playtest: https://claude.ai/artifact/VPANJ9N6VLEqT5Fw2KycWQ
 - **2026-11-15, 0.3.376, One stack on the ground.** B-011: what doesn't
   fit in the bag lies as one stack of its kind, a felled tree's 3 Wood
   on its stump, its count in the tile's corner. Several kinds on one
@@ -57,7 +61,3 @@ list in `RESEARCH.md`.
   instead of running over DROP. The text-fit test tries PC screens now;
   it found B-012. The owner's picks. D-933.
   Playtest: https://claude.ai/artifact/SLbvP7ucsrjwT7G3wEvxB4
-- **2026-11-15, 0.3.374, A line's seconds.** B-009: a line along the
-  bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
-  for each extra row. The owner's picks. D-930 archived. D-932.
-  Playtest: https://claude.ai/artifact/S1aXaTwXFnRV9eXsK56sa9

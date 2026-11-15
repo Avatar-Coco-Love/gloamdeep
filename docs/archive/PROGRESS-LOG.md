@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.374, A line's seconds.** B-009: a line along the
+  bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
+  for each extra row. The owner's picks. D-930 archived. D-932.
+  Playtest: https://claude.ai/artifact/S1aXaTwXFnRV9eXsK56sa9
 - **2026-11-15, 0.3.373, The round map's dark circle.** B-008: in the
   dark the round map fades evenly to 15%, no dark spot round the hero
   (option A from a mock-up). The owner's pick. D-928 archived. D-931.

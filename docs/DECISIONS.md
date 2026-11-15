@@ -160,22 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-933 · 2026-11-15 · Words clear of DROP on a PC** (the owner's picks,
-both recommended; B-010) In the bag, a find made at a station ("Makes a
-Mending Draught at the mortar", beside EAT) puts "at the mortar" on a
-second line when the whole line wouldn't fit between DROP and the button,
-not only within the item side's width, so it never runs over DROP
-(offered too: DROP moved up a row). Seen from mock-ups at 1920 × 1080.
-Claude checks the other cards at PC sizes: the text-fit test now draws
-every card at the sizes common PC screens give, full screen, the station
-line too; it found the stash chest's words running off its foot at
-3840 × 2160 and 1366 × 768, kept as B-012 for its own step (offered too:
-just the bag; the owner names the others). Claude's call: on those
-screens the bag card is about 384 × 216 game pixels, narrower than a
-phone's held sideways, so small phones and the bigger bags had the
-overlap too, fixed with it. D-931 moves to
-`archive/DECISIONS-CARDS-2.md`, word for word.
-
 **D-934 · 2026-11-15 · One stack on the ground** (the owner's picks, all
 recommended; B-011; supersedes in part D-924 and D-568) What doesn't fit
 in the bag lies as one stack of its kind on one tile, not spread out: a
@@ -189,3 +173,13 @@ creature's drops are kinds of their own and stay as they were (D-727).
 Several kinds on one tile, the owner's idea, is its own step, its look
 picked from a mock-up then (Q-110). D-932 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-935 · 2026-11-15 · The chest's hint whole or not at all** (the
+owner's pick, recommended; B-012) On the stash chest card, "Tap to move to
+the chest." (or "…to the bag.") is drawn only when every one of its lines
+fits above the card's foot; where it would break onto a second line that
+passes the foot, as level with STORE at 3840 × 2160 and 1366 × 768, it is
+left out, as it already was when its first line wouldn't fit (D-743)
+(offered too: just "Tap to move." there; the picture left out to make
+room). The text-fit test checks the chest card at every PC size again.
+D-933 moves to `archive/DECISIONS-CARDS-2.md`, word for word.

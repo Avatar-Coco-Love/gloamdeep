@@ -69,18 +69,20 @@ export function drawChestPanel(c, vw, vh, stash, bag, chosen, spriteOf, t, still
   const lines = [[`${get(s.id).name}, ${s.n} in the ${out ? 'chest' : 'bag'}`, CORE], [`Tap to move to the ${out ? 'bag' : 'chest'}.`, GREY]];
   let ly = y + b.name;
   // a line level with STORE ends left of it, on a short card with a big bag; the hint is left out
-  // where it would pass the card's foot (D-743)
+  // where any of its lines would pass the card's foot (D-743, B-012)
   const foot = y + card.h - 6, widthAt = (ty) => (ty + LINE_H > st.y ? st.x - 6 - dx : dw);
   for (const [text, colour] of lines) {
     if (colour === GREY) ly = chestNumbers(c, s.id, dx, ly, dw, st, foot, { ...picsOf(get(s.id)), spriteOf }, (textWidth(text) <= dw ? 1 : 2) * LINE_H);
-    if (colour === GREY && ly + 7 > foot) break;
+    const rows = [];
     let line = '';
     for (const word of text.split(' ')) {
       const next = line ? `${line} ${word}` : word;
-      if (!line || textWidth(next) <= widthAt(ly)) { line = next; continue; }
-      drawText(c, line, dx, ly, colour); ly += LINE_H; line = word;
+      if (!line || textWidth(next) <= widthAt(ly + rows.length * LINE_H)) { line = next; continue; }
+      rows.push(line); line = word;
     }
-    if (line) { drawText(c, line, dx, ly, colour); ly += LINE_H; }
+    if (line) rows.push(line);
+    if (colour === GREY && ly + (rows.length - 1) * LINE_H + 7 > foot) break; // every line of the hint, or none (B-012)
+    for (const r of rows) { drawText(c, r, dx, ly, colour); ly += LINE_H; }
   }
 }
 
