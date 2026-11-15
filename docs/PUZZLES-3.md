@@ -97,7 +97,7 @@ light the braziers to make it hittable; phase 2: knock it into water
 with the Fist; phase 3: go dark to dodge what it does in the light. Fits
 "bosses in phases that test what you know" (`RESEARCH-2.md`). *Uses*
 the boss notes, Q-083. *Needs* its own design talk. *Fits* biome 1's
-bottom.
+bottom. Picked: the Lampeater, light deciding the fight (D-939).
 
 ## Each biome's own puzzle mechanics
 Each biome bends one rule (an idea kept in `RESEARCH-2.md`); each list

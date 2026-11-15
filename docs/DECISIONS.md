@@ -123,27 +123,6 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
 
-**D-927 · 2026-11-14 · L3, the dark door** (the owner's picks; builds
-D-890; answers part of Q-105) A rune-wall nook: one a floor from depth 1,
-in one ordinary cave room below ground the seed picks, never the
-surface, the vault, the peddler's, home or a waystone's room (offered
-too: a second vault kind; both; about 1 floor in 2; from depth 2; below
-ground and the surface at night). A wall tile in the room's edge carries
-faint violet runes, seen across the room along a clear line while the
-lantern is off and not in daylight, lighting nothing, hidden while it
-burns (offered too: within 3 tiles; only next to it). Bumped lit, it
-says a line, Claude's draft the owner may change: "Faint marks, too pale
-to see by lantern light." Bumped dark, it sinks open for good, costing
-no oil; one bump solves it, so nothing resets (offered too: a carved
-frame shown when lit). Behind it, 1 tile set into the wall holds a
-vault's prize draw on a plinth, "there will be more options to choose
-from later" (the owner's words; offered too: a 3-tile pocket; a small
-room; 1 rare material; oil; lore pages). Built in 2 steps: the nook and
-its runes, seen only in the dark, with a mock-up of the look; then the
-dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
-lines, look and which tile of the edge are the build step's. D-925
-and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
 picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
 front of its face, the rune wall becomes the room's plain floor, a 1-tile
@@ -187,3 +166,27 @@ calls: the clink plays in the hit's place, with no punch; it and the thud
 A6 go under Creatures in Settings; the thud plays as the fists sink,
 with the line. The grey spark shows with reduced motion too; the jolt and
 the chips don't. D-936 moves to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-939 · 2026-11-15 · Biome 1's boss: the Lampeater** (the owner's
+picks, all recommended; answers part of Q-105; builds D-463, D-636,
+D-643, W4, G3; [ideas page](https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR))
+Biome 1's boss is a piece of the gloam given shape, pooled against the
+Lightkeepers' old seal at the bottom of the dungeon, the Lampeater for
+now: light decides the fight (offered too: the Seal Warden, a 2 x 2
+stone guard; the Warren Mother, rising from linked holes; both kept on
+the page). It moves only through dark tiles and can't step onto a lit
+one, and can be hurt only while caught in light: lantern off, it comes;
+switched on beside it, it is caught a turn and struck. Lit braziers in
+its arena cut off its dark; caught with no dark tile beside it, it is
+pinned. Standing lit, it drinks from the light's edge. At half its
+hearts it snuffs braziers, and gloamlings crawl out of them; lure wisps
+show where it lurks. It fights in its own arena on depth 8, guarding the
+stairs down; the way in seals until it is beaten or the hero falls, and
+after a fall it is whole again (offered too: the door left open; off the
+way down; no special room). Beaten, it gives Leap, biome 1's found
+ability as drafted (offered too: Flare; Hold breath); the floor gives
+way and the hero leaps across to the way down at once (offered too: a
+shrine before the fight; no escape). Built one visible step at a time,
+in about 13 steps (the page's list); every name, number, look and line
+is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

@@ -2072,3 +2072,24 @@ last slot, so the others keep their places; its lines; the `sow` sound
 for a dig. The sapling stays in Q-106; the owner's idea of digging up
 buried things is Q-108. D-924 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-927 · 2026-11-14 · L3, the dark door** (the owner's picks; builds
+D-890; answers part of Q-105) A rune-wall nook: one a floor from depth 1,
+in one ordinary cave room below ground the seed picks, never the
+surface, the vault, the peddler's, home or a waystone's room (offered
+too: a second vault kind; both; about 1 floor in 2; from depth 2; below
+ground and the surface at night). A wall tile in the room's edge carries
+faint violet runes, seen across the room along a clear line while the
+lantern is off and not in daylight, lighting nothing, hidden while it
+burns (offered too: within 3 tiles; only next to it). Bumped lit, it
+says a line, Claude's draft the owner may change: "Faint marks, too pale
+to see by lantern light." Bumped dark, it sinks open for good, costing
+no oil; one bump solves it, so nothing resets (offered too: a carved
+frame shown when lit). Behind it, 1 tile set into the wall holds a
+vault's prize draw on a plinth, "there will be more options to choose
+from later" (the owner's words; offered too: a 3-tile pocket; a small
+room; 1 rare material; oil; lore pages). Built in 2 steps: the nook and
+its runes, seen only in the dark, with a mock-up of the look; then the
+dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
+lines, look and which tile of the edge are the build step's. D-925
+and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
