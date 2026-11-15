@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.385 (2026-11-15)
+- The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.
+- Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.
+- Decisions: D-943.
+
 ## 0.3.384 (2026-11-15)
 - Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.
 - Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.

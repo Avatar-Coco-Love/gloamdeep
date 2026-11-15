@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.388', date: '2026-11-15', title: 'The Lampeater drinks', lines: [
+    "The Lampeater drinks from your light now. Waiting in the dark at the edge of your lantern's light, it drinks a turn's oil each turn, so your lantern burns twice as fast and its light pulls in, and it creeps in after it.",
+    "A thread of light runs from the edge into its mouth, the oil bar flickers and you hear a sip; the first time, \"The Lampeater drinks your light.\" It never drinks a brazier's light, and not while caught or pinned.",
+    "Decisions: D-946.",
+  ] },
   { v: '0.3.387', date: '2026-11-15', title: 'The Lampeater pinned', lines: [
     "The Lampeater can be pinned now. Catch it with no dark tile beside it, say under a lit brazier with you blocking its way, and it can't slip away for 2 more turns: about 4 blows instead of 2.",
     "Then it bursts free across the light toward the nearest dark, and can be pinned again once it is back in the dark. It still backs out through your lantern's light, never a brazier's.",

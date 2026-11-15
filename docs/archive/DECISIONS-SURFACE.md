@@ -2130,3 +2130,27 @@ owner's wish for weapons (Q-094): a switch to show creatures' coming
 attacks and one to show the hero's. Others offered: two or three a PR;
 a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
 an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
+
+**D-940 · 2026-11-15 · The Lampeater's arena, standing empty** (D-939's
+step 1; the owner's picks and idea; [mock-ups](https://claude.ai/artifact/LAE4r9ZW5deNvqUc32rBui))
+On depth 8 the way ends in a hallway and, straight above it, the arena;
+nothing else joins either (offered too: the stairs room as the arena,
+one way in, its stairs seeping gloam or between watch flames; the
+stairs room as it is; a room past the end). The way is a room longer,
+up to 2 more where depth 8's stairs up sit near the grid's top, as the
+hallway is entered from below (Claude's call). The arena, one cell (offered
+too: a hall; a large room), is the seal hall: a cold brazier in each
+corner, 4 pillars round the middle (offered too: an open floor; the
+crossing). The owner's idea: at its top a sealed door, the stairs down 3
+tiles behind it in a ring of seal stones, the Lightkeepers' old seal;
+beating the Lampeater will open it, so it stands between the hero and
+depth 9 and Growth's second row. Until then the 4 braziers lit sink the
+door, as a vault's do (offered too: open; sealed now), cold again if left
+first (offered too: burning on). The hallway is the processional
+(offered too: the eaten road): a road 3 wide, seal stones down its
+middle, pillars along its sides, 2 cold braziers where it starts, bending
+once, an open stone door into the arena (offered too: a plain gap).
+Nothing else in either. The Pillar and the Seal stone, names Claude's
+draft. Old saves make every room from depth 8 down again. D-929 moves to
+`archive/DECISIONS-SURFACE.md` and D-937 to `archive/DECISIONS-RELICS.md`,
+word for word.

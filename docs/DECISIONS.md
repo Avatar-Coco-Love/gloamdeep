@@ -101,30 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-940 · 2026-11-15 · The Lampeater's arena, standing empty** (D-939's
-step 1; the owner's picks and idea; [mock-ups](https://claude.ai/artifact/LAE4r9ZW5deNvqUc32rBui))
-On depth 8 the way ends in a hallway and, straight above it, the arena;
-nothing else joins either (offered too: the stairs room as the arena,
-one way in, its stairs seeping gloam or between watch flames; the
-stairs room as it is; a room past the end). The way is a room longer,
-up to 2 more where depth 8's stairs up sit near the grid's top, as the
-hallway is entered from below (Claude's call). The arena, one cell (offered
-too: a hall; a large room), is the seal hall: a cold brazier in each
-corner, 4 pillars round the middle (offered too: an open floor; the
-crossing). The owner's idea: at its top a sealed door, the stairs down 3
-tiles behind it in a ring of seal stones, the Lightkeepers' old seal;
-beating the Lampeater will open it, so it stands between the hero and
-depth 9 and Growth's second row. Until then the 4 braziers lit sink the
-door, as a vault's do (offered too: open; sealed now), cold again if left
-first (offered too: burning on). The hallway is the processional
-(offered too: the eaten road): a road 3 wide, seal stones down its
-middle, pillars along its sides, 2 cold braziers where it starts, bending
-once, an open stone door into the arena (offered too: a plain gap).
-Nothing else in either. The Pillar and the Seal stone, names Claude's
-draft. Old saves make every room from depth 8 down again. D-929 moves to
-`archive/DECISIONS-SURFACE.md` and D-937 to `archive/DECISIONS-RELICS.md`,
-word for word.
-
 **D-941 · 2026-11-15 · The Lampeater standing in its arena** (D-939's
 step 2; the owner's picks, all recommended but where it stands;
 [mock-ups](https://claude.ai/artifact/8HL2d5eZpf97Ki31Ukg4zn))
@@ -196,3 +172,20 @@ draft "Pinned between the lights" was too wide for the strip (Claude's
 call). Claude's calls: its Bestiary line adds "With no dark beside it,
 it is pinned."; the 4 braziers still sink the door. D-942 moves to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-946 · 2026-11-15 · The Lampeater drinks from your light** (D-939's
+step 6; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/Q1D6GPLiHo2Q5JCUefYT27)) Each
+turn it waits in the dark beside a tile your lantern lights, seeing you,
+lantern lit, moved or not, it drinks 1 turn's oil from it, so the
+lantern burns twice as fast; less oil, less reach, and it creeps in
+after the shrinking light (offered too: B, your light itself, 1 tile
+every 3 turns, back when it stops; C, 1 tile off while it drinks; 2
+turns' oil; the tick's 5%; only when you stand still; only within 3
+tiles). Shown by a thread of light from the edge into its mouth, the oil
+bar's flicker and the tick's sip, and "The Lampeater drinks your light."
+the first time. Claude's calls: only the lantern's light, never a
+brazier's; never while caught or pinned, or with the lantern off or
+empty; Endless oil takes none (D-626); its Bestiary line adds "At your
+light's edge, it drinks from it."; the 4 braziers still sink the door.
+D-940 moves to `archive/DECISIONS-SURFACE.md`, word for word.

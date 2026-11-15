@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.387 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.388 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 6: drinking from your light's edge, standing lit
-it shrinks your lantern's reach (D-939's list, D-945). Propose with
-mock-ups before building.
+The Lampeater, step 7: half hearts, it snuffs a brazier (D-939's list,
+D-946). Propose with mock-ups before building.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -48,6 +47,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.388, The Lampeater drinks.** D-939's step 6: waiting
+  at your lantern light's edge, seeing you, it drinks a turn's oil a
+  turn, so the lantern burns twice as fast and the light pulls in; a
+  thread of light, the sip, one line. Owner's picks. D-946.
+  Playtest: https://claude.ai/artifact/5ihiwLc2qikEYTyJKjX7JC
 - **2026-11-15, 0.3.387, The Lampeater pinned.** D-939's step 5: caught
   with no dark tile beside it, it is held 2 more turns, then bursts free
   across the light toward the dark; it still backs through the lantern's
@@ -58,8 +62,3 @@ list in `RESEARCH.md`.
   blows; blows hurt only while it is lit; 8 hearts, a bite of 2 in the
   dark; caught, it burns in a ring of flame. Owner's picks. D-944.
   Playtest: https://claude.ai/artifact/L3gs7FvKT8bmp7wasarz11
-- **2026-11-15, 0.3.385, The Lampeater moves.** D-939's step 3: only
-  over dark tiles, the gloamling's way; it sees the hero along a clear
-  line, waits at the light's edge, backs out of light, drifts home when
-  it loses them; no bite yet. Owner's picks. D-943.
-  Playtest: https://claude.ai/artifact/E6uSTu95jangQ2ftCUmY7M

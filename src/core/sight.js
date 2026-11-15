@@ -39,10 +39,16 @@ export function lightsNow(state, less = 0) {
 // lantern's `less` tiles shorter (D-600)
 export function litAt(state, x, y, less = 0) {
   if (inDaylight(state)) return true; // daylight lights every tile (D-209), until dusk (D-217)
+  return litBy(state, x, y, lightsNow(state, less));
+}
+// § lantern lit: (state, x, y) → true when the lantern's own light reaches tile x, y, by the same
+// rule, whatever else shines there (the Lampeater drinks from its edge, D-946)
+export const lanternLitAt = (state, x, y) => state.lit && litBy(state, x, y, lightsNow({ ...state, lights: [] }).slice(0, 1));
+function litBy(state, x, y, lights) {
   const { room } = state, cw = room.cols * TILE_SIZE / CELL;
   const mx = x * TILE_SIZE + TILE_SIZE / 2, my = y * TILE_SIZE + TILE_SIZE / 2;
   const cell = (my / CELL | 0) * cw + (mx / CELL | 0);
-  return lightsNow(state, less).some((L) => {
+  return lights.some((L) => {
     if (Math.hypot(mx - L.x, my - L.y) >= L.r * NEAR) return false;
     return seenCells(room, L.x, L.y, L.r, new Uint8Array(cw * room.rows * TILE_SIZE / CELL))[cell] === 1;
   });

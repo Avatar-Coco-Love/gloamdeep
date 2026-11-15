@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.385, The Lampeater moves.** D-939's step 3: only
+  over dark tiles, the gloamling's way; it sees the hero along a clear
+  line, waits at the light's edge, backs out of light, drifts home when
+  it loses them; no bite yet. Owner's picks. D-943.
+  Playtest: https://claude.ai/artifact/E6uSTu95jangQ2ftCUmY7M
 - **2026-11-15, 0.3.384, Finished decisions archived.** Docs only:
   D-894 and D-910 to `archive/DECISIONS-AUDITS.md`, D-799 to
   `archive/DECISIONS-SURFACE.md`, word for word; `DECISIONS.md` from
