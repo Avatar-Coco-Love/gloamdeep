@@ -27,9 +27,9 @@ export const BEHAVIOURS = {
   shy: { id: 'shy', name: 'Shy', moves: 'lure', near: 3, bites: false, alone: true },
   // It steps only through the dark, never onto a lit tile, and backs out of light into the dark, as one
   // that shuns light does; it sees the hero along a clear line, lit or not, and comes a tile a turn while
-  // it does. Losing them, it drifts back through the dark to its `home`, the tile it first stood on. It
-  // doesn't bite, yet: its bite comes with the next step (the Lampeater, step 3, D-943).
-  darkOnly: { id: 'darkOnly', name: 'Dark only', notices: 'anyLine', moves: 'toward', intoLight: false, bitesLit: false, whenLit: 'backAway', bites: false, home: true },
+  // it does. Losing them, it drifts back through the dark to its `home`, the tile it first stood on (D-943).
+  // Light falling on it, it is `caught`: it can't move on its next turn, then backs away (D-944).
+  darkOnly: { id: 'darkOnly', name: 'Dark only', notices: 'anyLine', moves: 'toward', intoLight: false, bitesLit: false, whenLit: 'backAway', home: true, caught: true },
   // It never moves or bites. Seeing the lit lantern along a clear row or column, up to `range`
   // tiles, it spits a glob that flies a tile a turn down that line, then rests `rest` turns
   // (spit.js, D-659, D-688).

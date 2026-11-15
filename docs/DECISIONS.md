@@ -172,3 +172,20 @@ it stays where it lost them). Claude's calls: lit braziers cut off its
 dark as any light does; it never leaves its arena; its Bestiary line
 says "Moves only through the dark, never onto a lit tile."; the 4
 braziers still sink the door.
+
+**D-944 · 2026-11-15 · The Lampeater caught in light** (D-939's step 4;
+the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/LA82nxtXbNpgENs4DwW5VD))
+Light falling on it, the lantern's or a brazier's, it is caught: held
+where it stands for its next turn, then it slips back into the dark as
+before, so a catch gives 2 blows (offered too: no hold, 1 blow; two
+turns, 3 blows). Only while it is lit do blows hurt it; in the dark they
+still sink. It has 8 hearts, shown on its plate (offered too: 6; 10), and
+bites for 2, only in the dark beside the hero (offered too: 1; 3). Caught,
+it burns: its gloam paled, its eyes white-hot, a ring of flame creeping
+round it (offered too: smoking; eyes only). Claude's calls: lines "The
+Lampeater bites!" and "Caught in your light, it can't move!"; a blow that
+hurts it flashes and hits as any creature's; the gloamling's bite sound
+until step 12; a sting, glob or slam still sinks, the Fist knocks it
+nowhere; beaten, for now it is simply gone (step 9 brings the rest); the
+4 braziers still sink the door; its Bestiary lines say the new rules.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.383, The Lampeater stands.** D-939's step 2: the
+  pool, eyes glowing in the dark, a tile below the door's tile; it never
+  moves or bites, blows sink in, braziers still open the door; a Bestiary
+  page as the Warden's. Owner's picks. D-938 archived. D-941.
+  Playtest: https://claude.ai/artifact/QYJiWPn7nEVLiHExN9xciw
 - **2026-11-15, 0.3.382, The Lampeater's arena.** D-939's step 1: on
   depth 8 a hallway of seal stones and pillars leads up to the empty
   arena, its sealed door before the stairs down sunk by 4 braziers for

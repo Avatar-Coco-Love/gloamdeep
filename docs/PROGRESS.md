@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.385 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.386 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 4: caught in light, it can't move, and can be hit;
-its bite and its number come too (D-939's list, D-943). Propose with
-mock-ups before building.
+The Lampeater, step 5: pinned between two lights, caught with no dark
+tile beside it (D-939's list, D-944). Propose with mock-ups before
+building.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -48,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.386, The Lampeater caught.** D-939's step 4: light
+  falling on it holds it a turn, then it slips away, so a catch is 2
+  blows; blows hurt only while it is lit; 8 hearts, a bite of 2 in the
+  dark; caught, it burns in a ring of flame. Owner's picks. D-944.
+  Playtest: https://claude.ai/artifact/L3gs7FvKT8bmp7wasarz11
 - **2026-11-15, 0.3.385, The Lampeater moves.** D-939's step 3: only
   over dark tiles, the gloamling's way; it sees the hero along a clear
   line, waits at the light's edge, backs out of light, drifts home when
@@ -57,8 +62,3 @@ list in `RESEARCH.md`.
   D-894 and D-910 to `archive/DECISIONS-AUDITS.md`, D-799 to
   `archive/DECISIONS-SURFACE.md`, word for word; `DECISIONS.md` from
   11.9 KB to about 9.4. The owner's picks. No game change. D-942.
-- **2026-11-15, 0.3.383, The Lampeater stands.** D-939's step 2: the
-  pool, eyes glowing in the dark, a tile below the door's tile; it never
-  moves or bites, blows sink in, braziers still open the door; a Bestiary
-  page as the Warden's. Owner's picks. D-938 archived. D-941.
-  Playtest: https://claude.ai/artifact/QYJiWPn7nEVLiHExN9xciw
