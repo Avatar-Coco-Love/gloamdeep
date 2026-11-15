@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.384', date: '2026-11-15', title: 'Finished decisions archived', lines: [
+    "Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.",
+    "Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.",
+  ] },
   { v: '0.3.383', date: '2026-11-15', title: 'The Lampeater stands', lines: [
     "The Lampeater stands in its arena on depth 8: a low pool of deep violet gloam with a dripping edge, a dark mouth and pink eyes, waiting a tile below the tile before the sealed door. With the lantern off you still see its eyes glowing in the dark.",
     "For now it only waits there. It never moves or bites, and a blow sinks into it, hurting nothing: \"Your blow sinks into the gloam.\" The 4 braziers still sink the door until it can be beaten.",

@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.383 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.384 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -47,6 +47,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.384, Finished decisions archived.** Docs only:
+  D-894 and D-910 to `archive/DECISIONS-AUDITS.md`, D-799 to
+  `archive/DECISIONS-SURFACE.md`, word for word; `DECISIONS.md` from
+  11.9 KB to about 9.4. The owner's picks. No game change. D-942.
 - **2026-11-15, 0.3.383, The Lampeater stands.** D-939's step 2: the
   pool, eyes glowing in the dark, a tile below the door's tile; it never
   moves or bites, blows sink in, braziers still open the door; a Bestiary
@@ -58,8 +62,3 @@ list in `RESEARCH.md`.
   now. The owner's picks and idea. D-929, D-937 archived. D-940.
   Playtest: https://claude.ai/artifact/6HbJ4rd3HJJY2iYSFd5tjp
   Map: https://claude.ai/artifact/2524FkxWetKEEFnSBMgXbt
-- **2026-11-15, 0.3.381, Biome 1's boss planned.** Q-105's boss part:
-  how other games do bosses, three concepts with mock-ups; the owner
-  picked the Lampeater, light deciding the fight, in a sealed arena on
-  depth 8, giving Leap and an escape. No game change. D-939.
-  Ideas page: https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR

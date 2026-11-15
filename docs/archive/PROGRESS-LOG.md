@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.381, Biome 1's boss planned.** Q-105's boss part:
+  how other games do bosses, three concepts with mock-ups; the owner
+  picked the Lampeater, light deciding the fight, in a sealed arena on
+  depth 8, giving Leap and an escape. No game change. D-939.
+  Ideas page: https://claude.ai/artifact/GcWfnvHi4HAwfkugqyHtXR
 - **2026-11-15, 0.3.380, The Warden's look and sounds.** D-937's step 2:
   stooped while open, a jolt and chips as its fists sink, a thud A6; a
   grey spark and a clink for a blow that rings. The clink was Making's,
