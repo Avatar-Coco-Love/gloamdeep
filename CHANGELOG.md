@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.385 (2026-11-15)
+- The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.
+- Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.
+- Decisions: D-943.
+
 ## 0.3.384 (2026-11-15)
 - Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.
 - Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.
@@ -33,8 +38,3 @@ Entry format:
 - It has a Bestiary page, met when your light reaches it. Like the Warden's, how to fight it opens after 1 is beaten.
 - Saves from before: an arena already made gets the Lampeater.
 - Decisions: D-941. D-938 moved to the archive, word for word.
-
-## 0.3.382 (2026-11-15)
-- Depth 8 has the Lampeater's arena, standing empty. The way to the stairs ends in a hallway, a road of seal stones between pillars with 2 cold braziers where it starts, and an open stone door into the arena above it. The arena has a cold brazier in each corner, 4 pillars round its middle, and at its top a sealed door with the stairs down behind it, in a ring of seal stones. For now, lighting all 4 braziers sinks the door; they go cold again if you leave first. Nothing else is in either room.
-- Saves from before: every room from depth 8 down is made again; a hero there goes to that floor's stairs up.
-- Decisions: D-940. D-929 and D-937 moved to the archive, word for word.

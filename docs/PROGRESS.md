@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.384 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.385 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 3: it moves only through the dark (D-939's list).
-Propose with mock-ups before building.
+The Lampeater, step 4: caught in light, it can't move, and can be hit;
+its bite and its number come too (D-939's list, D-943). Propose with
+mock-ups before building.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -47,6 +48,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.385, The Lampeater moves.** D-939's step 3: only
+  over dark tiles, the gloamling's way; it sees the hero along a clear
+  line, waits at the light's edge, backs out of light, drifts home when
+  it loses them; no bite yet. Owner's picks. D-943.
+  Playtest: https://claude.ai/artifact/E6uSTu95jangQ2ftCUmY7M
 - **2026-11-15, 0.3.384, Finished decisions archived.** Docs only:
   D-894 and D-910 to `archive/DECISIONS-AUDITS.md`, D-799 to
   `archive/DECISIONS-SURFACE.md`, word for word; `DECISIONS.md` from
@@ -56,9 +62,3 @@ list in `RESEARCH.md`.
   moves or bites, blows sink in, braziers still open the door; a Bestiary
   page as the Warden's. Owner's picks. D-938 archived. D-941.
   Playtest: https://claude.ai/artifact/QYJiWPn7nEVLiHExN9xciw
-- **2026-11-15, 0.3.382, The Lampeater's arena.** D-939's step 1: on
-  depth 8 a hallway of seal stones and pillars leads up to the empty
-  arena, its sealed door before the stairs down sunk by 4 braziers for
-  now. The owner's picks and idea. D-929, D-937 archived. D-940.
-  Playtest: https://claude.ai/artifact/6HbJ4rd3HJJY2iYSFd5tjp
-  Map: https://claude.ai/artifact/2524FkxWetKEEFnSBMgXbt

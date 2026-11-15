@@ -181,11 +181,12 @@ function enemiesMove(state, bit = false) {
       if (to) enemies = enemies.map((o) => (o === e ? { ...e, x: to.x, y: to.y, facing: to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing } : o));
       continue;
     }
-    const seeks = t.moves === 'toLight', goal = seeks ? lightGoal(state, e) : state.hero;
-    const chasing = !seeks && (e.chasing || noticesHero(state, e, t, soft, lit));
+    const seeks = t.moves === 'toLight';
+    const chasing = !seeks && ((!t.home && e.chasing) || noticesHero(state, e, t, soft, lit)); // one with a home chases only while it sees them (D-943)
+    const back = t.home && !chasing && awayFrom(e) ? homeOf(e) : null, goal = seeks ? lightGoal(state, e) : back || state.hero;
     const flees = lit && t.whenLit === 'backAway', runs = fleeing(e);
-    if (!(seeks ? goal : chasing && t.moves) && !flees && !runs) continue;
-    const near = goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
+    if (!(seeks ? goal : (chasing || back) && t.moves) && !flees && !runs) continue;
+    const near = !back && goal && Math.abs(e.x - goal.x) + Math.abs(e.y - goal.y) === 1;
     const now = { ...state, enemies };
     if (t.strikes && (e.raised || e.rests > 0)) { // raised, it strikes at the turn's start; after, it rests (D-729)
       if (!e.raised) enemies = enemies.map((o) => (o === e ? { ...e, rests: e.rests - 1 } : o));
@@ -207,7 +208,7 @@ function enemiesMove(state, bit = false) {
     }
     const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : t.pack && !seeks ? packStep(now, e, claims) : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
-    const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(facing && { facing }), ...(t.burrows && near && chasing && { dug: true }) }; // one that burrows, beside the hero as it notices, never digs (D-726, H-06)
+    const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(t.home && { chasing, home: homeOf(e) }), ...(facing && { facing }), ...(t.burrows && near && chasing && { dug: true }) }; // one that burrows, beside the hero as it notices, never digs (D-726, H-06)
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
     enemies = enemies.map((o) => (o === e ? moved : o));
   }
@@ -215,6 +216,11 @@ function enemiesMove(state, bit = false) {
   const moved = enemies === state.enemies ? state : { ...state, enemies }, next = raised ? note(moved, 'raise', { id: raised }) : moved;
   return said && !bit ? say(next, said) : next; // a bite's line said this turn stays (D-117)
 }
+
+// § home (D-943): one whose ways give it a `home` keeps the tile it first stood on, marked as it first
+// moves, and drifts back there, a tile a turn, once it no longer sees the hero
+const homeOf = (e) => e.home ?? { x: e.x, y: e.y };
+const awayFrom = (e) => !!e.home && (e.home.x !== e.x || e.home.y !== e.y);
 
 // § pack (D-727): one of a pack is one whose ways say `pack` and that carries a `pack` mark (pack.js).
 // Once one of a pack has noticed the hero, its whole pack has: `rally` marks them all chasing, the
