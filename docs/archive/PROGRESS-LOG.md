@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.375, Words clear of DROP.** B-010: on a PC screen the
+  bag's "Makes a Mending Draught at the mortar" breaks onto two lines
+  instead of running over DROP. The text-fit test tries PC screens now;
+  it found B-012. The owner's picks. D-933.
+  Playtest: https://claude.ai/artifact/SLbvP7ucsrjwT7G3wEvxB4
 - **2026-11-15, 0.3.374, A line's seconds.** B-009: a line along the
   bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
   for each extra row. The owner's picks. D-930 archived. D-932.

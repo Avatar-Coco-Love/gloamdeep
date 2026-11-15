@@ -4,12 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.377 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.378 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Several kinds on one tile (Q-110), its look from a mock-up; or Biome 1's
-boss and found ability (Q-105).
+Biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.378, Several kinds on one tile.** Q-110, the rest of
+  B-011: Drop lays a stack beside what lies there, no swap; onto its own
+  kind it grows. The tile shows each kind in turn with its count; still,
+  the newest with "+2". A step takes all that fits. The owner's picks. D-934 archived. D-936.
+  Playtest: https://claude.ai/artifact/UQL3Y4htizHotoyCSad1ug
 - **2026-11-15, 0.3.377, The chest's hint whole.** B-012: on a PC screen
   the stash chest's "Tap to move" line, squeezed beside STORE onto two
   lines, is left out rather than run below the card. The text-fit test
@@ -56,8 +60,3 @@ list in `RESEARCH.md`.
   on its stump, its count in the tile's corner. Several kinds on one
   tile is Q-110. The owner's picks. D-932 archived. D-934.
   Playtest: https://claude.ai/artifact/8kEbd95FrfPF231EqsJm3V
-- **2026-11-15, 0.3.375, Words clear of DROP.** B-010: on a PC screen the
-  bag's "Makes a Mending Draught at the mortar" breaks onto two lines
-  instead of running over DROP. The text-fit test tries PC screens now;
-  it found B-012. The owner's picks. D-933.
-  Playtest: https://claude.ai/artifact/SLbvP7ucsrjwT7G3wEvxB4

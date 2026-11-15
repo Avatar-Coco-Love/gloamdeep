@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.375 (2026-11-15)
+- On a PC screen, a find made at a station, such as the Healing Herb's "Makes a Mending Draught at the mortar", no longer runs over DROP in the bag: "at the mortar" goes on a second line when there isn't room (B-010).
+- Decisions: D-933.
+
 ## 0.3.374 (2026-11-15)
 - A line along the bottom no longer stays while you stand still: it goes after 5 turns or 4 seconds, whichever comes first, 2 seconds more for each extra row on a long line (B-009).
 - Decisions: D-932.

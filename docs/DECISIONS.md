@@ -160,20 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-934 · 2026-11-15 · One stack on the ground** (the owner's picks, all
-recommended; B-011; supersedes in part D-924 and D-568) What doesn't fit
-in the bag lies as one stack of its kind on one tile, not spread out: a
-felled tree's 3 Wood on its stump, a branch's Wood, a garden bed's
-Gloamberries on the nearest open tile (offered too: the tree and branch
-only; mixed piles now). A stack on the ground shows its count in its
-tile's bottom right corner, as a bag slot does, when it holds 2 or more
-(offered too: no number; a little heap). Stepping on takes it all; what
-doesn't fit stays, with the kind's full line. Claude's call: a beaten
-creature's drops are kinds of their own and stay as they were (D-727).
-Several kinds on one tile, the owner's idea, is its own step, its look
-picked from a mock-up then (Q-110). D-932 moves to
-`archive/DECISIONS-CARDS-2.md`, word for word.
-
 **D-935 · 2026-11-15 · The chest's hint whole or not at all** (the
 owner's pick, recommended; B-012) On the stash chest card, "Tap to move to
 the chest." (or "…to the bag.") is drawn only when every one of its lines
@@ -183,3 +169,15 @@ left out, as it already was when its first line wouldn't fit (D-743)
 (offered too: just "Tap to move." there; the picture left out to make
 room). The text-fit test checks the chest card at every PC size again.
 D-933 moves to `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-936 · 2026-11-15 · Several kinds on one tile** (the owner's picks,
+both recommended, [mock-up](https://claude.ai/artifact/HCXfq5M38dTgHyXvdj9G5i);
+answers Q-110; the rest of B-011; supersedes in part D-546) One tile holds
+several kinds at once. Drop sets the stack down beside what lies there,
+never swapped; on its own kind, dropped or left over, the stack grows (5
+Wood onto 3 makes 8; Claude's call). A tile with several kinds shows one
+at a time, each with its count, the next about every second (offered too:
+the newest with a "+2" mark; a little heap); with reduced motion it stands
+still, the newest with an ember "+2" top left. A step onto it takes all
+that fits, as a single stack does (offered too: only the top kind; a pick
+card). D-934 moves to `archive/DECISIONS-BAGS.md`, word for word.

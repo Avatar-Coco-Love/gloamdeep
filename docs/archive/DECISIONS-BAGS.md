@@ -1,4 +1,4 @@
-# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-560)
+# Drop, bigger bags and gear slots (D-545 to D-548, D-552 to D-560, D-934)
 
 Moved unchanged from `docs/DECISIONS.md` at 0.3.15 (D-551), when it
 would pass 12 KB: Drop first, then the Pouch and the Big Bag, and
@@ -8,6 +8,7 @@ moved the same way at 0.3.20 (D-557), D-554, Take off, at 0.3.22
 and D-555, Store from the bag too, at 0.3.24 (D-562). D-558, Store from
 the bag, and D-559, Sort in the bag, at 0.3.26 (D-564). D-560, crafting from
 chests, at 0.3.27 (D-565). D-557, no freeze at a fall, at 0.3.30 (D-568).
+D-934, one stack on the ground, at 0.3.378 (D-936).
 These are still in force unless marked superseded. Grep for an ID or
 topic; never read this whole.
 
@@ -20,7 +21,7 @@ takes the bag from 6 slots to 9, then a Big Bag to 12, both made at the
 workbench from hides (*e.g.* Rat Tails, Mole Fur); recipes and looks are
 shown at that step.
 
-**D-546 · 2026-11-01 · Drop** (the owner's picks, all recommended) Every
+**D-546 · 2026-11-01 · Drop** *Superseded in part by D-936 (2026-11-15): a drop onto a find lies beside it, never swapped.* (the owner's picks, all recommended) Every
 item in the bag has a Drop button, at the bottom left of the item's side
 (a row up when the card is too narrow), and X on a keyboard. It sets the
 whole chosen stack down on the hero's tile, free (no turn passes), with
@@ -145,3 +146,17 @@ world as it was (only on screen, not in the save), and the main loop
 has a safety net: an error in one frame is logged once and the next
 frame still comes. The bag's STORE for nearby chests (D-555) stays
 Next up. D-552 moved to `archive/DECISIONS-BAGS.md`, word for word.
+
+**D-934 · 2026-11-15 · One stack on the ground** (the owner's picks, all
+recommended; B-011; supersedes in part D-924 and D-568) What doesn't fit
+in the bag lies as one stack of its kind on one tile, not spread out: a
+felled tree's 3 Wood on its stump, a branch's Wood, a garden bed's
+Gloamberries on the nearest open tile (offered too: the tree and branch
+only; mixed piles now). A stack on the ground shows its count in its
+tile's bottom right corner, as a bag slot does, when it holds 2 or more
+(offered too: no number; a little heap). Stepping on takes it all; what
+doesn't fit stays, with the kind's full line. Claude's call: a beaten
+creature's drops are kinds of their own and stay as they were (D-727).
+Several kinds on one tile, the owner's idea, is its own step, its look
+picked from a mock-up then (Q-110). D-932 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.
