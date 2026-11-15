@@ -12,7 +12,31 @@ their words where possible, and any ideas they gave.
 
 ---
 
-None open.
+**B-006 · 2026-11-15 · Flyers stopped by things to pick up** "Flying
+enemies should be able to move over objects that can be picked up."
+
+**B-007 · 2026-11-15 · The boon menu comes too suddenly** "Upon using a
+different waystone and going home, the boon menu immediately appears and
+it feels kind of abrupt." The owner's idea: a select boon button that
+appears while the hero is on the plate just after coming home; walking
+off and back on the plate opens the boon choice, so the button isn't
+needed again. It could also be a setting, button or automatic.
+
+**B-008 · 2026-11-15 · The round map's dark circle** With the lantern off
+and all dark, the round map is barely visible, which the owner likes, but
+"there is this circle around the character filled in and darker than the
+rest of the map", the hero a bright blinking dot. "That dark circle
+around the player doesn't look right." (The spot is D-920's.)
+
+**B-009 · 2026-11-15 · Lines at the bottom stay too long** "Any message
+that appears on the bottom stays for too long." The owner's idea: rather
+than always wait for a number of turns (or another trigger), it goes
+after a few seconds of real time, whichever comes first.
+
+**B-010 · 2026-11-15 · Things overlap on a big PC screen** On a PC, in
+Microsoft Edge full screen at 1920 × 1080, some of the screen overlaps.
+One example: in the bag, with Healing Herb picked, the green flask's
+picture sits right over the word DROP.
 
 ## Found by the sixteenth audit's bug hunt (D-910)
 

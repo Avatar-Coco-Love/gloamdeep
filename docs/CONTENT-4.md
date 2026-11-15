@@ -11,6 +11,7 @@
 | `woods` | the surface's generated woods rooms; the north row's are mountain rooms; the 5 round home thick, as before or glades, at least one thick and one glade (`KINDS`, woods.js) | D-209, D-233, D-738, D-756 |
 | generated depths | Crypt (1), Cave (2 to 4), Warren (5 to 7), Dungeon (8 on) | D-147, D-233, D-354 |
 | the vault | from depth 2, one one-cell dead end a floor the seed picks, never the peddler's, the locket's or a waystone's; none on a floor without one. An outer room with 2 braziers, and a wall with the sealed door in its middle, the vault 3 tiles deep behind it, away from the opening: above or below for an opening at the top or bottom, beside for one at the left or right; bigger with the cell from depth 8. Drawn in the crypt's bricks; nothing else in it but the plinth at the vault's heart and its prize (`vault.js`) | D-891, D-892, D-896 |
+| the rune wall | from depth 1, one wall tile a floor, in one room the seed picks, never the vault, the peddler's or a waystone's: a front face with plain floor in front, the tile behind it walled round. Still a wall in the map, the room keeping its place. Three faint violet runes on its face, pulsing over 4 seconds, seen only with the lantern off, from below its row along a clear line; they light nothing (`runewall.js`, `render/runes.js`) | D-927, D-928 |
 
 Regions: Hearthwood, the starting region (D-348, `docs/regions/`).
 

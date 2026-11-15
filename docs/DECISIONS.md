@@ -100,21 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-902 · 2026-11-14 · Numbers in the bag** (the owner's find and
-picks, all recommended; they asked for mock-ups first, and for more than
-a line of words) The bag card shows what an item does: rows under its
-name, each an icon, what it does in grey and its number in gold, then a
-small picture where one helps, a weapon's hits on the grid over the held
-one's, hearts or oil now and after, a draught's turns (look C; offered
-too: chips; rows only). Every item with a number has rows. Steps: the
-rows, in the bag and its gear row; then, one a step, the Make tab and
-workbench, the peddler's trade and the stash chest (changed after the
-owner's answer: places Claude's call, not the pick-up line); then the
-pictures, one kind a step. Claude's
-calls: the words as on the mock-up page, from the registry
-(`core/numbers.js`); on a short screen held sideways the description is
-left out when it would reach the buttons.
-
 **D-907 · 2026-11-14 · A weapon's hits on the grid** (the owner's picks,
 all recommended) D-902's pictures start: on the bag card and the gear
 row, under a weapon's rows, "This one" and "Held now", the hero and a rat
@@ -189,3 +174,18 @@ its runes, seen only in the dark, with a mock-up of the look; then the
 dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
 lines, look and which tile of the edge are the build step's. D-925
 and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-928 · 2026-11-15 · The rune wall's look** (L3 step 1, the owner's
+picks from a mock-up, all recommended; builds D-927) It is the rune wall.
+Look A: three small runes, 3 by 5 pixels, across the wall's face in the
+stairs' violet `#a58ce0`, each with its shade `#6e58a8` a pixel below, as
+if cut (offered too: B, the waystone's rune; C, a dotted doorway). They
+brighten and dim over 4 seconds as a relic does, steady with reduced
+motion (offered too: steady; a glint). Only a front face carries it, plain
+floor in front (offered too: any edge wall). Claude's calls: of the rooms
+in the seed's order, the first with a tile that fits, the tile behind it
+walled on its other 3 sides for step 2's nook; on depth 1, the crypt's
+second room, its only room; seen from any tile below the wall's row with a
+clear line to the tile in front of it; the tile stays a wall, the room
+keeping its place (`runes`). D-902 moves to `archive/DECISIONS-CARDS-2.md`,
+word for word.

@@ -137,3 +137,18 @@ where it would pass the card's foot (look A; offered too: B, under the
 hint; C, the rows in the hint's place). Held sideways, rows that would
 reach STORE end left of it, as the hint does (offered too: left out
 there). Claude's call: every row, "Sells for" too, as on the bag card.
+
+**D-902 · 2026-11-14 · Numbers in the bag** (the owner's find and
+picks, all recommended; they asked for mock-ups first, and for more than
+a line of words) The bag card shows what an item does: rows under its
+name, each an icon, what it does in grey and its number in gold, then a
+small picture where one helps, a weapon's hits on the grid over the held
+one's, hearts or oil now and after, a draught's turns (look C; offered
+too: chips; rows only). Every item with a number has rows. Steps: the
+rows, in the bag and its gear row; then, one a step, the Make tab and
+workbench, the peddler's trade and the stash chest (changed after the
+owner's answer: places Claude's call, not the pick-up line); then the
+pictures, one kind a step. Claude's
+calls: the words as on the mock-up page, from the registry
+(`core/numbers.js`); on a short screen held sideways the description is
+left out when it would reach the buttons.
