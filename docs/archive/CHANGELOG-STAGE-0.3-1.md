@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.382 (2026-11-15)
+- Depth 8 has the Lampeater's arena, standing empty. The way to the stairs ends in a hallway, a road of seal stones between pillars with 2 cold braziers where it starts, and an open stone door into the arena above it. The arena has a cold brazier in each corner, 4 pillars round its middle, and at its top a sealed door with the stairs down behind it, in a ring of seal stones. For now, lighting all 4 braziers sinks the door; they go cold again if you leave first. Nothing else is in either room.
+- Saves from before: every room from depth 8 down is made again; a hero there goes to that floor's stairs up.
+- Decisions: D-940. D-929 and D-937 moved to the archive, word for word.
+
 ## 0.3.381 (2026-11-15)
 - Biome 1's boss is planned, nothing in the game yet: the Lampeater, a piece of the gloam that moves only through the dark and can be hurt only when caught in light, fought in its own sealed arena on depth 8 with braziers and gloamlings. Beaten, it gives Leap, and the floor gives way to a leap across to the way down.
 - Decisions: D-939. Questions: part of Q-105 answered. D-927 moved to the archive, word for word.

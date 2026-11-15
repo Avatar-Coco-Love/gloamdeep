@@ -2,6 +2,12 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.382, The Lampeater's arena.** D-939's step 1: on
+  depth 8 a hallway of seal stones and pillars leads up to the empty
+  arena, its sealed door before the stairs down sunk by 4 braziers for
+  now. The owner's picks and idea. D-929, D-937 archived. D-940.
+  Playtest: https://claude.ai/artifact/6HbJ4rd3HJJY2iYSFd5tjp
+  Map: https://claude.ai/artifact/2524FkxWetKEEFnSBMgXbt
 - **2026-11-15, 0.3.381, Biome 1's boss planned.** Q-105's boss part:
   how other games do bosses, three concepts with mock-ups; the owner
   picked the Lampeater, light deciding the fight, in a sealed arena on

@@ -25,8 +25,11 @@ export const BEHAVIOURS = {
   // `alone`: to the free tile farthest from them, never toward another creature; lit or not, it
   // needs no noticing. The lure wisp's way without the lure (D-784)
   shy: { id: 'shy', name: 'Shy', moves: 'lure', near: 3, bites: false, alone: true },
-  // It never notices, moves or bites: it only stands there (the Lampeater, for now, D-941).
-  waits: { id: 'waits', name: 'Waits', bites: false },
+  // It steps only through the dark, never onto a lit tile, and backs out of light into the dark, as one
+  // that shuns light does; it sees the hero along a clear line, lit or not, and comes a tile a turn while
+  // it does. Losing them, it drifts back through the dark to its `home`, the tile it first stood on. It
+  // doesn't bite, yet: its bite comes with the next step (the Lampeater, step 3, D-943).
+  darkOnly: { id: 'darkOnly', name: 'Dark only', notices: 'anyLine', moves: 'toward', intoLight: false, bitesLit: false, whenLit: 'backAway', bites: false, home: true },
   // It never moves or bites. Seeing the lit lantern along a clear row or column, up to `range`
   // tiles, it spits a glob that flies a tile a turn down that line, then rests `rest` turns
   // (spit.js, D-659, D-688).

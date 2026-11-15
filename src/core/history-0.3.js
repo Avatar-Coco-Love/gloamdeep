@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.385', date: '2026-11-15', title: 'The Lampeater moves', lines: [
+    "The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.",
+    "Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.",
+    "Decisions: D-943.",
+  ] },
   { v: '0.3.384', date: '2026-11-15', title: 'Finished decisions archived', lines: [
     "Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.",
     "Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.",

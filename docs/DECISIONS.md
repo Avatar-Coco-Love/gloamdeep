@@ -155,3 +155,20 @@ nine first uses all built, to `archive/DECISIONS-SURFACE.md`, word for
 word (offered too: D-790, the first next prompts rule, to
 `archive/DECISIONS-AUDITS.md`; kept). The Lampeater's and the standing
 rules stay. Its own docs-only version, 0.3.384. No game change.
+
+**D-943 · 2026-11-15 · The Lampeater moves through the dark** (D-939's
+step 3; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/PRwWXsBaHUw6jGx24ZT84s))
+It moves a tile a turn only over dark tiles, never onto a lit one, the
+gloamling's way: it sees the hero along a clear line, lit or not, so with
+the lantern lit it comes to the light's edge and waits there (offered
+too: only while the lantern is off; always, anywhere in its arena). Light
+falling on it, it slides back into the dark beside it farthest from the
+hero (offered too: it stays still until the light leaves). Beside the
+hero in the dark it doesn't bite yet: its bite and its number come with
+step 4 (offered too: it bites for 1 now; for 2). Losing the hero, it
+drifts back through the dark to its place below the door (offered too:
+it stays where it lost them). Claude's calls: lit braziers cut off its
+dark as any light does; it never leaves its arena; its Bestiary line
+says "Moves only through the dark, never onto a lit tile."; the 4
+braziers still sink the door.
