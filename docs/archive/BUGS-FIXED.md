@@ -3,6 +3,14 @@
 Bugs from `docs/BUGS.md`, moved here word for word once fixed (D-852),
 newest first, each with the version that fixed it. Grep only.
 
+Fixed in 0.3.373 (D-931): B-008.
+
+**B-008 · 2026-11-15 · The round map's dark circle** With the lantern off
+and all dark, the round map is barely visible, which the owner likes, but
+"there is this circle around the character filled in and darker than the
+rest of the map", the hero a bright blinking dot. "That dark circle
+around the player doesn't look right." (The spot is D-920's.)
+
 Fixed in 0.3.372 (D-930): B-007, and B-006 closed, not a bug.
 
 **B-006 · 2026-11-15 · Flyers stopped by things to pick up** "Flying

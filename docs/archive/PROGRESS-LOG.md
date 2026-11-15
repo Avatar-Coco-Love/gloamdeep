@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.370, The rune wall.** L3 step 1 (D-927): from depth
+  1, one wall a floor shows three faint violet runes, only with the
+  lantern off. Look A from a mock-up on game screenshots; the owner's
+  picks. The owner's notes are B-006 to B-011. D-902 archived. D-928.
+  Playtest: https://claude.ai/artifact/UGyugvpFX6gCeu5LxQmtZu
 - **2026-11-14, 0.3.369, The dark door, settled.** L3 (D-890): one
   rune-wall nook a floor from depth 1, in an ordinary cave room; its
   runes seen across the room only with the lantern off; a dark bump

@@ -1971,7 +1971,8 @@ middle too (offered too: half the disc; all but the hero). The hero's
 dot always shows. Changes ease over half a second (offered too: at
 once). The full map opens clearly. The rim showing danger (Q-109) is
 next (offered too: flyers into trees, D-900). D-918 and D-919 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
+`archive/DECISIONS-SURFACE.md`, word for word. Its spot round the hero
+superseded by D-931 (2026-11-15).
 
 **D-900 · 2026-11-14 · Flyers over low things** (the owner's picks, all
 four; the recommended was the first) Lampmoths, bats and the lure wisp

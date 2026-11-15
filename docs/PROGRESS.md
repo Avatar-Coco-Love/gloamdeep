@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.372 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.373 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks what comes next: one of B-008 to B-011 (`BUGS.md`), or
+The owner picks what comes next: one of B-009 to B-011 (`BUGS.md`), or
 Biome 1's boss and found ability (Q-105), L1 and L3 now built.
 
 ## Waiting on the owner
@@ -46,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.373, The round map's dark circle.** B-008: in the
+  dark the round map fades evenly to 15%, no dark spot round the hero
+  (option A from a mock-up). The owner's pick. D-928 archived. D-931.
+  Playtest: https://claude.ai/artifact/PFZaKUxggMFoZtqVqY87NK
 - **2026-11-15, 0.3.372, The boon button.** B-007: coming home by a
   waystone or a fall shows a violet rune button by the lantern, not the
   boon card; a tap opens it. B-006 closed, not a bug: flyers already
@@ -56,8 +60,3 @@ list in `RESEARCH.md`.
   vault's prize draw in the nook; bumped lit, its line, a sentence a bump.
   Both lines shortened to fit the strip. The owner's picks. D-907
   archived. D-929. Playtest: https://claude.ai/artifact/BYQq5W7gTFhizgb4LKLavf
-- **2026-11-15, 0.3.370, The rune wall.** L3 step 1 (D-927): from depth
-  1, one wall a floor shows three faint violet runes, only with the
-  lantern off. Look A from a mock-up on game screenshots; the owner's
-  picks. The owner's notes are B-006 to B-011. D-902 archived. D-928.
-  Playtest: https://claude.ai/artifact/UGyugvpFX6gCeu5LxQmtZu

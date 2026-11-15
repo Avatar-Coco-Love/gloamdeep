@@ -2,8 +2,8 @@
 // the hero's own tile. Plain data, no drawing. The light is the brightest of daylight under the
 // sky, the lantern (its reach against a full tank's, so an ember is about 0.17) and any other
 // light reaching the tile (a torch or brazier, a glow, daylight through the mouth: 1 at its
-// centre, 0 at its edge). The map shows 15% at no light, all of it at full light. With no light
-// but an ember or none, nothing else near, its middle hides too. The full map always opens clearly.
+// centre, 0 at its edge). The map shows 15% at no light, all of it at full light, evenly: no
+// dark spot round the hero (D-931). The full map always opens clearly.
 import { seenCells, CELL } from './light.js';
 import { lightsNow } from './sight.js';
 import { lanternReach } from './boon.js';
@@ -13,7 +13,7 @@ import { daylight } from './daytime.js';
 const TILE_SIZE = 16;
 export const LEAST = 0.15; // the round map at no light (D-920)
 
-// § light here: (state) → { light, hide }: light 0 to 1 on the hero's tile, hide true when its middle hides
+// § light here: (state) → the light on the hero's tile, 0 to 1
 export function lightHere(state) {
   const sun = state.room.dark.sky ? daylight(state.turn) : 0;
   const lamp = state.lit ? Math.min(1, lanternReach(state) / reach(1)) : 0;
@@ -26,8 +26,7 @@ export function lightHere(state) {
     if (f <= near) continue;
     if (seenCells(room, L.x, L.y, L.r, new Uint8Array(cw * room.rows * TILE_SIZE / CELL))[cell] === 1) near = f;
   }
-  const light = Math.max(sun, lamp, near);
-  return { light, hide: sun === 0 && near === 0 && lamp <= reach(0) / reach(1) };
+  return Math.max(sun, lamp, near);
 }
 
 // § shown: (light) → how much of the round map shows, 0.15 to 1 (D-920)
