@@ -2109,3 +2109,24 @@ light."). Claude's calls: from the side it is a wall as any other; a
 turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-799 · 2026-11-10 · The finds plan** (the owner's picks, all
+recommended, from a plan page: https://claude.ai/artifact/GnPo6RnybF7g6ogTdiET6y;
+narrows Q-061 and Q-093) Each find kept for crafts later gets one first
+use, with more uses free to come later: Crab Shell, the Shell Vest
+(D-801); Grub Skin, a Spitproof Draught; Bunny Fur, a Fur Bedroll for
+sleeping out; Bat Wing, an Echo Charm showing creatures in the dark
+near by; Lurker Claw, a Shade Draught, creatures noticing the hero only
+near; Rat Bone, a Bone Hook for the rod; Glow Gland, a Glow Lamp, a
+longer torch; Bat Fang, a Fang Charm, a heart back now and then from a
+beaten creature; Mole Claw, the Mole Claw Pick. With later steps: Oil
+Bladder, the lantern's first tank; Gloam Eye, its first glass, showing
+creatures in disguise; Stinger, a Stinger Spear poisoning creatures;
+Venom Sac, a Venom Oil for weapons. Kept for later too: Bunny Fur, a
+warm lining; Bat Wing, arrows' fletching; Stinger, arrowheads; Rat Bone,
+a Bone Club; claw weapons. They are built one a step, in that order,
+each one's numbers settled at its step (the plan's are drafts). The
+owner's wish for weapons (Q-094): a switch to show creatures' coming
+attacks and one to show the hero's. Others offered: two or three a PR;
+a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
+an Eye Charm, a Wayglow, a Mole Charm, a long Ward.

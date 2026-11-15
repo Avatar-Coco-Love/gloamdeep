@@ -60,27 +60,6 @@ owner can copy to pick the next direction, one per choice, or a single
 one when there is only one way on (`PR-CHECKLIST.md`). When they are
 given changed by D-795 (2026-11-10): once, after the merge.
 
-**D-799 · 2026-11-10 · The finds plan** (the owner's picks, all
-recommended, from a plan page: https://claude.ai/artifact/GnPo6RnybF7g6ogTdiET6y;
-narrows Q-061 and Q-093) Each find kept for crafts later gets one first
-use, with more uses free to come later: Crab Shell, the Shell Vest
-(D-801); Grub Skin, a Spitproof Draught; Bunny Fur, a Fur Bedroll for
-sleeping out; Bat Wing, an Echo Charm showing creatures in the dark
-near by; Lurker Claw, a Shade Draught, creatures noticing the hero only
-near; Rat Bone, a Bone Hook for the rod; Glow Gland, a Glow Lamp, a
-longer torch; Bat Fang, a Fang Charm, a heart back now and then from a
-beaten creature; Mole Claw, the Mole Claw Pick. With later steps: Oil
-Bladder, the lantern's first tank; Gloam Eye, its first glass, showing
-creatures in disguise; Stinger, a Stinger Spear poisoning creatures;
-Venom Sac, a Venom Oil for weapons. Kept for later too: Bunny Fur, a
-warm lining; Bat Wing, arrows' fletching; Stinger, arrowheads; Rat Bone,
-a Bone Club; claw weapons. They are built one a step, in that order,
-each one's numbers settled at its step (the plan's are drafts). The
-owner's wish for weapons (Q-094): a switch to show creatures' coming
-attacks and one to show the hero's. Others offered: two or three a PR;
-a waterskin, a Bat Wing torch, a Sting Salve, Bone Meal, a Tick Charm,
-an Eye Charm, a Wayglow, a Mole Charm, a long Ward.
-
 **D-852 · 2026-11-12 · A bug list** (the owner's pick, recommended;
 the owner's wish to say just "Next up") Bugs the owner notices go in
 `docs/BUGS.md`, each with its own number, B-001 on, in the owner's
@@ -90,31 +69,6 @@ owner" name them, so a new conversation finds them. Fixed ones move to
 `archive/BUGS-FIXED.md`. D-844 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-894 · 2026-11-13 · The health checks' decisions archived** (the
-owner's picks, all recommended) Before L1 step 3, with `DECISIONS.md`
-at 12,004 of its 12,288 bytes, D-860 to D-862, the two health checks
-and their order, all 19 steps done (0.3.308 to 0.3.328), move to
-`archive/DECISIONS-AUDITS.md` beside D-868, the audit they fed, word
-for word (offered too: D-799, the finds plan, as well, to
-`archive/DECISIONS-SURFACE.md`; to `archive/DECISIONS-SURFACE.md`
-instead). Its own docs-only version, 0.3.339 (offered too: folded into
-L1 step 3's PR). No game change.
-
-**D-910 · 2026-11-14 · The sixteenth audit** (the owner's picks, all
-recommended) At 0.3.353, nothing visible changed. The finds' pictures,
-from the flask to the ember, go from `pictures.js` to a new
-`src/render/pictures-finds.js` (48 KB to 27 and 22). The in-game
-history's 0.3.251 to 0.3.300 go to `src/core/history-0.3-5.js` (59 KB
-to 30 and 30). D-897 and D-903 move to `archive/DECISIONS-SURFACE.md`;
-the playbook's lines since the last audit, and the four that waited in
-0.3.341's, 0.3.342's and 0.3.345's PRs, go to a new `WORKFLOW-6.md`; all
-word for word. "Waiting on the owner" lists the any-time and later
-questions on fewer lines. Step 19, Lore, stays open: its quests (D-629)
-are still to come (offered: ticked, before that was found). A bug hunt
-reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
-all picked as steps, in order, each fix its own step. The next audit
-is at 0.3.393.
-
 **D-923 · 2026-11-14 · The next prompts, once** (the owner's find and
 pick, recommended; sharpens D-790 and D-795) Twice the next prompts came
 before a merge and again after, and the owner, back later, took the
@@ -122,8 +76,6 @@ early ones as a sign they had merged. Before the merge, the handoff ends
 "Tell me when it's merged" and gives no prompts; once the owner says so,
 Claude checks the PR is merged on GitHub, then gives them once (offered
 too: the words only; no prompts at all). CLAUDE.md says it too.
-
-
 
 **D-939 · 2026-11-15 · Biome 1's boss: the Lampeater** (the owner's
 picks, all recommended; answers part of Q-105; builds D-463, D-636,
@@ -194,3 +146,12 @@ beaten, how to fight it after 1 (offered too: a line of who it is from
 the start; not listed till beaten); its words are written at step 9, so
 for now they say only what it does. An arena made before gets it once.
 D-938 moves to `archive/DECISIONS-RELICS.md`, word for word.
+
+**D-942 · 2026-11-15 · Finished decisions archived** (the owner's picks,
+both recommended) With `DECISIONS.md` at 11,885 of its 12,288 bytes,
+D-894 and D-910, the health checks' archiving and the sixteenth audit,
+move to `archive/DECISIONS-AUDITS.md`, and D-799, the finds plan, its
+nine first uses all built, to `archive/DECISIONS-SURFACE.md`, word for
+word (offered too: D-790, the first next prompts rule, to
+`archive/DECISIONS-AUDITS.md`; kept). The Lampeater's and the standing
+rules stay. Its own docs-only version, 0.3.384. No game change.

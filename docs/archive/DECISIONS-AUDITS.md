@@ -665,3 +665,28 @@ second check's scratch work, all its findings in the report, is kept
 until H-57's step tests with its two old saves (offered too: its save
 tester into `tools/`; deleted now). D-854 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-894 · 2026-11-13 · The health checks' decisions archived** (the
+owner's picks, all recommended) Before L1 step 3, with `DECISIONS.md`
+at 12,004 of its 12,288 bytes, D-860 to D-862, the two health checks
+and their order, all 19 steps done (0.3.308 to 0.3.328), move to
+`archive/DECISIONS-AUDITS.md` beside D-868, the audit they fed, word
+for word (offered too: D-799, the finds plan, as well, to
+`archive/DECISIONS-SURFACE.md`; to `archive/DECISIONS-SURFACE.md`
+instead). Its own docs-only version, 0.3.339 (offered too: folded into
+L1 step 3's PR). No game change.
+
+**D-910 · 2026-11-14 · The sixteenth audit** (the owner's picks, all
+recommended) At 0.3.353, nothing visible changed. The finds' pictures,
+from the flask to the ember, go from `pictures.js` to a new
+`src/render/pictures-finds.js` (48 KB to 27 and 22). The in-game
+history's 0.3.251 to 0.3.300 go to `src/core/history-0.3-5.js` (59 KB
+to 30 and 30). D-897 and D-903 move to `archive/DECISIONS-SURFACE.md`;
+the playbook's lines since the last audit, and the four that waited in
+0.3.341's, 0.3.342's and 0.3.345's PRs, go to a new `WORKFLOW-6.md`; all
+word for word. "Waiting on the owner" lists the any-time and later
+questions on fewer lines. Step 19, Lore, stays open: its quests (D-629)
+are still to come (offered: ticked, before that was found). A bug hunt
+reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
+all picked as steps, in order, each fix its own step. The next audit
+is at 0.3.393.
