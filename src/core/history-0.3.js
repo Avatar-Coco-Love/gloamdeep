@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.389', date: '2026-11-15', title: 'The Lampeater snuffs', lines: [
+    "The Lampeater snuffs your braziers now. Once it is down to 4 of its 8 hearts, it breathes from the dark on the lit brazier nearest it, and again each time it gets free from a catch after that.",
+    "You get 2 turns' warning: the flame shudders, the tile is ringed red with a dot a turn left, and violet breath runs from its mouth. Catch it in light before then and the breath stops. Then the brazier goes cold with a curl of smoke; lighting it again costs 5 turns' oil, as ever.",
+    "Decisions: D-947.",
+  ] },
   { v: '0.3.388', date: '2026-11-15', title: 'The Lampeater drinks', lines: [
     "The Lampeater drinks from your light now. Waiting in the dark at the edge of your lantern's light, it drinks a turn's oil each turn, so your lantern burns twice as fast and its light pulls in, and it creeps in after it.",
     "A thread of light runs from the edge into its mouth, the oil bar flickers and you hear a sip; the first time, \"The Lampeater drinks your light.\" It never drinks a brazier's light, and not while caught or pinned.",
