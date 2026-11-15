@@ -4,6 +4,10 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.376 (2026-11-15)
+- A tree felled with a full bag leaves its 3 Wood as one stack on its stump, not on three tiles; the same for a branch's wood and a garden bed's berries. A stack on the ground shows its count in the corner, and stepping on it takes all that fits (B-011).
+- Decisions: D-934. D-932 moved to the archive, word for word.
+
 ## 0.3.375 (2026-11-15)
 - On a PC screen, a find made at a station, such as the Healing Herb's "Makes a Mending Draught at the mortar", no longer runs over DROP in the bag: "at the mortar" goes on a second line when there isn't room (B-010).
 - Decisions: D-933.

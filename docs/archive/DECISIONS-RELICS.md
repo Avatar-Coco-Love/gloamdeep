@@ -61,6 +61,8 @@ Claude's drafts the owner may change: its lines, the name Warden.
 Mock-ups: https://claude.ai/artifact/SHECVsemXBRvSVV36HZtnK
 D-681 and D-682 moved to `archive/DECISIONS-AUDITS.md`, word for word.
 
+Its waking and settling changed in part by D-937 (2026-11-15): once cracked it never stands still again.
+
 **D-693 · 2026-11-08 · The locket set on the shelf** (the owner's picks,
 all recommended; builds D-689 to D-692) Bumped with the locket in the
 bag, the shelf asks "Set the locket on the shelf?", "Kept close,

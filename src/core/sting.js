@@ -66,7 +66,8 @@ export function struck(state, e) {
 function strike(state, e) {
   const entry = get(e.id), way = traits(entry).strikes, tiles = struck(state, e);
   const hit = tiles.some((t) => t.x === state.hero.x && t.y === state.hero.y);
-  const { raised, ...down } = e, rested = { ...down, rests: way.rest + 1 };
+  const { raised, ...down } = e, missed = !tiles.some((t) => t.x === state.hero.x && t.y === state.hero.y);
+  const rested = { ...down, rests: way.rest + 1, ...(missed && entry.stone && { open: true }) }; // fists sunk in the floor, open to blows (D-937)
   let s = { ...state, enemies: state.enemies.map((o) => (o === e ? rested : o)) }, foe = null;
   for (const t of tiles) {
     const o = enemyAt(s, t.x, t.y);
