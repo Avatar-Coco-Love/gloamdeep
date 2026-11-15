@@ -6,6 +6,7 @@ import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
 import { vaultRoomOf, vaultRoom } from './vault.js';
+import { arenaRoom, hallwayRoom } from './arena.js';
 import { RUNES_FROM, runeSpotIn } from './runewall.js';
 import { withRelic } from './relic.js';
 import { withSize } from './sized.js';
@@ -235,7 +236,7 @@ export function locketRoom(seed) {
 }
 // § the waystones: at the top of each band of floors, depths 2 (caves), 5 (warrens) and 8 (the
 // dungeon), and of any band added later, then every 4th depth, 12, 16, 20… (D-579, D-594). On
-// each, one room the seed picks holds a waystone asleep, never the room with the stairs up, and
+// each, one room the seed picks holds a waystone asleep, never the room with the stairs up, the arena or its hallway (D-940), and
 // only one where it fits clear of the stairs down; it stands at the spot nearest the room's
 // middle (stamper.js, D-592)
 export const STONE_DEPTH = 2; // the first, the top of the caves
@@ -249,7 +250,7 @@ export function nextStoneDepth(depth) {
 }
 export function stoneAt(seed, depth = STONE_DEPTH) {
   if (!isStoneDepth(depth)) return null;
-  const mark = LANDMARKS.waystone, fits = layoutAt(seed, depth).cells.filter((c) => c.id !== placeAt(depth))
+  const mark = LANDMARKS.waystone, fits = layoutAt(seed, depth).cells.filter((c) => c.id !== placeAt(depth) && !c.arena && !c.hall)
     .map((c) => ({ id: c.id, at: spotIn(mark, c.cols, c.rows, c.down ? [c.down] : []) })).filter((c) => c.at);
   const r = rng(seedAt(seed, depth) ^ 0x6d2b79f5);
   return fits.length ? fits[Math.floor(r() * fits.length)] : null;
@@ -266,8 +267,8 @@ export function vaultAt(seed, depth) {
   }
   return vaults.get(k);
 }
-// § the rune wall: from depth 1, one room a floor the seed picks, never the vault, the peddler's
-// or a waystone's room, whose map has a tile that fits (runewall.js, D-927, D-928): the rooms
+// § the rune wall: from depth 1, one room a floor the seed picks, never the vault, the peddler's,
+// a waystone's room, the arena or its hallway (D-940), whose map has a tile that fits (runewall.js, D-927, D-928): the rooms
 // tried in the seed's order, the first that fits taken; null when none does. Depth 1 is the one
 // hand-made room there, so it is that room's.
 const runeWalls = new Map();
@@ -275,7 +276,7 @@ export function runeWallAt(seed, depth) {
   const k = `${seed}:${depth}`;
   if (!runeWalls.has(k)) {
     const plan = isGenerated(placeAt(depth)) ? layoutAt(seed, depth) : null;
-    const taken = [vaultAt(seed, depth), depth === PEDDLER_DEPTH && peddlerRoom(seed), stoneRoom(seed, depth)].filter(Boolean);
+    const taken = [vaultAt(seed, depth), depth === PEDDLER_DEPTH && peddlerRoom(seed), stoneRoom(seed, depth), ...(plan ? plan.cells.filter((c) => c.arena || c.hall).map((c) => c.id) : [])].filter(Boolean);
     const ids = (plan ? plan.cells.map((c) => c.id) : [placeAt(depth)]).filter((id) => !taken.includes(id));
     const r = rng(seedAt(seed, depth) ^ 0x3c6ef372);
     for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
@@ -309,6 +310,8 @@ function madeFor(id, seed) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
+  if (cell?.arena) return { ...arenaRoom(cell), depth, look }; // the Lampeater's arena, standing empty (D-940)
+  if (cell?.hall) return { ...hallwayRoom(cell), depth, look }; // its hallway, empty too (D-940)
   if (cell && id === vaultAt(seed, depth)) return { ...vaultRoom(cell), depth, look: 'crypt' }; // the floor's vault, in the crypt's bricks (D-891, D-892)
   const trapped = depth === PEDDLER_DEPTH && id === peddlerRoom(seed) ? 'peddler' : null; // the room made so his ring fits (D-580)
   const stone = stoneAt(seed, depth), landmark = stone?.id === id ? { mark: LANDMARKS.waystone, at: stone.at } : null; // (D-587)

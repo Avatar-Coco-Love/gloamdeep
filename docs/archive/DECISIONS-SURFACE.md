@@ -2093,3 +2093,19 @@ its runes, seen only in the dark, with a mock-up of the look; then the
 dark bump opening it and the prize (offered too: 3 steps; 1). Its name,
 lines, look and which tile of the edge are the build step's. D-925
 and D-926 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
+picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
+front of its face, the rune wall becomes the room's plain floor, a 1-tile
+gap, and the tile behind it a plinth with a vault's prize draw (offered
+too: a framed rune doorway; the vault's open door). Its line: "The runes
+flare, the stone sinks away." (offered too: "The wall sinks open."; "The
+stone slides back into the dark."; first drafted with "and", too wide for
+the strip). No sound yet, as the vault door's (offered too: the dig's).
+The runes are gone once open (offered too: stay faintly). D-927's lit line
+said a sentence a bump, "Faint marks." then "Too pale to see by lantern
+light.", too wide whole (offered too: "Faint marks, too pale for lantern
+light."). Claude's calls: from the side it is a wall as any other; a
+turn, no oil; the plinth set as it opens, so a room seen before opens the
+same; each floor's prize its own draw. D-907 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.

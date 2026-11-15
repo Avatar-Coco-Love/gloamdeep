@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.379, A harder Warden.** The owner's ask: blows ring
+  off its stone until its slam misses; then it is open till it next acts,
+  each blow 1 less, four openings to beat it; cracked, it never settles.
+  The owner's picks. D-935 archived. D-937.
+  Playtest: https://claude.ai/artifact/L5reWtevNSF5k4tMSxtYS7
 - **2026-11-15, 0.3.378, Several kinds on one tile.** Q-110, the rest of
   B-011: Drop lays a stack beside what lies there, no swap; onto its own
   kind it grows. The tile shows each kind in turn with its count; still,

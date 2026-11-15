@@ -40,13 +40,14 @@ test('rooms that were made before come out exactly as they did', () => {
   // and at 0.3.181, with the rat packs placed after the rest; without them it is 0.3.178's (D-727),
   // and at 0.3.194, when the unguarded flasks and the rat packs took salts of their own (D-742),
   // and at 0.3.337, less the vaults' rooms, the same number from 0.3.336's code without them (D-892);
-  // a rune wall's place left out, the maps the same as at 0.3.369 (0.3.370, D-928)
+  // a rune wall's place left out, the maps the same as at 0.3.369 (0.3.370, D-928);
+  // and at 0.3.382, when depth 8 took its hallway and arena and every floor below it lined up anew, less those two (D-940)
   for (let seed = 1; seed <= 20; seed++) for (const d of [8, 14, 20]) for (const c of layoutAt(seed, d).cells) {
-    if (c.id === stoneRoom(seed, d) || c.id === vaultAt(seed, d)) continue; // made with its stone, or a vault (0.3.337, D-892), every other room as before
+    if (c.id === stoneRoom(seed, d) || c.id === vaultAt(seed, d) || c.arena || c.hall) continue; // made with its stone, or a vault (0.3.337, D-892), every other room as before
     const { runes, ...made } = placeFor(c.id, seed);
     for (const ch of JSON.stringify(made)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
   }
-  assert.equal(h, 3170738020);
+  assert.equal(h, 1685685735);
 });
 
 test('an old save\'s stand-in is made again, and the rooms that fit stay as they were', () => {

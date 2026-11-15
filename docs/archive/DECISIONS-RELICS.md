@@ -108,3 +108,21 @@ floor, rod held or not; with none there the water acts as before. One
 beaten there leaves its drop on the nearest dry tile, as drops already
 lie. A spit grub's glob already flies over water and hits a flyer there.
 Next, the owner orders the audit's other fixes (B2, B3, B4, Q1).
+
+**D-937 · 2026-11-15 · A harder Warden** (the owner's ask and picks,
+[mock-ups](https://claude.ai/artifact/3P1t5ADXs6NW8BewfKZVtX); supersedes
+in part D-692, D-886 and its Bestiary tip) Every blow and hurt rings off
+the warden's stone, "Your blow rings off the stone.", with no flash, until
+its slam misses: "The warden's fists sink into the floor!" Then it is open
+till it next acts, so the hero steps back beside it and strikes once
+(offered too: open 2 turns; open after every slam). Stone skin: each blow
+does 1 less, never below 1, so four openings beat it. A bump only wakes
+it. Once cracked it never stands still again (offered too: the count
+restarts each slam; awake till beaten). Its tip: "Your blows ring off its
+stone. When its fists go up, step out of the way. When they sink into the
+floor, step back beside it and strike before it pulls them free. Four
+openings beat it." Two steps: these rules, then its look and sounds:
+stuck take C (stooped, a jolt and chips), a grey spark, the clink
+`impactMetal_light_000`, the thud A6 (the heavy punch slowed with an
+earth rumble and its stone knock a touch lower). D-935 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.

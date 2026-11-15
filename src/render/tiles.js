@@ -15,12 +15,18 @@ import { drawStandingStone, drawWaystonePath, drawWaystonePlate } from './waysto
 
 const px = (c, x, y, col) => { c.fillStyle = col; c.fillRect(x, y, 1, 1); };
 // How many braziers burn in the room (D-893), and the vault door's 2 notches on the lintel above
-// it, in a dark socket in the wall's cap, glowing violet one a lit brazier, the left first (D-895)
-const litIn = (room) => room.map.reduce((n, row) => n + row.split(get('brazierLit').letter).length - 1, 0);
-function drawNotches(c, room, x, y, n) {
-  c.fillStyle = ink(room, '#2b303c'); c.fillRect(x * T + 3, y * T + 1, 10, 4);
-  for (const [i, nx] of [[0, 4], [1, 10]]) { c.fillStyle = n > i ? '#a58ce0' : '#0e0c16'; c.fillRect(x * T + nx, y * T + 2, 2, 2); }
+// it, in a dark socket in the wall's cap, glowing violet one a lit brazier, the left first (D-895);
+// a notch for each brazier in the room, the arena's 4 closer together (D-940)
+const countIn = (room, id) => room.map.reduce((n, row) => n + row.split(get(id).letter).length - 1, 0);
+const litIn = (room) => countIn(room, 'brazierLit');
+const braziersIn = (room) => litIn(room) + countIn(room, 'brazier');
+function drawNotches(c, room, x, y, n, all = 2) {
+  const step = all > 2 ? 3 : 6, first = Math.floor(8 - (step * (all - 1) + 2) / 2);
+  c.fillStyle = ink(room, '#2b303c'); c.fillRect(x * T + first - 1, y * T + 1, step * (all - 1) + 4, 4);
+  for (let i = 0; i < all; i++) { c.fillStyle = n > i ? '#a58ce0' : '#0e0c16'; c.fillRect(x * T + first + i * step, y * T + 2, 2, 2); }
 }
+// An open door on the room's edge, the hallway's way into the arena, has no notches (D-940)
+const onEdge = (room, x, y) => x === 0 || y === 0 || x === room.cols - 1 || y === room.rows - 1;
 // The dungeon (D-228) is the crypt drawn deeper and bluer: each colour's red,
 // green and blue times these, as in the step 59b mock-up (D-229)
 const COLD = [0.72, 0.78, 0.95], cold = new Map();
@@ -153,11 +159,13 @@ const DRAW = {
   minersCampBare: (c, room, x, y) => drawCamp(c, room, x, y, CAMPS.minersCampBare), // and once the pick is taken
   brazier: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazier); }, // a vault's cold brazier, as the campfire stands (D-892)
   brazierLit: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawDeposit(c, x, y, SPRITES.brazierLit); }, // lit, its flame after the light (campfire.js, D-893)
-  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); drawNotches(c, room, x, y, litIn(room)); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893), on the lintel (D-895)
-  openDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.openDoor, x * T, y * T); drawNotches(c, room, x, y, 2); }, // sunk open, both notches glowing for good (D-895)
+  sealedDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.sealedDoor, x * T, y * T); drawNotches(c, room, x, y, litIn(room), braziersIn(room)); }, // a vault's sealed door: the wall, its slab in the face (D-892), a notch glowing a lit brazier (D-893), on the lintel (D-895)
+  openDoor: (c, room, x, y) => { drawWall(c, room, x, y); c.drawImage(SPRITES.openDoor, x * T, y * T); if (!onEdge(room, x, y)) drawNotches(c, room, x, y, braziersIn(room), braziersIn(room)); }, // sunk open, every notch glowing for good (D-895); none on the room's edge (D-940)
   plinth: (c, room, x, y) => drawPlinth(c, room, x, y, room.prize && SPRITES[room.prize.id]), // the vault's plinth, its rare material on its top (D-896)
   plinthEmber: (c, room, x, y) => drawPlinth(c, room, x, y, SPRITES.ember), // the ember on it, glowing faintly (tiles.js in core, D-896)
   plinthBare: (c, room, x, y) => drawPlinth(c, room, x, y, null), // its prize taken (D-896)
+  pillar: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.pillar); }, // the arena's pillar, standing as the bench does (D-940)
+  sealStone: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); c.drawImage(SPRITES.sealStone, x * T, y * T); }, // the old seal's slab, flat on the floor (D-940)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };

@@ -46,7 +46,8 @@ the seed picks each floor's room count: 6 to 8 at depths 2 to 4 on a
 4 × 4 grid, 9 to 11 at depths 5 to 7, the warrens (D-227), and 11 to 13
 from depth 8, the dungeon in the crypt's bricks (D-228), on 5 × 5, with
 2 loops from depth 8 (D-645). The way from the stairs up to the stairs
-down is 3 or 4 rooms, and the side rooms branch off it; below depth 8
+down is 3 or 4 rooms (on depth 8 one to three more, ending in the hallway
+and the Lampeater's arena, D-940), and the side rooms branch off it; below depth 8
 floors are made as depth 8 is, until biome 2 (D-647). Before D-645 a
 floor had 3, 5 or 6 rooms on a 2 × 2 or 3 × 3 grid (D-203, D-227, D-228).
 A doorway or mouth keeps the depth, only stairs change it: the woods
