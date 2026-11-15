@@ -100,14 +100,6 @@ for word (offered too: D-799, the finds plan, as well, to
 instead). Its own docs-only version, 0.3.339 (offered too: folded into
 L1 step 3's PR). No game change.
 
-**D-907 · 2026-11-14 · A weapon's hits on the grid** (the owner's picks,
-all recommended) D-902's pictures start: on the bag card and the gear
-row, under a weapon's rows, "This one" and "Held now", the hero and a rat
-on each tile hit, its hit in red (look C). The weapon in hand: only "Held
-now" (offered too: both; none). No weapon: the lantern's 1 (offered too:
-left out). The weapon's own hits, no boon's (offered too: with it). The
-other cards later. Claude's: one just like the held one counts as it.
-
 **D-908 · 2026-11-14 · Hearts or oil, now and after** (the owner's
 picks, all recommended, from a mock-up) D-902's second picture: on the
 bag card, under the rows of a find that heals or fills the lantern,
@@ -189,3 +181,19 @@ second room, its only room; seen from any tile below the wall's row with a
 clear line to the tile in front of it; the tile stays a wall, the room
 keeping its place (`runes`). D-902 moves to `archive/DECISIONS-CARDS-2.md`,
 word for word.
+
+**D-929 · 2026-11-15 · The rune wall opens** (L3 step 2, the owner's
+picks, all recommended; builds D-927, D-928) Bumped dark from the tile in
+front of its face, the rune wall becomes the room's plain floor, a 1-tile
+gap, and the tile behind it a plinth with a vault's prize draw (offered
+too: a framed rune doorway; the vault's open door). Its line: "The runes
+flare, the stone sinks away." (offered too: "The wall sinks open."; "The
+stone slides back into the dark."; first drafted with "and", too wide for
+the strip). No sound yet, as the vault door's (offered too: the dig's).
+The runes are gone once open (offered too: stay faintly). D-927's lit line
+said a sentence a bump, "Faint marks." then "Too pale to see by lantern
+light.", too wide whole (offered too: "Faint marks, too pale for lantern
+light."). Claude's calls: from the side it is a wall as any other; a
+turn, no oil; the plinth set as it opens, so a room seen before opens the
+same; each floor's prize its own draw. D-907 moves to
+`archive/DECISIONS-CARDS-2.md`, word for word.

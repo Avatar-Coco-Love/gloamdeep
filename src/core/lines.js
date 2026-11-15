@@ -331,6 +331,8 @@ export const LINES = {
   vaultOpens: { text: 'The stone door sinks open.', warn: false }, // the last brazier lit, the door opening, in its catching's place: the strip holds one (D-895)
   brazierLit: { texts: ['A brazier, burning.', 'Its flame burns steady.'], warn: false }, // a lit brazier bumped, a sentence a bump (D-893)
   sealedDoor: { texts: ['A sealed stone door.', 'A flame rune is cut into it.'], warn: false }, // a vault's sealed door bumped (D-892)
+  runesLit: { texts: ['Faint marks.', 'Too pale to see by lantern light.'], warn: false }, // the rune wall bumped lit, a sentence a bump (D-927, D-929)
+  runesOpen: { text: 'The runes flare, the stone sinks away.', warn: false }, // the rune wall bumped dark, sinking open (D-929)
   minersCamp: { text: "A miners' camp, long left.", warn: false }, // the camp bumped: on its card's opening, and bare, alone (D-770)
   campPickTaken: { text: 'You take the old pick.', warn: false }, // Claude's draft the owner may change (D-770)
   glowDraughtMake: { text: 'You make a Glow Draught.', warn: false }, // MORTAR's card, a turn (D-786)

@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.371', date: '2026-11-15', title: 'The rune wall opens', lines: [
+    "Bump the rune wall with your lantern off and the runes flare: the stone sinks away for good, into a small nook. On a plinth inside lies a vault's prize, an ember or 2 of a rare material, taken with a bump.",
+    "Bumped with the lantern lit, the rune wall now says so: \"Faint marks.\", then \"Too pale to see by lantern light.\"",
+    "Decisions: D-929. D-907 moved to the archive, word for word.",
+  ] },
   { v: '0.3.370', date: '2026-11-15', title: 'The rune wall', lines: [
     "From depth 1, one room on each floor now has a rune wall. Switch your lantern off and three faint violet runes glow on that wall's face, seen from across the room. With the lantern lit it looks like any other wall.",
     "Nothing opens it yet: bumping it in the dark comes next.",

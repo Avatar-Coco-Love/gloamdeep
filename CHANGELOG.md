@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.371 (2026-11-15)
+- Bump the rune wall with your lantern off and the runes flare: the stone sinks away for good, into a small nook. On a plinth inside lies a vault's prize, an ember or 2 of a rare material, taken with a bump.
+- Bumped with the lantern lit, the rune wall now says so: "Faint marks.", then "Too pale to see by lantern light."
+- Decisions: D-929. D-907 moved to the archive, word for word.
+
 ## 0.3.370 (2026-11-15)
 - From depth 1, one room on each floor now has a rune wall. Switch your lantern off and three faint violet runes glow on that wall's face, seen from across the room. With the lantern lit it looks like any other wall.
 - Nothing opens it yet: bumping it in the dark comes next.
@@ -33,9 +38,3 @@ Entry format:
 - Nothing in the game changed. The second puzzle is settled: from depth 1, one cave room on each floor hides a nook in its wall, marked by faint violet runes you can see only with the lantern off.
 - Bump that wall in the dark and it opens for good, with a vault's prize behind it. Bumped with the lantern lit, it only says the marks are too pale to see.
 - Decisions: D-927. D-925 and D-926 moved to the archive, word for word.
-
-## 0.3.368 (2026-11-14)
-- New at the workbench: the Shovel, the BUILD tab's last slot. It costs 3 Wood and 2 Stone, and you carry one. Hold it in the Tool slot, as you hold the picks and the rod.
-- With the shovel held, walk onto a stump to dig it out: a turn, and you stay where you are. Plain grass is left, and the tree never grows back there, so you can clear room for a base.
-- Without the shovel held, you walk onto a stump as before. A standing tree is still chopped, not dug.
-- Decisions: D-926.
