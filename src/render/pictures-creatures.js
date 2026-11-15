@@ -170,9 +170,18 @@ const LURKER_CLAW = { mirror: false, rows: [
   '', '', '', '', '', '', '..........kk....', '.........kwAk...', '........kwAk....', '.......kwAk.....',
   '......kwAk......', '.....kwwAk......', '....kQqqk.......', '....kQQk........', '.....kk.........'] };
 
+// § lampeater: look A of its mock-up (the Lampeater, step 2, D-941), the pool: a low mound of the
+// gloam spilling over the floor, a ragged dripping edge, a dark mouth and the pink hostile eyes,
+// the unusual things' violet shade (j) on its crown. Its own three deep violets, darker than the
+// cave spider's (LAMPEATER_COLOURS). Its eyes alone glow over the dark (sprites.js, drawGlows).
+const LAMPEATER = { mirror: false, rows: [
+  '', '', '', '', '', '', '.....kkkkkk.....', '...kk233332kk...', '..k2233jj3322k..', '.k22pp3333pp22k.',
+  '.k222333333222k.', 'k21222kkkk22212k', 'k11222k11k22211k', 'k111222kk222111k', '.k1k11k11k11k1k.', '..k.kk.kk.kk.k..'] };
+const LAMPEATER_COLOURS = { 1: '#1d1729', 2: '#2c2340', 3: '#43375f' };
+
 export {
   RAT, GLOAMLING, LAMPMOTH, FLASK_MIMIC, SCORPION, CAVE_SPIDER, SPIDER_SILK, BAT, BAT_WING,
   BAT_FANG, BAT_GUANO, MOLE, MOLE_MOUND, MOLE_FUR, MOLE_CLAW, SNAPCAP, SNAPCAP_GILL, HERB_MIMIC,
   BONE_RAT, BONE_PILE, OIL_TICK, TICK_SHELL, OIL_BLADDER, RAT_BONE, MIMIC_LEAF, SCORPION_COLOURS, BUNNY, BUNNY_FUR, SKULKER_CRAB, CRAB_SHELL,
-  RIM_LURKER, LURKER_CLAW, FUR_BEDROLL, BEDROLL_LAID,
+  RIM_LURKER, LURKER_CLAW, FUR_BEDROLL, BEDROLL_LAID, LAMPEATER, LAMPEATER_COLOURS,
 };

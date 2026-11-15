@@ -102,6 +102,7 @@ When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 
 - A rule broken twice needs a check, not only words: the next prompts came before a merge again, and the owner, back later, took them as the merge done; now the handoff waits for "merged" and checks GitHub first (0.3.365).
+- Check a picked spot against the map before building: the tile below the sealed door was its only way in, so a boss standing there would have shut depth 9; a second question with two pictures settled it (0.3.383).
 - Try the rule on many seeds before showing it: "entered from below" hung on one seed in 12, caught by running 1500 (0.3.382).
 - Lifting a safety rule can open a trap: dropping the "room stays joined" check showed that a full bag kept a regrown tree standing, so the fix asked about it before building (0.3.366).
 - A mock-up painted onto the running game, through a small drawing hook added only in the headless browser, put each look on real rooms in the dark, and the build reused its pixels (0.3.370).

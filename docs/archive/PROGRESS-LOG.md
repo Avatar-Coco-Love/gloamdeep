@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.380, The Warden's look and sounds.** D-937's step 2:
+  stooped while open, a jolt and chips as its fists sink, a thud A6; a
+  grey spark and a clink for a blow that rings. The clink was Making's,
+  so the owner picked it a quarter lower by ear. D-936 archived. D-938.
+  Playtest: https://claude.ai/artifact/VYLnzHvfrPpysbWQKq3AmQ
 - **2026-11-15, 0.3.379, A harder Warden.** The owner's ask: blows ring
   off its stone until its slam misses; then it is open till it next acts,
   each blow 1 less, four openings to beat it; cracked, it never settles.

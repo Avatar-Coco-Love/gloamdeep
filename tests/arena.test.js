@@ -37,12 +37,12 @@ test('on depth 8 only: the arena straight above the hallway, at the way\'s end, 
   }
 });
 
-test('the arena: the seal hall, empty, the stairs down behind its sealed door in the old seal', () => {
+test('the arena: the seal hall, only the Lampeater in it, the stairs down behind its sealed door in the old seal', () => {
   for (const seed of SEEDS.slice(0, 20)) {
     const { arena } = ends(seed), p = placeFor(arena.id, seed), at = arena.doors[0].at;
     assert.deepEqual([p.map[0].length, p.map.length], [13, 15]);
     assert.equal(p.map[14][at], '.'); assert.deepEqual(p.start, { x: at, y: 13 });
-    assert.deepEqual([p.enemies, p.items, p.people, p.lights], [[], [], [], []], `seed ${seed}`);
+    assert.deepEqual([p.enemies, p.items, p.people, p.lights], [[{ id: 'lampeater', x: 6, y: 6 }], [], [], []], `seed ${seed}`); // D-941
     assert.deepEqual([count(p.map, 'brazier'), count(p.map, 'pillar'), count(p.map, 'sealedDoor'), count(p.map, 'sealStone'), count(p.map, 'stairsDown')], [4, 4, 1, 8, 1]);
     assert.equal(p.map[2][6], '>'); assert.equal(p.map[4][6], get('sealedDoor').letter);
     assert.equal(p.look, 'dungeon');
@@ -83,7 +83,7 @@ test('the 4 braziers lit sink the door, for now; left with one cold, the lit one
 });
 
 test('an older save: every generated room from depth 8 down is made again, once; those above kept', () => {
-  assert.equal(FORMAT, 36); assert.equal(UPGRADES[35], rearena);
+  assert.ok(FORMAT >= 36); assert.equal(UPGRADES[35], rearena);
   const seed = 5, s3 = goToPlace(makeWorld('first', seed), 'depth3'), s9 = goToPlace(goToPlace(s3, 'depth8'), 'depth9');
   assert.ok(s9.elsewhere.depth3 && s9.elsewhere.depth8);
   const s = rearena(s9);

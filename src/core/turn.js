@@ -11,7 +11,7 @@ import { formOf } from './tiles.js';
 import { get } from './registry.js';
 import { guardWakes } from './relic.js';
 import { say } from './lines.js';
-import { enemyAt, hitEnemy, rings, skinned, DROP_CHANCE, RARE_CHANCE } from './enemies.js';
+import { enemyAt, hitEnemy, rings, sinks, skinned, DROP_CHANCE, RARE_CHANCE } from './enemies.js';
 import { dropOf, boonHit, healOf, rareChance } from './boon.js';
 import { rng, seedFor } from './rng.js';
 import { lightAt, openSide } from './lights.js';
@@ -183,8 +183,8 @@ function attack(state, foe) {
   if (misses(state)) return endTurn(state, say(note(passTurn(state), 'miss', { id: foe.id, held: state.held }), 'stiffMiss')); // stiff: the swing goes wide, nothing hurt (D-759)
   const back = behind(state, foe), first = strike(state, foe, heroHit(state));
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
-  const shove = knocks(state) && !first.beaten && !first.rang ? knockBack((both || first).state, foe) : null; // the Warden's Fist (fist.js, D-888)
-  let next = note(passTurn((shove || both || first).state), 'hit', { id: foe.id, held: state.held, ...(first.rang && { rang: true }) }); // rang off stone: no flash (D-937)
+  const shove = knocks(state) && !first.beaten && !first.rang && !first.sank ? knockBack((both || first).state, foe) : null; // the Warden's Fist (fist.js, D-888)
+  let next = note(passTurn((shove || both || first).state), 'hit', { id: foe.id, held: state.held, ...(first.rang && { rang: true }), ...(first.sank && { sank: true }) }); // rang off stone: no flash (D-937); sank into the gloam, nor (D-941)
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
   if (shove?.into) next = note(next, 'hit', { id: shove.into.id, held: state.held });
   const beaten = [[first.beaten, foe], [both?.beaten, back], ...(shove?.beaten || [])];
@@ -209,6 +209,7 @@ function knockBack(state, foe) {
 function strike(state, foe, damage) {
   const entry = get(foe.id);
   if (rings(foe)) return { state, line: entry.rings, beaten: false, rang: true };
+  if (sinks(foe)) return { state, line: entry.sinks, beaten: false, sank: true }; // into the Lampeater's gloam (D-941)
   const hit = hitEnemy(state.enemies, foe, entry, skinned(foe, damage));
   const dead = hit.length < state.enemies.length;
   if (dead && entry.rises) return { state: { ...state, enemies: state.enemies.map((e) => (e === foe ? fallen(foe, entry) : e)) }, line: entry.falls, beaten: false }; // a pile of bones, not beaten yet (D-731)

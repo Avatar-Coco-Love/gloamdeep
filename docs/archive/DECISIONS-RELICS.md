@@ -126,3 +126,13 @@ stuck take C (stooped, a jolt and chips), a grey spark, the clink
 `impactMetal_light_000`, the thud A6 (the heavy punch slowed with an
 earth rumble and its stone knock a touch lower). D-935 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-938 · 2026-11-15 · The Warden's look and sounds** (D-937's step 2,
+the owner's picks; [sound board](https://claude.ai/artifact/ThY4FkXmmTFKHnK6V3cC1a))
+The light metal clink was already Making's, two taps at their own pitch,
+so a blow that rings off the warden plays it once, a quarter lower (75%;
+offered too: 85%, 65%, the medium metal, the light stone plate). Claude's
+calls: the clink plays in the hit's place, with no punch; it and the thud
+A6 go under Creatures in Settings; the thud plays as the fists sink,
+with the line. The grey spark shows with reduced motion too; the jolt and
+the chips don't. D-936 moves to `archive/DECISIONS-BAGS.md`, word for word.
