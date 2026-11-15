@@ -29,6 +29,8 @@ Each bite plays a quarter second after the hero's swing, as the hurt blow does, 
 | `sip` | an oil tick drinks the lantern's oil (D-606, D-832) | a wet slurp and a gulp | `Water-038` at 1.1, 0.4 s, fading 0.15 s, at 0.35, then `Water-025` at 1.3, 0.3 s, at 0.3, 0.25 s in, CC0 |
 | `grind` | a warden bites (D-833) | stone grinding | `Earth-019` at 0.8, from 0.3 s, 0.5 s, fading 0.2 s, at 0.5, then `impactMining_000` to `004` at 0.7, 0.2, 0.15 s in, CC0 |
 | `statue` | a warden wakes (D-833), or raises its fists (D-886) | heavy stone shifting | `Earth-028` at 0.75, 1.2 s, fading 0.6 s, muffled above 1200 Hz, at 0.32, CC0 |
+| `ring` | a blow rings off the warden's stone, in the hit's place (D-938) | one light metal clink | `impactMetal_light_000` to `004` at 0.75, at 0.25, CC0 (Making's taps, lower and once) |
+| `sink` | the warden's fists sink into the floor (D-937, D-938) | a heavy thud in stone | `impactPunch_heavy_000` to `004` at 0.7, at 0.36, with `Earth-021` at 0.8, at 0.16, and `impactMining_000` to `004` at 0.72, at 0.36, together, CC0 |
 | `spit` | a creature spits a glob (D-688, D-833) | a wet spit | `Water-010` at 1.3, 0.35 s, fading 0.15 s, at 0.4, CC0 |
 | `splat` | a glob breaks or hits (D-688, D-833) | a small splat | `Water-014` at 0.8, 0.35 s, fading 0.15 s, at 0.32, CC0 |
 

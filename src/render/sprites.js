@@ -17,6 +17,7 @@ import {
   GLOW_LAMP,
   WARDEN,
   WARDEN_RAISED,
+  WARDEN_STUCK,
   CAMPFIRE,
   CAMPFIRE_EMBERS,
   CAMPFIRE_ASHES,
@@ -124,6 +125,8 @@ const SLEEPING = { warden: spriteCanvas(WARDEN, null, { ...PAL, P: PAL.D }) };
 // § raised (D-885): a creature with its own look while raised to strike, the warden's fists up;
 // a scorpion's raised tail is its own sprite, trembling. Facing left, mirrored (RAISED_LEFT, below)
 const RAISED = { warden: spriteCanvas(WARDEN_RAISED) };
+// § stuck (D-937): the warden's fists sunk in the floor, open to blows (`open`), stooped
+const STUCK = { warden: spriteCanvas(WARDEN_STUCK) };
 // § facing left: an enemy's sprite mirrored, for one that walked left (D-158)
 function mirrored(cv) {
   const out = document.createElement('canvas');
@@ -136,6 +139,7 @@ function mirrored(cv) {
 const LEFT = {}, LEFT_FLASHES = {};
 for (const id of Object.keys(FLASHES)) { LEFT[id] = mirrored(SPRITES[id]); LEFT_FLASHES[id] = mirrored(FLASHES[id]); }
 const RAISED_LEFT = Object.fromEntries(Object.entries(RAISED).map(([id, cv]) => [id, mirrored(cv)]));
+const STUCK_LEFT = Object.fromEntries(Object.entries(STUCK).map(([id, cv]) => [id, mirrored(cv)]));
 // § colours: a creature in its colour set, facing right and left (D-373); the first is its SPRITES one
 const COLOURS = { scorpion: SCORPION_COLOURS.map((set) => spriteCanvas(SCORPION, null, { ...PAL, ...set })) };
 const COLOURS_LEFT = Object.fromEntries(Object.entries(COLOURS).map(([id, all]) => [id, all.map(mirrored)]));
@@ -306,13 +310,16 @@ function moreCount(c, k, x, y) {
 export const faceOf = (e) => dressedIn(e, e.facing === 'left');
 // `hero`: where the hero stands; a snapcap is drawn shut, as the find it is `shutAs`, unless
 // the hero stands beside it, four ways, where it can bite (D-543).
-export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero = null) {
+// `sunk`: { x, y, start } as a warden's fists sank, so it jolts down a pixel for JOLT_MS (D-937).
+export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero = null, sunk = null) {
   const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
-  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e), hero);
+  const jolts = (e) => !still && !!sunk && e.open && e.x === sunk.x && e.y === sunk.y && t >= sunk.start && t < sunk.start + JOLT_MS;
+  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e), hero, jolts(e));
   for (const h of hits) if (!enemies.some((e) => e.x === h.x && e.y === h.y)) drawEnemy(c, h, h, t, still, true, hero);
 }
 const beside = (e, hero) => !!hero && Math.abs(e.x - hero.x) + Math.abs(e.y - hero.y) === 1;
-export function drawEnemy(c, e, p, t, still, flash, hero) {
+export const JOLT_MS = 120; // the stuck warden's jolt as its fists land (D-937, take C)
+export function drawEnemy(c, e, p, t, still, flash, hero, jolt = false) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);
   if (e.asleep && !flash && !SLEEPING[e.id]) return drawItems(c, [{ id: get(e.id).looksLike, x: p.x, y: p.y }], t, still); // asleep, just like the find it copies (D-368)
   const shutAs = get(e.id)?.shutAs;
@@ -322,9 +329,9 @@ export function drawEnemy(c, e, p, t, still, flash, hero) {
   drawShadow(c, x, y, 8);
   if (get(e.id)?.glows && !glowing) return; // one that glows is drawn over the light, drawGlows (D-649)
   const left = e.facing === 'left';
-  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.raised && RAISED[e.id] ? (left ? RAISED_LEFT : RAISED)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692), fists up (D-885)
+  const sprite = flash ? (left ? LEFT_FLASHES : FLASHES)[e.id] : e.asleep ? SLEEPING[e.id] : e.raised && RAISED[e.id] ? (left ? RAISED_LEFT : RAISED)[e.id] : e.open && STUCK[e.id] ? (left ? STUCK_LEFT : STUCK)[e.id] : e.tone ? spriteOf(e) : dressedIn(e, left); // a statue asleep (D-692), fists up (D-885), fists sunk (D-937)
   const shake = e.raised && !still ? (Math.floor(t / 90) % 2 ? 1 : -1) : 0; // a raised tail trembles (D-729), a warden's fists too (D-885)
-  c.drawImage(sprite, x + shake, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0));
+  c.drawImage(sprite, x + shake, y - 2 + 15 - lowest(sprite) - (get(e.id)?.flies ? FLY_LIFT : 0) + (jolt ? 1 : 0));
 }
 const FLY_LIFT = 2; // pixels a flyer is held above its shadow (D-563)
 // § glows (D-649): a creature with its own faint glow, the lure wisp, drawn after the light so it

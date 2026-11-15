@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.377, The chest's hint whole.** B-012: on a PC screen
+  the stash chest's "Tap to move" line, squeezed beside STORE onto two
+  lines, is left out rather than run below the card. The text-fit test
+  checks the chest at every PC size again. The owner's pick. D-933 archived. D-935.
+  Playtest: https://claude.ai/artifact/VPANJ9N6VLEqT5Fw2KycWQ
 - **2026-11-15, 0.3.376, One stack on the ground.** B-011: what doesn't
   fit in the bag lies as one stack of its kind, a felled tree's 3 Wood
   on its stump, its count in the tile's corner. Several kinds on one

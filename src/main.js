@@ -206,6 +206,8 @@ Object.assign(app, {
   jab: null, // { dx, dy, start } after a hit with a weapon held (D-253)
   beam: null, // { id, x, y, start, arriving } a freed person beamed home, or in at home (D-496)
   kindle: null, // { x, y, start } the waystone's rune lighting as it wakes (D-591)
+  spark: null, // { x, y, start } as a blow rang off the warden's stone: a grey spark (D-937)
+  sunk: null, // { x, y, start } as a warden's fists sank into the floor: its jolt and chips (D-937)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
   poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
@@ -257,6 +259,7 @@ function tryStep(dir) {
     const missed = eventsSince(app.state, next).some((e) => e.type === 'miss'); // stiff, the swing went wide: nothing flashes (D-759)
     const into = knocks(app.state) && eventsSince(app.state, next).filter((e) => e.type === 'hit').length > 1 ? knockOf(app.state, foe)?.foe : null; // the Fist knocked it into another (D-888)
     const rang = eventsSince(app.state, next).some((e) => e.type === 'hit' && e.rang); // rang off the warden's stone: it doesn't flash (D-937)
+    if (rang) app.spark = { x: foe.x, y: foe.y, start: performance.now() }; // a grey spark instead (D-937)
     if (foe && !foe.asleep && !foe.under && !foe.pile && !missed) app.hit = { enemies: [rang ? null : foe, behind(app.state, foe), into].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479), and the one the Fist knocks it into (D-888)
     if (foe && !foe.asleep && !foe.under && !foe.pile && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
@@ -285,6 +288,8 @@ function tryStep(dir) {
   // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)
   const beam = events.find((e) => e.type === 'leave' || e.type === 'arrive');
   if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
+  const sank = !fell && !went && state.enemies.find((e) => e.open && !before.enemies.some((b) => b.open && b.x === e.x && b.y === e.y)); // a warden's fists sank into the floor (D-937)
+  if (sank && !still()) app.sunk = { x: sank.x, y: sank.y, start: performance.now() };
   const woke = events.find((e) => e.type === 'stoneWake'); // the rune kindles (D-591), not a mimic's wake (D-368)
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
@@ -375,7 +380,7 @@ const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.scre
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it

@@ -4,11 +4,11 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.379 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.380 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Warden's look and sounds (D-937, step 2 of 2): stuck take C, the grey spark, the clink and the thud. Then biome 1's boss and found ability (Q-105).
+Biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -45,6 +45,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.380, The Warden's look and sounds.** D-937's step 2:
+  stooped while open, a jolt and chips as its fists sink, a thud A6; a
+  grey spark and a clink for a blow that rings. The clink was Making's,
+  so the owner picked it a quarter lower by ear. D-936 archived. D-938.
+  Playtest: https://claude.ai/artifact/VYLnzHvfrPpysbWQKq3AmQ
 - **2026-11-15, 0.3.379, A harder Warden.** The owner's ask: blows ring
   off its stone until its slam misses; then it is open till it next acts,
   each blow 1 less, four openings to beat it; cracked, it never settles.
@@ -55,8 +60,3 @@ list in `RESEARCH.md`.
   kind it grows. The tile shows each kind in turn with its count; still,
   the newest with "+2". A step takes all that fits. The owner's picks. D-934 archived. D-936.
   Playtest: https://claude.ai/artifact/UQL3Y4htizHotoyCSad1ug
-- **2026-11-15, 0.3.377, The chest's hint whole.** B-012: on a PC screen
-  the stash chest's "Tap to move" line, squeezed beside STORE onto two
-  lines, is left out rather than run below the card. The text-fit test
-  checks the chest at every PC size again. The owner's pick. D-933 archived. D-935.
-  Playtest: https://claude.ai/artifact/VPANJ9N6VLEqT5Fw2KycWQ

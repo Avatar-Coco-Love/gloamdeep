@@ -125,7 +125,7 @@ export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
 export const BITES = ['teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'gloam', 'flutter', 'grind'];
 // The same for the creatures' own sounds, a fall and waking, new floors and rooms, and places (D-833)
-export const GROUPS = { bites: BITES, creatures: ['pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'spit', 'splat'], falling: ['fall', 'wake'], rooms: ['floor', 'room'], places: ['bells', 'hum', 'chime', 'plop', 'splash', 'breath', 'shimmer', 'drip'], clink: ['chop'], crumble: ['treeFall', 'branchSnap'] }; // a cave's drips under Places, as Finds' list is full on the smallest card (D-836); chopping under Digging, a tree falling and a branch snapping under Stone breaks (D-842, D-843)
+export const GROUPS = { bites: BITES, creatures: ['pack', 'jolt', 'tail', 'burrow', 'bonesFall', 'bonesStand', 'statue', 'ring', 'sink', 'spit', 'splat'], falling: ['fall', 'wake'], rooms: ['floor', 'room'], places: ['bells', 'hum', 'chime', 'plop', 'splash', 'breath', 'shimmer', 'drip'], clink: ['chop'], crumble: ['treeFall', 'branchSnap'] }; // a cave's drips under Places, as Finds' list is full on the smallest card (D-836); chopping under Digging, a tree falling and a branch snapping under Stone breaks (D-842, D-843)
 const lineOf = (voice) => Object.keys(GROUPS).find((g) => GROUPS[g].includes(voice)) ?? voice;
 export const isMuted = (s, voice) => (s.muted ?? []).includes(lineOf(voice));
 export const voiceText = (voice, muted) => `${SOUND_LINES.find((l) => l.voice === voice).name}: ${muted ? 'Off' : 'On'}`;
