@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.373 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.374 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks what comes next: one of B-009 to B-011 (`BUGS.md`), or
-Biome 1's boss and found ability (Q-105), L1 and L3 now built.
+B-010, things overlap on a big PC screen (`BUGS.md`), the owner's pick;
+then B-011, or Biome 1's boss and found ability (Q-105).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -46,6 +46,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-15, 0.3.374, A line's seconds.** B-009: a line along the
+  bottom goes after 5 turns or 4 seconds, whichever first, 2 seconds more
+  for each extra row. The owner's picks. D-930 archived. D-932.
+  Playtest: https://claude.ai/artifact/S1aXaTwXFnRV9eXsK56sa9
 - **2026-11-15, 0.3.373, The round map's dark circle.** B-008: in the
   dark the round map fades evenly to 15%, no dark spot round the hero
   (option A from a mock-up). The owner's pick. D-928 archived. D-931.
@@ -55,8 +59,3 @@ list in `RESEARCH.md`.
   boon card; a tap opens it. B-006 closed, not a bug: flyers already
   pass over finds; a test checks it. The owner's picks. D-908 and D-909
   archived. D-930. Playtest: https://claude.ai/artifact/5rkSYmfVfmqFTe7tnvhF7f
-- **2026-11-15, 0.3.371, The rune wall opens.** L3 step 2 (D-927): bumped
-  dark from in front, the rune wall sinks open for good, a plinth with a
-  vault's prize draw in the nook; bumped lit, its line, a sentence a bump.
-  Both lines shortened to fit the strip. The owner's picks. D-907
-  archived. D-929. Playtest: https://claude.ai/artifact/BYQq5W7gTFhizgb4LKLavf

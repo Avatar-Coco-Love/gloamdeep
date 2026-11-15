@@ -160,23 +160,6 @@ turn, no oil; the plinth set as it opens, so a room seen before opens the
 same; each floor's prize its own draw. D-907 moves to
 `archive/DECISIONS-CARDS-2.md`, word for word.
 
-**D-930 · 2026-11-15 · Flyers over finds; the boon button** (the owner's
-picks, all recommended; B-006, B-007) B-006 is closed, not a bug: flyers
-already pass over a find lying loose, as every creature does (D-727),
-and a test now checks it (offered too: no test; kept open; deposits and
-veins made low, changing D-901). B-007: arriving on the home plate by
-travel or a fall, holding no boon, shows a boon button instead of
-opening the card, superseding D-865's "opens the boon card once the
-hero is still"; a tap opens the card; stepping off takes it away, and
-stepping back on opens the card as before (offered too: the card after
-a second, fading in; a Settings row, button or automatic). Its look: the
-home plate's rune in its woken violet, in a round button like the moon's
-(offered too: an ember; mock-ups first). Claude's calls: up and left of
-the lantern on the moon's ring, clear of the bag, the flask and the
-moon; it stays while the hero is on the plate holding no boon, so a
-skipped card can be opened again; "Choose a boon" to screen readers.
-D-908 and D-909 move to `archive/DECISIONS-CARDS-2.md`, word for word.
-
 **D-931 · 2026-11-15 · The round map's dark circle** (the owner's pick,
 recommended; B-008) The soft dark spot round the hero on the round map in
 the dark is gone: the map fades evenly to its 15% at no light, the hero's
@@ -184,3 +167,14 @@ dot over it, superseding D-920's spot (offered too: a soft, shallow dip,
 the middle at half over about 5 tiles; the spot as it was but lighter).
 Seen from a mock-up. D-928 moves to `archive/DECISIONS-CARDS-2.md`, word
 for word.
+
+**D-932 · 2026-11-15 · A line's seconds** (the owner's picks, both
+recommended; B-009, the owner's idea) A line along the bottom goes after
+its 5 turns (D-095) or after 4 seconds of real time, whichever comes
+first, then fades as before (offered too: 3 seconds; 6 seconds). A line
+on more than one row stays 2 seconds more for each row past the first
+(offered too: the same time for all; people's words longer too). Claude's
+calls: the seconds are kept by the drawing code, not the game's state, so
+saves don't change; a line said again starts its seconds again; they run
+on every screen, cards too. D-930 moves to `archive/DECISIONS-CARDS-2.md`,
+word for word.

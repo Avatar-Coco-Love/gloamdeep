@@ -198,3 +198,20 @@ second room, its only room; seen from any tile below the wall's row with a
 clear line to the tile in front of it; the tile stays a wall, the room
 keeping its place (`runes`). D-902 moves to `archive/DECISIONS-CARDS-2.md`,
 word for word.
+
+**D-930 · 2026-11-15 · Flyers over finds; the boon button** (the owner's
+picks, all recommended; B-006, B-007) B-006 is closed, not a bug: flyers
+already pass over a find lying loose, as every creature does (D-727),
+and a test now checks it (offered too: no test; kept open; deposits and
+veins made low, changing D-901). B-007: arriving on the home plate by
+travel or a fall, holding no boon, shows a boon button instead of
+opening the card, superseding D-865's "opens the boon card once the
+hero is still"; a tap opens the card; stepping off takes it away, and
+stepping back on opens the card as before (offered too: the card after
+a second, fading in; a Settings row, button or automatic). Its look: the
+home plate's rune in its woken violet, in a round button like the moon's
+(offered too: an ember; mock-ups first). Claude's calls: up and left of
+the lantern on the moon's ring, clear of the bag, the flask and the
+moon; it stays while the hero is on the plate holding no boon, so a
+skipped card can be opened again; "Choose a boon" to screen readers.
+D-908 and D-909 move to `archive/DECISIONS-CARDS-2.md`, word for word.

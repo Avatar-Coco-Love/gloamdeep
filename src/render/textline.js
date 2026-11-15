@@ -32,6 +32,21 @@ export function lineRows(text, w) {
   return rows.length ? rows : [''];
 }
 
+// § seconds: a line also goes after 4 seconds of real time, 2 more for each row past the
+// first, whichever comes first with its turns (B-009, D-932). Kept here, not in the core:
+// real time never touches the game's state or saves. `saying` is the core's state.line,
+// a new object each time a line is said, so a line said again starts its seconds again.
+export const LINE_MS = 4000, ROW_MS = 2000;
+export const lineMs = (rows) => LINE_MS + (rows - 1) * ROW_MS;
+export function createLineClock(width = () => view.w - 2 * PAD - 2) {
+  let said = null, from = 0, ms = LINE_MS; // the saying timed, when it was first shown, its time
+  return (line, saying, t) => {
+    if (!line) return null;
+    if (saying !== said) { said = saying; from = t; ms = lineMs(lineRows(line.text, width()).length); }
+    return t - from < ms ? line : null;
+  };
+}
+
 export function createTextLine() {
   let drawn = null, img = null, fadeFrom = 0; // the last line, its pixels, when its fade began
   onWipe(() => { if (drawn) paint(drawn); }); // painted again after a wipe (D-588)
