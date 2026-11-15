@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.372, The boon button.** B-007: coming home by a
+  waystone or a fall shows a violet rune button by the lantern, not the
+  boon card; a tap opens it. B-006 closed, not a bug: flyers already
+  pass over finds; a test checks it. The owner's picks. D-908 and D-909
+  archived. D-930. Playtest: https://claude.ai/artifact/5rkSYmfVfmqFTe7tnvhF7f
 - **2026-11-15, 0.3.371, The rune wall opens.** L3 step 2 (D-927): bumped
   dark from in front, the rune wall sinks open for good, a plinth with a
   vault's prize draw in the nook; bumped lit, its line, a sentence a bump.

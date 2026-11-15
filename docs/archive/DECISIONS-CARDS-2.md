@@ -215,3 +215,11 @@ the lantern on the moon's ring, clear of the bag, the flask and the
 moon; it stays while the hero is on the plate holding no boon, so a
 skipped card can be opened again; "Choose a boon" to screen readers.
 D-908 and D-909 move to `archive/DECISIONS-CARDS-2.md`, word for word.
+
+**D-931 · 2026-11-15 · The round map's dark circle** (the owner's pick,
+recommended; B-008) The soft dark spot round the hero on the round map in
+the dark is gone: the map fades evenly to its 15% at no light, the hero's
+dot over it, superseding D-920's spot (offered too: a soft, shallow dip,
+the middle at half over about 5 tiles; the spot as it was but lighter).
+Seen from a mock-up. D-928 moves to `archive/DECISIONS-CARDS-2.md`, word
+for word.
