@@ -111,10 +111,11 @@ export const ENEMIES = {
   // the hero over dark tiles, backs out of light, and goes home when it loses them. Caught in light it
   // can't move for a turn, burning (`burns`, its ring drawn in sprites.js), and blows hurt it; in the
   // dark a blow `sinks` into it, hurting nothing, with its line. It bites for 2 in the dark only, the
-  // gloamling's bite sound borrowed till its own (step 4, D-944). How it acts and how to fight it are
+  // gloamling's bite sound borrowed till its own (step 4, D-944). Caught with no dark beside it, it is
+  // pinned its `pins` more turns, then bursts free (step 5, D-945, creatureturn.js). How it acts and how to fight it are
   // written once it can be beaten (step 9); until then its page shows the grey hints, as the Warden's,
   // and how to fight it opens after 1 beaten.
-  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 8, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1 },
+  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn. With no dark beside it, it is pinned.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 8, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', pins: 2, pinnedSays: 'lampeaterPinned', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1 },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

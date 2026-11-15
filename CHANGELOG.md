@@ -23,6 +23,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.387 (2026-11-15)
+- The Lampeater can be pinned now. Catch it with no dark tile beside it, say under a lit brazier with you blocking its way, and it can't slip away for 2 more turns: about 4 blows instead of 2.
+- Then it bursts free across the light toward the nearest dark, and can be pinned again once it is back in the dark. It still backs out through your lantern's light, never a brazier's.
+- Decisions: D-945.
+
 ## 0.3.386 (2026-11-15)
 - The Lampeater can be hurt now, but only in light. Light falling on it catches it: it can't move for a turn, burning in a ring of flame, then slips back into the dark. Switch your lantern on beside it for two blows.
 - In the dark your blows still sink into it, and it bites for 2 hearts. It has 8 hearts, shown on its plate; beaten, for now it is simply gone.
@@ -32,7 +37,3 @@ Entry format:
 - The Lampeater moves now, only through the dark: it never steps onto a lit tile. Seeing you, it comes a tile a turn to the edge of your light, or right up beside you with your lantern off.
 - Light falling on it, it slides back into the dark. It still doesn't bite and blows still sink into it; losing you, it drifts back to its place below the sealed door.
 - Decisions: D-943.
-
-## 0.3.384 (2026-11-15)
-- Docs only, nothing in the game changed: three finished decisions moved from the decisions file to the archive, word for word, so it has room again.
-- Decisions: D-942. D-799, D-894 and D-910 moved to the archive, word for word.

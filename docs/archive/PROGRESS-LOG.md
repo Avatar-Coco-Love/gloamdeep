@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.384, Finished decisions archived.** Docs only:
+  D-894 and D-910 to `archive/DECISIONS-AUDITS.md`, D-799 to
+  `archive/DECISIONS-SURFACE.md`, word for word; `DECISIONS.md` from
+  11.9 KB to about 9.4. The owner's picks. No game change. D-942.
 - **2026-11-15, 0.3.383, The Lampeater stands.** D-939's step 2: the
   pool, eyes glowing in the dark, a tile below the door's tile; it never
   moves or bites, blows sink in, braziers still open the door; a Bestiary

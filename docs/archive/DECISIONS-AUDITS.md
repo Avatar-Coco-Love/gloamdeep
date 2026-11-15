@@ -690,3 +690,12 @@ are still to come (offered: ticked, before that was found). A bug hunt
 reads the code since 0.3.313: five findings, F-1 to F-5 in `BUGS.md`,
 all picked as steps, in order, each fix its own step. The next audit
 is at 0.3.393.
+
+**D-942 · 2026-11-15 · Finished decisions archived** (the owner's picks,
+both recommended) With `DECISIONS.md` at 11,885 of its 12,288 bytes,
+D-894 and D-910, the health checks' archiving and the sixteenth audit,
+move to `archive/DECISIONS-AUDITS.md`, and D-799, the finds plan, its
+nine first uses all built, to `archive/DECISIONS-SURFACE.md`, word for
+word (offered too: D-790, the first next prompts rule, to
+`archive/DECISIONS-AUDITS.md`; kept). The Lampeater's and the standing
+rules stay. Its own docs-only version, 0.3.384. No game change.

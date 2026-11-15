@@ -322,6 +322,7 @@ export const LINES = {
   lampeaterSinks: { text: 'Your blow sinks into the gloam.', warn: false }, // a blow on the Lampeater, hurting nothing (D-941)
   lampeaterBite: { text: 'The Lampeater bites!', warn: false, kind: 'harm' }, // its bite in the dark (D-944), Claude's drafts the owner may change
   lampeaterCaught: { text: "Caught in your light, it can't move!", warn: false }, // light falls on it: held a turn (D-944)
+  lampeaterPinned: { text: "Pinned in the light, it can't slip away!", warn: false }, // no dark beside it: held 2 more turns (D-945)
   campfireHigh: { text: 'A campfire, burning high.', warn: false }, // said as a blazing fire's card opens, its note the rest (D-757, D-844)
   campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
   campfireSat: { text: 'You sit by the fire and warm up.', warn: false }, // Yes on Sit by the fire? (D-844), Claude's draft the owner may change
