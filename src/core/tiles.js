@@ -199,6 +199,10 @@ export const TILES = {
   // hallway's middle (arena.js)
   pillar: { id: 'pillar', kind: 'tile', letter: 'q', name: 'Pillar', solid: true, blocksLight: true },
   sealStone: { id: 'sealStone', kind: 'tile', letter: 'r', name: 'Seal stone', solid: false, blocksLight: false },
+  // § gap (the escape's first step, D-963): where the floor gave way round the stairs down once the
+  // Lampeater is beaten (beaten.js). No step into it, its line, free; low, so a leap carries over it
+  // (leap.js); light passing over it
+  gap: { id: 'gap', kind: 'tile', letter: 's', name: 'Gap', solid: true, low: true, blocksLight: false, bump: 'gapBump' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one

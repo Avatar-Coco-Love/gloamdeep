@@ -49,3 +49,4 @@ Tiles added once `CONTENT-3.md` neared 8 KB (0.3.337).
 | `plinthBare` | the plinth, its prize taken. Bumped, it says "A bare stone plinth.", then "Something rested here once.", free | | where the prize was taken | D-896 |
 | `pillar` | a round column in the crypt's stone, its cap and foot wider than its shaft; solid, casting a shadow as a wall does | | 4 round the arena's middle; every other tile along the hallway's sides (`arena.js`) | D-940 |
 | `sealStone` | the Lightkeepers' old seal: a floor slab with the sealed door's flame rune cut in it in dark violet; walked on as floor | | ringing the arena's stairs down; down the middle of its hallway (`arena.js`) | D-940 |
+| `gap` | where the floor gave way: a black drop, its far face and ragged edge below standing ground; solid but low, so leapt over, light passing | | the arena's seal stones round the stairs down, once the Lampeater is beaten (`beaten.js`) | D-963 |

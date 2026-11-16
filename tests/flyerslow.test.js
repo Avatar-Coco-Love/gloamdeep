@@ -15,7 +15,7 @@ const where = (s) => s.enemies.map(({ x, y }) => [x, y]);
 
 test('the low tiles are the ones D-900 names, every built thing among them, and water', () => {
   const low = Object.values(TILES).filter((t) => t.low).map((t) => t.id).sort();
-  const named = ['water', 'branch', 'berryBush', 'bareBush', 'rubble', 'brazier', 'brazierLit', 'plinth', 'plinthEmber', 'plinthBare'];
+  const named = ['water', 'branch', 'berryBush', 'bareBush', 'rubble', 'brazier', 'brazierLit', 'plinth', 'plinthEmber', 'plinthBare', 'gap'];
   const made = Object.values(TILES).filter((t) => t.made).map((t) => t.id);
   assert.deepEqual(low, [...named, ...made].sort());
   for (const id of low) assert.ok(TILES[id].solid, id);

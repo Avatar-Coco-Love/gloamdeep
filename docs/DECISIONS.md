@@ -117,24 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-961 · 2026-11-16 · The Lampeater's boss tune** (the owner's picks,
-all recommended; answers the last of Q-112; builds D-960) From a board of
-8 busy, dark tracks from the same bundle, measured from all 138 (the
-Troubadeck set and the five tunes already playing left out), track 1,
-"Ludum Dare 28 08" (2 min 17 s, G minor, steady and pressing) plays in
-the Lampeater's arena while its way in is sealed (offered too: Ludum Dare
-32 01, Ludum Dare 28 01 and five more). It starts at once, at full, with
-the door rising, under the cutscene (offered too: fading in over 1 s;
-after the cutscene). Beaten, it fades out over 2 s and the dungeon's
-theme comes back a second later, as at any change of place (offered too:
-4 s of quiet first; a cut). Its own line in Music's list, Lampeater,
-after Dungeon (offered too: under Dungeon's line; no line). Claude's
-calls: it starts from its beginning at every seal; as loud to the ear as
-the others (0.27); left by a fall, it fades out over 2 s as at any
-change of place; fetched ahead in the quiet hallway so it is ready at
-the seal. The fight is unchanged, so no boss-bot run. D-958 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-962 · 2026-11-16 · Leap, its first step** (the owner's picks, all
 recommended, and the owner's change to where it is kept; builds D-636,
 D-939, D-954) Beating the Lampeater gives Leap, said with its door: "The
@@ -161,3 +143,24 @@ shadow left on the ground, and simply lands with reduced motion; no
 sound till its sounds' step; the dev sheet's Hero has a Leap switch.
 The fight is unchanged, so no boss-bot run. Next, the escape. D-959 and
 D-960 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-963 · 2026-11-16 · The escape, its first step** (the owner's picks,
+all recommended, and the line fitted to the strip; builds D-939, D-954,
+D-962) With the last blow on the Lampeater, at once, as its door sinks
+open, the old seal's stones round the stairs down fall away into a gap,
+the stairs left standing on their own; the hero leaps from the open door
+over the gap onto the stairs, which take them down, as D-962's landing
+does (offered too: a band of floor before the door; one tile before it;
+the gap on reaching the door, or a turn after, rumbling). Just the gap,
+standing for good: whether the floor keeps crumbling, a shake or a sound
+each come later as steps of their own (offered too: a chase now; a shake
+now). The last blow says "The floor gives way. You learn Leap.", the door
+seen sinking; the owner had picked "The door sinks open and the floor
+gives way. You learn Leap.", too wide for the strip, then this (offered
+too: the old line; "Door open, floor gone."). Claude's calls: the Gap, a
+name to change any time, solid but low, so leapt over and never walked
+into, light passing; a bump says "Too wide to step across.", free; drawn a
+black drop, its far face and a ragged broken edge below standing ground;
+the map shows it as a wall's outline; a level on the same blow keeps
+"Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
+D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.

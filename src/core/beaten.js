@@ -65,13 +65,14 @@ export function openWayIn(place, seed, room, enemies) {
   return tileAt(room, gap.x, gap.y).id === 'sealedDoor' ? withTile(room, gap.x, gap.y, get('floor')) : room;
 }
 
-// § the door: (state) → the state with the arena's sealed door sunk open and the gloamlings gone,
-// and Leap learnt for this journey, with one line for both (D-962), once the Lampeater is beaten
-// this action; else the same state
+// § the door: (state) → the state with the arena's sealed door sunk open, the old seal's stones round
+// the stairs down fallen away into a gap (the escape, D-963), the stairs left standing on their own,
+// the gloamlings gone, and Leap learnt for this journey, with one line for all (D-962), once the
+// Lampeater is beaten this action; else the same state
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
-  const sealed = get('sealedDoor').letter, open = get('openDoor').letter;
-  const room = { ...state.room, map: state.room.map.map((row) => row.split(sealed).join(open)) };
+  const swap = [['sealedDoor', 'openDoor'], ['sealStone', 'gap']].map(([a, b]) => [get(a).letter, get(b).letter]);
+  const room = { ...state.room, map: state.room.map.map((row) => swap.reduce((r, [a, b]) => r.split(a).join(b), row)) };
   return say(note({ ...state, room, enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' }), 'leapLearnt');
 }
 

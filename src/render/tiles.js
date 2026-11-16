@@ -166,10 +166,23 @@ const DRAW = {
   plinthBare: (c, room, x, y) => drawPlinth(c, room, x, y, null), // its prize taken (D-896)
   pillar: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.pillar); }, // the arena's pillar, standing as the bench does (D-940)
   sealStone: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); c.drawImage(SPRITES.sealStone, x * T, y * T); }, // the old seal's slab, flat on the floor (D-940)
+  gap: drawGap, // where the floor gave way round the stairs (D-963)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
 const OWN_GROUND = ['rock', 'earth', 'woods']; // looks drawn whole under their tiles (D-164, D-165, D-209)
+// § gap (D-963): where the floor gave way, a black drop; below standing ground, the drop's far face,
+// its stone falling away into the dark under a ragged broken edge
+function drawGap(c, room, tx, ty) {
+  const x0 = tx * T, y0 = ty * T;
+  c.fillStyle = '#07060a'; c.fillRect(x0, y0, T, T);
+  if (tileAt(room, tx, ty - 1).id === 'gap') return;
+  c.fillStyle = ink(room, '#3a4050'); c.fillRect(x0, y0, T, 2);
+  c.fillStyle = ink(room, '#2b303c'); c.fillRect(x0, y0 + 2, T, 3);
+  c.fillStyle = ink(room, '#1d2030'); c.fillRect(x0, y0 + 5, T, 3);
+  c.fillStyle = '#07060a';
+  for (let i = 0; i < T; i++) { const d = Math.floor(hash(tx * T + i, ty, 41) * 3); if (d) c.fillRect(x0 + i, y0 + 8 - d, 1, d); }
+}
 // § camp: the miners' camp drawn whole from its top-left tile, 2 pixels up on a wide shadow as a
 // deposit is; its other tiles draw only the floor under it, off the woods (D-770)
 // § plinth (D-896): the vault's floor, the plinth, and its prize, if any, sitting on its top

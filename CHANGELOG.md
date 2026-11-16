@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.405 (2026-11-16)
+- The escape begins. Beat the Lampeater and, as its door sinks open, the old seal stones round the stairs down fall away into a black gap, leaving the stairs standing alone. The last blow now says "The floor gives way. You learn Leap."
+- You can't step into the gap ("Too wide to step across."), but from the open door you can leap over it, straight onto the stairs, and down you go.
+- Decisions: D-963. D-961 moved to the archive, word for word.
+
 ## 0.3.404 (2026-11-16)
 - Beat the Lampeater and you learn Leap: "The door sinks open. You learn Leap." It is yours for the rest of that journey only. A new journey has to earn it again.
 - A new round Leap button sits left of the flask button. Tap it ("Leap which way?") and pick a way: the hero jumps 2 tiles in a line, over open floor, a creature or a low thing like water or a brazier, and lands on the second. It takes one turn, like a step. On a keyboard, J does the same.
@@ -36,8 +41,3 @@ Entry format:
 - The Lampeater has its own boss tune. When its way in seals behind you, a busy, dark, pressing tune starts at once with the door, under the cutscene, and plays the whole fight. Beat it and the tune fades out, and the dungeon's theme comes back a second later.
 - Music's list in Settings has a line for it, Lampeater, after Dungeon.
 - Decisions: D-961. Questions: Q-112 closed, its last part, the boss tune, answered. D-958 moved to the archive, word for word.
-
-## 0.3.402 (2026-11-16)
-- Coming up to the Lampeater, the music goes quiet: the dungeon's theme fades out as you step into the hallway, and the arena stays silent too. Beat it and the theme comes back; step back down out of the hallway and it comes back as well.
-- Dev: the boss bench and the playtest's #lampeater link now start you in the room below the hallway, one tile under the way up, that room emptied, so you get the whole way up: the warning, the quiet, the seal and the cutscene. The boss bot still starts in the arena's doorway.
-- Decisions: D-960. Questions: Q-112's hallway quiet answered; the boss tune is next. D-957 moved to the archive, word for word.
