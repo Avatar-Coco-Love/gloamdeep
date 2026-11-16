@@ -121,7 +121,7 @@ const newWorld = (mode) => {
 // in use, or none saved, a new world waits unsaved
 function loadInto(slot) {
   const kept = slot === null ? null : loadJourney(slot);
-  app.saved = !!kept; app.featFrom = null; // another profile's Records (D-719)
+  app.saved = !!kept; app.featFrom = null; app.benchLink = false; // another profile's Records (D-719); the #lampeater link's fight left, saving again (F-8)
   if (kept) { app.state = kept.state; app.jumped = kept.jumped; app.journeySeed = kept.state.seed; }
   else { app.state = newWorld(); app.jumped = false; }
 }
@@ -400,7 +400,7 @@ const arrowPad = createArrowPad(hudCanvas, { onPress: (dir) => {
 } });
 // § journey: New journey starts in a new world (D-187), in the way to play picked (D-334)
 function newJourney(mode) {
-  app.state = newWorld(mode); app.jumped = false;
+  app.state = newWorld(mode); app.jumped = false; app.benchLink = false; // the #lampeater link's fight left: this one is saved (F-8)
   freshView();
   savedState = null; keepJourney(); // saved at once, so Continue is there before a first turn
 }
