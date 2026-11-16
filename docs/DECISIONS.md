@@ -155,3 +155,15 @@ the crumble's look and a sound come next, a step each. Claude's calls:
 the shake is the hit's 1-pixel jolt, held 480 ms (a hit's is 120); none
 with reduced motion; a level on the same blow keeps "Level {n}. You learn
 Leap.".
+
+**D-965 · 2026-11-16 · The crumble** (the owner's picks: crack, then all
+fall, over recommended one by one; the rest recommended; answers part of
+Q-113; builds D-964) As the floor gives way, the seal stones stand a
+moment over the Gap while cracks run across them, then all fall together
+into the dark (offered too: one by one from the door outward; sinking and
+fading). Just the stones (offered too: a puff of dust; chips falling). It
+lasts about half a second, ending with the shake (offered too: about 1 s;
+1.5 s). With reduced motion the stones are simply gone (offered too: a
+quick fade). Claude's calls: the cracks show in two steps over 200 ms;
+then each stone shrinks to 40% of its size, drops 3 pixels and darkens
+and fades away within its own tile (`render/crumble.js`).

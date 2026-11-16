@@ -4,6 +4,14 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.404 (2026-11-16)
+- Beat the Lampeater and you learn Leap: "The door sinks open. You learn Leap." It is yours for the rest of that journey only. A new journey has to earn it again.
+- A new round Leap button sits left of the flask button. Tap it ("Leap which way?") and pick a way: the hero jumps 2 tiles in a line, over open floor, a creature or a low thing like water or a brazier, and lands on the second. It takes one turn, like a step. On a keyboard, J does the same.
+- Tap the button again, or tap the hero, to change your mind. A leap at a wall, or with nowhere to land, costs nothing and says why.
+- The hero rises off the ground as they jump, their shadow left below. With reduced motion they simply land.
+- The dev sheet's Hero section has a Leap switch, to try it without the fight.
+- Decisions: D-962. D-959 and D-960 moved to the archive, word for word.
+
 ## 0.3.403 (2026-11-16)
 - The Lampeater has its own boss tune. When its way in seals behind you, a busy, dark, pressing tune starts at once with the door, under the cutscene, and plays the whole fight. Beat it and the tune fades out, and the dungeon's theme comes back a second later.
 - Music's list in Settings has a line for it, Lampeater, after Dungeon.

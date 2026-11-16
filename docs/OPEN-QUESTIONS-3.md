@@ -101,8 +101,8 @@ idea at 0.3.405's merge; builds D-963) In the owner's words: "I like the
 idea of it not giving way at the last blow, but rather when you step
 nearer to it (unless you kill the boss within range of it), then the
 screen could shake and it could crumble away." When, how near, the
-lines and the shake: D-964. Still open: how the crumble looks, and its
-sound, a step each.
+lines and the shake: D-964; how the crumble looks: D-965. Still open: its
+sound, its own step.
 
 **The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
 steps are done, the owner has ideas for its phases, how the cutscenes

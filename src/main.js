@@ -214,7 +214,7 @@ Object.assign(app, {
   sunk: null, // { x, y, start } as a warden's fists sank into the floor: its jolt and chips (D-937)
   crawl: null, // { at: [{ x, y }], start } as gloamlings crawl from a snuffed bowl: they rise (D-949)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
-  quake: null, // { shakeUntil } as the floor gives way round the stairs (Q-113, D-964)
+  quake: null, // { start, shakeUntil } as the floor gives way round the stairs (Q-113, D-964)
   drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
   poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
@@ -288,7 +288,7 @@ function tryStep(dir) {
   const events = eventsSince(before, state);
   const poisoned = events.filter((e) => e.type === 'poison').reduce((n, e) => n + e.hurt, 0); // poison's heart flashes green, not the hero red (D-654)
   if (fell || before.health - state.health > poisoned || events.some((e) => e.type === 'bite' && e.hurt > 0)) app.bitten = flashFor(); // in god mode too (D-625)
-  if (has(events, 'giveWay')) app.quake = { shakeUntil: performance.now() + QUAKE_MS }; // the floor gives way: the room shakes (Q-113, D-964)
+  if (has(events, 'giveWay')) { const now = performance.now(); app.quake = { start: now, shakeUntil: now + QUAKE_MS }; } // the floor gives way: the room shakes, its stones crumbling (Q-113, D-964, D-965)
   if (poisoned) app.poisonHurt = { until: performance.now() + POISON_FLASH_MS, heart: state.god ? state.health - 1 : state.health };
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
