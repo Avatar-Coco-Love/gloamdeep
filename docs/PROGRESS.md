@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.402 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.403 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The last of Q-112 (D-957): the boss tune, the Lampeater's music in its
-arena (the hallway's quiet is in, D-960).
+Step 9's next part (D-939, D-954): Leap, the ability the Lampeater gives
+when beaten; propose its first small step. The trophy waits for creature
+materials (Q-061).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.403, The Lampeater's tune.** Its boss tune, "Ludum
+  Dare 28 08", starts at once with the seal and plays the whole fight;
+  beaten, it fades and the dungeon's comes back. Music's list gains
+  Lampeater. Q-112 closed. D-961. Playtest: https://claude.ai/artifact/DzG38H7LYeGiL2BQdMXd3q
 - **2026-11-16, 0.3.402, The hallway's quiet.** No music in the
   Lampeater's hallway and arena while it is unbeaten: a 2 s fade on the
   way in, back once it is beaten. The boss bench starts below the
@@ -57,5 +62,3 @@ list in `RESEARCH.md`.
   sealed, "Lampeater" over a pink-to-violet bar on glass, bottom middle;
   a loss pales then drains, a sunk blow flickers grey; beaten, it drains
   and fades. D-959. Playtest: https://claude.ai/artifact/TQzteQiWyGMhHUn4BFdQBe
-- **2026-11-16, 0.3.400, Points at merge time.** Docs only: a point
-  raised at merge time waits for a fresh conversation (WORKFLOW.md).

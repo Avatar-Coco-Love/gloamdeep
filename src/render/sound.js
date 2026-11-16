@@ -217,7 +217,7 @@ const KINDS = {
   fight: ['hit', 'lanternHit', 'knifeHit', 'stoneHit', 'beaten', 'teeth', 'glass', 'sting', 'hiss', 'squeak', 'snuffle', 'snap', 'rustle', 'rattle', 'sip', 'miss', 'hurt', 'poison', 'poisonAgain', 'heartbeat', 'heartbeat2', 'heartbeat3', 'heartbeat4', 'rise', 'rise2', 'rise3', 'bites', 'teeth2', 'glassSnap', 'sting2', 'stab', 'hissClick', 'squeak2', 'flap', 'sniff2', 'sniff3', 'scrape', 'snapNip', 'rustle2', 'rustleNip', 'rattle2', 'rattle3', 'rattle4', 'gulp', 'gloam', 'gloamNip', 'flutter', 'flutter2', 'flutter3', 'grind', 'grindKnock', 'creatures', 'pack', 'pack2', 'pack3', 'pack4', 'jolt', 'tail', 'tail2', 'tail3', 'tail4', 'burrow', 'bonesFall', 'bonesFall2', 'bonesFall3', 'bonesFall4', 'bonesStand', 'bonesStand2', 'bonesStand3', 'bonesStand4', 'statue', 'ring', 'sink', 'sinkRumble', 'sinkKnock', 'spit', 'splat'],
   finds: ['pat', 'draw', 'thunk', 'clink', 'crumble', 'chop', 'treeFall', 'treeCrash', 'branchSnap', 'branchKnock', 'patter', 'chest', 'chestOpen', 'chestClose', 'coins', 'shelf', 'sow', 'sowAgain', 'feed', 'bells', 'chime', 'plop', 'splash', 'eat', 'crunch', 'crunch2', 'gulpDown', 'shimmer', 'shimmer2', 'shimmer3', 'tools', 'tools2', 'tools3', 'places', 'bells2', 'bells3', 'hum', 'chime2', 'breath', 'drip'],
   menus: ['tap', 'card', 'cardOpen', 'cardClose', 'refuse', 'ended'],
-  music: ['surface', 'crypt', 'caves', 'warrens', 'dungeon'], // each place's theme (D-837 to D-841)
+  music: ['surface', 'crypt', 'caves', 'warrens', 'dungeon', 'lampeater'], // each place's theme (D-837 to D-841), the boss tune (D-961)
 };
 export const kindOf = (voice) => Object.keys(KINDS).find((k) => KINDS[k].includes(voice));
 // What plays as a kind's loudness changes, at its new loudness: a step, a hit, a pat, the tick
@@ -242,13 +242,15 @@ export const dripGap = (r) => (8 + r * 8) * 1000; // r in [0, 1): milliseconds t
 // carrying on down its stairs (D-839); main.js gives its top rooms, depth 0 below the sky, the crypt's look.
 // The warrens, the earth burrows on floors 5 to 7, play "Patreon Challenge 11" the same way, carrying on
 // from floor to floor (D-840). The dungeon, its cold halls from floor 8 down, plays "Patreon Challenge 04"
-// the same way, carrying on from floor to floor (D-841).
+// the same way, carrying on from floor to floor (D-841). The Lampeater's boss tune, "Ludum Dare 28 08", plays
+// while its arena's way in is sealed: `now`, it starts at full with the door, no quiet, no fade in (D-961).
 export const MUSIC = {
   surface: { file: 'abstraction-music-loops/Ludum Dare 30 06.ogg', gain: 0.4 },
   crypt: { file: 'abstraction-music-loops/Ludum Dare 30 05.ogg', gain: 0.79 }, // as loud to the ear as the surface's
   caves: { file: 'abstraction-music-loops/The Vile Grove.ogg', gain: 0.59 }, // as loud to the ear as the surface's
   warrens: { file: 'abstraction-music-loops/Patreon Challenge 11.ogg', gain: 0.47 }, // as loud to the ear as the surface's
   dungeon: { file: 'abstraction-music-loops/Patreon Challenge 04.ogg', gain: 0.46 }, // as loud to the ear as the surface's
+  lampeater: { file: 'abstraction-music-loops/Ludum Dare 28 08.ogg', gain: 0.27, now: true }, // as loud to the ear as the surface's
 };
 export const musicOf = (sky, look) => (sky ? 'surface' : look === 'crypt' ? 'crypt' : dripsIn(sky, look) ? 'caves' : look === 'earth' ? 'warrens' : look === 'dungeon' ? 'dungeon' : null);
 export const FADE_OUT = 2, QUIET = 1, FADE_IN = 1; // seconds
@@ -351,11 +353,12 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
     for (const [v, later] of FILES[voice].with ?? []) play(v, undefined, at + later + (arg === true ? after : 0)); // after the swing too, as the bite's own parts (D-832)
   }
   // § music: the theme wanted now, or null; called every frame (D-837). A new one, or none, fades
-  // the old out; Sound Off or the theme turned Off is none; a loudness change follows in a moment
-  function music(name) {
+  // the old out; Sound Off or the theme turned Off is none; a loudness change follows in a moment.
+  // `ahead`, a theme fetched early so it can start the moment it is wanted (the boss tune, D-961)
+  function music(name, ahead) {
     if (!ac || ac.state !== 'running') return;
     fetchAll();
-    if (name && isOn() && !muted(name)) fetchTune(name);
+    for (const n of [name, ahead]) if (n && isOn() && !muted(n)) fetchTune(n);
     const want = name && isOn() && !muted(name) && tunes[name] ? name : null, now = ac.currentTime;
     if (tune && tune.name !== want) {
       const { src, g } = tune;
@@ -371,12 +374,12 @@ export function createSound(isOn, loudness = () => 1, muted = () => false) { // 
       const src = ac.createBufferSource(), g = ac.createGain();
       src.buffer = tunes[want];
       src.loop = true;
-      g.gain.setValueAtTime(0, now);
-      g.gain.setValueAtTime(0, now + QUIET);
-      g.gain.linearRampToValueAtTime(level, now + QUIET + FADE_IN);
+      const wait = MUSIC[want].now ? 0 : QUIET, rise = MUSIC[want].now ? 0 : FADE_IN; // at once, at full (D-961)
+      g.gain.setValueAtTime(rise ? 0 : level, now);
+      if (rise) { g.gain.setValueAtTime(0, now + wait); g.gain.linearRampToValueAtTime(level, now + wait + rise); }
       src.connect(g).connect(ac.destination);
-      src.start(now + QUIET);
-      tune = { name: want, src, g, level, full: now + QUIET + FADE_IN };
+      src.start(now + wait);
+      tune = { name: want, src, g, level, full: now + wait + rise };
     } else if (level !== tune.level && now >= tune.full) {
       tune.g.gain.cancelScheduledValues(now);
       tune.g.gain.setTargetAtTime(level, now, 0.05);

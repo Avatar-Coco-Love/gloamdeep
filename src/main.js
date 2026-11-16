@@ -58,7 +58,7 @@ import { goFullScreen } from './input/fullscreen.js';
 import { cutOver } from './render/cutscene.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
-import { quietHere } from './core/beaten.js';
+import { quietHere, bossTuneHere } from './core/beaten.js';
 import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
@@ -581,10 +581,16 @@ function net(part) {
     if (!logged.has(err?.message)) { logged.add(err?.message); console.error(err); }
   }
 }
+// § the tune wanted now, and one to fetch ahead: the boss tune in the quiet before the seal, so it starts with the door (D-961)
+function placeTune() {
+  if (screens.onTitle() || !app.state) return [null];
+  if (bossTuneHere(app.state)) return ['lampeater'];
+  return quietHere(app.state) ? [null, 'lampeater'] : [musicOf(app.state.room.dark?.sky, lookHere())];
+}
 function loop(t) {
   net(turnPage);
   if (!screens.onTitle()) { net(() => update(t)); net(() => keepDrips(t)); }
-  net(() => sound.music(screens.onTitle() || !app.state || quietHere(app.state) ? null : musicOf(app.state.room.dark?.sky, lookHere()))); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841), nor on the way to the Lampeater (D-960)
+  net(() => sound.music(...placeTune())); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841), nor on the way to the Lampeater (D-960); its boss tune while sealed in (D-961)
   net(keepJourney);
   net(() => keepPlayed(t));
   net(() => frame.draw(t));

@@ -117,15 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-958 · 2026-11-16 · The boss bench at the sealed door** (the
-owner's ask; changes D-948's start) The boss bench, from the dev sheet
-or the playtest's #lampeater link, puts the hero in the arena's way in,
-where walking in from the hallway puts them, so the first step up seals
-the door behind them; and it forgets the cutscene was seen, so it plays
-each time. Claude's calls: at half too; the boss bot starts there as
-well, so its fights match a real way in: over 400 fights Lean wins 34%
-(26% from one step further in), Middling 97% (the same), noted in Q-111.
-
 **D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
 owner's picks, all recommended; builds D-957; part of Q-112) While the
 arena's way in is sealed, from the cutscene's end, the Lampeater's name
@@ -163,3 +154,21 @@ start and At half; the arena waits as the bench makes it. The boss bot
 still starts in the arena's way in, so its fights match D-958's (offered
 too: below, as the bench). The fight is unchanged, so no boss-bot run.
 D-957 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-961 · 2026-11-16 · The Lampeater's boss tune** (the owner's picks,
+all recommended; answers the last of Q-112; builds D-960) From a board of
+8 busy, dark tracks from the same bundle, measured from all 138 (the
+Troubadeck set and the five tunes already playing left out), track 1,
+"Ludum Dare 28 08" (2 min 17 s, G minor, steady and pressing) plays in
+the Lampeater's arena while its way in is sealed (offered too: Ludum Dare
+32 01, Ludum Dare 28 01 and five more). It starts at once, at full, with
+the door rising, under the cutscene (offered too: fading in over 1 s;
+after the cutscene). Beaten, it fades out over 2 s and the dungeon's
+theme comes back a second later, as at any change of place (offered too:
+4 s of quiet first; a cut). Its own line in Music's list, Lampeater,
+after Dungeon (offered too: under Dungeon's line; no line). Claude's
+calls: it starts from its beginning at every seal; as loud to the ear as
+the others (0.27); left by a fall, it fades out over 2 s as at any
+change of place; fetched ahead in the quiet hallway so it is ready at
+the seal. The fight is unchanged, so no boss-bot run. D-958 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

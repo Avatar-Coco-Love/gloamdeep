@@ -120,6 +120,7 @@ export const SOUND_LINES = [
   { voice: 'caves', kind: 'music', name: 'Rock caves' }, // the rock caves' theme, floors 2 to 4 (D-838)
   { voice: 'warrens', kind: 'music', name: 'Warrens' }, // the warrens' theme, floors 5 to 7 (D-840)
   { voice: 'dungeon', kind: 'music', name: 'Dungeon' }, // the dungeon's theme, floor 8 down (D-841)
+  { voice: 'lampeater', kind: 'music', name: 'Lampeater' }, // the boss tune, in its sealed arena (D-961)
 ];
 export const soundsOf = (kind) => SOUND_LINES.filter((l) => l.kind === kind);
 // The creatures' bites share one line, Bites, so Fighting's list still fits the smallest card (D-832)
