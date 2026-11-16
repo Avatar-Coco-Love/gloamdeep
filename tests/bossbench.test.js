@@ -1,5 +1,5 @@
 // § boss bench: the boss test bench (D-948): just inside the arena on depth 8, the arena as it begins,
-// a rough build carried; at half, the Lampeater on 4 hearts and 3 braziers lit; pressed again it
+// a rough build carried; at half, the Lampeater on 6 hearts and 3 braziers lit; pressed again it
 // starts over; the bot plays a fight to its end
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
@@ -17,7 +17,7 @@ test('it starts just inside the arena, the Lampeater whole and the braziers cold
   const s = bench(newJourney(3), 'middling');
   assert.equal(s.place, arenaPlace(3));
   assert.deepEqual(s.hero, placeFor(s.place, 3).start);
-  assert.equal(boss(s).health ?? get('lampeater').health, 8);
+  assert.equal(boss(s).health ?? get('lampeater').health, 12);
   assert.equal(count(s, 'brazier'), 4);
   assert.equal(count(s, 'brazierLit'), 0);
 });
@@ -33,9 +33,9 @@ test('each build carries its kit, hearts full', () => {
   assert.deepEqual(Object.keys(BUILDS), ['lean', 'middling', 'strong']);
 });
 
-test('at half it is on 4 hearts with 3 braziers lit, and owes its snuff', () => {
+test('at half it is on 6 hearts with 3 braziers lit, and owes its snuff', () => {
   const s = bench(newJourney(2), 'lean', true);
-  assert.equal(boss(s).health, 4);
+  assert.equal(boss(s).health, 6);
   assert.equal(count(s, 'brazierLit'), 3);
 });
 
@@ -43,7 +43,7 @@ test('pressed again, in the arena, it starts over', () => {
   let s = bench(newJourney(5), 'middling', true);
   s = step(s, 'up');
   const again = bench(s, 'lean');
-  assert.equal(boss(again).health ?? 8, 8);
+  assert.equal(boss(again).health ?? 12, 12);
   assert.equal(count(again, 'brazierLit'), 0);
   assert.equal(again.place, arenaPlace(5));
   assert.ok(!again.elsewhere[again.place] && !again.elsewhere.bench);

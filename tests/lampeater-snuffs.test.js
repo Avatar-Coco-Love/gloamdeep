@@ -23,12 +23,12 @@ test('its lines and its Bestiary words', () => {
 });
 
 test('above half its hearts it never breathes', () => {
-  const s = step(inHall({ health: 5 }));
+  const s = step(inHall({ health: 7 }));
   assert.ok(!s.enemies[0].breath && !s.enemies[0].owes);
 });
 
 test('at half it breathes on the brazier nearest it, and 2 turns on the brazier is cold', () => {
-  let s = step(inHall({ health: 4, x: 9 }));
+  let s = step(inHall({ health: 6, x: 9 }));
   assert.deepEqual(s.enemies[0].breath, { x: 12, y: 3, left: 2 });
   assert.equal(s.line.id, 'lampeaterBreathes');
   s = step(s);
@@ -45,7 +45,7 @@ test('at half it breathes on the brazier nearest it, and 2 turns on the brazier 
 });
 
 test('caught in light during the breath, it stops, and tries again once free', () => {
-  let s = step(inHall({ health: 4 }));
+  let s = step(inHall({ health: 6 }));
   s = step(s, (a) => ({ ...a, enemies: a.enemies.map((e) => ({ ...e, caught: true })) }));
   assert.ok(!s.enemies[0].breath); assert.equal(s.enemies[0].owes, 1);
   assert.equal(tileAt(s.room, 12, 3).id, 'brazierLit');
@@ -55,8 +55,8 @@ test('caught in light during the breath, it stops, and tries again once free', (
 });
 
 test('a catch begun after half, once got free from, owes one more; the catch it was halved in does not', () => {
-  let s = inHall({ health: 5, caught: true });
-  s = step(s, (a) => ({ ...a, enemies: a.enemies.map((e) => ({ ...e, health: 4 })) }));
+  let s = inHall({ health: 7, caught: true });
+  s = step(s, (a) => ({ ...a, enemies: a.enemies.map((e) => ({ ...e, health: 6 })) }));
   assert.equal(s.enemies[0].owes, 1); assert.ok(!s.enemies[0].breath, 'caught, it cannot breathe');
   s = step(s, (a) => ({ ...a, enemies: a.enemies.map(({ caught, ...e }) => e) }));
   assert.equal(s.enemies[0].owes, 1, 'its halving catch adds nothing');
@@ -65,13 +65,13 @@ test('a catch begun after half, once got free from, owes one more; the catch it 
 
 test('with no brazier lit it waits, owing', () => {
   const cold = get('brazier').letter;
-  const s = step({ ...inHall({ health: 4 }), room: makeRoom(hall.map((r) => r.split(L).join(cold))) });
+  const s = step({ ...inHall({ health: 6 }), room: makeRoom(hall.map((r) => r.split(L).join(cold))) });
   assert.ok(!s.enemies[0].breath); assert.equal(s.enemies[0].owes, 1);
 });
 
 test('in play, waiting turns: it breathes, and the brazier goes cold on the third', async () => {
   const { wait } = await import('../src/core/turn.js');
-  let s = wait(inHall({ health: 4, x: 9 }));
+  let s = wait(inHall({ health: 6, x: 9 }));
   assert.ok(s.enemies[0].breath, 'breathing');
   s = wait(wait(s));
   assert.equal(tileAt(s.room, 12, 3).id, 'brazier');
