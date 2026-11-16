@@ -20,7 +20,7 @@ import { createTextLine } from './render/textline.js';
 import { say } from './core/lines.js';
 import { loadSettings, swipesWalk, stillMotion, loudOf, isMuted } from './core/settings.js';
 import { deeper, counted } from './core/record.js';
-import { featTurn } from './core/feats.js';
+import { featTurn, tally } from './core/feats.js';
 import { loadProfiles, saveProfiles, playing, withRecords, withPlayed, withBestiary, withGoals } from './core/profile.js';
 import { booked } from './core/bestiary.js';
 import { goalsAfter, doneLine, GOLD_TURNS } from './core/goals.js';
@@ -148,7 +148,7 @@ function keepRecords(events, before, lineBefore = before?.line) {
   if (met !== book) app.profiles = withBestiary(app.profiles, met);
   const goaled = keepGoals(events, before);
   // A Feat's tier reached says so (D-467, D-695); after the action's own line, a goal's too, on a move that says none (D-719)
-  const feat = featTurn(app.featFrom ?? was, records, app.state.line !== lineBefore);
+  const feat = featTurn(app.featFrom ?? tally(was, book), tally(records, met), app.state.line !== lineBefore); // the Lampeater's one-off Feat too (D-955)
   app.featFrom = feat.from;
   if (feat.note) app.state = say(app.state, 'featReached', feat.note);
   if (records !== was || met !== book || goaled) saveProfiles(app.profiles);

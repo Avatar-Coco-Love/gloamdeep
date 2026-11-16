@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.397', date: '2026-11-16', title: 'The Lampeater\'s Feat', lines: [
+    "Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says \"Feat reached: Lampeater. +3 Glints.\" on your next move after the door sinks.",
+    "The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.",
+    "Decisions: D-955. D-950 moved to the archive, word for word.",
+  ] },
   { v: '0.3.396', date: '2026-11-16', title: 'Step 9\'s order', lines: [
     "Nothing in the game changed. The rest of the Lampeater's rewards are planned: its Feat next, then the way in sealing behind you, then its trophy, which waits until creatures leave materials.",
     "Version 0.4.0 is planned for when the way down to depth 9 opens. The surface and depths 1 to 8 are now called chapter 1.",

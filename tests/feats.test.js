@@ -1,7 +1,7 @@
 // § feats (D-284, D-467, D-695, D-697, D-698, D-721, D-722, D-723): the Beaten, Deepest, Flasks, Rooms, Steps and Torches Feats' 3 tiers, the Glints they pay, the tab and its note
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { FEATS, featRows, featsWords, featNote, featTurn, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
+import { FEATS, ONCE, tally, featRows, featsWords, featNote, featTurn, glints, glintsText, glintsLeft, priceNote, stageNote, shopOf } from '../src/core/feats.js';
 import { journalAt } from '../src/render/journal.js';
 import { cardAt, PAD } from '../src/render/bag.js';
 import { textWidth } from '../src/render/font.js';
@@ -136,4 +136,42 @@ test('the note says the price and the Glints there are, and to earn more when to
   assert.equal(priceNote('Zebra', 3, 1), 'Zebra costs 3 Glints. You have 1. Earn more from Feats.');
   assert.equal(stageNote('Tiger', 3, 4), 'Tiger: 3 Glints. You have 4.'); // under the big hero (D-700)
   assert.equal(stageNote('Tiger', 3, 1), 'Tiger: 3 Glints. You have 1. Earn more from Feats.');
+});
+
+// § once (D-955): the Lampeater's one-off Feat, from the Bestiary's counts
+test("the Lampeater's one-off Feat: beaten once, it pays 3 Glints (D-955)", () => {
+  const book = (met, beaten) => ({ lampeater: { met, beaten } });
+  assert.deepEqual(ONCE.map((f) => [f.id, f.text, f.tiers, f.pays]), [['lampeater', 'Lampeater', [1], [3]]]);
+  assert.equal(glints(tally(at(0), book(1, 0))), 0);
+  assert.equal(glints(tally(at(0), book(1, 1))), 3);
+  assert.equal(glints(tally(at(0), book(3, 2))), 3, 'once only');
+  assert.equal(glintsLeft({ records: at(50), bought: [], bestiary: book(1, 1) }), 6, 'beaten before this counts too');
+  assert.equal(glints({ ...at(200), deepest: 20, poured: 100, found: 200, steps: 20000, torches: 100, ...tally({}, book(1, 1)) }), 39, 'all the Feats pay 39');
+});
+
+test("its row shows once the Lampeater is met, one mark and no count (D-955)", () => {
+  const book = (met, beaten) => ({ lampeater: { met, beaten } });
+  assert.equal(featRows(tally(at(0), {})).length, 6, 'not met: hidden');
+  assert.deepEqual(featRows(tally(at(0), book(1, 0)))[6], { id: 'lampeater', text: 'Lampeater', value: '', reached: 0, tiers: 1, once: true });
+  assert.equal(featRows(tally(at(0), book(1, 1)))[6].reached, 1);
+  assert.ok(featsWords({ records: at(0), bought: [], bestiary: book(1, 0) }).includes('Torches, 0 of 5, 0 of 3 reached. Lampeater, not yet. Left'));
+  assert.ok(featsWords({ records: at(0), bought: [], bestiary: book(1, 1) }).includes('Lampeater, reached.'));
+  assert.ok(!featsWords({ records: at(0), bought: [] }).includes('Lampeater'));
+});
+
+test("its note names it alone, joins a tier on the same turn and waits behind the door's line (D-719, D-955)", () => {
+  const was = tally(at(49), { lampeater: { met: 1, beaten: 0 } }), now = tally(at(50), { lampeater: { met: 1, beaten: 1 } });
+  assert.equal(featNote(tally(at(0), { lampeater: { met: 1, beaten: 0 } }), tally(at(0), { lampeater: { met: 1, beaten: 1 } })), 'Lampeater. +3 Glints');
+  assert.equal(featNote(was, now), 'Beaten 50, Lampeater. +5 Glints');
+  assert.equal(LINES.featReached.text.replace('{n}', 'Lampeater. +3 Glints'), 'Feat reached: Lampeater. +3 Glints.');
+  const waits = featTurn(was, now, true); // the vault's line as the door sinks
+  assert.equal(waits.note, null);
+  assert.equal(featTurn(waits.from, now, false).note, 'Beaten 50, Lampeater. +5 Glints');
+});
+
+test('the one-off row fits every card, its name out of the counts column (D-955)', () => {
+  for (const [vw, vh] of [[300, 176], [390, 208], [176, 370]]) {
+    const card = cardAt(vw, vh);
+    assert.ok(PAD + 8 + textWidth('Lampeater') + 4 <= card.w - PAD - 9, `${vw}×${vh}`);
+  }
 });

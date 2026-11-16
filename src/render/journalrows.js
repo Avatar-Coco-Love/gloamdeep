@@ -10,7 +10,7 @@ import { PAD } from './bag.js';
 import { wrap } from './history.js';
 import { recordRows } from '../core/journal.js';
 import { bestiaryRows, pageOf, NONE, FIGHT_HEADING } from '../core/bestiary.js';
-import { featRows, glintsText } from '../core/feats.js';
+import { featRows, glintsText, tally } from '../core/feats.js';
 import { questRows, NONE as NO_GOALS } from '../core/goals.js';
 
 const GREY = '#9790a4', GOLD = '#ffd66b', CORE = '#efe6cc', DIM = '#5c566a', AMBER = '#ffc65c';
@@ -133,21 +133,26 @@ function drawRecords(c, card, records, played, first) {
 // Glints are those left, the patterns bought taken off (D-696)
 const GLINTS_Y = 52, FEATS_Y = 68, MARK = 5, MARK_GAP = 4;
 const FEAT_GAP = 8; // narrower than Records' so Deepest's (D-697) and Steps' rows (D-722) and their marks fit the upright card
-function featsList(card, records) {
-  const rows = featRows(records), top = card.y + FEATS_Y;
-  return { rows, hs: rows.map(() => ROW_H), top, h: card.y + card.h - top - 2 };
+const ONCE_GAP = 6; // above the one-off Feats' rows, below the six (D-955)
+function featsList(card, p) {
+  const rows = featRows(tally(p.records, p.bestiary)), top = card.y + FEATS_Y;
+  return { rows, hs: rows.map((r, i) => (r.once && !rows[i - 1]?.once ? ROW_H + ONCE_GAP : ROW_H)), top, h: card.y + card.h - top - 2 };
 }
-function drawFeats(c, card, records, bought, goalGlints, first) {
-  const nx = nameX(card), right = rightOf(card), { rows, hs, top, h } = featsList(card, records);
-  drawText(c, glintsText({ records, bought, glints: goalGlints }), nx, card.y + GLINTS_Y, GOLD);
-  const vx = nx + Math.max(...rows.map((r) => textWidth(r.text))) + FEAT_GAP;
+function drawFeats(c, card, p, goalGlints, first) {
+  const nx = nameX(card), right = rightOf(card), { rows, hs, top, h } = featsList(card, p);
+  drawText(c, glintsText({ ...p, glints: goalGlints }), nx, card.y + GLINTS_Y, GOLD);
+  // the counts' column after the tiered names only: a one-off Feat's longer name has no count (D-955)
+  const vx = nx + Math.max(...rows.filter((r) => !r.once).map((r) => textWidth(r.text))) + FEAT_GAP;
   first = clampFirst(first, hs, h);
   const n = fitFrom(hs, first, h);
+  let ry = top;
   for (let i = 0; i < n; i++) {
-    const r = rows[first + i], ry = top + i * ROW_H;
+    const r = rows[first + i];
+    if (i > 0) ry += hs[first + i] - ROW_H; // the gap above the first one-off row, once scrolled past the top
     drawText(c, r.text, nx, ry, GREY);
-    drawText(c, r.value, vx, ry, CORE);
+    if (r.value) drawText(c, r.value, vx, ry, CORE);
     for (let k = 0; k < r.tiers; k++) drawDiamond(c, right - (r.tiers - k) * (MARK + MARK_GAP) + MARK_GAP, ry + 1, k < r.reached ? GOLD : DIM);
+    ry += ROW_H;
   }
   drawBar(c, card, top, h, first, n, rows.length);
 }
@@ -195,7 +200,7 @@ function drawDiamond(c, x, y, colour) {
 // p: { records, played, bestiary, goals }; state: the journey's; page: the creature's page open
 export function listOf(card, tab, p, state, page) {
   if (tab === 'records') return recordsList(card, p.records, p.played);
-  if (tab === 'feats') return featsList(card, p.records);
+  if (tab === 'feats') return featsList(card, p);
   if (tab === 'quests') return questsList(card, p.goals, state?.place, state?.start);
   if (tab === 'bestiary' && page) return pageRows(card, pageOf(p.bestiary, page));
   if (tab === 'bestiary') { const n = bestiaryRows(p.bestiary).length; return n ? bestiaryTables(card, n) : null; }
@@ -204,7 +209,7 @@ export function listOf(card, tab, p, state, page) {
 // Draw the open list tab, scrolled to `first`
 export function drawList(c, card, tab, p, state, first, { sprites = {}, beast = 0, page = null, glints = 0 } = {}) {
   if (tab === 'records') drawRecords(c, card, p.records, p.played, first);
-  else if (tab === 'feats') drawFeats(c, card, p.records, p.bought, glints, first);
+  else if (tab === 'feats') drawFeats(c, card, p, glints, first);
   else if (tab === 'quests') drawQuests(c, card, p.goals, state?.place, state?.start, first);
   else if (tab === 'bestiary' && page) drawPage(c, card, pageOf(p.bestiary, page), sprites[page], first);
   else if (tab === 'bestiary') drawBestiary(c, card, p.bestiary, sprites, beast, first);

@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.396 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.397 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater's one-off Feat (D-954): propose its details; then the
-sealed way in (Q-112); run `node tools/bossrun.js` before and after
+The sealed way in (Q-112, D-954): propose its details; run
+`node tools/bossrun.js` before and after only if the fight changes
 (D-948).
 
 ## Waiting on the owner
@@ -50,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.397, The Lampeater's Feat.** D-954's first step:
+  beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
+  mark, shown once it is met; earlier wins count, the bench never. The
+  fight unchanged, so no boss-bot run. D-955. Playtest: https://claude.ai/artifact/NE3mJEqwHUouQKVM5i2scU
 - **2026-11-16, 0.3.396, Step 9's order.** Docs only: the Feat, then the
   sealed way in, then the trophy, the first of all, once creatures leave
   materials; 0.4.0 when the way to depth 9 opens; the surface and depths
@@ -58,8 +62,3 @@ list in `RESEARCH.md`.
   first part: only beating it sinks the sealed door; its gloamlings
   crumble; walked out of or fallen in, it is whole again. The bot: the
   same. D-953. Playtest: https://claude.ai/artifact/7iLhd7WVA73ddXvy6h1iv6
-- **2026-11-16, 0.3.394, Three bug fixes.** The audit's F-6 to F-8: a
-  catch begun as the Lampeater is halved owes its snuff; the spear's
-  reach and the Fist's knock sink into it, no flash; after the
-  #lampeater link, journeys save again. The bot: the same. D-952.
-  Playtest: https://claude.ai/artifact/JnUpHbd6DF6qvrmKhdRWw1

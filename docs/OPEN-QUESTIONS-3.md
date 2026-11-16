@@ -16,7 +16,7 @@ each: three kinds, **bosses** (one near each biome's bottom, D-463),
 found by chance) and **unique wanderers** (one of a kind, roaming a
 region). Their story told in **lore pages** (D-464), on **their
 Bestiary page** and by **the guide or people**. Beating one gives a
-**one-off Feat** (beside the tiered ones, D-467), a boss **its found
+**one-off Feat** (beside the tiered ones, D-467; the Lampeater's built, D-955), a boss **its found
 ability** (D-463), and **a trophy or relic** (D-465, D-466).
 Claude's proposal, so it is not too much, the owner may change it: each
 place tells a different part: the pages the past, the Bestiary page what
