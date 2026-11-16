@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.404, Leap.** Beating the Lampeater teaches Leap
+  for that journey: the Leap button or J, then a way; 2 tiles over
+  floor, a creature or a low thing, a turn. D-962. Playtest: https://claude.ai/artifact/Q5oKPAJkGjnnwYE6uLobHm
 - **2026-11-16, 0.3.403, The Lampeater's tune.** Its boss tune, "Ludum
   Dare 28 08", starts at once with the seal and plays the whole fight;
   beaten, it fades and the dungeon's comes back. Music's list gains

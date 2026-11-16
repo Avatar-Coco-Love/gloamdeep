@@ -11,6 +11,7 @@ import { drawLight, flicker } from './light.js';
 import { drawBeam, BEAM_MS } from './beam.js';
 import { drawKindle, drawRing } from './kindle.js';
 import { drawChips, drawSpark } from './stuck.js';
+import { drawCrumble } from './crumble.js';
 import { running, sameKey, holdsRoom } from './hold.js';
 import { drawBrackets, torchLights, drawFlames } from './torches.js';
 import { drawMotes } from './motes.js';
@@ -321,6 +322,7 @@ export function createFrame(app, ui) {
         drawFloat(rc, s.float, t, still()); // the line's float on the pond, bobbing (D-610)
         drawRoosts(rc, s.room, t, still()); // a tree with a flyer in it shakes now and then (D-922)
         drawKindle(rc, app.kindle, t); // the woken rune lighting bottom up (D-591)
+        if (!still()) drawCrumble(rc, app.quake, s.room, t); // the seal stones crack, then fall into the Gap (D-965)
         drawItems(rc, s.items, t, still());
         const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
         drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
