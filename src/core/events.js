@@ -35,6 +35,7 @@
 //   kindle { id }        cold ashes were lit with the lantern's oil, now tile `id` (D-757)
 //   open { id }          a vault's last brazier lit, its sealed door sank open into tile `id` (D-895); or the rune wall, into floor (D-929)
 //   seal { id }          the Lampeater's arena sealed behind the hero, a sealed door risen in its way in (D-956)
+//   leap { from, x, y }  the hero leapt from `from` over a tile to x, y, a turn (D-962)
 //   sit { id }           the hero sat by a burning fire, now tile `id` (D-844)
 //   stoke { id }         the hero added wood to embers, now tile `id`, blazing (Q-088, feeding)
 //   cast                 the fishing line was cast, with a plop (D-613)

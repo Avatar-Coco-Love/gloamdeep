@@ -66,12 +66,13 @@ export function openWayIn(place, seed, room, enemies) {
 }
 
 // § the door: (state) → the state with the arena's sealed door sunk open and the gloamlings gone,
-// once the Lampeater is beaten this action; else the same state
+// and Leap learnt for this journey, with one line for both (D-962), once the Lampeater is beaten
+// this action; else the same state
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
   const sealed = get('sealedDoor').letter, open = get('openDoor').letter;
   const room = { ...state.room, map: state.room.map.map((row) => row.split(sealed).join(open)) };
-  return say(note({ ...state, room, enemies: state.enemies.filter((e) => !e.ash) }, 'open', { id: 'openDoor' }), 'vaultOpens');
+  return say(note({ ...state, room, enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' }), 'leapLearnt');
 }
 
 // § whole again: (place, enemies) → the enemies an arena keeps as the hero leaves it: with the

@@ -24,6 +24,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.404 (2026-11-16)
+- Beat the Lampeater and you learn Leap: "The door sinks open. You learn Leap." It is yours for the rest of that journey only. A new journey has to earn it again.
+- A new round Leap button sits left of the flask button. Tap it ("Leap which way?") and pick a way: the hero jumps 2 tiles in a line, over open floor, a creature or a low thing like water or a brazier, and lands on the second. It takes one turn, like a step. On a keyboard, J does the same.
+- Tap the button again, or tap the hero, to change your mind. A leap at a wall, or with nowhere to land, costs nothing and says why.
+- The hero rises off the ground as they jump, their shadow left below. With reduced motion they simply land.
+- The dev sheet's Hero section has a Leap switch, to try it without the fight.
+- Decisions: D-962. D-959 and D-960 moved to the archive, word for word.
+
 ## 0.3.403 (2026-11-16)
 - The Lampeater has its own boss tune. When its way in seals behind you, a busy, dark, pressing tune starts at once with the door, under the cutscene, and plays the whole fight. Beat it and the tune fades out, and the dungeon's theme comes back a second later.
 - Music's list in Settings has a line for it, Lampeater, after Dungeon.
@@ -33,9 +41,3 @@ Entry format:
 - Coming up to the Lampeater, the music goes quiet: the dungeon's theme fades out as you step into the hallway, and the arena stays silent too. Beat it and the theme comes back; step back down out of the hallway and it comes back as well.
 - Dev: the boss bench and the playtest's #lampeater link now start you in the room below the hallway, one tile under the way up, that room emptied, so you get the whole way up: the warning, the quiet, the seal and the cutscene. The boss bot still starts in the arena's doorway.
 - Decisions: D-960. Questions: Q-112's hallway quiet answered; the boss tune is next. D-957 moved to the archive, word for word.
-
-## 0.3.401 (2026-11-16)
-- While the Lampeater's way in is sealed, its name and health show at the bottom middle, above the text line: "Lampeater" over a thin bar running from pink to violet, on the same dark glass as the text line. It appears as the cutscene ends.
-- Hurt, the part it lost turns pale, waits a moment, then drains away. A blow that sinks into it in the dark flickers the bar grey and leaves it full.
-- Beaten, the bar drains to empty and fades; leave or fall and it's gone at once. It goes faint while you stand under it, like the panel.
-- Decisions: D-959. Questions: Q-112's name and health bar answered; the hallway's quiet is next. D-955 and D-956 moved to the archive, word for word.

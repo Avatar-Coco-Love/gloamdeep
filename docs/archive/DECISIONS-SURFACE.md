@@ -2431,3 +2431,41 @@ the door behind them; and it forgets the cutscene was seen, so it plays
 each time. Claude's calls: at half too; the boss bot starts there as
 well, so its fights match a real way in: over 400 fights Lean wins 34%
 (26% from one step further in), Middling 97% (the same), noted in Q-111.
+
+**D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
+owner's picks, all recommended; builds D-957; part of Q-112) While the
+arena's way in is sealed, from the cutscene's end, the Lampeater's name
+and hearts show bottom middle, above the text line: "Lampeater" in bone
+white over a thin bar, on the same dark glass as the text line, the bar
+running from the eyes' pink to the haze's violet (offered too: pink and
+plain, no glass; pink with no glass and the pale loss). Hurt, the part
+lost turns pale, waits a moment, then drains away in about half a second
+(offered too: it drops at once; it drops with a white flash). A blow
+that sinks into it flickers the bar grey, still full (offered too:
+nothing). The bar stays put, above room for a two-row line, so it never
+jumps when a line comes and goes (offered too: dropping into the line's
+place when none shows). Claude's calls: 96 pixels long; faint while the
+hero stands under it, as the panel is (D-444); beaten, the last loss
+drains to empty and the bar fades; left or fallen, it goes at once; hidden
+under a card and in the cutscene; with reduced motion no pale piece, no
+fade, and the grey a steady moment. The fight is unchanged, so no
+boss-bot run. D-955 and D-956 move to `archive/DECISIONS-SURFACE.md`,
+word for word.
+
+**D-960 · 2026-11-16 · The hallway's quiet** (the owner's picks, all
+recommended, and the owner's ask for the bench; part of Q-112; builds
+D-956) While the Lampeater is unbeaten, no music plays in its hallway or
+its arena: the dungeon's theme fades out over 2 s, as at any change of
+place, as the hero steps into the hallway, and stays gone in the arena
+till the boss tune's step fills it (offered too: the hallway only; quiet
+even once beaten; a slow fade of about 6 s; a cut). Beaten, the dungeon's
+theme comes back in both; stepping back down out of the hallway brings it
+back too. The owner's ask: the boss bench, from the dev sheet or the
+playtest's #lampeater link, starts the hero in the room before the
+hallway, one tile below its way up into it, that room's creatures gone, so
+the whole way up plays: the warning, the quiet, the seal, the cutscene
+(offered too: that room as made; just inside the hallway). Both From the
+start and At half; the arena waits as the bench makes it. The boss bot
+still starts in the arena's way in, so its fights match D-958's (offered
+too: below, as the bench). The fight is unchanged, so no boss-bot run.
+D-957 moves to `archive/DECISIONS-SURFACE.md`, word for word.

@@ -6,6 +6,14 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.404', date: '2026-11-16', title: 'Leap', lines: [
+    "Beat the Lampeater and you learn Leap: \"The door sinks open. You learn Leap.\" It is yours for the rest of that journey only. A new journey has to earn it again.",
+    "A new round Leap button sits left of the flask button. Tap it (\"Leap which way?\") and pick a way: the hero jumps 2 tiles in a line, over open floor, a creature or a low thing like water or a brazier, and lands on the second. It takes one turn, like a step. On a keyboard, J does the same.",
+    "Tap the button again, or tap the hero, to change your mind. A leap at a wall, or with nowhere to land, costs nothing and says why.",
+    "The hero rises off the ground as they jump, their shadow left below. With reduced motion they simply land.",
+    "The dev sheet's Hero section has a Leap switch, to try it without the fight.",
+    "Decisions: D-962. D-959 and D-960 moved to the archive, word for word.",
+  ] },
   { v: '0.3.403', date: '2026-11-16', title: 'The Lampeater\'s tune', lines: [
     "The Lampeater has its own boss tune. When its way in seals behind you, a busy, dark, pressing tune starts at once with the door, under the cutscene, and plays the whole fight. Beat it and the tune fades out, and the dungeon's theme comes back a second later.",
     "Music's list in Settings has a line for it, Lampeater, after Dungeon.",

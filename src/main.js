@@ -3,7 +3,7 @@
 // what the three share.
 import { VERSION } from './core/version.js';
 import { drawText, textWidth, FONT_H } from './render/font.js';
-import { newJourney as beginJourney, step, wait, pour, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
+import { newJourney as beginJourney, step, leap, wait, pour, makeFrom, makeAt, eat, hold, behind, setDown, takeDown, shelve, kindle, sit, stoke, plant, pick, feed, panelBeside, look, drop, sortTheBag, pourByItself, switchLantern, followDaylight, DIRS, maxHealth, startOver, fallView, sleepOut, canSleepOut, campAsks, noSleepOut } from './core/turn.js';
 import { knocks, knockOf } from './core/fist.js';
 import { resetRoom } from './core/spawn.js';
 import { enemyAt } from './core/enemies.js';
@@ -46,6 +46,7 @@ import { createBagButton } from './input/bagbutton.js';
 import { createQuickSlot } from './input/quickslot.js';
 import { createSleepButton } from './input/sleepbutton.js';
 import { createBoonButton } from './input/boonbutton.js';
+import { createLeapButton } from './input/leapbutton.js';
 import { createArrowPad } from './input/arrowpad.js';
 import { firstFlask } from './core/bag.js';
 import { createMapMoves } from './input/mapview.js';
@@ -233,6 +234,7 @@ const snap = (to) => { app.shown.x = to.x; app.shown.y = to.y; };
 
 function tryStep(dir) {
   if (app.fall || app.cutscene) return; // nothing is taken while the hero lies fallen, nor in the cutscene (D-957)
+  if (app.leapReady) { app.leapReady = false; if (typeof dir === 'string' && DIRS[dir]) dir = { leap: dir }; } // a leap got ready: the way picked leaps; anything else lets it go (D-962)
   if (waitsInLine(app.screen, settled())) { app.queued = dir; return; } // a card's action happens at once (D-680)
   const before = app.state;
   let to = before.hero;
@@ -240,6 +242,11 @@ function tryStep(dir) {
   else if (dir === 'wait' && onWokenPlate(before) && !creatureNear(before)) { screens.openTravel(); return; } // the wait on a woken plate opens the travel card (D-593)
   else if (dir === 'wait' && onWokenPlate(before)) app.state = say(app.state, 'stoneNear'); // barred, free (D-593)
   else if (dir === 'wait') app.state = wait(app.state); // standing still, one turn (D-084)
+  else if (dir.leap !== undefined) { // 2 tiles on, over the one between, a turn; blocked, its line, free (D-962)
+    app.state = leap(app.state, dir.leap);
+    const [dx, dy] = DIRS[dir.leap];
+    if (app.state.turn !== before.turn) { to = { x: before.hero.x + 2 * dx, y: before.hero.y + 2 * dy }; app.leapArc = { from: before.hero, to }; }
+  }
   else if (dir.pour !== undefined) app.state = pour(app.state, dir.pour); // a flask from the bag, one turn, free with Quick Pour (D-247, D-816)
   else if (dir.eat !== undefined) app.state = eat(app.state, dir.eat); // a heartcap or potion from the bag, one turn (D-308, D-309)
   else if (dir.hold !== undefined) app.state = hold(app.state, dir.hold); // a weapon from the bag into the hand, one turn (D-479)
@@ -393,6 +400,16 @@ const quickSlot = createQuickSlot(hudCanvas, { onPour: () => {
   if (s.float) { const d = towardFloat(s); if (d) tryStep(d); } else if (i >= 0) tryStep({ pour: i });
 } });
 
+// § leap button and J (D-962): in play with Leap learnt on this journey, a press gets a leap ready
+// ("Leap which way?") and the next way picked leaps; pressed again, it lets it go
+const getLeap = () => {
+  if (app.screen !== 'play' || app.fall || app.cutscene || !app.state.leap) return;
+  app.walk = app.padDir = app.hold = null;
+  app.leapReady = !app.leapReady;
+  if (app.leapReady) app.state = say(app.state, 'leapWhich');
+};
+const leapButton = createLeapButton(hudCanvas, { onLeap: getLeap });
+
 // § sleep button: outside at night, nothing after the hero, it asks Sleep here until morning? (D-758)
 const boonButton = createBoonButton(hudCanvas, { onBoons: () => { if (app.screen === 'play' && !app.fall && offersBoons(app.state)) { app.walk = null; screens.openBoons(); } } }); // arrived on the home plate (B-007)
 const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.screen === 'play' && !app.fall && canSleepOut(app.state)) screens.openSleepOut(); } });
@@ -400,7 +417,7 @@ const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.scre
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = app.rise = app.cutscene = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = app.rise = app.cutscene = app.leapArc = null; app.leapReady = false; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
@@ -419,7 +436,7 @@ function newJourney(mode) {
 const { useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot } = createSlots(app, loadInto, () => { savedState = app.state; freshView(); });
 const stage = document.getElementById('stage');
 const screens = createScreens(app, {
-  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, boonButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
+  spoken, lanternButton, pauseButton, mapButton, bagButton, quickSlot, sleepButton, boonButton, leapButton, reduceMotion, newJourney, beginAgain, randomSeed, useSlot, renameSlot, lookSlot, buySlot, giftSlot, dropSlot,
   pour: (slot) => tryStep({ pour: slot }), makeBag: (from) => tryStep({ makeBag: from }), eat: (slot) => tryStep({ eat: slot }), hold: (slot) => tryStep({ hold: slot }),
   setDown: (slot, side) => tryStep({ set: slot, side }), takeDown: (x, y) => tryStep({ take: { x, y } }), shelve: (x, y) => tryStep({ shelve: { x, y } }), sleepOut: () => tryStep({ sleepOut: true }), kindle: (x, y) => tryStep({ kindle: { x, y } }), sit: (x, y) => tryStep({ sit: { x, y } }), stoke: (x, y) => tryStep({ stoke: { x, y } }), plant: (x, y) => tryStep({ plant: { x, y } }), pick: (x, y) => tryStep({ pick: { x, y } }), feed: (x, y) => tryStep({ feed: { x, y } }), make: (id) => tryStep({ make: id }),
   lookAt: (slot) => { app.state = look(app.state, slot); }, // an oilcap's line, free (D-297)
@@ -473,7 +490,7 @@ const onTab = () => {
 };
 const onChoose = () => { if (app.screen === 'play') { if (onWokenPlate(app.state)) tryStep('wait'); } else if (!screens.onMapScreen()) screens.choose(); }; // Enter on a woken plate: the travel card (D-593)
 const input = createInput(stage, canvas, {
-  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab: pressed(onTab), onWheel: screens.onWheel,
+  onDir, onPoint: pressed(onPoint), onHover: (x, y) => onHover(x, y), onHold: (p) => { if (app.hold) app.hold = p; }, onLantern: switchIt, onLeap: getLeap, onWait: pressed(onWait), onChoose: pressed(onChoose), onPause: screens.pause, onMap: screens.toggleMap, onBag: screens.toggleBag, onFloor: screens.turnMap, onType: screens.onType, onTab: pressed(onTab), onWheel: screens.onWheel,
   holds: () => app.screen === 'play', // off play a slow press is a tap (D-661)
   repeats: () => app.screen === 'play', // off play a held Space picks once (D-669)
   guarded: (x, y) => app.screen === 'play' && arrowPad.guards(x, y), // the ring round the arrow pad (D-422)
@@ -496,6 +513,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   setOil: (oil) => setOil(app.state, oil),
   heal: () => ({ ...app.state, health: maxHealth(app.state) }),
   setGod: (on) => ({ ...app.state, god: on }), // bites take no hearts (D-625)
+  setLeap: (on) => ({ ...app.state, leap: on || undefined }), // chapter 1's found ability, on this journey (D-962)
   setEndless: (on) => ({ ...app.state, endless: on }), // the lantern never runs down (D-626)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
@@ -506,7 +524,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   settings: () => app.settings,
   camera: () => app.cam,
 }, hudCanvas);
-const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, dev, screens, still, foeAt });
+const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, leapButton, dev, screens, still, foeAt });
 const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS, openQuests: () => screens.openQuests() });
 screens.openSlots(false); // the game opens on the slot screen (D-271); the #lampeater link's bench is at the end
 
@@ -533,6 +551,8 @@ function rememberHere() {
 // More than a tile to go, a warden's slam shoving the hero back (D-885), the slide goes 3 times as fast
 function approach(from, to, dt) { const far = Math.abs(to - from); return from + Math.sign(to - from) * Math.min(far, SLIDE * dt * (far > 1 ? SHOVE : 1)); }
 const SHOVE = 3;
+const LEAP_PACE = 1.6; // a leap's 2 tiles, about a quarter of a second (D-962)
+function glide(from, to, dt) { const far = Math.abs(to - from); return from + Math.sign(to - from) * Math.min(far, SLIDE * dt * LEAP_PACE); }
 let lastUpdate = null;
 function update(t) {
   const { travel, fall, shown } = app;
@@ -546,10 +566,12 @@ function update(t) {
   if (fall && t >= fall.end) app.fall = null;
   if (app.cutscene && cutOver(app.cutscene, t)) app.cutscene = null; // the Lampeater's cutscene over: play again (D-957)
   const s = app.travel?.from || app.fall?.from || app.state;
-  shown.x = approach(shown.x, s.hero.x, dt);
-  shown.y = approach(shown.y, s.hero.y, dt);
+  const arc = app.leapArc && s === app.state ? app.leapArc : null; // a leap glides at its own even pace (D-962)
+  shown.x = arc ? glide(shown.x, s.hero.x, dt) : approach(shown.x, s.hero.x, dt);
+  shown.y = arc ? glide(shown.y, s.hero.y, dt) : approach(shown.y, s.hero.y, dt);
+  if (app.leapArc && (!arc || (shown.x === app.leapArc.to.x && shown.y === app.leapArc.to.y))) app.leapArc = null;
   for (const e of s.enemies) { const p = foeAt(e); p.x = approach(p.x, e.x, dt); p.y = approach(p.y, e.y, dt); }
-  if (app.screen !== 'play') app.walk = app.padDir = app.hold = null; // a card or menu ends a walk, the pad's and a hold's
+  if (app.screen !== 'play') { app.walk = app.padDir = app.hold = null; app.leapReady = false; } // a card or menu ends a walk, the pad's and a hold's
   if (app.screen === 'strike' && needleAt(t - app.strike.start) === null) strikeAt(null); // too slow: gone (D-614)
   if (settled() && app.screen === 'play' && app.state.float?.strike !== undefined) screens.openStrike(); // pulled on a bite, once the hero is still; after loading too (D-614)
   if (settled() && app.screen === 'play') { // paused, no turn is taken

@@ -117,44 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
-owner's picks, all recommended; builds D-957; part of Q-112) While the
-arena's way in is sealed, from the cutscene's end, the Lampeater's name
-and hearts show bottom middle, above the text line: "Lampeater" in bone
-white over a thin bar, on the same dark glass as the text line, the bar
-running from the eyes' pink to the haze's violet (offered too: pink and
-plain, no glass; pink with no glass and the pale loss). Hurt, the part
-lost turns pale, waits a moment, then drains away in about half a second
-(offered too: it drops at once; it drops with a white flash). A blow
-that sinks into it flickers the bar grey, still full (offered too:
-nothing). The bar stays put, above room for a two-row line, so it never
-jumps when a line comes and goes (offered too: dropping into the line's
-place when none shows). Claude's calls: 96 pixels long; faint while the
-hero stands under it, as the panel is (D-444); beaten, the last loss
-drains to empty and the bar fades; left or fallen, it goes at once; hidden
-under a card and in the cutscene; with reduced motion no pale piece, no
-fade, and the grey a steady moment. The fight is unchanged, so no
-boss-bot run. D-955 and D-956 move to `archive/DECISIONS-SURFACE.md`,
-word for word.
-
-**D-960 · 2026-11-16 · The hallway's quiet** (the owner's picks, all
-recommended, and the owner's ask for the bench; part of Q-112; builds
-D-956) While the Lampeater is unbeaten, no music plays in its hallway or
-its arena: the dungeon's theme fades out over 2 s, as at any change of
-place, as the hero steps into the hallway, and stays gone in the arena
-till the boss tune's step fills it (offered too: the hallway only; quiet
-even once beaten; a slow fade of about 6 s; a cut). Beaten, the dungeon's
-theme comes back in both; stepping back down out of the hallway brings it
-back too. The owner's ask: the boss bench, from the dev sheet or the
-playtest's #lampeater link, starts the hero in the room before the
-hallway, one tile below its way up into it, that room's creatures gone, so
-the whole way up plays: the warning, the quiet, the seal, the cutscene
-(offered too: that room as made; just inside the hallway). Both From the
-start and At half; the arena waits as the bench makes it. The boss bot
-still starts in the arena's way in, so its fights match D-958's (offered
-too: below, as the bench). The fight is unchanged, so no boss-bot run.
-D-957 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-961 · 2026-11-16 · The Lampeater's boss tune** (the owner's picks,
 all recommended; answers the last of Q-112; builds D-960) From a board of
 8 busy, dark tracks from the same bundle, measured from all 138 (the
@@ -172,3 +134,30 @@ the others (0.27); left by a fall, it fades out over 2 s as at any
 change of place; fetched ahead in the quiet hallway so it is ready at
 the seal. The fight is unchanged, so no boss-bot run. D-958 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-962 · 2026-11-16 · Leap, its first step** (the owner's picks, all
+recommended, and the owner's change to where it is kept; builds D-636,
+D-939, D-954) Beating the Lampeater gives Leap, said with its door: "The
+door sinks open. You learn Leap." From then the hero can leap 2 tiles in
+a straight line, landing on the second, one turn, like a step (offered
+too: only learnt, no use yet; a first pit with it; a turn and some oil;
+a turn, then 3 turns' rest). The tile between can be open floor, a
+creature or a low thing (water, rubble, the bench, a brazier), never a
+wall or a tall solid thing (offered too: floor and creatures only;
+anything but walls). A round Leap button on the lantern's arc, left of
+the quick slot, shown once Leap is learnt: a tap gets a leap ready,
+"Leap which way?", its arc turning amber, and the next way picked (a
+swipe, the arrow pad, a tap toward a way, the arrow keys) leaps; tapped
+again, or a tap on the hero, lets it go; J does the same (offered too: a
+tap on a tile 2 away, Shift + arrow; both). Leap is kept on the journey
+only, never the profile: a new journey, or a hardcore fall's fresh
+start, has to earn it again (the owner's change; Claude had offered it
+on the save, as the Feat). Claude's calls: blocked, it is free, "No room
+to land." or "Too tall to leap over."; landing takes what lies there and
+stairs, as a step; no leap across a doorway into the next room yet; a
+level reached on the same blow says "Level {n}. You learn Leap."; the
+hero rises 7 pixels at the middle over about a quarter of a second, a
+shadow left on the ground, and simply lands with reduced motion; no
+sound till its sounds' step; the dev sheet's Hero has a Leap switch.
+The fight is unchanged, so no boss-bot run. Next, the escape. D-959 and
+D-960 move to `archive/DECISIONS-SURFACE.md`, word for word.

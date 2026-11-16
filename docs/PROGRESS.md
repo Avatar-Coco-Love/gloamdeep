@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.403 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.404 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-Step 9's next part (D-939, D-954): Leap, the ability the Lampeater gives
-when beaten; propose its first small step. The trophy waits for creature
+Step 9's next part (D-939, D-954, D-962): the escape, the floor giving
+way and the hero leaping to the way down; propose its first step. The trophy waits for creature
 materials (Q-061).
 
 ## Waiting on the owner
@@ -50,6 +50,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.404, Leap.** Beating the Lampeater teaches Leap
+  for that journey: the Leap button or J, then a way; 2 tiles over
+  floor, a creature or a low thing, a turn. D-962. Playtest: https://claude.ai/artifact/Q5oKPAJkGjnnwYE6uLobHm
 - **2026-11-16, 0.3.403, The Lampeater's tune.** Its boss tune, "Ludum
   Dare 28 08", starts at once with the seal and plays the whole fight;
   beaten, it fades and the dungeon's comes back. Music's list gains
@@ -58,7 +61,3 @@ list in `RESEARCH.md`.
   Lampeater's hallway and arena while it is unbeaten: a 2 s fade on the
   way in, back once it is beaten. The boss bench starts below the
   hallway, its room emptied, for the whole way up. D-960. Playtest: https://claude.ai/artifact/Vt23ZSXfiU6iPLtS7rdSXA
-- **2026-11-16, 0.3.401, The Lampeater's bar.** While the way in is
-  sealed, "Lampeater" over a pink-to-violet bar on glass, bottom middle;
-  a loss pales then drains, a sunk blow flickers grey; beaten, it drains
-  and fades. D-959. Playtest: https://claude.ai/artifact/TQzteQiWyGMhHUn4BFdQBe
