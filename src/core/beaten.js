@@ -9,11 +9,38 @@ import { ARENA_DEPTH, LAMPEATER_AT } from './arena.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { note } from './events.js';
+import { tileAt, withTile } from './room.js';
 
 const BOSS = 'lampeater';
 // The arena's place id for this seed: the depth-8 cell marked `arena` (region.js, D-940)
 export const arenaPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena)?.id;
 export const inArena = (state) => state.place === arenaPlace(state.seed);
+const hallPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.hall)?.id;
+// The arena's way in: the gap in its bottom edge, where the hero walks in from the hallway (arena.js)
+const wayIn = (seed) => { const cell = layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena); return { x: cell.doors[0].at, y: cell.rows - 1 }; };
+const unbeaten = (state) => { const kept = state.elsewhere?.[arenaPlace(state.seed)]; return !kept || kept.enemies.some((e) => e.id === BOSS); };
+
+// § the way in sealed (Q-112, D-956): (state) → the state with a sealed door risen in the arena's
+// way in, once the hero has taken a step inside past it with the Lampeater still there; else the
+// same state. From then the only ways out are beating it, which sinks every sealed door open, or a fall.
+export function sealArena(state) {
+  if (!inArena(state) || !state.enemies.some((e) => e.id === BOSS)) return state;
+  const gap = wayIn(state.seed);
+  if ((state.hero.x === gap.x && state.hero.y === gap.y) || tileAt(state.room, gap.x, gap.y).solid) return state;
+  return say(note({ ...state, room: withTile(state.room, gap.x, gap.y, get('sealedDoor')) }, 'seal', { id: 'sealedDoor' }), 'arenaSeals');
+}
+
+// § the hallway's warning (D-956): (state, from) → the state just come into the hallway, from
+// anywhere but the arena, with its warning said while the Lampeater is unbeaten; else the same
+export const hallWarns = (state, from) => (state.place === hallPlace(state.seed) && from !== arenaPlace(state.seed) && unbeaten(state) ? say(state, 'hallWarning') : state);
+
+// § open again (D-956): (place, seed, room, enemies) → the room an arena keeps as the hero leaves
+// it, by a fall: with the Lampeater still in it, its way in open again; else the same
+export function openWayIn(place, seed, room, enemies) {
+  if (place !== arenaPlace(seed) || !enemies.some((e) => e.id === BOSS)) return room;
+  const gap = wayIn(seed);
+  return tileAt(room, gap.x, gap.y).id === 'sealedDoor' ? withTile(room, gap.x, gap.y, get('floor')) : room;
+}
 
 // § the door: (state) → the state with the arena's sealed door sunk open and the gloamlings gone,
 // once the Lampeater is beaten this action; else the same state

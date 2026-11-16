@@ -339,6 +339,8 @@ export const LINES = {
   brazierCatches: { text: 'The brazier catches.', warn: false }, // Yes on Light the brazier? (D-893)
   vaultOpens: { text: 'The stone door sinks open.', warn: false }, // the last brazier lit, the door opening, in its catching's place: the strip holds one (D-895)
   brazierLit: { texts: ['A brazier, burning.', 'Its flame burns steady.'], warn: false }, // a lit brazier bumped, a sentence a bump (D-893)
+  arenaSeals: { text: 'The way behind you seals.', warn: true }, // a step into the Lampeater's arena past its way in, a sealed door rising there (D-956)
+  hallWarning: { text: 'The seal hall: once in, no way back.', warn: true }, // coming into the arena's hallway, the Lampeater unbeaten (D-956)
   sealedDoor: { texts: ['A sealed stone door.', 'A flame rune is cut into it.'], warn: false }, // a vault's sealed door bumped (D-892)
   runesLit: { texts: ['Faint marks.', 'Too pale to see by lantern light.'], warn: false }, // the rune wall bumped lit, a sentence a bump (D-927, D-929)
   runesOpen: { text: 'The runes flare, the stone sinks away.', warn: false }, // the rune wall bumped dark, sinking open (D-929)
