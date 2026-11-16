@@ -226,3 +226,12 @@ test('on open floor it still backs through the lantern\'s light, never pinned', 
   for (let i = 0; i < 4; i++) { s = wait(s); assert.ok(!s.enemies[0].pinned); }
   assert.notDeepEqual([s.enemies[0].x, s.enemies[0].y], [6, 8]);
 });
+
+test('the spear\'s reach and the Fist\'s knock sink into it in the dark too, marked sank (F-7)', () => {
+  const dark = (held) => inHall({ lit: false, held, enemies: [{ id: 'gloamling', x: 2, y: 2, health: 9 }, { id: 'lampeater', x: 3, y: 2 }] });
+  for (const held of ['spear', 'wardenFist']) {
+    const s = step(dark(held), 'right'), hits = s.events.filter((e) => e.type === 'hit');
+    assert.deepEqual(hits.map((h) => [h.id, !!h.sank]), [['gloamling', false], ['lampeater', true]], held);
+    assert.equal(s.enemies.find((e) => e.id === 'lampeater').health ?? 12, 12, held);
+  }
+});

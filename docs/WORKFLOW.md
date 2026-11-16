@@ -103,3 +103,4 @@ When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
 
 - Tests and tools can name a doc too: moving the creature list off `CONTENT.md` broke the content-index test and left `tools/make.js` writing to the old page, so grep `tests/` and `tools/` for a doc's name before moving its text (0.3.393).
+- A fix the screen shows can still be proven in the browser by what it leaves: F-8's was checked by playing through the menus with the keyboard and reading `localStorage` before and after the fix (0.3.394).

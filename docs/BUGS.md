@@ -29,24 +29,8 @@ and the code. Which to fix, and in what order, is the owner's pick; each
 fix is still the owner's pick at its step. The fixes offered are the
 hunt's, the first one recommended.
 
-- **F-6 · A catch at half owes no extra snuff.** When the blow that takes
-  the Lampeater to half its hearts lands on a catch's first turn, the
-  catch is not counted as begun after half (D-947), so it owes 1 snuff,
-  not 2: fewer snuffs and gloamlings than the rule says
-  (`snuff.js:30` reads `was.halved`, set only on line 29). Fixes: check
-  `next.halved` there; or set half before the turn's blows.
-- **F-7 · The spear flashes on a Lampeater its blow sank into.** The
-  spear's second tile (and the Warden's Fist's knock) gives no `sank`
-  mark, so the Lampeater in the dark behind a gloamling flashes white and
-  sounds a hit while taking none (D-941) (`turn.js:188`, `main.js`'s
-  `app.hit`). Fixes: `strike` reports `sank` for the one behind too, left
-  out of the flash; or no flash for any creature whose hearts didn't drop.
-- **F-8 · After the #lampeater link, nothing is saved in that tab.**
-  `app.benchLink` is set once and never cleared, so a New journey or a
-  profile picked after the link's fight is never saved
-  (`main.js:589`, `main.js:135`). Fixes: clear it in `newJourney` and
-  when a profile loads; or reload the page without the link on leaving
-  the fight.
+All three are fixed in 0.3.394 (D-952) and kept in
+`archive/BUGS-FIXED.md`.
 
 Seen but not confirmed: the Lampeater's drink, breath or burning ring may
 show for one turn on coming back into the arena; a fall on the turn it

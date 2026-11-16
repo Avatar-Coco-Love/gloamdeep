@@ -63,6 +63,14 @@ test('a catch begun after half, once got free from, owes one more; the catch it 
   assert.ok(s.enemies[0].breath);
 });
 
+test('a catch begun on the turn it is halved counts as begun after half (F-6)', () => {
+  let s = inHall({ health: 7 });
+  s = step(s, (a) => ({ ...a, enemies: a.enemies.map((e) => ({ ...e, health: 6, caught: true })) }));
+  assert.equal(s.enemies[0].owes, 1);
+  s = step(s, (a) => ({ ...a, enemies: a.enemies.map(({ caught, ...e }) => e) }));
+  assert.equal(s.enemies[0].owes, 2, 'the half, and the catch begun with it');
+});
+
 test('with no brazier lit it waits, owing', () => {
   const cold = get('brazier').letter;
   const s = step({ ...inHall({ health: 6 }), room: makeRoom(hall.map((r) => r.split(L).join(cold))) });
