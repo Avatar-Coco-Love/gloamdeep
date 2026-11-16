@@ -101,24 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-948 · 2026-11-16 · The boss test bench** (the owner's ask and picks,
-all recommended; [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu))
-A way to start the Lampeater's whole fight again and again: a Boss tab in
-the dev sheet, its buttons starting the fight afresh, just inside the
-arena's door, the Lampeater whole and the braziers cold, or at half (4
-hearts, 3 braziers lit), a dev jump, no turn passed; a #lampeater link
-on the playtest opening straight into it, Middling, kept nowhere; and a
-bot, `tools/bossrun.js`, that plays it on many seeds and prints one line
-a fight, run at every Lampeater step (offered too: one of these alone).
-Three rough builds (offered too: Middling only; your own kit): Lean, 5
-hearts, Knife, 1 Oil Flask; Middling, 7 hearts (Steady Wick, 2 Heart),
-Spear, Rat Hide Vest, 3 flasks, 1 Mending Draught; Strong, 10 hearts
-(row 1 and 5 Heart), Warden's Fist, Shell Vest, 5 flasks, 2 Mending, 1
-Ward Draught; full oil each. The bench first, step 8 next (offered too:
-both together; step 8 first). Claude's calls: two rows of three buttons,
-From the start and At half, not a switch; the left-out brazier at half is
-the bottom right. D-943 and D-944 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-949 · 2026-11-16 · Gloamlings from snuffed braziers, picked** (D-939's
 step 8; the owner's picks, all recommended; built next, at its own step;
 [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu)) One
@@ -174,3 +156,21 @@ loaded, after the #lampeater link's fight saves again; the link's fight
 itself is still kept nowhere (D-948) (offered too: reload the page
 without the link on leaving the fight). The bot's fights are the same
 before and after.
+
+**D-953 · 2026-11-16 · The Lampeater beaten, and whole again** (D-939's
+step 9, its first part; the owner's picks, all recommended but the last)
+Step 9 is split: now the door and the fall; the way in sealed, the
+one-off Feat and the trophy each at its own step later (offered too: the
+door now and the fall next; all of step 9 at once). Only beating the
+Lampeater opens the arena's sealed door, which sinks open at once; the 4
+braziers lit no longer do, so the fight can't be skipped (changes D-940's
+"until then"; offered too: either one; beaten and all 4 lit). The
+gloamlings left crumble away as it goes, counting nothing (offered too:
+they stay and fight). Left unbeaten, by a fall or by walking out, it is
+whole again when the hero comes back: on its own tile, all 12 hearts, the
+braziers cold, the gloamlings gone (the owner's pick: the same as a fall;
+offered too: only a fall; the way in sealed now). The owner's ideas for
+the sealed way in are kept in Q-112. Claude's calls: the vault's line and
+`open` event for the door; a level gained on the same blow shows its own
+line in the door's place, as ever; its Bestiary words unchanged. D-948
+moves to `archive/DECISIONS-SURFACE.md`, word for word.

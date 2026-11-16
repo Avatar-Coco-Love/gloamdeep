@@ -30,6 +30,7 @@ import { isFitted } from './parts.js';
 import { isWorn } from './worn.js';
 import { campCorner, campTiles } from './camp.js';
 import { openVault } from './vault.js';
+import { inArena } from './beaten.js';
 
 // § pour: a flask from bag slot i into the lantern, never above full, even
 // into a full one (D-078). It passes a turn like a wait, so the oil burns first
@@ -207,11 +208,11 @@ export function shelve(state, x, y) {
 // turn's worth (`OIL.burn`, the owner's "one move of oil"), the tile turning into its `into`,
 // embers, and passes a turn, with its line. With no oil, nothing changes. A `kindle` event.
 // A brazier's costs its `oil` turns' worth instead (D-893); the vault's last, and its door
-// sinks open, said in its line's place, an `open` event (D-895).
+// sinks open, said in its line's place, an `open` event (D-895); never the arena's (D-953).
 export function kindle(state, x, y) {
   const kindles = tileAt(state.room, x, y)?.kindles;
   if (!kindles || !canKindle(state, x, y)) return state;
-  const lit = withTile(state.room, x, y, get(kindles.into)), room = openVault(lit);
+  const lit = withTile(state.room, x, y, get(kindles.into)), room = inArena(state) ? lit : openVault(lit); // only beating the Lampeater opens its door (D-953)
   const next = note(passTurn({ ...state, room, oil: burnOil(state.oil, (kindles.oil || 1) * OIL.burn) }), 'kindle', { id: kindles.into });
   return endTurn(state, room === lit ? say(next, kindles.says) : say(note(next, 'open', { id: 'openDoor' }), 'vaultOpens'));
 }

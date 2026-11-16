@@ -92,3 +92,15 @@ fight is nearly the same, as the arena is. To tune
 again once the gloamlings (step 8) or more before the boss, and so a
 stronger hero, are in: its hearts, its bite, or how long a catch holds.
 With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
+
+**Q-112 · Sealing the Lampeater's way in** (raised 2026-11-16, the
+owner's ideas, with D-953) D-939: the way in seals until it is beaten or
+the hero falls. The owner, word for word: "I love the idea of sealing the
+way in too, as long as we make it clear that the player is stepping into
+some sort of arena. If we decide to close the door at the beginning, I
+could see us going as far as having a cutscene: one that shows the door
+shutting, then the boss, then back to the player. The hallway leading up
+has no music. Once you get to it, the music is boss music. These are just
+ideas." When it seals, how the arena is made clear, a cutscene, the
+music. Its own step, after the Feat and the trophy or before, the owner
+to pick.

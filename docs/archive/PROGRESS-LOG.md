@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.392, Gloamlings from the braziers.** D-939's step 8:
+  one crawls from each brazier it snuffs, onto a dark tile beside it, or
+  waits in the bowl; drops and counts nothing; gone as you leave. The
+  bot strikes them: Lean 25% (was 32%), Middling 98%, Strong all. D-949.
+  Playtest: https://claude.ai/artifact/7WJXNJfBUESS3hr4Cq8oSf
 - **2026-11-16, 0.3.391, The Lampeater on 12 hearts.** Q-111, for now:
   12 hearts, not 8; At half on 6. The bot: Lean wins 32% (was 100%),
   Middling and Strong all, about 26 turns, about one snuff. Owner's pick.

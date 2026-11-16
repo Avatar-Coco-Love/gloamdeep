@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.394 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.395 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater's step 9 (D-939; run `node tools/bossrun.js` before and
-after, D-948).
+The rest of the Lampeater's step 9 (D-953): propose the order of the
+sealed way in (Q-112), the one-off Feat and the trophy; run
+`node tools/bossrun.js` before and after (D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.395, The Lampeater beaten.** D-939's step 9, its
+  first part: only beating it sinks the sealed door; its gloamlings
+  crumble; walked out of or fallen in, it is whole again. The bot: the
+  same. D-953. Playtest: https://claude.ai/artifact/7iLhd7WVA73ddXvy6h1iv6
 - **2026-11-16, 0.3.394, Three bug fixes.** The audit's F-6 to F-8: a
   catch begun as the Lampeater is halved owes its snuff; the spear's
   reach and the Fist's knock sink into it, no flash; after the
@@ -59,8 +64,3 @@ list in `RESEARCH.md`.
   playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the
   creatures to `CONTENT-CREATURES.md`, D-946 and D-947 archived, all word
   for word. Bug hunt: F-6 to F-8, the owner to pick. D-951.
-- **2026-11-16, 0.3.392, Gloamlings from the braziers.** D-939's step 8:
-  one crawls from each brazier it snuffs, onto a dark tile beside it, or
-  waits in the bowl; drops and counts nothing; gone as you leave. The
-  bot strikes them: Lean 25% (was 32%), Middling 98%, Strong all. D-949.
-  Playtest: https://claude.ai/artifact/7WJXNJfBUESS3hr4Cq8oSf

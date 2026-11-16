@@ -2262,3 +2262,21 @@ it waits, owing; a snuffed brazier is lit again as ever, 5 turns' oil
 (D-893); the lantern's gutter for a sound until step 12; its Bestiary
 line adds "At half its hearts, it snuffs your braziers."; a sunk door
 stays open. D-941 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-948 · 2026-11-16 · The boss test bench** (the owner's ask and picks,
+all recommended; [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu))
+A way to start the Lampeater's whole fight again and again: a Boss tab in
+the dev sheet, its buttons starting the fight afresh, just inside the
+arena's door, the Lampeater whole and the braziers cold, or at half (4
+hearts, 3 braziers lit), a dev jump, no turn passed; a #lampeater link
+on the playtest opening straight into it, Middling, kept nowhere; and a
+bot, `tools/bossrun.js`, that plays it on many seeds and prints one line
+a fight, run at every Lampeater step (offered too: one of these alone).
+Three rough builds (offered too: Middling only; your own kit): Lean, 5
+hearts, Knife, 1 Oil Flask; Middling, 7 hearts (Steady Wick, 2 Heart),
+Spear, Rat Hide Vest, 3 flasks, 1 Mending Draught; Strong, 10 hearts
+(row 1 and 5 Heart), Warden's Fist, Shell Vest, 5 flasks, 2 Mending, 1
+Ward Draught; full oil each. The bench first, step 8 next (offered too:
+both together; step 8 first). Claude's calls: two rows of three buttons,
+From the start and At half, not a switch; the left-out brazier at half is
+the bottom right. D-943 and D-944 move to `archive/DECISIONS-SURFACE.md`, word for word.
