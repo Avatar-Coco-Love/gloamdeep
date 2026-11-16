@@ -4,17 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.389 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.390 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 8: gloamlings crawl out of the braziers it snuffs
-(D-939's list, D-947). Propose with mock-ups before building.
+The Lampeater, step 8: gloamlings crawl out of the braziers it snuffs,
+as picked (D-949). Run `node tools/bossrun.js` before and after (D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's draft (D-940).
+- How hard the Lampeater should be (Q-111): the bot wins every fight in
+  about 19 turns; to pick after steps 8 and 9.
 - Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
@@ -47,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.390, The boss test bench.** A Boss tab starts the
+  Lampeater's fight afresh with a rough build; a #lampeater link; the bot
+  tools/bossrun.js. Step 8 picked. Owner's picks. D-948, D-949.
+  Playtest: https://claude.ai/artifact/JtckBPBkWumS4dqQ1mb61T
 - **2026-11-15, 0.3.389, The Lampeater snuffs.** D-939's step 7: from 4
   of its 8 hearts, and after each catch then, it breathes on the lit
   brazier nearest it; 2 turns' shudder, ringed red, a catch stops it;
@@ -57,8 +63,3 @@ list in `RESEARCH.md`.
   turn, so the lantern burns twice as fast and the light pulls in; a
   thread of light, the sip, one line. Owner's picks. D-946.
   Playtest: https://claude.ai/artifact/5ihiwLc2qikEYTyJKjX7JC
-- **2026-11-15, 0.3.387, The Lampeater pinned.** D-939's step 5: caught
-  with no dark tile beside it, it is held 2 more turns, then bursts free
-  across the light toward the dark; it still backs through the lantern's
-  light, never a brazier's; one line as it is pinned. Owner's picks. D-945.
-  Playtest: https://claude.ai/artifact/N196NAkwFT9nmcbNgMFG8m

@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.387 (2026-11-15)
+- The Lampeater can be pinned now. Catch it with no dark tile beside it, say under a lit brazier with you blocking its way, and it can't slip away for 2 more turns: about 4 blows instead of 2.
+- Then it bursts free across the light toward the nearest dark, and can be pinned again once it is back in the dark. It still backs out through your lantern's light, never a brazier's.
+- Decisions: D-945.
+
 ## 0.3.386 (2026-11-15)
 - The Lampeater can be hurt now, but only in light. Light falling on it catches it: it can't move for a turn, burning in a ring of flame, then slips back into the dark. Switch your lantern on beside it for two blows.
 - In the dark your blows still sink into it, and it bites for 2 hearts. It has 8 hearts, shown on its plate; beaten, for now it is simply gone.

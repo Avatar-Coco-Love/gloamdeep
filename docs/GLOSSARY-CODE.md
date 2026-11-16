@@ -99,3 +99,6 @@ code; where this page and a decision disagree, the decision wins.
   (D-262, D-270, D-283, D-285, D-286, D-291).
 - **Seed Explorer:** the title's map of a whole seed (D-214).
 - **Dev tools:** on for everyone (D-086, `DEV-TOOLS.md`).
+- **Boss test bench, Lean, Middling, Strong, bossrun:** the dev sheet's Boss tab and its three rough
+  builds, starting the Lampeater's fight afresh; the #lampeater link; the bot that plays it (D-948,
+  `src/core/bossbench.js`, `tools/bossrun.js`).

@@ -2176,3 +2176,37 @@ beaten, how to fight it after 1 (offered too: a line of who it is from
 the start; not listed till beaten); its words are written at step 9, so
 for now they say only what it does. An arena made before gets it once.
 D-938 moves to `archive/DECISIONS-RELICS.md`, word for word.
+
+**D-943 · 2026-11-15 · The Lampeater moves through the dark** (D-939's
+step 3; the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/PRwWXsBaHUw6jGx24ZT84s))
+It moves a tile a turn only over dark tiles, never onto a lit one, the
+gloamling's way: it sees the hero along a clear line, lit or not, so with
+the lantern lit it comes to the light's edge and waits there (offered
+too: only while the lantern is off; always, anywhere in its arena). Light
+falling on it, it slides back into the dark beside it farthest from the
+hero (offered too: it stays still until the light leaves). Beside the
+hero in the dark it doesn't bite yet: its bite and its number come with
+step 4 (offered too: it bites for 1 now; for 2). Losing the hero, it
+drifts back through the dark to its place below the door (offered too:
+it stays where it lost them). Claude's calls: lit braziers cut off its
+dark as any light does; it never leaves its arena; its Bestiary line
+says "Moves only through the dark, never onto a lit tile."; the 4
+braziers still sink the door.
+
+**D-944 · 2026-11-15 · The Lampeater caught in light** (D-939's step 4;
+the owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/LA82nxtXbNpgENs4DwW5VD))
+Light falling on it, the lantern's or a brazier's, it is caught: held
+where it stands for its next turn, then it slips back into the dark as
+before, so a catch gives 2 blows (offered too: no hold, 1 blow; two
+turns, 3 blows). Only while it is lit do blows hurt it; in the dark they
+still sink. It has 8 hearts, shown on its plate (offered too: 6; 10), and
+bites for 2, only in the dark beside the hero (offered too: 1; 3). Caught,
+it burns: its gloam paled, its eyes white-hot, a ring of flame creeping
+round it (offered too: smoking; eyes only). Claude's calls: lines "The
+Lampeater bites!" and "Caught in your light, it can't move!"; a blow that
+hurts it flashes and hits as any creature's; the gloamling's bite sound
+until step 12; a sting, glob or slam still sinks, the Fist knocks it
+nowhere; beaten, for now it is simply gone (step 9 brings the rest); the
+4 braziers still sink the door; its Bestiary lines say the new rules.

@@ -82,3 +82,11 @@ Still open: the sapling, its make, where it grows and how long.
 idea, with D-926) Perhaps at some point the shovel could dig spots up to
 find something buried. What is buried, where, and how a spot is told
 apart? Its own step, any time.
+
+**Q-111 · How hard the Lampeater should be** (raised 2026-11-16, by the
+boss test bench's first runs, D-948) With steps 3 to 7 as built, the bot
+won all 200 fights with every build, in about 19 turns, from the start:
+4 blows of 2 beat its 8 hearts in 2 catches, so its snuff (D-947) seldom
+comes. Each fight is nearly the same, as the arena is. Its hearts, the
+blows that hurt it, or how long a catch holds may want tuning, the owner
+to pick when, once step 8 and its fall (step 9) are in.

@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.387, The Lampeater pinned.** D-939's step 5: caught
+  with no dark tile beside it, it is held 2 more turns, then bursts free
+  across the light toward the dark; it still backs through the lantern's
+  light, never a brazier's; one line as it is pinned. Owner's picks. D-945.
+  Playtest: https://claude.ai/artifact/N196NAkwFT9nmcbNgMFG8m
 - **2026-11-15, 0.3.386, The Lampeater caught.** D-939's step 4: light
   falling on it holds it a turn, then it slips away, so a catch is 2
   blows; blows hurt only while it is lit; 8 hearts, a bite of 2 in the

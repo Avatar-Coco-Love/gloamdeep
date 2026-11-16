@@ -45,6 +45,8 @@ tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
 tools/perf.js       times play on a simulated slow phone (D-430); Playwright
 tools/release.js    the record-keeping tool: VERSION, history, archive (D-572)
+tools/bossrun.js    the boss test bench's bot: plays the Lampeater's fight on
+                    many seeds, one line a fight (D-948)
 ```
 ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.
