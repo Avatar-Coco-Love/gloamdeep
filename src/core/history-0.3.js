@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.395', date: '2026-11-16', title: 'The Lampeater beaten', lines: [
+    "Beating the Lampeater sinks its sealed door open at once, the way down behind it; lighting all 4 braziers no longer opens it, so the fight can't be skipped.",
+    "As it goes, any gloamlings left crumble away.",
+    "Fall in the fight, or walk out before it's beaten, and it is whole again when you come back: on its own tile, all its hearts, the braziers cold.",
+    "Decisions: D-953. Questions: Q-112 raised, your ideas for sealing the way in. D-948 moved to the archive, word for word.",
+  ] },
   { v: '0.3.394', date: '2026-11-16', title: 'Three bug fixes', lines: [
     "Three bug fixes from the audit. When the blow that takes the Lampeater to half lands on the same turn your light catches it, getting free from that catch now owes it a second snuff, as the rule says.",
     "The spear's reach and the Warden's Fist's knock no longer flash the Lampeater white, or sound a hit, when the blow sinks into it in the dark; the gloamling in front still flashes.",

@@ -3,9 +3,8 @@
 // Lampeater, standing one tile below the tile before its sealed door (step 2, D-941).
 // The arena is the seal hall: a cold brazier in each corner, 4 pillars round its middle, and at
 // its top a wall with a sealed door in its middle and the stairs down 3 tiles deep behind it,
-// ringed by the old seal's stones. Until the Lampeater can be beaten, the 4 braziers lit sink the door, as
-// a vault's do (vault.js, openVault), and they go cold again when the hero leaves a still-sealed
-// arena (coolVault). The hallway is the processional: a road 3 tiles wide from its way in to the
+// ringed by the old seal's stones. Only beating the Lampeater sinks the door (beaten.js, D-953); its
+// braziers lit go cold again when the hero leaves a still-sealed arena (vault.js, coolVault). The hallway is the processional: a road 3 tiles wide from its way in to the
 // arena's, bending once where the two don't face, a line of seal stones down its middle, round
 // pillars every other tile along its sides, 2 cold braziers where it starts, and an open stone
 // door on its top edge, the way into the arena. Drawn in the dungeon's bricks. Plain data, no drawing.

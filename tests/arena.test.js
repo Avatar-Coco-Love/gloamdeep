@@ -6,7 +6,7 @@ import { get } from '../src/core/registry.js';
 import { layoutAt } from '../src/core/region.js';
 import { placeFor, tileAt, stoneRoom, runeWallAt, vaultAt } from '../src/core/room.js';
 import { ARENA_DEPTH, ARENA_DOWN } from '../src/core/arena.js';
-import { openVault, coolVault } from '../src/core/vault.js';
+import { coolVault } from '../src/core/vault.js';
 import { makeWorld, kindle } from '../src/core/turn.js';
 import { goToPlace } from '../src/core/stairs.js';
 import { UPGRADES, FORMAT } from '../src/core/save.js';
@@ -71,7 +71,7 @@ test('the hallway: a road from its way in to the open door into the arena, empty
   }
 });
 
-test('the 4 braziers lit sink the door, for now; left with one cold, the lit ones go cold again', () => {
+test('the 4 braziers lit no longer sink the door (D-953); left sealed, the lit ones go cold again', () => {
   const seed = 3, { arena } = ends(seed);
   let s = { ...goToPlace(makeWorld('first', seed), arena.id), oil: 100 };
   const spots = []; s.room.map.forEach((row, y) => [...row].forEach((ch, x) => ch === get('brazier').letter && spots.push({ x, y })));
@@ -79,7 +79,7 @@ test('the 4 braziers lit sink the door, for now; left with one cold, the lit one
   assert.equal(tileAt(s.room, 6, 4).id, 'sealedDoor');
   assert.equal(tileAt(coolVault(s.room), spots[0].x, spots[0].y).id, 'brazier');
   s = kindle(s, spots[3].x, spots[3].y);
-  assert.equal(tileAt(s.room, 6, 4).id, 'openDoor'); assert.equal(openVault(s.room), s.room);
+  assert.equal(tileAt(s.room, 6, 4).id, 'sealedDoor'); // only beating the Lampeater opens it (D-953)
 });
 
 test('an older save: every generated room from depth 8 down is made again, once; those above kept', () => {

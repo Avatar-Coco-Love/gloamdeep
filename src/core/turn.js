@@ -18,6 +18,7 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
+import { lampeaterBeaten } from './beaten.js';
 import { follow } from './follow.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
@@ -192,7 +193,7 @@ function attack(state, foe) {
   for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }), ...(e.ash && { ash: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720); one from a snuffed bowl too (D-949)
   let said = shove?.name ? say(next, 'foeSlamInto', get(foe.id).name.toLowerCase(), shove.name) : say(next, first.line);
   for (const [id, e] of beaten) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
-  return endTurn(state, said);
+  return endTurn(state, lampeaterBeaten(said)); // the arena's door sinks open, the gloamlings crumble (D-953)
 }
 // § knock back (D-888): the Fist's foe, hit and standing, knocked a tile on (knockOf): onto a free
 // tile it slides there; into a wall it loses 1, into a creature both lose 1, each as a hit of the

@@ -5,13 +5,12 @@
 // nothing is spent; pressed again it starts over. The dev sheet's Boss tab, the playtest's
 // #lampeater link and tools/bossrun.js all start here. Plain data, no drawing.
 import { get } from './registry.js';
-import { layoutAt } from './region.js';
-import { ARENA_DEPTH } from './arena.js';
 import { fresh, arrive } from './stairs.js';
 import { placeFor, withTile } from './room.js';
 import { bagAdd } from './bag.js';
 import { maxHealth } from './state.js';
 import { OIL } from './oil.js';
+import { arenaPlace } from './beaten.js';
 
 // § builds: hearts come from Growth's Heart, so health is 5 and one more for each (D-811)
 export const BUILDS = {
@@ -22,8 +21,8 @@ export const BUILDS = {
 // At half: the braziers left cold, the one at its bottom right (the seal hall's corners, arena.js)
 const HALF_COLD = { x: 10, y: 11 };
 
-// The arena's place id for this seed: the depth-8 cell marked `arena` (region.js, D-940)
-export const arenaPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena).id;
+// The arena's place id for this seed (beaten.js)
+export { arenaPlace };
 
 // § bench: (state, build id, half) → the state in a fresh arena with that build
 export function bench(state, id = 'middling', half = false) {
