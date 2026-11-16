@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.402 (2026-11-16)
+- Coming up to the Lampeater, the music goes quiet: the dungeon's theme fades out as you step into the hallway, and the arena stays silent too. Beat it and the theme comes back; step back down out of the hallway and it comes back as well.
+- Dev: the boss bench and the playtest's #lampeater link now start you in the room below the hallway, one tile under the way up, that room emptied, so you get the whole way up: the warning, the quiet, the seal and the cutscene. The boss bot still starts in the arena's doorway.
+- Decisions: D-960. Questions: Q-112's hallway quiet answered; the boss tune is next. D-957 moved to the archive, word for word.
+
 ## 0.3.401 (2026-11-16)
 - While the Lampeater's way in is sealed, its name and health show at the bottom middle, above the text line: "Lampeater" over a thin bar running from pink to violet, on the same dark glass as the text line. It appears as the cutscene ends.
 - Hurt, the part it lost turns pale, waits a moment, then drains away. A blow that sinks into it in the dark flickers the bar grey and leaves it full.
@@ -32,10 +37,3 @@ Entry format:
 
 ## 0.3.400 (2026-11-16)
 - Docs only: a point raised once a PR is ready to merge is saved for a fresh conversation, not built in the same one.
-
-## 0.3.399 (2026-11-16)
-- The first time on a journey the Lampeater's way in seals behind you, a short cutscene of about 3 seconds: the camera zooms in on the door as it rises out of the floor, glides up to the Lampeater, whose eyes flare as it swells, then zooms back out to you.
-- Black bars slide in at the top and bottom, and the panel, map, lantern and arrow pad fade out till it ends. Taps and keys do nothing while it plays, so it can't be skipped by accident.
-- Every later time, the door just rises out of the floor. With reduced motion the shots cut instead of gliding.
-- Dev: the boss bench now starts you in the arena's doorway, where walking in from the hallway puts you, so your first step up seals the door, and the cutscene plays every time you use it. The bot now wins 34% of fights as Lean (26% from one step further in) and 97% as Middling.
-- Decisions: D-957, D-958. Questions: Q-112's cutscene answered; the boss's name and health bar is next. D-953 and D-954 moved to the archive, word for word.

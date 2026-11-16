@@ -109,3 +109,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - Measure a drafted line before offering it: the hallway's warning the owner picked was too wide for the strip and had to be cut after the pick (0.3.398); `textWidth` in `src/render/font.js` against `W - 4` checks it first.
 - A worry in an answer can change the pick: the owner feared an accidental skip, so the cutscene has none, and its name-and-health idea became its own next step, settled in the same round of questions (0.3.399).
 - A point the owner raises once a PR is ready to merge is saved, not built: note it (Next up or a Q-), merge if asked, and work on it in a fresh conversation, as long ones cost context (the bench move came after 200k, 0.3.399).
+- A point saved at merge time comes back as part of the next step's prompt: the bench's lower start rode with the hallway's quiet, asked as one more question in the same round (0.3.402).

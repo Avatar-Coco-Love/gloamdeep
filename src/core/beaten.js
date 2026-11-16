@@ -15,7 +15,7 @@ const BOSS = 'lampeater';
 // The arena's place id for this seed: the depth-8 cell marked `arena` (region.js, D-940)
 export const arenaPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena)?.id;
 export const inArena = (state) => state.place === arenaPlace(state.seed);
-const hallPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.hall)?.id;
+export const hallPlace = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.hall)?.id;
 // The arena's way in: the gap in its bottom edge, where the hero walks in from the hallway (arena.js)
 const wayIn = (seed) => { const cell = layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena); return { x: cell.doors[0].at, y: cell.rows - 1 }; };
 const unbeaten = (state) => { const kept = state.elsewhere?.[arenaPlace(state.seed)]; return !kept || kept.enemies.some((e) => e.id === BOSS); };
@@ -48,6 +48,10 @@ export function bossFight(state) {
 // § the hallway's warning (D-956): (state, from) → the state just come into the hallway, from
 // anywhere but the arena, with its warning said while the Lampeater is unbeaten; else the same
 export const hallWarns = (state, from) => (state.place === hallPlace(state.seed) && from !== arenaPlace(state.seed) && unbeaten(state) ? say(state, 'hallWarning') : state);
+
+// § the quiet (Q-112, D-960): (state) → true in the hallway and the arena while the Lampeater is
+// unbeaten, where no music plays; beaten, the dungeon's theme comes back in both
+export const quietHere = (state) => (inArena(state) ? state.enemies.some((e) => e.id === BOSS) : state.place === hallPlace(state.seed) && unbeaten(state));
 
 // § open again (D-956): (place, seed, room, enemies) → the room an arena keeps as the hero leaves
 // it, by a fall: with the Lampeater still in it, its way in open again; else the same
