@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.402, The hallway's quiet.** No music in the
+  Lampeater's hallway and arena while it is unbeaten: a 2 s fade on the
+  way in, back once it is beaten. The boss bench starts below the
+  hallway, its room emptied, for the whole way up. D-960. Playtest: https://claude.ai/artifact/Vt23ZSXfiU6iPLtS7rdSXA
 - **2026-11-16, 0.3.401, The Lampeater's bar.** While the way in is
   sealed, "Lampeater" over a pink-to-violet bar on glass, bottom middle;
   a loss pales then drains, a sunk blow flickers grey; beaten, it drains
