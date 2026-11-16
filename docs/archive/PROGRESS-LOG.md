@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.396, Step 9's order.** Docs only: the Feat, then the
+  sealed way in, then the trophy, the first of all, once creatures leave
+  materials; 0.4.0 when the way to depth 9 opens; the surface and depths
+  1 to 8 are chapter 1. D-954.
 - **2026-11-16, 0.3.395, The Lampeater beaten.** D-939's step 9, its
   first part: only beating it sinks the sealed door; its gloamlings
   crumble; walked out of or fallen in, it is whole again. The bot: the

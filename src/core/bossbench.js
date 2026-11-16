@@ -1,8 +1,8 @@
-// § boss bench: the boss test bench (D-948), a dev jump. It puts the hero just inside the Lampeater's
-// arena on depth 8, the arena as it begins (the Lampeater whole, the braziers cold), carrying one
+// § boss bench: the boss test bench (D-948), a dev jump. It puts the hero in the Lampeater's arena's
+// way in, on depth 8, so the first step up seals it behind them (D-958), the arena as it begins (the Lampeater whole, the braziers cold), carrying one
 // of three rough builds of what a player has by then. `half` starts it at half its hearts (6 of 12) with
 // 3 braziers lit, owing its first snuff, for the second half of the fight. No turn passes and
-// nothing is spent; pressed again it starts over. The dev sheet's Boss tab, the playtest's
+// nothing is spent; pressed again it starts over, the cutscene unseen again (`sealSeen`, D-958). The dev sheet's Boss tab, the playtest's
 // #lampeater link and tools/bossrun.js all start here. Plain data, no drawing.
 import { get } from './registry.js';
 import { fresh, arrive } from './stairs.js';
@@ -39,8 +39,9 @@ export function bench(state, id = 'middling', half = false) {
   }
   if (state.place === place) away.place = 'bench'; // standing in it already: left as if from elsewhere
   const bag = Object.entries(b.bag).reduce((acc, [item, n]) => { for (let k = 0; k < n; k++) acc = bagAdd(acc, item); return acc; }, []);
-  const kit = { ...away, held: b.held, tool: null, worn: b.armour ? { armour: [b.armour] } : {}, grown: { ...b.grown }, bag, oil: OIL.start, lit: true, boon: null, poisoned: null, ward: null, glow: null, shade: null, spitproof: null };
-  const out = arrive(kit, place, there, placeFor(place, state.seed).start);
+  const kit = { ...away, sealSeen: false, held: b.held, tool: null, worn: b.armour ? { armour: [b.armour] } : {}, grown: { ...b.grown }, bag, oil: OIL.start, lit: true, boon: null, poisoned: null, ward: null, glow: null, shade: null, spitproof: null };
+  const start = placeFor(place, state.seed).start, door = { x: start.x, y: start.y + 1 }; // the way in, just below the start (arena.js)
+  const out = arrive(kit, place, there, door);
   const { elsewhere } = out;
   if (away.place === 'bench') delete elsewhere.bench;
   return { ...out, elsewhere, health: maxHealth(out) };

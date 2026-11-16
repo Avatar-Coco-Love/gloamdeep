@@ -55,6 +55,7 @@ import { createSlots } from './slots.js';
 import { createHearing } from './hearing.js';
 import { createTouch } from './input/touch.js';
 import { goFullScreen } from './input/fullscreen.js';
+import { cutOver } from './render/cutscene.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
 import { moments } from './render/moments.js';
@@ -215,6 +216,8 @@ Object.assign(app, {
   poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
   fall: null, // { from, lieAt, darkAt, mid, end, ends } after a fall, until the hero wakes (D-234); `ends` after a Hardcore one (D-344)
+  rise: null, // { x, y, start } as the arena's way in seals: its door rising out of the floor (D-957)
+  cutscene: null, // { start, door, boss } the Lampeater's cutscene, the first seal of a journey (Q-112, D-957)
 });
 const ALERT_MS = 900;
 const HIT_FLASH_MS = 140, SHAKE_MS = 120; // the study's (study line 470)
@@ -223,12 +226,12 @@ const DRINK_FLASH_MS = 420; // the oil bar's flicker as a creature drinks: pale,
 // A fall (D-234): the hero lies down, the light closes to the deepest dark over about a
 // second, stays dark a moment, then opens on the start. With reduced motion, only the dark.
 const FALL = { lie: 120, dark: 1000, wake: 1300, end: 1800 }, FALL_STILL_MS = 800;
-const settled = () => !app.travel && !app.fall && app.shown.x === app.state.hero.x && app.shown.y === app.state.hero.y;
+const settled = () => !app.travel && !app.fall && !app.cutscene && app.shown.x === app.state.hero.x && app.shown.y === app.state.hero.y;
 const flashFor = () => { const now = performance.now(); return { until: now + HIT_FLASH_MS, shakeUntil: now + SHAKE_MS }; };
 const snap = (to) => { app.shown.x = to.x; app.shown.y = to.y; };
 
 function tryStep(dir) {
-  if (app.fall) return; // nothing is taken while the hero lies fallen
+  if (app.fall || app.cutscene) return; // nothing is taken while the hero lies fallen, nor in the cutscene (D-957)
   if (waitsInLine(app.screen, settled())) { app.queued = dir; return; } // a card's action happens at once (D-680)
   const before = app.state;
   let to = before.hero;
@@ -294,6 +297,13 @@ function tryStep(dir) {
   if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
   const sank = !fell && !went && state.enemies.find((e) => e.open && !before.enemies.some((b) => b.open && b.x === e.x && b.y === e.y)); // a warden's fists sank into the floor (D-937)
   if (sank && !still()) app.sunk = { x: sank.x, y: sank.y, start: performance.now() };
+  const sealed = events.find((e) => e.type === 'seal'); // the arena's way in sealed: its door rises; the first time, the cutscene (D-957)
+  if (sealed && !still()) app.rise = { x: sealed.x, y: sealed.y, start: performance.now() };
+  if (sealed?.first) {
+    const boss = state.enemies.find((e) => e.id === 'lampeater');
+    app.cutscene = { start: performance.now(), door: { x: sealed.x, y: sealed.y }, boss: boss ? { x: boss.x, y: boss.y } : { x: sealed.x, y: sealed.y } };
+    app.walk = app.padDir = app.hold = app.queued = null; // a walk or a held key ends: nothing goes on after it by itself
+  }
   const woke = events.find((e) => e.type === 'stoneWake'); // the rune kindles (D-591), not a mimic's wake (D-368)
   if (woke && !still()) app.kindle = { x: woke.x, y: woke.y, start: performance.now() };
   // Experience earned shows as it rises over the hero; after stairs, once the new room shows (D-245)
@@ -389,7 +399,7 @@ const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.scre
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = app.rise = app.cutscene = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it
@@ -533,6 +543,7 @@ function update(t) {
   // A fall shows where the hero fell until the dark is deepest, then where they wake (D-234)
   if (fall && t >= fall.mid && fall.from) { fall.from = null; snap(app.state.hero); foeShown = new Map(); if (fall.ends) { sound.ended(); screens.endJourney(); return; } sound.wake(); } // waking after a fall, or the run's end (D-833)
   if (fall && t >= fall.end) app.fall = null;
+  if (app.cutscene && cutOver(app.cutscene, t)) app.cutscene = null; // the Lampeater's cutscene over: play again (D-957)
   const s = app.travel?.from || app.fall?.from || app.state;
   shown.x = approach(shown.x, s.hero.x, dt);
   shown.y = approach(shown.y, s.hero.y, dt);
@@ -579,6 +590,12 @@ function loop(t) {
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
+// § no skip (Q-112, D-957): while the cutscene plays, every press, tap, click and key is
+// stopped before anything hears it, so it can't be skipped or anything opened by accident;
+// a release still goes through, so nothing stays held
+for (const type of ['pointerdown', 'mousedown', 'touchstart', 'keydown', 'wheel', 'click']) {
+  addEventListener(type, (ev) => { if (app.cutscene) { ev.stopImmediatePropagation(); if (ev.cancelable) ev.preventDefault(); } }, { capture: true, passive: false });
+}
 
 // § bench link
 // The playtest's #lampeater link opens straight into the boss test bench, Middling, from the

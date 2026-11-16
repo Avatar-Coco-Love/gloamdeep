@@ -23,11 +23,14 @@ const unbeaten = (state) => { const kept = state.elsewhere?.[arenaPlace(state.se
 // § the way in sealed (Q-112, D-956): (state) → the state with a sealed door risen in the arena's
 // way in, once the hero has taken a step inside past it with the Lampeater still there; else the
 // same state. From then the only ways out are beating it, which sinks every sealed door open, or a fall.
+// Its `seal` event names the door's tile, and `first` the first time on this journey (`sealSeen`),
+// when the cutscene plays (Q-112, D-957, render/cutscene.js)
 export function sealArena(state) {
   if (!inArena(state) || !state.enemies.some((e) => e.id === BOSS)) return state;
   const gap = wayIn(state.seed);
   if ((state.hero.x === gap.x && state.hero.y === gap.y) || tileAt(state.room, gap.x, gap.y).solid) return state;
-  return say(note({ ...state, room: withTile(state.room, gap.x, gap.y, get('sealedDoor')) }, 'seal', { id: 'sealedDoor' }), 'arenaSeals');
+  const sealed = { ...state, room: withTile(state.room, gap.x, gap.y, get('sealedDoor')), sealSeen: true };
+  return say(note(sealed, 'seal', { id: 'sealedDoor', x: gap.x, y: gap.y, first: !state.sealSeen }), 'arenaSeals');
 }
 
 // § the hallway's warning (D-956): (state, from) → the state just come into the hallway, from

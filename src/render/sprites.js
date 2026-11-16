@@ -371,6 +371,19 @@ function drawBurning(c, e, p, t, still) {
     c.fillRect(Math.round(x + 8 + Math.cos(a) * RING.rx - 0.5), Math.round(y + RING.dy + Math.sin(a) * RING.ry - 0.5), 1, 1);
   }
 }
+// § flare (Q-112, D-957): in the cutscene the Lampeater's eyes flare white-hot, its halo widening, and
+// its body shows in their glow, swelling taller once and settling (`swell`, none with reduced motion)
+const FLARE = { reach: 0.6, body: 0.85, tall: 0.3 };
+const HOT_EYES = { lampeater: spriteCanvas({ ...LAMPEATER, rows: LAMPEATER.rows.map((row) => row.replace(/[^p]/g, '.')) }, null, { ...PAL, p: '#efe6cc' }) };
+function drawFlare(c, e, p, up, swell) {
+  const body = SPRITES[e.id], w = body.width, h = Math.round(body.height * (1 + FLARE.tall * swell));
+  const x = Math.round(p.x * 16), foot = Math.round(p.y * 16) - 2 + 15 - lowest(body) + body.height;
+  c.save();
+  c.globalAlpha = FLARE.body * up; c.drawImage(body, x, foot - h, w, h);
+  c.globalAlpha = 1; c.drawImage(GLOW_EYES[e.id], x, foot - h, w, h);
+  c.globalAlpha = up; c.drawImage(HOT_EYES[e.id], x, foot - h, w, h);
+  c.restore();
+}
 // § drinking (D-946): one `drinking` at the light's edge, a thread of light from the middle of the lit
 // tile it drinks from into its mouth, drawn over the dark: 1 pixel wide, sagging a little, flame and
 // white-hot pixels creeping toward its mouth (steady with reduced motion)
@@ -389,7 +402,8 @@ function drawThread(c, e, p, t, still, to = e.drinking, colours = THREAD.colours
     c.fillRect(Math.round(ax + (bx - ax) * f), Math.round(ay + (by - ay) * f + sag), 1, 1);
   }
 }
-export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burning = () => false) {
+// `flare`: (e) → the cutscene's { flare, swell } for one whose eyes flare there, or null (D-957)
+export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burning = () => false, flare = null) {
   const glows = (e) => get(e.id)?.glows || get(e.id)?.eyesGlow;
   const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
   const all = [...enemies.filter(glows).map((e) => [e, at(e), struck(e)]),
@@ -398,17 +412,20 @@ export function drawGlows(c, enemies, t, still, hits = [], at = (e) => e, burnin
   const pulse = still ? 1 : 0.85 + 0.15 * Math.sin(t / 1000 * 2.2);
   glowing = true;
   for (const [e, p, flash] of all) {
+    const flared = (!flash && !burning(e) && flare?.(e)) || null, up = flared?.flare ?? 0;
     const halo = HALOS[e.id] ?? HALO, gx = Math.round(p.x * 16) + 8, gy = Math.round(p.y * 16) + halo.dy;
+    const reach = Math.round(halo.reach * (1 + FLARE.reach * up)); // the halo widens as its eyes flare (D-957)
     c.save(); c.globalCompositeOperation = 'lighten';
-    for (let y = -halo.reach; y <= halo.reach; y++) for (let x = -halo.reach; x <= halo.reach; x++) {
-      const d = Math.hypot(x, y); if (d > halo.reach) continue;
-      const f = (1 - d / halo.reach) * pulse;
+    for (let y = -reach; y <= reach; y++) for (let x = -reach; x <= reach; x++) {
+      const d = Math.hypot(x, y); if (d > reach) continue;
+      const f = (1 - d / reach) * Math.max(pulse, up);
       if (f * 3 < (BAYER[(gy + y) & 3][(gx + x) & 3] + 1) / 16 + 0.55) continue;
       c.fillStyle = f > 0.5 ? halo.inner : halo.outer; c.fillRect(gx + x, gy + y, 1, 1);
     }
     c.restore();
     if (e.drinking && !flash && !burning(e)) drawThread(c, e, p, t, still); // at the light's edge (D-946)
     if (e.breath && !flash && !burning(e)) drawThread(c, e, p, t, still, e.breath, BREATH, true); // breathing on a brazier (D-947)
+    if (flared && up > 0) { drawFlare(c, e, p, up, flared.swell); continue; } // the cutscene's flare (D-957)
     if (BURNING[e.id] && burning(e)) { if (!flash) drawBurning(c, e, p, t, still); } // caught in light (D-944)
     else if (GLOW_EYES[e.id]) { if (!flash) c.drawImage(GLOW_EYES[e.id], Math.round(p.x * 16), Math.round(p.y * 16) - 2 + 15 - lowest(SPRITES[e.id])); } // only its eyes (D-941)
     else drawEnemy(c, e, p, t, still, flash, null);

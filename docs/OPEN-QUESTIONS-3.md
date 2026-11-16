@@ -92,6 +92,9 @@ fight is nearly the same, as the arena is. To tune
 again once the gloamlings (step 8) or more before the boss, and so a
 stronger hero, are in: its hearts, its bite, or how long a catch holds.
 With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
+From 0.3.399 the bench starts in the way in, where walking in from the
+hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
+Middling 97% (the same), Strong all.
 
 **Q-112 · Sealing the Lampeater's way in** (raised 2026-11-16, the
 owner's ideas, with D-953) D-939: the way in seals until it is beaten or
@@ -104,5 +107,5 @@ has no music. Once you get to it, the music is boss music. These are just
 ideas." When it seals, how the arena is made clear, a cutscene, the
 music. Its own step, after the one-off Feat and before the trophy
 (D-954). When it seals and how the arena is made clear: answered by
-D-956. Still open, each its own step: the cutscene, then the hallway's
-quiet, then the boss tune.
+D-956; the cutscene by D-957. Still open, each its own step: the boss's
+name and health bar (D-957), then the hallway's quiet, then the boss tune.

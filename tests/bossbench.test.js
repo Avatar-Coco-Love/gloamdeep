@@ -13,10 +13,11 @@ import { step } from '../src/core/turn.js';
 const boss = (s) => s.enemies.find((e) => e.id === 'lampeater');
 const count = (s, id) => s.room.map.join('').split(get(id).letter).length - 1;
 
-test('it starts just inside the arena, the Lampeater whole and the braziers cold', () => {
+test('it starts in the arena\'s way in, the Lampeater whole and the braziers cold', () => {
   const s = bench(newJourney(3), 'middling');
   assert.equal(s.place, arenaPlace(3));
-  assert.deepEqual(s.hero, placeFor(s.place, 3).start);
+  const start = placeFor(s.place, 3).start;
+  assert.deepEqual(s.hero, { x: start.x, y: start.y + 1 }); // the first step up seals it (D-958)
   assert.equal(boss(s).health ?? get('lampeater').health, 12);
   assert.equal(count(s, 'brazier'), 4);
   assert.equal(count(s, 'brazierLit'), 0);
@@ -53,4 +54,10 @@ test('the bot plays a fight to its end, one line a fight and the sums', () => {
   const out = execFileSync('node', ['tools/bossrun.js', '2', 'middling'], { encoding: 'utf8' }).trim().split('\n');
   assert.equal(out.length, 3);
   assert.match(out[2], /^bossrun: lampeater, Middling, 2 seeds from 1: won \d\/2/);
+});
+
+test('from the bench, the first step up seals the way in, and the cutscene plays again each bench (D-958)', () => {
+  const s = bench({ ...newJourney(3), sealSeen: true }, 'middling'), up = step(s, 'up');
+  assert.equal(s.sealSeen, false);
+  assert.equal(up.events.find((e) => e.type === 'seal')?.first, true);
 });

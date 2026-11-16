@@ -1,6 +1,7 @@
 // § screen: a small native canvas, enlarged with crisp pixels (ART-DIRECTION.md, "Grid and scale")
 import { MARGIN } from '../core/camera.js';
 import { panelWidest } from './panelsize.js';
+import { CLOSE_ROWS } from './cutscene.js';
 
 export const TILE = 16;
 export const COLS = 11;
@@ -28,6 +29,7 @@ export const GLIDE_MS = 400; // the room's zoom glides to a new room's this long
 const roomSize = { cols: 0, rows: 0 }; // the room in play, in tiles (0 on the title)
 let refit = null, titled = false; // the fit, and whether the room canvas is zoomed as the picture (the title's scene)
 let carded = false; // whether a card is open in play, drawn smaller on a squarer screen (D-671)
+let closeUp = 0; // the cutscene's zoom in, 0 to 1 (render/cutscene.js, D-957)
 let shownZoom = 0, glide = null; // the room canvas's zoom last fitted, and { from, start } while it glides (D-448)
 
 // (canvas, list, room, hud) → { ctx, listCtx, roomCtx, hudCtx }: the menus' picture, the list's row
@@ -82,8 +84,9 @@ function fitRoom(room, roomCtx, hud, hudCtx, picture) {
   const box = room.parentElement, bw = box.clientWidth, bh = box.clientHeight;
   const short = Math.min(bw, bh), long = Math.max(bw, bh), along = bw >= bh ? roomSize.cols : roomSize.rows;
   const base = titled ? pictureZoom(bw, bh) : playZoom(bw, bh);
-  const near = titled || !along ? base
+  const fits = titled || !along ? base
     : zoom(Math.max(short / (VIEW_ROWS * TILE), Math.min(long / (along * TILE + 2 * MARGIN), short / (MIN_ROWS * TILE))));
+  const near = closeUp && !titled ? fits + (Math.max(fits, zoom(short / (CLOSE_ROWS * TILE))) - fits) * closeUp : fits; // the cutscene's zoom in (D-957)
   fitLayer(hud, hudCtx, carded && !titled ? cardZoom(base, bw, bh) : base, view, picture);
   shownZoom = glidingTo(near);
   fitLayer(room, roomCtx, shownZoom, roomView, picture);
@@ -148,5 +151,13 @@ export function fitRoomSize(cols, rows, ease = true) {
   if (cols === roomSize.cols && rows === roomSize.rows) { if (glide) refit?.(); return; }
   glide = ease && roomSize.cols && shownZoom ? { from: shownZoom, start: performance.now() } : null;
   roomSize.cols = cols; roomSize.rows = rows;
+  refit?.();
+}
+
+// § close-up (Q-112, D-957): k from 0, the room's own zoom, to 1, about CLOSE_ROWS tiles across the
+// screen's short side, never further out than the room's own; the room canvas fits again as it changes
+export function setCloseUp(k) {
+  if (k === closeUp) return;
+  closeUp = k;
   refit?.();
 }

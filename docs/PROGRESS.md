@@ -4,19 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.398 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.399 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The rest of Q-112, one step each (D-956): the cutscene first, then
-the hallway's quiet, then the boss tune; propose the cutscene's details.
+The rest of Q-112, one step each (D-957): the Lampeater's name and
+health bar next, as D-957 has it; then the hallway's quiet, then the boss tune.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's draft (D-940).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  with gloamlings in, Lean wins 25%, Middling 98%; to tune again any time.
+  from the way in, as walking in (D-958), Lean wins 34%, Middling 97%; to tune any time.
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); a duskstar on the home waystone's ring (Q-103); the herb
   mimic's and the bone rat's rare drops (Q-061); who the keeper is
@@ -49,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal
+  of a journey: zoom on the door rising, up to the Lampeater's flaring
+  eyes, back out; black bars, no skip. The boss bench starts in the way
+  in, the cutscene each time. D-957, D-958. Playtest: https://claude.ai/artifact/EDCQqVCEwt1QAnNadFBa54
 - **2026-11-16, 0.3.398, The way in sealed.** One step inside, a sealed
   door rises behind the hero, with its line; the hallway warns while
   the Lampeater lives; beaten, both doors sink; fallen, it opens again.
@@ -57,7 +61,3 @@ list in `RESEARCH.md`.
   beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
   mark, shown once it is met; earlier wins count, the bench never. The
   fight unchanged, so no boss-bot run. D-955. Playtest: https://claude.ai/artifact/NE3mJEqwHUouQKVM5i2scU
-- **2026-11-16, 0.3.396, Step 9's order.** Docs only: the Feat, then the
-  sealed way in, then the trophy, the first of all, once creatures leave
-  materials; 0.4.0 when the way to depth 9 opens; the surface and depths
-  1 to 8 are chapter 1. D-954.
