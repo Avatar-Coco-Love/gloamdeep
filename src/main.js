@@ -214,6 +214,7 @@ Object.assign(app, {
   sunk: null, // { x, y, start } as a warden's fists sank into the floor: its jolt and chips (D-937)
   crawl: null, // { at: [{ x, y }], start } as gloamlings crawl from a snuffed bowl: they rise (D-949)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
+  quake: null, // { shakeUntil } as the floor gives way round the stairs (Q-113, D-964)
   drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
   poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
   travel: null, // { from, mid, end } while taking stairs: the old room fades out, the new one in (D-135)
@@ -223,6 +224,7 @@ Object.assign(app, {
 });
 const ALERT_MS = 900;
 const HIT_FLASH_MS = 140, SHAKE_MS = 120; // the study's (study line 470)
+const QUAKE_MS = 480; // the floor giving way shakes the room longer than a hit, 4 of its shakes (D-964)
 const POISON_FLASH_MS = 900; // the heart poison takes: green, empty, green, three times (D-654)
 const DRINK_FLASH_MS = 420; // the oil bar's flicker as a creature drinks: pale, dark, pale (D-606)
 // A fall (D-234): the hero lies down, the light closes to the deepest dark over about a
@@ -286,6 +288,7 @@ function tryStep(dir) {
   const events = eventsSince(before, state);
   const poisoned = events.filter((e) => e.type === 'poison').reduce((n, e) => n + e.hurt, 0); // poison's heart flashes green, not the hero red (D-654)
   if (fell || before.health - state.health > poisoned || events.some((e) => e.type === 'bite' && e.hurt > 0)) app.bitten = flashFor(); // in god mode too (D-625)
+  if (has(events, 'giveWay')) app.quake = { shakeUntil: performance.now() + QUAKE_MS }; // the floor gives way: the room shakes (Q-113, D-964)
   if (poisoned) app.poisonHurt = { until: performance.now() + POISON_FLASH_MS, heart: state.god ? state.health - 1 : state.health };
   if (has(events, 'drink')) app.drunk = { until: performance.now() + DRINK_FLASH_MS }; // the oil bar flickers (D-606)
   hear(events);
@@ -417,7 +420,7 @@ const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.scre
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = app.rise = app.cutscene = app.leapArc = null; app.leapReady = false; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.quake = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = app.rise = app.cutscene = app.leapArc = null; app.leapReady = false; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it

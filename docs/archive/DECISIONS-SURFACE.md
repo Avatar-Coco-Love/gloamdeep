@@ -2487,3 +2487,30 @@ the others (0.27); left by a fall, it fades out over 2 s as at any
 change of place; fetched ahead in the quiet hallway so it is ready at
 the seal. The fight is unchanged, so no boss-bot run. D-958 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-962 · 2026-11-16 · Leap, its first step** (the owner's picks, all
+recommended, and the owner's change to where it is kept; builds D-636,
+D-939, D-954) Beating the Lampeater gives Leap, said with its door: "The
+door sinks open. You learn Leap." From then the hero can leap 2 tiles in
+a straight line, landing on the second, one turn, like a step (offered
+too: only learnt, no use yet; a first pit with it; a turn and some oil;
+a turn, then 3 turns' rest). The tile between can be open floor, a
+creature or a low thing (water, rubble, the bench, a brazier), never a
+wall or a tall solid thing (offered too: floor and creatures only;
+anything but walls). A round Leap button on the lantern's arc, left of
+the quick slot, shown once Leap is learnt: a tap gets a leap ready,
+"Leap which way?", its arc turning amber, and the next way picked (a
+swipe, the arrow pad, a tap toward a way, the arrow keys) leaps; tapped
+again, or a tap on the hero, lets it go; J does the same (offered too: a
+tap on a tile 2 away, Shift + arrow; both). Leap is kept on the journey
+only, never the profile: a new journey, or a hardcore fall's fresh
+start, has to earn it again (the owner's change; Claude had offered it
+on the save, as the Feat). Claude's calls: blocked, it is free, "No room
+to land." or "Too tall to leap over."; landing takes what lies there and
+stairs, as a step; no leap across a doorway into the next room yet; a
+level reached on the same blow says "Level {n}. You learn Leap."; the
+hero rises 7 pixels at the middle over about a quarter of a second, a
+shadow left on the ground, and simply lands with reduced motion; no
+sound till its sounds' step; the dev sheet's Hero has a Leap switch.
+The fight is unchanged, so no boss-bot run. Next, the escape. D-959 and
+D-960 move to `archive/DECISIONS-SURFACE.md`, word for word.

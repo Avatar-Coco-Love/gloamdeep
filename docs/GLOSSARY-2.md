@@ -15,7 +15,7 @@ this page neared 8 KB.
 - **Dead end, cache:** the last room of a side branch, with one opening; it holds a cache, 2 or 3 extra finds (flask, herb, oilcap, heartcap) in its far corner, left once (D-650).
 - **Vault, brazier, sealed door:** from depth 2, one dead-end room a floor is a vault: 2 braziers, stone fire bowls, before a sealed door, a stone slab with a flame rune; lit, the braziers open the door on the vault behind it for good, the Open door (L1, D-891, D-892, D-895).
 - **The arena, the hallway, Pillar, Seal stone:** on depth 8 the way ends in the hallway and, above it, the Lampeater's arena, both empty for now. The arena has 4 braziers, 4 pillars and a sealed door with the stairs down behind it; the hallway is a road of seal stones between pillars. Pillar: a round stone column. Seal stone: a floor slab with a flame rune, the Lightkeepers' old seal; names Claude's draft (D-940).
-- **Gap:** where the floor gave way, round the arena's stairs down once the Lampeater is beaten; no step into it, but Leap carries over it (the escape). Name Claude's draft (D-963).
+- **Gap:** where the floor gave way, round the arena's stairs down once the Lampeater is beaten and the hero comes near (D-964); no step into it, but Leap carries over it (the escape). Name Claude's draft (D-963).
 - **Plinth, prize:** behind a vault's door, a small stone plinth holds its prize, the seed's draw: 1 vault in 4 an ember, else 2 of a rare material; bumped, it is taken, the plinth left bare (D-896).
 - **Rune wall:** from depth 1, one wall a floor, a front face in one room, carries three faint violet runes seen across the room only with the lantern off; lit, it is a wall like any other (L3, D-927, D-928). The tile behind it is the nook.
 

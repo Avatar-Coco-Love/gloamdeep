@@ -19,6 +19,7 @@ export function running(app, t, beamMs) {
   if (nudge && t < nudge.until) return true;
   if (hit && (t < hit.until || t < hit.shakeUntil)) return true;
   if (bitten && (t < bitten.until || t < bitten.shakeUntil)) return true;
+  if (app.quake && t < app.quake.shakeUntil) return true; // the floor giving way (D-964)
   if (jab && t < jab.start + JAB_MS) return true;
   if (t < (app.alertUntil || 0)) return true;
   if (gain && t < Math.max(gain.at, app.alertUntil || 0) + GAIN_MS) return true;

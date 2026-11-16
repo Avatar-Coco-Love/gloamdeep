@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.406 (2026-11-16)
+- The floor now waits. Beat the Lampeater and its door sinks open ("The door sinks open. You learn Leap."), but the seal stones round the stairs stay standing.
+- Walk up to the tile before the door, or onto the door, and the floor gives way: the room shakes and the stones fall into the gap. "The floor gives way." Beat the Lampeater while already standing there and it all happens on the same blow, as before.
+- Decisions: D-964. D-962 moved to the archive, word for word.
+
 ## 0.3.405 (2026-11-16)
 - The escape begins. Beat the Lampeater and, as its door sinks open, the old seal stones round the stairs down fall away into a black gap, leaving the stairs standing alone. The last blow now says "The floor gives way. You learn Leap."
 - You can't step into the gap ("Too wide to step across."), but from the open door you can leap over it, straight onto the stairs, and down you go.
@@ -36,8 +41,3 @@ Entry format:
 - The hero rises off the ground as they jump, their shadow left below. With reduced motion they simply land.
 - The dev sheet's Hero section has a Leap switch, to try it without the fight.
 - Decisions: D-962. D-959 and D-960 moved to the archive, word for word.
-
-## 0.3.403 (2026-11-16)
-- The Lampeater has its own boss tune. When its way in seals behind you, a busy, dark, pressing tune starts at once with the door, under the cutscene, and plays the whole fight. Beat it and the tune fades out, and the dungeon's theme comes back a second later.
-- Music's list in Settings has a line for it, Lampeater, after Dungeon.
-- Decisions: D-961. Questions: Q-112 closed, its last part, the boss tune, answered. D-958 moved to the archive, word for word.

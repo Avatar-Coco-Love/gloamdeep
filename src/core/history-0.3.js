@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.406', date: '2026-11-16', title: 'The floor waits', lines: [
+    "The floor now waits. Beat the Lampeater and its door sinks open (\"The door sinks open. You learn Leap.\"), but the seal stones round the stairs stay standing.",
+    "Walk up to the tile before the door, or onto the door, and the floor gives way: the room shakes and the stones fall into the gap. \"The floor gives way.\" Beat the Lampeater while already standing there and it all happens on the same blow, as before.",
+    "Decisions: D-964. D-962 moved to the archive, word for word.",
+  ] },
   { v: '0.3.405', date: '2026-11-16', title: 'The floor gives way', lines: [
     "The escape begins. Beat the Lampeater and, as its door sinks open, the old seal stones round the stairs down fall away into a black gap, leaving the stairs standing alone. The last blow now says \"The floor gives way. You learn Leap.\"",
     "You can't step into the gap (\"Too wide to step across.\"), but from the open door you can leap over it, straight onto the stairs, and down you go.",
