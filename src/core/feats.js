@@ -16,14 +16,27 @@ export const FEATS = [
   // named Torches, not its Records line's Torches lit, so its row fits the upright card (D-723)
   { id: 'torches', text: 'Torches', record: 'torches', tiers: [5, 25, 100], pays: [1, 2, 3] },
 ];
+// § once (D-955): a Feat reached once, by beating a boss: one tier, read from the Bestiary's
+// counts, its row shown only once the creature is met. The Lampeater's pays 3 Glints, a look's price
+export const ONCE = [
+  { id: 'lampeater', text: 'Lampeater', record: 'beat:lampeater', shown: 'met:lampeater', tiers: [1], pays: [3], once: true },
+];
+const ALL_FEATS = [...FEATS, ...ONCE];
+// The counts every Feat reads: the Records, and each one-off Feat's creature's beaten and met
+// counts from the Bestiary's book (D-630); never saved
+export function tally(records = {}, book = {}) {
+  const t = { ...records };
+  for (const f of ONCE) { const id = f.id, b = book?.[id]; t[`beat:${id}`] = b?.beaten ?? 0; t[`met:${id}`] = b?.met ?? 0; }
+  return t;
+}
 
 // How many of a Feat's tiers the records have reached
 export const reached = (feat, records) => feat.tiers.filter((n) => (records[feat.record] ?? 0) >= n).length;
 // The Glints all Feats have paid
-export const glints = (records) => FEATS.reduce((g, f) => g + f.pays.slice(0, reached(f, records)).reduce((a, b) => a + b, 0), 0);
+export const glints = (records) => ALL_FEATS.reduce((g, f) => g + f.pays.slice(0, reached(f, records)).reduce((a, b) => a + b, 0), 0);
 // The Glints a profile has left to spend: those Feats and goals paid (D-706) less the patterns it
 // bought (D-696), its free pick costing none (D-714)
-export const glintsLeft = (p) => Math.max(0, glints(p?.records ?? {}) + (p?.glints ?? 0) - spentOn((p?.bought ?? []).filter((id) => id !== p.gift)));
+export const glintsLeft = (p) => Math.max(0, glints(tally(p?.records, p?.bestiary)) + (p?.glints ?? 0) - spentOn((p?.bought ?? []).filter((id) => id !== p.gift)));
 // What a profile can spend on the Look card: its patterns bought, Glints left, and whether its free
 // pick waits (D-714); a hero not made yet has no Glints, its free pick the one taken on the card or
 // waiting (D-696, D-714)
@@ -41,8 +54,10 @@ const countText = (f, records, write) => {
   const n = reached(f, records), have = records[f.record] ?? 0;
   return n < f.tiers.length ? `${have} of ${write(f.tiers[n])}` : write(f.tiers.at(-1));
 };
+// A one-off Feat's row has no count and one mark, and shows only once its creature is met (D-955)
+const shows = (f, records) => !f.once || (records[f.shown] ?? 0) > 0;
 export function featRows(records) {
-  return FEATS.map((f) => ({ id: f.id, text: f.text, value: countText(f, records, goalText), reached: reached(f, records), tiers: f.tiers.length }));
+  return ALL_FEATS.filter((f) => shows(f, records)).map((f) => ({ id: f.id, text: f.text, value: f.once ? '' : countText(f, records, goalText), reached: reached(f, records), tiers: f.tiers.length, ...(f.once && { once: true }) }));
 }
 // § price (D-696): the note under a locked pattern tried on: its price and the Glints the profile
 // has, and to earn more when they are too few
@@ -54,16 +69,18 @@ export const FREE_PICK = '1 FREE PICK';
 // The Look card's shorter one, in the big hero's name line (D-700)
 export const stageNote = (name, price, have) => `${name}: ${plural(price)}. You have ${have}.${have < price ? ' Earn more from Feats.' : ''}`;
 const TURN = 'Left for the Bestiary, Right for Quests. Esc or the close button goes back.';
-export const featsWords = (p) => `Journal, Feats tab. ${glintsText(p)}. ${FEATS.map((f) => `${f.text}, ${countText(f, p.records, String)}, ${reached(f, p.records)} of ${f.tiers.length} reached`).join('. ')}. ${TURN}`;
+const featWords = (f, t) => (f.once ? `${f.text}, ${reached(f, t) ? 'reached' : 'not yet'}` : `${f.text}, ${countText(f, t, String)}, ${reached(f, t)} of ${f.tiers.length} reached`);
+export const featsWords = (p) => { const t = tally(p.records, p.bestiary); return `Journal, Feats tab. ${glintsText(p)}. ${ALL_FEATS.filter((f) => shows(f, t)).map((f) => featWords(f, t)).join('. ')}. ${TURN}`; };
 
-// § note: the tiers reached between two Records, as "Beaten 10. +1 Glint"; two Feats in one note,
-// "Beaten 10, Flasks 5. +2 Glints", their Glints added up (D-719)
+// § note: the tiers reached between two tallies, as "Beaten 10. +1 Glint"; two Feats in one note,
+// "Beaten 10, Flasks 5. +2 Glints", their Glints added up (D-719); a one-off Feat by its name
+// alone, "Lampeater. +3 Glints" (D-955)
 export function featNote(was, now) {
   const names = [];
   let pays = 0;
-  for (const f of FEATS) {
+  for (const f of ALL_FEATS) {
     const a = reached(f, was), b = reached(f, now);
-    if (b > a) { names.push(`${f.text} ${f.tiers[b - 1]}`); pays += f.pays.slice(a, b).reduce((x, y) => x + y, 0); }
+    if (b > a) { names.push(f.once ? f.text : `${f.text} ${f.tiers[b - 1]}`); pays += f.pays.slice(a, b).reduce((x, y) => x + y, 0); }
   }
   return names.length ? `${names.join(', ')}. +${plural(pays)}` : null;
 }

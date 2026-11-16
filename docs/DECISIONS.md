@@ -101,18 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-950 · 2026-11-16 · The Lampeater on 12 hearts, for now** (the owner's
-pick, recommended; answers part of Q-111; changes D-939's step 3's 8
-hearts, D-947's half and D-948's At half) The Lampeater has 12 hearts,
-not 8; its bite stays 2, its pin 2 turns, its drink as it was (offered
-too: 16 hearts; 12 and a bite of 3; 8 until after step 9). The bot's
-200 fights: Lean won 32% (was 100%), Middling and Strong all, about 26
-turns (was 19), and it snuffs about once a fight (was almost never). To
-be tuned again once there are gloamlings or more before the boss, and so
-a stronger hero. Its own step, before step 8. Claude's calls: its half
-and the bench's At half follow its hearts, 6; D-945 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-951 · 2026-11-16 · The seventeenth audit** (the owner's picks, all
 recommended) At 0.3.393, nothing visible changed. The in-game history's
 0.3.301 to 0.3.350 go from `history-0.3.js` to a new
@@ -180,3 +168,21 @@ text says chapter where old text said biome for a stretch ("chapter 1's
 boss"); old lines keep "biome 1", read as chapter 1, until the next
 audit offers to change them. D-949 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-955 · 2026-11-16 · The Lampeater's one-off Feat** (the owner's
+picks, all recommended; builds D-467, D-695, D-939, D-954, part of
+Q-083) Beating the Lampeater once reaches a one-off Feat named
+Lampeater, its Bestiary name, paying 3 Glints, one look's price (offered
+too: Chapter 1; Lampeater beaten; 6 or 1 Glint). On the Feats tab it is
+a row of its own below the six, after a small gap: the name grey, no
+count, one mark on the right, gold once beaten; its name stays out of
+the counts' column, so nothing moves on the upright card (offered too: a
+row like the others, "0 of 1"; the same row under a heading "Once"). The
+row shows once the Lampeater is met, as the Bestiary (offered too:
+always; only once beaten). Claude's calls: it reads the Bestiary's
+beaten count, so a Lampeater beaten before this pays too, and the boss
+bench, a dev jump, never; the note says "Feat reached: Lampeater. +3
+Glints.", waiting behind the door's line and joining a tier reached on
+the same turn (D-719); the screen reader says "Lampeater, reached" or
+"not yet". The Feats now pay 39 Glints. Next, the sealed way in (Q-112).
+D-950 moves to `archive/DECISIONS-SURFACE.md`, word for word.

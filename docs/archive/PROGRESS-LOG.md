@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.394, Three bug fixes.** The audit's F-6 to F-8: a
+  catch begun as the Lampeater is halved owes its snuff; the spear's
+  reach and the Fist's knock sink into it, no flash; after the
+  #lampeater link, journeys save again. The bot: the same. D-952.
+  Playtest: https://claude.ai/artifact/JnUpHbd6DF6qvrmKhdRWw1
 - **2026-11-16, 0.3.393, The seventeenth audit.** Nothing visible
   changed. 0.3.301 to 0.3.350 of the history to `history-0.3-6.js`, the
   playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the

@@ -2294,3 +2294,15 @@ every time; none). Claude's calls, from the page: no Records, Feat or
 Bestiary count; it acts from the next turn; it never leaves the arena;
 the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
 crawl from the braziers it snuffs."
+
+**D-950 · 2026-11-16 · The Lampeater on 12 hearts, for now** (the owner's
+pick, recommended; answers part of Q-111; changes D-939's step 3's 8
+hearts, D-947's half and D-948's At half) The Lampeater has 12 hearts,
+not 8; its bite stays 2, its pin 2 turns, its drink as it was (offered
+too: 16 hearts; 12 and a bite of 3; 8 until after step 9). The bot's
+200 fights: Lean won 32% (was 100%), Middling and Strong all, about 26
+turns (was 19), and it snuffs about once a fight (was almost never). To
+be tuned again once there are gloamlings or more before the boss, and so
+a stronger hero. Its own step, before step 8. Claude's calls: its half
+and the bench's At half follow its hearts, 6; D-945 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.397 (2026-11-16)
+- Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says "Feat reached: Lampeater. +3 Glints." on your next move after the door sinks.
+- The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.
+- Decisions: D-955. D-950 moved to the archive, word for word.
+
 ## 0.3.396 (2026-11-16)
 - Nothing in the game changed. The rest of the Lampeater's rewards are planned: its Feat next, then the way in sealing behind you, then its trophy, which waits until creatures leave materials.
 - Version 0.4.0 is planned for when the way down to depth 9 opens. The surface and depths 1 to 8 are now called chapter 1.
@@ -34,9 +39,3 @@ Entry format:
 - As it goes, any gloamlings left crumble away.
 - Fall in the fight, or walk out before it's beaten, and it is whole again when you come back: on its own tile, all its hearts, the braziers cold.
 - Decisions: D-953. Questions: Q-112 raised, your ideas for sealing the way in. D-948 moved to the archive, word for word.
-
-## 0.3.394 (2026-11-16)
-- Three bug fixes from the audit. When the blow that takes the Lampeater to half lands on the same turn your light catches it, getting free from that catch now owes it a second snuff, as the rule says.
-- The spear's reach and the Warden's Fist's knock no longer flash the Lampeater white, or sound a hit, when the blow sinks into it in the dark; the gloamling in front still flashes.
-- After the playtest's #lampeater link, a New journey or a profile picked in the same tab is saved again.
-- Decisions: D-952.
