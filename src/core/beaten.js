@@ -53,6 +53,10 @@ export const hallWarns = (state, from) => (state.place === hallPlace(state.seed)
 // unbeaten, where no music plays; beaten, the dungeon's theme comes back in both
 export const quietHere = (state) => (inArena(state) ? state.enemies.some((e) => e.id === BOSS) : state.place === hallPlace(state.seed) && unbeaten(state));
 
+// § the boss tune (Q-112, D-961): (state) → true while the arena's way in is sealed with the Lampeater
+// in it, from the seal, under the cutscene, to the last blow; beaten, left or fallen, false
+export const bossTuneHere = (state) => !!bossFight(state);
+
 // § open again (D-956): (place, seed, room, enemies) → the room an arena keeps as the hero leaves
 // it, by a fall: with the Lampeater still in it, its way in open again; else the same
 export function openWayIn(place, seed, room, enemies) {

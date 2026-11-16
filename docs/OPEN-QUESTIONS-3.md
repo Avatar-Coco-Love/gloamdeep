@@ -95,17 +95,3 @@ With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
 From 0.3.399 the bench starts in the way in, where walking in from the
 hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
 Middling 97% (the same), Strong all.
-
-**Q-112 · Sealing the Lampeater's way in** (raised 2026-11-16, the
-owner's ideas, with D-953) D-939: the way in seals until it is beaten or
-the hero falls. The owner, word for word: "I love the idea of sealing the
-way in too, as long as we make it clear that the player is stepping into
-some sort of arena. If we decide to close the door at the beginning, I
-could see us going as far as having a cutscene: one that shows the door
-shutting, then the boss, then back to the player. The hallway leading up
-has no music. Once you get to it, the music is boss music. These are just
-ideas." When it seals, how the arena is made clear, a cutscene, the
-music. Its own step, after the one-off Feat and before the trophy
-(D-954). When it seals and how the arena is made clear: answered by
-D-956; the cutscene by D-957; the boss's name and health bar by D-959; the
-hallway's quiet by D-960. Still open, its own step: the boss tune.

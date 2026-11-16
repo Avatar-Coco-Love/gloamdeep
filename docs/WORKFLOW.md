@@ -110,3 +110,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A worry in an answer can change the pick: the owner feared an accidental skip, so the cutscene has none, and its name-and-health idea became its own next step, settled in the same round of questions (0.3.399).
 - A point the owner raises once a PR is ready to merge is saved, not built: note it (Next up or a Q-), merge if asked, and work on it in a fresh conversation, as long ones cost context (the bench move came after 200k, 0.3.399).
 - A point saved at merge time comes back as part of the next step's prompt: the bench's lower start rode with the hallway's quiet, asked as one more question in the same round (0.3.402).
+- A tune that must start on a moment has to be fetched before it: the place tunes load when first wanted, so the boss tune is fetched ahead in the quiet hallway, or it would start late at the seal (0.3.403).
