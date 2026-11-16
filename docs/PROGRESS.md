@@ -16,7 +16,7 @@ health bar next, as D-957 has it; then the hallway's quiet, then the boss tune.
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's draft (D-940).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  with gloamlings in, Lean wins 25%, Middling 98%; to tune again any time.
+  from the way in, as walking in (D-958), Lean wins 34%, Middling 97%; to tune any time.
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); a duskstar on the home waystone's ring (Q-103); the herb
   mimic's and the bone rat's rare drops (Q-061); who the keeper is
@@ -50,9 +50,9 @@ list in `RESEARCH.md`.
 
 ## Log (last 3)
 - **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal
-  of a journey: the camera zooms in on the door rising, glides up to the
-  Lampeater, its eyes flaring, and back out, with black bars; no skip.
-  Later seals, the door rises only. D-957. Playtest: https://claude.ai/artifact/EDCQqVCEwt1QAnNadFBa54
+  of a journey: zoom on the door rising, up to the Lampeater's flaring
+  eyes, back out; black bars, no skip. The boss bench starts in the way
+  in, the cutscene each time. D-957, D-958. Playtest: https://claude.ai/artifact/EDCQqVCEwt1QAnNadFBa54
 - **2026-11-16, 0.3.398, The way in sealed.** One step inside, a sealed
   door rises behind the hero, with its line; the hallway warns while
   the Lampeater lives; beaten, both doors sink; fallen, it opens again.

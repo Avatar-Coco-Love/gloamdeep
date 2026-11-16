@@ -180,3 +180,12 @@ cut instead of gliding, the door is simply there and the eyes flare
 with no swell; `sealSeen` on the journey marks it seen. The fight is
 unchanged, so no boss-bot run. D-953 and D-954 move to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-958 · 2026-11-16 · The boss bench at the sealed door** (the
+owner's ask; changes D-948's start) The boss bench, from the dev sheet
+or the playtest's #lampeater link, puts the hero in the arena's way in,
+where walking in from the hallway puts them, so the first step up seals
+the door behind them; and it forgets the cutscene was seen, so it plays
+each time. Claude's calls: at half too; the boss bot starts there as
+well, so its fights match a real way in: over 400 fights Lean wins 34%
+(26% from one step further in), Middling 97% (the same), noted in Q-111.
