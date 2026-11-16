@@ -2210,3 +2210,19 @@ hurts it flashes and hits as any creature's; the gloamling's bite sound
 until step 12; a sting, glob or slam still sinks, the Fist knocks it
 nowhere; beaten, for now it is simply gone (step 9 brings the rest); the
 4 braziers still sink the door; its Bestiary lines say the new rules.
+
+**D-945 · 2026-11-15 · The Lampeater pinned** (D-939's step 5; the
+owner's picks, all recommended;
+[mock-ups](https://claude.ai/artifact/DqDaqWmYgD7JzVDMBzkDAR)) Caught
+with no dark tile beside it, it is pinned: held 2 more turns, then it
+bursts free across the light toward the nearest dark, a tile a turn, and
+can be pinned again once back in the dark (offered too: held as long as
+boxed in, as the code did, lantern off and all; held while the lantern
+is lit). It still backs out through the lantern's light, never another
+(offered too: no light at all, so nearly every catch pins). Pinned, it
+burns as when caught and says "Pinned in the light, it can't slip
+away!" once (offered too: the ring closing; with a dot a turn left); the
+draft "Pinned between the lights" was too wide for the strip (Claude's
+call). Claude's calls: its Bestiary line adds "With no dark beside it,
+it is pinned."; the 4 braziers still sink the door. D-942 moves to
+`archive/DECISIONS-AUDITS.md`, word for word.

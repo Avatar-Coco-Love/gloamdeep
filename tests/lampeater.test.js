@@ -21,9 +21,9 @@ const map = ['TTTTTTTT', 'T......T', 'T......T', 'T......T', 'TTTTTTTT'];
 const at = (extra = {}) => ({ ...makeState(makeRoom(map, SKY, 'woods'), { x: 1, y: 2 }, [], []), enemies: [{ id: 'lampeater', x: 2, y: 2 }], lit: true, oil: 99, ...extra });
 const arenaOf = (seed) => layoutAt(seed, ARENA_DEPTH).cells.find((c) => c.arena);
 
-test('the Lampeater is in the registry: 8 hearts, a bite of 2, dark only, its eyes glow, it burns, blows sink', () => {
+test('the Lampeater is in the registry: 12 hearts, a bite of 2, dark only, its eyes glow, it burns, blows sink', () => {
   const e = get('lampeater');
-  assert.deepEqual([e.name, e.kind, e.health, e.bite, e.ways, e.eyesGlow, e.burns, e.fightAt, e.follows, e.sound], ['Lampeater', 'enemy', 8, 2, ['darkOnly'], true, true, 1, undefined, 'gloam']);
+  assert.deepEqual([e.name, e.kind, e.health, e.bite, e.ways, e.eyesGlow, e.burns, e.fightAt, e.follows, e.sound], ['Lampeater', 'enemy', 12, 2, ['darkOnly'], true, true, 1, undefined, 'gloam']);
   assert.equal(LINES[e.sinks].text, 'Your blow sinks into the gloam.');
   assert.equal(LINES[e.bites].text, 'The Lampeater bites!');
   assert.equal(LINES[e.caughtSays].text, "Caught in your light, it can't move!");
@@ -92,11 +92,11 @@ test('the catch: lantern off it comes, switched on beside it, two blows land, th
   s = switchLantern(s);
   assert.equal(s.turn, turns(inHall({ lit: false, god: true }), 12).turn); // the switch is free
   s = step(s, 'right'); // the lantern's swing: 1
-  assert.deepEqual([s.enemies[0].health, s.enemies[0].x, s.enemies[0].caught], [7, 2, true]);
+  assert.deepEqual([s.enemies[0].health, s.enemies[0].x, s.enemies[0].caught], [11, 2, true]);
   assert.ok(s.events.some((v) => v.type === 'hit' && !v.sank));
   assert.ok(!s.events.some((v) => v.type === 'bite'));
   s = step(s, 'right'); // still held: another
-  assert.equal(s.enemies[0].health, 6);
+  assert.equal(s.enemies[0].health, 10);
   assert.notDeepEqual([s.enemies[0].x, s.enemies[0].y], [2, 2]); // and it slipped away
 });
 
@@ -130,9 +130,9 @@ test('in the dark a blow sinks into it: nothing hurt, a turn passed, its line, a
 
 test('lit, blows hurt it: a knife takes 2, the Fist 2 and knocks it nowhere; out of hearts it is gone', () => {
   const lit = inHall({ lit: true, enemies: [{ id: 'lampeater', x: 2, y: 2 }] });
-  assert.equal(step({ ...lit, held: 'knife' }, 'right').enemies[0].health, 6);
+  assert.equal(step({ ...lit, held: 'knife' }, 'right').enemies[0].health, 10);
   const fist = step({ ...lit, held: 'wardenFist' }, 'right').enemies[0];
-  assert.deepEqual([fist.health, fist.x, fist.y], [6, 2, 2]);
+  assert.deepEqual([fist.health, fist.x, fist.y], [10, 2, 2]);
   const last = step({ ...lit, enemies: [{ id: 'lampeater', x: 2, y: 2, health: 1 }] }, 'right');
   assert.deepEqual(last.enemies, []);
   assert.ok(last.events.some((e) => e.type === 'beat' && e.id === 'lampeater'));
@@ -195,7 +195,7 @@ test('caught with no dark beside it, it is pinned 2 more turns, its line said on
   assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].pinned], [2, 6, 1]);
   assert.equal(s.line.id, 'lampeaterPinned');
   s = step(s, 'up'); // a blow while pinned
-  assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].pinned, s.enemies[0].health], [2, 6, 2, 7]);
+  assert.deepEqual([s.enemies[0].x, s.enemies[0].y, s.enemies[0].pinned, s.enemies[0].health], [2, 6, 2, 11]);
   assert.ok(!s.events.some((v) => v.type === 'say' && v.id === 'lampeaterPinned'));
 });
 
@@ -218,7 +218,7 @@ test('then it bursts free across the light, and goes on to the dark, where it ca
 test('lantern off under a brazier, the pin still ends: 3 blows land, then it is gone', () => {
   let s = wait(boxed()); s = switchLantern(s);
   for (let i = 0; i < 6; i++) s = step(s, 'up');
-  assert.equal(s.enemies[0].health, 8 - 3); // the 2 pinned turns, and the turn it bursts
+  assert.equal(s.enemies[0].health, 12 - 3); // the 2 pinned turns, and the turn it bursts
 });
 
 test('on open floor it still backs through the lantern\'s light, never pinned', () => {

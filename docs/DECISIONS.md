@@ -101,22 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-945 · 2026-11-15 · The Lampeater pinned** (D-939's step 5; the
-owner's picks, all recommended;
-[mock-ups](https://claude.ai/artifact/DqDaqWmYgD7JzVDMBzkDAR)) Caught
-with no dark tile beside it, it is pinned: held 2 more turns, then it
-bursts free across the light toward the nearest dark, a tile a turn, and
-can be pinned again once back in the dark (offered too: held as long as
-boxed in, as the code did, lantern off and all; held while the lantern
-is lit). It still backs out through the lantern's light, never another
-(offered too: no light at all, so nearly every catch pins). Pinned, it
-burns as when caught and says "Pinned in the light, it can't slip
-away!" once (offered too: the ring closing; with a dot a turn left); the
-draft "Pinned between the lights" was too wide for the strip (Claude's
-call). Claude's calls: its Bestiary line adds "With no dark beside it,
-it is pinned."; the 4 braziers still sink the door. D-942 moves to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-946 · 2026-11-15 · The Lampeater drinks from your light** (D-939's
 step 6; the owner's picks, all recommended;
 [mock-ups](https://claude.ai/artifact/Q1D6GPLiHo2Q5JCUefYT27)) Each
@@ -137,7 +121,7 @@ D-940 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 **D-947 · 2026-11-15 · The Lampeater snuffs your braziers** (D-939's
 step 7; the owner's picks, all recommended;
 [mock-ups](https://claude.ai/artifact/CJnP1mQfSUdKkLwpm9wDtZ)) The first
-time it is down to 4 of its 8 hearts it owes a snuff, and another each
+time it is down to 4 of its 8 hearts (6 of 12 by D-950) it owes a snuff, and another each
 time it gets free from a catch or a pin begun after that (offered too:
 then every 10 turns; only once). Owing one, in the dark and not caught,
 it breathes from where it is on the lit brazier nearest it (offered too:
@@ -184,3 +168,15 @@ every time; none). Claude's calls, from the page: no Records, Feat or
 Bestiary count; it acts from the next turn; it never leaves the arena;
 the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
 crawl from the braziers it snuffs."
+
+**D-950 · 2026-11-16 · The Lampeater on 12 hearts, for now** (the owner's
+pick, recommended; answers part of Q-111; changes D-939's step 3's 8
+hearts, D-947's half and D-948's At half) The Lampeater has 12 hearts,
+not 8; its bite stays 2, its pin 2 turns, its drink as it was (offered
+too: 16 hearts; 12 and a bite of 3; 8 until after step 9). The bot's
+200 fights: Lean won 32% (was 100%), Middling and Strong all, about 26
+turns (was 19), and it snuffs about once a fight (was almost never). To
+be tuned again once there are gloamlings or more before the boss, and so
+a stronger hero. Its own step, before step 8. Claude's calls: its half
+and the bench's At half follow its hearts, 6; D-945 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

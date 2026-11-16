@@ -84,9 +84,10 @@ find something buried. What is buried, where, and how a spot is told
 apart? Its own step, any time.
 
 **Q-111 · How hard the Lampeater should be** (raised 2026-11-16, by the
-boss test bench's first runs, D-948) With steps 3 to 7 as built, the bot
-won all 200 fights with every build, in about 19 turns, from the start:
-4 blows of 2 beat its 8 hearts in 2 catches, so its snuff (D-947) seldom
-comes. Each fight is nearly the same, as the arena is. Its hearts, the
-blows that hurt it, or how long a catch holds may want tuning, the owner
-to pick when, once step 8 and its fall (step 9) are in.
+boss test bench's first runs, D-948; part answered by D-950: 12 hearts
+for now) On 8 hearts the bot won all 200 fights with every build, in
+about 19 turns, and its snuff (D-947) seldom came. On 12, Lean wins 32%,
+Middling and Strong all, in about 26 turns, with about one snuff. Each
+fight is nearly the same, as the arena is. To tune
+again once the gloamlings (step 8) or more before the boss, and so a
+stronger hero, are in: its hearts, its bite, or how long a catch holds.

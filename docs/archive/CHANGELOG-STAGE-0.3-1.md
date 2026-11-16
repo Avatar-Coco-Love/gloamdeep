@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.388 (2026-11-15)
+- The Lampeater drinks from your light now. Waiting in the dark at the edge of your lantern's light, it drinks a turn's oil each turn, so your lantern burns twice as fast and its light pulls in, and it creeps in after it.
+- A thread of light runs from the edge into its mouth, the oil bar flickers and you hear a sip; the first time, "The Lampeater drinks your light." It never drinks a brazier's light, and not while caught or pinned.
+- Decisions: D-946.
+
 ## 0.3.387 (2026-11-15)
 - The Lampeater can be pinned now. Catch it with no dark tile beside it, say under a lit brazier with you blocking its way, and it can't slip away for 2 more turns: about 4 blows instead of 2.
 - Then it bursts free across the light toward the nearest dark, and can be pinned again once it is back in the dark. It still backs out through your lantern's light, never a brazier's.

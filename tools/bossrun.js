@@ -90,7 +90,7 @@ for (let k = 0; k < FIGHTS; k++) {
   const r = fight(FIRST + k), L = boss(r.s), hp = (e) => e?.health ?? get('lampeater').health;
   rows.push(r);
   if (flag('quiet')) continue;
-  const tail = r.won ? `hearts ${r.s.health}  oil ${Math.round(r.s.oil * 100)}%` : `${r.why}, it at ${hp(L)}/8`;
+  const tail = r.won ? `hearts ${r.s.health}  oil ${Math.round(r.s.oil * 100)}%` : `${r.why}, it at ${hp(L)}/${get('lampeater').health}`;
   console.log(`seed ${String(r.seed).padEnd(5)} ${r.won ? 'won ' : 'fell'}  turns ${String(r.turns).padStart(3)}  ${tail}  strikes ${r.strikes}  snuffs ${r.snuffs}  kindled ${r.kindles}  flasks ${r.flasks}  its bites ${r.bites}`);
 }
 const won = rows.filter((r) => r.won), mid = (xs) => { const a = [...xs].sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : '-'; };

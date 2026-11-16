@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.388, The Lampeater drinks.** D-939's step 6: waiting
+  at your lantern light's edge, seeing you, it drinks a turn's oil a
+  turn, so the lantern burns twice as fast and the light pulls in; a
+  thread of light, the sip, one line. Owner's picks. D-946.
+  Playtest: https://claude.ai/artifact/5ihiwLc2qikEYTyJKjX7JC
 - **2026-11-15, 0.3.387, The Lampeater pinned.** D-939's step 5: caught
   with no dark tile beside it, it is held 2 more turns, then bursts free
   across the light toward the dark; it still backs through the lantern's
