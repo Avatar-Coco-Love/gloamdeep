@@ -117,34 +117,8 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-962 · 2026-11-16 · Leap, its first step** (the owner's picks, all
-recommended, and the owner's change to where it is kept; builds D-636,
-D-939, D-954) Beating the Lampeater gives Leap, said with its door: "The
-door sinks open. You learn Leap." From then the hero can leap 2 tiles in
-a straight line, landing on the second, one turn, like a step (offered
-too: only learnt, no use yet; a first pit with it; a turn and some oil;
-a turn, then 3 turns' rest). The tile between can be open floor, a
-creature or a low thing (water, rubble, the bench, a brazier), never a
-wall or a tall solid thing (offered too: floor and creatures only;
-anything but walls). A round Leap button on the lantern's arc, left of
-the quick slot, shown once Leap is learnt: a tap gets a leap ready,
-"Leap which way?", its arc turning amber, and the next way picked (a
-swipe, the arrow pad, a tap toward a way, the arrow keys) leaps; tapped
-again, or a tap on the hero, lets it go; J does the same (offered too: a
-tap on a tile 2 away, Shift + arrow; both). Leap is kept on the journey
-only, never the profile: a new journey, or a hardcore fall's fresh
-start, has to earn it again (the owner's change; Claude had offered it
-on the save, as the Feat). Claude's calls: blocked, it is free, "No room
-to land." or "Too tall to leap over."; landing takes what lies there and
-stairs, as a step; no leap across a doorway into the next room yet; a
-level reached on the same blow says "Level {n}. You learn Leap."; the
-hero rises 7 pixels at the middle over about a quarter of a second, a
-shadow left on the ground, and simply lands with reduced motion; no
-sound till its sounds' step; the dev sheet's Hero has a Leap switch.
-The fight is unchanged, so no boss-bot run. Next, the escape. D-959 and
-D-960 move to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-963 · 2026-11-16 · The escape, its first step** (the owner's picks,
+**D-963 · 2026-11-16 · The escape, its first step** Partly superseded by
+D-964 (2026-11-16): when the floor gives way, and the last blow's line. (the owner's picks,
 all recommended, and the line fitted to the strip; builds D-939, D-954,
 D-962) With the last blow on the Lampeater, at once, as its door sinks
 open, the old seal's stones round the stairs down fall away into a gap,
@@ -164,3 +138,20 @@ black drop, its far face and a ragged broken edge below standing ground;
 the map shows it as a wall's outline; a level on the same blow keeps
 "Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
 D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-964 · 2026-11-16 · When the floor gives way** (the owner's picks, all
+recommended; answers part of Q-113; supersedes part of D-963) The last
+blow on the Lampeater sinks its door and teaches Leap, but the seal
+stones stand: "The door sinks open. You learn Leap." The floor gives way
+the first time the hero comes near the stairs after: onto the tile
+before the door, or the door itself, by a step or a leap (offered too:
+only onto the door; the hall's top 2 rows). Then the stones fall into the
+Gap at once, the room shakes, and the strip says "The floor gives way."
+Beaten with the hero already there, it goes on the same blow, saying
+"The floor gives way. You learn Leap." (offered too: nothing said near,
+the shake alone; the one line kept at the last blow). This step is the
+moment and its shake (offered too: the moment alone; with the crumble);
+the crumble's look and a sound come next, a step each. Claude's calls:
+the shake is the hit's 1-pixel jolt, held 480 ms (a hit's is 120); none
+with reduced motion; a level on the same blow keeps "Level {n}. You learn
+Leap.".

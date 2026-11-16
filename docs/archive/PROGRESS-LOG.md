@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.403, The Lampeater's tune.** Its boss tune, "Ludum
+  Dare 28 08", starts at once with the seal and plays the whole fight;
+  beaten, it fades and the dungeon's comes back. Music's list gains
+  Lampeater. Q-112 closed. D-961. Playtest: https://claude.ai/artifact/DzG38H7LYeGiL2BQdMXd3q
 - **2026-11-16, 0.3.402, The hallway's quiet.** No music in the
   Lampeater's hallway and arena while it is unbeaten: a 2 s fade on the
   way in, back once it is beaten. The boss bench starts below the

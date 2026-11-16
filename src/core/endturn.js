@@ -1,4 +1,5 @@
 // § end turn: waiting, and the end of every passed turn (split from turn.js, D-362)
+import { floorGives } from './beaten.js';
 import { say, oilLine } from './lines.js';
 import { discover, levelOf } from './xp.js';
 import { note } from './events.js';
@@ -49,9 +50,10 @@ export const endTurn = (before, cast, free = false) => { // `free`, travel's: no
   if (id === 'oilLow') found = note(found, 'oilLow'); // the flame is getting low: its sputter (D-834)
   if (place !== before.place) found = note(found, 'enter', { place });
   if (found.found.length > after.found.length) found = note(found, 'found', { place });
+  found = floorGives(found); // near the stairs in a beaten arena: the floor gives way (Q-113, D-964)
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
-  const learnt = found.line?.id === 'leapLearnt' && found.line.turn === found.turn; // Leap learnt on the same blow: both on one line (D-962)
+  const learnt = ['leapLearnt', 'doorLeap'].includes(found.line?.id) && found.line.turn === found.turn; // Leap learnt on the same blow: both on one line (D-962)
   const done = level > levelOf(before.xp) ? note(say(found, learnt ? 'levelLeap' : 'levelUp', level), 'level', { n: level }) : found;
   const ticked = free ? done : poisonTick(shadeTick(spitproofTick(wardTick(mendTick(warmTick(stiffTick(slowTick(glowTick(done))))))))); // poisoned counts down before the creatures' turn, so a bite's own turn takes nothing (poison.js, D-654); stiff counts down too (stiff.js, D-759), and the Glow Draught's (glow.js, D-791) and Slowburn's (slowburn.js, D-792), and Warmed's (warmed.js, D-845); the Mending Draught's heart comes before poison's (mending.js, D-794); the Ward Draught's counts down before the creatures' bites (ward.js, D-795), and the Spitproof Draught's before the globs fly (spitproof.js, D-802), and the Shade Draught's before the creatures notice (shade.js, D-806)
   const fell = ticked.fell !== done.fell; // poison took the last heart: the hero woke at the start, and no creature acts (D-655)

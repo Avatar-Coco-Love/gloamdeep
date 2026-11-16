@@ -5,7 +5,7 @@
 // comes back: the Lampeater on its own tile with all its hearts, the braziers cold (vault.js,
 // coolVault) and the gloamlings gone (stairs.js, arrive). Plain data, no drawing.
 import { layoutAt } from './region.js';
-import { ARENA_DEPTH, LAMPEATER_AT } from './arena.js';
+import { ARENA_DEPTH, ARENA_DOWN, LAMPEATER_AT } from './arena.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { note } from './events.js';
@@ -65,15 +65,28 @@ export function openWayIn(place, seed, room, enemies) {
   return tileAt(room, gap.x, gap.y).id === 'sealedDoor' ? withTile(room, gap.x, gap.y, get('floor')) : room;
 }
 
-// § the door: (state) → the state with the arena's sealed door sunk open, the old seal's stones round
-// the stairs down fallen away into a gap (the escape, D-963), the stairs left standing on their own,
-// the gloamlings gone, and Leap learnt for this journey, with one line for all (D-962), once the
-// Lampeater is beaten this action; else the same state
+// § the door: (state) → the state with the arena's sealed door sunk open, the gloamlings gone, and
+// Leap learnt for this journey, with one line for all (D-962), once the Lampeater is beaten this
+// action; with the hero already near the stairs (nearStairs), the floor gives way on the same blow
+// (Q-113, D-964), said on the same line; else the same state
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
-  const swap = [['sealedDoor', 'openDoor'], ['sealStone', 'gap']].map(([a, b]) => [get(a).letter, get(b).letter]);
-  const room = { ...state.room, map: state.room.map.map((row) => swap.reduce((r, [a, b]) => r.split(a).join(b), row)) };
-  return say(note({ ...state, room, enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' }), 'leapLearnt');
+  const opened = note({ ...state, room: swapped(state.room, 'sealedDoor', 'openDoor'), enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' });
+  return nearStairs(state.hero) ? say(givenWay(opened), 'leapLearnt') : say(opened, 'doorLeap');
+}
+
+// § the floor gives way (Q-113, D-964): the old seal's stones round the stairs down fall away into a
+// gap (the escape, D-963), the stairs left standing on their own, as the hero first comes near the
+// stairs once the door is open: onto the tile before the door, or the door itself
+const swapped = (room, a, b) => ({ ...room, map: room.map.map((row) => row.split(get(a).letter).join(get(b).letter)) });
+export const nearStairs = (at) => at.x === ARENA_DOWN.x && (at.y === ARENA_DOWN.y + 2 || at.y === ARENA_DOWN.y + 3);
+const givenWay = (state) => note({ ...state, room: swapped(state.room, 'sealStone', 'gap') }, 'giveWay');
+const standing = (room) => room.map.some((row) => row.includes(get('sealStone').letter));
+// (state) → the state with the floor given way and its line, the first time the hero stands near the
+// stairs in a beaten arena; else the same state
+export function floorGives(state) {
+  if (!state.leap || !inArena(state) || !nearStairs(state.hero) || !standing(state.room) || state.enemies.some((e) => e.id === BOSS)) return state;
+  return say(givenWay(state), 'floorGives');
 }
 
 // § whole again: (place, enemies) → the enemies an arena keeps as the hero leaves it: with the

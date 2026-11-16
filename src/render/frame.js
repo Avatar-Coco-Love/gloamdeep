@@ -374,8 +374,8 @@ export function createFrame(app, ui) {
         else if (app.gain && !fall) drawGain(rc, app.gain.n, sx + nx, sy + ny, t, Math.max(app.gain.at, app.alertUntil), still(), app.gain.heart); // the Fang Charm's heart beside it (D-809) // after a "!", not over it
       });
       // § shake: the room jumps a pixel left and right after a hit; none with reduced motion (study line 432, D-105)
-      // A bite shakes it the same way (D-118).
-      if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil)) && !still()) {
+      // A bite shakes it the same way (D-118), and the floor giving way, for longer (D-964).
+      if (((hit && t < hit.shakeUntil) || (bitten && t < bitten.shakeUntil) || (app.quake && t < app.quake.shakeUntil)) && !still()) {
         const jx = Math.floor(t / 30) % 2 ? 1 : -1;
         rc.drawImage(rc.canvas, jx, 0);
         rc.fillStyle = '#0e0c16'; rc.fillRect(jx > 0 ? 0 : roomView.w - 1, 0, 1, roomView.h);

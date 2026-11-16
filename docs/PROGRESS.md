@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.405 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.406 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The escape's next part (Q-113, the owner's idea): the floor gives way
-as the hero nears the stairs, with a shake and a crumble. Trophy: Q-061.
+The escape's next part (Q-113): the crumble, how the seal stones break
+and fall as the floor gives way; then its sound. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,13 +50,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.406, The floor waits.** Beaten, the Lampeater's door
+  sinks open; the floor gives way, the room shaking, as the hero first
+  comes onto the tile before the door or the door. D-964. Playtest: https://claude.ai/artifact/9qqCxGfzGATCvXXuAYCrNv
 - **2026-11-16, 0.3.405, The floor gives way.** Beaten, the Lampeater's
   seal stones round the stairs fall into a gap; from the open door the
   hero leaps over it onto the stairs. D-963. Playtest: https://claude.ai/artifact/6pEbMhmzsiuvp6qeS9Tt5d
 - **2026-11-16, 0.3.404, Leap.** Beating the Lampeater teaches Leap
   for that journey: the Leap button or J, then a way; 2 tiles over
   floor, a creature or a low thing, a turn. D-962. Playtest: https://claude.ai/artifact/Q5oKPAJkGjnnwYE6uLobHm
-- **2026-11-16, 0.3.403, The Lampeater's tune.** Its boss tune, "Ludum
-  Dare 28 08", starts at once with the seal and plays the whole fight;
-  beaten, it fades and the dungeon's comes back. Music's list gains
-  Lampeater. Q-112 closed. D-961. Playtest: https://claude.ai/artifact/DzG38H7LYeGiL2BQdMXd3q
