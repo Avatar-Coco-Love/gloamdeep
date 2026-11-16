@@ -101,42 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-946 · 2026-11-15 · The Lampeater drinks from your light** (D-939's
-step 6; the owner's picks, all recommended;
-[mock-ups](https://claude.ai/artifact/Q1D6GPLiHo2Q5JCUefYT27)) Each
-turn it waits in the dark beside a tile your lantern lights, seeing you,
-lantern lit, moved or not, it drinks 1 turn's oil from it, so the
-lantern burns twice as fast; less oil, less reach, and it creeps in
-after the shrinking light (offered too: B, your light itself, 1 tile
-every 3 turns, back when it stops; C, 1 tile off while it drinks; 2
-turns' oil; the tick's 5%; only when you stand still; only within 3
-tiles). Shown by a thread of light from the edge into its mouth, the oil
-bar's flicker and the tick's sip, and "The Lampeater drinks your light."
-the first time. Claude's calls: only the lantern's light, never a
-brazier's; never while caught or pinned, or with the lantern off or
-empty; Endless oil takes none (D-626); its Bestiary line adds "At your
-light's edge, it drinks from it."; the 4 braziers still sink the door.
-D-940 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-947 · 2026-11-15 · The Lampeater snuffs your braziers** (D-939's
-step 7; the owner's picks, all recommended;
-[mock-ups](https://claude.ai/artifact/CJnP1mQfSUdKkLwpm9wDtZ)) The first
-time it is down to 4 of its 8 hearts (6 of 12 by D-950) it owes a snuff, and another each
-time it gets free from a catch or a pin begun after that (offered too:
-then every 10 turns; only once). Owing one, in the dark and not caught,
-it breathes from where it is on the lit brazier nearest it (offered too:
-the one nearest you; at random): the flame shudders 2 turns, the tile
-ringed red, a dot a turn left, violet breath from its mouth to it; then
-the brazier is cold, a curl of smoke rising (offered too: 2 turns and
-nothing stops it; no warning). Caught in light before then, the breath
-stops; still owed, it tries again once free, the catch owing one more.
-Lines "The Lampeater breathes on a brazier." and "The brazier gutters
-out." (offered too: one line; none). Claude's calls: with no brazier lit
-it waits, owing; a snuffed brazier is lit again as ever, 5 turns' oil
-(D-893); the lantern's gutter for a sound until step 12; its Bestiary
-line adds "At half its hearts, it snuffs your braziers."; a sunk door
-stays open. D-941 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-948 · 2026-11-16 · The boss test bench** (the owner's ask and picks,
 all recommended; [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu))
 A way to start the Lampeater's whole fight again and again: a Boss tab in
@@ -180,3 +144,19 @@ be tuned again once there are gloamlings or more before the boss, and so
 a stronger hero. Its own step, before step 8. Claude's calls: its half
 and the bench's At half follow its hearts, 6; D-945 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-951 · 2026-11-16 · The seventeenth audit** (the owner's picks, all
+recommended) At 0.3.393, nothing visible changed. The in-game history's
+0.3.301 to 0.3.350 go from `history-0.3.js` to a new
+`src/core/history-0.3-6.js` (52 KB to 24 and 28; offered too: the place
+and people lines out of `lines.js`; a section out of `main.js`). The
+playbook's lines since the last audit, and the one 0.3.390's PR kept, go
+to a new `WORKFLOW-7.md`; the hero to a new `GLOSSARY-HERO.md`; the
+creature list to a new `CONTENT-CREATURES.md` (its test and
+`tools/make.js` follow it); D-946 and D-947 to
+`archive/DECISIONS-SURFACE.md` (offered too: D-948 and D-949 as well;
+none); all word for word. "Waiting on the owner" is on fewer lines. A
+bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
+`BUGS.md`; which to fix, and when, is the owner's pick (the owner was
+away; the owner asked that the audit be merged once done). The next
+audit is at 0.3.433.
