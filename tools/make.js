@@ -85,7 +85,7 @@ const MAKE = {
     addArt(f, id, true);
     insert(f, 'src/core/room.js', 'const POOL = [', '\n];', `\n  { id: ${q(id)}, from: Infinity ${B} }, // made by tools/make.js: only the dev tools until its depth is chosen`);
     addTest(f, id, name, 'enemy', [`${id}Die`, `${id}Bite`]);
-    addRow(f, 'docs/CONTENT.md', '## Creatures', id, 5);
+    addRow(f, 'docs/CONTENT-CREATURES.md', '## Creatures', id, 5);
   },
   find(f, id, name) {
     insert(f, 'src/core/items.js', 'export const ITEMS = {', '\n};', `\n  // ${name}: made by tools/make.js (D-622)\n  // blank: ${id}, where it lies (cave.js finds, woods.js or room.js)\n  ${id}: { id: ${q(id)}, kind: 'item', name: ${q(name)}, bag: true, max: 1 ${B}, says: '${id}Take', look: '${id}Look' },`);

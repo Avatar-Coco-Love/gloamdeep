@@ -52,8 +52,9 @@ ES modules (`<script type="module">`). Tests use Node's built-in test
 runner, with no dependencies.
 
 ## Adding content (D-363)
-Content is registry data first. A new row goes in `docs/CONTENT.md`, its
-word in `GLOSSARY.md`, and its numbers in `DECISIONS.md`. The dev spawn
+Content is registry data first. A new row goes in `docs/CONTENT.md` (a
+creature's in `CONTENT-CREATURES.md`, D-951), its word in `GLOSSARY.md`,
+and its numbers in `DECISIONS.md`. The dev spawn
 tool, the creature list, saves and the bag read the registry by
 themselves. Each kind also touches:
 

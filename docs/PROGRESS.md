@@ -17,23 +17,23 @@ Run `node tools/bossrun.js` before and after (D-948).
 - The names Pillar and Seal stone, Claude's draft (D-940).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   with gloamlings in, Lean wins 25%, Middling 98%; to tune again any time.
-- Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
-  the home waystone's ring (Q-103); the herb mimic's and the bone rat's
-  rare drops (Q-061); who the keeper is (Q-084).
-- Sound on an older iPhone, tried when one is to hand (H-22, D-868).
-- The shovel's sapling (Q-106) and digging up buried things (Q-108), each its own step.
-- Deep moles for the stone floors (Q-096), the owner's idea, its own step.
+- Any time: a sound for the vault door and the rune wall opening (D-895,
+  D-929); a duskstar on the home waystone's ring (Q-103); the herb
+  mimic's and the bone rat's rare drops (Q-061); who the keeper is
+  (Q-084); sound on an older iPhone, when one is to hand (H-22, D-868).
+- Each its own step: the shovel's sapling (Q-106), digging up buried
+  things (Q-108), deep moles for the stone floors (Q-096, the owner's idea).
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
   special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), daylight in very big
   rooms (Q-097), fires below ground (Q-088), sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
-  water or wood, and where the wood step plays; music is in every place (D-837 to D-841); more sounds all around (wind, birds, crickets;
-  set aside for now, D-836); swaps for Claude's picks (D-833) any time;
-  then weather (Q-035): rain, fog, their effects, their creatures.
-- The lab and its recipes (Q-093, D-785); then the bow
-  (Q-094); then cooking, at home and at campfires.
+  water or wood, and where the wood step plays; music is in every place
+  (D-837 to D-841); wind, birds, crickets set aside for now (D-836);
+  swaps for Claude's picks (D-833) any time; then weather (Q-035).
+- The lab and its recipes (Q-093, D-785); then the bow (Q-094); then
+  cooking, at home and at campfires.
 
 ## Build plan: stage 0.3, the world (D-168, order approved; may change)
 Ticked steps are in `archive/PROGRESS-LOG.md`. Tick a step

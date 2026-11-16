@@ -7,12 +7,12 @@ taught us about working together (D-518). The rules in force are in
 `CLAUDE.md` and `PR-CHECKLIST.md`. This page explains them.
 `WORKFLOW-2.md` has how the game grew, our tools, what bugs taught us,
 the design habits (D-741) and starting a new project; `WORKFLOW-3.md`
-to `WORKFLOW-6.md` what each audit added (D-782, D-826, D-868, D-910).
+to `WORKFLOW-7.md` what each audit added (D-782, D-826, D-868, D-910, D-951).
 
 ## The project so far
 
-Started 2026-10-17. By 2026-11-14: version 0.3.353, about 628 pull
-requests, 910 decisions, 109 questions asked, 16 audits. One owner, who
+Started 2026-10-17. By 2026-11-16: version 0.3.393, about 667 pull
+requests, 951 decisions, 111 questions asked, 17 audits. One owner, who
 decides; Claude proposes and builds. Plain HTML, CSS and JavaScript,
 phone first, nothing outside the code (D-003).
 
@@ -94,24 +94,10 @@ phone first, nothing outside the code (D-003).
 
 Each audit's lessons, from the twelfth on, are in `WORKFLOW-3.md` (D-782),
 the fourteenth's in `WORKFLOW-4.md` (D-826), the fifteenth's in
-`WORKFLOW-5.md` (D-868), and the sixteenth's in `WORKFLOW-6.md` (D-910).
+`WORKFLOW-5.md` (D-868), the sixteenth's in `WORKFLOW-6.md` (D-910), and
+the seventeenth's in `WORKFLOW-7.md` (D-951).
 
 ## Since the last audit
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
-
-- A rule broken twice needs a check, not only words: the next prompts came before a merge again, and the owner, back later, took them as the merge done; now the handoff waits for "merged" and checks GitHub first (0.3.365).
-- Check a picked spot against the map before building: the tile below the sealed door was its only way in, so a boss standing there would have shut depth 9; a second question with two pictures settled it (0.3.383).
-- Try the rule on many seeds before showing it: "entered from below" hung on one seed in 12, caught by running 1500 (0.3.382).
-- Lifting a safety rule can open a trap: dropping the "room stays joined" check showed that a full bag kept a regrown tree standing, so the fix asked about it before building (0.3.366).
-- A mock-up painted onto the running game, through a small drawing hook added only in the headless browser, put each look on real rooms in the dark, and the build reused its pixels (0.3.370).
-- Measure a drafted line before offering it: D-927's lit line, settled a step early, and this step's first open line were both too wide for the strip, found only by the tests, so the owner was asked twice (0.3.371).
-- A mock-up page can load the game's own drawing code with no server: the headless browser answers its requests from the repo's files, so each option used the real sprites, floor and number font (0.3.378).
-- An owner's free answer can beat every offered option: asked when a follower comes in, the owner reasoned it out (3 tiles away, a few tiles' lead), and that became the rule; the questions after built on it (0.3.367).
-- Check a bug note in the code before offering fixes: B-006 was already how the game worked, so the first question offered the cases it might mean, and the owner could close it as not a bug (0.3.372).
-- Turn the owner's screen into game pixels before guessing: a 1920 × 1080 PC gives a bag card narrower than a phone's, so the existing text-fit test, given those sizes, showed the bug and a second one (0.3.375).
-- Simulate a fight's turns before offering its numbers: the owner's "open for 1 turn" would have opened the Warden only while the hero stepped back beside it, so the mock-up showed it open till it next acts, and the owner saw it before any build (0.3.379).
-- Split a big wish into its small first step before building: B-011's "many kinds on one tile" is a new system, so the question offered one stack of a kind now and kept the mixed pile for its own step with a mock-up, and the owner agreed (0.3.376).
-- Check a mock-up's "unused" before building on it: the Warden's clink was already Making's, so a sound board put the two side by side at three lower pitches and the owner picked by ear (0.3.380).
-- A big design step goes on one page: what's on record, how other games do it, three concepts each with an arena mock-up and a turn strip, then a build list, so the owner picks the whole shape in one round of four questions (0.3.381).
