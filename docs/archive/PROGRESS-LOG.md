@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal
+  of a journey: zoom on the door rising, up to the Lampeater's flaring
+  eyes, back out; black bars, no skip. The boss bench starts in the way
+  in, the cutscene each time. D-957, D-958. Playtest: https://claude.ai/artifact/EDCQqVCEwt1QAnNadFBa54
 - **2026-11-16, 0.3.398, The way in sealed.** One step inside, a sealed
   door rises behind the hero, with its line; the hallway warns while
   the Lampeater lives; beaten, both doors sink; fallen, it opens again.

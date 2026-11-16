@@ -58,6 +58,7 @@ import { goFullScreen } from './input/fullscreen.js';
 import { cutOver } from './render/cutscene.js';
 import { createFrame, FADE_MS } from './render/frame.js';
 import { createSound, dripsIn, dripGap, musicOf } from './render/sound.js';
+import { quietHere } from './core/beaten.js';
 import { moments } from './render/moments.js';
 import { createDev } from './dev/dev.js';
 import { addAppCard } from './render/appicon.js';
@@ -499,7 +500,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
-  bench: (build, half) => { app.jumped = true; return bench(app.state, build, half); }, // the boss test bench, a dev jump (D-948)
+  bench: (build, half) => { app.jumped = true; return bench(app.state, build, half, true); }, // the boss test bench, a dev jump, from below the hallway (D-948, D-960)
   loadSpot: (s) => { app.jumped = true; app.journeySeed = s.seed; return s; }, // a test spot is a dev jump (D-627, D-232)
   goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
@@ -583,7 +584,7 @@ function net(part) {
 function loop(t) {
   net(turnPage);
   if (!screens.onTitle()) { net(() => update(t)); net(() => keepDrips(t)); }
-  net(() => sound.music(screens.onTitle() || !app.state ? null : musicOf(app.state.room.dark?.sky, lookHere()))); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841)
+  net(() => sound.music(screens.onTitle() || !app.state || quietHere(app.state) ? null : musicOf(app.state.room.dark?.sky, lookHere()))); // the surface's theme, home too, the crypt's, the rock caves', the warrens' and the dungeon's below; none on the title (D-837 to D-841), nor on the way to the Lampeater (D-960)
   net(keepJourney);
   net(() => keepPlayed(t));
   net(() => frame.draw(t));
@@ -599,11 +600,11 @@ for (const type of ['pointerdown', 'mousedown', 'touchstart', 'keydown', 'wheel'
 
 // § bench link
 // The playtest's #lampeater link opens straight into the boss test bench, Middling, from the
-// start, in a new world kept nowhere, so a profile's journey is never saved over (D-948)
+// start, below the hallway (D-960), in a new world kept nowhere, so a profile's journey is never saved over (D-948)
 // (at the end, once everything it draws with is made)
 let benchLinked = false;
 try { benchLinked = location.hash === '#lampeater'; } catch { /* no address */ }
 if (benchLinked) {
-  app.benchLink = true; app.state = bench(newWorld(), 'middling', false); app.jumped = true;
+  app.benchLink = true; app.state = bench(newWorld(), 'middling', false, true); app.jumped = true;
   freshView(); screens.show('play');
 }

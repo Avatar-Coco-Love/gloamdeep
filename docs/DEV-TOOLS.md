@@ -84,12 +84,13 @@ tools to be chosen together later.
   slot is empty (D-627). Code: `src/core/spots.js`.
 - Boss: the boss test bench (D-948). Two rows, From the start and At
   half, of three builds, Lean, Middling, Strong; each button starts the
-  Lampeater's fight afresh in its arena's way in on depth 8, so the
-  first step up seals it and, each time, plays the cutscene (D-958); the build
+  Lampeater's fight afresh in the room below its hallway on depth 8, one
+  tile below the way up, that room emptied, for the whole way up: the
+  warning, the quiet, the seal and, each time, the cutscene (D-958, D-960); the build
   carried, full oil and hearts; at half it has 4 hearts and 3 braziers are
   lit. A dev jump, no turn passed. The playtest's #lampeater link opens
   straight into it, Middling, kept nowhere. `tools/bossrun.js` plays it on
-  many seeds. Code: `src/core/bossbench.js`.
+  many seeds, from the arena's way in. Code: `src/core/bossbench.js`.
 
 ## Candidates (the owner picks; record each pick as a decision)
 - Step enemies one turn at a time

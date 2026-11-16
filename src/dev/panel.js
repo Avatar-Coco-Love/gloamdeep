@@ -205,8 +205,8 @@ export function buildPanel(panel, opts, saved, game) {
     spots.append(label, row(save, load));
   }
 
-  // § boss: the boss test bench (D-948). Each button starts the Lampeater's fight afresh, just
-  // inside its arena on depth 8, with a rough build: from the start, or at half (6 hearts, 3
+  // § boss: the boss test bench (D-948). Each button starts the Lampeater's fight afresh, in the
+  // room below its hallway on depth 8 (D-960), with a rough build: from the start, or at half (6 hearts, 3
   // braziers lit). A dev jump, no turn passed (bossbench.js).
   const boss = section('boss', 'Boss');
   const builds = (half) => Object.assign(row(...Object.entries(BUILDS).map(([id, b]) => button(b.name, () => game.set(game.bench(id, half))))), { className: 'dev-row dev-three' });

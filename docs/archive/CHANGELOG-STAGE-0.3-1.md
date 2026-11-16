@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.399 (2026-11-16)
+- The first time on a journey the Lampeater's way in seals behind you, a short cutscene of about 3 seconds: the camera zooms in on the door as it rises out of the floor, glides up to the Lampeater, whose eyes flare as it swells, then zooms back out to you.
+- Black bars slide in at the top and bottom, and the panel, map, lantern and arrow pad fade out till it ends. Taps and keys do nothing while it plays, so it can't be skipped by accident.
+- Every later time, the door just rises out of the floor. With reduced motion the shots cut instead of gliding.
+- Dev: the boss bench now starts you in the arena's doorway, where walking in from the hallway puts you, so your first step up seals the door, and the cutscene plays every time you use it. The bot now wins 34% of fights as Lean (26% from one step further in) and 97% as Middling.
+- Decisions: D-957, D-958. Questions: Q-112's cutscene answered; the boss's name and health bar is next. D-953 and D-954 moved to the archive, word for word.
+
 ## 0.3.398 (2026-11-16)
 - One step into the Lampeater's arena, past its way in, a sealed door rises behind you: "The way behind you seals." Standing in the doorway, you can still turn back.
 - Coming up the hallway while the Lampeater is unbeaten, a warning: "The seal hall: once in, no way back."

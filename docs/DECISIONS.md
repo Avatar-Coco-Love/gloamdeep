@@ -117,33 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-957 · 2026-11-16 · The Lampeater's cutscene** (the owner's picks,
-all recommended, with the owner's own ideas for skipping and the boss's
-name and health; answers part of Q-112; builds D-956) The first time on
-a journey the way in seals, a cutscene of about 3 s: the camera zooms
-in on the door as it rises out of the floor, glides up to the Lampeater,
-whose eyes flare as its body swells once and settles, then zooms back
-out to the hero (offered too: no camera move; the door only). Black
-bars slide in at the top and bottom, and the panel, map, lantern and
-arrow pad fade out till it ends (offered too: the controls fade only;
-nothing). No skip: taps, clicks and keys do nothing while it plays, so
-nothing is skipped or opened by accident (the owner's worry; offered
-too: hold to skip; a tap skipping it). Every later seal, the door rises
-only, about 1 s. The owner's idea: the boss's name and health shown on
-screen, as most games do: its own next step, a thin bar in its
-pink-violet emptying as it is hurt, "Lampeater" above it, bottom middle
-above the text line, from the cutscene's end through the fight, gone
-once it is beaten or the hero leaves or falls (offered too: 12 small
-hearts; a bar and a number; top middle; this step; in the cutscene
-only). Claude's calls: the zoom in is about 7 tiles across the screen's
-short side, and the camera may go past the room's edge while zoomed in,
-so each shot is in the middle; "The way behind you seals." waits till
-the cutscene ends; no sound, as D-956; with reduced motion the shots
-cut instead of gliding, the door is simply there and the eyes flare
-with no swell; `sealSeen` on the journey marks it seen. The fight is
-unchanged, so no boss-bot run. D-953 and D-954 move to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-958 · 2026-11-16 · The boss bench at the sealed door** (the
 owner's ask; changes D-948's start) The boss bench, from the dev sheet
 or the playtest's #lampeater link, puts the hero in the arena's way in,
@@ -172,3 +145,21 @@ under a card and in the cutscene; with reduced motion no pale piece, no
 fade, and the grey a steady moment. The fight is unchanged, so no
 boss-bot run. D-955 and D-956 move to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-960 · 2026-11-16 · The hallway's quiet** (the owner's picks, all
+recommended, and the owner's ask for the bench; part of Q-112; builds
+D-956) While the Lampeater is unbeaten, no music plays in its hallway or
+its arena: the dungeon's theme fades out over 2 s, as at any change of
+place, as the hero steps into the hallway, and stays gone in the arena
+till the boss tune's step fills it (offered too: the hallway only; quiet
+even once beaten; a slow fade of about 6 s; a cut). Beaten, the dungeon's
+theme comes back in both; stepping back down out of the hallway brings it
+back too. The owner's ask: the boss bench, from the dev sheet or the
+playtest's #lampeater link, starts the hero in the room before the
+hallway, one tile below its way up into it, that room's creatures gone, so
+the whole way up plays: the warning, the quiet, the seal, the cutscene
+(offered too: that room as made; just inside the hallway). Both From the
+start and At half; the arena waits as the bench makes it. The boss bot
+still starts in the arena's way in, so its fights match D-958's (offered
+too: below, as the bench). The fight is unchanged, so no boss-bot run.
+D-957 moves to `archive/DECISIONS-SURFACE.md`, word for word.

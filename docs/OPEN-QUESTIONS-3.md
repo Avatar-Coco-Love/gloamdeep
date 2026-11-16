@@ -107,5 +107,5 @@ has no music. Once you get to it, the music is boss music. These are just
 ideas." When it seals, how the arena is made clear, a cutscene, the
 music. Its own step, after the one-off Feat and before the trophy
 (D-954). When it seals and how the arena is made clear: answered by
-D-956; the cutscene by D-957; the boss's name and health bar by D-959.
-Still open, each its own step: the hallway's quiet, then the boss tune.
+D-956; the cutscene by D-957; the boss's name and health bar by D-959; the
+hallway's quiet by D-960. Still open, its own step: the boss tune.

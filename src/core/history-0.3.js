@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.402', date: '2026-11-16', title: 'The hallway\'s quiet', lines: [
+    "Coming up to the Lampeater, the music goes quiet: the dungeon's theme fades out as you step into the hallway, and the arena stays silent too. Beat it and the theme comes back; step back down out of the hallway and it comes back as well.",
+    "Dev: the boss bench and the playtest's #lampeater link now start you in the room below the hallway, one tile under the way up, that room emptied, so you get the whole way up: the warning, the quiet, the seal and the cutscene. The boss bot still starts in the arena's doorway.",
+    "Decisions: D-960. Questions: Q-112's hallway quiet answered; the boss tune is next. D-957 moved to the archive, word for word.",
+  ] },
   { v: '0.3.401', date: '2026-11-16', title: 'The Lampeater\'s bar', lines: [
     "While the Lampeater's way in is sealed, its name and health show at the bottom middle, above the text line: \"Lampeater\" over a thin bar running from pink to violet, on the same dark glass as the text line. It appears as the cutscene ends.",
     "Hurt, the part it lost turns pale, waits a moment, then drains away. A blow that sinks into it in the dark flickers the bar grey and leaves it full.",

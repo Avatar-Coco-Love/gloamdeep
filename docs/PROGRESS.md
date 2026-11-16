@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.401 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.402 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The rest of Q-112, one step each (D-957): the hallway's quiet next
-(no music on the way to the Lampeater); then the boss tune.
+The last of Q-112 (D-957): the boss tune, the Lampeater's music in its
+arena (the hallway's quiet is in, D-960).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -49,13 +49,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.402, The hallway's quiet.** No music in the
+  Lampeater's hallway and arena while it is unbeaten: a 2 s fade on the
+  way in, back once it is beaten. The boss bench starts below the
+  hallway, its room emptied, for the whole way up. D-960. Playtest: https://claude.ai/artifact/Vt23ZSXfiU6iPLtS7rdSXA
 - **2026-11-16, 0.3.401, The Lampeater's bar.** While the way in is
   sealed, "Lampeater" over a pink-to-violet bar on glass, bottom middle;
   a loss pales then drains, a sunk blow flickers grey; beaten, it drains
   and fades. D-959. Playtest: https://claude.ai/artifact/TQzteQiWyGMhHUn4BFdQBe
 - **2026-11-16, 0.3.400, Points at merge time.** Docs only: a point
   raised at merge time waits for a fresh conversation (WORKFLOW.md).
-- **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal
-  of a journey: zoom on the door rising, up to the Lampeater's flaring
-  eyes, back out; black bars, no skip. The boss bench starts in the way
-  in, the cutscene each time. D-957, D-958. Playtest: https://claude.ai/artifact/EDCQqVCEwt1QAnNadFBa54
