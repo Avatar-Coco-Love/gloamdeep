@@ -1,6 +1,7 @@
 // § bossrun: the boss test bench's bot (D-948). It starts the Lampeater's fight from the bench
 // (src/core/bossbench.js) on many seeds and plays it as a player who knows the rules would: lantern
-// off to lure it, on again as it comes beside you, strike while it burns, light the cold braziers
+// off to lure it, on again as it comes beside you, strike while it burns, strike a gloamling beside you
+// (D-949), light the cold braziers
 // it can reach you through, pour a flask when the oil runs low, drink a Mending Draught when the
 // hearts do. One line a fight, then the sums. Not part of the game: the game has no build step.
 //
@@ -53,6 +54,8 @@ function act(s) {
     const lit = s.lit ? s : switchLantern(s);
     return [step(lit, dirTo(s.hero, L)), litAt(lit, L.x, L.y) ? 'strike' : 'swing'];
   }
+  const g = s.enemies.find((e) => e.ash && near(s.hero, e));
+  if (g) return [step(s, dirTo(s.hero, g)), 'strike gloamling']; // a gloamling from a snuffed bowl beside you (D-949)
   if (s.health <= LOW_HEARTS && slot(s, 'mendingDraught') >= 0) return [eat(s, slot(s, 'mendingDraught')), 'mend'];
   if (s.oil < LOW_OIL && slot(s, 'flask') >= 0) return [pour(s, slot(s, 'flask')), 'pour'];
   const cold = tilesOf(s, 'brazier');
@@ -67,17 +70,20 @@ function act(s) {
 // § one fight: (seed) → its line's facts
 function fight(seed) {
   let s = bench(newJourney(seed), BUILD, HALF);
-  const arena = s.place, fell = s.fell, most = s.health, out = { seed, turns: 0, snuffs: 0, strikes: 0, kindles: 0, flasks: 0, bites: 0 };
+  const arena = s.place, fell = s.fell, most = s.health, out = { seed, turns: 0, snuffs: 0, strikes: 0, kindles: 0, flasks: 0, bites: 0, gloamlings: 0, glBites: 0 };
   for (let t = 0; t < MOST_TURNS; t++) {
     if (!boss(s)) return { ...out, won: true, s };
-    const [next, did] = act(s);
+    const was = s, [next, did] = act(s);
     if (next === s) { s = wait(s); } else s = next;
     out.turns++;
     for (const v of s.events || []) {
       if (v.type === 'snuff') out.snuffs++;
       if (v.type === 'bite' && v.id === 'lampeater') out.bites++;
+      if (v.type === 'bite' && v.id === 'gloamling') out.glBites++;
     }
     if (did === 'strike') out.strikes++;
+    const same = (a, b) => a.ash.turn === b.ash.turn && a.ash.x === b.ash.x && a.ash.y === b.ash.y;
+    out.gloamlings += s.enemies.filter((e) => e.ash && !was.enemies.some((w) => w.ash && same(w, e))).length; // crawled out this turn (D-949)
     if (did === 'kindle') out.kindles++;
     if (did === 'pour') out.flasks++;
     if (s.fell !== fell || s.place !== arena) return { ...out, won: false, why: s.oil <= 0 ? 'dark' : 'bites', s, most };
@@ -91,8 +97,8 @@ for (let k = 0; k < FIGHTS; k++) {
   rows.push(r);
   if (flag('quiet')) continue;
   const tail = r.won ? `hearts ${r.s.health}  oil ${Math.round(r.s.oil * 100)}%` : `${r.why}, it at ${hp(L)}/${get('lampeater').health}`;
-  console.log(`seed ${String(r.seed).padEnd(5)} ${r.won ? 'won ' : 'fell'}  turns ${String(r.turns).padStart(3)}  ${tail}  strikes ${r.strikes}  snuffs ${r.snuffs}  kindled ${r.kindles}  flasks ${r.flasks}  its bites ${r.bites}`);
+  console.log(`seed ${String(r.seed).padEnd(5)} ${r.won ? 'won ' : 'fell'}  turns ${String(r.turns).padStart(3)}  ${tail}  strikes ${r.strikes}  snuffs ${r.snuffs}  gloamlings ${r.gloamlings}  kindled ${r.kindles}  flasks ${r.flasks}  its bites ${r.bites}  theirs ${r.glBites}`);
 }
 const won = rows.filter((r) => r.won), mid = (xs) => { const a = [...xs].sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : '-'; };
 const whys = ['bites', 'dark', 'stuck'].map((w) => `${rows.filter((r) => r.why === w).length} ${w}`).join(', ');
-console.log(`bossrun: lampeater, ${BUILDS[BUILD].name}${HALF ? ', at half' : ''}, ${FIGHTS} seeds from ${FIRST}: won ${won.length}/${FIGHTS} (${Math.round((100 * won.length) / FIGHTS)}%) · turns, middle ${mid(rows.map((r) => r.turns))} · hearts left when won, middle ${mid(won.map((r) => r.s.health))} · snuffs, middle ${mid(rows.map((r) => r.snuffs))} · lost: ${whys}`);
+console.log(`bossrun: lampeater, ${BUILDS[BUILD].name}${HALF ? ', at half' : ''}, ${FIGHTS} seeds from ${FIRST}: won ${won.length}/${FIGHTS} (${Math.round((100 * won.length) / FIGHTS)}%) · turns, middle ${mid(rows.map((r) => r.turns))} · hearts left when won, middle ${mid(won.map((r) => r.s.health))} · snuffs, middle ${mid(rows.map((r) => r.snuffs))} · gloamlings, middle ${mid(rows.map((r) => r.gloamlings))}, their bites ${rows.reduce((n, r) => n + r.glBites, 0)} · lost: ${whys}`);

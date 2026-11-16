@@ -313,13 +313,20 @@ export const faceOf = (e) => dressedIn(e, e.facing === 'left');
 // `hero`: where the hero stands; a snapcap is drawn shut, as the find it is `shutAs`, unless
 // the hero stands beside it, four ways, where it can bite (D-543).
 // `sunk`: { x, y, start } as a warden's fists sank, so it jolts down a pixel for JOLT_MS (D-937).
-export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero = null, sunk = null) {
+export function drawEnemies(c, enemies, t, still, hits = [], at = (e) => e, hero = null, sunk = null, crawl = null) {
   const struck = (e) => hits.some((h) => e.x === h.x && e.y === h.y);
   const jolts = (e) => !still && !!sunk && e.open && e.x === sunk.x && e.y === sunk.y && t >= sunk.start && t < sunk.start + JOLT_MS;
-  for (const e of enemies) drawEnemy(c, e, at(e), t, still, struck(e), hero, jolts(e));
+  const rising = (e) => (!still && crawl && e.ash && t < crawl.start + CRAWL_MS && crawl.at.some((p) => p.x === e.x && p.y === e.y) ? Math.max(0, (t - crawl.start) / CRAWL_MS) : 1);
+  for (const e of enemies) {
+    const k = rising(e);
+    if (k < 1) { c.save(); c.globalAlpha *= 0.2 + 0.8 * k; } // it rises out of the cold bowl through the smoke (D-949)
+    drawEnemy(c, e, k < 1 ? { x: at(e).x, y: at(e).y + (1 - k) * CRAWL_DROP } : at(e), t, still, struck(e), hero, jolts(e));
+    if (k < 1) c.restore();
+  }
   for (const h of hits) if (!enemies.some((e) => e.x === h.x && e.y === h.y)) drawEnemy(c, h, h, t, still, true, hero);
 }
 const beside = (e, hero) => !!hero && Math.abs(e.x - hero.x) + Math.abs(e.y - hero.y) === 1;
+export const CRAWL_MS = 500, CRAWL_DROP = 0.3; // a gloamling's rise from a snuffed bowl: half a second, from a third of a tile low (D-949)
 export const JOLT_MS = 120; // the stuck warden's jolt as its fists land (D-937, take C)
 export function drawEnemy(c, e, p, t, still, flash, hero, jolt = false) {
   const x = Math.round(p.x * 16), y = Math.round(p.y * 16);

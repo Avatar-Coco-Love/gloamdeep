@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-15, 0.3.389, The Lampeater snuffs.** D-939's step 7: from 4
+  of its 8 hearts, and after each catch then, it breathes on the lit
+  brazier nearest it; 2 turns' shudder, ringed red, a catch stops it;
+  then cold, with smoke; two lines. Owner's picks. D-947.
+  Playtest: https://claude.ai/artifact/15rmdKTEbDs6C4sEwwybB5
 - **2026-11-15, 0.3.388, The Lampeater drinks.** D-939's step 6: waiting
   at your lantern light's edge, seeing you, it drinks a turn's oil a
   turn, so the lantern burns twice as fast and the light pulls in; a

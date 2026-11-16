@@ -16,7 +16,7 @@ const step = (s, change = (x) => x) => { const after = change({ ...s, turn: s.tu
 
 test('its lines and its Bestiary words', () => {
   const e = get('lampeater');
-  assert.deepEqual(e.snuffs, { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters' });
+  assert.deepEqual(e.snuffs, { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters', brood: 'gloamling', crawls: 'gloamlingCrawls' }); // its brood since step 8 (D-949)
   assert.equal(LINES.lampeaterBreathes.text, 'The Lampeater breathes on a brazier.');
   assert.equal(LINES.brazierGutters.text, 'The brazier gutters out.');
   assert.match(e.acts, /At half its hearts, it snuffs your braziers\./);

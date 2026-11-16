@@ -301,7 +301,7 @@ export function createFrame(app, ui) {
         drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
         drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
         // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
-        drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero, app.sunk); // a snapcap opens beside the hero (D-543); a warden's fists sink with a jolt (D-937)
+        drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero, app.sunk, app.crawl); // a snapcap opens beside the hero (D-543); a warden's fists sink with a jolt (D-937); gloamlings rise from a snuffed bowl (D-949)
         drawChips(rc, app.sunk, t); drawSpark(rc, app.spark, t); // its stone chips, and a blow that rang off its stone (D-937)
       });
       // Full daylight needs no lantern (D-025, D-209); dusk dims the sky and the lights show more (D-217)
