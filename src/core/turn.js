@@ -186,8 +186,8 @@ function attack(state, foe) {
   const both = back ? strike(first.state, back, get(state.held).through + boonHit(state)) : null;
   const shove = knocks(state) && !first.beaten && !first.rang && !first.sank && !get(foe.id).sinks ? knockBack((both || first).state, foe) : null; // the Warden's Fist (fist.js, D-888); the light holds the Lampeater where it is (D-944)
   let next = note(passTurn((shove || both || first).state), 'hit', { id: foe.id, held: state.held, ...(first.rang && { rang: true }), ...(first.sank && { sank: true }) }); // rang off stone: no flash (D-937); sank into the gloam, nor (D-941)
-  if (back) next = note(next, 'hit', { id: back.id, held: state.held });
-  if (shove?.into) next = note(next, 'hit', { id: shove.into.id, held: state.held });
+  if (back) next = note(next, 'hit', { id: back.id, held: state.held, ...(both.sank && { sank: true }) }); // the one behind sank into the gloam too: no flash (F-7)
+  if (shove?.into) next = note(next, 'hit', { id: shove.into.id, held: state.held, ...(shove.intoSank && { sank: true }) });
   const beaten = [[first.beaten, foe], [both?.beaten, back], ...(shove?.beaten || [])];
   for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }), ...(e.ash && { ash: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720); one from a snuffed bowl too (D-949)
   let said = shove?.name ? say(next, 'foeSlamInto', get(foe.id).name.toLowerCase(), shove.name) : say(next, first.line);
@@ -202,7 +202,7 @@ function knockBack(state, foe) {
   if (!way) return null;
   if (way.to) return { state: { ...state, enemies: state.enemies.map((o) => (o === e ? { ...o, ...way.to } : o)) } };
   const hurt = strike(state, e, 1), into = way.foe && strike(hurt.state, way.foe, 1);
-  return { state: (into || hurt).state, name: way.wall || get(way.foe.id).name.toLowerCase(), into: way.foe, beaten: [[hurt.beaten, e], [into?.beaten, way.foe]] };
+  return { state: (into || hurt).state, name: way.wall || get(way.foe.id).name.toLowerCase(), into: way.foe, intoSank: !!into?.sank, beaten: [[hurt.beaten, e], [into?.beaten, way.foe]] };
 }
 // One creature hit for `damage`: the state with it hurt, fled or gone and its drop
 // lying, the line it says, and its id when beaten

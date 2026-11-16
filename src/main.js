@@ -261,9 +261,10 @@ function tryStep(dir) {
     const missed = eventsSince(app.state, next).some((e) => e.type === 'miss'); // stiff, the swing went wide: nothing flashes (D-759)
     const into = knocks(app.state) && eventsSince(app.state, next).filter((e) => e.type === 'hit').length > 1 ? knockOf(app.state, foe)?.foe : null; // the Fist knocked it into another (D-888)
     const rang = eventsSince(app.state, next).some((e) => e.type === 'hit' && e.rang); // rang off the warden's stone: it doesn't flash (D-937)
-    const sank = eventsSince(app.state, next).some((e) => e.type === 'hit' && e.sank); // sank into the Lampeater: no flash, no spark (D-941)
+    const hits = eventsSince(app.state, next).filter((e) => e.type === 'hit'), sank = !!hits[0]?.sank; // sank into the Lampeater: no flash, no spark (D-941)
+    const sunkIn = (e) => (e && !hits.slice(1).some((h) => h.sank && h.id === e.id) ? e : null); // the spear's one behind, or the one knocked into, sank too: no flash (F-7)
     if (rang) app.spark = { x: foe.x, y: foe.y, start: performance.now() }; // a grey spark instead (D-937)
-    if (foe && !foe.asleep && !foe.under && !foe.pile && !missed) app.hit = { enemies: [rang || sank ? null : foe, behind(app.state, foe), into].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479), and the one the Fist knocks it into (D-888)
+    if (foe && !foe.asleep && !foe.under && !foe.pile && !missed) app.hit = { enemies: [rang || sank ? null : foe, sunkIn(behind(app.state, foe)), sunkIn(into)].filter(Boolean), ...flashFor() }; // a bump that wakes one asleep doesn't flash (D-368); the spear's one behind does (D-479), and the one the Fist knocks it into (D-888)
     if (foe && !foe.asleep && !foe.under && !foe.pile && before.held) app.jab = { dx, dy, start: performance.now() }; // the knife's stab (D-253)
     else if (next.turn === app.state.turn || foe?.asleep) nudgeToward(dir); // a bump, or a torch the dark lantern can't light (D-122)
     app.state = next;
