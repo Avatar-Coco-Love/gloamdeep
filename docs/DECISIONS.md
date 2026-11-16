@@ -160,3 +160,17 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 `BUGS.md`; which to fix, and when, is the owner's pick (the owner was
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
+
+**D-952 · 2026-11-16 · The audit's bugs F-6 to F-8, the fixes** (the
+owner's picks, all recommended; fixes F-6, F-7, F-8) F-6: a catch begun
+on the turn the Lampeater is halved counts as begun after half (D-947),
+so getting free from it owes one more snuff (offered too: keep it as
+"the catch it was halved in"). F-7: the spear's blow on the one behind
+and the Warden's Fist's knock into another are marked `sank` too when
+they sink into the Lampeater, so it neither flashes nor counts as hit;
+the creature in front still flashes (offered too: no flash for any
+creature whose hearts didn't drop). F-8: a New journey, or a profile
+loaded, after the #lampeater link's fight saves again; the link's fight
+itself is still kept nowhere (D-948) (offered too: reload the page
+without the link on leaving the fight). The bot's fights are the same
+before and after.

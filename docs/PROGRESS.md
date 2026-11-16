@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.393 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.394 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The owner picks: the audit's bug fixes F-6 to F-8 (`BUGS.md`, D-951)
-first, or the Lampeater's step 9 (D-939; run `node tools/bossrun.js`
-before and after, D-948).
+The Lampeater's step 9 (D-939; run `node tools/bossrun.js` before and
+after, D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.394, Three bug fixes.** The audit's F-6 to F-8: a
+  catch begun as the Lampeater is halved owes its snuff; the spear's
+  reach and the Fist's knock sink into it, no flash; after the
+  #lampeater link, journeys save again. The bot: the same. D-952.
+  Playtest: https://claude.ai/artifact/JnUpHbd6DF6qvrmKhdRWw1
 - **2026-11-16, 0.3.393, The seventeenth audit.** Nothing visible
   changed. 0.3.301 to 0.3.350 of the history to `history-0.3-6.js`, the
   playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the
@@ -60,8 +64,3 @@ list in `RESEARCH.md`.
   waits in the bowl; drops and counts nothing; gone as you leave. The
   bot strikes them: Lean 25% (was 32%), Middling 98%, Strong all. D-949.
   Playtest: https://claude.ai/artifact/7WJXNJfBUESS3hr4Cq8oSf
-- **2026-11-16, 0.3.391, The Lampeater on 12 hearts.** Q-111, for now:
-  12 hearts, not 8; At half on 6. The bot: Lean wins 32% (was 100%),
-  Middling and Strong all, about 26 turns, about one snuff. Owner's pick.
-  D-950.
-  Playtest: https://claude.ai/artifact/VsjcWWeqELnAs7zUqaD8PU

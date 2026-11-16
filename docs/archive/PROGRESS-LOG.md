@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.391, The Lampeater on 12 hearts.** Q-111, for now:
+  12 hearts, not 8; At half on 6. The bot: Lean wins 32% (was 100%),
+  Middling and Strong all, about 26 turns, about one snuff. Owner's pick.
+  D-950.
+  Playtest: https://claude.ai/artifact/VsjcWWeqELnAs7zUqaD8PU
 - **2026-11-16, 0.3.390, The boss test bench.** A Boss tab starts the
   Lampeater's fight afresh with a rough build; a #lampeater link; the bot
   tools/bossrun.js. Step 8 picked. Owner's picks. D-948, D-949.
