@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.395 (2026-11-16)
+- Beating the Lampeater sinks its sealed door open at once, the way down behind it; lighting all 4 braziers no longer opens it, so the fight can't be skipped.
+- As it goes, any gloamlings left crumble away.
+- Fall in the fight, or walk out before it's beaten, and it is whole again when you come back: on its own tile, all its hearts, the braziers cold.
+- Decisions: D-953. Questions: Q-112 raised, your ideas for sealing the way in. D-948 moved to the archive, word for word.
+
 ## 0.3.394 (2026-11-16)
 - Three bug fixes from the audit. When the blow that takes the Lampeater to half lands on the same turn your light catches it, getting free from that catch now owes it a second snuff, as the rule says.
 - The spear's reach and the Warden's Fist's knock no longer flash the Lampeater white, or sound a hit, when the blow sinks into it in the dark; the gloamling in front still flashes.

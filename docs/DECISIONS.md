@@ -117,20 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-952 · 2026-11-16 · The audit's bugs F-6 to F-8, the fixes** (the
-owner's picks, all recommended; fixes F-6, F-7, F-8) F-6: a catch begun
-on the turn the Lampeater is halved counts as begun after half (D-947),
-so getting free from it owes one more snuff (offered too: keep it as
-"the catch it was halved in"). F-7: the spear's blow on the one behind
-and the Warden's Fist's knock into another are marked `sank` too when
-they sink into the Lampeater, so it neither flashes nor counts as hit;
-the creature in front still flashes (offered too: no flash for any
-creature whose hearts didn't drop). F-8: a New journey, or a profile
-loaded, after the #lampeater link's fight saves again; the link's fight
-itself is still kept nowhere (D-948) (offered too: reload the page
-without the link on leaving the fight). The bot's fights are the same
-before and after.
-
 **D-953 · 2026-11-16 · The Lampeater beaten, and whole again** (D-939's
 step 9, its first part; the owner's picks, all recommended but the last)
 Step 9 is split: now the door and the fall; the way in sealed, the
@@ -186,3 +172,22 @@ Glints.", waiting behind the door's line and joining a tier reached on
 the same turn (D-719); the screen reader says "Lampeater, reached" or
 "not yet". The Feats now pay 39 Glints. Next, the sealed way in (Q-112).
 D-950 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-956 · 2026-11-16 · The Lampeater's way in sealed** (the owner's
+picks, all recommended, and the hallway's warning; answers part of
+Q-112; builds D-939, D-940, D-953) One step inside past the arena's way
+in, with the Lampeater there, a sealed door rises in the gap behind the
+hero, the same door as the one at the top (offered too: as soon as you
+enter; once the fight begins). Standing in the gap, the hero can still
+step back out. The line "The way behind you seals." (amber), and coming
+into the hallway from below while the Lampeater is unbeaten, "The seal
+hall: once in, no way back." (amber; Claude's draft, cut to fit the
+strip from "The seal hall lies ahead. Once inside, there is no way
+back."). Beaten, every sealed door sinks open, the way in too; fallen,
+the way in is open again with the Lampeater whole. The cutscene, then
+the hallway's quiet and the boss tune, each its own later step (offered
+too: a short pause now, or none; the quiet hallway now, or both now).
+Claude's calls: a `seal` event, no sound until the vault door's (D-895);
+the warning each time, not only the first. The boss bot's 100 fights
+are the same before and after. D-952 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -2306,3 +2306,17 @@ be tuned again once there are gloamlings or more before the boss, and so
 a stronger hero. Its own step, before step 8. Claude's calls: its half
 and the bench's At half follow its hearts, 6; D-945 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-952 · 2026-11-16 · The audit's bugs F-6 to F-8, the fixes** (the
+owner's picks, all recommended; fixes F-6, F-7, F-8) F-6: a catch begun
+on the turn the Lampeater is halved counts as begun after half (D-947),
+so getting free from it owes one more snuff (offered too: keep it as
+"the catch it was halved in"). F-7: the spear's blow on the one behind
+and the Warden's Fist's knock into another are marked `sank` too when
+they sink into the Lampeater, so it neither flashes nor counts as hit;
+the creature in front still flashes (offered too: no flash for any
+creature whose hearts didn't drop). F-8: a New journey, or a profile
+loaded, after the #lampeater link's fight saves again; the link's fight
+itself is still kept nowhere (D-948) (offered too: reload the page
+without the link on leaving the fight). The bot's fights are the same
+before and after.

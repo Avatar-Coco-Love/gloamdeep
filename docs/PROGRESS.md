@@ -4,13 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.397 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.398 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The sealed way in (Q-112, D-954): propose its details; run
-`node tools/bossrun.js` before and after only if the fight changes
-(D-948).
+The rest of Q-112, one step each (D-956): the cutscene first, then
+the hallway's quiet, then the boss tune; propose the cutscene's details.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +49,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.398, The way in sealed.** One step inside, a sealed
+  door rises behind the hero, with its line; the hallway warns while
+  the Lampeater lives; beaten, both doors sink; fallen, it opens again.
+  The bot's 100 fights the same before and after. D-956. Playtest: https://claude.ai/artifact/TefZ9jaSduMvXB1LkZdv2o
 - **2026-11-16, 0.3.397, The Lampeater's Feat.** D-954's first step:
   beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
   mark, shown once it is met; earlier wins count, the bench never. The
@@ -58,7 +61,3 @@ list in `RESEARCH.md`.
   sealed way in, then the trophy, the first of all, once creatures leave
   materials; 0.4.0 when the way to depth 9 opens; the surface and depths
   1 to 8 are chapter 1. D-954.
-- **2026-11-16, 0.3.395, The Lampeater beaten.** D-939's step 9, its
-  first part: only beating it sinks the sealed door; its gloamlings
-  crumble; walked out of or fallen in, it is whole again. The bot: the
-  same. D-953. Playtest: https://claude.ai/artifact/7iLhd7WVA73ddXvy6h1iv6

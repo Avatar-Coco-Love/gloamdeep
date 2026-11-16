@@ -103,4 +103,6 @@ shutting, then the boss, then back to the player. The hallway leading up
 has no music. Once you get to it, the music is boss music. These are just
 ideas." When it seals, how the arena is made clear, a cutscene, the
 music. Its own step, after the one-off Feat and before the trophy
-(D-954).
+(D-954). When it seals and how the arena is made clear: answered by
+D-956. Still open, each its own step: the cutscene, then the hallway's
+quiet, then the boss tune.

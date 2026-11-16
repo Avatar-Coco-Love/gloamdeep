@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.398', date: '2026-11-16', title: 'The way in sealed', lines: [
+    "One step into the Lampeater's arena, past its way in, a sealed door rises behind you: \"The way behind you seals.\" Standing in the doorway, you can still turn back.",
+    "Coming up the hallway while the Lampeater is unbeaten, a warning: \"The seal hall: once in, no way back.\"",
+    "Beat it and both doors sink open; fall, and the way in is open again when you come back.",
+    "Decisions: D-956. Questions: part of Q-112 answered. D-952 moved to the archive, word for word.",
+  ] },
   { v: '0.3.397', date: '2026-11-16', title: 'The Lampeater\'s Feat', lines: [
     "Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says \"Feat reached: Lampeater. +3 Glints.\" on your next move after the door sinks.",
     "The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.",

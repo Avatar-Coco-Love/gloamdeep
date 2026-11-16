@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.395, The Lampeater beaten.** D-939's step 9, its
+  first part: only beating it sinks the sealed door; its gloamlings
+  crumble; walked out of or fallen in, it is whole again. The bot: the
+  same. D-953. Playtest: https://claude.ai/artifact/7iLhd7WVA73ddXvy6h1iv6
 - **2026-11-16, 0.3.394, Three bug fixes.** The audit's F-6 to F-8: a
   catch begun as the Lampeater is halved owes its snuff; the spear's
   reach and the Fist's knock sink into it, no flash; after the

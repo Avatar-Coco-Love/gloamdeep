@@ -12,6 +12,7 @@ import { fall } from '../src/core/fall.js';
 import { arrive, fresh } from '../src/core/stairs.js';
 import { withTile } from '../src/core/room.js';
 import { LAMPEATER_AT } from '../src/core/arena.js';
+import { hallWarns } from '../src/core/beaten.js';
 
 const K = get('sealedDoor').letter, M = get('openDoor').letter, J = get('brazier').letter;
 const has = (s, ch) => s.room.map.some((row) => row.includes(ch));
@@ -55,4 +56,40 @@ test('after a fall in the fight it is whole again; beaten, it stays beaten', () 
   const won = step(lastBlow(4), 'up'), left = fall({ ...won, health: 0 }).elsewhere[arenaPlace(4)];
   assert.equal(boss(left), undefined);
   assert.ok(left.room.map.some((row) => row.includes(M)));
+});
+
+// § the way in sealed (D-956): a step inside past the way in seals it behind the hero; a fall opens
+// it again; beaten, it sinks open with the top door; the hallway warns while the Lampeater lives
+const wayIn = (s) => ({ x: s.hero.x, y: s.room.rows - 1 });
+const inGap = (seed = 1) => { const s = bench(newJourney(seed), 'middling'); return { ...s, hero: wayIn(s) }; };
+
+test('one step inside past the way in, a sealed door rises there, with its line', () => {
+  const s = inGap(), gap = wayIn(s), next = step(s, 'up');
+  assert.equal(next.room.map[gap.y][gap.x], K);
+  assert.ok(next.events.some((e) => e.type === 'seal'));
+  assert.equal(next.line.id, 'arenaSeals');
+  assert.deepEqual(step(next, 'down').hero, next.hero); // no way back out
+});
+
+test('standing in the way in, nothing seals and the hero can step back out', () => {
+  const s = inGap();
+  assert.equal(s.room.map[wayIn(s).y][wayIn(s).x], get('floor').letter);
+  assert.notEqual(step(s, 'down').place, s.place);
+});
+
+test('a fall opens the way in again; beaten, it sinks open with the top door', () => {
+  const s = inGap(), gap = wayIn(s), sealed = step(s, 'up');
+  const back = fall({ ...sealed, health: 0 }).elsewhere[arenaPlace(s.seed)];
+  assert.equal(back.room.map[gap.y][gap.x], get('floor').letter);
+  const won = step({ ...lastBlow(), room: sealed.room }, 'up');
+  assert.equal(won.room.map[gap.y][gap.x], M);
+  assert.ok(!has(won, K));
+});
+
+test('the hallway warns as the hero comes in, but not from the arena, nor once the Lampeater is beaten', () => {
+  const s = inGap(), hall = step(s, 'down');
+  assert.notEqual(hall.line?.id, 'hallWarning'); // walked back out of the arena: no warning
+  assert.equal(hallWarns(hall, 'below').line.id, 'hallWarning');
+  const beaten = { ...hall, elsewhere: { ...hall.elsewhere, [s.place]: { ...hall.elsewhere[s.place], enemies: [] } } };
+  assert.notEqual(hallWarns(beaten, 'below').line?.id, 'hallWarning');
 });

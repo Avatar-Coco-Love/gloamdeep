@@ -18,7 +18,7 @@ import { lightAt, openSide } from './lights.js';
 import { mountAt } from './mount.js';
 import { inDaylight } from './daytime.js';
 import { takeStairs } from './stairs.js';
-import { lampeaterBeaten } from './beaten.js';
+import { lampeaterBeaten, sealArena, hallWarns } from './beaten.js';
 import { follow } from './follow.js';
 import { wakeStone } from './wake.js';
 import { offEdge, walkOff } from './openings.js';
@@ -70,7 +70,7 @@ export function step(state, dir) {
   const x = state.hero.x + dx, y = state.hero.y + dy;
   if (offEdge(state.room, x, y)) {
     const out = walkOff(note(passTurn(state), 'step'), dir);
-    return out ? endTurn(state, follow(state, out, state.hero)) : state; // a creature chasing near comes after (follow.js, D-925)
+    return out ? endTurn(state, follow(state, hallWarns(out, state.place), state.hero)) : state; // the hallway's warning (D-956) // a creature chasing near comes after (follow.js, D-925)
   }
   const tile = tileAt(state.room, x, y);
   const flyer = tile.solid && tile.low && enemyAt(state, x, y); // one that flies, over water or a low thing: struck as on the floor, rod held or not (D-718, D-900)
@@ -98,7 +98,7 @@ export function step(state, dir) {
   for (const found of next.items.filter((it) => it.x === x && it.y === y)) next = pickUp(next, found); // a bag where you fell may share a tile
   next = guardWakes(next); // the locket taken wakes its warden (D-874)
   const down = takeStairs(next);
-  return endTurn(state, down ? follow(next, down, next.hero) : wakeStone(next)); // a creature chasing near comes after, down or up too (D-925)
+  return endTurn(state, down ? follow(next, down, next.hero) : wakeStone(sealArena(next))); // the arena's way in seals behind the hero (D-956); a creature chasing near comes after, down or up too (D-925)
 }
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag
