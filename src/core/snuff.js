@@ -28,7 +28,7 @@ function owing(before, e) {
   const entry = get(e.id), was = before.enemies.find((o) => o.id === e.id) || e;
   let next = e;
   if (!next.halved && (next.health ?? entry.health) <= entry.health / 2) next = { ...next, halved: true, owes: (next.owes ?? 0) + 1 };
-  if (was.halved && !was.caught && next.caught) next = { ...next, catchHalf: true };
+  if (next.halved && !was.caught && next.caught) next = { ...next, catchHalf: true };
   if (was.caught && !next.caught && (was.catchHalf || next.catchHalf)) { const { catchHalf, ...free } = next; next = { ...free, owes: (next.owes ?? 0) + 1 }; }
   return next;
 }
