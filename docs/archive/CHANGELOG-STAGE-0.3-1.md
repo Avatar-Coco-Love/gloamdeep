@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.397 (2026-11-16)
+- Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says "Feat reached: Lampeater. +3 Glints." on your next move after the door sinks.
+- The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.
+- Decisions: D-955. D-950 moved to the archive, word for word.
+
 ## 0.3.396 (2026-11-16)
 - Nothing in the game changed. The rest of the Lampeater's rewards are planned: its Feat next, then the way in sealing behind you, then its trophy, which waits until creatures leave materials.
 - Version 0.4.0 is planned for when the way down to depth 9 opens. The surface and depths 1 to 8 are now called chapter 1.

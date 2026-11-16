@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.399 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.400 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -49,6 +49,8 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.400, Points at merge time.** Docs only: a point
+  raised at merge time waits for a fresh conversation (WORKFLOW.md).
 - **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal
   of a journey: zoom on the door rising, up to the Lampeater's flaring
   eyes, back out; black bars, no skip. The boss bench starts in the way
@@ -57,7 +59,3 @@ list in `RESEARCH.md`.
   door rises behind the hero, with its line; the hallway warns while
   the Lampeater lives; beaten, both doors sink; fallen, it opens again.
   The bot's 100 fights the same before and after. D-956. Playtest: https://claude.ai/artifact/TefZ9jaSduMvXB1LkZdv2o
-- **2026-11-16, 0.3.397, The Lampeater's Feat.** D-954's first step:
-  beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
-  mark, shown once it is met; earlier wins count, the bench never. The
-  fight unchanged, so no boss-bot run. D-955. Playtest: https://claude.ai/artifact/NE3mJEqwHUouQKVM5i2scU
