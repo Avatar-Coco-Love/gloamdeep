@@ -2320,3 +2320,41 @@ loaded, after the #lampeater link's fight saves again; the link's fight
 itself is still kept nowhere (D-948) (offered too: reload the page
 without the link on leaving the fight). The bot's fights are the same
 before and after.
+
+**D-953 · 2026-11-16 · The Lampeater beaten, and whole again** (D-939's
+step 9, its first part; the owner's picks, all recommended but the last)
+Step 9 is split: now the door and the fall; the way in sealed, the
+one-off Feat and the trophy each at its own step later (offered too: the
+door now and the fall next; all of step 9 at once). Only beating the
+Lampeater opens the arena's sealed door, which sinks open at once; the 4
+braziers lit no longer do, so the fight can't be skipped (changes D-940's
+"until then"; offered too: either one; beaten and all 4 lit). The
+gloamlings left crumble away as it goes, counting nothing (offered too:
+they stay and fight). Left unbeaten, by a fall or by walking out, it is
+whole again when the hero comes back: on its own tile, all 12 hearts, the
+braziers cold, the gloamlings gone (the owner's pick: the same as a fall;
+offered too: only a fall; the way in sealed now). The owner's ideas for
+the sealed way in are kept in Q-112. Claude's calls: the vault's line and
+`open` event for the door; a level gained on the same blow shows its own
+line in the door's place, as ever; its Bestiary words unchanged. D-948
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-954 · 2026-11-16 · The rest of step 9, in order; 0.4.0; chapters**
+(the owner's picks, all recommended but the last; answers part of Q-112)
+The rest of D-939's step 9 comes one step each: the one-off Feat first,
+then the sealed way in (Q-112), then the trophy (offered too: the sealed
+way in first; the way in, then Leap, the rewards later). The trophy waits
+for creature materials (Q-061) and comes as the first of all trophies, at
+the workbench, hung at home, as D-466 has it (offered too: the material
+now, the trophy later; straight from the fight). Version 0.4.0 comes when
+the way to depth 9 opens: the Lampeater's steps all done, through Leap,
+the escape, its sounds and lore and the Leap gaps (offered too: at the
+first step of biome 2; once the fight is done). The surface and depths 1
+to 8 are **chapter 1**, from the surface to its boss; D-635's four
+stretches of 8 floors are the four chapters, and the crypt, warrens and
+dungeon are each a biome, a look of their own (offered too: biome 1 as
+it was, its areas inside; the surface split off). Claude's calls: new
+text says chapter where old text said biome for a stretch ("chapter 1's
+boss"); old lines keep "biome 1", read as chapter 1, until the next
+audit offers to change them. D-949 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

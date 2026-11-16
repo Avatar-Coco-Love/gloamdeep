@@ -93,3 +93,15 @@ test('the hallway warns as the hero comes in, but not from the arena, nor once t
   const beaten = { ...hall, elsewhere: { ...hall.elsewhere, [s.place]: { ...hall.elsewhere[s.place], enemies: [] } } };
   assert.notEqual(hallWarns(beaten, 'below').line?.id, 'hallWarning');
 });
+
+// § the cutscene (Q-112, D-957): the seal's event names the door's tile, and `first` only the
+// first time on a journey; after a fall the way seals again with no cutscene
+test('the seal is first only once a journey, a fall and the way back in after it not again', () => {
+  const s = inGap(), gap = wayIn(s), sealed = step(s, 'up');
+  const seal = sealed.events.find((e) => e.type === 'seal');
+  assert.deepEqual([seal.x, seal.y, seal.first], [gap.x, gap.y, true]);
+  const after = fall({ ...sealed, health: 0 });
+  assert.equal(after.sealSeen, true);
+  const again = step({ ...s, sealSeen: after.sealSeen }, 'up').events.find((e) => e.type === 'seal');
+  assert.equal(again.first, false);
+});

@@ -107,3 +107,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - An answer can carry new ideas beside the pick: the owner's ideas for sealing the arena (a cutscene, boss music) were kept word for word as Q-112, not built, so the step stayed one small change (0.3.395).
 - A standing check runs only when the step touches what it checks: the owner asked that the boss bot run before and after only when the fight changes, so the Lampeater's Feat, which leaves the fight alone, ran none (0.3.397).
 - Measure a drafted line before offering it: the hallway's warning the owner picked was too wide for the strip and had to be cut after the pick (0.3.398); `textWidth` in `src/render/font.js` against `W - 4` checks it first.
+- A worry in an answer can change the pick: the owner feared an accidental skip, so the cutscene has none, and its name-and-health idea became its own next step, settled in the same round of questions (0.3.399).

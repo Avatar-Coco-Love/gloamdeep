@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.396 (2026-11-16)
+- Nothing in the game changed. The rest of the Lampeater's rewards are planned: its Feat next, then the way in sealing behind you, then its trophy, which waits until creatures leave materials.
+- Version 0.4.0 is planned for when the way down to depth 9 opens. The surface and depths 1 to 8 are now called chapter 1.
+- Decisions: D-954. Questions: part of Q-112 answered. D-949 moved to the archive, word for word.
+
 ## 0.3.395 (2026-11-16)
 - Beating the Lampeater sinks its sealed door open at once, the way down behind it; lighting all 4 braziers no longer opens it, so the fight can't be skipped.
 - As it goes, any gloamlings left crumble away.

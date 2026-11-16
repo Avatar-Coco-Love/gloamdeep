@@ -1,8 +1,9 @@
 // § frame: draws one frame of play, or the title and its screens, from `app`
 // (split from main.js, D-235). It changes nothing in the game; main.js moves
 // the shown hero and enemies and takes the turns before each frame.
-import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edgeIn } from './screen.js';
-import { drawRoom, drawBeyond } from './tiles.js';
+import { TILE, W, SCREEN_H, view, roomView, fitTitle, fitCards, fitRoomSize, edgeIn, setCloseUp } from './screen.js';
+import { drawRoom, drawBeyond, drawFloor } from './tiles.js';
+import { shotAt, risenAt, rising } from './cutscene.js';
 import { drawRipples } from './water.js';
 import { drawRoosts } from './roosts.js';
 import { drawHero, drawItems, drawEnemies, drawGlows, drawRelics, drawShelfRelics, drawGlobs, drawPeople, spriteOf, wearLook, heroIn, SPRITES } from './sprites.js';
@@ -169,6 +170,19 @@ export function createFrame(app, ui) {
     return marksShown(app.settings) ? sorted : sorted.map((a) => ({ ...a, move: null })); // Attack marks off: no next move shows (D-730)
   }
 
+  // § rise (D-957): the sealed door rising out of the floor of the way in, k of it shown: the
+  // floor, then the door's top part from the room's own picture, standing on the tile's foot
+  function drawRise({ x, y }, k) {
+    drawFloor(rc, drawnRoom, x, y);
+    const h = Math.round(TILE * k);
+    if (h > 0) rc.drawImage(base, x * TILE, y * TILE, TILE, h, x * TILE, y * TILE + TILE - h, TILE, h);
+  }
+  // § bars (D-957): the cutscene's black bars, k of the way in, top and bottom, an eighth of the screen each
+  function drawBars(k) {
+    const h = Math.round(view.h / 8 * k);
+    hc.fillStyle = '#000000';
+    hc.fillRect(0, 0, view.w, h); hc.fillRect(0, view.h - h, view.w, h);
+  }
   // Draws in room pixels, moved by the camera
   function inRoom(draw) {
     rc.save();
@@ -256,6 +270,8 @@ export function createFrame(app, ui) {
     let nx = 0, ny = 0;
     if (nudge && t < nudge.until && !still()) { nx = nudge.dx; ny = nudge.dy; }
     if (jab && !still()) { const j = jabAt(jab, t); nx += j.x; ny += j.y; } // the knife's stab (D-253)
+    const cut = app.cutscene && !travel && !fall ? shotAt(app.cutscene, t, still(), shown) : null; // the Lampeater's cutscene (Q-112, D-957)
+    setCloseUp(cut?.close ?? 0); // zoomed in while it plays
     fitRoomSize(s.room.cols, s.room.rows, !still()); // a narrow (upright: short) room zooms in to fill the long side, with a margin (D-441), gliding there (D-448)
     if (s.room !== drawnRoom) {
       drawnRoom = s.room; doors = doorways(s.place, s.room, s.seed);
@@ -276,7 +292,10 @@ export function createFrame(app, ui) {
     const sx = Math.round(shown.x * TILE), sy = Math.round(shown.y * TILE);
     const hid = dev.cover(), ease = (a, b) => (still() || Math.abs(b - a) < 0.5 ? b : a + (b - a) * 0.3);
     cover = { x: ease(cover.x, hid.x), y: ease(cover.y, hid.y) };
-    const cam = app.cam = cameraAt(sx, sy, s.room, roomView.w, roomView.h, cover); // clear of the dev sheet (D-623)
+    const [fx, fy] = cut ? [Math.round(cut.focus.x * TILE), Math.round(cut.focus.y * TILE)] : [sx, sy]; // in the cutscene, on its shot (D-957)
+    const edged = cameraAt(fx, fy, s.room, roomView.w, roomView.h, cover); // clear of the dev sheet (D-623)
+    const free = (p, view, k) => Math.round(k + (p + TILE / 2 - view / 2 - k) * cut.close); // zoomed in, its shot in the middle, past the room's edge if need be
+    const cam = app.cam = cut ? { x: free(fx, roomView.w, edged.x), y: free(fy, roomView.h, edged.y) } : edged;
     // § hold (S3, D-686): under a card, once nothing in the room moves, its picture is kept;
     // in play too with reduced motion, until a step, a walk's dots, a frame or a mark changes (D-687)
     const slid = shown.x === s.hero.x && shown.y === s.hero.y && s.enemies.every((e) => { const p = foeAt(e); return p.x === e.x && p.y === e.y; });
@@ -289,6 +308,7 @@ export function createFrame(app, ui) {
       rc.drawImage(around, -cam.x - mx * TILE, -cam.y - my * TILE);
       rc.drawImage(base, -cam.x, -cam.y);
       inRoom(() => {
+        if (rising(app.rise, t)) drawRise(app.rise, risenAt(app.rise, t)); // the sealed door rising out of the floor (D-957)
         drawBrackets(rc, s.room, s.lights);
         const lit = s.lit && !dev.lightOff() && !lying; // the lantern's light on a pool below it (D-500)
         drawRipples(rc, s.room, t, still(), lit ? { x: sx + nx + LANTERN_AT.x, y: sy + ny + 14 } : null);
@@ -321,7 +341,7 @@ export function createFrame(app, ui) {
       inRoom(() => {
         drawFlames(rc, s.room, s.lights, t, still());
         drawFires(rc, s.room, t, still(), s.enemies.filter((e) => e.breath).map((e) => e.breath), s.enemies.filter((e) => e.snuffed && s.turn - e.snuffed.turn < 2).map((e) => e.snuffed)); // a burning campfire's flames and coals (D-757); a brazier breathed on, or just snuffed (D-947)
-        drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, (e) => !!get(e.id)?.burns && litAt(s, e.x, e.y)); // the lure wisp's own glow, seen in the dark (D-649); the Lampeater burning in light (D-944)
+        drawGlows(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, (e) => !!get(e.id)?.burns && litAt(s, e.x, e.y), cut && ((e) => (e.id === 'lampeater' ? cut : null))); // the lure wisp's own glow, seen in the dark (D-649); the Lampeater burning in light (D-944)
         if (lightOn) drawEchoes(rc, echoed(s), t, still(), foeAt); // the Echo Charm's pale outlines, near creatures in the dark (D-805)
         drawRelics(rc, s.items, t, still()); // a relic's own violet glow, seen in the dark (D-692)
         drawShelfRelics(rc, s.room, t, still()); // and a relic's on the shelf (D-693)
@@ -388,21 +408,22 @@ export function createFrame(app, ui) {
       return x < a.x + a.w && x + size > a.x && y < a.y + a.h && y + size > a.y;
     });
     const dt = Math.max(0, t - panel.t), fade = (alpha, goal) => (still() ? goal : alpha + Math.sign(goal - alpha) * Math.min(Math.abs(goal - alpha), dt / FADE_PANEL_MS));
-    panel.alpha = fade(panel.alpha, covers({ x: ex, y: ey, ...under }) ? UNDER_ALPHA : 1);
+    const aim = (under) => (cut?.bars > 0 ? 0 : under ? UNDER_ALPHA : 1); // all gone in the cutscene, back as it zooms out (D-957)
+    panel.alpha = fade(panel.alpha, aim(covers({ x: ex, y: ey, ...under })));
     panel.t = t;
     // § round map: the floor around the hero, top right, fading the same way (D-383), and
     // pause and the wrench with it, the corner as one piece (D-442)
     const high = [mapButton, pauseButton, dev.wrench];
-    roundAlpha = app.screen === 'play' ? fade(roundAlpha, high.some((b) => covers(b.area())) ? UNDER_ALPHA : 1) : 1;
+    roundAlpha = app.screen === 'play' ? fade(roundAlpha, aim(high.some((b) => covers(b.area())))) : 1;
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
     pauseButton.fade(roundAlpha); dev.wrench.fade(roundAlpha);
     // § round lantern: bottom right, with the bag and the quick slot on its arc, one piece fading the same way (D-442)
     const low = [lanternButton, bagButton, quickSlot, sleepButton, boonButton];
-    lanternAlpha = app.screen === 'play' ? fade(lanternAlpha, low.some((b) => covers(b.area())) ? UNDER_ALPHA : 1) : 1;
+    lanternAlpha = app.screen === 'play' ? fade(lanternAlpha, aim(low.some((b) => covers(b.area())))) : 1;
     for (const b of low) b.fade(lanternAlpha);
     // § arrow pad: bottom left, in play with its switch on, fading the same way (D-406)
     const padOn = app.screen === 'play' && padShown(app.settings);
-    padAlpha = padOn ? fade(padAlpha, covers(arrowPad.area()) ? UNDER_ALPHA : 1) : 1;
+    padAlpha = padOn ? fade(padAlpha, aim(covers(arrowPad.area()))) : 1;
     arrowPad.show(padOn, padAlpha);
     const greenHeart = app.poisonHurt && t < app.poisonHurt.until && (still() || Math.floor((app.poisonHurt.until - t) / POISON_BLINK_MS) % 2 === 0) ? app.poisonHurt.heart : -1; // the heart poison takes flashes green (D-654)
     const sipped = !!app.drunk && t < app.drunk.until && (still() || Math.floor((app.drunk.until - t) / DRINK_BLINK_MS) % 2 === 0); // the oil bar flickers as a creature drinks, steady with reduced motion (D-606)
@@ -419,7 +440,8 @@ export function createFrame(app, ui) {
       drawCreatureList(hc, list, row.x, row.y, row.across, row.end, isFramed);
       hc.restore();
     }
-    const line = fall?.from ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes; gone after its turns or its seconds (B-009)
+    const line = fall?.from || cut ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes, the cutscene's once it ends (D-957); gone after its turns or its seconds (B-009)
+    if (cut?.bars) drawBars(cut.bars); // the cutscene's black bars, the line over them (D-957)
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)

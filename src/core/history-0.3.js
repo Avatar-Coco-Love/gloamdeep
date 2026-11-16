@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.399', date: '2026-11-16', title: 'The Lampeater\'s cutscene', lines: [
+    "The first time on a journey the Lampeater's way in seals behind you, a short cutscene of about 3 seconds: the camera zooms in on the door as it rises out of the floor, glides up to the Lampeater, whose eyes flare as it swells, then zooms back out to you.",
+    "Black bars slide in at the top and bottom, and the panel, map, lantern and arrow pad fade out till it ends. Taps and keys do nothing while it plays, so it can't be skipped by accident.",
+    "Every later time, the door just rises out of the floor. With reduced motion the shots cut instead of gliding.",
+    "Decisions: D-957. Questions: Q-112's cutscene answered; the boss's name and health bar is next. D-953 and D-954 moved to the archive, word for word.",
+  ] },
   { v: '0.3.398', date: '2026-11-16', title: 'The way in sealed', lines: [
     "One step into the Lampeater's arena, past its way in, a sealed door rises behind you: \"The way behind you seals.\" Standing in the doorway, you can still turn back.",
     "Coming up the hallway while the Lampeater is unbeaten, a warning: \"The seal hall: once in, no way back.\"",
