@@ -4,12 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.392 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.393 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 9: propose it, from the ideas page's list (D-939).
-Run `node tools/bossrun.js` before and after (D-948).
+The owner picks: the audit's bug fixes F-6 to F-8 (`BUGS.md`, D-951)
+first, or the Lampeater's step 9 (D-939; run `node tools/bossrun.js`
+before and after, D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -43,12 +44,17 @@ The rest of the scope, proposed (D-482; may change):
 - [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
 - [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), herbs (0.3.213), the duskstar (0.3.214), more flowers (Q-092); then landmarks: the dead lamppost (0.3.220), the miners' camp (0.3.221); then night creatures: lampmoths (0.3.228), bats (0.3.229), the rare gloamling (0.3.230); then day creatures: the mole (0.3.231), the bunny (0.3.234), the rare herb mimic (0.3.241); the mountain rooms: the skulker crab (0.3.244), the rim lurker (0.3.245)
 
-**Next audit: 0.3.393** (D-518, D-910).
+**Next audit: 0.3.433** (D-518, D-951).
 
 Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.393, The seventeenth audit.** Nothing visible
+  changed. 0.3.301 to 0.3.350 of the history to `history-0.3-6.js`, the
+  playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the
+  creatures to `CONTENT-CREATURES.md`, D-946 and D-947 archived, all word
+  for word. Bug hunt: F-6 to F-8, the owner to pick. D-951.
 - **2026-11-16, 0.3.392, Gloamlings from the braziers.** D-939's step 8:
   one crawls from each brazier it snuffs, onto a dark tile beside it, or
   waits in the bowl; drops and counts nothing; gone as you leave. The
@@ -59,7 +65,3 @@ list in `RESEARCH.md`.
   Middling and Strong all, about 26 turns, about one snuff. Owner's pick.
   D-950.
   Playtest: https://claude.ai/artifact/VsjcWWeqELnAs7zUqaD8PU
-- **2026-11-16, 0.3.390, The boss test bench.** A Boss tab starts the
-  Lampeater's fight afresh with a rough build; a #lampeater link; the bot
-  tools/bossrun.js. Step 8 picked. Owner's picks. D-948, D-949.
-  Playtest: https://claude.ai/artifact/JtckBPBkWumS4dqQ1mb61T

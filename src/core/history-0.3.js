@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.393', date: '2026-11-16', title: 'The seventeenth audit', lines: [
+    "The seventeenth audit. Nothing in the game changes. 0.3.301 to 0.3.350 of the Version history move to their own file, word for word.",
+    "Docs: the playbook's newest lessons, the hero's words and the creature list move to their own pages, and two finished decisions to the archive, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit found three bugs, listed in the docs for the owner to pick. The next audit is at 0.3.433.",
+    "Decisions: D-951. D-946 and D-947 moved to the archive, word for word.",
+  ] },
   { v: '0.3.392', date: '2026-11-16', title: 'Gloamlings from the braziers', lines: [
     "Gloamlings crawl out of the braziers the Lampeater snuffs: one from each, onto a dark tile beside the cold bowl, rising out of it through the smoke. With no dark tile there, it waits in the bowl. The first time, \"A gloamling crawls out of the ashes.\" follows \"The brazier gutters out.\"",
     "It is a plain gloamling, but the arena's own: it drops nothing, counts in no Records, Feat or Bestiary, never follows you out, and is gone when you leave the arena. The Lampeater's Bestiary line adds \"Gloamlings crawl from the braziers it snuffs.\"",

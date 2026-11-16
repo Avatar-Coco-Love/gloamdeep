@@ -101,3 +101,5 @@ the seventeenth's in `WORKFLOW-7.md` (D-951).
 
 When a step teaches something about working together, its PR adds one
 line here (D-741). Each audit moves the lines into the right sections.
+
+- Tests and tools can name a doc too: moving the creature list off `CONTENT.md` broke the content-index test and left `tools/make.js` writing to the old page, so grep `tests/` and `tools/` for a doc's name before moving its text (0.3.393).

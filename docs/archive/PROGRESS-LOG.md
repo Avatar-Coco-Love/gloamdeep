@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.390, The boss test bench.** A Boss tab starts the
+  Lampeater's fight afresh with a rough build; a #lampeater link; the bot
+  tools/bossrun.js. Step 8 picked. Owner's picks. D-948, D-949.
+  Playtest: https://claude.ai/artifact/JtckBPBkWumS4dqQ1mb61T
 - **2026-11-15, 0.3.389, The Lampeater snuffs.** D-939's step 7: from 4
   of its 8 hearts, and after each catch then, it breathes on the lit
   brazier nearest it; 2 turns' shudder, ringed red, a catch stops it;

@@ -144,3 +144,19 @@ be tuned again once there are gloamlings or more before the boss, and so
 a stronger hero. Its own step, before step 8. Claude's calls: its half
 and the bench's At half follow its hearts, 6; D-945 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-951 · 2026-11-16 · The seventeenth audit** (the owner's picks, all
+recommended) At 0.3.393, nothing visible changed. The in-game history's
+0.3.301 to 0.3.350 go from `history-0.3.js` to a new
+`src/core/history-0.3-6.js` (52 KB to 24 and 28; offered too: the place
+and people lines out of `lines.js`; a section out of `main.js`). The
+playbook's lines since the last audit, and the one 0.3.390's PR kept, go
+to a new `WORKFLOW-7.md`; the hero to a new `GLOSSARY-HERO.md`; the
+creature list to a new `CONTENT-CREATURES.md` (its test and
+`tools/make.js` follow it); D-946 and D-947 to
+`archive/DECISIONS-SURFACE.md` (offered too: D-948 and D-949 as well;
+none); all word for word. "Waiting on the owner" is on fewer lines. A
+bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
+`BUGS.md`; which to fix, and when, is the owner's pick (the owner was
+away; the owner asked that the audit be merged once done). The next
+audit is at 0.3.433.
