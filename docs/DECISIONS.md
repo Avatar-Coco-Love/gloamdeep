@@ -117,43 +117,6 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
 
-**D-955 · 2026-11-16 · The Lampeater's one-off Feat** (the owner's
-picks, all recommended; builds D-467, D-695, D-939, D-954, part of
-Q-083) Beating the Lampeater once reaches a one-off Feat named
-Lampeater, its Bestiary name, paying 3 Glints, one look's price (offered
-too: Chapter 1; Lampeater beaten; 6 or 1 Glint). On the Feats tab it is
-a row of its own below the six, after a small gap: the name grey, no
-count, one mark on the right, gold once beaten; its name stays out of
-the counts' column, so nothing moves on the upright card (offered too: a
-row like the others, "0 of 1"; the same row under a heading "Once"). The
-row shows once the Lampeater is met, as the Bestiary (offered too:
-always; only once beaten). Claude's calls: it reads the Bestiary's
-beaten count, so a Lampeater beaten before this pays too, and the boss
-bench, a dev jump, never; the note says "Feat reached: Lampeater. +3
-Glints.", waiting behind the door's line and joining a tier reached on
-the same turn (D-719); the screen reader says "Lampeater, reached" or
-"not yet". The Feats now pay 39 Glints. Next, the sealed way in (Q-112).
-D-950 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
-**D-956 · 2026-11-16 · The Lampeater's way in sealed** (the owner's
-picks, all recommended, and the hallway's warning; answers part of
-Q-112; builds D-939, D-940, D-953) One step inside past the arena's way
-in, with the Lampeater there, a sealed door rises in the gap behind the
-hero, the same door as the one at the top (offered too: as soon as you
-enter; once the fight begins). Standing in the gap, the hero can still
-step back out. The line "The way behind you seals." (amber), and coming
-into the hallway from below while the Lampeater is unbeaten, "The seal
-hall: once in, no way back." (amber; Claude's draft, cut to fit the
-strip from "The seal hall lies ahead. Once inside, there is no way
-back."). Beaten, every sealed door sinks open, the way in too; fallen,
-the way in is open again with the Lampeater whole. The cutscene, then
-the hallway's quiet and the boss tune, each its own later step (offered
-too: a short pause now, or none; the quiet hallway now, or both now).
-Claude's calls: a `seal` event, no sound until the vault door's (D-895);
-the warning each time, not only the first. The boss bot's 100 fights
-are the same before and after. D-952 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-957 · 2026-11-16 · The Lampeater's cutscene** (the owner's picks,
 all recommended, with the owner's own ideas for skipping and the boss's
 name and health; answers part of Q-112; builds D-956) The first time on
@@ -189,3 +152,23 @@ the door behind them; and it forgets the cutscene was seen, so it plays
 each time. Claude's calls: at half too; the boss bot starts there as
 well, so its fights match a real way in: over 400 fights Lean wins 34%
 (26% from one step further in), Middling 97% (the same), noted in Q-111.
+
+**D-959 · 2026-11-16 · The Lampeater's name and health bar** (the
+owner's picks, all recommended; builds D-957; part of Q-112) While the
+arena's way in is sealed, from the cutscene's end, the Lampeater's name
+and hearts show bottom middle, above the text line: "Lampeater" in bone
+white over a thin bar, on the same dark glass as the text line, the bar
+running from the eyes' pink to the haze's violet (offered too: pink and
+plain, no glass; pink with no glass and the pale loss). Hurt, the part
+lost turns pale, waits a moment, then drains away in about half a second
+(offered too: it drops at once; it drops with a white flash). A blow
+that sinks into it flickers the bar grey, still full (offered too:
+nothing). The bar stays put, above room for a two-row line, so it never
+jumps when a line comes and goes (offered too: dropping into the line's
+place when none shows). Claude's calls: 96 pixels long; faint while the
+hero stands under it, as the panel is (D-444); beaten, the last loss
+drains to empty and the bar fades; left or fallen, it goes at once; hidden
+under a card and in the cutscene; with reduced motion no pale piece, no
+fade, and the grey a steady moment. The fight is unchanged, so no
+boss-bot run. D-955 and D-956 move to `archive/DECISIONS-SURFACE.md`,
+word for word.

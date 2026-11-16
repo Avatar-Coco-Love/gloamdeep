@@ -22,6 +22,8 @@ import { drawGoalLine, goalSize, onGoal } from './goalline.js';
 import { goalLine } from '../core/goals.js';
 import { KIND_LOOKS } from './boons.js';
 import { lineTop, createLineClock } from './textline.js';
+import { createBossBar, barBox } from './bossbar.js';
+import { bossFight } from '../core/beaten.js';
 import { drawCreatureList, plaqueAt, plaquesShown, PLAQUE_W, PLAQUE_H } from './creatures.js';
 import { drawFramed } from './framed.js';
 import { drawMoves, drawStrikes, drawPiles } from './moves.js';
@@ -132,6 +134,7 @@ export function createFrame(app, ui) {
   const around = document.createElement('canvas');
   watch(base); watch(around);
   const lineClock = createLineClock(); // the line's seconds (B-009)
+  const bossBar = createBossBar(); // the Lampeater's name and hearts (D-959)
   let heldKey = null; // what the room under a card was last drawn from (S3, D-686)
   onWipe(() => { drawnRoom = null; heldKey = null; }); // both drawn again on the next frame (D-588)
   onCheck(() => drawnRoom !== null && blankAt(base, 0, 0));
@@ -442,6 +445,7 @@ export function createFrame(app, ui) {
     }
     const line = fall?.from || cut ? null : lineClock(shownLine(state), state.line, t); // the fall's line once the hero wakes, the cutscene's once it ends (D-957); gone after its turns or its seconds (B-009)
     if (cut?.bars) drawBars(cut.bars); // the cutscene's black bars, the line over them (D-957)
+    if (!CARDS.has(app.screen) && !cut) bossBar.draw(hc, fall || travel ? null : bossFight(state), state.events, t, still(), covers(barBox()) ? UNDER_ALPHA : 1); // the Lampeater's name and hearts, from the cutscene's end, faint over the hero (D-957, D-959)
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
     lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)

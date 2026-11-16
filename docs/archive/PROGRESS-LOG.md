@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.398, The way in sealed.** One step inside, a sealed
+  door rises behind the hero, with its line; the hallway warns while
+  the Lampeater lives; beaten, both doors sink; fallen, it opens again.
+  The bot's 100 fights the same before and after. D-956. Playtest: https://claude.ai/artifact/TefZ9jaSduMvXB1LkZdv2o
 - **2026-11-16, 0.3.397, The Lampeater's Feat.** D-954's first step:
   beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
   mark, shown once it is met; earlier wins count, the bench never. The
