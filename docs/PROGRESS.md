@@ -8,15 +8,14 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The escape's next part (D-954, D-963): a chase as the floor crumbles,
-a shake, or on to the Lampeater's sounds. The trophy waits for Q-061.
+The escape's next part (Q-113, the owner's idea): the floor gives way
+as the hero nears the stairs, with a shake and a crumble. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar, Seal stone and Gap, Claude's drafts (D-940, D-963).
-- The owner's ideas for polishing the Lampeater after its steps: phases,
-  cutscenes, gloamlings at the start.
+- The owner's Lampeater polish after its steps (`OPEN-QUESTIONS-3.md`).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   from the way in, as walking in (D-958), Lean wins 34%, Middling 97%; to tune any time.
 - Any time: a sound for the vault door and the rune wall opening (D-895,

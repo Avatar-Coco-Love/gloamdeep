@@ -95,3 +95,18 @@ With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
 From 0.3.399 the bench starts in the way in, where walking in from the
 hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
 Middling 97% (the same), Strong all.
+
+**Q-113 · When the floor gives way** (raised 2026-11-16, the owner's
+idea at 0.3.405's merge; builds D-963) In the owner's words: "I like the
+idea of it not giving way at the last blow, but rather when you step
+nearer to it (unless you kill the boss within range of it), then the
+screen could shake and it could crumble away." So: the gap opens when the
+hero first steps near the stairs after the fight, or at the last blow if
+the Lampeater is beaten within that range; a screen shake and a crumbling
+as it goes. How near, how the crumble looks, and the last blow's line
+then: open, for the next step. Would change D-963's "with the last blow".
+
+**The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
+steps are done, the owner has ideas for its phases, how the cutscenes
+work, and gloamlings at the start of the fight, among others; to be asked
+for then.
