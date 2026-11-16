@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.395 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.396 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The rest of the Lampeater's step 9 (D-953): propose the order of the
-sealed way in (Q-112), the one-off Feat and the trophy; run
-`node tools/bossrun.js` before and after (D-948).
+The Lampeater's one-off Feat (D-954): propose its details; then the
+sealed way in (Q-112); run `node tools/bossrun.js` before and after
+(D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,6 +50,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.396, Step 9's order.** Docs only: the Feat, then the
+  sealed way in, then the trophy, the first of all, once creatures leave
+  materials; 0.4.0 when the way to depth 9 opens; the surface and depths
+  1 to 8 are chapter 1. D-954.
 - **2026-11-16, 0.3.395, The Lampeater beaten.** D-939's step 9, its
   first part: only beating it sinks the sealed door; its gloamlings
   crumble; walked out of or fallen in, it is whole again. The bot: the
@@ -59,8 +63,3 @@ list in `RESEARCH.md`.
   reach and the Fist's knock sink into it, no flash; after the
   #lampeater link, journeys save again. The bot: the same. D-952.
   Playtest: https://claude.ai/artifact/JnUpHbd6DF6qvrmKhdRWw1
-- **2026-11-16, 0.3.393, The seventeenth audit.** Nothing visible
-  changed. 0.3.301 to 0.3.350 of the history to `history-0.3-6.js`, the
-  playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the
-  creatures to `CONTENT-CREATURES.md`, D-946 and D-947 archived, all word
-  for word. Bug hunt: F-6 to F-8, the owner to pick. D-951.

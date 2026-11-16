@@ -102,5 +102,5 @@ could see us going as far as having a cutscene: one that shows the door
 shutting, then the boss, then back to the player. The hallway leading up
 has no music. Once you get to it, the music is boss music. These are just
 ideas." When it seals, how the arena is made clear, a cutscene, the
-music. Its own step, after the Feat and the trophy or before, the owner
-to pick.
+music. Its own step, after the one-off Feat and before the trophy
+(D-954).

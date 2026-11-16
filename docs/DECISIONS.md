@@ -101,20 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-949 · 2026-11-16 · Gloamlings from snuffed braziers, picked** (D-939's
-step 8; the owner's picks, all recommended; built next, at its own step;
-[mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu)) One
-gloamling crawls out of each brazier the Lampeater snuffs (offered too:
-at most 2 alive; a cold brazier breeding every 8 turns), onto a dark tile
-beside it, the seeded dice picking, waiting in the bowl while none is dark
-(offered too: the tile nearest you; beside the Lampeater); a plain
-gloamling that drops nothing (offered too: its drops; a smaller 1-heart
-one); "A gloamling crawls out of the ashes." the first time (offered too:
-every time; none). Claude's calls, from the page: no Records, Feat or
-Bestiary count; it acts from the next turn; it never leaves the arena;
-the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
-crawl from the braziers it snuffs."
-
 **D-950 · 2026-11-16 · The Lampeater on 12 hearts, for now** (the owner's
 pick, recommended; answers part of Q-111; changes D-939's step 3's 8
 hearts, D-947's half and D-948's At half) The Lampeater has 12 hearts,
@@ -174,3 +160,23 @@ the sealed way in are kept in Q-112. Claude's calls: the vault's line and
 `open` event for the door; a level gained on the same blow shows its own
 line in the door's place, as ever; its Bestiary words unchanged. D-948
 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-954 · 2026-11-16 · The rest of step 9, in order; 0.4.0; chapters**
+(the owner's picks, all recommended but the last; answers part of Q-112)
+The rest of D-939's step 9 comes one step each: the one-off Feat first,
+then the sealed way in (Q-112), then the trophy (offered too: the sealed
+way in first; the way in, then Leap, the rewards later). The trophy waits
+for creature materials (Q-061) and comes as the first of all trophies, at
+the workbench, hung at home, as D-466 has it (offered too: the material
+now, the trophy later; straight from the fight). Version 0.4.0 comes when
+the way to depth 9 opens: the Lampeater's steps all done, through Leap,
+the escape, its sounds and lore and the Leap gaps (offered too: at the
+first step of biome 2; once the fight is done). The surface and depths 1
+to 8 are **chapter 1**, from the surface to its boss; D-635's four
+stretches of 8 floors are the four chapters, and the crypt, warrens and
+dungeon are each a biome, a look of their own (offered too: biome 1 as
+it was, its areas inside; the surface split off). Claude's calls: new
+text says chapter where old text said biome for a stretch ("chapter 1's
+boss"); old lines keep "biome 1", read as chapter 1, until the next
+audit offers to change them. D-949 moves to `archive/DECISIONS-SURFACE.md`,
+word for word.

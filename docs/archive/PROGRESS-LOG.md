@@ -2,6 +2,11 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.393, The seventeenth audit.** Nothing visible
+  changed. 0.3.301 to 0.3.350 of the history to `history-0.3-6.js`, the
+  playbook to `WORKFLOW-7.md`, the hero to `GLOSSARY-HERO.md`, the
+  creatures to `CONTENT-CREATURES.md`, D-946 and D-947 archived, all word
+  for word. Bug hunt: F-6 to F-8, the owner to pick. D-951.
 - **2026-11-16, 0.3.392, Gloamlings from the braziers.** D-939's step 8:
   one crawls from each brazier it snuffs, onto a dark tile beside it, or
   waits in the bowl; drops and counts nothing; gone as you leave. The
