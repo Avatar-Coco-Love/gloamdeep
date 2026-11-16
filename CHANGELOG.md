@@ -11,7 +11,8 @@ Versions:
   repeating, and stronger, slowly (D-159).
 - `0.3.x`: stage 0.3, the world (D-168), from 0.3.0, once stage 0.2's
   last steps were done (D-528).
-- Later minor versions (`0.4`…) are set when the build plan in
+- `0.4.0`: when the way to depth 9 opens, chapter 1 done (D-954).
+- Later minor versions (`0.5`…) are set when the build plan in
   `docs/PROGRESS.md` defines the next stage.
 - `1.0.0`: the first release the owner calls finished.
 
@@ -22,6 +23,11 @@ Entry format:
 - One line per change, written so the owner can follow it.
 - Decisions: D-008. Questions closed: Q-001.
 ```
+
+## 0.3.396 (2026-11-16)
+- Nothing in the game changed. The rest of the Lampeater's rewards are planned: its Feat next, then the way in sealing behind you, then its trophy, which waits until creatures leave materials.
+- Version 0.4.0 is planned for when the way down to depth 9 opens. The surface and depths 1 to 8 are now called chapter 1.
+- Decisions: D-954. Questions: part of Q-112 answered. D-949 moved to the archive, word for word.
 
 ## 0.3.395 (2026-11-16)
 - Beating the Lampeater sinks its sealed door open at once, the way down behind it; lighting all 4 braziers no longer opens it, so the fight can't be skipped.
@@ -34,8 +40,3 @@ Entry format:
 - The spear's reach and the Warden's Fist's knock no longer flash the Lampeater white, or sound a hit, when the blow sinks into it in the dark; the gloamling in front still flashes.
 - After the playtest's #lampeater link, a New journey or a profile picked in the same tab is saved again.
 - Decisions: D-952.
-
-## 0.3.393 (2026-11-16)
-- The seventeenth audit. Nothing in the game changes. 0.3.301 to 0.3.350 of the Version history move to their own file, word for word.
-- Docs: the playbook's newest lessons, the hero's words and the creature list move to their own pages, and two finished decisions to the archive, word for word; Waiting on the owner is shorter. A bug hunt over the code since the last audit found three bugs, listed in the docs for the owner to pick. The next audit is at 0.3.433.
-- Decisions: D-951. D-946 and D-947 moved to the archive, word for word.

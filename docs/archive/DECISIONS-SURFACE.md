@@ -2280,3 +2280,17 @@ Ward Draught; full oil each. The bench first, step 8 next (offered too:
 both together; step 8 first). Claude's calls: two rows of three buttons,
 From the start and At half, not a switch; the left-out brazier at half is
 the bottom right. D-943 and D-944 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-949 · 2026-11-16 · Gloamlings from snuffed braziers, picked** (D-939's
+step 8; the owner's picks, all recommended; built next, at its own step;
+[mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu)) One
+gloamling crawls out of each brazier the Lampeater snuffs (offered too:
+at most 2 alive; a cold brazier breeding every 8 turns), onto a dark tile
+beside it, the seeded dice picking, waiting in the bowl while none is dark
+(offered too: the tile nearest you; beside the Lampeater); a plain
+gloamling that drops nothing (offered too: its drops; a smaller 1-heart
+one); "A gloamling crawls out of the ashes." the first time (offered too:
+every time; none). Claude's calls, from the page: no Records, Feat or
+Bestiary count; it acts from the next turn; it never leaves the arena;
+the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
+crawl from the braziers it snuffs."
