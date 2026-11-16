@@ -47,7 +47,7 @@ export function drawWrench(c) {
 
 // § tab icons: the dev sheet's section tabs, 8 × 8 pixel maps (look A, D-623):
 // an eye for View, a sparkle for Spawn, a door for Room, a drop for Oil, a heart
-// for Hero, an arrow for Share. Drawn white; the page shows them as masks
+// for Hero, an arrow for Share, the Lampeater's mound for Boss (D-948). Drawn white; the page shows them as masks
 // over the tab's colour, as the pixel words are (D-200).
 const TAB_ICONS = {
   view: ['........', '..####..', '.#....#.', '#..##..#', '#..##..#', '.#....#.', '..####..', '........'],
@@ -56,6 +56,7 @@ const TAB_ICONS = {
   oil: ['...#....', '...#....', '..###...', '.#####..', '.#####..', '#######.', '.#####..', '..###...'],
   hero: ['........', '.##.##..', '#######.', '#######.', '.#####..', '..###...', '...#....', '........'],
   spots: ['.#####..', '.#####..', '.#####..', '.#####..', '.#####..', '.##.##..', '.#...#..', '........'],
+  boss: ['........', '..####..', '.######.', '##.##.##', '########', '########', '#.#.#.#.', '........'], // the Lampeater's mound, two eyes (D-948)
   share: ['....#...', '....##..', '#######.', '#...##..', '#...#...', '#.......', '#.......', '######..'],
 };
 export const TAB_ICON = 8; // pixels square

@@ -28,6 +28,7 @@ import { fit } from './core/parts.js';
 import { wear } from './core/worn.js';
 import { takeOff, lookGear } from './core/gear.js';
 import { loadJourney, saveJourney } from './core/save.js';
+import { bench } from './core/bossbench.js';
 import { openRows } from './core/growth.js';
 import { moveStack, storeMatching, storeNearby } from './core/chest.js';
 import { buyerAt, sell, buy } from './core/trade.js';
@@ -131,7 +132,7 @@ const sound = createSound(() => app.settings.sound === 'on', (kind) => loudOf(ap
 let savedState = app.state, unsaved = false;
 function keepJourney() {
   app.state = openRows(app.state); // Growth's rows opened by going deeper, kept for good, with its line (D-814, D-816)
-  if (app.state === savedState) return;
+  if (app.state === savedState || app.benchLink) return; // the #lampeater link's fight is never kept (D-948)
   const kept = saveJourney(app.state, app.jumped, app.profiles.current);
   if (!kept && !unsaved) app.state = say(app.state, 'unsaved');
   unsaved = !kept; savedState = app.state; app.saved = true;
@@ -481,6 +482,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
   passTime: (turns) => passTime(app.state, turns), // the clock only (D-217)
   grow: () => growAll(app.state), // every planted garden bed's time up (D-567)
   goTo: (depth) => { app.jumped = true; return goToDepth(app.state, depth); }, // depth 0 is the crypt (D-212)
+  bench: (build, half) => { app.jumped = true; return bench(app.state, build, half); }, // the boss test bench, a dev jump (D-948)
   loadSpot: (s) => { app.jumped = true; app.journeySeed = s.seed; return s; }, // a test spot is a dev jump (D-627, D-232)
   goOutside: () => arrive(send(goToPlace(app.state, 'woods'), app.state.place)), // the woods, on the surface too (D-209); one freed and waiting goes home, simply there (D-496)
   settings: () => app.settings,
@@ -488,7 +490,7 @@ const dev = createDev(stage, roomCanvas, { // on for everyone (D-086)
 }, hudCanvas);
 const frame = createFrame(app, { ctx, listCtx, roomCtx, hudCtx, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, dev, screens, still, foeAt });
 const { onHover, stepToward, tileAt, holdStep, walkOn } = createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt: (t) => { lastHeldStep = t; }, ALERT_MS, openQuests: () => screens.openQuests() });
-screens.openSlots(false); // the game opens on the slot screen (D-271)
+screens.openSlots(false); // the game opens on the slot screen (D-271); the #lampeater link's bench is at the end
 
 // § memory: once the hero stands still on a tile, the tiles their lantern
 // reaches are remembered (D-059). Again after a dev change to the memory or oil,
@@ -570,3 +572,14 @@ function loop(t) {
   requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
+
+// § bench link
+// The playtest's #lampeater link opens straight into the boss test bench, Middling, from the
+// start, in a new world kept nowhere, so a profile's journey is never saved over (D-948)
+// (at the end, once everything it draws with is made)
+let benchLinked = false;
+try { benchLinked = location.hash === '#lampeater'; } catch { /* no address */ }
+if (benchLinked) {
+  app.benchLink = true; app.state = bench(newWorld(), 'middling', false); app.jumped = true;
+  freshView(); screens.show('play');
+}

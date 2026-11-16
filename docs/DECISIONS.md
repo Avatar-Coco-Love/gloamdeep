@@ -101,40 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-943 · 2026-11-15 · The Lampeater moves through the dark** (D-939's
-step 3; the owner's picks, all recommended;
-[mock-ups](https://claude.ai/artifact/PRwWXsBaHUw6jGx24ZT84s))
-It moves a tile a turn only over dark tiles, never onto a lit one, the
-gloamling's way: it sees the hero along a clear line, lit or not, so with
-the lantern lit it comes to the light's edge and waits there (offered
-too: only while the lantern is off; always, anywhere in its arena). Light
-falling on it, it slides back into the dark beside it farthest from the
-hero (offered too: it stays still until the light leaves). Beside the
-hero in the dark it doesn't bite yet: its bite and its number come with
-step 4 (offered too: it bites for 1 now; for 2). Losing the hero, it
-drifts back through the dark to its place below the door (offered too:
-it stays where it lost them). Claude's calls: lit braziers cut off its
-dark as any light does; it never leaves its arena; its Bestiary line
-says "Moves only through the dark, never onto a lit tile."; the 4
-braziers still sink the door.
-
-**D-944 · 2026-11-15 · The Lampeater caught in light** (D-939's step 4;
-the owner's picks, all recommended;
-[mock-ups](https://claude.ai/artifact/LA82nxtXbNpgENs4DwW5VD))
-Light falling on it, the lantern's or a brazier's, it is caught: held
-where it stands for its next turn, then it slips back into the dark as
-before, so a catch gives 2 blows (offered too: no hold, 1 blow; two
-turns, 3 blows). Only while it is lit do blows hurt it; in the dark they
-still sink. It has 8 hearts, shown on its plate (offered too: 6; 10), and
-bites for 2, only in the dark beside the hero (offered too: 1; 3). Caught,
-it burns: its gloam paled, its eyes white-hot, a ring of flame creeping
-round it (offered too: smoking; eyes only). Claude's calls: lines "The
-Lampeater bites!" and "Caught in your light, it can't move!"; a blow that
-hurts it flashes and hits as any creature's; the gloamling's bite sound
-until step 12; a sting, glob or slam still sinks, the Fist knocks it
-nowhere; beaten, for now it is simply gone (step 9 brings the rest); the
-4 braziers still sink the door; its Bestiary lines say the new rules.
-
 **D-945 · 2026-11-15 · The Lampeater pinned** (D-939's step 5; the
 owner's picks, all recommended;
 [mock-ups](https://claude.ai/artifact/DqDaqWmYgD7JzVDMBzkDAR)) Caught
@@ -186,3 +152,35 @@ it waits, owing; a snuffed brazier is lit again as ever, 5 turns' oil
 (D-893); the lantern's gutter for a sound until step 12; its Bestiary
 line adds "At half its hearts, it snuffs your braziers."; a sunk door
 stays open. D-941 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-948 · 2026-11-16 · The boss test bench** (the owner's ask and picks,
+all recommended; [mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu))
+A way to start the Lampeater's whole fight again and again: a Boss tab in
+the dev sheet, its buttons starting the fight afresh, just inside the
+arena's door, the Lampeater whole and the braziers cold, or at half (4
+hearts, 3 braziers lit), a dev jump, no turn passed; a #lampeater link
+on the playtest opening straight into it, Middling, kept nowhere; and a
+bot, `tools/bossrun.js`, that plays it on many seeds and prints one line
+a fight, run at every Lampeater step (offered too: one of these alone).
+Three rough builds (offered too: Middling only; your own kit): Lean, 5
+hearts, Knife, 1 Oil Flask; Middling, 7 hearts (Steady Wick, 2 Heart),
+Spear, Rat Hide Vest, 3 flasks, 1 Mending Draught; Strong, 10 hearts
+(row 1 and 5 Heart), Warden's Fist, Shell Vest, 5 flasks, 2 Mending, 1
+Ward Draught; full oil each. The bench first, step 8 next (offered too:
+both together; step 8 first). Claude's calls: two rows of three buttons,
+From the start and At half, not a switch; the left-out brazier at half is
+the bottom right. D-943 and D-944 move to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-949 · 2026-11-16 · Gloamlings from snuffed braziers, picked** (D-939's
+step 8; the owner's picks, all recommended; built next, at its own step;
+[mock-ups](https://claude.ai/artifact/79t25efmNPsBj1M1F6SLhu)) One
+gloamling crawls out of each brazier the Lampeater snuffs (offered too:
+at most 2 alive; a cold brazier breeding every 8 turns), onto a dark tile
+beside it, the seeded dice picking, waiting in the bowl while none is dark
+(offered too: the tile nearest you; beside the Lampeater); a plain
+gloamling that drops nothing (offered too: its drops; a smaller 1-heart
+one); "A gloamling crawls out of the ashes." the first time (offered too:
+every time; none). Claude's calls, from the page: no Records, Feat or
+Bestiary count; it acts from the next turn; it never leaves the arena;
+the gloamling's own sounds; the Lampeater's Bestiary line adds "Gloamlings
+crawl from the braziers it snuffs."

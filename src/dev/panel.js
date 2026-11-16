@@ -5,6 +5,7 @@ import { ALL } from '../core/registry.js';
 import { roomCode } from '../core/roomcode.js';
 import { SPOTS, spotLabel, readSpot, writeSpot } from '../core/spots.js';
 import { depthOf } from '../core/room.js';
+import { BUILDS } from '../core/bossbench.js';
 import { setPixelText, setPixelIcon } from './pixeltext.js';
 import { thumbOf } from '../render/thumbs.js';
 
@@ -32,7 +33,7 @@ const pixel = (tag, className, text) => { const e = el(tag, { className }); setP
 // sections, `saved()` stores them. Returns flip(name) for the keys, picked()
 // for the spawn tool and sync(state), called each frame.
 export function buildPanel(panel, opts, saved, game) {
-  // § sections: View, Spawn, Room, Oil, Hero, Share, Spots. Their icon tabs stand in a
+  // § sections: View, Spawn, Room, Oil, Hero, Share, Spots, Boss. Their icon tabs stand in a
   // row across the sheet's top and the open section shows under them, its name
   // first, so nothing moves under the finger. One open at a time; tap it again
   // to fold it, and the sheet shrinks to its tabs (D-087, D-623).
@@ -203,6 +204,13 @@ export function buildPanel(panel, opts, saved, game) {
     const save = button('Save ' + (i + 1), () => { const s = game.get(); if (writeSpot(i, s)) shown(s); else setPixelText(label, `${i + 1} · NOT KEPT`); });
     spots.append(label, row(save, load));
   }
+
+  // § boss: the boss test bench (D-948). Each button starts the Lampeater's fight afresh, just
+  // inside its arena on depth 8, with a rough build: from the start, or at half (4 hearts, 3
+  // braziers lit). A dev jump, no turn passed (bossbench.js).
+  const boss = section('boss', 'Boss');
+  const builds = (half) => Object.assign(row(...Object.entries(BUILDS).map(([id, b]) => button(b.name, () => game.set(game.bench(id, half))))), { className: 'dev-row dev-three' });
+  boss.append(pixel('div', 'dev-kind', 'LAMPEATER · FROM THE START'), builds(false), pixel('div', 'dev-kind', 'LAMPEATER · AT HALF'), builds(true));
 
   show(sections.some((s) => s.id === opts.open[0]) ? opts.open[0] : null); // the saved one, as it was left
 
