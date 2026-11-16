@@ -4,19 +4,19 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.391 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.392 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The Lampeater, step 8: gloamlings crawl out of the braziers it snuffs,
-as picked (D-949). Run `node tools/bossrun.js` before and after (D-948).
+The Lampeater, step 9: propose it, from the ideas page's list (D-939).
+Run `node tools/bossrun.js` before and after (D-948).
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
 - The names Pillar and Seal stone, Claude's draft (D-940).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  to tune again once there are gloamlings or more before the boss.
+  with gloamlings in, Lean wins 25%, Middling 98%; to tune again any time.
 - Any time: a sound for the vault door and the rune wall opening (D-895, D-929); a duskstar on
   the home waystone's ring (Q-103); the herb mimic's and the bone rat's
   rare drops (Q-061); who the keeper is (Q-084).
@@ -49,6 +49,11 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-16, 0.3.392, Gloamlings from the braziers.** D-939's step 8:
+  one crawls from each brazier it snuffs, onto a dark tile beside it, or
+  waits in the bowl; drops and counts nothing; gone as you leave. The
+  bot strikes them: Lean 25% (was 32%), Middling 98%, Strong all. D-949.
+  Playtest: https://claude.ai/artifact/7WJXNJfBUESS3hr4Cq8oSf
 - **2026-11-16, 0.3.391, The Lampeater on 12 hearts.** Q-111, for now:
   12 hearts, not 8; At half on 6. The bot: Lean wins 32% (was 100%),
   Middling and Strong all, about 26 turns, about one snuff. Owner's pick.
@@ -58,8 +63,3 @@ list in `RESEARCH.md`.
   Lampeater's fight afresh with a rough build; a #lampeater link; the bot
   tools/bossrun.js. Step 8 picked. Owner's picks. D-948, D-949.
   Playtest: https://claude.ai/artifact/JtckBPBkWumS4dqQ1mb61T
-- **2026-11-15, 0.3.389, The Lampeater snuffs.** D-939's step 7: from 4
-  of its 8 hearts, and after each catch then, it breathes on the lit
-  brazier nearest it; 2 turns' shudder, ringed red, a catch stops it;
-  then cold, with smoke; two lines. Owner's picks. D-947.
-  Playtest: https://claude.ai/artifact/15rmdKTEbDs6C4sEwwybB5

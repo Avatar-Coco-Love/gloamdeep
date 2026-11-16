@@ -23,6 +23,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.392 (2026-11-16)
+- Gloamlings crawl out of the braziers the Lampeater snuffs: one from each, onto a dark tile beside the cold bowl, rising out of it through the smoke. With no dark tile there, it waits in the bowl. The first time, "A gloamling crawls out of the ashes." follows "The brazier gutters out."
+- It is a plain gloamling, but the arena's own: it drops nothing, counts in no Records, Feat or Bestiary, never follows you out, and is gone when you leave the arena. The Lampeater's Bestiary line adds "Gloamlings crawl from the braziers it snuffs."
+- The bot now strikes a gloamling beside it. Its 200 fights a build: Lean wins 25% (was 32%), Middling 98% (was all), Strong all; still about 26 turns and one snuff, so about one gloamling a fight.
+- Decisions: D-949.
+
 ## 0.3.391 (2026-11-16)
 - The Lampeater is tougher: 12 hearts, not 8. It still bites for 2 and is hurt only while caught in light. It now snuffs a brazier about once a fight (at 6 hearts), where before it was almost always beaten first. The boss bench's At half starts it on 6 hearts.
 - The bot's 200 fights a build: Lean now wins about 1 in 3 (was every one), Middling and Strong still every one, in about 26 turns (was 19). To be tuned again once there is more before the boss.
@@ -32,8 +38,3 @@ Entry format:
 - A boss test bench, in the dev sheet's new Boss tab: each button starts the Lampeater's fight afresh, just inside its arena on depth 8, with a rough build (Lean, Middling or Strong), from the start or at half (4 hearts, 3 braziers lit). No turn passes, and you can start over any time.
 - The playtest's #lampeater link opens straight into the fight with the Middling build, and that fight is never saved. A bot, tools/bossrun.js, plays the fight on many seeds and prints one line a fight. Nothing changes in a real game.
 - Decisions: D-948, D-949. Questions raised: Q-111.
-
-## 0.3.389 (2026-11-15)
-- The Lampeater snuffs your braziers now. Once it is down to 4 of its 8 hearts, it breathes from the dark on the lit brazier nearest it, and again each time it gets free from a catch after that.
-- You get 2 turns' warning: the flame shudders, the tile is ringed red with a dot a turn left, and violet breath runs from its mouth. Catch it in light before then and the breath stops. Then the brazier goes cold with a curl of smoke; lighting it again costs 5 turns' oil, as ever.
-- Decisions: D-947.

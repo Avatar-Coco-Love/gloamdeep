@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.389 (2026-11-15)
+- The Lampeater snuffs your braziers now. Once it is down to 4 of its 8 hearts, it breathes from the dark on the lit brazier nearest it, and again each time it gets free from a catch after that.
+- You get 2 turns' warning: the flame shudders, the tile is ringed red with a dot a turn left, and violet breath runs from its mouth. Catch it in light before then and the breath stops. Then the brazier goes cold with a curl of smoke; lighting it again costs 5 turns' oil, as ever.
+- Decisions: D-947.
+
 ## 0.3.388 (2026-11-15)
 - The Lampeater drinks from your light now. Waiting in the dark at the edge of your lantern's light, it drinks a turn's oil each turn, so your lantern burns twice as fast and its light pulls in, and it creeps in after it.
 - A thread of light runs from the edge into its mouth, the oil bar flickers and you hear a sip; the first time, "The Lampeater drinks your light." It never drinks a brazier's light, and not while caught or pinned.

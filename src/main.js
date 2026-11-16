@@ -209,6 +209,7 @@ Object.assign(app, {
   kindle: null, // { x, y, start } the waystone's rune lighting as it wakes (D-591)
   spark: null, // { x, y, start } as a blow rang off the warden's stone: a grey spark (D-937)
   sunk: null, // { x, y, start } as a warden's fists sank into the floor: its jolt and chips (D-937)
+  crawl: null, // { at: [{ x, y }], start } as gloamlings crawl from a snuffed bowl: they rise (D-949)
   bitten: null, // { until, shakeUntil } after a bite: the hero flashes red (D-118)
   drunk: null, // { until } after a creature drinks oil: the oil bar flashes (D-606)
   poisonHurt: null, // { until, heart } after poison takes a heart: that heart flashes green (D-654)
@@ -286,7 +287,7 @@ function tryStep(dir) {
     const knock = events.find((e) => e.type === 'knock'); // slammed out through a doorway: the old room shows the slide to its edge (D-887)
     app.travel = { from: { ...before, hero: knock?.to ?? to }, mid: now + FADE_MS, end: now + 2 * FADE_MS };
   } else if (went || (still() && !fell)) { snap(state.hero); if (went) foeShown = new Map(); }
-  else if (!fell) followFoes(before.enemies, state.enemies);
+  else if (!fell) followFoes(before.enemies, state.enemies, state.turn);
   // A freed person leaves in the lantern beam where they stood, or beams in at home once the room has faded in (D-496)
   const beam = events.find((e) => e.type === 'leave' || e.type === 'arrive');
   if (beam && !still()) app.beam = { ...beam, arriving: beam.type === 'arrive', start: beam.type === 'arrive' ? app.travel?.end ?? app.fall?.end ?? performance.now() : performance.now() };
@@ -336,11 +337,16 @@ function beginAgain(other) {
 // less any the hit killed, so the new list pairs with the old one by place.
 // The creature list keeps each one's place in its row there too (frame.js, D-357).
 let foeShown = new Map();
-function followFoes(was, now) {
-  const alive = now.length < was.length ? was.filter((e) => !app.hit?.enemies.includes(e)) : was;
-  if (alive.length !== now.length) return;
+// A gloamling crawled from a snuffed bowl this turn comes last in the list: it starts on the bowl and
+// slides out, rising as it comes (D-949)
+function followFoes(was, now, turn) {
+  const born = now.filter((e) => e.ash?.turn === turn && !was.includes(e)), kept = born.length ? now.filter((e) => !born.includes(e)) : now;
+  const alive = kept.length < was.length ? was.filter((e) => !app.hit?.enemies.includes(e)) : was;
+  if (alive.length !== kept.length) return;
   const next = new Map();
-  now.forEach((e, i) => next.set(e, foeShown.get(alive[i]) || { x: alive[i].x, y: alive[i].y }));
+  kept.forEach((e, i) => next.set(e, foeShown.get(alive[i]) || { x: alive[i].x, y: alive[i].y }));
+  for (const e of born) next.set(e, { x: e.ash.x, y: e.ash.y });
+  if (born.length && !still()) app.crawl = { at: born.map((e) => ({ x: e.x, y: e.y })), start: performance.now() };
   foeShown = next;
 }
 function foeAt(e) {
@@ -382,7 +388,7 @@ const sleepButton = createSleepButton(hudCanvas, { onSleep: () => { if (app.scre
 // The hero and room shown afresh, with nothing moving, after the state is replaced
 function freshView() {
   snap(app.state.hero);
-  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
+  app.queued = app.nudge = app.hit = app.spark = app.sunk = app.crawl = app.jab = app.beam = app.kindle = app.bitten = app.drunk = app.poisonHurt = app.travel = app.fall = app.gain = app.boonHere = null; foeShown = new Map();
   frame.redraw(); rememberedAt = rememberedSeen = null;
 }
 // § arrow pad: a press ends a walk and steps at once, as a key does; held, it

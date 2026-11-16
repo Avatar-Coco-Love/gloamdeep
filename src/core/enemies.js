@@ -114,10 +114,10 @@ export const ENEMIES = {
   // gloamling's bite sound borrowed till its own (step 4, D-944). Caught with no dark beside it, it is
   // pinned its `pins` more turns, then bursts free (step 5, D-945, creatureturn.js). At the lantern's
   // light's edge it drinks `edgeDrinks` oil a turn, with the oil tick's sip (step 6, D-946, edgedrink.js).
-  // From half its hearts it `snuffs` the lit brazier nearest it, `warns` turns' breath first (step 7, D-947, snuff.js). How it acts and how to fight it are
+  // From half its hearts it `snuffs` the lit brazier nearest it, `warns` turns' breath first (step 7, D-947, snuff.js); a `brood` crawls from each bowl it snuffs, its `crawls` said the first time (step 8, D-949, brood.js). How it acts and how to fight it are
   // written once it can be beaten (step 9); until then its page shows the grey hints, as the Warden's,
   // and how to fight it opens after 1 beaten.
-  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn. With no dark beside it, it is pinned. At your light's edge, it drinks from it. At half its hearts, it snuffs your braziers.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 12, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', pins: 2, pinnedSays: 'lampeaterPinned', edgeDrinks: 1 / 60, edgeSays: 'lampeaterDrinks', snuffs: { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters' }, sips: 'sip', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1 },
+  lampeater: { id: 'lampeater', kind: 'enemy', name: 'Lampeater', acts: "Moves only through the dark, never onto a lit tile. Caught in light, it can't move for a turn. With no dark beside it, it is pinned. At your light's edge, it drinks from it. At half its hearts, it snuffs your braziers. Gloamlings crawl from the braziers it snuffs.", fights: 'Your blows sink into it in the dark, and hurt it only while it is lit.', health: 12, bite: 2, ways: ['darkOnly'], eyesGlow: true, burns: true, sinks: 'lampeaterSinks', caughtSays: 'lampeaterCaught', pins: 2, pinnedSays: 'lampeaterPinned', edgeDrinks: 1 / 60, edgeSays: 'lampeaterDrinks', snuffs: { warns: 2, says: 'lampeaterBreathes', out: 'brazierGutters', brood: 'gloamling', crawls: 'gloamlingCrawls' }, sips: 'sip', bites: 'lampeaterBite', sound: 'gloam', fightAt: 1 },
 };
 
 // § drops: how often a beaten creature leaves its common material, and its rare one,

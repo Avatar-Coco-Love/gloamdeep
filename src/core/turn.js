@@ -189,7 +189,7 @@ function attack(state, foe) {
   if (back) next = note(next, 'hit', { id: back.id, held: state.held });
   if (shove?.into) next = note(next, 'hit', { id: shove.into.id, held: state.held });
   const beaten = [[first.beaten, foe], [both?.beaten, back], ...(shove?.beaten || [])];
-  for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720)
+  for (const [id, e] of beaten) if (id) next = note(gain(next, xpOf(get(id))), 'beat', { id, ...(!e.met && { unmet: true }), ...(e.spawned && { spawned: true }), ...(e.ash && { ash: true }) }); // beaten in the dark, met too (D-630); one spawned, marked (D-720); one from a snuffed bowl too (D-949)
   let said = shove?.name ? say(next, 'foeSlamInto', get(foe.id).name.toLowerCase(), shove.name) : say(next, first.line);
   for (const [id, e] of beaten) if (id) said = fangMend(said, e); // the Fang Charm's heart back (D-809)
   return endTurn(state, said);
@@ -225,6 +225,7 @@ function strike(state, foe, damage) {
 // Its `rare` one has a coin of its own from the same seed, about 1 in 10; with both,
 // the rare lies on the nearest open tile (D-476); Keen Eye makes the part 3 in 4 (D-596); a worn charm makes it about 1 in 5 (D-486), Lucky Find adds 15 in 100 (D-599). It never grows back, so it lies there until taken (D-474).
 function dropFrom(state, foe, entry) {
+  if (foe.ash) return state.items; // one from a snuffed bowl drops nothing (D-949)
   const r = rng(seedFor(state.seed ^ state.turn, foe.x * 64 + foe.y + 4096));
   const ids = [entry.sure, entry.drops && r() < dropOf(state, DROP_CHANCE) && entry.drops, entry.rare && r() < rareChance(state, RARE_CHANCE) && entry.rare].filter(Boolean);
   const at = spread(state, foe.x, foe.y, ids.length, 'stack');
@@ -238,7 +239,7 @@ function dropFrom(state, foe, entry) {
 function scatter(state, foe, from) {
   const entry = get(foe.id), enemies = state.enemies.filter((e) => e !== foe);
   const next = { ...state, enemies, items: dropFrom({ ...state, hero: from, enemies }, foe, entry) };
-  const beat = note(gain(next, xpOf(entry)), 'beat', { id: foe.id, ...(!foe.met && { unmet: true }), ...(foe.spawned && { spawned: true }) });
+  const beat = note(gain(next, xpOf(entry)), 'beat', { id: foe.id, ...(!foe.met && { unmet: true }), ...(foe.spawned && { spawned: true }), ...(foe.ash && { ash: true }) });
   return fangMend(say(note(beat, 'scatter', { id: foe.id }), entry.scatters), foe); // the Fang Charm's heart back (D-809)
 }
 

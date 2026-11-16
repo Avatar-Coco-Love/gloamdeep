@@ -91,3 +91,4 @@ Middling and Strong all, in about 26 turns, with about one snuff. Each
 fight is nearly the same, as the arena is. To tune
 again once the gloamlings (step 8) or more before the boss, and so a
 stronger hero, are in: its hearts, its bite, or how long a catch holds.
+With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.

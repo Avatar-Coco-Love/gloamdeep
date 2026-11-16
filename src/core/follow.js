@@ -32,7 +32,7 @@ function stepsFrom(room, from) {
   return out;
 }
 
-const follows = (e) => get(e.id)?.follows && e.chasing && !e.asleep && !e.pile && !e.under && !(e.flees > 0);
+const follows = (e) => get(e.id)?.follows && !e.ash && e.chasing && !e.asleep && !e.pile && !e.under && !(e.flees > 0);
 
 // § follow: (left, out, exit) → `out`, the state just arrived in another room, with each
 // follower of `left`'s room, near `exit`, taken out of that room and waiting in `coming`

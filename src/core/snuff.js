@@ -11,6 +11,7 @@ import { litAt } from './sight.js';
 import { withTile } from './room.js';
 import { note } from './events.js';
 import { say } from './lines.js';
+import { crawl } from './brood.js';
 
 const steps = (a, b) => Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
 
@@ -48,7 +49,7 @@ export function breathe(before, state) {
       room = withTile(room, x, y, get('brazier'));
       events.push({ id: e.id, x, y });
       said = snuffs.out;
-      return { ...rest, owes: Math.max(0, (me.owes ?? 1) - 1), snuffed: { x, y, turn: state.turn } };
+      return { ...rest, owes: Math.max(0, (me.owes ?? 1) - 1), snuffed: { x, y, turn: state.turn }, ...(snuffs.brood && { bowls: [...(me.bowls || []), { x, y }] }) }; // its brood waits in the bowl (brood.js, D-949)
     }
     if (!(me.owes > 0) || me.caught || litAt({ ...state, room }, me.x, me.y)) return me;
     const lit = litBraziers(room);
@@ -62,6 +63,6 @@ export function breathe(before, state) {
   return said ? say(next, said) : next;
 }
 
-// § breath turn: (before, after) → after the creatures' turn, its breath, unless the hero fell or
-// left the room in it
-export const breathTurn = (before, after) => (after.fell !== before.fell || after.place !== before.place ? after : breathe(before, after));
+// § breath turn: (before, after) → after the creatures' turn, its breath and then its brood's crawl
+// (brood.js, D-949), unless the hero fell or left the room in it
+export const breathTurn = (before, after) => (after.fell !== before.fell || after.place !== before.place ? after : crawl(breathe(before, after)));

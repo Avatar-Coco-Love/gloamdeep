@@ -325,6 +325,7 @@ export const LINES = {
   lampeaterPinned: { text: "Pinned in the light, it can't slip away!", warn: false }, // no dark beside it: held 2 more turns (D-945)
   lampeaterBreathes: { text: 'The Lampeater breathes on a brazier.', warn: false, kind: 'harm' }, // from half its hearts, its breath's start (D-947)
   brazierGutters: { text: 'The brazier gutters out.', warn: false, kind: 'harm' }, // its breath's end, the brazier cold (D-947)
+  gloamlingCrawls: { text: 'A gloamling crawls out of the ashes.', warn: false, kind: 'harm' }, // the first from a snuffed bowl, after the gutter's line (D-949)
   lampeaterDrinks: { text: 'The Lampeater drinks your light.', warn: false, kind: 'harm' }, // at the light's edge, said the first time (D-946)
   campfireHigh: { text: 'A campfire, burning high.', warn: false }, // said as a blazing fire's card opens, its note the rest (D-757, D-844)
   campfireCoals: { text: 'The coals still glow.', warn: false }, // the embers' the same way
