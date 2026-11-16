@@ -94,6 +94,9 @@ export const FADE_MS = 200; // each way, taking stairs (D-135)
 const DRINK_BLINK_MS = 140; // each pale or dark beat of the oil bar's flicker (D-606)
 const POISON_BLINK_MS = 150; // each green or empty beat of the heart poison takes (D-654)
 // 0 before a, 1 after b, and evenly between; a jump at a when b is not after it
+// § leap's hop (D-962): pixels the hero is lifted, highest halfway along a leap's 2 tiles; 0 off one
+const LEAP_HIGH = 7;
+const leapLift = (arc, shown) => (arc ? Math.round(LEAP_HIGH * Math.sin(Math.PI * (1 - (Math.abs(arc.to.x - shown.x) + Math.abs(arc.to.y - shown.y)) / 2))) : 0);
 const ramp = (t, a, b) => (b <= a ? (t >= a ? 1 : 0) : Math.min(1, Math.max(0, (t - a) / (b - a))));
 
 // § panel's fade: how see-through the corner panel and the plaques under it
@@ -124,7 +127,7 @@ const picsOf = (state) => (entry) => ({ held: state.held ?? null, refill: refill
 const kitOf = (state) => (it) => (it?.id === 'rod' && isFitted(state, 'boneHook') ? SPRITES.rodHooked : spriteOf(it));
 
 export function createFrame(app, ui) {
-  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, dev, screens, still, foeAt } = ui;
+  const { ctx, listCtx, roomCtx: rc, hudCtx: hc, canvas, textLine, spoken, lanternButton, pauseButton, mapButton, bagButton, arrowPad, quickSlot, sleepButton, boonButton, leapButton, dev, screens, still, foeAt } = ui;
   // The room is drawn onto a hidden canvas, again only when it changes (a dev spawn),
   // as big as the whole room; the camera shows the screen's part of it (D-195).
   const base = document.createElement('canvas');
@@ -322,7 +325,9 @@ export function createFrame(app, ui) {
         const beaming = app.beam?.arriving && t < app.beam.start + BEAM_MS ? app.beam.id : null; // hidden until beamed in
         drawPeople(rc, (s.people || []).filter((p) => p.id !== beaming), s.hero); // forward, or turned to face the hero near (D-490, D-501)
         drawBeam(rc, app.beam, s.hero, t); // a freed person beamed home, or beamed in at home (D-496)
-        drawHero(rc, sx + nx, sy + ny, !!bitten && t < bitten.until, lying);
+        const lift = leapLift(app.leapArc, shown); // a leap's hop, its shadow left on the ground (D-962)
+        if (lift) { rc.fillStyle = 'rgba(0,0,0,.35)'; rc.fillRect(sx + nx + 4, sy + ny + 14, 8, 2); }
+        drawHero(rc, sx + nx, sy + ny - lift, !!bitten && t < bitten.until, lying);
         // § enemies: shaded by the light like the floor, so seen in memory's dim light too (D-153)
         drawEnemies(rc, s.enemies, t, still(), hit && t < hit.until ? hit.enemies : [], foeAt, s.hero, app.sunk, app.crawl); // a snapcap opens beside the hero (D-543); a warden's fists sink with a jolt (D-937); gloamlings rise from a snuffed bowl (D-949)
         drawChips(rc, app.sunk, t); drawSpark(rc, app.spark, t); // its stone chips, and a blow that rang off its stone (D-937)
@@ -421,7 +426,7 @@ export function createFrame(app, ui) {
     mapButton.show(s, dev.revealedMap(), t, still(), roundAlpha);
     pauseButton.fade(roundAlpha); dev.wrench.fade(roundAlpha);
     // § round lantern: bottom right, with the bag and the quick slot on its arc, one piece fading the same way (D-442)
-    const low = [lanternButton, bagButton, quickSlot, sleepButton, boonButton];
+    const low = [lanternButton, bagButton, quickSlot, sleepButton, boonButton, leapButton];
     lanternAlpha = app.screen === 'play' ? fade(lanternAlpha, aim(low.some((b) => covers(b.area())))) : 1;
     for (const b of low) b.fade(lanternAlpha);
     // § arrow pad: bottom left, in play with its switch on, fading the same way (D-406)
@@ -448,7 +453,7 @@ export function createFrame(app, ui) {
     if (!CARDS.has(app.screen) && !cut) bossBar.draw(hc, fall || travel ? null : bossFight(state), state.events, t, still(), covers(barBox()) ? UNDER_ALPHA : 1); // the Lampeater's name and hearts, from the cutscene's end, faint over the hero (D-957, D-959)
     if (!CARDS.has(app.screen)) textLine.draw(hc, line, t, still()); // over a card instead, below
     if (line !== app.spokenLine) { app.spokenLine = line; if (line) spoken.textContent = line.text; }
-    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
+    lanternButton.show(state.lit); quickSlot.show(flasksIn(state.bag), state.float); sleepButton.show(app.screen === 'play' && !fall && sleepsOut(app.state)); boonButton.show(app.screen === 'play' && !fall && !!app.boonHere && offersBoons(app.state)); leapButton.show(app.screen === 'play' && !fall && !!app.state.leap, !!app.leapReady); // Leap learnt on this journey (D-962) // the rune on the home plate after arriving (B-007) // the moon outside at night (D-758) // WAIT or PULL while a line is out (D-612)
     if (!CLEAR_OVER.has(app.screen)) veilAround();
     if (app.screen === 'paused') drawPauseCard(hc, view.w, view.h, PAUSE_MENU, app.chosen, pauseFacts(state), t, still()); // a card on the room (D-388)
     else if (app.screen === 'settings') drawSettingsCard(hc, view.w, view.h, screens.menuOf(app.screen), app.chosen, t, still(), app.settingsTab, app.soundList); // a card on the room (D-389)

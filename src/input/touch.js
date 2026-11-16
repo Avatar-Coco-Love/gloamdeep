@@ -44,6 +44,7 @@ export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt,
   // § tap: a tap on the hero waits a turn (D-085); a tap on a tile beside them steps
   // there, which bites, mines or opens as a step does; one further off walks there
   // at once (D-406), or with Tap on Step steps once toward it, along the farther side (D-042, D-449).
+  // With a leap ready, a tap anywhere toward a way leaps that way, and on the hero lets it go (D-962).
   // A tap while walking only stops it, and no turn passes. With Tap off, only the tap on
   // the hero, a plaque or a bench beside works (D-408).
   // A tap past the room's edge, where nothing can be walked, does nothing (D-424).
@@ -61,7 +62,8 @@ export function createTouch(app, { frame, dev, toLayer, toRoom, tryStep, heldAt,
     if (held && tapsStep(app.settings)) { app.hold = [picX, picY]; heldAt(-Infinity); return; } // the first step at once
     if (offEdge(app.state.room, tx, ty)) return; // past the room's edge a tap does nothing (D-424)
     const dir = toward(h.x, h.y, tx, ty);
-    if (!dir) { if (!held) tryStep('wait'); return; }
+    if (!dir) { if (app.leapReady) app.leapReady = false; else if (!held) tryStep('wait'); return; } // a leap ready: a tap on the hero lets it go (D-962)
+    if (app.leapReady) { if (!held) { app.walk = null; tryStep(dir); } return; } // any tap toward a way leaps that way (D-962)
     // A click or tap on a bench or stash chest beside the hero opens its panel, whatever the switches (WB3, CH3)
     const bench = panelBeside(app.state, dir, true); // the bed too, which sleeps at night (D-488)
     if (bench && bench.x === tx && bench.y === ty) { if (!held) tryStep(dir); return; }

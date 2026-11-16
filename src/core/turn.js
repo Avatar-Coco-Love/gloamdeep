@@ -43,6 +43,7 @@ import { fallen } from './bones.js';
 import { digsStump, digStump } from './shovel.js';
 import { misses } from './stiff.js';
 import { knocks, knockOf } from './fist.js';
+import { leap as leapWith } from './leap.js';
 
 export { DIRS, FIRST_START, HERO_HEALTH, maxHealth, makeState, makeWorld, newJourney, itemAt, toward } from './state.js';
 export { wait } from './endturn.js';
@@ -100,6 +101,9 @@ export function step(state, dir) {
   const down = takeStairs(next);
   return endTurn(state, down ? follow(next, down, next.hero) : wakeStone(sealArena(next))); // the arena's way in seals behind the hero (D-956); a creature chasing near comes after, down or up too (D-925)
 }
+
+// § leap (D-962): (state, dir) → the hero 2 tiles on, over the tile between, a turn; blocked, its line, free (leap.js)
+export const leap = (state, dir) => leapWith(state, dir, step);
 
 // § pick up: a flask goes into the bag, and stays on the floor when the bag
 // has no room (D-247), or with its full line when it holds some (D-250, D-333);

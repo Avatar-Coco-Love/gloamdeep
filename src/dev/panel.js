@@ -167,7 +167,12 @@ export function buildPanel(panel, opts, saved, game) {
   const god = button('God mode', () => game.set(game.setGod(!game.get().god)), 'dev-switch');
   god.setAttribute('aria-pressed', 'false');
   let shownGod = false;
-  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))), row(god));
+  // Leap (D-962): a switch giving or taking chapter 1's found ability on this journey, to try it
+  // without beating the Lampeater
+  const leapIt = button('Leap', () => game.set(game.setLeap(!game.get().leap)), 'dev-switch');
+  leapIt.setAttribute('aria-pressed', 'false');
+  let shownLeap = false;
+  section('hero', 'Hero').append(row(button('Refill hearts', () => game.set(game.heal()))), row(god), row(leapIt));
 
   // § share: Copy room, to hand to Claude (D-051, D-052). If the browser
   // blocks the clipboard, a box shows the code, selected, to copy by hand.
@@ -220,6 +225,7 @@ export function buildPanel(panel, opts, saved, game) {
     // Keeps the slider on the real oil, which steps and flasks change too.
     sync(state) {
       if (state.place !== shownPlace) { shownPlace = state.place; pickDepth(depthOf(state.place)); }
+      if (!!state.leap !== shownLeap) { shownLeap = !!state.leap; leapIt.setAttribute('aria-pressed', String(shownLeap)); }
       if (!!state.god !== shownGod) { shownGod = !!state.god; god.setAttribute('aria-pressed', String(shownGod)); }
       if (!!state.endless !== shownEndless) { shownEndless = !!state.endless; endless.setAttribute('aria-pressed', String(shownEndless)); }
       if (state.oil === shownOil) return;

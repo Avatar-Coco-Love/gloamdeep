@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.401, The Lampeater's bar.** While the way in is
+  sealed, "Lampeater" over a pink-to-violet bar on glass, bottom middle;
+  a loss pales then drains, a sunk blow flickers grey; beaten, it drains
+  and fades. D-959. Playtest: https://claude.ai/artifact/TQzteQiWyGMhHUn4BFdQBe
 - **2026-11-16, 0.3.400, Points at merge time.** Docs only: a point
   raised at merge time waits for a fresh conversation (WORKFLOW.md).
 - **2026-11-16, 0.3.399, The Lampeater's cutscene.** The first seal

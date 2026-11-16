@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.401 (2026-11-16)
+- While the Lampeater's way in is sealed, its name and health show at the bottom middle, above the text line: "Lampeater" over a thin bar running from pink to violet, on the same dark glass as the text line. It appears as the cutscene ends.
+- Hurt, the part it lost turns pale, waits a moment, then drains away. A blow that sinks into it in the dark flickers the bar grey and leaves it full.
+- Beaten, the bar drains to empty and fades; leave or fall and it's gone at once. It goes faint while you stand under it, like the panel.
+- Decisions: D-959. Questions: Q-112's name and health bar answered; the hallway's quiet is next. D-955 and D-956 moved to the archive, word for word.
+
 ## 0.3.400 (2026-11-16)
 - Docs only: a point raised once a PR is ready to merge is saved for a fresh conversation, not built in the same one.
 
