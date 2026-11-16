@@ -13,6 +13,7 @@ repeated. A new colour in the code gets its line here too.
 | A gold line that can't be picked | `#a08548` | `menu.js:7`, `ways.js:12` |
 | Words on a tapped creature's tag | `#c9c2d6` | `framed.js:10` |
 | The sealed arch's pale lintel stone | `#8a93a6` | `seal.js:14` |
+| The Lampeater's bar: pink to violet on its dark track (D-959) | `#e8786a` to `#8a6cc8` on `#1d1729`; the pale loss `#efe6cc` | `bossbar.js:13` |
 
 ## Light and glints
 | What | Colours | Code |

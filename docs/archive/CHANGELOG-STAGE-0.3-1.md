@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.398 (2026-11-16)
+- One step into the Lampeater's arena, past its way in, a sealed door rises behind you: "The way behind you seals." Standing in the doorway, you can still turn back.
+- Coming up the hallway while the Lampeater is unbeaten, a warning: "The seal hall: once in, no way back."
+- Beat it and both doors sink open; fall, and the way in is open again when you come back.
+- Decisions: D-956. Questions: part of Q-112 answered. D-952 moved to the archive, word for word.
+
 ## 0.3.397 (2026-11-16)
 - Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says "Feat reached: Lampeater. +3 Glints." on your next move after the door sinks.
 - The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.

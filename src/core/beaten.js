@@ -33,6 +33,18 @@ export function sealArena(state) {
   return say(note(sealed, 'seal', { id: 'sealedDoor', x: gap.x, y: gap.y, first: !state.sealSeen }), 'arenaSeals');
 }
 
+// § the fight's bar (D-957, D-959): (state) → { id, name, health, max } while the arena's way in
+// is sealed with the Lampeater in it, its hearts now and in all; else null. Beaten (gone from the
+// enemies), left or fallen (another place, or the way in open again), it is null
+export function bossFight(state) {
+  const boss = inArena(state) && state.enemies.find((e) => e.id === BOSS);
+  if (!boss) return null;
+  const gap = wayIn(state.seed);
+  if (tileAt(state.room, gap.x, gap.y).id !== 'sealedDoor') return null;
+  const { name, health: max } = get(BOSS);
+  return { id: BOSS, name, health: boss.health ?? max, max };
+}
+
 // § the hallway's warning (D-956): (state, from) → the state just come into the hallway, from
 // anywhere but the arena, with its warning said while the Lampeater is unbeaten; else the same
 export const hallWarns = (state, from) => (state.place === hallPlace(state.seed) && from !== arenaPlace(state.seed) && unbeaten(state) ? say(state, 'hallWarning') : state);

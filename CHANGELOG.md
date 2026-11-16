@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.401 (2026-11-16)
+- While the Lampeater's way in is sealed, its name and health show at the bottom middle, above the text line: "Lampeater" over a thin bar running from pink to violet, on the same dark glass as the text line. It appears as the cutscene ends.
+- Hurt, the part it lost turns pale, waits a moment, then drains away. A blow that sinks into it in the dark flickers the bar grey and leaves it full.
+- Beaten, the bar drains to empty and fades; leave or fall and it's gone at once. It goes faint while you stand under it, like the panel.
+- Decisions: D-959. Questions: Q-112's name and health bar answered; the hallway's quiet is next. D-955 and D-956 moved to the archive, word for word.
+
 ## 0.3.400 (2026-11-16)
 - Docs only: a point raised once a PR is ready to merge is saved for a fresh conversation, not built in the same one.
 
@@ -33,9 +39,3 @@ Entry format:
 - Every later time, the door just rises out of the floor. With reduced motion the shots cut instead of gliding.
 - Dev: the boss bench now starts you in the arena's doorway, where walking in from the hallway puts you, so your first step up seals the door, and the cutscene plays every time you use it. The bot now wins 34% of fights as Lean (26% from one step further in) and 97% as Middling.
 - Decisions: D-957, D-958. Questions: Q-112's cutscene answered; the boss's name and health bar is next. D-953 and D-954 moved to the archive, word for word.
-
-## 0.3.398 (2026-11-16)
-- One step into the Lampeater's arena, past its way in, a sealed door rises behind you: "The way behind you seals." Standing in the doorway, you can still turn back.
-- Coming up the hallway while the Lampeater is unbeaten, a warning: "The seal hall: once in, no way back."
-- Beat it and both doors sink open; fall, and the way in is open again when you come back.
-- Decisions: D-956. Questions: part of Q-112 answered. D-952 moved to the archive, word for word.
