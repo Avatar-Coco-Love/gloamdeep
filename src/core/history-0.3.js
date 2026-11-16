@@ -6,6 +6,9 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.400', date: '2026-11-16', title: 'Points at merge time', lines: [
+    "Docs only: a point raised once a PR is ready to merge is saved for a fresh conversation, not built in the same one.",
+  ] },
   { v: '0.3.399', date: '2026-11-16', title: 'The Lampeater\'s cutscene', lines: [
     "The first time on a journey the Lampeater's way in seals behind you, a short cutscene of about 3 seconds: the camera zooms in on the door as it rises out of the floor, glides up to the Lampeater, whose eyes flare as it swells, then zooms back out to you.",
     "Black bars slide in at the top and bottom, and the panel, map, lantern and arrow pad fade out till it ends. Taps and keys do nothing while it plays, so it can't be skipped by accident.",

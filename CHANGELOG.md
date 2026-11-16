@@ -24,6 +24,9 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.400 (2026-11-16)
+- Docs only: a point raised once a PR is ready to merge is saved for a fresh conversation, not built in the same one.
+
 ## 0.3.399 (2026-11-16)
 - The first time on a journey the Lampeater's way in seals behind you, a short cutscene of about 3 seconds: the camera zooms in on the door as it rises out of the floor, glides up to the Lampeater, whose eyes flare as it swells, then zooms back out to you.
 - Black bars slide in at the top and bottom, and the panel, map, lantern and arrow pad fade out till it ends. Taps and keys do nothing while it plays, so it can't be skipped by accident.
@@ -36,8 +39,3 @@ Entry format:
 - Coming up the hallway while the Lampeater is unbeaten, a warning: "The seal hall: once in, no way back."
 - Beat it and both doors sink open; fall, and the way in is open again when you come back.
 - Decisions: D-956. Questions: part of Q-112 answered. D-952 moved to the archive, word for word.
-
-## 0.3.397 (2026-11-16)
-- Beating the Lampeater now reaches a Feat of its own, Lampeater, paying 3 Glints once. It says "Feat reached: Lampeater. +3 Glints." on your next move after the door sinks.
-- The Feats tab shows it on its own row below the others, with one mark that turns gold once it's beaten, and only once you have met the Lampeater. A Lampeater beaten before this counts too.
-- Decisions: D-955. D-950 moved to the archive, word for word.

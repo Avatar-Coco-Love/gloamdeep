@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.397, The Lampeater's Feat.** D-954's first step:
+  beaten once, it pays 3 Glints; a row of its own on the Feats tab, one
+  mark, shown once it is met; earlier wins count, the bench never. The
+  fight unchanged, so no boss-bot run. D-955. Playtest: https://claude.ai/artifact/NE3mJEqwHUouQKVM5i2scU
 - **2026-11-16, 0.3.396, Step 9's order.** Docs only: the Feat, then the
   sealed way in, then the trophy, the first of all, once creatures leave
   materials; 0.4.0 when the way to depth 9 opens; the surface and depths
