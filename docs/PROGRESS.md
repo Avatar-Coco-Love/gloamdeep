@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.407 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.408 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The escape's next part (Q-113): the crumble's sound, as the seal stones
-crack and fall into the Gap. Trophy: Q-061.
+The escape's next part (D-963): whether the floor keeps crumbling, its
+own step; Claude proposes. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,12 +50,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
+  a low crack of stone as the cracks run, then a heavy rumble as the
+  stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca
 - **2026-11-16, 0.3.407, The crumble.** As the floor gives way, cracks
   run across the seal stones, then they all fall together into the dark,
   over with the shake; none with reduced motion. D-965. Playtest: https://claude.ai/artifact/Tq9Mf3bZEJ3WardQScismc
 - **2026-11-16, 0.3.406, The floor waits.** Beaten, the Lampeater's door
   sinks open; the floor gives way, the room shaking, as the hero first
   comes onto the tile before the door or the door. D-964. Playtest: https://claude.ai/artifact/9qqCxGfzGATCvXXuAYCrNv
-- **2026-11-16, 0.3.405, The floor gives way.** Beaten, the Lampeater's
-  seal stones round the stairs fall into a gap; from the open door the
-  hero leaps over it onto the stairs. D-963. Playtest: https://claude.ai/artifact/6pEbMhmzsiuvp6qeS9Tt5d

@@ -5,7 +5,8 @@
 // the page fetches them from sounds/packs/, so publish those files beside it: the list is
 // written next to the page as <page>.files.json (soundfiles.js).
 //
-//   node tools/soundboard.js out.html
+//   node tools/soundboard.js out.html          every sound
+//   node tools/soundboard.js out.html --boss   only the Lampeater's and its arena's (`boss`)
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -137,6 +138,17 @@ const SOUNDS = [
   { label: 'Sleeping until morning', play: 'later(0, () => sound.breath())' },
   { label: '"You can\'t carry more" (the Can\'t tock)', play: 'later(0, () => sound.refuse())' },
   { label: "The run ends", play: 'later(0, () => sound.ended())' },
+  // The Lampeater and its arena (D-941, D-944, D-947, D-966): the --boss page lists these alone
+  { label: 'The Lampeater bites (a gloamling\'s bite)', play: 'later(0, () => sound.gloam(false))', boss: true },
+  { label: 'Lantern hit, then the Lampeater bites', play: 'later(0, () => { sound.hit(false); sound.gloam(true); })', boss: true },
+  { label: 'The Lampeater drinks at the light\'s edge', play: 'later(0, () => sound.sip(false))', boss: true },
+  { label: 'A blow sinks into the Lampeater (a puff)', play: 'later(0, () => sound.miss())', boss: true },
+  { label: 'A brazier breathed out', play: 'later(0, () => sound.gutter())', boss: true },
+  { label: 'A brazier lit', play: 'later(0, () => sound.kindle())', boss: true },
+  { label: 'A gloamling bites', play: 'later(0, () => sound.gloam(false))', boss: true },
+  { label: 'The floor gives way (D-966)', play: 'later(0, () => sound.giveWay())', boss: true },
+  { label: 'Two steps, then the floor gives way', play: 'later(0, () => sound.stoneStep()); later(250, () => sound.stoneStep()); later(500, () => sound.giveWay())', boss: true },
+  { label: 'The last blow, beaten, then the floor gives way', play: "later(0, () => { sound.hit('stone'); sound.beaten(true); }); later(900, () => sound.stoneStep()); later(1150, () => sound.giveWay())", boss: true },
   // Sounds all around (D-836): a cave's drips, each a little left or right
   { label: 'A drip in the rock caves', play: 'later(0, () => sound.drip())' },
   { label: 'Steps in the rock caves, then a drip', play: 'for (let i = 0; i < 4; i++) later(i * 250, () => sound.stoneStep()); later(1300, () => sound.drip())' },
@@ -145,7 +157,8 @@ const SOUNDS = [
 
 // § heard: only buttons whose every sound has its files
 const heard = (s) => [...s.play.matchAll(/sound\.(\w+)/g)].every(([, v]) => FILES[v]);
-const LISTED = SOUNDS.filter(heard);
+const BOSS = process.argv.includes('--boss');
+const LISTED = SOUNDS.filter((s) => heard(s) && (!BOSS || s.boss));
 
 const out = process.argv[2];
 if (!out) throw new Error('usage: node tools/soundboard.js out.html');
@@ -154,7 +167,7 @@ writeFileSync(out, `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gloamdeep sounds</title>
+<title>Gloamdeep ${BOSS ? 'boss sounds' : 'sounds'}</title>
 <style>
   :root { --bg: #0e0c16; --text: #9790a4; --gold: #ffd66b; --edge: #3a3446; }
   body { margin: 0; padding: 24px 16px; background: var(--bg); color: var(--text); font: 16px/1.4 ui-monospace, "Courier New", monospace; }
@@ -167,7 +180,7 @@ writeFileSync(out, `<!doctype html>
 </style>
 </head>
 <body>
-<h1>Gloamdeep sounds</h1>
+<h1>Gloamdeep ${BOSS ? 'boss sounds' : 'sounds'}</h1>
 <p>Version ${VERSION}. Turn your sound on, then tap a sound to hear it.</p>
 <div id="sounds"></div>
 <script>

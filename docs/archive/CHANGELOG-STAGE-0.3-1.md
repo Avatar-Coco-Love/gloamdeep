@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.405 (2026-11-16)
+- The escape begins. Beat the Lampeater and, as its door sinks open, the old seal stones round the stairs down fall away into a black gap, leaving the stairs standing alone. The last blow now says "The floor gives way. You learn Leap."
+- You can't step into the gap ("Too wide to step across."), but from the open door you can leap over it, straight onto the stairs, and down you go.
+- Decisions: D-963. D-961 moved to the archive, word for word.
+
 ## 0.3.404 (2026-11-16)
 - Beat the Lampeater and you learn Leap: "The door sinks open. You learn Leap." It is yours for the rest of that journey only. A new journey has to earn it again.
 - A new round Leap button sits left of the flask button. Tap it ("Leap which way?") and pick a way: the hero jumps 2 tiles in a line, over open floor, a creature or a low thing like water or a brazier, and lands on the second. It takes one turn, like a step. On a keyboard, J does the same.

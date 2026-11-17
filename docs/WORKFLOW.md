@@ -112,3 +112,4 @@ line here (D-741). Each audit moves the lines into the right sections.
 - A point saved at merge time comes back as part of the next step's prompt: the bench's lower start rode with the hallway's quiet, asked as one more question in the same round (0.3.402).
 - A tune that must start on a moment has to be fetched before it: the place tunes load when first wanted, so the boss tune is fetched ahead in the quiet hallway, or it would start late at the seal (0.3.403).
 - The same slip came back: the escape's joined line was offered unmeasured and was too wide again (0.3.405); measure every option's words before the question, not after the pick.
+- A new sound needs its own button on the sound board too: the board's list is written by hand in `tools/soundboard.js`, so `giveWay` was in the game but not on the board, and the owner couldn't find it among 118; `--boss` now makes a short page of one place's sounds, and a sound step links the short page (0.3.408).

@@ -336,9 +336,9 @@ test("Each kind's list: its loudness first, then its heard sounds On or Off", as
   const { GROUPS } = await import('../src/core/settings.js');
   for (const v of heard) assert.ok(SOUND_LINES.some((l) => l.voice === v) || Object.values(GROUPS).some((g) => g.includes(v)), `${v} has a line`); // every heard sound, the grouped under one (D-832, D-833)
   for (const g of Object.keys(GROUPS)) assert.ok(SOUND_LINES.some((l) => l.voice === g) && (FILES[g].as || FILES[g].files), `${g}'s line plays one of its own`); // or its own sound, as Digging's clink with the chop under it (D-842)
-  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs low', 'Oil runs out', 'Torch lit', 'Campfire lit', 'Falling', 'New rooms']);
+  assert.deepEqual(soundsOf('steps').map((l) => l.name), ['Grass', 'Stone', 'Earth', 'Lantern', 'Flask poured', 'Oil runs low', 'Oil runs out', 'Torch lit', 'Campfire lit', 'Falling', 'Floor gives way', 'New rooms']);
   assert.deepEqual(settingsMenu({ muted: ['earthStep'] }, false, null, null, 'sound', 'steps').map((l) => l.text),
-    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs low: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Falling: On', 'New rooms: On', 'Version history']);
+    ['Steps: 100%', 'Grass: On', 'Stone: On', 'Earth: Off', 'Lantern: On', 'Flask poured: On', 'Oil runs low: On', 'Oil runs out: On', 'Torch lit: On', 'Campfire lit: On', 'Falling: On', 'Floor gives way: On', 'New rooms: On', 'Version history']);
   assert.ok(isMuted({ muted: ['creatures'] }, 'statue') && isMuted({ muted: ['places'] }, 'shimmer') && !isMuted({ muted: ['places'] }, 'eat'));
   assert.equal(settingsMenu({}, false, null, null, 'sound').find((l) => l.id === 'loudFight').value, '100% >'); // a kind's line opens its list
   assert.equal(kindListTab('fight').text, 'SOUND · FIGHTING');

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.405, The floor gives way.** Beaten, the Lampeater's
+  seal stones round the stairs fall into a gap; from the open door the
+  hero leaps over it onto the stairs. D-963. Playtest: https://claude.ai/artifact/6pEbMhmzsiuvp6qeS9Tt5d
 - **2026-11-16, 0.3.404, Leap.** Beating the Lampeater teaches Leap
   for that journey: the Leap button or J, then a way; 2 tiles over
   floor, a creature or a low thing, a turn. D-962. Playtest: https://claude.ai/artifact/Q5oKPAJkGjnnwYE6uLobHm

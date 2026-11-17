@@ -96,14 +96,6 @@ From 0.3.399 the bench starts in the way in, where walking in from the
 hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
 Middling 97% (the same), Strong all.
 
-**Q-113 · When the floor gives way** (raised 2026-11-16, the owner's
-idea at 0.3.405's merge; builds D-963) In the owner's words: "I like the
-idea of it not giving way at the last blow, but rather when you step
-nearer to it (unless you kill the boss within range of it), then the
-screen could shake and it could crumble away." When, how near, the
-lines and the shake: D-964; how the crumble looks: D-965. Still open: its
-sound, its own step.
-
 **The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked

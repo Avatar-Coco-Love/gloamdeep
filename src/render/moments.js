@@ -24,6 +24,7 @@ export function moments(before, after, events) {
   else if (!fell && has(events, 'found')) out.push(['room']);
   const eaten = events.find((e) => e.type === 'eat');
   if (eaten) out.push(['eat', get(eaten.id)?.verb === 'DRINK']);
+  if (has(events, 'giveWay')) out.push(['giveWay']); // the seal stones crack, then fall rumbling into the Gap (Q-113, D-966)
   if (has(events, 'leave') || has(events, 'arrive')) out.push(['shimmer']);
   if (has(events, 'sleep')) out.push(['breath']);
   if (line === 'ratPack') out.push(['pack']);
