@@ -123,23 +123,6 @@ the map shows it as a wall's outline; a level on the same blow keeps
 "Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
 D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-964 · 2026-11-16 · When the floor gives way** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks, all
-recommended; answers part of Q-113; supersedes part of D-963) The last
-blow on the Lampeater sinks its door and teaches Leap, but the seal
-stones stand: "The door sinks open. You learn Leap." The floor gives way
-the first time the hero comes near the stairs after: onto the tile
-before the door, or the door itself, by a step or a leap (offered too:
-only onto the door; the hall's top 2 rows). Then the stones fall into the
-Gap at once, the room shakes, and the strip says "The floor gives way."
-Beaten with the hero already there, it goes on the same blow, saying
-"The floor gives way. You learn Leap." (offered too: nothing said near,
-the shake alone; the one line kept at the last blow). This step is the
-moment and its shake (offered too: the moment alone; with the crumble);
-the crumble's look and a sound come next, a step each. Claude's calls:
-the shake is the hit's 1-pixel jolt, held 480 ms (a hit's is 120); none
-with reduced motion; a level on the same blow keeps "Level {n}. You learn
-Leap.".
-
 **D-965 · 2026-11-16 · The crumble** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks: crack, then all
 fall, over recommended one by one; the rest recommended; answers part of
 Q-113; builds D-964) As the floor gives way, the seal stones stand a
@@ -181,3 +164,23 @@ Settings line; for a later falling floor such as T4, the collapse. Next,
 the first Leap gaps. Claude's calls: a journey saved with the Gap
 already there keeps it, leapt as before. D-951 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-968 · 2026-11-17 · The first Leap gaps** (the owner's picks, all
+recommended; builds D-463, D-650, D-954, D-962, D-967) The first gaps go
+above depth 8, seen before Leap and reached once the Lampeater is beaten:
+the locked door shown before its key, the owner's reason; gaps below
+depth 8 come at a later step (offered too: both at once; below 8 only).
+From depth 5 to 8, one dead end a floor has its cache behind a line of
+Gap tiles, its finds in sight across it (offered too: a chest on a
+ledge; a short cut over a loop; from depth 7 or 1; about half the
+caches, or every one). Claude's calls: the line is a straight run of
+open floor, up to 4 tiles along a row or a column between walls, that
+leaves every find out of walking reach, every one reached by a leap and
+within 4 tiles, in sight; the nearest the finds wins; nothing stands on
+it; the floor's dead ends are tried in the seed's order, and where none
+fits the floor has none (about 4 floors in 10); never in a waystone's,
+the peddler's or the locket's room; rooms
+already kept in a save keep their shape, so no hero is shut behind a new
+gap; the Gap's look and its line, "Too wide to step across.", as at the
+arena (`leapgap.js`). Next, the gaps below depth 8. D-964 moves to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.

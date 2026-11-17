@@ -4,12 +4,12 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.409 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.410 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The first Leap gaps (D-954, D-967): where Leap is first needed below
-depth 8; Claude proposes. Trophy: Q-061.
+The Leap gaps below depth 8 (D-968): where they go from depth 9 and
+what lies behind them; Claude proposes. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -50,12 +50,13 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-17, 0.3.410, The first Leap gaps.** From depth 5 to 8, one
+  dead end a floor can hold its cache behind a line of Gap, seen before
+  Leap and reached after the Lampeater. D-968. Playtest: https://claude.ai/artifact/A5EcnCDCFSU86duwUjXhWJ
+  Map preview: https://claude.ai/artifact/HTZSyqyuA8PFE9ZyupogeT
 - **2026-11-17, 0.3.409, No falling floor.** Beaten, the Lampeater's
   door sinks open and the seal stones stand; no floor gives way in the
   fight, the work kept unused for later (Q-114). D-967. Playtest: https://claude.ai/artifact/VVBVvZcizpvRXAacijBAMA
 - **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
   a low crack of stone as the cracks run, then a heavy rumble as the
   stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca
-- **2026-11-16, 0.3.407, The crumble.** As the floor gives way, cracks
-  run across the seal stones, then they all fall together into the dark,
-  over with the shake; none with reduced motion. D-965. Playtest: https://claude.ai/artifact/Tq9Mf3bZEJ3WardQScismc

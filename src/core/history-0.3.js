@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.410', date: '2026-11-17', title: 'The first Leap gaps', lines: [
+    "From depth 5 to 8, a dead end on a floor can hold its cache of finds behind a gap: a short line of black drop across the floor, \"Too wide to step across.\" You can see the finds over it, but not reach them yet.",
+    "Once the Lampeater is beaten and you have learnt Leap, come back up and leap the gap to take them. Rooms you have already been in stay as they were.",
+    "About 6 floors in 10 from depth 5 to 8 have one; the rest have none, where no straight line fits. The map preview marks each gap.",
+    "Decisions: D-968. D-964 moved to the archive, word for word.",
+  ] },
   { v: '0.3.409', date: '2026-11-17', title: 'No falling floor', lines: [
     "No more falling floor in the Lampeater's fight. Beat it and its door sinks open (\"The door sinks open. You learn Leap.\"), and the seal stones round the stairs stay standing, wherever you are.",
     "Walk through the door, over the stones and onto the stairs, or leap from the door straight onto them. The way back down on a later trip is never cut off.",

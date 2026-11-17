@@ -25,6 +25,7 @@ const shown = () => ({ way: $('way').checked, creatures: $('creatures').checked,
 const FIND = { flask: '#f39a3b', herb: '#6fc06a', duskstar: '#c8b4f4', oilcap: '#e0c060', stone: '#9aa6b4', heartcap: '#e0607a', locket: '#a58ce0' }; // the locket, a relic, in the unusual things' violet (D-691); a loose stone, grey (D-761)
 const cached = (it) => it.once && it.id !== 'locket'; // a cache's finds; the locket is left once too
 const VAULT = { brazier: '#f39a3b', sealedDoor: '#a58ce0' }; // a vault's braziers and sealed door (D-892)
+const GAP = '#c8b4f4'; // a Leap gap's edge (D-968)
 const FIND_ELSE = '#d8d2c0', CREATURE = '#ff5a4a', PERSON = '#7fd8ff', WAY = '#ffd66b', CHOSEN = '#ffffff';
 // § shapes: a tint over each hall and large room (D-645), so they stand out
 const SHAPE_TINT = { 2: 'rgba(127, 216, 255, 0.16)', 4: 'rgba(165, 140, 224, 0.22)' };
@@ -50,7 +51,7 @@ function contents({ id, room }, s) {
   const p = fresh(id, s), tiles = {};
   for (let y = 0; y < room.rows; y++) for (let x = 0; x < room.cols; x++) {
     const t = tileAt(room, x, y).id;
-    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown', 'brazier', 'sealedDoor'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
+    if (['deposit', 'vein', 'water', 'waystonePlate', 'wokenPlate', 'stairsUp', 'stairsDown', 'brazier', 'sealedDoor', 'gap'].includes(t)) tiles[t] = (tiles[t] || 0) + 1;
   }
   return { enemies: p.enemies, items: p.items, people: p.people || [], tiles };
 }
@@ -78,7 +79,7 @@ function numbers({ rooms, info }) {
   parts.push(`${rooms.length} rooms`);
   if (info) parts.push(`the way ${info.wayLength} rooms`, `${rooms.length - info.wayLength} side rooms`, `${info.halls} halls`, `${info.large} large rooms`, `${info.deadEnds} dead ends`, `${info.loops} loops`);
   parts.push(`${rooms.reduce((n, r) => n + r.enemies.length, 0)} creatures`, `${count((id) => id === 'flask')} flasks`, `${count((id) => id === 'herb')} herbs`, ...(count((id) => id === 'duskstar') ? [`${count((id) => id === 'duskstar')} duskstars`] : []),
-    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`, ...(info && vaultAt(seed(), depth) ? ['a vault'] : []));
+    `${count((id) => id === 'heartcap')} heartcaps`, `${rooms.reduce((n, r) => n + r.items.filter(cached).length, 0)} cache finds`, ...(count((id) => id === 'locket') ? ['the locket'] : []), ...[rooms.filter((r) => r.tiles.gap).length].map((n) => `${n} Leap gap${n === 1 ? '' : 's'}`), `${rooms.filter((r) => r.tiles.water).length} pools`, `${tiles('deposit') + tiles('vein')} deposits`, ...(info && vaultAt(seed(), depth) ? ['a vault'] : []));
   return parts;
 }
 function biomeRooms(s) {
@@ -97,6 +98,7 @@ function draw() {
     if (show.shapes && cell && SHAPE_TINT[cell.w * cell.h]) { c.fillStyle = SHAPE_TINT[cell.w * cell.h]; c.fillRect(px, py, w, h); }
     if (show.way && f.info?.way.has(r.id)) { c.strokeStyle = WAY; c.lineWidth = 2; c.strokeRect(px + 1, py + 1, w - 2, h - 2); }
     if (show.finds) for (const it of r.items) { if (it.once || it.id === 'locket') ring(c, r.x + it.x, r.y + it.y); dot(c, r.x + it.x, r.y + it.y, FIND[it.id] || FIND_ELSE, 0.6); } // a cache's finds ringed (D-650)
+    if (r.tiles.gap) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) if (tileAt(r.room, x, y).id === 'gap') { c.fillStyle = '#07060a'; c.fillRect((r.x + x) * K, (r.y + y) * K, K, K); c.strokeStyle = GAP; c.lineWidth = 1; c.strokeRect((r.x + x) * K + 0.5, (r.y + y) * K + 0.5, K - 1, K - 1); } // a Leap gap, black, edged (D-968)
     if (r.tiles.sealedDoor) for (let y = 0; y < r.room.rows; y++) for (let x = 0; x < r.room.cols; x++) { const t = tileAt(r.room, x, y).id; if (VAULT[t]) dot(c, r.x + x, r.y + y, VAULT[t], 0.8); } // the vault (D-892)
     if (show.creatures) for (const e of r.enemies) dot(c, r.x + e.x, r.y + e.y, CREATURE, 0.7);
     for (const p of r.people) dot(c, r.x + p.x, r.y + p.y, PERSON, 0.8);

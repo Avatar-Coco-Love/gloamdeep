@@ -200,7 +200,8 @@ export const TILES = {
   pillar: { id: 'pillar', kind: 'tile', letter: 'q', name: 'Pillar', solid: true, blocksLight: true },
   sealStone: { id: 'sealStone', kind: 'tile', letter: 'r', name: 'Seal stone', solid: false, blocksLight: false },
   // § gap (the escape's first step, D-963): where the floor gave way round the stairs down once the
-  // Lampeater is beaten (beaten.js). No step into it, its line, free; low, so a leap carries over it
+  // Lampeater is beaten (beaten.js), kept unused (D-967); from depth 5 to 8, a line before one dead
+  // end's cache (leapgap.js, D-968). No step into it, its line, free; low, so a leap carries over it
   // (leap.js); light passing over it
   gap: { id: 'gap', kind: 'tile', letter: 's', name: 'Gap', solid: true, low: true, blocksLight: false, bump: 'gapBump' },
 };
