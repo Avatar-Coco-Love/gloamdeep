@@ -12,6 +12,7 @@ import { stoneHome } from './mouth.js';
 import { farSight } from './farsight.js';
 import { coolVault } from './vault.js';
 import { wholeAgain, openWayIn } from './beaten.js';
+import { throughArchway } from './beyond.js';
 
 // § take: (state) → the state in the room the stairs under the hero lead to,
 // standing on its matching stair, with the stairs' line said. Null when the
@@ -19,7 +20,7 @@ import { wholeAgain, openWayIn } from './beaten.js';
 // spawn tool in the first room, or stairs with no match where they lead).
 export function takeStairs(state) {
   const { hero } = state, entry = tileAt(state.room, hero.x, hero.y);
-  const to = entry.leads && placeBeside(state.place, entry.leads, state.seed);
+  const to = entry.leads === 'beyond' ? throughArchway(state.place) : entry.leads && placeBeside(state.place, entry.leads, state.seed); // an Archway, to the place beyond and back (D-970)
   const there = to && (state.elsewhere[to] || fresh(to, state.seed));
   const spot = there && find(there.room, entry.arrive);
   if (!spot) return null;

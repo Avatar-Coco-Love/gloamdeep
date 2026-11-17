@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.409, No falling floor.** Beaten, the Lampeater's
+  door sinks open and the seal stones stand; no floor gives way in the
+  fight, the work kept unused for later (Q-114). D-967. Playtest: https://claude.ai/artifact/VVBVvZcizpvRXAacijBAMA
 - **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
   a low crack of stone as the cracks run, then a heavy rumble as the
   stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca

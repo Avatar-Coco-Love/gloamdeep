@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.412 (2026-11-17)
+- Past each Leap gap, in the corner you leap into, a dark archway now stands in the wall. Step onto it ("You go through the archway.") and you come out in a room of its own beyond.
+- For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.
+- On the map the room isn't drawn yet; while you are in it, the map shows you at the archway. Rooms you have already been in stay as they were. The map preview marks each archway in gold.
+- Decisions: D-970. D-965 and D-966 moved to the archive, word for word.
+
 ## 0.3.411 (2026-11-17)
 - Walk into a Leap gap before you have learnt Leap and it says "Too wide to step. More lies beyond." Once you have Leap, it says "Too wide to step. Leap it."
 - Decisions: D-969. D-963 moved to the archive, word for word.
@@ -33,9 +39,3 @@ Entry format:
 - Once the Lampeater is beaten and you have learnt Leap, come back up and leap the gap to take them. Rooms you have already been in stay as they were.
 - About 6 floors in 10 from depth 5 to 8 have one; the rest have none, where no straight line fits. The map preview marks each gap.
 - Decisions: D-968. D-964 moved to the archive, word for word.
-
-## 0.3.409 (2026-11-17)
-- No more falling floor in the Lampeater's fight. Beat it and its door sinks open ("The door sinks open. You learn Leap."), and the seal stones round the stairs stay standing, wherever you are.
-- Walk through the door, over the stones and onto the stairs, or leap from the door straight onto them. The way back down on a later trip is never cut off.
-- The gap, its crumble, its shake and its sound are kept for another place later.
-- Decisions: D-967. D-951 moved to the archive, word for word.

@@ -6,6 +6,7 @@ import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
 import { withLeapGap, leapGapOrder } from './leapgap.js';
+import { isBeyond, roomBefore, beyondRoom, wayIn } from './beyond.js';
 import { vaultRoomOf, vaultRoom } from './vault.js';
 import { arenaRoom, hallwayRoom } from './arena.js';
 import { RUNES_FROM, runeSpotIn } from './runewall.js';
@@ -318,6 +319,7 @@ function madeFor(id, seed, probe = false) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
+  if (isBeyond(id)) return { ...beyondRoom(depth, wayIn(madeFor(roomBefore(id), seed).map)), depth, look }; // the room beyond a Leap gap, off the grid, empty (D-970)
   if (cell?.arena) return { ...arenaRoom(cell), depth, look }; // the Lampeater's arena, standing empty (D-940)
   if (cell?.hall) return { ...hallwayRoom(cell), depth, look }; // its hallway, empty too (D-940)
   if (cell && id === vaultAt(seed, depth)) return { ...vaultRoom(cell), depth, look: 'crypt' }; // the floor's vault, in the crypt's bricks (D-891, D-892)
