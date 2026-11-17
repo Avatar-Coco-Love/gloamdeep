@@ -20,7 +20,7 @@ Leap gap, its look (D-969).
   the archway's line, Claude's draft (D-970).
 - The owner's Lampeater polish after its steps (`OPEN-QUESTIONS-3.md`).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
-  with its 4 gloamlings (D-971), Lean wins 52%, Middling all; to tune after its steps.
+  with its 4 gloamlings (D-971), Lean 52%, Middling all; their flanking (Q-116).
 - Any time: a sound for the vault door and the rune wall opening (D-895,
   D-929); a duskstar on the home waystone's ring (Q-103); the herb
   mimic's and the bone rat's rare drops (Q-061); who the keeper is
