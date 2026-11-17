@@ -100,3 +100,11 @@ Middling 97% (the same), Strong all.
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
 for then.
+
+**Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
+boss fight has no falling ground; the owner saved it for another time.
+Kept in the code, unused: the Gap tile ("Too wide to step across."),
+`floorGives` in `beaten.js` with its line "The floor gives way.", the
+crumble (`render/crumble.js`), the shake and the `giveWay` sound. Where
+it is first used, and how a later trip gets back past it (the owner's
+worry), is to be asked then; T4, the collapse, is one place.

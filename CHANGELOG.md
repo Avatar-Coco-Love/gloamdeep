@@ -24,6 +24,12 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.409 (2026-11-17)
+- No more falling floor in the Lampeater's fight. Beat it and its door sinks open ("The door sinks open. You learn Leap."), and the seal stones round the stairs stay standing, wherever you are.
+- Walk through the door, over the stones and onto the stairs, or leap from the door straight onto them. The way back down on a later trip is never cut off.
+- The gap, its crumble, its shake and its sound are kept for another place later.
+- Decisions: D-967. D-951 moved to the archive, word for word.
+
 ## 0.3.408 (2026-11-17)
 - The floor giving way now has a sound: a low crack of stone as the cracks run across the seal stones, then a heavy rumble as they fall into the dark, fading with the shake. Nothing is heard landing.
 - It follows Steps' loudness, and has its own line in Steps' list in Settings, "Floor gives way", to turn it On or Off.
@@ -33,8 +39,3 @@ Entry format:
 - When the floor gives way round the stairs, you now see it go: cracks run across the seal stones, then they all fall together into the dark, shrinking and darkening as they drop. It takes about half a second, ending with the shake.
 - With reduced motion the stones are simply gone, as before.
 - Decisions: D-965.
-
-## 0.3.406 (2026-11-16)
-- The floor now waits. Beat the Lampeater and its door sinks open ("The door sinks open. You learn Leap."), but the seal stones round the stairs stay standing.
-- Walk up to the tile before the door, or onto the door, and the floor gives way: the room shakes and the stones fall into the gap. "The floor gives way." Beat the Lampeater while already standing there and it all happens on the same blow, as before.
-- Decisions: D-964. D-962 moved to the archive, word for word.

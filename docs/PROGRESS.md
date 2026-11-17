@@ -4,17 +4,17 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.408 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.409 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The escape's next part (D-963): whether the floor keeps crumbling, its
-own step; Claude proposes. Trophy: Q-061.
+The first Leap gaps (D-954, D-967): where Leap is first needed below
+depth 8; Claude proposes. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
   (a conversation can't delete branches; its saves are tests now).
-- The names Pillar, Seal stone and Gap, Claude's drafts (D-940, D-963).
+- The names Pillar and Seal stone, Claude's drafts (D-940); Gap, kept (D-963).
 - The owner's Lampeater polish after its steps (`OPEN-QUESTIONS-3.md`).
 - How hard the Lampeater should be (Q-111): 12 hearts for now (D-950);
   from the way in, as walking in (D-958), Lean wins 34%, Middling 97%; to tune any time.
@@ -27,7 +27,7 @@ own step; Claude proposes. Trophy: Q-061.
 - Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
   a region's name (Q-056), creature materials (Q-061), rooms through the
   wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
-  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), daylight in very big
+  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), falling ground (Q-114), daylight in very big
   rooms (Q-097), fires below ground (Q-088), sleeping out's later costs (Q-091).
 - Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
   water or wood, and where the wood step plays; music is in every place
@@ -50,12 +50,12 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-17, 0.3.409, No falling floor.** Beaten, the Lampeater's
+  door sinks open and the seal stones stand; no floor gives way in the
+  fight, the work kept unused for later (Q-114). D-967. Playtest: https://claude.ai/artifact/VVBVvZcizpvRXAacijBAMA
 - **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
   a low crack of stone as the cracks run, then a heavy rumble as the
   stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca
 - **2026-11-16, 0.3.407, The crumble.** As the floor gives way, cracks
   run across the seal stones, then they all fall together into the dark,
   over with the shake; none with reduced motion. D-965. Playtest: https://claude.ai/artifact/Tq9Mf3bZEJ3WardQScismc
-- **2026-11-16, 0.3.406, The floor waits.** Beaten, the Lampeater's door
-  sinks open; the floor gives way, the room shaking, as the hero first
-  comes onto the tile before the door or the door. D-964. Playtest: https://claude.ai/artifact/9qqCxGfzGATCvXXuAYCrNv

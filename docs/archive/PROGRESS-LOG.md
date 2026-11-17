@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-16, 0.3.406, The floor waits.** Beaten, the Lampeater's door
+  sinks open; the floor gives way, the room shaking, as the hero first
+  comes onto the tile before the door or the door. D-964. Playtest: https://claude.ai/artifact/9qqCxGfzGATCvXXuAYCrNv
 - **2026-11-16, 0.3.405, The floor gives way.** Beaten, the Lampeater's
   seal stones round the stairs fall into a gap; from the open door the
   hero leaps over it onto the stairs. D-963. Playtest: https://claude.ai/artifact/6pEbMhmzsiuvp6qeS9Tt5d

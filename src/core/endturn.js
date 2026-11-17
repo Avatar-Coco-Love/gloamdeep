@@ -1,5 +1,4 @@
 // § end turn: waiting, and the end of every passed turn (split from turn.js, D-362)
-import { floorGives } from './beaten.js';
 import { say, oilLine } from './lines.js';
 import { discover, levelOf } from './xp.js';
 import { note } from './events.js';
@@ -50,7 +49,6 @@ export const endTurn = (before, cast, free = false) => { // `free`, travel's: no
   if (id === 'oilLow') found = note(found, 'oilLow'); // the flame is getting low: its sputter (D-834)
   if (place !== before.place) found = note(found, 'enter', { place });
   if (found.found.length > after.found.length) found = note(found, 'found', { place });
-  found = floorGives(found); // near the stairs in a beaten arena: the floor gives way (Q-113, D-964)
   found = leave(found); // a freed person whose turns are up goes home (D-496)
   const level = levelOf(found.xp), moved = place !== before.place;
   const learnt = ['leapLearnt', 'doorLeap'].includes(found.line?.id) && found.line.turn === found.turn; // Leap learnt on the same blow: both on one line (D-962)
