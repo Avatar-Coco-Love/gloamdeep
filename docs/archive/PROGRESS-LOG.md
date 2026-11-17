@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.411, The Gap's two lines.** Before Leap, "Too wide to
+  step. More lies beyond."; with it, "Too wide to step. Leap
+  it." The place beyond, its plan. D-969. Playtest: https://claude.ai/artifact/8x6SUZgjHqqeGsMTCWoLtc
 - **2026-11-17, 0.3.410, The first Leap gaps.** From depth 5 to 8, one
   dead end a floor can hold its cache behind a line of Gap, seen before
   Leap and reached after the Lampeater. D-968. Playtest: https://claude.ai/artifact/A5EcnCDCFSU86duwUjXhWJ

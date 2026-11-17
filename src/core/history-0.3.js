@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.414', date: '2026-11-17', title: 'The Lampeater\'s steps planned', lines: [
+    "Nothing changes in the game yet: the Lampeater's next steps are planned, with the gloamlings working alongside it.",
+    "While it comes for you, or stands calling at a brazier, its gloamlings will take the tiles beside you away from it, leaving its side open; it calls from cold braziers when it breaks free, up to 6 gloamlings at once; and its snuffs come at 2/3 and 1/3 of its hearts instead of at half.",
+    "Decisions: D-972. Questions closed: Q-116. D-967 moved to the archive, word for word.",
+  ] },
   { v: '0.3.413', date: '2026-11-17', title: 'Gloamlings in the seal hall', lines: [
     "The Lampeater's fight is harder from the start: a gloamling now waits beside each of the arena's 4 braziers, on the side toward the wall, and hunts you through the dark as soon as you walk in.",
     "They are the arena's own, like the ones that crawl from a snuffed brazier: they drop nothing, count for nothing, crumble when the Lampeater is beaten, and are all back if you fall or leave before then.",

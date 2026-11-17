@@ -101,23 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-967 · 2026-11-17 · No falling ground in the boss fight** (the
-owner's choice, then the rest recommended; supersedes D-963 to D-966) Offered: the hall's floor falling in behind the hero, a row a
-turn, never their row or the door's two tiles; the owner asked how a
-later trip would get back down past a fallen hall, then chose no falling
-ground at all, saved for another time (offered too: a narrow road left
-standing; the hall whole again later; it stops at the Gap). Beaten, the
-Lampeater's door sinks open and the seal stones stand, the gap round the
-stairs gone too: the hero walks through the door and over the stones
-onto the stairs, or leaps from the door (offered too: keep the Gap
-only). The last blow says "The door sinks open. You learn Leap." The
-work is kept in the code, unused (offered too: notes only): the Gap
-tile, `floorGives` in `beaten.js`, its crumble, shake and sound, and its
-Settings line; for a later falling floor such as T4, the collapse. Next,
-the first Leap gaps. Claude's calls: a journey saved with the Gap
-already there keeps it, leapt as before. D-951 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-969 · 2026-11-17 · What lies across a Leap gap, its first step**
 (the owner's picks, all recommended; answers part of Q-115; builds
 D-968) Walking into a Gap before Leap is learnt says "Too wide to step.
@@ -180,4 +163,29 @@ the calls, wary, the phases, the drop and card, the sound. Step 1: the 4,
 back when it is whole again. The bench: Lean 37% to 52%, Middling 95% to
 100%, as they take the tiles beside the hero and it bites less; the next
 steps draw it away. D-968 moves to `archive/DECISIONS-SURFACE.md`, word
-for word.
+for word. Its limit of 4 alive changed to 6 by D-972 (2026-11-17).
+
+**D-972 · 2026-11-17 · The Lampeater's calls, wary and phases, and its
+gloamlings flanking** (the owner's picks, recommended but one; answers
+Q-116; builds D-971) Before building, its steps 2 to 4 planned with the
+owner's flanking idea. The gloamlings work with it: while it comes for
+the hero (chasing, not caught, calling or wary) and while it calls, they
+take the free tiles beside the hero away from it, as a rat pack spreads,
+leaving the side toward it open; else they act as ever (offered too:
+only stepping out of its way; only the two sides across; always after
+its first phase). Struck and free again, it calls (D-971); a call is
+stopped by catching it in light, tried again once free, and spoilt by
+lighting that brazier, as it never calls from a lit one: it turns to
+another cold one, else is wary (offered too: a stopped call spent).
+Never more than 6 gloamlings alive, the owner's pick (changes D-971's 4;
+offered too: wary at 4, recommended; fighting on as now). Wary, it still
+drinks at the light's edge (offered too: only waiting). At each phase, 2/3
+and 1/3 of its hearts, the snuffed bowl's crawler is one of the 2, and 1
+more is called from another cold brazier (offered too: 2 more; both from
+that bowl). The phases replace its half-hearts snuff and the snuff owed
+after each catch (D-947; offered too: keep all; keep the half one). Seven
+steps now, one a PR, flanking first (offered too: the old order, flanking
+last; flanking inside the phases): flanking, the calls, wary, the phases,
+the drop and card, the sound. Claude's calls, to confirm at their steps:
+with 6 alive it is wary, as with no cold brazier; the bench after each
+step. D-967 moves to `archive/DECISIONS-SURFACE.md`, word for word.

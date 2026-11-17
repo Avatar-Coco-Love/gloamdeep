@@ -2550,3 +2550,20 @@ already kept in a save keep their shape, so no hero is shut behind a new
 gap; the Gap's look and its line, "Too wide to step across.", as at the
 arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-967 · 2026-11-17 · No falling ground in the boss fight** (the
+owner's choice, then the rest recommended; supersedes D-963 to D-966) Offered: the hall's floor falling in behind the hero, a row a
+turn, never their row or the door's two tiles; the owner asked how a
+later trip would get back down past a fallen hall, then chose no falling
+ground at all, saved for another time (offered too: a narrow road left
+standing; the hall whole again later; it stops at the Gap). Beaten, the
+Lampeater's door sinks open and the seal stones stand, the gap round the
+stairs gone too: the hero walks through the door and over the stones
+onto the stairs, or leaps from the door (offered too: keep the Gap
+only). The last blow says "The door sinks open. You learn Leap." The
+work is kept in the code, unused (offered too: notes only): the Gap
+tile, `floorGives` in `beaten.js`, its crumble, shake and sound, and its
+Settings line; for a later falling floor such as T4, the collapse. Next,
+the first Leap gaps. Claude's calls: a journey saved with the Gap
+already there keeps it, leapt as before. D-951 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.
