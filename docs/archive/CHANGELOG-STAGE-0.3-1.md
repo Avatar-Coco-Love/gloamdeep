@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.407 (2026-11-16)
+- When the floor gives way round the stairs, you now see it go: cracks run across the seal stones, then they all fall together into the dark, shrinking and darkening as they drop. It takes about half a second, ending with the shake.
+- With reduced motion the stones are simply gone, as before.
+- Decisions: D-965.
+
 ## 0.3.406 (2026-11-16)
 - The floor now waits. Beat the Lampeater and its door sinks open ("The door sinks open. You learn Leap."), but the seal stones round the stairs stay standing.
 - Walk up to the tile before the door, or onto the door, and the floor gives way: the room shakes and the stones fall into the gap. "The floor gives way." Beat the Lampeater while already standing there and it all happens on the same blow, as before.

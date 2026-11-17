@@ -108,3 +108,16 @@ Kept in the code, unused: the Gap tile ("Too wide to step across."),
 crumble (`render/crumble.js`), the shake and the `giveWay` sound. Where
 it is first used, and how a later trip gets back past it (the owner's
 worry), is to be asked then; T4, the collapse, is one place.
+
+**Q-115 · What lies across a Leap gap** (raised 2026-11-17, at 0.3.410's
+merge, D-968) The owner's words: "These gaps that are specifically
+related to Leap, should have a message when you try to cross them
+without it. They also need to open up a whole new area on that depth,
+for example, you jump over the gap, go through a door/exit to another
+room, and you find yourself confronting new enemies and seeing new
+things, perhaps even another biome within that biome, so that is more
+than one biome per depth. There should not be just more of the same on
+the other side of these gaps." Open: the line said without Leap (today
+"Too wide to step across.", the same as the arena's Gap); the area
+beyond (how many rooms, its way in, its creatures, finds and look); and
+whether the gaps below depth 8 wait until this is settled.

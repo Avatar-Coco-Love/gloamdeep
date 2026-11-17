@@ -345,7 +345,7 @@ export const LINES = {
   doorLeap: { text: 'The door sinks open. You learn Leap.', warn: false }, // the Lampeater beaten further off: the door's line and Leap's on one (D-962, D-964)
   floorGives: { text: 'The floor gives way.', warn: false }, // first near the stairs once it is beaten: the stones fall into the gap, the room shaking (Q-113, D-964); kept, unused (D-967)
   levelLeap: { text: 'Level {n}. You learn Leap.', warn: false }, // a level reached on the blow that beats it (D-962)
-  gapBump: { text: 'Too wide to step across.', warn: false }, // walking into the gap round the stairs, free (D-963); kept with the Gap (D-967)
+  gapBump: { text: 'Too wide to step across.', warn: false }, // walking into a gap, free (D-963); kept with the Gap (D-967); before a cache, depths 5 to 8 (D-968)
   leapWhich: { text: 'Leap which way?', warn: false }, // the Leap button pressed, waiting for a way (D-962)
   leapNoRoom: { text: 'No room to land.', warn: false }, // a leap whose landing tile isn't open, free (D-962)
   leapTooTall: { text: 'Too tall to leap over.', warn: false }, // a leap over a wall or a tall thing, free (D-962)

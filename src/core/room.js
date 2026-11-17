@@ -5,6 +5,7 @@ import { byLetter, get, LANDMARKS, asleepAtFirst } from './registry.js';
 import { generateRoom, withMimic } from './cave.js';
 import { withGuano } from './guano.js';
 import { withCache } from './cache.js';
+import { withLeapGap, leapGapOrder } from './leapgap.js';
 import { vaultRoomOf, vaultRoom } from './vault.js';
 import { arenaRoom, hallwayRoom } from './arena.js';
 import { RUNES_FROM, runeSpotIn } from './runewall.js';
@@ -306,7 +307,14 @@ export function placeFor(id, seed = 1) {
   const p = madeFor(id, seed), depth = depthOf(id), rune = depth >= RUNES_FROM ? runeWallAt(seed, depth) : null;
   return rune?.id === id ? { ...p, runes: rune.at } : p;
 }
-function madeFor(id, seed) {
+// § the floor's one Leap gap (D-968): the first dead end, in the seed's order, whose cache a line fits
+const gapRooms = new Map();
+export function leapGapAt(seed, depth) {
+  const k = `${seed}:${depth}`;
+  if (!gapRooms.has(k)) gapRooms.set(k, leapGapOrder(seed, depth).find((id) => madeFor(id, seed, true) === true) || null);
+  return gapRooms.get(k);
+}
+function madeFor(id, seed, probe = false) {
   if (PLACES[id]?.make) return { ...PLACES[id], ...PLACES[id].make(seedFor(seed, PLACES[id].depth), seed) };
   if (PLACES[id]) return { ...PLACES[id], ...scatter(PLACES[id], seedAt(seed, PLACES[id].depth) + (PLACES[id].slot || 0)), map: withGap(id, PLACES[id].map, seed) };
   const depth = depthOf(id), { shape, look, deposits = 0 } = kindAt(depth), cell = cellOf(seed, id, depth);
@@ -322,7 +330,11 @@ function madeFor(id, seed) {
   const loose = bigger && withUnguarded(cell.seed, bigger, poolAt(depth), (e) => dressed(cell.seed, [e])[0]); // 1 flask in 4 with no rat by it (D-725)
   const guanoed = loose && withGuano(cell.seed, loose); // a pile by each bat, placed last (D-539)
   const cached = guanoed && cell.end ? withCache(cell.seed, guanoed) : guanoed; // a dead end's cache, placed after the rest (D-650)
-  const relic = cached && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, cached) : cached; // placed after the rest (D-691)
+  const gaps = cached && cell.end && !landmark && !trapped && !(depth === LOCKET_DEPTH && id === locketRoom(seed)); // never in a waystone's, the peddler's or the locket's room
+  const lined = gaps && (probe || id === leapGapAt(seed, depth)) ? withLeapGap(cached, cached.items.slice(guanoed.items.length)) : cached;
+  if (probe) return lined !== cached; // whether a line fits this dead end's cache
+  const gapped = lined; // the cache behind a Gap, from depth 5 to 8 (D-968)
+  const relic = gapped && depth === LOCKET_DEPTH && id === locketRoom(seed) ? withRelic(cell.seed, gapped) : gapped; // placed after the rest (D-691)
   const packed = relic && withPack(cell.seed, relic, depth); // from depth 3, 1 room in 3, the flask's rat in a pack of 3, placed after the rest (D-727)
   const room = packed && landmark ? { ...packed, map: unpad(packed.map, landmark.mark, landmark.at) } : packed; // its pad floor again (D-620)
   return { ...(room || PLACES[DEEPER]), people: room?.people || [], depth, look };
