@@ -101,24 +101,8 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-951 · 2026-11-16 · The seventeenth audit** (the owner's picks, all
-recommended) At 0.3.393, nothing visible changed. The in-game history's
-0.3.301 to 0.3.350 go from `history-0.3.js` to a new
-`src/core/history-0.3-6.js` (52 KB to 24 and 28; offered too: the place
-and people lines out of `lines.js`; a section out of `main.js`). The
-playbook's lines since the last audit, and the one 0.3.390's PR kept, go
-to a new `WORKFLOW-7.md`; the hero to a new `GLOSSARY-HERO.md`; the
-creature list to a new `CONTENT-CREATURES.md` (its test and
-`tools/make.js` follow it); D-946 and D-947 to
-`archive/DECISIONS-SURFACE.md` (offered too: D-948 and D-949 as well;
-none); all word for word. "Waiting on the owner" is on fewer lines. A
-bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
-`BUGS.md`; which to fix, and when, is the owner's pick (the owner was
-away; the owner asked that the audit be merged once done). The next
-audit is at 0.3.433.
-
 **D-963 · 2026-11-16 · The escape, its first step** Partly superseded by
-D-964 (2026-11-16): when the floor gives way, and the last blow's line. (the owner's picks,
+D-964 (2026-11-16): when the floor gives way, and the last blow's line. Superseded by D-967 (2026-11-17): no gap in the boss fight. (the owner's picks,
 all recommended, and the line fitted to the strip; builds D-939, D-954,
 D-962) With the last blow on the Lampeater, at once, as its door sinks
 open, the old seal's stones round the stairs down fall away into a gap,
@@ -139,7 +123,7 @@ the map shows it as a wall's outline; a level on the same blow keeps
 "Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
 D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-964 · 2026-11-16 · When the floor gives way** (the owner's picks, all
+**D-964 · 2026-11-16 · When the floor gives way** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks, all
 recommended; answers part of Q-113; supersedes part of D-963) The last
 blow on the Lampeater sinks its door and teaches Leap, but the seal
 stones stand: "The door sinks open. You learn Leap." The floor gives way
@@ -156,7 +140,7 @@ the shake is the hit's 1-pixel jolt, held 480 ms (a hit's is 120); none
 with reduced motion; a level on the same blow keeps "Level {n}. You learn
 Leap.".
 
-**D-965 · 2026-11-16 · The crumble** (the owner's picks: crack, then all
+**D-965 · 2026-11-16 · The crumble** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks: crack, then all
 fall, over recommended one by one; the rest recommended; answers part of
 Q-113; builds D-964) As the floor gives way, the seal stones stand a
 moment over the Gap while cracks run across them, then all fall together
@@ -168,7 +152,7 @@ quick fade). Claude's calls: the cracks show in two steps over 200 ms;
 then each stone shrinks to 40% of its size, drops 3 pixels and darkens
 and fades away within its own tile (`render/crumble.js`).
 
-**D-966 · 2026-11-17 · The crumble's sound** (the owner's picks, all
+**D-966 · 2026-11-17 · The crumble's sound** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks, all
 recommended; answers the rest of Q-113; builds D-965) As the floor gives
 way, a sharp, low knock of stone as the cracks run, then a heavy earth
 rumble under the fall, fading into the dark with the shake (offered too:
@@ -180,3 +164,20 @@ in `render/sound.js`, the mining knock at 0.6 with the cave's echo, again
 0.1 s later at 0.55 as the cracks' second step, then `Earth-024` at 0.8
 from 0.2 s, 0.8 s long, fading 0.5 s, muffled above 1000 Hz; its own line
 in Steps' list, "Floor gives way"; heard with reduced motion too.
+
+**D-967 · 2026-11-17 · No falling ground in the boss fight** (the
+owner's choice, then the rest recommended; supersedes D-963 to D-966) Offered: the hall's floor falling in behind the hero, a row a
+turn, never their row or the door's two tiles; the owner asked how a
+later trip would get back down past a fallen hall, then chose no falling
+ground at all, saved for another time (offered too: a narrow road left
+standing; the hall whole again later; it stops at the Gap). Beaten, the
+Lampeater's door sinks open and the seal stones stand, the gap round the
+stairs gone too: the hero walks through the door and over the stones
+onto the stairs, or leaps from the door (offered too: keep the Gap
+only). The last blow says "The door sinks open. You learn Leap." The
+work is kept in the code, unused (offered too: notes only): the Gap
+tile, `floorGives` in `beaten.js`, its crumble, shake and sound, and its
+Settings line; for a later falling floor such as T4, the collapse. Next,
+the first Leap gaps. Claude's calls: a journey saved with the Gap
+already there keeps it, leapt as before. D-951 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

@@ -16,7 +16,7 @@ test('beating the Lampeater gives Leap, said with the door', () => {
   const s0 = bench(newJourney(1), 'middling'), boss = s0.enemies.find((e) => e.id === 'lampeater');
   const s = step({ ...s0, hero: { x: LAMPEATER_AT.x, y: LAMPEATER_AT.y + 1 }, enemies: [{ ...boss, health: 1, met: true }] }, 'up');
   assert.equal(s.leap, true);
-  assert.ok(['leapLearnt', 'levelLeap'].includes(s.line.id));
+  assert.ok(['doorLeap', 'levelLeap'].includes(s.line.id));
   assert.match(shownLine(s).text, /You learn Leap\./);
 });
 

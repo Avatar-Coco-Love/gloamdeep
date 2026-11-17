@@ -67,17 +67,18 @@ export function openWayIn(place, seed, room, enemies) {
 
 // § the door: (state) → the state with the arena's sealed door sunk open, the gloamlings gone, and
 // Leap learnt for this journey, with one line for all (D-962), once the Lampeater is beaten this
-// action; with the hero already near the stairs (nearStairs), the floor gives way on the same blow
-// (Q-113, D-964), said on the same line; else the same state
+// action; the seal stones stand, no floor giving way in the fight (D-967); else the same state
 export function lampeaterBeaten(state) {
   if (!inArena(state) || state.enemies.some((e) => e.id === BOSS) || !state.events.some((e) => e.type === 'beat' && e.id === BOSS)) return state;
   const opened = note({ ...state, room: swapped(state.room, 'sealedDoor', 'openDoor'), enemies: state.enemies.filter((e) => !e.ash), leap: true }, 'open', { id: 'openDoor' });
-  return nearStairs(state.hero) ? say(givenWay(opened), 'leapLearnt') : say(opened, 'doorLeap');
+  return say(opened, 'doorLeap');
 }
 
 // § the floor gives way (Q-113, D-964): the old seal's stones round the stairs down fall away into a
 // gap (the escape, D-963), the stairs left standing on their own, as the hero first comes near the
-// stairs once the door is open: onto the tile before the door, or the door itself
+// stairs once the door is open: onto the tile before the door, or the door itself. Kept, unused: the
+// boss fight has no falling ground (D-967); kept for another place's falling floor, with the Gap tile,
+// its crumble (render/crumble.js), shake (main.js) and sound (`giveWay`), nothing calling it yet
 const swapped = (room, a, b) => ({ ...room, map: room.map.map((row) => row.split(get(a).letter).join(get(b).letter)) });
 export const nearStairs = (at) => at.x === ARENA_DOWN.x && (at.y === ARENA_DOWN.y + 2 || at.y === ARENA_DOWN.y + 3);
 const givenWay = (state) => note({ ...state, room: swapped(state.room, 'sealStone', 'gap') }, 'giveWay');
