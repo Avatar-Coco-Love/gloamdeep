@@ -118,26 +118,6 @@ the first Leap gaps. Claude's calls: a journey saved with the Gap
 already there keeps it, leapt as before. D-951 moves to
 `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-968 · 2026-11-17 · The first Leap gaps** (the owner's picks, all
-recommended; builds D-463, D-650, D-954, D-962, D-967) The first gaps go
-above depth 8, seen before Leap and reached once the Lampeater is beaten:
-the locked door shown before its key, the owner's reason; gaps below
-depth 8 come at a later step (offered too: both at once; below 8 only).
-From depth 5 to 8, one dead end a floor has its cache behind a line of
-Gap tiles, its finds in sight across it (offered too: a chest on a
-ledge; a short cut over a loop; from depth 7 or 1; about half the
-caches, or every one). Claude's calls: the line is a straight run of
-open floor, up to 4 tiles along a row or a column between walls, that
-leaves every find out of walking reach, every one reached by a leap and
-within 4 tiles, in sight; the nearest the finds wins; nothing stands on
-it; the floor's dead ends are tried in the seed's order, and where none
-fits the floor has none (about 4 floors in 10); never in a waystone's,
-the peddler's or the locket's room; rooms
-already kept in a save keep their shape, so no hero is shut behind a new
-gap; the Gap's look and its line, "Too wide to step across.", as at the
-arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
-`archive/DECISIONS-SUPERSEDED.md`, word for word.
-
 **D-969 · 2026-11-17 · What lies across a Leap gap, its first step**
 (the owner's picks, all recommended; answers part of Q-115; builds
 D-968) Walking into a Gap before Leap is learnt says "Too wide to step.
@@ -175,3 +155,29 @@ the hero in it shows at the gap room's Archway; rooms already in a save
 keep their shape, so a gap room seen before gets no Archway (`beyond.js`).
 Next, the place's look. D-965 and D-966 move to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-971 · 2026-11-17 · The Lampeater made harder, and Leap a find**
+(the owner's ideas and picks, all recommended; part of the owner's
+Lampeater polish, `OPEN-QUESTIONS-3.md`; builds D-939) The owner found
+the fight too easy: lantern off, wait for it, lantern on, strike twice,
+it backs off, again; no time for snuffs or gloamlings, the braziers not
+mattering. It starts with a gloamling beside each of the 4 braziers, on
+its outer side (offered too: the room's corner tiles; crawling out of
+them), the arena's own as a snuffed bowl's are. It gets 3 new ways, all
+together, as the owner asked: struck and free again, it goes to the
+nearest cold brazier and calls a gloamling out over 2 turns, seen, and
+stopped if caught in light; never from a lit one; with no cold one, it is
+wary 3 turns, just past the lantern's reach; at 2/3 and 1/3 of its hearts
+it snuffs a lit brazier if one is lit, then calls 2; never more than 4
+gloamlings alive (Claude's numbers, approved; offered too: no limit; 3).
+Beaten, it leaves Leap where it falls, drawn as the Leap button's icon,
+used up when stepped on: a card opens, a new ability, the icon, its name
+and its use; closed, the door sinks open (offered too: at the last blow).
+Its sound, something special, from a sound board of 2 or 3 mixes (offered
+too: Claude's pick; a bigger level-up). Six steps, one a PR, gloamlings
+first (offered too: the drop first; the fight in one go): the gloamlings,
+the calls, wary, the phases, the drop and card, the sound. Step 1: the 4,
+back when it is whole again. The bench: Lean 37% to 52%, Middling 95% to
+100%, as they take the tiles beside the hero and it bites less; the next
+steps draw it away. D-968 moves to `archive/DECISIONS-SURFACE.md`, word
+for word.

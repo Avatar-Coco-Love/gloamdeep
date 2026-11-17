@@ -2530,3 +2530,23 @@ bug hunt reads the code since 0.3.353: three findings, F-6 to F-8 in
 `BUGS.md`; which to fix, and when, is the owner's pick (the owner was
 away; the owner asked that the audit be merged once done). The next
 audit is at 0.3.433.
+
+**D-968 · 2026-11-17 · The first Leap gaps** (the owner's picks, all
+recommended; builds D-463, D-650, D-954, D-962, D-967) The first gaps go
+above depth 8, seen before Leap and reached once the Lampeater is beaten:
+the locked door shown before its key, the owner's reason; gaps below
+depth 8 come at a later step (offered too: both at once; below 8 only).
+From depth 5 to 8, one dead end a floor has its cache behind a line of
+Gap tiles, its finds in sight across it (offered too: a chest on a
+ledge; a short cut over a loop; from depth 7 or 1; about half the
+caches, or every one). Claude's calls: the line is a straight run of
+open floor, up to 4 tiles along a row or a column between walls, that
+leaves every find out of walking reach, every one reached by a leap and
+within 4 tiles, in sight; the nearest the finds wins; nothing stands on
+it; the floor's dead ends are tried in the seed's order, and where none
+fits the floor has none (about 4 floors in 10); never in a waystone's,
+the peddler's or the locket's room; rooms
+already kept in a save keep their shape, so no hero is shut behind a new
+gap; the Gap's look and its line, "Too wide to step across.", as at the
+arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.

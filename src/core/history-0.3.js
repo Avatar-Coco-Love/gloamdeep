@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.413', date: '2026-11-17', title: 'Gloamlings in the seal hall', lines: [
+    "The Lampeater's fight is harder from the start: a gloamling now waits beside each of the arena's 4 braziers, on the side toward the wall, and hunts you through the dark as soon as you walk in.",
+    "They are the arena's own, like the ones that crawl from a snuffed brazier: they drop nothing, count for nothing, crumble when the Lampeater is beaten, and are all back if you fall or leave before then.",
+    "Decisions: D-971. D-968 moved to the archive, word for word.",
+  ] },
   { v: '0.3.412', date: '2026-11-17', title: 'The archway beyond the gap', lines: [
     "Past each Leap gap, in the corner you leap into, a dark archway now stands in the wall. Step onto it (\"You go through the archway.\") and you come out in a room of its own beyond.",
     "For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.",

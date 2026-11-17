@@ -5,7 +5,7 @@
 // comes back: the Lampeater on its own tile with all its hearts, the braziers cold (vault.js,
 // coolVault) and the gloamlings gone (stairs.js, arrive). Plain data, no drawing.
 import { layoutAt } from './region.js';
-import { ARENA_DEPTH, ARENA_DOWN, LAMPEATER_AT } from './arena.js';
+import { ARENA_DEPTH, ARENA_DOWN, LAMPEATER_AT, startingBrood } from './arena.js';
 import { get } from './registry.js';
 import { say } from './lines.js';
 import { note } from './events.js';
@@ -91,9 +91,9 @@ export function floorGives(state) {
 }
 
 // § whole again: (place, enemies) → the enemies an arena keeps as the hero leaves it: with the
-// Lampeater still in it, only the Lampeater, whole, on its own tile; else the same
+// Lampeater still in it, only the Lampeater, whole, on its own tile, and its 4 gloamlings (D-971); else the same
 export function wholeAgain(place, seed, enemies) {
   const boss = enemies.find((e) => e.id === BOSS);
   if (!boss || place !== arenaPlace(seed)) return enemies;
-  return [{ id: BOSS, ...LAMPEATER_AT, ...(boss.met && { met: true }) }];
+  return [{ id: BOSS, ...LAMPEATER_AT, ...(boss.met && { met: true }) }, ...startingBrood()];
 }

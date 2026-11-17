@@ -24,6 +24,11 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.413 (2026-11-17)
+- The Lampeater's fight is harder from the start: a gloamling now waits beside each of the arena's 4 braziers, on the side toward the wall, and hunts you through the dark as soon as you walk in.
+- They are the arena's own, like the ones that crawl from a snuffed brazier: they drop nothing, count for nothing, crumble when the Lampeater is beaten, and are all back if you fall or leave before then.
+- Decisions: D-971. D-968 moved to the archive, word for word.
+
 ## 0.3.412 (2026-11-17)
 - Past each Leap gap, in the corner you leap into, a dark archway now stands in the wall. Step onto it ("You go through the archway.") and you come out in a room of its own beyond.
 - For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.
@@ -33,9 +38,3 @@ Entry format:
 ## 0.3.411 (2026-11-17)
 - Walk into a Leap gap before you have learnt Leap and it says "Too wide to step. More lies beyond." Once you have Leap, it says "Too wide to step. Leap it."
 - Decisions: D-969. D-963 moved to the archive, word for word.
-
-## 0.3.410 (2026-11-17)
-- From depth 5 to 8, a dead end on a floor can hold its cache of finds behind a gap: a short line of black drop across the floor, "Too wide to step across." You can see the finds over it, but not reach them yet.
-- Once the Lampeater is beaten and you have learnt Leap, come back up and leap the gap to take them. Rooms you have already been in stay as they were.
-- About 6 floors in 10 from depth 5 to 8 have one; the rest have none, where no straight line fits. The map preview marks each gap.
-- Decisions: D-968. D-964 moved to the archive, word for word.
