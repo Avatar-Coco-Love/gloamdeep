@@ -8,8 +8,9 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The Leap gaps below depth 8 (D-968): where they go from depth 9 and
-what lies behind them; Claude proposes. Trophy: Q-061.
+What lies across a Leap gap (Q-115, the owner's ideas): a line of its
+own without Leap, and a new area beyond; Claude proposes. Then the gaps
+below depth 8. Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub

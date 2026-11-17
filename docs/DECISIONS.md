@@ -182,5 +182,5 @@ fits the floor has none (about 4 floors in 10); never in a waystone's,
 the peddler's or the locket's room; rooms
 already kept in a save keep their shape, so no hero is shut behind a new
 gap; the Gap's look and its line, "Too wide to step across.", as at the
-arena (`leapgap.js`). Next, the gaps below depth 8. D-964 moves to
+arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
