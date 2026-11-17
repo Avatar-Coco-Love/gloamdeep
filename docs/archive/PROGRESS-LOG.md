@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.410, The first Leap gaps.** From depth 5 to 8, one
+  dead end a floor can hold its cache behind a line of Gap, seen before
+  Leap and reached after the Lampeater. D-968. Playtest: https://claude.ai/artifact/A5EcnCDCFSU86duwUjXhWJ
+  Map preview: https://claude.ai/artifact/HTZSyqyuA8PFE9ZyupogeT
 - **2026-11-17, 0.3.409, No falling floor.** Beaten, the Lampeater's
   door sinks open and the seal stones stand; no floor gives way in the
   fight, the work kept unused for later (Q-114). D-967. Playtest: https://claude.ai/artifact/VVBVvZcizpvRXAacijBAMA

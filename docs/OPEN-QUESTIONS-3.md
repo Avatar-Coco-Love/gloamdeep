@@ -94,12 +94,23 @@ stronger hero, are in: its hearts, its bite, or how long a catch holds.
 With the gloamlings in (0.3.392): Lean 25%, Middling 98%, Strong all.
 From 0.3.399 the bench starts in the way in, where walking in from the
 hallway puts you (D-958): over 400 fights, Lean 34% (26% before),
-Middling 97% (the same), Strong all.
+Middling 97% (the same), Strong all. With its 4 gloamlings at the start
+(0.3.413, D-971), over 100: Lean 52% (37% before), Middling all (95%).
 
 **The owner's Lampeater polish** (raised 2026-11-16, at 0.3.405) Once its
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
-for then.
+for then. Asked at 0.3.413 (D-971): the gloamlings at the start, its new
+ways and Leap as a find, in 6 steps; the cutscenes and the rest still to ask.
+
+**Q-116 · The gloamlings working with the Lampeater** (raised 2026-11-17,
+the owner's idea, at 0.3.413, D-971) The owner's words: "Is there a way
+to have the Gloamlings behave differently and get out of the Lampeaters
+way? Perhaps they will try to flank me in relation to where the boss is
+in any given moment, and that's only when the boss is actively attacking
+me, otherwise they will act normally. They could work together with the
+boss when the boss is in certain phase and/or state." The bench found
+they block it (D-971). To offer with the Lampeater's new ways, steps 2 to 4.
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.

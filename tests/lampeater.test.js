@@ -12,7 +12,7 @@ import { litAt } from '../src/core/sight.js';
 import { hitFoe } from '../src/core/enemies.js';
 import { layoutAt } from '../src/core/region.js';
 import { goToPlace } from '../src/core/stairs.js';
-import { ARENA_DEPTH, LAMPEATER_AT } from '../src/core/arena.js';
+import { ARENA_DEPTH, LAMPEATER_AT, startingBrood } from '../src/core/arena.js';
 import { withLampeater } from '../src/core/oldarena.js';
 import { UPGRADES, FORMAT } from '../src/core/save.js';
 import { pageOf, HINT, fightHint, meet } from '../src/core/bestiary.js';
@@ -33,7 +33,7 @@ test('the Lampeater is in the registry: 12 hearts, a bite of 2, dark only, its e
 test('it stands in the arena, a tile below the tile before the sealed door, which stays open to reach', () => {
   for (const seed of [1, 2, 3, 4, 5]) {
     const p = placeFor(arenaOf(seed).id, seed);
-    assert.deepEqual(p.enemies, [{ id: 'lampeater', ...LAMPEATER_AT }]);
+    assert.deepEqual(p.enemies, [{ id: 'lampeater', ...LAMPEATER_AT }, ...startingBrood()]);
     assert.deepEqual(LAMPEATER_AT, { x: 6, y: 6 });
     assert.equal(p.map[4][6], get('sealedDoor').letter); assert.equal(p.map[5][6], '.');
   }

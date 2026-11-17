@@ -15,6 +15,13 @@ export const ARENA_DEPTH = 8;
 export const ARENA_DOWN = { x: 6, y: 2 };
 // The Lampeater's tile, one below the tile before the sealed door, so the way to it stays open (D-941)
 export const LAMPEATER_AT = { x: 6, y: 6 };
+// § the brood at the start (D-971): a gloamling on the tile beside each corner brazier, on its
+// outer side, toward the wall. Each is the arena's own, as one crawled from a snuffed bowl is
+// (brood.js): marked `ash` with its brazier and turn -1, so it never plays the crawl, drops and counts
+// nothing, never follows the hero out, crumbles when the Lampeater is beaten (beaten.js) and is
+// back with it whole again after a fall or a doorway (wholeAgain)
+const BROOD_AT = [{ x: 1, y: 5, bowl: { x: 2, y: 5 } }, { x: 11, y: 5, bowl: { x: 10, y: 5 } }, { x: 1, y: 11, bowl: { x: 2, y: 11 } }, { x: 11, y: 11, bowl: { x: 10, y: 11 } }];
+export const startingBrood = () => BROOD_AT.map(({ x, y, bowl }) => ({ id: 'gloamling', x, y, met: true, ash: { ...bowl, turn: -1 } }));
 
 // The seal hall, its way in at the bottom; `,` the old seal's stones, `j` a cold brazier, `q` a
 // pillar, `k` the sealed door, `>` the stairs down. The gap in the bottom edge is cut at the opening.
@@ -41,11 +48,11 @@ const set = (map, x, y, id) => { map[y] = map[y].slice(0, x) + get(id).letter + 
 const empty = (map, start) => ({ map, start, lights: [], items: [], enemies: [], people: [] });
 
 // (cell) → the arena as a generated room is: its map, the hero's start just inside its one
-// opening, at the bottom, and only the Lampeater in it, standing (D-941)
+// opening, at the bottom, the Lampeater in it, standing (D-941), and its 4 gloamlings (D-971)
 export function arenaRoom(cell) {
   const { at } = cell.doors[0], map = lettered(SEAL_HALL);
   set(map, at, cell.rows - 1, 'floor');
-  return { ...empty(map, { x: at, y: cell.rows - 2 }), enemies: [{ id: 'lampeater', ...LAMPEATER_AT }] };
+  return { ...empty(map, { x: at, y: cell.rows - 2 }), enemies: [{ id: 'lampeater', ...LAMPEATER_AT }, ...startingBrood()] };
 }
 
 // § hallway: (cell) → the hallway as a generated room is. Its road follows a path from the tile
