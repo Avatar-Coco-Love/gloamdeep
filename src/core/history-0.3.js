@@ -6,6 +6,10 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.411', date: '2026-11-17', title: 'The Gap\'s two lines', lines: [
+    "Walk into a Leap gap before you have learnt Leap and it says \"Too wide to step. More lies beyond.\" Once you have Leap, it says \"Too wide to step. Leap it.\"",
+    "Decisions: D-969. D-963 moved to the archive, word for word.",
+  ] },
   { v: '0.3.410', date: '2026-11-17', title: 'The first Leap gaps', lines: [
     "From depth 5 to 8, a dead end on a floor can hold its cache of finds behind a gap: a short line of black drop across the floor, \"Too wide to step across.\" You can see the finds over it, but not reach them yet.",
     "Once the Lampeater is beaten and you have learnt Leap, come back up and leap the gap to take them. Rooms you have already been in stay as they were.",

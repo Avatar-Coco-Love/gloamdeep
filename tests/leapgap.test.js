@@ -57,10 +57,11 @@ test('a gap cuts the whole cache off from walking, and can be leapt', () => {
 // § in play: walking into the gap is refused with its line; with Leap the hero crosses
 import { newJourney } from '../src/core/state.js';
 import { step, leap } from '../src/core/turn.js';
+import { LINES } from '../src/core/lines.js';
 import { goToPlace } from '../src/core/stairs.js';
 const WAYS = { right: [1, 0], left: [-1, 0], down: [0, 1], up: [0, -1] };
 
-test('in play: "Too wide to step across." without Leap, a leap over it with', () => {
+test('in play: the Gap\'s line without Leap, its reminder and a leap over it with', () => {
   let tried = 0;
   for (let seed = 1; seed <= 40 && tried < 5; seed++) for (const d of [5, 6, 7, 8]) {
     const id = leapGapAt(seed, d); if (!id) continue;
@@ -72,6 +73,8 @@ test('in play: "Too wide to step across." without Leap, a leap over it with', ()
       const s = { ...there, hero: from, enemies: [] }, walked = step(s, way);
       assert.deepEqual(walked.hero, from, `seed ${seed} ${id}`);
       assert.equal(walked.line?.id, 'gapBump');
+      assert.equal(LINES.gapBump.text, "Too wide to step. More lies beyond.");
+      assert.equal(step({ ...s, leap: true }, way).line?.id, 'gapLeap', 'with Leap, its reminder (D-969)');
       const leapt = leap({ ...s, leap: true }, way);
       assert.deepEqual(leapt.hero, to, `seed ${seed} ${id} leap`);
       tried++; break;

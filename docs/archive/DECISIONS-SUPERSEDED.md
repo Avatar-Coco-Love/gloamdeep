@@ -75,3 +75,25 @@ the crumble's look and a sound come next, a step each. Claude's calls:
 the shake is the hit's 1-pixel jolt, held 480 ms (a hit's is 120); none
 with reduced motion; a level on the same blow keeps "Level {n}. You learn
 Leap.".
+
+**D-963 · 2026-11-16 · The escape, its first step** Partly superseded by
+D-964 (2026-11-16): when the floor gives way, and the last blow's line. Superseded by D-967 (2026-11-17): no gap in the boss fight. (the owner's picks,
+all recommended, and the line fitted to the strip; builds D-939, D-954,
+D-962) With the last blow on the Lampeater, at once, as its door sinks
+open, the old seal's stones round the stairs down fall away into a gap,
+the stairs left standing on their own; the hero leaps from the open door
+over the gap onto the stairs, which take them down, as D-962's landing
+does (offered too: a band of floor before the door; one tile before it;
+the gap on reaching the door, or a turn after, rumbling). Just the gap,
+standing for good: whether the floor keeps crumbling, a shake or a sound
+each come later as steps of their own (offered too: a chase now; a shake
+now). The last blow says "The floor gives way. You learn Leap.", the door
+seen sinking; the owner had picked "The door sinks open and the floor
+gives way. You learn Leap.", too wide for the strip, then this (offered
+too: the old line; "Door open, floor gone."). Claude's calls: the Gap, a
+name to change any time, solid but low, so leapt over and never walked
+into, light passing; a bump says "Too wide to step across.", free; drawn a
+black drop, its far face and a ragged broken edge below standing ground;
+the map shows it as a wall's outline; a level on the same blow keeps
+"Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
+D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.

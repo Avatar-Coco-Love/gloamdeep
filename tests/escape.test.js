@@ -70,7 +70,7 @@ test('the kept floor giving way still works when called', () => {
   assert.ok(gaveWay(s));
   const bumped = step({ ...s, hero: door }, 'up');
   assert.deepEqual(bumped.hero, door);
-  assert.equal(bumped.line.id, 'gapBump');
+  assert.equal(bumped.line.id, bumped.leap ? 'gapLeap' : 'gapBump');
 });
 
 test('light passes over the gap', () => {
