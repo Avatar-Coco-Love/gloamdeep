@@ -117,7 +117,8 @@ for example, you jump over the gap, go through a door/exit to another
 room, and you find yourself confronting new enemies and seeing new
 things, perhaps even another biome within that biome, so that is more
 than one biome per depth. There should not be just more of the same on
-the other side of these gaps." Open: the line said without Leap (today
-"Too wide to step across.", the same as the arena's Gap); the area
-beyond (how many rooms, its way in, its creatures, finds and look); and
-whether the gaps below depth 8 wait until this is settled.
+the other side of these gaps." Settled (D-969): the lines, a doorway
+to a small place of 2 to 4 rooms at the same depth, the order of its
+steps, and the gaps below depth 8 waiting. Open: where the doorway
+stands, the place's look, its creatures and finds, and its name, each
+at its own step.

@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.408 (2026-11-17)
+- The floor giving way now has a sound: a low crack of stone as the cracks run across the seal stones, then a heavy rumble as they fall into the dark, fading with the shake. Nothing is heard landing.
+- It follows Steps' loudness, and has its own line in Steps' list in Settings, "Floor gives way", to turn it On or Off.
+- Decisions: D-966. Questions closed: Q-113.
+
 ## 0.3.407 (2026-11-16)
 - When the floor gives way round the stairs, you now see it go: cracks run across the seal stones, then they all fall together into the dark, shrinking and darkening as they drop. It takes about half a second, ending with the shake.
 - With reduced motion the stones are simply gone, as before.

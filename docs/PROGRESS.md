@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.410 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.411 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-What lies across a Leap gap (Q-115, the owner's ideas): a line of its
-own without Leap, and a new area beyond; Claude proposes. Then the gaps
-below depth 8. Trophy: Q-061.
+The place beyond a Leap gap, its second step (D-969): a doorway past the
+gap to one empty room at the same depth; Claude proposes where it stands.
+Trophy: Q-061.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -51,6 +51,9 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-17, 0.3.411, The Gap's two lines.** Before Leap, "Too wide to
+  step. More lies beyond."; with it, "Too wide to step. Leap
+  it." The place beyond, its plan. D-969. Playtest: https://claude.ai/artifact/8x6SUZgjHqqeGsMTCWoLtc
 - **2026-11-17, 0.3.410, The first Leap gaps.** From depth 5 to 8, one
   dead end a floor can hold its cache behind a line of Gap, seen before
   Leap and reached after the Lampeater. D-968. Playtest: https://claude.ai/artifact/A5EcnCDCFSU86duwUjXhWJ
@@ -58,6 +61,3 @@ list in `RESEARCH.md`.
 - **2026-11-17, 0.3.409, No falling floor.** Beaten, the Lampeater's
   door sinks open and the seal stones stand; no floor gives way in the
   fight, the work kept unused for later (Q-114). D-967. Playtest: https://claude.ai/artifact/VVBVvZcizpvRXAacijBAMA
-- **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
-  a low crack of stone as the cracks run, then a heavy rumble as the
-  stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca

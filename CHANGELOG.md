@@ -24,6 +24,10 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.411 (2026-11-17)
+- Walk into a Leap gap before you have learnt Leap and it says "Too wide to step. More lies beyond." Once you have Leap, it says "Too wide to step. Leap it."
+- Decisions: D-969. D-963 moved to the archive, word for word.
+
 ## 0.3.410 (2026-11-17)
 - From depth 5 to 8, a dead end on a floor can hold its cache of finds behind a gap: a short line of black drop across the floor, "Too wide to step across." You can see the finds over it, but not reach them yet.
 - Once the Lampeater is beaten and you have learnt Leap, come back up and leap the gap to take them. Rooms you have already been in stay as they were.
@@ -35,8 +39,3 @@ Entry format:
 - Walk through the door, over the stones and onto the stairs, or leap from the door straight onto them. The way back down on a later trip is never cut off.
 - The gap, its crumble, its shake and its sound are kept for another place later.
 - Decisions: D-967. D-951 moved to the archive, word for word.
-
-## 0.3.408 (2026-11-17)
-- The floor giving way now has a sound: a low crack of stone as the cracks run across the seal stones, then a heavy rumble as they fall into the dark, fading with the shake. Nothing is heard landing.
-- It follows Steps' loudness, and has its own line in Steps' list in Settings, "Floor gives way", to turn it On or Off.
-- Decisions: D-966. Questions closed: Q-113.

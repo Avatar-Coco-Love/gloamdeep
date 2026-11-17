@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.408, The crumble's sound.** As the floor gives way,
+  a low crack of stone as the cracks run, then a heavy rumble as the
+  stones fall into the dark; nothing lands. D-966. Playtest: https://claude.ai/artifact/86yPsKPs7sYnSMBAPga9ca
 - **2026-11-16, 0.3.407, The crumble.** As the floor gives way, cracks
   run across the seal stones, then they all fall together into the dark,
   over with the shake; none with reduced motion. D-965. Playtest: https://claude.ai/artifact/Tq9Mf3bZEJ3WardQScismc

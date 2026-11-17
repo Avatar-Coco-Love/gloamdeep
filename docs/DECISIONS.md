@@ -101,28 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-963 · 2026-11-16 · The escape, its first step** Partly superseded by
-D-964 (2026-11-16): when the floor gives way, and the last blow's line. Superseded by D-967 (2026-11-17): no gap in the boss fight. (the owner's picks,
-all recommended, and the line fitted to the strip; builds D-939, D-954,
-D-962) With the last blow on the Lampeater, at once, as its door sinks
-open, the old seal's stones round the stairs down fall away into a gap,
-the stairs left standing on their own; the hero leaps from the open door
-over the gap onto the stairs, which take them down, as D-962's landing
-does (offered too: a band of floor before the door; one tile before it;
-the gap on reaching the door, or a turn after, rumbling). Just the gap,
-standing for good: whether the floor keeps crumbling, a shake or a sound
-each come later as steps of their own (offered too: a chase now; a shake
-now). The last blow says "The floor gives way. You learn Leap.", the door
-seen sinking; the owner had picked "The door sinks open and the floor
-gives way. You learn Leap.", too wide for the strip, then this (offered
-too: the old line; "Door open, floor gone."). Claude's calls: the Gap, a
-name to change any time, solid but low, so leapt over and never walked
-into, light passing; a bump says "Too wide to step across.", free; drawn a
-black drop, its far face and a ragged broken edge below standing ground;
-the map shows it as a wall's outline; a level on the same blow keeps
-"Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
-D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-965 · 2026-11-16 · The crumble** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks: crack, then all
 fall, over recommended one by one; the rest recommended; answers part of
 Q-113; builds D-964) As the floor gives way, the seal stones stand a
@@ -183,4 +161,20 @@ the peddler's or the locket's room; rooms
 already kept in a save keep their shape, so no hero is shut behind a new
 gap; the Gap's look and its line, "Too wide to step across.", as at the
 arena (`leapgap.js`). Next, what lies across (Q-115). D-964 moves to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-969 · 2026-11-17 · What lies across a Leap gap, its first step**
+(the owner's picks, all recommended; answers part of Q-115; builds
+D-968) Walking into a Gap before Leap is learnt says "Too wide to step.
+More lies beyond." (changed before the merge: "Too wide to step across.
+There's more beyond." didn't fit the strip); once Leap is learnt, "Too wide to step.
+Leap it." (offered too: one line hinting at Leap; the old line kept, the
+reminder only with Leap). The place beyond comes through a doorway: past
+the gap, the cut-off corner has a way out to a small place of its own,
+2 to 4 rooms at the same depth, with its own look, creatures and finds
+(offered too: stairs down to a hidden half-floor; the corner itself
+grown). Built in this order, a step each: the line, the doorway to one
+empty room, its look, its creatures, its finds, then more rooms
+(offered too: its look first; the way in first). The gaps below depth 8
+wait for the place beyond (offered too: copied down now). D-963 moves to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
