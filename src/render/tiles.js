@@ -167,6 +167,7 @@ const DRAW = {
   pillar: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); drawBench(c, x, y, SPRITES.pillar); }, // the arena's pillar, standing as the bench does (D-940)
   sealStone: (c, room, x, y) => { if (!OWN_GROUND.includes(room.look)) drawFloor(c, room, x, y); c.drawImage(SPRITES.sealStone, x * T, y * T); }, // the old seal's slab, flat on the floor (D-940)
   gap: drawGap, // where the floor gave way round the stairs (D-963)
+  archway: drawArchway, // the way through to the place beyond (D-970)
   stairsDown: (c, room, x, y) => drawSteps(c, room, x, y, false),
   stairsUp: (c, room, x, y) => drawSteps(c, room, x, y, true),
 };
@@ -182,6 +183,21 @@ function drawGap(c, room, tx, ty) {
   c.fillStyle = ink(room, '#1d2030'); c.fillRect(x0, y0 + 5, T, 3);
   c.fillStyle = '#07060a';
   for (let i = 0; i < T; i++) { const d = Math.floor(hash(tx * T + i, ty, 41) * 3); if (d) c.fillRect(x0 + i, y0 + 8 - d, 1, d); }
+}
+// § archway (D-970): a round-topped opening in the wall, dark all the way in, its stone rim a shade
+// lighter. In rock and earth the rock is drawn whole and left clear here, as for stairs, so the
+// tile is filled with the look's rim first; in brick, the wall first
+const ARCH = [[6, 9], [5, 10], [4, 11]]; // the opening's first three rows, from y 3: its rounded top
+function drawArchway(c, room, tx, ty) {
+  const x0 = tx * T, y0 = ty * T, look = STAIR_LOOKS[room.look];
+  if (look) { c.fillStyle = look.rim; c.fillRect(x0, y0, T, T); } else drawWall(c, room, tx, ty);
+  const rim = look ? look.shades[2] : ink(room, '#6b7790'), row = (y) => ARCH[y - 3] || [3, 12];
+  for (let y = 2; y < T; y++) { // the rim, one pixel round the opening
+    const [a, b] = row(Math.max(3, y + 1)); c.fillStyle = rim; c.fillRect(x0 + a - 1, y0 + y, b - a + 3, 1);
+  }
+  for (let y = 3; y < T; y++) { // the dark, deepest at the top
+    const [a, b] = row(y); c.fillStyle = y < 8 ? '#030305' : y < 12 ? '#07060a' : '#0e0c14'; c.fillRect(x0 + a, y0 + y, b - a + 1, 1);
+  }
 }
 // § camp: the miners' camp drawn whole from its top-left tile, 2 pixels up on a wide shadow as a
 // deposit is; its other tiles draw only the floor under it, off the woods (D-770)

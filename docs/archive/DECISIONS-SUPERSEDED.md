@@ -97,3 +97,28 @@ black drop, its far face and a ragged broken edge below standing ground;
 the map shows it as a wall's outline; a level on the same blow keeps
 "Level {n}. You learn Leap.". The fight is unchanged, so no boss-bot run.
 D-961 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-965 · 2026-11-16 · The crumble** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks: crack, then all
+fall, over recommended one by one; the rest recommended; answers part of
+Q-113; builds D-964) As the floor gives way, the seal stones stand a
+moment over the Gap while cracks run across them, then all fall together
+into the dark (offered too: one by one from the door outward; sinking and
+fading). Just the stones (offered too: a puff of dust; chips falling). It
+lasts about half a second, ending with the shake (offered too: about 1 s;
+1.5 s). With reduced motion the stones are simply gone (offered too: a
+quick fade). Claude's calls: the cracks show in two steps over 200 ms;
+then each stone shrinks to 40% of its size, drops 3 pixels and darkens
+and fades away within its own tile (`render/crumble.js`).
+
+**D-966 · 2026-11-17 · The crumble's sound** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks, all
+recommended; answers the rest of Q-113; builds D-965) As the floor gives
+way, a sharp, low knock of stone as the cracks run, then a heavy earth
+rumble under the fall, fading into the dark with the shake (offered too:
+the rubble's crumble, lower and louder; just a deep rumble). Nothing is
+heard from below: the stones never land (offered too: a faint far thud; a
+few far clatters). It follows Steps' loudness, with the fall and the new
+floor's rumble (offered too: Fighting; Finds). Claude's calls: `giveWay`
+in `render/sound.js`, the mining knock at 0.6 with the cave's echo, again
+0.1 s later at 0.55 as the cracks' second step, then `Earth-024` at 0.8
+from 0.2 s, 0.8 s long, fading 0.5 s, muffled above 1000 Hz; its own line
+in Steps' list, "Floor gives way"; heard with reduced motion too.

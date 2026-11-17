@@ -15,6 +15,7 @@ import { mouthSpot, mouthOf } from './mouth.js';
 import { fresh } from './stairs.js';
 import { boonOf } from './boon.js';
 import { ROOMS as HEARTH } from './hearthwood.js';
+import { isBeyond, roomBefore, archwayIn } from './beyond.js';
 
 const STEP = { up: [0, -1], down: [0, 1], left: [-1, 0], right: [1, 0] };
 
@@ -112,8 +113,13 @@ export function partPlan(state, reveal, depth, start) {
   return {
     depth, cols: (x1 - x0 + 1) * (w + 1) - 1, rows: (y1 - y0 + 1) * (h + 1) - 1, rooms, seams,
     cells: all.map(({ id, at }) => ({ id, x: left(at), y: top(at) })),
-    hero: here ? { x: here.x + state.hero.x, y: here.y + state.hero.y } : null,
+    hero: here ? { x: here.x + state.hero.x, y: here.y + state.hero.y } : beyondHero(state, rooms),
   };
+}
+// In the room beyond a Leap gap, off the grid, the hero shows at its Archway in the gap's room (D-970)
+function beyondHero(state, rooms) {
+  const back = isBeyond(state.place) && rooms.find((r) => r.id === roomBefore(state.place)), at = back && archwayIn(back.room.map);
+  return at ? { x: back.x + at.x, y: back.y + at.y } : null;
 }
 // The seam tile x, y, with the edge tiles before and after it the way dx, dy
 const seam = (x, y, dx, dy) => ({ x, y, ends: [[x - dx, y - dy], [x + dx, y + dy]] });

@@ -101,31 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-965 · 2026-11-16 · The crumble** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks: crack, then all
-fall, over recommended one by one; the rest recommended; answers part of
-Q-113; builds D-964) As the floor gives way, the seal stones stand a
-moment over the Gap while cracks run across them, then all fall together
-into the dark (offered too: one by one from the door outward; sinking and
-fading). Just the stones (offered too: a puff of dust; chips falling). It
-lasts about half a second, ending with the shake (offered too: about 1 s;
-1.5 s). With reduced motion the stones are simply gone (offered too: a
-quick fade). Claude's calls: the cracks show in two steps over 200 ms;
-then each stone shrinks to 40% of its size, drops 3 pixels and darkens
-and fades away within its own tile (`render/crumble.js`).
-
-**D-966 · 2026-11-17 · The crumble's sound** Superseded by D-967 (2026-11-17): kept, unused. (the owner's picks, all
-recommended; answers the rest of Q-113; builds D-965) As the floor gives
-way, a sharp, low knock of stone as the cracks run, then a heavy earth
-rumble under the fall, fading into the dark with the shake (offered too:
-the rubble's crumble, lower and louder; just a deep rumble). Nothing is
-heard from below: the stones never land (offered too: a faint far thud; a
-few far clatters). It follows Steps' loudness, with the fall and the new
-floor's rumble (offered too: Fighting; Finds). Claude's calls: `giveWay`
-in `render/sound.js`, the mining knock at 0.6 with the cave's echo, again
-0.1 s later at 0.55 as the cracks' second step, then `Earth-024` at 0.8
-from 0.2 s, 0.8 s long, fading 0.5 s, muffled above 1000 Hz; its own line
-in Steps' list, "Floor gives way"; heard with reduced motion too.
-
 **D-967 · 2026-11-17 · No falling ground in the boss fight** (the
 owner's choice, then the rest recommended; supersedes D-963 to D-966) Offered: the hall's floor falling in behind the hero, a row a
 turn, never their row or the door's two tiles; the owner asked how a
@@ -177,4 +152,26 @@ grown). Built in this order, a step each: the line, the doorway to one
 empty room, its look, its creatures, its finds, then more rooms
 (offered too: its look first; the way in first). The gaps below depth 8
 wait for the place beyond (offered too: copied down now). D-963 moves to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-970 · 2026-11-17 · The place beyond, its doorway and one empty room**
+(the owner's picks, all recommended; answers part of Q-115; builds D-969)
+The doorway past a Leap gap is an Archway in a wall of the cut-off
+corner, leading to a room of its own off the floor's grid; it fits every
+gap (offered too: an opening into an empty square of the floor's grid,
+which fits under half; the grid square, else the archway). The room is
+one cell big, the size of a normal room on that floor (offered too: small,
+like the vault; a hall of 2 cells). The Archway is a new tile drawn in
+code, a dark round-topped opening (offered too: the vault's open door; a
+plain gap in the wall). Claude's calls: the Archway stands on the room's
+outer edge where the corner reaches it, else in a wall inside, beside no
+open ground but the corner's, never on a room's corner tile or an edge
+with a way out, the one farthest from the Gap; walked onto, it goes
+through as stairs do, "You go through the archway." (Claude's draft), the
+hero arriving on the other side's Archway, in the middle of the room
+beyond's edge facing back; the room is walls round an empty floor in the
+floor's own look, kept like any room; on the map it isn't drawn yet, and
+the hero in it shows at the gap room's Archway; rooms already in a save
+keep their shape, so a gap room seen before gets no Archway (`beyond.js`).
+Next, the place's look. D-965 and D-966 move to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.

@@ -6,10 +6,12 @@
 // either side, in line) and within 4 tiles of it, in sight; of those, the one shutting off the
 // smallest corner, then the shortest. Nothing stands on the line. The floor's dead ends are tried
 // in the seed's order; none fits, no gap. Rooms already kept in a save keep their shape, so a hero
-// never stands behind a new gap. Plain data, no drawing.
+// never stands behind a new gap. In the corner past it, the Archway to the place beyond (beyond.js,
+// D-970). Plain data, no drawing.
 import { rng } from './rng.js';
 import { byLetter, get } from './registry.js';
 import { layoutAt, seedAt } from './region.js';
+import { withArchway } from './beyond.js';
 
 export const LEAP_GAPS_FROM = 5;
 export const LEAP_GAPS_TO = 8; // depth 9 and below wait for their own step (D-968)
@@ -47,11 +49,12 @@ export function withLeapGap(room, finds) {
     const leapt = reach(lands, (x, y) => open(x, y) && !cut.has(`${x},${y}`)); // what a leap over the line reaches
     if (!lands.length || !finds.every((f) => leapt.has(`${f.x},${f.y}`) && line.some((t) => Math.max(Math.abs(t.x - f.x), Math.abs(t.y - f.y)) <= SIGHT))) continue;
     const behind = leapt.size; // the smaller the corner shut off, the nearer the line stands to the finds
-    if (!best || behind < best.behind || (behind === best.behind && line.length < best.line.length)) best = { line, behind };
+    if (!best || behind < best.behind || (behind === best.behind && line.length < best.line.length)) best = { line, behind, leapt };
   }
   if (!best) return room;
   const letter = get('gap').letter, at = new Set(best.line.map((t) => `${t.x},${t.y}`));
-  return { ...room, map: map.map((row, y) => [...row].map((ch, x) => (at.has(`${x},${y}`) ? letter : ch)).join('')) };
+  const lined = map.map((row, y) => [...row].map((ch, x) => (at.has(`${x},${y}`) ? letter : ch)).join(''));
+  return { ...room, map: withArchway(lined, best.leapt, best.line) }; // past the gap, the Archway to the place beyond (D-970)
 }
 
 // Every run of open tiles along a row or a column inside the room's edge, as a list of tiles with

@@ -49,7 +49,7 @@ Read the smallest file that answers the question.
 | `docs/DECISIONS.md` | the newest decisions | grep for an ID or topic |
 | `docs/LORE.md` | the story: Underhearth, the First Light, Old Maren (D-633) | before any lore, quest or person's words |
 | `docs/GLOSSARY.md` | the game's words (D-264); finds in `GLOSSARY-FINDS.md` and `-FINDS-2`; creatures in `-CREATURES`; the code's and menus' in `GLOSSARY-CODE.md` | before naming anything |
-| `docs/CONTENT.md` | every creature, find, tile, place (D-363); creatures in `CONTENT-CREATURES.md`; finds in `CONTENT-FINDS*.md`, people in `-2`, tiles in `-3`, places in `-4`, bosses in `-BOSSES`; the plan in `SCOPE*.md` (D-413) | before adding content |
+| `docs/CONTENT.md` | every creature, find, tile, place (D-363); creatures in `CONTENT-CREATURES.md`; finds in `CONTENT-FINDS*.md`, people in `-2`, tiles in `-3`, places in `-4`, newer tiles and places in `-5`, bosses in `-BOSSES`; the plan in `SCOPE*.md` (D-413) | before adding content |
 | `docs/BUGS.md` | bugs the owner noticed (B-001…), their ideas with them (D-852) | when Next up names one |
 | `docs/HEALTH-CHECK.md` | the 0.3.304 health check's findings picked as steps (H-01…, D-860); the second pass's in `-2` (H-32…, D-861); the order to do them in `-ORDER` (D-862) | when Next up names one |
 | `docs/OPEN-QUESTIONS.md` | undecided questions (Q-001…); outside places in `OPEN-QUESTIONS-2.md`; lore, special creatures and the health check's loose ends in `-3` | when a step touches one |

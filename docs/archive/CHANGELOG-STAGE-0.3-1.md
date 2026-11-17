@@ -4,6 +4,12 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.409 (2026-11-17)
+- No more falling floor in the Lampeater's fight. Beat it and its door sinks open ("The door sinks open. You learn Leap."), and the seal stones round the stairs stay standing, wherever you are.
+- Walk through the door, over the stones and onto the stairs, or leap from the door straight onto them. The way back down on a later trip is never cut off.
+- The gap, its crumble, its shake and its sound are kept for another place later.
+- Decisions: D-967. D-951 moved to the archive, word for word.
+
 ## 0.3.408 (2026-11-17)
 - The floor giving way now has a sound: a low crack of stone as the cracks run across the seal stones, then a heavy rumble as they fall into the dark, fading with the shake. Nothing is heard landing.
 - It follows Steps' loudness, and has its own line in Steps' list in Settings, "Floor gives way", to turn it On or Off.

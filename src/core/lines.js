@@ -20,6 +20,7 @@ export const LINES = {
   boonHeld: { text: '{n}', warn: false }, // a tap on the boon's mark, {n} its name and card line (D-604)
   lanternDark: { text: 'Your lantern is dark.', warn: false }, // (D-124)
   stairsDown: { text: 'You go down the stairs.', warn: false }, // (D-135)
+  archway: { text: 'You go through the archway.', warn: false }, // the place beyond's way in and out (D-970)
   stairsUp: { text: 'You go up the stairs.', warn: false }, // (D-135)
   herbEat: { text: 'You eat the herb and feel better.', warn: false }, // (D-156)
   flaskPour: { text: 'You pour a flask.', warn: false }, // poured by itself (D-249)

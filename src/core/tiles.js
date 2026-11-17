@@ -204,6 +204,9 @@ export const TILES = {
   // end's cache (leapgap.js, D-968). No step into it, its line, free; low, so a leap carries over it
   // (leap.js); light passing over it
   gap: { id: 'gap', kind: 'tile', letter: 's', name: 'Gap', solid: true, low: true, blocksLight: false, bump: 'gapBump', bumpLeap: 'gapLeap' },
+  // § archway (the place beyond, step 2, D-970): a dark archway in a wall of the corner past the
+  // Gap, and back in the room beyond. Stepped onto, it goes through, as stairs do (beyond.js)
+  archway: { id: 'archway', kind: 'tile', letter: 't', name: 'Archway', solid: false, blocksLight: false, leads: 'beyond', arrive: 'archway', line: 'archway' },
 };
 
 // A tile kind's look at x, y, of its `forms`, the same each time (W2): 0 when it has one
