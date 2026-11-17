@@ -86,6 +86,7 @@ export const SOUND_LINES = [
   { voice: 'torch', kind: 'steps', name: 'Torch lit' },
   { voice: 'kindle', kind: 'steps', name: 'Campfire lit' },
   { voice: 'falling', kind: 'steps', name: 'Falling' }, // a fall and the waking after it (D-833)
+  { voice: 'giveWay', kind: 'steps', name: 'Floor gives way' }, // the seal stones crack and fall into the Gap (D-966)
   { voice: 'rooms', kind: 'steps', name: 'New rooms' }, // a new floor and a room never stood in
   { voice: 'lanternHit', kind: 'fight', name: 'Lantern hit' },
   { voice: 'knifeHit', kind: 'fight', name: 'Knife hit' },

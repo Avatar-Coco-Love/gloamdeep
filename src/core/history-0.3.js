@@ -6,6 +6,11 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.408', date: '2026-11-17', title: 'The crumble\'s sound', lines: [
+    "The floor giving way now has a sound: a low crack of stone as the cracks run across the seal stones, then a heavy rumble as they fall into the dark, fading with the shake. Nothing is heard landing.",
+    "It follows Steps' loudness, and has its own line in Steps' list in Settings, \"Floor gives way\", to turn it On or Off.",
+    "Decisions: D-966. Questions closed: Q-113.",
+  ] },
   { v: '0.3.407', date: '2026-11-16', title: 'The crumble', lines: [
     "When the floor gives way round the stairs, you now see it go: cracks run across the seal stones, then they all fall together into the dark, shrinking and darkening as they drop. It takes about half a second, ending with the shake.",
     "With reduced motion the stones are simply gone, as before.",
