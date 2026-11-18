@@ -2,6 +2,10 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.426, Taps, lines and the first mole.**
+  Hands-off (D-980) but H-71's ruling, the owner's: card buttons 44 px
+  to tap, the look line off the picture, "Leap which way?" goes, no mole
+  in the start room on day 1 (H-68 to H-71). D-986, D-987. Playtest: https://claude.ai/artifact/JzUDv6fkyfAtFnCrV97vSh
 - **2026-11-18, 0.3.425, The tests.** Hands-off (D-980), nothing in
   the game changed: a quick test run, fixtures, beyond's own tests,
   window.gloamdeep and tools/drive.js (H-103 to H-107). D-985.

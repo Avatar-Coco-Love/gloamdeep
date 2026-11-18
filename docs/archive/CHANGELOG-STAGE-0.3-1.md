@@ -4,6 +4,13 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.426 (2026-11-18)
+- Card buttons are easier to tap on a phone: MAKE, STORE, TAKE, SELL, DRINK, DROP and the rest now take a tap a little above or below them, 44 px tall as they should be. On a small card, DROP sits a touch higher.
+- Choosing a draught (or a heartcap or oilcap) in the bag no longer hides its "Now" picture under its look line.
+- "Leap which way?" goes away as soon as you leap or let the leap go.
+- On a new journey's first day, no mole comes out in the room you start in; the bunny still does, and the mole comes the next day.
+- Decisions: D-986, D-987. D-981 to D-983 moved to the archive, word for word.
+
 ## 0.3.425 (2026-11-18)
 - No change in play. The tests: a quick run, `npm run quick`, checks a tenth of the biggest seed sweeps while Claude works, and `npm test` still checks every seed before each handoff; two tests that broke at every save change now don't.
 - New tests can share their setups (`tests/fixtures.js`), and the place beyond's tests have their own file, named for what they test.

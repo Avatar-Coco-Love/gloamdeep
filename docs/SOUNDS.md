@@ -40,7 +40,7 @@ D-829), saved from WAV, nothing else changed, and Abstraction's Music Loop Bundl
 | `earthStep` | the hero walks in the burrows, floors 5 to 7 (D-776) | soft packed earth | the grass files, muffled above 1400 Hz, at a quarter loudness, CC0 |
 | `fall` | the hero falls (D-119, D-833) | a slide and a thud | the elemental pack's `Earth-017`, 0.7 s, fading 0.3 s, at 0.47, then `impactPunch_heavy_000` to `004` at 0.8, muffled above 700 Hz, at 0.3, 0.55 s in, CC0 |
 | `wake` | the hero wakes after a fall, at its deepest dark (D-833) | a groan or a breath; no pack has a voice, so a breath | `Wind-002` at 0.85, 1.2 s, fading 0.6 s, muffled above 1200 Hz, at 0.42, CC0 |
-| `giveWay` | the floor gives way round the Lampeater's stairs (D-966) | stone cracking, then a heavy rumble falling away; nothing lands | `impactMining_000` to `004` at 0.6, at 0.36, again 0.1 s later at 0.55, at 0.3, the cave's echo; then `Earth-024` at 0.8, 0.2 s in, 0.8 s, fading 0.5 s, muffled above 1000 Hz, at 0.3, CC0 |
+| `giveWay` | the floor gives way round the Lampeater's stairs (D-966); unused since D-967, kept (Q-114) | stone cracking, then a heavy rumble falling away; nothing lands | `impactMining_000` to `004` at 0.6, at 0.36, again 0.1 s later at 0.55, at 0.3, the cave's echo; then `Earth-024` at 0.8, 0.2 s in, 0.8 s, fading 0.5 s, muffled above 1000 Hz, at 0.3, CC0 |
 | `floor` | a new floor reached (D-833) | a low, far rumble | `Earth-024` at 0.8, 2 s, fading 1.2 s, muffled above 600 Hz, at 0.22, CC0 |
 | `room` | a room never stood in before (D-245, D-833), not on a new floor | a small, quiet note | `kenney-interface-sounds/glass_001` at 0.8, at 0.12, CC0 |
 

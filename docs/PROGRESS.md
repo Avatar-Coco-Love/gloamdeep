@@ -4,13 +4,13 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.428 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.429 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
-The third health check's steps (D-979), hands-off (D-980): next, the
-one docs step, H-84 to H-86 (`HEALTH-CHECK-3.md`); then H-82 and H-83,
-for later.
+The owner's pick: the third health check is done but H-82 and H-83,
+kept for later (`HEALTH-CHECK-3.md`); next, the Lampeater's polish
+(`OPEN-QUESTIONS-3.md`) or step 26, more flowers.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
@@ -40,6 +40,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.429, The docs catch up.** Hands-off (D-980), nothing
+  in the game changed: the Lampeater's later steps and 12 hearts written
+  in, the falling floor's leftovers gone, the Boss tab, CONTENT-5 and the
+  sound files to ship (H-84 to H-86). D-990.
 - **2026-11-18, 0.3.428, Corners and last hearts.** Hands-off (D-980)
   but three rulings, the owner's: a slam's last heart falls where struck;
   only the cache behind a Leap gap (asked again: 47%, not 14%); Leap in
@@ -50,7 +54,3 @@ list in `RESEARCH.md`.
   a bare stump; each sound file decoded once; perf.js times the dark and
   the arena (H-72 to H-75). Found on the way: 0.3.424 broke the dark, fixed,
   with a test. D-988. Playtest: https://claude.ai/artifact/816X48yNUEhcCjWKNaBHbe
-- **2026-11-18, 0.3.426, Taps, lines and the first mole.**
-  Hands-off (D-980) but H-71's ruling, the owner's: card buttons 44 px
-  to tap, the look line off the picture, "Leap which way?" goes, no mole
-  in the start room on day 1 (H-68 to H-71). D-986, D-987. Playtest: https://claude.ai/artifact/JzUDv6fkyfAtFnCrV97vSh

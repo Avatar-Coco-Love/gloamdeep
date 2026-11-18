@@ -108,7 +108,7 @@ ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972);
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.
-Kept in the code, unused: the Gap tile ("Too wide to step across."),
+Kept in the code, unused: the Gap tile ("Too wide to step. More lies beyond.", D-969),
 `floorGives` in `beaten.js` with its line "The floor gives way.", the
 crumble (`render/crumble.js`), the shake and the `giveWay` sound. Where
 it is first used, and how a later trip gets back past it (the owner's

@@ -110,13 +110,6 @@ it snuffs a brazier." (Claude's draft). The bench, from 5%, 79% and 83%:
 Lean 35%, Middling 84%, Strong 94%, the catch's snuffs gone (Q-111).
 D-976 moves to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-979 · 2026-11-18 · The third health check's steps** (the owner's
-picks, all recommended) Every finding, H-68 to H-107, becomes a step
-(`HEALTH-CHECK-3*.md`), related ones together. Reading less first
-(H-87 to H-93), then the rest; the five rulings (H-71, H-75, H-78,
-H-79, H-81) are asked at their steps. D-975 moves to
-`archive/DECISIONS-AUDITS.md`, word for word.
-
 **D-980 · 2026-11-18 · The health check's steps, hands-off** (the owner's
 wish) The owner, at work, asked that the third health check's steps
 (D-979) be done without their picks: Claude builds its own recommended
@@ -127,23 +120,6 @@ owner's call, one step a conversation as before. `CLAUDE.md` says it
 too. Changed before the merge, the owner's words: not a rule never to
 ask; what really matters, such as the five gameplay rulings (H-71, H-75,
 H-78, H-79, H-81), is still asked, as multiple choice.
-
-**D-986 · 2026-11-18 · No mole on the first day's start room** (the
-owner's pick, recommended; H-71's ruling; changes D-781's Claude's call)
-On a journey's first day no mole comes out in its start room, so a new
-hero is not met by one on the first turn. The bunny still comes, other
-woods rooms keep theirs, and the start room has its mole from the next
-day on. Offered too: a gentler surface mole; as is.
-
-**D-987 · 2026-11-18 · The game's first findings** (Claude's picks,
-hands-off, D-980; H-68 to H-70, the fix suggested for each) Every card
-button's tap reaches 5 game px above and below it, 22 tall, 44 px on a
-phone, through one shared band; DROP, a row up on a small card, moves up
-6 px so the two bands meet; one test measures every card (H-68). The
-chosen find's look line is not drawn over its "Now" picture, a draught's
-or its hearts' or oil's (H-69). "Leap which way?" goes once the leap is
-taken or let go (H-70). D-981 to D-983 move to
-`archive/DECISIONS-AUDITS.md`, word for word.
 
 **D-988 · 2026-11-18 · The game's findings some players notice**
 (Claude's picks, hands-off, D-980, but H-75's ruling, the owner's, recommended;
@@ -178,4 +154,16 @@ records" after a dev jump, and DEV-TOOLS.md says what a jump stops
 (H-80). Once Leap is learnt, How to play's Touch and Mouse pages say
 "The Leap button, then a way", Keyboard "J, then a way" (H-81; offered
 too: always; not yet). D-984 and D-985 move to
+`archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-990 · 2026-11-18 · The docs step** (Claude's picks, hands-off, D-980;
+H-84 to H-86) CONTENT-BOSSES gives the Lampeater 12 hearts and, below
+its row, its later steps in short: the phases' snuffs, the brood, calls,
+guards and wary; GLOSSARY-2 has their words, GLOSSARY-CREATURES points
+there. DEV-TOOLS says the bench's At half starts on 6 hearts, its first
+phase done, and lists the Boss tab (H-84, H-86). GLOSSARY-2's Gap, the
+`giveWay` sound's row and Q-114's line no longer have the falling floor
+D-967 took out (H-85). TECH-2 sends newer tiles and places to
+CONTENT-5; STORE.md's Needed row: ship only the 117 sound files the game
+plays, 9.9 MB of 23 MB (H-86). D-979, D-986 and D-987 move to
 `archive/DECISIONS-AUDITS.md`, word for word.
