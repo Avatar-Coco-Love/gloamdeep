@@ -453,3 +453,56 @@ Looked at: every registry entry (152) against GLOSSARY*/CONTENT* by script; crea
 #### Dropped
 - J-4 (original) Two files within bytes of their caps: duplicate of A-5 (and A-1, A-3 for PROGRESS and DECISIONS); sizes re-measured and match. Its one unique part, TECH-2's routing clash, moved into J-4 above.
 - J-5 part "Unlit torch, Bare bush, Your bag in no doc": false; they are in CONTENT-2.md:74, CONTENT-3.md:19, CONTENT-2.md:41.
+
+### As checked: area B
+#### Area B: PR overhead and merge conflicts
+Looked at: the last 40 merged PRs (0.3.381 to 0.3.420) by git numstat, follow-up commits, release.js, the in-game history files, the playtest tool, the two last audits. Not covered: GitHub-side CI or the PR body text.
+
+##### B-2 Decisions archive has no guard; one PR nearly wiped it
+- Where: docs/DECISIONS.md (12179 B of the 12288 cap, tests/docs.test.js:7); tools/release.js:127-133; docs/archive/DECISIONS-SURFACE.md (169,980 B, 2686 lines); no test in tests/ or tools/ mentions the decisions archive
+- Against: D-572 "Decisions it only suggests ... Claude proposes the move" (the owner chose hand moves; this is their cost, not a broken rule)
+- What: 37 of 40 PRs edit DECISIONS.md (about 37 changed lines each) and 27 of 40 append to DECISIONS-SURFACE.md by hand, word for word. In 0.3.414, commit 3700c2e replaced the whole 2566-line archive with 14 lines; the next commit (ca28066) restored it. Nothing in `npm test` would have caught it.
+- Seen: measured: numstat of the 40 merges; `git show --numstat 3700c2e` (14 added, 2566 deleted in DECISIONS-SURFACE.md); grep of tests/ and tools/
+- Who: none (players) — context, dev time and a data-loss risk
+- Fixes: 1) A test that every D-id ever written appears exactly once across DECISIONS.md and the archive, and archive files never shrink (cheap, no decision changed) 2) A `release.js --archive-decisions` step that moves the oldest or superseded entries word for word (changes D-572: owner's call) 3) One archive file per 100 decisions so appends never touch a 170 KB file
+- Checked: REVISE, re-ran numstat and inspected 3700c2e/ca28066; D-572 says hand moves are the owner's choice, so the auto-move fix needs their OK; the test fix moved first.
+
+##### B-3 The Version history copies the changelog; its split is by hand
+- Where: src/core/history-0.3*.js, history-0.2*.js, history-0.1.js, history-0.0.js, history-all.js:3-18; tools/release.js:81-83; tests/history.test.js
+- Against: D-254 "Every PR adds its lines to `src/core/history-0.2.js` ... as well as to `CHANGELOG.md`; a test fails if the two differ" (the copy is the owner's design)
+- What: 396,021 bytes in 15 history files repeat the 341 KB of changelog files. release.js writes each version's block, but at audits the history file is split by hand and history-all.js's import list edited by hand (0.3.393 added history-0.3-6.js, +270 lines). The game loads it lazily (history.js:4-11, D-868), but the packed playtest carries it: 396 KB of 2.08 MB (19%).
+- Seen: measured: wc -c src/core/history*.js and the changelog files; `node tools/playtest.js` to $S/work/B-check/p.html (2,075,607 B); numstat of 230944c
+- Who: none (players) — context, dev time, playtest size
+- Fixes: 1) Let release.js start a new history file and add its import when the current one passes a size, so audits no longer split by hand (keeps D-254 as is) 2) One source: the Version history page reads the changelog markdown files, and the js copies move to the archive (changes D-254; the md files must then ship with the game for offline play, STORE.md)
+- Checked: REVISE, sizes re-measured; D-254 makes the copy deliberate, so the no-decision fix goes first; dropped "stop committing a hand-edited copy" (release.js already writes it).
+
+##### B-1 Bookkeeping is about half of every PR's changed lines
+- Where: tools/release.js; docs/PR-CHECKLIST.md:10-45; CHANGELOG.md, docs/PROGRESS.md, docs/DECISIONS.md, src/core/history-0.3.js, src/core/version.js, docs/archive/{CHANGELOG-STAGE-0.3-1,PROGRESS-LOG,README}.md
+- Against: CLAUDE.md "Keeping context small"
+- What: Over 40 PRs, docs and record files average 11.3 files and 132 changed lines per PR, against 4.6 code files (58 lines) and 1.5 test files (48 lines). Seven files change in all 40 PRs (version.js, PROGRESS, history-0.3.js, CHANGELOG, 3 archive files): 53 lines per PR, mostly the tool's copy and moves; DECISIONS.md adds 37 more, which are the owner's real decisions.
+- Seen: measured: `git diff --numstat $m^1 $m` for the 40 merges, $S/work/B-check/num.txt
+- Who: none (players) — context and dev time
+- Fixes: 1) B-3's fix 1 and B-2's fix 1 2) release.js refuses (exit 1) when PROGRESS.md passes 4 KB, so the cap is met before the push (0.3.420 needed a follow-up commit, 1840cad)
+- Checked: REVISE, re-measured: 7 not 9 files, about half not two thirds; release.js already writes the archive index row (D-572 "updating the archive index"); "keep 1 entry" dropped: each entry is moved once whatever the window, and KEEP 3 is D-572.
+
+##### B-7 The audit moves text by hand; tests take 1m43s
+- Where: docs/archive/PROGRESS-LOG.md:85 (0.3.393); tests/ (292 files, 2050 tests); package.json:6; CLAUDE.md (8106 of 8192 B)
+- Against: D-518; D-338 "word for word"
+- What: The 0.3.393 audit changed 571 added and 437 deleted lines in 22 files, mostly moves (history-0.3-6.js +270, WORKFLOW-7.md +59, CONTENT-CREATURES.md +48, GLOSSARY-HERO.md +46). Full `npm test` takes 103 s alone, run more than once per PR. CLAUDE.md, read by every conversation, has 86 bytes left under its cap.
+- Seen: measured: `git diff --numstat 230944c^1 230944c`; `npm test` alone: 103 s, 2050 pass; wc -c CLAUDE.md
+- Who: none (players) — dev time
+- Fixes: 1) A `tools/audit.js` that lists docs near their cap and the bytes read at start, and does the history split (B-3 fix 1) 2) `npm run test:quick` = `node --test tests/docs.test.js tests/history.test.js tests/release.test.js` for record-only steps 3) release.js prints "audit due" at the "Next audit" version (0.3.433)
+- Checked: REVISE, audit numbers confirmed; test time re-measured alone (103 s, not 2m27s, which overlapped another run).
+
+##### B-6 No conflicts yet, but 7 files change at the same spot every PR
+- Where: top of CHANGELOG.md, src/core/history-0.3.js top block, docs/PROGRESS.md log, docs/archive/*.md, src/core/version.js:1
+- Against: CLAUDE.md "one PR per conversation" (PRs run one at a time today)
+- What: Every merge in the 40 is a plain "Merge pull request"; no branch ever merged main back in. If two conversations ever run at once, those 7 files (and DECISIONS.md) conflict every time, and both PRs claim the same version number.
+- Seen: measured: `git log --merges` shows only PR merges
+- Who: none (players) — dev time only if two PRs run at once
+- Fixes: 1) A rule in PR-CHECKLIST: on a conflict, take main's copy of the tool-written files, re-add this PR's own changelog and log entries by hand under a new version, then re-run `node tools/release.js` 2) Fewer shared files (B-3 fix 2)
+- Checked: REVISE, 7 every-PR files not 9; the original fix ("take main's copy and re-run") would lose the PR's hand-written entries; merge=union dropped (could interleave word-for-word blocks).
+
+#### Dropped
+- B-4 Playtest republish and its link: too weak; 1 link-only commit in 40 PRs, the same-link rule within a PR already exists (PR-CHECKLIST:60), and a standing link across PRs would make every old log link (D-074 "The playtest link goes in the log entry") show the newest game; D-073/D-256 don't say what was claimed.
+- B-5 Follow-up commits: too weak (1 avoidable follow-up in 40 PRs); its one fix folded into B-1 fix 2.
