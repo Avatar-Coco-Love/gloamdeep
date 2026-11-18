@@ -667,3 +667,47 @@ Looked at: Leap (rules, button, J, touch), the first Leap gaps (seeds 1-1500, de
 #### Dropped
 - F-1 Settings still lists a sound that can never play: already decided; D-967 keeps "the Gap tile, `floorGives` ... its crumble, shake and sound, and its Settings line" for a later falling floor (offered too: notes only).
 - F-2 Glossary says the Gap is still the arena's escape: same as J-2 (J-2 also covers SOUNDS.md and Q-114).
+
+### As found: area D
+#### Area D: tests and tools
+Looked at: all 290 test files timed one by one, 2 more full runs (flakiness, output size), every tool run with a harmless or scratch-only mode, helper copies, git status before/after (clean; no test or tool wrote into the repo). Not covered: reading each test for wording-only checks beyond the 6 files that read docs; sharecard.js (not run, see D-4).
+
+##### D-1 `npm test` prints 436 KB when a conversation runs it
+- Where: package.json:5 ("test": "node --test")
+- Against: CLAUDE.md "Test output: one line per test or check, never full logs"
+- What: With output piped (as Claude sees it) node switches to TAP and prints about five lines per test (name, duration_ms, type, dashes) for 2050 tests: 436,210 bytes. Only the last 8 lines (tests/pass/fail) matter. No test uses console.log; the noise is all the reporter.
+- Seen: measured: `npm test > run1.txt; wc -c` = 436210 and 436128 (two runs); grep for console/process.stdout in tests/ finds only tests/syntax.test.js:12 (writes inside a child process, harmless).
+- Who: none (players) — context and dev time, every step that runs tests
+- Fixes: 1) change the script to `node --test --test-reporter=dot` (prints a dot per pass, full detail only for failures; a few KB) 2) add a `test:full` with the TAP reporter for debugging 3) say in docs/PR-CHECKLIST.md to always pipe through `tail -15`
+
+##### D-2 Three "standin" sweeps are a fifth of all test time
+- Where: tests/standin.test.js:28, tests/standin-2.test.js:14, tests/standin-3.test.js:14
+- Against: none (a risk; it will grow as depths and seeds are added)
+- What: Each sweeps seeds 1 to 300 over a band of depths (8-11, 12-15, 16-20) and takes 17-19 s alone, 54 s of the 279 s total (sum of every file run alone). They were split so they run side by side, so they set the minimum wall time. The same suite took 72 s (brief), 112 s and 93 s on my two runs: wall time swings with machine load; all 3 full runs passed 2050/2050 with no failure and no change in count (no flakiness seen).
+- Seen: measured: per-file time loop (scratch times.txt). Slowest 10: standin-3 19.2 s, standin-2 17.9 s, standin 17.2 s (seed sweeps of layoutAt/placeFor), stamper 9.1 s, region 8.6 s, leapgap 6.6 s, raredrops 6.5 s, textfit 6.4 s, mixed 6.1 s, water 5.8 s (all seed sweeps over rooms; no bench or browser). 237 of 290 files finish in under 0.3 s beyond start-up.
+- Who: none (players) — dev time
+- Fixes: 1) a quick default (e.g. seeds 1-40 in the sweeps, picked by an env var like FULL=1) and a full run before the PR handoff 2) cache layoutAt per seed/depth between the three sweeps (same layouts are rebuilt) 3) leave as is: a full run is still under 2 min
+
+##### D-3 perf.js's "light" budget reads 0.0 ms, so it checks nothing
+- Where: tools/perf.js:38-61, 71-72
+- Against: docs/TECH.md "Frame budget" (light 8 ms), D-430
+- What: The tool plays only "into play, on the surface" then times frames. Both rows show `light 0.0 ms` (frame 4.0 and 3.1 ms), so the "light over budget" warning can never fire for the dark underground levels, the place the light cost is real. Either the surface skips the light pass or the profiler match on drawLight is not working; I did not dig further.
+- Seen: ran: `node tools/perf.js` printed `standing fps 60 · frame 4.0 ms · light 0.0 ms` and `walking ... light 0.0 ms`
+- Who: few players (slow phones underground) — dev time
+- Fixes: 1) start the scene a few stairs down (via the dev tools, as playtest.js does) and confirm light > 0 2) print a warning when light is exactly 0 so the blind spot shows
+
+##### D-4 Four tools have no test; sharecard writes into the repo
+- Where: tools/playtest.js, tools/mappreview.js, tools/soundboard.js, tools/soundfiles.js, tools/perf.js (no reference in tests/); tools/sharecard.js:16-17,59
+- Against: none (a risk)
+- What: bossrun, make, pack, release and sharecard have tests; the others do not. They all run today: playtest (313 modules), mappreview (136), soundboard (128 sounds, 117 files) wrote pages to scratch that load in Chromium with zero page errors; bossrun ran (5 fights, 0.4 s); make.js --check and release.js --check ran and wrote nothing. sharecard.js always writes /home/user/gloamdeep/share.png (OUT is fixed), so I did not run it. The playtest page is what every PR hands the owner, so a break would show only at handoff.
+- Seen: ran: the commands above with output to scratch; Playwright load of the three pages
+- Who: none (players) — dev time
+- Fixes: 1) one small test that builds playtest, mappreview and soundboard pages into a temp dir and checks they exist and the packer did not throw (no browser needed) 2) give sharecard.js an optional output path like the others
+
+##### D-5 The same test fixtures are copied across dozens of files
+- Where: tests/ (e.g. `const where = (s) => s.enemies.map(...)` identical in 15 files; `const start = () => makeState(room, FIRST_START, FIRST_LIGHTS, FIRST_ENEMIES)` in 7; `const carrying = (bag, more = {}) => ({ ...makeState(room, FIRST_START, [], []), hero: { x: 5, y: 11 }, bag, ...more })` in 7; `const at` in about 10 variants)
+- Against: none (a risk)
+- What: The only shared helper is tests/caves.js (7 lines, used by 11 files). Each new test file re-writes its own starting state, so a change to makeState's arguments means editing many files, and each conversation reads these copies again. Also two files are named after audits (tests/audit826.test.js, audit868.test.js) rather than what they test, so they are hard to find by topic.
+- Seen: measured: `grep -n "^const where = " tests/*.test.js` and the like (counts above)
+- Who: none (players) — context and dev time
+- Fixes: 1) add tests/fixtures.js with `where`, `start`, `carrying`, `at` and let new tests (and tools/make.js templates) import it; move old ones only when touched 2) leave old files alone, only point TECH-2.md at the helper
