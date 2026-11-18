@@ -409,3 +409,47 @@ Looked at: sizes of CLAUDE.md, PROGRESS.md, the start hook, DECISIONS.md and its
 
 #### Dropped
 None dropped. A-6 trimmed as it mostly sums A-1 to A-3.
+
+### As checked: area J
+#### Area J: the docs against the game (checked)
+Looked at: every registry entry (152) against GLOSSARY*/CONTENT* by script; creature hearts/bite rows vs enemies.js; SOUNDS*.md vs sound.js and the sounds folder; decision IDs cited vs defined; the 0.3.329-0.3.420 additions; OPEN-QUESTIONS, BUGS, HEALTH-CHECK*, DEV-TOOLS, TECH-2, README, STORE. Not covered: every wording in lines*.js against the glossary (only D-970 to D-978 quotes spot-checked); art docs.
+
+##### J-1 The Lampeater's calls, guards, wary and phases are undocumented
+- Where: docs/CONTENT-BOSSES.md:11; docs/GLOSSARY-CREATURES.md:27; docs/CONTENT-CREATURES.md:13; src/core/enemies.js:121; src/core/call.js, guarding.js, wary.js, snuff.js
+- Against: docs/TECH-2.md:54-56 "A new row goes in `docs/CONTENT.md` ... its word in `GLOSSARY.md`"; D-950 "The Lampeater on 12 hearts"
+- What: CONTENT-BOSSES gives the Lampeater 8 hearts; the code has `health: 12` (D-950). Its row (2.1 KB) covers flanking and the starting brood, but nothing in any CONTENT*.md or GLOSSARY*.md describes the brazier snuffing (D-947), calls (D-974), guards (D-976), wary (D-977) or phases (D-978); those decisions are cited by no CONTENT or GLOSSARY file. PR-CHECKLIST.md never names CONTENT, GLOSSARY or SOUNDS rows, so 0.3.417-420 skipped them. Every other registry entry is documented.
+- Seen: ran: $S/work/J/hp.mjs, reg2.mjs; checker grep: `grep -ln "D-947\|D-974\|D-976\|D-977\|D-978\|D-950" docs/*.md` finds only DECISIONS, OPEN-QUESTIONS-3, PROGRESS
+- Who: none (players); context and dev time (the next Lampeater step starts from a wrong sheet)
+- Fixes: 1) fix the hearts, add one short paragraph on snuffing, calls, guards, wary and phases to CONTENT-BOSSES and the glossary, a word on the gloamling row, and add "its CONTENT, GLOSSARY and SOUNDS rows" to PR-CHECKLIST.md 2) leave it for the 0.3.433 audit
+- Checked: REVISE, re-grepped the row and docs; snuffing (D-947) is also missing; flanking/brood already present, so the gloamling note is minor
+
+##### J-2 Docs still describe the falling floor D-967 removed
+- Where: docs/GLOSSARY-2.md:18; docs/SOUNDS.md:43; docs/OPEN-QUESTIONS-3.md:109-114
+- Against: D-967 "No falling ground in the boss fight" (supersedes D-963 to D-966; archive/DECISIONS-SURFACE.md:2554); D-969 "Too wide to step. More lies beyond."; docs/CONTENT-4.md:52 already right
+- What: The glossary's Gap is "where the floor gave way, round the arena's stairs down ... (D-964)", and SOUNDS.md's `giveWay` is "the floor gives way round the Lampeater's stairs (D-966)", both superseded. Q-114 quotes the Gap line as "Too wide to step across." (lines.js:351 now says "Too wide to step. More lies beyond.") and calls the Gap unused, though D-968 uses it before caches at depths 5-8 (leapgap.js).
+- Seen: read; ran: `grep -rn floorGives src tests` shows only its definition (beaten.js:88), its line and tests/escape.test.js
+- Who: none (players); context (a conversation planning the next gap or sound reads a wrong rule)
+- Fixes: 1) correct the three entries to match CONTENT-4, D-967 and D-968/D-969, marking `giveWay` "kept, unused (D-967)" 2) leave until T4 uses falling ground
+- Checked: REVISE, confirmed all three; dropped the old fix "delete `floorGives`": D-967 decided "The work is kept in the code, unused"
+
+##### J-3 Done health-check findings still in docs/ and routed by CLAUDE.md
+- Where: docs/HEALTH-CHECK.md (23 findings, 5358 bytes), docs/HEALTH-CHECK-2.md (24, 4672 bytes), docs/HEALTH-CHECK-ORDER.md (last line), CLAUDE.md:54
+- Against: docs/HEALTH-CHECK.md:10 "moves to `archive/HEALTH-CHECK-DONE.md` at the next audit"; ORDER "Every step is done"
+- What: All 19 steps were done by 0.3.328 (D-883); the audits at 0.3.353 and 0.3.393 left about 10 KB of finished findings in docs/, without their versions. CLAUDE.md's table still routes conversations to them "when Next up names one".
+- Seen: measured: wc -c; `grep -c "^- \*\*H-"`; ls (HEALTH-CHECK-DONE.md holds only the 17 moved at 0.3.313)
+- Who: none (players); context
+- Fixes: 1) in this check's own PR, move both files' findings word for word into HEALTH-CHECK-DONE.md, keep ORDER, and point the CLAUDE.md row at the third check's steps 2) do it at the 0.3.433 audit
+- Checked: REVISE, confirmed counts and sizes; dropped the archive README claim (that line is this branch's own addition)
+
+##### J-4 Small stale doc facts
+- Where: docs/DEV-TOOLS.md:22; src/dev/panel.js:36,216; docs/TECH-2.md:79; CLAUDE.md:52; docs/CONTENT-5.md:3-4; docs/STORE.md:40; sounds/packs
+- Against: DEV-TOOLS.md:22 "sections, View, Spawn, Room, Oil, Hero, Share, Spots"; CLAUDE.md:52 "newer tiles and places in `-5`"
+- What: The panel has a ninth section, Boss (panel.js:216), missing from DEV-TOOLS line 22 (it is described at line 85). TECH-2:79 still sends tiles and places to CONTENT-3 and "places now in `CONTENT-4.md`", while CLAUDE.md and CONTENT-5 (since 0.3.412) say newer ones go to CONTENT-5: two answers to "where does this row go", and CONTENT-4 has 75 bytes left. The sounds folder holds 701 files (23 MB) but the game plays 117 (9.9 MB); the packs are kept on purpose for picking sounds (SOUNDS.md:17), but STORE.md's "Needed" list never says to ship only the used ones.
+- Seen: ran: $S/work/J/sz.mjs (used 117, 9,873,639 bytes); find/du on sounds/
+- Who: none (players); few (a store build 13 MB heavier); context (the routing clash)
+- Fixes: 1) add Boss to line 22, make TECH-2:79 name CONTENT-5 for new tiles and places, add a STORE line "ship only the sound files the game plays" 2) skip until the audit
+- Checked: REVISE, confirmed Boss, sizes and the TECH-2/CLAUDE.md clash (moved here from old J-4, cited line corrected from TECH-2:54 to :79); dropped the "three registry names in no doc" claim
+
+#### Dropped
+- J-4 (original) Two files within bytes of their caps: duplicate of A-5 (and A-1, A-3 for PROGRESS and DECISIONS); sizes re-measured and match. Its one unique part, TECH-2's routing clash, moved into J-4 above.
+- J-5 part "Unlit torch, Bare bush, Your bag in no doc": false; they are in CONTENT-2.md:74, CONTENT-3.md:19, CONTENT-2.md:41.
