@@ -623,3 +623,47 @@ Checked and fine: journey save format is 37 (profiles 11); the oldest save (form
 - Seen: measured: `work/I/load.cjs` (iPhone 13 and 1366x768, same count both).
 - Who: some (first visit on mobile data; later visits depend on the host's caching)
 - Fixes: 1) leave it, and check the live host sends compression and cache headers 2) publish the already-existing packed single file (tools/pack.js) as the store/offline build, as D-590's checklist may want
+
+### As checked: area F
+#### Area F: Leap, the gaps, the archway beyond
+Looked at: Leap (rules, button, J, touch), the first Leap gaps (seeds 1-1500, depths 5-8), the archway and the room beyond, the arena's gloamlings, the unused falling-floor code, their docs. Not covered: the Lampeater's calls/phases, sounds by ear, the Leap card (D-971 step not built yet).
+
+##### F-4 "Leap which way?" stays on the strip after the leap
+- Where: src/main.js:409-412 (sets the line), src/core/leap.js:24-28 (a leap says nothing), src/core/lines.js:410 (LINE_TURNS = 5)
+- Against: D-962 "Leap which way?" is the prompt; nothing says when it goes
+- What: The prompt is an ordinary line that lasts 5 turns, so after a leap (and after cancelling) the strip still asks "Leap which way?" for up to 4 more turns.
+- Seen: ran: work/F-check/leapline.mjs (say leapWhich, leap right, then 3 steps: the line still reads "Leap which way?"); played by the finder on phone and PC
+- Who: most Leap users, a small confusion
+- Fixes: 1) clear the line when the leap is taken or let go (if it is `leapWhich`) 2) say it only on first use each journey
+- Checked: KEEP, reproduced with the game's own say/leap/step
+
+##### F-3 Leap and J are not in How to play
+- Where: src/core/howto.js:63-82 (keyboard: Walk, Wait, Lantern, Pause, Frame, Bag, Map; touch/mouse the same, no Leap)
+- Against: none (a gap); D-350 "How to play keeps the controls"; no decision says when How to play gets Leap. D-971's card ("a new ability, the icon, its name and its use") is planned, step 5 of 6, not built
+- What: Today Leap is taught only by "You learn Leap." Nothing says to press the round button or J, then pick a way; once the card exists, a player who closes it still has no Help row.
+- Seen: read (howto.js); played by the finder
+- Who: some players (everyone who beats the Lampeater)
+- Fixes: 1) ask at the D-971 card step whether How to play gets a Leap row (shown once Leap is learnt) 2) leave it to the card alone
+- Checked: REVISE, confirmed no Leap row; no decision covers it, so it is a question for the card step, not a breach
+
+##### F-5 Gaps cut off creatures and extra finds, not just the cache
+- Where: src/core/leapgap.js:42-50 (only the cache's finds, passed from room.js:336, are checked); room.js:336
+- Against: D-968 "its cache behind a line of Gap tiles", "every find out of walking reach" (says nothing of what else stands there)
+- What: Whatever else stands in the cut-off corner is cut off too. Rerun over seeds 1-400, depths 5-8: 128 of 927 gap rooms (14%) have a creature behind the Gap; 15 (under 2%) have 4-5 finds there against a cache of 2-3. Stairs, people and the Archway were always fine.
+- Seen: ran: work/F-check/scan2.mjs (the finder's scan, 400 seeds)
+- Who: few players; matters when the cache's richness is tuned (Q-115)
+- Fixes: 1) write in D-968/CONTENT-4 that the whole corner is behind the Gap 2) keep the corner clear of non-cache finds and creatures
+- Checked: REVISE, numbers confirmed; "many have 4-5 finds" was overstated (under 2%)
+
+##### F-6 tests/beyond.test.js is about something else
+- Where: tests/beyond.test.js:1-4 (tests `widen` from openings.js, D-403); the Archway tests are in tests/leapgap.test.js:86-150
+- Against: none (a risk); src/core/beyond.js is the place beyond a Leap gap (D-969, D-970)
+- What: A conversation on "the place beyond" opens the same-named test and finds rock-past-the-edge tests, not the Archway's; it may write duplicates.
+- Seen: read
+- Who: dev time
+- Fixes: 1) rename it widen.test.js and move the archway tests into beyond.test.js 2) note it in TECH-2.md's tests list
+- Checked: KEEP, heads of both test files and beyond.js read
+
+#### Dropped
+- F-1 Settings still lists a sound that can never play: already decided; D-967 keeps "the Gap tile, `floorGives` ... its crumble, shake and sound, and its Settings line" for a later falling floor (offered too: notes only).
+- F-2 Glossary says the Gap is still the arena's escape: same as J-2 (J-2 also covers SOUNDS.md and Q-114).
