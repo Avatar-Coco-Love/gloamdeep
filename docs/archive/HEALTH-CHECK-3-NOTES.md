@@ -19,7 +19,7 @@ reused); while working, each area numbers its own (A-1, B-1...).
 - [x] E. The Lampeater's fight (0.3.381 to 0.3.420).
 - [x] F. Leap, the crumbling floor, gaps, the archway, the seal hall.
 - [x] G. The Warden's Fist, vaults, the rune wall, shovel, doorways, flyers.
-- [ ] H. Played as a player, on a phone and a PC, the screens since 0.3.329.
+- [x] H. Played as a player, on a phone and a PC, the screens since 0.3.329.
 - [x] I. Saves and speed: old saves, save size, frame time, boot.
 - [x] J. The docs against the code since 0.3.329.
 - [ ] K. Every finding checked (Opus); IDs H-68 on given.
