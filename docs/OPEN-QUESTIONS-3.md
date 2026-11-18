@@ -64,7 +64,7 @@ Leap, each step's details at its own step; the lantern part slots after. New ide
 
 **The second health check's loose ends** (D-862): seen at 0.3.305 with
 no decision to measure against. Each is asked at the step named in
-`HEALTH-CHECK-ORDER.md`.
+`HEALTH-CHECK-ORDER.md` (now in `archive/HEALTH-CHECK-DONE.md`).
 
 **Q-103 · A duskstar on the home waystone's ring** (raised 2026-11-12,
 D-869) Laid out, a duskstar keeps off the home waystone's ring, but one

@@ -18,7 +18,7 @@ Moved to `CONTENT-CREATURES.md` word for word at 0.3.393 (D-951).
 Moved to `CONTENT-FINDS.md` word for word at 0.3.113 (D-660).
 
 ## Tiles
-Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535); now in `CONTENT-3.md` (D-618).
+Moved to `CONTENT-2.md` word for word at 0.3.7 (D-535); now in `CONTENT-3.md` (D-618); newer ones in `CONTENT-5.md` (0.3.412, 0.3.422).
 
 The bosses are in `CONTENT-BOSSES.md` (D-941).
 

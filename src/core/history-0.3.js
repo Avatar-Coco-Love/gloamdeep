@@ -6,6 +6,12 @@
 // history-0.3-2.js (D-740) and 0.3.0 to 0.3.75 in history-0.3-1.js (D-699); stage 0.2's are in
 // history-0.2.js and its split files.
 export const HISTORY_03 = [
+  { v: '0.3.422', date: '2026-11-18', title: 'Reading less', lines: [
+    "No change in play. Each conversation now starts by reading about a fifth less: the big table of docs moved out of CLAUDE.md to docs/INDEX.md, nine old rules on how we work out of docs/DECISIONS.md, and done plan steps and repeated questions out of docs/PROGRESS.md, all word for word.",
+    "The first two health checks' finished pages and five old audit-lesson pages moved to the archive; three near-full pages split (SOUNDS-4.md, CONTENT-5.md, WORKFLOW-SINCE.md); npm test prints a dot a test, about 2 KB instead of 436 KB.",
+    "From now on the health check's steps run hands-off: Claude builds its own recommended fixes and lists every pick in the PR.",
+    "Decisions: D-980, D-981.",
+  ] },
   { v: '0.3.421', date: '2026-11-18', title: 'The third health check', lines: [
     "No change in play. A third health check, run while the owner was away: helper agents looked at ten areas, from the Lampeater's fight to what each conversation reads, and a second agent tested every finding again before it was kept. Of 60 found, 40 are kept, from card buttons too small on a phone to a test run that prints 436 KB. The owner made every one a step, reading less first.",
     "Decisions: D-975, D-979. D-975 moved to the archive, word for word.",

@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.419, The Lampeater wary.** Struck with none to call,
+  it keeps just past your lantern's reach for 3 turns, lit or not.
+  D-977. Playtest: https://claude.ai/artifact/6HfgssgKhBXHW9zY5QmmAj
 - **2026-11-18, 0.3.418, The Lampeater's guards.** With 6 gloamlings
   alive, the 2 nearest it hold its shoulders, its way to you left open.
   D-976. Playtest: https://claude.ai/artifact/4j656SjnHb3WPmiyCvgXUb
@@ -3297,6 +3300,35 @@ Foundation (0.1.x): one small visible thing per step
 - [x] 28 The first generated room, 0.1.24
 - [x] 29 Rougher caves, the rat in remembered dark, 0.1.25
 - [x] 30 Healing herbs, rats that notice and turn, 0.1.26
+
+## Moved from `PROGRESS.md` at 0.3.422 (D-981)
+
+Word for word. The build plan's two open steps, every part listed done
+but more flowers (Q-092), still open in `PROGRESS.md`:
+
+- [ ] 19 Lore (D-629): the first words (0.3.83); the Bestiary tab (0.3.85); how it acts (0.3.86); how to fight it (0.3.87); the story (0.3.88)
+- [ ] 26 Filling the surface (D-757, D-760): campfires (0.3.208); gathering: oilcaps (0.3.211), loose stones (0.3.212), herbs (0.3.213), the duskstar (0.3.214), more flowers (Q-092); then landmarks: the dead lamppost (0.3.220), the miners' camp (0.3.221); then night creatures: lampmoths (0.3.228), bats (0.3.229), the rare gloamling (0.3.230); then day creatures: the mole (0.3.231), the bunny (0.3.234), the rare herb mimic (0.3.241); the mountain rooms: the skulker crab (0.3.244), the rim lurker (0.3.245)
+
+"Waiting on the owner" lines that repeat `OPEN-QUESTIONS*.md`; the vault
+door's sound and the older iPhone, found nowhere else, stay there:
+
+- Any time: a sound for the vault door and the rune wall opening (D-895,
+  D-929); a duskstar on the home waystone's ring (Q-103); the herb
+  mimic's and the bone rat's rare drops (Q-061); who the keeper is
+  (Q-084); sound on an older iPhone, when one is to hand (H-22, D-868).
+- Each its own step: the shovel's sapling (Q-106), digging up buried
+  things (Q-108), deep moles for the stone floors (Q-096, the owner's idea).
+- Later, each at its own time (`OPEN-QUESTIONS*.md`): play data (Q-052),
+  a region's name (Q-056), creature materials (Q-061), rooms through the
+  wall (Q-066), Half and Automatic (Q-069), water and the garden (Q-071),
+  special creatures (Q-083), rooms that fill again (Q-086), holes (Q-089), falling ground (Q-114), daylight in very big
+  rooms (Q-097), fires below ground (Q-088), sleeping out's later costs (Q-091).
+- Sounds (Q-095): the "Maybe" sounds, one step each (D-834): steps on
+  water or wood, and where the wood step plays; music is in every place
+  (D-837 to D-841); wind, birds, crickets set aside for now (D-836);
+  swaps for Claude's picks (D-833) any time; then weather (Q-035).
+- The lab and its recipes (Q-093, D-785); then the bow (Q-094); then
+  cooking, at home and at campfires.
 
 ## Log entries
 
