@@ -136,24 +136,6 @@ it is wary, as with no cold brazier; the 2 nearest it guard, and with
 fewer than 6 they act as the rest; the bench after each step. D-967 and
 D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-975 · 2026-11-18 · The third health check, run hands-off** (the
-owner's wish and picks) Once the Lampeater's fight is built (the calls,
-guards, wary and phases, each its own PR, the owner's pick; offered too:
-the calls alone, recommended; the calls and guards), a third health check
-runs while the owner is away: no questions while it runs, nothing in the
-game changed, findings only, each picked later as a step, as H-01 on were
-(D-860). One coordinating conversation reads little; each area goes to a
-helper agent with its own context, Sonnet to look and Opus to check each
-finding before it is kept (recommended; offered too: all Opus; all
-Sonnet). A checklist of areas, and each area's findings, saved to the
-branch and pushed as each is done, so nothing is lost if a session ends.
-If it ends or the usage limit is reached, a scheduled check-in every 3
-hours carries on from the checklist, and the owner can wake it with any
-message (the owner's pick, with their addition; offered too: every hour;
-only when the owner is back). At the end: a report page for the phone,
-the findings in `HEALTH-CHECK-3.md` (split under 8 KB), one PR, and the
-questions for the owner all at the end.
-
 **D-977 · 2026-11-18 · The Lampeater wary** (the owner's picks, all
 recommended, and dimmed eyes too; builds D-971 and D-972, their step 5)
 Struck and free again, with no cold brazier it can reach or 6 gloamlings
@@ -191,3 +173,10 @@ owes both; its Bestiary words "At two thirds and one third of its hearts,
 it snuffs a brazier." (Claude's draft). The bench, from 5%, 79% and 83%:
 Lean 35%, Middling 84%, Strong 94%, the catch's snuffs gone (Q-111).
 D-976 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+
+**D-979 · 2026-11-18 · The third health check's steps** (the owner's
+picks, all recommended) Every finding, H-68 to H-107, becomes a step
+(`HEALTH-CHECK-3*.md`), related ones together. Reading less first
+(H-87 to H-93), then the rest; the five rulings (H-71, H-75, H-78,
+H-79, H-81) are asked at their steps. D-975 moves to
+`archive/DECISIONS-AUDITS.md`, word for word.

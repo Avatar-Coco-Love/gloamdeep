@@ -8,9 +8,8 @@ go to the top of `archive/PROGRESS-LOG.md`.
 (D-528)
 
 ## Next up
-The owner picks the third health check's steps (D-975), from
-`HEALTH-CHECK-3*.md` and the report. Then the Lampeater's drop and card,
-Leap as a find (D-971), its sound, the place beyond a Leap gap (D-969).
+The third health check's steps (D-979), related ones together: first
+reading less, H-87 to H-93 (`HEALTH-CHECK-3-WAYS.md`); then the rest.
 
 ## Waiting on the owner
 - Delete the branch `claude/gloamdeep-health-check-2-5uv4gm` on GitHub
