@@ -2,6 +2,8 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-18, 0.3.415, Nothing goes missing.** A test that every
+  decision, changelog and log entry is still kept.
 - **2026-11-17, 0.3.414, The Lampeater's steps planned.** Its calls,
   wary and phases, and its gloamlings flanking (Q-116) and guarding it, in 8 steps. D-972.
 - **2026-11-17, 0.3.413, Gloamlings in the seal hall.** A gloamling

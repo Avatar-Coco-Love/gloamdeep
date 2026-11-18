@@ -23,7 +23,7 @@ export const openSide = (hero, lead) => around(hero).reduce((b, t) => (steps(t, 
 // The first tile on the shortest way over free tiles from e to `to`, never through `shut`, or null when
 // there is none within `FAR` steps; of the first tiles that start such a way, the first of up, down, left, right
 const FAR = 12;
-function stepTo(state, e, to, shut, free) {
+export function stepTo(state, e, to, shut, free) {
   const key = (t) => `${t.x},${t.y}`, seen = new Set([key(e), key(shut)]);
   let ring = around(e).filter((t) => !same(t, shut) && free(state, e, t.x, t.y)).map((t) => ({ ...t, first: t }));
   ring.forEach((t) => seen.add(key(t)));

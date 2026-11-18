@@ -2629,3 +2629,18 @@ shrine before the fight; no escape). Built one visible step at a time,
 in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
+
+**D-973 · 2026-11-18 · The Lampeater's gloamlings flank you** (the
+owner's picks, both recommended; builds D-972, its step 2) While it comes
+for the hero, chasing and not caught, the side left open toward it is the
+tile beside the hero fewest steps from it, the first of up, down, left,
+right on a tie (offered too: the tile its own next step would end on). A
+gloamling on that side bites as ever, then steps off it toward another
+free side (offered too: staying there and biting). Claude's calls: the
+others go round to a free side by the shortest way that never crosses the
+open one, the farthest from each other first, as a rat pack spreads; one
+beside the hero on another side stays and bites; lit, they back off as
+ever, so they flank only in the dark (`flank.js`). The bench, from 52% and
+100%: Lean 18%, Middling 96%, Strong 100%, their bites up from about 157 to
+about 277 in 100 fights (Q-111). D-970 moves to
+`archive/DECISIONS-SURFACE.md`, word for word.

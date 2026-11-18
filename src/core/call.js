@@ -18,7 +18,7 @@ const coldAt = (state, t) => state.room.map[t.y]?.[t.x] === get('brazier').lette
 const coldBeside = (state, t) => around(t).find((b) => coldAt(state, b));
 
 // How many of its brood are alive in the room, or waiting in a bowl
-const broodCount = (state, e) => {
+export const broodCount = (state, e) => {
   const brood = get(e.id).snuffs?.brood;
   return state.enemies.filter((o) => o.id === brood).length + state.enemies.reduce((n, o) => n + (o.bowls?.length ?? 0), 0);
 };

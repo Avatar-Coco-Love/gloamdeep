@@ -136,21 +136,6 @@ it is wary, as with no cold brazier; the 2 nearest it guard, and with
 fewer than 6 they act as the rest; the bench after each step. D-967 and
 D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.
 
-**D-973 · 2026-11-18 · The Lampeater's gloamlings flank you** (the
-owner's picks, both recommended; builds D-972, its step 2) While it comes
-for the hero, chasing and not caught, the side left open toward it is the
-tile beside the hero fewest steps from it, the first of up, down, left,
-right on a tie (offered too: the tile its own next step would end on). A
-gloamling on that side bites as ever, then steps off it toward another
-free side (offered too: staying there and biting). Claude's calls: the
-others go round to a free side by the shortest way that never crosses the
-open one, the farthest from each other first, as a rat pack spreads; one
-beside the hero on another side stays and bites; lit, they back off as
-ever, so they flank only in the dark (`flank.js`). The bench, from 52% and
-100%: Lean 18%, Middling 96%, Strong 100%, their bites up from about 157 to
-about 277 in 100 fights (Q-111). D-970 moves to
-`archive/DECISIONS-SURFACE.md`, word for word.
-
 **D-974 · 2026-11-18 · The Lampeater's calls** (the owner's picks, all
 recommended, the look's three together; builds D-971 and D-972, their
 step 3) Struck and free again, it walks through the dark to a tile beside
@@ -190,3 +175,21 @@ message (the owner's pick, with their addition; offered too: every hour;
 only when the owner is back). At the end: a report page for the phone,
 the findings in `HEALTH-CHECK-3.md` (split under 8 KB), one PR, and the
 questions for the owner all at the end.
+
+**D-976 · 2026-11-18 · The Lampeater's guards** (the owner's picks, all
+recommended; builds D-972, its step 4) Only while 6 gloamlings are alive,
+counting any waiting in a bowl as its calls do (offered too: only those
+out in the room), the 2 nearest it guard it, chosen again each turn
+(offered too: picked once, then kept). They hold its shoulders, the two
+tiles beside it across from the line to the hero, its front and back left
+open; a shoulder in a wall gives its place to the side behind (offered
+too: the back and one shoulder; the nearest free sides). No mark: their
+place shows it (offered too: a faint violet glint). Claude's calls: the
+front is the tile beside it nearest the hero (up, down, left, right on a
+tie); each takes the free shoulder nearest it the other doesn't, the
+shortest way, never over the front; they trail a step behind as it walks
+and close up as it stops; with no way to a shoulder, it acts as ever
+(`guarding.js`). Until the wary step, with 6 alive it fights on (D-974).
+The bench, from 12%, 79% and 83%: Lean 12%,
+Middling 80%, Strong 83%; 6 are rarely out at once yet (Q-111). D-973
+moves to `archive/DECISIONS-SURFACE.md`, word for word.
