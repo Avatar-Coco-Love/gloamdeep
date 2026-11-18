@@ -561,3 +561,65 @@ Looked at: Leap (rules, button, J, touch), the first Leap gaps (3,511 gap rooms 
 
 ##### Checked and fine (no finding)
 Leap blocked by a wall, sealed door, off the map edge or a leap that would land on water, creature, person or Gap: free, right line; landing on a find takes it (full bag says so); on stairs takes them; with 0 oil, unlit, poisoned, a draught or a line out: one turn as a step; over a sleeping or chasing creature (it still bites). Arena: 4 braziers each with 1 gloamling on its outer side in 300 seeds (D-971). The Archway round trip, save and load while beyond, and a fall from beyond all work; gap rooms cost about 5 ms (23 worst). Leap button 44x44 css px, left of the quick slot, on the lantern arc (phone); J, then an arrow, W/A/S/D or tap works. Leap is lost on a hardcore fall as D-962 says; there is no "falling floor" anywhere in play now, so crumble, waiting and its save/load cases cannot happen.
+
+### As found: area I
+#### Area I: Saves and speed
+Looked at: save/profile/aside code and the 2 old fixtures; round trips of boss, beaten arena with gap, and vault states; save size and time; page load, frame times (iPhone 13 and 4x slower CPU), sounds on/off. Not covered: a real phone's battery or GPU (headless Chromium draws in software, so ms numbers are high but compare fairly), the Sound-On network cost with browser caching on a real host.
+
+Checked and fine: journey save format is 37 (profiles 11); the oldest save (format 1) goes through 36 steps, the two fixtures through 27 and 21. Steps 32 to 36 each have a test (resettle, refetch, wardenFist, arena, lampeater). Saved mid-boss-fight (boss hit, 11 health), at the beaten arena, with the floor given way, and in a vault with 1 and 2 braziers lit all load back deep-equal (`$S/work/I/rt2.mjs`). The two old fixtures upgraded, played 60 steps and saved back equal (`work/I/play.mjs`). Every localStorage use (save, profile, spots, settings, aside, dev, record) is in try/catch. With Sound Off, 0 sound files were fetched (0.3.322 holds). Three profile slots of 65-room journeys use about 0.27 MB of the ~5 MB limit; all 463 rooms of depths 1 to 40 is 0.71 MB, so 3 full slots is about 2.1 MB.
+
+##### I-1 The speed check never measures a dark room
+- Where: tools/perf.js:67-89,106-110; docs/TECH.md:23-29; src/render/frame.js:342-349
+- Against: D-430 "16.7 ms a frame" and the light "at most 8 ms" (TECH.md "Frame budget")
+- What: perf.js plays only the daylight surface, where the lantern light is not drawn, so its "light" number is 0.0 ms and it reports 3.6 ms a frame. In a dark big room on the same 4x slower processor, walking took 26.2 ms a frame (38 fps), with single frames of 400 ms; in the boss arena 21.7 ms (46 fps). Any drawing change in the dark can pass the check unseen.
+- Seen: measured: `node tools/perf.js 4` gives standing 58 fps, 3.6 ms, light 0.0; my `work/I/frames.cjs 4 phone`: walk-bigroom 38.2 fps mean 26.2 ms p95 50 max 400; walk-arena 46.1 fps; idle-bigroom 57.3 fps.
+- Who: some (phones, dark floors, where the game is mostly played); dev time
+- Fixes: 1) let perf.js load a saved dark-room scene (journey text built by game modules, as I did) and report the light number there 2) add the boss arena as a third scene 3) keep as is, and accept the surface number as a floor
+
+##### I-2 It redraws 60 times a second even when nothing changes
+- Where: src/main.js:614-624; src/render/frame.js:265-271
+- Against: none (a risk; phones, battery)
+- What: the loop asks for a new frame every time and `draw` clears and repaints everything each frame, on the title, in play, standing still, and with the pause card open (no "nothing changed, skip" path). Saving is already skipped when the state is unchanged (main.js:138), but drawing is not.
+- Seen: measured: headless phone, 10 s each, 60 fps in all: title busy 197 ms of every second, standing in the woods 136, in the arena 249, paused 91; at 4x slower busy was 458 to 959 ms a second, even paused 458.
+- Who: most (phone battery and heat on long sessions)
+- Fixes: 1) when paused or on a still card, draw one frame then ask for the next only on input or a timer 2) lower the rate to about 30 fps when nothing moves (the flame flicker is the only motion) 3) leave it, and note it in docs/TECH.md as accepted
+
+##### I-3 Sound On fetches each sound file about 3 times
+- Where: src/render/sound.js:281-290 (`fetchAll`), 65 (`FILES`)
+- Against: D-877 "saves phone data" (changelog 0.3.322)
+- What: `fetchAll` fetches every file of every voice at the first tap, with no check for a file that two voices share. 143 voices list 314 file entries but only 111 different files (3.35 MB counted per entry, 1.35 MB different).
+- Seen: measured: Sound On, a woods room, 12 key presses: 315 sound requests, 112 different names; Sound Off: 0. `work/I/snd.cjs`, `work/I/dup.mjs`.
+- Who: some (Sound On players on a phone; the browser cache may hide part of it)
+- Fixes: 1) keep one decoded buffer per file path and share it between voices 2) also fetch the steps and fight sounds first and the rest when first needed
+
+##### I-4 Tests pin the exact format number, so the next save change breaks two
+- Where: tests/lampeater.test.js:150; tests/freepick.test.js:43
+- Against: none (a risk; conflicts); other upgrade tests use `FORMAT >= n`
+- What: `assert.equal(FORMAT, 37)` and `assert.equal(FORMAT, 11)` (profiles) fail the moment a later step raises the format, so the next PR that changes a save must also edit an old test. Every other step test uses `>=`.
+- Seen: read: grep `FORMAT, ` in tests/.
+- Who: none (players); dev time
+- Fixes: 1) change both to `>=` and keep the `UPGRADES[36]` check 2) leave the check in the newest test only
+
+##### I-5 No fixture covers steps 17 to 36 end to end
+- Where: tests/saves/ (format 10 and 16 only); tests/refetch.test.js:15-24; src/core/save.js:36-71
+- Against: D-266 "one numbered step at a time"
+- What: only two old saves exist, and the only test that loads them checks one thing (the Peddler's place). Steps 17 to 36 are tested one by one, never chained from a real old save to today's state and then played. My run showed both fixtures survive (27 and 21 steps, 60 turns, round trip equal), so this is a missing guard, not a bug found. Step 29 to 30 (`withKnown`) has no test of its own.
+- Seen: ran: `work/I/chain.mjs`, `work/I/play.mjs`; grep of tests for each step name.
+- Who: few players (anyone with a very old save); dev time
+- Fixes: 1) a test that loads each fixture, steps 20 turns, saves, loads and compares (my play.mjs is the base) 2) add a newer fixture (format 30+) saved by the real game whenever a step is added
+
+##### I-6 Saves rewrite the whole world each turn and set-aside copies never go
+- Where: src/core/save.js:131-139; src/core/aside.js:15-18; src/main.js:136-141
+- Against: D-880 "set aside" (nothing reads them back yet, aside.js:3)
+- What: a fresh journey is 26 KB; 65 rooms is 91 KB, of which `elsewhere` is 87%; all 463 rooms of depths 1 to 40 is 707 KB, and one write took 24 ms on this machine (parse 68 ms), so about 100 ms a turn on a slow phone for a very deep journey. Separately, each broken or newer save is copied whole under a new key forever, never trimmed, so on a full store the copy can push out the real save (save then returns false and the warning line shows).
+- Seen: measured: `work/I/rt2.mjs` (sizes, stringify and parse times); read: aside.js.
+- Who: few players (very long journeys); context (the whole state in one text)
+- Fixes: 1) keep as is until a measured slow turn, but cap the set-aside copies at 1 or 2 per slot 2) later, save each room under its own key and rewrite only the one changed
+
+##### I-7 The first page load is 300 separate files
+- Where: index.html (module entry), src/main.js; tools/pack.js (already packs for the playtest)
+- Against: CLAUDE.md "no build step" (a trade-off, not a break)
+- What: the page loads 300 requests (299 JS modules), 1.63 MB uncompressed, before the first draw; biggest are main.js 51 KB, lines.js 50 KB, frame.js 44 KB. On localhost the first drawn frame came at 0.6 to 1.7 s; every module is a separate trip on a slow phone connection.
+- Seen: measured: `work/I/load.cjs` (iPhone 13 and 1366x768, same count both).
+- Who: some (first visit on mobile data; later visits depend on the host's caching)
+- Fixes: 1) leave it, and check the live host sends compression and cache headers 2) publish the already-existing packed single file (tools/pack.js) as the store/offline build, as D-590's checklist may want
