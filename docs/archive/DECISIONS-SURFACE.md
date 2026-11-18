@@ -2583,3 +2583,25 @@ empty room, its look, its creatures, its finds, then more rooms
 (offered too: its look first; the way in first). The gaps below depth 8
 wait for the place beyond (offered too: copied down now). D-963 moves to
 `archive/DECISIONS-SUPERSEDED.md`, word for word.
+
+**D-970 · 2026-11-17 · The place beyond, its doorway and one empty room**
+(the owner's picks, all recommended; answers part of Q-115; builds D-969)
+The doorway past a Leap gap is an Archway in a wall of the cut-off
+corner, leading to a room of its own off the floor's grid; it fits every
+gap (offered too: an opening into an empty square of the floor's grid,
+which fits under half; the grid square, else the archway). The room is
+one cell big, the size of a normal room on that floor (offered too: small,
+like the vault; a hall of 2 cells). The Archway is a new tile drawn in
+code, a dark round-topped opening (offered too: the vault's open door; a
+plain gap in the wall). Claude's calls: the Archway stands on the room's
+outer edge where the corner reaches it, else in a wall inside, beside no
+open ground but the corner's, never on a room's corner tile or an edge
+with a way out, the one farthest from the Gap; walked onto, it goes
+through as stairs do, "You go through the archway." (Claude's draft), the
+hero arriving on the other side's Archway, in the middle of the room
+beyond's edge facing back; the room is walls round an empty floor in the
+floor's own look, kept like any room; on the map it isn't drawn yet, and
+the hero in it shows at the gap room's Archway; rooms already in a save
+keep their shape, so a gap room seen before gets no Archway (`beyond.js`).
+Next, the place's look. D-965 and D-966 move to
+`archive/DECISIONS-SUPERSEDED.md`, word for word.

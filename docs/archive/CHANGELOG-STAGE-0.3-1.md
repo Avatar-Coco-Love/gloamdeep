@@ -4,6 +4,11 @@ Moved unchanged from `CHANGELOG.md`: 0.3.0 at 0.3.18, 0.3.1 at 0.3.19, 0.3.2 at 
 From 0.3.33 on, `tools/release.js` moves each version here once 3 newer ones are in `CHANGELOG.md` (D-572).
 Newest first. Grep for a version; never read this whole.
 
+## 0.3.413 (2026-11-17)
+- The Lampeater's fight is harder from the start: a gloamling now waits beside each of the arena's 4 braziers, on the side toward the wall, and hunts you through the dark as soon as you walk in.
+- They are the arena's own, like the ones that crawl from a snuffed brazier: they drop nothing, count for nothing, crumble when the Lampeater is beaten, and are all back if you fall or leave before then.
+- Decisions: D-971. D-968 moved to the archive, word for word.
+
 ## 0.3.412 (2026-11-17)
 - Past each Leap gap, in the corner you leap into, a dark archway now stands in the wall. Step onto it ("You go through the archway.") and you come out in a room of its own beyond.
 - For now that room is empty: plain walls and floor in the floor's own look. Step back onto its archway to return to the same spot. Its look, creatures and finds come in the next steps.

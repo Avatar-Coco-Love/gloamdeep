@@ -20,6 +20,7 @@ import { spitTurn, aim } from './spit.js';
 import { stingTurn, reach } from './sting.js';
 import { rise } from './bones.js';
 import { guards } from './guard.js';
+import { flankLead, flankStep } from './flank.js';
 
 // § enemies' turn: after the hero's, every enemy next to the hero bites, lit
 // or not (D-114). The bite line replaces any other said this turn (D-117).
@@ -252,7 +253,8 @@ function enemiesMove(state, bit = false) {
       if (line) said = said || get(e.id)[line];
       continue;
     }
-    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : near ? e : t.pack && !seeks ? packStep(now, e, claims) : chaseStep(now, e, 1, goal)) || e;
+    const lead = chasing && !seeks && !flees && !runs && flankLead(enemies, e); // its gloamlings flank the Lampeater's way (flank.js, D-972)
+    const to = (flees ? backAway(now, e) : runs ? fleeStep(now, e) : lead ? flankStep(now, e, claims, lead, free) ?? chaseStep(now, e) : near ? e : t.pack && !seeks ? packStep(now, e, claims) : chaseStep(now, e, 1, goal)) || e;
     const facing = to.x < e.x ? 'left' : to.x > e.x ? 'right' : e.facing;
     const moved = { ...e, x: to.x, y: to.y, ...(chasing && { chasing: true }), ...(t.home && { chasing, home: homeOf(e) }), ...(facing && { facing }), ...(t.burrows && near && chasing && { dug: true }) }; // one that burrows, beside the hero as it notices, never digs (D-726, H-06)
     if (runs) Object.assign(moved, e.flees > 1 ? { flees: e.flees - 1 } : { flees: 0, chasing: false });
