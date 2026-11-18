@@ -7,6 +7,7 @@
 //   const game = await openGame({ seed: 4127 });
 //   await intoPlay(game.page);
 //   console.log(await look(game.page)); // { screen, place, hero, turn, oil, health }
+//   if (game.errors.length) console.log(game.errors); // errors the page logged
 //   await game.close();
 import { createServer } from 'node:http';
 import { createRequire } from 'node:module';
@@ -40,11 +41,13 @@ export async function openGame({ seed, viewport = { width: 844, height: 390 }, s
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport, deviceScaleFactor: scale, hasTouch: true });
   page.on('pageerror', (e) => { throw e; });
+  const errors = []; // what the game's safety net logged (D-557): a frame that failed, kept for the script to report (D-988)
+  page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text().split('\n')[0]); });
   const kept = { ...(seed ? { seed } : {}), taps: 2, ...settings };
   await page.addInitScript((s) => { try { localStorage.setItem('gloamdeep-settings', JSON.stringify(s)); } catch { /* not kept */ } }, kept);
   await page.goto(site.url);
   await page.waitForFunction(() => globalThis.gloamdeep);
-  return { browser, page, close: async () => { await browser.close(); site.close(); } };
+  return { browser, page, errors, close: async () => { await browser.close(); site.close(); } };
 }
 
 // § into play: Enter until the game is being played, from the slot screen on a fresh device

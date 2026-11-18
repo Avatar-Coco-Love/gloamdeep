@@ -47,6 +47,13 @@ export function createLineClock(width = () => view.w - 2 * PAD - 2) {
   };
 }
 
+// § clear of the hero (H-75, D-988): the line's top, raised to 2 px over the hero's tile when
+// the glass would cover any of it; never off the screen's top
+export function lineAt(x, y, w, h, hero) {
+  if (!hero || x >= hero.x + hero.size || x + w <= hero.x || y >= hero.y + hero.size || y + h <= hero.y) return y;
+  return Math.max(0, Math.floor(hero.y) - 2 - h);
+}
+
 export function createTextLine() {
   let drawn = null, img = null, fadeFrom = 0; // the last line, its pixels, when its fade began
   onWipe(() => { if (drawn) paint(drawn); }); // painted again after a wipe (D-588)
@@ -59,14 +66,17 @@ export function createTextLine() {
     rows.forEach((r, i) => drawText(c, r, PAD, Math.floor((LINE_H - FONT_H) / 2) + i * ROW_H, lineColour(line)));
   };
   return {
-    // line: the shown line or null; reduce: prefers-reduced-motion
-    draw(c, line, t, reduce) {
+    // line: the shown line or null; reduce: prefers-reduced-motion; hero: the hero's box on the
+    // screen layer, or none. A line that would cover the hero stands just above its tile instead,
+    // and back along the bottom once it doesn't (H-75, D-988)
+    draw(c, line, t, reduce, hero = null) {
       if (line) { if (line !== drawn) { drawn = line; paint(line); } fadeFrom = 0; } // said again: no fade
       if (!drawn) return;
       if (!line && !fadeFrom) fadeFrom = t;
       const a = fadeFrom ? (reduce ? 0 : 1 - (t - fadeFrom) / FADE_MS) : 1;
       if (a <= 0) { drawn = null; return; }
-      c.globalAlpha = a; c.drawImage(img, Math.floor((view.w - img.width) / 2), lineTop() - (img.height - LINE_H)); c.globalAlpha = 1; // more rows grow upward
+      const x = Math.floor((view.w - img.width) / 2), y = lineAt(x, lineTop() - (img.height - LINE_H), img.width, img.height, hero); // more rows grow upward
+      c.globalAlpha = a; c.drawImage(img, x, y); c.globalAlpha = 1;
     },
   };
 }

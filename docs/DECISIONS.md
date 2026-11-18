@@ -160,3 +160,18 @@ chosen find's look line is not drawn over its "Now" picture, a draught's
 or its hearts' or oil's (H-69). "Leap which way?" goes once the leap is
 taken or let go (H-70). D-981 to D-983 move to
 `archive/DECISIONS-AUDITS.md`, word for word.
+
+**D-988 · 2026-11-18 · The game's findings some players notice**
+(Claude's picks, hands-off, D-980, but H-75's ruling, the owner's, recommended;
+H-72 to H-75) The Shovel digs only a bare stump: one with a find on it,
+such as Wood a full bag left, is walked onto, so the tree still grows
+back (H-72). `tools/perf.js` times three scenes, the surface, a dark
+room on depth 3 with the lantern lit and the Lampeater's arena, and
+prints any error the page logs (H-73). Each sound file is fetched and
+decoded once, shared by every sound that plays it (H-74). A text line
+that would cover the hero stands 2 px above the hero's tile until it
+doesn't (H-75; offered too: the hero on top; as is). Found doing H-73:
+0.3.424's split left 13 names out of `frame.js`'s imports, so since then
+no darkness was drawn in play and the effect marks went missing; the
+imports are back, and `tests/imports.test.js` checks every file uses
+only names it imports or makes.

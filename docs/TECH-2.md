@@ -49,7 +49,7 @@ tools/make.js       the maker: writes every empty piece of a new creature,
                     find, tile or person (D-621, D-622)
 tools/soundboard.js packs the game's sounds into a page of buttons (D-256)
 tools/sharecard.js  draws share.png, the share card (D-425); needs Playwright
-tools/perf.js       times play on a simulated slow phone (D-430); Playwright
+tools/perf.js       times play on a simulated slow phone (D-430): surface, dark, arena (D-988)
 tools/drive.js      what playtest scripts share: serves, opens, walks into
                     play, reads the game by window.gloamdeep (H-107, D-985)
 tools/release.js    the record-keeping tool: VERSION, history, archive (D-572)

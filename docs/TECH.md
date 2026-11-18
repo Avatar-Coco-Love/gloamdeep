@@ -30,6 +30,9 @@ at build plan step 7 (D-039).
   0.3.74 (another machine, faster): standing 60 fps, about 10 ms a frame,
   the light 8.5 ms, 7.3 ms with the kept shadows (D-619); walking 59 fps,
   11 ms a frame, the light 7.5 ms either way.
+  From 0.3.427 it times three scenes, the surface, a dark depth-3 room
+  and the arena (H-73, D-988): walking in the dark 15 to 17 ms a frame,
+  the light 8 to 10 ms, 44 to 52 fps; the arena 9 to 12 ms, 57 to 60 fps.
 - Under a card the room is drawn once and kept, drawn again only when what
   it shows changes (`render/hold.js`, D-686); in play too with reduced motion
   on, as nothing in the room moves by itself (D-687).

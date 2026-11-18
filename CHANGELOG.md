@@ -24,6 +24,14 @@ Entry format:
 - Decisions: D-008. Questions closed: Q-001.
 ```
 
+## 0.3.427 (2026-11-18)
+- Since 0.3.424 the dark below ground was not being drawn: rooms showed fully lit, and the little marks for poison, draughts and the rest went missing. Both are back, and a new test checks every code file for names it forgets to bring in.
+- The Shovel no longer digs out a stump with Wood lying on it: you walk onto it instead, so the Wood isn't lost and the tree still grows back.
+- A line along the bottom of the screen that would cover your hero now sits just above them instead.
+- Turning Sound On uses much less memory: each sound file is loaded once, not once for every sound that shares it.
+- tools/perf.js now also times a dark room and the Lampeater's arena: walking in the dark is over the frame budget, 17 ms a frame on a slow phone (H-73).
+- Decisions: D-988.
+
 ## 0.3.426 (2026-11-18)
 - Card buttons are easier to tap on a phone: MAKE, STORE, TAKE, SELL, DRINK, DROP and the rest now take a tap a little above or below them, 44 px tall as they should be. On a small card, DROP sits a touch higher.
 - Choosing a draught (or a heartcap or oilcap) in the bag no longer hides its "Now" picture under its look line.
@@ -36,9 +44,3 @@ Entry format:
 - New tests can share their setups (`tests/fixtures.js`), and the place beyond's tests have their own file, named for what they test.
 - Scripts can now read the running game (`window.gloamdeep`), so `tools/perf.js` really reaches play: before, it timed the opening screen. Walking on the surface now reads 57 ms a frame on a slow phone, for the frame-budget step (H-73).
 - Decisions: D-985.
-
-## 0.3.424 (2026-11-18)
-- No change in play. Less code to read: the game's biggest file, its 530 text lines, is split by topic into four smaller files, and the title's screens and cards moved out of the frame-drawing file; a new test stops any other code file passing 20 KB.
-- The 14 small files that bring an older save up to date now sit together in their own folder and share one helper instead of 8 copies; the little tile helpers copied into 12 files live once in `tile.js`.
-- Where the Lampeater is named in the code is written down for when a second boss is planned. The playbook of how we work keeps growing, ready for your next game.
-- Decisions: D-983, D-984.

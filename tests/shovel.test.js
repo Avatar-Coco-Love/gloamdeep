@@ -65,3 +65,17 @@ test('the tree waiting to grow back on a dug stump never does; others still do',
   const later = regrow({ ...dug, turn: dug.turn + get('tree').regrow + 1 }, true);
   assert.equal(tileAt(later.room, 5, 10).id, 'floor');
 });
+
+test('a stump with felled Wood on it is walked onto, not dug, so the Wood is never lost (H-72)', () => {
+  const full = Array.from({ length: 6 }, () => ({ id: 'stone', n: 20 }));
+  const s = beside('shovel', { items: [{ id: 'wood', x: 5, y: 10, form: 0 }], bag: full, taken: [{ id: 'tree', x: 5, y: 10, at: 0 }] });
+  const on = step(s, 'up');
+  assert.deepEqual(on.hero, { x: 5, y: 10 });
+  assert.equal(tileAt(on.room, 5, 10).id, 'stump');
+  assert.ok(on.items.some((it) => it.id === 'wood' && it.x === 5 && it.y === 10), 'the full bag leaves it there');
+  assert.equal(on.taken.length, 1, 'the tree still grows back');
+  const bare = step(beside('shovel', { items: [{ id: 'wood', x: 5, y: 10, form: 0 }] }), 'up');
+  assert.deepEqual(bare.hero, { x: 5, y: 10 }, 'with room, walked onto and the Wood taken');
+  assert.ok(!bare.items.some((it) => it.id === 'wood'));
+  assert.equal(tileAt(step(step(bare, 'down'), 'up').room, 5, 10).id, 'floor', 'then dug, bare');
+});
