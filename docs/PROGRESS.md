@@ -10,7 +10,7 @@ go to the top of `archive/PROGRESS-LOG.md`.
 ## Next up
 The Lampeater made harder (D-971, D-972), step 2: its gloamlings flank
 you while it comes for you or calls, taking the tiles beside you away
-from it. Then the calls, wary, the phases, Leap as a find with its card,
+from it. Then the calls, the guards, wary, the phases, Leap as a find with its card,
 its sound; then the place beyond a Leap gap, its look (D-969).
 
 ## Waiting on the owner
@@ -54,7 +54,7 @@ list in `RESEARCH.md`.
 
 ## Log (last 3)
 - **2026-11-17, 0.3.414, The Lampeater's steps planned.** Its calls,
-  wary and phases, and its gloamlings flanking (Q-116), in 7 steps. D-972.
+  wary and phases, and its gloamlings flanking (Q-116) and guarding it, in 8 steps. D-972.
 - **2026-11-17, 0.3.413, Gloamlings in the seal hall.** A gloamling
   beside each of the arena's 4 braziers at the start; the Lampeater's
   6 steps planned. D-971. Playtest: https://claude.ai/artifact/HsG8ykgpN3VhcXZpcc9cez

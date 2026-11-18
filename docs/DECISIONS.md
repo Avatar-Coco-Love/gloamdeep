@@ -101,22 +101,6 @@ in about 13 steps (the page's list); every name, number, look and line
 is set at its own step. D-927 moves to `archive/DECISIONS-SURFACE.md`,
 word for word.
 
-**D-969 · 2026-11-17 · What lies across a Leap gap, its first step**
-(the owner's picks, all recommended; answers part of Q-115; builds
-D-968) Walking into a Gap before Leap is learnt says "Too wide to step.
-More lies beyond." (changed before the merge: "Too wide to step across.
-There's more beyond." didn't fit the strip); once Leap is learnt, "Too wide to step.
-Leap it." (offered too: one line hinting at Leap; the old line kept, the
-reminder only with Leap). The place beyond comes through a doorway: past
-the gap, the cut-off corner has a way out to a small place of its own,
-2 to 4 rooms at the same depth, with its own look, creatures and finds
-(offered too: stairs down to a hidden half-floor; the corner itself
-grown). Built in this order, a step each: the line, the doorway to one
-empty room, its look, its creatures, its finds, then more rooms
-(offered too: its look first; the way in first). The gaps below depth 8
-wait for the place beyond (offered too: copied down now). D-963 moves to
-`archive/DECISIONS-SUPERSEDED.md`, word for word.
-
 **D-970 · 2026-11-17 · The place beyond, its doorway and one empty room**
 (the owner's picks, all recommended; answers part of Q-115; builds D-969)
 The doorway past a Leap gap is an Archway in a wall of the cut-off
@@ -183,9 +167,17 @@ drinks at the light's edge (offered too: only waiting). At each phase, 2/3
 and 1/3 of its hearts, the snuffed bowl's crawler is one of the 2, and 1
 more is called from another cold brazier (offered too: 2 more; both from
 that bowl). The phases replace its half-hearts snuff and the snuff owed
-after each catch (D-947; offered too: keep all; keep the half one). Seven
-steps now, one a PR, flanking first (offered too: the old order, flanking
-last; flanking inside the phases): flanking, the calls, wary, the phases,
-the drop and card, the sound. Claude's calls, to confirm at their steps:
-with 6 alive it is wary, as with no cold brazier; the bench after each
-step. D-967 moves to `archive/DECISIONS-SURFACE.md`, word for word.
+after each catch (D-947; offered too: keep all; keep the half one).
+Added before the merge, the owner's idea: only while 6 are alive, 2
+guard it, following it and holding the tiles beside it away from the
+hero, so its way to them stays open (offered too: each keeping the hero
+in sight; both); one bites the hero beside it, then goes back to it, not
+chasing (offered too: stepping between); lit, they back off as ever,
+back to it in the dark (offered too: holding their ground). Eight steps
+now, one a PR, flanking first (offered too: the old order, flanking last;
+flanking inside the phases; the guards inside the calls, or after the
+phases): flanking, the calls, the guards, wary, the phases, the drop and
+card, the sound. Claude's calls, to confirm at their steps: with 6 alive
+it is wary, as with no cold brazier; the 2 nearest it guard, and with
+fewer than 6 they act as the rest; the bench after each step. D-967 and
+D-969 move to `archive/DECISIONS-SURFACE.md`, word for word.

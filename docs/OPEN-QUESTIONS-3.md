@@ -101,7 +101,7 @@ Middling 97% (the same), Strong all. With its 4 gloamlings at the start
 steps are done, the owner has ideas for its phases, how the cutscenes
 work, and gloamlings at the start of the fight, among others; to be asked
 for then. Asked at 0.3.413 (D-971): the gloamlings at the start, its new
-ways and Leap as a find, in 6 steps; 7 with the flanking (D-972); the cutscenes and the rest still to ask.
+ways and Leap as a find, in 6 steps; 8 with the flanking and the guards (D-972); the cutscenes and the rest still to ask.
 
 **Q-114 · Where falling ground goes** (raised 2026-11-17, D-967) The
 boss fight has no falling ground; the owner saved it for another time.
