@@ -2,6 +2,9 @@
 
 Entries moved out of `docs/PROGRESS.md`, newest first.
 
+- **2026-11-17, 0.3.412, The archway beyond the gap.** An archway past
+  each Leap gap to one empty room off the grid. D-970. Playtest: https://claude.ai/artifact/LjhoNv7EpDXV9awuNqKXCQ
+  Map preview: https://claude.ai/artifact/JKFex9qZNgKzua11MYayn6
 - **2026-11-17, 0.3.411, The Gap's two lines.** Before Leap, "Too wide to
   step. More lies beyond."; with it, "Too wide to step. Leap
   it." The place beyond, its plan. D-969. Playtest: https://claude.ai/artifact/8x6SUZgjHqqeGsMTCWoLtc

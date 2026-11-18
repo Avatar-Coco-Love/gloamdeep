@@ -4,7 +4,7 @@
 holds one item, and the log keeps only the last 3 entries. Older entries
 go to the top of `archive/PROGRESS-LOG.md`.
 
-**Version:** 0.3.414 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
+**Version:** 0.3.415 · **Stage:** 0.3, the world (D-168); 0.3.x from 0.3.0
 (D-528)
 
 ## Next up
@@ -53,11 +53,10 @@ Ideas for later are in `RESEARCH-2.md` (D-699), and the owner's wish
 list in `RESEARCH.md`.
 
 ## Log (last 3)
+- **2026-11-18, 0.3.415, Nothing goes missing.** A test that every
+  decision, changelog and log entry is still kept.
 - **2026-11-17, 0.3.414, The Lampeater's steps planned.** Its calls,
   wary and phases, and its gloamlings flanking (Q-116) and guarding it, in 8 steps. D-972.
 - **2026-11-17, 0.3.413, Gloamlings in the seal hall.** A gloamling
   beside each of the arena's 4 braziers at the start; the Lampeater's
   6 steps planned. D-971. Playtest: https://claude.ai/artifact/HsG8ykgpN3VhcXZpcc9cez
-- **2026-11-17, 0.3.412, The archway beyond the gap.** An archway past
-  each Leap gap to one empty room off the grid. D-970. Playtest: https://claude.ai/artifact/LjhoNv7EpDXV9awuNqKXCQ
-  Map preview: https://claude.ai/artifact/JKFex9qZNgKzua11MYayn6
